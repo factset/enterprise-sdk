@@ -6,7 +6,7 @@ import com.factset.sdk.ExchangeDataFeedSnapshotAPISymbolList.ApiResponse;
 import com.factset.sdk.ExchangeDataFeedSnapshotAPISymbolList.Configuration;
 import com.factset.sdk.ExchangeDataFeedSnapshotAPISymbolList.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -14,7 +14,8 @@ import java.util.Objects;
 import com.factset.sdk.ExchangeDataFeedSnapshotAPISymbolList.models.DFSnapshotResponse;
 import com.factset.sdk.ExchangeDataFeedSnapshotAPISymbolList.models.ErrorResponse;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SnapshotApi {
   private ApiClient apiClient;
 

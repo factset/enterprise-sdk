@@ -44,7 +44,8 @@ import com.factset.sdk.StandardDatafeed.JSON;
   Dataresponseitems.JSON_PROPERTY_URL,
   Dataresponseitems.JSON_PROPERTY_FILE_SIZE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Dataresponseitems implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -84,7 +85,7 @@ public class Dataresponseitems implements Serializable {
    * file type, full or delta
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "file type, full or delta")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -110,7 +111,7 @@ public class Dataresponseitems implements Serializable {
    * bundle name  QFL:- For QFL its Factor Group name
    * @return bundle
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "bundle name  QFL:- For QFL its Factor Group name")
   @JsonProperty(JSON_PROPERTY_BUNDLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,7 +137,7 @@ public class Dataresponseitems implements Serializable {
    * schema name  QFL:- In case of QFL its always qfl_v1
    * @return schema
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "schema name  QFL:- In case of QFL its always qfl_v1")
   @JsonProperty(JSON_PROPERTY_SCHEMA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -162,7 +163,7 @@ public class Dataresponseitems implements Serializable {
    * full or delta file sequence
    * @return sequence
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "full or delta file sequence")
   @JsonProperty(JSON_PROPERTY_SEQUENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -196,7 +197,7 @@ public class Dataresponseitems implements Serializable {
    * bundles related to the sequence number
    * @return relatedBundles
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "bundles related to the sequence number")
   @JsonProperty(JSON_PROPERTY_RELATED_BUNDLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -222,7 +223,7 @@ public class Dataresponseitems implements Serializable {
    * time stamp of when the bundle was generated
    * @return timestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "time stamp of when the bundle was generated")
   @JsonProperty(JSON_PROPERTY_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -248,7 +249,7 @@ public class Dataresponseitems implements Serializable {
    * pre-signed downloadable url, containing the bundle information
    * @return url
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "pre-signed downloadable url, containing the bundle information")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -274,7 +275,7 @@ public class Dataresponseitems implements Serializable {
    * file size of the particular bundle
    * @return fileSize
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "file size of the particular bundle")
   @JsonProperty(JSON_PROPERTY_FILE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

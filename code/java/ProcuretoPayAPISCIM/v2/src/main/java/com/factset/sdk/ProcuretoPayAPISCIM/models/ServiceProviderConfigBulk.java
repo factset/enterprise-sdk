@@ -38,7 +38,8 @@ import com.factset.sdk.ProcuretoPayAPISCIM.JSON;
   ServiceProviderConfigBulk.JSON_PROPERTY_MAX_OPERATIONS,
   ServiceProviderConfigBulk.JSON_PROPERTY_MAX_PAYLOAD_SIZE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ServiceProviderConfigBulk implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -70,7 +71,7 @@ public class ServiceProviderConfigBulk implements Serializable {
    * A Boolean value specifying whether or not the operation is supported.
    * @return supported
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "false", required = true, value = "A Boolean value specifying whether or not the operation is supported.")
   @JsonProperty(JSON_PROPERTY_SUPPORTED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -86,7 +87,7 @@ public class ServiceProviderConfigBulk implements Serializable {
    * An integer value specifying the maximum number of operations.
    * @return maxOperations
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "0", required = true, value = "An integer value specifying the maximum number of operations.")
   @JsonProperty(JSON_PROPERTY_MAX_OPERATIONS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -102,7 +103,7 @@ public class ServiceProviderConfigBulk implements Serializable {
    * An integer value specifying the maximum payload size in bytes.
    * @return maxPayloadSize
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "0", required = true, value = "An integer value specifying the maximum payload size in bytes.")
   @JsonProperty(JSON_PROPERTY_MAX_PAYLOAD_SIZE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

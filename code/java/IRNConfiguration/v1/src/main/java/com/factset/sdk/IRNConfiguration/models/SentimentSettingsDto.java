@@ -42,7 +42,8 @@ import com.factset.sdk.IRNConfiguration.JSON;
   SentimentSettingsDto.JSON_PROPERTY_USE_PREVIOUS,
   SentimentSettingsDto.JSON_PROPERTY_DEFAULT_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SentimentSettingsDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -70,7 +71,7 @@ public class SentimentSettingsDto implements Serializable {
    * Get isHidden
    * @return isHidden
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IS_HIDDEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -96,7 +97,7 @@ public class SentimentSettingsDto implements Serializable {
    * Get isMandatory
    * @return isMandatory
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IS_MANDATORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -122,7 +123,7 @@ public class SentimentSettingsDto implements Serializable {
    * Get usePrevious
    * @return usePrevious
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_USE_PREVIOUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -148,7 +149,7 @@ public class SentimentSettingsDto implements Serializable {
    * Get defaultId
    * @return defaultId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

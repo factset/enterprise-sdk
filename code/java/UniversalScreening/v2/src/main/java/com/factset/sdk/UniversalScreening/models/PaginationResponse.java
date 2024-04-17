@@ -42,7 +42,8 @@ import com.factset.sdk.UniversalScreening.JSON;
   PaginationResponse.JSON_PROPERTY_PREV,
   PaginationResponse.JSON_PROPERTY_TOTAL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PaginationResponse implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -70,7 +71,7 @@ public class PaginationResponse implements Serializable {
    * Denotes if the &#39;total&#39; property is an estimation
    * @return isEstimatedTotal
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Denotes if the 'total' property is an estimation")
   @JsonProperty(JSON_PROPERTY_IS_ESTIMATED_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -96,7 +97,7 @@ public class PaginationResponse implements Serializable {
    * Next cursor to be sent, will be null when there are no more results
    * @return next
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Next cursor to be sent, will be null when there are no more results")
   @JsonIgnore
 
@@ -130,7 +131,7 @@ public class PaginationResponse implements Serializable {
    * Previous cursor, currently not supported
    * @return prev
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Previous cursor, currently not supported")
   @JsonIgnore
 
@@ -164,7 +165,7 @@ public class PaginationResponse implements Serializable {
    * Total number of rows in the screen
    * @return total
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Total number of rows in the screen")
   @JsonProperty(JSON_PROPERTY_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

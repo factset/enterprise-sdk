@@ -1,8 +1,14 @@
 # Breaking Changes
 
-## Dotnet
+## 2024-04-17 Java: Update from Jersey 2.35 to 3.0
 
-### 2023-01-25 handling of schemas with named and additionalProperties
+* Library Update: The Jersey library version has been updated from 2.35 to 3.0.
+* Package Change: All imports that previously used `javax.ws.rs.client` are now updated to use `jakarta.ws.rs.client`.
+* Compatibility Update: The update makes the Java SDKs compatible with SpringBoot 3 and SpringFramework 6.
+
+Affected SDKs: All Java SDKs
+
+## 2023-01-25 Dotnet: Handling of schemas with named and additionalProperties
 
 Accessing values of schemas with named properties and `additionalProperties` in the OpenAPI spec changed.
 

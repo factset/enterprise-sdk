@@ -36,7 +36,8 @@ import com.factset.sdk.FactSetEstimates.JSON;
 @JsonPropertyOrder({
   ConsensusResponse.JSON_PROPERTY_DATA
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ConsensusResponse implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class ConsensusResponse implements Serializable {
    * Array of consensus estimate objects
    * @return data
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Array of consensus estimate objects")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

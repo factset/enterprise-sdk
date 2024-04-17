@@ -38,7 +38,8 @@ import com.factset.sdk.IDLookup.JSON;
   IncludeExcludeObject.JSON_PROPERTY_ENTITY,
   IncludeExcludeObject.JSON_PROPERTY_VALUES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class IncludeExcludeObject implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class IncludeExcludeObject implements Serializable {
    * String containing the field name to filter on. Each asset class has its own set of field (i.e. “equity_type”, “is_primary”, “region”,etc) 
    * @return field
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "maturity_year", value = "String containing the field name to filter on. Each asset class has its own set of field (i.e. “equity_type”, “is_primary”, “region”,etc) ")
   @JsonProperty(JSON_PROPERTY_FIELD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -89,7 +90,7 @@ public class IncludeExcludeObject implements Serializable {
    * String containing the asset class for the filter to be applied on. If not included or left empty, it will apply the filter against all asset classes 
    * @return entity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "bonds", value = "String containing the asset class for the filter to be applied on. If not included or left empty, it will apply the filter against all asset classes ")
   @JsonProperty(JSON_PROPERTY_ENTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -123,7 +124,7 @@ public class IncludeExcludeObject implements Serializable {
    * Values you wish to filter on, as a comma-separated list. The values within this list are tied by an OR operation. 
    * @return values
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Values you wish to filter on, as a comma-separated list. The values within this list are tied by an OR operation. ")
   @JsonProperty(JSON_PROPERTY_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

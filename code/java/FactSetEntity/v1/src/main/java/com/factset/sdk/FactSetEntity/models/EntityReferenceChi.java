@@ -46,7 +46,8 @@ import com.factset.sdk.FactSetEntity.JSON;
   EntityReferenceChi.JSON_PROPERTY_TRADITIONAL_CHINESE_DESCRIPTION,
   EntityReferenceChi.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EntityReferenceChi implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -86,7 +87,7 @@ public class EntityReferenceChi implements Serializable {
    * Unique FactSet-generated identifier representing an entity for the current entity identifier (-E)
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "062T6N-E", value = "Unique FactSet-generated identifier representing an entity for the current entity identifier (-E)")
   @JsonIgnore
 
@@ -120,7 +121,7 @@ public class EntityReferenceChi implements Serializable {
    * Unique FactSet-generated identifier representing an entity
    * @return fsymEntityId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "062T6N-E", value = "Unique FactSet-generated identifier representing an entity")
   @JsonIgnore
 
@@ -154,7 +155,7 @@ public class EntityReferenceChi implements Serializable {
    * The entity name in Simplified Chinese.
    * @return simplifiedChineseName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "百川能源股份有限公司", value = "The entity name in Simplified Chinese.")
   @JsonIgnore
 
@@ -188,7 +189,7 @@ public class EntityReferenceChi implements Serializable {
    * The entity name in Traditional Chinese.
    * @return traditionalChineseName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "百川能源股份有限公司", value = "The entity name in Traditional Chinese.")
   @JsonIgnore
 
@@ -222,7 +223,7 @@ public class EntityReferenceChi implements Serializable {
    * Name that the entity is commonly referred to as, normalized and in proper case.
    * @return entityProperName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Bestsun Energy Co., Ltd.", value = "Name that the entity is commonly referred to as, normalized and in proper case.")
   @JsonIgnore
 
@@ -256,7 +257,7 @@ public class EntityReferenceChi implements Serializable {
    * Extended business description for the requested entity in Simplified Chinese.
    * @return simplifiedChineseDescription
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "百川能源股份有限公司前身为武汉长江印刷股份有限(集团)公司,系由原武汉印刷厂、北京京华信托投资公司、深圳万科企业股份有限公司联合发起组建,于1992年3月18日正式成立。公司主营业务为城市管道燃气销售、燃气工程安装、燃气具销售。", value = "Extended business description for the requested entity in Simplified Chinese.")
   @JsonIgnore
 
@@ -290,7 +291,7 @@ public class EntityReferenceChi implements Serializable {
    * Extended business description for the requested entity in Traditional Chinese.
    * @return traditionalChineseDescription
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "百川能源股份有限公司前身為武漢長江印刷股份有限(集團)公司,系由原武漢印刷廠、北京京華信託投資公司、深圳萬科企業股份有限公司聯合發起組建,於1992年3月18日正式成立。公司主營業務為城市管道燃氣銷售、燃氣工程安裝、燃氣具銷售。", value = "Extended business description for the requested entity in Traditional Chinese.")
   @JsonIgnore
 
@@ -324,7 +325,7 @@ public class EntityReferenceChi implements Serializable {
    * Identifier used in \&quot;ids\&quot; parameter. When list of identifiers used, they will be parsed and resolved individually.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "062T6N-E", value = "Identifier used in \"ids\" parameter. When list of identifiers used, they will be parsed and resolved individually.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

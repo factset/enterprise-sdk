@@ -42,7 +42,8 @@ import com.factset.sdk.PAEngine.JSON;
   Column.JSON_PROPERTY_DIRECTORY,
   Column.JSON_PROPERTY_CATEGORY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Column implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -82,7 +83,7 @@ public class Column implements Serializable {
    * Column statistic Id
    * @return defaultstatisticsids
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Column statistic Id")
   @JsonIgnore
 
@@ -116,7 +117,7 @@ public class Column implements Serializable {
    * Column Name
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Column Name")
   @JsonIgnore
 
@@ -150,7 +151,7 @@ public class Column implements Serializable {
    * Column Directory
    * @return directory
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Column Directory")
   @JsonIgnore
 
@@ -184,7 +185,7 @@ public class Column implements Serializable {
    * Column Category
    * @return category
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Column Category")
   @JsonIgnore
 

@@ -42,7 +42,8 @@ import com.factset.sdk.FactSetTrading.JSON;
   EMSOrders.JSON_PROPERTY_INVESTOR_ID,
   EMSOrders.JSON_PROPERTY_ORDERS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EMSOrders implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -72,7 +73,7 @@ public class EMSOrders implements Serializable {
    * Investor Id
    * @return investorId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "DEMO-12345", value = "Investor Id")
   @JsonIgnore
 
@@ -111,7 +112,7 @@ public class EMSOrders implements Serializable {
    * List of orders
    * @return orders
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "List of orders")
   @JsonProperty(JSON_PROPERTY_ORDERS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

@@ -35,7 +35,8 @@ import com.factset.sdk.FactSetSearchAnswers.JSON;
 @JsonPropertyOrder({
   NoAnswersFoundAllOf.JSON_PROPERTY_QUERY_SUGGESTIONS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class NoAnswersFoundAllOf implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -67,7 +68,7 @@ public class NoAnswersFoundAllOf implements Serializable {
    * Get querySuggestions
    * @return querySuggestions
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_QUERY_SUGGESTIONS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

@@ -37,7 +37,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
 @JsonPropertyOrder({
   PostNotationSearchByTextRequestDataMarketOrder.JSON_PROPERTY_IDS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostNotationSearchByTextRequestDataMarketOrder implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class PostNotationSearchByTextRequestDataMarketOrder implements Serializa
    * List of market identifiers. See endpoint &#x60;/basic/market/list&#x60; for valid values.
    * @return ids
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of market identifiers. See endpoint `/basic/market/list` for valid values.")
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

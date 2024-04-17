@@ -42,7 +42,8 @@ import com.factset.sdk.PAEngine.JSON;
   TemplatedPAComponentSummary.JSON_PROPERTY_PARENT_TEMPLATE_ID,
   TemplatedPAComponentSummary.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class TemplatedPAComponentSummary implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -70,7 +71,7 @@ public class TemplatedPAComponentSummary implements Serializable {
    * Get description
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -104,7 +105,7 @@ public class TemplatedPAComponentSummary implements Serializable {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -138,7 +139,7 @@ public class TemplatedPAComponentSummary implements Serializable {
    * Get parentTemplateId
    * @return parentTemplateId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -172,7 +173,7 @@ public class TemplatedPAComponentSummary implements Serializable {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

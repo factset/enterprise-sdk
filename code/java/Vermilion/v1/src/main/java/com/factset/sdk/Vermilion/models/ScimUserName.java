@@ -35,7 +35,8 @@ import com.factset.sdk.Vermilion.JSON;
 @JsonPropertyOrder({
   ScimUserName.JSON_PROPERTY_FORMATTED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ScimUserName implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -54,7 +55,7 @@ public class ScimUserName implements Serializable {
    * Get formatted
    * @return formatted
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FORMATTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

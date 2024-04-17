@@ -37,7 +37,8 @@ import com.factset.sdk.OpenRisk.JSON;
   LabelsFactor.JSON_PROPERTY_IDS,
   LabelsFactor.JSON_PROPERTY_NAMES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class LabelsFactor implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -74,7 +75,7 @@ public class LabelsFactor implements Serializable {
    * Get ids
    * @return ids
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -105,7 +106,7 @@ public class LabelsFactor implements Serializable {
    * Get names
    * @return names
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_NAMES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

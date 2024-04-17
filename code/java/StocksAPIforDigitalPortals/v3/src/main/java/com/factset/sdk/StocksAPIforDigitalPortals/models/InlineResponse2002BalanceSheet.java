@@ -41,7 +41,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2002BalanceSheet.JSON_PROPERTY_RETURN_ON_ASSETS,
   InlineResponse2002BalanceSheet.JSON_PROPERTY_RETURN_ON_EQUITY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2002BalanceSheet implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -66,7 +67,7 @@ public class InlineResponse2002BalanceSheet implements Serializable {
    * Get netDebt
    * @return netDebt
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NET_DEBT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -92,7 +93,7 @@ public class InlineResponse2002BalanceSheet implements Serializable {
    * Get returnOnAssets
    * @return returnOnAssets
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RETURN_ON_ASSETS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -118,7 +119,7 @@ public class InlineResponse2002BalanceSheet implements Serializable {
    * Get returnOnEquity
    * @return returnOnEquity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RETURN_ON_EQUITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

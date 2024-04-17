@@ -51,7 +51,8 @@ import com.factset.sdk.RealTimePriceAlerting.JSON;
   InlineResponse2003Data.JSON_PROPERTY_NOTIFICATION,
   InlineResponse2003Data.JSON_PROPERTY_STATUS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2003Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -91,7 +92,7 @@ public class InlineResponse2003Data implements Serializable {
    * Identifier of the trigger.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the trigger.")
   @JsonIgnore
 
@@ -125,7 +126,7 @@ public class InlineResponse2003Data implements Serializable {
    * Date and time when the trigger was created.
    * @return creation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Date and time when the trigger was created.")
   @JsonIgnore
 
@@ -159,7 +160,7 @@ public class InlineResponse2003Data implements Serializable {
    * Get notation
    * @return notation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NOTATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -185,7 +186,7 @@ public class InlineResponse2003Data implements Serializable {
    * Get price
    * @return price
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -211,7 +212,7 @@ public class InlineResponse2003Data implements Serializable {
    * Get range
    * @return range
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -237,7 +238,7 @@ public class InlineResponse2003Data implements Serializable {
    * Comment of the trigger.
    * @return comment
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Comment of the trigger.")
   @JsonIgnore
 
@@ -271,7 +272,7 @@ public class InlineResponse2003Data implements Serializable {
    * Get notification
    * @return notification
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NOTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -297,7 +298,7 @@ public class InlineResponse2003Data implements Serializable {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

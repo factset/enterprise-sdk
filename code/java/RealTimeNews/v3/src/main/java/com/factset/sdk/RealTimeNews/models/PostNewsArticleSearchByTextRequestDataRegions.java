@@ -37,7 +37,8 @@ import com.factset.sdk.RealTimeNews.JSON;
 @JsonPropertyOrder({
   PostNewsArticleSearchByTextRequestDataRegions.JSON_PROPERTY_IDS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostNewsArticleSearchByTextRequestDataRegions implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class PostNewsArticleSearchByTextRequestDataRegions implements Serializab
    * Identifiers of the regions.
    * @return ids
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifiers of the regions.")
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

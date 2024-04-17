@@ -35,7 +35,8 @@ import com.factset.sdk.IRNConfiguration.JSON;
 @JsonPropertyOrder({
   RelationshipCategoryListDto.JSON_PROPERTY_IDS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class RelationshipCategoryListDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -67,7 +68,7 @@ public class RelationshipCategoryListDto implements Serializable {
    * Get ids
    * @return ids
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

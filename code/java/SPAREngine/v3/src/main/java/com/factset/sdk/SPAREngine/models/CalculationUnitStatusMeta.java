@@ -39,7 +39,8 @@ import com.factset.sdk.SPAREngine.JSON;
 @JsonPropertyOrder({
   CalculationUnitStatusMeta.JSON_PROPERTY_INFO
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CalculationUnitStatusMeta implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -58,7 +59,7 @@ public class CalculationUnitStatusMeta implements Serializable {
    * The Info URL of the calculation.
    * @return info
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The Info URL of the calculation.")
   @JsonIgnore
 

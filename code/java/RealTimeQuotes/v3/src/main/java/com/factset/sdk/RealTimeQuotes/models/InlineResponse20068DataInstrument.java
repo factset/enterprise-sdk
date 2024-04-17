@@ -40,7 +40,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
 @JsonPropertyOrder({
   InlineResponse20068DataInstrument.JSON_PROPERTY_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20068DataInstrument implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -59,7 +60,7 @@ public class InlineResponse20068DataInstrument implements Serializable {
    * Identifier of the instrument.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the instrument.")
   @JsonIgnore
 

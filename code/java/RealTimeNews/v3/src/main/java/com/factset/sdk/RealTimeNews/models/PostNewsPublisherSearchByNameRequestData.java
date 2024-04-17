@@ -39,7 +39,8 @@ import com.factset.sdk.RealTimeNews.JSON;
   PostNewsPublisherSearchByNameRequestData.JSON_PROPERTY_MATCH_TYPE,
   PostNewsPublisherSearchByNameRequestData.JSON_PROPERTY_FILTER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostNewsPublisherSearchByNameRequestData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -111,7 +112,7 @@ public class PostNewsPublisherSearchByNameRequestData implements Serializable {
    * Restricts the search to publishers, which match the search value. The comparison for a match is case sensitive.
    * @return searchValue
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Restricts the search to publishers, which match the search value. The comparison for a match is case sensitive.")
   @JsonProperty(JSON_PROPERTY_SEARCH_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -137,7 +138,7 @@ public class PostNewsPublisherSearchByNameRequestData implements Serializable {
    * The match type that is applied to the search.
    * @return matchType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The match type that is applied to the search.")
   @JsonProperty(JSON_PROPERTY_MATCH_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -163,7 +164,7 @@ public class PostNewsPublisherSearchByNameRequestData implements Serializable {
    * Get filter
    * @return filter
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FILTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

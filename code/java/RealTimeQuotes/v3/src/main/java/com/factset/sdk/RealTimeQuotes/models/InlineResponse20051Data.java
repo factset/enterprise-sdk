@@ -45,7 +45,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20051Data.JSON_PROPERTY_CURRENCY,
   InlineResponse20051Data.JSON_PROPERTY_COUPONS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20051Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -73,7 +74,7 @@ public class InlineResponse20051Data implements Serializable {
    * MDG identifier of the instrument.
    * @return idInstrument
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "MDG identifier of the instrument.")
   @JsonIgnore
 
@@ -107,7 +108,7 @@ public class InlineResponse20051Data implements Serializable {
    * Identifier used in the request.
    * @return sourceIdentifier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier used in the request.")
   @JsonIgnore
 
@@ -141,7 +142,7 @@ public class InlineResponse20051Data implements Serializable {
    * Get currency
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -175,7 +176,7 @@ public class InlineResponse20051Data implements Serializable {
    * List of coupons in chronological order.
    * @return coupons
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of coupons in chronological order.")
   @JsonProperty(JSON_PROPERTY_COUPONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

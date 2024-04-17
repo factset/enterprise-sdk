@@ -36,7 +36,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
 @JsonPropertyOrder({
   PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesRanking.JSON_PROPERTY_MINIMUM
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesRanking implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -96,7 +97,7 @@ public class PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCat
    * Minimum ESG rank.
    * @return minimum
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Minimum ESG rank.")
   @JsonProperty(JSON_PROPERTY_MINIMUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

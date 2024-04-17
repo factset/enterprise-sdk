@@ -37,7 +37,8 @@ import com.factset.sdk.FactSetOwnership.JSON;
 @JsonPropertyOrder({
   FundHoldingsResponse.JSON_PROPERTY_DATA
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FundHoldingsResponse implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class FundHoldingsResponse implements Serializable {
    * Array of Fund holdings
    * @return data
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Array of Fund holdings")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

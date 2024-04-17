@@ -36,7 +36,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
 @JsonPropertyOrder({
   PostInstrumentCrossReferenceListByISINRequestData.JSON_PROPERTY_ISINS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostInstrumentCrossReferenceListByISINRequestData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class PostInstrumentCrossReferenceListByISINRequestData implements Serial
    * List of source ISINs to be translated.
    * @return isins
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "List of source ISINs to be translated.")
   @JsonProperty(JSON_PROPERTY_ISINS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

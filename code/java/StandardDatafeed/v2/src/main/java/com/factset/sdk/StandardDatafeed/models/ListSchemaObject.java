@@ -36,7 +36,8 @@ import com.factset.sdk.StandardDatafeed.JSON;
   ListSchemaObject.JSON_PROPERTY_SCHEMA_NAME,
   ListSchemaObject.JSON_PROPERTY_SCHEMA_VERSION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ListSchemaObject implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -58,7 +59,7 @@ public class ListSchemaObject implements Serializable {
    * The name of the schema.
    * @return schemaName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The name of the schema.")
   @JsonProperty(JSON_PROPERTY_SCHEMA_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -84,7 +85,7 @@ public class ListSchemaObject implements Serializable {
    * The version of the schema.
    * @return schemaVersion
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The version of the schema.")
   @JsonProperty(JSON_PROPERTY_SCHEMA_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

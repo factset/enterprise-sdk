@@ -42,7 +42,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20087InstrumentNsin.JSON_PROPERTY_VALOR,
   InlineResponse20087InstrumentNsin.JSON_PROPERTY_CUSIP
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20087InstrumentNsin implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -67,7 +68,7 @@ public class InlineResponse20087InstrumentNsin implements Serializable {
    * The WKN (Wertpapierkennnummer, German for Securities Identification Number) of the instrument. The WKN is a 6-character code of digits and upper-case letters that uniquely identifies an instrument.
    * @return wkn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The WKN (Wertpapierkennnummer, German for Securities Identification Number) of the instrument. The WKN is a 6-character code of digits and upper-case letters that uniquely identifies an instrument.")
   @JsonIgnore
 
@@ -101,7 +102,7 @@ public class InlineResponse20087InstrumentNsin implements Serializable {
    * The Valor number (German: Valorennummer) of the instrument. The Valor number is aninteger number that uniquely identifies an instrument.
    * @return valor
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The Valor number (German: Valorennummer) of the instrument. The Valor number is aninteger number that uniquely identifies an instrument.")
   @JsonIgnore
 
@@ -135,7 +136,7 @@ public class InlineResponse20087InstrumentNsin implements Serializable {
    * The CUSIP (Committee on Uniform Security Identification Procedures) or CINS (CUSIP International Numbering System) identifier of the instrument. These numbers are 9-character codes of digits and upper-case letters that uniquely identify an instrument.
    * @return cusip
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The CUSIP (Committee on Uniform Security Identification Procedures) or CINS (CUSIP International Numbering System) identifier of the instrument. These numbers are 9-character codes of digits and upper-case letters that uniquely identify an instrument.")
   @JsonIgnore
 

@@ -41,7 +41,8 @@ import com.factset.sdk.IRNConfiguration.JSON;
   OptionsConfigDto.JSON_PROPERTY_ON_THE_FLY_ENABLED,
   OptionsConfigDto.JSON_PROPERTY_OPTIONS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptionsConfigDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -66,7 +67,7 @@ public class OptionsConfigDto implements Serializable {
    * Get multiSelectEnabled
    * @return multiSelectEnabled
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MULTI_SELECT_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -92,7 +93,7 @@ public class OptionsConfigDto implements Serializable {
    * Get onTheFlyEnabled
    * @return onTheFlyEnabled
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ON_THE_FLY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -130,7 +131,7 @@ public class OptionsConfigDto implements Serializable {
    * Get options
    * @return options
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

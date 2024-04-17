@@ -46,7 +46,8 @@ import com.factset.sdk.FactSetFundamentals.JSON;
   FundamentalRequestBody.JSON_PROPERTY_UPDATE_TYPE,
   FundamentalRequestBody.JSON_PROPERTY_BATCH
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FundamentalRequestBody implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -98,7 +99,7 @@ public class FundamentalRequestBody implements Serializable {
    * The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.  &lt;p&gt;ids limit &#x3D;  1000 per non-batch request / 30000 per batch request&lt;/p&gt; 
    * @return ids
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "[\"FDS-US\"]", required = true, value = "The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.  <p>ids limit =  1000 per non-batch request / 30000 per batch request</p> ")
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -124,7 +125,7 @@ public class FundamentalRequestBody implements Serializable {
    * Get periodicity
    * @return periodicity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PERIODICITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -150,7 +151,7 @@ public class FundamentalRequestBody implements Serializable {
    * Get fiscalPeriod
    * @return fiscalPeriod
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FISCAL_PERIOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -181,7 +182,7 @@ public class FundamentalRequestBody implements Serializable {
    * Requested List of Financial Statement Items or Ratios. Use /metrics endpoint for a complete list of available FF_* metric items. 
    * @return metrics
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "[\"FF_SALES\"]", required = true, value = "Requested List of Financial Statement Items or Ratios. Use /metrics endpoint for a complete list of available FF_* metric items. ")
   @JsonProperty(JSON_PROPERTY_METRICS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -207,7 +208,7 @@ public class FundamentalRequestBody implements Serializable {
    * Currency code for currency values. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). 
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "Currency code for currency values. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). ")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -233,7 +234,7 @@ public class FundamentalRequestBody implements Serializable {
    * Get updateType
    * @return updateType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_UPDATE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -259,7 +260,7 @@ public class FundamentalRequestBody implements Serializable {
    * Get batch
    * @return batch
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BATCH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

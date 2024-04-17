@@ -49,7 +49,8 @@ import com.factset.sdk.FactSetEntity.JSON;
   EntitySecurities.JSON_PROPERTY_ACTIVE_FLAG,
   EntitySecurities.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EntitySecurities implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -224,7 +225,7 @@ public class EntitySecurities implements Serializable {
    * FactSet Ultimate Parent ID of the Requested Security ID
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "001MF1-E", value = "FactSet Ultimate Parent ID of the Requested Security ID")
   @JsonIgnore
 
@@ -258,7 +259,7 @@ public class EntitySecurities implements Serializable {
    * FactSet Security ID (-S).
    * @return fsymSecurityId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "F3PS31-S", value = "FactSet Security ID (-S).")
   @JsonIgnore
 
@@ -292,7 +293,7 @@ public class EntitySecurities implements Serializable {
    * FactSet Listing ID (-L). Corresponds to the listing exchange for the requested security. Not applicable for FI instruments.
    * @return fsymListingId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "LVR478-L", value = "FactSet Listing ID (-L). Corresponds to the listing exchange for the requested security. Not applicable for FI instruments.")
   @JsonIgnore
 
@@ -326,7 +327,7 @@ public class EntitySecurities implements Serializable {
    * The Security Type Code. Security Type Code details and mapping are described on Online Assistant Page 15776 for Equity and Page 16014 for Fixed Income.
    * @return securityType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "BDNT", value = "The Security Type Code. Security Type Code details and mapping are described on Online Assistant Page 15776 for Equity and Page 16014 for Fixed Income.")
   @JsonIgnore
 
@@ -360,7 +361,7 @@ public class EntitySecurities implements Serializable {
    * The securities primary listing exchange.
    * @return listingExchange
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "NAS", value = "The securities primary listing exchange.")
   @JsonIgnore
 
@@ -394,7 +395,7 @@ public class EntitySecurities implements Serializable {
    * Security name
    * @return securityName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Amazon.com, Inc. 1.9% 21-AUG-2020", value = "Security name")
   @JsonIgnore
 
@@ -428,7 +429,7 @@ public class EntitySecurities implements Serializable {
    * Unique FactSet-generated identifier representing an entity.
    * @return fsymEntityId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "001MF1-E", value = "Unique FactSet-generated identifier representing an entity.")
   @JsonIgnore
 
@@ -462,7 +463,7 @@ public class EntitySecurities implements Serializable {
    * The security&#39;s ticker-exchange, representing the listing exchange symbol.
    * @return fsymTickerExchange
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "AMZN-NAS", value = "The security's ticker-exchange, representing the listing exchange symbol.")
   @JsonIgnore
 
@@ -496,7 +497,7 @@ public class EntitySecurities implements Serializable {
    * The security&#39;s regional ticker.
    * @return fsymTickerRegion
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "AMZN-US", value = "The security's regional ticker.")
   @JsonIgnore
 
@@ -530,7 +531,7 @@ public class EntitySecurities implements Serializable {
    * Indicates if security is active. 1 &#x3D; Active; 0 &#x3D; Inactive.
    * @return activeFlag
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "Indicates if security is active. 1 = Active; 0 = Inactive.")
   @JsonIgnore
 
@@ -564,7 +565,7 @@ public class EntitySecurities implements Serializable {
    * Identifier used in &#x60;ids&#x60; parameter.  When list of identifiers used, they will be parsed and resolved individually.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "AMZN-US", value = "Identifier used in `ids` parameter.  When list of identifiers used, they will be parsed and resolved individually.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

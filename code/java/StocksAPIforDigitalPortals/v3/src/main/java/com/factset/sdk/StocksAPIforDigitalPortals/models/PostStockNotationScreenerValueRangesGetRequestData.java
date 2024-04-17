@@ -62,7 +62,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   PostStockNotationScreenerValueRangesGetRequestData.JSON_PROPERTY_RECOMMENDATION,
   PostStockNotationScreenerValueRangesGetRequestData.JSON_PROPERTY_ESTIMATES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostStockNotationScreenerValueRangesGetRequestData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -159,7 +160,7 @@ public class PostStockNotationScreenerValueRangesGetRequestData implements Seria
    * Get validation
    * @return validation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VALIDATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -193,7 +194,7 @@ public class PostStockNotationScreenerValueRangesGetRequestData implements Seria
    * Type of stock.
    * @return stockType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Type of stock.")
   @JsonProperty(JSON_PROPERTY_STOCK_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -219,7 +220,7 @@ public class PostStockNotationScreenerValueRangesGetRequestData implements Seria
    * Get industryClassification
    * @return industryClassification
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INDUSTRY_CLASSIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -245,7 +246,7 @@ public class PostStockNotationScreenerValueRangesGetRequestData implements Seria
    * Get company
    * @return company
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COMPANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -271,7 +272,7 @@ public class PostStockNotationScreenerValueRangesGetRequestData implements Seria
    * Get indexMembership
    * @return indexMembership
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INDEX_MEMBERSHIP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -297,7 +298,7 @@ public class PostStockNotationScreenerValueRangesGetRequestData implements Seria
    * Get compliance
    * @return compliance
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COMPLIANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -331,7 +332,7 @@ public class PostStockNotationScreenerValueRangesGetRequestData implements Seria
    * Parameters for stock-specific key figures as reported for a fiscal year.
    * @return reportedKeyFigures
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Parameters for stock-specific key figures as reported for a fiscal year.")
   @JsonProperty(JSON_PROPERTY_REPORTED_KEY_FIGURES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -357,7 +358,7 @@ public class PostStockNotationScreenerValueRangesGetRequestData implements Seria
    * Get performance
    * @return performance
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PERFORMANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -383,7 +384,7 @@ public class PostStockNotationScreenerValueRangesGetRequestData implements Seria
    * Get volatility
    * @return volatility
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VOLATILITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -409,7 +410,7 @@ public class PostStockNotationScreenerValueRangesGetRequestData implements Seria
    * Get tradingValue
    * @return tradingValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TRADING_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -435,7 +436,7 @@ public class PostStockNotationScreenerValueRangesGetRequestData implements Seria
    * Get simpleMovingAverage
    * @return simpleMovingAverage
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SIMPLE_MOVING_AVERAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -461,7 +462,7 @@ public class PostStockNotationScreenerValueRangesGetRequestData implements Seria
    * Get rsiWilder
    * @return rsiWilder
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RSI_WILDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -487,7 +488,7 @@ public class PostStockNotationScreenerValueRangesGetRequestData implements Seria
    * Get recommendation
    * @return recommendation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RECOMMENDATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -521,7 +522,7 @@ public class PostStockNotationScreenerValueRangesGetRequestData implements Seria
    * Parameters for stock-specific consolidated estimates for a fiscal year.
    * @return estimates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Parameters for stock-specific consolidated estimates for a fiscal year.")
   @JsonProperty(JSON_PROPERTY_ESTIMATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

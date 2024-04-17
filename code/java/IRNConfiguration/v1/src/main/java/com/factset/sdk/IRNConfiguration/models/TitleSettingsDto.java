@@ -35,7 +35,8 @@ import com.factset.sdk.IRNConfiguration.JSON;
 @JsonPropertyOrder({
   TitleSettingsDto.JSON_PROPERTY_USE_PREVIOUS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class TitleSettingsDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -54,7 +55,7 @@ public class TitleSettingsDto implements Serializable {
    * Get usePrevious
    * @return usePrevious
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_USE_PREVIOUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

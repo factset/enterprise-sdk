@@ -39,7 +39,8 @@ import com.factset.sdk.FixedIncomeCalculation.JSON;
   FICalculationParameters.JSON_PROPERTY_CALCULATIONS,
   FICalculationParameters.JSON_PROPERTY_JOB_SETTINGS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FICalculationParameters implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -81,7 +82,7 @@ public class FICalculationParameters implements Serializable {
    * List of securities
    * @return securities
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "List of securities")
   @JsonProperty(JSON_PROPERTY_SECURITIES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -112,7 +113,7 @@ public class FICalculationParameters implements Serializable {
    * List of calculations
    * @return calculations
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "List of calculations")
   @JsonProperty(JSON_PROPERTY_CALCULATIONS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -138,7 +139,7 @@ public class FICalculationParameters implements Serializable {
    * Get jobSettings
    * @return jobSettings
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_JOB_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

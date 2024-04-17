@@ -37,7 +37,8 @@ import com.factset.sdk.ContentFeedsDataDictionary.JSON;
   TableCodeInfo.JSON_PROPERTY_CODE_FIELD_ID,
   TableCodeInfo.JSON_PROPERTY_CODE_STRING
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class TableCodeInfo implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -62,7 +63,7 @@ public class TableCodeInfo implements Serializable {
    * Flag indicating if the field is represented as a code in Standard DataFeeds
    * @return dataItemIsCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "true", value = "Flag indicating if the field is represented as a code in Standard DataFeeds")
   @JsonProperty(JSON_PROPERTY_DATA_ITEM_IS_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -88,7 +89,7 @@ public class TableCodeInfo implements Serializable {
    * Unique identifier for the code
    * @return codeFieldId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "9019", value = "Unique identifier for the code")
   @JsonProperty(JSON_PROPERTY_CODE_FIELD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -114,7 +115,7 @@ public class TableCodeInfo implements Serializable {
    * String value for the code as it appears in Standard DataFeeds
    * @return codeString
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "ACCESS_LINES", value = "String value for the code as it appears in Standard DataFeeds")
   @JsonProperty(JSON_PROPERTY_CODE_STRING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -44,7 +44,8 @@ import com.factset.sdk.FactSetFundamentals.JSON;
   FundamentalsRequest.JSON_PROPERTY_CURRENCY,
   FundamentalsRequest.JSON_PROPERTY_RESTATED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FundamentalsRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -96,7 +97,7 @@ public class FundamentalsRequest implements Serializable {
    * Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. 
    * @return ids
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "[\"FDS-US\"]", required = true, value = "Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. ")
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -122,7 +123,7 @@ public class FundamentalsRequest implements Serializable {
    * Get periodicity
    * @return periodicity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PERIODICITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -148,7 +149,7 @@ public class FundamentalsRequest implements Serializable {
    * Fiscal period start expressed as YYYY-MM-DD.  Calendar date that will fall back to most recent completed period during resolution. 
    * @return fiscalPeriodStart
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2017-09-01", value = "Fiscal period start expressed as YYYY-MM-DD.  Calendar date that will fall back to most recent completed period during resolution. ")
   @JsonProperty(JSON_PROPERTY_FISCAL_PERIOD_START)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -174,7 +175,7 @@ public class FundamentalsRequest implements Serializable {
    * Fiscal period end expressed YYYY-MM-DD.  Calendar date that will fall back to most recent completed period during resolution. 
    * @return fiscalPeriodEnd
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2018-03-01", value = "Fiscal period end expressed YYYY-MM-DD.  Calendar date that will fall back to most recent completed period during resolution. ")
   @JsonProperty(JSON_PROPERTY_FISCAL_PERIOD_END)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -205,7 +206,7 @@ public class FundamentalsRequest implements Serializable {
    * Requested List of Financial Statement Items or Ratios. Use /metrics endpoint for a complete list of available FF_* metric items. 
    * @return metrics
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "[\"FF_SALES\"]", required = true, value = "Requested List of Financial Statement Items or Ratios. Use /metrics endpoint for a complete list of available FF_* metric items. ")
   @JsonProperty(JSON_PROPERTY_METRICS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -231,7 +232,7 @@ public class FundamentalsRequest implements Serializable {
    * Currency code for currency values. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). 
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "Currency code for currency values. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). ")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -257,7 +258,7 @@ public class FundamentalsRequest implements Serializable {
    * Get restated
    * @return restated
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RESTATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

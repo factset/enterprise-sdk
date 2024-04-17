@@ -40,7 +40,8 @@ import com.factset.sdk.IRNCustomSymbols.JSON;
   CustomSymbolSubTypeSummaryDto.JSON_PROPERTY_ID,
   CustomSymbolSubTypeSummaryDto.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CustomSymbolSubTypeSummaryDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -62,7 +63,7 @@ public class CustomSymbolSubTypeSummaryDto implements Serializable {
    * Get id
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -88,7 +89,7 @@ public class CustomSymbolSubTypeSummaryDto implements Serializable {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

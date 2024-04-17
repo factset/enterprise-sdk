@@ -40,7 +40,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20010DataSecurityLending.JSON_PROPERTY_REVENUE,
   InlineResponse20010DataSecurityLending.JSON_PROPERTY_REVENUE_POLICY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20010DataSecurityLending implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class InlineResponse20010DataSecurityLending implements Serializable {
    * Indicates whether a fund is permitted to lend securities based on their legal structure. Available for the regions: US, Europe, and Canada.
    * @return isAllowed
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether a fund is permitted to lend securities based on their legal structure. Available for the regions: US, Europe, and Canada.")
   @JsonProperty(JSON_PROPERTY_IS_ALLOWED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -94,7 +95,7 @@ public class InlineResponse20010DataSecurityLending implements Serializable {
    * Indicates that revenue from lending securities was reported on the most recent annual or semi-annual report. Available for the regions: US, Europe, and Canada.
    * @return isActive
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates that revenue from lending securities was reported on the most recent annual or semi-annual report. Available for the regions: US, Europe, and Canada.")
   @JsonProperty(JSON_PROPERTY_IS_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -120,7 +121,7 @@ public class InlineResponse20010DataSecurityLending implements Serializable {
    * The fraction of securities lending revenue that is rebated to the fund rather than kept by the issuer. Available for the regions: US, Europe, and Canada.
    * @return revenue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The fraction of securities lending revenue that is rebated to the fund rather than kept by the issuer. Available for the regions: US, Europe, and Canada.")
   @JsonProperty(JSON_PROPERTY_REVENUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -146,7 +147,7 @@ public class InlineResponse20010DataSecurityLending implements Serializable {
    * English description of the securities lending revenue policy, if any. Available for the regions: US, Europe, and Canada.
    * @return revenuePolicy
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "English description of the securities lending revenue policy, if any. Available for the regions: US, Europe, and Canada.")
   @JsonProperty(JSON_PROPERTY_REVENUE_POLICY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -48,7 +48,8 @@ import com.factset.sdk.OpenRisk.JSON;
   StatCalculationSettings.JSON_PROPERTY_RAP_SYS,
   StatCalculationSettings.JSON_PROPERTY_RAP_UNSYS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class StatCalculationSettings implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -100,7 +101,7 @@ public class StatCalculationSettings implements Serializable {
    * Get useAbsoluteWeightsForLotExpansion
    * @return useAbsoluteWeightsForLotExpansion
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_USE_ABSOLUTE_WEIGHTS_FOR_LOT_EXPANSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -126,7 +127,7 @@ public class StatCalculationSettings implements Serializable {
    * Get covarianceTimesTwo
    * @return covarianceTimesTwo
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COVARIANCE_TIMES_TWO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -152,7 +153,7 @@ public class StatCalculationSettings implements Serializable {
    * Get covarianceTimesTwoTerm
    * @return covarianceTimesTwoTerm
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COVARIANCE_TIMES_TWO_TERM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -178,7 +179,7 @@ public class StatCalculationSettings implements Serializable {
    * When this is set to true, specific risk correlation adjustment will be applied to security level as well as portfolio level. An example case where stock specific correlation is supplied by risk models is the case between parent equity and ADR.
    * @return correlatedSpecificRisk
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "When this is set to true, specific risk correlation adjustment will be applied to security level as well as portfolio level. An example case where stock specific correlation is supplied by risk models is the case between parent equity and ADR.")
   @JsonProperty(JSON_PROPERTY_CORRELATED_SPECIFIC_RISK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -204,7 +205,7 @@ public class StatCalculationSettings implements Serializable {
    * When this is set to true, the matrix and vector output is in compressed sparse row matrix format. Vector is considered as a matrix with one row for compressed sparse row matrix output. This only applies for matrix and vector output, not for single data points e.g. stats at Portfolio level.
    * @return sparse
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "When this is set to true, the matrix and vector output is in compressed sparse row matrix format. Vector is considered as a matrix with one row for compressed sparse row matrix output. This only applies for matrix and vector output, not for single data points e.g. stats at Portfolio level.")
   @JsonProperty(JSON_PROPERTY_SPARSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -230,7 +231,7 @@ public class StatCalculationSettings implements Serializable {
    * Get horizon
    * @return horizon
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_HORIZON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -256,7 +257,7 @@ public class StatCalculationSettings implements Serializable {
    * Get daysPerYear
    * @return daysPerYear
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DAYS_PER_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -282,7 +283,7 @@ public class StatCalculationSettings implements Serializable {
    * Get confidenceLevel
    * @return confidenceLevel
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CONFIDENCE_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -308,7 +309,7 @@ public class StatCalculationSettings implements Serializable {
    * Get lamda
    * @return lamda
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LAMDA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -334,7 +335,7 @@ public class StatCalculationSettings implements Serializable {
    * Get specificToFactorRatio
    * @return specificToFactorRatio
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SPECIFIC_TO_FACTOR_RATIO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -360,7 +361,7 @@ public class StatCalculationSettings implements Serializable {
    * Get rapSys
    * @return rapSys
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RAP_SYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -386,7 +387,7 @@ public class StatCalculationSettings implements Serializable {
    * Get rapUnsys
    * @return rapUnsys
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RAP_UNSYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

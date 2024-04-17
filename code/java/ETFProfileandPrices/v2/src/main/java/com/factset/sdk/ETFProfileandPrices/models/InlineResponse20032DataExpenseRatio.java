@@ -38,7 +38,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20032DataExpenseRatio.JSON_PROPERTY_VALUE,
   InlineResponse20032DataExpenseRatio.JSON_PROPERTY_POTENTIAL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20032DataExpenseRatio implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -60,7 +61,7 @@ public class InlineResponse20032DataExpenseRatio implements Serializable {
    * Typically the net total annual fee the issuer deducts from ETP assets as a management fee. Also can include where applicable acquired ETP fees, short interest expense, index fees, and financing fees. Breakeven rate is reported for commodity pools. This data is available for all the regions.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Typically the net total annual fee the issuer deducts from ETP assets as a management fee. Also can include where applicable acquired ETP fees, short interest expense, index fees, and financing fees. Breakeven rate is reported for commodity pools. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,7 +87,7 @@ public class InlineResponse20032DataExpenseRatio implements Serializable {
    * The full expense ratio before any fee waivers. This data is available fo the US and Canada regions.
    * @return potential
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The full expense ratio before any fee waivers. This data is available fo the US and Canada regions.")
   @JsonProperty(JSON_PROPERTY_POTENTIAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

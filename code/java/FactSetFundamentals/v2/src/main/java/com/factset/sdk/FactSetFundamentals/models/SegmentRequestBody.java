@@ -45,7 +45,8 @@ import com.factset.sdk.FactSetFundamentals.JSON;
   SegmentRequestBody.JSON_PROPERTY_SEGMENT_TYPE,
   SegmentRequestBody.JSON_PROPERTY_BATCH
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SegmentRequestBody implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -94,7 +95,7 @@ public class SegmentRequestBody implements Serializable {
    * The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.  &lt;p&gt;ids limit &#x3D;  1000 per non-batch request / 30000 per batch request&lt;/p&gt; 
    * @return ids
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "[\"FDS-US\"]", required = true, value = "The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.  <p>ids limit =  1000 per non-batch request / 30000 per batch request</p> ")
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -120,7 +121,7 @@ public class SegmentRequestBody implements Serializable {
    * Get periodicity
    * @return periodicity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PERIODICITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -146,7 +147,7 @@ public class SegmentRequestBody implements Serializable {
    * Get fiscalPeriod
    * @return fiscalPeriod
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FISCAL_PERIOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -172,7 +173,7 @@ public class SegmentRequestBody implements Serializable {
    * Metrics are the data items available for business and geographic segments, where   * **SALES**  &#x3D; Sales/Revenue - Total revenues from the business line/geographic region,   * **OPINC** &#x3D; Operating Income/Loss - Operating income generated from the business line/geographic region,   * **ASSETS** &#x3D; Total Assets - Total assets from the business line/geographic region,   * **DEP** &#x3D; Depreciation Exp - Depreciation expense resulting from the business line/geographic segment,   * **CAPEX** &#x3D; Capital Expenditures - Capital expenditures resulting from the business line/geographic region 
    * @return metrics
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "SALES", required = true, value = "Metrics are the data items available for business and geographic segments, where   * **SALES**  = Sales/Revenue - Total revenues from the business line/geographic region,   * **OPINC** = Operating Income/Loss - Operating income generated from the business line/geographic region,   * **ASSETS** = Total Assets - Total assets from the business line/geographic region,   * **DEP** = Depreciation Exp - Depreciation expense resulting from the business line/geographic segment,   * **CAPEX** = Capital Expenditures - Capital expenditures resulting from the business line/geographic region ")
   @JsonProperty(JSON_PROPERTY_METRICS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -198,7 +199,7 @@ public class SegmentRequestBody implements Serializable {
    * Get segmentType
    * @return segmentType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SEGMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -224,7 +225,7 @@ public class SegmentRequestBody implements Serializable {
    * Get batch
    * @return batch
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BATCH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

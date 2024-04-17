@@ -44,7 +44,8 @@ import com.factset.sdk.OpenRisk.JSON;
   SupportedStatsData.JSON_PROPERTY_SECURITY_GROUP_METHOD,
   SupportedStatsData.JSON_PROPERTY_SECURITY_LOT_ALLOCATION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SupportedStatsData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -143,7 +144,7 @@ public class SupportedStatsData implements Serializable {
    * Get correlatedSpecificRisk
    * @return correlatedSpecificRisk
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CORRELATED_SPECIFIC_RISK)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -169,7 +170,7 @@ public class SupportedStatsData implements Serializable {
    * Get covarianceTimesTwo
    * @return covarianceTimesTwo
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_COVARIANCE_TIMES_TWO)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -195,7 +196,7 @@ public class SupportedStatsData implements Serializable {
    * Get requiresCorrelatedSpecificRisk
    * @return requiresCorrelatedSpecificRisk
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_REQUIRES_CORRELATED_SPECIFIC_RISK)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -221,7 +222,7 @@ public class SupportedStatsData implements Serializable {
    * Get requiresCovarianceTimesTwo
    * @return requiresCovarianceTimesTwo
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_REQUIRES_COVARIANCE_TIMES_TWO)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -252,7 +253,7 @@ public class SupportedStatsData implements Serializable {
    * A list of the base stat and all possible derived stats which are currently supported by the service.
    * @return derived
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "A list of the base stat and all possible derived stats which are currently supported by the service.")
   @JsonProperty(JSON_PROPERTY_DERIVED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -278,7 +279,7 @@ public class SupportedStatsData implements Serializable {
    * Get levels
    * @return levels
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_LEVELS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -304,7 +305,7 @@ public class SupportedStatsData implements Serializable {
    * Get securityGroupMethod
    * @return securityGroupMethod
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SECURITY_GROUP_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -330,7 +331,7 @@ public class SupportedStatsData implements Serializable {
    * Indicates the weights according to which securities with multiple lots have their risk statistic values allocated. &#39;FillAll&#39; indicates the computed statistic value of a particular security is allocated to each of its lots equally. This is common for risk statistics such as marginal statistics or beta. If security group calculations are available, these weights will be used along with &#39;weighting&#39; method specified in &#39;securityGroupMethod&#39;. For example, if this is &#39;ActiveWeights&#39; and &#39;weighting&#39; is &#39;AbsoluteValue&#39;, a net position value is allocated to multiple lots based off of absolute active weights distribution.
    * @return securityLotAllocation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates the weights according to which securities with multiple lots have their risk statistic values allocated. 'FillAll' indicates the computed statistic value of a particular security is allocated to each of its lots equally. This is common for risk statistics such as marginal statistics or beta. If security group calculations are available, these weights will be used along with 'weighting' method specified in 'securityGroupMethod'. For example, if this is 'ActiveWeights' and 'weighting' is 'AbsoluteValue', a net position value is allocated to multiple lots based off of absolute active weights distribution.")
   @JsonProperty(JSON_PROPERTY_SECURITY_LOT_ALLOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

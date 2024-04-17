@@ -54,7 +54,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2001DataRatios.JSON_PROPERTY_EXPENSE,
   InlineResponse2001DataRatios.JSON_PROPERTY_COMBINED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2001DataRatios implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -112,7 +113,7 @@ public class InlineResponse2001DataRatios implements Serializable {
    * Ratio of the price, divided by the total sales revenue per share.
    * @return priceSales
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Ratio of the price, divided by the total sales revenue per share.")
   @JsonIgnore
 
@@ -146,7 +147,7 @@ public class InlineResponse2001DataRatios implements Serializable {
    * Ratio of the price, divided by the reported earnings per share (basic or diluted) by the company.
    * @return priceEarnings
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Ratio of the price, divided by the reported earnings per share (basic or diluted) by the company.")
   @JsonIgnore
 
@@ -180,7 +181,7 @@ public class InlineResponse2001DataRatios implements Serializable {
    * Ratio of the price, divided by the book value per share.
    * @return priceBookValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Ratio of the price, divided by the book value per share.")
   @JsonIgnore
 
@@ -214,7 +215,7 @@ public class InlineResponse2001DataRatios implements Serializable {
    * Ratio of the price, divided by the tangible (i.e. intangible assets are excluded) book value per share.
    * @return priceTangibleBookValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Ratio of the price, divided by the tangible (i.e. intangible assets are excluded) book value per share.")
   @JsonIgnore
 
@@ -248,7 +249,7 @@ public class InlineResponse2001DataRatios implements Serializable {
    * Ratio of the price, divided by the cash flow per share.
    * @return priceCashFlow
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Ratio of the price, divided by the cash flow per share.")
   @JsonIgnore
 
@@ -282,7 +283,7 @@ public class InlineResponse2001DataRatios implements Serializable {
    * Ratio of the price, divided by the free (i.e. without subtraction of dividends) cash flow per share.
    * @return priceFreeCashFlow
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Ratio of the price, divided by the free (i.e. without subtraction of dividends) cash flow per share.")
   @JsonIgnore
 
@@ -316,7 +317,7 @@ public class InlineResponse2001DataRatios implements Serializable {
    * Ratio of the dividend per share, divided by the price.
    * @return dividendYield
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Ratio of the dividend per share, divided by the price.")
   @JsonIgnore
 
@@ -350,7 +351,7 @@ public class InlineResponse2001DataRatios implements Serializable {
    * Ratio of the enterprise value, divided by the EBIT.
    * @return enterpriseValueEbit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Ratio of the enterprise value, divided by the EBIT.")
   @JsonIgnore
 
@@ -384,7 +385,7 @@ public class InlineResponse2001DataRatios implements Serializable {
    * Ratio of the enterprise value, divided by the EBITDA.
    * @return enterpriseValueEbitda
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Ratio of the enterprise value, divided by the EBITDA.")
   @JsonIgnore
 
@@ -418,7 +419,7 @@ public class InlineResponse2001DataRatios implements Serializable {
    * Ratio of the enterprise value, divided by the total amount of sales revenue.
    * @return enterpriseValueSales
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Ratio of the enterprise value, divided by the total amount of sales revenue.")
   @JsonIgnore
 
@@ -452,7 +453,7 @@ public class InlineResponse2001DataRatios implements Serializable {
    * Ratio of the EBIT, divided by the interest expense (including capitalized interest).
    * @return ebitInterestExpense
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Ratio of the EBIT, divided by the interest expense (including capitalized interest).")
   @JsonIgnore
 
@@ -486,7 +487,7 @@ public class InlineResponse2001DataRatios implements Serializable {
    * Ratio of the total loans, divided by the total deposits.
    * @return loansDeposits
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Ratio of the total loans, divided by the total deposits.")
   @JsonIgnore
 
@@ -520,7 +521,7 @@ public class InlineResponse2001DataRatios implements Serializable {
    * Ratio of the selling, general, and administrative expenses divided by the premiums earned. Relevant for insurance companies.
    * @return expense
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Ratio of the selling, general, and administrative expenses divided by the premiums earned. Relevant for insurance companies.")
   @JsonIgnore
 
@@ -554,7 +555,7 @@ public class InlineResponse2001DataRatios implements Serializable {
    * Sum of the loss and expense ratios. Relevant for insurance companies.
    * @return combined
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Sum of the loss and expense ratios. Relevant for insurance companies.")
   @JsonIgnore
 

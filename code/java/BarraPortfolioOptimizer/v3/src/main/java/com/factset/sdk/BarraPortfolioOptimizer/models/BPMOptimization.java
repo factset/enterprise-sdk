@@ -39,7 +39,8 @@ import com.factset.sdk.BarraPortfolioOptimizer.JSON;
   BPMOptimization.JSON_PROPERTY_BACKTEST_DATE,
   BPMOptimization.JSON_PROPERTY_CASHFLOW
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class BPMOptimization implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -70,7 +71,7 @@ public class BPMOptimization implements Serializable {
    * Optimization market
    * @return market
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Optimization market")
   @JsonProperty(JSON_PROPERTY_MARKET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -96,7 +97,7 @@ public class BPMOptimization implements Serializable {
    * Optimization invest all cash
    * @return investAllCash
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Optimization invest all cash")
   @JsonProperty(JSON_PROPERTY_INVEST_ALL_CASH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -122,7 +123,7 @@ public class BPMOptimization implements Serializable {
    * Risk model date
    * @return riskModelDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Risk model date")
   @JsonProperty(JSON_PROPERTY_RISK_MODEL_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -148,7 +149,7 @@ public class BPMOptimization implements Serializable {
    * Backtest date
    * @return backtestDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Backtest date")
   @JsonProperty(JSON_PROPERTY_BACKTEST_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -174,7 +175,7 @@ public class BPMOptimization implements Serializable {
    * Cash flow
    * @return cashflow
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Cash flow")
   @JsonProperty(JSON_PROPERTY_CASHFLOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -43,7 +43,8 @@ import com.factset.sdk.FixedIncomeCalculation.JSON;
   FIBalloonExtension.JSON_PROPERTY_UNITS,
   FIBalloonExtension.JSON_PROPERTY_COUPON_STEPUP
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FIBalloonExtension implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -111,7 +112,7 @@ public class FIBalloonExtension implements Serializable {
    * Months
    * @return months
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Months")
   @JsonProperty(JSON_PROPERTY_MONTHS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -137,7 +138,7 @@ public class FIBalloonExtension implements Serializable {
    * Percentage
    * @return percentage
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Percentage")
   @JsonProperty(JSON_PROPERTY_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -163,7 +164,7 @@ public class FIBalloonExtension implements Serializable {
    * Amortization Type
    * @return amortizationType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Amortization Type")
   @JsonProperty(JSON_PROPERTY_AMORTIZATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -189,7 +190,7 @@ public class FIBalloonExtension implements Serializable {
    * Units
    * @return units
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Units")
   @JsonIgnore
 
@@ -223,7 +224,7 @@ public class FIBalloonExtension implements Serializable {
    * Coupon Stepup
    * @return couponStepup
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Coupon Stepup")
   @JsonProperty(JSON_PROPERTY_COUPON_STEPUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

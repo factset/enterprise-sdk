@@ -37,7 +37,8 @@ import com.factset.sdk.ProcuretoPayAPISCIM.JSON;
   UserResourceGroups.JSON_PROPERTY_$_REF,
   UserResourceGroups.JSON_PROPERTY_DISPLAY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class UserResourceGroups implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -69,7 +70,7 @@ public class UserResourceGroups implements Serializable {
    * The identifier of the User&#39;s group.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Domain btud - Pod 04 - CitrixApps - Cymba OMS", value = "The identifier of the User's group.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -85,7 +86,7 @@ public class UserResourceGroups implements Serializable {
    * The URI of the corresponding &#39;Group&#39; resource to which the user belongs.
    * @return $ref
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "https://api.factset.com/scim/v2/Groups/Domain%20btud%20-%20Pod%2004%20-%20CitrixApps%20-%20Cymba%20OMS", value = "The URI of the corresponding 'Group' resource to which the user belongs.")
   @JsonProperty(JSON_PROPERTY_$_REF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -101,7 +102,7 @@ public class UserResourceGroups implements Serializable {
    * A human-readable name, primarily used for display purposes.  READ-ONLY.
    * @return display
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Domain btud - Pod 04 - CitrixApps - Cymba OMS", value = "A human-readable name, primarily used for display purposes.  READ-ONLY.")
   @JsonProperty(JSON_PROPERTY_DISPLAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -41,7 +41,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20013InstrumentIndustryClassificationRbics.JSON_PROPERTY_ID,
   InlineResponse20013InstrumentIndustryClassificationRbics.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20013InstrumentIndustryClassificationRbics implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class InlineResponse20013InstrumentIndustryClassificationRbics implements
    * Identifier of the category.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the category.")
   @JsonIgnore
 
@@ -97,7 +98,7 @@ public class InlineResponse20013InstrumentIndustryClassificationRbics implements
    * Name of the category.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the category.")
   @JsonIgnore
 

@@ -43,7 +43,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20029Data.JSON_PROPERTY_IS_TRANSPARENT,
   InlineResponse20029Data.JSON_PROPERTY_FUND_OF_FUNDS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20029Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -83,7 +84,7 @@ public class InlineResponse20029Data implements Serializable {
    * Descriptive Summary of the methods used by a ETP or its index in selection and weighting of its holdings, text and standardized value available. This data is available for the US and Canada regions.
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Descriptive Summary of the methods used by a ETP or its index in selection and weighting of its holdings, text and standardized value available. This data is available for the US and Canada regions.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -109,7 +110,7 @@ public class InlineResponse20029Data implements Serializable {
    * Factset&#39;s strategy group is the broadest way sort ETPs with a similar investment strategy. This data is available for the US and Canada regions.
    * @return group
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Factset's strategy group is the broadest way sort ETPs with a similar investment strategy. This data is available for the US and Canada regions.")
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -135,7 +136,7 @@ public class InlineResponse20029Data implements Serializable {
    * Factset&#39;s strategy cluster is a collection of ETPs with a similar investment strategy, yet smaller than strategy group. This data item is more granular and narrow than the strategy group yet bigger than strategy group. This data is available for the US and Canada regions.
    * @return cluster
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Factset's strategy cluster is a collection of ETPs with a similar investment strategy, yet smaller than strategy group. This data item is more granular and narrow than the strategy group yet bigger than strategy group. This data is available for the US and Canada regions.")
   @JsonProperty(JSON_PROPERTY_CLUSTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -161,7 +162,7 @@ public class InlineResponse20029Data implements Serializable {
    * Description of the security selection criteria used by the ETP or its index (e.g., Market Cap, Earnings, Dividends), text and standardized value available. This data is available for all the regions.
    * @return selectCriteria
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Description of the security selection criteria used by the ETP or its index (e.g., Market Cap, Earnings, Dividends), text and standardized value available. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_SELECT_CRITERIA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -187,7 +188,7 @@ public class InlineResponse20029Data implements Serializable {
    * Text that specifies the weighting selection criteria used by the ETP or its index (e.g., Market Cap, Equal, Momentum, Fundamental) , text and standardized value available. This data is available for all the regions.
    * @return weighting
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Text that specifies the weighting selection criteria used by the ETP or its index (e.g., Market Cap, Equal, Momentum, Fundamental) , text and standardized value available. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_WEIGHTING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -213,7 +214,7 @@ public class InlineResponse20029Data implements Serializable {
    * Determines the unique segment the ETP falls into, based on FactSet ETP Analytics rules-based classification system determined by geography, category, focus, and niche. Text and standardized value available for this data item. This data is available for the US regions. See endpoint /factset/etf/strategy/segment/list for possible values.
    * @return segment
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Determines the unique segment the ETP falls into, based on FactSet ETP Analytics rules-based classification system determined by geography, category, focus, and niche. Text and standardized value available for this data item. This data is available for the US regions. See endpoint /factset/etf/strategy/segment/list for possible values.")
   @JsonProperty(JSON_PROPERTY_SEGMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -239,7 +240,7 @@ public class InlineResponse20029Data implements Serializable {
    * Description that States whether or not the methodology behind the underlying index can be clearly understood from offering documents. This data is available for the US and Canada regions.
    * @return isTransparent
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Description that States whether or not the methodology behind the underlying index can be clearly understood from offering documents. This data is available for the US and Canada regions.")
   @JsonProperty(JSON_PROPERTY_IS_TRANSPARENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -265,7 +266,7 @@ public class InlineResponse20029Data implements Serializable {
    * Description of the ETP that holds a portfolio of other ETPs. This data is available for the Canada regions.
    * @return fundOfFunds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Description of the ETP that holds a portfolio of other ETPs. This data is available for the Canada regions.")
   @JsonProperty(JSON_PROPERTY_FUND_OF_FUNDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

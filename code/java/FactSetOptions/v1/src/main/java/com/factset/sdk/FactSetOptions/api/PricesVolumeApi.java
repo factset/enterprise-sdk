@@ -6,7 +6,7 @@ import com.factset.sdk.FactSetOptions.ApiResponse;
 import com.factset.sdk.FactSetOptions.Configuration;
 import com.factset.sdk.FactSetOptions.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -19,7 +19,8 @@ import com.factset.sdk.FactSetOptions.models.OptionsVolumeResponse;
 import com.factset.sdk.FactSetOptions.models.UnderlyingVolumeRequest;
 import com.factset.sdk.FactSetOptions.models.UnderlyingVolumeResponse;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PricesVolumeApi {
   private ApiClient apiClient;
 

@@ -37,7 +37,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
 @JsonPropertyOrder({
   PostBasicMarketListRequestData.JSON_PROPERTY_FILTER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostBasicMarketListRequestData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -56,7 +57,7 @@ public class PostBasicMarketListRequestData implements Serializable {
    * Get filter
    * @return filter
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FILTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

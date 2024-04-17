@@ -39,7 +39,8 @@ import com.factset.sdk.OFDB.JSON;
   InlineResponse2001Data.JSON_PROPERTY_TOTAL_FIELDS,
   InlineResponse2001Data.JSON_PROPERTY_DATES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2001Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -70,7 +71,7 @@ public class InlineResponse2001Data implements Serializable {
    * Get symbols
    * @return symbols
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "")
   @JsonProperty(JSON_PROPERTY_SYMBOLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -96,7 +97,7 @@ public class InlineResponse2001Data implements Serializable {
    * Get iteratedFields
    * @return iteratedFields
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2", value = "")
   @JsonProperty(JSON_PROPERTY_ITERATED_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -122,7 +123,7 @@ public class InlineResponse2001Data implements Serializable {
    * Get nonIteratedFields
    * @return nonIteratedFields
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "")
   @JsonProperty(JSON_PROPERTY_NON_ITERATED_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -148,7 +149,7 @@ public class InlineResponse2001Data implements Serializable {
    * Get totalFields
    * @return totalFields
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "3", value = "")
   @JsonProperty(JSON_PROPERTY_TOTAL_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -174,7 +175,7 @@ public class InlineResponse2001Data implements Serializable {
    * Get dates
    * @return dates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "")
   @JsonProperty(JSON_PROPERTY_DATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

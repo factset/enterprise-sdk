@@ -42,7 +42,8 @@ import com.factset.sdk.BarraPortfolioOptimizer.JSON;
   BPMOptimizationParameters.JSON_PROPERTY_ACCOUNT,
   BPMOptimizationParameters.JSON_PROPERTY_OUTPUT_TYPES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class BPMOptimizationParameters implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -80,7 +81,7 @@ public class BPMOptimizationParameters implements Serializable {
    * Get strategy
    * @return strategy
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_STRATEGY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -106,7 +107,7 @@ public class BPMOptimizationParameters implements Serializable {
    * Get optimization
    * @return optimization
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OPTIMIZATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -132,7 +133,7 @@ public class BPMOptimizationParameters implements Serializable {
    * Get account
    * @return account
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,7 +159,7 @@ public class BPMOptimizationParameters implements Serializable {
    * Get outputTypes
    * @return outputTypes
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_OUTPUT_TYPES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

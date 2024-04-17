@@ -44,7 +44,8 @@ import com.factset.sdk.IRNContacts.JSON;
   ContactAddressDto.JSON_PROPERTY_POSTAL_CODE,
   ContactAddressDto.JSON_PROPERTY_COUNTRY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ContactAddressDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -78,7 +79,7 @@ public class ContactAddressDto implements Serializable {
    * Get googleMapsPlaceId
    * @return googleMapsPlaceId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -112,7 +113,7 @@ public class ContactAddressDto implements Serializable {
    * Get formattedAddress
    * @return formattedAddress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -146,7 +147,7 @@ public class ContactAddressDto implements Serializable {
    * Get city
    * @return city
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -180,7 +181,7 @@ public class ContactAddressDto implements Serializable {
    * Get stateProvince
    * @return stateProvince
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -214,7 +215,7 @@ public class ContactAddressDto implements Serializable {
    * Get postalCode
    * @return postalCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -248,7 +249,7 @@ public class ContactAddressDto implements Serializable {
    * Get country
    * @return country
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

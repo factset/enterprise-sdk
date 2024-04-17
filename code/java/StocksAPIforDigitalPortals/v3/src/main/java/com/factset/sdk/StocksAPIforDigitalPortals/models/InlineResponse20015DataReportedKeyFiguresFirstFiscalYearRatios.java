@@ -59,7 +59,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20015DataReportedKeyFiguresFirstFiscalYearRatios.JSON_PROPERTY_ENTERPRISE_VALUE_SALES,
   InlineResponse20015DataReportedKeyFiguresFirstFiscalYearRatios.JSON_PROPERTY_DEBT_EQUITY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20015DataReportedKeyFiguresFirstFiscalYearRatios implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -105,7 +106,7 @@ public class InlineResponse20015DataReportedKeyFiguresFirstFiscalYearRatios impl
    * Get priceSales
    * @return priceSales
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -139,7 +140,7 @@ public class InlineResponse20015DataReportedKeyFiguresFirstFiscalYearRatios impl
    * Get priceEarnings
    * @return priceEarnings
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -173,7 +174,7 @@ public class InlineResponse20015DataReportedKeyFiguresFirstFiscalYearRatios impl
    * Get priceBookValue
    * @return priceBookValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -207,7 +208,7 @@ public class InlineResponse20015DataReportedKeyFiguresFirstFiscalYearRatios impl
    * Get priceCashFlow
    * @return priceCashFlow
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -241,7 +242,7 @@ public class InlineResponse20015DataReportedKeyFiguresFirstFiscalYearRatios impl
    * Get priceFreeCashFlow
    * @return priceFreeCashFlow
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -275,7 +276,7 @@ public class InlineResponse20015DataReportedKeyFiguresFirstFiscalYearRatios impl
    * Get dividendYield
    * @return dividendYield
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -309,7 +310,7 @@ public class InlineResponse20015DataReportedKeyFiguresFirstFiscalYearRatios impl
    * Get enterpriseValueEbit
    * @return enterpriseValueEbit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -343,7 +344,7 @@ public class InlineResponse20015DataReportedKeyFiguresFirstFiscalYearRatios impl
    * Get enterpriseValueEbitda
    * @return enterpriseValueEbitda
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -377,7 +378,7 @@ public class InlineResponse20015DataReportedKeyFiguresFirstFiscalYearRatios impl
    * Get enterpriseValueSales
    * @return enterpriseValueSales
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -411,7 +412,7 @@ public class InlineResponse20015DataReportedKeyFiguresFirstFiscalYearRatios impl
    * Get debtEquity
    * @return debtEquity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

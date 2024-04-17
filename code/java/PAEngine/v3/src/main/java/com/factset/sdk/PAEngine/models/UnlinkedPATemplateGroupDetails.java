@@ -41,7 +41,8 @@ import com.factset.sdk.PAEngine.JSON;
   UnlinkedPATemplateGroupDetails.JSON_PROPERTY_ID,
   UnlinkedPATemplateGroupDetails.JSON_PROPERTY_FREQUENCY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class UnlinkedPATemplateGroupDetails implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -66,7 +67,7 @@ public class UnlinkedPATemplateGroupDetails implements Serializable {
    * Unlinked template group name
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Unlinked template group name")
   @JsonIgnore
 
@@ -100,7 +101,7 @@ public class UnlinkedPATemplateGroupDetails implements Serializable {
    * FactSet-defined or User-defined Group identifier.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "FactSet-defined or User-defined Group identifier.")
   @JsonIgnore
 
@@ -134,7 +135,7 @@ public class UnlinkedPATemplateGroupDetails implements Serializable {
    * Grouping frequency
    * @return frequency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Grouping frequency")
   @JsonIgnore
 

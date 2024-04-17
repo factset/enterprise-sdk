@@ -37,7 +37,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
 @JsonPropertyOrder({
   InlineResponse20014InstrumentIndustryClassification.JSON_PROPERTY_RBICS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20014InstrumentIndustryClassification implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -56,7 +57,7 @@ public class InlineResponse20014InstrumentIndustryClassification implements Seri
    * Get rbics
    * @return rbics
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RBICS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

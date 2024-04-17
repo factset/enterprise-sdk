@@ -36,7 +36,8 @@ import com.factset.sdk.OFDB.JSON;
   InlineResponse2006Data.JSON_PROPERTY_SYMBOL,
   InlineResponse2006Data.JSON_PROPERTY_FIELD
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2006Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -58,7 +59,7 @@ public class InlineResponse2006Data implements Serializable {
    * Get symbol
    * @return symbol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FDS", value = "")
   @JsonProperty(JSON_PROPERTY_SYMBOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -84,7 +85,7 @@ public class InlineResponse2006Data implements Serializable {
    * Get field
    * @return field
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "")
   @JsonProperty(JSON_PROPERTY_FIELD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

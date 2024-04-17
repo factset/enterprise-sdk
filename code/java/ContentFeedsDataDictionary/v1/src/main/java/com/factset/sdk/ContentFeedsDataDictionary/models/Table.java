@@ -39,7 +39,8 @@ import com.factset.sdk.ContentFeedsDataDictionary.JSON;
   Table.JSON_PROPERTY_DESCRIPTION,
   Table.JSON_PROPERTY_ENTITLED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Table implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -70,7 +71,7 @@ public class Table implements Serializable {
    * Unique identifier for the table
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "123", value = "Unique identifier for the table")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -96,7 +97,7 @@ public class Table implements Serializable {
    * Schema prefix for Standard DataFeeds
    * @return dbSchema
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "gr_v2", value = "Schema prefix for Standard DataFeeds")
   @JsonProperty(JSON_PROPERTY_DB_SCHEMA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -122,7 +123,7 @@ public class Table implements Serializable {
    * Name of the table
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "gr_coverage", value = "Name of the table")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -148,7 +149,7 @@ public class Table implements Serializable {
    * A description of the table
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "This table contains coverage information for each entity that has a report in the Geographic Revenue Exposure package.", value = "A description of the table")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -174,7 +175,7 @@ public class Table implements Serializable {
    * Flag indicating if the user is entitled to access the data in their subscriptions
    * @return entitled
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "true", value = "Flag indicating if the user is entitled to access the data in their subscriptions")
   @JsonProperty(JSON_PROPERTY_ENTITLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -6,7 +6,7 @@ import com.factset.sdk.FactSetEntity.ApiResponse;
 import com.factset.sdk.FactSetEntity.Configuration;
 import com.factset.sdk.FactSetEntity.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -15,7 +15,8 @@ import com.factset.sdk.FactSetEntity.models.EntityReferenceRequest;
 import com.factset.sdk.FactSetEntity.models.EntityReferenceResponse;
 import com.factset.sdk.FactSetEntity.models.ErrorResponse;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EntityReferenceApi {
   private ApiClient apiClient;
 

@@ -43,7 +43,8 @@ import com.factset.sdk.Vermilion.JSON;
   ScimGroup.JSON_PROPERTY_DOMAIN_CODE,
   ScimGroup.JSON_PROPERTY_META
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ScimGroup implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -88,7 +89,7 @@ public class ScimGroup implements Serializable {
    * Get schemas
    * @return schemas
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SCHEMAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -114,7 +115,7 @@ public class ScimGroup implements Serializable {
    * Get id
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -140,7 +141,7 @@ public class ScimGroup implements Serializable {
    * Get displayName
    * @return displayName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -174,7 +175,7 @@ public class ScimGroup implements Serializable {
    * Get members
    * @return members
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MEMBERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -200,7 +201,7 @@ public class ScimGroup implements Serializable {
    * Get tenant
    * @return tenant
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TENANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -226,7 +227,7 @@ public class ScimGroup implements Serializable {
    * Get domainCode
    * @return domainCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DOMAIN_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -252,7 +253,7 @@ public class ScimGroup implements Serializable {
    * Get meta
    * @return meta
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

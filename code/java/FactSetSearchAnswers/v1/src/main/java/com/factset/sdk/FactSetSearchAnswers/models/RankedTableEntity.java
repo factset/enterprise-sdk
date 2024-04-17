@@ -36,7 +36,8 @@ import com.factset.sdk.FactSetSearchAnswers.JSON;
   RankedTableEntity.JSON_PROPERTY_NAME,
   RankedTableEntity.JSON_PROPERTY_IDENTIFIER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class RankedTableEntity implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -58,7 +59,7 @@ public class RankedTableEntity implements Serializable {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -84,7 +85,7 @@ public class RankedTableEntity implements Serializable {
    * Get identifier
    * @return identifier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

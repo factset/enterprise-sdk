@@ -64,7 +64,8 @@ import com.factset.sdk.FactSetTrading.JSON;
   EMSOrder.JSON_PROPERTY_INBOUND_DESTINATION,
   EMSOrder.JSON_PROPERTY_USER_DEFINED_FIELDS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EMSOrder implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -456,7 +457,7 @@ public class EMSOrder implements Serializable {
    * Unique id for the order
    * @return clientOrderId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "12322123", value = "Unique id for the order")
   @JsonIgnore
 
@@ -490,7 +491,7 @@ public class EMSOrder implements Serializable {
    * Get instrument
    * @return instrument
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_INSTRUMENT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -516,7 +517,7 @@ public class EMSOrder implements Serializable {
    * Side of the order.
    * @return side
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "buy", required = true, value = "Side of the order.")
   @JsonProperty(JSON_PROPERTY_SIDE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -542,7 +543,7 @@ public class EMSOrder implements Serializable {
    * Type of the order
    * @return orderType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "market", required = true, value = "Type of the order")
   @JsonProperty(JSON_PROPERTY_ORDER_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -569,7 +570,7 @@ public class EMSOrder implements Serializable {
    * minimum: 0
    * @return orderQuantity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "350", value = "Number of shares/Quantity.")
   @JsonProperty(JSON_PROPERTY_ORDER_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -595,7 +596,7 @@ public class EMSOrder implements Serializable {
    * Order price per share
    * @return price
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "800", value = "Order price per share")
   @JsonIgnore
 
@@ -629,7 +630,7 @@ public class EMSOrder implements Serializable {
    * Stop-loss price to buy/sell stock at market.
    * @return stopPrice
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "800", value = "Stop-loss price to buy/sell stock at market.")
   @JsonIgnore
 
@@ -663,7 +664,7 @@ public class EMSOrder implements Serializable {
    * Strike Price for an Option.
    * @return strikePrice
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "400", value = "Strike Price for an Option.")
   @JsonIgnore
 
@@ -697,7 +698,7 @@ public class EMSOrder implements Serializable {
    * Currency used for price in ISO format.
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "Currency used for price in ISO format.")
   @JsonIgnore
 
@@ -731,7 +732,7 @@ public class EMSOrder implements Serializable {
    * Signifies if a specific order is a covered order. A covered order is one that involves an investment strategy with the capability to limit the potential loss of the order.
    * @return isCovered
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "false", value = "Signifies if a specific order is a covered order. A covered order is one that involves an investment strategy with the capability to limit the potential loss of the order.")
   @JsonIgnore
 
@@ -765,7 +766,7 @@ public class EMSOrder implements Serializable {
    * Maximum number of shares within an order to be shown to other customers.
    * @return maxShow
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "100", value = "Maximum number of shares within an order to be shown to other customers.")
   @JsonIgnore
 
@@ -799,7 +800,7 @@ public class EMSOrder implements Serializable {
    * Maximum number of shares within an order to be shown on the exchange floor at any given time.
    * @return maxFloor
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "100", value = "Maximum number of shares within an order to be shown on the exchange floor at any given time.")
   @JsonIgnore
 
@@ -833,7 +834,7 @@ public class EMSOrder implements Serializable {
    * Previous closing price of security.
    * @return prevClosePrice
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "100", value = "Previous closing price of security.")
   @JsonIgnore
 
@@ -867,7 +868,7 @@ public class EMSOrder implements Serializable {
    * Order settlement period.
    * @return settlementType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "regular", value = "Order settlement period.")
   @JsonIgnore
 
@@ -901,7 +902,7 @@ public class EMSOrder implements Serializable {
    * Settlement date of trade settlement in YYYYMMDD format
    * @return settlementDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "20210622", value = "Settlement date of trade settlement in YYYYMMDD format")
   @JsonIgnore
 
@@ -935,7 +936,7 @@ public class EMSOrder implements Serializable {
    * Instructions for order handling on Broker trading floor.
    * @return handlingInstructions
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "autoOrderPublic", value = "Instructions for order handling on Broker trading floor.")
   @JsonIgnore
 
@@ -969,7 +970,7 @@ public class EMSOrder implements Serializable {
    * Instructions for order handling on exchange trading floor.
    * @return executionInstructions
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "notHeld", value = "Instructions for order handling on exchange trading floor.")
   @JsonIgnore
 
@@ -1003,7 +1004,7 @@ public class EMSOrder implements Serializable {
    * Indicates whether the broker is to locate the stock in conjunction with a short sell order.
    * @return locateRequired
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "false", value = "Indicates whether the broker is to locate the stock in conjunction with a short sell order.")
   @JsonIgnore
 
@@ -1037,7 +1038,7 @@ public class EMSOrder implements Serializable {
    * Effective time in YYYYMMDD-HH:MM:SS format expressed in UTC
    * @return effectiveTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "20210622-12:15:30", value = "Effective time in YYYYMMDD-HH:MM:SS format expressed in UTC")
   @JsonIgnore
 
@@ -1071,7 +1072,7 @@ public class EMSOrder implements Serializable {
    * Account for the basket, parent basket or position.
    * @return account
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Test.ACCT", value = "Account for the basket, parent basket or position.")
   @JsonIgnore
 
@@ -1105,7 +1106,7 @@ public class EMSOrder implements Serializable {
    * Get timeInForce
    * @return timeInForce
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TIME_IN_FORCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1131,7 +1132,7 @@ public class EMSOrder implements Serializable {
    * To facilitate integration with translators that transform orders into a format compatible with the internal order routing and execution infrastructure.
    * @return inboundDestination
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "To facilitate integration with translators that transform orders into a format compatible with the internal order routing and execution infrastructure.")
   @JsonIgnore
 
@@ -1177,7 +1178,7 @@ public class EMSOrder implements Serializable {
    * User defined fields
    * @return userDefinedFields
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "User defined fields")
   @JsonIgnore
 

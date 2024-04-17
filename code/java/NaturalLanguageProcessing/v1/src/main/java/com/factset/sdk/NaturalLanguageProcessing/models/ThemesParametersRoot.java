@@ -38,7 +38,8 @@ import com.factset.sdk.NaturalLanguageProcessing.JSON;
   ThemesParametersRoot.JSON_PROPERTY_DATA,
   ThemesParametersRoot.JSON_PROPERTY_META
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ThemesParametersRoot implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class ThemesParametersRoot implements Serializable {
    * Get data
    * @return data
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -94,7 +95,7 @@ public class ThemesParametersRoot implements Serializable {
    * Any associated metadata
    * @return meta
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Any associated metadata")
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

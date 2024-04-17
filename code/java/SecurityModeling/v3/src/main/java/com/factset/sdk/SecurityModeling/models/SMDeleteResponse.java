@@ -42,7 +42,8 @@ import com.factset.sdk.SecurityModeling.JSON;
   SMDeleteResponse.JSON_PROPERTY_STATUS,
   SMDeleteResponse.JSON_PROPERTY_ERRORS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SMDeleteResponse implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -102,7 +103,7 @@ public class SMDeleteResponse implements Serializable {
    * Get securityName
    * @return securityName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -136,7 +137,7 @@ public class SMDeleteResponse implements Serializable {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -174,7 +175,7 @@ public class SMDeleteResponse implements Serializable {
    * Get errors
    * @return errors
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

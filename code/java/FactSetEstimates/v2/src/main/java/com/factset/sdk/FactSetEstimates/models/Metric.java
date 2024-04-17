@@ -43,7 +43,8 @@ import com.factset.sdk.FactSetEstimates.JSON;
   Metric.JSON_PROPERTY_SUBCATEGORY,
   Metric.JSON_PROPERTY_OAURL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Metric implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -74,7 +75,7 @@ public class Metric implements Serializable {
    * Metric identifier to be used as &#x60;metrics&#x60; input in the FactSet Estimate endpoints.
    * @return metric
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "ASSETS", value = "Metric identifier to be used as `metrics` input in the FactSet Estimate endpoints.")
   @JsonIgnore
 
@@ -108,7 +109,7 @@ public class Metric implements Serializable {
    * Plain text name of the metric.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Total Assets", value = "Plain text name of the metric.")
   @JsonIgnore
 
@@ -142,7 +143,7 @@ public class Metric implements Serializable {
    * Primary Category of metric item, such as, FINANCIAL_STATEMENT or INDUSTRY_METRIC
    * @return category
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FINANCIAL_STATEMENT", value = "Primary Category of metric item, such as, FINANCIAL_STATEMENT or INDUSTRY_METRIC")
   @JsonIgnore
 
@@ -176,7 +177,7 @@ public class Metric implements Serializable {
    * Sub-category of metric items, such as the INCOME_STATEMENT or AIRLINES.
    * @return subcategory
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "BALANCE_SHEET", value = "Sub-category of metric items, such as the INCOME_STATEMENT or AIRLINES.")
   @JsonIgnore
 
@@ -210,7 +211,7 @@ public class Metric implements Serializable {
    * The Online Assistant Page URL, used to lookup the definition and methodology of the requested item.
    * @return oaurl
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "https://my.apps.factset.com/oa/pages/16283", value = "The Online Assistant Page URL, used to lookup the definition and methodology of the requested item.")
   @JsonIgnore
 

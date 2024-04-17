@@ -44,7 +44,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2001DataBalanceSheetTotalShareholdersEquity.JSON_PROPERTY_RATIO_TO_TOTAL_ASSETS,
   InlineResponse2001DataBalanceSheetTotalShareholdersEquity.JSON_PROPERTY_RETURN_ON_EQUITY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2001DataBalanceSheetTotalShareholdersEquity implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -72,7 +73,7 @@ public class InlineResponse2001DataBalanceSheetTotalShareholdersEquity implement
    * Value of the shareholders&#39; equity.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Value of the shareholders' equity.")
   @JsonIgnore
 
@@ -106,7 +107,7 @@ public class InlineResponse2001DataBalanceSheetTotalShareholdersEquity implement
    * Annual growth rate of the total shareholders&#39; equity.
    * @return growth
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Annual growth rate of the total shareholders' equity.")
   @JsonIgnore
 
@@ -140,7 +141,7 @@ public class InlineResponse2001DataBalanceSheetTotalShareholdersEquity implement
    * Total-shareholders&#39;-equity-to-total-assets ratio, which is the ratio of the total shareholders&#39; equity, divided by the total assets.
    * @return ratioToTotalAssets
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Total-shareholders'-equity-to-total-assets ratio, which is the ratio of the total shareholders' equity, divided by the total assets.")
   @JsonIgnore
 
@@ -174,7 +175,7 @@ public class InlineResponse2001DataBalanceSheetTotalShareholdersEquity implement
    * Return on equity (ROE), which is the ratio of the net income, divided by the two-fiscal-year average of the total shareholders&#39; equity.
    * @return returnOnEquity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Return on equity (ROE), which is the ratio of the net income, divided by the two-fiscal-year average of the total shareholders' equity.")
   @JsonIgnore
 

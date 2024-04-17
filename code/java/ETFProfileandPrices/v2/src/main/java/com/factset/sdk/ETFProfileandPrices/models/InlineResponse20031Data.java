@@ -47,7 +47,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20031Data.JSON_PROPERTY_IS_ELIGIBLE_FOR_REGISTERED_ACCOUNTS,
   InlineResponse20031Data.JSON_PROPERTY_IS_DRIP_ELIGIBLE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20031Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -99,7 +100,7 @@ public class InlineResponse20031Data implements Serializable {
    * Flags exchange-traded notes. This data is available for all the regions.
    * @return isEtn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Flags exchange-traded notes. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_IS_ETN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -125,7 +126,7 @@ public class InlineResponse20031Data implements Serializable {
    * Describes the legal structure of the ETP, text and standardized value available. This data is available for all the regions.
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Describes the legal structure of the ETP, text and standardized value available. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -151,7 +152,7 @@ public class InlineResponse20031Data implements Serializable {
    * Flags ETPs that are actively managed as per SEC guidelines. This data is available for all the regions.
    * @return isActivelyManaged
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Flags ETPs that are actively managed as per SEC guidelines. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_IS_ACTIVELY_MANAGED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -177,7 +178,7 @@ public class InlineResponse20031Data implements Serializable {
    * Describes whether the ETP holds underlying securities or uses derivatives to gain its desired exposure, text and standardized value available. This data is available for all the regions.
    * @return backing
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Describes whether the ETP holds underlying securities or uses derivatives to gain its desired exposure, text and standardized value available. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_BACKING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -203,7 +204,7 @@ public class InlineResponse20031Data implements Serializable {
    * Indicates whether the synthetic ETP is “unfunded” (collateral or substitute basket of securities for the swap agreement is owned by ETP), or “funded” (collateral for swap agreement is held by a custodian in the name of the ETP or in the name of the counterparty, pledged to the ETP issuer), text and standardized value available. This data is available for Europe only.
    * @return syntheticType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the synthetic ETP is “unfunded” (collateral or substitute basket of securities for the swap agreement is owned by ETP), or “funded” (collateral for swap agreement is held by a custodian in the name of the ETP or in the name of the counterparty, pledged to the ETP issuer), text and standardized value available. This data is available for Europe only.")
   @JsonProperty(JSON_PROPERTY_SYNTHETIC_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -229,7 +230,7 @@ public class InlineResponse20031Data implements Serializable {
    * The organizational structure of the ETP, text and standardized value available. This data is available for all the regions.
    * @return legalStructure
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The organizational structure of the ETP, text and standardized value available. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_LEGAL_STRUCTURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -255,7 +256,7 @@ public class InlineResponse20031Data implements Serializable {
    * The counterparty for derivative exposure for synthetic ETPs. This data is available for all the regions.
    * @return isUcitsCompliant
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The counterparty for derivative exposure for synthetic ETPs. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_IS_UCITS_COMPLIANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -281,7 +282,7 @@ public class InlineResponse20031Data implements Serializable {
    * States whether or not the ETP&#39;s issuer discloses its positions on its website daily. This data is available for all the regions.
    * @return isHoldingsTransparent
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "States whether or not the ETP's issuer discloses its positions on its website daily. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_IS_HOLDINGS_TRANSPARENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -307,7 +308,7 @@ public class InlineResponse20031Data implements Serializable {
    * The frequency of an issuer&#39;s disclosure of all ETP holdings on its website, text and standardized value available. This data is available for all the regions.
    * @return portfolioDisclosure
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The frequency of an issuer's disclosure of all ETP holdings on its website, text and standardized value available. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_PORTFOLIO_DISCLOSURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -333,7 +334,7 @@ public class InlineResponse20031Data implements Serializable {
    * States how often the ETP makes regular distributions, text and standardized value available. This data is available only for US and Europe.
    * @return cashFlowFrequency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "States how often the ETP makes regular distributions, text and standardized value available. This data is available only for US and Europe.")
   @JsonProperty(JSON_PROPERTY_CASH_FLOW_FREQUENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -359,7 +360,7 @@ public class InlineResponse20031Data implements Serializable {
    * Product can be held in tax-advantaged investment accounts. This data is available for Canada only.
    * @return isEligibleForRegisteredAccounts
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Product can be held in tax-advantaged investment accounts. This data is available for Canada only.")
   @JsonProperty(JSON_PROPERTY_IS_ELIGIBLE_FOR_REGISTERED_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -385,7 +386,7 @@ public class InlineResponse20031Data implements Serializable {
    * Ability to have dividends reinvested. This data is available for Canada only.
    * @return isDripEligible
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Ability to have dividends reinvested. This data is available for Canada only.")
   @JsonProperty(JSON_PROPERTY_IS_DRIP_ELIGIBLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

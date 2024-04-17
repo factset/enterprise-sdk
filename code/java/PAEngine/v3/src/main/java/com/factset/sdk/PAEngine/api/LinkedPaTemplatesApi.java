@@ -6,7 +6,7 @@ import com.factset.sdk.PAEngine.ApiResponse;
 import com.factset.sdk.PAEngine.Configuration;
 import com.factset.sdk.PAEngine.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -18,7 +18,8 @@ import com.factset.sdk.PAEngine.models.LinkedPATemplateRoot;
 import com.factset.sdk.PAEngine.models.LinkedPATemplateSummaryRoot;
 import com.factset.sdk.PAEngine.models.LinkedPATemplateUpdateParametersRoot;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class LinkedPaTemplatesApi {
   private ApiClient apiClient;
 

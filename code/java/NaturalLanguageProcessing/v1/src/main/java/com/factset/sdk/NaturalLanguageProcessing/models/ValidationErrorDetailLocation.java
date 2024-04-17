@@ -35,7 +35,8 @@ import com.factset.sdk.NaturalLanguageProcessing.JSON;
 @JsonPropertyOrder({
   ValidationErrorDetailLocation.JSON_PROPERTY_LESS_THAN_FIELD_NAME_GREATER_THAN
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ValidationErrorDetailLocation implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -62,7 +63,7 @@ public class ValidationErrorDetailLocation implements Serializable {
    * Get lessThanFieldNameGreaterThan
    * @return lessThanFieldNameGreaterThan
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LESS_THAN_FIELD_NAME_GREATER_THAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

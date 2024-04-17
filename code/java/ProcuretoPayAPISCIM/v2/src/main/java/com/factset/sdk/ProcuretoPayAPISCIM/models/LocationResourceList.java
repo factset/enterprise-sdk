@@ -38,7 +38,8 @@ import com.factset.sdk.ProcuretoPayAPISCIM.JSON;
   LocationResourceList.JSON_PROPERTY_TOTAL_RESULTS,
   LocationResourceList.JSON_PROPERTY_RESOURCES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class LocationResourceList implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -71,7 +72,7 @@ public class LocationResourceList implements Serializable {
    * Get schemas
    * @return schemas
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "[\"urn:ietf:params:scim:api:messages:2.0:ListResponse\"]", value = "")
   @JsonProperty(JSON_PROPERTY_SCHEMAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -97,7 +98,7 @@ public class LocationResourceList implements Serializable {
    * Get totalResults
    * @return totalResults
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "")
   @JsonProperty(JSON_PROPERTY_TOTAL_RESULTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -131,7 +132,7 @@ public class LocationResourceList implements Serializable {
    * Get resources
    * @return resources
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RESOURCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -39,7 +39,8 @@ import com.factset.sdk.ContentFeedsDataDictionary.JSON;
   ApiEndpoint.JSON_PROPERTY_DEVELOPER_PORTAL_LINK,
   ApiEndpoint.JSON_PROPERTY_ENTITLED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ApiEndpoint implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -70,7 +71,7 @@ public class ApiEndpoint implements Serializable {
    * Unique identifier for the api endpoint
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "180443", value = "Unique identifier for the api endpoint")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -96,7 +97,7 @@ public class ApiEndpoint implements Serializable {
    * API endpoint path
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "/symbology/v1/bloomberg", value = "API endpoint path")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -122,7 +123,7 @@ public class ApiEndpoint implements Serializable {
    * A description of the endpoint
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Translate FactSet symbols into Bloomberg Identifiers.", value = "A description of the endpoint")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -148,7 +149,7 @@ public class ApiEndpoint implements Serializable {
    * Developer Portal URL of the endpoint
    * @return developerPortalLink
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "https://developer.factset.com/api-catalog/symbology-api", value = "Developer Portal URL of the endpoint")
   @JsonProperty(JSON_PROPERTY_DEVELOPER_PORTAL_LINK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -174,7 +175,7 @@ public class ApiEndpoint implements Serializable {
    * Flag indicating if the user is entitled to access the data in their subscriptions
    * @return entitled
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "true", value = "Flag indicating if the user is entitled to access the data in their subscriptions")
   @JsonProperty(JSON_PROPERTY_ENTITLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

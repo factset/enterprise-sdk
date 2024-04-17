@@ -41,7 +41,8 @@ import com.factset.sdk.IRNContacts.JSON;
   ContactEventUpdateDto.JSON_PROPERTY_OLD_VALUE,
   ContactEventUpdateDto.JSON_PROPERTY_NEW_VALUE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ContactEventUpdateDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -66,7 +67,7 @@ public class ContactEventUpdateDto implements Serializable {
    * Get fieldName
    * @return fieldName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -100,7 +101,7 @@ public class ContactEventUpdateDto implements Serializable {
    * Get oldValue
    * @return oldValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -134,7 +135,7 @@ public class ContactEventUpdateDto implements Serializable {
    * Get newValue
    * @return newValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

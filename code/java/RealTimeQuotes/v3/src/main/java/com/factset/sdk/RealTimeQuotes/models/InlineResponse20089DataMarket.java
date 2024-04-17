@@ -43,7 +43,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20089DataMarket.JSON_PROPERTY_IS_OPEN,
   InlineResponse20089DataMarket.JSON_PROPERTY_PHASE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20089DataMarket implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class InlineResponse20089DataMarket implements Serializable {
    * Identifier of the market. See endpoint &#x60;/basic/market/list&#x60; for possible values.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the market. See endpoint `/basic/market/list` for possible values.")
   @JsonIgnore
 
@@ -102,7 +103,7 @@ public class InlineResponse20089DataMarket implements Serializable {
    * Indicates whether the market of the notation is currently open, that is, the current time is between the open and adjusted close of the notation&#39;s market, see endpoint &#x60;/prices/tradingSchedule/event/list&#x60; for the trading schedule of the notation&#39;s market. The adjusted close is later than the official closing time specified by the market and includes the time after closing when trades might still be reported. Breaks such as a lunch break are not considered. The value is &#x60;null&#x60; if the result quality is EOD.
    * @return isOpen
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the market of the notation is currently open, that is, the current time is between the open and adjusted close of the notation's market, see endpoint `/prices/tradingSchedule/event/list` for the trading schedule of the notation's market. The adjusted close is later than the official closing time specified by the market and includes the time after closing when trades might still be reported. Breaks such as a lunch break are not considered. The value is `null` if the result quality is EOD.")
   @JsonIgnore
 
@@ -136,7 +137,7 @@ public class InlineResponse20089DataMarket implements Serializable {
    * Market-specific code of the current market phase. The value is &#x60;null&#x60; if the result quality is EOD.
    * @return phase
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Market-specific code of the current market phase. The value is `null` if the result quality is EOD.")
   @JsonIgnore
 

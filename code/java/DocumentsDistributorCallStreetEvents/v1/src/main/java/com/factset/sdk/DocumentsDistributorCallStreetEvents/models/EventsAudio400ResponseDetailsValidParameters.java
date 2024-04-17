@@ -46,7 +46,8 @@ import com.factset.sdk.DocumentsDistributorCallStreetEvents.JSON;
   EventsAudio400ResponseDetailsValidParameters.JSON_PROPERTY_UPLOAD_TIME,
   EventsAudio400ResponseDetailsValidParameters.JSON_PROPERTY_AUDIO_SOURCE_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EventsAudio400ResponseDetailsValidParameters implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -106,7 +107,7 @@ public class EventsAudio400ResponseDetailsValidParameters implements Serializabl
    * Get sort
    * @return sort
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -140,7 +141,7 @@ public class EventsAudio400ResponseDetailsValidParameters implements Serializabl
    * Get paginationLimit
    * @return paginationLimit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAGINATION_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -174,7 +175,7 @@ public class EventsAudio400ResponseDetailsValidParameters implements Serializabl
    * Get paginationOffset
    * @return paginationOffset
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAGINATION_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -208,7 +209,7 @@ public class EventsAudio400ResponseDetailsValidParameters implements Serializabl
    * Get reportId
    * @return reportId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REPORT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -242,7 +243,7 @@ public class EventsAudio400ResponseDetailsValidParameters implements Serializabl
    * Get startDate
    * @return startDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_START_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -276,7 +277,7 @@ public class EventsAudio400ResponseDetailsValidParameters implements Serializabl
    * Get endDate
    * @return endDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_END_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -310,7 +311,7 @@ public class EventsAudio400ResponseDetailsValidParameters implements Serializabl
    * Get ids
    * @return ids
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -344,7 +345,7 @@ public class EventsAudio400ResponseDetailsValidParameters implements Serializabl
    * Get sourceCode
    * @return sourceCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SOURCE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -378,7 +379,7 @@ public class EventsAudio400ResponseDetailsValidParameters implements Serializabl
    * Get fileName
    * @return fileName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FILE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -412,7 +413,7 @@ public class EventsAudio400ResponseDetailsValidParameters implements Serializabl
    * Get trimmed
    * @return trimmed
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TRIMMED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -446,7 +447,7 @@ public class EventsAudio400ResponseDetailsValidParameters implements Serializabl
    * Get uploadTime
    * @return uploadTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_UPLOAD_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -480,7 +481,7 @@ public class EventsAudio400ResponseDetailsValidParameters implements Serializabl
    * Get audioSourceId
    * @return audioSourceId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AUDIO_SOURCE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

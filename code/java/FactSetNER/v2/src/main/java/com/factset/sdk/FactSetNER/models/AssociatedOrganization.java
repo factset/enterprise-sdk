@@ -37,7 +37,8 @@ import com.factset.sdk.FactSetNER.JSON;
   AssociatedOrganization.JSON_PROPERTY_ENTITY_ID,
   AssociatedOrganization.JSON_PROPERTY_LOOKUP_URL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class AssociatedOrganization implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -62,7 +63,7 @@ public class AssociatedOrganization implements Serializable {
    * Name of the entity
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the entity")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -88,7 +89,7 @@ public class AssociatedOrganization implements Serializable {
    * FactSet Entity ID for the entity
    * @return entityId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "FactSet Entity ID for the entity")
   @JsonProperty(JSON_PROPERTY_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -114,7 +115,7 @@ public class AssociatedOrganization implements Serializable {
    * FactSet description of the entity
    * @return lookupUrl
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "FactSet description of the entity")
   @JsonProperty(JSON_PROPERTY_LOOKUP_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -38,7 +38,8 @@ import com.factset.sdk.StandardDatafeed.JSON;
   ListFiles200ResponseMeta.JSON_PROPERTY_PAGINATION,
   ListFiles200ResponseMeta.JSON_PROPERTY_PARTIAL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ListFiles200ResponseMeta implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -60,7 +61,7 @@ public class ListFiles200ResponseMeta implements Serializable {
    * Get pagination
    * @return pagination
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAGINATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,7 +87,7 @@ public class ListFiles200ResponseMeta implements Serializable {
    * Get partial
    * @return partial
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PARTIAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

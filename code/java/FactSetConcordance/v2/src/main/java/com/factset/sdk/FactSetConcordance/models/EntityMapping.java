@@ -80,7 +80,8 @@ import com.factset.sdk.FactSetConcordance.JSON;
   EntityMapping.JSON_PROPERTY_MAP_STATUS,
   EntityMapping.JSON_PROPERTY_UNIVERSE_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EntityMapping implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -253,7 +254,7 @@ public class EntityMapping implements Serializable {
    * FactSet Entity Identifier of the entity matched to the submitted entity
    * @return entityId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "00456-E", value = "FactSet Entity Identifier of the entity matched to the submitted entity")
   @JsonIgnore
 
@@ -287,7 +288,7 @@ public class EntityMapping implements Serializable {
    * Full name corresponding to the matched entity.
    * @return entityName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FactSet Inc.", value = "Full name corresponding to the matched entity.")
   @JsonIgnore
 
@@ -321,7 +322,7 @@ public class EntityMapping implements Serializable {
    * User-defined unique identifier provided by the user in the request
    * @return clientId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "abc-1234", value = "User-defined unique identifier provided by the user in the request")
   @JsonIgnore
 
@@ -355,7 +356,7 @@ public class EntityMapping implements Serializable {
    * Name of the entity to match as specified in the request.
    * @return clientName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "factset", value = "Name of the entity to match as specified in the request.")
   @JsonIgnore
 
@@ -389,7 +390,7 @@ public class EntityMapping implements Serializable {
    * ISO2 country code specified in the request
    * @return clientCountry
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "us", value = "ISO2 country code specified in the request")
   @JsonIgnore
 
@@ -423,7 +424,7 @@ public class EntityMapping implements Serializable {
    * State code specified in the request
    * @return clientState
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "ct", value = "State code specified in the request")
   @JsonIgnore
 
@@ -457,7 +458,7 @@ public class EntityMapping implements Serializable {
    * Priority associated to the id.
    * @return clientPriority
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "HIGH", value = "Priority associated to the id.")
   @JsonIgnore
 
@@ -491,7 +492,7 @@ public class EntityMapping implements Serializable {
    * Name as provided by the user for the type Bloomberg listing/regional/security id.
    * @return clientBbgFigi
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "BBG009S39JY5", value = "Name as provided by the user for the type Bloomberg listing/regional/security id.")
   @JsonIgnore
 
@@ -525,7 +526,7 @@ public class EntityMapping implements Serializable {
    * Name as provided by the user for the type Bloomberg listing and regional ticker.
    * @return clientBbgTicker
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "GOOGL UW", value = "Name as provided by the user for the type Bloomberg listing and regional ticker.")
   @JsonIgnore
 
@@ -559,7 +560,7 @@ public class EntityMapping implements Serializable {
    * Name as provided by the user for the type BIC - Bank Indentification Code.
    * @return clientBic
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "ABXXHKH1", value = "Name as provided by the user for the type BIC - Bank Indentification Code.")
   @JsonIgnore
 
@@ -593,7 +594,7 @@ public class EntityMapping implements Serializable {
    * Name as provided by the user for the type CIK - Edgar Central Index Keys.
    * @return clientCik
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "100331", value = "Name as provided by the user for the type CIK - Edgar Central Index Keys.")
   @JsonIgnore
 
@@ -627,7 +628,7 @@ public class EntityMapping implements Serializable {
    * Name as provided by the user for the type CRD - Central Registration Depository.
    * @return clientCrd
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "149722", value = "Name as provided by the user for the type CRD - Central Registration Depository.")
   @JsonIgnore
 
@@ -661,7 +662,7 @@ public class EntityMapping implements Serializable {
    * Name as provided by the user for the type CUSIP.
    * @return clientCusip
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "02079K305", value = "Name as provided by the user for the type CUSIP.")
   @JsonIgnore
 
@@ -695,7 +696,7 @@ public class EntityMapping implements Serializable {
    * Name as provided by the user for the type DUNS - Dun &amp; Bradstreet Data Universal Numbering System.
    * @return clientDuns
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "687741991", value = "Name as provided by the user for the type DUNS - Dun & Bradstreet Data Universal Numbering System.")
   @JsonIgnore
 
@@ -729,7 +730,7 @@ public class EntityMapping implements Serializable {
    * Name as provided by the user for the type EIN - Employer Identification Number.
    * @return clientEin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "953540776", value = "Name as provided by the user for the type EIN - Employer Identification Number.")
   @JsonIgnore
 
@@ -763,7 +764,7 @@ public class EntityMapping implements Serializable {
    * Name as provided by the user for the type FactSet Identifier, FactSet -E,-S,-R, -L Permanent Identifier.
    * @return clientFactsetId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0013TZ-E", value = "Name as provided by the user for the type FactSet Identifier, FactSet -E,-S,-R, -L Permanent Identifier.")
   @JsonIgnore
 
@@ -797,7 +798,7 @@ public class EntityMapping implements Serializable {
    * Name as provided by the user for the type Fitch - Fitch Ratings Identifier.
    * @return clientFitch
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "47504", value = "Name as provided by the user for the type Fitch - Fitch Ratings Identifier.")
   @JsonIgnore
 
@@ -831,7 +832,7 @@ public class EntityMapping implements Serializable {
    * Name as provided by the user for the type GVKEY, Compustat Global Company Key.
    * @return clientGvkey
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "107481", value = "Name as provided by the user for the type GVKEY, Compustat Global Company Key.")
   @JsonIgnore
 
@@ -865,7 +866,7 @@ public class EntityMapping implements Serializable {
    * Name as provided by the user for the type GVKEY+IID, Compustat Global Company Key and Issue Identifier.
    * @return clientGvkeyIid
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "107481001", value = "Name as provided by the user for the type GVKEY+IID, Compustat Global Company Key and Issue Identifier.")
   @JsonIgnore
 
@@ -899,7 +900,7 @@ public class EntityMapping implements Serializable {
    * Name as provided by the user for the type ISIN - International Securities Identification Number.
    * @return clientIsin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "US02079K305", value = "Name as provided by the user for the type ISIN - International Securities Identification Number.")
   @JsonIgnore
 
@@ -933,7 +934,7 @@ public class EntityMapping implements Serializable {
    * Name as provided by the user for the type JCN , Japanese Corporate Number.
    * @return clientJcn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "3120001077477", value = "Name as provided by the user for the type JCN , Japanese Corporate Number.")
   @JsonIgnore
 
@@ -967,7 +968,7 @@ public class EntityMapping implements Serializable {
    * Name as provided by the user for the type LEI - Legal Entity Identifier.
    * @return clientLei
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "549300A6K7JX8EX2QZ33", value = "Name as provided by the user for the type LEI - Legal Entity Identifier.")
   @JsonIgnore
 
@@ -1001,7 +1002,7 @@ public class EntityMapping implements Serializable {
    * Name as provided by the user for the type LXID, Markit Syndicated Loan Identifier.
    * @return clientLxid
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "LX113630", value = "Name as provided by the user for the type LXID, Markit Syndicated Loan Identifier.")
   @JsonIgnore
 
@@ -1035,7 +1036,7 @@ public class EntityMapping implements Serializable {
    * Name as provided by the user for the type Moody&#39;s ratings identifier.
    * @return clientMd
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "823736553", value = "Name as provided by the user for the type Moody's ratings identifier.")
   @JsonIgnore
 
@@ -1069,7 +1070,7 @@ public class EntityMapping implements Serializable {
    * Name as provided by the user for the type RedCode, Markit Reference Entity Identifier.
    * @return clientRedCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "4C933G", value = "Name as provided by the user for the type RedCode, Markit Reference Entity Identifier.")
   @JsonIgnore
 
@@ -1103,7 +1104,7 @@ public class EntityMapping implements Serializable {
    * Name as provided by the user for the type RSSD - Federal Reserve RSSD Identifier.
    * @return clientRssd
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1139297", value = "Name as provided by the user for the type RSSD - Federal Reserve RSSD Identifier.")
   @JsonIgnore
 
@@ -1137,7 +1138,7 @@ public class EntityMapping implements Serializable {
    * Name as provided by the user for the type SEDOL.
    * @return clientSedol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "BYZ5YB6", value = "Name as provided by the user for the type SEDOL.")
   @JsonIgnore
 
@@ -1171,7 +1172,7 @@ public class EntityMapping implements Serializable {
    * Name as provided by the user for the type S&amp;P ratings identifier.
    * @return clientSpr
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "301939", value = "Name as provided by the user for the type S&P ratings identifier.")
   @JsonIgnore
 
@@ -1205,7 +1206,7 @@ public class EntityMapping implements Serializable {
    * Name as provided by the user for the type price ticker.
    * @return clientTicker
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "GOOGL", value = "Name as provided by the user for the type price ticker.")
   @JsonIgnore
 
@@ -1239,7 +1240,7 @@ public class EntityMapping implements Serializable {
    * Name as provided by the user for the type ticker exchange.
    * @return clientTickerExchange
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "GOOGL-NAS", value = "Name as provided by the user for the type ticker exchange.")
   @JsonIgnore
 
@@ -1273,7 +1274,7 @@ public class EntityMapping implements Serializable {
    * Name as provided by the user for the type ticker region.
    * @return clientTickerRegion
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "GOOGL-US", value = "Name as provided by the user for the type ticker region.")
   @JsonIgnore
 
@@ -1307,7 +1308,7 @@ public class EntityMapping implements Serializable {
    * Name as provided by the user for the type UK company house identifier.
    * @return clientUkch
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "CE012494", value = "Name as provided by the user for the type UK company house identifier.")
   @JsonIgnore
 
@@ -1341,7 +1342,7 @@ public class EntityMapping implements Serializable {
    * Name as provided by the user for the type Valoren - Valor Identification.
    * @return clientValoren
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "685558", value = "Name as provided by the user for the type Valoren - Valor Identification.")
   @JsonIgnore
 
@@ -1375,7 +1376,7 @@ public class EntityMapping implements Serializable {
    * Name as provided by the user for the type WKN - German Securities Identification.
    * @return clientWkn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "A0MU9T", value = "Name as provided by the user for the type WKN - German Securities Identification.")
   @JsonIgnore
 
@@ -1417,7 +1418,7 @@ public class EntityMapping implements Serializable {
    * Any additional context column along with their values in the input file or single search.  To be used by Managed Service for any unmapped records. 
    * @return clientAdditionalContext
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "{\"Address\":\"123 Main St\",\"Phone\":\"555-555-5555\",\"City\":\"New York\"}", value = "Any additional context column along with their values in the input file or single search.  To be used by Managed Service for any unmapped records. ")
   @JsonProperty(JSON_PROPERTY_CLIENT_ADDITIONAL_CONTEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1443,7 +1444,7 @@ public class EntityMapping implements Serializable {
    * URL specified in the request
    * @return clientUrl
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "www.factset.com", value = "URL specified in the request")
   @JsonIgnore
 
@@ -1477,7 +1478,7 @@ public class EntityMapping implements Serializable {
    * Time when entity was created in UTC.
    * @return createdTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2020-06-24T22:02:21Z", value = "Time when entity was created in UTC.")
   @JsonIgnore
 
@@ -1511,7 +1512,7 @@ public class EntityMapping implements Serializable {
    * Time when the submitted entity was last updated in UTC.
    * @return updatedTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2020-06-24T22:02:21Z", value = "Time when the submitted entity was last updated in UTC.")
   @JsonIgnore
 
@@ -1545,7 +1546,7 @@ public class EntityMapping implements Serializable {
    * Current status of the entity mapping.
    * @return mapStatus
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Current status of the entity mapping.")
   @JsonIgnore
 
@@ -1579,7 +1580,7 @@ public class EntityMapping implements Serializable {
    * The universe this mapping belongs to. Only set in v2 endpoints 
    * @return universeId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "The universe this mapping belongs to. Only set in v2 endpoints ")
   @JsonIgnore
 

@@ -45,7 +45,8 @@ import com.factset.sdk.SPAREngine.JSON;
   CalculationUnitStatus.JSON_PROPERTY_POINTS,
   CalculationUnitStatus.JSON_PROPERTY_WARNINGS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CalculationUnitStatus implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -120,7 +121,7 @@ public class CalculationUnitStatus implements Serializable {
    * The status of calculation unit.
    * @return status
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The status of calculation unit.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,7 +159,7 @@ public class CalculationUnitStatus implements Serializable {
    * The error in a calculation unit.
    * @return errors
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The error in a calculation unit.")
   @JsonIgnore
 
@@ -192,7 +193,7 @@ public class CalculationUnitStatus implements Serializable {
    * The result URL of the calculation.
    * @return result
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The result URL of the calculation.")
   @JsonIgnore
 
@@ -226,7 +227,7 @@ public class CalculationUnitStatus implements Serializable {
    * The progress of the calculation unit.
    * @return progress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The progress of the calculation unit.")
   @JsonIgnore
 
@@ -260,7 +261,7 @@ public class CalculationUnitStatus implements Serializable {
    * The points for the calculation unit.
    * @return points
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The points for the calculation unit.")
   @JsonIgnore
 
@@ -306,7 +307,7 @@ public class CalculationUnitStatus implements Serializable {
    * The warnings in a calculation unit.
    * @return warnings
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The warnings in a calculation unit.")
   @JsonIgnore
 

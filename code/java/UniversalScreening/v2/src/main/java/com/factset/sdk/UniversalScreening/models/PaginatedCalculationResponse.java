@@ -38,7 +38,8 @@ import com.factset.sdk.UniversalScreening.JSON;
   PaginatedCalculationResponse.JSON_PROPERTY_META,
   PaginatedCalculationResponse.JSON_PROPERTY_DATA
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PaginatedCalculationResponse implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -60,7 +61,7 @@ public class PaginatedCalculationResponse implements Serializable {
    * Get meta
    * @return meta
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,7 +87,7 @@ public class PaginatedCalculationResponse implements Serializable {
    * Stach v2 column oriented paginated screen results
    * @return data
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Stach v2 column oriented paginated screen results")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

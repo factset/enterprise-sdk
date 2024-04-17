@@ -42,7 +42,8 @@ import com.factset.sdk.ForeignExchangeRate.JSON;
   ForwardsRequest.JSON_PROPERTY_END_DATE,
   ForwardsRequest.JSON_PROPERTY_FREQUENCY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ForwardsRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -86,7 +87,7 @@ public class ForwardsRequest implements Serializable {
    * The currency pair requested in the format of a ISO {source}{target}. For a complete list of ISO currencies, please visit [OA 1470](https://my.apps.factset.com/oa/pages/1470)
    * @return ids
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "[\"USDGBP\",\"USDEUR\"]", required = true, value = "The currency pair requested in the format of a ISO {source}{target}. For a complete list of ISO currencies, please visit [OA 1470](https://my.apps.factset.com/oa/pages/1470)")
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -112,7 +113,7 @@ public class ForwardsRequest implements Serializable {
    * Get forwardPeriod
    * @return forwardPeriod
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FORWARD_PERIOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -138,7 +139,7 @@ public class ForwardsRequest implements Serializable {
    * The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available. 
    * @return startDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2019-01-01", value = "The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available. ")
   @JsonProperty(JSON_PROPERTY_START_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -164,7 +165,7 @@ public class ForwardsRequest implements Serializable {
    * The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available. 
    * @return endDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2019-12-31", value = "The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available. ")
   @JsonProperty(JSON_PROPERTY_END_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -190,7 +191,7 @@ public class ForwardsRequest implements Serializable {
    * Get frequency
    * @return frequency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FREQUENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

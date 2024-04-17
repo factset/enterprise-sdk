@@ -37,7 +37,8 @@ import com.factset.sdk.Signals.JSON;
   ErrorResponse.JSON_PROPERTY_MESSAGE,
   ErrorResponse.JSON_PROPERTY_ERRORS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ErrorResponse implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -67,7 +68,7 @@ public class ErrorResponse implements Serializable {
    * A short description of the error.
    * @return message
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "There was an error processing your request. Please try again later.", required = true, value = "A short description of the error.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -101,7 +102,7 @@ public class ErrorResponse implements Serializable {
    * Optional list of errors. e.g. Validation errors for multiple parameters
    * @return errors
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Optional list of errors. e.g. Validation errors for multiple parameters")
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

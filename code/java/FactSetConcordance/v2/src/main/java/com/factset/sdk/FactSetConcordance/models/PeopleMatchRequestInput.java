@@ -43,7 +43,8 @@ import com.factset.sdk.FactSetConcordance.JSON;
   PeopleMatchRequestInput.JSON_PROPERTY_SUFFIX,
   PeopleMatchRequestInput.JSON_PROPERTY_ENTITY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PeopleMatchRequestInput implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -86,7 +87,7 @@ public class PeopleMatchRequestInput implements Serializable {
    * The People name to match.
    * @return personName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Bill Gates", value = "The People name to match.")
   @JsonProperty(JSON_PROPERTY_PERSON_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -112,7 +113,7 @@ public class PeopleMatchRequestInput implements Serializable {
    * A unique identifier supplied by the user. ClientId is saved to the user&#39;s Concordance universe and will be used as the identifier for that entity within the universe. 
    * @return clientId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "abc-123", value = "A unique identifier supplied by the user. ClientId is saved to the user's Concordance universe and will be used as the identifier for that entity within the universe. ")
   @JsonProperty(JSON_PROPERTY_CLIENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -138,7 +139,7 @@ public class PeopleMatchRequestInput implements Serializable {
    * The salutation is same as the normal salutation we use .The salutation can be Mr, Mrs.The salutation should not be given along with personName. 
    * @return salutation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Mr", value = "The salutation is same as the normal salutation we use .The salutation can be Mr, Mrs.The salutation should not be given along with personName. ")
   @JsonProperty(JSON_PROPERTY_SALUTATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -164,7 +165,7 @@ public class PeopleMatchRequestInput implements Serializable {
    * The first name of the person. This field should not be given along with personName. 
    * @return firstName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Bill", value = "The first name of the person. This field should not be given along with personName. ")
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -190,7 +191,7 @@ public class PeopleMatchRequestInput implements Serializable {
    * The middle name of the person. This field should not be given along with personName. 
    * @return middleName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Henry", value = "The middle name of the person. This field should not be given along with personName. ")
   @JsonProperty(JSON_PROPERTY_MIDDLE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -216,7 +217,7 @@ public class PeopleMatchRequestInput implements Serializable {
    * The last name of the person. This field should not be given along with personName. 
    * @return lastName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Gates", value = "The last name of the person. This field should not be given along with personName. ")
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -250,7 +251,7 @@ public class PeopleMatchRequestInput implements Serializable {
    * Any additional context information along with other input values that need to be saved for an entity during search. To be used by Managed Service for any unmapped records.  This is applicable when saving the records with clientId and universeId specified. 
    * @return additionalContext
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "{\"Address\":\"123 Main St\",\"Phone\":\"555-555-5555\",\"City\":\"New York\"}", value = "Any additional context information along with other input values that need to be saved for an entity during search. To be used by Managed Service for any unmapped records.  This is applicable when saving the records with clientId and universeId specified. ")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_CONTEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -276,7 +277,7 @@ public class PeopleMatchRequestInput implements Serializable {
    * The suffix of person&#39;s name. This field should not be given along with personName. 
    * @return suffix
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "III", value = "The suffix of person's name. This field should not be given along with personName. ")
   @JsonProperty(JSON_PROPERTY_SUFFIX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -302,7 +303,7 @@ public class PeopleMatchRequestInput implements Serializable {
    * The enity of the Person. 
    * @return entity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Microsoft", value = "The enity of the Person. ")
   @JsonProperty(JSON_PROPERTY_ENTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

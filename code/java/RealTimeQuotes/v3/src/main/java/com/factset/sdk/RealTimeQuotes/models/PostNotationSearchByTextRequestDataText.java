@@ -39,7 +39,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   PostNotationSearchByTextRequestDataText.JSON_PROPERTY_VALUE,
   PostNotationSearchByTextRequestDataText.JSON_PROPERTY_MINIMUM_MATCH_SCORE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostNotationSearchByTextRequestDataText implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -131,7 +132,7 @@ public class PostNotationSearchByTextRequestDataText implements Serializable {
    * List of attributes to be searched in. The value &#x60;allEntitled&#x60; cannot appear with any other value.
    * @return attributes
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of attributes to be searched in. The value `allEntitled` cannot appear with any other value.")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -157,7 +158,7 @@ public class PostNotationSearchByTextRequestDataText implements Serializable {
    * Full-text search string. It may be enclosed in double quotes (\&quot;). No escaping is provided, therefore it is impossible to specify a search string containing double quotes. Relevance of word starts is indicated by a phrase starting with a space character, such as \&quot; daimler\&quot;. If only two characters are submitted, the search is executed as an exact search.
    * @return value
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Full-text search string. It may be enclosed in double quotes (\"). No escaping is provided, therefore it is impossible to specify a search string containing double quotes. Relevance of word starts is indicated by a phrase starting with a space character, such as \" daimler\". If only two characters are submitted, the search is executed as an exact search.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -185,7 +186,7 @@ public class PostNotationSearchByTextRequestDataText implements Serializable {
    * maximum: 1
    * @return minimumMatchScore
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Minimum match score for the text string. The match score has a value between 0 and 1 (inclusive), where a higher value indicates a better match than a lower one.      Examples for the two most relevant thresholds:       0.25: Exact substring match after case-folding and modifier elimination - \"Münchner Rück\" is a match for the search string \"Munch\" but not for \"Muench\".        0.50: Exact substring match - \"Münchner Rück\" is a match for the search string \"Münch\" but not for \"Munch\" or \"münch\".")
   @JsonProperty(JSON_PROPERTY_MINIMUM_MATCH_SCORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

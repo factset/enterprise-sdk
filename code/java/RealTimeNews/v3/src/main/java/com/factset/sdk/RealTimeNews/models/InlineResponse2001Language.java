@@ -41,7 +41,8 @@ import com.factset.sdk.RealTimeNews.JSON;
 @JsonPropertyOrder({
   InlineResponse2001Language.JSON_PROPERTY_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2001Language implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -60,7 +61,7 @@ public class InlineResponse2001Language implements Serializable {
    * Identifier of the language.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the language.")
   @JsonIgnore
 

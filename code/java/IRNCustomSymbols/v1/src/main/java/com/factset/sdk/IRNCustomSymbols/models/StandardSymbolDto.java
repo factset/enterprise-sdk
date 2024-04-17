@@ -35,7 +35,8 @@ import com.factset.sdk.IRNCustomSymbols.JSON;
 @JsonPropertyOrder({
   StandardSymbolDto.JSON_PROPERTY_STANDARD_SYMBOL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class StandardSymbolDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -62,7 +63,7 @@ public class StandardSymbolDto implements Serializable {
    * Get standardSymbol
    * @return standardSymbol
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_STANDARD_SYMBOL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

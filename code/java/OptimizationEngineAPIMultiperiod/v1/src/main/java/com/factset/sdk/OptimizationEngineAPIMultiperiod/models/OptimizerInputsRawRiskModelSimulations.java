@@ -36,7 +36,8 @@ import com.factset.sdk.OptimizationEngineAPIMultiperiod.JSON;
   OptimizerInputsRawRiskModelSimulations.JSON_PROPERTY_ID,
   OptimizerInputsRawRiskModelSimulations.JSON_PROPERTY_SIMULATED_RETURNS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerInputsRawRiskModelSimulations implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -58,7 +59,7 @@ public class OptimizerInputsRawRiskModelSimulations implements Serializable {
    * Get id
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -92,7 +93,7 @@ public class OptimizerInputsRawRiskModelSimulations implements Serializable {
    * Get simulatedReturns
    * @return simulatedReturns
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SIMULATED_RETURNS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

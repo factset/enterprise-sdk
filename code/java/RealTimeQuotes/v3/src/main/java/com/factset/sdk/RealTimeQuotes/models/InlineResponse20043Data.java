@@ -51,7 +51,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20043Data.JSON_PROPERTY_ASSET_CLASS,
   InlineResponse20043Data.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20043Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -91,7 +92,7 @@ public class InlineResponse20043Data implements Serializable {
    * Identifier of the instrument.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the instrument.")
   @JsonIgnore
 
@@ -125,7 +126,7 @@ public class InlineResponse20043Data implements Serializable {
    * Name of the instrument.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the instrument.")
   @JsonIgnore
 
@@ -159,7 +160,7 @@ public class InlineResponse20043Data implements Serializable {
    * Short name of the instrument.
    * @return shortName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Short name of the instrument.")
   @JsonIgnore
 
@@ -193,7 +194,7 @@ public class InlineResponse20043Data implements Serializable {
    * International Securities Identification Number of the instrument.
    * @return isin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "International Securities Identification Number of the instrument.")
   @JsonIgnore
 
@@ -227,7 +228,7 @@ public class InlineResponse20043Data implements Serializable {
    * Get nsin
    * @return nsin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NSIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -253,7 +254,7 @@ public class InlineResponse20043Data implements Serializable {
    * Get fsym
    * @return fsym
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FSYM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -279,7 +280,7 @@ public class InlineResponse20043Data implements Serializable {
    * Get assetClass
    * @return assetClass
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ASSET_CLASS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -313,7 +314,7 @@ public class InlineResponse20043Data implements Serializable {
    * Instrument type as defined by FactSet Digital Solutions. Instrument types are arranged in a hierarchy, with level 1 representing the most coarse granularity and further levels successively refining the granularity (see MDG category system 18).
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Instrument type as defined by FactSet Digital Solutions. Instrument types are arranged in a hierarchy, with level 1 representing the most coarse granularity and further levels successively refining the granularity (see MDG category system 18).")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

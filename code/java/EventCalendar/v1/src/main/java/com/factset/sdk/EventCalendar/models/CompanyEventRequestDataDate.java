@@ -37,7 +37,8 @@ import com.factset.sdk.EventCalendar.JSON;
   CompanyEventRequestDataDate.JSON_PROPERTY_START,
   CompanyEventRequestDataDate.JSON_PROPERTY_END
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CompanyEventRequestDataDate implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -59,7 +60,7 @@ public class CompanyEventRequestDataDate implements Serializable {
    * Event start time as date/time string according to ISO 8601.
    * @return start
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2022-12-01T00:00Z", value = "Event start time as date/time string according to ISO 8601.")
   @JsonProperty(JSON_PROPERTY_START)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -85,7 +86,7 @@ public class CompanyEventRequestDataDate implements Serializable {
    * Event end time as date/time string according to ISO 8601.
    * @return end
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2022-12-31T22:59:02Z", value = "Event end time as date/time string according to ISO 8601.")
   @JsonProperty(JSON_PROPERTY_END)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

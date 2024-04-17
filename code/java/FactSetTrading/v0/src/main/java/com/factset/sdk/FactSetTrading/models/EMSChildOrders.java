@@ -36,7 +36,8 @@ import com.factset.sdk.FactSetTrading.JSON;
 @JsonPropertyOrder({
   EMSChildOrders.JSON_PROPERTY_CHILD_ORDERS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EMSChildOrders implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class EMSChildOrders implements Serializable {
    * Get childOrders
    * @return childOrders
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CHILD_ORDERS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

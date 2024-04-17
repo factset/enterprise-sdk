@@ -64,7 +64,8 @@ import com.factset.sdk.FactSetEstimates.JSON;
   DetailEstimate.JSON_PROPERTY_BROKER_ESTIMATE_CURRENCY,
   DetailEstimate.JSON_PROPERTY_ESTIMATE_CURRENCY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class DetailEstimate implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -155,7 +156,7 @@ public class DetailEstimate implements Serializable {
    * Get fsymId
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "SJY281-R", value = "")
   @JsonIgnore
 
@@ -189,7 +190,7 @@ public class DetailEstimate implements Serializable {
    * Company&#39;s Financial statement &#39;metric&#39; that is estimated. Use the factset-estimates/v#/metrics endpoint for a complete list. For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).
    * @return metric
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "SALES", value = "Company's Financial statement 'metric' that is estimated. Use the factset-estimates/v#/metrics endpoint for a complete list. For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).")
   @JsonIgnore
 
@@ -223,7 +224,7 @@ public class DetailEstimate implements Serializable {
    * Company&#39;s &#39;periodicity&#39; for the estimate record, reflecting Annual, Quarterly, or Semi-Annual report periods.
    * @return periodicity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "ANN", value = "Company's 'periodicity' for the estimate record, reflecting Annual, Quarterly, or Semi-Annual report periods.")
   @JsonIgnore
 
@@ -257,7 +258,7 @@ public class DetailEstimate implements Serializable {
    * Company&#39;s &#39;fiscal year&#39; for the estimate record
    * @return fiscalYear
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2018", value = "Company's 'fiscal year' for the estimate record")
   @JsonIgnore
 
@@ -291,7 +292,7 @@ public class DetailEstimate implements Serializable {
    * Company&#39;s &#39;fiscal period&#39; for the estimate record.  &#39;Periodicity&#39; defines context for period.
    * @return fiscalPeriod
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "4", value = "Company's 'fiscal period' for the estimate record.  'Periodicity' defines context for period.")
   @JsonIgnore
 
@@ -325,7 +326,7 @@ public class DetailEstimate implements Serializable {
    * Company&#39;s &#39;fiscal end date&#39; for the estimate record expressed in YYYY-MM-DD format
    * @return fiscalEndDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Sun Dec 31 00:00:00 UTC 2017", value = "Company's 'fiscal end date' for the estimate record expressed in YYYY-MM-DD format")
   @JsonIgnore
 
@@ -359,7 +360,7 @@ public class DetailEstimate implements Serializable {
    * &#39;Fiscal period&#39; based on relationship to &#39;estimate date&#39;. This is not applicable for fixed-consensus endpoint. For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16598)
    * @return relativePeriod
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2", value = "'Fiscal period' based on relationship to 'estimate date'. This is not applicable for fixed-consensus endpoint. For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16598)")
   @JsonIgnore
 
@@ -393,7 +394,7 @@ public class DetailEstimate implements Serializable {
    * Currency code for adjusting the data. Use &#39;ESTIMATE&#39; as input value for the values in Estimate Currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "Currency code for adjusting the data. Use 'ESTIMATE' as input value for the values in Estimate Currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).")
   @JsonIgnore
 
@@ -427,7 +428,7 @@ public class DetailEstimate implements Serializable {
    * Date of estimate expressed in YYYY-MM-DD format. For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16598)
    * @return estimateDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Mon Jul 24 00:00:00 UTC 2017", value = "Date of estimate expressed in YYYY-MM-DD format. For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16598)")
   @JsonIgnore
 
@@ -461,7 +462,7 @@ public class DetailEstimate implements Serializable {
    * The value of the estimate.
    * @return estimateValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "23456", value = "The value of the estimate.")
   @JsonIgnore
 
@@ -495,7 +496,7 @@ public class DetailEstimate implements Serializable {
    * The FactSet Entity Identifier for the analyst making the estimate.
    * @return analystId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0DXTST-E", value = "The FactSet Entity Identifier for the analyst making the estimate.")
   @JsonIgnore
 
@@ -529,7 +530,7 @@ public class DetailEstimate implements Serializable {
    * The name of the analyst making the estimate.
    * @return analystName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Josh Baer", value = "The name of the analyst making the estimate.")
   @JsonIgnore
 
@@ -563,7 +564,7 @@ public class DetailEstimate implements Serializable {
    * The FactSet Entity Identifier for the broker making the estimate.
    * @return brokerId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "05FBK7-E", value = "The FactSet Entity Identifier for the broker making the estimate.")
   @JsonIgnore
 
@@ -597,7 +598,7 @@ public class DetailEstimate implements Serializable {
    * The name of the broker making the estimate.
    * @return brokerName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Morgan Stanley", value = "The name of the broker making the estimate.")
   @JsonIgnore
 
@@ -631,7 +632,7 @@ public class DetailEstimate implements Serializable {
    * The date at which a broker provided an estimate that is a revision.
    * @return lastModifiedDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Mon Jul 24 00:00:00 UTC 2017", value = "The date at which a broker provided an estimate that is a revision.")
   @JsonIgnore
 
@@ -665,7 +666,7 @@ public class DetailEstimate implements Serializable {
    * Date the previous estimate was made expressed in YYYY-MM-DD format. For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16598)
    * @return prevEstimateDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Tue May 02 00:00:00 UTC 2017", value = "Date the previous estimate was made expressed in YYYY-MM-DD format. For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16598)")
   @JsonIgnore
 
@@ -699,7 +700,7 @@ public class DetailEstimate implements Serializable {
    * The value of the previous estimate.
    * @return prevEstimateValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "22336", value = "The value of the previous estimate.")
   @JsonIgnore
 
@@ -733,7 +734,7 @@ public class DetailEstimate implements Serializable {
    * Section of the estimate.Returns the details of brokers inlcuded and excluded in the consensus
    * @return section
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Included", value = "Section of the estimate.Returns the details of brokers inlcuded and excluded in the consensus")
   @JsonIgnore
 
@@ -767,7 +768,7 @@ public class DetailEstimate implements Serializable {
    * Status code of the estimate.
    * @return statusCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0", value = "Status code of the estimate.")
   @JsonIgnore
 
@@ -801,7 +802,7 @@ public class DetailEstimate implements Serializable {
    * Status description of the estimate.
    * @return statusText
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "", value = "Status description of the estimate.")
   @JsonIgnore
 
@@ -835,7 +836,7 @@ public class DetailEstimate implements Serializable {
    * Identifier that was used for the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "IBM-US", value = "Identifier that was used for the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -861,7 +862,7 @@ public class DetailEstimate implements Serializable {
    * Date and time when the data is available at the source.
    * @return inputDateTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2022-10-25T22:40:09", value = "Date and time when the data is available at the source.")
   @JsonIgnore
 
@@ -895,7 +896,7 @@ public class DetailEstimate implements Serializable {
    * The currency that the company trades in.
    * @return securityCurrency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "The currency that the company trades in.")
   @JsonIgnore
 
@@ -929,7 +930,7 @@ public class DetailEstimate implements Serializable {
    * The currency in which estimates are made by broker.
    * @return brokerEstimateCurrency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "The currency in which estimates are made by broker.")
   @JsonIgnore
 
@@ -963,7 +964,7 @@ public class DetailEstimate implements Serializable {
    * Estimate currency of the requested Security
    * @return estimateCurrency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "Estimate currency of the requested Security")
   @JsonIgnore
 

@@ -37,7 +37,8 @@ import com.factset.sdk.ExchangeDataFeedSnapshotAPISymbolList.JSON;
   ErrorResponseSubErrors.JSON_PROPERTY_FIELD,
   ErrorResponseSubErrors.JSON_PROPERTY_MESSAGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ErrorResponseSubErrors implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -59,7 +60,7 @@ public class ErrorResponseSubErrors implements Serializable {
    * Parameter Field Name
    * @return field
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Parameter Field Name")
   @JsonProperty(JSON_PROPERTY_FIELD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -85,7 +86,7 @@ public class ErrorResponseSubErrors implements Serializable {
    * Error message
    * @return message
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Error message")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -39,7 +39,8 @@ import com.factset.sdk.OpenFactSetPartnersDocuments.JSON;
   DiseasesResponse.JSON_PROPERTY_DATA,
   DiseasesResponse.JSON_PROPERTY_META
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class DiseasesResponse implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -69,7 +70,7 @@ public class DiseasesResponse implements Serializable {
    * Returns Diseases Response
    * @return data
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Returns Diseases Response")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -95,7 +96,7 @@ public class DiseasesResponse implements Serializable {
    * Get meta
    * @return meta
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

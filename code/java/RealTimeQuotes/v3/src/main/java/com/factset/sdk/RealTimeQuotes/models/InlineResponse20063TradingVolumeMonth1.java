@@ -41,7 +41,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
 @JsonPropertyOrder({
   InlineResponse20063TradingVolumeMonth1.JSON_PROPERTY_AVERAGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20063TradingVolumeMonth1 implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -60,7 +61,7 @@ public class InlineResponse20063TradingVolumeMonth1 implements Serializable {
    * Arithmetic mean of the daily trading volumes.
    * @return average
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Arithmetic mean of the daily trading volumes.")
   @JsonIgnore
 

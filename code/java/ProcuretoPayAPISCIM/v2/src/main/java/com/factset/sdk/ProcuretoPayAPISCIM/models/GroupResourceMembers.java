@@ -37,7 +37,8 @@ import com.factset.sdk.ProcuretoPayAPISCIM.JSON;
   GroupResourceMembers.JSON_PROPERTY_$_REF,
   GroupResourceMembers.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class GroupResourceMembers implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -62,7 +63,7 @@ public class GroupResourceMembers implements Serializable {
    * Identifier of the member of this Group.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FIN_WEALTH-123456", value = "Identifier of the member of this Group.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -88,7 +89,7 @@ public class GroupResourceMembers implements Serializable {
    * The URI corresponding to a SCIM resource that is a member of this Group.
    * @return $ref
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "https://api.factset.com/scim/v2/Users/FIN_WEALTH-123456", value = "The URI corresponding to a SCIM resource that is a member of this Group.")
   @JsonProperty(JSON_PROPERTY_$_REF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -114,7 +115,7 @@ public class GroupResourceMembers implements Serializable {
    * A label indicating the type of resource, e.g., &#39;User&#39; or &#39;Group&#39;.
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "User", value = "A label indicating the type of resource, e.g., 'User' or 'Group'.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

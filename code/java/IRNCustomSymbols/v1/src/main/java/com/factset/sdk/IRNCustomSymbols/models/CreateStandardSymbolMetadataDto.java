@@ -50,7 +50,8 @@ import com.factset.sdk.IRNCustomSymbols.JSON;
   CreateStandardSymbolMetadataDto.JSON_PROPERTY_COUNTRY,
   CreateStandardSymbolMetadataDto.JSON_PROPERTY_CUSTOM_FIELD_VALUES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CreateStandardSymbolMetadataDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -107,7 +108,7 @@ public class CreateStandardSymbolMetadataDto implements Serializable {
    * Get standardSymbol
    * @return standardSymbol
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_STANDARD_SYMBOL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -133,7 +134,7 @@ public class CreateStandardSymbolMetadataDto implements Serializable {
    * Get description
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -167,7 +168,7 @@ public class CreateStandardSymbolMetadataDto implements Serializable {
    * Get typeId
    * @return typeId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -193,7 +194,7 @@ public class CreateStandardSymbolMetadataDto implements Serializable {
    * Get subTypeId
    * @return subTypeId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SUB_TYPE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -219,7 +220,7 @@ public class CreateStandardSymbolMetadataDto implements Serializable {
    * Get googleMapsPlaceId
    * @return googleMapsPlaceId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -253,7 +254,7 @@ public class CreateStandardSymbolMetadataDto implements Serializable {
    * Get formattedAddress
    * @return formattedAddress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -287,7 +288,7 @@ public class CreateStandardSymbolMetadataDto implements Serializable {
    * Get city
    * @return city
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -321,7 +322,7 @@ public class CreateStandardSymbolMetadataDto implements Serializable {
    * Get stateProvince
    * @return stateProvince
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -355,7 +356,7 @@ public class CreateStandardSymbolMetadataDto implements Serializable {
    * Get postalCode
    * @return postalCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -389,7 +390,7 @@ public class CreateStandardSymbolMetadataDto implements Serializable {
    * Get country
    * @return country
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -435,7 +436,7 @@ public class CreateStandardSymbolMetadataDto implements Serializable {
    * Get customFieldValues
    * @return customFieldValues
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

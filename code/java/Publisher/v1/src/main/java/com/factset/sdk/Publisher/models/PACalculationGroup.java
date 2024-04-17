@@ -35,7 +35,8 @@ import com.factset.sdk.Publisher.JSON;
 @JsonPropertyOrder({
   PACalculationGroup.JSON_PROPERTY_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PACalculationGroup implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -54,7 +55,7 @@ public class PACalculationGroup implements Serializable {
    * FactSet-defined or User-defined Group identifier.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "FactSet-defined or User-defined Group identifier.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -42,7 +42,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20090LatestPerformanceIntraday.JSON_PROPERTY_ABSOLUTE,
   InlineResponse20090LatestPerformanceIntraday.JSON_PROPERTY_RELATIVE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20090LatestPerformanceIntraday implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class InlineResponse20090LatestPerformanceIntraday implements Serializabl
    * Absolute value. See attribute &#x60;valueUnit&#x60; for its unit.
    * @return absolute
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Absolute value. See attribute `valueUnit` for its unit.")
   @JsonIgnore
 
@@ -98,7 +99,7 @@ public class InlineResponse20090LatestPerformanceIntraday implements Serializabl
    * Relative value.
    * @return relative
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Relative value.")
   @JsonIgnore
 

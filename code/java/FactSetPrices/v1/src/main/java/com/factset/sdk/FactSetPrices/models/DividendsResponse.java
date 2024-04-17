@@ -36,7 +36,8 @@ import com.factset.sdk.FactSetPrices.JSON;
 @JsonPropertyOrder({
   DividendsResponse.JSON_PROPERTY_DATA
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class DividendsResponse implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class DividendsResponse implements Serializable {
    * Array of Dividend Objects
    * @return data
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Array of Dividend Objects")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

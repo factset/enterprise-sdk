@@ -39,7 +39,8 @@ import com.factset.sdk.RealTimeNews.JSON;
   InlineResponse2003Data.JSON_PROPERTY_IDENTIFIERS,
   InlineResponse2003Data.JSON_PROPERTY_ARTICLES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2003Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -69,7 +70,7 @@ public class InlineResponse2003Data implements Serializable {
    * List of identifiers that resolve to index notations, and their type.
    * @return identifiers
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of identifiers that resolve to index notations, and their type.")
   @JsonProperty(JSON_PROPERTY_IDENTIFIERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -103,7 +104,7 @@ public class InlineResponse2003Data implements Serializable {
    * News articles that match the filter criteria ordered by descending article time.
    * @return articles
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "News articles that match the filter criteria ordered by descending article time.")
   @JsonProperty(JSON_PROPERTY_ARTICLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -36,7 +36,8 @@ import com.factset.sdk.EventCalendar.JSON;
   CompanyEventRequestDataUniverse.JSON_PROPERTY_SYMBOLS,
   CompanyEventRequestDataUniverse.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CompanyEventRequestDataUniverse implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -107,7 +108,7 @@ public class CompanyEventRequestDataUniverse implements Serializable {
    * Companies to return in the response
    * @return symbols
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "[\"AAPL-US\",\"MSFT-US\",\"FDS-US\"]", value = "Companies to return in the response")
   @JsonProperty(JSON_PROPERTY_SYMBOLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -133,7 +134,7 @@ public class CompanyEventRequestDataUniverse implements Serializable {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "tickers", value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

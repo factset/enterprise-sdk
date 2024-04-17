@@ -49,7 +49,8 @@ import com.factset.sdk.Vault.JSON;
   VaultComponent.JSON_PROPERTY_NAME,
   VaultComponent.JSON_PROPERTY_CATEGORY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class VaultComponent implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -92,7 +93,7 @@ public class VaultComponent implements Serializable {
    * Vault component identifier
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Vault component identifier")
   @JsonIgnore
 
@@ -126,7 +127,7 @@ public class VaultComponent implements Serializable {
    * Get account
    * @return account
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -152,7 +153,7 @@ public class VaultComponent implements Serializable {
    * Get benchmark
    * @return benchmark
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BENCHMARK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -178,7 +179,7 @@ public class VaultComponent implements Serializable {
    * Currency iso code saved in the document
    * @return currencyisocode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Currency iso code saved in the document")
   @JsonIgnore
 
@@ -212,7 +213,7 @@ public class VaultComponent implements Serializable {
    * Get dates
    * @return dates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -238,7 +239,7 @@ public class VaultComponent implements Serializable {
    * Snapshot
    * @return snapshot
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Snapshot")
   @JsonProperty(JSON_PROPERTY_SNAPSHOT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -264,7 +265,7 @@ public class VaultComponent implements Serializable {
    * The path to the document
    * @return path
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The path to the document")
   @JsonIgnore
 
@@ -298,7 +299,7 @@ public class VaultComponent implements Serializable {
    * Component name.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Component name.")
   @JsonIgnore
 
@@ -332,7 +333,7 @@ public class VaultComponent implements Serializable {
    * Component category.
    * @return category
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Component category.")
   @JsonIgnore
 

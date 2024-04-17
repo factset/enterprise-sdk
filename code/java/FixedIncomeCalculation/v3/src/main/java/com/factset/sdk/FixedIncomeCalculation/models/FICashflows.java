@@ -37,7 +37,8 @@ import com.factset.sdk.FixedIncomeCalculation.JSON;
   FICashflows.JSON_PROPERTY_OPTIONAL_REDEMPTION_CALL_WHEN,
   FICashflows.JSON_PROPERTY_RECOVERY_LAG
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FICashflows implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -105,7 +106,7 @@ public class FICashflows implements Serializable {
    * OptionalRedemptionCallWhenUnits
    * @return optionalRedemptionCallWhenUnits
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "OptionalRedemptionCallWhenUnits")
   @JsonProperty(JSON_PROPERTY_OPTIONAL_REDEMPTION_CALL_WHEN_UNITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -131,7 +132,7 @@ public class FICashflows implements Serializable {
    * OptionalRedemptionCallWhen
    * @return optionalRedemptionCallWhen
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "OptionalRedemptionCallWhen")
   @JsonProperty(JSON_PROPERTY_OPTIONAL_REDEMPTION_CALL_WHEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -157,7 +158,7 @@ public class FICashflows implements Serializable {
    * RecoveryLag
    * @return recoveryLag
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "RecoveryLag")
   @JsonProperty(JSON_PROPERTY_RECOVERY_LAG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

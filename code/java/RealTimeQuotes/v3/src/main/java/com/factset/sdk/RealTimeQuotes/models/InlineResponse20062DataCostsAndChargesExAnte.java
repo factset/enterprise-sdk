@@ -59,7 +59,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20062DataCostsAndChargesExAnte.JSON_PROPERTY_TRANSACTION_COSTS,
   InlineResponse20062DataCostsAndChargesExAnte.JSON_PROPERTY_INCIDENTAL_COSTS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20062DataCostsAndChargesExAnte implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -111,7 +112,7 @@ public class InlineResponse20062DataCostsAndChargesExAnte implements Serializabl
    * Get oneOffEntryCost
    * @return oneOffEntryCost
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ONE_OFF_ENTRY_COST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -137,7 +138,7 @@ public class InlineResponse20062DataCostsAndChargesExAnte implements Serializabl
    * Get italy
    * @return italy
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ITALY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -163,7 +164,7 @@ public class InlineResponse20062DataCostsAndChargesExAnte implements Serializabl
    * Get oneOffMaximumAcquiredEntryCost
    * @return oneOffMaximumAcquiredEntryCost
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ONE_OFF_MAXIMUM_ACQUIRED_ENTRY_COST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -189,7 +190,7 @@ public class InlineResponse20062DataCostsAndChargesExAnte implements Serializabl
    * Get oneOffMaximumExitCost
    * @return oneOffMaximumExitCost
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ONE_OFF_MAXIMUM_EXIT_COST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -215,7 +216,7 @@ public class InlineResponse20062DataCostsAndChargesExAnte implements Serializabl
    * Get oneOffMaximumAcquiredExitCost
    * @return oneOffMaximumAcquiredExitCost
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ONE_OFF_MAXIMUM_ACQUIRED_EXIT_COST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -241,7 +242,7 @@ public class InlineResponse20062DataCostsAndChargesExAnte implements Serializabl
    * Get oneOffTypicalExitCost
    * @return oneOffTypicalExitCost
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ONE_OFF_TYPICAL_EXIT_COST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -267,7 +268,7 @@ public class InlineResponse20062DataCostsAndChargesExAnte implements Serializabl
    * Get oneOffPriorRHPExitCost
    * @return oneOffPriorRHPExitCost
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ONE_OFF_PRIOR_R_H_P_EXIT_COST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -293,7 +294,7 @@ public class InlineResponse20062DataCostsAndChargesExAnte implements Serializabl
    * Get ongoingCosts
    * @return ongoingCosts
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ONGOING_COSTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -319,7 +320,7 @@ public class InlineResponse20062DataCostsAndChargesExAnte implements Serializabl
    * Get managementFee
    * @return managementFee
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MANAGEMENT_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -345,7 +346,7 @@ public class InlineResponse20062DataCostsAndChargesExAnte implements Serializabl
    * Get distributionFee
    * @return distributionFee
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DISTRIBUTION_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -371,7 +372,7 @@ public class InlineResponse20062DataCostsAndChargesExAnte implements Serializabl
    * Get transactionCosts
    * @return transactionCosts
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TRANSACTION_COSTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -397,7 +398,7 @@ public class InlineResponse20062DataCostsAndChargesExAnte implements Serializabl
    * Get incidentalCosts
    * @return incidentalCosts
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INCIDENTAL_COSTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

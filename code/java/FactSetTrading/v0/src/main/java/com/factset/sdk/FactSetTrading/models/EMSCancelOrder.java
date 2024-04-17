@@ -41,7 +41,8 @@ import com.factset.sdk.FactSetTrading.JSON;
   EMSCancelOrder.JSON_PROPERTY_ORIGINAL_CLIENT_ORDER_ID,
   EMSCancelOrder.JSON_PROPERTY_INBOUND_DESTINATION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EMSCancelOrder implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -71,7 +72,7 @@ public class EMSCancelOrder implements Serializable {
    * Unique identifier of the original order, generated in Create.
    * @return originalClientOrderId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Unique identifier of the original order, generated in Create.")
   @JsonProperty(JSON_PROPERTY_ORIGINAL_CLIENT_ORDER_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -97,7 +98,7 @@ public class EMSCancelOrder implements Serializable {
    * To facilitate integration with translators that transform orders into a format compatible with the internal order routing and execution infrastructure.
    * @return inboundDestination
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "To facilitate integration with translators that transform orders into a format compatible with the internal order routing and execution infrastructure.")
   @JsonIgnore
 

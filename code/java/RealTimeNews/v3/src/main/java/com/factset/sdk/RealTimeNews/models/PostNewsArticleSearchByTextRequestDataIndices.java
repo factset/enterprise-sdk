@@ -36,7 +36,8 @@ import com.factset.sdk.RealTimeNews.JSON;
 @JsonPropertyOrder({
   PostNewsArticleSearchByTextRequestDataIndices.JSON_PROPERTY_IDS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostNewsArticleSearchByTextRequestDataIndices implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class PostNewsArticleSearchByTextRequestDataIndices implements Serializab
    * Identifiers of the index notations.
    * @return ids
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifiers of the index notations.")
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

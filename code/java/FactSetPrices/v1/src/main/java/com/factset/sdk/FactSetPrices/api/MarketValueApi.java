@@ -6,7 +6,7 @@ import com.factset.sdk.FactSetPrices.ApiResponse;
 import com.factset.sdk.FactSetPrices.Configuration;
 import com.factset.sdk.FactSetPrices.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -15,7 +15,8 @@ import com.factset.sdk.FactSetPrices.models.ErrorResponse;
 import com.factset.sdk.FactSetPrices.models.MarketValueRequest;
 import com.factset.sdk.FactSetPrices.models.MarketValueResponse;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class MarketValueApi {
   private ApiClient apiClient;
 

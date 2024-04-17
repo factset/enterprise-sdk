@@ -41,7 +41,8 @@ import com.factset.sdk.IRNConfiguration.JSON;
   ContactCustomFieldFormulaDto.JSON_PROPERTY_IS_SCREENING,
   ContactCustomFieldFormulaDto.JSON_PROPERTY_SYMBOL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ContactCustomFieldFormulaDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -66,7 +67,7 @@ public class ContactCustomFieldFormulaDto implements Serializable {
    * Get formula
    * @return formula
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -100,7 +101,7 @@ public class ContactCustomFieldFormulaDto implements Serializable {
    * Get isScreening
    * @return isScreening
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IS_SCREENING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -126,7 +127,7 @@ public class ContactCustomFieldFormulaDto implements Serializable {
    * Get symbol
    * @return symbol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

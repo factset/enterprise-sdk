@@ -39,7 +39,8 @@ import com.factset.sdk.OverviewReportBuilder.JSON;
   ProfileDataStagePevcLatestPostMoneyValuation.JSON_PROPERTY_AS_OF_DATE,
   ProfileDataStagePevcLatestPostMoneyValuation.JSON_PROPERTY_META
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ProfileDataStagePevcLatestPostMoneyValuation implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -74,7 +75,7 @@ public class ProfileDataStagePevcLatestPostMoneyValuation implements Serializabl
    * Get value
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -100,7 +101,7 @@ public class ProfileDataStagePevcLatestPostMoneyValuation implements Serializabl
    * Get asOfDate
    * @return asOfDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_AS_OF_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -126,7 +127,7 @@ public class ProfileDataStagePevcLatestPostMoneyValuation implements Serializabl
    * Get meta
    * @return meta
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

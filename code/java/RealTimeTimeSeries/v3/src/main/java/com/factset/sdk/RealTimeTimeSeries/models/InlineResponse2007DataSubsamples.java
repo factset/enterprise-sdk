@@ -47,7 +47,8 @@ import com.factset.sdk.RealTimeTimeSeries.JSON;
   InlineResponse2007DataSubsamples.JSON_PROPERTY_TRADING_VOLUME,
   InlineResponse2007DataSubsamples.JSON_PROPERTY_TRADING_VALUE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2007DataSubsamples implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -84,7 +85,7 @@ public class InlineResponse2007DataSubsamples implements Serializable {
    * Date of the start of the subsample.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Date of the start of the subsample.")
   @JsonIgnore
 
@@ -118,7 +119,7 @@ public class InlineResponse2007DataSubsamples implements Serializable {
    * First price of the subsample.
    * @return first
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "First price of the subsample.")
   @JsonIgnore
 
@@ -152,7 +153,7 @@ public class InlineResponse2007DataSubsamples implements Serializable {
    * Last price of the subsample.
    * @return last
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Last price of the subsample.")
   @JsonIgnore
 
@@ -186,7 +187,7 @@ public class InlineResponse2007DataSubsamples implements Serializable {
    * Lowest price of the subsample.
    * @return low
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Lowest price of the subsample.")
   @JsonIgnore
 
@@ -220,7 +221,7 @@ public class InlineResponse2007DataSubsamples implements Serializable {
    * Highest price of the subsample.
    * @return high
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Highest price of the subsample.")
   @JsonIgnore
 
@@ -254,7 +255,7 @@ public class InlineResponse2007DataSubsamples implements Serializable {
    * Accumulated number of units (e.g. shares) traded of the subsample. If the requested type of the price is ask, bid, or yield, the value is empty.
    * @return tradingVolume
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Accumulated number of units (e.g. shares) traded of the subsample. If the requested type of the price is ask, bid, or yield, the value is empty.")
   @JsonIgnore
 
@@ -288,7 +289,7 @@ public class InlineResponse2007DataSubsamples implements Serializable {
    * Accumulated monetary equivalent (cash value) of the subsample. If the requested type of the price is ask, bid, or yield, the value is empty. See attribute &#x60;currency&#x60; in endpoint &#x60;/prices/get&#x60; for its unit.
    * @return tradingValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Accumulated monetary equivalent (cash value) of the subsample. If the requested type of the price is ask, bid, or yield, the value is empty. See attribute `currency` in endpoint `/prices/get` for its unit.")
   @JsonIgnore
 

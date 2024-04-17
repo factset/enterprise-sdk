@@ -39,7 +39,8 @@ import com.factset.sdk.Vermilion.JSON;
   ReportDefinitionDTO.JSON_PROPERTY_RELEASE_TAG,
   ReportDefinitionDTO.JSON_PROPERTY_ENTITIES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ReportDefinitionDTO implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -67,7 +68,7 @@ public class ReportDefinitionDTO implements Serializable {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -93,7 +94,7 @@ public class ReportDefinitionDTO implements Serializable {
    * Get code
    * @return code
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -119,7 +120,7 @@ public class ReportDefinitionDTO implements Serializable {
    * Get releaseTag
    * @return releaseTag
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RELEASE_TAG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -153,7 +154,7 @@ public class ReportDefinitionDTO implements Serializable {
    * Get entities
    * @return entities
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ENTITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

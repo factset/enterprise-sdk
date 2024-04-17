@@ -37,7 +37,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
 @JsonPropertyOrder({
   InlineResponse20062DataTargetMarketRiskToleranceSpain.JSON_PROPERTY_SRI
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20062DataTargetMarketRiskToleranceSpain implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -56,7 +57,7 @@ public class InlineResponse20062DataTargetMarketRiskToleranceSpain implements Se
    * Get sri
    * @return sri
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SRI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

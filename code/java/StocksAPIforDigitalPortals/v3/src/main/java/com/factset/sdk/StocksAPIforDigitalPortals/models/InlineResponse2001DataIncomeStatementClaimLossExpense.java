@@ -43,7 +43,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2001DataIncomeStatementClaimLossExpense.JSON_PROPERTY_GROWTH,
   InlineResponse2001DataIncomeStatementClaimLossExpense.JSON_PROPERTY_LOSS_RATIO
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2001DataIncomeStatementClaimLossExpense implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class InlineResponse2001DataIncomeStatementClaimLossExpense implements Se
    * Value of the total claim and loss expenses.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Value of the total claim and loss expenses.")
   @JsonIgnore
 
@@ -102,7 +103,7 @@ public class InlineResponse2001DataIncomeStatementClaimLossExpense implements Se
    * Annual growth rate of the total claim and loss expenses.
    * @return growth
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Annual growth rate of the total claim and loss expenses.")
   @JsonIgnore
 
@@ -136,7 +137,7 @@ public class InlineResponse2001DataIncomeStatementClaimLossExpense implements Se
    * Loss ratio, which is the ratio of the total claim and loss expenses divided by the portion of total premiums needed to cover all expenses and benefits. Relevant for insurance companies.
    * @return lossRatio
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Loss ratio, which is the ratio of the total claim and loss expenses divided by the portion of total premiums needed to cover all expenses and benefits. Relevant for insurance companies.")
   @JsonIgnore
 

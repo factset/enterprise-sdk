@@ -46,7 +46,8 @@ import com.factset.sdk.IRNCustomSymbols.JSON;
   InstrumentDto.JSON_PROPERTY_INSTRUMENT_NAME,
   InstrumentDto.JSON_PROPERTY_IDENTIFIERS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InstrumentDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -86,7 +87,7 @@ public class InstrumentDto implements Serializable {
    * Get symbol
    * @return symbol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -120,7 +121,7 @@ public class InstrumentDto implements Serializable {
    * Get tickerRegion
    * @return tickerRegion
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -154,7 +155,7 @@ public class InstrumentDto implements Serializable {
    * Get tickerExchange
    * @return tickerExchange
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -188,7 +189,7 @@ public class InstrumentDto implements Serializable {
    * Get sedol
    * @return sedol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -222,7 +223,7 @@ public class InstrumentDto implements Serializable {
    * Get cusip
    * @return cusip
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -256,7 +257,7 @@ public class InstrumentDto implements Serializable {
    * Get isin
    * @return isin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -290,7 +291,7 @@ public class InstrumentDto implements Serializable {
    * Get instrumentName
    * @return instrumentName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -336,7 +337,7 @@ public class InstrumentDto implements Serializable {
    * Get identifiers
    * @return identifiers
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

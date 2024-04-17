@@ -36,7 +36,8 @@ import com.factset.sdk.FactSetSearchAnswers.JSON;
 @JsonPropertyOrder({
   RankedTableTemplateDataAllOf.JSON_PROPERTY_TABLE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class RankedTableTemplateDataAllOf implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -55,7 +56,7 @@ public class RankedTableTemplateDataAllOf implements Serializable {
    * Get table
    * @return table
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

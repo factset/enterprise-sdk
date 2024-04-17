@@ -6,7 +6,7 @@ import com.factset.sdk.FactSetConcordance.ApiResponse;
 import com.factset.sdk.FactSetConcordance.Configuration;
 import com.factset.sdk.FactSetConcordance.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -15,7 +15,8 @@ import com.factset.sdk.FactSetConcordance.models.EntityMatchRequest;
 import com.factset.sdk.FactSetConcordance.models.EntityMatchesResponse;
 import com.factset.sdk.FactSetConcordance.models.ErrorResponse;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EntityMatchApi {
   private ApiClient apiClient;
 

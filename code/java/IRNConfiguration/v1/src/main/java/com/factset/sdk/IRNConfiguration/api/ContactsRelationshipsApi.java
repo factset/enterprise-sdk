@@ -6,7 +6,7 @@ import com.factset.sdk.IRNConfiguration.ApiResponse;
 import com.factset.sdk.IRNConfiguration.Configuration;
 import com.factset.sdk.IRNConfiguration.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -17,7 +17,8 @@ import com.factset.sdk.IRNConfiguration.models.RelationshipDto;
 import com.factset.sdk.IRNConfiguration.models.RelationshipSaveDto;
 import com.factset.sdk.IRNConfiguration.models.RelationshipType;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ContactsRelationshipsApi {
   private ApiClient apiClient;
 

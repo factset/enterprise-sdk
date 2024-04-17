@@ -36,7 +36,8 @@ import com.factset.sdk.FactSetOwnershipReportBuilder.JSON;
 @JsonPropertyOrder({
   CurrencyCode.JSON_PROPERTY_CURRENCY_CODE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CurrencyCode implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -55,7 +56,7 @@ public class CurrencyCode implements Serializable {
    * Get currencyCode
    * @return currencyCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CURRENCY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

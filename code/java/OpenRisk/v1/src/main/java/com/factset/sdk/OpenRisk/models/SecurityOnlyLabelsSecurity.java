@@ -40,7 +40,8 @@ import com.factset.sdk.OpenRisk.JSON;
   SecurityOnlyLabelsSecurity.JSON_PROPERTY_INDICES_INPUT_TO_RESULT,
   SecurityOnlyLabelsSecurity.JSON_PROPERTY_INDICES_RESULT_TO_INPUT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SecurityOnlyLabelsSecurity implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -78,7 +79,7 @@ public class SecurityOnlyLabelsSecurity implements Serializable {
    * Security IDs aligned to the calculated output. Often this will merge the individual holdings arrays into a single array.
    * @return ids
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Security IDs aligned to the calculated output. Often this will merge the individual holdings arrays into a single array.")
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -104,7 +105,7 @@ public class SecurityOnlyLabelsSecurity implements Serializable {
    * Get indicesInputToResult
    * @return indicesInputToResult
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INDICES_INPUT_TO_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -130,7 +131,7 @@ public class SecurityOnlyLabelsSecurity implements Serializable {
    * Get indicesResultToInput
    * @return indicesResultToInput
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INDICES_RESULT_TO_INPUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

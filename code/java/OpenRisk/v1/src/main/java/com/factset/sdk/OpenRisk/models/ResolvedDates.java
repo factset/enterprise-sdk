@@ -39,7 +39,8 @@ import com.factset.sdk.OpenRisk.JSON;
   ResolvedDates.JSON_PROPERTY_COVARIANCE_DATE,
   ResolvedDates.JSON_PROPERTY_SSR_DATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ResolvedDates implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -76,7 +77,7 @@ public class ResolvedDates implements Serializable {
    * **(since 1.12.0)**  Date format YYYY-MM-DD.
    * @return universeDate
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "Sat Jan 26 00:00:00 UTC 2019", required = true, value = "**(since 1.12.0)**  Date format YYYY-MM-DD.")
   @JsonProperty(JSON_PROPERTY_UNIVERSE_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -102,7 +103,7 @@ public class ResolvedDates implements Serializable {
    * **(since 1.12.0)**  Date format YYYY-MM-DD.
    * @return covarianceDate
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "Sat Jan 26 00:00:00 UTC 2019", required = true, value = "**(since 1.12.0)**  Date format YYYY-MM-DD.")
   @JsonProperty(JSON_PROPERTY_COVARIANCE_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -128,7 +129,7 @@ public class ResolvedDates implements Serializable {
    * **(since 1.12.0)**  Date format YYYY-MM-DD.
    * @return ssrDate
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "Sat Jan 26 00:00:00 UTC 2019", required = true, value = "**(since 1.12.0)**  Date format YYYY-MM-DD.")
   @JsonProperty(JSON_PROPERTY_SSR_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

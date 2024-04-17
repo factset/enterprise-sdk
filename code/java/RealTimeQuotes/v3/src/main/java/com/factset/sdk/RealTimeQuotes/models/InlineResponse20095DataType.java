@@ -42,7 +42,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20095DataType.JSON_PROPERTY_ID,
   InlineResponse20095DataType.JSON_PROPERTY_CODE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20095DataType implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class InlineResponse20095DataType implements Serializable {
    * Identifier of the event type.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the event type.")
   @JsonIgnore
 
@@ -98,7 +99,7 @@ public class InlineResponse20095DataType implements Serializable {
    * Code of the event type.
    * @return code
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Code of the event type.")
   @JsonIgnore
 

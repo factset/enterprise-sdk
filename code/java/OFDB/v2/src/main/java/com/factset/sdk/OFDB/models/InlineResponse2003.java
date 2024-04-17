@@ -36,7 +36,8 @@ import com.factset.sdk.OFDB.JSON;
 @JsonPropertyOrder({
   InlineResponse2003.JSON_PROPERTY_DATA
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2003 implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class InlineResponse2003 implements Serializable {
    * A list of the various backend responses needed for the bulk delete. These typically contain data points that failed to be deleted, and are in the order of: &lt;br&gt;Delete values by symbol, date, and field + delete values by symbol and field &lt;br&gt;Delete dates by field + delete dates &lt;br&gt;Delete dates by symbol &lt;br&gt;Delete fields &lt;br&gt;Delete symbols
    * @return data
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A list of the various backend responses needed for the bulk delete. These typically contain data points that failed to be deleted, and are in the order of: <br>Delete values by symbol, date, and field + delete values by symbol and field <br>Delete dates by field + delete dates <br>Delete dates by symbol <br>Delete fields <br>Delete symbols")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

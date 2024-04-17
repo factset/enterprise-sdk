@@ -41,7 +41,8 @@ import com.factset.sdk.PAEngine.JSON;
   TemplateContentTypes.JSON_PROPERTY_OPTIONAL,
   TemplateContentTypes.JSON_PROPERTY_LOCKED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class TemplateContentTypes implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -78,7 +79,7 @@ public class TemplateContentTypes implements Serializable {
    * Template mandatory fields
    * @return mandatory
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Template mandatory fields")
   @JsonIgnore
 
@@ -124,7 +125,7 @@ public class TemplateContentTypes implements Serializable {
    * Template optional fields
    * @return optional
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Template optional fields")
   @JsonIgnore
 
@@ -170,7 +171,7 @@ public class TemplateContentTypes implements Serializable {
    * Template locked fields
    * @return locked
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Template locked fields")
   @JsonIgnore
 

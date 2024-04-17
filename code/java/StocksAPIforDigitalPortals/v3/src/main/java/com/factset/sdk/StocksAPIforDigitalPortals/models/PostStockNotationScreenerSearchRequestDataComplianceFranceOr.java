@@ -36,7 +36,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
 @JsonPropertyOrder({
   PostStockNotationScreenerSearchRequestDataComplianceFranceOr.JSON_PROPERTY_AND
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostStockNotationScreenerSearchRequestDataComplianceFranceOr implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class PostStockNotationScreenerSearchRequestDataComplianceFranceOr implem
    * List of combinations of compliance properties joined by a logical AND operator.
    * @return and
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of combinations of compliance properties joined by a logical AND operator.")
   @JsonProperty(JSON_PROPERTY_AND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

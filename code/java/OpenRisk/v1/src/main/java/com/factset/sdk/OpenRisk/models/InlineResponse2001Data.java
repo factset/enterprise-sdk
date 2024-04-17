@@ -49,7 +49,8 @@ import com.factset.sdk.OpenRisk.JSON;
   InlineResponse2001Data.JSON_PROPERTY_UNIVERSE_COUNT,
   InlineResponse2001Data.JSON_PROPERTY_VENDOR
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2001Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -129,7 +130,7 @@ public class InlineResponse2001Data implements Serializable {
    * Model code
    * @return code
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "FDS:GLOBAL_EQUITY_M_V1", required = true, value = "Model code")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -160,7 +161,7 @@ public class InlineResponse2001Data implements Serializable {
    * Currencies that can be used with the model
    * @return currencies
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Currencies that can be used with the model")
   @JsonProperty(JSON_PROPERTY_CURRENCIES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -186,7 +187,7 @@ public class InlineResponse2001Data implements Serializable {
    * ISO-4217 currency code for risk model and holdings data to fetch and use. Ignored only for composite asset definitions provided as inputs via &#39;compositeAssets&#39; field.
    * @return currency
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "EUR", required = true, value = "ISO-4217 currency code for risk model and holdings data to fetch and use. Ignored only for composite asset definitions provided as inputs via 'compositeAssets' field.")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -217,7 +218,7 @@ public class InlineResponse2001Data implements Serializable {
    * Factors of the model
    * @return factors
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Factors of the model")
   @JsonProperty(JSON_PROPERTY_FACTORS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -248,7 +249,7 @@ public class InlineResponse2001Data implements Serializable {
    * Map of currency factor IDs to ISO currency code.
    * @return factorIdToIsoCurrency
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Map of currency factor IDs to ISO currency code.")
   @JsonProperty(JSON_PROPERTY_FACTOR_ID_TO_ISO_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -274,7 +275,7 @@ public class InlineResponse2001Data implements Serializable {
    * **(since 1.12.0)**  Date format YYYY-MM-DD.
    * @return firstDate
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "Sat Jan 26 00:00:00 UTC 2019", required = true, value = "**(since 1.12.0)**  Date format YYYY-MM-DD.")
   @JsonProperty(JSON_PROPERTY_FIRST_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -300,7 +301,7 @@ public class InlineResponse2001Data implements Serializable {
    * Frequency of the model
    * @return frequency
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Frequency of the model")
   @JsonProperty(JSON_PROPERTY_FREQUENCY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -326,7 +327,7 @@ public class InlineResponse2001Data implements Serializable {
    * **(since 1.12.0)**  Date format YYYY-MM-DD.
    * @return latestDate
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "Sat Jan 26 00:00:00 UTC 2019", required = true, value = "**(since 1.12.0)**  Date format YYYY-MM-DD.")
   @JsonProperty(JSON_PROPERTY_LATEST_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -352,7 +353,7 @@ public class InlineResponse2001Data implements Serializable {
    * Model name
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Model name")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -386,7 +387,7 @@ public class InlineResponse2001Data implements Serializable {
    * List of fields which are supported by the risk model for appending additional asset data
    * @return riskModelAppendFormat
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of fields which are supported by the risk model for appending additional asset data")
   @JsonProperty(JSON_PROPERTY_RISK_MODEL_APPEND_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -412,7 +413,7 @@ public class InlineResponse2001Data implements Serializable {
    * Total universe count of the model
    * @return universeCount
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Total universe count of the model")
   @JsonProperty(JSON_PROPERTY_UNIVERSE_COUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -438,7 +439,7 @@ public class InlineResponse2001Data implements Serializable {
    * Model vendor
    * @return vendor
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Model vendor")
   @JsonProperty(JSON_PROPERTY_VENDOR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

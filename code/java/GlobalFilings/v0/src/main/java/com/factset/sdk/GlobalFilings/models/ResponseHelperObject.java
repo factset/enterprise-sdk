@@ -42,7 +42,8 @@ import com.factset.sdk.GlobalFilings.JSON;
   ResponseHelperObject.JSON_PROPERTY_TIME_ZONES_OBJECT,
   ResponseHelperObject.JSON_PROPERTY_CATEGORIES_OBJECT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ResponseHelperObject implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -70,7 +71,7 @@ public class ResponseHelperObject implements Serializable {
    * Get sourcesObject
    * @return sourcesObject
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SOURCES_OBJECT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -96,7 +97,7 @@ public class ResponseHelperObject implements Serializable {
    * Get formtypesObject
    * @return formtypesObject
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FORMTYPES_OBJECT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -122,7 +123,7 @@ public class ResponseHelperObject implements Serializable {
    * Get timeZonesObject
    * @return timeZonesObject
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TIME_ZONES_OBJECT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -148,7 +149,7 @@ public class ResponseHelperObject implements Serializable {
    * Get categoriesObject
    * @return categoriesObject
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CATEGORIES_OBJECT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -45,7 +45,8 @@ import com.factset.sdk.ProcuretoPayAPISCIM.JSON;
   UserResourceUrnScimSchemasExtensionFactSetCore10User.JSON_PROPERTY_PENDING_PRODUCT_ORDERS,
   UserResourceUrnScimSchemasExtensionFactSetCore10User.JSON_PROPERTY_ASSERTION_VALUE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class UserResourceUrnScimSchemasExtensionFactSetCore10User implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -97,7 +98,7 @@ public class UserResourceUrnScimSchemasExtensionFactSetCore10User implements Ser
    * A FactSet \&quot;username\&quot; is FactSet&#39;s logical structure for grouping serial numbers into like-groups based on roleName, geographical location or line of business.
    * @return username
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "FIN_WEALTH", required = true, value = "A FactSet \"username\" is FactSet's logical structure for grouping serial numbers into like-groups based on roleName, geographical location or line of business.")
   @JsonProperty(JSON_PROPERTY_USERNAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -118,7 +119,7 @@ public class UserResourceUrnScimSchemasExtensionFactSetCore10User implements Ser
    * A serial number represents an individual&#39;s unique FactSet account identifier and base-workstation access. Serial numbers are allocated to an individual when a valid RoleName is present.
    * @return serialNumber
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "123456", value = "A serial number represents an individual's unique FactSet account identifier and base-workstation access. Serial numbers are allocated to an individual when a valid RoleName is present.")
   @JsonProperty(JSON_PROPERTY_SERIAL_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -134,7 +135,7 @@ public class UserResourceUrnScimSchemasExtensionFactSetCore10User implements Ser
    * FactSet.net ID.
    * @return factSetNetId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "John.Doe9@factset.net", value = "FactSet.net ID.")
   @JsonProperty(JSON_PROPERTY_FACT_SET_NET_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -155,7 +156,7 @@ public class UserResourceUrnScimSchemasExtensionFactSetCore10User implements Ser
    * Get location
    * @return location
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -181,7 +182,7 @@ public class UserResourceUrnScimSchemasExtensionFactSetCore10User implements Ser
    * Predetermined role of specific individual. Issues individual a base FactSet workstation and serial number. If passed as NULL a base-FactSet workstation will be allocated to the individual granting the individual a FactSet SerialNumber
    * @return roleName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Wealth Manager", value = "Predetermined role of specific individual. Issues individual a base FactSet workstation and serial number. If passed as NULL a base-FactSet workstation will be allocated to the individual granting the individual a FactSet SerialNumber")
   @JsonProperty(JSON_PROPERTY_ROLE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -215,7 +216,7 @@ public class UserResourceUrnScimSchemasExtensionFactSetCore10User implements Ser
    * An array of FactSet products to allocate/remove from an individual. Individual must have a FactSet serial number associated with them.
    * @return products
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "An array of FactSet products to allocate/remove from an individual. Individual must have a FactSet serial number associated with them.")
   @JsonProperty(JSON_PROPERTY_PRODUCTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -236,7 +237,7 @@ public class UserResourceUrnScimSchemasExtensionFactSetCore10User implements Ser
    * An array of pending FactSet product orders.
    * @return pendingProductOrders
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "An array of pending FactSet product orders.")
   @JsonProperty(JSON_PROPERTY_PENDING_PRODUCT_ORDERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -257,7 +258,7 @@ public class UserResourceUrnScimSchemasExtensionFactSetCore10User implements Ser
    * Field containing the value, passed as nameID, used to assert the identity of an individual via SAML2.0 which maps service-provider-side to a FactSet serial number. Only applicable to individuals with a FactSet serial number with a Federation setup between your domain and FactSet&#39;s
    * @return assertionValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "exampleAssertionValue", value = "Field containing the value, passed as nameID, used to assert the identity of an individual via SAML2.0 which maps service-provider-side to a FactSet serial number. Only applicable to individuals with a FactSet serial number with a Federation setup between your domain and FactSet's")
   @JsonProperty(JSON_PROPERTY_ASSERTION_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

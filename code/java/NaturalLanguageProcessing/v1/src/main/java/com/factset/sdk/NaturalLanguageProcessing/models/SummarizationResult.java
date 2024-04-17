@@ -36,7 +36,8 @@ import com.factset.sdk.NaturalLanguageProcessing.JSON;
   SummarizationResult.JSON_PROPERTY_HEADLINE,
   SummarizationResult.JSON_PROPERTY_SUMMARY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SummarizationResult implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -58,7 +59,7 @@ public class SummarizationResult implements Serializable {
    * A short headline generated for the input text.
    * @return headline
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Advanced Energy unveils new lighting and power control system for indoor, vertical and greenhouse farming.", value = "A short headline generated for the input text.")
   @JsonProperty(JSON_PROPERTY_HEADLINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -84,7 +85,7 @@ public class SummarizationResult implements Serializable {
    * The generated summary for the input text.
    * @return summary
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Advanced Energy unveiled its newest lighting and power control system for indoor, vertical and greenhouse farming. The new system consists of the patented Artesyn iTS (intelligent Transfer Switch) and iHPS power supply. Alongside Artesyn's compact new 12 kW 300 VDC module, AE delivers a cost-effective platform for the most advanced indoor farming applications. The system is estimated to produce a 38 percent savings to lighting power and control installation cost, while eliminating substantial amounts of wasted energy.", value = "The generated summary for the input text.")
   @JsonProperty(JSON_PROPERTY_SUMMARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

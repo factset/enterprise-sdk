@@ -42,7 +42,8 @@ import com.factset.sdk.RealTimeNews.JSON;
   InlineResponse2003DataIdentifiers.JSON_PROPERTY_SOURCE_IDENTIFIER,
   InlineResponse2003DataIdentifiers.JSON_PROPERTY_STATUS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2003DataIdentifiers implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -67,7 +68,7 @@ public class InlineResponse2003DataIdentifiers implements Serializable {
    * MDG identifier of the listing.
    * @return idNotation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "MDG identifier of the listing.")
   @JsonIgnore
 
@@ -101,7 +102,7 @@ public class InlineResponse2003DataIdentifiers implements Serializable {
    * Identifier used in the request.
    * @return sourceIdentifier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier used in the request.")
   @JsonIgnore
 
@@ -135,7 +136,7 @@ public class InlineResponse2003DataIdentifiers implements Serializable {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

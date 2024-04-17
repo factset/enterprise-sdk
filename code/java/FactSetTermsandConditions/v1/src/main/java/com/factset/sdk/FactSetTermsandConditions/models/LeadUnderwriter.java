@@ -38,7 +38,8 @@ import com.factset.sdk.FactSetTermsandConditions.JSON;
   LeadUnderwriter.JSON_PROPERTY_FSYM_ID,
   LeadUnderwriter.JSON_PROPERTY_FACTSET_LEAD_UWRITR_ENTITY_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class LeadUnderwriter implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class LeadUnderwriter implements Serializable {
    * Security identifier used in the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Security identifier used in the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -89,7 +90,7 @@ public class LeadUnderwriter implements Serializable {
    * FactSet Permanent Security Identifier.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "FactSet Permanent Security Identifier.")
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +116,7 @@ public class LeadUnderwriter implements Serializable {
    * FactSet Entity Id for Lead Underwriter.
    * @return factsetLeadUwritrEntityId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "FactSet Entity Id for Lead Underwriter.")
   @JsonProperty(JSON_PROPERTY_FACTSET_LEAD_UWRITR_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

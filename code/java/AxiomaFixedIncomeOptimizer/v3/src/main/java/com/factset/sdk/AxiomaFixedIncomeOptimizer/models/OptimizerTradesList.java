@@ -36,7 +36,8 @@ import com.factset.sdk.AxiomaFixedIncomeOptimizer.JSON;
   OptimizerTradesList.JSON_PROPERTY_IDENTIFIER_TYPE,
   OptimizerTradesList.JSON_PROPERTY_INCLUDE_CASH
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerTradesList implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -109,7 +110,7 @@ public class OptimizerTradesList implements Serializable {
    * Identifier type
    * @return identifierType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier type")
   @JsonProperty(JSON_PROPERTY_IDENTIFIER_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -135,7 +136,7 @@ public class OptimizerTradesList implements Serializable {
    * Include cash
    * @return includeCash
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Include cash")
   @JsonProperty(JSON_PROPERTY_INCLUDE_CASH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

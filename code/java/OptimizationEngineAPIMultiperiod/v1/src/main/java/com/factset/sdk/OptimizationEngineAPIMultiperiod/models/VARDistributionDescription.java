@@ -43,7 +43,8 @@ import com.factset.sdk.OptimizationEngineAPIMultiperiod.JSON;
   VARDistributionDescription.JSON_PROPERTY_HORIZON_IN_TRADING_DAYS,
   VARDistributionDescription.JSON_PROPERTY_RETURN_DATES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class VARDistributionDescription implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -83,7 +84,7 @@ public class VARDistributionDescription implements Serializable {
    * Get riskModel
    * @return riskModel
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RISK_MODEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -109,7 +110,7 @@ public class VARDistributionDescription implements Serializable {
    * Get factorGroup
    * @return factorGroup
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FACTOR_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -143,7 +144,7 @@ public class VARDistributionDescription implements Serializable {
    * Get factors
    * @return factors
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FACTORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -169,7 +170,7 @@ public class VARDistributionDescription implements Serializable {
    * Get distributionType
    * @return distributionType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DISTRIBUTION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -195,7 +196,7 @@ public class VARDistributionDescription implements Serializable {
    * Get reportDate
    * @return reportDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REPORT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -221,7 +222,7 @@ public class VARDistributionDescription implements Serializable {
    * Get reportCurrency
    * @return reportCurrency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REPORT_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -247,7 +248,7 @@ public class VARDistributionDescription implements Serializable {
    * Get horizonInTradingDays
    * @return horizonInTradingDays
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_HORIZON_IN_TRADING_DAYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -281,7 +282,7 @@ public class VARDistributionDescription implements Serializable {
    * Only possibly defined for historical distributions
    * @return returnDates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Only possibly defined for historical distributions")
   @JsonProperty(JSON_PROPERTY_RETURN_DATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

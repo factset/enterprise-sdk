@@ -47,7 +47,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse200DataShareInstrumentKeyFiguresRatios.JSON_PROPERTY_DIVIDEND_YIELD,
   InlineResponse200DataShareInstrumentKeyFiguresRatios.JSON_PROPERTY_EARNINGS_YIELD
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse200DataShareInstrumentKeyFiguresRatios implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -81,7 +82,7 @@ public class InlineResponse200DataShareInstrumentKeyFiguresRatios implements Ser
    * Get priceEarnings
    * @return priceEarnings
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRICE_EARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -107,7 +108,7 @@ public class InlineResponse200DataShareInstrumentKeyFiguresRatios implements Ser
    * Get priceBookValue
    * @return priceBookValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRICE_BOOK_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -133,7 +134,7 @@ public class InlineResponse200DataShareInstrumentKeyFiguresRatios implements Ser
    * Get priceCashFlow
    * @return priceCashFlow
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRICE_CASH_FLOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -159,7 +160,7 @@ public class InlineResponse200DataShareInstrumentKeyFiguresRatios implements Ser
    * Get priceSales
    * @return priceSales
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRICE_SALES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -185,7 +186,7 @@ public class InlineResponse200DataShareInstrumentKeyFiguresRatios implements Ser
    * Get dividendYield
    * @return dividendYield
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DIVIDEND_YIELD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -211,7 +212,7 @@ public class InlineResponse200DataShareInstrumentKeyFiguresRatios implements Ser
    * Get earningsYield
    * @return earningsYield
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EARNINGS_YIELD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

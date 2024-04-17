@@ -43,7 +43,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20078DataPerformance.JSON_PROPERTY_RELATIVE,
   InlineResponse20078DataPerformance.JSON_PROPERTY_REFERENCE_PRICE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20078DataPerformance implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class InlineResponse20078DataPerformance implements Serializable {
    * Absolute difference of a notation&#39;s most recent EOD closing price against the EOD closing price on the reference date.
    * @return absolute
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Absolute difference of a notation's most recent EOD closing price against the EOD closing price on the reference date.")
   @JsonIgnore
 
@@ -102,7 +103,7 @@ public class InlineResponse20078DataPerformance implements Serializable {
    * Difference of a notation&#39;s most recent EOD closing price against the EOD closing price on the reference date, relative to the EOD closing price on the reference date.
    * @return relative
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Difference of a notation's most recent EOD closing price against the EOD closing price on the reference date, relative to the EOD closing price on the reference date.")
   @JsonIgnore
 
@@ -136,7 +137,7 @@ public class InlineResponse20078DataPerformance implements Serializable {
    * EOD closing price as of the reference date (see attribute &#x60;referenceDate&#x60;) used for calculation.
    * @return referencePrice
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "EOD closing price as of the reference date (see attribute `referenceDate`) used for calculation.")
   @JsonIgnore
 

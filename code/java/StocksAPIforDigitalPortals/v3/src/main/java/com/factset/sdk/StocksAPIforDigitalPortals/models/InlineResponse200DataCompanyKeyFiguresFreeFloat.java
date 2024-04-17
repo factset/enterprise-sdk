@@ -42,7 +42,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse200DataCompanyKeyFiguresFreeFloat.JSON_PROPERTY_VALUE,
   InlineResponse200DataCompanyKeyFiguresFreeFloat.JSON_PROPERTY_DATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse200DataCompanyKeyFiguresFreeFloat implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class InlineResponse200DataCompanyKeyFiguresFreeFloat implements Serializ
    * Value of the key figure.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Value of the key figure.")
   @JsonIgnore
 
@@ -98,7 +99,7 @@ public class InlineResponse200DataCompanyKeyFiguresFreeFloat implements Serializ
    * As-of date of the key figure.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "As-of date of the key figure.")
   @JsonIgnore
 

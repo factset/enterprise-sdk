@@ -36,7 +36,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
 @JsonPropertyOrder({
   PartialOutputObject.JSON_PROPERTY_IS_PARTIAL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PartialOutputObject implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class PartialOutputObject implements Serializable {
    * Flag indicating that the response is a possibly incomplete array or an object containing a possibly incomplete array, due to hitting a processing time limit. If &#x60;true&#x60;, some matching results might be missing from the array, or elements for matching results might be incorrectly included (for example, when priority sorting would have removed the element). Depending on the use case, such a response may be unsuitable.
    * @return isPartial
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Flag indicating that the response is a possibly incomplete array or an object containing a possibly incomplete array, due to hitting a processing time limit. If `true`, some matching results might be missing from the array, or elements for matching results might be incorrectly included (for example, when priority sorting would have removed the element). Depending on the use case, such a response may be unsuitable.")
   @JsonProperty(JSON_PROPERTY_IS_PARTIAL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

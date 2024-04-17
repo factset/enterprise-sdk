@@ -36,7 +36,8 @@ import com.factset.sdk.StreetAccountNews.JSON;
 @JsonPropertyOrder({
   SaHeadlinesRequestByViewData.JSON_PROPERTY_SEARCH_DATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SaHeadlinesRequestByViewData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -55,7 +56,7 @@ public class SaHeadlinesRequestByViewData implements Serializable {
    * Get searchDate
    * @return searchDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SEARCH_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

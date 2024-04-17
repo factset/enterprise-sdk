@@ -6,7 +6,7 @@ import com.factset.sdk.ChartGenerationService.ApiResponse;
 import com.factset.sdk.ChartGenerationService.Configuration;
 import com.factset.sdk.ChartGenerationService.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -19,7 +19,8 @@ import com.factset.sdk.ChartGenerationService.models.ErrorResponse;
 import java.io.File;
 import com.factset.sdk.ChartGenerationService.models.UnauthorizedResponse;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ChartTemplatesApi {
   private ApiClient apiClient;
 

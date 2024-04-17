@@ -44,7 +44,8 @@ import com.factset.sdk.Vermilion.JSON;
   ReportRevisionDTO.JSON_PROPERTY_OUTPUT_FORMAT,
   ReportRevisionDTO.JSON_PROPERTY_PERCENTAGE_COMPLETE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ReportRevisionDTO implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -226,7 +227,7 @@ public class ReportRevisionDTO implements Serializable {
    * Get reportStatus
    * @return reportStatus
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REPORT_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -252,7 +253,7 @@ public class ReportRevisionDTO implements Serializable {
    * Get startDate
    * @return startDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_START_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -278,7 +279,7 @@ public class ReportRevisionDTO implements Serializable {
    * Get finishDate
    * @return finishDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FINISH_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -304,7 +305,7 @@ public class ReportRevisionDTO implements Serializable {
    * Get signOffStatus
    * @return signOffStatus
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SIGN_OFF_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -330,7 +331,7 @@ public class ReportRevisionDTO implements Serializable {
    * Get signOffNotes
    * @return signOffNotes
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SIGN_OFF_NOTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -356,7 +357,7 @@ public class ReportRevisionDTO implements Serializable {
    * Get reportReasonCd
    * @return reportReasonCd
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REPORT_REASON_CD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -382,7 +383,7 @@ public class ReportRevisionDTO implements Serializable {
    * Get description
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -408,7 +409,7 @@ public class ReportRevisionDTO implements Serializable {
    * Get languageCode
    * @return languageCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LANGUAGE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -434,7 +435,7 @@ public class ReportRevisionDTO implements Serializable {
    * Get outputFormat
    * @return outputFormat
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OUTPUT_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -460,7 +461,7 @@ public class ReportRevisionDTO implements Serializable {
    * Get percentageComplete
    * @return percentageComplete
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PERCENTAGE_COMPLETE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

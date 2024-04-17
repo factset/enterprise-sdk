@@ -46,7 +46,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20010Data.JSON_PROPERTY_INDEX_CHANGE,
   InlineResponse20010Data.JSON_PROPERTY_MEDIAN_BID_ASK_SPREAD
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20010Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -80,7 +81,7 @@ public class InlineResponse20010Data implements Serializable {
    * Date the analytics data was published. Available for the regions: US, Europe, and Canada.
    * @return asOfDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Date the analytics data was published. Available for the regions: US, Europe, and Canada.")
   @JsonProperty(JSON_PROPERTY_AS_OF_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -106,7 +107,7 @@ public class InlineResponse20010Data implements Serializable {
    * Get securityLending
    * @return securityLending
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SECURITY_LENDING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -132,7 +133,7 @@ public class InlineResponse20010Data implements Serializable {
    * Get risk
    * @return risk
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RISK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,7 +159,7 @@ public class InlineResponse20010Data implements Serializable {
    * FactSet provides a neutral, broad market index that best represents an ETP segment, giving investors a measuring stick against which to compare a specific ETP. The fund&#39;s performance (for example, R2, beta, and standard deviation) and holdings are measured against it. Available for the regions: US and Europe.
    * @return benchmarkName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "FactSet provides a neutral, broad market index that best represents an ETP segment, giving investors a measuring stick against which to compare a specific ETP. The fund's performance (for example, R2, beta, and standard deviation) and holdings are measured against it. Available for the regions: US and Europe.")
   @JsonProperty(JSON_PROPERTY_BENCHMARK_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -184,7 +185,7 @@ public class InlineResponse20010Data implements Serializable {
    * Get indexChange
    * @return indexChange
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INDEX_CHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -210,7 +211,7 @@ public class InlineResponse20010Data implements Serializable {
    * The exchange-traded fund’s median bid-ask spread, expressed as a percentage rounded to the nearest hundredth, computed by: (A) Identifying the exchange-traded fund’s national best bid and national best offer as of the end of each 10 second interval during each trading day of the last 30 calendar days; (B) Dividing the ifference between each such bid and offer by the midpoint of the national best bid and national best offer; and (C) Identifying the median of those values. Available for the regions: US.
    * @return medianBidAskSpread
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The exchange-traded fund’s median bid-ask spread, expressed as a percentage rounded to the nearest hundredth, computed by: (A) Identifying the exchange-traded fund’s national best bid and national best offer as of the end of each 10 second interval during each trading day of the last 30 calendar days; (B) Dividing the ifference between each such bid and offer by the midpoint of the national best bid and national best offer; and (C) Identifying the median of those values. Available for the regions: US.")
   @JsonProperty(JSON_PROPERTY_MEDIAN_BID_ASK_SPREAD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

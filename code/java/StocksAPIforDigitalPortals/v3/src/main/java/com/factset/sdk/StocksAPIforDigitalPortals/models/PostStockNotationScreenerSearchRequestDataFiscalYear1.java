@@ -38,7 +38,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   PostStockNotationScreenerSearchRequestDataFiscalYear1.JSON_PROPERTY_YEAR_END,
   PostStockNotationScreenerSearchRequestDataFiscalYear1.JSON_PROPERTY_YEAR
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostStockNotationScreenerSearchRequestDataFiscalYear1 implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -60,7 +61,7 @@ public class PostStockNotationScreenerSearchRequestDataFiscalYear1 implements Se
    * Calendar year of the ending date of the fiscal year.
    * @return yearEnd
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Calendar year of the ending date of the fiscal year.")
   @JsonProperty(JSON_PROPERTY_YEAR_END)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,7 +87,7 @@ public class PostStockNotationScreenerSearchRequestDataFiscalYear1 implements Se
    * Derived fiscal year.
    * @return year
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Derived fiscal year.")
   @JsonProperty(JSON_PROPERTY_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

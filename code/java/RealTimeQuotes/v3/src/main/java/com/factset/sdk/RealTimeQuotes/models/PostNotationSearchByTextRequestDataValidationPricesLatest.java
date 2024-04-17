@@ -38,7 +38,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   PostNotationSearchByTextRequestDataValidationPricesLatest.JSON_PROPERTY_AVAILABLE_ONLY,
   PostNotationSearchByTextRequestDataValidationPricesLatest.JSON_PROPERTY_MINIMUM_DATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostNotationSearchByTextRequestDataValidationPricesLatest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -60,7 +61,7 @@ public class PostNotationSearchByTextRequestDataValidationPricesLatest implement
    * If &#x60;true&#x60;, only notations for which a trade price (even an outdated one) is available will be returned.
    * @return availableOnly
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "If `true`, only notations for which a trade price (even an outdated one) is available will be returned.")
   @JsonProperty(JSON_PROPERTY_AVAILABLE_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,7 +87,7 @@ public class PostNotationSearchByTextRequestDataValidationPricesLatest implement
    * Earliest admissible date of the most recent trade price.
    * @return minimumDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Earliest admissible date of the most recent trade price.")
   @JsonProperty(JSON_PROPERTY_MINIMUM_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

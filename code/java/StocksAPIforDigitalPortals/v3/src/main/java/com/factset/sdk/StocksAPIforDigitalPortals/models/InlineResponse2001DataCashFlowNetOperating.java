@@ -43,7 +43,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2001DataCashFlowNetOperating.JSON_PROPERTY_GROWTH,
   InlineResponse2001DataCashFlowNetOperating.JSON_PROPERTY_RETURN_ON_INVESTED_CAPITAL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2001DataCashFlowNetOperating implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class InlineResponse2001DataCashFlowNetOperating implements Serializable 
    * Value of the net operating cash flow.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Value of the net operating cash flow.")
   @JsonIgnore
 
@@ -102,7 +103,7 @@ public class InlineResponse2001DataCashFlowNetOperating implements Serializable 
    * Annual growth rate of the net operating cash flow.
    * @return growth
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Annual growth rate of the net operating cash flow.")
   @JsonIgnore
 
@@ -136,7 +137,7 @@ public class InlineResponse2001DataCashFlowNetOperating implements Serializable 
    * Ratio of the net operating cash flow, divided by the two-fiscal-year average of the total invested capital.
    * @return returnOnInvestedCapital
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Ratio of the net operating cash flow, divided by the two-fiscal-year average of the total invested capital.")
   @JsonIgnore
 

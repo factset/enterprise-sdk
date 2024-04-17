@@ -56,7 +56,8 @@ import com.factset.sdk.FactSetConcordance.JSON;
   PeopleMapping.JSON_PROPERTY_UNIVERSE_ID,
   PeopleMapping.JSON_PROPERTY_UPDATED_TIME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PeopleMapping implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -157,7 +158,7 @@ public class PeopleMapping implements Serializable {
    * It describes the name of the company
    * @return clientEntity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Microsoft", value = "It describes the name of the company")
   @JsonIgnore
 
@@ -191,7 +192,7 @@ public class PeopleMapping implements Serializable {
    * It indicates the full name of the client.
    * @return clientFirstName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "William", value = "It indicates the full name of the client.")
   @JsonIgnore
 
@@ -225,7 +226,7 @@ public class PeopleMapping implements Serializable {
    * User-defined unique identifier provided by the user in the request
    * @return clientId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "BGA-123", value = "User-defined unique identifier provided by the user in the request")
   @JsonIgnore
 
@@ -259,7 +260,7 @@ public class PeopleMapping implements Serializable {
    * It indicates last name of the client.
    * @return clientLastName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Gates", value = "It indicates last name of the client.")
   @JsonIgnore
 
@@ -293,7 +294,7 @@ public class PeopleMapping implements Serializable {
    * It indicates middle name of the client.
    * @return clientMiddleName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Henry", value = "It indicates middle name of the client.")
   @JsonIgnore
 
@@ -327,7 +328,7 @@ public class PeopleMapping implements Serializable {
    * It indiactes the name of the client
    * @return clientPersonName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Bill Gates", value = "It indiactes the name of the client")
   @JsonIgnore
 
@@ -361,7 +362,7 @@ public class PeopleMapping implements Serializable {
    * It indiactes the priority value of the client.
    * @return clientPriority
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "HIGH", value = "It indiactes the priority value of the client.")
   @JsonIgnore
 
@@ -395,7 +396,7 @@ public class PeopleMapping implements Serializable {
    * It indicates the client&#39;s salutation.
    * @return clientSalutation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Mr", value = "It indicates the client's salutation.")
   @JsonIgnore
 
@@ -429,7 +430,7 @@ public class PeopleMapping implements Serializable {
    * It indicates the suffix for the client.
    * @return clientSuffix
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "III", value = "It indicates the suffix for the client.")
   @JsonIgnore
 
@@ -471,7 +472,7 @@ public class PeopleMapping implements Serializable {
    * Any additional context information that can be saved along with other input values for mapping. To be used by Managed Service for mapping any unmapped records. 
    * @return clientAdditionalContext
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "{\"Address\":\"123 Main St\",\"Phone\":\"555-555-5555\",\"City\":\"New York\"}", value = "Any additional context information that can be saved along with other input values for mapping. To be used by Managed Service for mapping any unmapped records. ")
   @JsonProperty(JSON_PROPERTY_CLIENT_ADDITIONAL_CONTEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -497,7 +498,7 @@ public class PeopleMapping implements Serializable {
    * It indicates the time of the creation
    * @return createdTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2020-06-24T22:02:21Z", value = "It indicates the time of the creation")
   @JsonIgnore
 
@@ -531,7 +532,7 @@ public class PeopleMapping implements Serializable {
    * Current status of the people mapping.
    * @return mapStatus
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "MAPPED", value = "Current status of the people mapping.")
   @JsonIgnore
 
@@ -565,7 +566,7 @@ public class PeopleMapping implements Serializable {
    * Helps to identify a person by using an unique indiactor 
    * @return personId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "00118X-E", value = "Helps to identify a person by using an unique indiactor ")
   @JsonIgnore
 
@@ -599,7 +600,7 @@ public class PeopleMapping implements Serializable {
    * It indiactes the full name of the client
    * @return personName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "GATES WILLIAM H III", value = "It indiactes the full name of the client")
   @JsonIgnore
 
@@ -633,7 +634,7 @@ public class PeopleMapping implements Serializable {
    * The universe this mapping belongs to. Only set in v2 endpoints 
    * @return universeId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "The universe this mapping belongs to. Only set in v2 endpoints ")
   @JsonIgnore
 
@@ -667,7 +668,7 @@ public class PeopleMapping implements Serializable {
    * It indicates the time of the updation
    * @return updatedTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2020-06-24T22:02:21Z", value = "It indicates the time of the updation")
   @JsonIgnore
 

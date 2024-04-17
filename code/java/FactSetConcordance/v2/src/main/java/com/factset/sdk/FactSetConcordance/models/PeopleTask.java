@@ -72,7 +72,8 @@ import com.factset.sdk.FactSetConcordance.JSON;
   PeopleTask.JSON_PROPERTY_USER_FULL_NAME,
   PeopleTask.JSON_PROPERTY_USER_SERIAL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PeopleTask implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -227,7 +228,7 @@ public class PeopleTask implements Serializable {
    * The number of columns of client. 
    * @return clientIdColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "id1", value = "The number of columns of client. ")
   @JsonIgnore
 
@@ -261,7 +262,7 @@ public class PeopleTask implements Serializable {
    * The person name as provided in request.
    * @return personNameColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Phil Snow", value = "The person name as provided in request.")
   @JsonIgnore
 
@@ -295,7 +296,7 @@ public class PeopleTask implements Serializable {
    * The first name of the client.
    * @return firstNameColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Frederick", value = "The first name of the client.")
   @JsonIgnore
 
@@ -329,7 +330,7 @@ public class PeopleTask implements Serializable {
    * The last name of the person.
    * @return lastNameColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Snow", value = "The last name of the person.")
   @JsonIgnore
 
@@ -363,7 +364,7 @@ public class PeopleTask implements Serializable {
    * The middle name of the client.
    * @return middleNameColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Philip", value = "The middle name of the client.")
   @JsonIgnore
 
@@ -397,7 +398,7 @@ public class PeopleTask implements Serializable {
    * The middle name of the client.
    * @return priorityColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The middle name of the client.")
   @JsonIgnore
 
@@ -431,7 +432,7 @@ public class PeopleTask implements Serializable {
    * The salutation of the person.
    * @return salutationColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Mr", value = "The salutation of the person.")
   @JsonIgnore
 
@@ -473,7 +474,7 @@ public class PeopleTask implements Serializable {
    * Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records. 
    * @return additionalContextColumns
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "[\"Address\",\"Phone\",\"City\"]", value = "Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records. ")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_CONTEXT_COLUMNS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -499,7 +500,7 @@ public class PeopleTask implements Serializable {
    * Whether the result is available.
    * @return hasResult
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "true", value = "Whether the result is available.")
   @JsonIgnore
 
@@ -533,7 +534,7 @@ public class PeopleTask implements Serializable {
    * Action status for the Concordance Task process.
    * @return taskAction
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "processfile", value = "Action status for the Concordance Task process.")
   @JsonIgnore
 
@@ -567,7 +568,7 @@ public class PeopleTask implements Serializable {
    * The input file is posted as a file object in the form. 
    * @return inputFile
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "test31.csv", value = "The input file is posted as a file object in the form. ")
   @JsonIgnore
 
@@ -601,7 +602,7 @@ public class PeopleTask implements Serializable {
    * Full name corresponding to the matched entity.
    * @return entityColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FACTSET RESEARCH SYSTEMS INC.", value = "Full name corresponding to the matched entity.")
   @JsonIgnore
 
@@ -635,7 +636,7 @@ public class PeopleTask implements Serializable {
    * Status of the Concordance Task. If the value is \&quot;SUCCESS\&quot;, you can move to the subsequent /entity-decisions endpoint to retrieve the results.
    * @return status
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Status of the Concordance Task. If the value is \"SUCCESS\", you can move to the subsequent /entity-decisions endpoint to retrieve the results.")
   @JsonIgnore
 
@@ -669,7 +670,7 @@ public class PeopleTask implements Serializable {
    * Name of the column in the input file that contains the person&#39;s suffix. 
    * @return suffixColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Suffix", value = "Name of the column in the input file that contains the person's suffix. ")
   @JsonIgnore
 
@@ -703,7 +704,7 @@ public class PeopleTask implements Serializable {
    * Time the Task was submitted in UTC.
    * @return taskSubmitTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2020-06-24T22:02:21Z", value = "Time the Task was submitted in UTC.")
   @JsonIgnore
 
@@ -737,7 +738,7 @@ public class PeopleTask implements Serializable {
    * Number of records with status of UNMAPPED the Input File.
    * @return unmappedCount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2", value = "Number of records with status of UNMAPPED the Input File.")
   @JsonIgnore
 
@@ -771,7 +772,7 @@ public class PeopleTask implements Serializable {
    * Number of tries made so far for the request.
    * @return tryCount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "3", value = "Number of tries made so far for the request.")
   @JsonIgnore
 
@@ -805,7 +806,7 @@ public class PeopleTask implements Serializable {
    * Percentage of mapped entities in the Input File.
    * @return decisionRate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0.7272727272727273", value = "Percentage of mapped entities in the Input File.")
   @JsonIgnore
 
@@ -839,7 +840,7 @@ public class PeopleTask implements Serializable {
    * Process start time in UTC.
    * @return processStartTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2020-07-03T15:12:06.722Z", value = "Process start time in UTC.")
   @JsonIgnore
 
@@ -873,7 +874,7 @@ public class PeopleTask implements Serializable {
    * Process duration in seconds.
    * @return processDuration
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1.51603", value = "Process duration in seconds.")
   @JsonIgnore
 
@@ -907,7 +908,7 @@ public class PeopleTask implements Serializable {
    * Number of records with status of MAPPED the Input File.
    * @return mappedCount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "8", value = "Number of records with status of MAPPED the Input File.")
   @JsonIgnore
 
@@ -941,7 +942,7 @@ public class PeopleTask implements Serializable {
    * Textual message for the status.
    * @return message
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Waiting for the input file", value = "Textual message for the status.")
   @JsonIgnore
 
@@ -975,7 +976,7 @@ public class PeopleTask implements Serializable {
    * Get error
    * @return error
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -1009,7 +1010,7 @@ public class PeopleTask implements Serializable {
    * Get errorTitle
    * @return errorTitle
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -1043,7 +1044,7 @@ public class PeopleTask implements Serializable {
    * Number of records in the Input File.
    * @return inputCount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "11", value = "Number of records in the Input File.")
   @JsonIgnore
 
@@ -1077,7 +1078,7 @@ public class PeopleTask implements Serializable {
    * Number of records with status of INDETERMINATE the Input File.
    * @return indeterminateCount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "Number of records with status of INDETERMINATE the Input File.")
   @JsonIgnore
 
@@ -1111,7 +1112,7 @@ public class PeopleTask implements Serializable {
    * The task identifier
    * @return taskId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "31", value = "The task identifier")
   @JsonIgnore
 
@@ -1145,7 +1146,7 @@ public class PeopleTask implements Serializable {
    * The task name
    * @return taskName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Analysis1", value = "The task name")
   @JsonIgnore
 
@@ -1179,7 +1180,7 @@ public class PeopleTask implements Serializable {
    * The universe identifier
    * @return universeId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "The universe identifier")
   @JsonIgnore
 
@@ -1213,7 +1214,7 @@ public class PeopleTask implements Serializable {
    * Full name of the person associated with the &#x60;userSerial&#x60;. 
    * @return universeName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Jane Smith", value = "Full name of the person associated with the `userSerial`. ")
   @JsonIgnore
 
@@ -1247,7 +1248,7 @@ public class PeopleTask implements Serializable {
    * Full name of the person associated with the &#x60;userSerial&#x60;. 
    * @return userFullName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Jane Smith", value = "Full name of the person associated with the `userSerial`. ")
   @JsonIgnore
 
@@ -1281,7 +1282,7 @@ public class PeopleTask implements Serializable {
    * user-serial of the person who initiated the people task 
    * @return userSerial
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FDSQAR_C-000000", value = "user-serial of the person who initiated the people task ")
   @JsonIgnore
 

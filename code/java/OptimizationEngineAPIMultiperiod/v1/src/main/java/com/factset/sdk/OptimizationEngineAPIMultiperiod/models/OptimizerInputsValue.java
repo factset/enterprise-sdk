@@ -38,7 +38,8 @@ import com.factset.sdk.OptimizationEngineAPIMultiperiod.JSON;
   OptimizerInputsValue.JSON_PROPERTY_RAW_VALUE,
   OptimizerInputsValue.JSON_PROPERTY_REF_INDEX
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerInputsValue implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class OptimizerInputsValue implements Serializable {
    * Get valueType
    * @return valueType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VALUE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -89,7 +90,7 @@ public class OptimizerInputsValue implements Serializable {
    * Get rawValue
    * @return rawValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RAW_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +116,7 @@ public class OptimizerInputsValue implements Serializable {
    * Get refIndex
    * @return refIndex
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REF_INDEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -38,7 +38,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20013DataPremiumDiscount.JSON_PROPERTY_MEDIAN,
   InlineResponse20013DataPremiumDiscount.JSON_PROPERTY_MAX
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20013DataPremiumDiscount implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -60,7 +61,7 @@ public class InlineResponse20013DataPremiumDiscount implements Serializable {
    * The median premium or discount over the last 12 months. Available for the regions: US.
    * @return median
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The median premium or discount over the last 12 months. Available for the regions: US.")
   @JsonProperty(JSON_PROPERTY_MEDIAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,7 +87,7 @@ public class InlineResponse20013DataPremiumDiscount implements Serializable {
    * The greatest absolute amount that the market price exceeded (premium) and lagged (discount) its net asset value (NAV) over a 12-month period. Available for the regions: US.
    * @return max
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The greatest absolute amount that the market price exceeded (premium) and lagged (discount) its net asset value (NAV) over a 12-month period. Available for the regions: US.")
   @JsonProperty(JSON_PROPERTY_MAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

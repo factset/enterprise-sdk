@@ -37,7 +37,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
 @JsonPropertyOrder({
   PostStockNotationScreenerSearchRequestDataIndustryClassificationRestrict.JSON_PROPERTY_IDS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostStockNotationScreenerSearchRequestDataIndustryClassificationRestrict implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class PostStockNotationScreenerSearchRequestDataIndustryClassificationRes
    * Set of category identifiers.
    * @return ids
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Set of category identifiers.")
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

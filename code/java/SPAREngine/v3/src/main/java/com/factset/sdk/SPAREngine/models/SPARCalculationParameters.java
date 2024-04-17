@@ -45,7 +45,8 @@ import com.factset.sdk.SPAREngine.JSON;
   SPARCalculationParameters.JSON_PROPERTY_DATES,
   SPARCalculationParameters.JSON_PROPERTY_CURRENCYISOCODE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SPARCalculationParameters implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -84,7 +85,7 @@ public class SPARCalculationParameters implements Serializable {
    * The SPAR Engine component identifier to analyze.
    * @return componentid
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The SPAR Engine component identifier to analyze.")
   @JsonProperty(JSON_PROPERTY_COMPONENTID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -122,7 +123,7 @@ public class SPARCalculationParameters implements Serializable {
    * List of accounts for SPAR calculation.
    * @return accounts
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of accounts for SPAR calculation.")
   @JsonIgnore
 
@@ -156,7 +157,7 @@ public class SPARCalculationParameters implements Serializable {
    * Get benchmark
    * @return benchmark
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BENCHMARK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -182,7 +183,7 @@ public class SPARCalculationParameters implements Serializable {
    * Get dates
    * @return dates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -208,7 +209,7 @@ public class SPARCalculationParameters implements Serializable {
    * Currency ISO code for calculation.
    * @return currencyisocode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Currency ISO code for calculation.")
   @JsonIgnore
 

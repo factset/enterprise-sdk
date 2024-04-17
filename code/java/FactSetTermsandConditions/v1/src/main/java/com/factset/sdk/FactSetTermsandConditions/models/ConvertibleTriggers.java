@@ -40,7 +40,8 @@ import com.factset.sdk.FactSetTermsandConditions.JSON;
   ConvertibleTriggers.JSON_PROPERTY_CONV_TRIGGER_EVENT_DESC,
   ConvertibleTriggers.JSON_PROPERTY_TRIGGER_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ConvertibleTriggers implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -71,7 +72,7 @@ public class ConvertibleTriggers implements Serializable {
    * Security identifier used in the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Security identifier used in the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -97,7 +98,7 @@ public class ConvertibleTriggers implements Serializable {
    * FactSet Permanent Security Identifier.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "FactSet Permanent Security Identifier.")
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -123,7 +124,7 @@ public class ConvertibleTriggers implements Serializable {
    * Convertible Trigger Event
    * @return convTriggerEvent
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Convertible Trigger Event")
   @JsonProperty(JSON_PROPERTY_CONV_TRIGGER_EVENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -149,7 +150,7 @@ public class ConvertibleTriggers implements Serializable {
    * Convertible Trigger Event Description
    * @return convTriggerEventDesc
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Convertible Trigger Event Description")
   @JsonProperty(JSON_PROPERTY_CONV_TRIGGER_EVENT_DESC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -175,7 +176,7 @@ public class ConvertibleTriggers implements Serializable {
    * Convertible Trigger Id
    * @return triggerId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Convertible Trigger Id")
   @JsonProperty(JSON_PROPERTY_TRIGGER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

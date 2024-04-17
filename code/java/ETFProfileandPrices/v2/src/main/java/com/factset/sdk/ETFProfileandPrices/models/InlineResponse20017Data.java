@@ -35,7 +35,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
 @JsonPropertyOrder({
   InlineResponse20017Data.JSON_PROPERTY_FOCUS_CATEGORY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20017Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -54,7 +55,7 @@ public class InlineResponse20017Data implements Serializable {
    * ETP class focus category.
    * @return focusCategory
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "ETP class focus category.")
   @JsonProperty(JSON_PROPERTY_FOCUS_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

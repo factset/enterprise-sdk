@@ -37,7 +37,8 @@ import com.factset.sdk.OpenRisk.JSON;
   FactorsVisible.JSON_PROPERTY_LIST,
   FactorsVisible.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FactorsVisible implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -109,7 +110,7 @@ public class FactorsVisible implements Serializable {
    * List of risk model factor IDs
    * @return _list
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "List of risk model factor IDs")
   @JsonProperty(JSON_PROPERTY_LIST)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -135,7 +136,7 @@ public class FactorsVisible implements Serializable {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

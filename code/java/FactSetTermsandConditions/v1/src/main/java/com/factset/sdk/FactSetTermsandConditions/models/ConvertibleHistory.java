@@ -42,7 +42,8 @@ import com.factset.sdk.FactSetTermsandConditions.JSON;
   ConvertibleHistory.JSON_PROPERTY_CONV_RATIO,
   ConvertibleHistory.JSON_PROPERTY_CONV_ULY_FSYM_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ConvertibleHistory implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -76,7 +77,7 @@ public class ConvertibleHistory implements Serializable {
    * Security identifier used in the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Security identifier used in the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -102,7 +103,7 @@ public class ConvertibleHistory implements Serializable {
    * FactSet Permanent Security Identifier.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "FactSet Permanent Security Identifier.")
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -128,7 +129,7 @@ public class ConvertibleHistory implements Serializable {
    * Convertible Effective Date
    * @return convEffDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Convertible Effective Date")
   @JsonProperty(JSON_PROPERTY_CONV_EFF_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -154,7 +155,7 @@ public class ConvertibleHistory implements Serializable {
    * Convertibles Price
    * @return convPrice
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Convertibles Price")
   @JsonProperty(JSON_PROPERTY_CONV_PRICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -180,7 +181,7 @@ public class ConvertibleHistory implements Serializable {
    * Convertibles Ratio
    * @return convRatio
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Convertibles Ratio")
   @JsonProperty(JSON_PROPERTY_CONV_RATIO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -206,7 +207,7 @@ public class ConvertibleHistory implements Serializable {
    * Convertibles Underlying FactSet Permanent Identifier
    * @return convUlyFsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Convertibles Underlying FactSet Permanent Identifier")
   @JsonProperty(JSON_PROPERTY_CONV_ULY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -37,7 +37,8 @@ import com.factset.sdk.FactSetNER.JSON;
   Input.JSON_PROPERTY_FILTER_ENTITIES,
   Input.JSON_PROPERTY_ENABLE_ID_LOOKUP
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Input implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -70,7 +71,7 @@ public class Input implements Serializable {
    * English plain text to extract named entities from.  Maxiumum of 10,000 characters.
    * @return text
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "As demand for the coronavirus vaccine plateaus, Ohio Governor Mike DeWine is giving state residents a shot to win $1 million. Starting May 26, the state will award $1 million each week to an adult who has received at least the first dose of the COVID-19 vaccine, DeWine said. There will be five total drawings. This will give anyone who has not been vaccinated time to get the first dose of Pfizer or Moderna and be well on the way to full immunity, DeWine said Wednesday. West Virginia Governor Jim Justice wanted to give every vaccinated resident between the ages of 16 and 35 a $100 savings bond. States and localities have been given wide discretion by the Treasury Department in spending federal aid.", required = true, value = "English plain text to extract named entities from.  Maxiumum of 10,000 characters.")
   @JsonProperty(JSON_PROPERTY_TEXT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -96,7 +97,7 @@ public class Input implements Serializable {
    * Drop lower probability entities using machine learning filtering rules
    * @return filterEntities
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Drop lower probability entities using machine learning filtering rules")
   @JsonProperty(JSON_PROPERTY_FILTER_ENTITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -122,7 +123,7 @@ public class Input implements Serializable {
    * Retrieve FactSet IDs for entities
    * @return enableIdLookup
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Retrieve FactSet IDs for entities")
   @JsonProperty(JSON_PROPERTY_ENABLE_ID_LOOKUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

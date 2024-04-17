@@ -41,7 +41,8 @@ import com.factset.sdk.RealTimePriceAlerting.JSON;
   InlineResponse2001TriggerStatus.JSON_PROPERTY_CODE,
   InlineResponse2001TriggerStatus.JSON_PROPERTY_DETAILS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2001TriggerStatus implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -100,7 +101,7 @@ public class InlineResponse2001TriggerStatus implements Serializable {
    * Code of the status.
    * @return code
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Code of the status.")
   @JsonIgnore
 
@@ -134,7 +135,7 @@ public class InlineResponse2001TriggerStatus implements Serializable {
    * A human-readable, unstructured explanation specific to this error.
    * @return details
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A human-readable, unstructured explanation specific to this error.")
   @JsonIgnore
 

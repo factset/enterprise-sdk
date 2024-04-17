@@ -42,7 +42,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20062DataTargetMarketInvestorType.JSON_PROPERTY_PROFESSIONAL,
   InlineResponse20062DataTargetMarketInvestorType.JSON_PROPERTY_ELIGIBLE_COUNTER_PARTY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20062DataTargetMarketInvestorType implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -184,7 +185,7 @@ public class InlineResponse20062DataTargetMarketInvestorType implements Serializ
    * Indicates whether the investment product is suitable for retail clients.
    * @return retail
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the investment product is suitable for retail clients.")
   @JsonIgnore
 
@@ -218,7 +219,7 @@ public class InlineResponse20062DataTargetMarketInvestorType implements Serializ
    * Indicates whether the investment product is suitable for professional clients.
    * @return professional
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the investment product is suitable for professional clients.")
   @JsonIgnore
 
@@ -252,7 +253,7 @@ public class InlineResponse20062DataTargetMarketInvestorType implements Serializ
    * Indicates whether the investment product is suitable for clients of type eligible counterparty.
    * @return eligibleCounterParty
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the investment product is suitable for clients of type eligible counterparty.")
   @JsonIgnore
 

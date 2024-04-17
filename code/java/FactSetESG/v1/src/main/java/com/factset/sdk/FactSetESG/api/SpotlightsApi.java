@@ -6,7 +6,7 @@ import com.factset.sdk.FactSetESG.ApiResponse;
 import com.factset.sdk.FactSetESG.Configuration;
 import com.factset.sdk.FactSetESG.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -16,7 +16,8 @@ import com.factset.sdk.FactSetESG.models.SasbSpotlightsRequest;
 import com.factset.sdk.FactSetESG.models.SdgSpotlightsRequest;
 import com.factset.sdk.FactSetESG.models.SpotlightsResponse;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SpotlightsApi {
   private ApiClient apiClient;
 

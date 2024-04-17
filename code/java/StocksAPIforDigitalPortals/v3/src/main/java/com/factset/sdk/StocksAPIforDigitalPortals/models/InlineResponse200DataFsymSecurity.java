@@ -40,7 +40,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
 @JsonPropertyOrder({
   InlineResponse200DataFsymSecurity.JSON_PROPERTY_PERMANENT_IDENTIFIER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse200DataFsymSecurity implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -59,7 +60,7 @@ public class InlineResponse200DataFsymSecurity implements Serializable {
    * FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S).
    * @return permanentIdentifier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S).")
   @JsonIgnore
 

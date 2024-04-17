@@ -43,7 +43,8 @@ import com.factset.sdk.SecurityModeling.JSON;
   SMCreateParameters.JSON_PROPERTY_ASOFDATE,
   SMCreateParameters.JSON_PROPERTY_FIELDS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SMCreateParameters implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -81,7 +82,7 @@ public class SMCreateParameters implements Serializable {
    * Get securityName
    * @return securityName
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SECURITY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -107,7 +108,7 @@ public class SMCreateParameters implements Serializable {
    * Get location
    * @return location
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -141,7 +142,7 @@ public class SMCreateParameters implements Serializable {
    * Get asofdate
    * @return asofdate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -175,7 +176,7 @@ public class SMCreateParameters implements Serializable {
    * Get fields
    * @return fields
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_FIELDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

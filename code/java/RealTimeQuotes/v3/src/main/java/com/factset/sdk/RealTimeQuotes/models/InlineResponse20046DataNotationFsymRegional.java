@@ -42,7 +42,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20046DataNotationFsymRegional.JSON_PROPERTY_TICKER_REGION,
   InlineResponse20046DataNotationFsymRegional.JSON_PROPERTY_IS_PRIMARY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20046DataNotationFsymRegional implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -67,7 +68,7 @@ public class InlineResponse20046DataNotationFsymRegional implements Serializable
    * FactSet Permanent Identifier for a set of one or more notations of the same region with the same value unit. The format is six alpha numeric characters, excluding vowels, with an R suffix (XXXXXX-R).
    * @return permanentIdentifier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "FactSet Permanent Identifier for a set of one or more notations of the same region with the same value unit. The format is six alpha numeric characters, excluding vowels, with an R suffix (XXXXXX-R).")
   @JsonIgnore
 
@@ -101,7 +102,7 @@ public class InlineResponse20046DataNotationFsymRegional implements Serializable
    * FactSet regional symbol of the notation, consisting of the ticker and the two-character code of the country or region where the listing is traded (example: DAI-DE).
    * @return tickerRegion
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "FactSet regional symbol of the notation, consisting of the ticker and the two-character code of the country or region where the listing is traded (example: DAI-DE).")
   @JsonIgnore
 
@@ -135,7 +136,7 @@ public class InlineResponse20046DataNotationFsymRegional implements Serializable
    * Indicates whether the notation is in the primary region of the security (&#x60;true&#x60;) or not (&#x60;false&#x60;).
    * @return isPrimary
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the notation is in the primary region of the security (`true`) or not (`false`).")
   @JsonIgnore
 

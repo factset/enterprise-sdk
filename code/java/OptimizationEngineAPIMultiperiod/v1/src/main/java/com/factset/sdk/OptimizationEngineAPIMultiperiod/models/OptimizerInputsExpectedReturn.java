@@ -38,7 +38,8 @@ import com.factset.sdk.OptimizationEngineAPIMultiperiod.JSON;
   OptimizerInputsExpectedReturn.JSON_PROPERTY_ALPHA,
   OptimizerInputsExpectedReturn.JSON_PROPERTY_ALPHA_UNIT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerInputsExpectedReturn implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -60,7 +61,7 @@ public class OptimizerInputsExpectedReturn implements Serializable {
    * Get alpha
    * @return alpha
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ALPHA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,7 +87,7 @@ public class OptimizerInputsExpectedReturn implements Serializable {
    * Get alphaUnit
    * @return alphaUnit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ALPHA_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

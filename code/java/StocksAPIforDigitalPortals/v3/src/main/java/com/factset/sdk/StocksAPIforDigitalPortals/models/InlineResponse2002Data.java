@@ -52,7 +52,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2002Data.JSON_PROPERTY_RATIOS,
   InlineResponse2002Data.JSON_PROPERTY_PER_SHARE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2002Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -89,7 +90,7 @@ public class InlineResponse2002Data implements Serializable {
    * Get fiscalYear
    * @return fiscalYear
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FISCAL_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +116,7 @@ public class InlineResponse2002Data implements Serializable {
    * Publication date of the financial report.
    * @return reportDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Publication date of the financial report.")
   @JsonIgnore
 
@@ -149,7 +150,7 @@ public class InlineResponse2002Data implements Serializable {
    * Get currency
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -175,7 +176,7 @@ public class InlineResponse2002Data implements Serializable {
    * Get incomeStatement
    * @return incomeStatement
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INCOME_STATEMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -201,7 +202,7 @@ public class InlineResponse2002Data implements Serializable {
    * Get balanceSheet
    * @return balanceSheet
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BALANCE_SHEET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -227,7 +228,7 @@ public class InlineResponse2002Data implements Serializable {
    * Get ratios
    * @return ratios
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RATIOS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -253,7 +254,7 @@ public class InlineResponse2002Data implements Serializable {
    * Get perShare
    * @return perShare
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PER_SHARE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

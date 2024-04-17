@@ -49,7 +49,8 @@ import com.factset.sdk.Formula.JSON;
   CrossSectionalResultObjectNonflattened.JSON_PROPERTY_ERROR_MESSAGE,
   CrossSectionalResultObjectNonflattened.JSON_PROPERTY_WARNINGS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CrossSectionalResultObjectNonflattened implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -140,7 +141,7 @@ public class CrossSectionalResultObjectNonflattened implements Serializable {
    * If &#x60;universe&#x60; is submitted instead of &#x60;ids&#x60;, then the universe attribute will display the universe expression requested.
    * @return universe
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "(FG_CONSTITUENTS(SP50,0,CLOSE) AND P_PRICE(0,USD)<10)=1", value = "If `universe` is submitted instead of `ids`, then the universe attribute will display the universe expression requested.")
   @JsonProperty(JSON_PROPERTY_UNIVERSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -166,7 +167,7 @@ public class CrossSectionalResultObjectNonflattened implements Serializable {
    * Name of data item (requestId, requested Screening formula, or fsymId)
    * @return dataItemName
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "P_PRICE(0)", required = true, value = "Name of data item (requestId, requested Screening formula, or fsymId)")
   @JsonProperty(JSON_PROPERTY_DATA_ITEM_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -192,7 +193,7 @@ public class CrossSectionalResultObjectNonflattened implements Serializable {
    * Display Name.
    * @return displayName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "PRICE", value = "Display Name.")
   @JsonIgnore
 
@@ -231,7 +232,7 @@ public class CrossSectionalResultObjectNonflattened implements Serializable {
    * Get result
    * @return result
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_RESULT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -257,7 +258,7 @@ public class CrossSectionalResultObjectNonflattened implements Serializable {
    * Data type of the data item
    * @return dataType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "STRING", required = true, value = "Data type of the data item")
   @JsonProperty(JSON_PROPERTY_DATA_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -283,7 +284,7 @@ public class CrossSectionalResultObjectNonflattened implements Serializable {
    * Data item error indicator.  * Zero – success  * Non-zero – failure 
    * @return error
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "0", required = true, value = "Data item error indicator.  * Zero – success  * Non-zero – failure ")
   @JsonProperty(JSON_PROPERTY_ERROR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -309,7 +310,7 @@ public class CrossSectionalResultObjectNonflattened implements Serializable {
    * If error is non-zero, errorMessage will display the Screening formula error.
    * @return errorMessage
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Error parsing formula arguments ", value = "If error is non-zero, errorMessage will display the Screening formula error.")
   @JsonIgnore
 
@@ -351,7 +352,7 @@ public class CrossSectionalResultObjectNonflattened implements Serializable {
    * Screening formula warnings. This attribute is only displayed if warnings are generated in the execution of the Screening formula.
    * @return warnings
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Screening formula warnings. This attribute is only displayed if warnings are generated in the execution of the Screening formula.")
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

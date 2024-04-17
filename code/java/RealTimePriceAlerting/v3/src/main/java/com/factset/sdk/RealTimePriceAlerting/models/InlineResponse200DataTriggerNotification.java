@@ -37,7 +37,8 @@ import com.factset.sdk.RealTimePriceAlerting.JSON;
 @JsonPropertyOrder({
   InlineResponse200DataTriggerNotification.JSON_PROPERTY_CHANNEL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse200DataTriggerNotification implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -56,7 +57,7 @@ public class InlineResponse200DataTriggerNotification implements Serializable {
    * Get channel
    * @return channel
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CHANNEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -41,7 +41,8 @@ import com.factset.sdk.Vault.JSON;
   VaultConfiguration.JSON_PROPERTY_NAME,
   VaultConfiguration.JSON_PROPERTY_ACCOUNTS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class VaultConfiguration implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class VaultConfiguration implements Serializable {
    * Configuration name.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Configuration name.")
   @JsonIgnore
 
@@ -109,7 +110,7 @@ public class VaultConfiguration implements Serializable {
    * Get accounts
    * @return accounts
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

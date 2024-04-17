@@ -44,7 +44,8 @@ import com.factset.sdk.IRNConfiguration.JSON;
   Operation.JSON_PROPERTY_FROM,
   Operation.JSON_PROPERTY_VALUE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Operation implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -75,7 +76,7 @@ public class Operation implements Serializable {
    * Get operationType
    * @return operationType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OPERATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -101,7 +102,7 @@ public class Operation implements Serializable {
    * Get path
    * @return path
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -135,7 +136,7 @@ public class Operation implements Serializable {
    * Get op
    * @return op
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -169,7 +170,7 @@ public class Operation implements Serializable {
    * Get from
    * @return from
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -203,7 +204,7 @@ public class Operation implements Serializable {
    * Get value
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

@@ -6,7 +6,7 @@ import com.factset.sdk.Vault.ApiResponse;
 import com.factset.sdk.Vault.Configuration;
 import com.factset.sdk.Vault.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -17,7 +17,8 @@ import com.factset.sdk.Vault.models.ClientErrorResponse;
 import com.factset.sdk.Vault.models.ObjectRoot;
 import com.factset.sdk.Vault.models.VaultCalculationParametersRoot;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class VaultCalculationsApi {
   private ApiClient apiClient;
 

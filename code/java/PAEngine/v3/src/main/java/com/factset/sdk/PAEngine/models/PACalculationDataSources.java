@@ -42,7 +42,8 @@ import com.factset.sdk.PAEngine.JSON;
   PACalculationDataSources.JSON_PROPERTY_BENCHMARKPRICINGSOURCES,
   PACalculationDataSources.JSON_PROPERTY_USEPORTFOLIOPRICINGSOURCESFORBENCHMARK
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PACalculationDataSources implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -79,7 +80,7 @@ public class PACalculationDataSources implements Serializable {
    * List of portfilio pricing source for the PA calculation
    * @return portfoliopricingsources
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of portfilio pricing source for the PA calculation")
   @JsonIgnore
 
@@ -125,7 +126,7 @@ public class PACalculationDataSources implements Serializable {
    * List of benchmark pricing source for the PA calculation
    * @return benchmarkpricingsources
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of benchmark pricing source for the PA calculation")
   @JsonIgnore
 
@@ -159,7 +160,7 @@ public class PACalculationDataSources implements Serializable {
    * Use portfolio pricing sources for benchmark
    * @return useportfoliopricingsourcesforbenchmark
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Use portfolio pricing sources for benchmark")
   @JsonIgnore
 

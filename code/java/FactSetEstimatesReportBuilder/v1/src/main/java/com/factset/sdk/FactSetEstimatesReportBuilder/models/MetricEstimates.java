@@ -36,7 +36,8 @@ import com.factset.sdk.FactSetEstimatesReportBuilder.JSON;
 @JsonPropertyOrder({
   MetricEstimates.JSON_PROPERTY_METRIC_ESTIMATES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class MetricEstimates implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -55,7 +56,7 @@ public class MetricEstimates implements Serializable {
    * Get metricEstimates
    * @return metricEstimates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_METRIC_ESTIMATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

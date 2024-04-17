@@ -39,7 +39,8 @@ import com.factset.sdk.OptimizationEngineAPIMultiperiod.JSON;
   OptimizerInputsMultiPeriodOptions.JSON_PROPERTY_TOTAL_PERIODS_COUNT,
   OptimizerInputsMultiPeriodOptions.JSON_PROPERTY_INITIAL_POINT_RANDOMIZATION_COUNT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerInputsMultiPeriodOptions implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -67,7 +68,7 @@ public class OptimizerInputsMultiPeriodOptions implements Serializable {
    * Get options
    * @return options
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -101,7 +102,7 @@ public class OptimizerInputsMultiPeriodOptions implements Serializable {
    * Get weightRebalancePeriods
    * @return weightRebalancePeriods
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WEIGHT_REBALANCE_PERIODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -127,7 +128,7 @@ public class OptimizerInputsMultiPeriodOptions implements Serializable {
    * Get totalPeriodsCount
    * @return totalPeriodsCount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TOTAL_PERIODS_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -153,7 +154,7 @@ public class OptimizerInputsMultiPeriodOptions implements Serializable {
    * Get initialPointRandomizationCount
    * @return initialPointRandomizationCount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INITIAL_POINT_RANDOMIZATION_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

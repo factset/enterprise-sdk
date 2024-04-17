@@ -41,7 +41,8 @@ import com.factset.sdk.ContentFeedsDataDictionary.JSON;
   DataItem.JSON_PROPERTY_API,
   DataItem.JSON_PROPERTY_REFERENCE_DATA_FEED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class DataItem implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -78,7 +79,7 @@ public class DataItem implements Serializable {
    * Unique identifier for the data item
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "35", value = "Unique identifier for the data item")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -104,7 +105,7 @@ public class DataItem implements Serializable {
    * Name of the data item
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "fsym_id", value = "Name of the data item")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -130,7 +131,7 @@ public class DataItem implements Serializable {
    * Description of the data item
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Factset Perm Id", value = "Description of the data item")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -156,7 +157,7 @@ public class DataItem implements Serializable {
    * Flag indicating if the user is entitled to access the data in their subscriptions
    * @return entitled
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "true", value = "Flag indicating if the user is entitled to access the data in their subscriptions")
   @JsonProperty(JSON_PROPERTY_ENTITLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -182,7 +183,7 @@ public class DataItem implements Serializable {
    * Flag indicating if this item is available in a data feed
    * @return dataFeed
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "true", value = "Flag indicating if this item is available in a data feed")
   @JsonProperty(JSON_PROPERTY_DATA_FEED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -208,7 +209,7 @@ public class DataItem implements Serializable {
    * Flag indicating if this item is available in an api
    * @return api
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "true", value = "Flag indicating if this item is available in an api")
   @JsonProperty(JSON_PROPERTY_API)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -234,7 +235,7 @@ public class DataItem implements Serializable {
    * Flag indicating if this product is maintained by RDF/UCF
    * @return referenceDataFeed
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "false", value = "Flag indicating if this product is maintained by RDF/UCF")
   @JsonProperty(JSON_PROPERTY_REFERENCE_DATA_FEED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

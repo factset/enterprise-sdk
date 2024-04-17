@@ -39,7 +39,8 @@ import com.factset.sdk.StandardDatafeed.JSON;
   HistoricalFile.JSON_PROPERTY_DATA,
   HistoricalFile.JSON_PROPERTY_META
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class HistoricalFile implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -74,7 +75,7 @@ public class HistoricalFile implements Serializable {
    * Historical Files Data Array.
    * @return data
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Historical Files Data Array.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -100,7 +101,7 @@ public class HistoricalFile implements Serializable {
    * Get meta
    * @return meta
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

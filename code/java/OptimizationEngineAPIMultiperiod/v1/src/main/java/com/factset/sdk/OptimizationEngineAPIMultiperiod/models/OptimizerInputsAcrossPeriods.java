@@ -38,7 +38,8 @@ import com.factset.sdk.OptimizationEngineAPIMultiperiod.JSON;
   OptimizerInputsAcrossPeriods.JSON_PROPERTY_END_PERIOD,
   OptimizerInputsAcrossPeriods.JSON_PROPERTY_ROLLING
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerInputsAcrossPeriods implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class OptimizerInputsAcrossPeriods implements Serializable {
    * Get startPeriod
    * @return startPeriod
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_START_PERIOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -89,7 +90,7 @@ public class OptimizerInputsAcrossPeriods implements Serializable {
    * Get endPeriod
    * @return endPeriod
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_END_PERIOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +116,7 @@ public class OptimizerInputsAcrossPeriods implements Serializable {
    * Get rolling
    * @return rolling
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ROLLING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

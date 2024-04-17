@@ -41,7 +41,8 @@ import com.factset.sdk.PortfolioReportingBatcher.JSON;
   StartJobRunResponseData.JSON_PROPERTY_STATUS,
   StartJobRunResponseData.JSON_PROPERTY_JOB_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class StartJobRunResponseData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -83,7 +84,7 @@ public class StartJobRunResponseData implements Serializable {
    * The run ID for the job that has been triggered which is used in the /runs/{id}/status endpoint
    * @return id
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The run ID for the job that has been triggered which is used in the /runs/{id}/status endpoint")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -109,7 +110,7 @@ public class StartJobRunResponseData implements Serializable {
    * Name of the job
    * @return jobName
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Name of the job")
   @JsonProperty(JSON_PROPERTY_JOB_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -135,7 +136,7 @@ public class StartJobRunResponseData implements Serializable {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -161,7 +162,7 @@ public class StartJobRunResponseData implements Serializable {
    * Get jobType
    * @return jobType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_JOB_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

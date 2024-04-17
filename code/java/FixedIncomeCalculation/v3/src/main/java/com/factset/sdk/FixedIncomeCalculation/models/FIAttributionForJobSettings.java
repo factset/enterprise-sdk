@@ -40,7 +40,8 @@ import com.factset.sdk.FixedIncomeCalculation.JSON;
   FIAttributionForJobSettings.JSON_PROPERTY_START_DATE,
   FIAttributionForJobSettings.JSON_PROPERTY_END_DATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FIAttributionForJobSettings implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -62,7 +63,7 @@ public class FIAttributionForJobSettings implements Serializable {
    * Start Date
    * @return startDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Start Date")
   @JsonIgnore
 
@@ -96,7 +97,7 @@ public class FIAttributionForJobSettings implements Serializable {
    * End Date
    * @return endDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "End Date")
   @JsonIgnore
 

@@ -36,7 +36,8 @@ import com.factset.sdk.ProcuretoPayAPISCIM.JSON;
   ProductResourceMeta.JSON_PROPERTY_RESOURCE_TYPE,
   ProductResourceMeta.JSON_PROPERTY_LOCATION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ProductResourceMeta implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -58,7 +59,7 @@ public class ProductResourceMeta implements Serializable {
    * Get resourceType
    * @return resourceType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Product", value = "")
   @JsonProperty(JSON_PROPERTY_RESOURCE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -84,7 +85,7 @@ public class ProductResourceMeta implements Serializable {
    * Get location
    * @return location
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "https://api.factset.com/scim/v2/Products/6781", value = "")
   @JsonProperty(JSON_PROPERTY_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

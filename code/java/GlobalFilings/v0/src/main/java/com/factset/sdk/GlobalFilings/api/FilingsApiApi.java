@@ -6,7 +6,7 @@ import com.factset.sdk.GlobalFilings.ApiResponse;
 import com.factset.sdk.GlobalFilings.Configuration;
 import com.factset.sdk.GlobalFilings.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -16,7 +16,8 @@ import com.factset.sdk.GlobalFilings.models.InvestmentResearch;
 import com.factset.sdk.GlobalFilings.models.ResponseCount;
 import com.factset.sdk.GlobalFilings.models.ResponseHelper;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FilingsApiApi {
   private ApiClient apiClient;
 

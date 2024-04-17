@@ -59,7 +59,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2002Ratios.JSON_PROPERTY_ENTERPRISE_VALUE_SALES,
   InlineResponse2002Ratios.JSON_PROPERTY_ENTERPRISE_VALUE_FREE_CASH_FLOW
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2002Ratios implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -111,7 +112,7 @@ public class InlineResponse2002Ratios implements Serializable {
    * Get priceSales
    * @return priceSales
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRICE_SALES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -137,7 +138,7 @@ public class InlineResponse2002Ratios implements Serializable {
    * Get priceEarnings
    * @return priceEarnings
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRICE_EARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -163,7 +164,7 @@ public class InlineResponse2002Ratios implements Serializable {
    * Get priceEarningsGrowth
    * @return priceEarningsGrowth
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRICE_EARNINGS_GROWTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -189,7 +190,7 @@ public class InlineResponse2002Ratios implements Serializable {
    * Get priceBookValue
    * @return priceBookValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRICE_BOOK_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -215,7 +216,7 @@ public class InlineResponse2002Ratios implements Serializable {
    * Get priceCashFlow
    * @return priceCashFlow
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRICE_CASH_FLOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -241,7 +242,7 @@ public class InlineResponse2002Ratios implements Serializable {
    * Get priceFreeCashFlow
    * @return priceFreeCashFlow
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRICE_FREE_CASH_FLOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -267,7 +268,7 @@ public class InlineResponse2002Ratios implements Serializable {
    * Get dividendYield
    * @return dividendYield
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DIVIDEND_YIELD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -293,7 +294,7 @@ public class InlineResponse2002Ratios implements Serializable {
    * Get enterpriseValueEbit
    * @return enterpriseValueEbit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ENTERPRISE_VALUE_EBIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -319,7 +320,7 @@ public class InlineResponse2002Ratios implements Serializable {
    * Get enterpriseValueEbita
    * @return enterpriseValueEbita
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ENTERPRISE_VALUE_EBITA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -345,7 +346,7 @@ public class InlineResponse2002Ratios implements Serializable {
    * Get enterpriseValueEbitda
    * @return enterpriseValueEbitda
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ENTERPRISE_VALUE_EBITDA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -371,7 +372,7 @@ public class InlineResponse2002Ratios implements Serializable {
    * Get enterpriseValueSales
    * @return enterpriseValueSales
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ENTERPRISE_VALUE_SALES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -397,7 +398,7 @@ public class InlineResponse2002Ratios implements Serializable {
    * Get enterpriseValueFreeCashFlow
    * @return enterpriseValueFreeCashFlow
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ENTERPRISE_VALUE_FREE_CASH_FLOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

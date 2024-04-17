@@ -50,7 +50,8 @@ import com.factset.sdk.Formula.JSON;
   TimeSeriesResultObjectNonflattenedArray.JSON_PROPERTY_DATA_TYPE,
   TimeSeriesResultObjectNonflattenedArray.JSON_PROPERTY_OBJECT_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class TimeSeriesResultObjectNonflattenedArray implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -193,7 +194,7 @@ public class TimeSeriesResultObjectNonflattenedArray implements Serializable {
    * Get result
    * @return result
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -219,7 +220,7 @@ public class TimeSeriesResultObjectNonflattenedArray implements Serializable {
    * Indicates that there was an error in the execution of the FQL Formula. * Zero – success * Non-zero – failure 
    * @return error
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "0", required = true, value = "Indicates that there was an error in the execution of the FQL Formula. * Zero – success * Non-zero – failure ")
   @JsonProperty(JSON_PROPERTY_ERROR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -245,7 +246,7 @@ public class TimeSeriesResultObjectNonflattenedArray implements Serializable {
    * If error is non-zero, errorMessage will display the FQL formula error.
    * @return errorMessage
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "parse error, unexpected ',' ", value = "If error is non-zero, errorMessage will display the FQL formula error.")
   @JsonIgnore
 
@@ -279,7 +280,7 @@ public class TimeSeriesResultObjectNonflattenedArray implements Serializable {
    * FQL formula requested.
    * @return formula
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "P_PRICE(0,-1,D)", required = true, value = "FQL formula requested.")
   @JsonProperty(JSON_PROPERTY_FORMULA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -305,7 +306,7 @@ public class TimeSeriesResultObjectNonflattenedArray implements Serializable {
    * Display Name.
    * @return displayName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "PRICE", value = "Display Name.")
   @JsonIgnore
 
@@ -339,7 +340,7 @@ public class TimeSeriesResultObjectNonflattenedArray implements Serializable {
    * Identifier requested.
    * @return requestId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "IBM-US", required = true, value = "Identifier requested.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -365,7 +366,7 @@ public class TimeSeriesResultObjectNonflattenedArray implements Serializable {
    * The **fsymId** field returned is the FactSet Default Permanent Identifier for the &#x60;requestId&#x60;. For all supported &#x60;requestId&#x60; symbol types, the &#x60;fsymId&#x60; parameter will return the Regional Level PermId &#39;-R&#39; which identifies the security’s best regional security data series per currency. Currently, the fsymId parameter only supports equities. Accepted &#x60;requestId&#x60; symbol types include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. Further documentation can be found at this [Online Assistant attachment](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881). Included only if the &#x60;fsymId&#x60; parameter is set to Y. 
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "SJY281-R", value = "The **fsymId** field returned is the FactSet Default Permanent Identifier for the `requestId`. For all supported `requestId` symbol types, the `fsymId` parameter will return the Regional Level PermId '-R' which identifies the security’s best regional security data series per currency. Currently, the fsymId parameter only supports equities. Accepted `requestId` symbol types include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. Further documentation can be found at this [Online Assistant attachment](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881). Included only if the `fsymId` parameter is set to Y. ")
   @JsonIgnore
 
@@ -399,7 +400,7 @@ public class TimeSeriesResultObjectNonflattenedArray implements Serializable {
    * Type of data returned in &#x60;result&#x60;
    * @return dataType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "STRING", required = true, value = "Type of data returned in `result`")
   @JsonProperty(JSON_PROPERTY_DATA_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -425,7 +426,7 @@ public class TimeSeriesResultObjectNonflattenedArray implements Serializable {
    * Type of object returned in &#x60;result&#x60;
    * @return objectType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "ARRAY", required = true, value = "Type of object returned in `result`")
   @JsonProperty(JSON_PROPERTY_OBJECT_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

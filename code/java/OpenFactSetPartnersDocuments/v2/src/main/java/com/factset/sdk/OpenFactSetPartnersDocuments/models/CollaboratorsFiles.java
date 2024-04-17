@@ -43,7 +43,8 @@ import com.factset.sdk.OpenFactSetPartnersDocuments.JSON;
   CollaboratorsFiles.JSON_PROPERTY_BEAM_COLLABORATORS_TICKER,
   CollaboratorsFiles.JSON_PROPERTY_URL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CollaboratorsFiles implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -80,7 +81,7 @@ public class CollaboratorsFiles implements Serializable {
    * The filename of the trial data
    * @return fileName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "NCT00079001_483.json", value = "The filename of the trial data")
   @JsonProperty(JSON_PROPERTY_FILE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -106,7 +107,7 @@ public class CollaboratorsFiles implements Serializable {
    * Specifies Ozmosi unique ID for each historical version of a trial
    * @return clinicalTrialId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "NCT00079001_483", value = "Specifies Ozmosi unique ID for each historical version of a trial")
   @JsonProperty(JSON_PROPERTY_CLINICAL_TRIAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -132,7 +133,7 @@ public class CollaboratorsFiles implements Serializable {
    * Ozmosi unique ID for each collaborator
    * @return beamCollaboratorsId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "142", value = "Ozmosi unique ID for each collaborator")
   @JsonProperty(JSON_PROPERTY_BEAM_COLLABORATORS_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,7 +159,7 @@ public class CollaboratorsFiles implements Serializable {
    * Cleaned name of collaborator
    * @return beamCollaboratorsName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Eastern Cooperative Oncology Group", value = "Cleaned name of collaborator")
   @JsonProperty(JSON_PROPERTY_BEAM_COLLABORATORS_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -184,7 +185,7 @@ public class CollaboratorsFiles implements Serializable {
    * Identifies if the collaborator is an Industry collaborator or other
    * @return beamCollaboratorsType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Industry", value = "Identifies if the collaborator is an Industry collaborator or other")
   @JsonProperty(JSON_PROPERTY_BEAM_COLLABORATORS_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -210,7 +211,7 @@ public class CollaboratorsFiles implements Serializable {
    * Stock ticker for collaborator
    * @return beamCollaboratorsTicker
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "MEDP", value = "Stock ticker for collaborator")
   @JsonProperty(JSON_PROPERTY_BEAM_COLLABORATORS_TICKER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -236,7 +237,7 @@ public class CollaboratorsFiles implements Serializable {
    * Download link for the clinical trials provided by the Ozmosi feed
    * @return url
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "https://fdss3-unstructured-data-delivery-ozmosi-prod.s3.amazonaws.com/ozmosi_v2/NCT00079001_483.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6B6XG7VEYODKETS6%2F20221017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221017T125047Z&X-Amz-Expires=1800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjED0aCXVzLWVhc3QtMSJIMEYCIQDzGmRWCkwvfl8WKsZ3rektfXyQa551ht8wkggj29qufwIhALaFsXrpyISV%2B6A3hASCdStEUtlzUEaBL9Bs0%2BSP3wUaKu4CCBYQARoMOTY2MjgyMTE2NDI1IgxkKPBJ4cINLlvTEkIqywKmD%2BMhpGDpCzI8LfS13Rvs%2FnCQ5S5khGdpMUk8j0kQ4%2F6xoX7SYyXjkn8VFk2OSJkfPpu6XBADJ3H6BmuJvAM5ovraQqQXjx8iuB7LPgYAHoIJNvZDivb8HV%2BmBSwbEoOyCIslX%2FFrlYNU6KmfpvKUZqJRPmpSVdb%2F2%2BwG6rw3WHO6qBxWjwPga2b9U7DvU0LCke0myB8cRhdimWuONNendFNuwm9KnvhrUbszsLT4dIxufiYQarCqQvx0FuMG21%2FPTKWXbpvHbSSG663qqBi2xYmIP%2BmvQ9JvZMkWN%2FOtVhkDqT8YcyaaLshDVv0xDvzdsP6h4YYjDohaABooNIuP1OVJ9fzzUe4F4ZlP5eZDAKKCPOU%2FfG9UitWHxm3feQDe460sVVbiGow7is85fhQsoeHQEfqqLifPXwxo2s72bwaxd2ZJOTYh7ra7MJeTtZoGOp0BJqQMDoOIol1WSTKBI02ne6rUGKfvR6ksj%2BjEQR9OURvMj843tnJketh6IUBNG%2Be0q7Y0YcV2AAKj1Q7nloa%2B6LoRFOyvKwy4SAfNh%2F1KGM8%2F%2FitZfxzOAwI%2BtlEPKuHWL3OWAyusy6VSXaw4PYtJrS9lual9O%2Brz3kK2au4JZnkeZH3KJsIefE4tJ2GcL%2FT3IOt7htI%2BGRZZDGNCHQ%3D%3D&X-Amz-Signature=c0ffeb0f683b0ab453c0524742cb921e07059fcf29b9a577184d6431dce2c7b4", value = "Download link for the clinical trials provided by the Ozmosi feed")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

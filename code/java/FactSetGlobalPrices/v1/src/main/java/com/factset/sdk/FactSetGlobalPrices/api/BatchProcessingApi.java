@@ -6,7 +6,7 @@ import com.factset.sdk.FactSetGlobalPrices.ApiResponse;
 import com.factset.sdk.FactSetGlobalPrices.Configuration;
 import com.factset.sdk.FactSetGlobalPrices.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -15,7 +15,8 @@ import com.factset.sdk.FactSetGlobalPrices.models.BatchErrorResponse;
 import com.factset.sdk.FactSetGlobalPrices.models.BatchResultResponse;
 import com.factset.sdk.FactSetGlobalPrices.models.BatchStatusResponse;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class BatchProcessingApi {
   private ApiClient apiClient;
 

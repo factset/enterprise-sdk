@@ -42,7 +42,8 @@ import com.factset.sdk.OpenRisk.JSON;
   Holding.JSON_PROPERTY_GROUPING,
   Holding.JSON_PROPERTY_UNCOVERED_ASSETS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Holding implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -126,7 +127,7 @@ public class Holding implements Serializable {
    * Get ids
    * @return ids
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -157,7 +158,7 @@ public class Holding implements Serializable {
    * Get marketValues
    * @return marketValues
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_MARKET_VALUES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -183,7 +184,7 @@ public class Holding implements Serializable {
    * Get grouping
    * @return grouping
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_GROUPING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -209,7 +210,7 @@ public class Holding implements Serializable {
    * Uncovered asset weight handling. Default values: &#39;portfolio&#39; -&gt; ExcludeToGlobalCash, &#39;benchmark&#39; -&gt; Normalize, &#39;market&#39; -&gt; Normalize. See also [OA:21737](https://my.apps.factset.com/oa/pages/21737#group_normal_mix)
    * @return uncoveredAssets
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Uncovered asset weight handling. Default values: 'portfolio' -> ExcludeToGlobalCash, 'benchmark' -> Normalize, 'market' -> Normalize. See also [OA:21737](https://my.apps.factset.com/oa/pages/21737#group_normal_mix)")
   @JsonProperty(JSON_PROPERTY_UNCOVERED_ASSETS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

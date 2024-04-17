@@ -41,7 +41,8 @@ import com.factset.sdk.PAEngine.JSON;
   PAPricingSource.JSON_PROPERTY_DIRECTORY,
   PAPricingSource.JSON_PROPERTY_CATEGORY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PAPricingSource implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -66,7 +67,7 @@ public class PAPricingSource implements Serializable {
    * Pricing source Name
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Pricing source Name")
   @JsonIgnore
 
@@ -100,7 +101,7 @@ public class PAPricingSource implements Serializable {
    * Pricing source directory
    * @return directory
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Pricing source directory")
   @JsonIgnore
 
@@ -134,7 +135,7 @@ public class PAPricingSource implements Serializable {
    * Pricing source category
    * @return category
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Pricing source category")
   @JsonIgnore
 

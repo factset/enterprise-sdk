@@ -50,7 +50,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20014ReportedKeyFiguresFirstFiscalYearRatios.JSON_PROPERTY_ENTERPRISE_VALUE_SALES,
   InlineResponse20014ReportedKeyFiguresFirstFiscalYearRatios.JSON_PROPERTY_DEBT_EQUITY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20014ReportedKeyFiguresFirstFiscalYearRatios implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -96,7 +97,7 @@ public class InlineResponse20014ReportedKeyFiguresFirstFiscalYearRatios implemen
    * Ratio of the price, divided by the total sales revenue per share.
    * @return priceSales
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Ratio of the price, divided by the total sales revenue per share.")
   @JsonIgnore
 
@@ -130,7 +131,7 @@ public class InlineResponse20014ReportedKeyFiguresFirstFiscalYearRatios implemen
    * Ratio of the price, divided by the reported earnings per share (basic or diluted) by the company.
    * @return priceEarnings
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Ratio of the price, divided by the reported earnings per share (basic or diluted) by the company.")
   @JsonIgnore
 
@@ -164,7 +165,7 @@ public class InlineResponse20014ReportedKeyFiguresFirstFiscalYearRatios implemen
    * Ratio of the price, divided by the book value per share.
    * @return priceBookValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Ratio of the price, divided by the book value per share.")
   @JsonIgnore
 
@@ -198,7 +199,7 @@ public class InlineResponse20014ReportedKeyFiguresFirstFiscalYearRatios implemen
    * Ratio of the price, divided by the cash flow per share.
    * @return priceCashFlow
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Ratio of the price, divided by the cash flow per share.")
   @JsonIgnore
 
@@ -232,7 +233,7 @@ public class InlineResponse20014ReportedKeyFiguresFirstFiscalYearRatios implemen
    * Ratio of the price, divided by the free (i.e. without subtraction of dividends) cash flow per share.
    * @return priceFreeCashFlow
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Ratio of the price, divided by the free (i.e. without subtraction of dividends) cash flow per share.")
   @JsonIgnore
 
@@ -266,7 +267,7 @@ public class InlineResponse20014ReportedKeyFiguresFirstFiscalYearRatios implemen
    * Ratio of the dividend per share, divided by the price.
    * @return dividendYield
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Ratio of the dividend per share, divided by the price.")
   @JsonIgnore
 
@@ -300,7 +301,7 @@ public class InlineResponse20014ReportedKeyFiguresFirstFiscalYearRatios implemen
    * Ratio of the enterprise value, divided by the EBIT.
    * @return enterpriseValueEbit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Ratio of the enterprise value, divided by the EBIT.")
   @JsonIgnore
 
@@ -334,7 +335,7 @@ public class InlineResponse20014ReportedKeyFiguresFirstFiscalYearRatios implemen
    * Ratio of the enterprise value, divided by the EBITDA.
    * @return enterpriseValueEbitda
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Ratio of the enterprise value, divided by the EBITDA.")
   @JsonIgnore
 
@@ -368,7 +369,7 @@ public class InlineResponse20014ReportedKeyFiguresFirstFiscalYearRatios implemen
    * Ratio of the enterprise value, divided by the total amount of sales revenue.
    * @return enterpriseValueSales
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Ratio of the enterprise value, divided by the total amount of sales revenue.")
   @JsonIgnore
 
@@ -402,7 +403,7 @@ public class InlineResponse20014ReportedKeyFiguresFirstFiscalYearRatios implemen
    * Total-debt-to-total-equity ratio, which is the ratio of the total debt, divided by the total shareholders&#39; equity.
    * @return debtEquity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Total-debt-to-total-equity ratio, which is the ratio of the total debt, divided by the total shareholders' equity.")
   @JsonIgnore
 

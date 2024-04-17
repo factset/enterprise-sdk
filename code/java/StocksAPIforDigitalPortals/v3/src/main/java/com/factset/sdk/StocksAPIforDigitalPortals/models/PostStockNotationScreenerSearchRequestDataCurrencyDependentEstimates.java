@@ -43,7 +43,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimates.JSON_PROPERTY_EBITDA,
   PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimates.JSON_PROPERTY_PER_SHARE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimates implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -79,7 +80,7 @@ public class PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimate
    * Get currency
    * @return currency
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -105,7 +106,7 @@ public class PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimate
    * Get ebit
    * @return ebit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EBIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -131,7 +132,7 @@ public class PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimate
    * Get ebitda
    * @return ebitda
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EBITDA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -157,7 +158,7 @@ public class PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimate
    * Get perShare
    * @return perShare
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PER_SHARE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

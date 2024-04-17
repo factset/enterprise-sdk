@@ -57,7 +57,8 @@ import com.factset.sdk.IRNNotes.JSON;
   UpdateNoteDto.JSON_PROPERTY_IS_PERSONAL,
   UpdateNoteDto.JSON_PROPERTY_IDENTIFIER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class UpdateNoteDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -118,7 +119,7 @@ public class UpdateNoteDto implements Serializable {
    * Get author
    * @return author
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AUTHOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -144,7 +145,7 @@ public class UpdateNoteDto implements Serializable {
    * Get title
    * @return title
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -178,7 +179,7 @@ public class UpdateNoteDto implements Serializable {
    * Get subjectId
    * @return subjectId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SUBJECT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -204,7 +205,7 @@ public class UpdateNoteDto implements Serializable {
    * Get noteDate
    * @return noteDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -238,7 +239,7 @@ public class UpdateNoteDto implements Serializable {
    * Get recommendationId
    * @return recommendationId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -272,7 +273,7 @@ public class UpdateNoteDto implements Serializable {
    * Get sentimentId
    * @return sentimentId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -306,7 +307,7 @@ public class UpdateNoteDto implements Serializable {
    * Get body
    * @return body
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BODY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -332,7 +333,7 @@ public class UpdateNoteDto implements Serializable {
    * Get source
    * @return source
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -366,7 +367,7 @@ public class UpdateNoteDto implements Serializable {
    * Get link
    * @return link
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -412,7 +413,7 @@ public class UpdateNoteDto implements Serializable {
    * Get relatedSymbols
    * @return relatedSymbols
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -458,7 +459,7 @@ public class UpdateNoteDto implements Serializable {
    * Get relatedContacts
    * @return relatedContacts
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -492,7 +493,7 @@ public class UpdateNoteDto implements Serializable {
    * Get relatedRecords
    * @return relatedRecords
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RELATED_RECORDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -530,7 +531,7 @@ public class UpdateNoteDto implements Serializable {
    * Get customFieldValues
    * @return customFieldValues
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -564,7 +565,7 @@ public class UpdateNoteDto implements Serializable {
    * Get isPersonal
    * @return isPersonal
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -598,7 +599,7 @@ public class UpdateNoteDto implements Serializable {
    * Get identifier
    * @return identifier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

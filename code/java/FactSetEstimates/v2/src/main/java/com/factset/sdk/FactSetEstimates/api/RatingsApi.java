@@ -6,7 +6,7 @@ import com.factset.sdk.FactSetEstimates.ApiResponse;
 import com.factset.sdk.FactSetEstimates.Configuration;
 import com.factset.sdk.FactSetEstimates.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -17,7 +17,8 @@ import com.factset.sdk.FactSetEstimates.models.DetailRatingsRequest;
 import com.factset.sdk.FactSetEstimates.models.DetailRatingsResponse;
 import com.factset.sdk.FactSetEstimates.models.ErrorResponse;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class RatingsApi {
   private ApiClient apiClient;
 

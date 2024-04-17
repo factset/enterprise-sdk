@@ -44,7 +44,8 @@ import com.factset.sdk.SPAREngine.JSON;
   PaginationInfo.JSON_PROPERTY_NEXT_PAGE,
   PaginationInfo.JSON_PROPERTY_PREVIOUS_PAGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PaginationInfo implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -78,7 +79,7 @@ public class PaginationInfo implements Serializable {
    * Get pageNumber
    * @return pageNumber
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAGE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -104,7 +105,7 @@ public class PaginationInfo implements Serializable {
    * Get pageSize
    * @return pageSize
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAGE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -130,7 +131,7 @@ public class PaginationInfo implements Serializable {
    * Get totalPages
    * @return totalPages
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TOTAL_PAGES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -156,7 +157,7 @@ public class PaginationInfo implements Serializable {
    * Get totalCalculations
    * @return totalCalculations
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TOTAL_CALCULATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -182,7 +183,7 @@ public class PaginationInfo implements Serializable {
    * Get nextPage
    * @return nextPage
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -216,7 +217,7 @@ public class PaginationInfo implements Serializable {
    * Get previousPage
    * @return previousPage
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

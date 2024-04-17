@@ -40,7 +40,8 @@ import com.factset.sdk.PAEngine.JSON;
   AccountDirectories.JSON_PROPERTY_ACCOUNTS,
   AccountDirectories.JSON_PROPERTY_DIRECTORIES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class AccountDirectories implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -74,7 +75,7 @@ public class AccountDirectories implements Serializable {
    * List of account and composite files.
    * @return accounts
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of account and composite files.")
   @JsonIgnore
 
@@ -120,7 +121,7 @@ public class AccountDirectories implements Serializable {
    * List of directories.
    * @return directories
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of directories.")
   @JsonIgnore
 

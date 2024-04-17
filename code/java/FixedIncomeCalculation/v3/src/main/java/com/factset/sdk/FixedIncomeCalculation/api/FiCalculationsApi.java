@@ -6,7 +6,7 @@ import com.factset.sdk.FixedIncomeCalculation.ApiResponse;
 import com.factset.sdk.FixedIncomeCalculation.Configuration;
 import com.factset.sdk.FixedIncomeCalculation.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -16,7 +16,8 @@ import com.factset.sdk.FixedIncomeCalculation.models.ClientErrorResponse;
 import com.factset.sdk.FixedIncomeCalculation.models.FICalculationParametersRoot;
 import com.factset.sdk.FixedIncomeCalculation.models.ObjectRoot;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FiCalculationsApi {
   private ApiClient apiClient;
 

@@ -39,7 +39,8 @@ import com.factset.sdk.ContentFeedsDataDictionary.JSON;
   TableCodeFieldInfoResponse.JSON_PROPERTY_FIELDS,
   TableCodeFieldInfoResponse.JSON_PROPERTY_ENTITLED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class TableCodeFieldInfoResponse implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -74,7 +75,7 @@ public class TableCodeFieldInfoResponse implements Serializable {
    * Get codeInfo
    * @return codeInfo
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CODE_INFO)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -105,7 +106,7 @@ public class TableCodeFieldInfoResponse implements Serializable {
    * Get fields
    * @return fields
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_FIELDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -131,7 +132,7 @@ public class TableCodeFieldInfoResponse implements Serializable {
    * Get entitled
    * @return entitled
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "true", value = "")
   @JsonProperty(JSON_PROPERTY_ENTITLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

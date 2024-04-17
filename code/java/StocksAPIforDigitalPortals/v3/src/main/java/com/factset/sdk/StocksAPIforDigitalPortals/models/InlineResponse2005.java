@@ -38,7 +38,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2005.JSON_PROPERTY_DATA,
   InlineResponse2005.JSON_PROPERTY_META
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2005 implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class InlineResponse2005 implements Serializable {
    * List of boards of the company, with their officers. The list of boards is sorted byidentifier of the type and the list of officers by name of the officer, both ascending.
    * @return data
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of boards of the company, with their officers. The list of boards is sorted byidentifier of the type and the list of officers by name of the officer, both ascending.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -94,7 +95,7 @@ public class InlineResponse2005 implements Serializable {
    * Get meta
    * @return meta
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

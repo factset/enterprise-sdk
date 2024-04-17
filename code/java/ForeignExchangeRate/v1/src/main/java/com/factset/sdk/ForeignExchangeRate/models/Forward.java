@@ -43,7 +43,8 @@ import com.factset.sdk.ForeignExchangeRate.JSON;
   Forward.JSON_PROPERTY_DATE,
   Forward.JSON_PROPERTY_FORWARD_PERIOD
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Forward implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -80,7 +81,7 @@ public class Forward implements Serializable {
    * The FX Forward Rate currency pair requested in the &#39;ids&#39; parameter. This represents the base and quote currency.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USDGBP", value = "The FX Forward Rate currency pair requested in the 'ids' parameter. This represents the base and quote currency.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -106,7 +107,7 @@ public class Forward implements Serializable {
    * The full text currency pair name expressed in Proper Case.
    * @return currencyName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "British Pounds per U.S. Dollar", value = "The full text currency pair name expressed in Proper Case.")
   @JsonProperty(JSON_PROPERTY_CURRENCY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -132,7 +133,7 @@ public class Forward implements Serializable {
    * The currency pair&#39;s Forward Rate Bid.
    * @return forwardBid
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0.794937836", value = "The currency pair's Forward Rate Bid.")
   @JsonProperty(JSON_PROPERTY_FORWARD_BID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,7 +159,7 @@ public class Forward implements Serializable {
    * The currency pair&#39;s Forward Rate Mid.
    * @return forwardMid
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0.795070563", value = "The currency pair's Forward Rate Mid.")
   @JsonProperty(JSON_PROPERTY_FORWARD_MID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -184,7 +185,7 @@ public class Forward implements Serializable {
    * The currency pair&#39;s Forward Rate Ask.
    * @return forwardAsk
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0.795203333", value = "The currency pair's Forward Rate Ask.")
   @JsonProperty(JSON_PROPERTY_FORWARD_ASK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -210,7 +211,7 @@ public class Forward implements Serializable {
    * Ending date for the period expressed in YYYY-MM-DD format.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Tue Jul 07 00:00:00 UTC 2020", value = "Ending date for the period expressed in YYYY-MM-DD format.")
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -236,7 +237,7 @@ public class Forward implements Serializable {
    * The Forward Time Period requested for the Currency Pair.
    * @return forwardPeriod
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1M", value = "The Forward Time Period requested for the Currency Pair.")
   @JsonProperty(JSON_PROPERTY_FORWARD_PERIOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -39,7 +39,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   PostInstrumentCategoryListRequest.JSON_PROPERTY_DATA,
   PostInstrumentCategoryListRequest.JSON_PROPERTY_META
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostInstrumentCategoryListRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -61,7 +62,7 @@ public class PostInstrumentCategoryListRequest implements Serializable {
    * Get data
    * @return data
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -87,7 +88,7 @@ public class PostInstrumentCategoryListRequest implements Serializable {
    * Get meta
    * @return meta
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -44,7 +44,8 @@ import com.factset.sdk.PortfolioReportingBatcher.JSON;
   AccountsForJobAddProp.JSON_PROPERTY_LEVEL,
   AccountsForJobAddProp.JSON_PROPERTY_PORTFOLIO_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class AccountsForJobAddProp implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -75,7 +76,7 @@ public class AccountsForJobAddProp implements Serializable {
    * Indicates whether or not the parent portfolio is included as a separate portfolio when isSplit is true
    * @return includeParent
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether or not the parent portfolio is included as a separate portfolio when isSplit is true")
   @JsonIgnore
 
@@ -109,7 +110,7 @@ public class AccountsForJobAddProp implements Serializable {
    * Indicates whether the portfolio&#39;s components if any would be treated as individual portfolios when the job is run
    * @return isSplit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the portfolio's components if any would be treated as individual portfolios when the job is run")
   @JsonIgnore
 
@@ -143,7 +144,7 @@ public class AccountsForJobAddProp implements Serializable {
    * When selected, the ACTM/CSTM will be split and will only return components that are still held in the ACTM. I.e., when the end date is \&quot;Latest,\&quot; it will not return components where the end date occurs before Latest.
    * @return latestComponentsOnly
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "When selected, the ACTM/CSTM will be split and will only return components that are still held in the ACTM. I.e., when the end date is \"Latest,\" it will not return components where the end date occurs before Latest.")
   @JsonIgnore
 
@@ -177,7 +178,7 @@ public class AccountsForJobAddProp implements Serializable {
    * The number of levels when isSplit is true that the job will expand down to for a composite portfolio (CSTM or ACTM). \&quot;1\&quot; means only the first level will be expanded. \&quot;all\&quot; will be the value if all levels are expanded down.
    * @return level
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The number of levels when isSplit is true that the job will expand down to for a composite portfolio (CSTM or ACTM). \"1\" means only the first level will be expanded. \"all\" will be the value if all levels are expanded down.")
   @JsonIgnore
 
@@ -211,7 +212,7 @@ public class AccountsForJobAddProp implements Serializable {
    * The full file path including portfolio name and type
    * @return portfolioId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The full file path including portfolio name and type")
   @JsonProperty(JSON_PROPERTY_PORTFOLIO_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

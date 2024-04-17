@@ -6,7 +6,7 @@ import com.factset.sdk.StocksAPIforDigitalPortals.ApiResponse;
 import com.factset.sdk.StocksAPIforDigitalPortals.Configuration;
 import com.factset.sdk.StocksAPIforDigitalPortals.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -26,7 +26,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.models.PostStockNotationRankin
 import com.factset.sdk.StocksAPIforDigitalPortals.models.PostStockNotationScreenerSearchRequest;
 import com.factset.sdk.StocksAPIforDigitalPortals.models.PostStockNotationScreenerValueRangesGetRequest;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class StockApi {
   private ApiClient apiClient;
 

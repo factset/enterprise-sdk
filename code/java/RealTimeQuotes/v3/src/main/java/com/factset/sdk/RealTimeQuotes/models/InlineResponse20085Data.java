@@ -51,7 +51,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20085Data.JSON_PROPERTY_TIMEZONE,
   InlineResponse20085Data.JSON_PROPERTY_COUNT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20085Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -91,7 +92,7 @@ public class InlineResponse20085Data implements Serializable {
    * Identifier of a market.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of a market.")
   @JsonIgnore
 
@@ -125,7 +126,7 @@ public class InlineResponse20085Data implements Serializable {
    * Name of the market.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the market.")
   @JsonIgnore
 
@@ -159,7 +160,7 @@ public class InlineResponse20085Data implements Serializable {
    * Short name of the market.
    * @return shortName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Short name of the market.")
   @JsonIgnore
 
@@ -193,7 +194,7 @@ public class InlineResponse20085Data implements Serializable {
    * Get country
    * @return country
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -219,7 +220,7 @@ public class InlineResponse20085Data implements Serializable {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -245,7 +246,7 @@ public class InlineResponse20085Data implements Serializable {
    * Get group
    * @return group
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -271,7 +272,7 @@ public class InlineResponse20085Data implements Serializable {
    * Get timezone
    * @return timezone
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TIMEZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -297,7 +298,7 @@ public class InlineResponse20085Data implements Serializable {
    * Number of entitled notations.
    * @return count
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of entitled notations.")
   @JsonIgnore
 

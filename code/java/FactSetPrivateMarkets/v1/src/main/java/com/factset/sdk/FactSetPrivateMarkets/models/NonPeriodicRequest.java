@@ -37,7 +37,8 @@ import com.factset.sdk.FactSetPrivateMarkets.JSON;
   NonPeriodicRequest.JSON_PROPERTY_IDS,
   NonPeriodicRequest.JSON_PROPERTY_FIELDS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class NonPeriodicRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -72,7 +73,7 @@ public class NonPeriodicRequest implements Serializable {
    * Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. 
    * @return ids
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "[\"000BFG-E\",\"000BGZ-E\",\"000C64-E\"]", required = true, value = "Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. ")
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -106,7 +107,7 @@ public class NonPeriodicRequest implements Serializable {
    * Private Markets Non-Periodic Fields. 
    * @return fields
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "[\"amtRaised\"]", value = "Private Markets Non-Periodic Fields. ")
   @JsonProperty(JSON_PROPERTY_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -37,7 +37,8 @@ import com.factset.sdk.RealTimeNews.JSON;
   PostNewsArticleListRequestDataFilterRange.JSON_PROPERTY_START,
   PostNewsArticleListRequestDataFilterRange.JSON_PROPERTY_END
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostNewsArticleListRequestDataFilterRange implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -69,7 +70,7 @@ public class PostNewsArticleListRequestDataFilterRange implements Serializable {
    * The starting point of the time range (inclusive), or &#x60;null&#x60; to indicate that the time range extends indefinitely into the past.
    * @return start
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The starting point of the time range (inclusive), or `null` to indicate that the time range extends indefinitely into the past.")
   @JsonProperty(JSON_PROPERTY_START)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -95,7 +96,7 @@ public class PostNewsArticleListRequestDataFilterRange implements Serializable {
    * The ending point of the time range (exclusive), or &#x60;null&#x60; to indicate that the time range extends indefinitely into the future.
    * @return end
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The ending point of the time range (exclusive), or `null` to indicate that the time range extends indefinitely into the future.")
   @JsonProperty(JSON_PROPERTY_END)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

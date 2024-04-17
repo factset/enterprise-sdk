@@ -41,7 +41,8 @@ import com.factset.sdk.FactSetTickHistory.JSON;
   Level1RequestBody.JSON_PROPERTY_FIELDS,
   Level1RequestBody.JSON_PROPERTY_SINGLE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Level1RequestBody implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -216,7 +217,7 @@ public class Level1RequestBody implements Serializable {
    * The requested list of one or more tickers. &lt;p&gt; NOTE: Maximum 500 tickers per request.&lt;/p&gt;.   
    * @return tickers
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "[\"FDS\"]", required = true, value = "The requested list of one or more tickers. <p> NOTE: Maximum 500 tickers per request.</p>.   ")
   @JsonProperty(JSON_PROPERTY_TICKERS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -242,7 +243,7 @@ public class Level1RequestBody implements Serializable {
    * FactSet specific regional or composite exchange code and last exchange code. &lt;p&gt; NOTE:Does not support multiple factsetExchangeCodes&lt;/p&gt;. 
    * @return factsetExchangeCode
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "USA", required = true, value = "FactSet specific regional or composite exchange code and last exchange code. <p> NOTE:Does not support multiple factsetExchangeCodes</p>. ")
   @JsonProperty(JSON_PROPERTY_FACTSET_EXCHANGE_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -268,7 +269,7 @@ public class Level1RequestBody implements Serializable {
    * Get dateTimeRange
    * @return dateTimeRange
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATE_TIME_RANGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -302,7 +303,7 @@ public class Level1RequestBody implements Serializable {
    * Fields for which data is requested 
    * @return fields
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "[\"ASK\"]", value = "Fields for which data is requested ")
   @JsonProperty(JSON_PROPERTY_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -328,7 +329,7 @@ public class Level1RequestBody implements Serializable {
    * &lt;p&gt; This parameter only works for smaller date/time requests where the file size is upto 128MB.&lt;/P&gt; single&#x3D;true  Returns data in a single file. single&#x3D;false Returns data in multiple files. &lt;p&gt; Note: If parameter is not used it take default value as false and returns data in multiple files.&lt;/p&gt; 
    * @return single
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "<p> This parameter only works for smaller date/time requests where the file size is upto 128MB.</P> single=true  Returns data in a single file. single=false Returns data in multiple files. <p> Note: If parameter is not used it take default value as false and returns data in multiple files.</p> ")
   @JsonProperty(JSON_PROPERTY_SINGLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

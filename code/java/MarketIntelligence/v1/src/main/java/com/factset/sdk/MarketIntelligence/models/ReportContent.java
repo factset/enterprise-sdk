@@ -39,7 +39,8 @@ import com.factset.sdk.MarketIntelligence.JSON;
   ReportContent.JSON_PROPERTY_STORY_DT,
   ReportContent.JSON_PROPERTY_DOC_DISP_CONTENT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ReportContent implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -67,7 +68,7 @@ public class ReportContent implements Serializable {
    * Get subjectMatchedOrder
    * @return subjectMatchedOrder
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0", value = "")
   @JsonProperty(JSON_PROPERTY_SUBJECT_MATCHED_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -93,7 +94,7 @@ public class ReportContent implements Serializable {
    * Get headline
    * @return headline
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "S&P futures higher", value = "")
   @JsonProperty(JSON_PROPERTY_HEADLINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -119,7 +120,7 @@ public class ReportContent implements Serializable {
    * Content publishing date
    * @return storyDt
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2/9/22 5:59:00 AM", value = "Content publishing date")
   @JsonProperty(JSON_PROPERTY_STORY_DT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -145,7 +146,7 @@ public class ReportContent implements Serializable {
    * MI Content
    * @return docDispContent
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "<ul> <li> <b>S&amp;P futures</b> up 0.8% in Wednesday morning trading after US equities finished higher on Tuesday with three of the four major indexes up over 1%. Reopening plays extended their recent outperformance while energy was the notable laggard. <b>Asian markets</b> higher overnight with Hong Kong the standout, up over 2%, while Japan gained more than 1%. European markets catching a big rally. <b>Treasuries </b>firmer across the curve with European bonds also finding some reprieve. <b>Dollar</b> weaker on the major crosses. <b>Gold</b> little changed. <b>Bitcoin futures</b> down 1.3%. <b>WTI crude</b> off 0.3% despite a surprise decline in API inventories. </li> <li> Once again, nothing specific behind firmer tone in equities. <b>Rate stabilization</b> in both US and Europe may be helping. <b>ECB's Villeroy pushed back against rate hike</b> <b>expectations</b> and FT article rehashed concerns about an ECB policy mistake. Comments from BoJ official also highlighted a high bar for a policy shift. In addition, there has been some <b>speculation that Thursday's January CPI print may come in less hot than expected</b>, while sell-side and price has started to highlight some easing of vehicle prices. <b>Improving Covid trends</b> and move to scrap some related restrictions another recently highlighted tailwind. Fauci said \"full blown\" pandemic phase nearly over in US. <b>Slight easing of geopolitical tensions</b> also in focus and has helped to dampen the surge in energy prices.  </li> <li> Only a few higher-profile earnings releases after the close on Tuesday and nothing to change the broader narrative. ~<b>CMG-US~</b> boosted by increase in long-term unit growth for NA. However, <b>~YUMC-US~ </b>hit by China's zero-Covid policy. <b>~LYFT-US~</b> disappointed on guidance, flagging Omicron headwinds, though did flag continued improvement in driver supply. <b>~PAYC-US~</b> results and guidance ahead with Street positive on record annual revenue retention and initial guidance implying \"Rule of 65\". <b>~NEWR-US~</b> beat underwhelmed and guidance only largely in line. <b>~NCR-US~</b> boosted by plan to evaluate strategic alternatives. <b>~MNDT-US~</b> billings growth accelerated after stock rallied on ~MSFT-US~ acquisition speculation. <b>~XPO-US~</b> results and guidance ahead with some positive commentary around pricing. </li> </ul>", value = "MI Content")
   @JsonProperty(JSON_PROPERTY_DOC_DISP_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

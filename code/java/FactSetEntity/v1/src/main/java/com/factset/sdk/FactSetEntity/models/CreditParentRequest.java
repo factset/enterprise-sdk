@@ -37,7 +37,8 @@ import com.factset.sdk.FactSetEntity.JSON;
   CreditParentRequest.JSON_PROPERTY_IDS,
   CreditParentRequest.JSON_PROPERTY_AS_OF_DATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CreditParentRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -72,7 +73,7 @@ public class CreditParentRequest implements Serializable {
    * Security identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. 
    * @return ids
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "[\"CYQYNL-S\",\"G17920AA0\",\"US40434YTB38\"]", required = true, value = "Security identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. ")
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -98,7 +99,7 @@ public class CreditParentRequest implements Serializable {
    * The date requested for credit parent calculation. Represented in **YYYY-MM-DD** format. If left blank or not specified, the full credit parent history will be returned. 
    * @return asOfDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2020-06-30", value = "The date requested for credit parent calculation. Represented in **YYYY-MM-DD** format. If left blank or not specified, the full credit parent history will be returned. ")
   @JsonProperty(JSON_PROPERTY_AS_OF_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

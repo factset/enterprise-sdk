@@ -35,7 +35,8 @@ import com.factset.sdk.ContentFeedsDataDictionary.JSON;
 @JsonPropertyOrder({
   BasicSearchRequest.JSON_PROPERTY_SEARCH_TERMS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class BasicSearchRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -62,7 +63,7 @@ public class BasicSearchRequest implements Serializable {
    * Get searchTerms
    * @return searchTerms
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SEARCH_TERMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

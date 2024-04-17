@@ -39,7 +39,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceMonth1.JSON_PROPERTY_MINIMUM,
   PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceMonth1.JSON_PROPERTY_MAXIMUM
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceMonth1 implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -61,7 +62,7 @@ public class PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceMo
    * Get minimum
    * @return minimum
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MINIMUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -87,7 +88,7 @@ public class PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceMo
    * Get maximum
    * @return maximum
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MAXIMUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

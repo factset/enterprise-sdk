@@ -44,7 +44,8 @@ import com.factset.sdk.IRNConfiguration.JSON;
   NoteSettingsDto.JSON_PROPERTY_DEFAULT_STATUS,
   NoteSettingsDto.JSON_PROPERTY_ALTERNATIVE_CUSTOM_FIELD_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class NoteSettingsDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -78,7 +79,7 @@ public class NoteSettingsDto implements Serializable {
    * Get isHidden
    * @return isHidden
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IS_HIDDEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -104,7 +105,7 @@ public class NoteSettingsDto implements Serializable {
    * Get isMandatory
    * @return isMandatory
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IS_MANDATORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -130,7 +131,7 @@ public class NoteSettingsDto implements Serializable {
    * Get usePrevious
    * @return usePrevious
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_USE_PREVIOUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -156,7 +157,7 @@ public class NoteSettingsDto implements Serializable {
    * Get allowPersonal
    * @return allowPersonal
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ALLOW_PERSONAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -182,7 +183,7 @@ public class NoteSettingsDto implements Serializable {
    * Get defaultStatus
    * @return defaultStatus
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -216,7 +217,7 @@ public class NoteSettingsDto implements Serializable {
    * Get alternativeCustomFieldId
    * @return alternativeCustomFieldId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

@@ -42,7 +42,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2001DataCurrency.JSON_PROPERTY_ID,
   InlineResponse2001DataCurrency.JSON_PROPERTY_CODE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2001DataCurrency implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class InlineResponse2001DataCurrency implements Serializable {
    * Identifier of the currency.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the currency.")
   @JsonIgnore
 
@@ -98,7 +99,7 @@ public class InlineResponse2001DataCurrency implements Serializable {
    * Code of the currency: if assigned, a code according to ISO 4217, otherwise a local code.
    * @return code
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Code of the currency: if assigned, a code according to ISO 4217, otherwise a local code.")
   @JsonIgnore
 

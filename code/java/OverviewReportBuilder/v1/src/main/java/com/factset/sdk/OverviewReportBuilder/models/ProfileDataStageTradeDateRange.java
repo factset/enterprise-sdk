@@ -37,7 +37,8 @@ import com.factset.sdk.OverviewReportBuilder.JSON;
   ProfileDataStageTradeDateRange.JSON_PROPERTY_START,
   ProfileDataStageTradeDateRange.JSON_PROPERTY_END
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ProfileDataStageTradeDateRange implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -59,7 +60,7 @@ public class ProfileDataStageTradeDateRange implements Serializable {
    * Get start
    * @return start
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_START)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -85,7 +86,7 @@ public class ProfileDataStageTradeDateRange implements Serializable {
    * Get end
    * @return end
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_END)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

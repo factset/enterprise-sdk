@@ -60,7 +60,8 @@ import com.factset.sdk.FactSetPeople.JSON;
   Profile.JSON_PROPERTY_PRIMARY_TITLE,
   Profile.JSON_PROPERTY_BIOGRAPHY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Profile implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -136,7 +137,7 @@ public class Profile implements Serializable {
    * Person identifier used in the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0DPHLH-E", value = "Person identifier used in the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -162,7 +163,7 @@ public class Profile implements Serializable {
    * FactSet Entity Identifier for the Person
    * @return personId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0DPHLH-E", value = "FactSet Entity Identifier for the Person")
   @JsonIgnore
 
@@ -196,7 +197,7 @@ public class Profile implements Serializable {
    * Last Name
    * @return lastName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Snow", value = "Last Name")
   @JsonIgnore
 
@@ -230,7 +231,7 @@ public class Profile implements Serializable {
    * Name
    * @return factsetName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Philip Snow", value = "Name")
   @JsonIgnore
 
@@ -264,7 +265,7 @@ public class Profile implements Serializable {
    * First Name
    * @return firstName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Frederick", value = "First Name")
   @JsonIgnore
 
@@ -298,7 +299,7 @@ public class Profile implements Serializable {
    * Middle Name
    * @return middleName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Philip", value = "Middle Name")
   @JsonIgnore
 
@@ -332,7 +333,7 @@ public class Profile implements Serializable {
    * Formal Name
    * @return formalName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Frederick Philip Snow", value = "Formal Name")
   @JsonIgnore
 
@@ -366,7 +367,7 @@ public class Profile implements Serializable {
    * Proper Name
    * @return properName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Snow Frederick Philip CFA", value = "Proper Name")
   @JsonIgnore
 
@@ -400,7 +401,7 @@ public class Profile implements Serializable {
    * Primary Salutation of Name
    * @return salutation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Mr.", value = "Primary Salutation of Name")
   @JsonIgnore
 
@@ -434,7 +435,7 @@ public class Profile implements Serializable {
    * The Highest Held Degree Code.
    * @return highestDegree
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "GRD", value = "The Highest Held Degree Code.")
   @JsonIgnore
 
@@ -468,7 +469,7 @@ public class Profile implements Serializable {
    * The Highest Degree Institution Name.
    * @return highestDegreeInst
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Thunderbird School of Global Management", value = "The Highest Degree Institution Name.")
   @JsonIgnore
 
@@ -502,7 +503,7 @@ public class Profile implements Serializable {
    * Suffix of Name
    * @return suffix
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "CFA", value = "Suffix of Name")
   @JsonIgnore
 
@@ -536,7 +537,7 @@ public class Profile implements Serializable {
    * Person&#39;s age in years.
    * @return age
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "57", value = "Person's age in years.")
   @JsonIgnore
 
@@ -570,7 +571,7 @@ public class Profile implements Serializable {
    * Person&#39;s Gender.
    * @return gender
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Male", value = "Person's Gender.")
   @JsonIgnore
 
@@ -604,7 +605,7 @@ public class Profile implements Serializable {
    * Most Recent Salary
    * @return salary
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "525846", value = "Most Recent Salary")
   @JsonIgnore
 
@@ -638,7 +639,7 @@ public class Profile implements Serializable {
    * Most Recent Total Compensation
    * @return totalCompensation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "4719062", value = "Most Recent Total Compensation")
   @JsonIgnore
 
@@ -672,7 +673,7 @@ public class Profile implements Serializable {
    * Entity identifier of primary &#x60;Company&#x60; of employment.
    * @return primaryCompanyId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0016YD-E", value = "Entity identifier of primary `Company` of employment.")
   @JsonIgnore
 
@@ -706,7 +707,7 @@ public class Profile implements Serializable {
    * Name of primary company of employment
    * @return primaryCompanyName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FactSet Research Systems, Inc.", value = "Name of primary company of employment")
   @JsonIgnore
 
@@ -740,7 +741,7 @@ public class Profile implements Serializable {
    * Title at primary &#x60;Company&#x60; of employment
    * @return primaryTitle
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Chief Executive Officer & Director", value = "Title at primary `Company` of employment")
   @JsonIgnore
 
@@ -774,7 +775,7 @@ public class Profile implements Serializable {
    * Brief biography of the person requested.
    * @return biography
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Frederick Philip Snow is Chief Executive Officer & Director at FactSet Research Systems, Inc. He is also on the board of FactSet Systems India Pvt Ltd., Quantopian, Inc. and Vermilion Holdings Ltd. and Member of CFA Institute. Mr. Snow received an undergraduate degree from the University of California, Berkeley and a graduate degree from Thunderbird School of Global Management.", value = "Brief biography of the person requested.")
   @JsonIgnore
 

@@ -37,7 +37,8 @@ import com.factset.sdk.QuantEngine.JSON;
   QuantIdentifierUniverseObsolete.JSON_PROPERTY_IDENTIFIERS,
   QuantIdentifierUniverseObsolete.JSON_PROPERTY_SOURCE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class QuantIdentifierUniverseObsolete implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -144,7 +145,7 @@ public class QuantIdentifierUniverseObsolete implements Serializable {
    * Get universeType
    * @return universeType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_UNIVERSE_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -175,7 +176,7 @@ public class QuantIdentifierUniverseObsolete implements Serializable {
    * Get identifiers
    * @return identifiers
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_IDENTIFIERS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -201,7 +202,7 @@ public class QuantIdentifierUniverseObsolete implements Serializable {
    * Get source
    * @return source
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

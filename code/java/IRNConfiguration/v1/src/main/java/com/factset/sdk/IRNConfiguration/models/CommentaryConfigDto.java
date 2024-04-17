@@ -37,7 +37,8 @@ import com.factset.sdk.IRNConfiguration.JSON;
   CommentaryConfigDto.JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_TO_COMMENTERS,
   CommentaryConfigDto.JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_TO_ALL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CommentaryConfigDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -62,7 +63,7 @@ public class CommentaryConfigDto implements Serializable {
    * Get shouldSendEmailAlertsToAuthor
    * @return shouldSendEmailAlertsToAuthor
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_TO_AUTHOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -88,7 +89,7 @@ public class CommentaryConfigDto implements Serializable {
    * Get shouldSendEmailAlertsToCommenters
    * @return shouldSendEmailAlertsToCommenters
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_TO_COMMENTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -114,7 +115,7 @@ public class CommentaryConfigDto implements Serializable {
    * Get shouldSendEmailAlertsToAll
    * @return shouldSendEmailAlertsToAll
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_TO_ALL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

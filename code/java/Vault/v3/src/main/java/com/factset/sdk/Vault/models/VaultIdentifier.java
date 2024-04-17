@@ -36,7 +36,8 @@ import com.factset.sdk.Vault.JSON;
 @JsonPropertyOrder({
   VaultIdentifier.JSON_PROPERTY_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class VaultIdentifier implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class VaultIdentifier implements Serializable {
    * User&#39;s FactSet account path OR benchmark.
    * @return id
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "User's FactSet account path OR benchmark.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

@@ -43,7 +43,8 @@ import com.factset.sdk.CompanyLogoAPIforDigitalPortals.JSON;
   InlineResponse200Data.JSON_PROPERTY_LARGE,
   InlineResponse200Data.JSON_PROPERTY_VECTOR
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse200Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -71,7 +72,7 @@ public class InlineResponse200Data implements Serializable {
    * Get small
    * @return small
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SMALL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -97,7 +98,7 @@ public class InlineResponse200Data implements Serializable {
    * Get medium
    * @return medium
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MEDIUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -123,7 +124,7 @@ public class InlineResponse200Data implements Serializable {
    * Get large
    * @return large
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LARGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -149,7 +150,7 @@ public class InlineResponse200Data implements Serializable {
    * Get vector
    * @return vector
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VECTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

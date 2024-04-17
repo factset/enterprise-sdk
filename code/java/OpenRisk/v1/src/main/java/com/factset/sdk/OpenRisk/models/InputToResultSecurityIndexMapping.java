@@ -38,7 +38,8 @@ import com.factset.sdk.OpenRisk.JSON;
   InputToResultSecurityIndexMapping.JSON_PROPERTY_BENCHMARK,
   InputToResultSecurityIndexMapping.JSON_PROPERTY_MARKET
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InputToResultSecurityIndexMapping implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -76,7 +77,7 @@ public class InputToResultSecurityIndexMapping implements Serializable {
    * Get portfolio
    * @return portfolio
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_PORTFOLIO)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -110,7 +111,7 @@ public class InputToResultSecurityIndexMapping implements Serializable {
    * Get benchmark
    * @return benchmark
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BENCHMARK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -144,7 +145,7 @@ public class InputToResultSecurityIndexMapping implements Serializable {
    * Get market
    * @return market
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MARKET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -46,7 +46,8 @@ import com.factset.sdk.Signals.JSON;
   EventsEntitiesPost.JSON_PROPERTY_CATEGORIES,
   EventsEntitiesPost.JSON_PROPERTY_USER_RELEVANCE_SCORE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EventsEntitiesPost implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -80,7 +81,7 @@ public class EventsEntitiesPost implements Serializable {
    * A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. Users with limited access can only provide the default or a smaller date window.
    * @return created
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. Users with limited access can only provide the default or a smaller date window.")
   @JsonIgnore
 
@@ -114,7 +115,7 @@ public class EventsEntitiesPost implements Serializable {
    * A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. Users with limited access can only provide the default or a smaller date window.
    * @return updated
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. Users with limited access can only provide the default or a smaller date window.")
   @JsonIgnore
 
@@ -148,7 +149,7 @@ public class EventsEntitiesPost implements Serializable {
    * Comma delimited string of signalIds
    * @return signalIds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "dilutionTrigger,freeCashFlow", value = "Comma delimited string of signalIds")
   @JsonProperty(JSON_PROPERTY_SIGNAL_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -174,7 +175,7 @@ public class EventsEntitiesPost implements Serializable {
    * Comma delimited string of theme ids. Full list of signal themes can be viewed at /themes.
    * @return themes
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Comma delimited string of theme ids. Full list of signal themes can be viewed at /themes.")
   @JsonProperty(JSON_PROPERTY_THEMES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -200,7 +201,7 @@ public class EventsEntitiesPost implements Serializable {
    * Comma delimited string of category ids. Full list of signal categories can be viewed at /categories.
    * @return categories
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Comma delimited string of category ids. Full list of signal categories can be viewed at /categories.")
   @JsonProperty(JSON_PROPERTY_CATEGORIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -226,7 +227,7 @@ public class EventsEntitiesPost implements Serializable {
    * A range for filtering signal events based on their relevancy score.
    * @return userRelevanceScore
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A range for filtering signal events based on their relevancy score.")
   @JsonIgnore
 

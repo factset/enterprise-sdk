@@ -42,7 +42,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20065Data.JSON_PROPERTY_NAME,
   InlineResponse20065Data.JSON_PROPERTY_DESCRIPTION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20065Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -67,7 +68,7 @@ public class InlineResponse20065Data implements Serializable {
    * Identifier of a selection list.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of a selection list.")
   @JsonIgnore
 
@@ -101,7 +102,7 @@ public class InlineResponse20065Data implements Serializable {
    * Name of the selection list, as provided by the customer.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the selection list, as provided by the customer.")
   @JsonIgnore
 
@@ -135,7 +136,7 @@ public class InlineResponse20065Data implements Serializable {
    * Description of the selection list in English.
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Description of the selection list in English.")
   @JsonIgnore
 

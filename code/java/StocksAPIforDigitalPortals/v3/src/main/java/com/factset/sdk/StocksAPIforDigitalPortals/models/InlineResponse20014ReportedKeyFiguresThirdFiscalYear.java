@@ -53,7 +53,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20014ReportedKeyFiguresThirdFiscalYear.JSON_PROPERTY_RETURN_ON_EQUITY,
   InlineResponse20014ReportedKeyFiguresThirdFiscalYear.JSON_PROPERTY_RATIOS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20014ReportedKeyFiguresThirdFiscalYear implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -99,7 +100,7 @@ public class InlineResponse20014ReportedKeyFiguresThirdFiscalYear implements Ser
    * Get fiscalYear
    * @return fiscalYear
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FISCAL_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -125,7 +126,7 @@ public class InlineResponse20014ReportedKeyFiguresThirdFiscalYear implements Ser
    * Get currencyDependentKeyFigures
    * @return currencyDependentKeyFigures
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CURRENCY_DEPENDENT_KEY_FIGURES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -151,7 +152,7 @@ public class InlineResponse20014ReportedKeyFiguresThirdFiscalYear implements Ser
    * EBIT margin, which is the ratio of the EBIT, divided by the total sales revenue.
    * @return ebitMargin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "EBIT margin, which is the ratio of the EBIT, divided by the total sales revenue.")
   @JsonIgnore
 
@@ -185,7 +186,7 @@ public class InlineResponse20014ReportedKeyFiguresThirdFiscalYear implements Ser
    * EBITDA margin, which is the ratio of the EBITDA, divided by the total sales revenue.
    * @return ebitdaMargin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "EBITDA margin, which is the ratio of the EBITDA, divided by the total sales revenue.")
   @JsonIgnore
 
@@ -219,7 +220,7 @@ public class InlineResponse20014ReportedKeyFiguresThirdFiscalYear implements Ser
    * Net income margin, which is the ratio of the net income, divided by the total sales revenue.
    * @return netIncomeMargin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Net income margin, which is the ratio of the net income, divided by the total sales revenue.")
   @JsonIgnore
 
@@ -253,7 +254,7 @@ public class InlineResponse20014ReportedKeyFiguresThirdFiscalYear implements Ser
    * Gross income margin, which is the ratio of the gross income, divided by the total sales revenue.
    * @return grossIncomeMargin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Gross income margin, which is the ratio of the gross income, divided by the total sales revenue.")
   @JsonIgnore
 
@@ -287,7 +288,7 @@ public class InlineResponse20014ReportedKeyFiguresThirdFiscalYear implements Ser
    * Operating margin, which is the ratio of the operating income, divided by the sales revenue.
    * @return operatingMargin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Operating margin, which is the ratio of the operating income, divided by the sales revenue.")
   @JsonIgnore
 
@@ -321,7 +322,7 @@ public class InlineResponse20014ReportedKeyFiguresThirdFiscalYear implements Ser
    * Return on assets (ROA), which is the ratio of the net income, divided by the two-fiscal-year average of the total assets.
    * @return returnOnAssets
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Return on assets (ROA), which is the ratio of the net income, divided by the two-fiscal-year average of the total assets.")
   @JsonIgnore
 
@@ -355,7 +356,7 @@ public class InlineResponse20014ReportedKeyFiguresThirdFiscalYear implements Ser
    * Return on equity (ROE), which is the ratio of the net income, divided by the two-fiscal-year average of the total shareholders&#39; equity.
    * @return returnOnEquity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Return on equity (ROE), which is the ratio of the net income, divided by the two-fiscal-year average of the total shareholders' equity.")
   @JsonIgnore
 
@@ -389,7 +390,7 @@ public class InlineResponse20014ReportedKeyFiguresThirdFiscalYear implements Ser
    * Get ratios
    * @return ratios
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RATIOS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

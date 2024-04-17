@@ -49,7 +49,8 @@ import com.factset.sdk.IRNContacts.JSON;
   ContactRelationshipTwoSidedSaveDto.JSON_PROPERTY_SYMBOL,
   ContactRelationshipTwoSidedSaveDto.JSON_PROPERTY_TITLE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ContactRelationshipTwoSidedSaveDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -95,7 +96,7 @@ public class ContactRelationshipTwoSidedSaveDto implements Serializable {
    * Get relationshipId
    * @return relationshipId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RELATIONSHIP_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -121,7 +122,7 @@ public class ContactRelationshipTwoSidedSaveDto implements Serializable {
    * Get leftContactId
    * @return leftContactId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LEFT_CONTACT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -147,7 +148,7 @@ public class ContactRelationshipTwoSidedSaveDto implements Serializable {
    * Get rightContactId
    * @return rightContactId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -181,7 +182,7 @@ public class ContactRelationshipTwoSidedSaveDto implements Serializable {
    * Get start
    * @return start
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -215,7 +216,7 @@ public class ContactRelationshipTwoSidedSaveDto implements Serializable {
    * Get end
    * @return end
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -249,7 +250,7 @@ public class ContactRelationshipTwoSidedSaveDto implements Serializable {
    * Get comment
    * @return comment
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -283,7 +284,7 @@ public class ContactRelationshipTwoSidedSaveDto implements Serializable {
    * Get isCurrent
    * @return isCurrent
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IS_CURRENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -309,7 +310,7 @@ public class ContactRelationshipTwoSidedSaveDto implements Serializable {
    * Get symbolId
    * @return symbolId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -343,7 +344,7 @@ public class ContactRelationshipTwoSidedSaveDto implements Serializable {
    * Get symbol
    * @return symbol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -377,7 +378,7 @@ public class ContactRelationshipTwoSidedSaveDto implements Serializable {
    * Get title
    * @return title
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

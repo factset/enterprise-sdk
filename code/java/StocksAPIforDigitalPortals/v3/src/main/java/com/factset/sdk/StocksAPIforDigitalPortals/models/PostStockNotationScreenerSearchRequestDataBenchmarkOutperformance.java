@@ -49,7 +49,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   PostStockNotationScreenerSearchRequestDataBenchmarkOutperformance.JSON_PROPERTY_YEARS3,
   PostStockNotationScreenerSearchRequestDataBenchmarkOutperformance.JSON_PROPERTY_YEARS5
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostStockNotationScreenerSearchRequestDataBenchmarkOutperformance implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -86,7 +87,7 @@ public class PostStockNotationScreenerSearchRequestDataBenchmarkOutperformance i
    * Get week1
    * @return week1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WEEK1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -112,7 +113,7 @@ public class PostStockNotationScreenerSearchRequestDataBenchmarkOutperformance i
    * Get month1
    * @return month1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MONTH1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -138,7 +139,7 @@ public class PostStockNotationScreenerSearchRequestDataBenchmarkOutperformance i
    * Get months3
    * @return months3
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MONTHS3)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -164,7 +165,7 @@ public class PostStockNotationScreenerSearchRequestDataBenchmarkOutperformance i
    * Get months6
    * @return months6
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MONTHS6)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -190,7 +191,7 @@ public class PostStockNotationScreenerSearchRequestDataBenchmarkOutperformance i
    * Get year1
    * @return year1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_YEAR1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -216,7 +217,7 @@ public class PostStockNotationScreenerSearchRequestDataBenchmarkOutperformance i
    * Get years3
    * @return years3
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_YEARS3)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -242,7 +243,7 @@ public class PostStockNotationScreenerSearchRequestDataBenchmarkOutperformance i
    * Get years5
    * @return years5
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_YEARS5)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

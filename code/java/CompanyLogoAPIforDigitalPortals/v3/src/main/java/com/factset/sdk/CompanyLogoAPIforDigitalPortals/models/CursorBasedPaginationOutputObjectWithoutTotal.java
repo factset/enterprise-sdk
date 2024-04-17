@@ -37,7 +37,8 @@ import com.factset.sdk.CompanyLogoAPIforDigitalPortals.JSON;
   CursorBasedPaginationOutputObjectWithoutTotal.JSON_PROPERTY_NEXT,
   CursorBasedPaginationOutputObjectWithoutTotal.JSON_PROPERTY_PREVIOUS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CursorBasedPaginationOutputObjectWithoutTotal implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -69,7 +70,7 @@ public class CursorBasedPaginationOutputObjectWithoutTotal implements Serializab
    * The next cursor position to use in the parameter &#x60;pagination.cursor&#x60; for an endpoint that supports cursor-based pagination, otherwise &#x60;null&#x60;.
    * @return next
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The next cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination, otherwise `null`.")
   @JsonProperty(JSON_PROPERTY_NEXT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -95,7 +96,7 @@ public class CursorBasedPaginationOutputObjectWithoutTotal implements Serializab
    * The previous cursor position to use in the parameter &#x60;pagination.cursor&#x60; for an endpoint that supports cursor-based pagination. If a previous cursor position is not supported or available, &#x60;previous&#x60; is &#x60;null&#x60;.
    * @return previous
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The previous cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination. If a previous cursor position is not supported or available, `previous` is `null`.")
   @JsonProperty(JSON_PROPERTY_PREVIOUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

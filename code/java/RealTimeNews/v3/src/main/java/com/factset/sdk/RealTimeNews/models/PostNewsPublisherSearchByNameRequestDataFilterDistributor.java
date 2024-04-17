@@ -37,7 +37,8 @@ import com.factset.sdk.RealTimeNews.JSON;
 @JsonPropertyOrder({
   PostNewsPublisherSearchByNameRequestDataFilterDistributor.JSON_PROPERTY_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostNewsPublisherSearchByNameRequestDataFilterDistributor implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -56,7 +57,7 @@ public class PostNewsPublisherSearchByNameRequestDataFilterDistributor implement
    * Identifier of distributor.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of distributor.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

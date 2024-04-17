@@ -42,7 +42,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20098Price.JSON_PROPERTY_VALUE,
   InlineResponse20098Price.JSON_PROPERTY_TIME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20098Price implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class InlineResponse20098Price implements Serializable {
    * Value of the latest price.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Value of the latest price.")
   @JsonIgnore
 
@@ -98,7 +99,7 @@ public class InlineResponse20098Price implements Serializable {
    * Date and time of the most recent bid price of the trading day.
    * @return time
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Date and time of the most recent bid price of the trading day.")
   @JsonIgnore
 

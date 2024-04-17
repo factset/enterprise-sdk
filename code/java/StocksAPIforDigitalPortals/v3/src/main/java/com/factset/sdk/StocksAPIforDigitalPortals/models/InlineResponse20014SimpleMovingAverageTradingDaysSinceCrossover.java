@@ -39,7 +39,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20014SimpleMovingAverageTradingDaysSinceCrossover.JSON_PROPERTY_SMA20VS50,
   InlineResponse20014SimpleMovingAverageTradingDaysSinceCrossover.JSON_PROPERTY_SMA50VS200
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20014SimpleMovingAverageTradingDaysSinceCrossover implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -61,7 +62,7 @@ public class InlineResponse20014SimpleMovingAverageTradingDaysSinceCrossover imp
    * Get sma20vs50
    * @return sma20vs50
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SMA20VS50)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -87,7 +88,7 @@ public class InlineResponse20014SimpleMovingAverageTradingDaysSinceCrossover imp
    * Get sma50vs200
    * @return sma50vs200
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SMA50VS200)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

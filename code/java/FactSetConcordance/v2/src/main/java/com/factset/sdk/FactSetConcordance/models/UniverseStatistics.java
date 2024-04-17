@@ -44,7 +44,8 @@ import com.factset.sdk.FactSetConcordance.JSON;
   UniverseStatistics.JSON_PROPERTY_INDETERMINATE_COUNT,
   UniverseStatistics.JSON_PROPERTY_UNIVERSE_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class UniverseStatistics implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -75,7 +76,7 @@ public class UniverseStatistics implements Serializable {
    * Get totalCount
    * @return totalCount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "10", value = "")
   @JsonIgnore
 
@@ -109,7 +110,7 @@ public class UniverseStatistics implements Serializable {
    * Get mappedCount
    * @return mappedCount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "8", value = "")
   @JsonIgnore
 
@@ -143,7 +144,7 @@ public class UniverseStatistics implements Serializable {
    * Get unmappedCount
    * @return unmappedCount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "")
   @JsonIgnore
 
@@ -177,7 +178,7 @@ public class UniverseStatistics implements Serializable {
    * Get indeterminateCount
    * @return indeterminateCount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "")
   @JsonIgnore
 
@@ -211,7 +212,7 @@ public class UniverseStatistics implements Serializable {
    * Get universeId
    * @return universeId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "")
   @JsonIgnore
 

@@ -36,7 +36,8 @@ import com.factset.sdk.OptimizationEngineAPIMultiperiod.JSON;
 @JsonPropertyOrder({
   GoogleProtobufListValue.JSON_PROPERTY_VALUES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class GoogleProtobufListValue implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class GoogleProtobufListValue implements Serializable {
    * Get values
    * @return values
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

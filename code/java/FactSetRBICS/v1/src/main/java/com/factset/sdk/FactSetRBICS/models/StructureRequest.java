@@ -39,7 +39,8 @@ import com.factset.sdk.FactSetRBICS.JSON;
   StructureRequest.JSON_PROPERTY_INCLUDE_NAMES,
   StructureRequest.JSON_PROPERTY_DATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class StructureRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -75,7 +76,7 @@ public class StructureRequest implements Serializable {
    * RBICS Taxonomy Id Filter. Use to lookup the structure details for the Id requested. 
    * @return rbicsIds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "[\"101010000000\",\"55\"]", value = "RBICS Taxonomy Id Filter. Use to lookup the structure details for the Id requested. ")
   @JsonProperty(JSON_PROPERTY_RBICS_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -103,7 +104,7 @@ public class StructureRequest implements Serializable {
    * maximum: 6
    * @return level
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "3", value = "RBICS industry levels to include in the response. All levels from 1-N will be returned. For example, '3' returns all levels 1,2 and 3. To request all levels, request level=6. Level 1 is returned by default.   |Level|Description|Number of Groups|   |---|---|---|   |1|Economomy|14|   |2|Sector|37   |3|Sub-Sector|109|   |4|Industry Group|366|   |5|Inudstry|901|   |6|Sub-Industry|1629| ")
   @JsonProperty(JSON_PROPERTY_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -129,7 +130,7 @@ public class StructureRequest implements Serializable {
    * Option to include or exclude industry Names and the L6 Description. True &#x3D; Include Names; False &#x3D; Exclude Names. 
    * @return includeNames
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "true", value = "Option to include or exclude industry Names and the L6 Description. True = Include Names; False = Exclude Names. ")
   @JsonProperty(JSON_PROPERTY_INCLUDE_NAMES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -155,7 +156,7 @@ public class StructureRequest implements Serializable {
    * Effective date for data expressed in YYYY-MM-DD format. If no date is requested, the default behavior is to return the full history for the requested entity. 
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2020-09-30", value = "Effective date for data expressed in YYYY-MM-DD format. If no date is requested, the default behavior is to return the full history for the requested entity. ")
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

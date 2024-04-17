@@ -41,7 +41,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2001DataSharesOutstandingAverage.JSON_PROPERTY_BASIC,
   InlineResponse2001DataSharesOutstandingAverage.JSON_PROPERTY_DILUTED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2001DataSharesOutstandingAverage implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class InlineResponse2001DataSharesOutstandingAverage implements Serializa
    * Twelve-month average of the basic shares outstanding, which is the fiscal-year average of the actual number of shares outstanding.
    * @return basic
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Twelve-month average of the basic shares outstanding, which is the fiscal-year average of the actual number of shares outstanding.")
   @JsonIgnore
 
@@ -97,7 +98,7 @@ public class InlineResponse2001DataSharesOutstandingAverage implements Serializa
    * Twelve-month average of the diluted shares outstanding, which is the fiscal-year average of the potential number of shares outstanding, if all convertible instruments, such as convertible bonds or employee stock options, were exercised.
    * @return diluted
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Twelve-month average of the diluted shares outstanding, which is the fiscal-year average of the potential number of shares outstanding, if all convertible instruments, such as convertible bonds or employee stock options, were exercised.")
   @JsonIgnore
 

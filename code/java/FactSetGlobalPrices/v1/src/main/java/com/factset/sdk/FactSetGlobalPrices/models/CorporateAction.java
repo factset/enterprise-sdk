@@ -52,7 +52,8 @@ import com.factset.sdk.FactSetGlobalPrices.JSON;
   CorporateAction.JSON_PROPERTY_EFFECTIVE_DATE,
   CorporateAction.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CorporateAction implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -98,7 +99,7 @@ public class CorporateAction implements Serializable {
    * Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security&#39;s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "SJY281-R", value = "Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.")
   @JsonIgnore
 
@@ -132,7 +133,7 @@ public class CorporateAction implements Serializable {
    * FactSet identifier that uniquely identifies the Event.
    * @return eventId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "JTHPFN-A", value = "FactSet identifier that uniquely identifies the Event.")
   @JsonIgnore
 
@@ -166,7 +167,7 @@ public class CorporateAction implements Serializable {
    * Corporate Actions Event type code, possible values: [ DVC, DVCD, DRP, DVS, DVSS, BNS, BNSS, SPO, DSR, FSP, RSP, SPL ]
    * @return eventTypeCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Corporate Actions Event type code, possible values: [ DVC, DVCD, DRP, DVS, DVSS, BNS, BNSS, SPO, DSR, FSP, RSP, SPL ]")
   @JsonIgnore
 
@@ -200,7 +201,7 @@ public class CorporateAction implements Serializable {
    * Corporate Actions Event type description.
    * @return eventTypeDesc
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Corporate Actions Event type description.")
   @JsonIgnore
 
@@ -234,7 +235,7 @@ public class CorporateAction implements Serializable {
    * Dividend Type Code. For code descriptions, visit [Online Assistant Page #8764] (https://oa.apps.factset.com/pages/8764). 
    * @return divTypeCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Dividend Type Code. For code descriptions, visit [Online Assistant Page #8764] (https://oa.apps.factset.com/pages/8764). ")
   @JsonIgnore
 
@@ -268,7 +269,7 @@ public class CorporateAction implements Serializable {
    * Date Event was announced in YYYY-MM-DD format.
    * @return announcementDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Date Event was announced in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -302,7 +303,7 @@ public class CorporateAction implements Serializable {
    * Date of Record for distribution in YYYY-MM-DD format.
    * @return recordDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Date of Record for distribution in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -336,7 +337,7 @@ public class CorporateAction implements Serializable {
    * Date of Payment for distribution in YYYY-MM-DD format.
    * @return payDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Date of Payment for distribution in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -370,7 +371,7 @@ public class CorporateAction implements Serializable {
    * Effective Date or Ex-Date of distribution in YYYY-MM-DD format.
    * @return effectiveDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Effective Date or Ex-Date of distribution in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -404,7 +405,7 @@ public class CorporateAction implements Serializable {
    * Identifier that was used for the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "AAPL-US", value = "Identifier that was used for the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

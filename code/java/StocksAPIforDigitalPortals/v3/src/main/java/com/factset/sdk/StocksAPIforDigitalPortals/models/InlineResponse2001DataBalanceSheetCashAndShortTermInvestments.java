@@ -43,7 +43,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2001DataBalanceSheetCashAndShortTermInvestments.JSON_PROPERTY_GROWTH,
   InlineResponse2001DataBalanceSheetCashAndShortTermInvestments.JSON_PROPERTY_RATIO_TO_TOTAL_ASSETS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2001DataBalanceSheetCashAndShortTermInvestments implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class InlineResponse2001DataBalanceSheetCashAndShortTermInvestments imple
    * Value of the cash and short-term investments.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Value of the cash and short-term investments.")
   @JsonIgnore
 
@@ -102,7 +103,7 @@ public class InlineResponse2001DataBalanceSheetCashAndShortTermInvestments imple
    * Annual growth rate of the cash and short-term investments.
    * @return growth
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Annual growth rate of the cash and short-term investments.")
   @JsonIgnore
 
@@ -136,7 +137,7 @@ public class InlineResponse2001DataBalanceSheetCashAndShortTermInvestments imple
    * Cash-and-short-term-investments-to-total-assets ratio, which is the ratio of the cash and short-term investments, divided by the total assets.
    * @return ratioToTotalAssets
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Cash-and-short-term-investments-to-total-assets ratio, which is the ratio of the cash and short-term investments, divided by the total assets.")
   @JsonIgnore
 

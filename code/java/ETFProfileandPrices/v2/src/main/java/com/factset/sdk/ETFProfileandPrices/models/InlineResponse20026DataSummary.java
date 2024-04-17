@@ -38,7 +38,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20026DataSummary.JSON_PROPERTY_REPORT_DATE,
   InlineResponse20026DataSummary.JSON_PROPERTY_COUNT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20026DataSummary implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -60,7 +61,7 @@ public class InlineResponse20026DataSummary implements Serializable {
    * Report date of premium/discount/neutral count.
    * @return reportDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Report date of premium/discount/neutral count.")
   @JsonProperty(JSON_PROPERTY_REPORT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,7 +87,7 @@ public class InlineResponse20026DataSummary implements Serializable {
    * Get count
    * @return count
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -36,7 +36,8 @@ import com.factset.sdk.OpenRisk.JSON;
   RiskExclusionInfoExclusionInfo.JSON_PROPERTY_CODE,
   RiskExclusionInfoExclusionInfo.JSON_PROPERTY_DETAILS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class RiskExclusionInfoExclusionInfo implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -113,7 +114,7 @@ public class RiskExclusionInfoExclusionInfo implements Serializable {
    * Exclusion reason
    * @return code
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Exclusion reason")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -139,7 +140,7 @@ public class RiskExclusionInfoExclusionInfo implements Serializable {
    * Exclusion reason details if available
    * @return details
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Exclusion reason details if available")
   @JsonProperty(JSON_PROPERTY_DETAILS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

@@ -45,7 +45,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFigures.JSON_PROPERTY_EBITDA,
   PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFigures.JSON_PROPERTY_PER_SHARE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFigures implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -84,7 +85,7 @@ public class PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFigur
    * Get currency
    * @return currency
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -110,7 +111,7 @@ public class PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFigur
    * Get marketCapitalization
    * @return marketCapitalization
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MARKET_CAPITALIZATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,7 +137,7 @@ public class PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFigur
    * Get ebit
    * @return ebit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EBIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -162,7 +163,7 @@ public class PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFigur
    * Get ebitda
    * @return ebitda
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EBITDA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -188,7 +189,7 @@ public class PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFigur
    * Get perShare
    * @return perShare
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PER_SHARE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

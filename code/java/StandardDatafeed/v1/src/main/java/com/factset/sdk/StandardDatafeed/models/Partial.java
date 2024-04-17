@@ -36,7 +36,8 @@ import com.factset.sdk.StandardDatafeed.JSON;
 @JsonPropertyOrder({
   Partial.JSON_PROPERTY_IS_PARTIAL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Partial implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -55,7 +56,7 @@ public class Partial implements Serializable {
    * Get isPartial
    * @return isPartial
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IS_PARTIAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

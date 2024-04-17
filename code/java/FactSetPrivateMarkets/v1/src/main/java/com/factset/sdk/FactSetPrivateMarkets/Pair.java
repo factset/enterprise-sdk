@@ -13,7 +13,8 @@
 
 package com.factset.sdk.FactSetPrivateMarkets;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Pair {
     private String name = "";
     private String value = "";

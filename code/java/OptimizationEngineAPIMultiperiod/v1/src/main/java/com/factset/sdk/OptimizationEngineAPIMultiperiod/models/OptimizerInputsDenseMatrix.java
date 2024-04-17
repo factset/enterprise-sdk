@@ -37,7 +37,8 @@ import com.factset.sdk.OptimizationEngineAPIMultiperiod.JSON;
 @JsonPropertyOrder({
   OptimizerInputsDenseMatrix.JSON_PROPERTY_VALUE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerInputsDenseMatrix implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class OptimizerInputsDenseMatrix implements Serializable {
    * 2D array of doubles
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "2D array of doubles")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

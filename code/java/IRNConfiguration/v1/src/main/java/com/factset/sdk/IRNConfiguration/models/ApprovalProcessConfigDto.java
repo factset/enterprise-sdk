@@ -49,7 +49,8 @@ import com.factset.sdk.IRNConfiguration.JSON;
   ApprovalProcessConfigDto.JSON_PROPERTY_CAN_AUTHOR_SELF_APPROVE,
   ApprovalProcessConfigDto.JSON_PROPERTY_CAN_AUTHOR_EDIT_PENDING
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ApprovalProcessConfigDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -107,7 +108,7 @@ public class ApprovalProcessConfigDto implements Serializable {
    * Get approvalLevels
    * @return approvalLevels
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -153,7 +154,7 @@ public class ApprovalProcessConfigDto implements Serializable {
    * Get viewerIds
    * @return viewerIds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -187,7 +188,7 @@ public class ApprovalProcessConfigDto implements Serializable {
    * Get shouldSendEmailAlertsWhenSubmittedForApproval
    * @return shouldSendEmailAlertsWhenSubmittedForApproval
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_WHEN_SUBMITTED_FOR_APPROVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -213,7 +214,7 @@ public class ApprovalProcessConfigDto implements Serializable {
    * Get shouldSendEmailAlertsWhenApproved
    * @return shouldSendEmailAlertsWhenApproved
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_WHEN_APPROVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -239,7 +240,7 @@ public class ApprovalProcessConfigDto implements Serializable {
    * Get shouldSendEmailAlertsWhenDenied
    * @return shouldSendEmailAlertsWhenDenied
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_WHEN_DENIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -265,7 +266,7 @@ public class ApprovalProcessConfigDto implements Serializable {
    * Get shouldSendEmailAlertsToAuthor
    * @return shouldSendEmailAlertsToAuthor
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_TO_AUTHOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -291,7 +292,7 @@ public class ApprovalProcessConfigDto implements Serializable {
    * Get shouldSendEmailAlertsToApprovers
    * @return shouldSendEmailAlertsToApprovers
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_TO_APPROVERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -317,7 +318,7 @@ public class ApprovalProcessConfigDto implements Serializable {
    * Get shouldSendEmailAlertsToViewers
    * @return shouldSendEmailAlertsToViewers
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_TO_VIEWERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -343,7 +344,7 @@ public class ApprovalProcessConfigDto implements Serializable {
    * Get canAuthorSelfApprove
    * @return canAuthorSelfApprove
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CAN_AUTHOR_SELF_APPROVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -369,7 +370,7 @@ public class ApprovalProcessConfigDto implements Serializable {
    * Get canAuthorEditPending
    * @return canAuthorEditPending
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CAN_AUTHOR_EDIT_PENDING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

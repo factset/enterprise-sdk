@@ -41,7 +41,8 @@ import com.factset.sdk.MarketIntelligence.JSON;
   MIAPIPostRequest.JSON_PROPERTY_TIME_ZONE,
   MIAPIPostRequest.JSON_PROPERTY_CONTENT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class MIAPIPostRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -72,7 +73,7 @@ public class MIAPIPostRequest implements Serializable {
    * report name
    * @return reportName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Morning Portfolio Update", value = "report name")
   @JsonProperty(JSON_PROPERTY_REPORT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -98,7 +99,7 @@ public class MIAPIPostRequest implements Serializable {
    * Index or portfolio for which the report to be created.
    * @return identifier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "OEX", value = "Index or portfolio for which the report to be created.")
   @JsonProperty(JSON_PROPERTY_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -124,7 +125,7 @@ public class MIAPIPostRequest implements Serializable {
    * identifier type
    * @return idType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "B", value = "identifier type")
   @JsonProperty(JSON_PROPERTY_ID_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -150,7 +151,7 @@ public class MIAPIPostRequest implements Serializable {
    * Time zone for the report (this shall be utilized if a user wants to use the report via API and also from Workstation/web).
    * @return timeZone
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "EST5EDT", value = "Time zone for the report (this shall be utilized if a user wants to use the report via API and also from Workstation/web).")
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -184,7 +185,7 @@ public class MIAPIPostRequest implements Serializable {
    * Get content
    * @return content
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

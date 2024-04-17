@@ -35,7 +35,8 @@ import com.factset.sdk.Signals.JSON;
 @JsonPropertyOrder({
   ErrorItemSource.JSON_PROPERTY_PARAMETER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ErrorItemSource implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -54,7 +55,7 @@ public class ErrorItemSource implements Serializable {
    * Get parameter
    * @return parameter
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PARAMETER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

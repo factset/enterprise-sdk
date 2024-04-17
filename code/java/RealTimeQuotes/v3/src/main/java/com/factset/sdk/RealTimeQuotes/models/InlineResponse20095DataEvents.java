@@ -41,7 +41,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20095DataEvents.JSON_PROPERTY_TIME,
   InlineResponse20095DataEvents.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20095DataEvents implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class InlineResponse20095DataEvents implements Serializable {
    * Date and time of the event.
    * @return time
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Date and time of the event.")
   @JsonIgnore
 
@@ -97,7 +98,7 @@ public class InlineResponse20095DataEvents implements Serializable {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

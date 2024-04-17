@@ -43,7 +43,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2001DataIncomeStatementEbitda.JSON_PROPERTY_GROWTH,
   InlineResponse2001DataIncomeStatementEbitda.JSON_PROPERTY_MARGIN
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2001DataIncomeStatementEbitda implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class InlineResponse2001DataIncomeStatementEbitda implements Serializable
    * Value of the EBITDA.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Value of the EBITDA.")
   @JsonIgnore
 
@@ -102,7 +103,7 @@ public class InlineResponse2001DataIncomeStatementEbitda implements Serializable
    * Annual growth rate of the EBITDA.
    * @return growth
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Annual growth rate of the EBITDA.")
   @JsonIgnore
 
@@ -136,7 +137,7 @@ public class InlineResponse2001DataIncomeStatementEbitda implements Serializable
    * EBITDA margin, which is the ratio of the EBITDA, divided by the total sales revenue.
    * @return margin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "EBITDA margin, which is the ratio of the EBITDA, divided by the total sales revenue.")
   @JsonIgnore
 

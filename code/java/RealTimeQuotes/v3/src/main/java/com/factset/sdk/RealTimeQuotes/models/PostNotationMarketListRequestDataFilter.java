@@ -43,7 +43,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   PostNotationMarketListRequestDataFilter.JSON_PROPERTY_GROUP,
   PostNotationMarketListRequestDataFilter.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostNotationMarketListRequestDataFilter implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -71,7 +72,7 @@ public class PostNotationMarketListRequestDataFilter implements Serializable {
    * Get assetClass
    * @return assetClass
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ASSET_CLASS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -97,7 +98,7 @@ public class PostNotationMarketListRequestDataFilter implements Serializable {
    * Get country
    * @return country
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -123,7 +124,7 @@ public class PostNotationMarketListRequestDataFilter implements Serializable {
    * Get group
    * @return group
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -149,7 +150,7 @@ public class PostNotationMarketListRequestDataFilter implements Serializable {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

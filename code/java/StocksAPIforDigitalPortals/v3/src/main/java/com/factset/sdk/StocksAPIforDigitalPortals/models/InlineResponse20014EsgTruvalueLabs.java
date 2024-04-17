@@ -39,7 +39,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20014EsgTruvalueLabs.JSON_PROPERTY_SASB,
   InlineResponse20014EsgTruvalueLabs.JSON_PROPERTY_SDG
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20014EsgTruvalueLabs implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -61,7 +62,7 @@ public class InlineResponse20014EsgTruvalueLabs implements Serializable {
    * Get sasb
    * @return sasb
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SASB)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -87,7 +88,7 @@ public class InlineResponse20014EsgTruvalueLabs implements Serializable {
    * Get sdg
    * @return sdg
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SDG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

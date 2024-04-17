@@ -37,7 +37,8 @@ import com.factset.sdk.FactSetTickHistory.JSON;
   FilesOne.JSON_PROPERTY_FILE_NAME,
   FilesOne.JSON_PROPERTY_URL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FilesOne implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -59,7 +60,7 @@ public class FilesOne implements Serializable {
    * Name of the file(s) generated for the query requested
    * @return fileName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the file(s) generated for the query requested")
   @JsonProperty(JSON_PROPERTY_FILE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -85,7 +86,7 @@ public class FilesOne implements Serializable {
    * Download link for the TickHistory minute bars file with requested parameters.    &lt;p&gt;The downloaded file contains isoCode, ticker, date, time, tradeOpen, tradeHigh, tradeLow, tradeClose, tradeVolume, tradeNumber, and tradeVWAP&lt;/P&gt;    &lt;p&gt;This download link will expire after 12 hours.&lt;/p&gt; 
    * @return url
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Download link for the TickHistory minute bars file with requested parameters.    <p>The downloaded file contains isoCode, ticker, date, time, tradeOpen, tradeHigh, tradeLow, tradeClose, tradeVolume, tradeNumber, and tradeVWAP</P>    <p>This download link will expire after 12 hours.</p> ")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

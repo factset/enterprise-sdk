@@ -39,7 +39,8 @@ import com.factset.sdk.FixedIncomeCalculation.JSON;
 @JsonPropertyOrder({
   CalculationInfo.JSON_PROPERTY_CALCULATION_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CalculationInfo implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -58,7 +59,7 @@ public class CalculationInfo implements Serializable {
    * Calculation identifier
    * @return calculationId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Calculation identifier")
   @JsonIgnore
 

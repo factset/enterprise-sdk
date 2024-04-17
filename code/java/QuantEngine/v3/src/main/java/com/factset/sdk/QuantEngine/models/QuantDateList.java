@@ -44,7 +44,8 @@ import com.factset.sdk.QuantEngine.JSON;
   QuantDateList.JSON_PROPERTY_CALENDAR,
   QuantDateList.JSON_PROPERTY_OVERRIDE_UNIVERSAL_SCREEN_CALENDAR
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class QuantDateList implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -134,7 +135,7 @@ public class QuantDateList implements Serializable {
    * Get dates
    * @return dates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -168,7 +169,7 @@ public class QuantDateList implements Serializable {
    * Get source
    * @return source
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SOURCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -194,7 +195,7 @@ public class QuantDateList implements Serializable {
    * Get frequency
    * @return frequency
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_FREQUENCY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -220,7 +221,7 @@ public class QuantDateList implements Serializable {
    * Get calendar
    * @return calendar
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CALENDAR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -246,7 +247,7 @@ public class QuantDateList implements Serializable {
    * Get overrideUniversalScreenCalendar
    * @return overrideUniversalScreenCalendar
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

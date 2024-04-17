@@ -43,7 +43,8 @@ import com.factset.sdk.RealTimeNews.JSON;
   InlineResponse2004DataStatus.JSON_PROPERTY_DETAILS,
   InlineResponse2004DataStatus.JSON_PROPERTY_ENCRYPTED_DETAILS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2004DataStatus implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -110,7 +111,7 @@ public class InlineResponse2004DataStatus implements Serializable {
    * Code of the error condition.
    * @return code
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Code of the error condition.")
   @JsonIgnore
 
@@ -144,7 +145,7 @@ public class InlineResponse2004DataStatus implements Serializable {
    * Provided identifier.
    * @return identifier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Provided identifier.")
   @JsonIgnore
 
@@ -178,7 +179,7 @@ public class InlineResponse2004DataStatus implements Serializable {
    * A human-readable, unstructured explanation specific to this occurrence of the problem.
    * @return details
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A human-readable, unstructured explanation specific to this occurrence of the problem.")
   @JsonIgnore
 
@@ -212,7 +213,7 @@ public class InlineResponse2004DataStatus implements Serializable {
    * Base64-encoded internal details about the error.
    * @return encryptedDetails
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Base64-encoded internal details about the error.")
   @JsonIgnore
 

@@ -41,7 +41,8 @@ import com.factset.sdk.QuantEngine.JSON;
   QuantScreeningExpressionObsolete.JSON_PROPERTY_NAME,
   QuantScreeningExpressionObsolete.JSON_PROPERTY_DATE_OFFSET
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class QuantScreeningExpressionObsolete implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -76,7 +77,7 @@ public class QuantScreeningExpressionObsolete implements Serializable {
    * Get expr
    * @return expr
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_EXPR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -102,7 +103,7 @@ public class QuantScreeningExpressionObsolete implements Serializable {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -128,7 +129,7 @@ public class QuantScreeningExpressionObsolete implements Serializable {
    * Get dateOffset
    * @return dateOffset
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

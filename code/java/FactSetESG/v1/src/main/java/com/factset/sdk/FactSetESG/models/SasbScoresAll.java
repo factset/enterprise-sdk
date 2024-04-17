@@ -71,7 +71,8 @@ import com.factset.sdk.FactSetESG.JSON;
   SasbScoresAll.JSON_PROPERTY_WASTE_AND_HAZARDOUS_MATERIALS_MANAGEMENT,
   SasbScoresAll.JSON_PROPERTY_WATER_AND_WASTEWATER_MANAGEMENT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SasbScoresAll implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -183,7 +184,7 @@ public class SasbScoresAll implements Serializable {
    * Date for the period requested expressed in YYYY-MM-DD format.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Wed Sep 30 00:00:00 UTC 2020", value = "Date for the period requested expressed in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -217,7 +218,7 @@ public class SasbScoresAll implements Serializable {
    * FactSet Entity Identifier. Six alpha-numeric characters, excluding vowels, with a -E suffix (XXXXXX-E).
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "001MF1-E", value = "FactSet Entity Identifier. Six alpha-numeric characters, excluding vowels, with a -E suffix (XXXXXX-E).")
   @JsonIgnore
 
@@ -251,7 +252,7 @@ public class SasbScoresAll implements Serializable {
    * Identifier that was used for the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "AMZN-US", value = "Identifier that was used for the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -277,7 +278,7 @@ public class SasbScoresAll implements Serializable {
    * The name of the specific SASB Score type being shown in the response. This will be represented by the scoreTypes input: PULSE, INSIGHT, MOMENTUM, ART_VOL_TTM, CAT_VOL_TTM, or DYNAMIC_MAT.
    * @return scoreType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "PULSE", value = "The name of the specific SASB Score type being shown in the response. This will be represented by the scoreTypes input: PULSE, INSIGHT, MOMENTUM, ART_VOL_TTM, CAT_VOL_TTM, or DYNAMIC_MAT.")
   @JsonIgnore
 
@@ -311,7 +312,7 @@ public class SasbScoresAll implements Serializable {
    * The Access and Affordability SASB Category.
    * @return accessAndAffordability
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "42.0589785474386", value = "The Access and Affordability SASB Category.")
   @JsonIgnore
 
@@ -345,7 +346,7 @@ public class SasbScoresAll implements Serializable {
    * The Air Quality SASB Category.
    * @return airQuality
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "29.8807816941901", value = "The Air Quality SASB Category.")
   @JsonIgnore
 
@@ -379,7 +380,7 @@ public class SasbScoresAll implements Serializable {
    * The All Categories Category. This represents the overall SASB Score for the given &#39;scoreType&#39;. When scoreType &#x3D; ESG_RANK, the data type will be string, otherwise data type will be a number with double format.
    * @return allCategories
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "49.1044372161141", value = "The All Categories Category. This represents the overall SASB Score for the given 'scoreType'. When scoreType = ESG_RANK, the data type will be string, otherwise data type will be a number with double format.")
   @JsonIgnore
 
@@ -413,7 +414,7 @@ public class SasbScoresAll implements Serializable {
    * The Business Ethics Category.
    * @return businessEthics
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "30.6074308481714", value = "The Business Ethics Category.")
   @JsonIgnore
 
@@ -447,7 +448,7 @@ public class SasbScoresAll implements Serializable {
    * The Business Model Resilience Category.
    * @return businessModelResilience
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "41.8940425184173", value = "The Business Model Resilience Category.")
   @JsonIgnore
 
@@ -481,7 +482,7 @@ public class SasbScoresAll implements Serializable {
    * The Competitive Behavior Category.
    * @return competitiveBehavior
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "32.5921215119197", value = "The Competitive Behavior Category.")
   @JsonIgnore
 
@@ -515,7 +516,7 @@ public class SasbScoresAll implements Serializable {
    * The Critical Incident Risk Management Category.
    * @return criticalIncidentRiskManagement
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "45.3820575553375", value = "The Critical Incident Risk Management Category.")
   @JsonIgnore
 
@@ -549,7 +550,7 @@ public class SasbScoresAll implements Serializable {
    * The Customer Privacy Category.
    * @return customerPrivacy
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "54.9645092108536", value = "The Customer Privacy Category.")
   @JsonIgnore
 
@@ -583,7 +584,7 @@ public class SasbScoresAll implements Serializable {
    * The Customer Welfare Category.
    * @return customerWelfare
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "68.5579215857227", value = "The Customer Welfare Category.")
   @JsonIgnore
 
@@ -617,7 +618,7 @@ public class SasbScoresAll implements Serializable {
    * The Data Security Category.
    * @return dataSecurity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "35.4099360664856", value = "The Data Security Category.")
   @JsonIgnore
 
@@ -651,7 +652,7 @@ public class SasbScoresAll implements Serializable {
    * The Ecological Impacts Category.
    * @return ecologicalImpacts
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "51.5562478316789", value = "The Ecological Impacts Category.")
   @JsonIgnore
 
@@ -685,7 +686,7 @@ public class SasbScoresAll implements Serializable {
    * The Employee Engagement Diversity and Inclusion Category.
    * @return employeeEngagementDiversityandInclusion
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "55.6395516005745", value = "The Employee Engagement Diversity and Inclusion Category.")
   @JsonIgnore
 
@@ -719,7 +720,7 @@ public class SasbScoresAll implements Serializable {
    * The Employee Health And Safety Category.
    * @return employeeHealthAndSafety
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "51.7344801598622", value = "The Employee Health And Safety Category.")
   @JsonIgnore
 
@@ -753,7 +754,7 @@ public class SasbScoresAll implements Serializable {
    * The Energy Management Category.
    * @return energyManagement
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "77.591147035024", value = "The Energy Management Category.")
   @JsonIgnore
 
@@ -787,7 +788,7 @@ public class SasbScoresAll implements Serializable {
    * The Greenhouse Gases Emissions Category.
    * @return gHGEmissions
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "56.9085694943306", value = "The Greenhouse Gases Emissions Category.")
   @JsonIgnore
 
@@ -821,7 +822,7 @@ public class SasbScoresAll implements Serializable {
    * The Human Rights and Community Relations Category.
    * @return humanRightsandCommunityRelations
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "46.5119869803688", value = "The Human Rights and Community Relations Category.")
   @JsonIgnore
 
@@ -855,7 +856,7 @@ public class SasbScoresAll implements Serializable {
    * The Labor Practices Category.
    * @return laborPractices
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "49.8005302032842", value = "The Labor Practices Category.")
   @JsonIgnore
 
@@ -889,7 +890,7 @@ public class SasbScoresAll implements Serializable {
    * The Management of the Legal and Regulatory Environment Category.
    * @return managementOfTheLegalAndRegulatoryEnvironment
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "52.3487226050073", value = "The Management of the Legal and Regulatory Environment Category.")
   @JsonIgnore
 
@@ -923,7 +924,7 @@ public class SasbScoresAll implements Serializable {
    * The Materials Sourcing and Efficiency Category.
    * @return materialsSourcingAndEfficiency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "59.6849308135668", value = "The Materials Sourcing and Efficiency Category.")
   @JsonIgnore
 
@@ -957,7 +958,7 @@ public class SasbScoresAll implements Serializable {
    * The Materiality Category. When scoreType &#x3D; ESG_RANK, the data type will be string, otherwise data type will be a number with double format.
    * @return materiality
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "51.6289633279129", value = "The Materiality Category. When scoreType = ESG_RANK, the data type will be string, otherwise data type will be a number with double format.")
   @JsonIgnore
 
@@ -991,7 +992,7 @@ public class SasbScoresAll implements Serializable {
    * The Physical Impacts of Climate Change Category.
    * @return physicalImpactsOfClimateChange
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "47.376430062074", value = "The Physical Impacts of Climate Change Category.")
   @JsonIgnore
 
@@ -1025,7 +1026,7 @@ public class SasbScoresAll implements Serializable {
    * The Product Quality and Safety Category.
    * @return productQualityAndSafety
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "47.5437583105162", value = "The Product Quality and Safety Category.")
   @JsonIgnore
 
@@ -1059,7 +1060,7 @@ public class SasbScoresAll implements Serializable {
    * The Product Design And Lifecycle Management Category.
    * @return productDesignAndLifecycleManagement
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "54.5033074297044", value = "The Product Design And Lifecycle Management Category.")
   @JsonIgnore
 
@@ -1093,7 +1094,7 @@ public class SasbScoresAll implements Serializable {
    * The Selling Practices And Product Labeling Category.
    * @return sellingPracticesAndProductLabeling
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "25.1319878766169", value = "The Selling Practices And Product Labeling Category.")
   @JsonIgnore
 
@@ -1127,7 +1128,7 @@ public class SasbScoresAll implements Serializable {
    * The Supply Chain Management Category.
    * @return supplyChainManagement
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "57.6323871116413", value = "The Supply Chain Management Category.")
   @JsonIgnore
 
@@ -1161,7 +1162,7 @@ public class SasbScoresAll implements Serializable {
    * The Systemic Risk Management Category.
    * @return systemicRiskManagement
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "53.6422678837999", value = "The Systemic Risk Management Category.")
   @JsonIgnore
 
@@ -1195,7 +1196,7 @@ public class SasbScoresAll implements Serializable {
    * The Waste and Hazardous Materials Management Category.
    * @return wasteAndHazardousMaterialsManagement
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "56.551268737999", value = "The Waste and Hazardous Materials Management Category.")
   @JsonIgnore
 
@@ -1229,7 +1230,7 @@ public class SasbScoresAll implements Serializable {
    * The Water and Wastewater Management Category.
    * @return waterAndWastewaterManagement
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "63.2635158281821", value = "The Water and Wastewater Management Category.")
   @JsonIgnore
 

@@ -39,7 +39,8 @@ import com.factset.sdk.IRNConfiguration.JSON;
 @JsonPropertyOrder({
   SubjectSettingsDto.JSON_PROPERTY_DEFAULT_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SubjectSettingsDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -58,7 +59,7 @@ public class SubjectSettingsDto implements Serializable {
    * Get defaultId
    * @return defaultId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

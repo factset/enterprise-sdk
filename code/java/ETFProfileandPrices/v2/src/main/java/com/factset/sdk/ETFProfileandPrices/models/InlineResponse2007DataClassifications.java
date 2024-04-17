@@ -37,7 +37,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse2007DataClassifications.JSON_PROPERTY_CLASSIFICATION,
   InlineResponse2007DataClassifications.JSON_PROPERTY_WEIGHT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2007DataClassifications implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -59,7 +60,7 @@ public class InlineResponse2007DataClassifications implements Serializable {
    * Name of the classification.
    * @return classification
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the classification.")
   @JsonProperty(JSON_PROPERTY_CLASSIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -85,7 +86,7 @@ public class InlineResponse2007DataClassifications implements Serializable {
    * Weight (net) of the classification.
    * @return weight
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Weight (net) of the classification.")
   @JsonProperty(JSON_PROPERTY_WEIGHT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -36,7 +36,8 @@ import com.factset.sdk.NorthfieldPortfolioOptimizer.JSON;
   ConstraintAction.JSON_PROPERTY_ITEM1,
   ConstraintAction.JSON_PROPERTY_ITEM2
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ConstraintAction implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -93,7 +94,7 @@ public class ConstraintAction implements Serializable {
    * Get item1
    * @return item1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ITEM1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -119,7 +120,7 @@ public class ConstraintAction implements Serializable {
    * Get item2
    * @return item2
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ITEM2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

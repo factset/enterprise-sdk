@@ -36,7 +36,8 @@ import com.factset.sdk.Formula.JSON;
 @JsonPropertyOrder({
   CrossSectionalResponse.JSON_PROPERTY_DATA
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CrossSectionalResponse implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class CrossSectionalResponse implements Serializable {
    * Array of Cross-Sectional &#x60;Response Objects&#x60;
    * @return data
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Array of Cross-Sectional `Response Objects`")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

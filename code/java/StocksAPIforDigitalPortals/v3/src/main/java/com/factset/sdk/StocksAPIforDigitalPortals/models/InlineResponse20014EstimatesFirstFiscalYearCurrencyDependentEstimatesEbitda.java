@@ -41,7 +41,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
 @JsonPropertyOrder({
   InlineResponse20014EstimatesFirstFiscalYearCurrencyDependentEstimatesEbitda.JSON_PROPERTY_MEAN
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20014EstimatesFirstFiscalYearCurrencyDependentEstimatesEbitda implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -60,7 +61,7 @@ public class InlineResponse20014EstimatesFirstFiscalYearCurrencyDependentEstimat
    * Mean value.
    * @return mean
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Mean value.")
   @JsonIgnore
 

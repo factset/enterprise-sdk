@@ -42,7 +42,8 @@ import com.factset.sdk.RealTimeNews.JSON;
   InlineResponse200DataLanguage.JSON_PROPERTY_ID,
   InlineResponse200DataLanguage.JSON_PROPERTY_CODE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse200DataLanguage implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class InlineResponse200DataLanguage implements Serializable {
    * Identifier of the language.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the language.")
   @JsonIgnore
 
@@ -98,7 +99,7 @@ public class InlineResponse200DataLanguage implements Serializable {
    * ISO 639-1 code of the language.
    * @return code
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "ISO 639-1 code of the language.")
   @JsonIgnore
 

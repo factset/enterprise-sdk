@@ -45,7 +45,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20037Data.JSON_PROPERTY_HAS_LEAF_CATEGORIES,
   InlineResponse20037Data.JSON_PROPERTY_SYSTEM
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20037Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -73,7 +74,7 @@ public class InlineResponse20037Data implements Serializable {
    * Name of the level.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the level.")
   @JsonIgnore
 
@@ -107,7 +108,7 @@ public class InlineResponse20037Data implements Serializable {
    * Number of the category level, starting with 1.
    * @return number
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of the category level, starting with 1.")
   @JsonIgnore
 
@@ -141,7 +142,7 @@ public class InlineResponse20037Data implements Serializable {
    * Indicates whether the category level has leaf categories.
    * @return hasLeafCategories
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the category level has leaf categories.")
   @JsonIgnore
 
@@ -175,7 +176,7 @@ public class InlineResponse20037Data implements Serializable {
    * Get system
    * @return system
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SYSTEM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

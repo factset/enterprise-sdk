@@ -43,7 +43,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2001DataIncomeStatementGrossIncome.JSON_PROPERTY_GROWTH,
   InlineResponse2001DataIncomeStatementGrossIncome.JSON_PROPERTY_MARGIN
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2001DataIncomeStatementGrossIncome implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class InlineResponse2001DataIncomeStatementGrossIncome implements Seriali
    * Value of the gross income.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Value of the gross income.")
   @JsonIgnore
 
@@ -102,7 +103,7 @@ public class InlineResponse2001DataIncomeStatementGrossIncome implements Seriali
    * Annual growth rate of the gross income.
    * @return growth
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Annual growth rate of the gross income.")
   @JsonIgnore
 
@@ -136,7 +137,7 @@ public class InlineResponse2001DataIncomeStatementGrossIncome implements Seriali
    * Gross income margin, which is the ratio of the gross income, divided by the total sales revenue.
    * @return margin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Gross income margin, which is the ratio of the gross income, divided by the total sales revenue.")
   @JsonIgnore
 

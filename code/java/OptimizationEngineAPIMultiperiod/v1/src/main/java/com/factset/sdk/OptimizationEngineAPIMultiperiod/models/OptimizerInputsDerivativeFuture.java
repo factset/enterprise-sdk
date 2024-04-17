@@ -38,7 +38,8 @@ import com.factset.sdk.OptimizationEngineAPIMultiperiod.JSON;
   OptimizerInputsDerivativeFuture.JSON_PROPERTY_METHOD,
   OptimizerInputsDerivativeFuture.JSON_PROPERTY_USING_PA_MULTIPLY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerInputsDerivativeFuture implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class OptimizerInputsDerivativeFuture implements Serializable {
    * Get contractSize
    * @return contractSize
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CONTRACT_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -89,7 +90,7 @@ public class OptimizerInputsDerivativeFuture implements Serializable {
    * Get method
    * @return method
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +116,7 @@ public class OptimizerInputsDerivativeFuture implements Serializable {
    * Get usingPaMultiply
    * @return usingPaMultiply
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_USING_PA_MULTIPLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

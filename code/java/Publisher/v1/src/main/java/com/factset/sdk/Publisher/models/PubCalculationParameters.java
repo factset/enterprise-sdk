@@ -39,7 +39,8 @@ import com.factset.sdk.Publisher.JSON;
   PubCalculationParameters.JSON_PROPERTY_ACCOUNT,
   PubCalculationParameters.JSON_PROPERTY_DATES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PubCalculationParameters implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -76,7 +77,7 @@ public class PubCalculationParameters implements Serializable {
    * The Publisher Engine document to analyze.
    * @return document
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The Publisher Engine document to analyze.")
   @JsonProperty(JSON_PROPERTY_DOCUMENT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -102,7 +103,7 @@ public class PubCalculationParameters implements Serializable {
    * Get account
    * @return account
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -128,7 +129,7 @@ public class PubCalculationParameters implements Serializable {
    * Get dates
    * @return dates
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

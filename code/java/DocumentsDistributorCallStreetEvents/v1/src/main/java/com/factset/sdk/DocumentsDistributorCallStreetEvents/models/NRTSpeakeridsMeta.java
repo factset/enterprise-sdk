@@ -39,7 +39,8 @@ import com.factset.sdk.DocumentsDistributorCallStreetEvents.JSON;
   NRTSpeakeridsMeta.JSON_PROPERTY_PAGINATION,
   NRTSpeakeridsMeta.JSON_PROPERTY_PARTIAL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class NRTSpeakeridsMeta implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -72,7 +73,7 @@ public class NRTSpeakeridsMeta implements Serializable {
    * The value in _sort parameter if used in the request.
    * @return sort
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The value in _sort parameter if used in the request.")
   @JsonProperty(JSON_PROPERTY_SORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -98,7 +99,7 @@ public class NRTSpeakeridsMeta implements Serializable {
    * Get pagination
    * @return pagination
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAGINATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -124,7 +125,7 @@ public class NRTSpeakeridsMeta implements Serializable {
    * Get partial
    * @return partial
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PARTIAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

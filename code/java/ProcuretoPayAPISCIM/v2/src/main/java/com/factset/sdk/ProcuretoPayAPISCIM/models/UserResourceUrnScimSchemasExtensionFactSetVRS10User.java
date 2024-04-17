@@ -36,7 +36,8 @@ import com.factset.sdk.ProcuretoPayAPISCIM.JSON;
 @JsonPropertyOrder({
   UserResourceUrnScimSchemasExtensionFactSetVRS10User.JSON_PROPERTY_DOMAIN_DATA
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class UserResourceUrnScimSchemasExtensionFactSetVRS10User implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class UserResourceUrnScimSchemasExtensionFactSetVRS10User implements Seri
    * A set of attributes pertaining to individual Vermilion domains.
    * @return domainData
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A set of attributes pertaining to individual Vermilion domains.")
   @JsonProperty(JSON_PROPERTY_DOMAIN_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

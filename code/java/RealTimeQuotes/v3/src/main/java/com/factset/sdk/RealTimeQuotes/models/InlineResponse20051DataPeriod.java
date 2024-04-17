@@ -38,7 +38,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20051DataPeriod.JSON_PROPERTY_START,
   InlineResponse20051DataPeriod.JSON_PROPERTY_END
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20051DataPeriod implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -70,7 +71,7 @@ public class InlineResponse20051DataPeriod implements Serializable {
    * Starting date.
    * @return start
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(required = true, value = "Starting date.")
   @JsonProperty(JSON_PROPERTY_START)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -96,7 +97,7 @@ public class InlineResponse20051DataPeriod implements Serializable {
    * Ending date (inclusive).
    * @return end
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(required = true, value = "Ending date (inclusive).")
   @JsonProperty(JSON_PROPERTY_END)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

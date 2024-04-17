@@ -40,7 +40,8 @@ import com.factset.sdk.OptimizationEngineAPIMultiperiod.JSON;
   OptimizerInputsTotalUniverse.JSON_PROPERTY_COMPOSITE_ASSETS,
   OptimizerInputsTotalUniverse.JSON_PROPERTY_DERIVATIVES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerInputsTotalUniverse implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -73,7 +74,7 @@ public class OptimizerInputsTotalUniverse implements Serializable {
    * Get assets
    * @return assets
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ASSETS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,7 +100,7 @@ public class OptimizerInputsTotalUniverse implements Serializable {
    * Get compositeAssets
    * @return compositeAssets
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COMPOSITE_ASSETS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -125,7 +126,7 @@ public class OptimizerInputsTotalUniverse implements Serializable {
    * Get derivatives
    * @return derivatives
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DERIVATIVES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

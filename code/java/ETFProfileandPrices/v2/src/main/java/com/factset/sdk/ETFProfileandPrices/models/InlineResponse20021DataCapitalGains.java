@@ -38,7 +38,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20021DataCapitalGains.JSON_PROPERTY_SHORT_TERM,
   InlineResponse20021DataCapitalGains.JSON_PROPERTY_LONG_TERM
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20021DataCapitalGains implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -60,7 +61,7 @@ public class InlineResponse20021DataCapitalGains implements Serializable {
    * Total short term capital gains on ex-date indicates the amount of the distribution that is subject to short term tax rates.This data is available for all the regions.
    * @return shortTerm
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Total short term capital gains on ex-date indicates the amount of the distribution that is subject to short term tax rates.This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_SHORT_TERM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,7 +87,7 @@ public class InlineResponse20021DataCapitalGains implements Serializable {
    * Total long term capital gains on ex-date indicates the amount of the distribution that is subject to long term tax rates. This data is available for all the regions.
    * @return longTerm
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Total long term capital gains on ex-date indicates the amount of the distribution that is subject to long term tax rates. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_LONG_TERM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

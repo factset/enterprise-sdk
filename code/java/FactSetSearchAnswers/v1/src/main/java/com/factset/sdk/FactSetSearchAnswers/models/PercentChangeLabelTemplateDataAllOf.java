@@ -37,7 +37,8 @@ import com.factset.sdk.FactSetSearchAnswers.JSON;
   PercentChangeLabelTemplateDataAllOf.JSON_PROPERTY_PERCENT_CHANGE,
   PercentChangeLabelTemplateDataAllOf.JSON_PROPERTY_LABEL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PercentChangeLabelTemplateDataAllOf implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -59,7 +60,7 @@ public class PercentChangeLabelTemplateDataAllOf implements Serializable {
    * Get percentChange
    * @return percentChange
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PERCENT_CHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -85,7 +86,7 @@ public class PercentChangeLabelTemplateDataAllOf implements Serializable {
    * Get label
    * @return label
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LABEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

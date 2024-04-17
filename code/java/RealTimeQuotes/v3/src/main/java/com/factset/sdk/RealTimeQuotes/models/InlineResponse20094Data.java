@@ -45,7 +45,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20094Data.JSON_PROPERTY_ASKS,
   InlineResponse20094Data.JSON_PROPERTY_BIDS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20094Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -111,7 +112,7 @@ public class InlineResponse20094Data implements Serializable {
    * MDG identifier of the listing.
    * @return idNotation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "MDG identifier of the listing.")
   @JsonIgnore
 
@@ -145,7 +146,7 @@ public class InlineResponse20094Data implements Serializable {
    * Identifier used in the request.
    * @return sourceIdentifier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier used in the request.")
   @JsonIgnore
 
@@ -179,7 +180,7 @@ public class InlineResponse20094Data implements Serializable {
    * Quality of the price.
    * @return quality
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Quality of the price.")
   @JsonIgnore
 
@@ -221,7 +222,7 @@ public class InlineResponse20094Data implements Serializable {
    * Ask entries of the full orderbook.
    * @return asks
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Ask entries of the full orderbook.")
   @JsonProperty(JSON_PROPERTY_ASKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -255,7 +256,7 @@ public class InlineResponse20094Data implements Serializable {
    * Bid entries of the full orderbook.
    * @return bids
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Bid entries of the full orderbook.")
   @JsonProperty(JSON_PROPERTY_BIDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

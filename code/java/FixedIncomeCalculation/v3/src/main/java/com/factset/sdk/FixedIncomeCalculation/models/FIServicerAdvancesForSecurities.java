@@ -37,7 +37,8 @@ import com.factset.sdk.FixedIncomeCalculation.JSON;
   FIServicerAdvancesForSecurities.JSON_PROPERTY_INTEREST,
   FIServicerAdvancesForSecurities.JSON_PROPERTY_ADVANCE_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FIServicerAdvancesForSecurities implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -103,7 +104,7 @@ public class FIServicerAdvancesForSecurities implements Serializable {
    * Principal
    * @return principal
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Principal")
   @JsonProperty(JSON_PROPERTY_PRINCIPAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -129,7 +130,7 @@ public class FIServicerAdvancesForSecurities implements Serializable {
    * Interest
    * @return interest
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Interest")
   @JsonProperty(JSON_PROPERTY_INTEREST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -155,7 +156,7 @@ public class FIServicerAdvancesForSecurities implements Serializable {
    * Advance Type
    * @return advanceType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Advance Type")
   @JsonProperty(JSON_PROPERTY_ADVANCE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

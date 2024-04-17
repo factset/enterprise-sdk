@@ -6,7 +6,7 @@ import com.factset.sdk.FactSetQuantFactorLibrary.ApiResponse;
 import com.factset.sdk.FactSetQuantFactorLibrary.Configuration;
 import com.factset.sdk.FactSetQuantFactorLibrary.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -14,7 +14,8 @@ import java.util.Objects;
 import com.factset.sdk.FactSetQuantFactorLibrary.models.LibraryRequest;
 import com.factset.sdk.FactSetQuantFactorLibrary.models.LibraryResponse;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class HelperApi {
   private ApiClient apiClient;
 

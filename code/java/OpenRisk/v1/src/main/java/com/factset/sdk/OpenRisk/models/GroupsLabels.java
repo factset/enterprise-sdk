@@ -38,7 +38,8 @@ import com.factset.sdk.OpenRisk.JSON;
   GroupsLabels.JSON_PROPERTY_NAME,
   GroupsLabels.JSON_PROPERTY_GROUPS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class GroupsLabels implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class GroupsLabels implements Serializable {
    * 0-based index into the results array dimension for the corresponding calculation-levels
    * @return index
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "0-based index into the results array dimension for the corresponding calculation-levels")
   @JsonProperty(JSON_PROPERTY_INDEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -89,7 +90,7 @@ public class GroupsLabels implements Serializable {
    * Name that was provided for this group
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name that was provided for this group")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -123,7 +124,7 @@ public class GroupsLabels implements Serializable {
    * Recursively defined elements; base case array (i.e., lowest group) contains objects with &#39;name&#39; and &#39;index&#39; only and not &#39;groups&#39;
    * @return groups
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Recursively defined elements; base case array (i.e., lowest group) contains objects with 'name' and 'index' only and not 'groups'")
   @JsonProperty(JSON_PROPERTY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

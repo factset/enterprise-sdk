@@ -42,7 +42,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20015DataComplianceFrance.JSON_PROPERTY_NAME,
   InlineResponse20015DataComplianceFrance.JSON_PROPERTY_COUNT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20015DataComplianceFrance implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -106,7 +107,7 @@ public class InlineResponse20015DataComplianceFrance implements Serializable {
    * Identifier of a compliance property.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of a compliance property.")
   @JsonIgnore
 
@@ -140,7 +141,7 @@ public class InlineResponse20015DataComplianceFrance implements Serializable {
    * Name of the compliance property.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the compliance property.")
   @JsonIgnore
 
@@ -174,7 +175,7 @@ public class InlineResponse20015DataComplianceFrance implements Serializable {
    * Number of notations.
    * @return count
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of notations.")
   @JsonIgnore
 

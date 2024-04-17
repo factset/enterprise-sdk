@@ -46,7 +46,8 @@ import com.factset.sdk.Classifications.JSON;
   Gics.JSON_PROPERTY_GICS_SUB_INDUSTRY_NUMBER,
   Gics.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Gics implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -95,7 +96,7 @@ public class Gics implements Serializable {
    * FactSet Entity Identifier by default, otherwise returns FactSet Regional Identifier. This is a six alpha-numeric characters, excluding vowels, with an -E suffix (XXXXXX-E).
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0FPWZZ-E", value = "FactSet Entity Identifier by default, otherwise returns FactSet Regional Identifier. This is a six alpha-numeric characters, excluding vowels, with an -E suffix (XXXXXX-E).")
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -121,7 +122,7 @@ public class Gics implements Serializable {
    * Date in YYYY-MM-DD for the classification record from GICS Direct
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Fri Oct 30 00:00:00 UTC 2020", value = "Date in YYYY-MM-DD for the classification record from GICS Direct")
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -147,7 +148,7 @@ public class Gics implements Serializable {
    * GICS Sector Name in Proper Format.
    * @return gicsSectorName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Communications Services", value = "GICS Sector Name in Proper Format.")
   @JsonProperty(JSON_PROPERTY_GICS_SECTOR_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -173,7 +174,7 @@ public class Gics implements Serializable {
    * GICS Sector Number
    * @return gicsSectorNumber
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "50", value = "GICS Sector Number")
   @JsonProperty(JSON_PROPERTY_GICS_SECTOR_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -199,7 +200,7 @@ public class Gics implements Serializable {
    * GICS Industry Group Name in Proper Format.
    * @return gicsIndustryGroupName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Media & Entertainment", value = "GICS Industry Group Name in Proper Format.")
   @JsonProperty(JSON_PROPERTY_GICS_INDUSTRY_GROUP_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -225,7 +226,7 @@ public class Gics implements Serializable {
    * GICS Industry Group Number
    * @return gicsIndustryGroupNumber
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "5020", value = "GICS Industry Group Number")
   @JsonProperty(JSON_PROPERTY_GICS_INDUSTRY_GROUP_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -251,7 +252,7 @@ public class Gics implements Serializable {
    * GICS Industry Name in Proper Format.
    * @return gicsIndustryName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Interactive Media & Services", value = "GICS Industry Name in Proper Format.")
   @JsonProperty(JSON_PROPERTY_GICS_INDUSTRY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -277,7 +278,7 @@ public class Gics implements Serializable {
    * GICS Industry Number
    * @return gicsIndustryNumber
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "502030", value = "GICS Industry Number")
   @JsonProperty(JSON_PROPERTY_GICS_INDUSTRY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -303,7 +304,7 @@ public class Gics implements Serializable {
    * GICS Sub-Industry Name in Proper Format.
    * @return gicsSubIndustryName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Interactive Media & Services", value = "GICS Sub-Industry Name in Proper Format.")
   @JsonProperty(JSON_PROPERTY_GICS_SUB_INDUSTRY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -329,7 +330,7 @@ public class Gics implements Serializable {
    * GICS Industry Number.
    * @return gicsSubIndustryNumber
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "50203010", value = "GICS Industry Number.")
   @JsonProperty(JSON_PROPERTY_GICS_SUB_INDUSTRY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -355,7 +356,7 @@ public class Gics implements Serializable {
    * Identifier specified in the request
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "SPY-US", value = "Identifier specified in the request")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

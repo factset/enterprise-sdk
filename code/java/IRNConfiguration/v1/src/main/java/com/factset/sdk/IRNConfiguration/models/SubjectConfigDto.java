@@ -56,7 +56,8 @@ import com.factset.sdk.IRNConfiguration.JSON;
   SubjectConfigDto.JSON_PROPERTY_RATING_CONFIG,
   SubjectConfigDto.JSON_PROPERTY_NOTE_LENGTH_LIMIT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SubjectConfigDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -114,7 +115,7 @@ public class SubjectConfigDto implements Serializable {
    * Get id
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -140,7 +141,7 @@ public class SubjectConfigDto implements Serializable {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -174,7 +175,7 @@ public class SubjectConfigDto implements Serializable {
    * Get code
    * @return code
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -208,7 +209,7 @@ public class SubjectConfigDto implements Serializable {
    * Get isHidden
    * @return isHidden
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IS_HIDDEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -234,7 +235,7 @@ public class SubjectConfigDto implements Serializable {
    * Get identifierType
    * @return identifierType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -280,7 +281,7 @@ public class SubjectConfigDto implements Serializable {
    * Get identifierTypes
    * @return identifierTypes
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -314,7 +315,7 @@ public class SubjectConfigDto implements Serializable {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -360,7 +361,7 @@ public class SubjectConfigDto implements Serializable {
    * Get customFieldIds
    * @return customFieldIds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -394,7 +395,7 @@ public class SubjectConfigDto implements Serializable {
    * Get approvalProcessConfig
    * @return approvalProcessConfig
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_APPROVAL_PROCESS_CONFIG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -420,7 +421,7 @@ public class SubjectConfigDto implements Serializable {
    * Get commentaryConfig
    * @return commentaryConfig
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COMMENTARY_CONFIG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -458,7 +459,7 @@ public class SubjectConfigDto implements Serializable {
    * Get newsHeadlineFormat
    * @return newsHeadlineFormat
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -504,7 +505,7 @@ public class SubjectConfigDto implements Serializable {
    * Get emailHeadlineFormat
    * @return emailHeadlineFormat
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -538,7 +539,7 @@ public class SubjectConfigDto implements Serializable {
    * Get ratingConfig
    * @return ratingConfig
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RATING_CONFIG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -564,7 +565,7 @@ public class SubjectConfigDto implements Serializable {
    * Get noteLengthLimit
    * @return noteLengthLimit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

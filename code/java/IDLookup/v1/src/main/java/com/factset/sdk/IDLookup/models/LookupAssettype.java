@@ -36,7 +36,8 @@ import com.factset.sdk.IDLookup.JSON;
 @JsonPropertyOrder({
   LookupAssettype.JSON_PROPERTY_PEOPLE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class LookupAssettype implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -55,7 +56,7 @@ public class LookupAssettype implements Serializable {
    * Get people
    * @return people
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "10", value = "")
   @JsonProperty(JSON_PROPERTY_PEOPLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

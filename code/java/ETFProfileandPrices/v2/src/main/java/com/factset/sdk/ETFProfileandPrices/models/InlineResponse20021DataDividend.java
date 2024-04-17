@@ -42,7 +42,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20021DataDividend.JSON_PROPERTY_NON_QUALIFIED,
   InlineResponse20021DataDividend.JSON_PROPERTY_RETURN_OF_CAPITAL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20021DataDividend implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -73,7 +74,7 @@ public class InlineResponse20021DataDividend implements Serializable {
    * States whether the ETP&#39;s next ex-dividend date is posted on the issuer&#39;s website. This data is available for all the regions.
    * @return isReported
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "States whether the ETP's next ex-dividend date is posted on the issuer's website. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_IS_REPORTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,7 +100,7 @@ public class InlineResponse20021DataDividend implements Serializable {
    * The ex-dividend date of the ETP&#39;s next distribution. This data is available for all the regions.
    * @return exDividendDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The ex-dividend date of the ETP's next distribution. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_EX_DIVIDEND_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -125,7 +126,7 @@ public class InlineResponse20021DataDividend implements Serializable {
    * Qualified dividend payment on ex-dividend-date indicates the amount of distribution considered to have a more favorable tax treatment. This data is available for all regions.
    * @return qualified
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Qualified dividend payment on ex-dividend-date indicates the amount of distribution considered to have a more favorable tax treatment. This data is available for all regions.")
   @JsonProperty(JSON_PROPERTY_QUALIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -151,7 +152,7 @@ public class InlineResponse20021DataDividend implements Serializable {
    * Non-Qualified dividend payment on ex-dividend-date indicates the amount of distribution that is taxed as ordinary income. This data is available for all regions.
    * @return nonQualified
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Non-Qualified dividend payment on ex-dividend-date indicates the amount of distribution that is taxed as ordinary income. This data is available for all regions.")
   @JsonProperty(JSON_PROPERTY_NON_QUALIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -177,7 +178,7 @@ public class InlineResponse20021DataDividend implements Serializable {
    * Return of Capital available on ex-dividend-date. This data is available for all regions.
    * @return returnOfCapital
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Return of Capital available on ex-dividend-date. This data is available for all regions.")
   @JsonProperty(JSON_PROPERTY_RETURN_OF_CAPITAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

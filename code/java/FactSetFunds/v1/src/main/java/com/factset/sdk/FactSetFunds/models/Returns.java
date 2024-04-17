@@ -44,7 +44,8 @@ import com.factset.sdk.FactSetFunds.JSON;
   Returns.JSON_PROPERTY_CURRENCY,
   Returns.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Returns implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -75,7 +76,7 @@ public class Returns implements Serializable {
    * FactSet Security Identifier. Six alpha-numeric characters, excluding vowels, with a -S suffix (XXXXXX-S), resolved from the requestId of the Fund requested.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FNK7XP-S", value = "FactSet Security Identifier. Six alpha-numeric characters, excluding vowels, with a -S suffix (XXXXXX-S), resolved from the requestId of the Fund requested.")
   @JsonIgnore
 
@@ -109,7 +110,7 @@ public class Returns implements Serializable {
    * The Return for the requested id and date. Adjusting the frequency of the time-series does not adjust the return calculation, and simply controls the display frequency. The return type is determined by including or excluding dividends through the dividendAdjust parameter.
    * @return _return
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "25.2970433246628", value = "The Return for the requested id and date. Adjusting the frequency of the time-series does not adjust the return calculation, and simply controls the display frequency. The return type is determined by including or excluding dividends through the dividendAdjust parameter.")
   @JsonIgnore
 
@@ -143,7 +144,7 @@ public class Returns implements Serializable {
    * The date of the return in YYYY-MM-DD format.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Fri Feb 26 00:00:00 UTC 2021", value = "The date of the return in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -177,7 +178,7 @@ public class Returns implements Serializable {
    * ISO3 Currency
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "ISO3 Currency")
   @JsonIgnore
 
@@ -211,7 +212,7 @@ public class Returns implements Serializable {
    * The requested Id sent as input.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "MABAX", value = "The requested Id sent as input.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -52,7 +52,8 @@ import com.factset.sdk.FactSetOwnership.JSON;
   FundHolding.JSON_PROPERTY_SECURITY_NAME,
   FundHolding.JSON_PROPERTY_SECURITY_TICKER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FundHolding implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -104,7 +105,7 @@ public class FundHolding implements Serializable {
    * Fund Identifier that was used in the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "VTI-US", value = "Fund Identifier that was used in the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -130,7 +131,7 @@ public class FundHolding implements Serializable {
    * FactSet Security Identifier of Fund. Identifies the security level id of the Fund requested (not-representing the underlying holding). Six alpha-numeric characters, excluding vowels, with an -S suffix (XXXXXX-S). All equity and fixed income securities that exist on FactSet are allocated a security-level permanent identifier.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "K7ZVMR-S", value = "FactSet Security Identifier of Fund. Identifies the security level id of the Fund requested (not-representing the underlying holding). Six alpha-numeric characters, excluding vowels, with an -S suffix (XXXXXX-S). All equity and fixed income securities that exist on FactSet are allocated a security-level permanent identifier.")
   @JsonIgnore
 
@@ -164,7 +165,7 @@ public class FundHolding implements Serializable {
    * Date of the reported holding in YYYY-MM-DD format. For more details, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262).
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Sat Jun 30 00:00:00 UTC 2018", value = "Date of the reported holding in YYYY-MM-DD format. For more details, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262).")
   @JsonIgnore
 
@@ -198,7 +199,7 @@ public class FundHolding implements Serializable {
    * Currency code. The service will default to the funds local currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "Currency code. The service will default to the funds local currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).")
   @JsonIgnore
 
@@ -232,7 +233,7 @@ public class FundHolding implements Serializable {
    * Adjusted number of shares held. All positions and prices are adjusted for splits and name changes, but they are not adjusted for spinoffs or mergers. If a given company announces a split today, FactSet&#39;s Ownership data will reflect that split either tomorrow or the day after, depending upon the time in which the FactSet Symbology team makes record of the change. For more details, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262).
    * @return adjHolding
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "60036157", value = "Adjusted number of shares held. All positions and prices are adjusted for splits and name changes, but they are not adjusted for spinoffs or mergers. If a given company announces a split today, FactSet's Ownership data will reflect that split either tomorrow or the day after, depending upon the time in which the FactSet Symbology team makes record of the change. For more details, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262).")
   @JsonIgnore
 
@@ -266,7 +267,7 @@ public class FundHolding implements Serializable {
    * Adjusted market values of shares held. Market Value. All positions and prices are adjusted for splits and name changes, but they are not adjusted for spinoffs or mergers. If a given company announces a split today, FactSet&#39;s Ownership data will reflect that split either tomorrow or the day after, depending upon the time in which the FactSet Symbology team makes record of the change. For more details, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262).
    * @return adjMarketValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "120078159", value = "Adjusted market values of shares held. Market Value. All positions and prices are adjusted for splits and name changes, but they are not adjusted for spinoffs or mergers. If a given company announces a split today, FactSet's Ownership data will reflect that split either tomorrow or the day after, depending upon the time in which the FactSet Symbology team makes record of the change. For more details, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262).")
   @JsonIgnore
 
@@ -300,7 +301,7 @@ public class FundHolding implements Serializable {
    * Closing weight of security in the fund for the requested asset type (percent).
    * @return weightClose
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1.6639", value = "Closing weight of security in the fund for the requested asset type (percent).")
   @JsonIgnore
 
@@ -334,7 +335,7 @@ public class FundHolding implements Serializable {
    * Issue type of held security. For more details, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262).
    * @return issueType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Equity", value = "Issue type of held security. For more details, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262).")
   @JsonIgnore
 
@@ -368,7 +369,7 @@ public class FundHolding implements Serializable {
    * Represents the security id for the underlying holding, not the parent holding. Six alpha-numeric characters, excluding vowels, with an -S suffix (XXXXXX-S). All equity and fixed income securities that exist on FactSet are allocated a security-level permanent identifier.
    * @return fsymSecurityId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "BHM9TN-S", value = "Represents the security id for the underlying holding, not the parent holding. Six alpha-numeric characters, excluding vowels, with an -S suffix (XXXXXX-S). All equity and fixed income securities that exist on FactSet are allocated a security-level permanent identifier.")
   @JsonIgnore
 
@@ -402,7 +403,7 @@ public class FundHolding implements Serializable {
    * FactSet Regional Security identifier of the security held in the fund.
    * @return fsymRegionalId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "QLGSL2-R", value = "FactSet Regional Security identifier of the security held in the fund.")
   @JsonIgnore
 
@@ -436,7 +437,7 @@ public class FundHolding implements Serializable {
    * Name of held security.
    * @return securityName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FACEBOOK INC  CL A", value = "Name of held security.")
   @JsonIgnore
 
@@ -470,7 +471,7 @@ public class FundHolding implements Serializable {
    * Ticker of held security.
    * @return securityTicker
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FB-US", value = "Ticker of held security.")
   @JsonIgnore
 

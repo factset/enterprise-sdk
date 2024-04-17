@@ -40,7 +40,8 @@ import com.factset.sdk.Formula.JSON;
   CrossSectionalResultObjectNonflattenedWarnings.JSON_PROPERTY_DESCRIPTION,
   CrossSectionalResultObjectNonflattenedWarnings.JSON_PROPERTY_EFFECT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CrossSectionalResultObjectNonflattenedWarnings implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -62,7 +63,7 @@ public class CrossSectionalResultObjectNonflattenedWarnings implements Serializa
    * Human readable message explaining the warning
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Human readable message explaining the warning")
   @JsonIgnore
 
@@ -96,7 +97,7 @@ public class CrossSectionalResultObjectNonflattenedWarnings implements Serializa
    * Human readable message explaining the effect on the &#x60;result&#x60;
    * @return effect
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Human readable message explaining the effect on the `result`")
   @JsonIgnore
 

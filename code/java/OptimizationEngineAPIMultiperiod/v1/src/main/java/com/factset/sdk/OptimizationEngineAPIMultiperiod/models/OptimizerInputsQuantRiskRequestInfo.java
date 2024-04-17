@@ -38,7 +38,8 @@ import com.factset.sdk.OptimizationEngineAPIMultiperiod.JSON;
   OptimizerInputsQuantRiskRequestInfo.JSON_PROPERTY_LIMA_HEADER,
   OptimizerInputsQuantRiskRequestInfo.JSON_PROPERTY_PICKUP_BASE_URL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerInputsQuantRiskRequestInfo implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -66,7 +67,7 @@ public class OptimizerInputsQuantRiskRequestInfo implements Serializable {
    * POST
    * @return serviceUrl
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "POST")
   @JsonProperty(JSON_PROPERTY_SERVICE_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -92,7 +93,7 @@ public class OptimizerInputsQuantRiskRequestInfo implements Serializable {
    * Get jsonPostBody
    * @return jsonPostBody
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_JSON_POST_BODY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -118,7 +119,7 @@ public class OptimizerInputsQuantRiskRequestInfo implements Serializable {
    * Get limaHeader
    * @return limaHeader
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LIMA_HEADER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -144,7 +145,7 @@ public class OptimizerInputsQuantRiskRequestInfo implements Serializable {
    * Get pickupBaseUrl
    * @return pickupBaseUrl
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PICKUP_BASE_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

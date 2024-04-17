@@ -42,7 +42,8 @@ import com.factset.sdk.QuantEngine.JSON;
   CalculationStatus.JSON_PROPERTY_STATUS,
   CalculationStatus.JSON_PROPERTY_UNITS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CalculationStatus implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -106,7 +107,7 @@ public class CalculationStatus implements Serializable {
    * Calculation&#39;s identifier
    * @return calculationid
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Calculation's identifier")
   @JsonIgnore
 
@@ -140,7 +141,7 @@ public class CalculationStatus implements Serializable {
    * Calculation&#39;s status
    * @return status
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Calculation's status")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -178,7 +179,7 @@ public class CalculationStatus implements Serializable {
    * Number of calculation units in batch.
    * @return units
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of calculation units in batch.")
   @JsonIgnore
 

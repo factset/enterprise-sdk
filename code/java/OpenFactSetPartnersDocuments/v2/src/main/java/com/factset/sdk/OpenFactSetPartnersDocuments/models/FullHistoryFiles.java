@@ -37,7 +37,8 @@ import com.factset.sdk.OpenFactSetPartnersDocuments.JSON;
   FullHistoryFiles.JSON_PROPERTY_FILE_NAME,
   FullHistoryFiles.JSON_PROPERTY_URL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FullHistoryFiles implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -59,7 +60,7 @@ public class FullHistoryFiles implements Serializable {
    * The filename of the trial data
    * @return fileName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2022_03.tar.gz", value = "The filename of the trial data")
   @JsonProperty(JSON_PROPERTY_FILE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -85,7 +86,7 @@ public class FullHistoryFiles implements Serializable {
    * Download link for the clinical trials provided by the Ozmosi feed
    * @return url
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "https://fdss3-unstructured-data-delivery-orbit-v2-prod.s3.amazonaws.com/archive/2022_06.tar.gz?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6B6XG7VE23HSGOXN%2F20221017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221017T124345Z&X-Amz-Expires=1800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjED0aCXVzLWVhc3QtMSJIMEYCIQDVUwdFfY7TovRIELO54fCybFpnRy0H9mEh%2BVYtbrShggIhAK4XqVxB7qDE7uSkiXAb%2B40iwRjHWHZKlrOPb2jqjyt9Ku4CCBYQARoMOTY2MjgyMTE2NDI1IgzHJhjd2bE1bVjuSoUqywKWvOnTxTb4QD3a2Rb3bvtpcYMtvNpkiPxDF%2BdCmmrJEn%2FPy5o6mK1SDd7CbrYusRz%2FVCunT6Qb2ZSHWcFoe2lnMBZORBkqNwbBYcaneZSHJ%2FOHL54sSkm6CkioiSZ7t6h3hplLiIbsavOWTuYfMbaXO%2B%2BF19F3rD2lHO00V7HY4uRX2zzSI23%2F18rqfvxPb9Tb5rw%2FKR2%2FFAAJaoxUnleX6oID56EaYZUCoz29G%2BDGGQ5chnOqkWrMLXSGww7vicwDHJ3CffXCDLSfrq%2FCPAVDzG5RLD%2Fur6oTEfgKoLNVILiDrnccvexEHrRm6Rm78Wd%2FE0PyjaeTp%2FZtgwrdakFZsWdDlLyYWXcjtWIkpHboJb91ofuLuLX3VHUaIQycciKFx90GhJnx%2B5hFn4Q87LaiIo9GQQQJM2GfmpO6%2FdBqL7DwJ%2FdK9u59uk7MMP%2BbtZoGOp0BTPxvk9cCBS5LfnYIgw0y2xjYxKXW6LXadcN82aQABEr0rCd%2BDhUsMi4S1LdqfpWmXpDO%2BMIdefnDqgaLzqO5V4NvukVOCDllzUUf9fs6MUC0egI6Etn5tqpyg6u6O1bPIDB1CKzB6hWulW01gE4ReWbk9RoGG5YmfLqGtJ41AeZ8gXCpQO%2BJIMyh6UEDIIIGf1RxPHi0AJb7%2F%2BvxVg%3D%3D&X-Amz-Signature=3322c497a664499b7054f597b58ecf56db54d6c1977b06c64dc0da3dc47f77b8", value = "Download link for the clinical trials provided by the Ozmosi feed")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

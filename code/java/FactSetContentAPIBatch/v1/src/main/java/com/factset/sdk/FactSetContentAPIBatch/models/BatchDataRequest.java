@@ -35,7 +35,8 @@ import com.factset.sdk.FactSetContentAPIBatch.JSON;
 @JsonPropertyOrder({
   BatchDataRequest.JSON_PROPERTY_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class BatchDataRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -62,7 +63,7 @@ public class BatchDataRequest implements Serializable {
    * Batch Request identifier.
    * @return id
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c", required = true, value = "Batch Request identifier.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

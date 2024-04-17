@@ -78,7 +78,8 @@ import com.factset.sdk.OpenFactSetPartnersDocuments.JSON;
   DataFiles.JSON_PROPERTY_BEAM_PROBABILITY_OF_LAUNCH,
   DataFiles.JSON_PROPERTY_URL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class DataFiles implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -217,7 +218,7 @@ public class DataFiles implements Serializable {
    * ID of the trial assigned by the trial registry.
    * @return trialId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "NCT03037385", value = "ID of the trial assigned by the trial registry.")
   @JsonProperty(JSON_PROPERTY_TRIAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -243,7 +244,7 @@ public class DataFiles implements Serializable {
    * Specifies the version of a trial.
    * @return version
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "37", value = "Specifies the version of a trial.")
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -269,7 +270,7 @@ public class DataFiles implements Serializable {
    * The filename of the trial data.
    * @return fileName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "NCT03037385_037.json", value = "The filename of the trial data.")
   @JsonProperty(JSON_PROPERTY_FILE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -295,7 +296,7 @@ public class DataFiles implements Serializable {
    * Specifies Ozmosi unique ID for each historical version of a trial.
    * @return clinicalTrialId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "NCT03037385_037", value = "Specifies Ozmosi unique ID for each historical version of a trial.")
   @JsonProperty(JSON_PROPERTY_CLINICAL_TRIAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -321,7 +322,7 @@ public class DataFiles implements Serializable {
    * ID assigned by the sponsor of a trial.
    * @return uniqueProtocolId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "BO42863", value = "ID assigned by the sponsor of a trial.")
   @JsonProperty(JSON_PROPERTY_UNIQUE_PROTOCOL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -347,7 +348,7 @@ public class DataFiles implements Serializable {
    * Full scientific title of a trial.
    * @return officialTitle
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "A Phase 1/2 Study of the Highly-selective RET Inhibitor, BLU-667, in Patients With Thyroid Cancer, Non-Small Cell Lung Cancer (NSCLC) and Other Advanced Solid Tumors", value = "Full scientific title of a trial.")
   @JsonProperty(JSON_PROPERTY_OFFICIAL_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -373,7 +374,7 @@ public class DataFiles implements Serializable {
    * Defines the current stage of a trial&#39;s activity.
    * @return overallStatus
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Active", value = "Defines the current stage of a trial's activity.")
   @JsonProperty(JSON_PROPERTY_OVERALL_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -399,7 +400,7 @@ public class DataFiles implements Serializable {
    * The date where the final patient is examined or treated for the purpose of collecting data on the trial&#39;s primary outcome measures. Trial Sponsors may publicly announce the data. results after this date
    * @return primaryCompletion
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The date where the final patient is examined or treated for the purpose of collecting data on the trial's primary outcome measures. Trial Sponsors may publicly announce the data. results after this date")
   @JsonProperty(JSON_PROPERTY_PRIMARY_COMPLETION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -425,7 +426,7 @@ public class DataFiles implements Serializable {
    * The date that treatment will complete in the trial and data will be fully collected for secondary outcome measures and adverse events.
    * @return studyCompletion
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The date that treatment will complete in the trial and data will be fully collected for secondary outcome measures and adverse events.")
   @JsonProperty(JSON_PROPERTY_STUDY_COMPLETION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -451,7 +452,7 @@ public class DataFiles implements Serializable {
    * The date on which the trial was first available on ClinicalTrials.gov. Specifically, this date refers to version 1 of a trial
    * @return firstPosted
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The date on which the trial was first available on ClinicalTrials.gov. Specifically, this date refers to version 1 of a trial")
   @JsonProperty(JSON_PROPERTY_FIRST_POSTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -477,7 +478,7 @@ public class DataFiles implements Serializable {
    * The date on which this version of a trial was officially updated and publicly visible on the registry.
    * @return lastPosted
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The date on which this version of a trial was officially updated and publicly visible on the registry.")
   @JsonProperty(JSON_PROPERTY_LAST_POSTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -503,7 +504,7 @@ public class DataFiles implements Serializable {
    * The primary sponsor of the trial.
    * @return sponsor
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Hoffmann-La Roche", value = "The primary sponsor of the trial.")
   @JsonProperty(JSON_PROPERTY_SPONSOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -529,7 +530,7 @@ public class DataFiles implements Serializable {
    * Identifies if the responsible party of the trial is the Sponsor (The entity that initiates the study), the Principal Investigator (An individual designated by the Sponsor) or Sponsor-Investigator (An individual both initiating and conduct the trial)
    * @return responsibleParty
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Sponsor", value = "Identifies if the responsible party of the trial is the Sponsor (The entity that initiates the study), the Principal Investigator (An individual designated by the Sponsor) or Sponsor-Investigator (An individual both initiating and conduct the trial)")
   @JsonProperty(JSON_PROPERTY_RESPONSIBLE_PARTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -555,7 +556,7 @@ public class DataFiles implements Serializable {
    * Identifies if the trial involves a group of independent scientists who monitor the safety and scientific integrity of a clinical trial.
    * @return dataMonitoring
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "scientists", value = "Identifies if the trial involves a group of independent scientists who monitor the safety and scientific integrity of a clinical trial.")
   @JsonProperty(JSON_PROPERTY_DATA_MONITORING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -581,7 +582,7 @@ public class DataFiles implements Serializable {
    * Describes the nature of a clinical study.
    * @return studyType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Interventional", value = "Describes the nature of a clinical study.")
   @JsonProperty(JSON_PROPERTY_STUDY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -607,7 +608,7 @@ public class DataFiles implements Serializable {
    * Describes the main reason for the clinical trial.
    * @return primaryPurpose
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Treatment", value = "Describes the main reason for the clinical trial.")
   @JsonProperty(JSON_PROPERTY_PRIMARY_PURPOSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -633,7 +634,7 @@ public class DataFiles implements Serializable {
    * Specifies the stage of a clinical trial studying a drug or biological product.
    * @return studyPhase
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Phase 1/Phase 2", value = "Specifies the stage of a clinical trial studying a drug or biological product.")
   @JsonProperty(JSON_PROPERTY_STUDY_PHASE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -659,7 +660,7 @@ public class DataFiles implements Serializable {
    * Describes the general design of the strategy for assigning interventions to participants in a clinical study.
    * @return interventionalModel
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Parallel Assignment", value = "Describes the general design of the strategy for assigning interventions to participants in a clinical study.")
   @JsonProperty(JSON_PROPERTY_INTERVENTIONAL_MODEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -685,7 +686,7 @@ public class DataFiles implements Serializable {
    * The number of clinical arms for study.
    * @return numberOfArms
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2", value = "The number of clinical arms for study.")
   @JsonProperty(JSON_PROPERTY_NUMBER_OF_ARMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -711,7 +712,7 @@ public class DataFiles implements Serializable {
    * Defines the type of masking.
    * @return masking
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Open Label", value = "Defines the type of masking.")
   @JsonProperty(JSON_PROPERTY_MASKING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -737,7 +738,7 @@ public class DataFiles implements Serializable {
    * Identifies the method used to assign participants to an arm of a clinical study.
    * @return allocation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Non-Randomized", value = "Identifies the method used to assign participants to an arm of a clinical study.")
   @JsonProperty(JSON_PROPERTY_ALLOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -763,7 +764,7 @@ public class DataFiles implements Serializable {
    * Number of patients enrolled.
    * @return enrollment
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "589", value = "Number of patients enrolled.")
   @JsonProperty(JSON_PROPERTY_ENROLLMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -789,7 +790,7 @@ public class DataFiles implements Serializable {
    * Minimum age of participants.
    * @return minimumAge
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "18 Years", value = "Minimum age of participants.")
   @JsonProperty(JSON_PROPERTY_MINIMUM_AGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -815,7 +816,7 @@ public class DataFiles implements Serializable {
    * Maximum age of participants.
    * @return maximumAge
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "75 Years", value = "Maximum age of participants.")
   @JsonProperty(JSON_PROPERTY_MAXIMUM_AGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -841,7 +842,7 @@ public class DataFiles implements Serializable {
    * A type of eligibility criteria that indicates the sex of people who may participate in a clinical study.
    * @return sex
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "female", value = "A type of eligibility criteria that indicates the sex of people who may participate in a clinical study.")
   @JsonProperty(JSON_PROPERTY_SEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -867,7 +868,7 @@ public class DataFiles implements Serializable {
    * Defines if study is gender specific.
    * @return genderBased
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "All", value = "Defines if study is gender specific.")
   @JsonProperty(JSON_PROPERTY_GENDER_BASED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -893,7 +894,7 @@ public class DataFiles implements Serializable {
    * A type of eligibility criteria that indicates whether people who do not have the condition/disease being studied can participate in that clinical study.
    * @return acceptsVolunteers
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "sync", value = "A type of eligibility criteria that indicates whether people who do not have the condition/disease being studied can participate in that clinical study.")
   @JsonProperty(JSON_PROPERTY_ACCEPTS_VOLUNTEERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -919,7 +920,7 @@ public class DataFiles implements Serializable {
    * Specifies the timestamp of each version of a trial.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Specifies the timestamp of each version of a trial.")
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -945,7 +946,7 @@ public class DataFiles implements Serializable {
    * The date on which the responsible party last verified the clinical study information in the entire ClinicalTrials.gov record for the clinical study, even if no additional or updated information is being submitted
    * @return recordVerification
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The date on which the responsible party last verified the clinical study information in the entire ClinicalTrials.gov record for the clinical study, even if no additional or updated information is being submitted")
   @JsonProperty(JSON_PROPERTY_RECORD_VERIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -971,7 +972,7 @@ public class DataFiles implements Serializable {
    * Date that the trial becomes open for recruitment or the date on which the first patient was enrolled.
    * @return studyStart
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Date that the trial becomes open for recruitment or the date on which the first patient was enrolled.")
   @JsonProperty(JSON_PROPERTY_STUDY_START)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -997,7 +998,7 @@ public class DataFiles implements Serializable {
    * The date that the trial was submitted to the registry.
    * @return firstSubmitted
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The date that the trial was submitted to the registry.")
   @JsonProperty(JSON_PROPERTY_FIRST_SUBMITTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1023,7 +1024,7 @@ public class DataFiles implements Serializable {
    * The date on which a submitted study record is confirmed to be consistent with National Library of Medicine (NLM) quality control (QC) review criteria.
    * @return firstSubmitMetQxCrite
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The date on which a submitted study record is confirmed to be consistent with National Library of Medicine (NLM) quality control (QC) review criteria.")
   @JsonProperty(JSON_PROPERTY_FIRST_SUBMIT_MET_QX_CRITE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1049,7 +1050,7 @@ public class DataFiles implements Serializable {
    * The most recent date on which the study sponsor or investigator submitted changes to a study record.
    * @return lastSubmitMetQxCrite
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The most recent date on which the study sponsor or investigator submitted changes to a study record.")
   @JsonProperty(JSON_PROPERTY_LAST_SUBMIT_MET_QX_CRITE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1075,7 +1076,7 @@ public class DataFiles implements Serializable {
    * Designates if primary completion date is actual or anticipated.
    * @return primaryCompDateType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2025-01-09 00:00:00", value = "Designates if primary completion date is actual or anticipated.")
   @JsonProperty(JSON_PROPERTY_PRIMARY_COMP_DATE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1101,7 +1102,7 @@ public class DataFiles implements Serializable {
    * Designates if study completion date is actual or anticipated.
    * @return studyCompletionDateType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "None", value = "Designates if study completion date is actual or anticipated.")
   @JsonProperty(JSON_PROPERTY_STUDY_COMPLETION_DATE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1127,7 +1128,7 @@ public class DataFiles implements Serializable {
    * Designates if the first posted date is actual or anticipated.
    * @return firstPostedDateType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Actual", value = "Designates if the first posted date is actual or anticipated.")
   @JsonProperty(JSON_PROPERTY_FIRST_POSTED_DATE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1153,7 +1154,7 @@ public class DataFiles implements Serializable {
    * Designates if the last update posted date is actual or anticipated.
    * @return lastPostedDateType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "None", value = "Designates if the last update posted date is actual or anticipated.")
   @JsonProperty(JSON_PROPERTY_LAST_POSTED_DATE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1179,7 +1180,7 @@ public class DataFiles implements Serializable {
    * Identifies if the enrollment number is the anticipated or actual amount.
    * @return enrollmentType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Anticipated", value = "Identifies if the enrollment number is the anticipated or actual amount.")
   @JsonProperty(JSON_PROPERTY_ENROLLMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1205,7 +1206,7 @@ public class DataFiles implements Serializable {
    * Probability of trial success.
    * @return beamProbabilityOfTrialSuccess
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "82", value = "Probability of trial success.")
   @JsonProperty(JSON_PROPERTY_BEAM_PROBABILITY_OF_TRIAL_SUCCESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1231,7 +1232,7 @@ public class DataFiles implements Serializable {
    * Probability of trial being launched.
    * @return beamProbabilityOfLaunch
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "61", value = "Probability of trial being launched.")
   @JsonProperty(JSON_PROPERTY_BEAM_PROBABILITY_OF_LAUNCH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1257,7 +1258,7 @@ public class DataFiles implements Serializable {
    * Download link for the clinical trials provided by the Ozmosi feed.
    * @return url
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "https://fdss3-unstructured-data-delivery-ozmosi-prod.s3.amazonaws.com/ozmosi_v2/NCT04629248_022.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6B6XG7VEYODKETS6%2F20221017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221017T134304Z&X-Amz-Expires=1800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjED0aCXVzLWVhc3QtMSJIMEYCIQDzGmRWCkwvfl8WKsZ3rektfXyQa551ht8wkggj29qufwIhALaFsXrpyISV%2B6A3hASCdStEUtlzUEaBL9Bs0%2BSP3wUaKu4CCBYQARoMOTY2MjgyMTE2NDI1IgxkKPBJ4cINLlvTEkIqywKmD%2BMhpGDpCzI8LfS13Rvs%2FnCQ5S5khGdpMUk8j0kQ4%2F6xoX7SYyXjkn8VFk2OSJkfPpu6XBADJ3H6BmuJvAM5ovraQqQXjx8iuB7LPgYAHoIJNvZDivb8HV%2BmBSwbEoOyCIslX%2FFrlYNU6KmfpvKUZqJRPmpSVdb%2F2%2BwG6rw3WHO6qBxWjwPga2b9U7DvU0LCke0myB8cRhdimWuONNendFNuwm9KnvhrUbszsLT4dIxufiYQarCqQvx0FuMG21%2FPTKWXbpvHbSSG663qqBi2xYmIP%2BmvQ9JvZMkWN%2FOtVhkDqT8YcyaaLshDVv0xDvzdsP6h4YYjDohaABooNIuP1OVJ9fzzUe4F4ZlP5eZDAKKCPOU%2FfG9UitWHxm3feQDe460sVVbiGow7is85fhQsoeHQEfqqLifPXwxo2s72bwaxd2ZJOTYh7ra7MJeTtZoGOp0BJqQMDoOIol1WSTKBI02ne6rUGKfvR6ksj%2BjEQR9OURvMj843tnJketh6IUBNG%2Be0q7Y0YcV2AAKj1Q7nloa%2B6LoRFOyvKwy4SAfNh%2F1KGM8%2F%2FitZfxzOAwI%2BtlEPKuHWL3OWAyusy6VSXaw4PYtJrS9lual9O%2Brz3kK2au4JZnkeZH3KJsIefE4tJ2GcL%2FT3IOt7htI%2BGRZZDGNCHQ%3D%3D&X-Amz-Signature=f549097a39c169df9b810fa7c505f297db1f09ecbd317414e5d2d98db6fc2851", value = "Download link for the clinical trials provided by the Ozmosi feed.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

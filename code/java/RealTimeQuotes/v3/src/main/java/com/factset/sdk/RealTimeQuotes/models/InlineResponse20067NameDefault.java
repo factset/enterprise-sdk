@@ -41,7 +41,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20067NameDefault.JSON_PROPERTY_LONG,
   InlineResponse20067NameDefault.JSON_PROPERTY_SHORT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20067NameDefault implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class InlineResponse20067NameDefault implements Serializable {
    * Long name.
    * @return _long
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Long name.")
   @JsonIgnore
 
@@ -97,7 +98,7 @@ public class InlineResponse20067NameDefault implements Serializable {
    * Short name.
    * @return _short
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Short name.")
   @JsonIgnore
 

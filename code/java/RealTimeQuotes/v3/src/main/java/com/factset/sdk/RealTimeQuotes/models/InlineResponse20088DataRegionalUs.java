@@ -41,7 +41,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20088DataRegionalUs.JSON_PROPERTY_CAVEAT_EMPTOR,
   InlineResponse20088DataRegionalUs.JSON_PROPERTY_PROPRIETARY_QUOTE_ELIGIBLE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20088DataRegionalUs implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class InlineResponse20088DataRegionalUs implements Serializable {
    * Indicates whether a Caveat Emptor (Buyer Beware) warning has been applied to the security.
    * @return caveatEmptor
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether a Caveat Emptor (Buyer Beware) warning has been applied to the security.")
   @JsonIgnore
 
@@ -97,7 +98,7 @@ public class InlineResponse20088DataRegionalUs implements Serializable {
    * Security is eligible for proprietary quoting under SEC Rule 15c-211.
    * @return proprietaryQuoteEligible
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Security is eligible for proprietary quoting under SEC Rule 15c-211.")
   @JsonIgnore
 

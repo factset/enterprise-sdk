@@ -38,7 +38,8 @@ import com.factset.sdk.DocumentsDistributorCallStreetEvents.JSON;
   IndexedNRTMetaPagination.JSON_PROPERTY_LIMIT,
   IndexedNRTMetaPagination.JSON_PROPERTY_OFFSET
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class IndexedNRTMetaPagination implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -66,7 +67,7 @@ public class IndexedNRTMetaPagination implements Serializable {
    * Total number for results returned for a specific query.
    * @return total
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Total number for results returned for a specific query.")
   @JsonProperty(JSON_PROPERTY_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -92,7 +93,7 @@ public class IndexedNRTMetaPagination implements Serializable {
    * This field acts as a flag for the exact count of results and is defaulted to false as the API should always return the exact count of results.
    * @return isEstimatedTotal
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "This field acts as a flag for the exact count of results and is defaulted to false as the API should always return the exact count of results.")
   @JsonProperty(JSON_PROPERTY_IS_ESTIMATED_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -118,7 +119,7 @@ public class IndexedNRTMetaPagination implements Serializable {
    * Number of results returned per page
    * @return limit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of results returned per page")
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -144,7 +145,7 @@ public class IndexedNRTMetaPagination implements Serializable {
    * The flag indicating the position in the results array if additional results are available beyond the default value or the value in _paginationLimit parameter (if used). This value is passed in the _paginationOffset parameter to retrieve subsequent results.
    * @return offset
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The flag indicating the position in the results array if additional results are available beyond the default value or the value in _paginationLimit parameter (if used). This value is passed in the _paginationOffset parameter to retrieve subsequent results.")
   @JsonProperty(JSON_PROPERTY_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

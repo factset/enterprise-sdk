@@ -44,7 +44,8 @@ import com.factset.sdk.FactSetFunds.JSON;
   Flows.JSON_PROPERTY_DATE,
   Flows.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Flows implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -75,7 +76,7 @@ public class Flows implements Serializable {
    * FactSet Security Identifier. Six alpha-numeric characters, excluding vowels, with a -S suffix (XXXXXX-S), resolved from the requestId of the Fund requested.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FNK7XP-S", value = "FactSet Security Identifier. Six alpha-numeric characters, excluding vowels, with a -S suffix (XXXXXX-S), resolved from the requestId of the Fund requested.")
   @JsonIgnore
 
@@ -109,7 +110,7 @@ public class Flows implements Serializable {
    * Fund flows data for the specified share class in raw units of the specified currency.
    * @return fundFlows
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "271971.16741002", value = "Fund flows data for the specified share class in raw units of the specified currency.")
   @JsonIgnore
 
@@ -143,7 +144,7 @@ public class Flows implements Serializable {
    * The Currency of the AUM values. By default it will be in the FUnds Currency, unless otherwise requested via the currency parameter.
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "The Currency of the AUM values. By default it will be in the FUnds Currency, unless otherwise requested via the currency parameter.")
   @JsonIgnore
 
@@ -177,7 +178,7 @@ public class Flows implements Serializable {
    * The date of the AUM in YYYY-MM-DD format.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Fri Feb 26 00:00:00 UTC 2021", value = "The date of the AUM in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -211,7 +212,7 @@ public class Flows implements Serializable {
    * The requested Id sent as input.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "MABAX", value = "The requested Id sent as input.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -47,7 +47,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20072DataNotations.JSON_PROPERTY_VALUE_UNIT,
   InlineResponse20072DataNotations.JSON_PROPERTY_FSYM
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20072DataNotations implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -81,7 +82,7 @@ public class InlineResponse20072DataNotations implements Serializable {
    * Identifier of the notation.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the notation.")
   @JsonIgnore
 
@@ -115,7 +116,7 @@ public class InlineResponse20072DataNotations implements Serializable {
    * The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify notations, no symbol will be set for the notations of that market.
    * @return symbol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify notations, no symbol will be set for the notations of that market.")
   @JsonIgnore
 
@@ -149,7 +150,7 @@ public class InlineResponse20072DataNotations implements Serializable {
    * Indicates whether the notation is active.
    * @return active
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the notation is active.")
   @JsonIgnore
 
@@ -183,7 +184,7 @@ public class InlineResponse20072DataNotations implements Serializable {
    * Get market
    * @return market
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MARKET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -209,7 +210,7 @@ public class InlineResponse20072DataNotations implements Serializable {
    * Get valueUnit
    * @return valueUnit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VALUE_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -235,7 +236,7 @@ public class InlineResponse20072DataNotations implements Serializable {
    * Get fsym
    * @return fsym
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FSYM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

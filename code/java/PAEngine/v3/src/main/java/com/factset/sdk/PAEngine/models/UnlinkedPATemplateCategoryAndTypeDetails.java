@@ -46,7 +46,8 @@ import com.factset.sdk.PAEngine.JSON;
   UnlinkedPATemplateCategoryAndTypeDetails.JSON_PROPERTY_CATEGORY,
   UnlinkedPATemplateCategoryAndTypeDetails.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class UnlinkedPATemplateCategoryAndTypeDetails implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -80,7 +81,7 @@ public class UnlinkedPATemplateCategoryAndTypeDetails implements Serializable {
    * Type Id
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Type Id")
   @JsonIgnore
 
@@ -126,7 +127,7 @@ public class UnlinkedPATemplateCategoryAndTypeDetails implements Serializable {
    * List of default columns
    * @return columns
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of default columns")
   @JsonIgnore
 
@@ -172,7 +173,7 @@ public class UnlinkedPATemplateCategoryAndTypeDetails implements Serializable {
    * List of default groupings
    * @return groups
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of default groupings")
   @JsonIgnore
 
@@ -206,7 +207,7 @@ public class UnlinkedPATemplateCategoryAndTypeDetails implements Serializable {
    * Snapshot
    * @return snapshot
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Snapshot")
   @JsonProperty(JSON_PROPERTY_SNAPSHOT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -232,7 +233,7 @@ public class UnlinkedPATemplateCategoryAndTypeDetails implements Serializable {
    * Unlinked template category
    * @return category
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Unlinked template category")
   @JsonIgnore
 
@@ -266,7 +267,7 @@ public class UnlinkedPATemplateCategoryAndTypeDetails implements Serializable {
    * Unlinked template type
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Unlinked template type")
   @JsonIgnore
 

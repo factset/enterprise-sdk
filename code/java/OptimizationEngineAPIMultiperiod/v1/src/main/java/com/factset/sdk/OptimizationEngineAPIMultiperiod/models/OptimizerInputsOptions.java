@@ -41,7 +41,8 @@ import com.factset.sdk.OptimizationEngineAPIMultiperiod.JSON;
   OptimizerInputsOptions.JSON_PROPERTY_CONVERT_WEIGHTS_TO_CASH_FOR_BMK,
   OptimizerInputsOptions.JSON_PROPERTY_COMPOSITE_ASSET_LOOKTHROUGH_LEVEL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerInputsOptions implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -75,7 +76,7 @@ public class OptimizerInputsOptions implements Serializable {
    * Get maxRunTime
    * @return maxRunTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MAX_RUN_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -101,7 +102,7 @@ public class OptimizerInputsOptions implements Serializable {
    * Get convergenceTolerance
    * @return convergenceTolerance
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CONVERGENCE_TOLERANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -127,7 +128,7 @@ public class OptimizerInputsOptions implements Serializable {
    * Get cashFlowFormula
    * @return cashFlowFormula
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CASH_FLOW_FORMULA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -153,7 +154,7 @@ public class OptimizerInputsOptions implements Serializable {
    * Get convertWeightsToCashForIp
    * @return convertWeightsToCashForIp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CONVERT_WEIGHTS_TO_CASH_FOR_IP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -179,7 +180,7 @@ public class OptimizerInputsOptions implements Serializable {
    * Get convertWeightsToCashForBmk
    * @return convertWeightsToCashForBmk
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CONVERT_WEIGHTS_TO_CASH_FOR_BMK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -205,7 +206,7 @@ public class OptimizerInputsOptions implements Serializable {
    * Get compositeAssetLookthroughLevel
    * @return compositeAssetLookthroughLevel
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COMPOSITE_ASSET_LOOKTHROUGH_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

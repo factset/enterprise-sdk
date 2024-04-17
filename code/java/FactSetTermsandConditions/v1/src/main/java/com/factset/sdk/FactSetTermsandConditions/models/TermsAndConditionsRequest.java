@@ -37,7 +37,8 @@ import com.factset.sdk.FactSetTermsandConditions.JSON;
   TermsAndConditionsRequest.JSON_PROPERTY_FIELDS,
   TermsAndConditionsRequest.JSON_PROPERTY_CATEGORIES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class TermsAndConditionsRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -114,7 +115,7 @@ public class TermsAndConditionsRequest implements Serializable {
    * List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).  **ID LIMIT &#x3D; 250** *per request*. 
    * @return ids
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).  **ID LIMIT = 250** *per request*. ")
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -148,7 +149,7 @@ public class TermsAndConditionsRequest implements Serializable {
    * List of Terms and Conditions data items.
    * @return fields
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of Terms and Conditions data items.")
   @JsonProperty(JSON_PROPERTY_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -182,7 +183,7 @@ public class TermsAndConditionsRequest implements Serializable {
    * Selects the Fixed Income metrics by major category - * **SECURITY_DETAILS** &#x3D; Detailed information about the security. * **COUPON_DETAILS** &#x3D; Coupon details. * **CONVERTIBLE_FEATURES** &#x3D; Features of convertible instruments. * **REDEMPTION_OPTIONS** &#x3D; Redemption options. 
    * @return categories
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Selects the Fixed Income metrics by major category - * **SECURITY_DETAILS** = Detailed information about the security. * **COUPON_DETAILS** = Coupon details. * **CONVERTIBLE_FEATURES** = Features of convertible instruments. * **REDEMPTION_OPTIONS** = Redemption options. ")
   @JsonProperty(JSON_PROPERTY_CATEGORIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

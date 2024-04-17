@@ -37,7 +37,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse2001DataAssets.JSON_PROPERTY_ASSET_CLASS,
   InlineResponse2001DataAssets.JSON_PROPERTY_WEIGHT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2001DataAssets implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -59,7 +60,7 @@ public class InlineResponse2001DataAssets implements Serializable {
    * Name of the asset class.
    * @return assetClass
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the asset class.")
   @JsonProperty(JSON_PROPERTY_ASSET_CLASS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -85,7 +86,7 @@ public class InlineResponse2001DataAssets implements Serializable {
    * Consolidate weight of the position within the ETP by asset class(es).
    * @return weight
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Consolidate weight of the position within the ETP by asset class(es).")
   @JsonProperty(JSON_PROPERTY_WEIGHT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

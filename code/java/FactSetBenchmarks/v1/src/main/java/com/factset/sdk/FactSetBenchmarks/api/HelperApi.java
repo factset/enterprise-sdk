@@ -6,7 +6,7 @@ import com.factset.sdk.FactSetBenchmarks.ApiResponse;
 import com.factset.sdk.FactSetBenchmarks.Configuration;
 import com.factset.sdk.FactSetBenchmarks.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -15,7 +15,8 @@ import com.factset.sdk.FactSetBenchmarks.models.BenchmarkIdListRequest;
 import com.factset.sdk.FactSetBenchmarks.models.BenchmarkIdListResponse;
 import com.factset.sdk.FactSetBenchmarks.models.ErrorResponse;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class HelperApi {
   private ApiClient apiClient;
 

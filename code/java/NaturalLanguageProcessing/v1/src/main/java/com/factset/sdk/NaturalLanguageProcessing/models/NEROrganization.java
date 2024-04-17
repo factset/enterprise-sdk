@@ -37,7 +37,8 @@ import com.factset.sdk.NaturalLanguageProcessing.JSON;
   NEROrganization.JSON_PROPERTY_LOOKUP_URL,
   NEROrganization.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class NEROrganization implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -62,7 +63,7 @@ public class NEROrganization implements Serializable {
    * The FactSet Entity ID that is linked to this organization.
    * @return entityId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0016YD-E", value = "The FactSet Entity ID that is linked to this organization.")
   @JsonProperty(JSON_PROPERTY_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -88,7 +89,7 @@ public class NEROrganization implements Serializable {
    * A link to the information page for the given organization
    * @return lookupUrl
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "https://....", value = "A link to the information page for the given organization")
   @JsonProperty(JSON_PROPERTY_LOOKUP_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -114,7 +115,7 @@ public class NEROrganization implements Serializable {
    * The name this organization.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FactSet Research Systems", value = "The name this organization.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

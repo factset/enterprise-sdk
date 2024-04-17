@@ -43,7 +43,8 @@ import com.factset.sdk.FactSetTickHistory.JSON;
   CheckFiles.JSON_PROPERTY_STATUS,
   CheckFiles.JSON_PROPERTY_ERROR
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CheckFiles implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -109,7 +110,7 @@ public class CheckFiles implements Serializable {
    * a unique identification for the query requested
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "a unique identification for the query requested")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -135,7 +136,7 @@ public class CheckFiles implements Serializable {
    * The status of the query
    * @return status
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The status of the query")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -161,7 +162,7 @@ public class CheckFiles implements Serializable {
    * Get error
    * @return error
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

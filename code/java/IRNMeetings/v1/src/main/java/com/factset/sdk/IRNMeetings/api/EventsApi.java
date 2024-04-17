@@ -6,7 +6,7 @@ import com.factset.sdk.IRNMeetings.ApiResponse;
 import com.factset.sdk.IRNMeetings.Configuration;
 import com.factset.sdk.IRNMeetings.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -15,7 +15,8 @@ import com.factset.sdk.IRNMeetings.models.MeetingEventDto;
 import com.factset.sdk.IRNMeetings.models.ProblemDetails;
 import com.factset.sdk.IRNMeetings.models.RecordEventSummaryDto;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EventsApi {
   private ApiClient apiClient;
 

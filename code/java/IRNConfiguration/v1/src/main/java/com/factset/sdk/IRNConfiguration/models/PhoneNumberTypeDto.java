@@ -41,7 +41,8 @@ import com.factset.sdk.IRNConfiguration.JSON;
   PhoneNumberTypeDto.JSON_PROPERTY_NAME,
   PhoneNumberTypeDto.JSON_PROPERTY_IS_STANDARD
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PhoneNumberTypeDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -66,7 +67,7 @@ public class PhoneNumberTypeDto implements Serializable {
    * Get id
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -92,7 +93,7 @@ public class PhoneNumberTypeDto implements Serializable {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -126,7 +127,7 @@ public class PhoneNumberTypeDto implements Serializable {
    * Get isStandard
    * @return isStandard
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IS_STANDARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

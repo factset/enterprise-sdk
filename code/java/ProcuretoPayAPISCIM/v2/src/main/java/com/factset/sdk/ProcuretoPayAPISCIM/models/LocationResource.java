@@ -55,7 +55,8 @@ import com.factset.sdk.ProcuretoPayAPISCIM.JSON;
   LocationResource.JSON_PROPERTY_MAIN_LOCATION,
   LocationResource.JSON_PROPERTY_META
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class LocationResource implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -152,7 +153,7 @@ public class LocationResource implements Serializable {
    * Get schemas
    * @return schemas
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "[\"urn:scim:schemas:extension:FactSet:Core:1.0:Location\"]", value = "")
   @JsonProperty(JSON_PROPERTY_SCHEMAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -173,7 +174,7 @@ public class LocationResource implements Serializable {
    * Get id
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1598276", value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -194,7 +195,7 @@ public class LocationResource implements Serializable {
    * Get externalId
    * @return externalId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1598276", value = "")
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -215,7 +216,7 @@ public class LocationResource implements Serializable {
    * Name of the location.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FIN Wealth Management", value = "Name of the location.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -231,7 +232,7 @@ public class LocationResource implements Serializable {
    * Description of the location.
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Description of the location.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -247,7 +248,7 @@ public class LocationResource implements Serializable {
    * First line of location&#39;s address.
    * @return address1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "601 Main Avenue", value = "First line of location's address.")
   @JsonProperty(JSON_PROPERTY_ADDRESS1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -263,7 +264,7 @@ public class LocationResource implements Serializable {
    * Second line of location&#39;s address.
    * @return address2
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Factset - First Floor", value = "Second line of location's address.")
   @JsonProperty(JSON_PROPERTY_ADDRESS2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -279,7 +280,7 @@ public class LocationResource implements Serializable {
    * Third line of location&#39;s address.
    * @return address3
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Third line of location's address.")
   @JsonProperty(JSON_PROPERTY_ADDRESS3)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -295,7 +296,7 @@ public class LocationResource implements Serializable {
    * City of location.
    * @return locality
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Norwalk", value = "City of location.")
   @JsonProperty(JSON_PROPERTY_LOCALITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -311,7 +312,7 @@ public class LocationResource implements Serializable {
    * State or province of location.
    * @return region
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Connecticut", value = "State or province of location.")
   @JsonProperty(JSON_PROPERTY_REGION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -327,7 +328,7 @@ public class LocationResource implements Serializable {
    * Postal code of location.
    * @return postalCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "06850", value = "Postal code of location.")
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -343,7 +344,7 @@ public class LocationResource implements Serializable {
    * Country of location.
    * @return country
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "United States", value = "Country of location.")
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -359,7 +360,7 @@ public class LocationResource implements Serializable {
    * Phone number of location.
    * @return phoneNumber
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Phone number of location.")
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -380,7 +381,7 @@ public class LocationResource implements Serializable {
    * Get mainLocation
    * @return mainLocation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -414,7 +415,7 @@ public class LocationResource implements Serializable {
    * Get meta
    * @return meta
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

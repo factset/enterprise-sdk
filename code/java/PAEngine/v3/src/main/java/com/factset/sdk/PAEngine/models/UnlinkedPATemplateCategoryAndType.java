@@ -40,7 +40,8 @@ import com.factset.sdk.PAEngine.JSON;
   UnlinkedPATemplateCategoryAndType.JSON_PROPERTY_CATEGORY,
   UnlinkedPATemplateCategoryAndType.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class UnlinkedPATemplateCategoryAndType implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -62,7 +63,7 @@ public class UnlinkedPATemplateCategoryAndType implements Serializable {
    * Unlinked template category
    * @return category
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Unlinked template category")
   @JsonIgnore
 
@@ -96,7 +97,7 @@ public class UnlinkedPATemplateCategoryAndType implements Serializable {
    * Unlinked template type
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Unlinked template type")
   @JsonIgnore
 

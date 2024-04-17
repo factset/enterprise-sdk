@@ -37,7 +37,8 @@ import com.factset.sdk.BarraPortfolioOptimizer.JSON;
   BPMOptimizerStrategyAlphaOverride.JSON_PROPERTY_RETURN_TYPE,
   BPMOptimizerStrategyAlphaOverride.JSON_PROPERTY_RETURN_MULTIPLIER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class BPMOptimizerStrategyAlphaOverride implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -103,7 +104,7 @@ public class BPMOptimizerStrategyAlphaOverride implements Serializable {
    * Get formula
    * @return formula
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FORMULA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -129,7 +130,7 @@ public class BPMOptimizerStrategyAlphaOverride implements Serializable {
    * Get returnType
    * @return returnType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RETURN_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -155,7 +156,7 @@ public class BPMOptimizerStrategyAlphaOverride implements Serializable {
    * Get returnMultiplier
    * @return returnMultiplier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RETURN_MULTIPLIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

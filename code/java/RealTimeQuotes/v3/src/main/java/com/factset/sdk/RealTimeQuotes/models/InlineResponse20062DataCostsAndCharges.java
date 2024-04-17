@@ -44,7 +44,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20062DataCostsAndCharges.JSON_PROPERTY_EX_ANTE,
   InlineResponse20062DataCostsAndCharges.JSON_PROPERTY_EX_POST
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20062DataCostsAndCharges implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -104,7 +105,7 @@ public class InlineResponse20062DataCostsAndCharges implements Serializable {
    * Quotation type originally used for providing most of the cost items of the investment product.
    * @return quotation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Quotation type originally used for providing most of the cost items of the investment product.")
   @JsonIgnore
 
@@ -138,7 +139,7 @@ public class InlineResponse20062DataCostsAndCharges implements Serializable {
    * Get exAnte
    * @return exAnte
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EX_ANTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -164,7 +165,7 @@ public class InlineResponse20062DataCostsAndCharges implements Serializable {
    * Get exPost
    * @return exPost
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EX_POST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

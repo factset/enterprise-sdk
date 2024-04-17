@@ -56,7 +56,8 @@ import com.factset.sdk.RealTimeNews.JSON;
   InlineResponse2001Data.JSON_PROPERTY_CHAIN,
   InlineResponse2001Data.JSON_PROPERTY_INSTRUMENTS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2001Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -105,7 +106,7 @@ public class InlineResponse2001Data implements Serializable {
    * Identifier of the news article.
    * @return code
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the news article.")
   @JsonIgnore
 
@@ -139,7 +140,7 @@ public class InlineResponse2001Data implements Serializable {
    * Date and time of the news article.
    * @return time
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Date and time of the news article.")
   @JsonIgnore
 
@@ -173,7 +174,7 @@ public class InlineResponse2001Data implements Serializable {
    * Headline of the news article represented as text with HTML entity encoding but without HTML tags.
    * @return headline
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Headline of the news article represented as text with HTML entity encoding but without HTML tags.")
   @JsonIgnore
 
@@ -207,7 +208,7 @@ public class InlineResponse2001Data implements Serializable {
    * Textual summary of the body of the news article or &#x60;null&#x60; if no summary was provided by the news article distributor.
    * @return summary
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Textual summary of the body of the news article or `null` if no summary was provided by the news article distributor.")
   @JsonIgnore
 
@@ -249,7 +250,7 @@ public class InlineResponse2001Data implements Serializable {
    * Types of news article. See endpoint &#x60;/news/article/type/list&#x60; for possible values.
    * @return types
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Types of news article. See endpoint `/news/article/type/list` for possible values.")
   @JsonProperty(JSON_PROPERTY_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -275,7 +276,7 @@ public class InlineResponse2001Data implements Serializable {
    * Get language
    * @return language
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -301,7 +302,7 @@ public class InlineResponse2001Data implements Serializable {
    * Get distributor
    * @return distributor
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DISTRIBUTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -327,7 +328,7 @@ public class InlineResponse2001Data implements Serializable {
    * Get publisher
    * @return publisher
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PUBLISHER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -361,7 +362,7 @@ public class InlineResponse2001Data implements Serializable {
    * Categories related to the news article. See endpoint &#x60;/category/list&#x60; for possible values.
    * @return categories
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Categories related to the news article. See endpoint `/category/list` for possible values.")
   @JsonProperty(JSON_PROPERTY_CATEGORIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -387,7 +388,7 @@ public class InlineResponse2001Data implements Serializable {
    * Get chain
    * @return chain
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CHAIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -421,7 +422,7 @@ public class InlineResponse2001Data implements Serializable {
    * Set of stock instruments related to the article. The set is not updated in the course of corporate actions, e.g. when the related company obtains a new instrument after a spin-off.
    * @return instruments
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Set of stock instruments related to the article. The set is not updated in the course of corporate actions, e.g. when the related company obtains a new instrument after a spin-off.")
   @JsonProperty(JSON_PROPERTY_INSTRUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

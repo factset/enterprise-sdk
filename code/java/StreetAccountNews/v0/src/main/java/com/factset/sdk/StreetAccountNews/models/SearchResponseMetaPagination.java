@@ -36,7 +36,8 @@ import com.factset.sdk.StreetAccountNews.JSON;
   SearchResponseMetaPagination.JSON_PROPERTY_TOTAL,
   SearchResponseMetaPagination.JSON_PROPERTY_IS_ESTIMATED_TOTAL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SearchResponseMetaPagination implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -58,7 +59,7 @@ public class SearchResponseMetaPagination implements Serializable {
    * Get total
    * @return total
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "100", value = "")
   @JsonProperty(JSON_PROPERTY_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -84,7 +85,7 @@ public class SearchResponseMetaPagination implements Serializable {
    * Get isEstimatedTotal
    * @return isEstimatedTotal
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "false", value = "")
   @JsonProperty(JSON_PROPERTY_IS_ESTIMATED_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

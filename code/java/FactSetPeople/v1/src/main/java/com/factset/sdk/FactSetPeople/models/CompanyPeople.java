@@ -51,7 +51,8 @@ import com.factset.sdk.FactSetPeople.JSON;
   CompanyPeople.JSON_PROPERTY_REQUEST_ID,
   CompanyPeople.JSON_PROPERTY_TITLE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CompanyPeople implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -103,7 +104,7 @@ public class CompanyPeople implements Serializable {
    * FactSet Identifier for the company requested.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "000C7F-E", value = "FactSet Identifier for the company requested.")
   @JsonIgnore
 
@@ -137,7 +138,7 @@ public class CompanyPeople implements Serializable {
    * Email of the person
    * @return email
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Email of the person")
   @JsonIgnore
 
@@ -171,7 +172,7 @@ public class CompanyPeople implements Serializable {
    * FactSet Name of the person
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Tim Cook", value = "FactSet Name of the person")
   @JsonIgnore
 
@@ -205,7 +206,7 @@ public class CompanyPeople implements Serializable {
    * Job Function1
    * @return jobFunction1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Chief Executive Officer", value = "Job Function1")
   @JsonIgnore
 
@@ -239,7 +240,7 @@ public class CompanyPeople implements Serializable {
    * Job Function2
    * @return jobFunction2
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Director/Board Member", value = "Job Function2")
   @JsonIgnore
 
@@ -273,7 +274,7 @@ public class CompanyPeople implements Serializable {
    * Job Function3
    * @return jobFunction3
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Job Function3")
   @JsonIgnore
 
@@ -307,7 +308,7 @@ public class CompanyPeople implements Serializable {
    * Job Function4
    * @return jobFunction4
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Job Function4")
   @JsonIgnore
 
@@ -341,7 +342,7 @@ public class CompanyPeople implements Serializable {
    * Main Phone Numbers of the executives.
    * @return mainPhone
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1.408.996.1010", value = "Main Phone Numbers of the executives.")
   @JsonIgnore
 
@@ -375,7 +376,7 @@ public class CompanyPeople implements Serializable {
    * FactSet Entity Identifier for the Person.
    * @return personId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "05F520-E", value = "FactSet Entity Identifier for the Person.")
   @JsonIgnore
 
@@ -409,7 +410,7 @@ public class CompanyPeople implements Serializable {
    * Phone number of the executives.
    * @return phone
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Phone number of the executives.")
   @JsonIgnore
 
@@ -443,7 +444,7 @@ public class CompanyPeople implements Serializable {
    * Original identifier used for the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "AAPL-US", value = "Original identifier used for the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -469,7 +470,7 @@ public class CompanyPeople implements Serializable {
    * Executive titles for a specified company.
    * @return title
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Chief Executive officer & Director", value = "Executive titles for a specified company.")
   @JsonIgnore
 

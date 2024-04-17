@@ -42,7 +42,8 @@ import com.factset.sdk.PAEngine.JSON;
   PACalculationParametersRoot.JSON_PROPERTY_DATA,
   PACalculationParametersRoot.JSON_PROPERTY_META
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PACalculationParametersRoot implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -76,7 +77,7 @@ public class PACalculationParametersRoot implements Serializable {
    * List of calculation parameters.
    * @return data
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of calculation parameters.")
   @JsonIgnore
 
@@ -110,7 +111,7 @@ public class PACalculationParametersRoot implements Serializable {
    * Get meta
    * @return meta
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

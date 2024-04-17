@@ -39,7 +39,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   PostStockNotationScreenerValueRangesGetRequestDataRecommendation.JSON_PROPERTY_COUNTS,
   PostStockNotationScreenerValueRangesGetRequestDataRecommendation.JSON_PROPERTY_CONSENSUS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostStockNotationScreenerValueRangesGetRequestDataRecommendation implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -61,7 +62,7 @@ public class PostStockNotationScreenerValueRangesGetRequestDataRecommendation im
    * Get counts
    * @return counts
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -87,7 +88,7 @@ public class PostStockNotationScreenerValueRangesGetRequestDataRecommendation im
    * Get consensus
    * @return consensus
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CONSENSUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

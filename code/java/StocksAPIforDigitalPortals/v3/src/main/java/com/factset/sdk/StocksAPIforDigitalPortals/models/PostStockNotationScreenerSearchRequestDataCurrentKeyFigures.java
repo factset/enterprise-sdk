@@ -39,7 +39,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   PostStockNotationScreenerSearchRequestDataCurrentKeyFigures.JSON_PROPERTY_COMPANY,
   PostStockNotationScreenerSearchRequestDataCurrentKeyFigures.JSON_PROPERTY_SHARE_INSTRUMENT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostStockNotationScreenerSearchRequestDataCurrentKeyFigures implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -61,7 +62,7 @@ public class PostStockNotationScreenerSearchRequestDataCurrentKeyFigures impleme
    * Get company
    * @return company
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COMPANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -87,7 +88,7 @@ public class PostStockNotationScreenerSearchRequestDataCurrentKeyFigures impleme
    * Get shareInstrument
    * @return shareInstrument
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SHARE_INSTRUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

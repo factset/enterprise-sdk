@@ -40,7 +40,8 @@ import com.factset.sdk.ExchangeDataFeedSnapshotAPIEntireExchange.JSON;
   InlineResponse200.JSON_PROPERTY_FILE_NAME,
   InlineResponse200.JSON_PROPERTY_URL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse200 implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -74,7 +75,7 @@ public class InlineResponse200 implements Serializable {
    * Product (Exchange) Code for which the data is requested
    * @return product
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Product (Exchange) Code for which the data is requested")
   @JsonProperty(JSON_PROPERTY_PRODUCT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -100,7 +101,7 @@ public class InlineResponse200 implements Serializable {
    * Date for which the snapshot is generated
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Date for which the snapshot is generated")
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -126,7 +127,7 @@ public class InlineResponse200 implements Serializable {
    * Time for which the snapshot is generated
    * @return time
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Time for which the snapshot is generated")
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -152,7 +153,7 @@ public class InlineResponse200 implements Serializable {
    * Type of data \&quot;RT\&quot; or \&quot;DL\&quot;
    * @return responseType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Type of data \"RT\" or \"DL\"")
   @JsonProperty(JSON_PROPERTY_RESPONSE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -178,7 +179,7 @@ public class InlineResponse200 implements Serializable {
    * fileName a combination of product code, date of snapshot &amp; time of snapshot
    * @return fileName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "fileName a combination of product code, date of snapshot & time of snapshot")
   @JsonProperty(JSON_PROPERTY_FILE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -204,7 +205,7 @@ public class InlineResponse200 implements Serializable {
    * download link of snapshot file
    * @return url
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "download link of snapshot file")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

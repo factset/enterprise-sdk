@@ -46,7 +46,8 @@ import com.factset.sdk.SPGlobalFixedIncomeEvaluatedPricesandAnalytics.JSON;
   BondCoupon.JSON_PROPERTY_COUPON_TYPE,
   BondCoupon.JSON_PROPERTY_COUPON_FREQUENCY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class BondCoupon implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -83,7 +84,7 @@ public class BondCoupon implements Serializable {
    * Identifier that was used for the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "US45905URL07", value = "Identifier that was used for the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -109,7 +110,7 @@ public class BondCoupon implements Serializable {
    * FactSet Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security&#39;s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "CJQZQ0-S", value = "FactSet Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.")
   @JsonIgnore
 
@@ -143,7 +144,7 @@ public class BondCoupon implements Serializable {
    * The date on which the price is calculated.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Thu Jan 26 00:00:00 UTC 2023", value = "The date on which the price is calculated.")
   @JsonIgnore
 
@@ -177,7 +178,7 @@ public class BondCoupon implements Serializable {
    * The interest that is owed, but not yet paid, added to the price of the bond. Available only for &#x60;corporate and municipal bonds&#x60;.
    * @return accruedInterest
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0.86771", value = "The interest that is owed, but not yet paid, added to the price of the bond. Available only for `corporate and municipal bonds`.")
   @JsonIgnore
 
@@ -211,7 +212,7 @@ public class BondCoupon implements Serializable {
    * The current coupon rate of the instrument. Available only for &#x60;corporate and municipal bonds&#x60;.
    * @return coupon
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2.125", value = "The current coupon rate of the instrument. Available only for `corporate and municipal bonds`.")
   @JsonIgnore
 
@@ -245,7 +246,7 @@ public class BondCoupon implements Serializable {
    * The coupon type of the instrument. Available only for &#x60;corporate and municipal bonds&#x60;.
    * @return couponType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Fixed", value = "The coupon type of the instrument. Available only for `corporate and municipal bonds`.")
   @JsonIgnore
 
@@ -279,7 +280,7 @@ public class BondCoupon implements Serializable {
    * The coupon frequency of the bond. Available only for &#x60;corporate bonds&#x60;. 
    * @return couponFrequency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "6M", value = "The coupon frequency of the bond. Available only for `corporate bonds`. ")
   @JsonIgnore
 

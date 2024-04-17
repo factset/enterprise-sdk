@@ -39,7 +39,8 @@ import com.factset.sdk.Formula.JSON;
   TimeSeriesTimeseriesObject.JSON_PROPERTY_VALUES,
   TimeSeriesTimeseriesObject.JSON_PROPERTY_DATES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class TimeSeriesTimeseriesObject implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -69,7 +70,7 @@ public class TimeSeriesTimeseriesObject implements Serializable {
    * Representing the data returned from the requested FQL formula for the requestId
    * @return values
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "[124.92,124.22,122.44]", value = "Representing the data returned from the requested FQL formula for the requestId")
   @JsonProperty(JSON_PROPERTY_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -103,7 +104,7 @@ public class TimeSeriesTimeseriesObject implements Serializable {
    * Representing the dates corresponding the requested FQL formula for the requestId
    * @return dates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "[\"2020-09-17\",\"2020-09-16\",\"2020-09-15\"]", value = "Representing the dates corresponding the requested FQL formula for the requestId")
   @JsonProperty(JSON_PROPERTY_DATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

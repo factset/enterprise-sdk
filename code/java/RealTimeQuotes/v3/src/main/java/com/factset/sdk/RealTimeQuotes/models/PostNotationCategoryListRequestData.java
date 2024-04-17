@@ -39,7 +39,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   PostNotationCategoryListRequestData.JSON_PROPERTY_IDENTIFIER_TYPE,
   PostNotationCategoryListRequestData.JSON_PROPERTY_FILTER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostNotationCategoryListRequestData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -115,7 +116,7 @@ public class PostNotationCategoryListRequestData implements Serializable {
    * Identifier to resolve.
    * @return identifier
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Identifier to resolve.")
   @JsonProperty(JSON_PROPERTY_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -141,7 +142,7 @@ public class PostNotationCategoryListRequestData implements Serializable {
    * Type of the identifier.
    * @return identifierType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Type of the identifier.")
   @JsonProperty(JSON_PROPERTY_IDENTIFIER_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -167,7 +168,7 @@ public class PostNotationCategoryListRequestData implements Serializable {
    * Get filter
    * @return filter
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FILTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

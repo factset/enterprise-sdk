@@ -46,7 +46,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20012DataBenchmarks.JSON_PROPERTY_OUTPERFORMANCE,
   InlineResponse20012DataBenchmarks.JSON_PROPERTY_STATUS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20012DataBenchmarks implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -77,7 +78,7 @@ public class InlineResponse20012DataBenchmarks implements Serializable {
    * Get notation
    * @return notation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NOTATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -103,7 +104,7 @@ public class InlineResponse20012DataBenchmarks implements Serializable {
    * Beta of the notation.
    * @return beta
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Beta of the notation.")
   @JsonIgnore
 
@@ -137,7 +138,7 @@ public class InlineResponse20012DataBenchmarks implements Serializable {
    * Correlation of the notation.
    * @return correlation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Correlation of the notation.")
   @JsonIgnore
 
@@ -171,7 +172,7 @@ public class InlineResponse20012DataBenchmarks implements Serializable {
    * Outperformance of the notation.
    * @return outperformance
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Outperformance of the notation.")
   @JsonIgnore
 
@@ -205,7 +206,7 @@ public class InlineResponse20012DataBenchmarks implements Serializable {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

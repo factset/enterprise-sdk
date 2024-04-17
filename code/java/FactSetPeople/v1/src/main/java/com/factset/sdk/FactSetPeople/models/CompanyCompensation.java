@@ -53,7 +53,8 @@ import com.factset.sdk.FactSetPeople.JSON;
   CompanyCompensation.JSON_PROPERTY_COMPENSATION_YEAR,
   CompanyCompensation.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CompanyCompensation implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -108,7 +109,7 @@ public class CompanyCompensation implements Serializable {
    * FactSet Name of the person
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Tim Cook", value = "FactSet Name of the person")
   @JsonIgnore
 
@@ -142,7 +143,7 @@ public class CompanyCompensation implements Serializable {
    * Factset Entity Identifier for the Person
    * @return personId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "05F520-E", value = "Factset Entity Identifier for the Person")
   @JsonIgnore
 
@@ -176,7 +177,7 @@ public class CompanyCompensation implements Serializable {
    * The requested Position Title
    * @return title
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Chief Executive Officer & Director", value = "The requested Position Title")
   @JsonIgnore
 
@@ -210,7 +211,7 @@ public class CompanyCompensation implements Serializable {
    * Salary of the person. Expressed in USD and raw units.
    * @return salary
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "525846", value = "Salary of the person. Expressed in USD and raw units.")
   @JsonIgnore
 
@@ -244,7 +245,7 @@ public class CompanyCompensation implements Serializable {
    * Bonus of the executive during the fiscal year. Expressed in USD and raw units.
    * @return bonus
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "48", value = "Bonus of the executive during the fiscal year. Expressed in USD and raw units.")
   @JsonIgnore
 
@@ -278,7 +279,7 @@ public class CompanyCompensation implements Serializable {
    * Stock awards for the person. Expressed in USD and raw units.
    * @return stockAwards
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Stock awards for the person. Expressed in USD and raw units.")
   @JsonIgnore
 
@@ -312,7 +313,7 @@ public class CompanyCompensation implements Serializable {
    * Option Awards for the person. Expressed in USD and raw units.
    * @return optionsAwards
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Option Awards for the person. Expressed in USD and raw units.")
   @JsonIgnore
 
@@ -346,7 +347,7 @@ public class CompanyCompensation implements Serializable {
    * All the other compensations which are not explicitly defined as salary, bonus, stock awards, or options awards. Expressed in USD and raw units.
    * @return otherCompensation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "11200", value = "All the other compensations which are not explicitly defined as salary, bonus, stock awards, or options awards. Expressed in USD and raw units.")
   @JsonIgnore
 
@@ -380,7 +381,7 @@ public class CompanyCompensation implements Serializable {
    * The sum of all compensation for the requested person as reported by the company. Expressed in USD and raw units.
    * @return totalCompensation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "4719062", value = "The sum of all compensation for the requested person as reported by the company. Expressed in USD and raw units.")
   @JsonIgnore
 
@@ -414,7 +415,7 @@ public class CompanyCompensation implements Serializable {
    * All the earnings pursuant to awards under non-equity incentive plans. Expressed in USD and raw units.
    * @return nonEquityIncentivePlanComp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "10731000", value = "All the earnings pursuant to awards under non-equity incentive plans. Expressed in USD and raw units.")
   @JsonIgnore
 
@@ -448,7 +449,7 @@ public class CompanyCompensation implements Serializable {
    * All the other nonqualified defined contribution which are not tax qualified and other contributions. Expressed in USD and raw units.
    * @return nonQualifiedCompEarnings
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "All the other nonqualified defined contribution which are not tax qualified and other contributions. Expressed in USD and raw units.")
   @JsonIgnore
 
@@ -482,7 +483,7 @@ public class CompanyCompensation implements Serializable {
    * The most recent year of compensation is expressed as &#39;YYYY&#39; as opposed to &#39;YYYY-MM-DD&#39; format.
    * @return compensationYear
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2020", value = "The most recent year of compensation is expressed as 'YYYY' as opposed to 'YYYY-MM-DD' format.")
   @JsonIgnore
 
@@ -516,7 +517,7 @@ public class CompanyCompensation implements Serializable {
    * Original identifier used for the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "TSLA-US", value = "Original identifier used for the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

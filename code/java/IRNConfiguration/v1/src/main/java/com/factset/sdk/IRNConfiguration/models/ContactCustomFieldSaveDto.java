@@ -48,7 +48,8 @@ import com.factset.sdk.IRNConfiguration.JSON;
   ContactCustomFieldSaveDto.JSON_PROPERTY_FIELD_FORMULA,
   ContactCustomFieldSaveDto.JSON_PROPERTY_CONTACT_CUSTOM_FIELD_OPTIONS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ContactCustomFieldSaveDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -101,7 +102,7 @@ public class ContactCustomFieldSaveDto implements Serializable {
    * Get code
    * @return code
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -127,7 +128,7 @@ public class ContactCustomFieldSaveDto implements Serializable {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -153,7 +154,7 @@ public class ContactCustomFieldSaveDto implements Serializable {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -179,7 +180,7 @@ public class ContactCustomFieldSaveDto implements Serializable {
    * Get isHidden
    * @return isHidden
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_IS_HIDDEN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -205,7 +206,7 @@ public class ContactCustomFieldSaveDto implements Serializable {
    * Get isMandatory
    * @return isMandatory
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_IS_MANDATORY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -231,7 +232,7 @@ public class ContactCustomFieldSaveDto implements Serializable {
    * Get fieldFormula
    * @return fieldFormula
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FIELD_FORMULA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -269,7 +270,7 @@ public class ContactCustomFieldSaveDto implements Serializable {
    * Get contactCustomFieldOptions
    * @return contactCustomFieldOptions
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

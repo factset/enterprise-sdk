@@ -40,7 +40,8 @@ import com.factset.sdk.Signals.JSON;
   DateTimeInterval.JSON_PROPERTY_LT,
   DateTimeInterval.JSON_PROPERTY_LTE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class DateTimeInterval implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class DateTimeInterval implements Serializable {
    * A date/time string in ISO 8601 format.
    * @return gt
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2021-01-01T00:00Z", value = "A date/time string in ISO 8601 format.")
   @JsonProperty(JSON_PROPERTY_GT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -94,7 +95,7 @@ public class DateTimeInterval implements Serializable {
    * A date/time string in ISO 8601 format.
    * @return gte
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2021-01-01T00:00Z", value = "A date/time string in ISO 8601 format.")
   @JsonProperty(JSON_PROPERTY_GTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -120,7 +121,7 @@ public class DateTimeInterval implements Serializable {
    * A date/time string in ISO 8601 format.
    * @return lt
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2021-01-01T00:00Z", value = "A date/time string in ISO 8601 format.")
   @JsonProperty(JSON_PROPERTY_LT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -146,7 +147,7 @@ public class DateTimeInterval implements Serializable {
    * A date/time string in ISO 8601 format.
    * @return lte
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2021-01-01T00:00Z", value = "A date/time string in ISO 8601 format.")
   @JsonProperty(JSON_PROPERTY_LTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

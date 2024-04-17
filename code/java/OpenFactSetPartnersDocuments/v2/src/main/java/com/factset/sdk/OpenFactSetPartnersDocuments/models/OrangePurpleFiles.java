@@ -42,7 +42,8 @@ import com.factset.sdk.OpenFactSetPartnersDocuments.JSON;
   OrangePurpleFiles.JSON_PROPERTY_BEAM_OP_NOVEL_TARGET_LIST,
   OrangePurpleFiles.JSON_PROPERTY_URL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OrangePurpleFiles implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -79,7 +80,7 @@ public class OrangePurpleFiles implements Serializable {
    * The filename of the trial data
    * @return fileName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "NCT01906684_002.json", value = "The filename of the trial data")
   @JsonProperty(JSON_PROPERTY_FILE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -105,7 +106,7 @@ public class OrangePurpleFiles implements Serializable {
    * Specifies Ozmosi unique ID for each historical version of a trial
    * @return clinicalTrialId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "NCT01906684_002", value = "Specifies Ozmosi unique ID for each historical version of a trial")
   @JsonProperty(JSON_PROPERTY_CLINICAL_TRIAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -131,7 +132,7 @@ public class OrangePurpleFiles implements Serializable {
    * Identifies if the trial includes a drug that is not approved by the FDA
    * @return beamOpNovelDrug
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Epacadostate", value = "Identifies if the trial includes a drug that is not approved by the FDA")
   @JsonProperty(JSON_PROPERTY_BEAM_OP_NOVEL_DRUG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -157,7 +158,7 @@ public class OrangePurpleFiles implements Serializable {
    * It lists the unapproved drug
    * @return beamOpNovelTarget
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Peptide vaccine", value = "It lists the unapproved drug")
   @JsonProperty(JSON_PROPERTY_BEAM_OP_NOVEL_TARGET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -183,7 +184,7 @@ public class OrangePurpleFiles implements Serializable {
    * Identifies if there is an MOA or target that has not yet been approved by the FDA
    * @return beamOpNovelDrugList
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Inhibitor", value = "Identifies if there is an MOA or target that has not yet been approved by the FDA")
   @JsonProperty(JSON_PROPERTY_BEAM_OP_NOVEL_DRUG_LIST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -209,7 +210,7 @@ public class OrangePurpleFiles implements Serializable {
    * Lists the unapproved targets
    * @return beamOpNovelTargetList
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "IDO1 Inhibitor", value = "Lists the unapproved targets")
   @JsonProperty(JSON_PROPERTY_BEAM_OP_NOVEL_TARGET_LIST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -235,7 +236,7 @@ public class OrangePurpleFiles implements Serializable {
    * Download link for the clinical trials provided by the Ozmosi feed
    * @return url
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "https://fdss3-unstructured-data-delivery-ozmosi-prod.s3.amazonaws.com/ozmosi_v2/NCT02651116_004.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6B6XG7VEZSWBDXP4%2F20230130%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230130T154615Z&X-Amz-Expires=1800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBgaCXVzLWVhc3QtMSJIMEYCIQC%2B6L670ZxJKib2KCWj0SHnwXoVHDr7sPz%2Ft40qmv7vHwIhAOBZa4eIOTl2oC88R7jpi0gVYPLyp6E9Pw2ty0UP3pRWKvcCCJD%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQARoMOTY2MjgyMTE2NDI1IgwYUf6AhlNl%2BR093MUqywLwFEZ9iTI10C3qIGKVmpnZ2PnFkrCVlkYIyDdxYIWyigl8iA9sQ1pWoIp%2FefD797agmqqPoXf9JXaBcw2ygeXT9EYMwljLJtw54O8nzrcUSHZ5HtOqEIPOnF9P6I9YCaD571N6oGfl8hKVGIH1yk7fByz48QZt9cQWwtc%2FWY4ORNvaaCGTin3Xpd0rQ%2BkMy3zvI8JOcfi14o%2F1KBXmUgNAII0h6QBOnzhiG291UZPlyH2U2WardyN5YwyDFbUxeskdqBVCJqx%2BdkUsU%2Fjk3rNPWE3s9CxSO%2Bubt%2B9BcYTl0mJnx7MCKJCTCOxn2h%2FR%2BvyAMyRluJyU6T5I15uFipcp00gEfpeYQDrtFLfvzPzAEWFw2QI9BmNKhr%2BRbKYxfMiDHTgXn9WaijZEB8DHB9G0pwgWE5z7LUg70umwvz60e5qH7pP26O1TMI6hMIO7354GOp0BCTiRD%2F6ow8Sn3f8vLp4IbNnvKNQ4AimQjcW%2B5fWkTwxFr2fBlcI52YJ97yzm5H%2F3340dD1tBtVxXGSmTVQh%2FLQ8G1DTbkjJvPEYL2j8zMm%2Fs953XXNjAqIkkN2copRx%2F0R%2BLwAM67rAwXldE1q1VlCz2IRzEPrh%2BCulTl2XxbxiAFo6PX4MLE4GMQjjmy%2F67rbQAoLBSoVTaUshT%2Fg%3D%3D&X-Amz-Signature=e03a21bcb2355205758d2b17886e207f421c1e889d04466760084247cb00f866", value = "Download link for the clinical trials provided by the Ozmosi feed")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

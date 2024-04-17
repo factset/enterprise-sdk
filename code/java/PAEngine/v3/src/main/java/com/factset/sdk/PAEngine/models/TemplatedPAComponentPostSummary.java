@@ -43,7 +43,8 @@ import com.factset.sdk.PAEngine.JSON;
   TemplatedPAComponentPostSummary.JSON_PROPERTY_PARENT_TEMPLATE_ID,
   TemplatedPAComponentPostSummary.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class TemplatedPAComponentPostSummary implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -74,7 +75,7 @@ public class TemplatedPAComponentPostSummary implements Serializable {
    * Get id
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -108,7 +109,7 @@ public class TemplatedPAComponentPostSummary implements Serializable {
    * Get description
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -142,7 +143,7 @@ public class TemplatedPAComponentPostSummary implements Serializable {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -176,7 +177,7 @@ public class TemplatedPAComponentPostSummary implements Serializable {
    * Get parentTemplateId
    * @return parentTemplateId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -210,7 +211,7 @@ public class TemplatedPAComponentPostSummary implements Serializable {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

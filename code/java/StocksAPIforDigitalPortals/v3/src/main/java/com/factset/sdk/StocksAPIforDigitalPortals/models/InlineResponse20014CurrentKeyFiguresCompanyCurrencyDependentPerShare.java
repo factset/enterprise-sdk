@@ -44,7 +44,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20014CurrentKeyFiguresCompanyCurrencyDependentPerShare.JSON_PROPERTY_CASH_FLOW,
   InlineResponse20014CurrentKeyFiguresCompanyCurrencyDependentPerShare.JSON_PROPERTY_SALES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20014CurrentKeyFiguresCompanyCurrencyDependentPerShare implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -72,7 +73,7 @@ public class InlineResponse20014CurrentKeyFiguresCompanyCurrencyDependentPerShar
    * Earnings per share.
    * @return earnings
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Earnings per share.")
   @JsonIgnore
 
@@ -106,7 +107,7 @@ public class InlineResponse20014CurrentKeyFiguresCompanyCurrencyDependentPerShar
    * Book value per share.
    * @return bookValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Book value per share.")
   @JsonIgnore
 
@@ -140,7 +141,7 @@ public class InlineResponse20014CurrentKeyFiguresCompanyCurrencyDependentPerShar
    * Cash flow per share.
    * @return cashFlow
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Cash flow per share.")
   @JsonIgnore
 
@@ -174,7 +175,7 @@ public class InlineResponse20014CurrentKeyFiguresCompanyCurrencyDependentPerShar
    * Sales per share.
    * @return sales
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Sales per share.")
   @JsonIgnore
 

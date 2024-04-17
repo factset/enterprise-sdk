@@ -6,7 +6,7 @@ import com.factset.sdk.DocumentsDistributorDocuments.ApiResponse;
 import com.factset.sdk.DocumentsDistributorDocuments.Configuration;
 import com.factset.sdk.DocumentsDistributorDocuments.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -17,7 +17,8 @@ import com.factset.sdk.DocumentsDistributorDocuments.models.NewscheckstatusRespo
 import com.factset.sdk.DocumentsDistributorDocuments.models.NewsgetfilesResponse;
 import com.factset.sdk.DocumentsDistributorDocuments.models.NewsrequestfilesResponse;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class NewsApiApi {
   private ApiClient apiClient;
 

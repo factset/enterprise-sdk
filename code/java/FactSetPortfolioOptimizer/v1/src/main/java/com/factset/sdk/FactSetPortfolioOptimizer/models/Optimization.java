@@ -37,7 +37,8 @@ import com.factset.sdk.FactSetPortfolioOptimizer.JSON;
   Optimization.JSON_PROPERTY_BACKTESTDATE,
   Optimization.JSON_PROPERTY_CASHFLOW
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Optimization implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -62,7 +63,7 @@ public class Optimization implements Serializable {
    * Risk model date
    * @return riskmodeldate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Risk model date")
   @JsonProperty(JSON_PROPERTY_RISKMODELDATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -88,7 +89,7 @@ public class Optimization implements Serializable {
    * Backtest date
    * @return backtestdate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Backtest date")
   @JsonProperty(JSON_PROPERTY_BACKTESTDATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -114,7 +115,7 @@ public class Optimization implements Serializable {
    * Cash flow
    * @return cashflow
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Cash flow")
   @JsonProperty(JSON_PROPERTY_CASHFLOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

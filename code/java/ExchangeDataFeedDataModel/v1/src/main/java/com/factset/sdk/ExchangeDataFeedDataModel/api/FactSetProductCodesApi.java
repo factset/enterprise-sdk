@@ -6,7 +6,7 @@ import com.factset.sdk.ExchangeDataFeedDataModel.ApiResponse;
 import com.factset.sdk.ExchangeDataFeedDataModel.Configuration;
 import com.factset.sdk.ExchangeDataFeedDataModel.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -14,7 +14,8 @@ import java.util.Objects;
 import com.factset.sdk.ExchangeDataFeedDataModel.models.ErrorResponse;
 import com.factset.sdk.ExchangeDataFeedDataModel.models.RTDataModelProducts;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FactSetProductCodesApi {
   private ApiClient apiClient;
 

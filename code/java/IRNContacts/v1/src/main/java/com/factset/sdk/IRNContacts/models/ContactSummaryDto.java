@@ -58,7 +58,8 @@ import com.factset.sdk.IRNContacts.JSON;
   ContactSummaryDto.JSON_PROPERTY_ALTERNATIVE_EMAIL_ADDRESSES,
   ContactSummaryDto.JSON_PROPERTY_CUSTOM_FIELD_VALUES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ContactSummaryDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -122,7 +123,7 @@ public class ContactSummaryDto implements Serializable {
    * Get id
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -148,7 +149,7 @@ public class ContactSummaryDto implements Serializable {
    * Get primaryEmailAddress
    * @return primaryEmailAddress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -182,7 +183,7 @@ public class ContactSummaryDto implements Serializable {
    * Get identifier
    * @return identifier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -216,7 +217,7 @@ public class ContactSummaryDto implements Serializable {
    * Get fullName
    * @return fullName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -250,7 +251,7 @@ public class ContactSummaryDto implements Serializable {
    * Get employerName
    * @return employerName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -284,7 +285,7 @@ public class ContactSummaryDto implements Serializable {
    * Get employerIdentifier
    * @return employerIdentifier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -318,7 +319,7 @@ public class ContactSummaryDto implements Serializable {
    * Get city
    * @return city
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -352,7 +353,7 @@ public class ContactSummaryDto implements Serializable {
    * Get stateProvince
    * @return stateProvince
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -386,7 +387,7 @@ public class ContactSummaryDto implements Serializable {
    * Get postalCode
    * @return postalCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -420,7 +421,7 @@ public class ContactSummaryDto implements Serializable {
    * Get country
    * @return country
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -454,7 +455,7 @@ public class ContactSummaryDto implements Serializable {
    * Get role
    * @return role
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ROLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -480,7 +481,7 @@ public class ContactSummaryDto implements Serializable {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -506,7 +507,7 @@ public class ContactSummaryDto implements Serializable {
    * Get isDeleted
    * @return isDeleted
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IS_DELETED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -532,7 +533,7 @@ public class ContactSummaryDto implements Serializable {
    * Get lastMeeting
    * @return lastMeeting
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -578,7 +579,7 @@ public class ContactSummaryDto implements Serializable {
    * Get alternativeEmailAddresses
    * @return alternativeEmailAddresses
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -624,7 +625,7 @@ public class ContactSummaryDto implements Serializable {
    * Get customFieldValues
    * @return customFieldValues
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

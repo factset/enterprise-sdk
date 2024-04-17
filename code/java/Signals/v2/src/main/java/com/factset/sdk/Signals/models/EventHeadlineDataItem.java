@@ -47,7 +47,8 @@ import com.factset.sdk.Signals.JSON;
   EventHeadlineDataItem.JSON_PROPERTY_USER_RELEVANCE_SCORE,
   EventHeadlineDataItem.JSON_PROPERTY_CREATED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EventHeadlineDataItem implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -120,7 +121,7 @@ public class EventHeadlineDataItem implements Serializable {
    * The id that was requested. This can be a ticker, cusip or factset entity id.
    * @return requestId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The id that was requested. This can be a ticker, cusip or factset entity id.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -146,7 +147,7 @@ public class EventHeadlineDataItem implements Serializable {
    * Name of the company reported in signal. Omitted if null.
    * @return companyName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the company reported in signal. Omitted if null.")
   @JsonProperty(JSON_PROPERTY_COMPANY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -172,7 +173,7 @@ public class EventHeadlineDataItem implements Serializable {
    * Signal Id for this event. e.g. dilutionTrigger
    * @return signalId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Signal Id for this event. e.g. dilutionTrigger")
   @JsonProperty(JSON_PROPERTY_SIGNAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -198,7 +199,7 @@ public class EventHeadlineDataItem implements Serializable {
    * Signal Name for this event. e.g. dilutionTrigger
    * @return signalName
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Signal Name for this event. e.g. dilutionTrigger")
   @JsonProperty(JSON_PROPERTY_SIGNAL_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -224,7 +225,7 @@ public class EventHeadlineDataItem implements Serializable {
    * Theme name of the signal for this event. e.g. Debt Capital Structure
    * @return theme
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Theme name of the signal for this event. e.g. Debt Capital Structure")
   @JsonProperty(JSON_PROPERTY_THEME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -250,7 +251,7 @@ public class EventHeadlineDataItem implements Serializable {
    * Primary data provider for the signal this event belongs to. e.g. FactSet, Bitvore
    * @return source
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Primary data provider for the signal this event belongs to. e.g. FactSet, Bitvore")
   @JsonProperty(JSON_PROPERTY_SOURCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -276,7 +277,7 @@ public class EventHeadlineDataItem implements Serializable {
    * A unique id for this event.
    * @return eventId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "A unique id for this event.")
   @JsonProperty(JSON_PROPERTY_EVENT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -302,7 +303,7 @@ public class EventHeadlineDataItem implements Serializable {
    * The UTC date/time of the event in ISO 8601 format.
    * @return eventDate
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The UTC date/time of the event in ISO 8601 format.")
   @JsonProperty(JSON_PROPERTY_EVENT_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -328,7 +329,7 @@ public class EventHeadlineDataItem implements Serializable {
    * One sentence summary of the event.
    * @return summary
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "One sentence summary of the event.")
   @JsonProperty(JSON_PROPERTY_SUMMARY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -354,7 +355,7 @@ public class EventHeadlineDataItem implements Serializable {
    * Relevancy score of this event for the requesting user on a scale of 0 to 1. Higher value indicates more relevancy.
    * @return userRelevanceScore
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Relevancy score of this event for the requesting user on a scale of 0 to 1. Higher value indicates more relevancy.")
   @JsonProperty(JSON_PROPERTY_USER_RELEVANCE_SCORE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -380,7 +381,7 @@ public class EventHeadlineDataItem implements Serializable {
    * Date/Time in UTC the event was first recorded in our data store.
    * @return created
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2021-04-26T06:39:40.094Z", value = "Date/Time in UTC the event was first recorded in our data store.")
   @JsonProperty(JSON_PROPERTY_CREATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

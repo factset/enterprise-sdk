@@ -38,7 +38,8 @@ import com.factset.sdk.OptimizationEngineAPIMultiperiod.JSON;
   OptimizerInputsMPFrontierInput.JSON_PROPERTY_INPUT,
   OptimizerInputsMPFrontierInput.JSON_PROPERTY_FRONTIER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerInputsMPFrontierInput implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -60,7 +61,7 @@ public class OptimizerInputsMPFrontierInput implements Serializable {
    * Get input
    * @return input
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INPUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,7 +87,7 @@ public class OptimizerInputsMPFrontierInput implements Serializable {
    * Get frontier
    * @return frontier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FRONTIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

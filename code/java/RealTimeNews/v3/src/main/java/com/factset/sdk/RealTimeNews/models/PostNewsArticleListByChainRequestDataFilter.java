@@ -37,7 +37,8 @@ import com.factset.sdk.RealTimeNews.JSON;
 @JsonPropertyOrder({
   PostNewsArticleListByChainRequestDataFilter.JSON_PROPERTY_RANGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostNewsArticleListByChainRequestDataFilter implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -56,7 +57,7 @@ public class PostNewsArticleListByChainRequestDataFilter implements Serializable
    * Get range
    * @return range
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

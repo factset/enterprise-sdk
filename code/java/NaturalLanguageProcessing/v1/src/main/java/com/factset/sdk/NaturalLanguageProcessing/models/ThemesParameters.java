@@ -37,7 +37,8 @@ import com.factset.sdk.NaturalLanguageProcessing.JSON;
   ThemesParameters.JSON_PROPERTY_INCLUDE_SENTIMENTS,
   ThemesParameters.JSON_PROPERTY_TEXT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ThemesParameters implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -69,7 +70,7 @@ public class ThemesParameters implements Serializable {
    * Boolean flag indicating inclusion of sentiment for each theme.
    * @return includeSentiments
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "false", required = true, value = "Boolean flag indicating inclusion of sentiment for each theme.")
   @JsonProperty(JSON_PROPERTY_INCLUDE_SENTIMENTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -95,7 +96,7 @@ public class ThemesParameters implements Serializable {
    * The text input that provides the context
    * @return text
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "Studio Entertainment: At Studio Entertainment, operating income decreased in the quarter due to lower theatrical distribution and home entertainment results. Worldwide theatrical results continued to be adversely impacted by COVID-19, as theaters were closed in many key markets both domestically and internationally. With no significant worldwide theatrical releases in the quarter, we faced a difficult comparison against the strong performance of The Lion King and Toy Story 4 in the prior-year quarter. Operating Results: On our last earnings call, we said that we expected Q4 operating results of our DTC businesses to improve by approximately $100mm relative to the prior-year quarter. Our results came in better than that guidance, with operating income at our DTC businesses improving by approximately $300mm vs. the prior year due to better-than-expected performance across all three of our streaming services. I will note that we do not plan to further update any of our subscriber numbers until our Investor Day on December 10 At our International Channels, lower results were due to lower affiliate and advertising revenues, partially offset by a decrease in cost.", required = true, value = "The text input that provides the context")
   @JsonProperty(JSON_PROPERTY_TEXT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

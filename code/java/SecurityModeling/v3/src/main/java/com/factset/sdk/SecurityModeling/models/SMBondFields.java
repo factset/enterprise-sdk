@@ -163,7 +163,8 @@ import com.factset.sdk.SecurityModeling.JSON;
   SMBondFields.JSON_PROPERTY_V_R_D_N_FLAG,
   SMBondFields.JSON_PROPERTY_SECURITY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SMBondFields implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -594,7 +595,7 @@ public class SMBondFields implements Serializable {
    * Get _144aFlag
    * @return _144aFlag
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -640,7 +641,7 @@ public class SMBondFields implements Serializable {
    * Get aperiodicMultipliers
    * @return aperiodicMultipliers
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -686,7 +687,7 @@ public class SMBondFields implements Serializable {
    * Get aperiodicResetDates
    * @return aperiodicResetDates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -732,7 +733,7 @@ public class SMBondFields implements Serializable {
    * Get aperiodicSpreads
    * @return aperiodicSpreads
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -766,7 +767,7 @@ public class SMBondFields implements Serializable {
    * Get businessDayConv
    * @return businessDayConv
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -800,7 +801,7 @@ public class SMBondFields implements Serializable {
    * Get callAnnouncedDate
    * @return callAnnouncedDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -846,7 +847,7 @@ public class SMBondFields implements Serializable {
    * Get callDates
    * @return callDates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -880,7 +881,7 @@ public class SMBondFields implements Serializable {
    * Get callFreq
    * @return callFreq
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -914,7 +915,7 @@ public class SMBondFields implements Serializable {
    * Get callNoticeDays
    * @return callNoticeDays
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -960,7 +961,7 @@ public class SMBondFields implements Serializable {
    * Get callPrices
    * @return callPrices
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -994,7 +995,7 @@ public class SMBondFields implements Serializable {
    * Get cashRate
    * @return cashRate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -1028,7 +1029,7 @@ public class SMBondFields implements Serializable {
    * Get cognity
    * @return cognity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -1062,7 +1063,7 @@ public class SMBondFields implements Serializable {
    * Get conversionIdentifier
    * @return conversionIdentifier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -1096,7 +1097,7 @@ public class SMBondFields implements Serializable {
    * Get conversionRatio
    * @return conversionRatio
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -1130,7 +1131,7 @@ public class SMBondFields implements Serializable {
    * Get conversionType
    * @return conversionType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -1164,7 +1165,7 @@ public class SMBondFields implements Serializable {
    * Get convertibleFlag
    * @return convertibleFlag
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -1198,7 +1199,7 @@ public class SMBondFields implements Serializable {
    * Get country
    * @return country
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -1232,7 +1233,7 @@ public class SMBondFields implements Serializable {
    * Get coupon
    * @return coupon
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -1266,7 +1267,7 @@ public class SMBondFields implements Serializable {
    * Get couponType
    * @return couponType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -1300,7 +1301,7 @@ public class SMBondFields implements Serializable {
    * Get creditSpreadAdjustmentSingle
    * @return creditSpreadAdjustmentSingle
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -1334,7 +1335,7 @@ public class SMBondFields implements Serializable {
    * Get currency
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -1368,7 +1369,7 @@ public class SMBondFields implements Serializable {
    * Get dayCountBasis
    * @return dayCountBasis
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -1402,7 +1403,7 @@ public class SMBondFields implements Serializable {
    * Get defaultedDate
    * @return defaultedDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -1436,7 +1437,7 @@ public class SMBondFields implements Serializable {
    * Get federalTaxExemptFlag
    * @return federalTaxExemptFlag
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -1470,7 +1471,7 @@ public class SMBondFields implements Serializable {
    * Get firstPayDate
    * @return firstPayDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -1504,7 +1505,7 @@ public class SMBondFields implements Serializable {
    * Get firstResetDate
    * @return firstResetDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -1538,7 +1539,7 @@ public class SMBondFields implements Serializable {
    * Get floatFormula
    * @return floatFormula
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -1572,7 +1573,7 @@ public class SMBondFields implements Serializable {
    * Get fltDayCountBasis
    * @return fltDayCountBasis
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -1606,7 +1607,7 @@ public class SMBondFields implements Serializable {
    * Get fltFirstPayDate
    * @return fltFirstPayDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -1640,7 +1641,7 @@ public class SMBondFields implements Serializable {
    * Get fltPayFreq
    * @return fltPayFreq
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -1686,7 +1687,7 @@ public class SMBondFields implements Serializable {
    * Get histCouponDates
    * @return histCouponDates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -1732,7 +1733,7 @@ public class SMBondFields implements Serializable {
    * Get histCoupons
    * @return histCoupons
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -1778,7 +1779,7 @@ public class SMBondFields implements Serializable {
    * Get histRcvAssumpDates
    * @return histRcvAssumpDates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -1824,7 +1825,7 @@ public class SMBondFields implements Serializable {
    * Get histRcvAssumpMonths
    * @return histRcvAssumpMonths
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -1870,7 +1871,7 @@ public class SMBondFields implements Serializable {
    * Get histRcvAssumpRates
    * @return histRcvAssumpRates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -1916,7 +1917,7 @@ public class SMBondFields implements Serializable {
    * Get histRcvAssumpTargetDates
    * @return histRcvAssumpTargetDates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -1950,7 +1951,7 @@ public class SMBondFields implements Serializable {
    * Get inflationType
    * @return inflationType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -1984,7 +1985,7 @@ public class SMBondFields implements Serializable {
    * Get issueDate
    * @return issueDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -2018,7 +2019,7 @@ public class SMBondFields implements Serializable {
    * Get issueName
    * @return issueName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -2052,7 +2053,7 @@ public class SMBondFields implements Serializable {
    * Get issuerId
    * @return issuerId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -2086,7 +2087,7 @@ public class SMBondFields implements Serializable {
    * Get lastModifiedSource
    * @return lastModifiedSource
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -2120,7 +2121,7 @@ public class SMBondFields implements Serializable {
    * Get lastModifiedSourceMeta
    * @return lastModifiedSourceMeta
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -2154,7 +2155,7 @@ public class SMBondFields implements Serializable {
    * Get lastModifiedTime
    * @return lastModifiedTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -2188,7 +2189,7 @@ public class SMBondFields implements Serializable {
    * Get lifeCap
    * @return lifeCap
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -2222,7 +2223,7 @@ public class SMBondFields implements Serializable {
    * Get lifeFloor
    * @return lifeFloor
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -2256,7 +2257,7 @@ public class SMBondFields implements Serializable {
    * Get lockoutDays
    * @return lockoutDays
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -2290,7 +2291,7 @@ public class SMBondFields implements Serializable {
    * Get lookBackDays
    * @return lookBackDays
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -2324,7 +2325,7 @@ public class SMBondFields implements Serializable {
    * Get makeWholeCallFlag
    * @return makeWholeCallFlag
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -2358,7 +2359,7 @@ public class SMBondFields implements Serializable {
    * Get makeWholeExpireDate
    * @return makeWholeExpireDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -2392,7 +2393,7 @@ public class SMBondFields implements Serializable {
    * Get makeWholeSpread
    * @return makeWholeSpread
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -2438,7 +2439,7 @@ public class SMBondFields implements Serializable {
    * Get matrixDates
    * @return matrixDates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -2484,7 +2485,7 @@ public class SMBondFields implements Serializable {
    * Get matrixMultipliers
    * @return matrixMultipliers
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -2518,7 +2519,7 @@ public class SMBondFields implements Serializable {
    * Get matrixPricedFlag
    * @return matrixPricedFlag
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -2564,7 +2565,7 @@ public class SMBondFields implements Serializable {
    * Get matrixSpreads
    * @return matrixSpreads
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -2598,7 +2599,7 @@ public class SMBondFields implements Serializable {
    * Get matrixUseScheduleFlag
    * @return matrixUseScheduleFlag
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -2632,7 +2633,7 @@ public class SMBondFields implements Serializable {
    * Get maturityDate
    * @return maturityDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -2666,7 +2667,7 @@ public class SMBondFields implements Serializable {
    * Get maturityPrice
    * @return maturityPrice
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -2700,7 +2701,7 @@ public class SMBondFields implements Serializable {
    * Get monthsToRecovery
    * @return monthsToRecovery
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -2734,7 +2735,7 @@ public class SMBondFields implements Serializable {
    * Get multiplier
    * @return multiplier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -2768,7 +2769,7 @@ public class SMBondFields implements Serializable {
    * Get notionalFlag
    * @return notionalFlag
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -2802,7 +2803,7 @@ public class SMBondFields implements Serializable {
    * Get observationShift
    * @return observationShift
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -2836,7 +2837,7 @@ public class SMBondFields implements Serializable {
    * Get origAmtIssued
    * @return origAmtIssued
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -2870,7 +2871,7 @@ public class SMBondFields implements Serializable {
    * Get parentName
    * @return parentName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -2904,7 +2905,7 @@ public class SMBondFields implements Serializable {
    * Get parPrice
    * @return parPrice
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -2938,7 +2939,7 @@ public class SMBondFields implements Serializable {
    * Get parserInfo
    * @return parserInfo
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -2972,7 +2973,7 @@ public class SMBondFields implements Serializable {
    * Get paymentDelay
    * @return paymentDelay
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -3006,7 +3007,7 @@ public class SMBondFields implements Serializable {
    * Get payFreq
    * @return payFreq
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -3040,7 +3041,7 @@ public class SMBondFields implements Serializable {
    * Get periodCap
    * @return periodCap
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -3074,7 +3075,7 @@ public class SMBondFields implements Serializable {
    * Get periodFloor
    * @return periodFloor
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -3108,7 +3109,7 @@ public class SMBondFields implements Serializable {
    * Get pikExpDate
    * @return pikExpDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -3142,7 +3143,7 @@ public class SMBondFields implements Serializable {
    * Get pikRate
    * @return pikRate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -3176,7 +3177,7 @@ public class SMBondFields implements Serializable {
    * Get preferredSecExDateLen
    * @return preferredSecExDateLen
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -3210,7 +3211,7 @@ public class SMBondFields implements Serializable {
    * Get preferredSecExDateUnits
    * @return preferredSecExDateUnits
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -3244,7 +3245,7 @@ public class SMBondFields implements Serializable {
    * Get preferredSecFlag
    * @return preferredSecFlag
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -3278,7 +3279,7 @@ public class SMBondFields implements Serializable {
    * Get preferredSecType
    * @return preferredSecType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -3312,7 +3313,7 @@ public class SMBondFields implements Serializable {
    * Get principalType
    * @return principalType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -3358,7 +3359,7 @@ public class SMBondFields implements Serializable {
    * Get putDates
    * @return putDates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -3392,7 +3393,7 @@ public class SMBondFields implements Serializable {
    * Get putNoticeDays
    * @return putNoticeDays
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -3426,7 +3427,7 @@ public class SMBondFields implements Serializable {
    * Get putFreq
    * @return putFreq
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -3472,7 +3473,7 @@ public class SMBondFields implements Serializable {
    * Get putPrices
    * @return putPrices
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -3506,7 +3507,7 @@ public class SMBondFields implements Serializable {
    * Get pvtPlacementFlag
    * @return pvtPlacementFlag
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -3540,7 +3541,7 @@ public class SMBondFields implements Serializable {
    * Get ratingFitch
    * @return ratingFitch
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -3586,7 +3587,7 @@ public class SMBondFields implements Serializable {
    * Get ratingFitchDates
    * @return ratingFitchDates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -3632,7 +3633,7 @@ public class SMBondFields implements Serializable {
    * Get ratingFitchValues
    * @return ratingFitchValues
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -3678,7 +3679,7 @@ public class SMBondFields implements Serializable {
    * Get ratingMoodysDates
    * @return ratingMoodysDates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -3724,7 +3725,7 @@ public class SMBondFields implements Serializable {
    * Get ratingMoodysValues
    * @return ratingMoodysValues
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -3770,7 +3771,7 @@ public class SMBondFields implements Serializable {
    * Get ratingSpDates
    * @return ratingSpDates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -3816,7 +3817,7 @@ public class SMBondFields implements Serializable {
    * Get ratingSpValues
    * @return ratingSpValues
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -3850,7 +3851,7 @@ public class SMBondFields implements Serializable {
    * Get recoveryPercentage
    * @return recoveryPercentage
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -3884,7 +3885,7 @@ public class SMBondFields implements Serializable {
    * Get redemptionDate
    * @return redemptionDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -3918,7 +3919,7 @@ public class SMBondFields implements Serializable {
    * Get redemptionOpt
    * @return redemptionOpt
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -3952,7 +3953,7 @@ public class SMBondFields implements Serializable {
    * Get redemptionPrice
    * @return redemptionPrice
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -3986,7 +3987,7 @@ public class SMBondFields implements Serializable {
    * Get reinstatedDate
    * @return reinstatedDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -4020,7 +4021,7 @@ public class SMBondFields implements Serializable {
    * Get resetDelay
    * @return resetDelay
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -4054,7 +4055,7 @@ public class SMBondFields implements Serializable {
    * Get resetFreq
    * @return resetFreq
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -4088,7 +4089,7 @@ public class SMBondFields implements Serializable {
    * Get refIndex
    * @return refIndex
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -4122,7 +4123,7 @@ public class SMBondFields implements Serializable {
    * Get secondaryToVendorFlag
    * @return secondaryToVendorFlag
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -4156,7 +4157,7 @@ public class SMBondFields implements Serializable {
    * Get sector
    * @return sector
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -4190,7 +4191,7 @@ public class SMBondFields implements Serializable {
    * Get sectorBarclay1
    * @return sectorBarclay1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -4224,7 +4225,7 @@ public class SMBondFields implements Serializable {
    * Get sectorBarclay2
    * @return sectorBarclay2
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -4258,7 +4259,7 @@ public class SMBondFields implements Serializable {
    * Get sectorBarclay3
    * @return sectorBarclay3
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -4292,7 +4293,7 @@ public class SMBondFields implements Serializable {
    * Get sectorBarclay4
    * @return sectorBarclay4
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -4326,7 +4327,7 @@ public class SMBondFields implements Serializable {
    * Get sectorDef
    * @return sectorDef
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -4360,7 +4361,7 @@ public class SMBondFields implements Serializable {
    * Get sectorIndustry
    * @return sectorIndustry
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -4394,7 +4395,7 @@ public class SMBondFields implements Serializable {
    * Get sectorMain
    * @return sectorMain
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -4428,7 +4429,7 @@ public class SMBondFields implements Serializable {
    * Get sectorMerrill1
    * @return sectorMerrill1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -4462,7 +4463,7 @@ public class SMBondFields implements Serializable {
    * Get sectorMerrill2
    * @return sectorMerrill2
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -4496,7 +4497,7 @@ public class SMBondFields implements Serializable {
    * Get sectorMerrill3
    * @return sectorMerrill3
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -4530,7 +4531,7 @@ public class SMBondFields implements Serializable {
    * Get sectorMerrill4
    * @return sectorMerrill4
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -4564,7 +4565,7 @@ public class SMBondFields implements Serializable {
    * Get sectorSubGroup
    * @return sectorSubGroup
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -4610,7 +4611,7 @@ public class SMBondFields implements Serializable {
    * Get sinkAmts
    * @return sinkAmts
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -4656,7 +4657,7 @@ public class SMBondFields implements Serializable {
    * Get sinkDates
    * @return sinkDates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -4690,7 +4691,7 @@ public class SMBondFields implements Serializable {
    * Get spread
    * @return spread
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -4724,7 +4725,7 @@ public class SMBondFields implements Serializable {
    * Get state
    * @return state
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -4758,7 +4759,7 @@ public class SMBondFields implements Serializable {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -4804,7 +4805,7 @@ public class SMBondFields implements Serializable {
    * Get statusDates
    * @return statusDates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -4850,7 +4851,7 @@ public class SMBondFields implements Serializable {
    * Get statusValues
    * @return statusValues
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -4896,7 +4897,7 @@ public class SMBondFields implements Serializable {
    * Get stepCashRates
    * @return stepCashRates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -4942,7 +4943,7 @@ public class SMBondFields implements Serializable {
    * Get stepCouponDates
    * @return stepCouponDates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -4988,7 +4989,7 @@ public class SMBondFields implements Serializable {
    * Get stepCoupons
    * @return stepCoupons
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -5034,7 +5035,7 @@ public class SMBondFields implements Serializable {
    * Get stepPikRates
    * @return stepPikRates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -5068,7 +5069,7 @@ public class SMBondFields implements Serializable {
    * Get vendorCoverageDate
    * @return vendorCoverageDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -5102,7 +5103,7 @@ public class SMBondFields implements Serializable {
    * Get vRDNFlag
    * @return vRDNFlag
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -5136,7 +5137,7 @@ public class SMBondFields implements Serializable {
    * Get securityType
    * @return securityType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SECURITY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

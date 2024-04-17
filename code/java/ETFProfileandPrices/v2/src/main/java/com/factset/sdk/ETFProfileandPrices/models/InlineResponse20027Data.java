@@ -39,7 +39,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20027Data.JSON_PROPERTY_NAV,
   InlineResponse20027Data.JSON_PROPERTY_SHARES_OUTSTANDING
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20027Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -61,7 +62,7 @@ public class InlineResponse20027Data implements Serializable {
    * Get nav
    * @return nav
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NAV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -87,7 +88,7 @@ public class InlineResponse20027Data implements Serializable {
    * Get sharesOutstanding
    * @return sharesOutstanding
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SHARES_OUTSTANDING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -42,7 +42,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20051DataInterestRatePeriodic.JSON_PROPERTY_FIXED,
   InlineResponse20051DataInterestRatePeriodic.JSON_PROPERTY_AMOUNT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20051DataInterestRatePeriodic implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class InlineResponse20051DataInterestRatePeriodic implements Serializable
    * Fixed interest rate. For coupon periods different from one year, the value differs from the fixed annualized interest rate (see attribute &#x60;coupons.interestRate.annualized.fixed&#x60;).
    * @return fixed
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Fixed interest rate. For coupon periods different from one year, the value differs from the fixed annualized interest rate (see attribute `coupons.interestRate.annualized.fixed`).")
   @JsonIgnore
 
@@ -98,7 +99,7 @@ public class InlineResponse20051DataInterestRatePeriodic implements Serializable
    * Coupon amount corresponding to the fixed interest rate (see attribute &#x60;coupons.interestRate.periodic.fixed&#x60;). The attribute is available only for instruments with a declared nominal value, e.g. securitized derivatives.
    * @return amount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Coupon amount corresponding to the fixed interest rate (see attribute `coupons.interestRate.periodic.fixed`). The attribute is available only for instruments with a declared nominal value, e.g. securitized derivatives.")
   @JsonIgnore
 

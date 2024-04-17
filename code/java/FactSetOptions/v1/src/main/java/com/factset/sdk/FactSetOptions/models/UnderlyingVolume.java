@@ -52,7 +52,8 @@ import com.factset.sdk.FactSetOptions.JSON;
   UnderlyingVolume.JSON_PROPERTY_TOTAL_PUT_OPEN_INTEREST,
   UnderlyingVolume.JSON_PROPERTY_TOTAL_PUT_VOLUME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class UnderlyingVolume implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -101,7 +102,7 @@ public class UnderlyingVolume implements Serializable {
    * The date of data as of the YYYY-MM-DD format.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Fri May 14 00:00:00 UTC 2021", value = "The date of data as of the YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -135,7 +136,7 @@ public class UnderlyingVolume implements Serializable {
    * Option Exchange ISO. Visit [OA 14925](https://my.apps.factset.com/oa/pages/14925) for a list of Exchange ISOs.
    * @return exchange
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USA", value = "Option Exchange ISO. Visit [OA 14925](https://my.apps.factset.com/oa/pages/14925) for a list of Exchange ISOs.")
   @JsonIgnore
 
@@ -169,7 +170,7 @@ public class UnderlyingVolume implements Serializable {
    * FactSet&#39;s Security Permanent Identifier for input security in XXXXXX-S format.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "WWDPYB-S", value = "FactSet's Security Permanent Identifier for input security in XXXXXX-S format.")
   @JsonIgnore
 
@@ -203,7 +204,7 @@ public class UnderlyingVolume implements Serializable {
    * Put/Call Ratio (Open Interest)
    * @return putCallRatio
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1.0257621", value = "Put/Call Ratio (Open Interest)")
   @JsonIgnore
 
@@ -237,7 +238,7 @@ public class UnderlyingVolume implements Serializable {
    * The requested identifier submitted in the query.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "TSLA", value = "The requested identifier submitted in the query.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -263,7 +264,7 @@ public class UnderlyingVolume implements Serializable {
    * Total Call Open Interest
    * @return totalCallOpenInterest
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2753464", value = "Total Call Open Interest")
   @JsonIgnore
 
@@ -297,7 +298,7 @@ public class UnderlyingVolume implements Serializable {
    * Total Call Volume
    * @return totalCallVolume
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "946936", value = "Total Call Volume")
   @JsonIgnore
 
@@ -331,7 +332,7 @@ public class UnderlyingVolume implements Serializable {
    * Total Call/Put Open Interest
    * @return totalPutCallOpenInterest
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "5577863", value = "Total Call/Put Open Interest")
   @JsonIgnore
 
@@ -365,7 +366,7 @@ public class UnderlyingVolume implements Serializable {
    * Total Call/Put Volume
    * @return totalPutCallVolume
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1646616", value = "Total Call/Put Volume")
   @JsonIgnore
 
@@ -399,7 +400,7 @@ public class UnderlyingVolume implements Serializable {
    * Total Put Open Interest
    * @return totalPutOpenInterest
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2824399", value = "Total Put Open Interest")
   @JsonIgnore
 
@@ -433,7 +434,7 @@ public class UnderlyingVolume implements Serializable {
    * Total Put Volume
    * @return totalPutVolume
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "699680", value = "Total Put Volume")
   @JsonIgnore
 

@@ -37,7 +37,8 @@ import com.factset.sdk.FactSetSearchAnswers.JSON;
   ApplicationLink.JSON_PROPERTY_WORKSTATION_LINK,
   ApplicationLink.JSON_PROPERTY_WEB_LINK
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ApplicationLink implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -72,7 +73,7 @@ public class ApplicationLink implements Serializable {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -98,7 +99,7 @@ public class ApplicationLink implements Serializable {
    * Get workstationLink
    * @return workstationLink
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WORKSTATION_LINK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -124,7 +125,7 @@ public class ApplicationLink implements Serializable {
    * Get webLink
    * @return webLink
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_WEB_LINK)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

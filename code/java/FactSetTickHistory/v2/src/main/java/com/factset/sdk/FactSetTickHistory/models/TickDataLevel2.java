@@ -41,7 +41,8 @@ import com.factset.sdk.FactSetTickHistory.JSON;
   TickDataLevel2.JSON_PROPERTY_UPDATE_TIMESTAMP,
   TickDataLevel2.JSON_PROPERTY_LIST_OF_FILES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class TickDataLevel2 implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -69,7 +70,7 @@ public class TickDataLevel2 implements Serializable {
    * The status of the request
    * @return status
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The status of the request")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -95,7 +96,7 @@ public class TickDataLevel2 implements Serializable {
    * Timestamp of when request was made
    * @return requestTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Timestamp of when request was made")
   @JsonProperty(JSON_PROPERTY_REQUEST_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -121,7 +122,7 @@ public class TickDataLevel2 implements Serializable {
    * :\&quot;Timestamp when the file was last updated\&quot;
    * @return updateTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = ":\"Timestamp when the file was last updated\"")
   @JsonProperty(JSON_PROPERTY_UPDATE_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -155,7 +156,7 @@ public class TickDataLevel2 implements Serializable {
    * Data Object
    * @return listOfFiles
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Data Object")
   @JsonProperty(JSON_PROPERTY_LIST_OF_FILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

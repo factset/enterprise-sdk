@@ -58,7 +58,8 @@ import com.factset.sdk.OverviewReportBuilder.JSON;
   ProfileDataStage.JSON_PROPERTY_VC_TOTAL_EST_RAISED,
   ProfileDataStage.JSON_PROPERTY_CRUNCHBASE_RANK
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ProfileDataStage implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -139,7 +140,7 @@ public class ProfileDataStage implements Serializable {
    * Get exchangePrimary
    * @return exchangePrimary
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_EXCHANGE_PRIMARY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -165,7 +166,7 @@ public class ProfileDataStage implements Serializable {
    * Get tradeDateRange
    * @return tradeDateRange
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TRADE_DATE_RANGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -191,7 +192,7 @@ public class ProfileDataStage implements Serializable {
    * Get foundedYear
    * @return foundedYear
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_FOUNDED_YEAR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -217,7 +218,7 @@ public class ProfileDataStage implements Serializable {
    * Get pevcBacking
    * @return pevcBacking
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_PEVC_BACKING)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -243,7 +244,7 @@ public class ProfileDataStage implements Serializable {
    * Get pevcLatestPostMoneyValuation
    * @return pevcLatestPostMoneyValuation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PEVC_LATEST_POST_MONEY_VALUATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -269,7 +270,7 @@ public class ProfileDataStage implements Serializable {
    * Get peActiveFirmNumber
    * @return peActiveFirmNumber
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PE_ACTIVE_FIRM_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -295,7 +296,7 @@ public class ProfileDataStage implements Serializable {
    * Get peActiveInvestmentNumber
    * @return peActiveInvestmentNumber
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PE_ACTIVE_INVESTMENT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -321,7 +322,7 @@ public class ProfileDataStage implements Serializable {
    * Get peLastInvestmentDate
    * @return peLastInvestmentDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PE_LAST_INVESTMENT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -355,7 +356,7 @@ public class ProfileDataStage implements Serializable {
    * Get peActiveFirms
    * @return peActiveFirms
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PE_ACTIVE_FIRMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -381,7 +382,7 @@ public class ProfileDataStage implements Serializable {
    * Get peActiveAcqDate
    * @return peActiveAcqDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PE_ACTIVE_ACQ_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -407,7 +408,7 @@ public class ProfileDataStage implements Serializable {
    * Get peActiveAcqAmt
    * @return peActiveAcqAmt
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PE_ACTIVE_ACQ_AMT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -433,7 +434,7 @@ public class ProfileDataStage implements Serializable {
    * Get vcLastRound
    * @return vcLastRound
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VC_LAST_ROUND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -459,7 +460,7 @@ public class ProfileDataStage implements Serializable {
    * Get vcLastRoundAmt
    * @return vcLastRoundAmt
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VC_LAST_ROUND_AMT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -485,7 +486,7 @@ public class ProfileDataStage implements Serializable {
    * Get vcLastRoundInvestorNumber
    * @return vcLastRoundInvestorNumber
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VC_LAST_ROUND_INVESTOR_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -511,7 +512,7 @@ public class ProfileDataStage implements Serializable {
    * Get vcLastRoundDate
    * @return vcLastRoundDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VC_LAST_ROUND_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -537,7 +538,7 @@ public class ProfileDataStage implements Serializable {
    * Get vcTotalEstRaised
    * @return vcTotalEstRaised
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VC_TOTAL_EST_RAISED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -563,7 +564,7 @@ public class ProfileDataStage implements Serializable {
    * Get crunchbaseRank
    * @return crunchbaseRank
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CRUNCHBASE_RANK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

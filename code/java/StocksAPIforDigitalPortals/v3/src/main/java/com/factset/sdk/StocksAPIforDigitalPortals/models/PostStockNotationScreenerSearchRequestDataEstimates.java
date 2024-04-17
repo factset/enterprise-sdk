@@ -44,7 +44,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   PostStockNotationScreenerSearchRequestDataEstimates.JSON_PROPERTY_RETURN_ON_EQUITY,
   PostStockNotationScreenerSearchRequestDataEstimates.JSON_PROPERTY_RATIOS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostStockNotationScreenerSearchRequestDataEstimates implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -83,7 +84,7 @@ public class PostStockNotationScreenerSearchRequestDataEstimates implements Seri
    * Get fiscalYear
    * @return fiscalYear
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_FISCAL_YEAR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -109,7 +110,7 @@ public class PostStockNotationScreenerSearchRequestDataEstimates implements Seri
    * Get currencyDependentEstimates
    * @return currencyDependentEstimates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CURRENCY_DEPENDENT_ESTIMATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -135,7 +136,7 @@ public class PostStockNotationScreenerSearchRequestDataEstimates implements Seri
    * Get returnOnAssets
    * @return returnOnAssets
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RETURN_ON_ASSETS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -161,7 +162,7 @@ public class PostStockNotationScreenerSearchRequestDataEstimates implements Seri
    * Get returnOnEquity
    * @return returnOnEquity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RETURN_ON_EQUITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -187,7 +188,7 @@ public class PostStockNotationScreenerSearchRequestDataEstimates implements Seri
    * Get ratios
    * @return ratios
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RATIOS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

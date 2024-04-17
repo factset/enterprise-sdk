@@ -38,7 +38,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   PostCompanyEstimatesListByInstrumentRequestDataFiscalYears.JSON_PROPERTY_START,
   PostCompanyEstimatesListByInstrumentRequestDataFiscalYears.JSON_PROPERTY_END
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostCompanyEstimatesListByInstrumentRequestDataFiscalYears implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -60,7 +61,7 @@ public class PostCompanyEstimatesListByInstrumentRequestDataFiscalYears implemen
    * Only include data items for a fiscal year greater than or equal to the one specified. Must be greater than or equal to one year in the past. If omitted, the response includes data from one year in the past up to the year specified as &#x60;end&#x60;.
    * @return start
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Only include data items for a fiscal year greater than or equal to the one specified. Must be greater than or equal to one year in the past. If omitted, the response includes data from one year in the past up to the year specified as `end`.")
   @JsonProperty(JSON_PROPERTY_START)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,7 +87,7 @@ public class PostCompanyEstimatesListByInstrumentRequestDataFiscalYears implemen
    * Only include data items for a fiscal year earlier than or equal to the one specified. Must be less than or equal to three years in the future. If omitted, the response includes data from the year specified as &#x60;start&#x60; up to three years in the future.
    * @return end
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Only include data items for a fiscal year earlier than or equal to the one specified. Must be less than or equal to three years in the future. If omitted, the response includes data from the year specified as `start` up to three years in the future.")
   @JsonProperty(JSON_PROPERTY_END)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

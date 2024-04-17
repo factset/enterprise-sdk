@@ -36,7 +36,8 @@ import com.factset.sdk.CapitalStructureReportBuilder.JSON;
 @JsonPropertyOrder({
   InterimStatus.JSON_PROPERTY_INTERIM_STATUS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InterimStatus implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -55,7 +56,7 @@ public class InterimStatus implements Serializable {
    * Get interimStatus
    * @return interimStatus
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INTERIM_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

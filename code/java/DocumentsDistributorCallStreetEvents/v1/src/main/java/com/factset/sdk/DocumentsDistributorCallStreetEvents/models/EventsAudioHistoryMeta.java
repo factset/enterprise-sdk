@@ -38,7 +38,8 @@ import com.factset.sdk.DocumentsDistributorCallStreetEvents.JSON;
   EventsAudioHistoryMeta.JSON_PROPERTY_PAGINATION,
   EventsAudioHistoryMeta.JSON_PROPERTY_PARTIAL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EventsAudioHistoryMeta implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -60,7 +61,7 @@ public class EventsAudioHistoryMeta implements Serializable {
    * Get pagination
    * @return pagination
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAGINATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,7 +87,7 @@ public class EventsAudioHistoryMeta implements Serializable {
    * Get partial
    * @return partial
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PARTIAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

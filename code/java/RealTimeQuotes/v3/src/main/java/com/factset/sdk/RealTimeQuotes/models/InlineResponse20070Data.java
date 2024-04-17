@@ -38,7 +38,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20070Data.JSON_PROPERTY_DATASET,
   InlineResponse20070Data.JSON_PROPERTY_CATEGORIES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20070Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -60,7 +61,7 @@ public class InlineResponse20070Data implements Serializable {
    * Get dataset
    * @return dataset
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATASET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -94,7 +95,7 @@ public class InlineResponse20070Data implements Serializable {
    * List of categories covering the full path (without gaps) from the most coarse granularity to the most detailed.
    * @return categories
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of categories covering the full path (without gaps) from the most coarse granularity to the most detailed.")
   @JsonProperty(JSON_PROPERTY_CATEGORIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

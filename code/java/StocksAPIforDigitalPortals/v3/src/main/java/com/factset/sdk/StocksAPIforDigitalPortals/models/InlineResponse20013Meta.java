@@ -41,7 +41,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20013Meta.JSON_PROPERTY_PAGINATION,
   InlineResponse20013Meta.JSON_PROPERTY_PARTIAL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20013Meta implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -66,7 +67,7 @@ public class InlineResponse20013Meta implements Serializable {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -92,7 +93,7 @@ public class InlineResponse20013Meta implements Serializable {
    * Get pagination
    * @return pagination
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAGINATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -118,7 +119,7 @@ public class InlineResponse20013Meta implements Serializable {
    * Get partial
    * @return partial
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PARTIAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

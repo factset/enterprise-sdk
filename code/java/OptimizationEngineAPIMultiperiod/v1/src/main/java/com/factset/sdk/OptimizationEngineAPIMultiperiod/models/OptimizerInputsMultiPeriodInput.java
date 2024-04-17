@@ -45,7 +45,8 @@ import com.factset.sdk.OptimizationEngineAPIMultiperiod.JSON;
   OptimizerInputsMultiPeriodInput.JSON_PROPERTY_LOOKUP_TABLES,
   OptimizerInputsMultiPeriodInput.JSON_PROPERTY_OUTPUT_STATISTICS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerInputsMultiPeriodInput implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -79,7 +80,7 @@ public class OptimizerInputsMultiPeriodInput implements Serializable {
    * Get strategy
    * @return strategy
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STRATEGY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -105,7 +106,7 @@ public class OptimizerInputsMultiPeriodInput implements Serializable {
    * Get universe
    * @return universe
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_UNIVERSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -131,7 +132,7 @@ public class OptimizerInputsMultiPeriodInput implements Serializable {
    * Get portfolios
    * @return portfolios
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PORTFOLIOS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -157,7 +158,7 @@ public class OptimizerInputsMultiPeriodInput implements Serializable {
    * Get riskmodels
    * @return riskmodels
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RISKMODELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -183,7 +184,7 @@ public class OptimizerInputsMultiPeriodInput implements Serializable {
    * Get lookupTables
    * @return lookupTables
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LOOKUP_TABLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -209,7 +210,7 @@ public class OptimizerInputsMultiPeriodInput implements Serializable {
    * Get outputStatistics
    * @return outputStatistics
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OUTPUT_STATISTICS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

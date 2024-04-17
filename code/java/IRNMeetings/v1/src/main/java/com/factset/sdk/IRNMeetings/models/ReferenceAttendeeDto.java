@@ -39,7 +39,8 @@ import com.factset.sdk.IRNMeetings.JSON;
 @JsonPropertyOrder({
   ReferenceAttendeeDto.JSON_PROPERTY_EMAIL_ADDRESS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ReferenceAttendeeDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -58,7 +59,7 @@ public class ReferenceAttendeeDto implements Serializable {
    * Get emailAddress
    * @return emailAddress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

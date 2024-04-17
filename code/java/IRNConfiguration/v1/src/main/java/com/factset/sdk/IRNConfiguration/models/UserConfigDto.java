@@ -46,7 +46,8 @@ import com.factset.sdk.IRNConfiguration.JSON;
   UserConfigDto.JSON_PROPERTY_EMAIL_ADDRESS,
   UserConfigDto.JSON_PROPERTY_TEAM
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class UserConfigDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -83,7 +84,7 @@ public class UserConfigDto implements Serializable {
    * Get id
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -109,7 +110,7 @@ public class UserConfigDto implements Serializable {
    * Get userName
    * @return userName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -143,7 +144,7 @@ public class UserConfigDto implements Serializable {
    * Get serialNumber
    * @return serialNumber
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -177,7 +178,7 @@ public class UserConfigDto implements Serializable {
    * Get firstName
    * @return firstName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -211,7 +212,7 @@ public class UserConfigDto implements Serializable {
    * Get lastName
    * @return lastName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -245,7 +246,7 @@ public class UserConfigDto implements Serializable {
    * Get emailAddress
    * @return emailAddress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -279,7 +280,7 @@ public class UserConfigDto implements Serializable {
    * Get team
    * @return team
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TEAM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

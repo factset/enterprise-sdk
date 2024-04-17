@@ -63,7 +63,8 @@ import com.factset.sdk.FactSetEntity.JSON;
   EntityReference.JSON_PROPERTY_WEBSITE_I_R,
   EntityReference.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EntityReference implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -151,7 +152,7 @@ public class EntityReference implements Serializable {
    * Unique FactSet-generated identifier representing an entity for the current entity identifier (-E)
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "001MF1-E", value = "Unique FactSet-generated identifier representing an entity for the current entity identifier (-E)")
   @JsonIgnore
 
@@ -185,7 +186,7 @@ public class EntityReference implements Serializable {
    * Name that the entity is commonly referred to as, normalized and in proper case.
    * @return entityProperName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Amazon.com, Inc.", value = "Name that the entity is commonly referred to as, normalized and in proper case.")
   @JsonIgnore
 
@@ -219,7 +220,7 @@ public class EntityReference implements Serializable {
    * Unique FactSet-generated identifier representing an entity
    * @return fsymEntityId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "001MF1-E", value = "Unique FactSet-generated identifier representing an entity")
   @JsonIgnore
 
@@ -253,7 +254,7 @@ public class EntityReference implements Serializable {
    * The ultimate parent id of the entity.
    * @return ultimateParentId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "001MF1-E", value = "The ultimate parent id of the entity.")
   @JsonIgnore
 
@@ -287,7 +288,7 @@ public class EntityReference implements Serializable {
    * Name that the ultimate parent entity is commonly referred to as, normalized and in proper case.\&quot;
    * @return ultimateParentName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Amazon.com, Inc.", value = "Name that the ultimate parent entity is commonly referred to as, normalized and in proper case.\"")
   @JsonIgnore
 
@@ -321,7 +322,7 @@ public class EntityReference implements Serializable {
    * The credit parent id in which issues debt instruments. The credit parent differs from the ultimate parent if the ultimate parent does not inherit the credit risk associated with an issuer&#39;s debt offerings. Credit Parent&#39;s are not Assigned to the Extinct Issues, Governments, Asset-Backed Securities, Trusts, Foundations, Private Equity, Venture Capital, Hedge Funds, or Mutual Funds. FactSet assigns credit parents based on the following methodology - * If an issuer (entity A) is considered a direct subsidiary of another entity (entity B), where the parent entity (entity B) has a 100% controlling interest in the issuer (entity A), then the parent entity (entity B) is considered the credit parent. * If an operating business is purchased as a portfolio company/operating company (entity A) by a group of private equity firms that establish a holding company (entity B) structure to reflect the collective ownership, and the portfolio company/operating company (entity A) issues debt as part of acquisition financing, then the portfolio company/operating company (entity A) is deemed to be the credit parent, not the holding company (entity B). * An issuer must have active debt. 
    * @return creditParentId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "001MF1-E", value = "The credit parent id in which issues debt instruments. The credit parent differs from the ultimate parent if the ultimate parent does not inherit the credit risk associated with an issuer's debt offerings. Credit Parent's are not Assigned to the Extinct Issues, Governments, Asset-Backed Securities, Trusts, Foundations, Private Equity, Venture Capital, Hedge Funds, or Mutual Funds. FactSet assigns credit parents based on the following methodology - * If an issuer (entity A) is considered a direct subsidiary of another entity (entity B), where the parent entity (entity B) has a 100% controlling interest in the issuer (entity A), then the parent entity (entity B) is considered the credit parent. * If an operating business is purchased as a portfolio company/operating company (entity A) by a group of private equity firms that establish a holding company (entity B) structure to reflect the collective ownership, and the portfolio company/operating company (entity A) issues debt as part of acquisition financing, then the portfolio company/operating company (entity A) is deemed to be the credit parent, not the holding company (entity B). * An issuer must have active debt. ")
   @JsonIgnore
 
@@ -355,7 +356,7 @@ public class EntityReference implements Serializable {
    * The regional parent equity listing id.
    * @return parentEquityId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "MCNYYL-R", value = "The regional parent equity listing id.")
   @JsonIgnore
 
@@ -389,7 +390,7 @@ public class EntityReference implements Serializable {
    * Returns 1 if the entity is a Private Company, otherwise, 0.
    * @return privateEntityFlag
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0", value = "Returns 1 if the entity is a Private Company, otherwise, 0.")
   @JsonIgnore
 
@@ -423,7 +424,7 @@ public class EntityReference implements Serializable {
    * Returns 1 if the entity is a Public Company, otherwise, 0.
    * @return publicEntityFlag
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "Returns 1 if the entity is a Public Company, otherwise, 0.")
   @JsonIgnore
 
@@ -457,7 +458,7 @@ public class EntityReference implements Serializable {
    * Security type of the identifier, For descriptions of the each security type, visit [OA 15776](https://my.apps.factset.com/oa/pages/15776)
    * @return securityType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "SHARE", value = "Security type of the identifier, For descriptions of the each security type, visit [OA 15776](https://my.apps.factset.com/oa/pages/15776)")
   @JsonIgnore
 
@@ -491,7 +492,7 @@ public class EntityReference implements Serializable {
    * Web page address for the entity
    * @return website
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "http://www.amazon.com", value = "Web page address for the entity")
   @JsonIgnore
 
@@ -525,7 +526,7 @@ public class EntityReference implements Serializable {
    * Year the entity was incorporated in YYYY-MM-DD format.
    * @return incorporationDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Tue May 28 00:00:00 UTC 1996", value = "Year the entity was incorporated in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -559,7 +560,7 @@ public class EntityReference implements Serializable {
    * Entity&#39;s Country of Risk. FactSet has a determined methodology for assigning a country of risk to public and private entities, based on the following - * Country of Headquarters * Country of Incorporation * Country of Primary Exchange (the country where most liquid equity listings trade) 
    * @return countryOfRisk
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "US", value = "Entity's Country of Risk. FactSet has a determined methodology for assigning a country of risk to public and private entities, based on the following - * Country of Headquarters * Country of Incorporation * Country of Primary Exchange (the country where most liquid equity listings trade) ")
   @JsonIgnore
 
@@ -593,7 +594,7 @@ public class EntityReference implements Serializable {
    * ISO Country code where the entity is incorporated
    * @return incorporationCountry
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "US", value = "ISO Country code where the entity is incorporated")
   @JsonIgnore
 
@@ -627,7 +628,7 @@ public class EntityReference implements Serializable {
    * Extended business description for the requested entity.
    * @return businessDescription
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Amazon.com, Inc. engages in the provision of Online retail shopping services. It operates through the following business segments: North America, International, and Amazon Web Services (AWS). The North America segment includes retail sales of consumer products and subscriptions through North America-focused websites such as www.amazon.com and www.amazon.ca. The International segment offers retail sales of consumer products and subscriptions through internationally-focused websites. The Amazon Web Services segment involves in the global sales of compute, storage, database, and AWS service offerings for start-ups, enterprises, government agencies, and academic institutions. The company was founded by Jeffrey P. Bezos in July 1994 and is headquartered in Seattle, WA.", value = "Extended business description for the requested entity.")
   @JsonIgnore
 
@@ -661,7 +662,7 @@ public class EntityReference implements Serializable {
    * The entity&#39;s international phone number.
    * @return phone
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "+1.206.266.1000", value = "The entity's international phone number.")
   @JsonIgnore
 
@@ -695,7 +696,7 @@ public class EntityReference implements Serializable {
    * The entity&#39;s headquarters street address.
    * @return headquartersStreet
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "410 Terry Avenue North", value = "The entity's headquarters street address.")
   @JsonIgnore
 
@@ -729,7 +730,7 @@ public class EntityReference implements Serializable {
    * The entity&#39;s headquarters street address.
    * @return headquartersCity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Seattle", value = "The entity's headquarters street address.")
   @JsonIgnore
 
@@ -763,7 +764,7 @@ public class EntityReference implements Serializable {
    * Abbreviated State of company headquarters.
    * @return headquartersState
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "WA", value = "Abbreviated State of company headquarters.")
   @JsonIgnore
 
@@ -797,7 +798,7 @@ public class EntityReference implements Serializable {
    * Zip/Postal Code for entity&#39;s headquarters.
    * @return headquartersZip
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "98109-5210", value = "Zip/Postal Code for entity's headquarters.")
   @JsonIgnore
 
@@ -831,7 +832,7 @@ public class EntityReference implements Serializable {
    * Abbreviated (ISO) Country of headquarters.
    * @return headquartersCountry
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "US", value = "Abbreviated (ISO) Country of headquarters.")
   @JsonIgnore
 
@@ -865,7 +866,7 @@ public class EntityReference implements Serializable {
    * Email Address of the Investor Relations Contact
    * @return emailIR
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "amazon-ir@amazon.com", value = "Email Address of the Investor Relations Contact")
   @JsonIgnore
 
@@ -899,7 +900,7 @@ public class EntityReference implements Serializable {
    * Website or Page for the Entity&#39;s Investor Relations team.
    * @return websiteIR
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "https://ir.aboutamazon.com/overview/default.aspx", value = "Website or Page for the Entity's Investor Relations team.")
   @JsonIgnore
 
@@ -933,7 +934,7 @@ public class EntityReference implements Serializable {
    * Identifier used in \&quot;ids\&quot; parameter.  When list of identifiers used, they will be parsed and resolved individually.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "AMZN-US", value = "Identifier used in \"ids\" parameter.  When list of identifiers used, they will be parsed and resolved individually.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

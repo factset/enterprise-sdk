@@ -101,7 +101,8 @@ import com.factset.sdk.OverviewReportBuilder.JSON;
   KeyStatsEntityObject.JSON_PROPERTY_NET_INTEREST_INCOME,
   KeyStatsEntityObject.JSON_PROPERTY_META
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class KeyStatsEntityObject implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -216,7 +217,7 @@ public class KeyStatsEntityObject implements Serializable {
    * Get range52Week
    * @return range52Week
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RANGE52_WEEK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -242,7 +243,7 @@ public class KeyStatsEntityObject implements Serializable {
    * Get averageDailyVol
    * @return averageDailyVol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AVERAGE_DAILY_VOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -268,7 +269,7 @@ public class KeyStatsEntityObject implements Serializable {
    * Get basicShares
    * @return basicShares
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BASIC_SHARES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -294,7 +295,7 @@ public class KeyStatsEntityObject implements Serializable {
    * Get marketCap
    * @return marketCap
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MARKET_CAP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -320,7 +321,7 @@ public class KeyStatsEntityObject implements Serializable {
    * Get dividendYield
    * @return dividendYield
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DIVIDEND_YIELD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -346,7 +347,7 @@ public class KeyStatsEntityObject implements Serializable {
    * Get firstDate
    * @return firstDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FIRST_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -372,7 +373,7 @@ public class KeyStatsEntityObject implements Serializable {
    * Get dilutedShares
    * @return dilutedShares
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DILUTED_SHARES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -398,7 +399,7 @@ public class KeyStatsEntityObject implements Serializable {
    * Get dilutedMarketCap
    * @return dilutedMarketCap
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DILUTED_MARKET_CAP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -424,7 +425,7 @@ public class KeyStatsEntityObject implements Serializable {
    * Get enterpriseValue
    * @return enterpriseValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ENTERPRISE_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -450,7 +451,7 @@ public class KeyStatsEntityObject implements Serializable {
    * Get wacc
    * @return wacc
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WACC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -476,7 +477,7 @@ public class KeyStatsEntityObject implements Serializable {
    * Get _float
    * @return _float
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FLOAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -502,7 +503,7 @@ public class KeyStatsEntityObject implements Serializable {
    * Get institutional
    * @return institutional
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INSTITUTIONAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -528,7 +529,7 @@ public class KeyStatsEntityObject implements Serializable {
    * Get top10InstitutionalHolders
    * @return top10InstitutionalHolders
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TOP10_INSTITUTIONAL_HOLDERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -554,7 +555,7 @@ public class KeyStatsEntityObject implements Serializable {
    * Get brokerContributors
    * @return brokerContributors
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BROKER_CONTRIBUTORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -580,7 +581,7 @@ public class KeyStatsEntityObject implements Serializable {
    * Get averageRating
    * @return averageRating
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AVERAGE_RATING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -606,7 +607,7 @@ public class KeyStatsEntityObject implements Serializable {
    * Get targetPrice
    * @return targetPrice
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TARGET_PRICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -632,7 +633,7 @@ public class KeyStatsEntityObject implements Serializable {
    * Get ltGrowthRate
    * @return ltGrowthRate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LT_GROWTH_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -658,7 +659,7 @@ public class KeyStatsEntityObject implements Serializable {
    * Get revenue
    * @return revenue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REVENUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -684,7 +685,7 @@ public class KeyStatsEntityObject implements Serializable {
    * Get employees
    * @return employees
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EMPLOYEES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -710,7 +711,7 @@ public class KeyStatsEntityObject implements Serializable {
    * Get fundingRounds
    * @return fundingRounds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FUNDING_ROUNDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -736,7 +737,7 @@ public class KeyStatsEntityObject implements Serializable {
    * Get estimatedVcRaised
    * @return estimatedVcRaised
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ESTIMATED_VC_RAISED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -762,7 +763,7 @@ public class KeyStatsEntityObject implements Serializable {
    * Get lastFunding
    * @return lastFunding
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LAST_FUNDING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -788,7 +789,7 @@ public class KeyStatsEntityObject implements Serializable {
    * Get firstFunding
    * @return firstFunding
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FIRST_FUNDING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -814,7 +815,7 @@ public class KeyStatsEntityObject implements Serializable {
    * Get latestPostMoneyValuation
    * @return latestPostMoneyValuation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LATEST_POST_MONEY_VALUATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -840,7 +841,7 @@ public class KeyStatsEntityObject implements Serializable {
    * Get activeInvestors
    * @return activeInvestors
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ACTIVE_INVESTORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -866,7 +867,7 @@ public class KeyStatsEntityObject implements Serializable {
    * Get totalInvestors
    * @return totalInvestors
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TOTAL_INVESTORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -892,7 +893,7 @@ public class KeyStatsEntityObject implements Serializable {
    * Get premiums
    * @return premiums
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PREMIUMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -918,7 +919,7 @@ public class KeyStatsEntityObject implements Serializable {
    * Get grossPremiums
    * @return grossPremiums
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_GROSS_PREMIUMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -944,7 +945,7 @@ public class KeyStatsEntityObject implements Serializable {
    * Get grossAssets
    * @return grossAssets
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_GROSS_ASSETS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -970,7 +971,7 @@ public class KeyStatsEntityObject implements Serializable {
    * Get totalDeposits
    * @return totalDeposits
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TOTAL_DEPOSITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -996,7 +997,7 @@ public class KeyStatsEntityObject implements Serializable {
    * Get branches
    * @return branches
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BRANCHES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1022,7 +1023,7 @@ public class KeyStatsEntityObject implements Serializable {
    * Get netInterestIncome
    * @return netInterestIncome
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NET_INTEREST_INCOME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1048,7 +1049,7 @@ public class KeyStatsEntityObject implements Serializable {
    * Get meta
    * @return meta
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

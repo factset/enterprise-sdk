@@ -46,7 +46,8 @@ import com.factset.sdk.RealTimeTimeSeries.JSON;
   InlineResponse2002Data.JSON_PROPERTY_QUALITY,
   InlineResponse2002Data.JSON_PROPERTY_SUBSAMPLES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2002Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -112,7 +113,7 @@ public class InlineResponse2002Data implements Serializable {
    * MDG identifier of the listing.
    * @return idNotation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "MDG identifier of the listing.")
   @JsonIgnore
 
@@ -146,7 +147,7 @@ public class InlineResponse2002Data implements Serializable {
    * Identifier used in the request.
    * @return sourceIdentifier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier used in the request.")
   @JsonIgnore
 
@@ -180,7 +181,7 @@ public class InlineResponse2002Data implements Serializable {
    * Get range
    * @return range
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -214,7 +215,7 @@ public class InlineResponse2002Data implements Serializable {
    * Quality of the price.
    * @return quality
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Quality of the price.")
   @JsonIgnore
 
@@ -256,7 +257,7 @@ public class InlineResponse2002Data implements Serializable {
    * List of summary records as an array of arrays. One record is represented as an array and consists of a timestamp, four price values, and the trading volume. For the unit of the price values, see attribute &#x60;valueUnit&#x60; in endpoint &#x60;/prices/get&#x60;, except for price type yield, where the &#x60;valueUnit&#x60; is always &#x60;percent&#x60; (id&#x3D;258). The order is as follows: timestamp of the start of the subsample (seconds since epoch in UTC); first price of the subsample; highest price of the subsample; lowest price of the subsample; last price of the subsample; accumulated number of units (e.g. shares) traded of the subsample. If the requested type of the price is ask, bid, or yield, the accumulated number of units is empty.
    * @return subsamples
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of summary records as an array of arrays. One record is represented as an array and consists of a timestamp, four price values, and the trading volume. For the unit of the price values, see attribute `valueUnit` in endpoint `/prices/get`, except for price type yield, where the `valueUnit` is always `percent` (id=258). The order is as follows: timestamp of the start of the subsample (seconds since epoch in UTC); first price of the subsample; highest price of the subsample; lowest price of the subsample; last price of the subsample; accumulated number of units (e.g. shares) traded of the subsample. If the requested type of the price is ask, bid, or yield, the accumulated number of units is empty.")
   @JsonProperty(JSON_PROPERTY_SUBSAMPLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

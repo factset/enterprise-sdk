@@ -42,7 +42,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20039DataType.JSON_PROPERTY_ID,
   InlineResponse20039DataType.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20039DataType implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class InlineResponse20039DataType implements Serializable {
    * Identifier of the type of the category system.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the type of the category system.")
   @JsonIgnore
 
@@ -98,7 +99,7 @@ public class InlineResponse20039DataType implements Serializable {
    * Name of the type of the category system.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the type of the category system.")
   @JsonIgnore
 

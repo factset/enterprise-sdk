@@ -37,7 +37,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
 @JsonPropertyOrder({
   PostStockNotationScreenerSearchRequestDataComplianceFrance.JSON_PROPERTY_OR
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostStockNotationScreenerSearchRequestDataComplianceFrance implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class PostStockNotationScreenerSearchRequestDataComplianceFrance implemen
    * List of conditions representing a combination of compliance properties joined by a logical OR operator.
    * @return or
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of conditions representing a combination of compliance properties joined by a logical OR operator.")
   @JsonProperty(JSON_PROPERTY_OR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

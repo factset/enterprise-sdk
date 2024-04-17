@@ -43,7 +43,8 @@ import com.factset.sdk.QuantEngine.JSON;
   QuantScreeningExpression.JSON_PROPERTY_DATE_OFFSET,
   QuantScreeningExpression.JSON_PROPERTY_SOURCE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class QuantScreeningExpression implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -122,7 +123,7 @@ public class QuantScreeningExpression implements Serializable {
    * Get expr
    * @return expr
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_EXPR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -148,7 +149,7 @@ public class QuantScreeningExpression implements Serializable {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -174,7 +175,7 @@ public class QuantScreeningExpression implements Serializable {
    * Get dateOffset
    * @return dateOffset
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -208,7 +209,7 @@ public class QuantScreeningExpression implements Serializable {
    * Get source
    * @return source
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SOURCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

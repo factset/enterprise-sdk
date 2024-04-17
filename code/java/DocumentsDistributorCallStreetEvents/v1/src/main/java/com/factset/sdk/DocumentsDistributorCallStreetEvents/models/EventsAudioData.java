@@ -56,7 +56,8 @@ import com.factset.sdk.DocumentsDistributorCallStreetEvents.JSON;
   EventsAudioData.JSON_PROPERTY_BITRATE,
   EventsAudioData.JSON_PROPERTY_AUDIO_SOURCE_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EventsAudioData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -123,7 +124,7 @@ public class EventsAudioData implements Serializable {
    * Download link for the audio file.
    * @return url
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Download link for the audio file.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -149,7 +150,7 @@ public class EventsAudioData implements Serializable {
    * The filename of the audio file.
    * @return fileName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The filename of the audio file.")
   @JsonProperty(JSON_PROPERTY_FILE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -175,7 +176,7 @@ public class EventsAudioData implements Serializable {
    * Total duration of the recording in seconds based on startOffsetSeconds to endOffsetSeconds.
    * @return durationSecs
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Total duration of the recording in seconds based on startOffsetSeconds to endOffsetSeconds.")
   @JsonIgnore
 
@@ -209,7 +210,7 @@ public class EventsAudioData implements Serializable {
    * The delta in seconds between startTime to when FactSet marks the end of the call.
    * @return endOffsetSeconds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The delta in seconds between startTime to when FactSet marks the end of the call.")
   @JsonIgnore
 
@@ -243,7 +244,7 @@ public class EventsAudioData implements Serializable {
    * The delta in seconds between start of audio file to when FactSet marks the beginning of the call.
    * @return startOffsetSeconds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The delta in seconds between start of audio file to when FactSet marks the beginning of the call.")
   @JsonIgnore
 
@@ -277,7 +278,7 @@ public class EventsAudioData implements Serializable {
    * Identifies the method of how the event is recorded Below are the descriptions for each Source Code - * P &#x3D; Phone * W &#x3D; Webcast * V &#x3D; Vendor * I &#x3D; Webcast Replay * F &#x3D; Flash - identical to webcast; can merge with \&quot;W\&quot; in the future * R &#x3D; Replay (Phone Replay)
    * @return sourceCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifies the method of how the event is recorded Below are the descriptions for each Source Code - * P = Phone * W = Webcast * V = Vendor * I = Webcast Replay * F = Flash - identical to webcast; can merge with \"W\" in the future * R = Replay (Phone Replay)")
   @JsonProperty(JSON_PROPERTY_SOURCE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -303,7 +304,7 @@ public class EventsAudioData implements Serializable {
    * The official timestamp when FactSet begins the recording.  Note:- All the vendor and trimmed files would have default 1900-0101T00:00:00Z time stamp.
    * @return startTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The official timestamp when FactSet begins the recording.  Note:- All the vendor and trimmed files would have default 1900-0101T00:00:00Z time stamp.")
   @JsonIgnore
 
@@ -337,7 +338,7 @@ public class EventsAudioData implements Serializable {
    * The official timestamp when FactSet ends the recording.  Note:- All the vendor and trimmed files would have default 1900-0101T00:00:00Z time stamp.
    * @return endTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The official timestamp when FactSet ends the recording.  Note:- All the vendor and trimmed files would have default 1900-0101T00:00:00Z time stamp.")
   @JsonIgnore
 
@@ -371,7 +372,7 @@ public class EventsAudioData implements Serializable {
    * The official timestamp when FactSet publishes the audio file externally.
    * @return uploadTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The official timestamp when FactSet publishes the audio file externally.")
   @JsonIgnore
 
@@ -405,7 +406,7 @@ public class EventsAudioData implements Serializable {
    * Size of the Audio file, in bytes.
    * @return fileSize
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Size of the Audio file, in bytes.")
   @JsonProperty(JSON_PROPERTY_FILE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -431,7 +432,7 @@ public class EventsAudioData implements Serializable {
    * The unique ID of the audio file for an event. The same ID is used for the transcript of the same event. This report ID can also be used to map to the Event details in SDF tables.
    * @return reportId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The unique ID of the audio file for an event. The same ID is used for the transcript of the same event. This report ID can also be used to map to the Event details in SDF tables.")
   @JsonProperty(JSON_PROPERTY_REPORT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -457,7 +458,7 @@ public class EventsAudioData implements Serializable {
    * Ticker-region identifier for the company hosting the event.  Note:- This field can have N/A value when the company is a private(non-equity company)
    * @return ticker
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Ticker-region identifier for the company hosting the event.  Note:- This field can have N/A value when the company is a private(non-equity company)")
   @JsonIgnore
 
@@ -491,7 +492,7 @@ public class EventsAudioData implements Serializable {
    * Factset entity level identifier for the company hosting the event.
    * @return entityId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Factset entity level identifier for the company hosting the event.")
   @JsonProperty(JSON_PROPERTY_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -517,7 +518,7 @@ public class EventsAudioData implements Serializable {
    * The trimmed attribute helps identify if the audio is the trimmed version. Note:- All the vendor generated files are trimmed regardless of the ‘trimmed’ attribute value in the response.
    * @return trimmed
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The trimmed attribute helps identify if the audio is the trimmed version. Note:- All the vendor generated files are trimmed regardless of the ‘trimmed’ attribute value in the response.")
   @JsonProperty(JSON_PROPERTY_TRIMMED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -543,7 +544,7 @@ public class EventsAudioData implements Serializable {
    * The number of samples of audio carried per second in Kbps.  Note:- The field can have value as -1 for the audio files without sampleRate metadata
    * @return sampleRate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The number of samples of audio carried per second in Kbps.  Note:- The field can have value as -1 for the audio files without sampleRate metadata")
   @JsonIgnore
 
@@ -577,7 +578,7 @@ public class EventsAudioData implements Serializable {
    * The total number of bits of information stored per second of sound in Kbps.  Note:- The field can have value as -1 for the audio files without bitrate metadata
    * @return bitrate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The total number of bits of information stored per second of sound in Kbps.  Note:- The field can have value as -1 for the audio files without bitrate metadata")
   @JsonIgnore
 
@@ -611,7 +612,7 @@ public class EventsAudioData implements Serializable {
    * Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (Phone or Webcast or Vendor or Replay). One ReportID can have multiple AudioSourceIDs.  The audioSourceId identifier is available for audio calls since November 29, 2022. Note:- Only un-trimmed audio files contain an audioSourceId value. All the vendor and trimmed audio files will have an audioSourceId value of null.
    * @return audioSourceId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (Phone or Webcast or Vendor or Replay). One ReportID can have multiple AudioSourceIDs.  The audioSourceId identifier is available for audio calls since November 29, 2022. Note:- Only un-trimmed audio files contain an audioSourceId value. All the vendor and trimmed audio files will have an audioSourceId value of null.")
   @JsonIgnore
 

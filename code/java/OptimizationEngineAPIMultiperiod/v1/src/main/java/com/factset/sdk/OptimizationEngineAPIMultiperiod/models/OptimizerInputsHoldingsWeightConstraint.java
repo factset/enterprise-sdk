@@ -56,7 +56,8 @@ import com.factset.sdk.OptimizationEngineAPIMultiperiod.JSON;
   OptimizerInputsHoldingsWeightConstraint.JSON_PROPERTY_HIERARCHY,
   OptimizerInputsHoldingsWeightConstraint.JSON_PROPERTY_APPLY_ONLY_TO_DIRECT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerInputsHoldingsWeightConstraint implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -114,7 +115,7 @@ public class OptimizerInputsHoldingsWeightConstraint implements Serializable {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -140,7 +141,7 @@ public class OptimizerInputsHoldingsWeightConstraint implements Serializable {
    * Get customAsset
    * @return customAsset
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CUSTOM_ASSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -166,7 +167,7 @@ public class OptimizerInputsHoldingsWeightConstraint implements Serializable {
    * Get min
    * @return min
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -192,7 +193,7 @@ public class OptimizerInputsHoldingsWeightConstraint implements Serializable {
    * Get max
    * @return max
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -218,7 +219,7 @@ public class OptimizerInputsHoldingsWeightConstraint implements Serializable {
    * Get penalty
    * @return penalty
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PENALTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -252,7 +253,7 @@ public class OptimizerInputsHoldingsWeightConstraint implements Serializable {
    * Get groups
    * @return groups
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -278,7 +279,7 @@ public class OptimizerInputsHoldingsWeightConstraint implements Serializable {
    * Get unit
    * @return unit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -304,7 +305,7 @@ public class OptimizerInputsHoldingsWeightConstraint implements Serializable {
    * Get weightType
    * @return weightType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WEIGHT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -330,7 +331,7 @@ public class OptimizerInputsHoldingsWeightConstraint implements Serializable {
    * Get level
    * @return level
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -356,7 +357,7 @@ public class OptimizerInputsHoldingsWeightConstraint implements Serializable {
    * Get assetType
    * @return assetType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ASSET_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -382,7 +383,7 @@ public class OptimizerInputsHoldingsWeightConstraint implements Serializable {
    * Get relToBenchmark
    * @return relToBenchmark
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REL_TO_BENCHMARK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -408,7 +409,7 @@ public class OptimizerInputsHoldingsWeightConstraint implements Serializable {
    * Get benchmarkIndex
    * @return benchmarkIndex
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BENCHMARK_INDEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -434,7 +435,7 @@ public class OptimizerInputsHoldingsWeightConstraint implements Serializable {
    * Get hierarchy
    * @return hierarchy
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_HIERARCHY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -460,7 +461,7 @@ public class OptimizerInputsHoldingsWeightConstraint implements Serializable {
    * Get applyOnlyToDirect
    * @return applyOnlyToDirect
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_APPLY_ONLY_TO_DIRECT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

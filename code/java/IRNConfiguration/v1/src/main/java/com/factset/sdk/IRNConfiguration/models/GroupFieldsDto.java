@@ -62,7 +62,8 @@ import com.factset.sdk.IRNConfiguration.JSON;
   GroupFieldsDto.JSON_PROPERTY_TEAM,
   GroupFieldsDto.JSON_PROPERTY_ORGANIZER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class GroupFieldsDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -120,7 +121,7 @@ public class GroupFieldsDto implements Serializable {
    * Get title
    * @return title
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -146,7 +147,7 @@ public class GroupFieldsDto implements Serializable {
    * Get date
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -172,7 +173,7 @@ public class GroupFieldsDto implements Serializable {
    * Get identifier
    * @return identifier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -198,7 +199,7 @@ public class GroupFieldsDto implements Serializable {
    * Get subject
    * @return subject
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SUBJECT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -224,7 +225,7 @@ public class GroupFieldsDto implements Serializable {
    * Get recommendation
    * @return recommendation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RECOMMENDATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -250,7 +251,7 @@ public class GroupFieldsDto implements Serializable {
    * Get sentiment
    * @return sentiment
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SENTIMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -276,7 +277,7 @@ public class GroupFieldsDto implements Serializable {
    * Get link
    * @return link
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LINK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -302,7 +303,7 @@ public class GroupFieldsDto implements Serializable {
    * Get note
    * @return note
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NOTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -328,7 +329,7 @@ public class GroupFieldsDto implements Serializable {
    * Get source
    * @return source
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -354,7 +355,7 @@ public class GroupFieldsDto implements Serializable {
    * Get relatedSymbols
    * @return relatedSymbols
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RELATED_SYMBOLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -380,7 +381,7 @@ public class GroupFieldsDto implements Serializable {
    * Get relatedResearch
    * @return relatedResearch
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RELATED_RESEARCH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -406,7 +407,7 @@ public class GroupFieldsDto implements Serializable {
    * Get relatedContacts
    * @return relatedContacts
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RELATED_CONTACTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -432,7 +433,7 @@ public class GroupFieldsDto implements Serializable {
    * Get team
    * @return team
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TEAM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -458,7 +459,7 @@ public class GroupFieldsDto implements Serializable {
    * Get organizer
    * @return organizer
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ORGANIZER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

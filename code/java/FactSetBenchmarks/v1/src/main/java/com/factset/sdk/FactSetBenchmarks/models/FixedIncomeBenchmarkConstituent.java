@@ -47,7 +47,8 @@ import com.factset.sdk.FactSetBenchmarks.JSON;
   FixedIncomeBenchmarkConstituent.JSON_PROPERTY_ADJ_MARKET_VALUE,
   FixedIncomeBenchmarkConstituent.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FixedIncomeBenchmarkConstituent implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -87,7 +88,7 @@ public class FixedIncomeBenchmarkConstituent implements Serializable {
    * Benchmark Id
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "LHMN0001", value = "Benchmark Id")
   @JsonIgnore
 
@@ -121,7 +122,7 @@ public class FixedIncomeBenchmarkConstituent implements Serializable {
    * Date of weight and shares.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Mon Apr 12 00:00:00 UTC 2021", value = "Date of weight and shares.")
   @JsonIgnore
 
@@ -155,7 +156,7 @@ public class FixedIncomeBenchmarkConstituent implements Serializable {
    * FactSet Security Identifier (-S).
    * @return fsymSecurityId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FV4SC0-S", value = "FactSet Security Identifier (-S).")
   @JsonIgnore
 
@@ -189,7 +190,7 @@ public class FixedIncomeBenchmarkConstituent implements Serializable {
    * Weight of Security in benchmark (percent).
    * @return weightClose
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0.00303380596473456", value = "Weight of Security in benchmark (percent).")
   @JsonIgnore
 
@@ -223,7 +224,7 @@ public class FixedIncomeBenchmarkConstituent implements Serializable {
    * Amount Outstanding for the Fixed Income Security.
    * @return amountOutstanding
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "700000", value = "Amount Outstanding for the Fixed Income Security.")
   @JsonIgnore
 
@@ -257,7 +258,7 @@ public class FixedIncomeBenchmarkConstituent implements Serializable {
    * Fixed Income Price of security held.
    * @return price
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "106.976", value = "Fixed Income Price of security held.")
   @JsonIgnore
 
@@ -291,7 +292,7 @@ public class FixedIncomeBenchmarkConstituent implements Serializable {
    * Market value adjusted. Market Value represented in Millions.
    * @return adjMarketValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "757.233375", value = "Market value adjusted. Market Value represented in Millions.")
   @JsonIgnore
 
@@ -325,7 +326,7 @@ public class FixedIncomeBenchmarkConstituent implements Serializable {
    * Identifier specified in the request
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "LHMN0001", value = "Identifier specified in the request")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

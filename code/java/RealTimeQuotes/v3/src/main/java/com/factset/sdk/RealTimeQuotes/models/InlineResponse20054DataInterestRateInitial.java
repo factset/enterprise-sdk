@@ -44,7 +44,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20054DataInterestRateInitial.JSON_PROPERTY_START_ACCRUAL,
   InlineResponse20054DataInterestRateInitial.JSON_PROPERTY_PERIOD_END
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20054DataInterestRateInitial implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -69,7 +70,7 @@ public class InlineResponse20054DataInterestRateInitial implements Serializable 
    * Value of the interest rate.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Value of the interest rate.")
   @JsonIgnore
 
@@ -103,7 +104,7 @@ public class InlineResponse20054DataInterestRateInitial implements Serializable 
    * Date as of which interest starts accruing.
    * @return startAccrual
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Date as of which interest starts accruing.")
   @JsonIgnore
 
@@ -137,7 +138,7 @@ public class InlineResponse20054DataInterestRateInitial implements Serializable 
    * Ending date (inclusive).
    * @return periodEnd
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Ending date (inclusive).")
   @JsonIgnore
 

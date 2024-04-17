@@ -43,7 +43,8 @@ import com.factset.sdk.FactSetTickHistory.JSON;
   GetFilesResponse.JSON_PROPERTY_DATA,
   GetFilesResponse.JSON_PROPERTY_META
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class GetFilesResponse implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -77,7 +78,7 @@ public class GetFilesResponse implements Serializable {
    * The status of the request
    * @return status
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The status of the request")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -103,7 +104,7 @@ public class GetFilesResponse implements Serializable {
    * Returns the query parameters, user credentials (name &amp; serial number)
    * @return request
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Returns the query parameters, user credentials (name & serial number)")
   @JsonProperty(JSON_PROPERTY_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -129,7 +130,7 @@ public class GetFilesResponse implements Serializable {
    * Timestamp of when request was made
    * @return requestTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Timestamp of when request was made")
   @JsonProperty(JSON_PROPERTY_REQUEST_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -155,7 +156,7 @@ public class GetFilesResponse implements Serializable {
    * :\&quot;Timestamp when the file was last updated\&quot;
    * @return updateTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = ":\"Timestamp when the file was last updated\"")
   @JsonProperty(JSON_PROPERTY_UPDATE_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -189,7 +190,7 @@ public class GetFilesResponse implements Serializable {
    * Get data
    * @return data
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -223,7 +224,7 @@ public class GetFilesResponse implements Serializable {
    * Get meta
    * @return meta
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

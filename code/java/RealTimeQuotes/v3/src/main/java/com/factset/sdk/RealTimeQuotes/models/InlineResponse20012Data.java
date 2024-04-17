@@ -42,7 +42,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20012Data.JSON_PROPERTY_NAME,
   InlineResponse20012Data.JSON_PROPERTY_DESCRIPTION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20012Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -67,7 +68,7 @@ public class InlineResponse20012Data implements Serializable {
    * Identifier of a media kind.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of a media kind.")
   @JsonIgnore
 
@@ -101,7 +102,7 @@ public class InlineResponse20012Data implements Serializable {
    * English name of the media kind.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "English name of the media kind.")
   @JsonIgnore
 
@@ -135,7 +136,7 @@ public class InlineResponse20012Data implements Serializable {
    * English description of the media kind.
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "English description of the media kind.")
   @JsonIgnore
 

@@ -44,7 +44,8 @@ import com.factset.sdk.OverviewReportBuilder.JSON;
   ProfileData.JSON_PROPERTY_STAGE,
   ProfileData.JSON_PROPERTY_META
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ProfileData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -89,7 +90,7 @@ public class ProfileData implements Serializable {
    * Get business
    * @return business
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_BUSINESS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -115,7 +116,7 @@ public class ProfileData implements Serializable {
    * Get contact
    * @return contact
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CONTACT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -141,7 +142,7 @@ public class ProfileData implements Serializable {
    * Get size
    * @return size
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SIZE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -167,7 +168,7 @@ public class ProfileData implements Serializable {
    * Get stage
    * @return stage
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_STAGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -193,7 +194,7 @@ public class ProfileData implements Serializable {
    * Get meta
    * @return meta
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

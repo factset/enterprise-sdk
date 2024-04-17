@@ -35,7 +35,8 @@ import com.factset.sdk.FixedIncomeCalculation.JSON;
 @JsonPropertyOrder({
   FIServicerAdvances.JSON_PROPERTY_ADVANCE_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FIServicerAdvances implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -95,7 +96,7 @@ public class FIServicerAdvances implements Serializable {
    * Advance Type
    * @return advanceType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Advance Type")
   @JsonProperty(JSON_PROPERTY_ADVANCE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

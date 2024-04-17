@@ -36,7 +36,8 @@ import com.factset.sdk.GlobalFilings.JSON;
 @JsonPropertyOrder({
   InvestmentResearchMetaPagination.JSON_PROPERTY_IS_ESTIMATED_TOTAL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InvestmentResearchMetaPagination implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -55,7 +56,7 @@ public class InvestmentResearchMetaPagination implements Serializable {
    * This field acts as a flag for the exact count of results and is defaulted to false as the API should always return the exact count of results.
    * @return isEstimatedTotal
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "This field acts as a flag for the exact count of results and is defaulted to false as the API should always return the exact count of results.")
   @JsonProperty(JSON_PROPERTY_IS_ESTIMATED_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

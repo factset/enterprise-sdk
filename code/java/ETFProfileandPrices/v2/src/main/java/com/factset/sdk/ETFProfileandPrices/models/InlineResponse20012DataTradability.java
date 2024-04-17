@@ -38,7 +38,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20012DataTradability.JSON_PROPERTY_VALUE,
   InlineResponse20012DataTradability.JSON_PROPERTY_AVERAGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20012DataTradability implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -60,7 +61,7 @@ public class InlineResponse20012DataTradability implements Serializable {
    * A total view of the liquidity of a fund taking into account share-level liquidity as well as the underlying liquidity of a fund&#39;s portfolio of securities. In the range 0 (low) to 100 (high). Available for the regions: US.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A total view of the liquidity of a fund taking into account share-level liquidity as well as the underlying liquidity of a fund's portfolio of securities. In the range 0 (low) to 100 (high). Available for the regions: US.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,7 +87,7 @@ public class InlineResponse20012DataTradability implements Serializable {
    * The average tradability score for all funds in the segment. Available for the regions: US.
    * @return average
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The average tradability score for all funds in the segment. Available for the regions: US.")
   @JsonProperty(JSON_PROPERTY_AVERAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

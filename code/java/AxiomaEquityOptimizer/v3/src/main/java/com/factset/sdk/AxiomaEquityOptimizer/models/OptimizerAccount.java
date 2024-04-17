@@ -37,7 +37,8 @@ import com.factset.sdk.AxiomaEquityOptimizer.JSON;
   OptimizerAccount.JSON_PROPERTY_ID,
   OptimizerAccount.JSON_PROPERTY_OVERRIDES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerAccount implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -59,7 +60,7 @@ public class OptimizerAccount implements Serializable {
    * Account path
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Account path")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -85,7 +86,7 @@ public class OptimizerAccount implements Serializable {
    * Get overrides
    * @return overrides
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OVERRIDES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

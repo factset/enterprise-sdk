@@ -57,7 +57,8 @@ import com.factset.sdk.FactSetEstimates.JSON;
   Surprise.JSON_PROPERTY_EVENT_FLAG,
   Surprise.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Surprise implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -127,7 +128,7 @@ public class Surprise implements Serializable {
    * Get fsymId
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "SJY281-R", value = "")
   @JsonIgnore
 
@@ -161,7 +162,7 @@ public class Surprise implements Serializable {
    * Date for data expressed in YYYY-MM-DD format.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Sun Dec 31 00:00:00 UTC 2017", value = "Date for data expressed in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -195,7 +196,7 @@ public class Surprise implements Serializable {
    * Currency code for adjusting the data. Use &#39;ESTIMATE&#39; as input value for the values in Estimate Currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "Currency code for adjusting the data. Use 'ESTIMATE' as input value for the values in Estimate Currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).")
   @JsonIgnore
 
@@ -229,7 +230,7 @@ public class Surprise implements Serializable {
    * Estimate currency of the requested Security
    * @return estimateCurrency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "Estimate currency of the requested Security")
   @JsonIgnore
 
@@ -263,7 +264,7 @@ public class Surprise implements Serializable {
    * Company&#39;s Financial statement &#39;metric&#39; that is estimated. Use the factset-estimates/v#/metrics endpoint for a complete list. For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).
    * @return metric
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "SALES", value = "Company's Financial statement 'metric' that is estimated. Use the factset-estimates/v#/metrics endpoint for a complete list. For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).")
   @JsonIgnore
 
@@ -297,7 +298,7 @@ public class Surprise implements Serializable {
    * Method of calculation for the consensus &#39;statistic&#39;. For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16114).
    * @return statistic
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "MEAN", value = "Method of calculation for the consensus 'statistic'. For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16114).")
   @JsonIgnore
 
@@ -331,7 +332,7 @@ public class Surprise implements Serializable {
    * Company&#39;s &#39;periodicity&#39; for the estimate record, reflecting Annual, Quarterly, or Semi-Annual report periods. Next-twelve-months (NTMA) and Last-twelve-months (LTMA) also supported.
    * @return periodicity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "ANN", value = "Company's 'periodicity' for the estimate record, reflecting Annual, Quarterly, or Semi-Annual report periods. Next-twelve-months (NTMA) and Last-twelve-months (LTMA) also supported.")
   @JsonIgnore
 
@@ -365,7 +366,7 @@ public class Surprise implements Serializable {
    * Company&#39;s &#39;fiscal end date&#39; for the estimate record expressed in YYYY-MM-DD format
    * @return fiscalEndDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Sun Dec 31 00:00:00 UTC 2017", value = "Company's 'fiscal end date' for the estimate record expressed in YYYY-MM-DD format")
   @JsonIgnore
 
@@ -399,7 +400,7 @@ public class Surprise implements Serializable {
    * Company&#39;s &#39;fiscal year&#39; for the estimate record
    * @return fiscalYear
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2018", value = "Company's 'fiscal year' for the estimate record")
   @JsonIgnore
 
@@ -433,7 +434,7 @@ public class Surprise implements Serializable {
    * Company&#39;s &#39;fiscal period&#39; for the estimate record.  &#39;Periodicity&#39; defines context for period.
    * @return fiscalPeriod
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "4", value = "Company's 'fiscal period' for the estimate record.  'Periodicity' defines context for period.")
   @JsonIgnore
 
@@ -467,7 +468,7 @@ public class Surprise implements Serializable {
    * Date of the reported event expressed in YYYY-MM-DD format. For more details, visit [Online Assistant Page #16601](https://oa.apps.factset.com/pages/16601).
    * @return surpriseDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Fri Feb 24 00:00:00 UTC 2017", value = "Date of the reported event expressed in YYYY-MM-DD format. For more details, visit [Online Assistant Page #16601](https://oa.apps.factset.com/pages/16601).")
   @JsonIgnore
 
@@ -501,7 +502,7 @@ public class Surprise implements Serializable {
    * Amount of difference between last consensus and actual. For more details, visit [Online Assistant Page #16145](https://oa.apps.factset.com/pages/16145).
    * @return surpriseAmount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0.07951", value = "Amount of difference between last consensus and actual. For more details, visit [Online Assistant Page #16145](https://oa.apps.factset.com/pages/16145).")
   @JsonIgnore
 
@@ -535,7 +536,7 @@ public class Surprise implements Serializable {
    * Percent difference between last consensus and actual. For more details, visit [Online Assistant Page #16145](https://oa.apps.factset.com/pages/16145).
    * @return surprisePercent
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "6.16", value = "Percent difference between last consensus and actual. For more details, visit [Online Assistant Page #16145](https://oa.apps.factset.com/pages/16145).")
   @JsonIgnore
 
@@ -569,7 +570,7 @@ public class Surprise implements Serializable {
    * Last consensus before event. For more details, visit [Online Assistant Page #16145](https://oa.apps.factset.com/pages/16145).
    * @return surpriseBefore
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1.2905", value = "Last consensus before event. For more details, visit [Online Assistant Page #16145](https://oa.apps.factset.com/pages/16145).")
   @JsonIgnore
 
@@ -603,7 +604,7 @@ public class Surprise implements Serializable {
    * Actual value after event. For more details, visit [Online Assistant Page #16145](https://oa.apps.factset.com/pages/16145).
    * @return surpriseAfter
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1.3653", value = "Actual value after event. For more details, visit [Online Assistant Page #16145](https://oa.apps.factset.com/pages/16145).")
   @JsonIgnore
 
@@ -637,7 +638,7 @@ public class Surprise implements Serializable {
    * Description of event. For more details, visit [Online Assistant Page #16601](https://oa.apps.factset.com/pages/16601).
    * @return eventDescription
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Results for 2016", value = "Description of event. For more details, visit [Online Assistant Page #16601](https://oa.apps.factset.com/pages/16601).")
   @JsonIgnore
 
@@ -671,7 +672,7 @@ public class Surprise implements Serializable {
    * Flag for event. Code of Event Flag, where 0 &#x3D; results and 1 &#x3D; profit warning. For more details, visit [Online Assistant Page #16601](https://oa.apps.factset.com/pages/16601).
    * @return eventFlag
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0", value = "Flag for event. Code of Event Flag, where 0 = results and 1 = profit warning. For more details, visit [Online Assistant Page #16601](https://oa.apps.factset.com/pages/16601).")
   @JsonIgnore
 
@@ -705,7 +706,7 @@ public class Surprise implements Serializable {
    * Get requestId
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "IBM-US", value = "")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

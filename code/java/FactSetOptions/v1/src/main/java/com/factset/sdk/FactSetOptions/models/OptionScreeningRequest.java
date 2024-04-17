@@ -44,7 +44,8 @@ import com.factset.sdk.FactSetOptions.JSON;
   OptionScreeningRequest.JSON_PROPERTY_CONDITION_THREE_VALUE,
   OptionScreeningRequest.JSON_PROPERTY_DATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptionScreeningRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -249,7 +250,7 @@ public class OptionScreeningRequest implements Serializable {
    * Get ids
    * @return ids
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -275,7 +276,7 @@ public class OptionScreeningRequest implements Serializable {
    * The primary condition.
    * @return conditionOne
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "P_OPT_UNDERLYING_SECURITY_E", required = true, value = "The primary condition.")
   @JsonProperty(JSON_PROPERTY_CONDITION_ONE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -301,7 +302,7 @@ public class OptionScreeningRequest implements Serializable {
    * Get conditionOneValue
    * @return conditionOneValue
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "AAPL", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CONDITION_ONE_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -327,7 +328,7 @@ public class OptionScreeningRequest implements Serializable {
    * Get conditionTwo
    * @return conditionTwo
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "P_OPT_CALL_OR_PUT_E", value = "")
   @JsonProperty(JSON_PROPERTY_CONDITION_TWO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -353,7 +354,7 @@ public class OptionScreeningRequest implements Serializable {
    * Get conditionTwoValue
    * @return conditionTwoValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "")
   @JsonProperty(JSON_PROPERTY_CONDITION_TWO_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -379,7 +380,7 @@ public class OptionScreeningRequest implements Serializable {
    * Get conditionThree
    * @return conditionThree
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "P_OPT_VOLUME_G", value = "")
   @JsonProperty(JSON_PROPERTY_CONDITION_THREE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -405,7 +406,7 @@ public class OptionScreeningRequest implements Serializable {
    * Get conditionThreeValue
    * @return conditionThreeValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0", value = "")
   @JsonProperty(JSON_PROPERTY_CONDITION_THREE_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -431,7 +432,7 @@ public class OptionScreeningRequest implements Serializable {
    * Get date
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2021-03-31", value = "")
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

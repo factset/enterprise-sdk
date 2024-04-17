@@ -38,7 +38,8 @@ import com.factset.sdk.OpenRisk.JSON;
   AdditionalCalculationInputs.JSON_PROPERTY_MARKET_EXCESS,
   AdditionalCalculationInputs.JSON_PROPERTY_CALCULATION_PERIODS_PER_YEAR
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class AdditionalCalculationInputs implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -60,7 +61,7 @@ public class AdditionalCalculationInputs implements Serializable {
    * Get marketExcess
    * @return marketExcess
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MARKET_EXCESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -88,7 +89,7 @@ public class AdditionalCalculationInputs implements Serializable {
    * maximum: 365
    * @return calculationPeriodsPerYear
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Deannualization factor for certain RBPA risk statistics which should match that of desired calculation frequency. Examples: If the risk model is monthly or monthly factor returns are being used, this should be 12. If the risk model is daily, select desired integer such as 365 or 252.")
   @JsonProperty(JSON_PROPERTY_CALCULATION_PERIODS_PER_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

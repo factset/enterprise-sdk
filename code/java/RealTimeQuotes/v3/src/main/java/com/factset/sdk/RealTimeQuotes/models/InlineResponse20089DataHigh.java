@@ -43,7 +43,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20089DataHigh.JSON_PROPERTY_PRICE,
   InlineResponse20089DataHigh.JSON_PROPERTY_TRADING_VOLUME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20089DataHigh implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class InlineResponse20089DataHigh implements Serializable {
    * Date and time.
    * @return time
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Date and time.")
   @JsonIgnore
 
@@ -102,7 +103,7 @@ public class InlineResponse20089DataHigh implements Serializable {
    * Price value. See attribute &#x60;valueUnit&#x60; for its unit.
    * @return price
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Price value. See attribute `valueUnit` for its unit.")
   @JsonIgnore
 
@@ -136,7 +137,7 @@ public class InlineResponse20089DataHigh implements Serializable {
    * Number of units (e.g. shares) traded.
    * @return tradingVolume
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of units (e.g. shares) traded.")
   @JsonIgnore
 

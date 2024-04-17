@@ -37,7 +37,8 @@ import com.factset.sdk.RealTimeNews.JSON;
   PostNewsArticleListByIndexRequestDataIdentifier.JSON_PROPERTY_VALUES,
   PostNewsArticleListByIndexRequestDataIdentifier.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostNewsArticleListByIndexRequestDataIdentifier implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -115,7 +116,7 @@ public class PostNewsArticleListByIndexRequestDataIdentifier implements Serializ
    * Set of identifiers to resolve.
    * @return values
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Set of identifiers to resolve.")
   @JsonProperty(JSON_PROPERTY_VALUES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -141,7 +142,7 @@ public class PostNewsArticleListByIndexRequestDataIdentifier implements Serializ
    * Type of the identifier.
    * @return type
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Type of the identifier.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

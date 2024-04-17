@@ -39,7 +39,8 @@ import com.factset.sdk.QuantEngine.JSON;
   QuantCalculationMeta.JSON_PROPERTY_CONTENTTYPE,
   QuantCalculationMeta.JSON_PROPERTY_FORMAT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class QuantCalculationMeta implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -232,7 +233,7 @@ public class QuantCalculationMeta implements Serializable {
    * Get allowArrayData
    * @return allowArrayData
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ALLOW_ARRAY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -260,7 +261,7 @@ public class QuantCalculationMeta implements Serializable {
    * @deprecated
   **/
   @Deprecated
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CONTENTORGANIZATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -286,7 +287,7 @@ public class QuantCalculationMeta implements Serializable {
    * Get stachContentOrganization
    * @return stachContentOrganization
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STACH_CONTENT_ORGANIZATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -314,7 +315,7 @@ public class QuantCalculationMeta implements Serializable {
    * @deprecated
   **/
   @Deprecated
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CONTENTTYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -340,7 +341,7 @@ public class QuantCalculationMeta implements Serializable {
    * Get format
    * @return format
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

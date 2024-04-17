@@ -59,7 +59,8 @@ import com.factset.sdk.FactSetOptions.JSON;
   OptionsPrices.JSON_PROPERTY_QUOTE_TYPE,
   OptionsPrices.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptionsPrices implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -129,7 +130,7 @@ public class OptionsPrices implements Serializable {
    * Returns the Bid time
    * @return askTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "155959", value = "Returns the Bid time")
   @JsonIgnore
 
@@ -163,7 +164,7 @@ public class OptionsPrices implements Serializable {
    * Returns the Last Trade time
    * @return bidTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "155959", value = "Returns the Last Trade time")
   @JsonIgnore
 
@@ -197,7 +198,7 @@ public class OptionsPrices implements Serializable {
    * The date of data in YYYY-MM-DD format
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Wed May 05 00:00:00 UTC 2021", value = "The date of data in YYYY-MM-DD format")
   @JsonIgnore
 
@@ -231,7 +232,7 @@ public class OptionsPrices implements Serializable {
    * FactSet&#39;s Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options)
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "TSLA.US#C00LP", value = "FactSet's Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options)")
   @JsonIgnore
 
@@ -265,7 +266,7 @@ public class OptionsPrices implements Serializable {
    * 52-Week High Price
    * @return price52WeekHigh
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "663.6", value = "52-Week High Price")
   @JsonIgnore
 
@@ -299,7 +300,7 @@ public class OptionsPrices implements Serializable {
    * 52-Week Low Price
    * @return price52WeekLow
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "189.3", value = "52-Week Low Price")
   @JsonIgnore
 
@@ -333,7 +334,7 @@ public class OptionsPrices implements Serializable {
    * Ask price of the option
    * @return priceAsk
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "492", value = "Ask price of the option")
   @JsonIgnore
 
@@ -367,7 +368,7 @@ public class OptionsPrices implements Serializable {
    * Bid price of the option
    * @return priceBid
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "472.25", value = "Bid price of the option")
   @JsonIgnore
 
@@ -401,7 +402,7 @@ public class OptionsPrices implements Serializable {
    * Mid/Bid/Ask price of the option
    * @return priceMidBidAsk
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "482.125", value = "Mid/Bid/Ask price of the option")
   @JsonIgnore
 
@@ -435,7 +436,7 @@ public class OptionsPrices implements Serializable {
    * Open price of the option
    * @return priceOpen
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Open price of the option")
   @JsonIgnore
 
@@ -469,7 +470,7 @@ public class OptionsPrices implements Serializable {
    * High price of the option
    * @return priceHigh
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "High price of the option")
   @JsonIgnore
 
@@ -503,7 +504,7 @@ public class OptionsPrices implements Serializable {
    * Low price of the option
    * @return priceLow
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Low price of the option")
   @JsonIgnore
 
@@ -537,7 +538,7 @@ public class OptionsPrices implements Serializable {
    * Settlement price of the option
    * @return priceSettlement
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Settlement price of the option")
   @JsonIgnore
 
@@ -571,7 +572,7 @@ public class OptionsPrices implements Serializable {
    * The stated price per share for which underlying stock may be purchased (for a call) or sold (for a put) by the option holder upon exercise of the option contract.
    * @return priceStrike
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "190", value = "The stated price per share for which underlying stock may be purchased (for a call) or sold (for a put) by the option holder upon exercise of the option contract.")
   @JsonIgnore
 
@@ -605,7 +606,7 @@ public class OptionsPrices implements Serializable {
    * The price of the security that must be delivered when a derivative contract, such as a put or call option, is exercised.
    * @return priceUnderlying
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "670.94", value = "The price of the security that must be delivered when a derivative contract, such as a put or call option, is exercised.")
   @JsonIgnore
 
@@ -639,7 +640,7 @@ public class OptionsPrices implements Serializable {
    * The price of the option based on the &#x60;quoteType&#x60; calculation. For US Options - Returns \&quot;Ask Price\&quot; if calc status&#x3D;&#x3D;20, otherwise returns \&quot;Mid Bid/Ask Price\&quot;. For International Options - Returns \&quot;Settlement Price\&quot;. 
    * @return price
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "428.375", value = "The price of the option based on the `quoteType` calculation. For US Options - Returns \"Ask Price\" if calc status==20, otherwise returns \"Mid Bid/Ask Price\". For International Options - Returns \"Settlement Price\". ")
   @JsonIgnore
 
@@ -673,7 +674,7 @@ public class OptionsPrices implements Serializable {
    * The calculated quote type, based on the calculated status. This represents the type for &#x60;price&#x60; field. For US Options - Returns \&quot;Ask Price\&quot; if calc status&#x3D;&#x3D;20, otherwise returns \&quot;Mid Bid/Ask Price\&quot;. For International Options - Returns \&quot;Settlement Price\&quot;. 
    * @return quoteType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Mid Bid/Ask Price", value = "The calculated quote type, based on the calculated status. This represents the type for `price` field. For US Options - Returns \"Ask Price\" if calc status==20, otherwise returns \"Mid Bid/Ask Price\". For International Options - Returns \"Settlement Price\". ")
   @JsonIgnore
 
@@ -707,7 +708,7 @@ public class OptionsPrices implements Serializable {
    * The requested identifier submitted in the query.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "TSLA.US#C00LP", value = "The requested identifier submitted in the query.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

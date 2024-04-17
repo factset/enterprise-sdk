@@ -37,7 +37,8 @@ import com.factset.sdk.GlobalFilings.JSON;
   ResponseHelperObjectFormtypesObject.JSON_PROPERTY_FORM_TYPE,
   ResponseHelperObjectFormtypesObject.JSON_PROPERTY_DESCRIPTION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ResponseHelperObjectFormtypesObject implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -62,7 +63,7 @@ public class ResponseHelperObjectFormtypesObject implements Serializable {
    * source
    * @return source
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "EDG", value = "source")
   @JsonProperty(JSON_PROPERTY_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -88,7 +89,7 @@ public class ResponseHelperObjectFormtypesObject implements Serializable {
    * formType
    * @return formType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "8-K", value = "formType")
   @JsonProperty(JSON_PROPERTY_FORM_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -114,7 +115,7 @@ public class ResponseHelperObjectFormtypesObject implements Serializable {
    * source description
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Edgar", value = "source description")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

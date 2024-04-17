@@ -48,7 +48,8 @@ import com.factset.sdk.IRNCustomSymbols.JSON;
   SymbolRelationshipDto.JSON_PROPERTY_END_DATE,
   SymbolRelationshipDto.JSON_PROPERTY_COMMENT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SymbolRelationshipDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -85,7 +86,7 @@ public class SymbolRelationshipDto implements Serializable {
    * Get id
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -111,7 +112,7 @@ public class SymbolRelationshipDto implements Serializable {
    * Get symbolsRelationship
    * @return symbolsRelationship
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SYMBOLS_RELATIONSHIP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -137,7 +138,7 @@ public class SymbolRelationshipDto implements Serializable {
    * Get parentSymbol
    * @return parentSymbol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PARENT_SYMBOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -163,7 +164,7 @@ public class SymbolRelationshipDto implements Serializable {
    * Get childSymbol
    * @return childSymbol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CHILD_SYMBOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -189,7 +190,7 @@ public class SymbolRelationshipDto implements Serializable {
    * Get startDate
    * @return startDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -223,7 +224,7 @@ public class SymbolRelationshipDto implements Serializable {
    * Get endDate
    * @return endDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -257,7 +258,7 @@ public class SymbolRelationshipDto implements Serializable {
    * Get comment
    * @return comment
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

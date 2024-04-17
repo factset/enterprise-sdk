@@ -6,7 +6,7 @@ import com.factset.sdk.ProcuretoPayAPISCIM.ApiResponse;
 import com.factset.sdk.ProcuretoPayAPISCIM.Configuration;
 import com.factset.sdk.ProcuretoPayAPISCIM.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -16,7 +16,8 @@ import com.factset.sdk.ProcuretoPayAPISCIM.models.LocationResource;
 import com.factset.sdk.ProcuretoPayAPISCIM.models.LocationResourceList;
 import com.factset.sdk.ProcuretoPayAPISCIM.models.Patch;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class LocationsApi {
   private ApiClient apiClient;
 

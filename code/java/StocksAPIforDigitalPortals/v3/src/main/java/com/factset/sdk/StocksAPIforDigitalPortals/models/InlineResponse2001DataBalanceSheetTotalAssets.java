@@ -44,7 +44,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2001DataBalanceSheetTotalAssets.JSON_PROPERTY_ASSET_TURNOVER,
   InlineResponse2001DataBalanceSheetTotalAssets.JSON_PROPERTY_RETURN_ON_ASSETS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2001DataBalanceSheetTotalAssets implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -72,7 +73,7 @@ public class InlineResponse2001DataBalanceSheetTotalAssets implements Serializab
    * Value of the total assets.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Value of the total assets.")
   @JsonIgnore
 
@@ -106,7 +107,7 @@ public class InlineResponse2001DataBalanceSheetTotalAssets implements Serializab
    * Annual growth rate of the total assets.
    * @return growth
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Annual growth rate of the total assets.")
   @JsonIgnore
 
@@ -140,7 +141,7 @@ public class InlineResponse2001DataBalanceSheetTotalAssets implements Serializab
    * Asset turnover, which is the ratio of the total sales revenue, divided by the total assets.
    * @return assetTurnover
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Asset turnover, which is the ratio of the total sales revenue, divided by the total assets.")
   @JsonIgnore
 
@@ -174,7 +175,7 @@ public class InlineResponse2001DataBalanceSheetTotalAssets implements Serializab
    * Return on assets, which is the ratio of the net income, divided by the two-fiscal-year average of the total assets.
    * @return returnOnAssets
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Return on assets, which is the ratio of the net income, divided by the two-fiscal-year average of the total assets.")
   @JsonIgnore
 

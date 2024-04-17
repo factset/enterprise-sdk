@@ -43,7 +43,8 @@ import com.factset.sdk.IRNContacts.JSON;
   RecordPreviewDto.JSON_PROPERTY_TITLE,
   RecordPreviewDto.JSON_PROPERTY_DATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class RecordPreviewDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -71,7 +72,7 @@ public class RecordPreviewDto implements Serializable {
    * Get noteGuid
    * @return noteGuid
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -105,7 +106,7 @@ public class RecordPreviewDto implements Serializable {
    * Get meetingGuid
    * @return meetingGuid
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -139,7 +140,7 @@ public class RecordPreviewDto implements Serializable {
    * Get title
    * @return title
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -173,7 +174,7 @@ public class RecordPreviewDto implements Serializable {
    * Get date
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -44,7 +44,8 @@ import com.factset.sdk.IRNConfiguration.JSON;
   SymbolsRelationShipSaveDto.JSON_PROPERTY_HIDE_DATES,
   SymbolsRelationShipSaveDto.JSON_PROPERTY_HIDE_COMMENT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SymbolsRelationShipSaveDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -88,7 +89,7 @@ public class SymbolsRelationShipSaveDto implements Serializable {
    * Get relationshipCode
    * @return relationshipCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -122,7 +123,7 @@ public class SymbolsRelationShipSaveDto implements Serializable {
    * Get parentToChildName
    * @return parentToChildName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -156,7 +157,7 @@ public class SymbolsRelationShipSaveDto implements Serializable {
    * Get childToParentName
    * @return childToParentName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -190,7 +191,7 @@ public class SymbolsRelationShipSaveDto implements Serializable {
    * Get peerName
    * @return peerName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -224,7 +225,7 @@ public class SymbolsRelationShipSaveDto implements Serializable {
    * Get hideDates
    * @return hideDates
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_HIDE_DATES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -250,7 +251,7 @@ public class SymbolsRelationShipSaveDto implements Serializable {
    * Get hideComment
    * @return hideComment
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_HIDE_COMMENT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

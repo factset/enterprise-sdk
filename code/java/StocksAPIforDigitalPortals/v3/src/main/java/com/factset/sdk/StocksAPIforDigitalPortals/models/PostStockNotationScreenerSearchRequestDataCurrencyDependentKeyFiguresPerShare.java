@@ -45,7 +45,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFiguresPerShare.JSON_PROPERTY_BOOK_VALUE,
   PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFiguresPerShare.JSON_PROPERTY_CASH_FLOW
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFiguresPerShare implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -76,7 +77,7 @@ public class PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFigur
    * Get sales
    * @return sales
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SALES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -102,7 +103,7 @@ public class PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFigur
    * Get recurringDilutedEarnings
    * @return recurringDilutedEarnings
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RECURRING_DILUTED_EARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -128,7 +129,7 @@ public class PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFigur
    * Get dividends
    * @return dividends
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DIVIDENDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -154,7 +155,7 @@ public class PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFigur
    * Get bookValue
    * @return bookValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BOOK_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -180,7 +181,7 @@ public class PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFigur
    * Get cashFlow
    * @return cashFlow
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CASH_FLOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

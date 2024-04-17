@@ -42,7 +42,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20048Data.JSON_PROPERTY_NAME,
   InlineResponse20048Data.JSON_PROPERTY_DESCRIPTION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20048Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -67,7 +68,7 @@ public class InlineResponse20048Data implements Serializable {
    * Identifier of a compliance property.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of a compliance property.")
   @JsonIgnore
 
@@ -101,7 +102,7 @@ public class InlineResponse20048Data implements Serializable {
    * Name of the compliance property.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the compliance property.")
   @JsonIgnore
 
@@ -135,7 +136,7 @@ public class InlineResponse20048Data implements Serializable {
    * Description of the compliance property.
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Description of the compliance property.")
   @JsonIgnore
 

@@ -42,7 +42,8 @@ import com.factset.sdk.PAEngine.JSON;
   PADateParameters.JSON_PROPERTY_ENDDATE,
   PADateParameters.JSON_PROPERTY_FREQUENCY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PADateParameters implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -77,7 +78,7 @@ public class PADateParameters implements Serializable {
    * Calculation&#39;s start date.
    * @return startdate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Calculation's start date.")
   @JsonIgnore
 
@@ -111,7 +112,7 @@ public class PADateParameters implements Serializable {
    * Calculation&#39;s end date.
    * @return enddate
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Calculation's end date.")
   @JsonProperty(JSON_PROPERTY_ENDDATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -137,7 +138,7 @@ public class PADateParameters implements Serializable {
    * Calculation&#39;s frequency.
    * @return frequency
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Calculation's frequency.")
   @JsonProperty(JSON_PROPERTY_FREQUENCY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

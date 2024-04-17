@@ -40,7 +40,8 @@ import com.factset.sdk.PAEngine.JSON;
   ComponentSummary.JSON_PROPERTY_NAME,
   ComponentSummary.JSON_PROPERTY_CATEGORY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ComponentSummary implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -62,7 +63,7 @@ public class ComponentSummary implements Serializable {
    * Component name.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Component name.")
   @JsonIgnore
 
@@ -96,7 +97,7 @@ public class ComponentSummary implements Serializable {
    * Component category.
    * @return category
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Component category.")
   @JsonIgnore
 

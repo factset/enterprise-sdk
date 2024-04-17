@@ -36,7 +36,8 @@ import com.factset.sdk.OFDB.JSON;
   InlineResponse400Source.JSON_PROPERTY_LOCATION,
   InlineResponse400Source.JSON_PROPERTY_PARAM
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse400Source implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -58,7 +59,7 @@ public class InlineResponse400Source implements Serializable {
    * Get location
    * @return location
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -84,7 +85,7 @@ public class InlineResponse400Source implements Serializable {
    * Get param
    * @return param
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PARAM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

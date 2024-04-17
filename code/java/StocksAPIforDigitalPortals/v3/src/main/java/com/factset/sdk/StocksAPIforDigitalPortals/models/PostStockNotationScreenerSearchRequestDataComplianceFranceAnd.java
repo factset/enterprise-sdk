@@ -37,7 +37,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   PostStockNotationScreenerSearchRequestDataComplianceFranceAnd.JSON_PROPERTY_ID,
   PostStockNotationScreenerSearchRequestDataComplianceFranceAnd.JSON_PROPERTY_NEGATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostStockNotationScreenerSearchRequestDataComplianceFranceAnd implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -98,7 +99,7 @@ public class PostStockNotationScreenerSearchRequestDataComplianceFranceAnd imple
    * Identifier of a compliance property. The compliance properties with &#x60;id&#x3D;4&#x60; (SRD) and &#x60;id&#x3D;10&#x60; (SRD long only) are mutually exclusive.  &amp;#8291;  Examples:  &amp;#8291;  &amp;#8291;1. Retrieve only stocks which are compliant to all of the following: PEA, PEAPME, and SRD  &#x60;\&quot;compliance\&quot;:{ \&quot;france\&quot;: { \&quot;or\&quot;: [{ \&quot;and\&quot;: [{ \&quot;id\&quot;:2, \&quot;negate\&quot;:false }, {\&quot;id\&quot;:3, \&quot;negate\&quot;:false}, {\&quot;id\&quot;:4, \&quot;negate\&quot;:false}]}]}}&#x60;  &amp;#8291;  &amp;#8291;2. Retrieve only stocks which are compliant to PEA or to PEAPME  &#x60;\&quot;compliance\&quot;:{ \&quot;france\&quot;: { \&quot;or\&quot;: [{ \&quot;and\&quot;: [{ \&quot;id\&quot;:2, \&quot;negate\&quot;:false  }]}, {\&quot;and\&quot;: [{ \&quot;id\&quot;:3, \&quot;negate\&quot;:false }]}]}}&#x60;  &amp;#8291;  &amp;#8291;3. Retrieve only stocks which are compliant to PEA or to PEAPME, but are not compliant to SRD long only.  &#x60;\&quot;compliance\&quot;:{ \&quot;france\&quot;: { \&quot;or\&quot;: [{ \&quot;and\&quot;: [{ \&quot;id\&quot;:2, \&quot;negate\&quot;:false },{\&quot;id\&quot;:10, \&quot;negate\&quot;:true}]}, {\&quot;and\&quot;: [{ \&quot;id\&quot;:3, \&quot;negate\&quot;:false},{\&quot;id\&quot;:10, \&quot;negate\&quot;:true}]}]}}&#x60;
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of a compliance property. The compliance properties with `id=4` (SRD) and `id=10` (SRD long only) are mutually exclusive.  &#8291;  Examples:  &#8291;  &#8291;1. Retrieve only stocks which are compliant to all of the following: PEA, PEAPME, and SRD  `\"compliance\":{ \"france\": { \"or\": [{ \"and\": [{ \"id\":2, \"negate\":false }, {\"id\":3, \"negate\":false}, {\"id\":4, \"negate\":false}]}]}}`  &#8291;  &#8291;2. Retrieve only stocks which are compliant to PEA or to PEAPME  `\"compliance\":{ \"france\": { \"or\": [{ \"and\": [{ \"id\":2, \"negate\":false  }]}, {\"and\": [{ \"id\":3, \"negate\":false }]}]}}`  &#8291;  &#8291;3. Retrieve only stocks which are compliant to PEA or to PEAPME, but are not compliant to SRD long only.  `\"compliance\":{ \"france\": { \"or\": [{ \"and\": [{ \"id\":2, \"negate\":false },{\"id\":10, \"negate\":true}]}, {\"and\": [{ \"id\":3, \"negate\":false},{\"id\":10, \"negate\":true}]}]}}`")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -124,7 +125,7 @@ public class PostStockNotationScreenerSearchRequestDataComplianceFranceAnd imple
    * If &#x60;true&#x60;, the condition excludes stocks compliant to the compliance property. 
    * @return negate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "If `true`, the condition excludes stocks compliant to the compliance property. ")
   @JsonProperty(JSON_PROPERTY_NEGATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -45,7 +45,8 @@ import com.factset.sdk.OverviewReportBuilder.JSON;
   ProfileDataContact.JSON_PROPERTY_EMAIL,
   ProfileDataContact.JSON_PROPERTY_PEOPLE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ProfileDataContact implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -110,7 +111,7 @@ public class ProfileDataContact implements Serializable {
    * Get address
    * @return address
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -136,7 +137,7 @@ public class ProfileDataContact implements Serializable {
    * Get city
    * @return city
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -162,7 +163,7 @@ public class ProfileDataContact implements Serializable {
    * Get phone
    * @return phone
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_PHONE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -188,7 +189,7 @@ public class ProfileDataContact implements Serializable {
    * Get stateProvince
    * @return stateProvince
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_STATE_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -214,7 +215,7 @@ public class ProfileDataContact implements Serializable {
    * Get zip
    * @return zip
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ZIP)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -240,7 +241,7 @@ public class ProfileDataContact implements Serializable {
    * Get country
    * @return country
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -266,7 +267,7 @@ public class ProfileDataContact implements Serializable {
    * Get website
    * @return website
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_WEBSITE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -292,7 +293,7 @@ public class ProfileDataContact implements Serializable {
    * Get email
    * @return email
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -326,7 +327,7 @@ public class ProfileDataContact implements Serializable {
    * Get people
    * @return people
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PEOPLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

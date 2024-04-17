@@ -68,7 +68,8 @@ import com.factset.sdk.FactSetGlobalPrices.JSON;
   Dividend.JSON_PROPERTY_TAX_RATE,
   Dividend.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Dividend implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -258,7 +259,7 @@ public class Dividend implements Serializable {
    * Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security&#39;s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "SJY281-R", value = "Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.")
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -284,7 +285,7 @@ public class Dividend implements Serializable {
    * FactSet identifier that uniquely identifies the Event.
    * @return eventId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "JTHPFN-A", value = "FactSet identifier that uniquely identifies the Event.")
   @JsonProperty(JSON_PROPERTY_EVENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -310,7 +311,7 @@ public class Dividend implements Serializable {
    * Corporate Actions Event type code.
    * @return eventTypeCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Corporate Actions Event type code.")
   @JsonProperty(JSON_PROPERTY_EVENT_TYPE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -336,7 +337,7 @@ public class Dividend implements Serializable {
    * Corporate Actions Event type description.
    * @return eventTypeDesc
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Corporate Actions Event type description.")
   @JsonProperty(JSON_PROPERTY_EVENT_TYPE_DESC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -362,7 +363,7 @@ public class Dividend implements Serializable {
    * Dividend Type Code. For code descriptions, visit [Online Assistant Page #8764] (https://oa.apps.factset.com/pages/8764). 
    * @return divTypeCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Dividend Type Code. For code descriptions, visit [Online Assistant Page #8764] (https://oa.apps.factset.com/pages/8764). ")
   @JsonProperty(JSON_PROPERTY_DIV_TYPE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -388,7 +389,7 @@ public class Dividend implements Serializable {
    * Date Event was announced in YYYY-MM-DD format.
    * @return announcementDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Date Event was announced in YYYY-MM-DD format.")
   @JsonProperty(JSON_PROPERTY_ANNOUNCEMENT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -414,7 +415,7 @@ public class Dividend implements Serializable {
    * Date of Record for distribution in YYYY-MM-DD format.
    * @return recordDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Date of Record for distribution in YYYY-MM-DD format.")
   @JsonProperty(JSON_PROPERTY_RECORD_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -440,7 +441,7 @@ public class Dividend implements Serializable {
    * Date of Payment for distribution in YYYY-MM-DD format.
    * @return payDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Date of Payment for distribution in YYYY-MM-DD format.")
   @JsonProperty(JSON_PROPERTY_PAY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -466,7 +467,7 @@ public class Dividend implements Serializable {
    * Effective Date or Ex-Date of distribution in YYYY-MM-DD format.
    * @return effectiveDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Effective Date or Ex-Date of distribution in YYYY-MM-DD format.")
   @JsonProperty(JSON_PROPERTY_EFFECTIVE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -492,7 +493,7 @@ public class Dividend implements Serializable {
    * Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -518,7 +519,7 @@ public class Dividend implements Serializable {
    * Net/Gross Marker Code. For details describing Net vs. Gross dividends, visit [Online Assistant Page #11512](https://oa.apps.factset.com/pages/11512).
    * @return amtDefNetGrossIndicator
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Net/Gross Marker Code. For details describing Net vs. Gross dividends, visit [Online Assistant Page #11512](https://oa.apps.factset.com/pages/11512).")
   @JsonProperty(JSON_PROPERTY_AMT_DEF_NET_GROSS_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -544,7 +545,7 @@ public class Dividend implements Serializable {
    * Default Amount - Trading Currency, Split Adjusted
    * @return amtDefTradingAdj
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Default Amount - Trading Currency, Split Adjusted")
   @JsonProperty(JSON_PROPERTY_AMT_DEF_TRADING_ADJ)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -570,7 +571,7 @@ public class Dividend implements Serializable {
    * Default Amount - Trading Currency, Unadjusted
    * @return amtDefTradingUnadj
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Default Amount - Trading Currency, Unadjusted")
   @JsonProperty(JSON_PROPERTY_AMT_DEF_TRADING_UNADJ)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -596,7 +597,7 @@ public class Dividend implements Serializable {
    * Gross Amount - Trading Currency, Split Adjusted 
    * @return amtGrossTradingAdj
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Gross Amount - Trading Currency, Split Adjusted ")
   @JsonProperty(JSON_PROPERTY_AMT_GROSS_TRADING_ADJ)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -622,7 +623,7 @@ public class Dividend implements Serializable {
    * Gross Amount - Trading Currency, Unadjusted 
    * @return amtGrossTradingUnadj
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Gross Amount - Trading Currency, Unadjusted ")
   @JsonProperty(JSON_PROPERTY_AMT_GROSS_TRADING_UNADJ)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -648,7 +649,7 @@ public class Dividend implements Serializable {
    * Net Amount - Trading Currency, Split Adjusted
    * @return amtNetTradingAdj
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Net Amount - Trading Currency, Split Adjusted")
   @JsonProperty(JSON_PROPERTY_AMT_NET_TRADING_ADJ)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -674,7 +675,7 @@ public class Dividend implements Serializable {
    * Net Amount - Trading Currency, Unadjusted
    * @return amtNetTradingUnadj
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Net Amount - Trading Currency, Unadjusted")
   @JsonProperty(JSON_PROPERTY_AMT_NET_TRADING_UNADJ)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -700,7 +701,7 @@ public class Dividend implements Serializable {
    * Currency code for declared dividend.
    * @return declaredCurrency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "Currency code for declared dividend.")
   @JsonProperty(JSON_PROPERTY_DECLARED_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -726,7 +727,7 @@ public class Dividend implements Serializable {
    * Default Amount - Declared Currency, Split Adjusted
    * @return amtDefDecAdj
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Default Amount - Declared Currency, Split Adjusted")
   @JsonProperty(JSON_PROPERTY_AMT_DEF_DEC_ADJ)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -752,7 +753,7 @@ public class Dividend implements Serializable {
    * Default Amount - Declared Currency, Unadjusted
    * @return amtDefDecUnadj
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Default Amount - Declared Currency, Unadjusted")
   @JsonProperty(JSON_PROPERTY_AMT_DEF_DEC_UNADJ)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -778,7 +779,7 @@ public class Dividend implements Serializable {
    * Gross Amount - Declared Currency, Split Adjusted 
    * @return amtGrossDecAdj
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Gross Amount - Declared Currency, Split Adjusted ")
   @JsonProperty(JSON_PROPERTY_AMT_GROSS_DEC_ADJ)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -804,7 +805,7 @@ public class Dividend implements Serializable {
    * Gross Amount - Declared Currency, Unadjusted 
    * @return amtGrossDecUnadj
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Gross Amount - Declared Currency, Unadjusted ")
   @JsonProperty(JSON_PROPERTY_AMT_GROSS_DEC_UNADJ)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -830,7 +831,7 @@ public class Dividend implements Serializable {
    * Net Amount - Declared Currency, Split Adjusted 
    * @return amtNetDecAdj
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Net Amount - Declared Currency, Split Adjusted ")
   @JsonProperty(JSON_PROPERTY_AMT_NET_DEC_ADJ)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -856,7 +857,7 @@ public class Dividend implements Serializable {
    * Net Amount - Declared Currency, Unadjusted 
    * @return amtNetDecUnadj
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Net Amount - Declared Currency, Unadjusted ")
   @JsonProperty(JSON_PROPERTY_AMT_NET_DEC_UNADJ)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -882,7 +883,7 @@ public class Dividend implements Serializable {
    * Dividend Status Flag - 1&#x3D;Yes, 0&#x3D;No
    * @return dividendStatus
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0", value = "Dividend Status Flag - 1=Yes, 0=No")
   @JsonProperty(JSON_PROPERTY_DIVIDEND_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -908,7 +909,7 @@ public class Dividend implements Serializable {
    * Dividend active Flag - 1&#x3D;Yes, 0&#x3D;No
    * @return dividendActiveFlag
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "Dividend active Flag - 1=Yes, 0=No")
   @JsonProperty(JSON_PROPERTY_DIVIDEND_ACTIVE_FLAG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -934,7 +935,7 @@ public class Dividend implements Serializable {
    * Special Dividend Flag - 1&#x3D;Yes, 0&#x3D;No
    * @return dividendsSpecFlag
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0", value = "Special Dividend Flag - 1=Yes, 0=No")
   @JsonProperty(JSON_PROPERTY_DIVIDENDS_SPEC_FLAG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -960,7 +961,7 @@ public class Dividend implements Serializable {
    * Default Frank - Trading Currency, Split Adjusted
    * @return frankDefTradingAdj
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Default Frank - Trading Currency, Split Adjusted")
   @JsonProperty(JSON_PROPERTY_FRANK_DEF_TRADING_ADJ)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -986,7 +987,7 @@ public class Dividend implements Serializable {
    * Default Frank - Trading Currency, Unadjusted
    * @return frankDefTradingUnadj
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Default Frank - Trading Currency, Unadjusted")
   @JsonProperty(JSON_PROPERTY_FRANK_DEF_TRADING_UNADJ)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1012,7 +1013,7 @@ public class Dividend implements Serializable {
    * Default Frank - Declared Currency, Split Adjusted
    * @return frankDefDecAdj
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Default Frank - Declared Currency, Split Adjusted")
   @JsonProperty(JSON_PROPERTY_FRANK_DEF_DEC_ADJ)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1038,7 +1039,7 @@ public class Dividend implements Serializable {
    * Default Frank - Declared Currency, Unadjusted
    * @return frankDefDecUnadj
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Default Frank - Declared Currency, Unadjusted")
   @JsonProperty(JSON_PROPERTY_FRANK_DEF_DEC_UNADJ)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1064,7 +1065,7 @@ public class Dividend implements Serializable {
    * Default Amount - Declared Currency, Unadjusted
    * @return frankPct
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Default Amount - Declared Currency, Unadjusted")
   @JsonProperty(JSON_PROPERTY_FRANK_PCT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1090,7 +1091,7 @@ public class Dividend implements Serializable {
    * Tax Rate for on gross dividend for net dividend.
    * @return taxRate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Tax Rate for on gross dividend for net dividend.")
   @JsonProperty(JSON_PROPERTY_TAX_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1116,7 +1117,7 @@ public class Dividend implements Serializable {
    * Identifier that was used for the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "AAPL-US", value = "Identifier that was used for the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

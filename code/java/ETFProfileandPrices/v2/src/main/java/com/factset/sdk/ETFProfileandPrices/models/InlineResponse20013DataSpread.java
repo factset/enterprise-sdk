@@ -38,7 +38,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20013DataSpread.JSON_PROPERTY_ABSOLUTE,
   InlineResponse20013DataSpread.JSON_PROPERTY_RELATIVE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20013DataSpread implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -60,7 +61,7 @@ public class InlineResponse20013DataSpread implements Serializable {
    * Dollar spread difference. Available for the regions: US.
    * @return absolute
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Dollar spread difference. Available for the regions: US.")
   @JsonProperty(JSON_PROPERTY_ABSOLUTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,7 +87,7 @@ public class InlineResponse20013DataSpread implements Serializable {
    * Percentage spread difference. Available for the regions: US.
    * @return relative
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Percentage spread difference. Available for the regions: US.")
   @JsonProperty(JSON_PROPERTY_RELATIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

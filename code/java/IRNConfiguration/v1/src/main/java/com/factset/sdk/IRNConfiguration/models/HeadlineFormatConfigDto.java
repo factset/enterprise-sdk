@@ -41,7 +41,8 @@ import com.factset.sdk.IRNConfiguration.JSON;
   HeadlineFormatConfigDto.JSON_PROPERTY_CUSTOM_STRING,
   HeadlineFormatConfigDto.JSON_PROPERTY_CUSTOM_FIELD_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class HeadlineFormatConfigDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -66,7 +67,7 @@ public class HeadlineFormatConfigDto implements Serializable {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -100,7 +101,7 @@ public class HeadlineFormatConfigDto implements Serializable {
    * Get customString
    * @return customString
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -134,7 +135,7 @@ public class HeadlineFormatConfigDto implements Serializable {
    * Get customFieldName
    * @return customFieldName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

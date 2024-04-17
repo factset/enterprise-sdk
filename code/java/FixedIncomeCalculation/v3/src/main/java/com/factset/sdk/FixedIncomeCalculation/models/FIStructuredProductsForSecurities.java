@@ -49,7 +49,8 @@ import com.factset.sdk.FixedIncomeCalculation.JSON;
   FIStructuredProductsForSecurities.JSON_PROPERTY_CASHFLOWS,
   FIStructuredProductsForSecurities.JSON_PROPERTY_BALLOON_EXTENSION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FIStructuredProductsForSecurities implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -86,7 +87,7 @@ public class FIStructuredProductsForSecurities implements Serializable {
    * Get servicerAdvances
    * @return servicerAdvances
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SERVICER_ADVANCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -112,7 +113,7 @@ public class FIStructuredProductsForSecurities implements Serializable {
    * Ignore Financial Guarantee
    * @return ignoreFinancialGuarantee
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Ignore Financial Guarantee")
   @JsonIgnore
 
@@ -146,7 +147,7 @@ public class FIStructuredProductsForSecurities implements Serializable {
    * Cleanup Call Method
    * @return cleanUpCallMethod
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Cleanup Call Method")
   @JsonIgnore
 
@@ -180,7 +181,7 @@ public class FIStructuredProductsForSecurities implements Serializable {
    * Do OPT Redeem
    * @return doOPTRedeem
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Do OPT Redeem")
   @JsonIgnore
 
@@ -214,7 +215,7 @@ public class FIStructuredProductsForSecurities implements Serializable {
    * Get prepayLockout
    * @return prepayLockout
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PREPAY_LOCKOUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -240,7 +241,7 @@ public class FIStructuredProductsForSecurities implements Serializable {
    * Get cashflows
    * @return cashflows
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CASHFLOWS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -266,7 +267,7 @@ public class FIStructuredProductsForSecurities implements Serializable {
    * Get balloonExtension
    * @return balloonExtension
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BALLOON_EXTENSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

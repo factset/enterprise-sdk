@@ -42,7 +42,8 @@ import com.factset.sdk.RealTimePriceAlerting.JSON;
   InlineResponse200DataTriggerStatus.JSON_PROPERTY_DETAILS,
   InlineResponse200DataTriggerStatus.JSON_PROPERTY_ENCRYPTED_DETAILS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse200DataTriggerStatus implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -104,7 +105,7 @@ public class InlineResponse200DataTriggerStatus implements Serializable {
    * Code of the status.
    * @return code
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Code of the status.")
   @JsonIgnore
 
@@ -138,7 +139,7 @@ public class InlineResponse200DataTriggerStatus implements Serializable {
    * A human-readable, unstructured explanation specific to this error.
    * @return details
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A human-readable, unstructured explanation specific to this error.")
   @JsonIgnore
 
@@ -172,7 +173,7 @@ public class InlineResponse200DataTriggerStatus implements Serializable {
    * Base64-encoded, internal details about the error, in addition to \&quot;details\&quot;. An issue submitted to Service Desk should contain this data to speed up investigation.
    * @return encryptedDetails
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Base64-encoded, internal details about the error, in addition to \"details\". An issue submitted to Service Desk should contain this data to speed up investigation.")
   @JsonIgnore
 

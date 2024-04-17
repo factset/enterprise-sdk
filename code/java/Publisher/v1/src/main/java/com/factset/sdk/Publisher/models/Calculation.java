@@ -42,7 +42,8 @@ import com.factset.sdk.Publisher.JSON;
   Calculation.JSON_PROPERTY_VAULT,
   Calculation.JSON_PROPERTY_PUB
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Calculation implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -78,7 +79,7 @@ public class Calculation implements Serializable {
    * List of PA calculation parameters.
    * @return pa
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of PA calculation parameters.")
   @JsonProperty(JSON_PROPERTY_PA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -112,7 +113,7 @@ public class Calculation implements Serializable {
    * List of SPAR calculation parameters.
    * @return spar
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of SPAR calculation parameters.")
   @JsonProperty(JSON_PROPERTY_SPAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -146,7 +147,7 @@ public class Calculation implements Serializable {
    * List of Vault calculation parameters.
    * @return vault
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of Vault calculation parameters.")
   @JsonProperty(JSON_PROPERTY_VAULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -180,7 +181,7 @@ public class Calculation implements Serializable {
    * List of Publisher calculation parameters.
    * @return pub
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of Publisher calculation parameters.")
   @JsonProperty(JSON_PROPERTY_PUB)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

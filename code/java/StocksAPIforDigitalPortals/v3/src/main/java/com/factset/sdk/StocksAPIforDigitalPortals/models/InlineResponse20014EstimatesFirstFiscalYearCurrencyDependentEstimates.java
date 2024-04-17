@@ -43,7 +43,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20014EstimatesFirstFiscalYearCurrencyDependentEstimates.JSON_PROPERTY_EBITDA,
   InlineResponse20014EstimatesFirstFiscalYearCurrencyDependentEstimates.JSON_PROPERTY_PER_SHARE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20014EstimatesFirstFiscalYearCurrencyDependentEstimates implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -71,7 +72,7 @@ public class InlineResponse20014EstimatesFirstFiscalYearCurrencyDependentEstimat
    * Get currency
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -97,7 +98,7 @@ public class InlineResponse20014EstimatesFirstFiscalYearCurrencyDependentEstimat
    * Get ebit
    * @return ebit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EBIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -123,7 +124,7 @@ public class InlineResponse20014EstimatesFirstFiscalYearCurrencyDependentEstimat
    * Get ebitda
    * @return ebitda
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EBITDA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -149,7 +150,7 @@ public class InlineResponse20014EstimatesFirstFiscalYearCurrencyDependentEstimat
    * Get perShare
    * @return perShare
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PER_SHARE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

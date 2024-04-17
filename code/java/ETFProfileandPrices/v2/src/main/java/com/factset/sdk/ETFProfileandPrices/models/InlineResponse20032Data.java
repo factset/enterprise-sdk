@@ -53,7 +53,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20032Data.JSON_PROPERTY_TRADING_EXPENSE_RATIO,
   InlineResponse20032Data.JSON_PROPERTY_FEE_WAIVER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20032Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -111,7 +112,7 @@ public class InlineResponse20032Data implements Serializable {
    * Get maxCapitalGainsRate
    * @return maxCapitalGainsRate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MAX_CAPITAL_GAINS_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -137,7 +138,7 @@ public class InlineResponse20032Data implements Serializable {
    * Describes whether dividend income received by the ETP is distributed to ETP shareholders or capitalised (reinvested) into the ETP, text and standardized value available. This data is available for all the Canada and Europe regions.
    * @return dividendTreatment
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Describes whether dividend income received by the ETP is distributed to ETP shareholders or capitalised (reinvested) into the ETP, text and standardized value available. This data is available for all the Canada and Europe regions.")
   @JsonProperty(JSON_PROPERTY_DIVIDEND_TREATMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -163,7 +164,7 @@ public class InlineResponse20032Data implements Serializable {
    * Flags ETPs that distribute K-1 tax forms. This data is available for the US regions.
    * @return distributeK1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Flags ETPs that distribute K-1 tax forms. This data is available for the US regions.")
   @JsonProperty(JSON_PROPERTY_DISTRIBUTE_K1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -189,7 +190,7 @@ public class InlineResponse20032Data implements Serializable {
    * Type of the tax applicable on the distribution. This data is available for the US regions.
    * @return taxType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Type of the tax applicable on the distribution. This data is available for the US regions.")
   @JsonProperty(JSON_PROPERTY_TAX_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -215,7 +216,7 @@ public class InlineResponse20032Data implements Serializable {
    * Tax treatment of the ETP&#39;s regular distributions. This data is available for the US regions.
    * @return taxOnDistributions
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Tax treatment of the ETP's regular distributions. This data is available for the US regions.")
   @JsonProperty(JSON_PROPERTY_TAX_ON_DISTRIBUTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -241,7 +242,7 @@ public class InlineResponse20032Data implements Serializable {
    * Get expenseRatio
    * @return expenseRatio
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EXPENSE_RATIO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -267,7 +268,7 @@ public class InlineResponse20032Data implements Serializable {
    * Expiration date of any fee waivers. This data is available for the US and Canada regions.
    * @return potentialCostIncreaseDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Expiration date of any fee waivers. This data is available for the US and Canada regions.")
   @JsonProperty(JSON_PROPERTY_POTENTIAL_COST_INCREASE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -293,7 +294,7 @@ public class InlineResponse20032Data implements Serializable {
    * The advisors fee excluding any additional costs or fees; A subset of the total expense ratio. This data is available for the Canada regions.
    * @return contractAdvisoryFee
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The advisors fee excluding any additional costs or fees; A subset of the total expense ratio. This data is available for the Canada regions.")
   @JsonProperty(JSON_PROPERTY_CONTRACT_ADVISORY_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -319,7 +320,7 @@ public class InlineResponse20032Data implements Serializable {
    * Realized capital gains or losses reported on the ETP&#39;s most recent annual or semi-annual report. Gains must generally be paid out as a distribution at year-end, while losses can be banked to offset future gains. This data is available only for the US regions.
    * @return capitalGains
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Realized capital gains or losses reported on the ETP's most recent annual or semi-annual report. Gains must generally be paid out as a distribution at year-end, while losses can be banked to offset future gains. This data is available only for the US regions.")
   @JsonProperty(JSON_PROPERTY_CAPITAL_GAINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -345,7 +346,7 @@ public class InlineResponse20032Data implements Serializable {
    * The average annual capital gains paid out to shareholders over the past 3 calendar years, measured as a percent of net asset value (NAV) on the final trading day of each previous year. This data is available for the US region only.
    * @return capitalGainsDistirbutions3Y
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The average annual capital gains paid out to shareholders over the past 3 calendar years, measured as a percent of net asset value (NAV) on the final trading day of each previous year. This data is available for the US region only.")
   @JsonProperty(JSON_PROPERTY_CAPITAL_GAINS_DISTIRBUTIONS3_Y)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -371,7 +372,7 @@ public class InlineResponse20032Data implements Serializable {
    * Total net annual cost associated with holding the ETP, expressed as a percentage. This data is available for the Canada regions.
    * @return managementExpenseRatio
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Total net annual cost associated with holding the ETP, expressed as a percentage. This data is available for the Canada regions.")
   @JsonProperty(JSON_PROPERTY_MANAGEMENT_EXPENSE_RATIO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -397,7 +398,7 @@ public class InlineResponse20032Data implements Serializable {
    * Annual fee collected by fund manager, expressed as a percentage. This data is available for the Canada region.
    * @return managementFee
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Annual fee collected by fund manager, expressed as a percentage. This data is available for the Canada region.")
   @JsonProperty(JSON_PROPERTY_MANAGEMENT_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -423,7 +424,7 @@ public class InlineResponse20032Data implements Serializable {
    * Estimated annual costs associated with trading the underlying holdings. This data is available for the Canada region.
    * @return tradingExpenseRatio
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Estimated annual costs associated with trading the underlying holdings. This data is available for the Canada region.")
   @JsonProperty(JSON_PROPERTY_TRADING_EXPENSE_RATIO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -449,7 +450,7 @@ public class InlineResponse20032Data implements Serializable {
    * A reduction in annual ETP expenses, expressed as a percentage. This data is available for the Canada region.
    * @return feeWaiver
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A reduction in annual ETP expenses, expressed as a percentage. This data is available for the Canada region.")
   @JsonProperty(JSON_PROPERTY_FEE_WAIVER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

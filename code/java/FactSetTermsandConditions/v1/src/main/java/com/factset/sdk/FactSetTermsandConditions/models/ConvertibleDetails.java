@@ -54,7 +54,8 @@ import com.factset.sdk.FactSetTermsandConditions.JSON;
   ConvertibleDetails.JSON_PROPERTY_CONV_RATIO_DESC,
   ConvertibleDetails.JSON_PROPERTY_CONV_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ConvertibleDetails implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -124,7 +125,7 @@ public class ConvertibleDetails implements Serializable {
    * Security identifier used in the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Security identifier used in the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -150,7 +151,7 @@ public class ConvertibleDetails implements Serializable {
    * FactSet Permanent Security Identifier.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "FactSet Permanent Security Identifier.")
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -176,7 +177,7 @@ public class ConvertibleDetails implements Serializable {
    * Convertible Currency
    * @return convCurr
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Convertible Currency")
   @JsonProperty(JSON_PROPERTY_CONV_CURR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -202,7 +203,7 @@ public class ConvertibleDetails implements Serializable {
    * Convertible Effective Date
    * @return convEffDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Convertible Effective Date")
   @JsonProperty(JSON_PROPERTY_CONV_EFF_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -228,7 +229,7 @@ public class ConvertibleDetails implements Serializable {
    * Convertible End Date
    * @return convEndDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Convertible End Date")
   @JsonProperty(JSON_PROPERTY_CONV_END_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -254,7 +255,7 @@ public class ConvertibleDetails implements Serializable {
    * Convertible Frequency
    * @return convFrequency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Convertible Frequency")
   @JsonProperty(JSON_PROPERTY_CONV_FREQUENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -280,7 +281,7 @@ public class ConvertibleDetails implements Serializable {
    * Convertible Type Id
    * @return convId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Convertible Type Id")
   @JsonProperty(JSON_PROPERTY_CONV_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -306,7 +307,7 @@ public class ConvertibleDetails implements Serializable {
    * Convertible Identification
    * @return convIdentification
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Convertible Identification")
   @JsonProperty(JSON_PROPERTY_CONV_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -332,7 +333,7 @@ public class ConvertibleDetails implements Serializable {
    * Convertible Notice Max
    * @return convNoticeDaysMax
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Convertible Notice Max")
   @JsonProperty(JSON_PROPERTY_CONV_NOTICE_DAYS_MAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -358,7 +359,7 @@ public class ConvertibleDetails implements Serializable {
    * Convertible Notice Min
    * @return convNoticeDaysMin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Convertible Notice Min")
   @JsonProperty(JSON_PROPERTY_CONV_NOTICE_DAYS_MIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -384,7 +385,7 @@ public class ConvertibleDetails implements Serializable {
    * Convertible Payment Form
    * @return convPayForm
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Convertible Payment Form")
   @JsonProperty(JSON_PROPERTY_CONV_PAY_FORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -410,7 +411,7 @@ public class ConvertibleDetails implements Serializable {
    * Convertible Payment Form Detail
    * @return convPayFormDet
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Convertible Payment Form Detail")
   @JsonProperty(JSON_PROPERTY_CONV_PAY_FORM_DET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -436,7 +437,7 @@ public class ConvertibleDetails implements Serializable {
    * Convertible Payment Form Election
    * @return convPayFormElect
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Convertible Payment Form Election")
   @JsonProperty(JSON_PROPERTY_CONV_PAY_FORM_ELECT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -462,7 +463,7 @@ public class ConvertibleDetails implements Serializable {
    * Convertible Premium Change Control
    * @return convPremChgControl
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Convertible Premium Change Control")
   @JsonProperty(JSON_PROPERTY_CONV_PREM_CHG_CONTROL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -488,7 +489,7 @@ public class ConvertibleDetails implements Serializable {
    * Convertible Price Method
    * @return convPriceMethod
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Convertible Price Method")
   @JsonProperty(JSON_PROPERTY_CONV_PRICE_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -514,7 +515,7 @@ public class ConvertibleDetails implements Serializable {
    * Convertibles Ratio
    * @return convRatio
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Convertibles Ratio")
   @JsonProperty(JSON_PROPERTY_CONV_RATIO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -540,7 +541,7 @@ public class ConvertibleDetails implements Serializable {
    * Convertible Ratio Form Description
    * @return convRatioDesc
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Convertible Ratio Form Description")
   @JsonProperty(JSON_PROPERTY_CONV_RATIO_DESC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -566,7 +567,7 @@ public class ConvertibleDetails implements Serializable {
    * Convertible Type
    * @return convType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Convertible Type")
   @JsonProperty(JSON_PROPERTY_CONV_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

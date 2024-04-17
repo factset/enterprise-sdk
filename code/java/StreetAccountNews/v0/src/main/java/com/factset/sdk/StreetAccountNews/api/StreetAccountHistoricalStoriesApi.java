@@ -6,7 +6,7 @@ import com.factset.sdk.StreetAccountNews.ApiResponse;
 import com.factset.sdk.StreetAccountNews.Configuration;
 import com.factset.sdk.StreetAccountNews.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -17,7 +17,8 @@ import java.time.OffsetDateTime;
 import com.factset.sdk.StreetAccountNews.models.RequestfilesResponse;
 import com.factset.sdk.StreetAccountNews.models.StreetAccountStatus;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class StreetAccountHistoricalStoriesApi {
   private ApiClient apiClient;
 

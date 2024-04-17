@@ -35,7 +35,8 @@ import com.factset.sdk.FactSetSearchAnswers.JSON;
 @JsonPropertyOrder({
   CountryID.JSON_PROPERTY_I_S_O_A_L_P_H_A2
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CountryID implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -54,7 +55,7 @@ public class CountryID implements Serializable {
    * Get ISOALPHA2
    * @return ISOALPHA2
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_I_S_O_A_L_P_H_A2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

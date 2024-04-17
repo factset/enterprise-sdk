@@ -49,7 +49,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20010DataDividends.JSON_PROPERTY_CURRENCY,
   InlineResponse20010DataDividends.JSON_PROPERTY_GROSS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20010DataDividends implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -83,7 +84,7 @@ public class InlineResponse20010DataDividends implements Serializable {
    * Identifier of a dividend.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of a dividend.")
   @JsonIgnore
 
@@ -117,7 +118,7 @@ public class InlineResponse20010DataDividends implements Serializable {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -143,7 +144,7 @@ public class InlineResponse20010DataDividends implements Serializable {
    * Get occurrence
    * @return occurrence
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OCCURRENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -169,7 +170,7 @@ public class InlineResponse20010DataDividends implements Serializable {
    * Get dates
    * @return dates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -195,7 +196,7 @@ public class InlineResponse20010DataDividends implements Serializable {
    * Get currency
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -221,7 +222,7 @@ public class InlineResponse20010DataDividends implements Serializable {
    * Get gross
    * @return gross
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_GROSS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -42,7 +42,8 @@ import com.factset.sdk.StreetAccountNews.JSON;
   Getfiles.JSON_PROPERTY_URL,
   Getfiles.JSON_PROPERTY_PART
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Getfiles implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -79,7 +80,7 @@ public class Getfiles implements Serializable {
    * Defines the name of the product
    * @return product
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Defines the name of the product")
   @JsonProperty(JSON_PROPERTY_PRODUCT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -105,7 +106,7 @@ public class Getfiles implements Serializable {
    * The startDate from which the data is required in YYYY-MM-DDTHH:MM:SSZ format
    * @return startDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The startDate from which the data is required in YYYY-MM-DDTHH:MM:SSZ format")
   @JsonProperty(JSON_PROPERTY_START_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -131,7 +132,7 @@ public class Getfiles implements Serializable {
    * The endDate until which the data is fetched in YYYY-MM-DDTHH:MM:SSZ format
    * @return endDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The endDate until which the data is fetched in YYYY-MM-DDTHH:MM:SSZ format")
   @JsonProperty(JSON_PROPERTY_END_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -157,7 +158,7 @@ public class Getfiles implements Serializable {
    * Unique id to get the xml files for the requested date
    * @return jobID
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Unique id to get the xml files for the requested date")
   @JsonProperty(JSON_PROPERTY_JOB_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -183,7 +184,7 @@ public class Getfiles implements Serializable {
    * Defines the status of the request
    * @return status
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Defines the status of the request")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -209,7 +210,7 @@ public class Getfiles implements Serializable {
    * Link to download the zip file which contains xml files
    * @return url
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Link to download the zip file which contains xml files")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -235,7 +236,7 @@ public class Getfiles implements Serializable {
    * Returns the part number of the jobID
    * @return part
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Returns the part number of the jobID")
   @JsonProperty(JSON_PROPERTY_PART)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

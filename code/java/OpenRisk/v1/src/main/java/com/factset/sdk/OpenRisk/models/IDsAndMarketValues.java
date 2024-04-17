@@ -37,7 +37,8 @@ import com.factset.sdk.OpenRisk.JSON;
   IDsAndMarketValues.JSON_PROPERTY_IDS,
   IDsAndMarketValues.JSON_PROPERTY_MARKET_VALUES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class IDsAndMarketValues implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -74,7 +75,7 @@ public class IDsAndMarketValues implements Serializable {
    * Get ids
    * @return ids
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -105,7 +106,7 @@ public class IDsAndMarketValues implements Serializable {
    * Get marketValues
    * @return marketValues
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_MARKET_VALUES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

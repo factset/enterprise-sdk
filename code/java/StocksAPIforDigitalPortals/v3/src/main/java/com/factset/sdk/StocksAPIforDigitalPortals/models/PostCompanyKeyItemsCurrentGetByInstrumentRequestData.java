@@ -38,7 +38,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   PostCompanyKeyItemsCurrentGetByInstrumentRequestData.JSON_PROPERTY_ID,
   PostCompanyKeyItemsCurrentGetByInstrumentRequestData.JSON_PROPERTY_CURRENCY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostCompanyKeyItemsCurrentGetByInstrumentRequestData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -70,7 +71,7 @@ public class PostCompanyKeyItemsCurrentGetByInstrumentRequestData implements Ser
    * Identifier of an instrument.
    * @return id
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Identifier of an instrument.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -96,7 +97,7 @@ public class PostCompanyKeyItemsCurrentGetByInstrumentRequestData implements Ser
    * Get currency
    * @return currency
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

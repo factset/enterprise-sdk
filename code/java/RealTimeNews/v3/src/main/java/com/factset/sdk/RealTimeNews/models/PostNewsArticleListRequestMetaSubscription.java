@@ -37,7 +37,8 @@ import com.factset.sdk.RealTimeNews.JSON;
 @JsonPropertyOrder({
   PostNewsArticleListRequestMetaSubscription.JSON_PROPERTY_MINIMUM_INTERVAL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostNewsArticleListRequestMetaSubscription implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -58,7 +59,7 @@ public class PostNewsArticleListRequestMetaSubscription implements Serializable 
    * maximum: 5000
    * @return minimumInterval
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately.")
   @JsonProperty(JSON_PROPERTY_MINIMUM_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -42,7 +42,8 @@ import com.factset.sdk.SecurityModeling.JSON;
   SMRetrieveParameters.JSON_PROPERTY_ASOFDATE,
   SMRetrieveParameters.JSON_PROPERTY_SECURITY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SMRetrieveParameters implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -113,7 +114,7 @@ public class SMRetrieveParameters implements Serializable {
    * Get securityName
    * @return securityName
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SECURITY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -139,7 +140,7 @@ public class SMRetrieveParameters implements Serializable {
    * Get location
    * @return location
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -173,7 +174,7 @@ public class SMRetrieveParameters implements Serializable {
    * Get asofdate
    * @return asofdate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -207,7 +208,7 @@ public class SMRetrieveParameters implements Serializable {
    * Get securityType
    * @return securityType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

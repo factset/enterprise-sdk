@@ -49,7 +49,8 @@ import com.factset.sdk.RealTimeNews.JSON;
   PostNewsArticleListRequestDataFilter.JSON_PROPERTY_LANGUAGE,
   PostNewsArticleListRequestDataFilter.JSON_PROPERTY_TYPES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostNewsArticleListRequestDataFilter implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -86,7 +87,7 @@ public class PostNewsArticleListRequestDataFilter implements Serializable {
    * Get range
    * @return range
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -112,7 +113,7 @@ public class PostNewsArticleListRequestDataFilter implements Serializable {
    * Get categories
    * @return categories
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CATEGORIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -138,7 +139,7 @@ public class PostNewsArticleListRequestDataFilter implements Serializable {
    * Get regions
    * @return regions
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REGIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -164,7 +165,7 @@ public class PostNewsArticleListRequestDataFilter implements Serializable {
    * Get distributor
    * @return distributor
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DISTRIBUTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -190,7 +191,7 @@ public class PostNewsArticleListRequestDataFilter implements Serializable {
    * Get publisher
    * @return publisher
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PUBLISHER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -216,7 +217,7 @@ public class PostNewsArticleListRequestDataFilter implements Serializable {
    * Get language
    * @return language
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -242,7 +243,7 @@ public class PostNewsArticleListRequestDataFilter implements Serializable {
    * Get types
    * @return types
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

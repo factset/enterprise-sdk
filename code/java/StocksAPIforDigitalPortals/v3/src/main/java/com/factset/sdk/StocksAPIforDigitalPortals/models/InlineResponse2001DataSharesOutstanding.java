@@ -43,7 +43,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2001DataSharesOutstanding.JSON_PROPERTY_REPORTED,
   InlineResponse2001DataSharesOutstanding.JSON_PROPERTY_AVERAGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2001DataSharesOutstanding implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -65,7 +66,7 @@ public class InlineResponse2001DataSharesOutstanding implements Serializable {
    * Number of shares outstanding as reported by the company. This represents the basic (actual) shares outstanding.
    * @return reported
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of shares outstanding as reported by the company. This represents the basic (actual) shares outstanding.")
   @JsonIgnore
 
@@ -99,7 +100,7 @@ public class InlineResponse2001DataSharesOutstanding implements Serializable {
    * Get average
    * @return average
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AVERAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -40,7 +40,8 @@ import com.factset.sdk.PAEngine.JSON;
   PACalculationGroup.JSON_PROPERTY_ID,
   PACalculationGroup.JSON_PROPERTY_FREQUENCY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PACalculationGroup implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -62,7 +63,7 @@ public class PACalculationGroup implements Serializable {
    * FactSet-defined or User-defined Group identifier.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "FactSet-defined or User-defined Group identifier.")
   @JsonIgnore
 
@@ -96,7 +97,7 @@ public class PACalculationGroup implements Serializable {
    * Grouping frequency
    * @return frequency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Grouping frequency")
   @JsonIgnore
 

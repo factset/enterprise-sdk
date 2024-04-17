@@ -40,7 +40,8 @@ import com.factset.sdk.NaturalLanguageProcessing.JSON;
   ThemeSentiment.JSON_PROPERTY_THEME_SCORE,
   ThemeSentiment.JSON_PROPERTY_THEME_TEXT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ThemeSentiment implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -115,7 +116,7 @@ public class ThemeSentiment implements Serializable {
    * The sentiment of the theme.
    * @return sentiment
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "positive", value = "The sentiment of the theme.")
   @JsonProperty(JSON_PROPERTY_SENTIMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -141,7 +142,7 @@ public class ThemeSentiment implements Serializable {
    * Confidence score of the sentiment
    * @return sentimentScore
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0.9900231957", value = "Confidence score of the sentiment")
   @JsonProperty(JSON_PROPERTY_SENTIMENT_SCORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -167,7 +168,7 @@ public class ThemeSentiment implements Serializable {
    * The confidence score associated to the theme
    * @return themeScore
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "0.88", required = true, value = "The confidence score associated to the theme")
   @JsonProperty(JSON_PROPERTY_THEME_SCORE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -193,7 +194,7 @@ public class ThemeSentiment implements Serializable {
    * The extracted theme as text
    * @return themeText
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "home entertainment results", required = true, value = "The extracted theme as text")
   @JsonProperty(JSON_PROPERTY_THEME_TEXT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

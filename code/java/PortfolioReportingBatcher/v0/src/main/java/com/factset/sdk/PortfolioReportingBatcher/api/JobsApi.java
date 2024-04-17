@@ -6,7 +6,7 @@ import com.factset.sdk.PortfolioReportingBatcher.ApiResponse;
 import com.factset.sdk.PortfolioReportingBatcher.Configuration;
 import com.factset.sdk.PortfolioReportingBatcher.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -15,7 +15,8 @@ import com.factset.sdk.PortfolioReportingBatcher.models.ClientErrorResponse;
 import com.factset.sdk.PortfolioReportingBatcher.models.JobDetailsResponse;
 import com.factset.sdk.PortfolioReportingBatcher.models.JobTypes;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class JobsApi {
   private ApiClient apiClient;
 

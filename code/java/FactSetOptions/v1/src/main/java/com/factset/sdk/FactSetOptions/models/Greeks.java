@@ -48,7 +48,8 @@ import com.factset.sdk.FactSetOptions.JSON;
   Greeks.JSON_PROPERTY_VEGA,
   Greeks.JSON_PROPERTY_DATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Greeks implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -88,7 +89,7 @@ public class Greeks implements Serializable {
    * The delta value of the option. Refer to the &#x60;greeks&#x60; endpoint description for more details
    * @return delta
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0.973638814832741", value = "The delta value of the option. Refer to the `greeks` endpoint description for more details")
   @JsonIgnore
 
@@ -122,7 +123,7 @@ public class Greeks implements Serializable {
    * FactSet&#39;s Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options)
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "TSLA.US#C00LP", value = "FactSet's Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options)")
   @JsonIgnore
 
@@ -156,7 +157,7 @@ public class Greeks implements Serializable {
    * The gamma value of the option. Refer to the &#x60;greeks&#x60; endpoint description for more details
    * @return gamma
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0.0000276813921231278", value = "The gamma value of the option. Refer to the `greeks` endpoint description for more details")
   @JsonIgnore
 
@@ -190,7 +191,7 @@ public class Greeks implements Serializable {
    * The requested identifier submitted in the query.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "TSLA.US#C00LP", value = "The requested identifier submitted in the query.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -216,7 +217,7 @@ public class Greeks implements Serializable {
    * The rho value of the option. Refer to the &#x60;greeks&#x60; endpoint description for more details
    * @return rho
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0.094465131548418", value = "The rho value of the option. Refer to the `greeks` endpoint description for more details")
   @JsonIgnore
 
@@ -250,7 +251,7 @@ public class Greeks implements Serializable {
    * The theta value of the option. Refer to the &#x60;greeks&#x60; endpoint description for more details
    * @return theta
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0.473699140972176", value = "The theta value of the option. Refer to the `greeks` endpoint description for more details")
   @JsonIgnore
 
@@ -284,7 +285,7 @@ public class Greeks implements Serializable {
    * The vega value of the option. Refer to the &#x60;greeks&#x60; endpoint description for more details
    * @return vega
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0.246816993561083", value = "The vega value of the option. Refer to the `greeks` endpoint description for more details")
   @JsonIgnore
 
@@ -318,7 +319,7 @@ public class Greeks implements Serializable {
    * The date the data is as of in YYYY-MM-DD format.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Fri May 07 00:00:00 UTC 2021", value = "The date the data is as of in YYYY-MM-DD format.")
   @JsonIgnore
 

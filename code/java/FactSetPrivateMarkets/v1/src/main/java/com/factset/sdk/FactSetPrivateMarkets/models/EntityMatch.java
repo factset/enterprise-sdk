@@ -43,7 +43,8 @@ import com.factset.sdk.FactSetPrivateMarkets.JSON;
   EntityMatch.JSON_PROPERTY_COUNTRY_CODE,
   EntityMatch.JSON_PROPERTY_ENTITY_TYPE_CODE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EntityMatch implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -71,7 +72,7 @@ public class EntityMatch implements Serializable {
    * FactSet Entity Identifier of the entity matched respective to the requested Name submitted. For more detail, visit [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881) 
    * @return entityId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "FactSet Entity Identifier of the entity matched respective to the requested Name submitted. For more detail, visit [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881) ")
   @JsonIgnore
 
@@ -105,7 +106,7 @@ public class EntityMatch implements Serializable {
    * Full name corresponding to the matched entity.
    * @return entityName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FactSet Research Systems, Inc.", value = "Full name corresponding to the matched entity.")
   @JsonIgnore
 
@@ -139,7 +140,7 @@ public class EntityMatch implements Serializable {
    * ISO2 country code corresponding to the location of the matched entity.
    * @return countryCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "US", value = "ISO2 country code corresponding to the location of the matched entity.")
   @JsonIgnore
 
@@ -173,7 +174,7 @@ public class EntityMatch implements Serializable {
    * Code representing the entity type of the matched entity. See the related request parameter for a table of all Codes and their respective descriptions.
    * @return entityTypeCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "PUB", value = "Code representing the entity type of the matched entity. See the related request parameter for a table of all Codes and their respective descriptions.")
   @JsonIgnore
 

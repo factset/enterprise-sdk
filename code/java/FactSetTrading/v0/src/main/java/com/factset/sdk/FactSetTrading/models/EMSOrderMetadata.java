@@ -47,7 +47,8 @@ import com.factset.sdk.FactSetTrading.JSON;
   EMSOrderMetadata.JSON_PROPERTY_CLIENT_ORDER_ID,
   EMSOrderMetadata.JSON_PROPERTY_WARNING
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EMSOrderMetadata implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -169,7 +170,7 @@ public class EMSOrderMetadata implements Serializable {
    * Ticker symbol
    * @return symbol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Ticker symbol")
   @JsonIgnore
 
@@ -203,7 +204,7 @@ public class EMSOrderMetadata implements Serializable {
    * Side of the order
    * @return side
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Side of the order")
   @JsonIgnore
 
@@ -237,7 +238,7 @@ public class EMSOrderMetadata implements Serializable {
    * Type of the order
    * @return orderType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Type of the order")
   @JsonIgnore
 
@@ -271,7 +272,7 @@ public class EMSOrderMetadata implements Serializable {
    * Number of shares/Quantity.
    * @return orderQuantity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of shares/Quantity.")
   @JsonIgnore
 
@@ -305,7 +306,7 @@ public class EMSOrderMetadata implements Serializable {
    * Error message
    * @return error
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Error message")
   @JsonIgnore
 
@@ -339,7 +340,7 @@ public class EMSOrderMetadata implements Serializable {
    * Information
    * @return info
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Information")
   @JsonIgnore
 
@@ -373,7 +374,7 @@ public class EMSOrderMetadata implements Serializable {
    * Client Order Id
    * @return clientOrderId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Client Order Id")
   @JsonIgnore
 
@@ -407,7 +408,7 @@ public class EMSOrderMetadata implements Serializable {
    * Warning
    * @return warning
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Warning")
   @JsonIgnore
 

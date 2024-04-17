@@ -46,7 +46,8 @@ import com.factset.sdk.SecurityModeling.JSON;
   SMRetrieveResponse.JSON_PROPERTY_FIELDS,
   SMRetrieveResponse.JSON_PROPERTY_ERRORS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SMRetrieveResponse implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -115,7 +116,7 @@ public class SMRetrieveResponse implements Serializable {
    * Get securityName
    * @return securityName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -149,7 +150,7 @@ public class SMRetrieveResponse implements Serializable {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -175,7 +176,7 @@ public class SMRetrieveResponse implements Serializable {
    * Get location
    * @return location
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -209,7 +210,7 @@ public class SMRetrieveResponse implements Serializable {
    * Get asofdate
    * @return asofdate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -243,7 +244,7 @@ public class SMRetrieveResponse implements Serializable {
    * Get fields
    * @return fields
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -289,7 +290,7 @@ public class SMRetrieveResponse implements Serializable {
    * Get errors
    * @return errors
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

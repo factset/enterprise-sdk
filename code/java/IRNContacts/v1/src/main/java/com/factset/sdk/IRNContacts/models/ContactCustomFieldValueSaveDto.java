@@ -42,7 +42,8 @@ import com.factset.sdk.IRNContacts.JSON;
   ContactCustomFieldValueSaveDto.JSON_PROPERTY_OPTION_VALUES,
   ContactCustomFieldValueSaveDto.JSON_PROPERTY_EVALUATE_FORMULA
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ContactCustomFieldValueSaveDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -78,7 +79,7 @@ public class ContactCustomFieldValueSaveDto implements Serializable {
    * Get code
    * @return code
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -104,7 +105,7 @@ public class ContactCustomFieldValueSaveDto implements Serializable {
    * Get value
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -150,7 +151,7 @@ public class ContactCustomFieldValueSaveDto implements Serializable {
    * Get optionValues
    * @return optionValues
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -184,7 +185,7 @@ public class ContactCustomFieldValueSaveDto implements Serializable {
    * Get evaluateFormula
    * @return evaluateFormula
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EVALUATE_FORMULA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -46,7 +46,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2009Data.JSON_PROPERTY_HEADQUARTERS,
   InlineResponse2009Data.JSON_PROPERTY_SYMBOL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2009Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -83,7 +84,7 @@ public class InlineResponse2009Data implements Serializable {
    * MDG identifier of the listing.
    * @return idNotation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "MDG identifier of the listing.")
   @JsonIgnore
 
@@ -117,7 +118,7 @@ public class InlineResponse2009Data implements Serializable {
    * Identifier used in the request.
    * @return sourceIdentifier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier used in the request.")
   @JsonIgnore
 
@@ -151,7 +152,7 @@ public class InlineResponse2009Data implements Serializable {
    * Body of the background text for the description of the company.
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Body of the background text for the description of the company.")
   @JsonIgnore
 
@@ -185,7 +186,7 @@ public class InlineResponse2009Data implements Serializable {
    * Full name of the CEO officer.
    * @return CEO
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Full name of the CEO officer.")
   @JsonIgnore
 
@@ -219,7 +220,7 @@ public class InlineResponse2009Data implements Serializable {
    * Name of the industry category.
    * @return industry
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the industry category.")
   @JsonIgnore
 
@@ -253,7 +254,7 @@ public class InlineResponse2009Data implements Serializable {
    * Postal address and name of the country for theheadquarters of the company
    * @return headquarters
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Postal address and name of the country for theheadquarters of the company")
   @JsonIgnore
 
@@ -287,7 +288,7 @@ public class InlineResponse2009Data implements Serializable {
    * The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify notations, no symbol will be set for the notations of that market.
    * @return symbol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify notations, no symbol will be set for the notations of that market.")
   @JsonIgnore
 

@@ -40,7 +40,8 @@ import com.factset.sdk.IRNConfiguration.JSON;
   ClientSalesRepresentativeDto.JSON_PROPERTY_FULLNAME,
   ClientSalesRepresentativeDto.JSON_PROPERTY_EMAIL_ADDRESS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ClientSalesRepresentativeDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -62,7 +63,7 @@ public class ClientSalesRepresentativeDto implements Serializable {
    * Get fullname
    * @return fullname
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -96,7 +97,7 @@ public class ClientSalesRepresentativeDto implements Serializable {
    * Get emailAddress
    * @return emailAddress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

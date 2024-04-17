@@ -54,7 +54,8 @@ import com.factset.sdk.SPGlobalFixedIncomeEvaluatedPricesandAnalytics.JSON;
   BondYield.JSON_PROPERTY_MID_YIELD_TO_CALL,
   BondYield.JSON_PROPERTY_YIELD_T_W_DATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class BondYield implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -115,7 +116,7 @@ public class BondYield implements Serializable {
    * Identifier that was used for the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "US45905URL07", value = "Identifier that was used for the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -141,7 +142,7 @@ public class BondYield implements Serializable {
    * FactSet Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security&#39;s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "CJQZQ0-S", value = "FactSet Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.")
   @JsonIgnore
 
@@ -175,7 +176,7 @@ public class BondYield implements Serializable {
    * The date on which the price is calculated.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Thu Jan 26 00:00:00 UTC 2023", value = "The date on which the price is calculated.")
   @JsonIgnore
 
@@ -209,7 +210,7 @@ public class BondYield implements Serializable {
    * The yield to maturity of the bid price of the instrument. Available only for &#x60;corporate bonds&#x60; and &#x60;asset-backed security bonds&#x60;.
    * @return bidYieldToMaturity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "4.27241", value = "The yield to maturity of the bid price of the instrument. Available only for `corporate bonds` and `asset-backed security bonds`.")
   @JsonIgnore
 
@@ -243,7 +244,7 @@ public class BondYield implements Serializable {
    * The yield to maturity of the mid price of the instrument. Available only for &#x60;corporate bonds&#x60; and &#x60;asset-backed security bonds&#x60;.
    * @return midYieldToMaturity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "4.25914", value = "The yield to maturity of the mid price of the instrument. Available only for `corporate bonds` and `asset-backed security bonds`.")
   @JsonIgnore
 
@@ -277,7 +278,7 @@ public class BondYield implements Serializable {
    * The yield to maturity of the ask price of the instrument. Available only for &#x60;corporate bonds&#x60;.
    * @return askYieldToMaturity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "4.24587", value = "The yield to maturity of the ask price of the instrument. Available only for `corporate bonds`.")
   @JsonIgnore
 
@@ -311,7 +312,7 @@ public class BondYield implements Serializable {
    * The lowest yield, under all possible scenarios, of the bid price of the instrument. Available only for &#x60;corporate bonds&#x60; and &#x60;municipal bonds&#x60;.
    * @return bidYieldToWorst
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The lowest yield, under all possible scenarios, of the bid price of the instrument. Available only for `corporate bonds` and `municipal bonds`.")
   @JsonIgnore
 
@@ -345,7 +346,7 @@ public class BondYield implements Serializable {
    * The lowest yield, under all possible scenarios, of the mid price of the instrument. Available only for &#x60;corporate bonds&#x60; and &#x60;municipal bonds&#x60;.
    * @return midYieldToWorst
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The lowest yield, under all possible scenarios, of the mid price of the instrument. Available only for `corporate bonds` and `municipal bonds`.")
   @JsonIgnore
 
@@ -379,7 +380,7 @@ public class BondYield implements Serializable {
    * The lowest yield, under all possible scenarios, of the ask price of the instrument. Available only for &#x60;corporate bonds&#x60; and &#x60;municipal bonds&#x60;.
    * @return askYieldToWorst
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The lowest yield, under all possible scenarios, of the ask price of the instrument. Available only for `corporate bonds` and `municipal bonds`.")
   @JsonIgnore
 
@@ -413,7 +414,7 @@ public class BondYield implements Serializable {
    * The bid yield to maturity of the benchmark instrument. Available only for &#x60;corporate bonds&#x60;.
    * @return benchmarkBidYieldToMaturity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "4.25441", value = "The bid yield to maturity of the benchmark instrument. Available only for `corporate bonds`.")
   @JsonIgnore
 
@@ -447,7 +448,7 @@ public class BondYield implements Serializable {
    * The mid yield to maturity of the benchmark instrument. Available only for &#x60;corporate bonds&#x60;.
    * @return benchmarkMidYieldToMaturity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "4.25014", value = "The mid yield to maturity of the benchmark instrument. Available only for `corporate bonds`.")
   @JsonIgnore
 
@@ -481,7 +482,7 @@ public class BondYield implements Serializable {
    * The ask yield to maturity of the benchmark instrument. Available only for &#x60;corporate bonds&#x60;.
    * @return benchmarkAskYieldToMaturity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "4.24587", value = "The ask yield to maturity of the benchmark instrument. Available only for `corporate bonds`.")
   @JsonIgnore
 
@@ -515,7 +516,7 @@ public class BondYield implements Serializable {
    * The yield to call of the bid price of the instrument. Available only for &#x60;asset-backed security bonds&#x60;.
    * @return bidYieldToCall
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The yield to call of the bid price of the instrument. Available only for `asset-backed security bonds`.")
   @JsonIgnore
 
@@ -549,7 +550,7 @@ public class BondYield implements Serializable {
    * The yield to call of the mid price of the instrument. Available only for &#x60;asset-backed security bonds&#x60;.
    * @return midYieldToCall
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The yield to call of the mid price of the instrument. Available only for `asset-backed security bonds`.")
   @JsonIgnore
 
@@ -583,7 +584,7 @@ public class BondYield implements Serializable {
    * The date used in the yield to worst calculation. Available only for &#39;corporate bonds&#39;.
    * @return yieldTWDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The date used in the yield to worst calculation. Available only for 'corporate bonds'.")
   @JsonIgnore
 

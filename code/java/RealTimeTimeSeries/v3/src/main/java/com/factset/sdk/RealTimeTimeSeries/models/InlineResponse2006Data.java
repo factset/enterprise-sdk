@@ -44,7 +44,8 @@ import com.factset.sdk.RealTimeTimeSeries.JSON;
   InlineResponse2006Data.JSON_PROPERTY_QUALITY,
   InlineResponse2006Data.JSON_PROPERTY_SUBSAMPLE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2006Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -107,7 +108,7 @@ public class InlineResponse2006Data implements Serializable {
    * MDG identifier of the listing.
    * @return idNotation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "MDG identifier of the listing.")
   @JsonIgnore
 
@@ -141,7 +142,7 @@ public class InlineResponse2006Data implements Serializable {
    * Identifier used in the request.
    * @return sourceIdentifier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier used in the request.")
   @JsonIgnore
 
@@ -175,7 +176,7 @@ public class InlineResponse2006Data implements Serializable {
    * Quality of the price.
    * @return quality
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Quality of the price.")
   @JsonIgnore
 
@@ -209,7 +210,7 @@ public class InlineResponse2006Data implements Serializable {
    * Get subsample
    * @return subsample
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SUBSAMPLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

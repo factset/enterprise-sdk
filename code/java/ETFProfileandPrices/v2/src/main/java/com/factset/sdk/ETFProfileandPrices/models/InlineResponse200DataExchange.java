@@ -39,7 +39,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse200DataExchange.JSON_PROPERTY_COUNTRY,
   InlineResponse200DataExchange.JSON_PROPERTY_REGION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse200DataExchange implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -106,7 +107,7 @@ public class InlineResponse200DataExchange implements Serializable {
    * Short Code of the exchange. This data is available for all the regions.
    * @return code
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Short Code of the exchange. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -132,7 +133,7 @@ public class InlineResponse200DataExchange implements Serializable {
    * Name of the exchance where ETP is listed. This data is available for all the regions.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the exchance where ETP is listed. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,7 +159,7 @@ public class InlineResponse200DataExchange implements Serializable {
    * Short country code where ETP exchange is located. This data is available for all the regions and country code is in format ISO 3166-1 alpha-2.
    * @return country
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Short country code where ETP exchange is located. This data is available for all the regions and country code is in format ISO 3166-1 alpha-2.")
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -184,7 +185,7 @@ public class InlineResponse200DataExchange implements Serializable {
    * Short region code where ETP exchange is located. This data is available for all the regions.
    * @return region
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Short region code where ETP exchange is located. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_REGION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

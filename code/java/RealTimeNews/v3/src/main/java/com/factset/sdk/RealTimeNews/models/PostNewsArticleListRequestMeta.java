@@ -40,7 +40,8 @@ import com.factset.sdk.RealTimeNews.JSON;
   PostNewsArticleListRequestMeta.JSON_PROPERTY_SUBSCRIPTION,
   PostNewsArticleListRequestMeta.JSON_PROPERTY_PAGINATION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostNewsArticleListRequestMeta implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -73,7 +74,7 @@ public class PostNewsArticleListRequestMeta implements Serializable {
    * Limit the attributes returned in the response to the specified set.
    * @return attributes
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Limit the attributes returned in the response to the specified set.")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,7 +100,7 @@ public class PostNewsArticleListRequestMeta implements Serializable {
    * Get subscription
    * @return subscription
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SUBSCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -125,7 +126,7 @@ public class PostNewsArticleListRequestMeta implements Serializable {
    * Get pagination
    * @return pagination
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAGINATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

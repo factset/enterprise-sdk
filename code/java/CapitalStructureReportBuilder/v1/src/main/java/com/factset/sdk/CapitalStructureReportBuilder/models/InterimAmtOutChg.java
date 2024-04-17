@@ -36,7 +36,8 @@ import com.factset.sdk.CapitalStructureReportBuilder.JSON;
 @JsonPropertyOrder({
   InterimAmtOutChg.JSON_PROPERTY_INTERIM_AMT_OUT_CHG
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InterimAmtOutChg implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -55,7 +56,7 @@ public class InterimAmtOutChg implements Serializable {
    * Get interimAmtOutChg
    * @return interimAmtOutChg
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INTERIM_AMT_OUT_CHG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

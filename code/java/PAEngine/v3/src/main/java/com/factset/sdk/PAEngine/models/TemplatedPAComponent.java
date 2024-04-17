@@ -47,7 +47,8 @@ import com.factset.sdk.PAEngine.JSON;
   TemplatedPAComponent.JSON_PROPERTY_PARENT_TEMPLATE_ID,
   TemplatedPAComponent.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class TemplatedPAComponent implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -87,7 +88,7 @@ public class TemplatedPAComponent implements Serializable {
    * Get id
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -121,7 +122,7 @@ public class TemplatedPAComponent implements Serializable {
    * Get directory
    * @return directory
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -155,7 +156,7 @@ public class TemplatedPAComponent implements Serializable {
    * Get snapshot
    * @return snapshot
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SNAPSHOT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -181,7 +182,7 @@ public class TemplatedPAComponent implements Serializable {
    * Get componentData
    * @return componentData
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COMPONENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -207,7 +208,7 @@ public class TemplatedPAComponent implements Serializable {
    * Get description
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -241,7 +242,7 @@ public class TemplatedPAComponent implements Serializable {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -275,7 +276,7 @@ public class TemplatedPAComponent implements Serializable {
    * Get parentTemplateId
    * @return parentTemplateId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -309,7 +310,7 @@ public class TemplatedPAComponent implements Serializable {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

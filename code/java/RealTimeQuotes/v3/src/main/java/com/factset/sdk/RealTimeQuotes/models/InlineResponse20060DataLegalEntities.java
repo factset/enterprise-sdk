@@ -44,7 +44,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20060DataLegalEntities.JSON_PROPERTY_NAME,
   InlineResponse20060DataLegalEntities.JSON_PROPERTY_BACKGROUND_TEXTS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20060DataLegalEntities implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -69,7 +70,7 @@ public class InlineResponse20060DataLegalEntities implements Serializable {
    * Identifier of a legal entity.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of a legal entity.")
   @JsonIgnore
 
@@ -103,7 +104,7 @@ public class InlineResponse20060DataLegalEntities implements Serializable {
    * Name of the legal entity.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the legal entity.")
   @JsonIgnore
 
@@ -137,7 +138,7 @@ public class InlineResponse20060DataLegalEntities implements Serializable {
    * Get backgroundTexts
    * @return backgroundTexts
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BACKGROUND_TEXTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

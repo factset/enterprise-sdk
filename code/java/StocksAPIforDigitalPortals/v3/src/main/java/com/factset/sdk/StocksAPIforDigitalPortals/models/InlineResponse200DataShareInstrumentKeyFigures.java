@@ -43,7 +43,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse200DataShareInstrumentKeyFigures.JSON_PROPERTY_RATIOS,
   InlineResponse200DataShareInstrumentKeyFigures.JSON_PROPERTY_CURRENCY_DEPENDENT_KEY_FIGURES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse200DataShareInstrumentKeyFigures implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -71,7 +72,7 @@ public class InlineResponse200DataShareInstrumentKeyFigures implements Serializa
    * Get sharesOutstanding
    * @return sharesOutstanding
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SHARES_OUTSTANDING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -97,7 +98,7 @@ public class InlineResponse200DataShareInstrumentKeyFigures implements Serializa
    * Get freeFloat
    * @return freeFloat
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FREE_FLOAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -123,7 +124,7 @@ public class InlineResponse200DataShareInstrumentKeyFigures implements Serializa
    * Get ratios
    * @return ratios
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RATIOS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -149,7 +150,7 @@ public class InlineResponse200DataShareInstrumentKeyFigures implements Serializa
    * Get currencyDependentKeyFigures
    * @return currencyDependentKeyFigures
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CURRENCY_DEPENDENT_KEY_FIGURES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

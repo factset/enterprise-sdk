@@ -43,7 +43,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20046Data.JSON_PROPERTY_SOURCE_IDENTIFIER,
   InlineResponse20046Data.JSON_PROPERTY_BENCHMARKS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20046Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class InlineResponse20046Data implements Serializable {
    * MDG identifier of the instrument.
    * @return idInstrument
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "MDG identifier of the instrument.")
   @JsonIgnore
 
@@ -102,7 +103,7 @@ public class InlineResponse20046Data implements Serializable {
    * Identifier used in the request.
    * @return sourceIdentifier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier used in the request.")
   @JsonIgnore
 
@@ -144,7 +145,7 @@ public class InlineResponse20046Data implements Serializable {
    * List of benchmarks.
    * @return benchmarks
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of benchmarks.")
   @JsonProperty(JSON_PROPERTY_BENCHMARKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

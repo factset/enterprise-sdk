@@ -41,7 +41,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20057Status.JSON_PROPERTY_CODE,
   InlineResponse20057Status.JSON_PROPERTY_IDENTIFIER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20057Status implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -100,7 +101,7 @@ public class InlineResponse20057Status implements Serializable {
    * Code of the error condition.
    * @return code
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Code of the error condition.")
   @JsonIgnore
 
@@ -134,7 +135,7 @@ public class InlineResponse20057Status implements Serializable {
    * Provided identifier.
    * @return identifier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Provided identifier.")
   @JsonIgnore
 

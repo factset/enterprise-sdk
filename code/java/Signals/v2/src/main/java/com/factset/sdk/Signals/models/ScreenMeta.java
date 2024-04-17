@@ -39,7 +39,8 @@ import com.factset.sdk.Signals.JSON;
   ScreenMeta.JSON_PROPERTY_DATE_RANGE,
   ScreenMeta.JSON_PROPERTY_PARTIAL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ScreenMeta implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -74,7 +75,7 @@ public class ScreenMeta implements Serializable {
    * Get signalRequestId
    * @return signalRequestId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SIGNAL_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -100,7 +101,7 @@ public class ScreenMeta implements Serializable {
    * Get dateRange
    * @return dateRange
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATE_RANGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -126,7 +127,7 @@ public class ScreenMeta implements Serializable {
    * Get partial
    * @return partial
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PARTIAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -39,7 +39,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   PostStockNotationRankingIntradayListRequestDataMarket.JSON_PROPERTY_IDS,
   PostStockNotationRankingIntradayListRequestDataMarket.JSON_PROPERTY_PRIORITY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostStockNotationRankingIntradayListRequestDataMarket implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -69,7 +70,7 @@ public class PostStockNotationRankingIntradayListRequestDataMarket implements Se
    * List of market identifiers where a stock may be traded. The list restricts the request to only those markets.
    * @return ids
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of market identifiers where a stock may be traded. The list restricts the request to only those markets.")
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -95,7 +96,7 @@ public class PostStockNotationRankingIntradayListRequestDataMarket implements Se
    * Get priority
    * @return priority
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

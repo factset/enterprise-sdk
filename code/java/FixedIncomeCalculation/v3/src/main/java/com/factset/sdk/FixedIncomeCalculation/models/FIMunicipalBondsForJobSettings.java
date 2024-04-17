@@ -41,7 +41,8 @@ import com.factset.sdk.FixedIncomeCalculation.JSON;
   FIMunicipalBondsForJobSettings.JSON_PROPERTY_IGNORE_SINKING_FUND,
   FIMunicipalBondsForJobSettings.JSON_PROPERTY_USE_ANTICIPATED_SINK_SCHEDULE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FIMunicipalBondsForJobSettings implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -66,7 +67,7 @@ public class FIMunicipalBondsForJobSettings implements Serializable {
    * Allow Sink For Installment Payment
    * @return allowSinkForInstallmentPayment
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Allow Sink For Installment Payment")
   @JsonIgnore
 
@@ -100,7 +101,7 @@ public class FIMunicipalBondsForJobSettings implements Serializable {
    * Ignore Sinking Fund Schedule
    * @return ignoreSinkingFund
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Ignore Sinking Fund Schedule")
   @JsonIgnore
 
@@ -134,7 +135,7 @@ public class FIMunicipalBondsForJobSettings implements Serializable {
    * Anticipate Sink Schedule
    * @return useAnticipatedSinkSchedule
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Anticipate Sink Schedule")
   @JsonIgnore
 

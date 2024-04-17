@@ -45,7 +45,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20014RecommendationConsensusChange.JSON_PROPERTY_MONTHS6,
   InlineResponse20014RecommendationConsensusChange.JSON_PROPERTY_YEAR1
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20014RecommendationConsensusChange implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -76,7 +77,7 @@ public class InlineResponse20014RecommendationConsensusChange implements Seriali
    * Recommendation change for the time range one week.
    * @return week1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Recommendation change for the time range one week.")
   @JsonIgnore
 
@@ -110,7 +111,7 @@ public class InlineResponse20014RecommendationConsensusChange implements Seriali
    * Recommendation change for the time range one month.
    * @return month1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Recommendation change for the time range one month.")
   @JsonIgnore
 
@@ -144,7 +145,7 @@ public class InlineResponse20014RecommendationConsensusChange implements Seriali
    * Recommendation change for the time range three months.
    * @return months3
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Recommendation change for the time range three months.")
   @JsonIgnore
 
@@ -178,7 +179,7 @@ public class InlineResponse20014RecommendationConsensusChange implements Seriali
    * Recommendation change for the time range six months.
    * @return months6
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Recommendation change for the time range six months.")
   @JsonIgnore
 
@@ -212,7 +213,7 @@ public class InlineResponse20014RecommendationConsensusChange implements Seriali
    * Recommendation change for the time range one year.
    * @return year1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Recommendation change for the time range one year.")
   @JsonIgnore
 

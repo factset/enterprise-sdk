@@ -41,7 +41,8 @@ import com.factset.sdk.FactSetTrading.JSON;
   EMSCreateChildOrderInfo.JSON_PROPERTY_TICKET_ID,
   EMSCreateChildOrderInfo.JSON_PROPERTY_SYMBOL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EMSCreateChildOrderInfo implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -66,7 +67,7 @@ public class EMSCreateChildOrderInfo implements Serializable {
    * Unique identifier assigned to basket order
    * @return basketId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FACTSET_OMS-100823_12345", value = "Unique identifier assigned to basket order")
   @JsonIgnore
 
@@ -100,7 +101,7 @@ public class EMSCreateChildOrderInfo implements Serializable {
    * Ticket Id for the child order
    * @return ticketId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "RKPW.3280015", value = "Ticket Id for the child order")
   @JsonIgnore
 
@@ -134,7 +135,7 @@ public class EMSCreateChildOrderInfo implements Serializable {
    * Ticker symbol
    * @return symbol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FDS-USA", value = "Ticker symbol")
   @JsonIgnore
 

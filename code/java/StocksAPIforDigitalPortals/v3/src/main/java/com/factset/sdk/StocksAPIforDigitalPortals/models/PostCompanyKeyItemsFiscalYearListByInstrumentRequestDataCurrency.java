@@ -36,7 +36,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
 @JsonPropertyOrder({
   PostCompanyKeyItemsFiscalYearListByInstrumentRequestDataCurrency.JSON_PROPERTY_ISO_CODE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostCompanyKeyItemsFiscalYearListByInstrumentRequestDataCurrency implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -94,7 +95,7 @@ public class PostCompanyKeyItemsFiscalYearListByInstrumentRequestDataCurrency im
    * ISO code of the currency.
    * @return isoCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "ISO code of the currency.")
   @JsonProperty(JSON_PROPERTY_ISO_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

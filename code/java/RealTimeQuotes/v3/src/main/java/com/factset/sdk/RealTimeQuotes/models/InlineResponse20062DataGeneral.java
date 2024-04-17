@@ -60,7 +60,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20062DataGeneral.JSON_PROPERTY_APPROVAL_PROCEDURE,
   InlineResponse20062DataGeneral.JSON_PROPERTY_COMPLEX_PRODUCT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20062DataGeneral implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -195,7 +196,7 @@ public class InlineResponse20062DataGeneral implements Serializable {
    * International Securities Identification Number (ISIN).
    * @return isin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "International Securities Identification Number (ISIN).")
   @JsonIgnore
 
@@ -229,7 +230,7 @@ public class InlineResponse20062DataGeneral implements Serializable {
    * Name of the investment product.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the investment product.")
   @JsonIgnore
 
@@ -263,7 +264,7 @@ public class InlineResponse20062DataGeneral implements Serializable {
    * Get currency
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -289,7 +290,7 @@ public class InlineResponse20062DataGeneral implements Serializable {
    * The date to which the MiFID II data refers.
    * @return reportingDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The date to which the MiFID II data refers.")
   @JsonIgnore
 
@@ -323,7 +324,7 @@ public class InlineResponse20062DataGeneral implements Serializable {
    * Get legalStructure
    * @return legalStructure
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LEGAL_STRUCTURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -349,7 +350,7 @@ public class InlineResponse20062DataGeneral implements Serializable {
    * Get fund
    * @return fund
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FUND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -375,7 +376,7 @@ public class InlineResponse20062DataGeneral implements Serializable {
    * Get issuer
    * @return issuer
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -401,7 +402,7 @@ public class InlineResponse20062DataGeneral implements Serializable {
    * Get guarantor
    * @return guarantor
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_GUARANTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -427,7 +428,7 @@ public class InlineResponse20062DataGeneral implements Serializable {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -453,7 +454,7 @@ public class InlineResponse20062DataGeneral implements Serializable {
    * Indicates whether the investment product has leverage or implies a contingent liability.
    * @return leveragedOrContingent
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the investment product has leverage or implies a contingent liability.")
   @JsonIgnore
 
@@ -487,7 +488,7 @@ public class InlineResponse20062DataGeneral implements Serializable {
    * Get manufacturer
    * @return manufacturer
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MANUFACTURER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -513,7 +514,7 @@ public class InlineResponse20062DataGeneral implements Serializable {
    * Information on the approval procedure undergone by the investment product.
    * @return approvalProcedure
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Information on the approval procedure undergone by the investment product.")
   @JsonIgnore
 
@@ -547,7 +548,7 @@ public class InlineResponse20062DataGeneral implements Serializable {
    * Indicates whether the investment product is considered a complex one.
    * @return complexProduct
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the investment product is considered a complex one.")
   @JsonIgnore
 

@@ -36,7 +36,8 @@ import com.factset.sdk.StandardDatafeed.JSON;
   DataresponseitemsRelatedBundles.JSON_PROPERTY_BUNDLE,
   DataresponseitemsRelatedBundles.JSON_PROPERTY_SEQUENCE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class DataresponseitemsRelatedBundles implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -58,7 +59,7 @@ public class DataresponseitemsRelatedBundles implements Serializable {
    * Get bundle
    * @return bundle
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BUNDLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -84,7 +85,7 @@ public class DataresponseitemsRelatedBundles implements Serializable {
    * Get sequence
    * @return sequence
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SEQUENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

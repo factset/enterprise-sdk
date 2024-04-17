@@ -36,7 +36,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
 @JsonPropertyOrder({
   PostInstrumentCrossReferenceListByWKNRequestData.JSON_PROPERTY_WKNS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostInstrumentCrossReferenceListByWKNRequestData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class PostInstrumentCrossReferenceListByWKNRequestData implements Seriali
    * List of source WKNs to be translated.
    * @return wkns
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "List of source WKNs to be translated.")
   @JsonProperty(JSON_PROPERTY_WKNS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

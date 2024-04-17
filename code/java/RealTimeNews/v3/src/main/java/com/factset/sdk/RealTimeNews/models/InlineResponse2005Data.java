@@ -40,7 +40,8 @@ import com.factset.sdk.RealTimeNews.JSON;
 @JsonPropertyOrder({
   InlineResponse2005Data.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2005Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -59,7 +60,7 @@ public class InlineResponse2005Data implements Serializable {
    * Name of the news article type.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the news article type.")
   @JsonIgnore
 

@@ -46,7 +46,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2004DataRecommendation.JSON_PROPERTY_CONSENSUS,
   InlineResponse2004DataRecommendation.JSON_PROPERTY_CHANGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2004DataRecommendation implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -74,7 +75,7 @@ public class InlineResponse2004DataRecommendation implements Serializable {
    * Date of the latest update.
    * @return latestUpdate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Date of the latest update.")
   @JsonIgnore
 
@@ -108,7 +109,7 @@ public class InlineResponse2004DataRecommendation implements Serializable {
    * Get counts
    * @return counts
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -134,7 +135,7 @@ public class InlineResponse2004DataRecommendation implements Serializable {
    * Recommendation consensus, that is the average value of all provided recommendations. Values are in the range from 1.0 to 5.0, whereby 1 represents the strongest buy recommendation, 3 a hold (neutral) recommendation and 5 the strongest sell recommendation. 
    * @return consensus
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Recommendation consensus, that is the average value of all provided recommendations. Values are in the range from 1.0 to 5.0, whereby 1 represents the strongest buy recommendation, 3 a hold (neutral) recommendation and 5 the strongest sell recommendation. ")
   @JsonIgnore
 
@@ -168,7 +169,7 @@ public class InlineResponse2004DataRecommendation implements Serializable {
    * Recommendation change as the difference of the latest (&#x60;snapshot&#x3D;latest&#x60;) minus the historic value of the recommendation consensus (attribute &#x60;consensus&#x60;). Values are in the range from -4 to 4, whereby -4 represents a recommendation change from 5 to 1 and 4 represents a recommendation change from 1 to 5.
    * @return change
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Recommendation change as the difference of the latest (`snapshot=latest`) minus the historic value of the recommendation consensus (attribute `consensus`). Values are in the range from -4 to 4, whereby -4 represents a recommendation change from 5 to 1 and 4 represents a recommendation change from 1 to 5.")
   @JsonIgnore
 

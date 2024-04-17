@@ -38,7 +38,8 @@ import com.factset.sdk.OpenRisk.JSON;
   MappedSecurityInfo.JSON_PROPERTY_ID,
   MappedSecurityInfo.JSON_PROPERTY_MODEL_CLASS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class MappedSecurityInfo implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -244,7 +245,7 @@ public class MappedSecurityInfo implements Serializable {
    * Coverage flag. The value will always be true to indicate the security is covered.
    * @return covered
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "true", required = true, value = "Coverage flag. The value will always be true to indicate the security is covered.")
   @JsonProperty(JSON_PROPERTY_COVERED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -270,7 +271,7 @@ public class MappedSecurityInfo implements Serializable {
    * Risk model canonical security identifier alias if directly covered in the model
    * @return id
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Risk model canonical security identifier alias if directly covered in the model")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -296,7 +297,7 @@ public class MappedSecurityInfo implements Serializable {
    * **(since 1.19.0)** Security asset classification according to the risk model, if available and determinable
    * @return modelClass
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "**(since 1.19.0)** Security asset classification according to the risk model, if available and determinable")
   @JsonProperty(JSON_PROPERTY_MODEL_CLASS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

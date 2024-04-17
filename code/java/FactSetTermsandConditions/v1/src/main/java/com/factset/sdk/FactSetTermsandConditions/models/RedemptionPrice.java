@@ -42,7 +42,8 @@ import com.factset.sdk.FactSetTermsandConditions.JSON;
   RedemptionPrice.JSON_PROPERTY_MIN_AMT,
   RedemptionPrice.JSON_PROPERTY_PRICE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class RedemptionPrice implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -127,7 +128,7 @@ public class RedemptionPrice implements Serializable {
    * Security identifier used in the request.
    * @return requestId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Security identifier used in the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -153,7 +154,7 @@ public class RedemptionPrice implements Serializable {
    * FactSet Permanent Security Identifier.
    * @return fsymId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "FactSet Permanent Security Identifier.")
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -179,7 +180,7 @@ public class RedemptionPrice implements Serializable {
    * Date of the Redemption Price.
    * @return date
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Date of the Redemption Price.")
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -205,7 +206,7 @@ public class RedemptionPrice implements Serializable {
    * Redemption Price Category - * **CALL** &#x3D; Call prices. * **PUT** &#x3D; Put prices. * **SF** &#x3D; Sinking Fund prices. 
    * @return category
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Redemption Price Category - * **CALL** = Call prices. * **PUT** = Put prices. * **SF** = Sinking Fund prices. ")
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -231,7 +232,7 @@ public class RedemptionPrice implements Serializable {
    * Sinking Fund minimum amount.
    * @return minAmt
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Sinking Fund minimum amount.")
   @JsonProperty(JSON_PROPERTY_MIN_AMT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -257,7 +258,7 @@ public class RedemptionPrice implements Serializable {
    * Redemption price for the category.
    * @return price
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Redemption price for the category.")
   @JsonProperty(JSON_PROPERTY_PRICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

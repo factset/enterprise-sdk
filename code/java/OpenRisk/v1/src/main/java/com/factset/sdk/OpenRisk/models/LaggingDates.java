@@ -40,7 +40,8 @@ import com.factset.sdk.OpenRisk.JSON;
   LaggingDates.JSON_PROPERTY_COVARIANCE_DATE,
   LaggingDates.JSON_PROPERTY_SSR_DATE_IS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class LaggingDates implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -100,7 +101,7 @@ public class LaggingDates implements Serializable {
    * Get exposureDate
    * @return exposureDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EXPOSURE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -126,7 +127,7 @@ public class LaggingDates implements Serializable {
    * Get covarianceDate
    * @return covarianceDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COVARIANCE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -152,7 +153,7 @@ public class LaggingDates implements Serializable {
    * Stock specific risk (SSR) date can take one of the other lagging dates
    * @return ssrDateIs
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Stock specific risk (SSR) date can take one of the other lagging dates")
   @JsonProperty(JSON_PROPERTY_SSR_DATE_IS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

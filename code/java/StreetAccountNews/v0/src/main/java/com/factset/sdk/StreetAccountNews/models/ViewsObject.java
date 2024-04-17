@@ -41,7 +41,8 @@ import com.factset.sdk.StreetAccountNews.JSON;
   ViewsObject.JSON_PROPERTY_SECTORS,
   ViewsObject.JSON_PROPERTY_IS_PRIMARY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ViewsObject implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -78,7 +79,7 @@ public class ViewsObject implements Serializable {
    * Get viewName
    * @return viewName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Sample View", value = "")
   @JsonProperty(JSON_PROPERTY_VIEW_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -112,7 +113,7 @@ public class ViewsObject implements Serializable {
    * Get tickers
    * @return tickers
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TICKERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -146,7 +147,7 @@ public class ViewsObject implements Serializable {
    * Get categories
    * @return categories
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CATEGORIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -180,7 +181,7 @@ public class ViewsObject implements Serializable {
    * Get topics
    * @return topics
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TOPICS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -214,7 +215,7 @@ public class ViewsObject implements Serializable {
    * Get regions
    * @return regions
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REGIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -248,7 +249,7 @@ public class ViewsObject implements Serializable {
    * Get sectors
    * @return sectors
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SECTORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -274,7 +275,7 @@ public class ViewsObject implements Serializable {
    * Get isPrimary
    * @return isPrimary
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IS_PRIMARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

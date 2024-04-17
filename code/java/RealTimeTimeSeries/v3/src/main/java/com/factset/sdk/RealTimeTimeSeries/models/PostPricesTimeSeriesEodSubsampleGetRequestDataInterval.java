@@ -38,7 +38,8 @@ import com.factset.sdk.RealTimeTimeSeries.JSON;
   PostPricesTimeSeriesEodSubsampleGetRequestDataInterval.JSON_PROPERTY_START,
   PostPricesTimeSeriesEodSubsampleGetRequestDataInterval.JSON_PROPERTY_END
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostPricesTimeSeriesEodSubsampleGetRequestDataInterval implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -70,7 +71,7 @@ public class PostPricesTimeSeriesEodSubsampleGetRequestDataInterval implements S
    * The starting point of the interval (inclusive). 
    * @return start
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The starting point of the interval (inclusive). ")
   @JsonProperty(JSON_PROPERTY_START)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -96,7 +97,7 @@ public class PostPricesTimeSeriesEodSubsampleGetRequestDataInterval implements S
    * The ending point of the interval (exclusive).
    * @return end
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The ending point of the interval (exclusive).")
   @JsonProperty(JSON_PROPERTY_END)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

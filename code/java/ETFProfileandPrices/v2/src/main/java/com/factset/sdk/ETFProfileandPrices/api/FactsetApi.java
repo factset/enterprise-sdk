@@ -6,7 +6,7 @@ import com.factset.sdk.ETFProfileandPrices.ApiResponse;
 import com.factset.sdk.ETFProfileandPrices.Configuration;
 import com.factset.sdk.ETFProfileandPrices.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -47,7 +47,8 @@ import com.factset.sdk.ETFProfileandPrices.models.InlineResponse2007;
 import com.factset.sdk.ETFProfileandPrices.models.InlineResponse2008;
 import com.factset.sdk.ETFProfileandPrices.models.InlineResponse2009;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FactsetApi {
   private ApiClient apiClient;
 

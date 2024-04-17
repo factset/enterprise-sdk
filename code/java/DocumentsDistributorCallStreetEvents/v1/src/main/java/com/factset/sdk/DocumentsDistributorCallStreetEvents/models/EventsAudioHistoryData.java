@@ -39,7 +39,8 @@ import com.factset.sdk.DocumentsDistributorCallStreetEvents.JSON;
   EventsAudioHistoryData.JSON_PROPERTY_FILE_SIZE,
   EventsAudioHistoryData.JSON_PROPERTY_URL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EventsAudioHistoryData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -70,7 +71,7 @@ public class EventsAudioHistoryData implements Serializable {
    * The year corresponding to the file containing historical audio recordings that can be downloaded via presigned url.
    * @return year
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The year corresponding to the file containing historical audio recordings that can be downloaded via presigned url.")
   @JsonProperty(JSON_PROPERTY_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -96,7 +97,7 @@ public class EventsAudioHistoryData implements Serializable {
    * True  indicates that the pre-signed downloadable URL contains trimmed historical audio recordings and related metadata of a specific year.  False  indicates that the pre-signed downloadable URL contains untrimmed historical audio recordings and related metadata of a specific year.
    * @return trimmed
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "True  indicates that the pre-signed downloadable URL contains trimmed historical audio recordings and related metadata of a specific year.  False  indicates that the pre-signed downloadable URL contains untrimmed historical audio recordings and related metadata of a specific year.")
   @JsonProperty(JSON_PROPERTY_TRIMMED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -122,7 +123,7 @@ public class EventsAudioHistoryData implements Serializable {
    * The name of the file.
    * @return fileName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The name of the file.")
   @JsonProperty(JSON_PROPERTY_FILE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -148,7 +149,7 @@ public class EventsAudioHistoryData implements Serializable {
    * The size of the file, in bytes.
    * @return fileSize
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The size of the file, in bytes.")
   @JsonProperty(JSON_PROPERTY_FILE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -174,7 +175,7 @@ public class EventsAudioHistoryData implements Serializable {
    * Pre-signed downloadable URL containing the historical audio recordings and related metadata of a specific year. The pre-signed URL in the response will expire after 3 hours.
    * @return url
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Pre-signed downloadable URL containing the historical audio recordings and related metadata of a specific year. The pre-signed URL in the response will expire after 3 hours.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

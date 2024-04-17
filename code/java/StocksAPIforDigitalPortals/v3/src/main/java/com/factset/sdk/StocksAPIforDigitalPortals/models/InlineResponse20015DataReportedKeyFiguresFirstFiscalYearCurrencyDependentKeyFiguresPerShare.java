@@ -49,7 +49,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20015DataReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFiguresPerShare.JSON_PROPERTY_BOOK_VALUE,
   InlineResponse20015DataReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFiguresPerShare.JSON_PROPERTY_CASH_FLOW
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20015DataReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFiguresPerShare implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -80,7 +81,7 @@ public class InlineResponse20015DataReportedKeyFiguresFirstFiscalYearCurrencyDep
    * Get sales
    * @return sales
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -114,7 +115,7 @@ public class InlineResponse20015DataReportedKeyFiguresFirstFiscalYearCurrencyDep
    * Get recurringEarnings
    * @return recurringEarnings
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -148,7 +149,7 @@ public class InlineResponse20015DataReportedKeyFiguresFirstFiscalYearCurrencyDep
    * Get dividends
    * @return dividends
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -182,7 +183,7 @@ public class InlineResponse20015DataReportedKeyFiguresFirstFiscalYearCurrencyDep
    * Get bookValue
    * @return bookValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -216,7 +217,7 @@ public class InlineResponse20015DataReportedKeyFiguresFirstFiscalYearCurrencyDep
    * Get cashFlow
    * @return cashFlow
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

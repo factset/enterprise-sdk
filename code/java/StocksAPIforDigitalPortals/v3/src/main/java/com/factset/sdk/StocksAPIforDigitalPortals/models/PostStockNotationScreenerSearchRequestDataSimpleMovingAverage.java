@@ -43,7 +43,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   PostStockNotationScreenerSearchRequestDataSimpleMovingAverage.JSON_PROPERTY_DAYS200,
   PostStockNotationScreenerSearchRequestDataSimpleMovingAverage.JSON_PROPERTY_TRADING_DAYS_SINCE_CROSSOVER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostStockNotationScreenerSearchRequestDataSimpleMovingAverage implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -71,7 +72,7 @@ public class PostStockNotationScreenerSearchRequestDataSimpleMovingAverage imple
    * Get days20
    * @return days20
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DAYS20)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -97,7 +98,7 @@ public class PostStockNotationScreenerSearchRequestDataSimpleMovingAverage imple
    * Get days50
    * @return days50
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DAYS50)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -123,7 +124,7 @@ public class PostStockNotationScreenerSearchRequestDataSimpleMovingAverage imple
    * Get days200
    * @return days200
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DAYS200)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -149,7 +150,7 @@ public class PostStockNotationScreenerSearchRequestDataSimpleMovingAverage imple
    * Get tradingDaysSinceCrossover
    * @return tradingDaysSinceCrossover
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TRADING_DAYS_SINCE_CROSSOVER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

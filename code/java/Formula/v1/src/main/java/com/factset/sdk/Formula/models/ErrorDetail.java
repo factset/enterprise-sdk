@@ -44,7 +44,8 @@ import com.factset.sdk.Formula.JSON;
   ErrorDetail.JSON_PROPERTY_TITLE,
   ErrorDetail.JSON_PROPERTY_TIMESTAMP
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ErrorDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -72,7 +73,7 @@ public class ErrorDetail implements Serializable {
    * Unique identifier for the request. Also known as the chain id.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "5EFCCA8940CAEA6B", value = "Unique identifier for the request. Also known as the chain id.")
   @JsonIgnore
 
@@ -106,7 +107,7 @@ public class ErrorDetail implements Serializable {
    * Textual error code
    * @return code
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "notAuthenticated", value = "Textual error code")
   @JsonIgnore
 
@@ -140,7 +141,7 @@ public class ErrorDetail implements Serializable {
    * A short, human-readable summary of the problem
    * @return title
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "There were either no, invalid, or expired credentials present in the request.", value = "A short, human-readable summary of the problem")
   @JsonIgnore
 
@@ -174,7 +175,7 @@ public class ErrorDetail implements Serializable {
    * timestamp in YYYY-MM-DD HH:MM:SS.SSS
    * @return timestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "timestamp in YYYY-MM-DD HH:MM:SS.SSS")
   @JsonIgnore
 

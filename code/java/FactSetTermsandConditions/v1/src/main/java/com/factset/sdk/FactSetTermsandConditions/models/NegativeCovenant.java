@@ -39,7 +39,8 @@ import com.factset.sdk.FactSetTermsandConditions.JSON;
   NegativeCovenant.JSON_PROPERTY_NEG_COVENANT_LVL,
   NegativeCovenant.JSON_PROPERTY_NEG_COVENANT_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class NegativeCovenant implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -67,7 +68,7 @@ public class NegativeCovenant implements Serializable {
    * Security identifier used in the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Security identifier used in the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -93,7 +94,7 @@ public class NegativeCovenant implements Serializable {
    * FactSet Permanent Security Identifier.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "FactSet Permanent Security Identifier.")
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -119,7 +120,7 @@ public class NegativeCovenant implements Serializable {
    * Negative Covenant Level
    * @return negCovenantLvl
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Negative Covenant Level")
   @JsonProperty(JSON_PROPERTY_NEG_COVENANT_LVL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -145,7 +146,7 @@ public class NegativeCovenant implements Serializable {
    * Negative Covenant Type
    * @return negCovenantType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Negative Covenant Type")
   @JsonProperty(JSON_PROPERTY_NEG_COVENANT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

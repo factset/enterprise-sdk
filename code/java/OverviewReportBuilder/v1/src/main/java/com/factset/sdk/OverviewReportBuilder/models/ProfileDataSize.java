@@ -41,7 +41,8 @@ import com.factset.sdk.OverviewReportBuilder.JSON;
   ProfileDataSize.JSON_PROPERTY_MCAP,
   ProfileDataSize.JSON_PROPERTY_REVENUE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ProfileDataSize implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -83,7 +84,7 @@ public class ProfileDataSize implements Serializable {
    * Get employeeNumber
    * @return employeeNumber
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_EMPLOYEE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -109,7 +110,7 @@ public class ProfileDataSize implements Serializable {
    * Get ev
    * @return ev
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_EV)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -135,7 +136,7 @@ public class ProfileDataSize implements Serializable {
    * Get mcap
    * @return mcap
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_MCAP)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -161,7 +162,7 @@ public class ProfileDataSize implements Serializable {
    * Get revenue
    * @return revenue
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_REVENUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

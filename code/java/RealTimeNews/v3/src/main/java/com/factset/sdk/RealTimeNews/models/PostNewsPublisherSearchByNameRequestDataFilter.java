@@ -39,7 +39,8 @@ import com.factset.sdk.RealTimeNews.JSON;
   PostNewsPublisherSearchByNameRequestDataFilter.JSON_PROPERTY_DISTRIBUTOR,
   PostNewsPublisherSearchByNameRequestDataFilter.JSON_PROPERTY_DELIVERY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostNewsPublisherSearchByNameRequestDataFilter implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -61,7 +62,7 @@ public class PostNewsPublisherSearchByNameRequestDataFilter implements Serializa
    * Get distributor
    * @return distributor
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DISTRIBUTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -87,7 +88,7 @@ public class PostNewsPublisherSearchByNameRequestDataFilter implements Serializa
    * Get delivery
    * @return delivery
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DELIVERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

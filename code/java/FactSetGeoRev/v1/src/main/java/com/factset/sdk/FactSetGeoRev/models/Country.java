@@ -48,7 +48,8 @@ import com.factset.sdk.FactSetGeoRev.JSON;
   Country.JSON_PROPERTY_FISCAL_END_DATE,
   Country.JSON_PROPERTY_REPORT_DATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Country implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -103,7 +104,7 @@ public class Country implements Serializable {
    * Ending date for the period requested expressed in YYYY-MM-DD format.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Wed Sep 30 00:00:00 UTC 2020", value = "Ending date for the period requested expressed in YYYY-MM-DD format.")
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -129,7 +130,7 @@ public class Country implements Serializable {
    * FactSet Permanent Entity Identifier. Six alpha-numeric characters, excluding vowels, with an -E suffix (XXXXXX-E).
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "000C7F-E", value = "FactSet Permanent Entity Identifier. Six alpha-numeric characters, excluding vowels, with an -E suffix (XXXXXX-E).")
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -155,7 +156,7 @@ public class Country implements Serializable {
    * The ISO2 Country Code.
    * @return countryId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "US", value = "The ISO2 Country Code.")
   @JsonProperty(JSON_PROPERTY_COUNTRY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -181,7 +182,7 @@ public class Country implements Serializable {
    * Identifier that was used for the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "AAPL-US", value = "Identifier that was used for the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -207,7 +208,7 @@ public class Country implements Serializable {
    * Designated classes from A (highest) to E (lowest) based on &#x60;countryCertaintyRank&#x60;, where --&gt;  |Class|Minimum Certainty Rank|Maximum Certainty Rank| |---|---|---| |A|71|80| |B|57|70| |C|42|56| |D|24|41| |E|1|23| 
    * @return countryCertaintyClass
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "A", value = "Designated classes from A (highest) to E (lowest) based on `countryCertaintyRank`, where -->  |Class|Minimum Certainty Rank|Maximum Certainty Rank| |---|---|---| |A|71|80| |B|57|70| |C|42|56| |D|24|41| |E|1|23| ")
   @JsonProperty(JSON_PROPERTY_COUNTRY_CERTAINTY_CLASS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -233,7 +234,7 @@ public class Country implements Serializable {
    * Indicates the relative reliability of estimates. Ranks are based on multiple factors related to the reported information and the algorithmic estimation. Ranks range from 1 to 80, with 1 indicating the lowest certainty in the estimate, and 80 indicating a reported exposure. Certainty Rank factors include -  * Reporting standards of the country where the source annual report/filing was filed * A company’s previous years’ country-level reporting * Reliability of country GDP data * Proportion of total report value that must be estimated 
    * @return countryCertaintyRank
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "80", value = "Indicates the relative reliability of estimates. Ranks are based on multiple factors related to the reported information and the algorithmic estimation. Ranks range from 1 to 80, with 1 indicating the lowest certainty in the estimate, and 80 indicating a reported exposure. Certainty Rank factors include -  * Reporting standards of the country where the source annual report/filing was filed * A company’s previous years’ country-level reporting * Reliability of country GDP data * Proportion of total report value that must be estimated ")
   @JsonProperty(JSON_PROPERTY_COUNTRY_CERTAINTY_RANK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -259,7 +260,7 @@ public class Country implements Serializable {
    * Returns the confidence score for the company percentage revenue for the selected geographic area. Confidence score is a measure of how confident we are that our algorithm has done a good job in estimating geographic revenue given the estimation parameters ( GDP, accounting standards, details of data that a company has disclosed,...). Confidence Factors are calculated for all estimated country values, then weighted and aggregated up the geographic tree for areas, regions, and super regions. The confidence factor should not be interpreted as the equivalent of a confidence interval from a statistical sense. The confidence factor is ordinal by nature, and its current range of 0.5000 to 1.0000. A confidence factor of 1.000 indicates that the revenue is an actual, reported, or declared value. **Please see OA page 17555 for more details **. 
    * @return countryConfidence
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "Returns the confidence score for the company percentage revenue for the selected geographic area. Confidence score is a measure of how confident we are that our algorithm has done a good job in estimating geographic revenue given the estimation parameters ( GDP, accounting standards, details of data that a company has disclosed,...). Confidence Factors are calculated for all estimated country values, then weighted and aggregated up the geographic tree for areas, regions, and super regions. The confidence factor should not be interpreted as the equivalent of a confidence interval from a statistical sense. The confidence factor is ordinal by nature, and its current range of 0.5000 to 1.0000. A confidence factor of 1.000 indicates that the revenue is an actual, reported, or declared value. **Please see OA page 17555 for more details **. ")
   @JsonProperty(JSON_PROPERTY_COUNTRY_CONFIDENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -285,7 +286,7 @@ public class Country implements Serializable {
    * The Country Name in proper format, describing the ISO2 Country Code.
    * @return countryName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "United States", value = "The Country Name in proper format, describing the ISO2 Country Code.")
   @JsonProperty(JSON_PROPERTY_COUNTRY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -311,7 +312,7 @@ public class Country implements Serializable {
    * Returns the company percentage revenue for the selected geographic region. Conventional geographic revenue data are difficult to interpret and compare between companies because they are not normalized. Furthermore, these non-normalized geographic revenue data do not provide any exposure estimates on countries and regions that are not explicitly disclosed by the companies. GeoRev answers these two challenges by first mapping companies’ revenues to a normalized geographic taxonomy, and then applying a proprietary algorithm to estimate % revenue exposure to countries and regions that are not explicitly disclosed. Estimates are accompanied by a Confidence Factor, which offers an easy way to distinguish them from actual disclosed values. Please see OA page 17555 for more details. 
    * @return countryPercent
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "9.878022", value = "Returns the company percentage revenue for the selected geographic region. Conventional geographic revenue data are difficult to interpret and compare between companies because they are not normalized. Furthermore, these non-normalized geographic revenue data do not provide any exposure estimates on countries and regions that are not explicitly disclosed by the companies. GeoRev answers these two challenges by first mapping companies’ revenues to a normalized geographic taxonomy, and then applying a proprietary algorithm to estimate % revenue exposure to countries and regions that are not explicitly disclosed. Estimates are accompanied by a Confidence Factor, which offers an easy way to distinguish them from actual disclosed values. Please see OA page 17555 for more details. ")
   @JsonProperty(JSON_PROPERTY_COUNTRY_PERCENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -337,7 +338,7 @@ public class Country implements Serializable {
    * Returns the company revenue for the selected geographic region. Conventional geographic revenue data are difficult to interpret and compare between companies because they are not normalized. Furthermore, these non-normalized geographic revenue data do not provide any exposure estimates on countries and regions that are not explicitly disclosed by the companies. GeoRev answers these two challenges by first mapping companies’ revenues to a normalized geographic taxonomy, and then applying a proprietary algorithm to estimate % revenue exposure to countries and regions that are not explicitly disclosed. Estimates are accompanied by a Confidence Factor, which offers an easy way to distinguish them from actual disclosed values. Please see OA page 17555 for more details. 
    * @return countryRevenue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "15943.32506844", value = "Returns the company revenue for the selected geographic region. Conventional geographic revenue data are difficult to interpret and compare between companies because they are not normalized. Furthermore, these non-normalized geographic revenue data do not provide any exposure estimates on countries and regions that are not explicitly disclosed by the companies. GeoRev answers these two challenges by first mapping companies’ revenues to a normalized geographic taxonomy, and then applying a proprietary algorithm to estimate % revenue exposure to countries and regions that are not explicitly disclosed. Estimates are accompanied by a Confidence Factor, which offers an easy way to distinguish them from actual disclosed values. Please see OA page 17555 for more details. ")
   @JsonProperty(JSON_PROPERTY_COUNTRY_REVENUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -363,7 +364,7 @@ public class Country implements Serializable {
    * The Currency Code representing the Revenue values in the response.
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "The Currency Code representing the Revenue values in the response.")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -389,7 +390,7 @@ public class Country implements Serializable {
    * The latest fully reported fiscal annual period date in YYYY-MM-DD format as of the dates requested.
    * @return fiscalEndDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Mon Sep 30 00:00:00 UTC 2019", value = "The latest fully reported fiscal annual period date in YYYY-MM-DD format as of the dates requested.")
   @JsonProperty(JSON_PROPERTY_FISCAL_END_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -415,7 +416,7 @@ public class Country implements Serializable {
    * The Report Date for the latest fully reported fiscal year in YYYY-MM-DD format.
    * @return reportDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Sat Sep 28 00:00:00 UTC 2019", value = "The Report Date for the latest fully reported fiscal year in YYYY-MM-DD format.")
   @JsonProperty(JSON_PROPERTY_REPORT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

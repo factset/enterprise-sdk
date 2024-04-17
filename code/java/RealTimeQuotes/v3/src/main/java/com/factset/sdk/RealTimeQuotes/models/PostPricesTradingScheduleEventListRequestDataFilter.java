@@ -39,7 +39,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   PostPricesTradingScheduleEventListRequestDataFilter.JSON_PROPERTY_TYPES,
   PostPricesTradingScheduleEventListRequestDataFilter.JSON_PROPERTY_RANGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostPricesTradingScheduleEventListRequestDataFilter implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -76,7 +77,7 @@ public class PostPricesTradingScheduleEventListRequestDataFilter implements Seri
    * List of trading schedule event types to return. See endpoint &#x60;/prices/tradingSchedule/event/type/list&#x60; for valid values.
    * @return types
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "List of trading schedule event types to return. See endpoint `/prices/tradingSchedule/event/type/list` for valid values.")
   @JsonProperty(JSON_PROPERTY_TYPES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -102,7 +103,7 @@ public class PostPricesTradingScheduleEventListRequestDataFilter implements Seri
    * Get range
    * @return range
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_RANGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

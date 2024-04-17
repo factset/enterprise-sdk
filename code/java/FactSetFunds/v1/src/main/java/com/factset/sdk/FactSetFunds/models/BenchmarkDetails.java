@@ -50,7 +50,8 @@ import com.factset.sdk.FactSetFunds.JSON;
   BenchmarkDetails.JSON_PROPERTY_SEGMENT_BENCHMARK_RETURN_TYPE,
   BenchmarkDetails.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class BenchmarkDetails implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -99,7 +100,7 @@ public class BenchmarkDetails implements Serializable {
    * FactSet Security Identifier. Six alpha-numeric characters, excluding vowels, with a -S suffix (XXXXXX-S), resolved from the requestId of the Fund requested.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FNK7XP-S", value = "FactSet Security Identifier. Six alpha-numeric characters, excluding vowels, with a -S suffix (XXXXXX-S), resolved from the requestId of the Fund requested.")
   @JsonIgnore
 
@@ -133,7 +134,7 @@ public class BenchmarkDetails implements Serializable {
    * The Fund&#39;s primary Benchmark Identifier.
    * @return benchmarkId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "R.1000", value = "The Fund's primary Benchmark Identifier.")
   @JsonIgnore
 
@@ -167,7 +168,7 @@ public class BenchmarkDetails implements Serializable {
    * The proper name of the Benchmark Id.
    * @return benchmarkName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Russell 1000 Index", value = "The proper name of the Benchmark Id.")
   @JsonIgnore
 
@@ -201,7 +202,7 @@ public class BenchmarkDetails implements Serializable {
    * Indicates if the Fund has a composite benchmark.
    * @return multipleBenchmarkFlag
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Non-Composite", value = "Indicates if the Fund has a composite benchmark.")
   @JsonIgnore
 
@@ -235,7 +236,7 @@ public class BenchmarkDetails implements Serializable {
    * The date in which the benchmark changed for the requested fund in YYYY-MM-DD. If no benchmark changes occurred, the response value will be null.
    * @return benchmarkChangeDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The date in which the benchmark changed for the requested fund in YYYY-MM-DD. If no benchmark changes occurred, the response value will be null.")
   @JsonIgnore
 
@@ -269,7 +270,7 @@ public class BenchmarkDetails implements Serializable {
    * The segment of the respective segment benchmark id.
    * @return segment
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Equity: U.S. - Total Market Value", value = "The segment of the respective segment benchmark id.")
   @JsonIgnore
 
@@ -303,7 +304,7 @@ public class BenchmarkDetails implements Serializable {
    * Segment Benchmark Identifier. Funds in the same segment match on all seven levels of FactSet&#39;s fund classification system.
    * @return segmentBenchmarkId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "MS664292", value = "Segment Benchmark Identifier. Funds in the same segment match on all seven levels of FactSet's fund classification system.")
   @JsonIgnore
 
@@ -337,7 +338,7 @@ public class BenchmarkDetails implements Serializable {
    * The segment benchmark&#39;s name in proper format. Funds in the same segment match on all seven levels of FactSet&#39;s fund classification system.
    * @return segmentBenchmarkName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "MSCI USA IMI Value Index", value = "The segment benchmark's name in proper format. Funds in the same segment match on all seven levels of FactSet's fund classification system.")
   @JsonIgnore
 
@@ -371,7 +372,7 @@ public class BenchmarkDetails implements Serializable {
    * The Segment Benchmark&#39;s currency in ISO3. Funds in the same segment match on all seven levels of FactSet&#39;s fund classification system.
    * @return segmentBenchmarkCurrency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "The Segment Benchmark's currency in ISO3. Funds in the same segment match on all seven levels of FactSet's fund classification system.")
   @JsonIgnore
 
@@ -405,7 +406,7 @@ public class BenchmarkDetails implements Serializable {
    * The Segment benchmarks return type. Funds in the same segment match on all seven levels of FactSet&#39;s fund classification system.
    * @return segmentBenchmarkReturnType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "GROSS_RETURN", value = "The Segment benchmarks return type. Funds in the same segment match on all seven levels of FactSet's fund classification system.")
   @JsonIgnore
 
@@ -439,7 +440,7 @@ public class BenchmarkDetails implements Serializable {
    * The requested Id sent as input.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "MABAX", value = "The requested Id sent as input.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -40,7 +40,8 @@ import com.factset.sdk.FactSetOptions.JSON;
 @JsonPropertyOrder({
   OptionScreening.JSON_PROPERTY_OPTION_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptionScreening implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -59,7 +60,7 @@ public class OptionScreening implements Serializable {
    * The option identifier
    * @return optionId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "AAPL.US#C0185", value = "The option identifier")
   @JsonIgnore
 

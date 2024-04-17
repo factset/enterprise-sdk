@@ -42,7 +42,8 @@ import com.factset.sdk.FactSetTrading.JSON;
   EMSCreateChildOrderRejectedInfo.JSON_PROPERTY_TICKET_ID,
   EMSCreateChildOrderRejectedInfo.JSON_PROPERTY_SYMBOL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EMSCreateChildOrderRejectedInfo implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -70,7 +71,7 @@ public class EMSCreateChildOrderRejectedInfo implements Serializable {
    * Reason for rejection
    * @return message
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Ticket does not exist for ticketid: null", value = "Reason for rejection")
   @JsonIgnore
 
@@ -104,7 +105,7 @@ public class EMSCreateChildOrderRejectedInfo implements Serializable {
    * Unique identifier assigned to basket order
    * @return basketId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FACTSET_OMS-100823_12345", value = "Unique identifier assigned to basket order")
   @JsonIgnore
 
@@ -138,7 +139,7 @@ public class EMSCreateChildOrderRejectedInfo implements Serializable {
    * Ticket Id for the child order
    * @return ticketId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "RKPW.3280015", value = "Ticket Id for the child order")
   @JsonIgnore
 
@@ -172,7 +173,7 @@ public class EMSCreateChildOrderRejectedInfo implements Serializable {
    * Ticker symbol
    * @return symbol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FDS-USA", value = "Ticker symbol")
   @JsonIgnore
 

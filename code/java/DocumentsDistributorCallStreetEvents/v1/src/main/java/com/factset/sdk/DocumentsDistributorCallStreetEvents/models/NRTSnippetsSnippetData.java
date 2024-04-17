@@ -38,7 +38,8 @@ import com.factset.sdk.DocumentsDistributorCallStreetEvents.JSON;
   NRTSnippetsSnippetData.JSON_PROPERTY_END_TIME,
   NRTSnippetsSnippetData.JSON_PROPERTY_START_TIME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class NRTSnippetsSnippetData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class NRTSnippetsSnippetData implements Serializable {
    * The actual transcript snippet.
    * @return transcript
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The actual transcript snippet.")
   @JsonProperty(JSON_PROPERTY_TRANSCRIPT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -89,7 +90,7 @@ public class NRTSnippetsSnippetData implements Serializable {
    * The number of seconds into the call, when the transcript snippet ended.
    * @return endTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The number of seconds into the call, when the transcript snippet ended.")
   @JsonProperty(JSON_PROPERTY_END_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +116,7 @@ public class NRTSnippetsSnippetData implements Serializable {
    * The number of seconds into the call,when the transcript snippet started.
    * @return startTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The number of seconds into the call,when the transcript snippet started.")
   @JsonProperty(JSON_PROPERTY_START_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

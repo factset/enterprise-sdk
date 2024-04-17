@@ -43,7 +43,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20061DataLegalEntities.JSON_PROPERTY_NAME,
   InlineResponse20061DataLegalEntities.JSON_PROPERTY_COMPLIANCE_PROPERTIES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20061DataLegalEntities implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class InlineResponse20061DataLegalEntities implements Serializable {
    * Identifier of a legal entity.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of a legal entity.")
   @JsonIgnore
 
@@ -102,7 +103,7 @@ public class InlineResponse20061DataLegalEntities implements Serializable {
    * Name of the legal entity.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the legal entity.")
   @JsonIgnore
 
@@ -144,7 +145,7 @@ public class InlineResponse20061DataLegalEntities implements Serializable {
    * List of compliance properties.
    * @return complianceProperties
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of compliance properties.")
   @JsonProperty(JSON_PROPERTY_COMPLIANCE_PROPERTIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

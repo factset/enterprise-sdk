@@ -39,7 +39,8 @@ import com.factset.sdk.RealTimeNews.JSON;
   PostNewsArticleSearchByTextRequestDataTextCriteria.JSON_PROPERTY_MINIMUM_MATCH_SCORE,
   PostNewsArticleSearchByTextRequestDataTextCriteria.JSON_PROPERTY_SCOPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostNewsArticleSearchByTextRequestDataTextCriteria implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -139,7 +140,7 @@ public class PostNewsArticleSearchByTextRequestDataTextCriteria implements Seria
    * Specify how the criteria should be applied to the search.
    * @return selectionType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Specify how the criteria should be applied to the search.")
   @JsonProperty(JSON_PROPERTY_SELECTION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -173,7 +174,7 @@ public class PostNewsArticleSearchByTextRequestDataTextCriteria implements Seria
    * Phrases to be used in the criteria.
    * @return phrases
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Phrases to be used in the criteria.")
   @JsonProperty(JSON_PROPERTY_PHRASES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -199,7 +200,7 @@ public class PostNewsArticleSearchByTextRequestDataTextCriteria implements Seria
    * Minimum match score for words in the news article.
    * @return minimumMatchScore
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Minimum match score for words in the news article.")
   @JsonProperty(JSON_PROPERTY_MINIMUM_MATCH_SCORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -225,7 +226,7 @@ public class PostNewsArticleSearchByTextRequestDataTextCriteria implements Seria
    * Restrict fulltext search to specific scope.
    * @return scope
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Restrict fulltext search to specific scope.")
   @JsonProperty(JSON_PROPERTY_SCOPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

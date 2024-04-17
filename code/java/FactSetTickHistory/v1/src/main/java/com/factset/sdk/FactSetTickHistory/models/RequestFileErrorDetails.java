@@ -38,7 +38,8 @@ import com.factset.sdk.FactSetTickHistory.JSON;
   RequestFileErrorDetails.JSON_PROPERTY_START_DATE,
   RequestFileErrorDetails.JSON_PROPERTY_END_DATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class RequestFileErrorDetails implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -74,7 +75,7 @@ public class RequestFileErrorDetails implements Serializable {
    * Error message when user is not subscribed to the TickHistory product
    * @return permissionError
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Error message when user is not subscribed to the TickHistory product")
   @JsonProperty(JSON_PROPERTY_PERMISSION_ERROR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -108,7 +109,7 @@ public class RequestFileErrorDetails implements Serializable {
    * when the parameters passed in the query are incorrect or missing
    * @return paramError
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "when the parameters passed in the query are incorrect or missing")
   @JsonProperty(JSON_PROPERTY_PARAM_ERROR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -142,7 +143,7 @@ public class RequestFileErrorDetails implements Serializable {
    * startDate must be &lt; 0
    * @return startDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "startDate must be < 0")
   @JsonProperty(JSON_PROPERTY_START_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -176,7 +177,7 @@ public class RequestFileErrorDetails implements Serializable {
    * endDate must be &lt; 0
    * @return endDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "endDate must be < 0")
   @JsonProperty(JSON_PROPERTY_END_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

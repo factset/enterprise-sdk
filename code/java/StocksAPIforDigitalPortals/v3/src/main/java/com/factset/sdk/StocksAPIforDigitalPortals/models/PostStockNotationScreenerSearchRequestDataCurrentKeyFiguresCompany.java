@@ -41,7 +41,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompany.JSON_PROPERTY_FREE_FLOAT,
   PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompany.JSON_PROPERTY_CURRENCY_DEPENDENT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompany implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -66,7 +67,7 @@ public class PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompany 
    * Get sharesOutstanding
    * @return sharesOutstanding
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SHARES_OUTSTANDING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -92,7 +93,7 @@ public class PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompany 
    * Get freeFloat
    * @return freeFloat
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FREE_FLOAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -118,7 +119,7 @@ public class PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompany 
    * Get currencyDependent
    * @return currencyDependent
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CURRENCY_DEPENDENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

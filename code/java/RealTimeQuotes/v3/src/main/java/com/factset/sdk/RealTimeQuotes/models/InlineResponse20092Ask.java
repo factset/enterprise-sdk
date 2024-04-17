@@ -45,7 +45,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20092Ask.JSON_PROPERTY_TRADING_VOLUME,
   InlineResponse20092Ask.JSON_PROPERTY_TRADING_VALUE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20092Ask implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -76,7 +77,7 @@ public class InlineResponse20092Ask implements Serializable {
    * Date and time.
    * @return time
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Date and time.")
   @JsonIgnore
 
@@ -110,7 +111,7 @@ public class InlineResponse20092Ask implements Serializable {
    * Price value. See attribute &#x60;valueUnit&#x60; for its unit.
    * @return price
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Price value. See attribute `valueUnit` for its unit.")
   @JsonIgnore
 
@@ -144,7 +145,7 @@ public class InlineResponse20092Ask implements Serializable {
    * Quote condition. Possible values depend on the values delivered by the supplier of the price information.
    * @return quoteCondition
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Quote condition. Possible values depend on the values delivered by the supplier of the price information.")
   @JsonIgnore
 
@@ -178,7 +179,7 @@ public class InlineResponse20092Ask implements Serializable {
    * Number of units (e.g. shares) offered.
    * @return tradingVolume
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of units (e.g. shares) offered.")
   @JsonIgnore
 
@@ -212,7 +213,7 @@ public class InlineResponse20092Ask implements Serializable {
    * Monetary equivalent (cash value) of the offer. See attribute &#x60;currency&#x60; for its unit.
    * @return tradingValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Monetary equivalent (cash value) of the offer. See attribute `currency` for its unit.")
   @JsonIgnore
 

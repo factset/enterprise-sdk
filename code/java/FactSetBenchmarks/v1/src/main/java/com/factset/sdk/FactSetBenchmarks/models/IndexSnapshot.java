@@ -55,7 +55,8 @@ import com.factset.sdk.FactSetBenchmarks.JSON;
   IndexSnapshot.JSON_PROPERTY_RETURN_TYPE,
   IndexSnapshot.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class IndexSnapshot implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -119,7 +120,7 @@ public class IndexSnapshot implements Serializable {
    * Requested Identifier. Must be a valid Benchmark Identifier recognized by FactSet.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "SP50", value = "Requested Identifier. Must be a valid Benchmark Identifier recognized by FactSet.")
   @JsonIgnore
 
@@ -153,7 +154,7 @@ public class IndexSnapshot implements Serializable {
    * The respective date for values as of the date requested in YYYY-MM-DD format.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Wed Jul 01 00:00:00 UTC 2020", value = "The respective date for values as of the date requested in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -187,7 +188,7 @@ public class IndexSnapshot implements Serializable {
    * Proper Name of Index.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "S&P 500", value = "Proper Name of Index.")
   @JsonIgnore
 
@@ -221,7 +222,7 @@ public class IndexSnapshot implements Serializable {
    * The total number of constituents as of the date requested.
    * @return constituentNumber
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "502", value = "The total number of constituents as of the date requested.")
   @JsonIgnore
 
@@ -255,7 +256,7 @@ public class IndexSnapshot implements Serializable {
    * Currency Code used in adjustments. If no Currency was requested, the service will default to the local Calendar.
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "Currency Code used in adjustments. If no Currency was requested, the service will default to the local Calendar.")
   @JsonIgnore
 
@@ -289,7 +290,7 @@ public class IndexSnapshot implements Serializable {
    * Index Level Market Capitalization as of the date requested expressed in millions.
    * @return marketValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "27696158.012077", value = "Index Level Market Capitalization as of the date requested expressed in millions.")
   @JsonIgnore
 
@@ -323,7 +324,7 @@ public class IndexSnapshot implements Serializable {
    * Index Level Price
    * @return price
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "3349.15600690205", value = "Index Level Price")
   @JsonIgnore
 
@@ -357,7 +358,7 @@ public class IndexSnapshot implements Serializable {
    * Index Level Price - 1 Day percent change
    * @return priceReturnPercent1D
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0.642620385795123", value = "Index Level Price - 1 Day percent change")
   @JsonIgnore
 
@@ -391,7 +392,7 @@ public class IndexSnapshot implements Serializable {
    * Index Level Price - Quarter-to-Date percent change
    * @return priceReturnPercentQTD
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "8.02735451465131", value = "Index Level Price - Quarter-to-Date percent change")
   @JsonIgnore
 
@@ -425,7 +426,7 @@ public class IndexSnapshot implements Serializable {
    * Index Level Price - Year-to-Date percent change
    * @return priceReturnPercentYTD
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "3.66394447660916", value = "Index Level Price - Year-to-Date percent change")
   @JsonIgnore
 
@@ -459,7 +460,7 @@ public class IndexSnapshot implements Serializable {
    * Index Level Total Return Amount. (Gross or Net depends on requested returnType)
    * @return totalReturnLevel
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "6870.86168040129", value = "Index Level Total Return Amount. (Gross or Net depends on requested returnType)")
   @JsonIgnore
 
@@ -493,7 +494,7 @@ public class IndexSnapshot implements Serializable {
    * Index Level Total Return - 1 Day percent change. (Gross or Net depends on requested returnType)
    * @return totalReturnPercent1D
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0.653957589855003", value = "Index Level Total Return - 1 Day percent change. (Gross or Net depends on requested returnType)")
   @JsonIgnore
 
@@ -527,7 +528,7 @@ public class IndexSnapshot implements Serializable {
    * Index Level Total Return - Quarter-to-Date percent change. (Gross or Net depends on requested returnType)
    * @return totalReturnPercentQTD
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "8.17415047623613", value = "Index Level Total Return - Quarter-to-Date percent change. (Gross or Net depends on requested returnType)")
   @JsonIgnore
 
@@ -561,7 +562,7 @@ public class IndexSnapshot implements Serializable {
    * Index Level Total Return - Year-to-Date percent change. (Gross or Net depends on requested returnType)
    * @return totalReturnPercentYTD
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "4.84152796547426", value = "Index Level Total Return - Year-to-Date percent change. (Gross or Net depends on requested returnType)")
   @JsonIgnore
 
@@ -595,7 +596,7 @@ public class IndexSnapshot implements Serializable {
    * The requested Return Type - GROSS or NET
    * @return returnType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "GROSS", value = "The requested Return Type - GROSS or NET")
   @JsonIgnore
 
@@ -629,7 +630,7 @@ public class IndexSnapshot implements Serializable {
    * Benchmark Identifier specified in the request
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "SP50", value = "Benchmark Identifier specified in the request")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

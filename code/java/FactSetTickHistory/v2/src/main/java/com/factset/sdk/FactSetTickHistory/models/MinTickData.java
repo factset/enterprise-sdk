@@ -40,7 +40,8 @@ import com.factset.sdk.FactSetTickHistory.JSON;
   MinTickData.JSON_PROPERTY_UPDATE_TIMESTAMP,
   MinTickData.JSON_PROPERTY_LIST_OF_FILES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class MinTickData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -65,7 +66,7 @@ public class MinTickData implements Serializable {
    * Timestamp of when request was made
    * @return requestTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Timestamp of when request was made")
   @JsonProperty(JSON_PROPERTY_REQUEST_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -91,7 +92,7 @@ public class MinTickData implements Serializable {
    * Timestamp when the file was last updated
    * @return updateTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Timestamp when the file was last updated")
   @JsonProperty(JSON_PROPERTY_UPDATE_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -125,7 +126,7 @@ public class MinTickData implements Serializable {
    * Contains list of Files
    * @return listOfFiles
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Contains list of Files")
   @JsonProperty(JSON_PROPERTY_LIST_OF_FILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

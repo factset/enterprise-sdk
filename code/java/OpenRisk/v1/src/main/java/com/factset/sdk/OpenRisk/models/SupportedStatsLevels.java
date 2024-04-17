@@ -46,7 +46,8 @@ import com.factset.sdk.OpenRisk.JSON;
   SupportedStatsLevels.JSON_PROPERTY_FACTOR_SECURITY_GROUP,
   SupportedStatsLevels.JSON_PROPERTY_FACTOR_GROUP_SECURITY_GROUP
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SupportedStatsLevels implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -123,7 +124,7 @@ public class SupportedStatsLevels implements Serializable {
    * Get portfolio
    * @return portfolio
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_PORTFOLIO)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -149,7 +150,7 @@ public class SupportedStatsLevels implements Serializable {
    * Get security
    * @return security
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SECURITY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -175,7 +176,7 @@ public class SupportedStatsLevels implements Serializable {
    * Get securityGroup
    * @return securityGroup
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SECURITY_GROUP)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -201,7 +202,7 @@ public class SupportedStatsLevels implements Serializable {
    * Get securitySecurity
    * @return securitySecurity
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SECURITY_SECURITY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -227,7 +228,7 @@ public class SupportedStatsLevels implements Serializable {
    * Get factor
    * @return factor
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_FACTOR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -253,7 +254,7 @@ public class SupportedStatsLevels implements Serializable {
    * Get factorGroup
    * @return factorGroup
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_FACTOR_GROUP)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -279,7 +280,7 @@ public class SupportedStatsLevels implements Serializable {
    * Get factorFactor
    * @return factorFactor
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_FACTOR_FACTOR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -305,7 +306,7 @@ public class SupportedStatsLevels implements Serializable {
    * Get factorSecurity
    * @return factorSecurity
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_FACTOR_SECURITY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -331,7 +332,7 @@ public class SupportedStatsLevels implements Serializable {
    * Get factorGroupSecurity
    * @return factorGroupSecurity
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_FACTOR_GROUP_SECURITY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -357,7 +358,7 @@ public class SupportedStatsLevels implements Serializable {
    * Get factorSecurityGroup
    * @return factorSecurityGroup
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_FACTOR_SECURITY_GROUP)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -383,7 +384,7 @@ public class SupportedStatsLevels implements Serializable {
    * Get factorGroupSecurityGroup
    * @return factorGroupSecurityGroup
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_FACTOR_GROUP_SECURITY_GROUP)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

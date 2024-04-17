@@ -45,7 +45,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20062DataTargetMarketAbilityToBearLosses.JSON_PROPERTY_LOSS_BEYOND_CAPITAL,
   InlineResponse20062DataTargetMarketAbilityToBearLosses.JSON_PROPERTY_MAXIMUM_CAPITAL_LOSS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20062DataTargetMarketAbilityToBearLosses implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -232,7 +233,7 @@ public class InlineResponse20062DataTargetMarketAbilityToBearLosses implements S
    * Indicates whether the investment product is suitable for investors not able to bear capital loss. Minor loss e.g. due to costs is possible.
    * @return noCapitalLoss
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the investment product is suitable for investors not able to bear capital loss. Minor loss e.g. due to costs is possible.")
   @JsonIgnore
 
@@ -266,7 +267,7 @@ public class InlineResponse20062DataTargetMarketAbilityToBearLosses implements S
    * Indicates whether the investment product is suitable for investors able to bear limited capital loss.
    * @return limitedCapitalLoss
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the investment product is suitable for investors able to bear limited capital loss.")
   @JsonIgnore
 
@@ -300,7 +301,7 @@ public class InlineResponse20062DataTargetMarketAbilityToBearLosses implements S
    * Indicates whether the investment product is suitable for investors able to bear total capital loss.
    * @return noCapitalGuarantee
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the investment product is suitable for investors able to bear total capital loss.")
   @JsonIgnore
 
@@ -334,7 +335,7 @@ public class InlineResponse20062DataTargetMarketAbilityToBearLosses implements S
    * Indicates whether the investment product is suitable for investors able to bear loss beyond the invested capital.
    * @return lossBeyondCapital
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the investment product is suitable for investors able to bear loss beyond the invested capital.")
   @JsonIgnore
 
@@ -368,7 +369,7 @@ public class InlineResponse20062DataTargetMarketAbilityToBearLosses implements S
    * Maximum loss of the invested capital assumed the investment product is held until maturity.
    * @return maximumCapitalLoss
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Maximum loss of the invested capital assumed the investment product is held until maturity.")
   @JsonIgnore
 

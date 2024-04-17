@@ -51,7 +51,8 @@ import com.factset.sdk.OptimizationEngineAPIMultiperiod.JSON;
   OptimizerInputsGeneralLinearConstraint.JSON_PROPERTY_REL_TO_BENCHMARK,
   OptimizerInputsGeneralLinearConstraint.JSON_PROPERTY_BENCHMARK_INDEX
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerInputsGeneralLinearConstraint implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -100,7 +101,7 @@ public class OptimizerInputsGeneralLinearConstraint implements Serializable {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -126,7 +127,7 @@ public class OptimizerInputsGeneralLinearConstraint implements Serializable {
    * Get securityAttribute
    * @return securityAttribute
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SECURITY_ATTRIBUTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -152,7 +153,7 @@ public class OptimizerInputsGeneralLinearConstraint implements Serializable {
    * Get min
    * @return min
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -178,7 +179,7 @@ public class OptimizerInputsGeneralLinearConstraint implements Serializable {
    * Get max
    * @return max
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -204,7 +205,7 @@ public class OptimizerInputsGeneralLinearConstraint implements Serializable {
    * Get penalty
    * @return penalty
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PENALTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -238,7 +239,7 @@ public class OptimizerInputsGeneralLinearConstraint implements Serializable {
    * Get groups
    * @return groups
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -264,7 +265,7 @@ public class OptimizerInputsGeneralLinearConstraint implements Serializable {
    * Get weightingMethod
    * @return weightingMethod
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WEIGHTING_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -290,7 +291,7 @@ public class OptimizerInputsGeneralLinearConstraint implements Serializable {
    * Get level
    * @return level
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -316,7 +317,7 @@ public class OptimizerInputsGeneralLinearConstraint implements Serializable {
    * Get hierarchy
    * @return hierarchy
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_HIERARCHY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -342,7 +343,7 @@ public class OptimizerInputsGeneralLinearConstraint implements Serializable {
    * Get relToBenchmark
    * @return relToBenchmark
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REL_TO_BENCHMARK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -368,7 +369,7 @@ public class OptimizerInputsGeneralLinearConstraint implements Serializable {
    * Get benchmarkIndex
    * @return benchmarkIndex
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BENCHMARK_INDEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

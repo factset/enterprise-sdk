@@ -50,7 +50,8 @@ import com.factset.sdk.FactSetEstimates.JSON;
   ConsensusRatings.JSON_PROPERTY_RATINGS_NOTE_TEXT,
   ConsensusRatings.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ConsensusRatings implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -99,7 +100,7 @@ public class ConsensusRatings implements Serializable {
    * Get fsymId
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "SJY281-R", value = "")
   @JsonIgnore
 
@@ -133,7 +134,7 @@ public class ConsensusRatings implements Serializable {
    * Date of estimate expressed in YYYY-MM-DD format. For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16598)
    * @return estimateDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Mon Jul 24 00:00:00 UTC 2017", value = "Date of estimate expressed in YYYY-MM-DD format. For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16598)")
   @JsonIgnore
 
@@ -167,7 +168,7 @@ public class ConsensusRatings implements Serializable {
    * The number of Buy ratings taken into account in the calculation of a consensus. This information is shown only for a 100-day consensus.
    * @return buyCount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "5", value = "The number of Buy ratings taken into account in the calculation of a consensus. This information is shown only for a 100-day consensus.")
   @JsonIgnore
 
@@ -201,7 +202,7 @@ public class ConsensusRatings implements Serializable {
    * The number of Overweight ratings taken into account in the calculation of a consensus. This information is shown only for a 100-day consensus.
    * @return overweightCount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "The number of Overweight ratings taken into account in the calculation of a consensus. This information is shown only for a 100-day consensus.")
   @JsonIgnore
 
@@ -235,7 +236,7 @@ public class ConsensusRatings implements Serializable {
    * The number of Hold ratings taken into account in the calculation of a consensus. This information is shown only for a 100-day consensus.
    * @return holdCount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "The number of Hold ratings taken into account in the calculation of a consensus. This information is shown only for a 100-day consensus.")
   @JsonIgnore
 
@@ -269,7 +270,7 @@ public class ConsensusRatings implements Serializable {
    * The number of Underweight ratings taken into account in the calculation of a consensus. This information is shown only for a 100-day consensus.
    * @return underweightCount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "The number of Underweight ratings taken into account in the calculation of a consensus. This information is shown only for a 100-day consensus.")
   @JsonIgnore
 
@@ -303,7 +304,7 @@ public class ConsensusRatings implements Serializable {
    * The number of Sell ratings taken into account in the calculation of a consensus. This information is shown only for a 100-day consensus.
    * @return sellCount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "The number of Sell ratings taken into account in the calculation of a consensus. This information is shown only for a 100-day consensus.")
   @JsonIgnore
 
@@ -337,7 +338,7 @@ public class ConsensusRatings implements Serializable {
    * The total number of ratings taken into account in the calculation of a consensus. This information is shown only for a 100-day consensus.
    * @return ratingsNestTotal
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "The total number of ratings taken into account in the calculation of a consensus. This information is shown only for a 100-day consensus.")
   @JsonIgnore
 
@@ -371,7 +372,7 @@ public class ConsensusRatings implements Serializable {
    * The mean average of ratings for the fiscal dates indicated, where each underlying rating is given a numerical score and then aggregated to a mean consensus - __*Individual Ratings Scores*__ |Value|Rating Description| |---|---| |1|Buy| |1.5|Overweight| |2|Hold| |2.5|Underweight| |3|Sell| 
    * @return ratingsNote
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1.85555", value = "The mean average of ratings for the fiscal dates indicated, where each underlying rating is given a numerical score and then aggregated to a mean consensus - __*Individual Ratings Scores*__ |Value|Rating Description| |---|---| |1|Buy| |1.5|Overweight| |2|Hold| |2.5|Underweight| |3|Sell| ")
   @JsonIgnore
 
@@ -405,7 +406,7 @@ public class ConsensusRatings implements Serializable {
    * The mean textual rating for the fiscal dates indicated. The text rating is assigned by falling within the below defined ranges -  __*Textual Ranges for Average*__ |Value|Rating Description| |---|---| |&lt; 1.25|Buy| |&lt; 1.75|Overweight| |&lt; 2.25|Hold| |&lt; 2.75|Underweight| |&lt;&#x3D; 3|Sell| 
    * @return ratingsNoteText
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Hold", value = "The mean textual rating for the fiscal dates indicated. The text rating is assigned by falling within the below defined ranges -  __*Textual Ranges for Average*__ |Value|Rating Description| |---|---| |< 1.25|Buy| |< 1.75|Overweight| |< 2.25|Hold| |< 2.75|Underweight| |<= 3|Sell| ")
   @JsonIgnore
 
@@ -439,7 +440,7 @@ public class ConsensusRatings implements Serializable {
    * Identifier that was used for the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "IBM-US", value = "Identifier that was used for the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

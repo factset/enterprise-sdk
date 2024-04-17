@@ -42,7 +42,8 @@ import com.factset.sdk.IRNContacts.JSON;
   ContactCustomFieldValueDto.JSON_PROPERTY_VALUE,
   ContactCustomFieldValueDto.JSON_PROPERTY_OPTION_VALUES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ContactCustomFieldValueDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -67,7 +68,7 @@ public class ContactCustomFieldValueDto implements Serializable {
    * Get fieldCode
    * @return fieldCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -101,7 +102,7 @@ public class ContactCustomFieldValueDto implements Serializable {
    * Get value
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -147,7 +148,7 @@ public class ContactCustomFieldValueDto implements Serializable {
    * Get optionValues
    * @return optionValues
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

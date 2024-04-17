@@ -38,7 +38,8 @@ import com.factset.sdk.OpenFactSetPartnersDocuments.JSON;
   OrbitHistoryFiles.JSON_PROPERTY_FILE_NAME,
   OrbitHistoryFiles.JSON_PROPERTY_URL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OrbitHistoryFiles implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class OrbitHistoryFiles implements Serializable {
    * Defines the size of the file.
    * @return fileSize
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "210", value = "Defines the size of the file.")
   @JsonProperty(JSON_PROPERTY_FILE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -89,7 +90,7 @@ public class OrbitHistoryFiles implements Serializable {
    * The filename of the folder.
    * @return fileName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2022_03.tar.gz", value = "The filename of the folder.")
   @JsonProperty(JSON_PROPERTY_FILE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +116,7 @@ public class OrbitHistoryFiles implements Serializable {
    * Download link for the transcripts provided by the Orbit feed.
    * @return url
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "https://fdss3-unstructured-data-delivery-orbit-v2-prod.s3.amazonaws.com/archive/2022_03.tar.gz?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6B6XG7VEZIG27C5D%2F20221017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221017T140425Z&X-Amz-Expires=1800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjED8aCXVzLWVhc3QtMSJIMEYCIQCpnwubbmWR8h7DcyR36f7shl8rj%2BaUM8MCfTtJDz3K7gIhALvaP4DrYVJWwYI5uXlNVX0e7jFh0SDYH58NiUUuWjHZKu4CCBcQARoMOTY2MjgyMTE2NDI1IgwrEfRv2XcQccTycTUqywKK1VtBszZfOTixyF3D3wV2DGa3fJ5dtwSx%2BrhM0TBuhY%2BRzq9DsIdtLJ17odg8tmvpqsnBOIeMp9vgGAq5Y3%2BsVOav1t4iZDFZ%2FvfZNi0TKFPLHrl9I4fDzm2dJ%2FjXg9g07vsguyCAWBr6PvFEjnhvl5Mcpr9%2FcyFKULxQMQp6s%2F39zXmlhdkRNd6nZILBJH7COOd5eGlSm7UQMnmYTg3yJdHHWQ21WdpNy62KxuPs6O6oeVv1FNnL3pJuUYnqv%2BTvSqJlUuxXeathGiuQq9fpy3qahOE%2FnWxMzGuC9zibpj0e7TGDVPmZwf7RZBFNDcFI50cTtR6uRKv1m6zfhty%2BBbjqoqvX3ydqTTpROd%2FEsS4FXaQzXB5dz89YWjie9RM9JTU3fhzDrWoBOi0j%2F12yBtQ37qG%2F4NZeorxhMM%2BgueFQYV9rHNiy7XIBMObBtZoGOp0B9oNulnAKurGgAPZRKysBzw7RsskO19KoaHt2WScN1q4tt8P4SyZ9oTSD9JN%2FbZGpXQggk9HIUHAMeYk14trAyzoojXUFM6GpleF0dPX6qRBRXhkY0KuwZBT1TL6fBH828NWorWRGHSag%2FOnYAwbijOziNmbpnZ2MyhXE8OnyQu9ucFpUXP3Ie%2FqnObzyVIULXRY%2B6yXbRmrxZj46vA%3D%3D&X-Amz-Signature=b7437199bca7bd53d5467abcdb3961cee2ecee10e922644c19fdd9f629293513", value = "Download link for the transcripts provided by the Orbit feed.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

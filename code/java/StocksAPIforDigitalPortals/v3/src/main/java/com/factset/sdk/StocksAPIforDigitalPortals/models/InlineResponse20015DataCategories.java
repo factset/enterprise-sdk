@@ -44,7 +44,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20015DataCategories.JSON_PROPERTY_PARENT,
   InlineResponse20015DataCategories.JSON_PROPERTY_COUNT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20015DataCategories implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -72,7 +73,7 @@ public class InlineResponse20015DataCategories implements Serializable {
    * Identifier of a category.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of a category.")
   @JsonIgnore
 
@@ -106,7 +107,7 @@ public class InlineResponse20015DataCategories implements Serializable {
    * Name of the category.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the category.")
   @JsonIgnore
 
@@ -140,7 +141,7 @@ public class InlineResponse20015DataCategories implements Serializable {
    * Get parent
    * @return parent
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PARENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -166,7 +167,7 @@ public class InlineResponse20015DataCategories implements Serializable {
    * Number of notations.
    * @return count
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of notations.")
   @JsonIgnore
 

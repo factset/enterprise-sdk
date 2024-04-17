@@ -47,7 +47,8 @@ import com.factset.sdk.FactSetIntradayTickHistory.JSON;
   Intervals.JSON_PROPERTY_30_M,
   Intervals.JSON_PROPERTY_1_H
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Intervals implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -102,7 +103,7 @@ public class Intervals implements Serializable {
    * Every Tick. Max days requested &#x3D; 1
    * @return _0
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Every Tick. Max days requested = 1")
   @JsonProperty(JSON_PROPERTY_0)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -128,7 +129,7 @@ public class Intervals implements Serializable {
    * 1 Second. Max days requested &#x3D; 1
    * @return _1S
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "1 Second. Max days requested = 1")
   @JsonProperty(JSON_PROPERTY_1_S)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -154,7 +155,7 @@ public class Intervals implements Serializable {
    * 5 Seconds. Max days requested &#x3D; 1
    * @return _5S
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "5 Seconds. Max days requested = 1")
   @JsonProperty(JSON_PROPERTY_5_S)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -180,7 +181,7 @@ public class Intervals implements Serializable {
    * 10 Seconds. Max days requested &#x3D; 1
    * @return _10S
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "10 Seconds. Max days requested = 1")
   @JsonProperty(JSON_PROPERTY_10_S)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -206,7 +207,7 @@ public class Intervals implements Serializable {
    * 15 Seconds. Max days requested &#x3D; 1
    * @return _15S
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "15 Seconds. Max days requested = 1")
   @JsonProperty(JSON_PROPERTY_15_S)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -232,7 +233,7 @@ public class Intervals implements Serializable {
    * 30 Seconds. Max days requested &#x3D; 15
    * @return _30S
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "30 Seconds. Max days requested = 15")
   @JsonProperty(JSON_PROPERTY_30_S)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -258,7 +259,7 @@ public class Intervals implements Serializable {
    * 1 Minute. Max days requested &#x3D; 30
    * @return _1M
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "1 Minute. Max days requested = 30")
   @JsonProperty(JSON_PROPERTY_1_M)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -284,7 +285,7 @@ public class Intervals implements Serializable {
    * 2 Minutes. Max days requested &#x3D; 60
    * @return _2M
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "2 Minutes. Max days requested = 60")
   @JsonProperty(JSON_PROPERTY_2_M)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -310,7 +311,7 @@ public class Intervals implements Serializable {
    * 5 Minutes. Max days requested &#x3D; 60
    * @return _5M
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "5 Minutes. Max days requested = 60")
   @JsonProperty(JSON_PROPERTY_5_M)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -336,7 +337,7 @@ public class Intervals implements Serializable {
    * 10 Minutes. Max days requested &#x3D; 60
    * @return _10M
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "10 Minutes. Max days requested = 60")
   @JsonProperty(JSON_PROPERTY_10_M)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -362,7 +363,7 @@ public class Intervals implements Serializable {
    * 15 Minutes. Max days requested &#x3D; 60
    * @return _15M
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "15 Minutes. Max days requested = 60")
   @JsonProperty(JSON_PROPERTY_15_M)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -388,7 +389,7 @@ public class Intervals implements Serializable {
    * 30 Minutes. Max days requested &#x3D; 60
    * @return _30M
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "30 Minutes. Max days requested = 60")
   @JsonProperty(JSON_PROPERTY_30_M)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -414,7 +415,7 @@ public class Intervals implements Serializable {
    * 1 Hour. Max days requested &#x3D; 60
    * @return _1H
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "1 Hour. Max days requested = 60")
   @JsonProperty(JSON_PROPERTY_1_H)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

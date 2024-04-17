@@ -35,7 +35,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
 @JsonPropertyOrder({
   InlineResponse20016Data.JSON_PROPERTY_BROAD_CATEGORY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20016Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -54,7 +55,7 @@ public class InlineResponse20016Data implements Serializable {
    * ETP class broad category.
    * @return broadCategory
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "ETP class broad category.")
   @JsonProperty(JSON_PROPERTY_BROAD_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

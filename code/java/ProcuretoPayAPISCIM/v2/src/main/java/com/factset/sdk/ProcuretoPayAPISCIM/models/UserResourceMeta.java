@@ -38,7 +38,8 @@ import com.factset.sdk.ProcuretoPayAPISCIM.JSON;
   UserResourceMeta.JSON_PROPERTY_LAST_MODIFIED,
   UserResourceMeta.JSON_PROPERTY_LOCATION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class UserResourceMeta implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -66,7 +67,7 @@ public class UserResourceMeta implements Serializable {
    * Get resourceType
    * @return resourceType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "User", value = "")
   @JsonProperty(JSON_PROPERTY_RESOURCE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -92,7 +93,7 @@ public class UserResourceMeta implements Serializable {
    * Get created
    * @return created
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2019-02-11T15:33:31.077+00:00", value = "")
   @JsonProperty(JSON_PROPERTY_CREATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -118,7 +119,7 @@ public class UserResourceMeta implements Serializable {
    * Get lastModified
    * @return lastModified
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2019-06-07T08:59:37+00:00", value = "")
   @JsonProperty(JSON_PROPERTY_LAST_MODIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -144,7 +145,7 @@ public class UserResourceMeta implements Serializable {
    * Get location
    * @return location
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "https://api.factset.com/scim/v2/Users/FIN_WEALTH-123456", value = "")
   @JsonProperty(JSON_PROPERTY_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

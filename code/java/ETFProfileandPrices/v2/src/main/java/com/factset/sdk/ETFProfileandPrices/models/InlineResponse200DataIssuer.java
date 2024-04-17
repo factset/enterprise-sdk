@@ -36,7 +36,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
 @JsonPropertyOrder({
   InlineResponse200DataIssuer.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse200DataIssuer implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -55,7 +56,7 @@ public class InlineResponse200DataIssuer implements Serializable {
    * Name of the issuer of the ETP. This data is available for all the regions.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the issuer of the ETP. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

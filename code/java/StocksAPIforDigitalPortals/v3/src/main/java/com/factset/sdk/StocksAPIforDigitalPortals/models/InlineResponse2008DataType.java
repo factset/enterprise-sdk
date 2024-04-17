@@ -42,7 +42,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2008DataType.JSON_PROPERTY_ID,
   InlineResponse2008DataType.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2008DataType implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class InlineResponse2008DataType implements Serializable {
    * Identifier of the type. See endpoint &#x60;/stock/owner/type/list&#x60; for possible values.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the type. See endpoint `/stock/owner/type/list` for possible values.")
   @JsonIgnore
 
@@ -98,7 +99,7 @@ public class InlineResponse2008DataType implements Serializable {
    * Name of the type.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the type.")
   @JsonIgnore
 

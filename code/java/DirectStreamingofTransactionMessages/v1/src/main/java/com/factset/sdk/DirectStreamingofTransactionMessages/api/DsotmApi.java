@@ -6,7 +6,7 @@ import com.factset.sdk.DirectStreamingofTransactionMessages.ApiResponse;
 import com.factset.sdk.DirectStreamingofTransactionMessages.Configuration;
 import com.factset.sdk.DirectStreamingofTransactionMessages.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -14,7 +14,8 @@ import java.util.Objects;
 import com.factset.sdk.DirectStreamingofTransactionMessages.models.ClientErrorResponse;
 import com.factset.sdk.DirectStreamingofTransactionMessages.models.Transactions;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class DsotmApi {
   private ApiClient apiClient;
 

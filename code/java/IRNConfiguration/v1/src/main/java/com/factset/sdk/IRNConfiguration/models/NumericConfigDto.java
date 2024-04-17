@@ -40,7 +40,8 @@ import com.factset.sdk.IRNConfiguration.JSON;
   NumericConfigDto.JSON_PROPERTY_DECIMALS,
   NumericConfigDto.JSON_PROPERTY_SPLIT_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class NumericConfigDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -62,7 +63,7 @@ public class NumericConfigDto implements Serializable {
    * Get decimals
    * @return decimals
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DECIMALS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -88,7 +89,7 @@ public class NumericConfigDto implements Serializable {
    * Get splitType
    * @return splitType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

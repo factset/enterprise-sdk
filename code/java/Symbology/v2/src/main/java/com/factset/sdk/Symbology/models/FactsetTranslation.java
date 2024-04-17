@@ -47,7 +47,8 @@ import com.factset.sdk.Symbology.JSON;
   FactsetTranslation.JSON_PROPERTY_NAME,
   FactsetTranslation.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FactsetTranslation implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -99,7 +100,7 @@ public class FactsetTranslation implements Serializable {
    * FactSet Default Permanent Identifier. Regional and Composite (-USA) request &#x60;ids&#x60; will use a Regional ID &#39;-R&#39;, Listing specific ids &#39;-NYS&#39; will use Listing ids &#39;-L&#39;, Entities will use &#39;-E&#39;, and FI will use security &#39;-S&#39; ids. [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "NSXGVV-L", value = "FactSet Default Permanent Identifier. Regional and Composite (-USA) request `ids` will use a Regional ID '-R', Listing specific ids '-NYS' will use Listing ids '-L', Entities will use '-E', and FI will use security '-S' ids. [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)")
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -125,7 +126,7 @@ public class FactsetTranslation implements Serializable {
    * FactSet Security Identifier. Six alpha-numeric characters, excluding vowels, with an -S suffix (XXXXXX-S). All equity and fixed income securities that exist on FactSet are allocated a security-level permanent identifier. [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
    * @return fsymSecurityId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "X0MHD2-S", value = "FactSet Security Identifier. Six alpha-numeric characters, excluding vowels, with an -S suffix (XXXXXX-S). All equity and fixed income securities that exist on FactSet are allocated a security-level permanent identifier. [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)")
   @JsonProperty(JSON_PROPERTY_FSYM_SECURITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -151,7 +152,7 @@ public class FactsetTranslation implements Serializable {
    * FactSet Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security&#39;s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet. [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
    * @return fsymRegionalId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "BL5KVX-R", value = "FactSet Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet. [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)")
   @JsonProperty(JSON_PROPERTY_FSYM_REGIONAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -177,7 +178,7 @@ public class FactsetTranslation implements Serializable {
    * FactSet Listing Security Identifier. Six alpha-numeric characters, vowels excluded, with an -L suffix (XXXXXX-L). The listing-level permanent identifier will be available prior to the end of trading on the first day of trading. Does not populate for composite ids (i.e. &#39;-USA&#39;) since these are not specified listing exchanges. [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
    * @return fsymListingId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "NSXGVV-L", value = "FactSet Listing Security Identifier. Six alpha-numeric characters, vowels excluded, with an -L suffix (XXXXXX-L). The listing-level permanent identifier will be available prior to the end of trading on the first day of trading. Does not populate for composite ids (i.e. '-USA') since these are not specified listing exchanges. [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)")
   @JsonProperty(JSON_PROPERTY_FSYM_LISTING_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -203,7 +204,7 @@ public class FactsetTranslation implements Serializable {
    * FactSet Entity Identifier (-E). For more information on Entity Ids, visit [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
    * @return fsymEntityId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "000F9X-E", value = "FactSet Entity Identifier (-E). For more information on Entity Ids, visit [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)")
   @JsonProperty(JSON_PROPERTY_FSYM_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -229,7 +230,7 @@ public class FactsetTranslation implements Serializable {
    * FactSet exchange ticker symbol. For definitions of Exchange Codes, visit [Online Assistant Page #12544](https://oa.apps.factset.com/pages/12544).
    * @return fsymTickerExchange
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "COST-USA", value = "FactSet exchange ticker symbol. For definitions of Exchange Codes, visit [Online Assistant Page #12544](https://oa.apps.factset.com/pages/12544).")
   @JsonProperty(JSON_PROPERTY_FSYM_TICKER_EXCHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -255,7 +256,7 @@ public class FactsetTranslation implements Serializable {
    * FactSet region ticker symbol. For details on Global Region Codes, visit [Online Assistant Page #13258](https://oa.apps.factset.com/pages/13258)
    * @return fsymTickerRegion
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "COST-US", value = "FactSet region ticker symbol. For details on Global Region Codes, visit [Online Assistant Page #13258](https://oa.apps.factset.com/pages/13258)")
   @JsonProperty(JSON_PROPERTY_FSYM_TICKER_REGION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -281,7 +282,7 @@ public class FactsetTranslation implements Serializable {
    * Primary Listing Exchange Code. For details on Exchange Code Definitions, visit [Online Assistant Page #12544](https://oa.apps.factset.com/pages/12544) 
    * @return frefListingExchange
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "NAS", value = "Primary Listing Exchange Code. For details on Exchange Code Definitions, visit [Online Assistant Page #12544](https://oa.apps.factset.com/pages/12544) ")
   @JsonProperty(JSON_PROPERTY_FREF_LISTING_EXCHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -307,7 +308,7 @@ public class FactsetTranslation implements Serializable {
    * Three character ISO Currency code. For details on ISO Currency Code definitions, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470)
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "Three character ISO Currency code. For details on ISO Currency Code definitions, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470)")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -333,7 +334,7 @@ public class FactsetTranslation implements Serializable {
    * The generic securityType for Equities and Fixed Income. Reach out to FactSet if more detailed security types or terms &amp; conditions are needed. The available codes returned are as follows -  |securityType|Description| |---|---| |ABS|Asset Backed Security | |ADR|American Depositary Receipt- An ADR is issued by a U.S. depositary bank and represents shares of a foreign corporation held by the bank. ADRs provide foreign companies with an access to U.S. capital markets. The instruments typically trade in U.S. dollars.| |ALIEN|Alien/Foreign- Shares that foreign investors can purchase from countries where they issue shares, such as Thailand. Foreigners can register these shares under their own name using the Foreign Board and receive all benefits offered by the company, such as rights offerings and dividends. Such securities have no floor or ceiling limits, so share prices respond to the demand and supply.| |BDNT|Bond/Note| |BLDN|Bill/Discount Note | |CONV|Convertible/Exchangeable| |COVR|Covered Bond | |DR|Depositary Receipts/Certificates- This security type represents all other depository receipts not mentioned above. Depositary Receipts (DR) are negotiable certificates that enable domestic investors to own shares in foreign companies. Each DR represents a given number of a company&#39;s shares.| |ETF_ETF|Exchange Traded Fund (ETF_ETF)- A security that is created to track the performance of an index or a basket of assets. ETFs are traded on organized exchanges.| |ETF_NAV|Exchange Traded Fund (ETF_NAV)- The Net Asset Value (NAV) is calculated by taking the total assets of the ETF, less liabilities, divided by the number of ETF shares outstanding.| |ETF_UVI|Exchange Traded Fund (ETF_UVI)- The Intraday Indicative Value is designed to give investors a sense of the relationship between a basket of securities that are representative of those owned in the ETF and the share price of the ETF on an intraday basis. An Intraday Indicative Value is published as a reference value to be used in conjunction with other ETF market information.| |GDR|Global Depositary Receipt- Certificate that represents ownership of a given number of a company&#39;s shares and can be listed and traded independently from the underlying shares. Provide issuers with an access to foreign capital markets.| |LKS|Linked Securities| |MF_C|Closed-ended Fund- These funds have a fixed number of shares, which are listed on the stock exchange. The market price of the shares is determined by demand and supply factors. These are readily transferable in the open market and are bought and sold like other stock. These funds do not accept new contributions from investors, but only reinvest the return on the existing portfolio.| |MF_O|Open-ended Fund- These funds have no limit to the number of units (or shares) they can issue. The price of the units (or shares) remains closely aligned to the NAV of the fund. Open-end funds sell their own new shares to investors, stand ready to buy back their old shares, and are not listed on exchanges. Open-end funds are so called because their capitalization is not fixed.| |MM|Bill/Discount Note | |MM|Money Market| |NVDR|Non-Voting Depositary Receipt- A Non-Voting Depository Receipt (NVDR) is a trading instrument issued by the Thai NVDR Company Limited, a subsidiary wholly owned by the Stock Exchange of Thailand (SET). Investment in NVDR eliminates foreign investment barriers. The only difference between investing in NVDRs and the company&#39;s shares is the voting right. NVDRs are automatically regarded as listed securities in the SET.| |PASS|Pass-Through | |PFD|Preferred | |PREF|Preferred- A type of stock that pays a fixed dividend regardless of corporate earnings, and which has priority over common stock in the payment of dividends. The main characteristics of preferred stocks is the fixed income stream and priority of payment at liquidation.| |PREFEQ|Preferred Equity- A security that has equity characteristics (i.e., ownership at liquidation, share in the profits in the company) rather than fixed redemption and trades as a common equity (i.e., is very liquid and its prices are quoted in a currency rather than percentage of par, which is a common characteristic of preferred stock). These securities are most commonly issued in Brazil, Canada, and many European markets (i.e., Russia, Germany, and Italy). Preferred equity has some priority rights over common stock. This category also includes Italian savings shares.| |RIGHT|Right- A right gives the holder an option to purchase additional shares of an underlying instrument at a pre-determined price on a specified date (typically at a discount from the market price). In most cases, right instruments must be exercised within a relatively short period.| |SHARE|Share/Common/Ordinary- Securities that represent an ownership interest in a corporation. If the company has also issued preferred stock, both common and preferred stockholders have ownership rights. Common stockholders assume the greater risk, but generally exercise greater control and may gain a larger award in the form of dividends and capital appreciation.| |STRUCT|Structured Products- Investment products that are based on an underlying security such as a single equity, a basket of stocks, an index, a commodity, a debt issuance, or a foreign currency.| |TEMP|Temporary- Securities that trade for a limited period of time (typically less than a year) and trade alongside the mainline security. Also included are securities that trade alongside the mainline and then assimilate to the mainline security after trading for few days/months. Examples of temporary instruments are parallel lines and assented lines.| |UNIT|Unit- An equity that consists of more than one equity instrument (i.e., security consisting of class A and B; 1 share and 1 warrant).| |WARRANT|Warrant- An instrument giving the holder a right to subscribe to an underlying instrument at a given price and date.| 
    * @return securityType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "SHARE", value = "The generic securityType for Equities and Fixed Income. Reach out to FactSet if more detailed security types or terms & conditions are needed. The available codes returned are as follows -  |securityType|Description| |---|---| |ABS|Asset Backed Security | |ADR|American Depositary Receipt- An ADR is issued by a U.S. depositary bank and represents shares of a foreign corporation held by the bank. ADRs provide foreign companies with an access to U.S. capital markets. The instruments typically trade in U.S. dollars.| |ALIEN|Alien/Foreign- Shares that foreign investors can purchase from countries where they issue shares, such as Thailand. Foreigners can register these shares under their own name using the Foreign Board and receive all benefits offered by the company, such as rights offerings and dividends. Such securities have no floor or ceiling limits, so share prices respond to the demand and supply.| |BDNT|Bond/Note| |BLDN|Bill/Discount Note | |CONV|Convertible/Exchangeable| |COVR|Covered Bond | |DR|Depositary Receipts/Certificates- This security type represents all other depository receipts not mentioned above. Depositary Receipts (DR) are negotiable certificates that enable domestic investors to own shares in foreign companies. Each DR represents a given number of a company's shares.| |ETF_ETF|Exchange Traded Fund (ETF_ETF)- A security that is created to track the performance of an index or a basket of assets. ETFs are traded on organized exchanges.| |ETF_NAV|Exchange Traded Fund (ETF_NAV)- The Net Asset Value (NAV) is calculated by taking the total assets of the ETF, less liabilities, divided by the number of ETF shares outstanding.| |ETF_UVI|Exchange Traded Fund (ETF_UVI)- The Intraday Indicative Value is designed to give investors a sense of the relationship between a basket of securities that are representative of those owned in the ETF and the share price of the ETF on an intraday basis. An Intraday Indicative Value is published as a reference value to be used in conjunction with other ETF market information.| |GDR|Global Depositary Receipt- Certificate that represents ownership of a given number of a company's shares and can be listed and traded independently from the underlying shares. Provide issuers with an access to foreign capital markets.| |LKS|Linked Securities| |MF_C|Closed-ended Fund- These funds have a fixed number of shares, which are listed on the stock exchange. The market price of the shares is determined by demand and supply factors. These are readily transferable in the open market and are bought and sold like other stock. These funds do not accept new contributions from investors, but only reinvest the return on the existing portfolio.| |MF_O|Open-ended Fund- These funds have no limit to the number of units (or shares) they can issue. The price of the units (or shares) remains closely aligned to the NAV of the fund. Open-end funds sell their own new shares to investors, stand ready to buy back their old shares, and are not listed on exchanges. Open-end funds are so called because their capitalization is not fixed.| |MM|Bill/Discount Note | |MM|Money Market| |NVDR|Non-Voting Depositary Receipt- A Non-Voting Depository Receipt (NVDR) is a trading instrument issued by the Thai NVDR Company Limited, a subsidiary wholly owned by the Stock Exchange of Thailand (SET). Investment in NVDR eliminates foreign investment barriers. The only difference between investing in NVDRs and the company's shares is the voting right. NVDRs are automatically regarded as listed securities in the SET.| |PASS|Pass-Through | |PFD|Preferred | |PREF|Preferred- A type of stock that pays a fixed dividend regardless of corporate earnings, and which has priority over common stock in the payment of dividends. The main characteristics of preferred stocks is the fixed income stream and priority of payment at liquidation.| |PREFEQ|Preferred Equity- A security that has equity characteristics (i.e., ownership at liquidation, share in the profits in the company) rather than fixed redemption and trades as a common equity (i.e., is very liquid and its prices are quoted in a currency rather than percentage of par, which is a common characteristic of preferred stock). These securities are most commonly issued in Brazil, Canada, and many European markets (i.e., Russia, Germany, and Italy). Preferred equity has some priority rights over common stock. This category also includes Italian savings shares.| |RIGHT|Right- A right gives the holder an option to purchase additional shares of an underlying instrument at a pre-determined price on a specified date (typically at a discount from the market price). In most cases, right instruments must be exercised within a relatively short period.| |SHARE|Share/Common/Ordinary- Securities that represent an ownership interest in a corporation. If the company has also issued preferred stock, both common and preferred stockholders have ownership rights. Common stockholders assume the greater risk, but generally exercise greater control and may gain a larger award in the form of dividends and capital appreciation.| |STRUCT|Structured Products- Investment products that are based on an underlying security such as a single equity, a basket of stocks, an index, a commodity, a debt issuance, or a foreign currency.| |TEMP|Temporary- Securities that trade for a limited period of time (typically less than a year) and trade alongside the mainline security. Also included are securities that trade alongside the mainline and then assimilate to the mainline security after trading for few days/months. Examples of temporary instruments are parallel lines and assented lines.| |UNIT|Unit- An equity that consists of more than one equity instrument (i.e., security consisting of class A and B; 1 share and 1 warrant).| |WARRANT|Warrant- An instrument giving the holder a right to subscribe to an underlying instrument at a given price and date.| ")
   @JsonProperty(JSON_PROPERTY_SECURITY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -359,7 +360,7 @@ public class FactsetTranslation implements Serializable {
    * Proper Name of company or issuer.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Costco Wholesale Corporation", value = "Proper Name of company or issuer.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -385,7 +386,7 @@ public class FactsetTranslation implements Serializable {
    * Identifier specified in the &#x60;ids&#x60; parameter of the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "COST", value = "Identifier specified in the `ids` parameter of the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

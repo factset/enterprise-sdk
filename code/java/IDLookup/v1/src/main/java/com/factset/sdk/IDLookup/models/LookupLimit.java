@@ -36,7 +36,8 @@ import com.factset.sdk.IDLookup.JSON;
 @JsonPropertyOrder({
   LookupLimit.JSON_PROPERTY_RESULT_LIMIT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class LookupLimit implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -55,7 +56,7 @@ public class LookupLimit implements Serializable {
    * Get resultLimit
    * @return resultLimit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "25", value = "")
   @JsonProperty(JSON_PROPERTY_RESULT_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

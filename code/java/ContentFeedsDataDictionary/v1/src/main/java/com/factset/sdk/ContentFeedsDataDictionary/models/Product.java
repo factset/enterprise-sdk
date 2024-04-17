@@ -43,7 +43,8 @@ import com.factset.sdk.ContentFeedsDataDictionary.JSON;
   Product.JSON_PROPERTY_API,
   Product.JSON_PROPERTY_REFERENCE_DATA_FEED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Product implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -86,7 +87,7 @@ public class Product implements Serializable {
    * Unique identifier for the product
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "3210", value = "Unique identifier for the product")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -112,7 +113,7 @@ public class Product implements Serializable {
    * Name of the product
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Estimize US Equities", value = "Name of the product")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -138,7 +139,7 @@ public class Product implements Serializable {
    * URL to the product page on the Open:FactSet Marketplace
    * @return ofmLink
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "https://open.factset.com/products/estimize-us-equities/en-us", value = "URL to the product page on the Open:FactSet Marketplace")
   @JsonProperty(JSON_PROPERTY_OFM_LINK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -164,7 +165,7 @@ public class Product implements Serializable {
    * The id defining a product in the Open:FactSet Marketplace
    * @return ofmProductId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "168e9bf8-108c-4912-beca-b658083c7c86", value = "The id defining a product in the Open:FactSet Marketplace")
   @JsonProperty(JSON_PROPERTY_OFM_PRODUCT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -190,7 +191,7 @@ public class Product implements Serializable {
    * Flag indicating if the user is entitled to access the data in their subscriptions
    * @return entitled
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "true", value = "Flag indicating if the user is entitled to access the data in their subscriptions")
   @JsonProperty(JSON_PROPERTY_ENTITLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -216,7 +217,7 @@ public class Product implements Serializable {
    * Name of the Data Provider for the product
    * @return providerName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Estimize", value = "Name of the Data Provider for the product")
   @JsonProperty(JSON_PROPERTY_PROVIDER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -242,7 +243,7 @@ public class Product implements Serializable {
    * Flag indicating if this product is available in a data feed
    * @return dataFeed
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "true", value = "Flag indicating if this product is available in a data feed")
   @JsonProperty(JSON_PROPERTY_DATA_FEED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -268,7 +269,7 @@ public class Product implements Serializable {
    * Flag indicating if this product is available in an api
    * @return api
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "true", value = "Flag indicating if this product is available in an api")
   @JsonProperty(JSON_PROPERTY_API)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -294,7 +295,7 @@ public class Product implements Serializable {
    * Flag indicating if this product is maintained by RDF/UCF
    * @return referenceDataFeed
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "false", value = "Flag indicating if this product is maintained by RDF/UCF")
   @JsonProperty(JSON_PROPERTY_REFERENCE_DATA_FEED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

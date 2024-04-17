@@ -51,7 +51,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20082Data.JSON_PROPERTY_LOW,
   InlineResponse20082Data.JSON_PROPERTY_VOLATILITY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20082Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -88,7 +89,7 @@ public class InlineResponse20082Data implements Serializable {
    * MDG identifier of the listing.
    * @return idNotation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "MDG identifier of the listing.")
   @JsonIgnore
 
@@ -122,7 +123,7 @@ public class InlineResponse20082Data implements Serializable {
    * Identifier used in the request.
    * @return sourceIdentifier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier used in the request.")
   @JsonIgnore
 
@@ -156,7 +157,7 @@ public class InlineResponse20082Data implements Serializable {
    * Reference date of the time range.
    * @return referenceDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Reference date of the time range.")
   @JsonIgnore
 
@@ -190,7 +191,7 @@ public class InlineResponse20082Data implements Serializable {
    * Get performance
    * @return performance
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PERFORMANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -216,7 +217,7 @@ public class InlineResponse20082Data implements Serializable {
    * Get high
    * @return high
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_HIGH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -242,7 +243,7 @@ public class InlineResponse20082Data implements Serializable {
    * Get low
    * @return low
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -268,7 +269,7 @@ public class InlineResponse20082Data implements Serializable {
    * Volatility of the daily logarithmic returns, annualized assuming 256 trading days per year.
    * @return volatility
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Volatility of the daily logarithmic returns, annualized assuming 256 trading days per year.")
   @JsonIgnore
 

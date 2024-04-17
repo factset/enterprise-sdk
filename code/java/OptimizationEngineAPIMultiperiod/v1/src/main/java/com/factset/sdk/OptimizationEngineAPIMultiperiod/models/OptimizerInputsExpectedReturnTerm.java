@@ -43,7 +43,8 @@ import com.factset.sdk.OptimizationEngineAPIMultiperiod.JSON;
   OptimizerInputsExpectedReturnTerm.JSON_PROPERTY_REL_TO_BENCHMARK,
   OptimizerInputsExpectedReturnTerm.JSON_PROPERTY_BENCHMARK_INDEX
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerInputsExpectedReturnTerm implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -80,7 +81,7 @@ public class OptimizerInputsExpectedReturnTerm implements Serializable {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -106,7 +107,7 @@ public class OptimizerInputsExpectedReturnTerm implements Serializable {
    * Get multiplier
    * @return multiplier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MULTIPLIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -132,7 +133,7 @@ public class OptimizerInputsExpectedReturnTerm implements Serializable {
    * Get returnValues
    * @return returnValues
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RETURN_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,7 +159,7 @@ public class OptimizerInputsExpectedReturnTerm implements Serializable {
    * Get direction
    * @return direction
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DIRECTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -184,7 +185,7 @@ public class OptimizerInputsExpectedReturnTerm implements Serializable {
    * Get useAlpha
    * @return useAlpha
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_USE_ALPHA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -210,7 +211,7 @@ public class OptimizerInputsExpectedReturnTerm implements Serializable {
    * Get relToBenchmark
    * @return relToBenchmark
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REL_TO_BENCHMARK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -236,7 +237,7 @@ public class OptimizerInputsExpectedReturnTerm implements Serializable {
    * Get benchmarkIndex
    * @return benchmarkIndex
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BENCHMARK_INDEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

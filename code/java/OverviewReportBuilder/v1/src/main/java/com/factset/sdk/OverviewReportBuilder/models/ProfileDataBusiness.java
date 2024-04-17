@@ -45,7 +45,8 @@ import com.factset.sdk.OverviewReportBuilder.JSON;
   ProfileDataBusiness.JSON_PROPERTY_CRUNCHBASE_CATEGORIES,
   ProfileDataBusiness.JSON_PROPERTY_CRUNCHBASE_URL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ProfileDataBusiness implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -96,7 +97,7 @@ public class ProfileDataBusiness implements Serializable {
    * Get description
    * @return description
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -122,7 +123,7 @@ public class ProfileDataBusiness implements Serializable {
    * Get industry
    * @return industry
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_INDUSTRY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -148,7 +149,7 @@ public class ProfileDataBusiness implements Serializable {
    * Get sector
    * @return sector
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SECTOR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -174,7 +175,7 @@ public class ProfileDataBusiness implements Serializable {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -200,7 +201,7 @@ public class ProfileDataBusiness implements Serializable {
    * Get dbaName
    * @return dbaName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DBA_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -226,7 +227,7 @@ public class ProfileDataBusiness implements Serializable {
    * Get crunchbaseCategories
    * @return crunchbaseCategories
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CRUNCHBASE_CATEGORIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -252,7 +253,7 @@ public class ProfileDataBusiness implements Serializable {
    * Get crunchbaseUrl
    * @return crunchbaseUrl
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CRUNCHBASE_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -42,7 +42,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2001DataIncomeStatementInterestExpense.JSON_PROPERTY_VALUE,
   InlineResponse2001DataIncomeStatementInterestExpense.JSON_PROPERTY_GROWTH
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2001DataIncomeStatementInterestExpense implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class InlineResponse2001DataIncomeStatementInterestExpense implements Ser
    * Value of the total amount of interest paid.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Value of the total amount of interest paid.")
   @JsonIgnore
 
@@ -98,7 +99,7 @@ public class InlineResponse2001DataIncomeStatementInterestExpense implements Ser
    * Annual growth rate of the total amount of interest paid.
    * @return growth
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Annual growth rate of the total amount of interest paid.")
   @JsonIgnore
 

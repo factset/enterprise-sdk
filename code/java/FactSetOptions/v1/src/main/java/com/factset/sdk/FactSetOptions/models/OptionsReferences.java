@@ -61,7 +61,8 @@ import com.factset.sdk.FactSetOptions.JSON;
   OptionsReferences.JSON_PROPERTY_SETTLEMENT_METHOD,
   OptionsReferences.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptionsReferences implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -140,7 +141,7 @@ public class OptionsReferences implements Serializable {
    * FactSet&#39;s Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options)
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "TSLA.US#C00LP", value = "FactSet's Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options)")
   @JsonIgnore
 
@@ -174,7 +175,7 @@ public class OptionsReferences implements Serializable {
    * Indicates whether or not a given option contract is adjusted for corporate actions in Y/N format.
    * @return adjustedFlag
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "N", value = "Indicates whether or not a given option contract is adjusted for corporate actions in Y/N format.")
   @JsonIgnore
 
@@ -208,7 +209,7 @@ public class OptionsReferences implements Serializable {
    * Returns a 0 if the option is a call, returns a 1 if the option is a put.
    * @return callPutFlag
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0", value = "Returns a 0 if the option is a call, returns a 1 if the option is a put.")
   @JsonIgnore
 
@@ -242,7 +243,7 @@ public class OptionsReferences implements Serializable {
    * Returns the corresponding put symbol given a call symbol; and vice-versa.
    * @return callPutPairSymbol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "TSLA.US#PGGVL", value = "Returns the corresponding put symbol given a call symbol; and vice-versa.")
   @JsonIgnore
 
@@ -276,7 +277,7 @@ public class OptionsReferences implements Serializable {
    * The Option Contract Size
    * @return contractSize
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "100", value = "The Option Contract Size")
   @JsonIgnore
 
@@ -310,7 +311,7 @@ public class OptionsReferences implements Serializable {
    * Option Currency in ISO3 format.
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "Option Currency in ISO3 format.")
   @JsonIgnore
 
@@ -344,7 +345,7 @@ public class OptionsReferences implements Serializable {
    * Option Exchange ISO. Visit [OA 14925](https://my.apps.factset.com/oa/pages/14925) for a list of Exchange ISOs.
    * @return exchange
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USA", value = "Option Exchange ISO. Visit [OA 14925](https://my.apps.factset.com/oa/pages/14925) for a list of Exchange ISOs.")
   @JsonIgnore
 
@@ -378,7 +379,7 @@ public class OptionsReferences implements Serializable {
    * The date on which an options contract is no longer valid and, therefore, ceases to exist, in YYYY-MM-DD format
    * @return expirationDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Fri Sep 17 00:00:00 UTC 2021", value = "The date on which an options contract is no longer valid and, therefore, ceases to exist, in YYYY-MM-DD format")
   @JsonIgnore
 
@@ -412,7 +413,7 @@ public class OptionsReferences implements Serializable {
    * Returns the corresponding expiration frequency for a given option symbol. If an option has more than four expiration months, then a Long-term Equity Anticipation Security (LEAPS) indicator will be returned.
    * @return expirationFrequency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "LEAPS", value = "Returns the corresponding expiration frequency for a given option symbol. If an option has more than four expiration months, then a Long-term Equity Anticipation Security (LEAPS) indicator will be returned.")
   @JsonIgnore
 
@@ -446,7 +447,7 @@ public class OptionsReferences implements Serializable {
    * Option Expiration month in MMM format.
    * @return expirationMonth
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "SEP", value = "Option Expiration month in MMM format.")
   @JsonIgnore
 
@@ -480,7 +481,7 @@ public class OptionsReferences implements Serializable {
    * Indicates whether or not a given options contract is a Low Exercise Price Option \&quot;LEPO\&quot; (0/1). This is unique to European Options (e.g. ASX exchange).
    * @return lepoFlag
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether or not a given options contract is a Low Exercise Price Option \"LEPO\" (0/1). This is unique to European Options (e.g. ASX exchange).")
   @JsonIgnore
 
@@ -514,7 +515,7 @@ public class OptionsReferences implements Serializable {
    * Option Descriptive Security Name
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Tesla Inc Call SEP21 190.00 (LEAPs)", value = "Option Descriptive Security Name")
   @JsonIgnore
 
@@ -548,7 +549,7 @@ public class OptionsReferences implements Serializable {
    * Options Clearing Corporation OSI Series Key This option symbol has up to 21 alphanumeric characters (excluding -ISO and # sign) and uses the following syntax- (Underlying Symbol + # + Expiration Year + Expiration Month + Expiration Day + Call/Put Indicator + Five-Digit Strike Dollar + Three-Digit Strike Decimal + - + ISO) 
    * @return occ21Symbol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "TSLA#210917C00190000", value = "Options Clearing Corporation OSI Series Key This option symbol has up to 21 alphanumeric characters (excluding -ISO and # sign) and uses the following syntax- (Underlying Symbol + # + Expiration Year + Expiration Month + Expiration Day + Call/Put Indicator + Five-Digit Strike Dollar + Three-Digit Strike Decimal + - + ISO) ")
   @JsonIgnore
 
@@ -582,7 +583,7 @@ public class OptionsReferences implements Serializable {
    * Options Price Reporting Authority&#39;s OSI Series Key. This option symbol has up to 17 alphanumeric characters (excluding the -ISO and #) and uses the following syntax - (Underlying Symbol + # + Call/Put Expiration Month Code + Expiration Day + Expiration Year + Decimal Indicator + Strike Price + - + ISO) 
    * @return opra17Symbol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "TSLA#I1721C190000", value = "Options Price Reporting Authority's OSI Series Key. This option symbol has up to 17 alphanumeric characters (excluding the -ISO and #) and uses the following syntax - (Underlying Symbol + # + Call/Put Expiration Month Code + Expiration Day + Expiration Year + Decimal Indicator + Strike Price + - + ISO) ")
   @JsonIgnore
 
@@ -616,7 +617,7 @@ public class OptionsReferences implements Serializable {
    * The Root Ticker for the underlying security.
    * @return rootTicker
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "TSLA", value = "The Root Ticker for the underlying security.")
   @JsonIgnore
 
@@ -650,7 +651,7 @@ public class OptionsReferences implements Serializable {
    * Returns the style of the option id requested, where -   |style|description| |---|---| |0|American| |1|European|  An American style option can be exercised anytime during its life. The majority of exchange-traded options are American.  Since investors have the freedom to exercise their American options at any point during the life of the contract, they are more valuable than European options which can only be exercised at maturity.  Consider this example -  If you bought a Ford March Call option expiring in March of 2006 in March 2005, you would have the right to exercise the call option at anytime up until its expiration date. Had the Ford option been a European option, you could only exercise the option at the expiry date in March &#39;06. During the year, the share price could have been most optimal for exercise in December of 2005, but you would have to wait to exercise your option until March 2006, where it could be out-of-the-money and virtually worthless.  Note that the name of this option style has nothing to do with the geographic location. 
    * @return style
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0", value = "Returns the style of the option id requested, where -   |style|description| |---|---| |0|American| |1|European|  An American style option can be exercised anytime during its life. The majority of exchange-traded options are American.  Since investors have the freedom to exercise their American options at any point during the life of the contract, they are more valuable than European options which can only be exercised at maturity.  Consider this example -  If you bought a Ford March Call option expiring in March of 2006 in March 2005, you would have the right to exercise the call option at anytime up until its expiration date. Had the Ford option been a European option, you could only exercise the option at the expiry date in March '06. During the year, the share price could have been most optimal for exercise in December of 2005, but you would have to wait to exercise your option until March 2006, where it could be out-of-the-money and virtually worthless.  Note that the name of this option style has nothing to do with the geographic location. ")
   @JsonIgnore
 
@@ -684,7 +685,7 @@ public class OptionsReferences implements Serializable {
    * The option type code, where  |code|description| |---|---| |0|Equity Option| |2|Index Option| |99|Option on an ETF| |60|Option on a Future| |19|Option on a Spot FX Rate| 
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "The option type code, where  |code|description| |---|---| |0|Equity Option| |2|Index Option| |99|Option on an ETF| |60|Option on a Future| |19|Option on a Spot FX Rate| ")
   @JsonIgnore
 
@@ -718,7 +719,7 @@ public class OptionsReferences implements Serializable {
    * Underlying FactSet Security Permanent Identifier in XXXXXX-S format.
    * @return underlyingFsymSecurityId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "WWDPYB-S", value = "Underlying FactSet Security Permanent Identifier in XXXXXX-S format.")
   @JsonIgnore
 
@@ -752,7 +753,7 @@ public class OptionsReferences implements Serializable {
    * The date the data is as of in YYYY-MM-DD format.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Fri May 07 00:00:00 UTC 2021", value = "The date the data is as of in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -786,7 +787,7 @@ public class OptionsReferences implements Serializable {
    * The contract settlement method. Possible values are - |method|description| |---|---| |C|Cash| |P|Physical| |NA|Not Covered| 
    * @return settlementMethod
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The contract settlement method. Possible values are - |method|description| |---|---| |C|Cash| |P|Physical| |NA|Not Covered| ")
   @JsonIgnore
 
@@ -820,7 +821,7 @@ public class OptionsReferences implements Serializable {
    * The requested identifier submitted in the query.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "TSLA.US#C00LP", value = "The requested identifier submitted in the query.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

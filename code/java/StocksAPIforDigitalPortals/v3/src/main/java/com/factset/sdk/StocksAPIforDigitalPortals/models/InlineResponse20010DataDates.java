@@ -44,7 +44,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20010DataDates.JSON_PROPERTY_EFFECTIVE,
   InlineResponse20010DataDates.JSON_PROPERTY_PAYMENT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20010DataDates implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -72,7 +73,7 @@ public class InlineResponse20010DataDates implements Serializable {
    * Announcement date.
    * @return announcement
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Announcement date.")
   @JsonIgnore
 
@@ -106,7 +107,7 @@ public class InlineResponse20010DataDates implements Serializable {
    * Record date.
    * @return record
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Record date.")
   @JsonIgnore
 
@@ -140,7 +141,7 @@ public class InlineResponse20010DataDates implements Serializable {
    * Effective date (ex-date).
    * @return effective
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Effective date (ex-date).")
   @JsonIgnore
 
@@ -174,7 +175,7 @@ public class InlineResponse20010DataDates implements Serializable {
    * Payment date.
    * @return payment
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Payment date.")
   @JsonIgnore
 

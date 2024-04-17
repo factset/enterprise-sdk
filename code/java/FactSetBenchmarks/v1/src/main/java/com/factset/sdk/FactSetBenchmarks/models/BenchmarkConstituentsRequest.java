@@ -38,7 +38,8 @@ import com.factset.sdk.FactSetBenchmarks.JSON;
   BenchmarkConstituentsRequest.JSON_PROPERTY_CURRENCY,
   BenchmarkConstituentsRequest.JSON_PROPERTY_CALENDAR
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class BenchmarkConstituentsRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -79,7 +80,7 @@ public class BenchmarkConstituentsRequest implements Serializable {
    * Benchmark Identifiers. Reference the helper endpoint **_/id-list** to get a sample list of  valid identifiers. You must be authorized for the &#x60;ids&#x60; requested, otherwise you will receive an error.
    * @return ids
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "[\"SP50\"]", required = true, value = "Benchmark Identifiers. Reference the helper endpoint **_/id-list** to get a sample list of  valid identifiers. You must be authorized for the `ids` requested, otherwise you will receive an error.")
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -105,7 +106,7 @@ public class BenchmarkConstituentsRequest implements Serializable {
    * Date of holding expressed in YYYY-MM-DD format.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2020-08-06", value = "Date of holding expressed in YYYY-MM-DD format.")
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -131,7 +132,7 @@ public class BenchmarkConstituentsRequest implements Serializable {
    * Currency for response.
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "Currency for response.")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -157,7 +158,7 @@ public class BenchmarkConstituentsRequest implements Serializable {
    * Calendar of data returned.
    * @return calendar
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FIVEDAY", value = "Calendar of data returned.")
   @JsonProperty(JSON_PROPERTY_CALENDAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

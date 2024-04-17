@@ -6,7 +6,7 @@ import com.factset.sdk.ForeignExchangeRate.ApiResponse;
 import com.factset.sdk.ForeignExchangeRate.Configuration;
 import com.factset.sdk.ForeignExchangeRate.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -15,7 +15,8 @@ import com.factset.sdk.ForeignExchangeRate.models.ErrorResponse;
 import com.factset.sdk.ForeignExchangeRate.models.ForwardsRequest;
 import com.factset.sdk.ForeignExchangeRate.models.ForwardsResponse;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ForwardsApi {
   private ApiClient apiClient;
 

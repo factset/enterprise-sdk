@@ -43,7 +43,8 @@ import com.factset.sdk.OptimizationEngineAPIMultiperiod.JSON;
   OptimizerInputsMPExpectedReturnConstraint.JSON_PROPERTY_ON_PERIODS,
   OptimizerInputsMPExpectedReturnConstraint.JSON_PROPERTY_ACROSS_PERIODS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerInputsMPExpectedReturnConstraint implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -74,7 +75,7 @@ public class OptimizerInputsMPExpectedReturnConstraint implements Serializable {
    * Get constraint
    * @return constraint
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CONSTRAINT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -100,7 +101,7 @@ public class OptimizerInputsMPExpectedReturnConstraint implements Serializable {
    * Get constraintOn
    * @return constraintOn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CONSTRAINT_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -126,7 +127,7 @@ public class OptimizerInputsMPExpectedReturnConstraint implements Serializable {
    * Get annualizationFactor
    * @return annualizationFactor
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ANNUALIZATION_FACTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -152,7 +153,7 @@ public class OptimizerInputsMPExpectedReturnConstraint implements Serializable {
    * Get onPeriods
    * @return onPeriods
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ON_PERIODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -178,7 +179,7 @@ public class OptimizerInputsMPExpectedReturnConstraint implements Serializable {
    * Get acrossPeriods
    * @return acrossPeriods
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ACROSS_PERIODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

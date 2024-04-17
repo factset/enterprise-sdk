@@ -37,7 +37,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20013DataImpedimentsToCreation.JSON_PROPERTY_VALUE,
   InlineResponse20013DataImpedimentsToCreation.JSON_PROPERTY_REASON
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20013DataImpedimentsToCreation implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -59,7 +60,7 @@ public class InlineResponse20013DataImpedimentsToCreation implements Serializabl
    * Indicates whether a fund is fully or partially closed to creations, or is likely to become fully or partially closed to creations. Values are None, Potential, Partial, Full. Available for the regions: US.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether a fund is fully or partially closed to creations, or is likely to become fully or partially closed to creations. Values are None, Potential, Partial, Full. Available for the regions: US.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -85,7 +86,7 @@ public class InlineResponse20013DataImpedimentsToCreation implements Serializabl
    * States the reason why there is an impediment to creations. Available for the regions: US.
    * @return reason
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "States the reason why there is an impediment to creations. Available for the regions: US.")
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -38,7 +38,8 @@ import com.factset.sdk.DocumentsDistributorCallStreetEvents.JSON;
   NRTSpeakerids400ResponseDetailsValidParameters.JSON_PROPERTY_PAGINATION_OFFSET,
   NRTSpeakerids400ResponseDetailsValidParameters.JSON_PROPERTY_AUDIO_SOURCE_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class NRTSpeakerids400ResponseDetailsValidParameters implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -74,7 +75,7 @@ public class NRTSpeakerids400ResponseDetailsValidParameters implements Serializa
    * Get sort
    * @return sort
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -108,7 +109,7 @@ public class NRTSpeakerids400ResponseDetailsValidParameters implements Serializa
    * Get paginationLimit
    * @return paginationLimit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAGINATION_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -142,7 +143,7 @@ public class NRTSpeakerids400ResponseDetailsValidParameters implements Serializa
    * Get paginationOffset
    * @return paginationOffset
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAGINATION_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -176,7 +177,7 @@ public class NRTSpeakerids400ResponseDetailsValidParameters implements Serializa
    * Get audioSourceId
    * @return audioSourceId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AUDIO_SOURCE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

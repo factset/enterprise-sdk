@@ -6,14 +6,15 @@ import com.factset.sdk.AnalyticsDatastore.ApiResponse;
 import com.factset.sdk.AnalyticsDatastore.Configuration;
 import com.factset.sdk.AnalyticsDatastore.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
 import java.time.LocalDate;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class MappingsApi {
   private ApiClient apiClient;
 

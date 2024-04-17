@@ -39,7 +39,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20012DataBeta.JSON_PROPERTY_UP,
   InlineResponse20012DataBeta.JSON_PROPERTY_DOWN
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20012DataBeta implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class InlineResponse20012DataBeta implements Serializable {
    * The sensitivity of the returns of the fund to the movement of the FactSet designated &#39;segment benchmark&#39;. Beta of 1.0 means magnitude of fund returns equals that of segment benchmark returns. Available for the regions: US.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The sensitivity of the returns of the fund to the movement of the FactSet designated 'segment benchmark'. Beta of 1.0 means magnitude of fund returns equals that of segment benchmark returns. Available for the regions: US.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -90,7 +91,7 @@ public class InlineResponse20012DataBeta implements Serializable {
    * A comparison of a fund&#39;s return to the FactSet-designated benchmark&#39;s for days when the benchmark is up. Ideally down beta is less than or equal to overall beta. Available for the regions: US.
    * @return up
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A comparison of a fund's return to the FactSet-designated benchmark's for days when the benchmark is up. Ideally down beta is less than or equal to overall beta. Available for the regions: US.")
   @JsonProperty(JSON_PROPERTY_UP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -116,7 +117,7 @@ public class InlineResponse20012DataBeta implements Serializable {
    * A comparison of a fund&#39;s return to the FactSet-designated benchmark&#39;s for days when the benchmark is down. Ideally down beta is less than or equal to overall beta. Available for the regions: US.
    * @return down
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A comparison of a fund's return to the FactSet-designated benchmark's for days when the benchmark is down. Ideally down beta is less than or equal to overall beta. Available for the regions: US.")
   @JsonProperty(JSON_PROPERTY_DOWN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

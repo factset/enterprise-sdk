@@ -39,7 +39,8 @@ import com.factset.sdk.OpenRisk.JSON;
   WarningItem.JSON_PROPERTY_TITLE,
   WarningItem.JSON_PROPERTY_DETAIL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class WarningItem implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -79,7 +80,7 @@ public class WarningItem implements Serializable {
    * UUID for the particular occurrence of the non-failure problem
    * @return id
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "UUID for the particular occurrence of the non-failure problem")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -105,7 +106,7 @@ public class WarningItem implements Serializable {
    * Warning code for the non-failure problem type
    * @return code
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "requestBodyExtraData", required = true, value = "Warning code for the non-failure problem type")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -131,7 +132,7 @@ public class WarningItem implements Serializable {
    * Human-readable summary of the non-failure problem tied to the warning code and not specific to the particular occurrence of the problem
    * @return title
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "Factor grouping contains extra factor(s).", required = true, value = "Human-readable summary of the non-failure problem tied to the warning code and not specific to the particular occurrence of the problem")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -157,7 +158,7 @@ public class WarningItem implements Serializable {
    * Human-readable explanation of the non-failure problem specific to the particular occurrence
    * @return detail
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Extra Factors: [*EF2, *EF1, *EF3]", value = "Human-readable explanation of the non-failure problem specific to the particular occurrence")
   @JsonProperty(JSON_PROPERTY_DETAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

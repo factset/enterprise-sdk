@@ -43,7 +43,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20062DataTargetMarketRiskToleranceSrri.JSON_PROPERTY_RANK,
   InlineResponse20062DataTargetMarketRiskToleranceSrri.JSON_PROPERTY_DESCRIPTION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20062DataTargetMarketRiskToleranceSrri implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class InlineResponse20062DataTargetMarketRiskToleranceSrri implements Ser
    * Identifier of rating grade.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of rating grade.")
   @JsonIgnore
 
@@ -102,7 +103,7 @@ public class InlineResponse20062DataTargetMarketRiskToleranceSrri implements Ser
    * Rating grade.
    * @return rank
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Rating grade.")
   @JsonIgnore
 
@@ -136,7 +137,7 @@ public class InlineResponse20062DataTargetMarketRiskToleranceSrri implements Ser
    * Description of the rating grade.
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Description of the rating grade.")
   @JsonIgnore
 

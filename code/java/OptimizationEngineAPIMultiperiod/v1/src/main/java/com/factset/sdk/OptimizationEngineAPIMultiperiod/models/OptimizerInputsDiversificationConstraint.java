@@ -48,7 +48,8 @@ import com.factset.sdk.OptimizationEngineAPIMultiperiod.JSON;
   OptimizerInputsDiversificationConstraint.JSON_PROPERTY_LEVEL,
   OptimizerInputsDiversificationConstraint.JSON_PROPERTY_HIERARCHY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerInputsDiversificationConstraint implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -88,7 +89,7 @@ public class OptimizerInputsDiversificationConstraint implements Serializable {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -114,7 +115,7 @@ public class OptimizerInputsDiversificationConstraint implements Serializable {
    * Get assetValue
    * @return assetValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ASSET_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -140,7 +141,7 @@ public class OptimizerInputsDiversificationConstraint implements Serializable {
    * Get maxPercent
    * @return maxPercent
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MAX_PERCENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -166,7 +167,7 @@ public class OptimizerInputsDiversificationConstraint implements Serializable {
    * Get penalty
    * @return penalty
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PENALTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -200,7 +201,7 @@ public class OptimizerInputsDiversificationConstraint implements Serializable {
    * Get groups
    * @return groups
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -226,7 +227,7 @@ public class OptimizerInputsDiversificationConstraint implements Serializable {
    * Get unit
    * @return unit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -252,7 +253,7 @@ public class OptimizerInputsDiversificationConstraint implements Serializable {
    * Get level
    * @return level
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -278,7 +279,7 @@ public class OptimizerInputsDiversificationConstraint implements Serializable {
    * Get hierarchy
    * @return hierarchy
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_HIERARCHY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

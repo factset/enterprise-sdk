@@ -36,7 +36,8 @@ import com.factset.sdk.OverviewReportBuilder.JSON;
 @JsonPropertyOrder({
   MetricMetric.JSON_PROPERTY_VALUE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class MetricMetric implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -90,7 +91,7 @@ public class MetricMetric implements Serializable {
    * Get value
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

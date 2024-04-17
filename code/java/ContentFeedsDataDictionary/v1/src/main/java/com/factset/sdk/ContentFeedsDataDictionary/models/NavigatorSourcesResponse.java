@@ -40,7 +40,8 @@ import com.factset.sdk.ContentFeedsDataDictionary.JSON;
   NavigatorSourcesResponse.JSON_PROPERTY_CONTENT_API,
   NavigatorSourcesResponse.JSON_PROPERTY_REFERENCE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class NavigatorSourcesResponse implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -78,7 +79,7 @@ public class NavigatorSourcesResponse implements Serializable {
    * Get sdf
    * @return sdf
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SDF)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -112,7 +113,7 @@ public class NavigatorSourcesResponse implements Serializable {
    * Get contentApi
    * @return contentApi
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CONTENT_API)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -146,7 +147,7 @@ public class NavigatorSourcesResponse implements Serializable {
    * Get reference
    * @return reference
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

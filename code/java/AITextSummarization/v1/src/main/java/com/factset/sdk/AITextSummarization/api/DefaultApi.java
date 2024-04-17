@@ -6,7 +6,7 @@ import com.factset.sdk.AITextSummarization.ApiResponse;
 import com.factset.sdk.AITextSummarization.Configuration;
 import com.factset.sdk.AITextSummarization.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -16,7 +16,8 @@ import com.factset.sdk.AITextSummarization.models.InternalServerErrorResponse;
 import com.factset.sdk.AITextSummarization.models.Request;
 import com.factset.sdk.AITextSummarization.models.SuccessResponse;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class DefaultApi {
   private ApiClient apiClient;
 

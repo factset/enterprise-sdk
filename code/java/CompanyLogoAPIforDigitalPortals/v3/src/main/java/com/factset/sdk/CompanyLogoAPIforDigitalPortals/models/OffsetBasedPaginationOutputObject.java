@@ -38,7 +38,8 @@ import com.factset.sdk.CompanyLogoAPIforDigitalPortals.JSON;
   OffsetBasedPaginationOutputObject.JSON_PROPERTY_TOTAL,
   OffsetBasedPaginationOutputObject.JSON_PROPERTY_IS_ESTIMATED_TOTAL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OffsetBasedPaginationOutputObject implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -70,7 +71,7 @@ public class OffsetBasedPaginationOutputObject implements Serializable {
    * Total number of entries in the result set.
    * @return total
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Total number of entries in the result set.")
   @JsonProperty(JSON_PROPERTY_TOTAL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -96,7 +97,7 @@ public class OffsetBasedPaginationOutputObject implements Serializable {
    * Flag indicating that the value of \&quot;total\&quot; is estimated.
    * @return isEstimatedTotal
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Flag indicating that the value of \"total\" is estimated.")
   @JsonProperty(JSON_PROPERTY_IS_ESTIMATED_TOTAL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

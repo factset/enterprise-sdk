@@ -36,7 +36,8 @@ import com.factset.sdk.RealTimeTimeSeries.JSON;
 @JsonPropertyOrder({
   PostVendorChartIQTimeSeriesEodSubsampleGetRequestMeta.JSON_PROPERTY_ATTRIBUTES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostVendorChartIQTimeSeriesEodSubsampleGetRequestMeta implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class PostVendorChartIQTimeSeriesEodSubsampleGetRequestMeta implements Se
    * Limit the attributes returned in the response to the specified set.
    * @return attributes
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Limit the attributes returned in the response to the specified set.")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

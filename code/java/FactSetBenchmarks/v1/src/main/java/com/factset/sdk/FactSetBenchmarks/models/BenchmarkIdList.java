@@ -43,7 +43,8 @@ import com.factset.sdk.FactSetBenchmarks.JSON;
   BenchmarkIdList.JSON_PROPERTY_MARKET,
   BenchmarkIdList.JSON_PROPERTY_CATEGORY_DESCRIPTION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class BenchmarkIdList implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -74,7 +75,7 @@ public class BenchmarkIdList implements Serializable {
    * Benchmark Id
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "990100", value = "Benchmark Id")
   @JsonIgnore
 
@@ -108,7 +109,7 @@ public class BenchmarkIdList implements Serializable {
    * Name of the Benchmark ID
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "MSCI World Index", value = "Name of the Benchmark ID")
   @JsonIgnore
 
@@ -142,7 +143,7 @@ public class BenchmarkIdList implements Serializable {
    * Name of the Benchmarks Family
    * @return familyName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "MSCI", value = "Name of the Benchmarks Family")
   @JsonIgnore
 
@@ -176,7 +177,7 @@ public class BenchmarkIdList implements Serializable {
    * Market grouping related to the Benchmark Family
    * @return market
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Developed", value = "Market grouping related to the Benchmark Family")
   @JsonIgnore
 
@@ -210,7 +211,7 @@ public class BenchmarkIdList implements Serializable {
    * Extended name or description of Benchmark Family &amp; Market
    * @return categoryDescription
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "International Indices", value = "Extended name or description of Benchmark Family & Market")
   @JsonIgnore
 

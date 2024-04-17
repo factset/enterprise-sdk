@@ -41,7 +41,8 @@ import com.factset.sdk.FactSetTermsandConditions.JSON;
   Agent.JSON_PROPERTY_AGENT_NAME,
   Agent.JSON_PROPERTY_AGENT_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Agent implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -87,7 +88,7 @@ public class Agent implements Serializable {
    * Security identifier used in the request.
    * @return requestId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Security identifier used in the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -113,7 +114,7 @@ public class Agent implements Serializable {
    * FactSet Permanent Security Identifier.
    * @return fsymId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "FactSet Permanent Security Identifier.")
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -139,7 +140,7 @@ public class Agent implements Serializable {
    * FactSet Entity Identifier for the Agent.
    * @return agentEntityId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "FactSet Entity Identifier for the Agent.")
   @JsonProperty(JSON_PROPERTY_AGENT_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -165,7 +166,7 @@ public class Agent implements Serializable {
    * Agent Commitment Amount
    * @return agentCommAmt
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Agent Commitment Amount")
   @JsonProperty(JSON_PROPERTY_AGENT_COMM_AMT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -191,7 +192,7 @@ public class Agent implements Serializable {
    * Agent Name
    * @return agentName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Agent Name")
   @JsonProperty(JSON_PROPERTY_AGENT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -217,7 +218,7 @@ public class Agent implements Serializable {
    * Role of the agent
    * @return agentType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Role of the agent")
   @JsonProperty(JSON_PROPERTY_AGENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

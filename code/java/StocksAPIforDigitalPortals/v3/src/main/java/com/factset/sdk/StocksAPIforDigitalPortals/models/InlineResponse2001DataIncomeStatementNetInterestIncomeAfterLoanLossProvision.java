@@ -43,7 +43,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2001DataIncomeStatementNetInterestIncomeAfterLoanLossProvision.JSON_PROPERTY_GROWTH,
   InlineResponse2001DataIncomeStatementNetInterestIncomeAfterLoanLossProvision.JSON_PROPERTY_NET_INTEREST_MARGIN
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2001DataIncomeStatementNetInterestIncomeAfterLoanLossProvision implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class InlineResponse2001DataIncomeStatementNetInterestIncomeAfterLoanLoss
    * Value of the net interest income after loan loss provision.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Value of the net interest income after loan loss provision.")
   @JsonIgnore
 
@@ -102,7 +103,7 @@ public class InlineResponse2001DataIncomeStatementNetInterestIncomeAfterLoanLoss
    * Annual growth rate of the net interest income after loan loss provision.
    * @return growth
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Annual growth rate of the net interest income after loan loss provision.")
   @JsonIgnore
 
@@ -136,7 +137,7 @@ public class InlineResponse2001DataIncomeStatementNetInterestIncomeAfterLoanLoss
    * Net interest margin, which is the net interest income after loan loss provision divided by the earning assets (total or average).
    * @return netInterestMargin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Net interest margin, which is the net interest income after loan loss provision divided by the earning assets (total or average).")
   @JsonIgnore
 

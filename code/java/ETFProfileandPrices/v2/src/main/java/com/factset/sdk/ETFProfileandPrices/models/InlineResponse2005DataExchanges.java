@@ -37,7 +37,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse2005DataExchanges.JSON_PROPERTY_EXCHANGE,
   InlineResponse2005DataExchanges.JSON_PROPERTY_WEIGHT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2005DataExchanges implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -59,7 +60,7 @@ public class InlineResponse2005DataExchanges implements Serializable {
    * Name of the exchange.
    * @return exchange
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the exchange.")
   @JsonProperty(JSON_PROPERTY_EXCHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -85,7 +86,7 @@ public class InlineResponse2005DataExchanges implements Serializable {
    * Consolidate weight of the position within the ETP by exchange(s).
    * @return weight
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Consolidate weight of the position within the ETP by exchange(s).")
   @JsonProperty(JSON_PROPERTY_WEIGHT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

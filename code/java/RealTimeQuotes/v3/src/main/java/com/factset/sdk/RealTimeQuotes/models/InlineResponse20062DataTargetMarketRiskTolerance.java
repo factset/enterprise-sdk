@@ -45,7 +45,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20062DataTargetMarketRiskTolerance.JSON_PROPERTY_SPAIN,
   InlineResponse20062DataTargetMarketRiskTolerance.JSON_PROPERTY_GERMANY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20062DataTargetMarketRiskTolerance implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -76,7 +77,7 @@ public class InlineResponse20062DataTargetMarketRiskTolerance implements Seriali
    * Get sri
    * @return sri
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SRI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -102,7 +103,7 @@ public class InlineResponse20062DataTargetMarketRiskTolerance implements Seriali
    * Get srri
    * @return srri
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SRRI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -128,7 +129,7 @@ public class InlineResponse20062DataTargetMarketRiskTolerance implements Seriali
    * Get internalRiskRating
    * @return internalRiskRating
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INTERNAL_RISK_RATING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -154,7 +155,7 @@ public class InlineResponse20062DataTargetMarketRiskTolerance implements Seriali
    * Get spain
    * @return spain
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SPAIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -180,7 +181,7 @@ public class InlineResponse20062DataTargetMarketRiskTolerance implements Seriali
    * Get germany
    * @return germany
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_GERMANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -6,7 +6,7 @@ import com.factset.sdk.Symbology.ApiResponse;
 import com.factset.sdk.Symbology.Configuration;
 import com.factset.sdk.Symbology.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -17,7 +17,8 @@ import com.factset.sdk.Symbology.models.TickerHistoryTranslationResponse;
 import com.factset.sdk.Symbology.models.TickerTranslationRequest;
 import com.factset.sdk.Symbology.models.TickerTranslationResponse;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class TickerApi {
   private ApiClient apiClient;
 

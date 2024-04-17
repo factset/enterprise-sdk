@@ -36,7 +36,8 @@ import com.factset.sdk.RealTimePriceAlerting.JSON;
 @JsonPropertyOrder({
   PostAlertingPricesBasicTriggerListRequestDataFilterStatus.JSON_PROPERTY_CODE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostAlertingPricesBasicTriggerListRequestDataFilterStatus implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -92,7 +93,7 @@ public class PostAlertingPricesBasicTriggerListRequestDataFilterStatus implement
    * Code of the status.
    * @return code
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Code of the status.")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

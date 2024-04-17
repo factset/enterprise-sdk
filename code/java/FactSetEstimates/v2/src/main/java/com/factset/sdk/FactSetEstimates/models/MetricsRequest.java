@@ -39,7 +39,8 @@ import com.factset.sdk.FactSetEstimates.JSON;
   MetricsRequest.JSON_PROPERTY_CATEGORY,
   MetricsRequest.JSON_PROPERTY_SUBCATEGORY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class MetricsRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -61,7 +62,7 @@ public class MetricsRequest implements Serializable {
    * Get category
    * @return category
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -87,7 +88,7 @@ public class MetricsRequest implements Serializable {
    * Get subcategory
    * @return subcategory
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SUBCATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

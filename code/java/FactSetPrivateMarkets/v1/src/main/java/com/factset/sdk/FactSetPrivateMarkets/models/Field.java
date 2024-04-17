@@ -43,7 +43,8 @@ import com.factset.sdk.FactSetPrivateMarkets.JSON;
   Field.JSON_PROPERTY_FACTOR,
   Field.JSON_PROPERTY_SDF_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Field implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -74,7 +75,7 @@ public class Field implements Serializable {
    * Data item to be used as &#x60;fields&#x60; input in &#x60;/factset-private-markets/v#/&#x60; endpoint.
    * @return field
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "assets", value = "Data item to be used as `fields` input in `/factset-private-markets/v#/` endpoint.")
   @JsonIgnore
 
@@ -108,7 +109,7 @@ public class Field implements Serializable {
    * Plain text name of the field.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Total Assets", value = "Plain text name of the field.")
   @JsonIgnore
 
@@ -142,7 +143,7 @@ public class Field implements Serializable {
    * Corresponding endpoint to input field item. For example, fields returning the category &#39;FINANCIALS&#39; should be used in the /financials endpoint. The same follows data items falling in the category for NON_PERIODIC, which would be used in the /non-periodic endpoint.
    * @return category
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FINANCIALS", value = "Corresponding endpoint to input field item. For example, fields returning the category 'FINANCIALS' should be used in the /financials endpoint. The same follows data items falling in the category for NON_PERIODIC, which would be used in the /non-periodic endpoint.")
   @JsonIgnore
 
@@ -176,7 +177,7 @@ public class Field implements Serializable {
    * The factor for the field (e.g. 1000 &#x3D; thousands).
    * @return factor
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1000000", value = "The factor for the field (e.g. 1000 = thousands).")
   @JsonIgnore
 
@@ -210,7 +211,7 @@ public class Field implements Serializable {
    * The name of the data item as it appears in the Standard Data Feed (SDF). A null value represents items available only in API.
    * @return sdfName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FPC_ASSETS", value = "The name of the data item as it appears in the Standard Data Feed (SDF). A null value represents items available only in API.")
   @JsonIgnore
 

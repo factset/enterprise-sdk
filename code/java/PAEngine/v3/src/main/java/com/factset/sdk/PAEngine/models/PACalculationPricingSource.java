@@ -39,7 +39,8 @@ import com.factset.sdk.PAEngine.JSON;
 @JsonPropertyOrder({
   PACalculationPricingSource.JSON_PROPERTY_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PACalculationPricingSource implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -58,7 +59,7 @@ public class PACalculationPricingSource implements Serializable {
    * Pricing source identifier
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Pricing source identifier")
   @JsonIgnore
 

@@ -41,7 +41,8 @@ import com.factset.sdk.FactSetPeople.JSON;
   PeopleJobsRequest.JSON_PROPERTY_LEVEL,
   PeopleJobsRequest.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PeopleJobsRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -82,7 +83,7 @@ public class PeopleJobsRequest implements Serializable {
    * FactSet People Entity Ids. 
    * @return ids
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "[\"0DPHLH-E\"]", required = true, value = "FactSet People Entity Ids. ")
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -108,7 +109,7 @@ public class PeopleJobsRequest implements Serializable {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -134,7 +135,7 @@ public class PeopleJobsRequest implements Serializable {
    * Get level
    * @return level
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -160,7 +161,7 @@ public class PeopleJobsRequest implements Serializable {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

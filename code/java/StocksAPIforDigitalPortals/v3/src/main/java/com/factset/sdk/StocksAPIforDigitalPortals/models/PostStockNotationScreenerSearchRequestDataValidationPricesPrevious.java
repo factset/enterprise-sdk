@@ -38,7 +38,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   PostStockNotationScreenerSearchRequestDataValidationPricesPrevious.JSON_PROPERTY_AVAILABLE_ONLY,
   PostStockNotationScreenerSearchRequestDataValidationPricesPrevious.JSON_PROPERTY_MINIMUM_DATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostStockNotationScreenerSearchRequestDataValidationPricesPrevious implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -60,7 +61,7 @@ public class PostStockNotationScreenerSearchRequestDataValidationPricesPrevious 
    * If &#x60;true&#x60;, only notations for which a trade price from a preceding trading day is available will be returned.
    * @return availableOnly
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "If `true`, only notations for which a trade price from a preceding trading day is available will be returned.")
   @JsonProperty(JSON_PROPERTY_AVAILABLE_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,7 +87,7 @@ public class PostStockNotationScreenerSearchRequestDataValidationPricesPrevious 
    * Earliest admissible date of the trade price from a preceding trading day.
    * @return minimumDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Earliest admissible date of the trade price from a preceding trading day.")
   @JsonProperty(JSON_PROPERTY_MINIMUM_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

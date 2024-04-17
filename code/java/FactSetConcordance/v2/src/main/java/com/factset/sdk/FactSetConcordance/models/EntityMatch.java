@@ -102,7 +102,8 @@ import com.factset.sdk.FactSetConcordance.JSON;
   EntityMatch.JSON_PROPERTY_NAME_MATCH_STRING,
   EntityMatch.JSON_PROPERTY_NAME_MATCH_SOURCE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EntityMatch implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -344,7 +345,7 @@ public class EntityMatch implements Serializable {
    * Identifier denoting a specific Concordance task submitted by the user. This value will be null for /entity-match endpoint responses and is only available when using the \&quot;Bulk\&quot; workflow. 
    * @return taskId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "31", value = "Identifier denoting a specific Concordance task submitted by the user. This value will be null for /entity-match endpoint responses and is only available when using the \"Bulk\" workflow. ")
   @JsonIgnore
 
@@ -378,7 +379,7 @@ public class EntityMatch implements Serializable {
    * The id of the universe that entities should be mapped to
    * @return universeId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "The id of the universe that entities should be mapped to")
   @JsonIgnore
 
@@ -412,7 +413,7 @@ public class EntityMatch implements Serializable {
    * Unique Identifer provided by the user in the request to represent the entity Name being requested.
    * @return clientId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "abc-123", value = "Unique Identifer provided by the user in the request to represent the entity Name being requested.")
   @JsonIgnore
 
@@ -446,7 +447,7 @@ public class EntityMatch implements Serializable {
    * Name of the column as provided by the user -  Bloomberg Listing/Regional/Security ID.
    * @return clientBbgFigi
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "BloombergId", value = "Name of the column as provided by the user -  Bloomberg Listing/Regional/Security ID.")
   @JsonIgnore
 
@@ -480,7 +481,7 @@ public class EntityMatch implements Serializable {
    * Name of the column as provided by the user -  Bloomberg Listing and Regional Ticker.
    * @return clientBbgTicker
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "GOOGL UW", value = "Name of the column as provided by the user -  Bloomberg Listing and Regional Ticker.")
   @JsonIgnore
 
@@ -514,7 +515,7 @@ public class EntityMatch implements Serializable {
    * Name of the column as provided by the user - BICCode, bank indentification code
    * @return clientBic
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "BICCode", value = "Name of the column as provided by the user - BICCode, bank indentification code")
   @JsonIgnore
 
@@ -548,7 +549,7 @@ public class EntityMatch implements Serializable {
    * Name of the column as provided by the user -  CIK, Edgar Central Index Keys
    * @return clientCik
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "100331", value = "Name of the column as provided by the user -  CIK, Edgar Central Index Keys")
   @JsonIgnore
 
@@ -582,7 +583,7 @@ public class EntityMatch implements Serializable {
    * ISO2 country code specified in the request.
    * @return clientCountry
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "US", value = "ISO2 country code specified in the request.")
   @JsonIgnore
 
@@ -616,7 +617,7 @@ public class EntityMatch implements Serializable {
    * Name of the column as provided by the user -  CRD, Central Registration Depository
    * @return clientCrd
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "149722", value = "Name of the column as provided by the user -  CRD, Central Registration Depository")
   @JsonIgnore
 
@@ -650,7 +651,7 @@ public class EntityMatch implements Serializable {
    * Name of the column as provided by the user -  CUSIP.
    * @return clientCusip
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "02079K305", value = "Name of the column as provided by the user -  CUSIP.")
   @JsonIgnore
 
@@ -684,7 +685,7 @@ public class EntityMatch implements Serializable {
    * Name of the column as provided by the user -  DUNS, Dun&amp;Bradstreet.
    * @return clientDuns
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "687741991", value = "Name of the column as provided by the user -  DUNS, Dun&Bradstreet.")
   @JsonIgnore
 
@@ -718,7 +719,7 @@ public class EntityMatch implements Serializable {
    * Name of the column as provided by the user -  EmployerIdentificationNumber, EIN.
    * @return clientEin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "953540776", value = "Name of the column as provided by the user -  EmployerIdentificationNumber, EIN.")
   @JsonIgnore
 
@@ -752,7 +753,7 @@ public class EntityMatch implements Serializable {
    * Name of the column as provided by the user -  FactSet Identifier, FactSet -E,-S,-R, -L Permanent Identifier.
    * @return clientFactsetId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0013TZ-E", value = "Name of the column as provided by the user -  FactSet Identifier, FactSet -E,-S,-R, -L Permanent Identifier.")
   @JsonIgnore
 
@@ -786,7 +787,7 @@ public class EntityMatch implements Serializable {
    * Name of the column as provided by the user -  FitchCreditRating, Fitch Ratings Identifier.
    * @return clientFitch
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "47504", value = "Name of the column as provided by the user -  FitchCreditRating, Fitch Ratings Identifier.")
   @JsonIgnore
 
@@ -820,7 +821,7 @@ public class EntityMatch implements Serializable {
    * Name of the column as provided by the user -  GVKEY, Compustat Global Company Key.
    * @return clientGvkey
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "107481", value = "Name of the column as provided by the user -  GVKEY, Compustat Global Company Key.")
   @JsonIgnore
 
@@ -854,7 +855,7 @@ public class EntityMatch implements Serializable {
    * Name of the column as provided by the user -  GVKEY+IID, Compustat Global Company Key and Issue Identifier.
    * @return clientGvkeyIid
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "107481001", value = "Name of the column as provided by the user -  GVKEY+IID, Compustat Global Company Key and Issue Identifier.")
   @JsonIgnore
 
@@ -888,7 +889,7 @@ public class EntityMatch implements Serializable {
    * Name of the column as provided by the user -  ISIN.
    * @return clientIsin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "ISIN", value = "Name of the column as provided by the user -  ISIN.")
   @JsonIgnore
 
@@ -922,7 +923,7 @@ public class EntityMatch implements Serializable {
    * Name of the column as provided by the user -  JCN , Japanese Corporate Number.
    * @return clientJcn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "3120001077477", value = "Name of the column as provided by the user -  JCN , Japanese Corporate Number.")
   @JsonIgnore
 
@@ -956,7 +957,7 @@ public class EntityMatch implements Serializable {
    * Name of the column as provided by the user -  LegalEntityIdentifier, LEI.
    * @return clientLei
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "549300A6K7JX8EX2QZ33", value = "Name of the column as provided by the user -  LegalEntityIdentifier, LEI.")
   @JsonIgnore
 
@@ -990,7 +991,7 @@ public class EntityMatch implements Serializable {
    * Name of the column as provided by the user -  LXID, Markit Syndicated Loan Identifier.
    * @return clientLxid
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "LX113630", value = "Name of the column as provided by the user -  LXID, Markit Syndicated Loan Identifier.")
   @JsonIgnore
 
@@ -1024,7 +1025,7 @@ public class EntityMatch implements Serializable {
    * Name of the column as provided by the user -  MoodysIssuer, Moody&#39;s Ratings Identifier.
    * @return clientMd
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "823736553", value = "Name of the column as provided by the user -  MoodysIssuer, Moody's Ratings Identifier.")
   @JsonIgnore
 
@@ -1058,7 +1059,7 @@ public class EntityMatch implements Serializable {
    * Name of the entity to match as specified in the request
    * @return clientName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "factset", value = "Name of the entity to match as specified in the request")
   @JsonIgnore
 
@@ -1092,7 +1093,7 @@ public class EntityMatch implements Serializable {
    * Name of the priority column as provided by the user.
    * @return clientPriority
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "HIGH", value = "Name of the priority column as provided by the user.")
   @JsonIgnore
 
@@ -1126,7 +1127,7 @@ public class EntityMatch implements Serializable {
    * Name of the column as provided by the user -  RedCode, Markit Reference Entity Identifier.
    * @return clientRedCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "4C933G", value = "Name of the column as provided by the user -  RedCode, Markit Reference Entity Identifier.")
   @JsonIgnore
 
@@ -1160,7 +1161,7 @@ public class EntityMatch implements Serializable {
    * Name of the column as provided by the user -  FederalReserveRSSDIdentifier, RSSD.
    * @return clientRssd
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1139297", value = "Name of the column as provided by the user -  FederalReserveRSSDIdentifier, RSSD.")
   @JsonIgnore
 
@@ -1194,7 +1195,7 @@ public class EntityMatch implements Serializable {
    * Name of the column as provided by the user -  SEDOL.
    * @return clientSedol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "SEDOL", value = "Name of the column as provided by the user -  SEDOL.")
   @JsonIgnore
 
@@ -1228,7 +1229,7 @@ public class EntityMatch implements Serializable {
    * Name of the column as provided by the user -  S&amp;PRating, S&amp;P Ratings Identifier.
    * @return clientSpr
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "301939", value = "Name of the column as provided by the user -  S&PRating, S&P Ratings Identifier.")
   @JsonIgnore
 
@@ -1262,7 +1263,7 @@ public class EntityMatch implements Serializable {
    * State code specified in the request.
    * @return clientState
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "CT", value = "State code specified in the request.")
   @JsonIgnore
 
@@ -1296,7 +1297,7 @@ public class EntityMatch implements Serializable {
    * Name of the column as provided by the user -  PriceTicker.
    * @return clientTicker
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "PriceTicker", value = "Name of the column as provided by the user -  PriceTicker.")
   @JsonIgnore
 
@@ -1330,7 +1331,7 @@ public class EntityMatch implements Serializable {
    * Name of the column as provided by the user -  TickerExch.
    * @return clientTickerExchange
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "GOOGL-NAS", value = "Name of the column as provided by the user -  TickerExch.")
   @JsonIgnore
 
@@ -1364,7 +1365,7 @@ public class EntityMatch implements Serializable {
    * Name of the column as provided by the user -  TickerRegion
    * @return clientTickerRegion
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "GOOGL-US", value = "Name of the column as provided by the user -  TickerRegion")
   @JsonIgnore
 
@@ -1398,7 +1399,7 @@ public class EntityMatch implements Serializable {
    * Name of the column as provided by the user -  UKCompanyHouse
    * @return clientUkch
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "CE012494", value = "Name of the column as provided by the user -  UKCompanyHouse")
   @JsonIgnore
 
@@ -1432,7 +1433,7 @@ public class EntityMatch implements Serializable {
    * URL specified in the request.
    * @return clientUrl
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "www.factset.com", value = "URL specified in the request.")
   @JsonIgnore
 
@@ -1466,7 +1467,7 @@ public class EntityMatch implements Serializable {
    * Name of the column as provided by the user -  VALOR, Valoren (\&quot;Valor\&quot;) Identification.
    * @return clientValoren
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "685558", value = "Name of the column as provided by the user -  VALOR, Valoren (\"Valor\") Identification.")
   @JsonIgnore
 
@@ -1500,7 +1501,7 @@ public class EntityMatch implements Serializable {
    * Name of the column as provided by the user -  WKN, German Securities Identification.
    * @return clientWkn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "A0MU9T", value = "Name of the column as provided by the user -  WKN, German Securities Identification.")
   @JsonIgnore
 
@@ -1542,7 +1543,7 @@ public class EntityMatch implements Serializable {
    * Any additional context column along with their values in the input file or single search.  To be used by Managed Service for any unmapped records. 
    * @return clientAdditionalContext
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "{\"Address\":\"123 Main St\",\"Phone\":\"555-555-5555\",\"City\":\"New York\"}", value = "Any additional context column along with their values in the input file or single search.  To be used by Managed Service for any unmapped records. ")
   @JsonProperty(JSON_PROPERTY_CLIENT_ADDITIONAL_CONTEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1568,7 +1569,7 @@ public class EntityMatch implements Serializable {
    * Source type of the Symbol that matched
    * @return symbolMatchType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "SEDOL", value = "Source type of the Symbol that matched")
   @JsonIgnore
 
@@ -1602,7 +1603,7 @@ public class EntityMatch implements Serializable {
    * Row number for match in the request or input file.
    * @return rowIndex
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Row number for match in the request or input file.")
   @JsonIgnore
 
@@ -1636,7 +1637,7 @@ public class EntityMatch implements Serializable {
    * Flag denoting if the row is a match.
    * @return matchFlag
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Flag denoting if the row is a match.")
   @JsonIgnore
 
@@ -1670,7 +1671,7 @@ public class EntityMatch implements Serializable {
    * FactSet Entity Identifier of the entity matched respective to the requested Name submitted. For more detail, visit [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881) 
    * @return entityId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "FactSet Entity Identifier of the entity matched respective to the requested Name submitted. For more detail, visit [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881) ")
   @JsonIgnore
 
@@ -1704,7 +1705,7 @@ public class EntityMatch implements Serializable {
    * Full name corresponding to the matched entity.
    * @return entityName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FactSet Research Systems, Inc.", value = "Full name corresponding to the matched entity.")
   @JsonIgnore
 
@@ -1738,7 +1739,7 @@ public class EntityMatch implements Serializable {
    * URL of the matched entity.
    * @return url
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "www.factset.com", value = "URL of the matched entity.")
   @JsonIgnore
 
@@ -1772,7 +1773,7 @@ public class EntityMatch implements Serializable {
    * Concordance status of the submitted, where -    * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)   * UNMAPPED - The requested Entity Name is unmapped by FactSet.   * INDETERMINATE - The requested Entity Name has unable to make a mapping. 
    * @return mapStatus
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "MAPPED", value = "Concordance status of the submitted, where -    * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)   * UNMAPPED - The requested Entity Name is unmapped by FactSet.   * INDETERMINATE - The requested Entity Name has unable to make a mapping. ")
   @JsonIgnore
 
@@ -1806,7 +1807,7 @@ public class EntityMatch implements Serializable {
    * Probability of the match being similar to the entity requested as determined by the Concordance algorithm. A similarityScore of 1 is the highest level of similarity. 
    * @return similarityScore
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "Probability of the match being similar to the entity requested as determined by the Concordance algorithm. A similarityScore of 1 is the highest level of similarity. ")
   @JsonIgnore
 
@@ -1840,7 +1841,7 @@ public class EntityMatch implements Serializable {
    * Additional statistic calculated by the algorithm that is used to ensure the validity of the match result. A confidenceScore of 1 is the highest level of confidence. 
    * @return confidenceScore
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "Additional statistic calculated by the algorithm that is used to ensure the validity of the match result. A confidenceScore of 1 is the highest level of confidence. ")
   @JsonIgnore
 
@@ -1874,7 +1875,7 @@ public class EntityMatch implements Serializable {
    * ISO2 country code corresponding to the location of the matched entity.
    * @return countryCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "US", value = "ISO2 country code corresponding to the location of the matched entity.")
   @JsonIgnore
 
@@ -1908,7 +1909,7 @@ public class EntityMatch implements Serializable {
    * Country name corresponding to the location of the matched entity
    * @return countryName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "United States", value = "Country name corresponding to the location of the matched entity")
   @JsonIgnore
 
@@ -1942,7 +1943,7 @@ public class EntityMatch implements Serializable {
    * Two character state code corresponding to the location of the matched entity.
    * @return stateCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "CT", value = "Two character state code corresponding to the location of the matched entity.")
   @JsonIgnore
 
@@ -1976,7 +1977,7 @@ public class EntityMatch implements Serializable {
    * State name corresponding to the location of the matched entity.
    * @return stateName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Connecticut", value = "State name corresponding to the location of the matched entity.")
   @JsonIgnore
 
@@ -2010,7 +2011,7 @@ public class EntityMatch implements Serializable {
    * Standard Industrial Classification (SIC) Code of the matched entity.
    * @return sicCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "7374", value = "Standard Industrial Classification (SIC) Code of the matched entity.")
   @JsonIgnore
 
@@ -2044,7 +2045,7 @@ public class EntityMatch implements Serializable {
    * Code representing the entity type of the matched entity. See the related request parameter for a table of all Codes and their respective descriptions.
    * @return entityTypeCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "PUB", value = "Code representing the entity type of the matched entity. See the related request parameter for a table of all Codes and their respective descriptions.")
   @JsonIgnore
 
@@ -2078,7 +2079,7 @@ public class EntityMatch implements Serializable {
    * Description of of the matched entity&#39;s type.
    * @return entityTypeDescription
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Public Company", value = "Description of of the matched entity's type.")
   @JsonIgnore
 
@@ -2112,7 +2113,7 @@ public class EntityMatch implements Serializable {
    * Code representing the entity subtype of the matched entity. See the related request parameter for a table of all Codes and their respective descriptions.
    * @return entitySubTypeCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "PR", value = "Code representing the entity subtype of the matched entity. See the related request parameter for a table of all Codes and their respective descriptions.")
   @JsonIgnore
 
@@ -2146,7 +2147,7 @@ public class EntityMatch implements Serializable {
    * City where the matched entity is located.
    * @return locationCity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Norwalk", value = "City where the matched entity is located.")
   @JsonIgnore
 
@@ -2180,7 +2181,7 @@ public class EntityMatch implements Serializable {
    * Region where the matched entity is located.
    * @return regionName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "North America", value = "Region where the matched entity is located.")
   @JsonIgnore
 
@@ -2214,7 +2215,7 @@ public class EntityMatch implements Serializable {
    * FactSet Industry Classification Code of the matched entity.
    * @return factsetIndustryCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "3305", value = "FactSet Industry Classification Code of the matched entity.")
   @JsonIgnore
 
@@ -2248,7 +2249,7 @@ public class EntityMatch implements Serializable {
    * Name of the matched entity&#39;s FactSet Industry Classification.
    * @return factsetIndustryName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Data Processing Services", value = "Name of the matched entity's FactSet Industry Classification.")
   @JsonIgnore
 
@@ -2282,7 +2283,7 @@ public class EntityMatch implements Serializable {
    * Name of the matched entity&#39;s FactSet Sector Classification Code.
    * @return factsetSectorCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "3300", value = "Name of the matched entity's FactSet Sector Classification Code.")
   @JsonIgnore
 
@@ -2316,7 +2317,7 @@ public class EntityMatch implements Serializable {
    * Name of the matched entity&#39;s FactSet Sector Classification.
    * @return factsetSectorName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Technology Services", value = "Name of the matched entity's FactSet Sector Classification.")
   @JsonIgnore
 
@@ -2350,7 +2351,7 @@ public class EntityMatch implements Serializable {
    * Name of the matched entity&#39;s parent entity.
    * @return parentName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the matched entity's parent entity.")
   @JsonIgnore
 
@@ -2384,7 +2385,7 @@ public class EntityMatch implements Serializable {
    * Flag denoting that the matched entity is the parent of another match.
    * @return parentMatchFlag
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "false", value = "Flag denoting that the matched entity is the parent of another match.")
   @JsonIgnore
 
@@ -2418,7 +2419,7 @@ public class EntityMatch implements Serializable {
    * String on which the Concordance algorithm mapped the submitted entity.
    * @return nameMatchString
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "factset", value = "String on which the Concordance algorithm mapped the submitted entity.")
   @JsonIgnore
 
@@ -2452,7 +2453,7 @@ public class EntityMatch implements Serializable {
    * Type of name that the nameMatchString matched.
    * @return nameMatchSource
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Domain Name", value = "Type of name that the nameMatchString matched.")
   @JsonIgnore
 

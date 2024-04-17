@@ -42,7 +42,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20062DataTargetMarketRecommendedHoldingPeriod.JSON_PROPERTY_HOLDING_PERIOD,
   InlineResponse20062DataTargetMarketRecommendedHoldingPeriod.JSON_PROPERTY_HOLDING_PERIOD_YEARS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20062DataTargetMarketRecommendedHoldingPeriod implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -113,7 +114,7 @@ public class InlineResponse20062DataTargetMarketRecommendedHoldingPeriod impleme
    * Indicates the recommended holding period (RHP) of the investment product whereby more than one RHP per product may exist.
    * @return holdingPeriod
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates the recommended holding period (RHP) of the investment product whereby more than one RHP per product may exist.")
   @JsonProperty(JSON_PROPERTY_HOLDING_PERIOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -139,7 +140,7 @@ public class InlineResponse20062DataTargetMarketRecommendedHoldingPeriod impleme
    * Indicates the length of the recommended holding period (RHP) of the investment product in years, not available if the attribute &#x60;holdingPeriod&#x60; is set.
    * @return holdingPeriodYears
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates the length of the recommended holding period (RHP) of the investment product in years, not available if the attribute `holdingPeriod` is set.")
   @JsonIgnore
 

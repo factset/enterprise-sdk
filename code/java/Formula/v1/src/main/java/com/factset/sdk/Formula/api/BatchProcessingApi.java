@@ -6,7 +6,7 @@ import com.factset.sdk.Formula.ApiResponse;
 import com.factset.sdk.Formula.Configuration;
 import com.factset.sdk.Formula.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -16,7 +16,8 @@ import com.factset.sdk.Formula.models.BatchDataResponse;
 import com.factset.sdk.Formula.models.BatchStatusResponse;
 import com.factset.sdk.Formula.models.ErrorDetail;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class BatchProcessingApi {
   private ApiClient apiClient;
 

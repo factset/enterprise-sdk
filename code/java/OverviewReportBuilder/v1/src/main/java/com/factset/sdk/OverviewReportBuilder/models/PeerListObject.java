@@ -39,7 +39,8 @@ import com.factset.sdk.OverviewReportBuilder.JSON;
   PeerListObject.JSON_PROPERTY_PEERS,
   PeerListObject.JSON_PROPERTY_META
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PeerListObject implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -74,7 +75,7 @@ public class PeerListObject implements Serializable {
    * Get peers
    * @return peers
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_PEERS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -100,7 +101,7 @@ public class PeerListObject implements Serializable {
    * Get meta
    * @return meta
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

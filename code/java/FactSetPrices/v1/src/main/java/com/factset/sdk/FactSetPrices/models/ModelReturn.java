@@ -45,7 +45,8 @@ import com.factset.sdk.FactSetPrices.JSON;
   ModelReturn.JSON_PROPERTY_TOTAL_RETURN,
   ModelReturn.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ModelReturn implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -79,7 +80,7 @@ public class ModelReturn implements Serializable {
    * Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security&#39;s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "SJY281-R", value = "Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.")
   @JsonIgnore
 
@@ -113,7 +114,7 @@ public class ModelReturn implements Serializable {
    * End date of the return. Date in YYYY-MM-DD format. Depending on Frequency and Calendar settings, this could represent the entire return period requested.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Thu Aug 01 00:00:00 UTC 2013", value = "End date of the return. Date in YYYY-MM-DD format. Depending on Frequency and Calendar settings, this could represent the entire return period requested.")
   @JsonIgnore
 
@@ -147,7 +148,7 @@ public class ModelReturn implements Serializable {
    * Date of last split for which return has been adjusted.
    * @return adjDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Mon Feb 07 00:00:00 UTC 2005", value = "Date of last split for which return has been adjusted.")
   @JsonIgnore
 
@@ -181,7 +182,7 @@ public class ModelReturn implements Serializable {
    * Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).")
   @JsonIgnore
 
@@ -215,7 +216,7 @@ public class ModelReturn implements Serializable {
    * The simple or compound return for the requested &#x60;frequency&#x60; and/or &#x60;rolling_period&#x60;. Depending on the input parameters the return will adjust accordingly. If you simply use &#x60;frequency&#x60; and no &#x60;rolling_period&#x60;, the return value will represent the frequency period. If you use &#x60;rolling_period&#x60;, the values will be returned in actual period ends (e.g. actual month, actual week, daily, etc.). General Return Calculation Details found on [Online Assistant Page #8748](https://oa.apps.factset.com/pages/8748)
    * @return totalReturn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1.0345", value = "The simple or compound return for the requested `frequency` and/or `rolling_period`. Depending on the input parameters the return will adjust accordingly. If you simply use `frequency` and no `rolling_period`, the return value will represent the frequency period. If you use `rolling_period`, the values will be returned in actual period ends (e.g. actual month, actual week, daily, etc.). General Return Calculation Details found on [Online Assistant Page #8748](https://oa.apps.factset.com/pages/8748)")
   @JsonIgnore
 
@@ -249,7 +250,7 @@ public class ModelReturn implements Serializable {
    * Identifier that was used for the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "IBM-US", value = "Identifier that was used for the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

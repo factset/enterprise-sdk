@@ -49,7 +49,8 @@ import com.factset.sdk.FactSetEstimates.JSON;
   DetailRatings.JSON_PROPERTY_INPUT_DATE_TIME,
   DetailRatings.JSON_PROPERTY_LAST_MODIFIED_DATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class DetailRatings implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -95,7 +96,7 @@ public class DetailRatings implements Serializable {
    * Get fsymId
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "SJY281-R", value = "")
   @JsonIgnore
 
@@ -129,7 +130,7 @@ public class DetailRatings implements Serializable {
    * Date of estimate expressed in YYYY-MM-DD format. For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16598)
    * @return estimateDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Mon Jul 24 00:00:00 UTC 2017", value = "Date of estimate expressed in YYYY-MM-DD format. For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16598)")
   @JsonIgnore
 
@@ -163,7 +164,7 @@ public class DetailRatings implements Serializable {
    * The FactSet Entity Identifier for the analyst making the estimate.
    * @return analystId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0DXTST-E", value = "The FactSet Entity Identifier for the analyst making the estimate.")
   @JsonIgnore
 
@@ -197,7 +198,7 @@ public class DetailRatings implements Serializable {
    * The name of the analyst making the estimate.
    * @return analystName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Josh Baer", value = "The name of the analyst making the estimate.")
   @JsonIgnore
 
@@ -231,7 +232,7 @@ public class DetailRatings implements Serializable {
    * The FactSet Entity Identifier for the broker making the estimate.
    * @return brokerId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "05FBK7-E", value = "The FactSet Entity Identifier for the broker making the estimate.")
   @JsonIgnore
 
@@ -265,7 +266,7 @@ public class DetailRatings implements Serializable {
    * The name of the broker making the estimate.
    * @return brokerName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Morgan Stanley", value = "The name of the broker making the estimate.")
   @JsonIgnore
 
@@ -299,7 +300,7 @@ public class DetailRatings implements Serializable {
    * A textual representation of the analysts rating. Broker recommendations are divided into five main broad categories- **Buy, Overweight, Hold, Underweight, and Sell**.&lt;p&gt;Additional recommendations may be displayed for the below reasons -  * Without- A rating \&quot;Without\&quot; is displayed when a broker provides estimates but does not provide a rating. * Dropping- When a broker stops covering an equity, the recommendation will show \&quot;Dropping.\&quot; * Not Available- A broker may be \&quot;Not Available\&quot; due to outstanding circumstances with that particular security. Ratings are not displayed until a new rating is provided. * Most/Least- \&quot;Most\&quot; or \&quot;Least\&quot; favorable rating is displayed for top or bottom rating available for a particular security. 
    * @return ratingsNoteText
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "overweight", value = "A textual representation of the analysts rating. Broker recommendations are divided into five main broad categories- **Buy, Overweight, Hold, Underweight, and Sell**.<p>Additional recommendations may be displayed for the below reasons -  * Without- A rating \"Without\" is displayed when a broker provides estimates but does not provide a rating. * Dropping- When a broker stops covering an equity, the recommendation will show \"Dropping.\" * Not Available- A broker may be \"Not Available\" due to outstanding circumstances with that particular security. Ratings are not displayed until a new rating is provided. * Most/Least- \"Most\" or \"Least\" favorable rating is displayed for top or bottom rating available for a particular security. ")
   @JsonIgnore
 
@@ -333,7 +334,7 @@ public class DetailRatings implements Serializable {
    * Identifier that was used for the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "IBM-US", value = "Identifier that was used for the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -359,7 +360,7 @@ public class DetailRatings implements Serializable {
    * Date and time when the data is available at the source.
    * @return inputDateTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2022-10-25T22:40:09", value = "Date and time when the data is available at the source.")
   @JsonIgnore
 
@@ -393,7 +394,7 @@ public class DetailRatings implements Serializable {
    * The date at which a broker provided an estimate that is a revision.
    * @return lastModifiedDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Mon Jul 24 00:00:00 UTC 2017", value = "The date at which a broker provided an estimate that is a revision.")
   @JsonIgnore
 

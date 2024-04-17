@@ -6,7 +6,7 @@ import com.factset.sdk.CapitalStructureReportBuilder.ApiResponse;
 import com.factset.sdk.CapitalStructureReportBuilder.Configuration;
 import com.factset.sdk.CapitalStructureReportBuilder.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -14,7 +14,8 @@ import java.util.Objects;
 import com.factset.sdk.CapitalStructureReportBuilder.models.ErrorResponse;
 import com.factset.sdk.CapitalStructureReportBuilder.models.Response;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CapitalStructureApi {
   private ApiClient apiClient;
 

@@ -40,7 +40,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   PostNotationCrossReferenceListByInstrumentRequestDataFilter.JSON_PROPERTY_VALUE_UNITS,
   PostNotationCrossReferenceListByInstrumentRequestDataFilter.JSON_PROPERTY_ONLY_ACTIVE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostNotationCrossReferenceListByInstrumentRequestDataFilter implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -65,7 +66,7 @@ public class PostNotationCrossReferenceListByInstrumentRequestDataFilter impleme
    * Get markets
    * @return markets
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MARKETS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -91,7 +92,7 @@ public class PostNotationCrossReferenceListByInstrumentRequestDataFilter impleme
    * Get valueUnits
    * @return valueUnits
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VALUE_UNITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -117,7 +118,7 @@ public class PostNotationCrossReferenceListByInstrumentRequestDataFilter impleme
    * If true, only active notations will be returned. The term \&quot;active\&quot; reflects the fact that notations and related data is not being deleted immediately after becoming irrelevant (e.g. because the source does not provide a price anymore), but remains in general retrievable for up to 6 months.
    * @return onlyActive
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "If true, only active notations will be returned. The term \"active\" reflects the fact that notations and related data is not being deleted immediately after becoming irrelevant (e.g. because the source does not provide a price anymore), but remains in general retrievable for up to 6 months.")
   @JsonProperty(JSON_PROPERTY_ONLY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

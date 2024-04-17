@@ -45,7 +45,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2001DataIncomeStatementOperatingIncome.JSON_PROPERTY_OPERATING_MARGIN,
   InlineResponse2001DataIncomeStatementOperatingIncome.JSON_PROPERTY_AFTER_INTEREST_EXPENSE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2001DataIncomeStatementOperatingIncome implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -73,7 +74,7 @@ public class InlineResponse2001DataIncomeStatementOperatingIncome implements Ser
    * Value of the opearting income.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Value of the opearting income.")
   @JsonIgnore
 
@@ -107,7 +108,7 @@ public class InlineResponse2001DataIncomeStatementOperatingIncome implements Ser
    * Annual growth rate of the operating income.
    * @return growth
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Annual growth rate of the operating income.")
   @JsonIgnore
 
@@ -141,7 +142,7 @@ public class InlineResponse2001DataIncomeStatementOperatingIncome implements Ser
    * Operating margin, which is the ratio of the operating income, divided by the sales revenue.
    * @return operatingMargin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Operating margin, which is the ratio of the operating income, divided by the sales revenue.")
   @JsonIgnore
 
@@ -175,7 +176,7 @@ public class InlineResponse2001DataIncomeStatementOperatingIncome implements Ser
    * Get afterInterestExpense
    * @return afterInterestExpense
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AFTER_INTEREST_EXPENSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

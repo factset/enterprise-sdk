@@ -44,7 +44,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20046DataNotation.JSON_PROPERTY_FSYM,
   InlineResponse20046DataNotation.JSON_PROPERTY_INSTRUMENT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20046DataNotation implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -69,7 +70,7 @@ public class InlineResponse20046DataNotation implements Serializable {
    * Identifier of the notation.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the notation.")
   @JsonIgnore
 
@@ -103,7 +104,7 @@ public class InlineResponse20046DataNotation implements Serializable {
    * Get fsym
    * @return fsym
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FSYM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -129,7 +130,7 @@ public class InlineResponse20046DataNotation implements Serializable {
    * Get instrument
    * @return instrument
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INSTRUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -45,7 +45,8 @@ import com.factset.sdk.FixedIncomeCalculation.JSON;
   FIReferenceSecurity.JSON_PROPERTY_PREPAY,
   FIReferenceSecurity.JSON_PROPERTY_SETTLEMENT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FIReferenceSecurity implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -79,7 +80,7 @@ public class FIReferenceSecurity implements Serializable {
    * Reference Security Type
    * @return securityType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Reference Security Type")
   @JsonIgnore
 
@@ -113,7 +114,7 @@ public class FIReferenceSecurity implements Serializable {
    * Reference Security Name
    * @return securityName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Reference Security Name")
   @JsonIgnore
 
@@ -147,7 +148,7 @@ public class FIReferenceSecurity implements Serializable {
    * Reference Calculation Method.  Methods : Active Spread, Actual Spread, Actual Spread To Worst Call, OAS, Price, Yield, Yield To No Call, Act/Act Yield To No Call, Bond Equivalent Yield,  Yield To Worst Call, Discount Yield, Discount Margin, Implied Volatility, Bullet Spread, Bullet Spread To Worst Call, Pricing Matrix
    * @return calcFromMethod
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Reference Calculation Method.  Methods : Active Spread, Actual Spread, Actual Spread To Worst Call, OAS, Price, Yield, Yield To No Call, Act/Act Yield To No Call, Bond Equivalent Yield,  Yield To Worst Call, Discount Yield, Discount Margin, Implied Volatility, Bullet Spread, Bullet Spread To Worst Call, Pricing Matrix")
   @JsonIgnore
 
@@ -181,7 +182,7 @@ public class FIReferenceSecurity implements Serializable {
    * Reference CalcFromValue
    * @return calcFromValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Reference CalcFromValue")
   @JsonIgnore
 
@@ -215,7 +216,7 @@ public class FIReferenceSecurity implements Serializable {
    * Get prepay
    * @return prepay
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PREPAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -241,7 +242,7 @@ public class FIReferenceSecurity implements Serializable {
    * Reference Settlement Date
    * @return settlement
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Reference Settlement Date")
   @JsonIgnore
 

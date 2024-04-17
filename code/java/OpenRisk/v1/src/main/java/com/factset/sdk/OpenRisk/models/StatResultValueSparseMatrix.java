@@ -40,7 +40,8 @@ import com.factset.sdk.OpenRisk.JSON;
   StatResultValueSparseMatrix.JSON_PROPERTY_INDICES,
   StatResultValueSparseMatrix.JSON_PROPERTY_VALUE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class StatResultValueSparseMatrix implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -72,7 +73,7 @@ public class StatResultValueSparseMatrix implements Serializable {
    * minimum: 1
    * @return rows
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ROWS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,7 +100,7 @@ public class StatResultValueSparseMatrix implements Serializable {
    * minimum: 1
    * @return columns
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COLUMNS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -133,7 +134,7 @@ public class StatResultValueSparseMatrix implements Serializable {
    * Get indexPointer
    * @return indexPointer
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INDEX_POINTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -167,7 +168,7 @@ public class StatResultValueSparseMatrix implements Serializable {
    * Get indices
    * @return indices
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INDICES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -201,7 +202,7 @@ public class StatResultValueSparseMatrix implements Serializable {
    * Get value
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

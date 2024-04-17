@@ -36,7 +36,8 @@ import com.factset.sdk.IRNConfiguration.JSON;
   DateSettingsDto.JSON_PROPERTY_ALLOW_EDIT,
   DateSettingsDto.JSON_PROPERTY_IS_LOCKED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class DateSettingsDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -58,7 +59,7 @@ public class DateSettingsDto implements Serializable {
    * Get allowEdit
    * @return allowEdit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ALLOW_EDIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -84,7 +85,7 @@ public class DateSettingsDto implements Serializable {
    * Get isLocked
    * @return isLocked
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IS_LOCKED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -54,7 +54,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   PostStockNotationScreenerSearchRequestDataReportedKeyFigures.JSON_PROPERTY_RETURN_ON_EQUITY,
   PostStockNotationScreenerSearchRequestDataReportedKeyFigures.JSON_PROPERTY_RATIOS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostStockNotationScreenerSearchRequestDataReportedKeyFigures implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -108,7 +109,7 @@ public class PostStockNotationScreenerSearchRequestDataReportedKeyFigures implem
    * Get fiscalYear
    * @return fiscalYear
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_FISCAL_YEAR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -134,7 +135,7 @@ public class PostStockNotationScreenerSearchRequestDataReportedKeyFigures implem
    * Get currencyDependentKeyFigures
    * @return currencyDependentKeyFigures
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CURRENCY_DEPENDENT_KEY_FIGURES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -160,7 +161,7 @@ public class PostStockNotationScreenerSearchRequestDataReportedKeyFigures implem
    * Get ebitMargin
    * @return ebitMargin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EBIT_MARGIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -186,7 +187,7 @@ public class PostStockNotationScreenerSearchRequestDataReportedKeyFigures implem
    * Get ebitdaMargin
    * @return ebitdaMargin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EBITDA_MARGIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -212,7 +213,7 @@ public class PostStockNotationScreenerSearchRequestDataReportedKeyFigures implem
    * Get netIncomeMargin
    * @return netIncomeMargin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NET_INCOME_MARGIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -238,7 +239,7 @@ public class PostStockNotationScreenerSearchRequestDataReportedKeyFigures implem
    * Get grossIncomeMargin
    * @return grossIncomeMargin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_GROSS_INCOME_MARGIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -264,7 +265,7 @@ public class PostStockNotationScreenerSearchRequestDataReportedKeyFigures implem
    * Get operatingMargin
    * @return operatingMargin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OPERATING_MARGIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -290,7 +291,7 @@ public class PostStockNotationScreenerSearchRequestDataReportedKeyFigures implem
    * Get returnOnAssets
    * @return returnOnAssets
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RETURN_ON_ASSETS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -316,7 +317,7 @@ public class PostStockNotationScreenerSearchRequestDataReportedKeyFigures implem
    * Get returnOnEquity
    * @return returnOnEquity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RETURN_ON_EQUITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -342,7 +343,7 @@ public class PostStockNotationScreenerSearchRequestDataReportedKeyFigures implem
    * Get ratios
    * @return ratios
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RATIOS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

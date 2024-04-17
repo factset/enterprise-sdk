@@ -39,7 +39,8 @@ import com.factset.sdk.OptimizationEngineAPIMultiperiod.JSON;
   OptimizerInputsTransactionCostTerm.JSON_PROPERTY_MULTIPLIER,
   OptimizerInputsTransactionCostTerm.JSON_PROPERTY_DIRECTION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerInputsTransactionCostTerm implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class OptimizerInputsTransactionCostTerm implements Serializable {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -90,7 +91,7 @@ public class OptimizerInputsTransactionCostTerm implements Serializable {
    * Get multiplier
    * @return multiplier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MULTIPLIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -116,7 +117,7 @@ public class OptimizerInputsTransactionCostTerm implements Serializable {
    * Get direction
    * @return direction
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DIRECTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

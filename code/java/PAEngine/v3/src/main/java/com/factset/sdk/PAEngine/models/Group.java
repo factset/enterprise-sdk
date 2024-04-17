@@ -41,7 +41,8 @@ import com.factset.sdk.PAEngine.JSON;
   Group.JSON_PROPERTY_DIRECTORY,
   Group.JSON_PROPERTY_CATEGORY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Group implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -66,7 +67,7 @@ public class Group implements Serializable {
    * Group Name
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Group Name")
   @JsonIgnore
 
@@ -100,7 +101,7 @@ public class Group implements Serializable {
    * Group Directory
    * @return directory
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Group Directory")
   @JsonIgnore
 
@@ -134,7 +135,7 @@ public class Group implements Serializable {
    * Group Category
    * @return category
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Group Category")
   @JsonIgnore
 

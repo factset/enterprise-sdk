@@ -38,7 +38,8 @@ import com.factset.sdk.AxiomaFixedIncomeOptimizer.JSON;
   OptimizerAccountOverrides.JSON_PROPERTY_RISK_MODEL_ID,
   OptimizerAccountOverrides.JSON_PROPERTY_CURRENCY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerAccountOverrides implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -66,7 +67,7 @@ public class OptimizerAccountOverrides implements Serializable {
    * Portfolio
    * @return portfolio
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Portfolio")
   @JsonProperty(JSON_PROPERTY_PORTFOLIO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -92,7 +93,7 @@ public class OptimizerAccountOverrides implements Serializable {
    * Benchmark
    * @return benchmark
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Benchmark")
   @JsonProperty(JSON_PROPERTY_BENCHMARK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -118,7 +119,7 @@ public class OptimizerAccountOverrides implements Serializable {
    * Risk model
    * @return riskModelId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Risk model")
   @JsonProperty(JSON_PROPERTY_RISK_MODEL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -144,7 +145,7 @@ public class OptimizerAccountOverrides implements Serializable {
    * Currency
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Currency")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

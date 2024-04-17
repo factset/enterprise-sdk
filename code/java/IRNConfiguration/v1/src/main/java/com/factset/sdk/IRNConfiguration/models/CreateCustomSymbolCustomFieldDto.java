@@ -48,7 +48,8 @@ import com.factset.sdk.IRNConfiguration.JSON;
   CreateCustomSymbolCustomFieldDto.JSON_PROPERTY_OPTIONS_CONFIG,
   CreateCustomSymbolCustomFieldDto.JSON_PROPERTY_CUSTOM_SYMBOL_TYPES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CreateCustomSymbolCustomFieldDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -111,7 +112,7 @@ public class CreateCustomSymbolCustomFieldDto implements Serializable {
    * Get code
    * @return code
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -137,7 +138,7 @@ public class CreateCustomSymbolCustomFieldDto implements Serializable {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -163,7 +164,7 @@ public class CreateCustomSymbolCustomFieldDto implements Serializable {
    * Type can be one of Text, SingleOption, MultiOptions, Numeric, Date, ExtendedText, ContactLookup
    * @return type
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Type can be one of Text, SingleOption, MultiOptions, Numeric, Date, ExtendedText, ContactLookup")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -189,7 +190,7 @@ public class CreateCustomSymbolCustomFieldDto implements Serializable {
    * Get isHidden
    * @return isHidden
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_IS_HIDDEN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -215,7 +216,7 @@ public class CreateCustomSymbolCustomFieldDto implements Serializable {
    * Get isMandatory
    * @return isMandatory
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_IS_MANDATORY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -241,7 +242,7 @@ public class CreateCustomSymbolCustomFieldDto implements Serializable {
    * Get isShownInInfobox
    * @return isShownInInfobox
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_IS_SHOWN_IN_INFOBOX)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -267,7 +268,7 @@ public class CreateCustomSymbolCustomFieldDto implements Serializable {
    * Get formulaConfig
    * @return formulaConfig
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FORMULA_CONFIG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -305,7 +306,7 @@ public class CreateCustomSymbolCustomFieldDto implements Serializable {
    * Get optionsConfig
    * @return optionsConfig
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -344,7 +345,7 @@ public class CreateCustomSymbolCustomFieldDto implements Serializable {
    * Get customSymbolTypes
    * @return customSymbolTypes
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CUSTOM_SYMBOL_TYPES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

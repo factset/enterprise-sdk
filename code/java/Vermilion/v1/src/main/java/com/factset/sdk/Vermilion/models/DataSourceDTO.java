@@ -47,7 +47,8 @@ import com.factset.sdk.Vermilion.JSON;
   DataSourceDTO.JSON_PROPERTY_LAST_UPDATED_BY,
   DataSourceDTO.JSON_PROPERTY_LAST_UPDATED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class DataSourceDTO implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -133,7 +134,7 @@ public class DataSourceDTO implements Serializable {
    * Get dataSourceId
    * @return dataSourceId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATA_SOURCE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -159,7 +160,7 @@ public class DataSourceDTO implements Serializable {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -185,7 +186,7 @@ public class DataSourceDTO implements Serializable {
    * Get code
    * @return code
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -211,7 +212,7 @@ public class DataSourceDTO implements Serializable {
    * Get dsType
    * @return dsType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DS_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -245,7 +246,7 @@ public class DataSourceDTO implements Serializable {
    * Get entities
    * @return entities
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ENTITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -271,7 +272,7 @@ public class DataSourceDTO implements Serializable {
    * Get outputRecordSet
    * @return outputRecordSet
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OUTPUT_RECORD_SET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -297,7 +298,7 @@ public class DataSourceDTO implements Serializable {
    * Get releaseTag
    * @return releaseTag
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RELEASE_TAG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -323,7 +324,7 @@ public class DataSourceDTO implements Serializable {
    * Get defaultDataSourceName
    * @return defaultDataSourceName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DEFAULT_DATA_SOURCE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -349,7 +350,7 @@ public class DataSourceDTO implements Serializable {
    * Get dataPreview
    * @return dataPreview
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATA_PREVIEW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -375,7 +376,7 @@ public class DataSourceDTO implements Serializable {
    * Get lastUpdatedBy
    * @return lastUpdatedBy
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LAST_UPDATED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -401,7 +402,7 @@ public class DataSourceDTO implements Serializable {
    * Get lastUpdated
    * @return lastUpdated
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LAST_UPDATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

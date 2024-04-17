@@ -38,7 +38,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   PostStockDividendListRequestDataFilterPeriod.JSON_PROPERTY_START,
   PostStockDividendListRequestDataFilterPeriod.JSON_PROPERTY_END
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostStockDividendListRequestDataFilterPeriod implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -70,7 +71,7 @@ public class PostStockDividendListRequestDataFilterPeriod implements Serializabl
    * The starting point of the date range (inclusive), or &#x60;null&#x60; to indicate that the date range extends indefinitely into the past.
    * @return start
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The starting point of the date range (inclusive), or `null` to indicate that the date range extends indefinitely into the past.")
   @JsonProperty(JSON_PROPERTY_START)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -96,7 +97,7 @@ public class PostStockDividendListRequestDataFilterPeriod implements Serializabl
    * The ending point of the date range (inclusive), or &#x60;null&#x60; to indicate that the date range extends indefinitely into the future.
    * @return end
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The ending point of the date range (inclusive), or `null` to indicate that the date range extends indefinitely into the future.")
   @JsonProperty(JSON_PROPERTY_END)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

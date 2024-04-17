@@ -41,7 +41,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20015DataEstimates.JSON_PROPERTY_SECOND_FISCAL_YEAR,
   InlineResponse20015DataEstimates.JSON_PROPERTY_THIRD_FISCAL_YEAR
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20015DataEstimates implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -66,7 +67,7 @@ public class InlineResponse20015DataEstimates implements Serializable {
    * Get firstFiscalYear
    * @return firstFiscalYear
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FIRST_FISCAL_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -92,7 +93,7 @@ public class InlineResponse20015DataEstimates implements Serializable {
    * Get secondFiscalYear
    * @return secondFiscalYear
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SECOND_FISCAL_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -118,7 +119,7 @@ public class InlineResponse20015DataEstimates implements Serializable {
    * Get thirdFiscalYear
    * @return thirdFiscalYear
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_THIRD_FISCAL_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

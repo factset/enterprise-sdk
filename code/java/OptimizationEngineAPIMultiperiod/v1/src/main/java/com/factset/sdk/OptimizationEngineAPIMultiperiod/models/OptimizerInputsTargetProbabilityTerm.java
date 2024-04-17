@@ -41,7 +41,8 @@ import com.factset.sdk.OptimizationEngineAPIMultiperiod.JSON;
   OptimizerInputsTargetProbabilityTerm.JSON_PROPERTY_THRESHOLD_MIN,
   OptimizerInputsTargetProbabilityTerm.JSON_PROPERTY_THRESHOLD_MAX
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerInputsTargetProbabilityTerm implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -72,7 +73,7 @@ public class OptimizerInputsTargetProbabilityTerm implements Serializable {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -98,7 +99,7 @@ public class OptimizerInputsTargetProbabilityTerm implements Serializable {
    * Get multiplier
    * @return multiplier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MULTIPLIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -124,7 +125,7 @@ public class OptimizerInputsTargetProbabilityTerm implements Serializable {
    * Get direction
    * @return direction
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DIRECTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -150,7 +151,7 @@ public class OptimizerInputsTargetProbabilityTerm implements Serializable {
    * Get thresholdMin
    * @return thresholdMin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_THRESHOLD_MIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -176,7 +177,7 @@ public class OptimizerInputsTargetProbabilityTerm implements Serializable {
    * Get thresholdMax
    * @return thresholdMax
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_THRESHOLD_MAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

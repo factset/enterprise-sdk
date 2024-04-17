@@ -49,7 +49,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20097Data.JSON_PROPERTY_ASSET_CLASS,
   InlineResponse20097Data.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20097Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -86,7 +87,7 @@ public class InlineResponse20097Data implements Serializable {
    * Identifier of the instrument.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the instrument.")
   @JsonIgnore
 
@@ -120,7 +121,7 @@ public class InlineResponse20097Data implements Serializable {
    * Asset class-unspecific name in English.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Asset class-unspecific name in English.")
   @JsonIgnore
 
@@ -154,7 +155,7 @@ public class InlineResponse20097Data implements Serializable {
    * The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument.
    * @return isin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument.")
   @JsonIgnore
 
@@ -188,7 +189,7 @@ public class InlineResponse20097Data implements Serializable {
    * Get nsin
    * @return nsin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NSIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -214,7 +215,7 @@ public class InlineResponse20097Data implements Serializable {
    * Get fsym
    * @return fsym
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FSYM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -240,7 +241,7 @@ public class InlineResponse20097Data implements Serializable {
    * Name of the asset class of the instrument. Possible values are listed in the enumeration in the parameter description.
    * @return assetClass
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the asset class of the instrument. Possible values are listed in the enumeration in the parameter description.")
   @JsonIgnore
 
@@ -282,7 +283,7 @@ public class InlineResponse20097Data implements Serializable {
    * Instrument type as defined by FactSet Digital Solutions. Instrument categories are arranged in a hierarchy, with level 1 representing the most coarse granularity and further levels successively refining the granularity (see MDG category system 18).
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Instrument type as defined by FactSet Digital Solutions. Instrument categories are arranged in a hierarchy, with level 1 representing the most coarse granularity and further levels successively refining the granularity (see MDG category system 18).")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -6,7 +6,7 @@ import com.factset.sdk.FactSetFundamentals.ApiResponse;
 import com.factset.sdk.FactSetFundamentals.Configuration;
 import com.factset.sdk.FactSetFundamentals.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -15,7 +15,8 @@ import com.factset.sdk.FactSetFundamentals.models.ErrorResponse;
 import com.factset.sdk.FactSetFundamentals.models.MetricsRequest;
 import com.factset.sdk.FactSetFundamentals.models.MetricsResponse;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class DataItemsApi {
   private ApiClient apiClient;
 

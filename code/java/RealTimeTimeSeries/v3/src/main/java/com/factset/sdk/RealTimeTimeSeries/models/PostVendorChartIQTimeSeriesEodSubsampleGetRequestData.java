@@ -43,7 +43,8 @@ import com.factset.sdk.RealTimeTimeSeries.JSON;
   PostVendorChartIQTimeSeriesEodSubsampleGetRequestData.JSON_PROPERTY_INTERVAL,
   PostVendorChartIQTimeSeriesEodSubsampleGetRequestData.JSON_PROPERTY_ADJUSTMENTS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostVendorChartIQTimeSeriesEodSubsampleGetRequestData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -162,7 +163,7 @@ public class PostVendorChartIQTimeSeriesEodSubsampleGetRequestData implements Se
    * Get identifier
    * @return identifier
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -188,7 +189,7 @@ public class PostVendorChartIQTimeSeriesEodSubsampleGetRequestData implements Se
    * Type of the price as configured for the customer.
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Type of the price as configured for the customer.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -214,7 +215,7 @@ public class PostVendorChartIQTimeSeriesEodSubsampleGetRequestData implements Se
    * Quality of the price.
    * @return quality
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Quality of the price.")
   @JsonProperty(JSON_PROPERTY_QUALITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -240,7 +241,7 @@ public class PostVendorChartIQTimeSeriesEodSubsampleGetRequestData implements Se
    * Get interval
    * @return interval
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -266,7 +267,7 @@ public class PostVendorChartIQTimeSeriesEodSubsampleGetRequestData implements Se
    * Get adjustments
    * @return adjustments
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ADJUSTMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

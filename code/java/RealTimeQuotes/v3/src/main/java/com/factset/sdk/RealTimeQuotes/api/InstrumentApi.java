@@ -6,7 +6,7 @@ import com.factset.sdk.RealTimeQuotes.ApiResponse;
 import com.factset.sdk.RealTimeQuotes.Configuration;
 import com.factset.sdk.RealTimeQuotes.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -49,7 +49,8 @@ import com.factset.sdk.RealTimeQuotes.models.PostInstrumentNotationListRequest;
 import com.factset.sdk.RealTimeQuotes.models.PostInstrumentRatingGradeListRequest;
 import com.factset.sdk.RealTimeQuotes.models.PostInstrumentSelectionListMembersListRequest;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InstrumentApi {
   private ApiClient apiClient;
 

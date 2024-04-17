@@ -6,7 +6,7 @@ import com.factset.sdk.UniversalScreening.ApiResponse;
 import com.factset.sdk.UniversalScreening.Configuration;
 import com.factset.sdk.UniversalScreening.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -17,7 +17,8 @@ import com.factset.sdk.UniversalScreening.models.ResourceStatusResponse;
 import com.factset.sdk.UniversalScreening.models.ScreenArchiveOFDBParameters;
 import com.factset.sdk.UniversalScreening.models.ScreenCalcParameters;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ScreeningOperationsApi {
   private ApiClient apiClient;
 

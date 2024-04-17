@@ -42,7 +42,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20080DataTradingVolume.JSON_PROPERTY_AVERAGE,
   InlineResponse20080DataTradingVolume.JSON_PROPERTY_SUM
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20080DataTradingVolume implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class InlineResponse20080DataTradingVolume implements Serializable {
    * Arithmetic mean of the daily trading volumes.
    * @return average
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Arithmetic mean of the daily trading volumes.")
   @JsonIgnore
 
@@ -98,7 +99,7 @@ public class InlineResponse20080DataTradingVolume implements Serializable {
    * Sum of the daily trading volumes.
    * @return sum
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Sum of the daily trading volumes.")
   @JsonIgnore
 

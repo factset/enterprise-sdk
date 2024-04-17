@@ -44,7 +44,8 @@ import com.factset.sdk.FactSetOptions.JSON;
   ImpliedVolatility.JSON_PROPERTY_FSYM_ID,
   ImpliedVolatility.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ImpliedVolatility implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -72,7 +73,7 @@ public class ImpliedVolatility implements Serializable {
    * The estimated volatility of a security&#39;s price * In general, implied volatility increases when the market is bearish and decreases when the market is bullish. This is due to the common belief that bearish markets are more risky than bullish markets.  * In addition to known factors such as market price, interest rate, expiration date, and strike price, implied volatility is used in calculating an option&#39;s premium.  * Barone-Adesi model used for American Style options and Black-Scholes model for European Style options. 
    * @return impliedVolatility
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "61.744664", value = "The estimated volatility of a security's price * In general, implied volatility increases when the market is bearish and decreases when the market is bullish. This is due to the common belief that bearish markets are more risky than bullish markets.  * In addition to known factors such as market price, interest rate, expiration date, and strike price, implied volatility is used in calculating an option's premium.  * Barone-Adesi model used for American Style options and Black-Scholes model for European Style options. ")
   @JsonIgnore
 
@@ -106,7 +107,7 @@ public class ImpliedVolatility implements Serializable {
    * The date the data is as of in YYYY-MM-DD format.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Fri May 07 00:00:00 UTC 2021", value = "The date the data is as of in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -140,7 +141,7 @@ public class ImpliedVolatility implements Serializable {
    * FactSet&#39;s Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options)
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "TSLA.US#CD33M", value = "FactSet's Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options)")
   @JsonIgnore
 
@@ -174,7 +175,7 @@ public class ImpliedVolatility implements Serializable {
    * The requested identifier submitted in the query.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "TSLA.US#CD33M-USA", value = "The requested identifier submitted in the query.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

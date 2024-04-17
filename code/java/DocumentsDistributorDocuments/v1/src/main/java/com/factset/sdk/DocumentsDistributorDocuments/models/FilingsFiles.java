@@ -36,7 +36,8 @@ import com.factset.sdk.DocumentsDistributorDocuments.JSON;
   FilingsFiles.JSON_PROPERTY_FILE_PATH,
   FilingsFiles.JSON_PROPERTY_FILE_URL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FilingsFiles implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -58,7 +59,7 @@ public class FilingsFiles implements Serializable {
    * path of the filings document.
    * @return filePath
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "path of the filings document.")
   @JsonProperty(JSON_PROPERTY_FILE_PATH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -84,7 +85,7 @@ public class FilingsFiles implements Serializable {
    * Download link for the filings document.
    * @return fileUrl
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Download link for the filings document.")
   @JsonProperty(JSON_PROPERTY_FILE_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

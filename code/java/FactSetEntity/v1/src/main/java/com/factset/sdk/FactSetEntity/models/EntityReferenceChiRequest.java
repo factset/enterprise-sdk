@@ -36,7 +36,8 @@ import com.factset.sdk.FactSetEntity.JSON;
 @JsonPropertyOrder({
   EntityReferenceChiRequest.JSON_PROPERTY_IDS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EntityReferenceChiRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class EntityReferenceChiRequest implements Serializable {
    * Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP, BBG and SEDOL are accepted input. 
    * @return ids
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "[\"05X6LC-E\",\"062T6N-E\"]", required = true, value = "Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP, BBG and SEDOL are accepted input. ")
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

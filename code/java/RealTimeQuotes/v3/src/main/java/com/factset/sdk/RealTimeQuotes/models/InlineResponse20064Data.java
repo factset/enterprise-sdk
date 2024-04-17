@@ -44,7 +44,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20064Data.JSON_PROPERTY_STATUS,
   InlineResponse20064Data.JSON_PROPERTY_RATINGS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20064Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -72,7 +73,7 @@ public class InlineResponse20064Data implements Serializable {
    * MDG identifier of the instrument.
    * @return idInstrument
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "MDG identifier of the instrument.")
   @JsonIgnore
 
@@ -106,7 +107,7 @@ public class InlineResponse20064Data implements Serializable {
    * Identifier used in the request.
    * @return sourceIdentifier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier used in the request.")
   @JsonIgnore
 
@@ -140,7 +141,7 @@ public class InlineResponse20064Data implements Serializable {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -174,7 +175,7 @@ public class InlineResponse20064Data implements Serializable {
    * Rating details. See endpoint &#x60;/rating/system/get&#x60; for details regarding a rating system, endpoint &#x60;/rating/grade/listBySystem&#x60; for all rating grades of a rating system, and endpoint &#x60;/rating/grade/get&#x60; for details regarding a rating grade.
    * @return ratings
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Rating details. See endpoint `/rating/system/get` for details regarding a rating system, endpoint `/rating/grade/listBySystem` for all rating grades of a rating system, and endpoint `/rating/grade/get` for details regarding a rating grade.")
   @JsonProperty(JSON_PROPERTY_RATINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -70,7 +70,8 @@ import com.factset.sdk.FactSetConcordance.JSON;
   EntityMappingRequest.JSON_PROPERTY_CLIENT_WKN,
   EntityMappingRequest.JSON_PROPERTY_CLIENT_ADDITIONAL_CONTEXT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EntityMappingRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -206,7 +207,7 @@ public class EntityMappingRequest implements Serializable {
    * The universe to save this mapping to.
    * @return universeId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "1", required = true, value = "The universe to save this mapping to.")
   @JsonProperty(JSON_PROPERTY_UNIVERSE_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -232,7 +233,7 @@ public class EntityMappingRequest implements Serializable {
    * A unique identifier supplied by the user. ClientId is saved to the user&#39;s Concordance universe and will be used as the identifier for that entity within the universe.
    * @return clientId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "FDS-USA", required = true, value = "A unique identifier supplied by the user. ClientId is saved to the user's Concordance universe and will be used as the identifier for that entity within the universe.")
   @JsonProperty(JSON_PROPERTY_CLIENT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -258,7 +259,7 @@ public class EntityMappingRequest implements Serializable {
    * FactSet Entity Identifier mapped to the submitted entity.
    * @return entityId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0016YD-E", value = "FactSet Entity Identifier mapped to the submitted entity.")
   @JsonProperty(JSON_PROPERTY_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -284,7 +285,7 @@ public class EntityMappingRequest implements Serializable {
    * Name of entity to match.
    * @return clientName
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "FactSet", required = true, value = "Name of entity to match.")
   @JsonProperty(JSON_PROPERTY_CLIENT_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -310,7 +311,7 @@ public class EntityMappingRequest implements Serializable {
    * ISO2 country code corresponding to the Entity name.
    * @return clientCountry
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "US", value = "ISO2 country code corresponding to the Entity name.")
   @JsonProperty(JSON_PROPERTY_CLIENT_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -336,7 +337,7 @@ public class EntityMappingRequest implements Serializable {
    * ISO Code of State or Province location to map Entity.
    * @return clientState
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "CT", value = "ISO Code of State or Province location to map Entity.")
   @JsonProperty(JSON_PROPERTY_CLIENT_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -362,7 +363,7 @@ public class EntityMappingRequest implements Serializable {
    * URL corresponding to the entity name.
    * @return clientUrl
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "www.factset.com", value = "URL corresponding to the entity name.")
   @JsonProperty(JSON_PROPERTY_CLIENT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -388,7 +389,7 @@ public class EntityMappingRequest implements Serializable {
    * User provided input for Bloomberg Listing/Regional/Security ID symbol type.
    * @return clientBbgFigi
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "BBG009S39JY5", value = "User provided input for Bloomberg Listing/Regional/Security ID symbol type.")
   @JsonProperty(JSON_PROPERTY_CLIENT_BBG_FIGI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -414,7 +415,7 @@ public class EntityMappingRequest implements Serializable {
    * User provided input for Bloomberg Listing and Regional Ticker symbol type.
    * @return clientBbgTicker
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "GOOGL UW", value = "User provided input for Bloomberg Listing and Regional Ticker symbol type.")
   @JsonProperty(JSON_PROPERTY_CLIENT_BBG_TICKER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -440,7 +441,7 @@ public class EntityMappingRequest implements Serializable {
    * User provided input for BICCode, bank indentification code symbol type.
    * @return clientBic
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "ABXXHKH1", value = "User provided input for BICCode, bank indentification code symbol type.")
   @JsonProperty(JSON_PROPERTY_CLIENT_BIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -466,7 +467,7 @@ public class EntityMappingRequest implements Serializable {
    * User provided input for CIK, Edgar Central Index Keys symbol type.
    * @return clientCik
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "100331", value = "User provided input for CIK, Edgar Central Index Keys symbol type.")
   @JsonProperty(JSON_PROPERTY_CLIENT_CIK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -492,7 +493,7 @@ public class EntityMappingRequest implements Serializable {
    * User provided input for CRD, Central Registration Depository symbol type.
    * @return clientCrd
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "149722", value = "User provided input for CRD, Central Registration Depository symbol type.")
   @JsonProperty(JSON_PROPERTY_CLIENT_CRD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -518,7 +519,7 @@ public class EntityMappingRequest implements Serializable {
    * User provided input for CUSIP symbol type.
    * @return clientCusip
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "02079K305", value = "User provided input for CUSIP symbol type.")
   @JsonProperty(JSON_PROPERTY_CLIENT_CUSIP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -544,7 +545,7 @@ public class EntityMappingRequest implements Serializable {
    * User provided input for DUNS, Dun&amp;Bradstreet symbol type.
    * @return clientDuns
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "687741991", value = "User provided input for DUNS, Dun&Bradstreet symbol type.")
   @JsonProperty(JSON_PROPERTY_CLIENT_DUNS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -570,7 +571,7 @@ public class EntityMappingRequest implements Serializable {
    * User provided input for EmployerIdentificationNumber, EIN symbol type.
    * @return clientEin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "953540776", value = "User provided input for EmployerIdentificationNumber, EIN symbol type.")
   @JsonProperty(JSON_PROPERTY_CLIENT_EIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -596,7 +597,7 @@ public class EntityMappingRequest implements Serializable {
    * User provided input for FactSet Identifier, FactSet -E,-S,-R, -L Permanent Identifier symbol type.
    * @return clientFactsetId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0013TZ-E", value = "User provided input for FactSet Identifier, FactSet -E,-S,-R, -L Permanent Identifier symbol type.")
   @JsonProperty(JSON_PROPERTY_CLIENT_FACTSET_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -622,7 +623,7 @@ public class EntityMappingRequest implements Serializable {
    * User provided input for FitchCreditRating, Fitch Ratings Identifier symbol type.
    * @return clientFitch
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "47504", value = "User provided input for FitchCreditRating, Fitch Ratings Identifier symbol type.")
   @JsonProperty(JSON_PROPERTY_CLIENT_FITCH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -648,7 +649,7 @@ public class EntityMappingRequest implements Serializable {
    * User provided input for GVKEY+IID, Compustat Global Company Key and Issue Identifier symbol type.
    * @return clientGvkeyIid
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "107481001", value = "User provided input for GVKEY+IID, Compustat Global Company Key and Issue Identifier symbol type.")
   @JsonProperty(JSON_PROPERTY_CLIENT_GVKEY_IID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -674,7 +675,7 @@ public class EntityMappingRequest implements Serializable {
    * User provided input for GVKEY, Compustat Global Company Key symbol type.
    * @return clientGvkey
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "107481", value = "User provided input for GVKEY, Compustat Global Company Key symbol type.")
   @JsonProperty(JSON_PROPERTY_CLIENT_GVKEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -700,7 +701,7 @@ public class EntityMappingRequest implements Serializable {
    * User provided input for ISIN symbol type.
    * @return clientIsin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "US02079K305", value = "User provided input for ISIN symbol type.")
   @JsonProperty(JSON_PROPERTY_CLIENT_ISIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -726,7 +727,7 @@ public class EntityMappingRequest implements Serializable {
    * User provided input for JCN , Japanese Corporate Number symbol type.
    * @return clientJcn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "3120001077477", value = "User provided input for JCN , Japanese Corporate Number symbol type.")
   @JsonProperty(JSON_PROPERTY_CLIENT_JCN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -752,7 +753,7 @@ public class EntityMappingRequest implements Serializable {
    * User provided input for LegalEntityIdentifier, LEI symbol type.
    * @return clientLei
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "549300A6K7JX8EX2QZ33", value = "User provided input for LegalEntityIdentifier, LEI symbol type.")
   @JsonProperty(JSON_PROPERTY_CLIENT_LEI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -778,7 +779,7 @@ public class EntityMappingRequest implements Serializable {
    * User provided input for LXID, Markit Syndicated Loan Identifier symbol type.
    * @return clientLxid
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "LX113630", value = "User provided input for LXID, Markit Syndicated Loan Identifier symbol type.")
   @JsonProperty(JSON_PROPERTY_CLIENT_LXID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -804,7 +805,7 @@ public class EntityMappingRequest implements Serializable {
    * User provided input for MoodysIssuer, Moody&#39;s Ratings Identifier symbol type.
    * @return clientMd
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "823736553", value = "User provided input for MoodysIssuer, Moody's Ratings Identifier symbol type.")
   @JsonProperty(JSON_PROPERTY_CLIENT_MD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -830,7 +831,7 @@ public class EntityMappingRequest implements Serializable {
    * User provided input for PriceTicker symbol type.
    * @return clientTicker
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "PriceTicker", value = "User provided input for PriceTicker symbol type.")
   @JsonProperty(JSON_PROPERTY_CLIENT_TICKER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -856,7 +857,7 @@ public class EntityMappingRequest implements Serializable {
    * Name of the priority column as provided by the user.
    * @return clientPriority
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "HIGH", value = "Name of the priority column as provided by the user.")
   @JsonProperty(JSON_PROPERTY_CLIENT_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -882,7 +883,7 @@ public class EntityMappingRequest implements Serializable {
    * User provided input for RedCode, Markit Reference Entity Identifier symbol type.
    * @return clientRedCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "4C933G", value = "User provided input for RedCode, Markit Reference Entity Identifier symbol type.")
   @JsonProperty(JSON_PROPERTY_CLIENT_RED_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -908,7 +909,7 @@ public class EntityMappingRequest implements Serializable {
    * User provided input for FederalReserveRSSDIdentifier, RSSD symbol type.
    * @return clientRssd
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1139297", value = "User provided input for FederalReserveRSSDIdentifier, RSSD symbol type.")
   @JsonProperty(JSON_PROPERTY_CLIENT_RSSD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -934,7 +935,7 @@ public class EntityMappingRequest implements Serializable {
    * User provided input for SEDOL symbol type.
    * @return clientSedol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "BYZ5YB6", value = "User provided input for SEDOL symbol type.")
   @JsonProperty(JSON_PROPERTY_CLIENT_SEDOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -960,7 +961,7 @@ public class EntityMappingRequest implements Serializable {
    * User provided input for S&amp;PRating, S&amp;P Ratings Identifier.
    * @return clientSpr
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "301939", value = "User provided input for S&PRating, S&P Ratings Identifier.")
   @JsonProperty(JSON_PROPERTY_CLIENT_SPR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -986,7 +987,7 @@ public class EntityMappingRequest implements Serializable {
    * User provided input for TickerExch symbol type.
    * @return clientTickerExchange
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "GOOGL-NAS", value = "User provided input for TickerExch symbol type.")
   @JsonProperty(JSON_PROPERTY_CLIENT_TICKER_EXCHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1012,7 +1013,7 @@ public class EntityMappingRequest implements Serializable {
    * User provided input for TickerRegion symbol type
    * @return clientTickerRegion
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "GOOGL-US", value = "User provided input for TickerRegion symbol type")
   @JsonProperty(JSON_PROPERTY_CLIENT_TICKER_REGION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1038,7 +1039,7 @@ public class EntityMappingRequest implements Serializable {
    * User provided input for UKCompanyHouse symbol type
    * @return clientUkch
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "CE012494", value = "User provided input for UKCompanyHouse symbol type")
   @JsonProperty(JSON_PROPERTY_CLIENT_UKCH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1064,7 +1065,7 @@ public class EntityMappingRequest implements Serializable {
    * User provided input for VALOR, Valoren (\&quot;Valor\&quot;) Identification symbol type.
    * @return clientValoren
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "685558", value = "User provided input for VALOR, Valoren (\"Valor\") Identification symbol type.")
   @JsonProperty(JSON_PROPERTY_CLIENT_VALOREN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1090,7 +1091,7 @@ public class EntityMappingRequest implements Serializable {
    * User provided input for WKN, German Securities Identification symbol type.
    * @return clientWkn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "A0MU9T", value = "User provided input for WKN, German Securities Identification symbol type.")
   @JsonProperty(JSON_PROPERTY_CLIENT_WKN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1124,7 +1125,7 @@ public class EntityMappingRequest implements Serializable {
    * Any additional context information that can be saved along with other input values for mapping. To be used by Managed Service for mapping any unmapped records.  
    * @return clientAdditionalContext
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "{\"Address\":\"123 Main St\",\"Phone\":\"555-555-5555\",\"City\":\"New York\"}", value = "Any additional context information that can be saved along with other input values for mapping. To be used by Managed Service for mapping any unmapped records.  ")
   @JsonProperty(JSON_PROPERTY_CLIENT_ADDITIONAL_CONTEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

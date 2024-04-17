@@ -48,7 +48,8 @@ import com.factset.sdk.FactSetBenchmarks.JSON;
   IndexHistoryRequest.JSON_PROPERTY_CALENDAR,
   IndexHistoryRequest.JSON_PROPERTY_IMPLIED_DATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class IndexHistoryRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -104,7 +105,7 @@ public class IndexHistoryRequest implements Serializable {
    * Benchmark Identifiers. Reference the helper endpoint **_/id-list** to get a sample list of  valid identifiers.
    * @return ids
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "[\"SP50\"]", required = true, value = "Benchmark Identifiers. Reference the helper endpoint **_/id-list** to get a sample list of  valid identifiers.")
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -130,7 +131,7 @@ public class IndexHistoryRequest implements Serializable {
    * Requested start date expressed in YYYY-MM-DD format.
    * @return startDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2018-12-31", value = "Requested start date expressed in YYYY-MM-DD format.")
   @JsonProperty(JSON_PROPERTY_START_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -156,7 +157,7 @@ public class IndexHistoryRequest implements Serializable {
    * Requested end date for Range expressed in YYYY-MM-DD format.
    * @return endDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2019-12-31", value = "Requested end date for Range expressed in YYYY-MM-DD format.")
   @JsonProperty(JSON_PROPERTY_END_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -182,7 +183,7 @@ public class IndexHistoryRequest implements Serializable {
    * Get frequency
    * @return frequency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FREQUENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -208,7 +209,7 @@ public class IndexHistoryRequest implements Serializable {
    * Get returnType
    * @return returnType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RETURN_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -234,7 +235,7 @@ public class IndexHistoryRequest implements Serializable {
    * Get hedgeType
    * @return hedgeType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_HEDGE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -260,7 +261,7 @@ public class IndexHistoryRequest implements Serializable {
    * Currency for response.
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "Currency for response.")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -286,7 +287,7 @@ public class IndexHistoryRequest implements Serializable {
    * Get calendar
    * @return calendar
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CALENDAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -312,7 +313,7 @@ public class IndexHistoryRequest implements Serializable {
    * Get impliedDate
    * @return impliedDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IMPLIED_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

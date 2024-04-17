@@ -40,7 +40,8 @@ import com.factset.sdk.FactSetTermsandConditions.JSON;
   CouponSchedules.JSON_PROPERTY_COUPON_EFF_DATE,
   CouponSchedules.JSON_PROPERTY_COUPON_RATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CouponSchedules implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class CouponSchedules implements Serializable {
    * Security identifier used in the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Security identifier used in the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -94,7 +95,7 @@ public class CouponSchedules implements Serializable {
    * FactSet Permanent Security Identifier.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "FactSet Permanent Security Identifier.")
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -120,7 +121,7 @@ public class CouponSchedules implements Serializable {
    * Coupon Effective Date
    * @return couponEffDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Coupon Effective Date")
   @JsonProperty(JSON_PROPERTY_COUPON_EFF_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -146,7 +147,7 @@ public class CouponSchedules implements Serializable {
    * Coupon Rate
    * @return couponRate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Coupon Rate")
   @JsonProperty(JSON_PROPERTY_COUPON_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

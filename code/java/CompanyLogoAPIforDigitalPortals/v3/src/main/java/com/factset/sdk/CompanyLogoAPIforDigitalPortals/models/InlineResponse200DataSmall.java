@@ -37,7 +37,8 @@ import com.factset.sdk.CompanyLogoAPIforDigitalPortals.JSON;
   InlineResponse200DataSmall.JSON_PROPERTY_URL,
   InlineResponse200DataSmall.JSON_PROPERTY_MIME_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse200DataSmall implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -59,7 +60,7 @@ public class InlineResponse200DataSmall implements Serializable {
    * URL of the logo.
    * @return url
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "URL of the logo.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -85,7 +86,7 @@ public class InlineResponse200DataSmall implements Serializable {
    * MIME type of the logo.
    * @return mimeType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "MIME type of the logo.")
   @JsonProperty(JSON_PROPERTY_MIME_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

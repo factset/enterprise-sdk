@@ -43,7 +43,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20061DataRoles.JSON_PROPERTY_NAME,
   InlineResponse20061DataRoles.JSON_PROPERTY_LEGAL_ENTITIES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20061DataRoles implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class InlineResponse20061DataRoles implements Serializable {
    * Identifier of a role.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of a role.")
   @JsonIgnore
 
@@ -102,7 +103,7 @@ public class InlineResponse20061DataRoles implements Serializable {
    * Name of the role.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the role.")
   @JsonIgnore
 
@@ -144,7 +145,7 @@ public class InlineResponse20061DataRoles implements Serializable {
    * Legal entities and their respective compliance properties with regard to the role.
    * @return legalEntities
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Legal entities and their respective compliance properties with regard to the role.")
   @JsonProperty(JSON_PROPERTY_LEGAL_ENTITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

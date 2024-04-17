@@ -6,7 +6,7 @@ import com.factset.sdk.OpenFactSetPartnersDocuments.ApiResponse;
 import com.factset.sdk.OpenFactSetPartnersDocuments.Configuration;
 import com.factset.sdk.OpenFactSetPartnersDocuments.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -16,7 +16,8 @@ import java.time.LocalDate;
 import com.factset.sdk.OpenFactSetPartnersDocuments.models.OrbitResponse;
 import com.factset.sdk.OpenFactSetPartnersDocuments.models.OrbithistoryResponse;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OrbitApi {
   private ApiClient apiClient;
 

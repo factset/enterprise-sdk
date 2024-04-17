@@ -35,7 +35,8 @@ import com.factset.sdk.FactSetPeople.JSON;
 @JsonPropertyOrder({
   PeopleProfilesRequest.JSON_PROPERTY_IDS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PeopleProfilesRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -67,7 +68,7 @@ public class PeopleProfilesRequest implements Serializable {
    * FactSet People Entity Ids. 
    * @return ids
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "[\"0DPHLH-E\"]", required = true, value = "FactSet People Entity Ids. ")
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

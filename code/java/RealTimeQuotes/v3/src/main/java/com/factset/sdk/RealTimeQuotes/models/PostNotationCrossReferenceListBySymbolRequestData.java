@@ -38,7 +38,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   PostNotationCrossReferenceListBySymbolRequestData.JSON_PROPERTY_SYMBOL,
   PostNotationCrossReferenceListBySymbolRequestData.JSON_PROPERTY_FILTER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostNotationCrossReferenceListBySymbolRequestData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class PostNotationCrossReferenceListBySymbolRequestData implements Serial
    * Market-specific code to identify a notation.
    * @return symbol
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Market-specific code to identify a notation.")
   @JsonProperty(JSON_PROPERTY_SYMBOL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -94,7 +95,7 @@ public class PostNotationCrossReferenceListBySymbolRequestData implements Serial
    * Get filter
    * @return filter
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FILTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -44,7 +44,8 @@ import com.factset.sdk.DirectStreamingofTransactionMessages.JSON;
   Transactions.JSON_PROPERTY_PLACEMENTS,
   Transactions.JSON_PROPERTY_ORDERS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Transactions implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -81,7 +82,7 @@ public class Transactions implements Serializable {
    * List of executions
    * @return executions
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of executions")
   @JsonIgnore
 
@@ -127,7 +128,7 @@ public class Transactions implements Serializable {
    * List of placements
    * @return placements
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of placements")
   @JsonIgnore
 
@@ -173,7 +174,7 @@ public class Transactions implements Serializable {
    * List of orders
    * @return orders
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of orders")
   @JsonIgnore
 

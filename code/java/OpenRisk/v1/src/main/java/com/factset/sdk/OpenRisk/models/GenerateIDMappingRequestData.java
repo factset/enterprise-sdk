@@ -52,7 +52,8 @@ import com.factset.sdk.OpenRisk.JSON;
   GenerateIDMappingRequestData.JSON_PROPERTY_RISK_MODEL_APPEND_DATA,
   GenerateIDMappingRequestData.JSON_PROPERTY_UNDERLYING_IDS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class GenerateIDMappingRequestData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -116,7 +117,7 @@ public class GenerateIDMappingRequestData implements Serializable {
    * Allow certain assets to be entirely riskless; certain models always override this to be true. Examples of asset types to which this applies includes offset cash.
    * @return allowForcedRisklessAssets
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Allow certain assets to be entirely riskless; certain models always override this to be true. Examples of asset types to which this applies includes offset cash.")
   @JsonProperty(JSON_PROPERTY_ALLOW_FORCED_RISKLESS_ASSETS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -150,7 +151,7 @@ public class GenerateIDMappingRequestData implements Serializable {
    * **(since 1.4.0)** A mapping of security ID to its asset type as the standard asset type keys. When this input is in a request, it is used to (1) identify assets that use Underlying IDs from &#39;underlyingIds&#39; input, and (2) identify asset types compatible with automatic removal of their contribution of currency to risk unless any form of the &#39;removeCurrencyRisk&#39; input is also provided. When this input is used in the request, underlying IDs (provided via &#39;underlyingIds&#39; input) are only respected for the following standard asset type keys (all other underlying IDs will be discarded): refer to [OA:22019](https://my.apps.factset.com/oa/pages/22019) for compatible asset type keys and more details.
    * @return assetTypes
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "{\"FDS\":\"EQ_EQ_COMMON\",\"CFDTOIBM\":\"OTH_CFD\"}", value = "**(since 1.4.0)** A mapping of security ID to its asset type as the standard asset type keys. When this input is in a request, it is used to (1) identify assets that use Underlying IDs from 'underlyingIds' input, and (2) identify asset types compatible with automatic removal of their contribution of currency to risk unless any form of the 'removeCurrencyRisk' input is also provided. When this input is used in the request, underlying IDs (provided via 'underlyingIds' input) are only respected for the following standard asset type keys (all other underlying IDs will be discarded): refer to [OA:22019](https://my.apps.factset.com/oa/pages/22019) for compatible asset type keys and more details.")
   @JsonProperty(JSON_PROPERTY_ASSET_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -176,7 +177,7 @@ public class GenerateIDMappingRequestData implements Serializable {
    * Calendar code for risk model and holdings data to fetch and use. Ignored only for composite asset definitions provided as inputs via &#39;compositeAssets&#39; field. See also [OA:2012](https://my.apps.factset.com/oa/pages/2012#calendar) for global codes, \&quot;FIVEDAY\&quot; or \&quot;SEVENDAY\&quot; calendars and see [OA:16610](https://my.apps.factset.com/oa/pages/16610#country) for country codes (cf. &#39;Calendar Code&#39; column).
    * @return calendar
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FJH", value = "Calendar code for risk model and holdings data to fetch and use. Ignored only for composite asset definitions provided as inputs via 'compositeAssets' field. See also [OA:2012](https://my.apps.factset.com/oa/pages/2012#calendar) for global codes, \"FIVEDAY\" or \"SEVENDAY\" calendars and see [OA:16610](https://my.apps.factset.com/oa/pages/16610#country) for country codes (cf. 'Calendar Code' column).")
   @JsonProperty(JSON_PROPERTY_CALENDAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -210,7 +211,7 @@ public class GenerateIDMappingRequestData implements Serializable {
    * IDs to be defined as composite assets with their constituents&#39; IDs and market values. The typical use case is for risk look-through of ETF or Funds&#39; constituents. When defining composite assets and creating portfolios which hold them, the IDs provided must be an exact match.
    * @return compositeAssets
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "{\"CA1_to_IBM_and_CA2\":{\"ids\":[\"IBM\",\"CA2\"],\"marketValues\":[0.45,0.55]},\"CA2\":{\"ids\":[\"VZ\",\"cfd_FDS\"],\"marketValues\":[0.6,0.4]}}", value = "IDs to be defined as composite assets with their constituents' IDs and market values. The typical use case is for risk look-through of ETF or Funds' constituents. When defining composite assets and creating portfolios which hold them, the IDs provided must be an exact match.")
   @JsonProperty(JSON_PROPERTY_COMPOSITE_ASSETS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -236,7 +237,7 @@ public class GenerateIDMappingRequestData implements Serializable {
    * ISO-4217 currency code for risk model and holdings data to fetch and use. Ignored only for composite asset definitions provided as inputs via &#39;compositeAssets&#39; field.
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "EUR", value = "ISO-4217 currency code for risk model and holdings data to fetch and use. Ignored only for composite asset definitions provided as inputs via 'compositeAssets' field.")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -262,7 +263,7 @@ public class GenerateIDMappingRequestData implements Serializable {
    * Get date
    * @return date
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -288,7 +289,7 @@ public class GenerateIDMappingRequestData implements Serializable {
    * Get holdings
    * @return holdings
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_HOLDINGS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -314,7 +315,7 @@ public class GenerateIDMappingRequestData implements Serializable {
    * Get indexMapping
    * @return indexMapping
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INDEX_MAPPING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -340,7 +341,7 @@ public class GenerateIDMappingRequestData implements Serializable {
    * Get laggingDates
    * @return laggingDates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LAGGING_DATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -366,7 +367,7 @@ public class GenerateIDMappingRequestData implements Serializable {
    * Model code
    * @return riskModel
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "FDS:GLOBAL_EQUITY_M_V1", required = true, value = "Model code")
   @JsonProperty(JSON_PROPERTY_RISK_MODEL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -392,7 +393,7 @@ public class GenerateIDMappingRequestData implements Serializable {
    * Get riskModelAppendData
    * @return riskModelAppendData
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RISK_MODEL_APPEND_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -426,7 +427,7 @@ public class GenerateIDMappingRequestData implements Serializable {
    * A map of security IDs to their underlying IDs. When &#39;assetTypes&#39; input is in a request, underlying IDs provided via this input are only respected for the following standard asset type keys (all other underlying IDs will be discarded): refer to [OA:22019](https://my.apps.factset.com/oa/pages/22019) for compatible asset type keys and more details.
    * @return underlyingIds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "{\"CFD_IBM\":\"IBM\",\"cfd_FDS\":\"FDS\"}", value = "A map of security IDs to their underlying IDs. When 'assetTypes' input is in a request, underlying IDs provided via this input are only respected for the following standard asset type keys (all other underlying IDs will be discarded): refer to [OA:22019](https://my.apps.factset.com/oa/pages/22019) for compatible asset type keys and more details.")
   @JsonProperty(JSON_PROPERTY_UNDERLYING_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

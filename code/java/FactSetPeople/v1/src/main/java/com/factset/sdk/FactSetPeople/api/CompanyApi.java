@@ -6,7 +6,7 @@ import com.factset.sdk.FactSetPeople.ApiResponse;
 import com.factset.sdk.FactSetPeople.Configuration;
 import com.factset.sdk.FactSetPeople.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -21,7 +21,8 @@ import com.factset.sdk.FactSetPeople.models.CompanyStatsRequest;
 import com.factset.sdk.FactSetPeople.models.CompanyStatsResponse;
 import com.factset.sdk.FactSetPeople.models.ErrorResponse;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CompanyApi {
   private ApiClient apiClient;
 

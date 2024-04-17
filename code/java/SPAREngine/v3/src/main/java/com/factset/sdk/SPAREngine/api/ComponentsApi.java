@@ -6,7 +6,7 @@ import com.factset.sdk.SPAREngine.ApiResponse;
 import com.factset.sdk.SPAREngine.Configuration;
 import com.factset.sdk.SPAREngine.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -15,7 +15,8 @@ import com.factset.sdk.SPAREngine.models.ClientErrorResponse;
 import com.factset.sdk.SPAREngine.models.ComponentSummaryRoot;
 import com.factset.sdk.SPAREngine.models.SPARComponentRoot;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ComponentsApi {
   private ApiClient apiClient;
 

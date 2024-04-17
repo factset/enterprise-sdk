@@ -39,7 +39,8 @@ import com.factset.sdk.IRNConfiguration.JSON;
 @JsonPropertyOrder({
   IntegerConfigDto.JSON_PROPERTY_SPLIT_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class IntegerConfigDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -58,7 +59,7 @@ public class IntegerConfigDto implements Serializable {
    * Get splitType
    * @return splitType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

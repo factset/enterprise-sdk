@@ -38,7 +38,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   PostStockNotationScreenerSearchRequestDataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50NumberDaysMinimum.JSON_PROPERTY_VALUE,
   PostStockNotationScreenerSearchRequestDataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50NumberDaysMinimum.JSON_PROPERTY_INCLUSIVE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostStockNotationScreenerSearchRequestDataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50NumberDaysMinimum implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -62,7 +63,7 @@ public class PostStockNotationScreenerSearchRequestDataSimpleMovingAverageTradin
    * maximum: 100
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The minimum value.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -88,7 +89,7 @@ public class PostStockNotationScreenerSearchRequestDataSimpleMovingAverageTradin
    * Indicates whether the minimum value is included in the range or not.
    * @return inclusive
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the minimum value is included in the range or not.")
   @JsonProperty(JSON_PROPERTY_INCLUSIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -39,7 +39,8 @@ import com.factset.sdk.ProcuretoPayAPISCIM.JSON;
   UserResourceUrnScimSchemasExtensionFactSetVRS10UserDomainData.JSON_PROPERTY_IS_ADMINISTRATOR,
   UserResourceUrnScimSchemasExtensionFactSetVRS10UserDomainData.JSON_PROPERTY_PASSWORD
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class UserResourceUrnScimSchemasExtensionFactSetVRS10UserDomainData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -79,7 +80,7 @@ public class UserResourceUrnScimSchemasExtensionFactSetVRS10UserDomainData imple
    * Unique identifier for the Vermilion domain.
    * @return domainCode
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "btud", required = true, value = "Unique identifier for the Vermilion domain.")
   @JsonProperty(JSON_PROPERTY_DOMAIN_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -105,7 +106,7 @@ public class UserResourceUrnScimSchemasExtensionFactSetVRS10UserDomainData imple
    * Get tenancies
    * @return tenancies
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TENANCIES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -131,7 +132,7 @@ public class UserResourceUrnScimSchemasExtensionFactSetVRS10UserDomainData imple
    * Whether the User is an administrator in the associated domain.
    * @return isAdministrator
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "false", required = true, value = "Whether the User is an administrator in the associated domain.")
   @JsonProperty(JSON_PROPERTY_IS_ADMINISTRATOR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -157,7 +158,7 @@ public class UserResourceUrnScimSchemasExtensionFactSetVRS10UserDomainData imple
    * Password of the User in the associated domain. May be null upon creation of the User, but afterward may not change from a non-null to a null value.
    * @return password
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Password of the User in the associated domain. May be null upon creation of the User, but afterward may not change from a non-null to a null value.")
   @JsonProperty(JSON_PROPERTY_PASSWORD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

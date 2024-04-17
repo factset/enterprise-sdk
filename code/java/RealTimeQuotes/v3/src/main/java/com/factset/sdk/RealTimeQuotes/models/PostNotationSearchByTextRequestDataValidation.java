@@ -46,7 +46,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   PostNotationSearchByTextRequestDataValidation.JSON_PROPERTY_INSTRUMENT_SELECTION_LIST,
   PostNotationSearchByTextRequestDataValidation.JSON_PROPERTY_NOTATION_SELECTION_LIST
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostNotationSearchByTextRequestDataValidation implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -80,7 +81,7 @@ public class PostNotationSearchByTextRequestDataValidation implements Serializab
    * If &#x60;true&#x60;, only active notations will be returned. The term \&quot;active\&quot; reflects the fact that notations and related data is not being deleted immediately after becoming irrelevant (e.g. because the source does not provide a price anymore), but remains in general retrievable for up to 6 months.
    * @return onlyActive
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "If `true`, only active notations will be returned. The term \"active\" reflects the fact that notations and related data is not being deleted immediately after becoming irrelevant (e.g. because the source does not provide a price anymore), but remains in general retrievable for up to 6 months.")
   @JsonProperty(JSON_PROPERTY_ONLY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -106,7 +107,7 @@ public class PostNotationSearchByTextRequestDataValidation implements Serializab
    * Get prices
    * @return prices
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRICES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -132,7 +133,7 @@ public class PostNotationSearchByTextRequestDataValidation implements Serializab
    * Get valueUnit
    * @return valueUnit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VALUE_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,7 +159,7 @@ public class PostNotationSearchByTextRequestDataValidation implements Serializab
    * Get market
    * @return market
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MARKET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -184,7 +185,7 @@ public class PostNotationSearchByTextRequestDataValidation implements Serializab
    * Get instrumentSelectionList
    * @return instrumentSelectionList
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INSTRUMENT_SELECTION_LIST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -210,7 +211,7 @@ public class PostNotationSearchByTextRequestDataValidation implements Serializab
    * Get notationSelectionList
    * @return notationSelectionList
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NOTATION_SELECTION_LIST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

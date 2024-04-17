@@ -36,7 +36,8 @@ import com.factset.sdk.DocumentsDistributorCallStreetEvents.JSON;
 @JsonPropertyOrder({
   EventsAudioHistory400ResponseDetails.JSON_PROPERTY_VALID_PARAMETERS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EventsAudioHistory400ResponseDetails implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -55,7 +56,7 @@ public class EventsAudioHistory400ResponseDetails implements Serializable {
    * Get validParameters
    * @return validParameters
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VALID_PARAMETERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

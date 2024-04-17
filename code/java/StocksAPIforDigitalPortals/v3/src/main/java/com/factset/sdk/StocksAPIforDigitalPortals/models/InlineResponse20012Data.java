@@ -43,7 +43,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20012Data.JSON_PROPERTY_SOURCE_IDENTIFIER,
   InlineResponse20012Data.JSON_PROPERTY_BENCHMARKS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20012Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class InlineResponse20012Data implements Serializable {
    * MDG identifier of the listing.
    * @return idNotation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "MDG identifier of the listing.")
   @JsonIgnore
 
@@ -102,7 +103,7 @@ public class InlineResponse20012Data implements Serializable {
    * Identifier used in the request.
    * @return sourceIdentifier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier used in the request.")
   @JsonIgnore
 
@@ -144,7 +145,7 @@ public class InlineResponse20012Data implements Serializable {
    * List of benchmarks with related key figures. The order of the benchmark notations in the response is unrelated to their order in the request array.
    * @return benchmarks
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of benchmarks with related key figures. The order of the benchmark notations in the response is unrelated to their order in the request array.")
   @JsonProperty(JSON_PROPERTY_BENCHMARKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -38,7 +38,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   PostCompanyKeyItemsFiscalYearListByInstrumentRequestDataFiscalYears.JSON_PROPERTY_START,
   PostCompanyKeyItemsFiscalYearListByInstrumentRequestDataFiscalYears.JSON_PROPERTY_END
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostCompanyKeyItemsFiscalYearListByInstrumentRequestDataFiscalYears implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -60,7 +61,7 @@ public class PostCompanyKeyItemsFiscalYearListByInstrumentRequestDataFiscalYears
    * Only include data items for a fiscal year greater than or equal to the one specified. Must be greater than or equal to ten years in the past.
    * @return start
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Only include data items for a fiscal year greater than or equal to the one specified. Must be greater than or equal to ten years in the past.")
   @JsonProperty(JSON_PROPERTY_START)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,7 +87,7 @@ public class PostCompanyKeyItemsFiscalYearListByInstrumentRequestDataFiscalYears
    * Only include data items for a fiscal year earlier than or equal to the one specified. Must be less than or equal to the current year.
    * @return end
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Only include data items for a fiscal year earlier than or equal to the one specified. Must be less than or equal to the current year.")
   @JsonProperty(JSON_PROPERTY_END)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

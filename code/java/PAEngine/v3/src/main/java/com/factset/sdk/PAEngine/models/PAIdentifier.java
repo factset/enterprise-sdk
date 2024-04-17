@@ -40,7 +40,8 @@ import com.factset.sdk.PAEngine.JSON;
   PAIdentifier.JSON_PROPERTY_ID,
   PAIdentifier.JSON_PROPERTY_HOLDINGSMODE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PAIdentifier implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -70,7 +71,7 @@ public class PAIdentifier implements Serializable {
    * User&#39;s FactSet account path OR benchmark.
    * @return id
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "User's FactSet account path OR benchmark.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -96,7 +97,7 @@ public class PAIdentifier implements Serializable {
    * Holdings Mode can be B&amp;H, TBR, OMS, EXT or VLT.
    * @return holdingsmode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Holdings Mode can be B&H, TBR, OMS, EXT or VLT.")
   @JsonIgnore
 

@@ -36,7 +36,8 @@ import com.factset.sdk.MarketIntelligence.JSON;
   PostRequestExample.JSON_PROPERTY_SECTION_ID,
   PostRequestExample.JSON_PROPERTY_FILTERS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostRequestExample implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -58,7 +59,7 @@ public class PostRequestExample implements Serializable {
    * Section name
    * @return sectionId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "top_news", value = "Section name")
   @JsonProperty(JSON_PROPERTY_SECTION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -84,7 +85,7 @@ public class PostRequestExample implements Serializable {
    * Filter name
    * @return filters
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "[\"MI_MARKET_SYNOPSIS\",\"MI_TOP_STORIES\",\"MI_ECONOMIC_CALENDAR\",\"MI_WEB_STORIES\"]", value = "Filter name")
   @JsonProperty(JSON_PROPERTY_FILTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

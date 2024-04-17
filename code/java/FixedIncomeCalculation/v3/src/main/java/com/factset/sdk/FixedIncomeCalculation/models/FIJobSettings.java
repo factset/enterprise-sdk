@@ -53,7 +53,8 @@ import com.factset.sdk.FixedIncomeCalculation.JSON;
   FIJobSettings.JSON_PROPERTY_STRUCTURED_PRODUCTS,
   FIJobSettings.JSON_PROPERTY_ATTRIBUTION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FIJobSettings implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -146,7 +147,7 @@ public class FIJobSettings implements Serializable {
    * As of date
    * @return asOfDate
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "As of date")
   @JsonProperty(JSON_PROPERTY_AS_OF_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -184,7 +185,7 @@ public class FIJobSettings implements Serializable {
    * Partial duration months
    * @return partialDurationMonths
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Partial duration months")
   @JsonIgnore
 
@@ -218,7 +219,7 @@ public class FIJobSettings implements Serializable {
    * Call Method
    * @return callMethod
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Call Method")
   @JsonIgnore
 
@@ -252,7 +253,7 @@ public class FIJobSettings implements Serializable {
    * Settlement Date
    * @return settlement
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Settlement Date")
   @JsonIgnore
 
@@ -286,7 +287,7 @@ public class FIJobSettings implements Serializable {
    * Calculation Method.  Methods : Active Spread, Actual Spread, Actual Spread To Worst Call, OAS, Price, Yield, Yield To No Call, Act/Act Yield To No Call, Bond Equivalent Yield,  Yield To Worst Call, Discount Yield, Discount Margin, Implied Volatility, Bullet Spread, Bullet Spread To Worst Call, Pricing Matrix
    * @return calcFromMethod
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Calculation Method.  Methods : Active Spread, Actual Spread, Actual Spread To Worst Call, OAS, Price, Yield, Yield To No Call, Act/Act Yield To No Call, Bond Equivalent Yield,  Yield To Worst Call, Discount Yield, Discount Margin, Implied Volatility, Bullet Spread, Bullet Spread To Worst Call, Pricing Matrix")
   @JsonIgnore
 
@@ -320,7 +321,7 @@ public class FIJobSettings implements Serializable {
    * Get bankLoans
    * @return bankLoans
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BANK_LOANS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -346,7 +347,7 @@ public class FIJobSettings implements Serializable {
    * Get municipalBonds
    * @return municipalBonds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MUNICIPAL_BONDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -372,7 +373,7 @@ public class FIJobSettings implements Serializable {
    * Get marketEnvironment
    * @return marketEnvironment
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MARKET_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -398,7 +399,7 @@ public class FIJobSettings implements Serializable {
    * Get structuredProducts
    * @return structuredProducts
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STRUCTURED_PRODUCTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -424,7 +425,7 @@ public class FIJobSettings implements Serializable {
    * Get attribution
    * @return attribution
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

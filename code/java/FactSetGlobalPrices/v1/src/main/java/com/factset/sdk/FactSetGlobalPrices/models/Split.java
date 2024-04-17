@@ -49,7 +49,8 @@ import com.factset.sdk.FactSetGlobalPrices.JSON;
   Split.JSON_PROPERTY_SHORT_DESC,
   Split.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Split implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -147,7 +148,7 @@ public class Split implements Serializable {
    * Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security&#39;s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "SJY281-R", value = "Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.")
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -173,7 +174,7 @@ public class Split implements Serializable {
    * FactSet identifier that uniquely identifies the Event.
    * @return eventId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "JTHPFN-A", value = "FactSet identifier that uniquely identifies the Event.")
   @JsonProperty(JSON_PROPERTY_EVENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -199,7 +200,7 @@ public class Split implements Serializable {
    * Character code that denotes the type of Event.
    * @return eventTypeCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Character code that denotes the type of Event.")
   @JsonProperty(JSON_PROPERTY_EVENT_TYPE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -225,7 +226,7 @@ public class Split implements Serializable {
    * Corporate Actions Event type description.
    * @return eventTypeDesc
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Forward Split", value = "Corporate Actions Event type description.")
   @JsonProperty(JSON_PROPERTY_EVENT_TYPE_DESC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -251,7 +252,7 @@ public class Split implements Serializable {
    * Date Event was announced in YYYY-MM-DD format.
    * @return announcementDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Date Event was announced in YYYY-MM-DD format.")
   @JsonProperty(JSON_PROPERTY_ANNOUNCEMENT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -277,7 +278,7 @@ public class Split implements Serializable {
    * Date of Record for distribution in YYYY-MM-DD format.
    * @return recordDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Date of Record for distribution in YYYY-MM-DD format.")
   @JsonProperty(JSON_PROPERTY_RECORD_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -303,7 +304,7 @@ public class Split implements Serializable {
    * Date of Payment for distribution in YYYY-MM-DD format.
    * @return payDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Date of Payment for distribution in YYYY-MM-DD format.")
   @JsonProperty(JSON_PROPERTY_PAY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -329,7 +330,7 @@ public class Split implements Serializable {
    * Effective Date or Ex-Date of distribution in YYYY-MM-DD format.
    * @return effectiveDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Effective Date or Ex-Date of distribution in YYYY-MM-DD format.")
   @JsonProperty(JSON_PROPERTY_EFFECTIVE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -355,7 +356,7 @@ public class Split implements Serializable {
    * Factor for adjusting price and shares. A 2-for-1 split returns .50, the number you would multiply the stock price by to adjust for the split. 
    * @return adjFactor
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0.997262", value = "Factor for adjusting price and shares. A 2-for-1 split returns .50, the number you would multiply the stock price by to adjust for the split. ")
   @JsonProperty(JSON_PROPERTY_ADJ_FACTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -381,7 +382,7 @@ public class Split implements Serializable {
    * Combined adjustment factor for all distribution events on that day.
    * @return adjFactorCombined
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0.997262", value = "Combined adjustment factor for all distribution events on that day.")
   @JsonProperty(JSON_PROPERTY_ADJ_FACTOR_COMBINED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -407,7 +408,7 @@ public class Split implements Serializable {
    * Component of distribution ratio -  Number of shares held.
    * @return distOldTerm
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "Component of distribution ratio -  Number of shares held.")
   @JsonProperty(JSON_PROPERTY_DIST_OLD_TERM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -433,7 +434,7 @@ public class Split implements Serializable {
    * Component of distribution ratio -  Number of shares received.
    * @return distNewTerm
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0.05", value = "Component of distribution ratio -  Number of shares received.")
   @JsonProperty(JSON_PROPERTY_DIST_NEW_TERM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -459,7 +460,7 @@ public class Split implements Serializable {
    * Parent Spin-Off for a company
    * @return distInstFsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "RGW4H5-S", value = "Parent Spin-Off for a company")
   @JsonProperty(JSON_PROPERTY_DIST_INST_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -485,7 +486,7 @@ public class Split implements Serializable {
    * Textual description identifying the event.
    * @return shortDesc
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Split (Mandatory): 3 for 1.", value = "Textual description identifying the event.")
   @JsonProperty(JSON_PROPERTY_SHORT_DESC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -511,7 +512,7 @@ public class Split implements Serializable {
    * Identifier that was used for the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "IBM-US", value = "Identifier that was used for the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

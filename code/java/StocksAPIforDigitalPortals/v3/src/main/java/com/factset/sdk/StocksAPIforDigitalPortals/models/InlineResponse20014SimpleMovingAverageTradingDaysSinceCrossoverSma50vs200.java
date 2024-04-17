@@ -42,7 +42,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20014SimpleMovingAverageTradingDaysSinceCrossoverSma50vs200.JSON_PROPERTY_NUMBER_DAYS,
   InlineResponse20014SimpleMovingAverageTradingDaysSinceCrossoverSma50vs200.JSON_PROPERTY_DIRECTION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20014SimpleMovingAverageTradingDaysSinceCrossoverSma50vs200 implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -99,7 +100,7 @@ public class InlineResponse20014SimpleMovingAverageTradingDaysSinceCrossoverSma5
    * Number of trading days.
    * @return numberDays
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of trading days.")
   @JsonIgnore
 
@@ -133,7 +134,7 @@ public class InlineResponse20014SimpleMovingAverageTradingDaysSinceCrossoverSma5
    * Direction of the crossing.
    * @return direction
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Direction of the crossing.")
   @JsonIgnore
 

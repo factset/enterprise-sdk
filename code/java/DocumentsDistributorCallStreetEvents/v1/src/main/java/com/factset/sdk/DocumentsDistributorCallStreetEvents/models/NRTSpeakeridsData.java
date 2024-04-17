@@ -44,7 +44,8 @@ import com.factset.sdk.DocumentsDistributorCallStreetEvents.JSON;
   NRTSpeakeridsData.JSON_PROPERTY_COSINE_SCORE,
   NRTSpeakeridsData.JSON_PROPERTY_AFFILIATION_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class NRTSpeakeridsData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -75,7 +76,7 @@ public class NRTSpeakeridsData implements Serializable {
    * The Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from a different source (dial-in or webcast). One ReportID can have multiple audioSourceIDs.
    * @return audioSourceId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from a different source (dial-in or webcast). One ReportID can have multiple audioSourceIDs.")
   @JsonIgnore
 
@@ -109,7 +110,7 @@ public class NRTSpeakeridsData implements Serializable {
    * The number of seconds into the call when a speaker starts / is speaking.
    * @return speakerStartOffset
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The number of seconds into the call when a speaker starts / is speaking.")
   @JsonIgnore
 
@@ -143,7 +144,7 @@ public class NRTSpeakeridsData implements Serializable {
    * A unique identifier for a speaker.
    * @return speakerId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A unique identifier for a speaker.")
   @JsonIgnore
 
@@ -177,7 +178,7 @@ public class NRTSpeakeridsData implements Serializable {
    * The cosine similarity score (Confidence score)  for a particular speaker.  A score &gt;&#x3D; 0.49 while a speaker is speaking can be considered as a high confidence in the predicted speaker.  Only the SpeakerIDs with the highest cosineScore are rendered in the result set.
    * @return cosineScore
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The cosine similarity score (Confidence score)  for a particular speaker.  A score >= 0.49 while a speaker is speaking can be considered as a high confidence in the predicted speaker.  Only the SpeakerIDs with the highest cosineScore are rendered in the result set.")
   @JsonIgnore
 
@@ -211,7 +212,7 @@ public class NRTSpeakeridsData implements Serializable {
    * Affiliation ID denotes the company a speaker is associated with.
    * @return affiliationId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Affiliation ID denotes the company a speaker is associated with.")
   @JsonIgnore
 

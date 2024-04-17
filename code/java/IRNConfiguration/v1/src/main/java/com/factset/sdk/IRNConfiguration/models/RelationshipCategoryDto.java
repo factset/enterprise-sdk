@@ -45,7 +45,8 @@ import com.factset.sdk.IRNConfiguration.JSON;
   RelationshipCategoryDto.JSON_PROPERTY_IS_CONTACT_TO_SYMBOL,
   RelationshipCategoryDto.JSON_PROPERTY_RELATIONSHIPS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class RelationshipCategoryDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -79,7 +80,7 @@ public class RelationshipCategoryDto implements Serializable {
    * Get id
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -105,7 +106,7 @@ public class RelationshipCategoryDto implements Serializable {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -139,7 +140,7 @@ public class RelationshipCategoryDto implements Serializable {
    * Get isStandard
    * @return isStandard
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IS_STANDARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -165,7 +166,7 @@ public class RelationshipCategoryDto implements Serializable {
    * Get isContactToContact
    * @return isContactToContact
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IS_CONTACT_TO_CONTACT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -191,7 +192,7 @@ public class RelationshipCategoryDto implements Serializable {
    * Get isContactToSymbol
    * @return isContactToSymbol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IS_CONTACT_TO_SYMBOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -229,7 +230,7 @@ public class RelationshipCategoryDto implements Serializable {
    * Get relationships
    * @return relationships
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

@@ -42,7 +42,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20042DataAssetClass.JSON_PROPERTY_ID,
   InlineResponse20042DataAssetClass.JSON_PROPERTY_CODE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20042DataAssetClass implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class InlineResponse20042DataAssetClass implements Serializable {
    * Identifier of the asset class.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the asset class.")
   @JsonIgnore
 
@@ -98,7 +99,7 @@ public class InlineResponse20042DataAssetClass implements Serializable {
    * code of the asset class.
    * @return code
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "code of the asset class.")
   @JsonIgnore
 

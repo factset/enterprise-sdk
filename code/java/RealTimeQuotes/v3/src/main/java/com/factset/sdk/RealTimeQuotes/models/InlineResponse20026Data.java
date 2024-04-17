@@ -42,7 +42,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20026Data.JSON_PROPERTY_CODE,
   InlineResponse20026Data.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20026Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -67,7 +68,7 @@ public class InlineResponse20026Data implements Serializable {
    * Identifier of an alternative unit.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of an alternative unit.")
   @JsonIgnore
 
@@ -101,7 +102,7 @@ public class InlineResponse20026Data implements Serializable {
    * Code of the alternative unit.
    * @return code
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Code of the alternative unit.")
   @JsonIgnore
 
@@ -135,7 +136,7 @@ public class InlineResponse20026Data implements Serializable {
    * Name of the alternative unit.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the alternative unit.")
   @JsonIgnore
 

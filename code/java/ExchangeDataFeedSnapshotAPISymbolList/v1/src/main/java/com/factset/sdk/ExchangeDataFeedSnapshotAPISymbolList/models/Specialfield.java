@@ -41,7 +41,8 @@ import com.factset.sdk.ExchangeDataFeedSnapshotAPISymbolList.JSON;
   Specialfield.JSON_PROPERTY_N_A,
   Specialfield.JSON_PROPERTY_N_E
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Specialfield implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -66,7 +67,7 @@ public class Specialfield implements Serializable {
    * **#NF#** - Not found. The requested symbol could not be found by the service.
    * @return NF
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "**#NF#** - Not found. The requested symbol could not be found by the service.")
   @JsonProperty(JSON_PROPERTY_N_F)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -92,7 +93,7 @@ public class Specialfield implements Serializable {
    * **#NA#** - Not Applicable. The requested field could not be found for the requested symbol. This usually means that the field is not applicable for this type of record.
    * @return NA
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "**#NA#** - Not Applicable. The requested field could not be found for the requested symbol. This usually means that the field is not applicable for this type of record.")
   @JsonProperty(JSON_PROPERTY_N_A)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -118,7 +119,7 @@ public class Specialfield implements Serializable {
    * **#NE#** - Not Entitled. The supplied username and password are not entitled to the data requested.
    * @return NE
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "**#NE#** - Not Entitled. The supplied username and password are not entitled to the data requested.")
   @JsonIgnore
 

@@ -44,7 +44,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20093DataAsks.JSON_PROPERTY_VOLUME,
   InlineResponse20093DataAsks.JSON_PROPERTY_TIME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20093DataAsks implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -112,7 +113,7 @@ public class InlineResponse20093DataAsks implements Serializable {
    * Order type.
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Order type.")
   @JsonIgnore
 
@@ -146,7 +147,7 @@ public class InlineResponse20093DataAsks implements Serializable {
    * Price value. The value is 0 if the attribute &#x60;type&#x60; is 1 (market order). See attribute &#x60;valueUnit&#x60; in endpoint &#x60;/prices/get&#x60; for the unit of the price value\&quot;.
    * @return price
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Price value. The value is 0 if the attribute `type` is 1 (market order). See attribute `valueUnit` in endpoint `/prices/get` for the unit of the price value\".")
   @JsonIgnore
 
@@ -180,7 +181,7 @@ public class InlineResponse20093DataAsks implements Serializable {
    * Number of orders for the price level.
    * @return numberOrders
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of orders for the price level.")
   @JsonIgnore
 
@@ -214,7 +215,7 @@ public class InlineResponse20093DataAsks implements Serializable {
    * Summarized volume for the price level.
    * @return volume
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Summarized volume for the price level.")
   @JsonIgnore
 
@@ -248,7 +249,7 @@ public class InlineResponse20093DataAsks implements Serializable {
    * Date and time of the latest change.
    * @return time
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Date and time of the latest change.")
   @JsonIgnore
 

@@ -41,7 +41,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse200DataIndex.JSON_PROPERTY_REBALANCING_FREQUENCY,
   InlineResponse200DataIndex.JSON_PROPERTY_CURRENCY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse200DataIndex implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -122,7 +123,7 @@ public class InlineResponse200DataIndex implements Serializable {
    * The name of the underlying index of the ETP. This data is available for all the regions.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The name of the underlying index of the ETP. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -148,7 +149,7 @@ public class InlineResponse200DataIndex implements Serializable {
    * The name of the index provider for the underlying index of the ETP. This data is available for all the regions.
    * @return family
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The name of the index provider for the underlying index of the ETP. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_FAMILY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -174,7 +175,7 @@ public class InlineResponse200DataIndex implements Serializable {
    * The link to the underlying index&#39;s homepage. This data is available for all the regions.
    * @return website
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The link to the underlying index's homepage. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_WEBSITE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -200,7 +201,7 @@ public class InlineResponse200DataIndex implements Serializable {
    * Describes the treatment of constituent cash flows by the index, whether capitalized (reinvested) or ignored, as well as tax withholding by foreign countries. Text and standardized value available for this data item. This data is available for Europe only.
    * @return distributionTreatment
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Describes the treatment of constituent cash flows by the index, whether capitalized (reinvested) or ignored, as well as tax withholding by foreign countries. Text and standardized value available for this data item. This data is available for Europe only.")
   @JsonProperty(JSON_PROPERTY_DISTRIBUTION_TREATMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -226,7 +227,7 @@ public class InlineResponse200DataIndex implements Serializable {
    * Period of time between reweighting underlying index constituents.
    * @return rebalancingFrequency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Period of time between reweighting underlying index constituents.")
   @JsonProperty(JSON_PROPERTY_REBALANCING_FREQUENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -252,7 +253,7 @@ public class InlineResponse200DataIndex implements Serializable {
    * Base calculation currency of underlying index. This data is available for all the regions and currency code is in the format ISO 4217.
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Base calculation currency of underlying index. This data is available for all the regions and currency code is in the format ISO 4217.")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

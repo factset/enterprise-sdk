@@ -44,7 +44,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2008DataOwners.JSON_PROPERTY_TYPE,
   InlineResponse2008DataOwners.JSON_PROPERTY_OWNERSHIP
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2008DataOwners implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -72,7 +73,7 @@ public class InlineResponse2008DataOwners implements Serializable {
    * Identifier of the owner. See endpoint &#x60;/legalEntity/list&#x60; for possible values.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the owner. See endpoint `/legalEntity/list` for possible values.")
   @JsonIgnore
 
@@ -106,7 +107,7 @@ public class InlineResponse2008DataOwners implements Serializable {
    * Name of the owner.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the owner.")
   @JsonIgnore
 
@@ -140,7 +141,7 @@ public class InlineResponse2008DataOwners implements Serializable {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -166,7 +167,7 @@ public class InlineResponse2008DataOwners implements Serializable {
    * Get ownership
    * @return ownership
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OWNERSHIP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

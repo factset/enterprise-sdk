@@ -38,7 +38,8 @@ import com.factset.sdk.RealTimeTimeSeries.JSON;
   InlineResponse200DataRange.JSON_PROPERTY_START,
   InlineResponse200DataRange.JSON_PROPERTY_END
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse200DataRange implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -70,7 +71,7 @@ public class InlineResponse200DataRange implements Serializable {
    * The starting point of the date range (inclusive).
    * @return start
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(required = true, value = "The starting point of the date range (inclusive).")
   @JsonProperty(JSON_PROPERTY_START)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -96,7 +97,7 @@ public class InlineResponse200DataRange implements Serializable {
    * The ending point of the date range (exclusive).
    * @return end
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(required = true, value = "The ending point of the date range (exclusive).")
   @JsonProperty(JSON_PROPERTY_END)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

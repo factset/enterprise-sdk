@@ -42,7 +42,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2001DataBalanceSheetCashAndDueFromBanks.JSON_PROPERTY_VALUE,
   InlineResponse2001DataBalanceSheetCashAndDueFromBanks.JSON_PROPERTY_GROWTH
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2001DataBalanceSheetCashAndDueFromBanks implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class InlineResponse2001DataBalanceSheetCashAndDueFromBanks implements Se
    * Value of the cash and due from banks.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Value of the cash and due from banks.")
   @JsonIgnore
 
@@ -98,7 +99,7 @@ public class InlineResponse2001DataBalanceSheetCashAndDueFromBanks implements Se
    * Annual growth rate of the cash and due from banks.
    * @return growth
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Annual growth rate of the cash and due from banks.")
   @JsonIgnore
 

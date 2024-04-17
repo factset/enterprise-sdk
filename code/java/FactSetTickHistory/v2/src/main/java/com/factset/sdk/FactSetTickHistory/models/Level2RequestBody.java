@@ -41,7 +41,8 @@ import com.factset.sdk.FactSetTickHistory.JSON;
   Level2RequestBody.JSON_PROPERTY_DATE_RANGE,
   Level2RequestBody.JSON_PROPERTY_RESPONSE_FILE_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Level2RequestBody implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -86,7 +87,7 @@ public class Level2RequestBody implements Serializable {
    * The requested list of one or more tickers. &lt;p&gt; NOTE: Maximum 500 tickers per request.&lt;/p&gt;.   
    * @return tickers
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "[\"FDS\"]", required = true, value = "The requested list of one or more tickers. <p> NOTE: Maximum 500 tickers per request.</p>.   ")
   @JsonProperty(JSON_PROPERTY_TICKERS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -112,7 +113,7 @@ public class Level2RequestBody implements Serializable {
    * A four-character code used to identify exchanges in which securities are traded. &lt;p&gt;**NOTE**:Does not support multiple mic codes&lt;/p&gt; 
    * @return mic
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "XNYS", required = true, value = "A four-character code used to identify exchanges in which securities are traded. <p>**NOTE**:Does not support multiple mic codes</p> ")
   @JsonProperty(JSON_PROPERTY_MIC)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -138,7 +139,7 @@ public class Level2RequestBody implements Serializable {
    * Get dateRange
    * @return dateRange
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATE_RANGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -164,7 +165,7 @@ public class Level2RequestBody implements Serializable {
    * Get responseFileType
    * @return responseFileType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RESPONSE_FILE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -46,7 +46,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20024Data.JSON_PROPERTY_CURRENCY_CODE,
   InlineResponse20024Data.JSON_PROPERTY_WEIGHT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20024Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -89,7 +90,7 @@ public class InlineResponse20024Data implements Serializable {
    * Identifier of the holding. (when available).
    * @return symbol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the holding. (when available).")
   @JsonProperty(JSON_PROPERTY_SYMBOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +116,7 @@ public class InlineResponse20024Data implements Serializable {
    * Name of the holding.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the holding.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -141,7 +142,7 @@ public class InlineResponse20024Data implements Serializable {
    * Financial instrument type of the holding.
    * @return securityType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Financial instrument type of the holding.")
   @JsonProperty(JSON_PROPERTY_SECURITY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -167,7 +168,7 @@ public class InlineResponse20024Data implements Serializable {
    * Get exchange
    * @return exchange
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EXCHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -193,7 +194,7 @@ public class InlineResponse20024Data implements Serializable {
    * Reporting date of the holding.
    * @return reportDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Reporting date of the holding.")
   @JsonProperty(JSON_PROPERTY_REPORT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -219,7 +220,7 @@ public class InlineResponse20024Data implements Serializable {
    * Number of shares held, unadjusted for corporate actions.
    * @return shares
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of shares held, unadjusted for corporate actions.")
   @JsonProperty(JSON_PROPERTY_SHARES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -245,7 +246,7 @@ public class InlineResponse20024Data implements Serializable {
    * Market value of the holding, unadjusted for corporate actions.
    * @return marketValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Market value of the holding, unadjusted for corporate actions.")
   @JsonProperty(JSON_PROPERTY_MARKET_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -271,7 +272,7 @@ public class InlineResponse20024Data implements Serializable {
    * Code representing the currency of the holding and  it&#39;s in format ISO 4217
    * @return currencyCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Code representing the currency of the holding and  it's in format ISO 4217")
   @JsonProperty(JSON_PROPERTY_CURRENCY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -297,7 +298,7 @@ public class InlineResponse20024Data implements Serializable {
    * Weight of the holding within the ETP.
    * @return weight
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Weight of the holding within the ETP.")
   @JsonProperty(JSON_PROPERTY_WEIGHT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

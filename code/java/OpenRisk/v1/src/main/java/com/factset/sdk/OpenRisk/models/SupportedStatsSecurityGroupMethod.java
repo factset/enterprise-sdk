@@ -39,7 +39,8 @@ import com.factset.sdk.OpenRisk.JSON;
   SupportedStatsSecurityGroupMethod.JSON_PROPERTY_WEIGHTING,
   SupportedStatsSecurityGroupMethod.JSON_PROPERTY_SQRT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SupportedStatsSecurityGroupMethod implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -192,7 +193,7 @@ public class SupportedStatsSecurityGroupMethod implements Serializable {
    * Indicates the algorithm used to compute each security group&#39;s value from the  risk statistic values of its member securities. &#39;Sum&#39; takes the sum of all members&#39; values. The weighted average methods indicate &#39;weights&#39; and &#39;weighting&#39;. &#39;WeightedAverage&#39; weights each group&#39;s members&#39; statistic values and takes their average. &#39;WeightedNormalizedAverage&#39; normalizes the corresponding weights belonging within each group, weights each group&#39;s members&#39; statistic values, then takes the average. &#39;WeightedNormalizedAverageFill&#39; normalizes the corresponding weights belonging within each group or applies equal weighting for groups with zero net weight, weights each group&#39;s members&#39; statistic values, then takes the average. &#39;StatSpecific&#39; indicates unique calculations for the supported security group levels (inquire for more information).
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Indicates the algorithm used to compute each security group's value from the  risk statistic values of its member securities. 'Sum' takes the sum of all members' values. The weighted average methods indicate 'weights' and 'weighting'. 'WeightedAverage' weights each group's members' statistic values and takes their average. 'WeightedNormalizedAverage' normalizes the corresponding weights belonging within each group, weights each group's members' statistic values, then takes the average. 'WeightedNormalizedAverageFill' normalizes the corresponding weights belonging within each group or applies equal weighting for groups with zero net weight, weights each group's members' statistic values, then takes the average. 'StatSpecific' indicates unique calculations for the supported security group levels (inquire for more information).")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -218,7 +219,7 @@ public class SupportedStatsSecurityGroupMethod implements Serializable {
    * Indicates the weights stat used to weight the security groups, applicable to weighted average group methods only.
    * @return weights
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates the weights stat used to weight the security groups, applicable to weighted average group methods only.")
   @JsonProperty(JSON_PROPERTY_WEIGHTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -244,7 +245,7 @@ public class SupportedStatsSecurityGroupMethod implements Serializable {
    * Indicates the weighting method used when allocating a net-weight position of risk statistics to multiple lots. This is relevant when a portfolio contains multiple lots with different signs such as long/short. For example, the case where a net-weight position is a positive risk contributor and a portfolio contains long and short positions. If this is &#39;AbsoluteValue&#39;, both long/short positions will have positive risk contribution, while &#39;ActualValue&#39; assigns positive risk contribution to a long position and negative risk contribution to a short position. Applicable to weighted average group methods only.
    * @return weighting
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates the weighting method used when allocating a net-weight position of risk statistics to multiple lots. This is relevant when a portfolio contains multiple lots with different signs such as long/short. For example, the case where a net-weight position is a positive risk contributor and a portfolio contains long and short positions. If this is 'AbsoluteValue', both long/short positions will have positive risk contribution, while 'ActualValue' assigns positive risk contribution to a long position and negative risk contribution to a short position. Applicable to weighted average group methods only.")
   @JsonProperty(JSON_PROPERTY_WEIGHTING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -270,7 +271,7 @@ public class SupportedStatsSecurityGroupMethod implements Serializable {
    * Indicates whether the square root of each security group&#39;s value is taken (or not) as the final step of the calculation after the indicated algorithm to produce the result.
    * @return sqrt
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Indicates whether the square root of each security group's value is taken (or not) as the final step of the calculation after the indicated algorithm to produce the result.")
   @JsonProperty(JSON_PROPERTY_SQRT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

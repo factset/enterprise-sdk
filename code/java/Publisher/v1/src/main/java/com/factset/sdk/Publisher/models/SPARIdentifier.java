@@ -38,7 +38,8 @@ import com.factset.sdk.Publisher.JSON;
   SPARIdentifier.JSON_PROPERTY_RETURNTYPE,
   SPARIdentifier.JSON_PROPERTY_PREFIX
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SPARIdentifier implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -71,7 +72,7 @@ public class SPARIdentifier implements Serializable {
    * User&#39;s FactSet account OR benchmark id.
    * @return id
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "User's FactSet account OR benchmark id.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -97,7 +98,7 @@ public class SPARIdentifier implements Serializable {
    * Benchmark return type.
    * @return returntype
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Benchmark return type.")
   @JsonProperty(JSON_PROPERTY_RETURNTYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -123,7 +124,7 @@ public class SPARIdentifier implements Serializable {
    * Benchmark prefix.
    * @return prefix
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Benchmark prefix.")
   @JsonProperty(JSON_PROPERTY_PREFIX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

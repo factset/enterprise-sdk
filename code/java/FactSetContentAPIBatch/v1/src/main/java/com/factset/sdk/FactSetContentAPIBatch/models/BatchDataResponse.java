@@ -35,7 +35,8 @@ import com.factset.sdk.FactSetContentAPIBatch.JSON;
 @JsonPropertyOrder({
   BatchDataResponse.JSON_PROPERTY_DATA
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class BatchDataResponse implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -54,7 +55,7 @@ public class BatchDataResponse implements Serializable {
    * The schema for the batched result is determined by the endpoint you used with the _batch_ parameter. Please see the schema for that endpoint for the definition. 
    * @return data
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The schema for the batched result is determined by the endpoint you used with the _batch_ parameter. Please see the schema for that endpoint for the definition. ")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

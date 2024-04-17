@@ -38,7 +38,8 @@ import com.factset.sdk.FactSetTrading.JSON;
   EMSReplaceOrder.JSON_PROPERTY_ORIGINAL_CLIENT_ORDER_ID,
   EMSReplaceOrder.JSON_PROPERTY_ORDER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EMSReplaceOrder implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -70,7 +71,7 @@ public class EMSReplaceOrder implements Serializable {
    * Unique identifier of the original order, generated in Create.
    * @return originalClientOrderId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Unique identifier of the original order, generated in Create.")
   @JsonProperty(JSON_PROPERTY_ORIGINAL_CLIENT_ORDER_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -96,7 +97,7 @@ public class EMSReplaceOrder implements Serializable {
    * Get order
    * @return order
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

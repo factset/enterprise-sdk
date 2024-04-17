@@ -47,7 +47,8 @@ import com.factset.sdk.FactSetIntradayTickHistory.JSON;
   TickhistoryResponse.JSON_PROPERTY_KEY,
   TickhistoryResponse.JSON_PROPERTY_VALUES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class TickhistoryResponse implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -93,7 +94,7 @@ public class TickhistoryResponse implements Serializable {
    * Request Identification String.
    * @return requestedID
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "", value = "Request Identification String.")
   @JsonProperty(JSON_PROPERTY_REQUESTED_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -119,7 +120,7 @@ public class TickhistoryResponse implements Serializable {
    * Single Requested Symbol or Security.
    * @return requestedSymbol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "IBM-USA", value = "Single Requested Symbol or Security.")
   @JsonProperty(JSON_PROPERTY_REQUESTED_SYMBOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -153,7 +154,7 @@ public class TickhistoryResponse implements Serializable {
    * Array of requested fields 
    * @return requestedFields
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "LAST_1,LAST_TIME_1,LAST_VOL_1", value = "Array of requested fields ")
   @JsonProperty(JSON_PROPERTY_REQUESTED_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -179,7 +180,7 @@ public class TickhistoryResponse implements Serializable {
    * Get requestKey
    * @return requestKey
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "5C8926159C36F315", value = "")
   @JsonProperty(JSON_PROPERTY_REQUEST_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -205,7 +206,7 @@ public class TickhistoryResponse implements Serializable {
    * Get errorCode
    * @return errorCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0", value = "")
   @JsonProperty(JSON_PROPERTY_ERROR_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -231,7 +232,7 @@ public class TickhistoryResponse implements Serializable {
    * Brief description of error response. Blank if successful.
    * @return errorDescription
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "", value = "Brief description of error response. Blank if successful.")
   @JsonProperty(JSON_PROPERTY_ERROR_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -257,7 +258,7 @@ public class TickhistoryResponse implements Serializable {
    * Requested Field Names
    * @return fieldNames
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "", value = "Requested Field Names")
   @JsonProperty(JSON_PROPERTY_FIELD_NAMES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -283,7 +284,7 @@ public class TickhistoryResponse implements Serializable {
    * Requested Field ID numbers &#39;FID&#39;. Found in Data Service Manual.
    * @return fieldIDs
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Requested Field ID numbers 'FID'. Found in Data Service Manual.")
   @JsonProperty(JSON_PROPERTY_FIELD_I_DS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -309,7 +310,7 @@ public class TickhistoryResponse implements Serializable {
    * Requested Symbol Key, where :D represented delayed data.
    * @return key
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "IBM-USA:D", value = "Requested Symbol Key, where :D represented delayed data.")
   @JsonProperty(JSON_PROPERTY_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -335,7 +336,7 @@ public class TickhistoryResponse implements Serializable {
    * Array of field values. Each value is returned for requested interval query.
    * @return values
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Array of field values. Each value is returned for requested interval query.")
   @JsonProperty(JSON_PROPERTY_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

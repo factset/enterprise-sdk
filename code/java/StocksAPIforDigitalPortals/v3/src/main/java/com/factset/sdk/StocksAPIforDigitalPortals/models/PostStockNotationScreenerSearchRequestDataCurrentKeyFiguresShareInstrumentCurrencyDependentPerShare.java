@@ -37,7 +37,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
 @JsonPropertyOrder({
   PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresShareInstrumentCurrencyDependentPerShare.JSON_PROPERTY_DIVIDEND
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresShareInstrumentCurrencyDependentPerShare implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -56,7 +57,7 @@ public class PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresShareIns
    * Get dividend
    * @return dividend
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DIVIDEND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

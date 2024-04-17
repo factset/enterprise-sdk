@@ -39,7 +39,8 @@ import com.factset.sdk.AxiomaFixedIncomeOptimizer.JSON;
   AFIOptimizerStrategyOverrides.JSON_PROPERTY_ALPHA,
   AFIOptimizerStrategyOverrides.JSON_PROPERTY_TRANSACTION_COST
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class AFIOptimizerStrategyOverrides implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -105,7 +106,7 @@ public class AFIOptimizerStrategyOverrides implements Serializable {
    * Objective
    * @return objective
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Objective")
   @JsonProperty(JSON_PROPERTY_OBJECTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -131,7 +132,7 @@ public class AFIOptimizerStrategyOverrides implements Serializable {
    * Tax
    * @return tax
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Tax")
   @JsonProperty(JSON_PROPERTY_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -165,7 +166,7 @@ public class AFIOptimizerStrategyOverrides implements Serializable {
    * List of constraints
    * @return constraints
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of constraints")
   @JsonProperty(JSON_PROPERTY_CONSTRAINTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -191,7 +192,7 @@ public class AFIOptimizerStrategyOverrides implements Serializable {
    * Alpha
    * @return alpha
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Alpha")
   @JsonProperty(JSON_PROPERTY_ALPHA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -217,7 +218,7 @@ public class AFIOptimizerStrategyOverrides implements Serializable {
    * Transaction cost
    * @return transactionCost
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Transaction cost")
   @JsonProperty(JSON_PROPERTY_TRANSACTION_COST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

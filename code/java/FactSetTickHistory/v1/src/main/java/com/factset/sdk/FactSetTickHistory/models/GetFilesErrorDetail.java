@@ -37,7 +37,8 @@ import com.factset.sdk.FactSetTickHistory.JSON;
   GetFilesErrorDetail.JSON_PROPERTY_PAGINATION_LIMIT,
   GetFilesErrorDetail.JSON_PROPERTY_PAGINATION_OFFSET
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class GetFilesErrorDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -70,7 +71,7 @@ public class GetFilesErrorDetail implements Serializable {
    * query with partial tickers, products or exchanges not subscribed to
    * @return notAuthorizedTickers
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "query with partial tickers, products or exchanges not subscribed to")
   @JsonProperty(JSON_PROPERTY_NOT_AUTHORIZED_TICKERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -104,7 +105,7 @@ public class GetFilesErrorDetail implements Serializable {
    * _paginationLimit must be &lt;&#x3D;500
    * @return paginationLimit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "_paginationLimit must be <=500")
   @JsonProperty(JSON_PROPERTY_PAGINATION_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -138,7 +139,7 @@ public class GetFilesErrorDetail implements Serializable {
    * _paginationoffset must be an integer
    * @return paginationOffset
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "_paginationoffset must be an integer")
   @JsonProperty(JSON_PROPERTY_PAGINATION_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

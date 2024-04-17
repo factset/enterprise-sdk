@@ -44,7 +44,8 @@ import com.factset.sdk.FactSetFunds.JSON;
   Prices.JSON_PROPERTY_REQUEST_ID,
   Prices.JSON_PROPERTY_CURRENCY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Prices implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -75,7 +76,7 @@ public class Prices implements Serializable {
    * FactSet Security Identifier. Six alpha-numeric characters, excluding vowels, with a -S suffix (XXXXXX-S), resolved from the requestId of the Fund requested.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FNK7XP-S", value = "FactSet Security Identifier. Six alpha-numeric characters, excluding vowels, with a -S suffix (XXXXXX-S), resolved from the requestId of the Fund requested.")
   @JsonIgnore
 
@@ -109,7 +110,7 @@ public class Prices implements Serializable {
    * The NAV for the requested share class. NOTE - FactSet Mutual Funds does not use seven-day yields to price money market funds.
    * @return price
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "19.94", value = "The NAV for the requested share class. NOTE - FactSet Mutual Funds does not use seven-day yields to price money market funds.")
   @JsonIgnore
 
@@ -143,7 +144,7 @@ public class Prices implements Serializable {
    * The date of the NAV in YYYY-MM-DD format.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Fri Feb 26 00:00:00 UTC 2021", value = "The date of the NAV in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -177,7 +178,7 @@ public class Prices implements Serializable {
    * The requested Id sent as input.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "MABAX", value = "The requested Id sent as input.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -203,7 +204,7 @@ public class Prices implements Serializable {
    * ISO3 Currency
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "ISO3 Currency")
   @JsonIgnore
 

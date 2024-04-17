@@ -39,7 +39,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasb.JSON_PROPERTY_ALL_CATEGORIES,
   PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasb.JSON_PROPERTY_MATERIALITY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasb implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -61,7 +62,7 @@ public class PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasb imple
    * Get allCategories
    * @return allCategories
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ALL_CATEGORIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -87,7 +88,7 @@ public class PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasb imple
    * Get materiality
    * @return materiality
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MATERIALITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

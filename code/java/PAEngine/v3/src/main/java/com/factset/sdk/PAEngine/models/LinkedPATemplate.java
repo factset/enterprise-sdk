@@ -46,7 +46,8 @@ import com.factset.sdk.PAEngine.JSON;
   LinkedPATemplate.JSON_PROPERTY_NAME,
   LinkedPATemplate.JSON_PROPERTY_PARENT_COMPONENT_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class LinkedPATemplate implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -83,7 +84,7 @@ public class LinkedPATemplate implements Serializable {
    * Template directory.
    * @return directory
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Template directory.")
   @JsonIgnore
 
@@ -117,7 +118,7 @@ public class LinkedPATemplate implements Serializable {
    * snapshot.
    * @return snapshot
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "snapshot.")
   @JsonProperty(JSON_PROPERTY_SNAPSHOT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -143,7 +144,7 @@ public class LinkedPATemplate implements Serializable {
    * Get content
    * @return content
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -169,7 +170,7 @@ public class LinkedPATemplate implements Serializable {
    * Template id.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Template id.")
   @JsonIgnore
 
@@ -203,7 +204,7 @@ public class LinkedPATemplate implements Serializable {
    * Template description.
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Template description.")
   @JsonIgnore
 
@@ -237,7 +238,7 @@ public class LinkedPATemplate implements Serializable {
    * Template name.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Template name.")
   @JsonIgnore
 
@@ -271,7 +272,7 @@ public class LinkedPATemplate implements Serializable {
    * Template parent tile.
    * @return parentComponentId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Template parent tile.")
   @JsonIgnore
 

@@ -36,7 +36,8 @@ import com.factset.sdk.FixedIncomeCalculation.JSON;
   FIPrepayLockout.JSON_PROPERTY_POINTS_ABOVE,
   FIPrepayLockout.JSON_PROPERTY_YM_ABOVE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FIPrepayLockout implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -132,7 +133,7 @@ public class FIPrepayLockout implements Serializable {
    * Points Above
    * @return pointsAbove
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Points Above")
   @JsonProperty(JSON_PROPERTY_POINTS_ABOVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,7 +159,7 @@ public class FIPrepayLockout implements Serializable {
    * Ym Above
    * @return ymAbove
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Ym Above")
   @JsonProperty(JSON_PROPERTY_YM_ABOVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

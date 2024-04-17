@@ -38,7 +38,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse200DataFinancialReportAnnual.JSON_PROPERTY_IS_AVAILABLE,
   InlineResponse200DataFinancialReportAnnual.JSON_PROPERTY_DATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse200DataFinancialReportAnnual implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -60,7 +61,7 @@ public class InlineResponse200DataFinancialReportAnnual implements Serializable 
    * States whether or not the current annual financial report is available on the issuer&#39;s website. This data is available for all the regions.
    * @return isAvailable
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "States whether or not the current annual financial report is available on the issuer's website. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_IS_AVAILABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,7 +87,7 @@ public class InlineResponse200DataFinancialReportAnnual implements Serializable 
    * Date of the last annual report available on issuer&#39;s site. This data is available for all the regions.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Date of the last annual report available on issuer's site. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

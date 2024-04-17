@@ -45,7 +45,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   PostStockNotationScreenerSearchRequestDataRecommendationConsensusChange.JSON_PROPERTY_MONTHS6,
   PostStockNotationScreenerSearchRequestDataRecommendationConsensusChange.JSON_PROPERTY_YEAR1
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostStockNotationScreenerSearchRequestDataRecommendationConsensusChange implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -76,7 +77,7 @@ public class PostStockNotationScreenerSearchRequestDataRecommendationConsensusCh
    * Get week1
    * @return week1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WEEK1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -102,7 +103,7 @@ public class PostStockNotationScreenerSearchRequestDataRecommendationConsensusCh
    * Get month1
    * @return month1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MONTH1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -128,7 +129,7 @@ public class PostStockNotationScreenerSearchRequestDataRecommendationConsensusCh
    * Get months3
    * @return months3
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MONTHS3)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -154,7 +155,7 @@ public class PostStockNotationScreenerSearchRequestDataRecommendationConsensusCh
    * Get months6
    * @return months6
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MONTHS6)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -180,7 +181,7 @@ public class PostStockNotationScreenerSearchRequestDataRecommendationConsensusCh
    * Get year1
    * @return year1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_YEAR1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

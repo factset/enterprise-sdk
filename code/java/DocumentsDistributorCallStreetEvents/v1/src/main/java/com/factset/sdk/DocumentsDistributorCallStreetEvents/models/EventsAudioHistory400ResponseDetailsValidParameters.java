@@ -38,7 +38,8 @@ import com.factset.sdk.DocumentsDistributorCallStreetEvents.JSON;
   EventsAudioHistory400ResponseDetailsValidParameters.JSON_PROPERTY_YEAR,
   EventsAudioHistory400ResponseDetailsValidParameters.JSON_PROPERTY_TRIMMED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EventsAudioHistory400ResponseDetailsValidParameters implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -74,7 +75,7 @@ public class EventsAudioHistory400ResponseDetailsValidParameters implements Seri
    * Get paginationLimit
    * @return paginationLimit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAGINATION_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -108,7 +109,7 @@ public class EventsAudioHistory400ResponseDetailsValidParameters implements Seri
    * Get paginationOffset
    * @return paginationOffset
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAGINATION_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -142,7 +143,7 @@ public class EventsAudioHistory400ResponseDetailsValidParameters implements Seri
    * Get year
    * @return year
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -176,7 +177,7 @@ public class EventsAudioHistory400ResponseDetailsValidParameters implements Seri
    * Get trimmed
    * @return trimmed
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TRIMMED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

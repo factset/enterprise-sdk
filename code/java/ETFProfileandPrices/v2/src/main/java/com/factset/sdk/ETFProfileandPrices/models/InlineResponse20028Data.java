@@ -42,7 +42,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20028Data.JSON_PROPERTY_RETURN3_Y,
   InlineResponse20028Data.JSON_PROPERTY_RETURN5_Y
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20028Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -76,7 +77,7 @@ public class InlineResponse20028Data implements Serializable {
    * 1 month performance. This data is available for the US regions.
    * @return return1M
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "1 month performance. This data is available for the US regions.")
   @JsonProperty(JSON_PROPERTY_RETURN1_M)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -102,7 +103,7 @@ public class InlineResponse20028Data implements Serializable {
    * 3 month performance. This data is available for the US regions.
    * @return return3M
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "3 month performance. This data is available for the US regions.")
   @JsonProperty(JSON_PROPERTY_RETURN3_M)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -128,7 +129,7 @@ public class InlineResponse20028Data implements Serializable {
    * YTD performance. This data is available for the US regions.
    * @return returnYTD
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "YTD performance. This data is available for the US regions.")
   @JsonProperty(JSON_PROPERTY_RETURN_Y_T_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -154,7 +155,7 @@ public class InlineResponse20028Data implements Serializable {
    * 1 year performance. This data is available for the US regions.
    * @return return1Y
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "1 year performance. This data is available for the US regions.")
   @JsonProperty(JSON_PROPERTY_RETURN1_Y)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -180,7 +181,7 @@ public class InlineResponse20028Data implements Serializable {
    * 3 year performance. This data is available for the US regions.
    * @return return3Y
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "3 year performance. This data is available for the US regions.")
   @JsonProperty(JSON_PROPERTY_RETURN3_Y)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -206,7 +207,7 @@ public class InlineResponse20028Data implements Serializable {
    * 5 year performance. This data is available for the US regions.
    * @return return5Y
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "5 year performance. This data is available for the US regions.")
   @JsonProperty(JSON_PROPERTY_RETURN5_Y)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

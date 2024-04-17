@@ -38,7 +38,8 @@ import com.factset.sdk.Vermilion.JSON;
   DataSourceAllData.JSON_PROPERTY_FIELDS,
   DataSourceAllData.JSON_PROPERTY_DST_INSTANCE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class DataSourceAllData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class DataSourceAllData implements Serializable {
    * Get fields
    * @return fields
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -94,7 +95,7 @@ public class DataSourceAllData implements Serializable {
    * Get dstInstance
    * @return dstInstance
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DST_INSTANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

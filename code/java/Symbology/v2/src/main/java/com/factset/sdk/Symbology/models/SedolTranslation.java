@@ -40,7 +40,8 @@ import com.factset.sdk.Symbology.JSON;
   SedolTranslation.JSON_PROPERTY_SEDOL_PRIMARY,
   SedolTranslation.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SedolTranslation implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -71,7 +72,7 @@ public class SedolTranslation implements Serializable {
    * FactSet Default Permanent Identifier. Regional and Composite (-USA) request &#x60;ids&#x60; will use a Regional ID &#39;-R&#39;, Listing specific ids &#39;-NYS&#39; will use Listing ids &#39;-L&#39;, Entities will use &#39;-E&#39;, and FI will use security &#39;-S&#39; ids. [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "JBP9Z6-L", value = "FactSet Default Permanent Identifier. Regional and Composite (-USA) request `ids` will use a Regional ID '-R', Listing specific ids '-NYS' will use Listing ids '-L', Entities will use '-E', and FI will use security '-S' ids. [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)")
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -97,7 +98,7 @@ public class SedolTranslation implements Serializable {
    * Proper Name of company or issuer.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Alphabet Inc. Class A", value = "Proper Name of company or issuer.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -123,7 +124,7 @@ public class SedolTranslation implements Serializable {
    * SEDOL
    * @return sedol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "BYZ5YB6", value = "SEDOL")
   @JsonProperty(JSON_PROPERTY_SEDOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -149,7 +150,7 @@ public class SedolTranslation implements Serializable {
    * The SEDOL for the Primary Listing of the requested security. If you request a specific exchange (e.g. -MEX), the SEDOL will translate for that listing, while the SEDOL Primary will always resolve back to the primary region (e.g. -US).
    * @return sedolPrimary
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "BYVY8G0", value = "The SEDOL for the Primary Listing of the requested security. If you request a specific exchange (e.g. -MEX), the SEDOL will translate for that listing, while the SEDOL Primary will always resolve back to the primary region (e.g. -US).")
   @JsonProperty(JSON_PROPERTY_SEDOL_PRIMARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -175,7 +176,7 @@ public class SedolTranslation implements Serializable {
    * Identifier specified in the request
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "GOOGL-MEX", value = "Identifier specified in the request")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

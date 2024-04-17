@@ -37,7 +37,8 @@ import com.factset.sdk.Symbology.JSON;
   SedolHistoryTranslationRequest.JSON_PROPERTY_IDS,
   SedolHistoryTranslationRequest.JSON_PROPERTY_AS_OF_DATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SedolHistoryTranslationRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -72,7 +73,7 @@ public class SedolHistoryTranslationRequest implements Serializable {
    * Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#39;.
    * @return ids
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "[\"GOOGL-US\"]", required = true, value = "Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId'.")
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -98,7 +99,7 @@ public class SedolHistoryTranslationRequest implements Serializable {
    * As-Of date for historical symbol request in YYYY-MM-DD format.
    * @return asOfDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2010-01-01", value = "As-Of date for historical symbol request in YYYY-MM-DD format.")
   @JsonProperty(JSON_PROPERTY_AS_OF_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

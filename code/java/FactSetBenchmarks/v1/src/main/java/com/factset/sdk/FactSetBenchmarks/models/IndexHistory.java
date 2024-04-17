@@ -53,7 +53,8 @@ import com.factset.sdk.FactSetBenchmarks.JSON;
   IndexHistory.JSON_PROPERTY_REQUEST_ID,
   IndexHistory.JSON_PROPERTY_OBSERVATION_DATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class IndexHistory implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -111,7 +112,7 @@ public class IndexHistory implements Serializable {
    * Requested Identifier. Must be a valid Benchmark Identifier recognized by FactSet.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "SP50", value = "Requested Identifier. Must be a valid Benchmark Identifier recognized by FactSet.")
   @JsonIgnore
 
@@ -145,7 +146,7 @@ public class IndexHistory implements Serializable {
    * The respective date for values as of the date requested in YYYY-MM-DD format.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Wed Jul 01 00:00:00 UTC 2020", value = "The respective date for values as of the date requested in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -179,7 +180,7 @@ public class IndexHistory implements Serializable {
    * Proper Name of Index.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "S&P 500", value = "Proper Name of Index.")
   @JsonIgnore
 
@@ -213,7 +214,7 @@ public class IndexHistory implements Serializable {
    * The total number of constituents as of the date requested.
    * @return constituentNumber
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "502", value = "The total number of constituents as of the date requested.")
   @JsonIgnore
 
@@ -247,7 +248,7 @@ public class IndexHistory implements Serializable {
    * Currency Code used in adjustments. If no Currency was requested, the service will default to LOCAL (&#39;LOC&#39;).
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "Currency Code used in adjustments. If no Currency was requested, the service will default to LOCAL ('LOC').")
   @JsonIgnore
 
@@ -281,7 +282,7 @@ public class IndexHistory implements Serializable {
    * Index Level Market Capitalization as of the date requested expressed in millions.
    * @return marketValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "27696158.012077", value = "Index Level Market Capitalization as of the date requested expressed in millions.")
   @JsonIgnore
 
@@ -315,7 +316,7 @@ public class IndexHistory implements Serializable {
    * Index Level Price
    * @return price
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "3349.15600690205", value = "Index Level Price")
   @JsonIgnore
 
@@ -349,7 +350,7 @@ public class IndexHistory implements Serializable {
    * Index Level Price Percent Change
    * @return priceReturnPercent
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0.642620385795123", value = "Index Level Price Percent Change")
   @JsonIgnore
 
@@ -383,7 +384,7 @@ public class IndexHistory implements Serializable {
    * Index Level Total Return Amount
    * @return totalReturnLevel
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "6870.86168040129", value = "Index Level Total Return Amount")
   @JsonIgnore
 
@@ -417,7 +418,7 @@ public class IndexHistory implements Serializable {
    * Index Level Total Return Percent Change
    * @return totalReturnPercent
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0.653957589855003", value = "Index Level Total Return Percent Change")
   @JsonIgnore
 
@@ -451,7 +452,7 @@ public class IndexHistory implements Serializable {
    * The requested Return Type - GROSS or NET
    * @return returnType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "GROSS", value = "The requested Return Type - GROSS or NET")
   @JsonIgnore
 
@@ -485,7 +486,7 @@ public class IndexHistory implements Serializable {
    * The requested Hedge Type - HEDGED or UNHEDGED
    * @return hedgeType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "UNHEDGED", value = "The requested Hedge Type - HEDGED or UNHEDGED")
   @JsonIgnore
 
@@ -519,7 +520,7 @@ public class IndexHistory implements Serializable {
    * Benchmark Identifier specified in the request
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "SP50", value = "Benchmark Identifier specified in the request")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -545,7 +546,7 @@ public class IndexHistory implements Serializable {
    * This field will always return the date of the data that was actually returned.
    * @return observationDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2020-07-21", value = "This field will always return the date of the data that was actually returned.")
   @JsonIgnore
 

@@ -35,7 +35,8 @@ import com.factset.sdk.OFDB.JSON;
 @JsonPropertyOrder({
   CreateDatabaseData.JSON_PROPERTY_PATH
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CreateDatabaseData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -54,7 +55,7 @@ public class CreateDatabaseData implements Serializable {
    * path of the newly created database.
    * @return path
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "path of the newly created database.")
   @JsonProperty(JSON_PROPERTY_PATH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

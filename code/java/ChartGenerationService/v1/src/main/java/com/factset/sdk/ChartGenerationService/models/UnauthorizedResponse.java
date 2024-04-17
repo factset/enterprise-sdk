@@ -35,7 +35,8 @@ import com.factset.sdk.ChartGenerationService.JSON;
 @JsonPropertyOrder({
   UnauthorizedResponse.JSON_PROPERTY_ERROR
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class UnauthorizedResponse implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -87,7 +88,7 @@ public class UnauthorizedResponse implements Serializable {
    * Get error
    * @return error
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ERROR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

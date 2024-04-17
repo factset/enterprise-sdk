@@ -46,7 +46,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2003DataRecommendationCounts.JSON_PROPERTY_UNDERWEIGHT,
   InlineResponse2003DataRecommendationCounts.JSON_PROPERTY_SELL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2003DataRecommendationCounts implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -80,7 +81,7 @@ public class InlineResponse2003DataRecommendationCounts implements Serializable 
    * Total number.
    * @return total
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Total number.")
   @JsonIgnore
 
@@ -114,7 +115,7 @@ public class InlineResponse2003DataRecommendationCounts implements Serializable 
    * Number of buy recommendations. A buy recommendation contributes with the numeric value 1 when calculating the consensus.
    * @return buy
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of buy recommendations. A buy recommendation contributes with the numeric value 1 when calculating the consensus.")
   @JsonIgnore
 
@@ -148,7 +149,7 @@ public class InlineResponse2003DataRecommendationCounts implements Serializable 
    * Number of overweight recommendations. A overweight recommendation contributes with the numeric value 2 when calculating the consensus.
    * @return overweight
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of overweight recommendations. A overweight recommendation contributes with the numeric value 2 when calculating the consensus.")
   @JsonIgnore
 
@@ -182,7 +183,7 @@ public class InlineResponse2003DataRecommendationCounts implements Serializable 
    * Number of hold recommendations. A hold recommendation contributes with the numeric value 3 when calculating the consensus.
    * @return hold
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of hold recommendations. A hold recommendation contributes with the numeric value 3 when calculating the consensus.")
   @JsonIgnore
 
@@ -216,7 +217,7 @@ public class InlineResponse2003DataRecommendationCounts implements Serializable 
    * Number of underweight recommendations. A underweight recommendation contributes with the numeric value 4 when calculating the consensus.
    * @return underweight
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of underweight recommendations. A underweight recommendation contributes with the numeric value 4 when calculating the consensus.")
   @JsonIgnore
 
@@ -250,7 +251,7 @@ public class InlineResponse2003DataRecommendationCounts implements Serializable 
    * Number of sell recommendations. A sell recommendation contributes with the numeric value 5 when calculating the consensus.
    * @return sell
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of sell recommendations. A sell recommendation contributes with the numeric value 5 when calculating the consensus.")
   @JsonIgnore
 

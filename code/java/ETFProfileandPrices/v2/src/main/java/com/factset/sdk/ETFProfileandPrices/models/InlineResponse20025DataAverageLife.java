@@ -46,7 +46,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20025DataAverageLife.JSON_PROPERTY_SPAN15_TO20,
   InlineResponse20025DataAverageLife.JSON_PROPERTY_SPAN20_PLUS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20025DataAverageLife implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -92,7 +93,7 @@ public class InlineResponse20025DataAverageLife implements Serializable {
    * Average life value of the ETP.
    * @return span
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Average life value of the ETP.")
   @JsonProperty(JSON_PROPERTY_SPAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -118,7 +119,7 @@ public class InlineResponse20025DataAverageLife implements Serializable {
    * Average life value of the ETP ranges between 0 and 1 years.
    * @return span0To1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Average life value of the ETP ranges between 0 and 1 years.")
   @JsonProperty(JSON_PROPERTY_SPAN0_TO1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -144,7 +145,7 @@ public class InlineResponse20025DataAverageLife implements Serializable {
    * Average life value of the ETP ranges between 1 and 2 years.
    * @return span1To2
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Average life value of the ETP ranges between 1 and 2 years.")
   @JsonProperty(JSON_PROPERTY_SPAN1_TO2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -170,7 +171,7 @@ public class InlineResponse20025DataAverageLife implements Serializable {
    * Average life value of the ETP ranges between 2 and 3 years.
    * @return span2To3
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Average life value of the ETP ranges between 2 and 3 years.")
   @JsonProperty(JSON_PROPERTY_SPAN2_TO3)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -196,7 +197,7 @@ public class InlineResponse20025DataAverageLife implements Serializable {
    * Average life value of the ETP ranges between 3 and 5 years.
    * @return span3To5
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Average life value of the ETP ranges between 3 and 5 years.")
   @JsonProperty(JSON_PROPERTY_SPAN3_TO5)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -222,7 +223,7 @@ public class InlineResponse20025DataAverageLife implements Serializable {
    * Average life value of the ETP ranges between 5 and 7 years.
    * @return span5To7
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Average life value of the ETP ranges between 5 and 7 years.")
   @JsonProperty(JSON_PROPERTY_SPAN5_TO7)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -248,7 +249,7 @@ public class InlineResponse20025DataAverageLife implements Serializable {
    * Average life value of the ETP ranges between 7 and 10 years.
    * @return span7To10
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Average life value of the ETP ranges between 7 and 10 years.")
   @JsonProperty(JSON_PROPERTY_SPAN7_TO10)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -274,7 +275,7 @@ public class InlineResponse20025DataAverageLife implements Serializable {
    * Average life value of the ETP ranges between 10 and 15 years.
    * @return span10To15
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Average life value of the ETP ranges between 10 and 15 years.")
   @JsonProperty(JSON_PROPERTY_SPAN10_TO15)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -300,7 +301,7 @@ public class InlineResponse20025DataAverageLife implements Serializable {
    * Average life value of the ETP ranges between 15 and 20 years.
    * @return span15To20
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Average life value of the ETP ranges between 15 and 20 years.")
   @JsonProperty(JSON_PROPERTY_SPAN15_TO20)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -326,7 +327,7 @@ public class InlineResponse20025DataAverageLife implements Serializable {
    * Average life value of the ETP ranges above 20 years.
    * @return span20Plus
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Average life value of the ETP ranges above 20 years.")
   @JsonProperty(JSON_PROPERTY_SPAN20_PLUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -41,7 +41,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20014ComplianceFrance.JSON_PROPERTY_ID,
   InlineResponse20014ComplianceFrance.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20014ComplianceFrance implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -102,7 +103,7 @@ public class InlineResponse20014ComplianceFrance implements Serializable {
    * Identifier of a compliance property.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of a compliance property.")
   @JsonIgnore
 
@@ -136,7 +137,7 @@ public class InlineResponse20014ComplianceFrance implements Serializable {
    * Name of the compliance property.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the compliance property.")
   @JsonIgnore
 

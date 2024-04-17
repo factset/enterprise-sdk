@@ -47,7 +47,8 @@ import com.factset.sdk.FactSetFunds.JSON;
   Classifications.JSON_PROPERTY_NICHE_CLASS,
   Classifications.JSON_PROPERTY_REGION_CLASS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Classifications implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -90,7 +91,7 @@ public class Classifications implements Serializable {
    * FactSet Security Identifier. Six alpha-numeric characters, excluding vowels, with a -S suffix (XXXXXX-S), resolved from the requestId of the Fund requested.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FNK7XP-S", value = "FactSet Security Identifier. Six alpha-numeric characters, excluding vowels, with a -S suffix (XXXXXX-S), resolved from the requestId of the Fund requested.")
   @JsonIgnore
 
@@ -124,7 +125,7 @@ public class Classifications implements Serializable {
    * The requested Id sent as input.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "MABAX", value = "The requested Id sent as input.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -150,7 +151,7 @@ public class Classifications implements Serializable {
    * Returns the asset class description from FactSet&#39;s fund classification system. Asset class designates the fund&#39;s underlying holding type, e.g. equity, fixed-income, etc.
    * @return assetClass
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Equity", value = "Returns the asset class description from FactSet's fund classification system. Asset class designates the fund's underlying holding type, e.g. equity, fixed-income, etc.")
   @JsonIgnore
 
@@ -184,7 +185,7 @@ public class Classifications implements Serializable {
    * Returns the asset class category description from FactSet&#39;s fund classification system. The asset class category is the first-tier subcategory within the fund&#39;s asset class, e.g. size &amp; style, sector, precious metals, etc.
    * @return categoryClass
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Size and Style", value = "Returns the asset class category description from FactSet's fund classification system. The asset class category is the first-tier subcategory within the fund's asset class, e.g. size & style, sector, precious metals, etc.")
   @JsonIgnore
 
@@ -218,7 +219,7 @@ public class Classifications implements Serializable {
    * Returns the fund&#39;s economic development description from FactSet&#39;s fund classification system. This description refers to the development level for the fund&#39;s geographic region of focus, e.g. developed, emerging, etc.
    * @return economicDevelopmentClass
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Developed Markets", value = "Returns the fund's economic development description from FactSet's fund classification system. This description refers to the development level for the fund's geographic region of focus, e.g. developed, emerging, etc.")
   @JsonIgnore
 
@@ -252,7 +253,7 @@ public class Classifications implements Serializable {
    * Returns the fund&#39;s focus description from FactSet&#39;s fund classification system. The fund&#39;s focus is the second-tier subcategory within the fund&#39;s asset class, e.g. small cap, energy, etc.
    * @return focusClass
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Total Market", value = "Returns the fund's focus description from FactSet's fund classification system. The fund's focus is the second-tier subcategory within the fund's asset class, e.g. small cap, energy, etc.")
   @JsonIgnore
 
@@ -286,7 +287,7 @@ public class Classifications implements Serializable {
    * Returns the fund&#39;s specific geography description from FactSet&#39;s fund classification system. Specific geography refers to the fund&#39;s particular geographic focus within the region, e.g. Chile, BRICs, etc.
    * @return geographicClass
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "U.S.", value = "Returns the fund's specific geography description from FactSet's fund classification system. Specific geography refers to the fund's particular geographic focus within the region, e.g. Chile, BRICs, etc.")
   @JsonIgnore
 
@@ -320,7 +321,7 @@ public class Classifications implements Serializable {
    * Returns the fund&#39;s niche description from FactSet&#39;s fund classification system. The fund&#39;s niche is the third-tier subcategory with the fund&#39;s asset class, e.g. growth, coal, etc.
    * @return nicheClass
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Value", value = "Returns the fund's niche description from FactSet's fund classification system. The fund's niche is the third-tier subcategory with the fund's asset class, e.g. growth, coal, etc.")
   @JsonIgnore
 
@@ -354,7 +355,7 @@ public class Classifications implements Serializable {
    * Returns the fund&#39;s region description from FactSet&#39;s fund classification system. Refers to the broad regional exposure of the fund&#39;s holdings, e.g. Latin America, Asia-Pacific, etc.
    * @return regionClass
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "North America", value = "Returns the fund's region description from FactSet's fund classification system. Refers to the broad regional exposure of the fund's holdings, e.g. Latin America, Asia-Pacific, etc.")
   @JsonIgnore
 

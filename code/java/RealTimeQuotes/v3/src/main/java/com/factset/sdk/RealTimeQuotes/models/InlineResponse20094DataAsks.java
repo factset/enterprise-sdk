@@ -46,7 +46,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20094DataAsks.JSON_PROPERTY_VOLUME,
   InlineResponse20094DataAsks.JSON_PROPERTY_MARKET_MAKER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20094DataAsks implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -120,7 +121,7 @@ public class InlineResponse20094DataAsks implements Serializable {
    * Unique identifier of the order. Possible values depend on the values delivered by the supplier of the price information.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Unique identifier of the order. Possible values depend on the values delivered by the supplier of the price information.")
   @JsonIgnore
 
@@ -154,7 +155,7 @@ public class InlineResponse20094DataAsks implements Serializable {
    * Date and time of the latest change.
    * @return time
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Date and time of the latest change.")
   @JsonIgnore
 
@@ -188,7 +189,7 @@ public class InlineResponse20094DataAsks implements Serializable {
    * Order type.
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Order type.")
   @JsonIgnore
 
@@ -222,7 +223,7 @@ public class InlineResponse20094DataAsks implements Serializable {
    * Price value. The value is 0 if the attribute &#x60;type&#x60; is 1 (market order). See attribute &#x60;valueUnit&#x60; in endpoint &#x60;/prices/get&#x60; for the unit of the price value\&quot;.
    * @return price
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Price value. The value is 0 if the attribute `type` is 1 (market order). See attribute `valueUnit` in endpoint `/prices/get` for the unit of the price value\".")
   @JsonIgnore
 
@@ -256,7 +257,7 @@ public class InlineResponse20094DataAsks implements Serializable {
    * Quote condition. Possible values depend on the values delivered by the supplier of the price information.
    * @return quoteCondition
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Quote condition. Possible values depend on the values delivered by the supplier of the price information.")
   @JsonIgnore
 
@@ -290,7 +291,7 @@ public class InlineResponse20094DataAsks implements Serializable {
    * Volume of the order.
    * @return volume
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Volume of the order.")
   @JsonIgnore
 
@@ -324,7 +325,7 @@ public class InlineResponse20094DataAsks implements Serializable {
    * Code of the market maker.
    * @return marketMaker
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Code of the market maker.")
   @JsonIgnore
 

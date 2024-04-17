@@ -40,7 +40,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   PostInstrumentNotationListRequestDataFilterMarketSelection.JSON_PROPERTY_EXCLUDE,
   PostInstrumentNotationListRequestDataFilterMarketSelection.JSON_PROPERTY_SIP_ONLY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostInstrumentNotationListRequestDataFilterMarketSelection implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -65,7 +66,7 @@ public class PostInstrumentNotationListRequestDataFilterMarketSelection implemen
    * Get restrict
    * @return restrict
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RESTRICT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -91,7 +92,7 @@ public class PostInstrumentNotationListRequestDataFilterMarketSelection implemen
    * Get exclude
    * @return exclude
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EXCLUDE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -117,7 +118,7 @@ public class PostInstrumentNotationListRequestDataFilterMarketSelection implemen
    * If &#x60;true&#x60;, only notations are returned that are traded on a market that reports to a U.S. Securities Information Processor (SIP).
    * @return sipOnly
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "If `true`, only notations are returned that are traded on a market that reports to a U.S. Securities Information Processor (SIP).")
   @JsonProperty(JSON_PROPERTY_SIP_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

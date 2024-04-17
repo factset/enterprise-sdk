@@ -40,7 +40,8 @@ import com.factset.sdk.OpenRisk.JSON;
   AdditionalCalculationInputsMarketExcess.JSON_PROPERTY_RISK_PREMIUM,
   AdditionalCalculationInputsMarketExcess.JSON_PROPERTY_RISK_PREMIUM_PERIODS_PER_YEAR
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class AdditionalCalculationInputsMarketExcess implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -82,7 +83,7 @@ public class AdditionalCalculationInputsMarketExcess implements Serializable {
    * User-defined arbitrary return value measured from the market portfolio. The value is expected to be a scalar and the return horizon must match that of the factor returns. For example, if the factor returns used are daily-basis, the market return needs to be 1-day market return for the calculation. This number will be one of the inputs to calculate market timing effect.
    * @return _return
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "User-defined arbitrary return value measured from the market portfolio. The value is expected to be a scalar and the return horizon must match that of the factor returns. For example, if the factor returns used are daily-basis, the market return needs to be 1-day market return for the calculation. This number will be one of the inputs to calculate market timing effect.")
   @JsonProperty(JSON_PROPERTY_RETURN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -108,7 +109,7 @@ public class AdditionalCalculationInputsMarketExcess implements Serializable {
    * User-defined risk-free rate of return whose horizon must match that of the factor returns. This number will be one of the inputs to calculate market timing effect.
    * @return riskFreeRate
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "User-defined risk-free rate of return whose horizon must match that of the factor returns. This number will be one of the inputs to calculate market timing effect.")
   @JsonProperty(JSON_PROPERTY_RISK_FREE_RATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -134,7 +135,7 @@ public class AdditionalCalculationInputsMarketExcess implements Serializable {
    * Expected return of the market portfolio which is required to be an annualized return. This number will be one of the inputs to calculate market timing effect.
    * @return riskPremium
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Expected return of the market portfolio which is required to be an annualized return. This number will be one of the inputs to calculate market timing effect.")
   @JsonProperty(JSON_PROPERTY_RISK_PREMIUM)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -162,7 +163,7 @@ public class AdditionalCalculationInputsMarketExcess implements Serializable {
    * maximum: 365
    * @return riskPremiumPeriodsPerYear
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Deannualization factor on the Market Risk Premium which can be any user-defined positive integer number. This number will be used to deannualize Market Risk Premium so that the expected market return horizon will match that of the factor returns. For example, if a risk model has daily factor returns, select desired integer such as 365 or 252.")
   @JsonProperty(JSON_PROPERTY_RISK_PREMIUM_PERIODS_PER_YEAR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

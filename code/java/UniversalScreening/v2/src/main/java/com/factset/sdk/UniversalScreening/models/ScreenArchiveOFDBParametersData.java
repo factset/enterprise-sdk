@@ -41,7 +41,8 @@ import com.factset.sdk.UniversalScreening.JSON;
   ScreenArchiveOFDBParametersData.JSON_PROPERTY_LEGACY_UNIVERSE_TYPE,
   ScreenArchiveOFDBParametersData.JSON_PROPERTY_SCREEN_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ScreenArchiveOFDBParametersData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -80,7 +81,7 @@ public class ScreenArchiveOFDBParametersData implements Serializable {
    * Get archiveOptions
    * @return archiveOptions
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ARCHIVE_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -106,7 +107,7 @@ public class ScreenArchiveOFDBParametersData implements Serializable {
    * Specifies the backtest date used when running the screen, replacing   the backtest date saved in the screen, can be written in YYYYMMDD,   MM/DD/YYYY or relative (0, -1, 0/-1/0) format. Requires addtional access to use.
    * @return backtestDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Specifies the backtest date used when running the screen, replacing   the backtest date saved in the screen, can be written in YYYYMMDD,   MM/DD/YYYY or relative (0, -1, 0/-1/0) format. Requires addtional access to use.")
   @JsonProperty(JSON_PROPERTY_BACKTEST_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -140,7 +141,7 @@ public class ScreenArchiveOFDBParametersData implements Serializable {
    * Modifies existing global variables for this calculation request, temporarily adds them if they do not already exist Variable names can only contain the characters A-Z (case insensitive). Variable values must be non-empty.
    * @return globalVariablesMap
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Modifies existing global variables for this calculation request, temporarily adds them if they do not already exist Variable names can only contain the characters A-Z (case insensitive). Variable values must be non-empty.")
   @JsonProperty(JSON_PROPERTY_GLOBAL_VARIABLES_MAP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -166,7 +167,7 @@ public class ScreenArchiveOFDBParametersData implements Serializable {
    * Universe type to open legacy screen with. Must be one of \&quot;equity\&quot;, \&quot;debt\&quot;, or \&quot;fund\&quot;. Defaults to \&quot;equity\&quot;.
    * @return legacyUniverseType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Universe type to open legacy screen with. Must be one of \"equity\", \"debt\", or \"fund\". Defaults to \"equity\".")
   @JsonProperty(JSON_PROPERTY_LEGACY_UNIVERSE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -192,7 +193,7 @@ public class ScreenArchiveOFDBParametersData implements Serializable {
    * File path to a valid screen
    * @return screenName
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "File path to a valid screen")
   @JsonProperty(JSON_PROPERTY_SCREEN_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

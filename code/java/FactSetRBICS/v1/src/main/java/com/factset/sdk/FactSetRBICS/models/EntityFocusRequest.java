@@ -39,7 +39,8 @@ import com.factset.sdk.FactSetRBICS.JSON;
   EntityFocusRequest.JSON_PROPERTY_LEVELS,
   EntityFocusRequest.JSON_PROPERTY_INCLUDE_NAMES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EntityFocusRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -75,7 +76,7 @@ public class EntityFocusRequest implements Serializable {
    * Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. Max Ids of 2500. 
    * @return ids
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "[\"FDS-US\",\"0FPWZZ-E\",\"TSLA-US\"]", value = "Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. Max Ids of 2500. ")
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -101,7 +102,7 @@ public class EntityFocusRequest implements Serializable {
    * Effective date for data expressed in YYYY-MM-DD format. If no date is requested, the default behavior is to return the full history for the requested entity. 
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2020-09-30", value = "Effective date for data expressed in YYYY-MM-DD format. If no date is requested, the default behavior is to return the full history for the requested entity. ")
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -135,7 +136,7 @@ public class EntityFocusRequest implements Serializable {
    * List of RBICS industry levels to include in the response. **By default if left blank, all levels are returned.** 
    * @return levels
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "[1,3,6]", value = "List of RBICS industry levels to include in the response. **By default if left blank, all levels are returned.** ")
   @JsonProperty(JSON_PROPERTY_LEVELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -161,7 +162,7 @@ public class EntityFocusRequest implements Serializable {
    * Option to include or exclude industry Names and the L6 Description. True &#x3D; Include Names; False &#x3D; Exclude Names. 
    * @return includeNames
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "true", value = "Option to include or exclude industry Names and the L6 Description. True = Include Names; False = Exclude Names. ")
   @JsonProperty(JSON_PROPERTY_INCLUDE_NAMES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

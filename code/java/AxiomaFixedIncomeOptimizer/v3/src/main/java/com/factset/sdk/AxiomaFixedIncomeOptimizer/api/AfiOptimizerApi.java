@@ -6,7 +6,7 @@ import com.factset.sdk.AxiomaFixedIncomeOptimizer.ApiResponse;
 import com.factset.sdk.AxiomaFixedIncomeOptimizer.Configuration;
 import com.factset.sdk.AxiomaFixedIncomeOptimizer.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -16,7 +16,8 @@ import com.factset.sdk.AxiomaFixedIncomeOptimizer.models.CalculationInfoRoot;
 import com.factset.sdk.AxiomaFixedIncomeOptimizer.models.ClientErrorResponse;
 import com.factset.sdk.AxiomaFixedIncomeOptimizer.models.ObjectRoot;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class AfiOptimizerApi {
   private ApiClient apiClient;
 

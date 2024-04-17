@@ -39,7 +39,8 @@ import com.factset.sdk.AxiomaFixedIncomeOptimizer.JSON;
   OptimalPortfolio.JSON_PROPERTY_IF_ACCT_EXISTS,
   OptimalPortfolio.JSON_PROPERTY_IF_OFDB_DATE_EXISTS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimalPortfolio implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -144,7 +145,7 @@ public class OptimalPortfolio implements Serializable {
    * Account path
    * @return acctName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Account path")
   @JsonProperty(JSON_PROPERTY_ACCT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -170,7 +171,7 @@ public class OptimalPortfolio implements Serializable {
    * Exclude zero
    * @return excludeZero
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Exclude zero")
   @JsonProperty(JSON_PROPERTY_EXCLUDE_ZERO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -196,7 +197,7 @@ public class OptimalPortfolio implements Serializable {
    * Archive date
    * @return archiveDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Archive date")
   @JsonProperty(JSON_PROPERTY_ARCHIVE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -222,7 +223,7 @@ public class OptimalPortfolio implements Serializable {
    * Archive action if account exists
    * @return ifAcctExists
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Archive action if account exists")
   @JsonProperty(JSON_PROPERTY_IF_ACCT_EXISTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -248,7 +249,7 @@ public class OptimalPortfolio implements Serializable {
    * Action if ofdb date exists
    * @return ifOfdbDateExists
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Action if ofdb date exists")
   @JsonProperty(JSON_PROPERTY_IF_OFDB_DATE_EXISTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

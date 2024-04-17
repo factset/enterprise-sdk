@@ -39,7 +39,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20013DataTrackingDifference.JSON_PROPERTY_MAX_UPSIDE,
   InlineResponse20013DataTrackingDifference.JSON_PROPERTY_MAX_DOWNSIDE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20013DataTrackingDifference implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class InlineResponse20013DataTrackingDifference implements Serializable {
    * The median difference between NAV and fund index returns over a one-year set of rolling 12 month holding periods. This statistic captures all inputs to tracking difference: expense ratio, optimization, securities lending income, and tax recapture. Available for the regions: US.
    * @return median
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The median difference between NAV and fund index returns over a one-year set of rolling 12 month holding periods. This statistic captures all inputs to tracking difference: expense ratio, optimization, securities lending income, and tax recapture. Available for the regions: US.")
   @JsonProperty(JSON_PROPERTY_MEDIAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -90,7 +91,7 @@ public class InlineResponse20013DataTrackingDifference implements Serializable {
    * Greatest, or least negative 12-month difference between NAV and index returns over a rolling 12 month period. Available for the regions: US.
    * @return maxUpside
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Greatest, or least negative 12-month difference between NAV and index returns over a rolling 12 month period. Available for the regions: US.")
   @JsonProperty(JSON_PROPERTY_MAX_UPSIDE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -116,7 +117,7 @@ public class InlineResponse20013DataTrackingDifference implements Serializable {
    * Most negative or least positive 12-month difference between NAV and index returns over a rolling 12 month period. Available for the regions: US.
    * @return maxDownside
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Most negative or least positive 12-month difference between NAV and index returns over a rolling 12 month period. Available for the regions: US.")
   @JsonProperty(JSON_PROPERTY_MAX_DOWNSIDE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

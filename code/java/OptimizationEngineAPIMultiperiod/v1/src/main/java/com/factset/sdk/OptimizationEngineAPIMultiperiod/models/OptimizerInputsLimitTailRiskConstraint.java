@@ -45,7 +45,8 @@ import com.factset.sdk.OptimizationEngineAPIMultiperiod.JSON;
   OptimizerInputsLimitTailRiskConstraint.JSON_PROPERTY_BENCHMARK_INDEX,
   OptimizerInputsLimitTailRiskConstraint.JSON_PROPERTY_HIERARCHY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerInputsLimitTailRiskConstraint implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -85,7 +86,7 @@ public class OptimizerInputsLimitTailRiskConstraint implements Serializable {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -111,7 +112,7 @@ public class OptimizerInputsLimitTailRiskConstraint implements Serializable {
    * Get riskMeasure
    * @return riskMeasure
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RISK_MEASURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -137,7 +138,7 @@ public class OptimizerInputsLimitTailRiskConstraint implements Serializable {
    * Get maxRisk
    * @return maxRisk
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MAX_RISK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -163,7 +164,7 @@ public class OptimizerInputsLimitTailRiskConstraint implements Serializable {
    * Get confidenceLevel
    * @return confidenceLevel
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CONFIDENCE_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -189,7 +190,7 @@ public class OptimizerInputsLimitTailRiskConstraint implements Serializable {
    * Get penalty
    * @return penalty
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PENALTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -215,7 +216,7 @@ public class OptimizerInputsLimitTailRiskConstraint implements Serializable {
    * Get activeRisk
    * @return activeRisk
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ACTIVE_RISK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -241,7 +242,7 @@ public class OptimizerInputsLimitTailRiskConstraint implements Serializable {
    * Get benchmarkIndex
    * @return benchmarkIndex
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BENCHMARK_INDEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -267,7 +268,7 @@ public class OptimizerInputsLimitTailRiskConstraint implements Serializable {
    * Get hierarchy
    * @return hierarchy
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_HIERARCHY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -74,7 +74,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20014Data.JSON_PROPERTY_RECOMMENDATION,
   InlineResponse20014Data.JSON_PROPERTY_ESTIMATES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20014Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -147,7 +148,7 @@ public class InlineResponse20014Data implements Serializable {
    * Identifier of the notation.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the notation.")
   @JsonIgnore
 
@@ -181,7 +182,7 @@ public class InlineResponse20014Data implements Serializable {
    * Get valueUnit
    * @return valueUnit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VALUE_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -207,7 +208,7 @@ public class InlineResponse20014Data implements Serializable {
    * Get market
    * @return market
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MARKET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -233,7 +234,7 @@ public class InlineResponse20014Data implements Serializable {
    * The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.
    * @return symbol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.")
   @JsonIgnore
 
@@ -267,7 +268,7 @@ public class InlineResponse20014Data implements Serializable {
    * Get nsin
    * @return nsin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NSIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -293,7 +294,7 @@ public class InlineResponse20014Data implements Serializable {
    * Get fsym
    * @return fsym
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FSYM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -319,7 +320,7 @@ public class InlineResponse20014Data implements Serializable {
    * Get instrument
    * @return instrument
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INSTRUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -345,7 +346,7 @@ public class InlineResponse20014Data implements Serializable {
    * Get esg
    * @return esg
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ESG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -371,7 +372,7 @@ public class InlineResponse20014Data implements Serializable {
    * Get compliance
    * @return compliance
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COMPLIANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -397,7 +398,7 @@ public class InlineResponse20014Data implements Serializable {
    * Get currentKeyFigures
    * @return currentKeyFigures
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CURRENT_KEY_FIGURES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -423,7 +424,7 @@ public class InlineResponse20014Data implements Serializable {
    * Get reportedKeyFigures
    * @return reportedKeyFigures
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REPORTED_KEY_FIGURES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -449,7 +450,7 @@ public class InlineResponse20014Data implements Serializable {
    * Get benchmark
    * @return benchmark
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BENCHMARK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -475,7 +476,7 @@ public class InlineResponse20014Data implements Serializable {
    * Get performance
    * @return performance
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PERFORMANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -501,7 +502,7 @@ public class InlineResponse20014Data implements Serializable {
    * Get volatility
    * @return volatility
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VOLATILITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -527,7 +528,7 @@ public class InlineResponse20014Data implements Serializable {
    * Get tradingValue
    * @return tradingValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TRADING_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -553,7 +554,7 @@ public class InlineResponse20014Data implements Serializable {
    * Get simpleMovingAverage
    * @return simpleMovingAverage
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SIMPLE_MOVING_AVERAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -579,7 +580,7 @@ public class InlineResponse20014Data implements Serializable {
    * Get rsiWilder
    * @return rsiWilder
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RSI_WILDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -605,7 +606,7 @@ public class InlineResponse20014Data implements Serializable {
    * Get recommendation
    * @return recommendation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RECOMMENDATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -631,7 +632,7 @@ public class InlineResponse20014Data implements Serializable {
    * Get estimates
    * @return estimates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ESTIMATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

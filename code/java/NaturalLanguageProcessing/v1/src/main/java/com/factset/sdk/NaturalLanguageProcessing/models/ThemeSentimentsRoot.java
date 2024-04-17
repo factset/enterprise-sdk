@@ -38,7 +38,8 @@ import com.factset.sdk.NaturalLanguageProcessing.JSON;
   ThemeSentimentsRoot.JSON_PROPERTY_DATA,
   ThemeSentimentsRoot.JSON_PROPERTY_META
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ThemeSentimentsRoot implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -73,7 +74,7 @@ public class ThemeSentimentsRoot implements Serializable {
    * List of themes and their respective sentiments
    * @return data
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "List of themes and their respective sentiments")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -99,7 +100,7 @@ public class ThemeSentimentsRoot implements Serializable {
    * Any associated metadata
    * @return meta
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Any associated metadata")
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -44,7 +44,8 @@ import com.factset.sdk.FactSetSearchAnswers.JSON;
   TableTemplateData.JSON_PROPERTY_APPLICATION_LINKS,
   TableTemplateData.JSON_PROPERTY_TABLE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class TableTemplateData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -83,7 +84,7 @@ public class TableTemplateData implements Serializable {
    * Get headline
    * @return headline
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_HEADLINE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -109,7 +110,7 @@ public class TableTemplateData implements Serializable {
    * Get footer
    * @return footer
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FOOTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -135,7 +136,7 @@ public class TableTemplateData implements Serializable {
    * Get fdc3Context
    * @return fdc3Context
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FDC3_CONTEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -169,7 +170,7 @@ public class TableTemplateData implements Serializable {
    * Get applicationLinks
    * @return applicationLinks
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_APPLICATION_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -195,7 +196,7 @@ public class TableTemplateData implements Serializable {
    * Get table
    * @return table
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -43,7 +43,8 @@ import com.factset.sdk.IRNCustomSymbols.JSON;
   CustomSymbolCustomFieldValueDto.JSON_PROPERTY_OPTION_VALUES,
   CustomSymbolCustomFieldValueDto.JSON_PROPERTY_CONTACTS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CustomSymbolCustomFieldValueDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -71,7 +72,7 @@ public class CustomSymbolCustomFieldValueDto implements Serializable {
    * Get code
    * @return code
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -105,7 +106,7 @@ public class CustomSymbolCustomFieldValueDto implements Serializable {
    * Get value
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -151,7 +152,7 @@ public class CustomSymbolCustomFieldValueDto implements Serializable {
    * Get optionValues
    * @return optionValues
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -197,7 +198,7 @@ public class CustomSymbolCustomFieldValueDto implements Serializable {
    * Get contacts
    * @return contacts
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

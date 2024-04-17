@@ -42,7 +42,8 @@ import com.factset.sdk.RealTimePriceAlerting.JSON;
   InlineResponse200DataTriggerRange.JSON_PROPERTY_UPPER_LIMIT,
   InlineResponse200DataTriggerRange.JSON_PROPERTY_LOWER_LIMIT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse200DataTriggerRange implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class InlineResponse200DataTriggerRange implements Serializable {
    * Upper limit.
    * @return upperLimit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Upper limit.")
   @JsonIgnore
 
@@ -98,7 +99,7 @@ public class InlineResponse200DataTriggerRange implements Serializable {
    * Lower limit.
    * @return lowerLimit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Lower limit.")
   @JsonIgnore
 

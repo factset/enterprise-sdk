@@ -42,7 +42,8 @@ import com.factset.sdk.OptimizationEngineAPIMultiperiod.JSON;
   OptimizerInputsQuantRiskModelRawData.JSON_PROPERTY_RAW_FACTOR_COVARIANCE_MATRIX,
   OptimizerInputsQuantRiskModelRawData.JSON_PROPERTY_RISK_MODEL_COVERAGE_FLAG
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerInputsQuantRiskModelRawData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -73,7 +74,7 @@ public class OptimizerInputsQuantRiskModelRawData implements Serializable {
    * Get labels
    * @return labels
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LABELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,7 +100,7 @@ public class OptimizerInputsQuantRiskModelRawData implements Serializable {
    * Get rawAssetCovarianceMatrix
    * @return rawAssetCovarianceMatrix
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RAW_ASSET_COVARIANCE_MATRIX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -125,7 +126,7 @@ public class OptimizerInputsQuantRiskModelRawData implements Serializable {
    * Get rawFactorExposure
    * @return rawFactorExposure
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RAW_FACTOR_EXPOSURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -151,7 +152,7 @@ public class OptimizerInputsQuantRiskModelRawData implements Serializable {
    * Get rawFactorCovarianceMatrix
    * @return rawFactorCovarianceMatrix
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RAW_FACTOR_COVARIANCE_MATRIX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -185,7 +186,7 @@ public class OptimizerInputsQuantRiskModelRawData implements Serializable {
    * Get riskModelCoverageFlag
    * @return riskModelCoverageFlag
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RISK_MODEL_COVERAGE_FLAG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -36,7 +36,8 @@ import com.factset.sdk.OptimizationEngineAPIMultiperiod.JSON;
   VARSimulatedReturns.JSON_PROPERTY_ENTITY,
   VARSimulatedReturns.JSON_PROPERTY_RETURNS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class VARSimulatedReturns implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -58,7 +59,7 @@ public class VARSimulatedReturns implements Serializable {
    * Get entity
    * @return entity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ENTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -92,7 +93,7 @@ public class VARSimulatedReturns implements Serializable {
    * Get returns
    * @return returns
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RETURNS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -40,7 +40,8 @@ import com.factset.sdk.Vault.JSON;
   DateParametersSummary.JSON_PROPERTY_STARTDATE,
   DateParametersSummary.JSON_PROPERTY_ENDDATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class DateParametersSummary implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -62,7 +63,7 @@ public class DateParametersSummary implements Serializable {
    * Start date in YYYYMMDD format.
    * @return startdate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Start date in YYYYMMDD format.")
   @JsonIgnore
 
@@ -96,7 +97,7 @@ public class DateParametersSummary implements Serializable {
    * End date in YYYYMMDD format.
    * @return enddate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "End date in YYYYMMDD format.")
   @JsonIgnore
 

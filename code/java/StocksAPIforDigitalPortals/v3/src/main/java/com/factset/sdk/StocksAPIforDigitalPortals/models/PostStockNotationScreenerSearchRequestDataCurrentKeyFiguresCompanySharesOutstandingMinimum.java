@@ -37,7 +37,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanySharesOutstandingMinimum.JSON_PROPERTY_VALUE,
   PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanySharesOutstandingMinimum.JSON_PROPERTY_INCLUSIVE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanySharesOutstandingMinimum implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -59,7 +60,7 @@ public class PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanyS
    * The minimum value.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The minimum value.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -85,7 +86,7 @@ public class PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanyS
    * Indicates whether the minimum value is included in the range or not.
    * @return inclusive
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the minimum value is included in the range or not.")
   @JsonProperty(JSON_PROPERTY_INCLUSIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

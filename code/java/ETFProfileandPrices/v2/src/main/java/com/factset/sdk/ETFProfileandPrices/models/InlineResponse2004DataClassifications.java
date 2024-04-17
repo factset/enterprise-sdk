@@ -37,7 +37,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse2004DataClassifications.JSON_PROPERTY_NAME,
   InlineResponse2004DataClassifications.JSON_PROPERTY_WEIGHT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2004DataClassifications implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -59,7 +60,7 @@ public class InlineResponse2004DataClassifications implements Serializable {
    * Name of the classification. Possible values: \&quot;Developed Market\&quot;, \&quot;Frontier Market\&quot;, \&quot;Emerging Market\&quot;, \&quot;Rest of World Market\&quot;
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the classification. Possible values: \"Developed Market\", \"Frontier Market\", \"Emerging Market\", \"Rest of World Market\"")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -85,7 +86,7 @@ public class InlineResponse2004DataClassifications implements Serializable {
    * Weight (net) of the classification.
    * @return weight
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Weight (net) of the classification.")
   @JsonProperty(JSON_PROPERTY_WEIGHT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

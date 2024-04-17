@@ -39,7 +39,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   PostNotationSearchByTextRequestDataValidationMarketSelection.JSON_PROPERTY_RESTRICT,
   PostNotationSearchByTextRequestDataValidationMarketSelection.JSON_PROPERTY_EXCLUDE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostNotationSearchByTextRequestDataValidationMarketSelection implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -61,7 +62,7 @@ public class PostNotationSearchByTextRequestDataValidationMarketSelection implem
    * Get restrict
    * @return restrict
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RESTRICT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -87,7 +88,7 @@ public class PostNotationSearchByTextRequestDataValidationMarketSelection implem
    * Get exclude
    * @return exclude
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EXCLUDE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

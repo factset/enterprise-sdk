@@ -46,7 +46,8 @@ import com.factset.sdk.FactSetConcordance.JSON;
   PeopleMappingRequest.JSON_PROPERTY_PERSON_ID,
   PeopleMappingRequest.JSON_PROPERTY_UNIVERSE_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PeopleMappingRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -108,7 +109,7 @@ public class PeopleMappingRequest implements Serializable {
    * Used to describe the company of the person
    * @return clientEntity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Microsoft", value = "Used to describe the company of the person")
   @JsonProperty(JSON_PROPERTY_CLIENT_ENTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -134,7 +135,7 @@ public class PeopleMappingRequest implements Serializable {
    * Used to describe the first name of the person
    * @return clientFirstName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "William", value = "Used to describe the first name of the person")
   @JsonProperty(JSON_PROPERTY_CLIENT_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -160,7 +161,7 @@ public class PeopleMappingRequest implements Serializable {
    * A unique identifier supplied by the user. ClientId is saved to the user&#39;s Concordance universe and will be used as the identifier for that entity within the universe.
    * @return clientId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "BGA-123", required = true, value = "A unique identifier supplied by the user. ClientId is saved to the user's Concordance universe and will be used as the identifier for that entity within the universe.")
   @JsonProperty(JSON_PROPERTY_CLIENT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -186,7 +187,7 @@ public class PeopleMappingRequest implements Serializable {
    * Used to describe the last name of the person.
    * @return clientLastName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Gates", value = "Used to describe the last name of the person.")
   @JsonProperty(JSON_PROPERTY_CLIENT_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -212,7 +213,7 @@ public class PeopleMappingRequest implements Serializable {
    * Used to describe the middle name of the person.
    * @return clientMiddleName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Henry", value = "Used to describe the middle name of the person.")
   @JsonProperty(JSON_PROPERTY_CLIENT_MIDDLE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -238,7 +239,7 @@ public class PeopleMappingRequest implements Serializable {
    * Used to describe the name of the person
    * @return clientPersonName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Bill Gates", value = "Used to describe the name of the person")
   @JsonProperty(JSON_PROPERTY_CLIENT_PERSON_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -264,7 +265,7 @@ public class PeopleMappingRequest implements Serializable {
    * Used to indicate the priority of the person
    * @return clientPriority
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "HIGH", value = "Used to indicate the priority of the person")
   @JsonProperty(JSON_PROPERTY_CLIENT_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -290,7 +291,7 @@ public class PeopleMappingRequest implements Serializable {
    * Used to indicate the salutation of the person
    * @return clientSalutation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Mr", value = "Used to indicate the salutation of the person")
   @JsonProperty(JSON_PROPERTY_CLIENT_SALUTATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -316,7 +317,7 @@ public class PeopleMappingRequest implements Serializable {
    * Used to indicate the suffix for the person&#39;s name
    * @return clientSuffix
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "III", value = "Used to indicate the suffix for the person's name")
   @JsonProperty(JSON_PROPERTY_CLIENT_SUFFIX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -350,7 +351,7 @@ public class PeopleMappingRequest implements Serializable {
    * Any additional context information that can be saved along with other input values for mapping. To be used by Managed Service for mapping any unmapped records. 
    * @return clientAdditionalContext
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "{\"Address\":\"123 Main St\",\"Phone\":\"555-555-5555\",\"City\":\"New York\"}", value = "Any additional context information that can be saved along with other input values for mapping. To be used by Managed Service for mapping any unmapped records. ")
   @JsonProperty(JSON_PROPERTY_CLIENT_ADDITIONAL_CONTEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -376,7 +377,7 @@ public class PeopleMappingRequest implements Serializable {
    * A unique identifier used to identify a person.
    * @return personId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "00118X-E", value = "A unique identifier used to identify a person.")
   @JsonProperty(JSON_PROPERTY_PERSON_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -402,7 +403,7 @@ public class PeopleMappingRequest implements Serializable {
    * A unique identifier supplied to a person to save the data into his/her universe.
    * @return universeId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "1", required = true, value = "A unique identifier supplied to a person to save the data into his/her universe.")
   @JsonProperty(JSON_PROPERTY_UNIVERSE_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

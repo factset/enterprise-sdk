@@ -38,7 +38,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   PostPricesTradingScheduleEventListRequestMetaPagination.JSON_PROPERTY_CURSOR,
   PostPricesTradingScheduleEventListRequestMetaPagination.JSON_PROPERTY_LIMIT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostPricesTradingScheduleEventListRequestMetaPagination implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -60,7 +61,7 @@ public class PostPricesTradingScheduleEventListRequestMetaPagination implements 
    * Starting point as returned in the attributes &#x60;pagination.next&#x60; or &#x60;pagination.previous&#x60; by a prior invocation of this endpoint, or undefined (default).
    * @return cursor
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Starting point as returned in the attributes `pagination.next` or `pagination.previous` by a prior invocation of this endpoint, or undefined (default).")
   @JsonProperty(JSON_PROPERTY_CURSOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -88,7 +89,7 @@ public class PostPricesTradingScheduleEventListRequestMetaPagination implements 
    * maximum: 500
    * @return limit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Non-negative maximum number of entries to return.")
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

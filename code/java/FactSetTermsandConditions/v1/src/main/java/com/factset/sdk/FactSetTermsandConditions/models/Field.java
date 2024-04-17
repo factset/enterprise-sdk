@@ -38,7 +38,8 @@ import com.factset.sdk.FactSetTermsandConditions.JSON;
   Field.JSON_PROPERTY_CATEGORY,
   Field.JSON_PROPERTY_DATA_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Field implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -105,7 +106,7 @@ public class Field implements Serializable {
    * Field identifier to be used as &#x60;fields&#x60; input in _Terms-and-Conditions_ endpoints. 
    * @return field
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "principalAmt", value = "Field identifier to be used as `fields` input in _Terms-and-Conditions_ endpoints. ")
   @JsonProperty(JSON_PROPERTY_FIELD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -131,7 +132,7 @@ public class Field implements Serializable {
    * Plain text name of the field.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Principal (or Face Value) Amount", value = "Plain text name of the field.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -157,7 +158,7 @@ public class Field implements Serializable {
    * Primary Category of field item, such as COUPON_DETAILS or SECURITY_DETAILS.
    * @return category
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "SECURITY_DETAILS", value = "Primary Category of field item, such as COUPON_DETAILS or SECURITY_DETAILS.")
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -183,7 +184,7 @@ public class Field implements Serializable {
    * The Data Type of the respective field, including - * date * string * integer * double 
    * @return dataType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "integer", value = "The Data Type of the respective field, including - * date * string * integer * double ")
   @JsonProperty(JSON_PROPERTY_DATA_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

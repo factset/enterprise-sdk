@@ -45,7 +45,8 @@ import com.factset.sdk.QuantEngine.JSON;
   QuantCalculationParameters.JSON_PROPERTY_FORMULAS,
   QuantCalculationParameters.JSON_PROPERTY_JOB_DESCRIPTION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class QuantCalculationParameters implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -73,7 +74,7 @@ public class QuantCalculationParameters implements Serializable {
    * Get universe
    * @return universe
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -107,7 +108,7 @@ public class QuantCalculationParameters implements Serializable {
    * Get dates
    * @return dates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -149,7 +150,7 @@ public class QuantCalculationParameters implements Serializable {
    * Get formulas
    * @return formulas
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FORMULAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -175,7 +176,7 @@ public class QuantCalculationParameters implements Serializable {
    * Get jobDescription
    * @return jobDescription
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

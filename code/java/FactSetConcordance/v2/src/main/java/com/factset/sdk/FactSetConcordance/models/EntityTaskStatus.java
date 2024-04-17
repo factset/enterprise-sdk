@@ -100,7 +100,8 @@ import com.factset.sdk.FactSetConcordance.JSON;
   EntityTaskStatus.JSON_PROPERTY_UNIVERSE_ID,
   EntityTaskStatus.JSON_PROPERTY_UNIVERSE_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EntityTaskStatus implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -339,7 +340,7 @@ public class EntityTaskStatus implements Serializable {
    * Identifier denoting a specific Concordance task submitted by the user.
    * @return taskId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "31", value = "Identifier denoting a specific Concordance task submitted by the user.")
   @JsonIgnore
 
@@ -373,7 +374,7 @@ public class EntityTaskStatus implements Serializable {
    * User-defined name for the task used to name the output file.
    * @return taskName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "test31", value = "User-defined name for the task used to name the output file.")
   @JsonIgnore
 
@@ -407,7 +408,7 @@ public class EntityTaskStatus implements Serializable {
    * Action status for the Concordance Task process.
    * @return taskAction
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "processfile", value = "Action status for the Concordance Task process.")
   @JsonIgnore
 
@@ -441,7 +442,7 @@ public class EntityTaskStatus implements Serializable {
    * Status of the Concordance Task. If the value is \&quot;SUCCESS\&quot;, you can move to the subsequent /entity-decisions endpoint to retrieve the results.
    * @return status
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Status of the Concordance Task. If the value is \"SUCCESS\", you can move to the subsequent /entity-decisions endpoint to retrieve the results.")
   @JsonIgnore
 
@@ -475,7 +476,7 @@ public class EntityTaskStatus implements Serializable {
    * The input file is posted as a file object in the form. 
    * @return inputFile
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "test31.csv", value = "The input file is posted as a file object in the form. ")
   @JsonIgnore
 
@@ -509,7 +510,7 @@ public class EntityTaskStatus implements Serializable {
    * Name of the column in the input file that contains a unique identifier supplied by the user.
    * @return clientIdColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "ClientId", value = "Name of the column in the input file that contains a unique identifier supplied by the user.")
   @JsonIgnore
 
@@ -543,7 +544,7 @@ public class EntityTaskStatus implements Serializable {
    * Header Name of the column in the inputfile that contains the priority for the client id 
    * @return priorityColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Priority", value = "Header Name of the column in the inputfile that contains the priority for the client id ")
   @JsonIgnore
 
@@ -577,7 +578,7 @@ public class EntityTaskStatus implements Serializable {
    * Header Name of the column in the input file for the type Bloomberg Listing/Regional/Security ID.
    * @return bbgFigiColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "BloombergId", value = "Header Name of the column in the input file for the type Bloomberg Listing/Regional/Security ID.")
   @JsonIgnore
 
@@ -611,7 +612,7 @@ public class EntityTaskStatus implements Serializable {
    * Header Name of the column in the input file for the type Bloomberg Listing and Regional Ticker.
    * @return bbgTickerColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "BloombergTicker", value = "Header Name of the column in the input file for the type Bloomberg Listing and Regional Ticker.")
   @JsonIgnore
 
@@ -645,7 +646,7 @@ public class EntityTaskStatus implements Serializable {
    * Header Name of the column in the input file for the type BICCode, bank indentification code.
    * @return bicColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "BICCode", value = "Header Name of the column in the input file for the type BICCode, bank indentification code.")
   @JsonIgnore
 
@@ -679,7 +680,7 @@ public class EntityTaskStatus implements Serializable {
    * Header Name of the column in the input file for the type CIK, Edgar Central Index Keys.
    * @return cikColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "CIK", value = "Header Name of the column in the input file for the type CIK, Edgar Central Index Keys.")
   @JsonIgnore
 
@@ -713,7 +714,7 @@ public class EntityTaskStatus implements Serializable {
    * Header Name of the column in the input file for the type CRD, Central Registration Depository.
    * @return crdColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "CRD", value = "Header Name of the column in the input file for the type CRD, Central Registration Depository.")
   @JsonIgnore
 
@@ -747,7 +748,7 @@ public class EntityTaskStatus implements Serializable {
    * Header Name of the column in the input file for the type CUSIP.
    * @return cusipColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "CUSIP", value = "Header Name of the column in the input file for the type CUSIP.")
   @JsonIgnore
 
@@ -781,7 +782,7 @@ public class EntityTaskStatus implements Serializable {
    * Header Name of the column in the input file for the type DUNS, Dun&amp;Bradstreet.
    * @return dunsColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Dun&Bradstreet", value = "Header Name of the column in the input file for the type DUNS, Dun&Bradstreet.")
   @JsonIgnore
 
@@ -815,7 +816,7 @@ public class EntityTaskStatus implements Serializable {
    * Header Name of the column in the input file for the type EmployerIdentificationNumber, EIN.
    * @return einColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "EmployerIdentificationNumber", value = "Header Name of the column in the input file for the type EmployerIdentificationNumber, EIN.")
   @JsonIgnore
 
@@ -849,7 +850,7 @@ public class EntityTaskStatus implements Serializable {
    * Header Name of the column in the input file for the type FactSet Identifier - &#x60;FactSet -E,-S,-R, -L Permanent Identifier.
    * @return factsetIdColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FactSet Identifier", value = "Header Name of the column in the input file for the type FactSet Identifier - `FactSet -E,-S,-R, -L Permanent Identifier.")
   @JsonIgnore
 
@@ -883,7 +884,7 @@ public class EntityTaskStatus implements Serializable {
    * Header Name of the column in the input file for the type FitchCreditRating, Fitch Ratings Identifier.
    * @return fitchColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FitchCreditRating", value = "Header Name of the column in the input file for the type FitchCreditRating, Fitch Ratings Identifier.")
   @JsonIgnore
 
@@ -917,7 +918,7 @@ public class EntityTaskStatus implements Serializable {
    * Header Name of the column in the input file for the type GVKEY - Compustat Global Company Key.
    * @return gvkeyColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "GVKey", value = "Header Name of the column in the input file for the type GVKEY - Compustat Global Company Key.")
   @JsonIgnore
 
@@ -951,7 +952,7 @@ public class EntityTaskStatus implements Serializable {
    * Header Name of the column in the input file for the type GVKEY+IID - Compustat Global Company Key and Issue Identifier.
    * @return gvkeyIidColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "GVKey+Iid", value = "Header Name of the column in the input file for the type GVKEY+IID - Compustat Global Company Key and Issue Identifier.")
   @JsonIgnore
 
@@ -985,7 +986,7 @@ public class EntityTaskStatus implements Serializable {
    * Header Name of the column in the input file for the type ISIN.
    * @return isinColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "ISIN", value = "Header Name of the column in the input file for the type ISIN.")
   @JsonIgnore
 
@@ -1019,7 +1020,7 @@ public class EntityTaskStatus implements Serializable {
    * Header Name of the column in the input file for the type JCN - Japanese Corporate Number.
    * @return jcnColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "JCN", value = "Header Name of the column in the input file for the type JCN - Japanese Corporate Number.")
   @JsonIgnore
 
@@ -1053,7 +1054,7 @@ public class EntityTaskStatus implements Serializable {
    * Header Name of the column in the input file for the type LegalEntityIdentifier, LEI.
    * @return leiColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "LegalEntityIdentifier", value = "Header Name of the column in the input file for the type LegalEntityIdentifier, LEI.")
   @JsonIgnore
 
@@ -1087,7 +1088,7 @@ public class EntityTaskStatus implements Serializable {
    * Header Name of the column in the input file for the type LXID - Markit Syndicated Loan Identifier.
    * @return lxidColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "LXID", value = "Header Name of the column in the input file for the type LXID - Markit Syndicated Loan Identifier.")
   @JsonIgnore
 
@@ -1121,7 +1122,7 @@ public class EntityTaskStatus implements Serializable {
    * Header Name of the column in the input file for the type MoodysIssuer, Moody&#39;s Ratings Identifier.
    * @return mdColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "MoodysIssuer", value = "Header Name of the column in the input file for the type MoodysIssuer, Moody's Ratings Identifier.")
   @JsonIgnore
 
@@ -1155,7 +1156,7 @@ public class EntityTaskStatus implements Serializable {
    * Header Name of the column in the input file for the type Red Code - Markit Reference Entity Identifier.
    * @return redCodeColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Red Code", value = "Header Name of the column in the input file for the type Red Code - Markit Reference Entity Identifier.")
   @JsonIgnore
 
@@ -1189,7 +1190,7 @@ public class EntityTaskStatus implements Serializable {
    * Header Name of the column in the input file for the type FederalReserveRSSDIdentifier, RSSD.
    * @return rssdColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FederalReserveRSSDIdentifier", value = "Header Name of the column in the input file for the type FederalReserveRSSDIdentifier, RSSD.")
   @JsonIgnore
 
@@ -1223,7 +1224,7 @@ public class EntityTaskStatus implements Serializable {
    * Header Name of the column in the input file for the type SEDOL.
    * @return sedolColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "SEDOL", value = "Header Name of the column in the input file for the type SEDOL.")
   @JsonIgnore
 
@@ -1257,7 +1258,7 @@ public class EntityTaskStatus implements Serializable {
    * Header Name of the column in the input file for the type S&amp;PRating, S&amp;P Ratings Identifier
    * @return sprColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "SPRating", value = "Header Name of the column in the input file for the type S&PRating, S&P Ratings Identifier")
   @JsonIgnore
 
@@ -1291,7 +1292,7 @@ public class EntityTaskStatus implements Serializable {
    * Header Name of the column in the input file for the type PriceTicker.
    * @return tickerColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "PriceTicker", value = "Header Name of the column in the input file for the type PriceTicker.")
   @JsonIgnore
 
@@ -1325,7 +1326,7 @@ public class EntityTaskStatus implements Serializable {
    * Header Name of the column in the input file for the type TickerExch.
    * @return tickerExchangeColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "TickerExch", value = "Header Name of the column in the input file for the type TickerExch.")
   @JsonIgnore
 
@@ -1359,7 +1360,7 @@ public class EntityTaskStatus implements Serializable {
    * Header Name of the column in the input file for the type TickerRegion.
    * @return tickerRegionColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "TickerRegion", value = "Header Name of the column in the input file for the type TickerRegion.")
   @JsonIgnore
 
@@ -1393,7 +1394,7 @@ public class EntityTaskStatus implements Serializable {
    * Header Name of the column in the input file for the type UKCompanyHouse.
    * @return ukchColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "UKCompanyHouse", value = "Header Name of the column in the input file for the type UKCompanyHouse.")
   @JsonIgnore
 
@@ -1427,7 +1428,7 @@ public class EntityTaskStatus implements Serializable {
    * Header Name of the column in the input file for the type VALOR, Valoren (\&quot;Valor\&quot;) Identification.
    * @return valorenColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "VALOR", value = "Header Name of the column in the input file for the type VALOR, Valoren (\"Valor\") Identification.")
   @JsonIgnore
 
@@ -1461,7 +1462,7 @@ public class EntityTaskStatus implements Serializable {
    * Header Name of the column in the input file for the type WKN, German Securities Identification.
    * @return wknColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "WKN", value = "Header Name of the column in the input file for the type WKN, German Securities Identification.")
   @JsonIgnore
 
@@ -1495,7 +1496,7 @@ public class EntityTaskStatus implements Serializable {
    * Name of the column in the input file that contains the entity name to be matched.
    * @return nameColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Name", value = "Name of the column in the input file that contains the entity name to be matched.")
   @JsonIgnore
 
@@ -1529,7 +1530,7 @@ public class EntityTaskStatus implements Serializable {
    * Name of the column in the input file that contains the ISO2 country code corresponding to the entity name.  The country code is used when evaluating candidates for a match. 
    * @return countryColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Country", value = "Name of the column in the input file that contains the ISO2 country code corresponding to the entity name.  The country code is used when evaluating candidates for a match. ")
   @JsonIgnore
 
@@ -1563,7 +1564,7 @@ public class EntityTaskStatus implements Serializable {
    * Name of the column in the input file that contains the Two-character state code corresponding to the entity name. The state code is used when evaluating candidates for a match. 
    * @return stateColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "State", value = "Name of the column in the input file that contains the Two-character state code corresponding to the entity name. The state code is used when evaluating candidates for a match. ")
   @JsonIgnore
 
@@ -1597,7 +1598,7 @@ public class EntityTaskStatus implements Serializable {
    * Name of the column in the input file that contains the URL corresponding to the entity name. The URL is used when evaluating candidates for a match. 
    * @return urlColumn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "URL", value = "Name of the column in the input file that contains the URL corresponding to the entity name. The URL is used when evaluating candidates for a match. ")
   @JsonIgnore
 
@@ -1639,7 +1640,7 @@ public class EntityTaskStatus implements Serializable {
    * Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records. 
    * @return additionalContextColumns
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "[\"Address\",\"Phone\",\"City\"]", value = "Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records. ")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_CONTEXT_COLUMNS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1665,7 +1666,7 @@ public class EntityTaskStatus implements Serializable {
    * Flag denoting the taskId has a result.
    * @return hasResult
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "true", value = "Flag denoting the taskId has a result.")
   @JsonIgnore
 
@@ -1699,7 +1700,7 @@ public class EntityTaskStatus implements Serializable {
    * Time the Task was submitted in UTC.
    * @return taskSubmitTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2020-06-24T22:02:21Z", value = "Time the Task was submitted in UTC.")
   @JsonIgnore
 
@@ -1733,7 +1734,7 @@ public class EntityTaskStatus implements Serializable {
    * Textual message for the status.
    * @return message
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Waiting for the input file", value = "Textual message for the status.")
   @JsonIgnore
 
@@ -1767,7 +1768,7 @@ public class EntityTaskStatus implements Serializable {
    * Number of records in the Input File.
    * @return inputCount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "11", value = "Number of records in the Input File.")
   @JsonIgnore
 
@@ -1801,7 +1802,7 @@ public class EntityTaskStatus implements Serializable {
    * Number of records with status of MAPPED the Input File.
    * @return mappedCount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "8", value = "Number of records with status of MAPPED the Input File.")
   @JsonIgnore
 
@@ -1835,7 +1836,7 @@ public class EntityTaskStatus implements Serializable {
    * Number of records with status of UNMAPPED the Input File.
    * @return unmappedCount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2", value = "Number of records with status of UNMAPPED the Input File.")
   @JsonIgnore
 
@@ -1869,7 +1870,7 @@ public class EntityTaskStatus implements Serializable {
    * Number of records with status of INDETERMINATE the Input File.
    * @return indeterminateCount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "Number of records with status of INDETERMINATE the Input File.")
   @JsonIgnore
 
@@ -1903,7 +1904,7 @@ public class EntityTaskStatus implements Serializable {
    * Process start time in UTC.
    * @return processStartTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2020-07-03T15:12:06.722Z", value = "Process start time in UTC.")
   @JsonIgnore
 
@@ -1937,7 +1938,7 @@ public class EntityTaskStatus implements Serializable {
    * Process duration in seconds.
    * @return processDuration
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1.51603", value = "Process duration in seconds.")
   @JsonIgnore
 
@@ -1971,7 +1972,7 @@ public class EntityTaskStatus implements Serializable {
    * Number of tries made so far for the request.
    * @return tryCount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "3", value = "Number of tries made so far for the request.")
   @JsonIgnore
 
@@ -2005,7 +2006,7 @@ public class EntityTaskStatus implements Serializable {
    * Percentage of mapped entities in the Input File.
    * @return decisionRate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0.7272727272727273", value = "Percentage of mapped entities in the Input File.")
   @JsonIgnore
 
@@ -2039,7 +2040,7 @@ public class EntityTaskStatus implements Serializable {
    * Get error
    * @return error
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -2073,7 +2074,7 @@ public class EntityTaskStatus implements Serializable {
    * Get errorTitle
    * @return errorTitle
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -2115,7 +2116,7 @@ public class EntityTaskStatus implements Serializable {
    * Requested Entity types to include. 
    * @return includeEntityType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Requested Entity types to include. ")
   @JsonProperty(JSON_PROPERTY_INCLUDE_ENTITY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2149,7 +2150,7 @@ public class EntityTaskStatus implements Serializable {
    * Requested Entity types to exclude. 
    * @return excludeEntityType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Requested Entity types to exclude. ")
   @JsonProperty(JSON_PROPERTY_EXCLUDE_ENTITY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2183,7 +2184,7 @@ public class EntityTaskStatus implements Serializable {
    * Requested Entity subtypes to include. 
    * @return includeEntitySubType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Requested Entity subtypes to include. ")
   @JsonProperty(JSON_PROPERTY_INCLUDE_ENTITY_SUB_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2217,7 +2218,7 @@ public class EntityTaskStatus implements Serializable {
    * Requested Entity subtypes to exclude. 
    * @return excludeEntitySubType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Requested Entity subtypes to exclude. ")
   @JsonProperty(JSON_PROPERTY_EXCLUDE_ENTITY_SUB_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2243,7 +2244,7 @@ public class EntityTaskStatus implements Serializable {
    * user-serial of the person who initiated the entity task.
    * @return userSerial
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FDSQAR_C-000000", value = "user-serial of the person who initiated the entity task.")
   @JsonIgnore
 
@@ -2277,7 +2278,7 @@ public class EntityTaskStatus implements Serializable {
    * Full name of the person associated with the &#x60;userSerial&#x60;. 
    * @return userFullName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Jane Smith", value = "Full name of the person associated with the `userSerial`. ")
   @JsonIgnore
 
@@ -2311,7 +2312,7 @@ public class EntityTaskStatus implements Serializable {
    * The universe id this task was submitted to. 
    * @return universeId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "The universe id this task was submitted to. ")
   @JsonIgnore
 
@@ -2345,7 +2346,7 @@ public class EntityTaskStatus implements Serializable {
    * The name of the universe this task was submitted to. 
    * @return universeName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "My Universe", value = "The name of the universe this task was submitted to. ")
   @JsonIgnore
 

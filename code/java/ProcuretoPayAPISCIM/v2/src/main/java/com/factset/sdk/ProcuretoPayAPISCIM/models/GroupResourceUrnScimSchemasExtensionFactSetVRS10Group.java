@@ -36,7 +36,8 @@ import com.factset.sdk.ProcuretoPayAPISCIM.JSON;
   GroupResourceUrnScimSchemasExtensionFactSetVRS10Group.JSON_PROPERTY_TENANT,
   GroupResourceUrnScimSchemasExtensionFactSetVRS10Group.JSON_PROPERTY_DOMAIN_CODE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class GroupResourceUrnScimSchemasExtensionFactSetVRS10Group implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -66,7 +67,7 @@ public class GroupResourceUrnScimSchemasExtensionFactSetVRS10Group implements Se
    * The tenant this role is in
    * @return tenant
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "QA", value = "The tenant this role is in")
   @JsonProperty(JSON_PROPERTY_TENANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -92,7 +93,7 @@ public class GroupResourceUrnScimSchemasExtensionFactSetVRS10Group implements Se
    * Domain code of Enterprise Hosting pod in which user resides. REQUIRED.
    * @return domainCode
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "btud", required = true, value = "Domain code of Enterprise Hosting pod in which user resides. REQUIRED.")
   @JsonProperty(JSON_PROPERTY_DOMAIN_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

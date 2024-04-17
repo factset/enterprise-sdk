@@ -37,7 +37,8 @@ import com.factset.sdk.OverviewReportBuilder.JSON;
   DataPointMetaAnyOf.JSON_PROPERTY_CURRENCY_SYMBOL,
   DataPointMetaAnyOf.JSON_PROPERTY_SCALE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class DataPointMetaAnyOf implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -62,7 +63,7 @@ public class DataPointMetaAnyOf implements Serializable {
    * Code for data currency
    * @return currencyCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Code for data currency")
   @JsonProperty(JSON_PROPERTY_CURRENCY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -88,7 +89,7 @@ public class DataPointMetaAnyOf implements Serializable {
    * Symbol for data currency
    * @return currencySymbol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Symbol for data currency")
   @JsonProperty(JSON_PROPERTY_CURRENCY_SYMBOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -114,7 +115,7 @@ public class DataPointMetaAnyOf implements Serializable {
    * Integer power of 10 to which numbers have been scaled. For example: 6 implies millions. Default is 0. 
    * @return scale
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Integer power of 10 to which numbers have been scaled. For example: 6 implies millions. Default is 0. ")
   @JsonProperty(JSON_PROPERTY_SCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -39,7 +39,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20026DataCount.JSON_PROPERTY_DISCOUNT,
   InlineResponse20026DataCount.JSON_PROPERTY_NEUTRAL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20026DataCount implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class InlineResponse20026DataCount implements Serializable {
    * Number of days ETP is traded at premium.
    * @return premium
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of days ETP is traded at premium.")
   @JsonProperty(JSON_PROPERTY_PREMIUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -90,7 +91,7 @@ public class InlineResponse20026DataCount implements Serializable {
    * Number of days ETP is traded at discount.
    * @return discount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of days ETP is traded at discount.")
   @JsonProperty(JSON_PROPERTY_DISCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -116,7 +117,7 @@ public class InlineResponse20026DataCount implements Serializable {
    * Number of days ETP is neither traded at discount nor at premium.
    * @return neutral
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of days ETP is neither traded at discount nor at premium.")
   @JsonProperty(JSON_PROPERTY_NEUTRAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

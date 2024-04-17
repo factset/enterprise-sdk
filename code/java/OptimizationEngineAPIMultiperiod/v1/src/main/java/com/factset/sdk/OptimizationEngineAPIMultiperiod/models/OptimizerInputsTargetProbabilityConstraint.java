@@ -41,7 +41,8 @@ import com.factset.sdk.OptimizationEngineAPIMultiperiod.JSON;
   OptimizerInputsTargetProbabilityConstraint.JSON_PROPERTY_MAX_PROBABILITY,
   OptimizerInputsTargetProbabilityConstraint.JSON_PROPERTY_HIERARCHY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerInputsTargetProbabilityConstraint implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -75,7 +76,7 @@ public class OptimizerInputsTargetProbabilityConstraint implements Serializable 
    * Get name
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -101,7 +102,7 @@ public class OptimizerInputsTargetProbabilityConstraint implements Serializable 
    * Get thresholdMin
    * @return thresholdMin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_THRESHOLD_MIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -127,7 +128,7 @@ public class OptimizerInputsTargetProbabilityConstraint implements Serializable 
    * Get thresholdMax
    * @return thresholdMax
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_THRESHOLD_MAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -153,7 +154,7 @@ public class OptimizerInputsTargetProbabilityConstraint implements Serializable 
    * Get minProbability
    * @return minProbability
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MIN_PROBABILITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -179,7 +180,7 @@ public class OptimizerInputsTargetProbabilityConstraint implements Serializable 
    * Get maxProbability
    * @return maxProbability
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MAX_PROBABILITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -205,7 +206,7 @@ public class OptimizerInputsTargetProbabilityConstraint implements Serializable 
    * Get hierarchy
    * @return hierarchy
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_HIERARCHY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

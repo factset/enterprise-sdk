@@ -53,7 +53,8 @@ import com.factset.sdk.FactSetPrices.JSON;
   References.JSON_PROPERTY_LAST_DATE,
   References.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class References implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -111,7 +112,7 @@ public class References implements Serializable {
    * Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security&#39;s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "HTM0LK-R", value = "Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.")
   @JsonIgnore
 
@@ -145,7 +146,7 @@ public class References implements Serializable {
    * The name of the security.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "ALPHABET INC", value = "The name of the security.")
   @JsonIgnore
 
@@ -179,7 +180,7 @@ public class References implements Serializable {
    * Security Type Description. For more details, visit [Online Assistant Page #10149](https://oa.apps.factset.com/pages/10149).
    * @return secType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Common stock", value = "Security Type Description. For more details, visit [Online Assistant Page #10149](https://oa.apps.factset.com/pages/10149).")
   @JsonIgnore
 
@@ -213,7 +214,7 @@ public class References implements Serializable {
    * General Security Type Code. For more details regarding what the code represents, visit [Online Assistant Page #10149](https://oa.apps.factset.com/pages/10149).
    * @return secTypeCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0", value = "General Security Type Code. For more details regarding what the code represents, visit [Online Assistant Page #10149](https://oa.apps.factset.com/pages/10149).")
   @JsonIgnore
 
@@ -247,7 +248,7 @@ public class References implements Serializable {
    * Detailed Security Type Code. For more details regarding what the code represents, visit [Online Assistant Page #10149](https://oa.apps.factset.com/pages/10149).
    * @return secTypeCodeDet
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "10", value = "Detailed Security Type Code. For more details regarding what the code represents, visit [Online Assistant Page #10149](https://oa.apps.factset.com/pages/10149).")
   @JsonIgnore
 
@@ -281,7 +282,7 @@ public class References implements Serializable {
    * Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).")
   @JsonIgnore
 
@@ -315,7 +316,7 @@ public class References implements Serializable {
    * Country Name. Returns the country where the security is *traded* from the North American Pricing database. Therefore, for securities covered by the North American Pricing database, will return either UNITED STATES. or CANADA. For securities covered by the Global Pricing database, the item returns the country where the company is *incorporated*.
    * @return country
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "UNITED STATES", value = "Country Name. Returns the country where the security is *traded* from the North American Pricing database. Therefore, for securities covered by the North American Pricing database, will return either UNITED STATES. or CANADA. For securities covered by the Global Pricing database, the item returns the country where the company is *incorporated*.")
   @JsonIgnore
 
@@ -349,7 +350,7 @@ public class References implements Serializable {
    * Primary Exchange Name. For more details, visit [Online Assistant Page #16610](https://oa.apps.factset.com/pages/16610).
    * @return primaryExchange
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "NASDAQ", value = "Primary Exchange Name. For more details, visit [Online Assistant Page #16610](https://oa.apps.factset.com/pages/16610).")
   @JsonIgnore
 
@@ -383,7 +384,7 @@ public class References implements Serializable {
    * Returns the location of the exchange where the company&#39;s stock is traded.
    * @return exchangeCountry
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "UNITED STATES", value = "Returns the location of the exchange where the company's stock is traded.")
   @JsonIgnore
 
@@ -417,7 +418,7 @@ public class References implements Serializable {
    * The Local Index ID for the company&#39;s home country benchmark. For more details, visit [Online Assistant Page #10698](https://oa.apps.factset.com/pages/10698).
    * @return localIndex
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "SP50", value = "The Local Index ID for the company's home country benchmark. For more details, visit [Online Assistant Page #10698](https://oa.apps.factset.com/pages/10698).")
   @JsonIgnore
 
@@ -451,7 +452,7 @@ public class References implements Serializable {
    * The Next Trading Holiday. For more details regarding Global Trading Holiday Schedules, visit [Online Assistant Page #10397](https://oa.apps.factset.com/pages/10397).
    * @return nextTradingHolidayDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Mon Sep 07 00:00:00 UTC 2020", value = "The Next Trading Holiday. For more details regarding Global Trading Holiday Schedules, visit [Online Assistant Page #10397](https://oa.apps.factset.com/pages/10397).")
   @JsonIgnore
 
@@ -485,7 +486,7 @@ public class References implements Serializable {
    * The Security&#39;s Date of First Trade. It will return the first date that the FactSet Pricing database began to cover the security and it may not coincide with the actual IPO date. Pricing information for this security will not be available before the date returned. For more details.
    * @return firstDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Thu Aug 19 00:00:00 UTC 2004", value = "The Security's Date of First Trade. It will return the first date that the FactSet Pricing database began to cover the security and it may not coincide with the actual IPO date. Pricing information for this security will not be available before the date returned. For more details.")
   @JsonIgnore
 
@@ -519,7 +520,7 @@ public class References implements Serializable {
    * Date of Last Trade.  It will return the last date that the FactSet Pricing database as a record for this security listing.
    * @return lastDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Fri Sep 04 00:00:00 UTC 2020", value = "Date of Last Trade.  It will return the last date that the FactSet Pricing database as a record for this security listing.")
   @JsonIgnore
 
@@ -553,7 +554,7 @@ public class References implements Serializable {
    * Identifier that was used for the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "GOOGL-US", value = "Identifier that was used for the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -39,7 +39,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20014DataGearingLeverage.JSON_PROPERTY_FACTOR,
   InlineResponse20014DataGearingLeverage.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20014DataGearingLeverage implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class InlineResponse20014DataGearingLeverage implements Serializable {
    * Flags ETPs that deliver leveraged long exposure to an index. This data is available for all the regions.
    * @return isLeverageFund
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Flags ETPs that deliver leveraged long exposure to an index. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_IS_LEVERAGE_FUND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -90,7 +91,7 @@ public class InlineResponse20014DataGearingLeverage implements Serializable {
    * Leverage factor of leveraged and inverse ETPs (2x, 3x, 1.5x, -1.5x, -2x, -3x, variable). This data is available for all the regions.
    * @return factor
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Leverage factor of leveraged and inverse ETPs (2x, 3x, 1.5x, -1.5x, -2x, -3x, variable). This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_FACTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -116,7 +117,7 @@ public class InlineResponse20014DataGearingLeverage implements Serializable {
    * Determines if leverage factor is fixed or variable. This data is available for all the regions.
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Determines if leverage factor is fixed or variable. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

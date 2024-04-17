@@ -41,7 +41,8 @@ import com.factset.sdk.Publisher.JSON;
   CalculationStatus.JSON_PROPERTY_VAULT,
   CalculationStatus.JSON_PROPERTY_PUB
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CalculationStatus implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -114,7 +115,7 @@ public class CalculationStatus implements Serializable {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -140,7 +141,7 @@ public class CalculationStatus implements Serializable {
    * Number of calculation units in batch.
    * @return units
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of calculation units in batch.")
   @JsonProperty(JSON_PROPERTY_UNITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -174,7 +175,7 @@ public class CalculationStatus implements Serializable {
    * List of statuses for PA calculation units.
    * @return pa
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of statuses for PA calculation units.")
   @JsonProperty(JSON_PROPERTY_PA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -208,7 +209,7 @@ public class CalculationStatus implements Serializable {
    * List of statuses for SPAR calculation units.
    * @return spar
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of statuses for SPAR calculation units.")
   @JsonProperty(JSON_PROPERTY_SPAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -242,7 +243,7 @@ public class CalculationStatus implements Serializable {
    * List of statuses for Vault calculation units.
    * @return vault
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of statuses for Vault calculation units.")
   @JsonProperty(JSON_PROPERTY_VAULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -276,7 +277,7 @@ public class CalculationStatus implements Serializable {
    * List of statuses for Publisher calculation units.
    * @return pub
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of statuses for Publisher calculation units.")
   @JsonProperty(JSON_PROPERTY_PUB)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

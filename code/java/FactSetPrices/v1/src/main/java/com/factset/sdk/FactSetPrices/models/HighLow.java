@@ -48,7 +48,8 @@ import com.factset.sdk.FactSetPrices.JSON;
   HighLow.JSON_PROPERTY_PRICE_LOW_DATE,
   HighLow.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class HighLow implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -91,7 +92,7 @@ public class HighLow implements Serializable {
    * Date of last split for which prices have been adjusted.
    * @return adjDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Mon Feb 07 00:00:00 UTC 2005", value = "Date of last split for which prices have been adjusted.")
   @JsonIgnore
 
@@ -125,7 +126,7 @@ public class HighLow implements Serializable {
    * Specific reference date for the period expressed in YYYY-MM-DD format.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Tue Jul 07 00:00:00 UTC 2020", value = "Specific reference date for the period expressed in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -159,7 +160,7 @@ public class HighLow implements Serializable {
    * The period of measure requested using the period query parameter.
    * @return period
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "52W", value = "The period of measure requested using the period query parameter.")
   @JsonIgnore
 
@@ -193,7 +194,7 @@ public class HighLow implements Serializable {
    * Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security&#39;s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "HTM0LK-R", value = "Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.")
   @JsonIgnore
 
@@ -227,7 +228,7 @@ public class HighLow implements Serializable {
    * High price over the period requested. This can represent the intra-day or closing price depending on the priceType requested. By default the price is as of closing in local trading currency, split adjusted and not spinoff adjusted.
    * @return priceHigh
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "126", value = "High price over the period requested. This can represent the intra-day or closing price depending on the priceType requested. By default the price is as of closing in local trading currency, split adjusted and not spinoff adjusted.")
   @JsonIgnore
 
@@ -261,7 +262,7 @@ public class HighLow implements Serializable {
    * Low price over the period requested. This can represent the intra-day or closing price depending on the priceType requested. By default the price is as of closing in local trading currency, split adjusted and not spinoff adjusted.
    * @return priceLow
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "121.25", value = "Low price over the period requested. This can represent the intra-day or closing price depending on the priceType requested. By default the price is as of closing in local trading currency, split adjusted and not spinoff adjusted.")
   @JsonIgnore
 
@@ -295,7 +296,7 @@ public class HighLow implements Serializable {
    * Date in which the highest price occurred over the requested period  for the given id expressed in YYYY-MM-DD format.
    * @return priceHighDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Thu Mar 05 00:00:00 UTC 2020", value = "Date in which the highest price occurred over the requested period  for the given id expressed in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -329,7 +330,7 @@ public class HighLow implements Serializable {
    * Date in which the lowest price occurred over the requested period for the given id expressed in YYYY-MM-DD format.
    * @return priceLowDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Sat Sep 14 00:00:00 UTC 2019", value = "Date in which the lowest price occurred over the requested period for the given id expressed in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -363,7 +364,7 @@ public class HighLow implements Serializable {
    * Identifier that was used for the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "GOOGL", value = "Identifier that was used for the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

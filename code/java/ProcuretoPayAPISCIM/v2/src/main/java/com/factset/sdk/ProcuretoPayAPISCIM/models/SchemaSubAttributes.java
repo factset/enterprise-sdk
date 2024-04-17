@@ -45,7 +45,8 @@ import com.factset.sdk.ProcuretoPayAPISCIM.JSON;
   SchemaSubAttributes.JSON_PROPERTY_UNIQUENESS,
   SchemaSubAttributes.JSON_PROPERTY_REFERENCE_TYPES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SchemaSubAttributes implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -117,7 +118,7 @@ public class SchemaSubAttributes implements Serializable {
    * The attribute&#39;s name.
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The attribute's name.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -133,7 +134,7 @@ public class SchemaSubAttributes implements Serializable {
    * The attribute&#39;s data type. Valid values include &#39;string&#39;, &#39;complex&#39;, &#39;boolean&#39;, &#39;decimal&#39;, &#39;integer&#39;, &#39;dateTime&#39;, &#39;reference&#39;.
    * @return type
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The attribute's data type. Valid values include 'string', 'complex', 'boolean', 'decimal', 'integer', 'dateTime', 'reference'.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -149,7 +150,7 @@ public class SchemaSubAttributes implements Serializable {
    * A Boolean value indicating an attribute&#39;s plurality.
    * @return multiValued
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "A Boolean value indicating an attribute's plurality.")
   @JsonProperty(JSON_PROPERTY_MULTI_VALUED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -165,7 +166,7 @@ public class SchemaSubAttributes implements Serializable {
    * A human-readable description of the attribute.
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A human-readable description of the attribute.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -181,7 +182,7 @@ public class SchemaSubAttributes implements Serializable {
    * A boolean value indicating whether or not the attribute is required.
    * @return required
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A boolean value indicating whether or not the attribute is required.")
   @JsonProperty(JSON_PROPERTY_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -197,7 +198,7 @@ public class SchemaSubAttributes implements Serializable {
    * A collection of canonical values.  When applicable, service providers MUST specify the canonical types, e.g.,  &#39;work&#39;, &#39;home&#39;.
    * @return canonicalValues
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A collection of canonical values.  When applicable, service providers MUST specify the canonical types, e.g.,  'work', 'home'.")
   @JsonProperty(JSON_PROPERTY_CANONICAL_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -213,7 +214,7 @@ public class SchemaSubAttributes implements Serializable {
    * A Boolean value indicating whether or not a string attribute is case sensitive.
    * @return caseExact
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A Boolean value indicating whether or not a string attribute is case sensitive.")
   @JsonProperty(JSON_PROPERTY_CASE_EXACT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -229,7 +230,7 @@ public class SchemaSubAttributes implements Serializable {
    * Indicates whether or not an attribute is modifiable.
    * @return mutability
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether or not an attribute is modifiable.")
   @JsonProperty(JSON_PROPERTY_MUTABILITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -245,7 +246,7 @@ public class SchemaSubAttributes implements Serializable {
    * Indicates when an attribute is returned in a response (e.g., to a query).
    * @return returned
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates when an attribute is returned in a response (e.g., to a query).")
   @JsonProperty(JSON_PROPERTY_RETURNED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -261,7 +262,7 @@ public class SchemaSubAttributes implements Serializable {
    * Indicates how unique a value must be.
    * @return uniqueness
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates how unique a value must be.")
   @JsonProperty(JSON_PROPERTY_UNIQUENESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -277,7 +278,7 @@ public class SchemaSubAttributes implements Serializable {
    * Used only with an attribute of type &#39;reference&#39;.  Specifies a SCIM resourceType that a reference attribute MAY refer to, e.g., &#39;User&#39;.
    * @return referenceTypes
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Used only with an attribute of type 'reference'.  Specifies a SCIM resourceType that a reference attribute MAY refer to, e.g., 'User'.")
   @JsonProperty(JSON_PROPERTY_REFERENCE_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

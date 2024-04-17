@@ -42,7 +42,8 @@ import com.factset.sdk.QuantEngine.JSON;
   QuantDateListObsolete.JSON_PROPERTY_CALENDAR,
   QuantDateListObsolete.JSON_PROPERTY_OVERRIDE_UNIVERSAL_SCREEN_CALENDAR
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class QuantDateListObsolete implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -92,7 +93,7 @@ public class QuantDateListObsolete implements Serializable {
    * Get dates
    * @return dates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -126,7 +127,7 @@ public class QuantDateListObsolete implements Serializable {
    * Get frequency
    * @return frequency
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_FREQUENCY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -152,7 +153,7 @@ public class QuantDateListObsolete implements Serializable {
    * Get calendar
    * @return calendar
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CALENDAR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -178,7 +179,7 @@ public class QuantDateListObsolete implements Serializable {
    * Get overrideUniversalScreenCalendar
    * @return overrideUniversalScreenCalendar
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

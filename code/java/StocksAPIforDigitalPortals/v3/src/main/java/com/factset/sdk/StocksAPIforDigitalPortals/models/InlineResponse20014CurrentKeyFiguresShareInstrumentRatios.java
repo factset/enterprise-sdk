@@ -46,7 +46,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20014CurrentKeyFiguresShareInstrumentRatios.JSON_PROPERTY_DIVIDEND_YIELD,
   InlineResponse20014CurrentKeyFiguresShareInstrumentRatios.JSON_PROPERTY_EARNINGS_YIELD
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20014CurrentKeyFiguresShareInstrumentRatios implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -80,7 +81,7 @@ public class InlineResponse20014CurrentKeyFiguresShareInstrumentRatios implement
    * Price earnings ratio.
    * @return priceEarnings
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Price earnings ratio.")
   @JsonIgnore
 
@@ -114,7 +115,7 @@ public class InlineResponse20014CurrentKeyFiguresShareInstrumentRatios implement
    * Price book value ratio.
    * @return priceBookValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Price book value ratio.")
   @JsonIgnore
 
@@ -148,7 +149,7 @@ public class InlineResponse20014CurrentKeyFiguresShareInstrumentRatios implement
    * Price cash flow ratio.
    * @return priceCashFlow
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Price cash flow ratio.")
   @JsonIgnore
 
@@ -182,7 +183,7 @@ public class InlineResponse20014CurrentKeyFiguresShareInstrumentRatios implement
    * Price sales ratio.
    * @return priceSales
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Price sales ratio.")
   @JsonIgnore
 
@@ -216,7 +217,7 @@ public class InlineResponse20014CurrentKeyFiguresShareInstrumentRatios implement
    * Dividend yield.
    * @return dividendYield
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Dividend yield.")
   @JsonIgnore
 
@@ -250,7 +251,7 @@ public class InlineResponse20014CurrentKeyFiguresShareInstrumentRatios implement
    * Earnings yield.
    * @return earningsYield
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Earnings yield.")
   @JsonIgnore
 

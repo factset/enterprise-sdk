@@ -51,7 +51,8 @@ import com.factset.sdk.ProcuretoPayAPISCIM.JSON;
   UserResource.JSON_PROPERTY_URN_COLON_SCIM_COLON_SCHEMAS_COLON_EXTENSION_COLON_FACT_SET_COLON_V_R_S_COLON10_COLON_USER,
   UserResource.JSON_PROPERTY_META
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class UserResource implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -122,7 +123,7 @@ public class UserResource implements Serializable {
    * Get schemas
    * @return schemas
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "[\"urn:ietf:params:scim:schemas:core:2.0:User\",\"urn:scim:schemas:extension:FactSet:Core:1.0:User\",\"urn:scim:schemas:extension:FactSet:VRS:1.0:User\"]", value = "")
   @JsonProperty(JSON_PROPERTY_SCHEMAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -143,7 +144,7 @@ public class UserResource implements Serializable {
    * Get id
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FIN_WEALTH-123456", value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -164,7 +165,7 @@ public class UserResource implements Serializable {
    * Get externalId
    * @return externalId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "C3574707-FFF9-433C-A17F-DFF806C72A7F", value = "")
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -185,7 +186,7 @@ public class UserResource implements Serializable {
    * Unique identifier for the User, typically used by the user to directly authenticate to the service provider. Each User MUST include a non-empty userName value.  This identifier MUST be unique across the service provider&#39;s entire set of Users.
    * @return userName
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "FIN_WEALTH-123456", required = true, value = "Unique identifier for the User, typically used by the user to directly authenticate to the service provider. Each User MUST include a non-empty userName value.  This identifier MUST be unique across the service provider's entire set of Users.")
   @JsonProperty(JSON_PROPERTY_USER_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -206,7 +207,7 @@ public class UserResource implements Serializable {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -232,7 +233,7 @@ public class UserResource implements Serializable {
    * Email addresses for the user.  The value SHOULD be canonicalized by the service provider, e.g., &#39;bjensen@example.com&#39; instead of &#39;bjensen@EXAMPLE.COM&#39;.
    * @return email
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "jdoe@factset.com", required = true, value = "Email addresses for the user.  The value SHOULD be canonicalized by the service provider, e.g., 'bjensen@example.com' instead of 'bjensen@EXAMPLE.COM'.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -253,7 +254,7 @@ public class UserResource implements Serializable {
    * Phone numbers for the User.  The value SHOULD be canonicalized by the service provider according to the format specified in RFC 3966, e.g., &#39;tel:+1-201-555-0123&#39;. Canonical type values of &#39;main&#39;, &#39;work&#39;, &#39;mobile&#39;, and &#39;home&#39;.
    * @return phoneNumbers
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Phone numbers for the User.  The value SHOULD be canonicalized by the service provider according to the format specified in RFC 3966, e.g., 'tel:+1-201-555-0123'. Canonical type values of 'main', 'work', 'mobile', and 'home'.")
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -269,7 +270,7 @@ public class UserResource implements Serializable {
    * A list of groups to which the user belongs, either through direct membership, through nested groups, or dynamically calculated.
    * @return groups
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A list of groups to which the user belongs, either through direct membership, through nested groups, or dynamically calculated.")
   @JsonProperty(JSON_PROPERTY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -290,7 +291,7 @@ public class UserResource implements Serializable {
    * Get urnColonScimColonSchemasColonExtensionColonFactSetColonCoreColon10ColonUser
    * @return urnColonScimColonSchemasColonExtensionColonFactSetColonCoreColon10ColonUser
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_URN_COLON_SCIM_COLON_SCHEMAS_COLON_EXTENSION_COLON_FACT_SET_COLON_CORE_COLON10_COLON_USER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -316,7 +317,7 @@ public class UserResource implements Serializable {
    * Get urnColonScimColonSchemasColonExtensionColonFactSetColonVRSColon10ColonUser
    * @return urnColonScimColonSchemasColonExtensionColonFactSetColonVRSColon10ColonUser
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_URN_COLON_SCIM_COLON_SCHEMAS_COLON_EXTENSION_COLON_FACT_SET_COLON_V_R_S_COLON10_COLON_USER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -342,7 +343,7 @@ public class UserResource implements Serializable {
    * Get meta
    * @return meta
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

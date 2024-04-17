@@ -46,7 +46,8 @@ import com.factset.sdk.RealTimeTimeSeries.JSON;
   InlineResponse2008Data.JSON_PROPERTY_QUALITY,
   InlineResponse2008Data.JSON_PROPERTY_PRICES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2008Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -112,7 +113,7 @@ public class InlineResponse2008Data implements Serializable {
    * MDG identifier of the listing.
    * @return idNotation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "MDG identifier of the listing.")
   @JsonIgnore
 
@@ -146,7 +147,7 @@ public class InlineResponse2008Data implements Serializable {
    * Identifier used in the request.
    * @return sourceIdentifier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier used in the request.")
   @JsonIgnore
 
@@ -180,7 +181,7 @@ public class InlineResponse2008Data implements Serializable {
    * Get range
    * @return range
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -214,7 +215,7 @@ public class InlineResponse2008Data implements Serializable {
    * Quality of the price.
    * @return quality
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Quality of the price.")
   @JsonIgnore
 
@@ -256,7 +257,7 @@ public class InlineResponse2008Data implements Serializable {
    * Time series of prices.
    * @return prices
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Time series of prices.")
   @JsonProperty(JSON_PROPERTY_PRICES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -6,7 +6,7 @@ import com.factset.sdk.FactSetTickHistory.ApiResponse;
 import com.factset.sdk.FactSetTickHistory.Configuration;
 import com.factset.sdk.FactSetTickHistory.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -17,7 +17,8 @@ import com.factset.sdk.FactSetTickHistory.models.LeveltwoGetFilesResponse;
 import com.factset.sdk.FactSetTickHistory.models.Status;
 import com.factset.sdk.FactSetTickHistory.models.SubmittedResponse;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Level2Api {
   private ApiClient apiClient;
 

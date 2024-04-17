@@ -38,7 +38,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   PostBasicMarketListRequestMetaPagination.JSON_PROPERTY_OFFSET,
   PostBasicMarketListRequestMetaPagination.JSON_PROPERTY_LIMIT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostBasicMarketListRequestMetaPagination implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -61,7 +62,7 @@ public class PostBasicMarketListRequestMetaPagination implements Serializable {
    * minimum: 0
    * @return offset
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Non-negative number of entries to skip, or 0 (default).")
   @JsonProperty(JSON_PROPERTY_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -89,7 +90,7 @@ public class PostBasicMarketListRequestMetaPagination implements Serializable {
    * maximum: 500
    * @return limit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Non-negative maximum number of entries to return.")
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

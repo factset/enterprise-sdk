@@ -47,7 +47,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20050Data.JSON_PROPERTY_MANAGEMENT_FEE,
   InlineResponse20050Data.JSON_PROPERTY_COMPONENTS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20050Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -120,7 +121,7 @@ public class InlineResponse20050Data implements Serializable {
    * MDG identifier of the instrument.
    * @return idInstrument
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "MDG identifier of the instrument.")
   @JsonIgnore
 
@@ -154,7 +155,7 @@ public class InlineResponse20050Data implements Serializable {
    * Identifier used in the request.
    * @return sourceIdentifier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier used in the request.")
   @JsonIgnore
 
@@ -188,7 +189,7 @@ public class InlineResponse20050Data implements Serializable {
    * Type of the composite instrument.
    * @return typeComposite
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Type of the composite instrument.")
   @JsonIgnore
 
@@ -222,7 +223,7 @@ public class InlineResponse20050Data implements Serializable {
    * If set to true, the composite instrument is actively managed.
    * @return activeManagement
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "If set to true, the composite instrument is actively managed.")
   @JsonIgnore
 
@@ -256,7 +257,7 @@ public class InlineResponse20050Data implements Serializable {
    * Management fee p.a. of the composite instrument.
    * @return managementFee
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Management fee p.a. of the composite instrument.")
   @JsonIgnore
 
@@ -298,7 +299,7 @@ public class InlineResponse20050Data implements Serializable {
    * Information regarding the components of the composite instrument.
    * @return components
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Information regarding the components of the composite instrument.")
   @JsonProperty(JSON_PROPERTY_COMPONENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

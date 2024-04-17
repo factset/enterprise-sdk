@@ -57,7 +57,8 @@ import com.factset.sdk.IRNCustomSymbols.JSON;
   CustomSymbolDto.JSON_PROPERTY_IS_ADDRESS_AUTO_FILLED,
   CustomSymbolDto.JSON_PROPERTY_IS_DESCRIPTION_AUTO_FILLED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CustomSymbolDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -115,7 +116,7 @@ public class CustomSymbolDto implements Serializable {
    * Get id
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -141,7 +142,7 @@ public class CustomSymbolDto implements Serializable {
    * Get code
    * @return code
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -175,7 +176,7 @@ public class CustomSymbolDto implements Serializable {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -209,7 +210,7 @@ public class CustomSymbolDto implements Serializable {
    * Get description
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -243,7 +244,7 @@ public class CustomSymbolDto implements Serializable {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -269,7 +270,7 @@ public class CustomSymbolDto implements Serializable {
    * Get subType
    * @return subType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SUB_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -295,7 +296,7 @@ public class CustomSymbolDto implements Serializable {
    * Get address
    * @return address
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -333,7 +334,7 @@ public class CustomSymbolDto implements Serializable {
    * Get customFields
    * @return customFields
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -367,7 +368,7 @@ public class CustomSymbolDto implements Serializable {
    * Get createdDate
    * @return createdDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -401,7 +402,7 @@ public class CustomSymbolDto implements Serializable {
    * Get createdBy
    * @return createdBy
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -435,7 +436,7 @@ public class CustomSymbolDto implements Serializable {
    * Get standardSymbol
    * @return standardSymbol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -469,7 +470,7 @@ public class CustomSymbolDto implements Serializable {
    * Get standardSymbolInstrumentData
    * @return standardSymbolInstrumentData
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STANDARD_SYMBOL_INSTRUMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -495,7 +496,7 @@ public class CustomSymbolDto implements Serializable {
    * Get isAddressAutoFilled
    * @return isAddressAutoFilled
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IS_ADDRESS_AUTO_FILLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -521,7 +522,7 @@ public class CustomSymbolDto implements Serializable {
    * Get isDescriptionAutoFilled
    * @return isDescriptionAutoFilled
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IS_DESCRIPTION_AUTO_FILLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

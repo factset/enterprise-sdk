@@ -50,7 +50,8 @@ import com.factset.sdk.OptimizationEngineAPIMultiperiod.JSON;
   OptimizerInputsMultiPeriodObjective.JSON_PROPERTY_TAIL_RISK,
   OptimizerInputsMultiPeriodObjective.JSON_PROPERTY_TARGET_PROBABILITY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerInputsMultiPeriodObjective implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -98,7 +99,7 @@ public class OptimizerInputsMultiPeriodObjective implements Serializable {
    * Get factorExposure
    * @return factorExposure
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FACTOR_EXPOSURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -132,7 +133,7 @@ public class OptimizerInputsMultiPeriodObjective implements Serializable {
    * Get volatility
    * @return volatility
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VOLATILITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -166,7 +167,7 @@ public class OptimizerInputsMultiPeriodObjective implements Serializable {
    * Get generalLinear
    * @return generalLinear
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_GENERAL_LINEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -200,7 +201,7 @@ public class OptimizerInputsMultiPeriodObjective implements Serializable {
    * Get expectedReturn
    * @return expectedReturn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EXPECTED_RETURN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -234,7 +235,7 @@ public class OptimizerInputsMultiPeriodObjective implements Serializable {
    * Get sensitivity
    * @return sensitivity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SENSITIVITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -260,7 +261,7 @@ public class OptimizerInputsMultiPeriodObjective implements Serializable {
    * Get objectiveRatio
    * @return objectiveRatio
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OBJECTIVE_RATIO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -294,7 +295,7 @@ public class OptimizerInputsMultiPeriodObjective implements Serializable {
    * MultiPeriod-Specific
    * @return tailRisk
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "MultiPeriod-Specific")
   @JsonProperty(JSON_PROPERTY_TAIL_RISK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -328,7 +329,7 @@ public class OptimizerInputsMultiPeriodObjective implements Serializable {
    * Get targetProbability
    * @return targetProbability
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TARGET_PROBABILITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

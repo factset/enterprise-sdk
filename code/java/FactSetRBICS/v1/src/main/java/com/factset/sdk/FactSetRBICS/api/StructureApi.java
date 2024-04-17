@@ -6,7 +6,7 @@ import com.factset.sdk.FactSetRBICS.ApiResponse;
 import com.factset.sdk.FactSetRBICS.Configuration;
 import com.factset.sdk.FactSetRBICS.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -15,7 +15,8 @@ import com.factset.sdk.FactSetRBICS.models.ErrorResponse;
 import com.factset.sdk.FactSetRBICS.models.StructureRequest;
 import com.factset.sdk.FactSetRBICS.models.StructureResponse;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class StructureApi {
   private ApiClient apiClient;
 

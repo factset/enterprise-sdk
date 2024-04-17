@@ -6,14 +6,15 @@ import com.factset.sdk.CompanyLogoAPIforDigitalPortals.ApiResponse;
 import com.factset.sdk.CompanyLogoAPIforDigitalPortals.Configuration;
 import com.factset.sdk.CompanyLogoAPIforDigitalPortals.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
 import com.factset.sdk.CompanyLogoAPIforDigitalPortals.models.InlineResponse200;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CompanyApi {
   private ApiClient apiClient;
 

@@ -40,7 +40,8 @@ import com.factset.sdk.QuantEngine.JSON;
 @JsonPropertyOrder({
   CalculationStatusMeta.JSON_PROPERTY_UNITS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CalculationStatusMeta implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -71,7 +72,7 @@ public class CalculationStatusMeta implements Serializable {
    * Meta of calculation units in batch.
    * @return units
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Meta of calculation units in batch.")
   @JsonIgnore
 

@@ -45,7 +45,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20040Data.JSON_PROPERTY_NUMBER_OF_LEVELS,
   InlineResponse20040Data.JSON_PROPERTY_FIRST_LEVEL_WITH_LEAF_CATEGORIES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20040Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -76,7 +77,7 @@ public class InlineResponse20040Data implements Serializable {
    * Identifier of the category system.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the category system.")
   @JsonIgnore
 
@@ -110,7 +111,7 @@ public class InlineResponse20040Data implements Serializable {
    * Name of the category system.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the category system.")
   @JsonIgnore
 
@@ -144,7 +145,7 @@ public class InlineResponse20040Data implements Serializable {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -170,7 +171,7 @@ public class InlineResponse20040Data implements Serializable {
    * Number of levels of the category system.
    * @return numberOfLevels
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of levels of the category system.")
   @JsonIgnore
 
@@ -204,7 +205,7 @@ public class InlineResponse20040Data implements Serializable {
    * Number of the least detailed level of the category system that has leaf categories.
    * @return firstLevelWithLeafCategories
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of the least detailed level of the category system that has leaf categories.")
   @JsonIgnore
 

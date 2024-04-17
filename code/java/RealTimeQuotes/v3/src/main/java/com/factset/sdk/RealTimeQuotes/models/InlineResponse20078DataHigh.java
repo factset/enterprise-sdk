@@ -43,7 +43,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20078DataHigh.JSON_PROPERTY_PRICE,
   InlineResponse20078DataHigh.JSON_PROPERTY_DATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20078DataHigh implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -65,7 +66,7 @@ public class InlineResponse20078DataHigh implements Serializable {
    * Maximum value.
    * @return price
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Maximum value.")
   @JsonIgnore
 
@@ -99,7 +100,7 @@ public class InlineResponse20078DataHigh implements Serializable {
    * Date of the maximum value.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Date of the maximum value.")
   @JsonIgnore
 

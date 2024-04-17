@@ -47,7 +47,8 @@ import com.factset.sdk.ProcuretoPayAPISCIM.JSON;
   GroupResource.JSON_PROPERTY_URN_COLON_SCIM_COLON_SCHEMAS_COLON_EXTENSION_COLON_FACT_SET_COLON_V_R_S_COLON10_COLON_GROUP,
   GroupResource.JSON_PROPERTY_META
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class GroupResource implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -106,7 +107,7 @@ public class GroupResource implements Serializable {
    * Get schemas
    * @return schemas
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "[\"urn:ietf:params:scim:schemas:core:2.0:Group\",\"urn:scim:schemas:extension:FactSet:EnterpriseHosting:1.0:Group\",\"urn:scim:schemas:extension:FactSet:VRS:1.0:Group\"]", value = "")
   @JsonProperty(JSON_PROPERTY_SCHEMAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -127,7 +128,7 @@ public class GroupResource implements Serializable {
    * Get id
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "eh:btud:Pod 04 - CitrixApps - Cymba OMS", value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -148,7 +149,7 @@ public class GroupResource implements Serializable {
    * Get externalId
    * @return externalId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "B8FE8BBD-0E04-40B2-9BB3-E5EE17C4C9C9", value = "")
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -174,7 +175,7 @@ public class GroupResource implements Serializable {
    * A human-readable name for the Group.
    * @return displayName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Domain btud - Pod 04 - CitrixApps - Cymba OMS", value = "A human-readable name for the Group.")
   @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -200,7 +201,7 @@ public class GroupResource implements Serializable {
    * A description for the Group.
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Group representing access to the Cymba OMS application.", value = "A description for the Group.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -234,7 +235,7 @@ public class GroupResource implements Serializable {
    * A list of members of the Group.
    * @return members
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A list of members of the Group.")
   @JsonProperty(JSON_PROPERTY_MEMBERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -260,7 +261,7 @@ public class GroupResource implements Serializable {
    * Get urnColonScimColonSchemasColonExtensionColonFactSetColonEnterpriseHostingColon10ColonGroup
    * @return urnColonScimColonSchemasColonExtensionColonFactSetColonEnterpriseHostingColon10ColonGroup
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_URN_COLON_SCIM_COLON_SCHEMAS_COLON_EXTENSION_COLON_FACT_SET_COLON_ENTERPRISE_HOSTING_COLON10_COLON_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -286,7 +287,7 @@ public class GroupResource implements Serializable {
    * Get urnColonScimColonSchemasColonExtensionColonFactSetColonVRSColon10ColonGroup
    * @return urnColonScimColonSchemasColonExtensionColonFactSetColonVRSColon10ColonGroup
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_URN_COLON_SCIM_COLON_SCHEMAS_COLON_EXTENSION_COLON_FACT_SET_COLON_V_R_S_COLON10_COLON_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -312,7 +313,7 @@ public class GroupResource implements Serializable {
    * Get meta
    * @return meta
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

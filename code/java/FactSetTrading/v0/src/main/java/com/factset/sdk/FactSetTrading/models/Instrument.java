@@ -49,7 +49,8 @@ import com.factset.sdk.FactSetTrading.JSON;
   Instrument.JSON_PROPERTY_PUT_OR_CALL,
   Instrument.JSON_PROPERTY_UNDERLYING_SECURITY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Instrument implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -138,7 +139,7 @@ public class Instrument implements Serializable {
    * Ticker symbol
    * @return symbol
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "TATAMOTORS", required = true, value = "Ticker symbol")
   @JsonProperty(JSON_PROPERTY_SYMBOL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -164,7 +165,7 @@ public class Instrument implements Serializable {
    * Indicates type of security.
    * @return securityType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates type of security.")
   @JsonIgnore
 
@@ -198,7 +199,7 @@ public class Instrument implements Serializable {
    * Classification of Financial Instruments. Indicates the type of security using ISO 0962 standard.
    * @return cfiCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Classification of Financial Instruments. Indicates the type of security using ISO 0962 standard.")
   @JsonIgnore
 
@@ -232,7 +233,7 @@ public class Instrument implements Serializable {
    * Market used to help identify a security.
    * @return securityExchange
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Market used to help identify a security.")
   @JsonIgnore
 
@@ -266,7 +267,7 @@ public class Instrument implements Serializable {
    * Company name of security issuer.
    * @return issuer
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Company name of security issuer.")
   @JsonIgnore
 
@@ -300,7 +301,7 @@ public class Instrument implements Serializable {
    * Security Description
    * @return securityDescription
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Security Description")
   @JsonIgnore
 
@@ -334,7 +335,7 @@ public class Instrument implements Serializable {
    * Month and Year of the maturity.
    * @return maturityMonthYear
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Month and Year of the maturity.")
   @JsonIgnore
 
@@ -368,7 +369,7 @@ public class Instrument implements Serializable {
    * Day of month used in conjunction with maturityMonthYear to specify the maturity date
    * @return maturityDay
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Day of month used in conjunction with maturityMonthYear to specify the maturity date")
   @JsonIgnore
 
@@ -402,7 +403,7 @@ public class Instrument implements Serializable {
    * Indicates whether an Option is for a put or call.
    * @return putOrCall
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether an Option is for a put or call.")
   @JsonIgnore
 
@@ -436,7 +437,7 @@ public class Instrument implements Serializable {
    * Underlying security’s SecurityType.
    * @return underlyingSecurityType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Underlying security’s SecurityType.")
   @JsonIgnore
 

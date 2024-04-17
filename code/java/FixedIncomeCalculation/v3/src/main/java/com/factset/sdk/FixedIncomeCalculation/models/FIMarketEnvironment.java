@@ -35,7 +35,8 @@ import com.factset.sdk.FixedIncomeCalculation.JSON;
 @JsonPropertyOrder({
   FIMarketEnvironment.JSON_PROPERTY_RATE_PATH
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FIMarketEnvironment implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -91,7 +92,7 @@ public class FIMarketEnvironment implements Serializable {
    * Rate Path
    * @return ratePath
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Rate Path")
   @JsonProperty(JSON_PROPERTY_RATE_PATH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

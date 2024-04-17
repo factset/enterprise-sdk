@@ -37,7 +37,8 @@ import com.factset.sdk.ExchangeDataFeedDataModel.JSON;
   RTDataModelProducts.JSON_PROPERTY_PRODUCT_CODE,
   RTDataModelProducts.JSON_PROPERTY_DESCRIPTION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class RTDataModelProducts implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -59,7 +60,7 @@ public class RTDataModelProducts implements Serializable {
    * FactSet product code
    * @return productCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "9001", value = "FactSet product code")
   @JsonProperty(JSON_PROPERTY_PRODUCT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -85,7 +86,7 @@ public class RTDataModelProducts implements Serializable {
    * Product description
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "New York Stock Exchange Level 1", value = "Product description")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -36,7 +36,8 @@ import com.factset.sdk.FactSetEntityReportBuilder.JSON;
 @JsonPropertyOrder({
   CurrencySymbol.JSON_PROPERTY_CURRENCY_SYMBOL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CurrencySymbol implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -55,7 +56,7 @@ public class CurrencySymbol implements Serializable {
    * Get currencySymbol
    * @return currencySymbol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CURRENCY_SYMBOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

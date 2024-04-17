@@ -37,7 +37,8 @@ import com.factset.sdk.OFDB.JSON;
 @JsonPropertyOrder({
   UpdateDate.JSON_PROPERTY_DATA
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class UpdateDate implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class UpdateDate implements Serializable {
    * date has to be provide in case 3d OFDB with date and atleast one iterative field
    * @return data
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "[{\"content\":[{\"symbol\":\"FDS\",\"price\":100}]}]", value = "date has to be provide in case 3d OFDB with date and atleast one iterative field")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -40,7 +40,8 @@ import com.factset.sdk.OptimizationEngineAPIMultiperiod.JSON;
   OptimizerInputsMPTurnoverConstraint.JSON_PROPERTY_ON_PERIODS,
   OptimizerInputsMPTurnoverConstraint.JSON_PROPERTY_ACROSS_PERIODS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerInputsMPTurnoverConstraint implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -65,7 +66,7 @@ public class OptimizerInputsMPTurnoverConstraint implements Serializable {
    * Get constraint
    * @return constraint
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CONSTRAINT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -91,7 +92,7 @@ public class OptimizerInputsMPTurnoverConstraint implements Serializable {
    * Get onPeriods
    * @return onPeriods
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ON_PERIODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -117,7 +118,7 @@ public class OptimizerInputsMPTurnoverConstraint implements Serializable {
    * Get acrossPeriods
    * @return acrossPeriods
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ACROSS_PERIODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

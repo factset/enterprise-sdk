@@ -48,7 +48,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20032DataCategories.JSON_PROPERTY_LEVEL,
   InlineResponse20032DataCategories.JSON_PROPERTY_PARENT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20032DataCategories implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -85,7 +86,7 @@ public class InlineResponse20032DataCategories implements Serializable {
    * Identifier of the category.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the category.")
   @JsonIgnore
 
@@ -119,7 +120,7 @@ public class InlineResponse20032DataCategories implements Serializable {
    * Code commonly used for this category.
    * @return code
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Code commonly used for this category.")
   @JsonIgnore
 
@@ -153,7 +154,7 @@ public class InlineResponse20032DataCategories implements Serializable {
    * Name of the category.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the category.")
   @JsonIgnore
 
@@ -187,7 +188,7 @@ public class InlineResponse20032DataCategories implements Serializable {
    * Description of the category.
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Description of the category.")
   @JsonIgnore
 
@@ -221,7 +222,7 @@ public class InlineResponse20032DataCategories implements Serializable {
    * Indicates whether this category is active.
    * @return active
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether this category is active.")
   @JsonIgnore
 
@@ -255,7 +256,7 @@ public class InlineResponse20032DataCategories implements Serializable {
    * Get level
    * @return level
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -281,7 +282,7 @@ public class InlineResponse20032DataCategories implements Serializable {
    * Get parent
    * @return parent
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PARENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

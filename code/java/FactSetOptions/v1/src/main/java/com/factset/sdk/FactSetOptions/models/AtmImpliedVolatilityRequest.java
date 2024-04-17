@@ -43,7 +43,8 @@ import com.factset.sdk.FactSetOptions.JSON;
   AtmImpliedVolatilityRequest.JSON_PROPERTY_EXCHANGE,
   AtmImpliedVolatilityRequest.JSON_PROPERTY_PERIOD
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class AtmImpliedVolatilityRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -90,7 +91,7 @@ public class AtmImpliedVolatilityRequest implements Serializable {
    * Underlying Security Identifier of which can be used to return respective options chain. Only **one** security id is permitted per request.  
    * @return ids
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "[\"TSLA-US\"]", required = true, value = "Underlying Security Identifier of which can be used to return respective options chain. Only **one** security id is permitted per request.  ")
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -116,7 +117,7 @@ public class AtmImpliedVolatilityRequest implements Serializable {
    * The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.
    * @return startDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2021-05-09", value = "The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.")
   @JsonProperty(JSON_PROPERTY_START_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -142,7 +143,7 @@ public class AtmImpliedVolatilityRequest implements Serializable {
    * The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.
    * @return endDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2021-05-03", value = "The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.")
   @JsonProperty(JSON_PROPERTY_END_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -168,7 +169,7 @@ public class AtmImpliedVolatilityRequest implements Serializable {
    * Get frequency
    * @return frequency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FREQUENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -194,7 +195,7 @@ public class AtmImpliedVolatilityRequest implements Serializable {
    * Get exchange
    * @return exchange
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EXCHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -222,7 +223,7 @@ public class AtmImpliedVolatilityRequest implements Serializable {
    * maximum: 6
    * @return period
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The period for the options to calculate at the money volatility. Below are the available periods -  * No Limit - (0) * One Month - (1) * Two Months - (2) * Three Months - (3) * Four Months - (4) * Five Months - (5) * Six Months - (6)")
   @JsonProperty(JSON_PROPERTY_PERIOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

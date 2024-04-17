@@ -37,7 +37,8 @@ import com.factset.sdk.Symbology.JSON;
   TickerTranslationRequest.JSON_PROPERTY_IDS,
   TickerTranslationRequest.JSON_PROPERTY_TICKER_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class TickerTranslationRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -74,7 +75,7 @@ public class TickerTranslationRequest implements Serializable {
    * Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#39;.
    * @return ids
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "[\"GOOGL-US\"]", required = true, value = "Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId'.")
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -100,7 +101,7 @@ public class TickerTranslationRequest implements Serializable {
    * Controls the Ticker Type returned.   * **REGION** &#x3D; Ticker-Regional   * **EXCHANGE** &#x3D; Ticker-Exchange 
    * @return tickerType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "REGION", required = true, value = "Controls the Ticker Type returned.   * **REGION** = Ticker-Regional   * **EXCHANGE** = Ticker-Exchange ")
   @JsonProperty(JSON_PROPERTY_TICKER_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

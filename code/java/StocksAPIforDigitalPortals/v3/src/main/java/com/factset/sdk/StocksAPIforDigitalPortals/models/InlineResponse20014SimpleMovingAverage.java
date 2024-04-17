@@ -45,7 +45,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20014SimpleMovingAverage.JSON_PROPERTY_DAYS200,
   InlineResponse20014SimpleMovingAverage.JSON_PROPERTY_TRADING_DAYS_SINCE_CROSSOVER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20014SimpleMovingAverage implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -73,7 +74,7 @@ public class InlineResponse20014SimpleMovingAverage implements Serializable {
    * 20 trading days.
    * @return days20
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "20 trading days.")
   @JsonIgnore
 
@@ -107,7 +108,7 @@ public class InlineResponse20014SimpleMovingAverage implements Serializable {
    * 50 trading days.
    * @return days50
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "50 trading days.")
   @JsonIgnore
 
@@ -141,7 +142,7 @@ public class InlineResponse20014SimpleMovingAverage implements Serializable {
    * 200 trading days.
    * @return days200
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "200 trading days.")
   @JsonIgnore
 
@@ -175,7 +176,7 @@ public class InlineResponse20014SimpleMovingAverage implements Serializable {
    * Get tradingDaysSinceCrossover
    * @return tradingDaysSinceCrossover
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TRADING_DAYS_SINCE_CROSSOVER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

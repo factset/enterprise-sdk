@@ -51,7 +51,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20088Data.JSON_PROPERTY_MARKET,
   InlineResponse20088Data.JSON_PROPERTY_REGIONAL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20088Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -97,7 +98,7 @@ public class InlineResponse20088Data implements Serializable {
    * MDG identifier of the listing.
    * @return idNotation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "MDG identifier of the listing.")
   @JsonIgnore
 
@@ -131,7 +132,7 @@ public class InlineResponse20088Data implements Serializable {
    * Identifier used in the request.
    * @return sourceIdentifier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier used in the request.")
   @JsonIgnore
 
@@ -165,7 +166,7 @@ public class InlineResponse20088Data implements Serializable {
    * Indicates whether the notation is currently suspended from trading. The notation is tradable if it is not suspended and the market is open, see attribute &#x60;market.isOpen&#x60;.
    * @return suspended
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the notation is currently suspended from trading. The notation is tradable if it is not suspended and the market is open, see attribute `market.isOpen`.")
   @JsonIgnore
 
@@ -199,7 +200,7 @@ public class InlineResponse20088Data implements Serializable {
    * Market-specific code of the trading status and/or the suspension of the notation.
    * @return tradingStatus
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Market-specific code of the trading status and/or the suspension of the notation.")
   @JsonIgnore
 
@@ -233,7 +234,7 @@ public class InlineResponse20088Data implements Serializable {
    * Exchange-imposed delay in seconds for delayed-quality tick data.
    * @return priceDelay
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Exchange-imposed delay in seconds for delayed-quality tick data.")
   @JsonIgnore
 
@@ -267,7 +268,7 @@ public class InlineResponse20088Data implements Serializable {
    * The minimum price movement of the notation. Prices can only be integral multiples of this minimum value. See endpoint &#x60;/notation/get&#x60; for the value unit of the &#x60;tickSize&#x60; for this notation.
    * @return tickSize
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The minimum price movement of the notation. Prices can only be integral multiples of this minimum value. See endpoint `/notation/get` for the value unit of the `tickSize` for this notation.")
   @JsonIgnore
 
@@ -301,7 +302,7 @@ public class InlineResponse20088Data implements Serializable {
    * The minimum tradable volume of the notation. The number of units traded can only be integral multiples of this minimum value.
    * @return lotSize
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The minimum tradable volume of the notation. The number of units traded can only be integral multiples of this minimum value.")
   @JsonIgnore
 
@@ -335,7 +336,7 @@ public class InlineResponse20088Data implements Serializable {
    * Trade imbalance after the previous closed auction. A positive value indicates that more buy orders have been placed for the security; a negative value indicates more sell orders.
    * @return tradeImbalance
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Trade imbalance after the previous closed auction. A positive value indicates that more buy orders have been placed for the security; a negative value indicates more sell orders.")
   @JsonIgnore
 
@@ -369,7 +370,7 @@ public class InlineResponse20088Data implements Serializable {
    * Get market
    * @return market
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MARKET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -395,7 +396,7 @@ public class InlineResponse20088Data implements Serializable {
    * Get regional
    * @return regional
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REGIONAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

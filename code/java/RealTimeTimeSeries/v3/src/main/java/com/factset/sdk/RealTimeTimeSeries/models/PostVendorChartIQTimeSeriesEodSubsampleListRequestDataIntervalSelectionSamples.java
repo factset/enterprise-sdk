@@ -40,7 +40,8 @@ import com.factset.sdk.RealTimeTimeSeries.JSON;
   PostVendorChartIQTimeSeriesEodSubsampleListRequestDataIntervalSelectionSamples.JSON_PROPERTY_NUMBER,
   PostVendorChartIQTimeSeriesEodSubsampleListRequestDataIntervalSelectionSamples.JSON_PROPERTY_GRANULARITY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostVendorChartIQTimeSeriesEodSubsampleListRequestDataIntervalSelectionSamples implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -118,7 +119,7 @@ public class PostVendorChartIQTimeSeriesEodSubsampleListRequestDataIntervalSelec
    * Date of the end point of the subsamples (exclusive). &#x60;end&#x60; is limited to the day after the current day.
    * @return end
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Date of the end point of the subsamples (exclusive). `end` is limited to the day after the current day.")
   @JsonProperty(JSON_PROPERTY_END)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -146,7 +147,7 @@ public class PostVendorChartIQTimeSeriesEodSubsampleListRequestDataIntervalSelec
    * maximum: 10000
    * @return number
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Number of subsamples returned. The product of `number` and `granularity` must not extend further into the past than 1900-01-01.")
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -172,7 +173,7 @@ public class PostVendorChartIQTimeSeriesEodSubsampleListRequestDataIntervalSelec
    * Subsample granularities suitable for end-of-day data.
    * @return granularity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Subsample granularities suitable for end-of-day data.")
   @JsonProperty(JSON_PROPERTY_GRANULARITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

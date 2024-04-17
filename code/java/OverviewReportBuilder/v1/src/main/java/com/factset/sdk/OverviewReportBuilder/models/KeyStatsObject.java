@@ -80,8 +80,8 @@ import com.factset.sdk.OverviewReportBuilder.JSON;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 
-import javax.ws.rs.core.GenericType;
-import javax.ws.rs.core.Response;
+import jakarta.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.Response;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -106,7 +106,8 @@ import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import com.factset.sdk.OverviewReportBuilder.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 @JsonDeserialize(using = KeyStatsObject.KeyStatsObjectDeserializer.class)
 @JsonSerialize(using = KeyStatsObject.KeyStatsObjectSerializer.class)
 public class KeyStatsObject extends AbstractOpenApiSchema implements Serializable {

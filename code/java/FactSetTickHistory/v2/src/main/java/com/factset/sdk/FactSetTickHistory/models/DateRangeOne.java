@@ -38,7 +38,8 @@ import com.factset.sdk.FactSetTickHistory.JSON;
   DateRangeOne.JSON_PROPERTY_START,
   DateRangeOne.JSON_PROPERTY_END
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class DateRangeOne implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -60,7 +61,7 @@ public class DateRangeOne implements Serializable {
    * The date for (or from which) the data is required. Supports in YYYY-MM-DD format. 
    * @return start
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Sun Jan 01 00:00:00 UTC 2012", value = "The date for (or from which) the data is required. Supports in YYYY-MM-DD format. ")
   @JsonProperty(JSON_PROPERTY_START)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,7 +87,7 @@ public class DateRangeOne implements Serializable {
    * The date to which data is required. Supports in YYYY-MM-DD format. 
    * @return end
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Mon Jan 30 00:00:00 UTC 2012", value = "The date to which data is required. Supports in YYYY-MM-DD format. ")
   @JsonProperty(JSON_PROPERTY_END)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

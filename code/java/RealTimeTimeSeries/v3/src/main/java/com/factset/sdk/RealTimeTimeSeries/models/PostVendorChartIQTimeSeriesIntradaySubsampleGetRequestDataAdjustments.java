@@ -36,7 +36,8 @@ import com.factset.sdk.RealTimeTimeSeries.JSON;
 @JsonPropertyOrder({
   PostVendorChartIQTimeSeriesIntradaySubsampleGetRequestDataAdjustments.JSON_PROPERTY_SPLIT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostVendorChartIQTimeSeriesIntradaySubsampleGetRequestDataAdjustments implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -55,7 +56,7 @@ public class PostVendorChartIQTimeSeriesIntradaySubsampleGetRequestDataAdjustmen
    * Adjustments are applied for corporate action effects due to the notation having a split, a reverse split, or a similar factor-based corporate action.
    * @return split
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Adjustments are applied for corporate action effects due to the notation having a split, a reverse split, or a similar factor-based corporate action.")
   @JsonProperty(JSON_PROPERTY_SPLIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

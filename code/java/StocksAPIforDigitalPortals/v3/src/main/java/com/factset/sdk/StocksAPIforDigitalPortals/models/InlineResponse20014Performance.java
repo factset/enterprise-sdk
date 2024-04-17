@@ -43,7 +43,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20014Performance.JSON_PROPERTY_INTRADAY,
   InlineResponse20014Performance.JSON_PROPERTY_END_OF_DAY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20014Performance implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -65,7 +66,7 @@ public class InlineResponse20014Performance implements Serializable {
    * Intraday relative performance. That is the difference of a notation&#39;s most recent price from the current trading day against the most recent EOD closing price.
    * @return intraday
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Intraday relative performance. That is the difference of a notation's most recent price from the current trading day against the most recent EOD closing price.")
   @JsonIgnore
 
@@ -99,7 +100,7 @@ public class InlineResponse20014Performance implements Serializable {
    * Get endOfDay
    * @return endOfDay
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_END_OF_DAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

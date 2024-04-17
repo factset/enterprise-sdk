@@ -39,7 +39,8 @@ import com.factset.sdk.MarketIntelligence.JSON;
   GetReportInfo.JSON_PROPERTY_TIME_ZONE,
   GetReportInfo.JSON_PROPERTY_LAST_RUN_DATE_TIME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class GetReportInfo implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -67,7 +68,7 @@ public class GetReportInfo implements Serializable {
    * Report ID
    * @return reportId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "65ba6dd63fb366464646426d0b", value = "Report ID")
   @JsonProperty(JSON_PROPERTY_REPORT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -93,7 +94,7 @@ public class GetReportInfo implements Serializable {
    * Report Name
    * @return reportName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Morning Portfolio Update.", value = "Report Name")
   @JsonProperty(JSON_PROPERTY_REPORT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -119,7 +120,7 @@ public class GetReportInfo implements Serializable {
    * Time zone
    * @return timeZone
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "EST5EDT", value = "Time zone")
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -145,7 +146,7 @@ public class GetReportInfo implements Serializable {
    * Last time the report was refreshed.
    * @return lastRunDateTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2021-01-21T15:03:46.000Z", value = "Last time the report was refreshed.")
   @JsonProperty(JSON_PROPERTY_LAST_RUN_DATE_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

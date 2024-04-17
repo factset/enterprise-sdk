@@ -45,7 +45,8 @@ import com.factset.sdk.IRNConfiguration.JSON;
   SymbolsRelationshipDto.JSON_PROPERTY_HIDE_DATES,
   SymbolsRelationshipDto.JSON_PROPERTY_HIDE_COMMENT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SymbolsRelationshipDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -82,7 +83,7 @@ public class SymbolsRelationshipDto implements Serializable {
    * Get id
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -108,7 +109,7 @@ public class SymbolsRelationshipDto implements Serializable {
    * Get relationshipCode
    * @return relationshipCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -142,7 +143,7 @@ public class SymbolsRelationshipDto implements Serializable {
    * Get parentToChildName
    * @return parentToChildName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -176,7 +177,7 @@ public class SymbolsRelationshipDto implements Serializable {
    * Get childToParentName
    * @return childToParentName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -210,7 +211,7 @@ public class SymbolsRelationshipDto implements Serializable {
    * Get peerName
    * @return peerName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -244,7 +245,7 @@ public class SymbolsRelationshipDto implements Serializable {
    * Get hideDates
    * @return hideDates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_HIDE_DATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -270,7 +271,7 @@ public class SymbolsRelationshipDto implements Serializable {
    * Get hideComment
    * @return hideComment
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_HIDE_COMMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

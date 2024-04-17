@@ -38,7 +38,8 @@ import com.factset.sdk.StreetAccountNews.JSON;
   FilterResponseData.JSON_PROPERTY_STRUCTURED_FILTERS,
   FilterResponseData.JSON_PROPERTY_FLATTENED_FILTERS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FilterResponseData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -60,7 +61,7 @@ public class FilterResponseData implements Serializable {
    * Get structuredFilters
    * @return structuredFilters
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STRUCTURED_FILTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,7 +87,7 @@ public class FilterResponseData implements Serializable {
    * Get flattenedFilters
    * @return flattenedFilters
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FLATTENED_FILTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

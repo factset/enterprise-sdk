@@ -39,7 +39,8 @@ import com.factset.sdk.EventCalendar.JSON;
   CompanyEventRequestData.JSON_PROPERTY_UNIVERSE,
   CompanyEventRequestData.JSON_PROPERTY_TYPES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CompanyEventRequestData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -119,7 +120,7 @@ public class CompanyEventRequestData implements Serializable {
    * Get date
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -145,7 +146,7 @@ public class CompanyEventRequestData implements Serializable {
    * Get universe
    * @return universe
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_UNIVERSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -179,7 +180,7 @@ public class CompanyEventRequestData implements Serializable {
    * The type of events returned in the response
    * @return types
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The type of events returned in the response")
   @JsonProperty(JSON_PROPERTY_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

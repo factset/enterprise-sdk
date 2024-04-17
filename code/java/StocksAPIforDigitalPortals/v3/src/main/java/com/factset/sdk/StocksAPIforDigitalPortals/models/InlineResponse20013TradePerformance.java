@@ -42,7 +42,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20013TradePerformance.JSON_PROPERTY_ABSOLUTE,
   InlineResponse20013TradePerformance.JSON_PROPERTY_RELATIVE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20013TradePerformance implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class InlineResponse20013TradePerformance implements Serializable {
    * Absolute value. See attribute &#x60;currency&#x60; for its currency.
    * @return absolute
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Absolute value. See attribute `currency` for its currency.")
   @JsonIgnore
 
@@ -98,7 +99,7 @@ public class InlineResponse20013TradePerformance implements Serializable {
    * Relative value.
    * @return relative
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Relative value.")
   @JsonIgnore
 

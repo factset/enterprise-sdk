@@ -46,7 +46,8 @@ import com.factset.sdk.GlobalFilings.JSON;
   InvestmentResearchObject.JSON_PROPERTY_ACCESSION,
   InvestmentResearchObject.JSON_PROPERTY_SEARCH_IDS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InvestmentResearchObject implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -98,7 +99,7 @@ public class InvestmentResearchObject implements Serializable {
    * Headline of the story, actual time and date of the event.
    * @return headline
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Headline of the story, actual time and date of the event.")
   @JsonProperty(JSON_PROPERTY_HEADLINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -124,7 +125,7 @@ public class InvestmentResearchObject implements Serializable {
    * Provides the source of the document, and the source value is one among those provided by the \&quot;/reference/sources\&quot; endpoint.
    * @return source
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Provides the source of the document, and the source value is one among those provided by the \"/reference/sources\" endpoint.")
   @JsonProperty(JSON_PROPERTY_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,7 +159,7 @@ public class InvestmentResearchObject implements Serializable {
    * Refers to the main company a particular document refers to.
    * @return primaryIds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Refers to the main company a particular document refers to.")
   @JsonProperty(JSON_PROPERTY_PRIMARY_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -192,7 +193,7 @@ public class InvestmentResearchObject implements Serializable {
    * Refers to all companies mentioned in the document. This could also include the primary company id as well.   **Note:** For the \&quot;allIds\&quot; and \&quot;primaryIds\&quot; fields:   - These identifiers can be either SEDOLs or CUSIPs, depending on the search criteria and the type of identifiers specified in your request.   - The API will return the corresponding identifiers based on the search parameters provided.
    * @return allIds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Refers to all companies mentioned in the document. This could also include the primary company id as well.   **Note:** For the \"allIds\" and \"primaryIds\" fields:   - These identifiers can be either SEDOLs or CUSIPs, depending on the search criteria and the type of identifiers specified in your request.   - The API will return the corresponding identifiers based on the search parameters provided.")
   @JsonProperty(JSON_PROPERTY_ALL_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -218,7 +219,7 @@ public class InvestmentResearchObject implements Serializable {
    * Publish date and time of the latest version (in ISO 8601 format, UTC).
    * @return filingsDateTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Publish date and time of the latest version (in ISO 8601 format, UTC).")
   @JsonProperty(JSON_PROPERTY_FILINGS_DATE_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -252,7 +253,7 @@ public class InvestmentResearchObject implements Serializable {
    * - Comma-separated list of country, industry, and subject codes. - Sourced from \&quot;/reference/categories\&quot; with two-letter codes (SB for subjects, IN for industries, LN for languages, CN for countries, RN for regions, DT for document types).
    * @return categories
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "- Comma-separated list of country, industry, and subject codes. - Sourced from \"/reference/categories\" with two-letter codes (SB for subjects, IN for industries, LN for languages, CN for countries, RN for regions, DT for document types).")
   @JsonProperty(JSON_PROPERTY_CATEGORIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -278,7 +279,7 @@ public class InvestmentResearchObject implements Serializable {
    * A secure HTTPS link for downloading the associated document.
    * @return filingsLink
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A secure HTTPS link for downloading the associated document.")
   @JsonProperty(JSON_PROPERTY_FILINGS_LINK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -304,7 +305,7 @@ public class InvestmentResearchObject implements Serializable {
    * Unique identifier for a document.
    * @return documentId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Unique identifier for a document.")
   @JsonProperty(JSON_PROPERTY_DOCUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -330,7 +331,7 @@ public class InvestmentResearchObject implements Serializable {
    * Filings specific metadata providing info around the size of the document.
    * @return filingSize
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Filings specific metadata providing info around the size of the document.")
   @JsonProperty(JSON_PROPERTY_FILING_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -356,7 +357,7 @@ public class InvestmentResearchObject implements Serializable {
    * Filings specific metadata providing info around the form type (e.g. 8K, 10K, etc.)
    * @return formType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Filings specific metadata providing info around the form type (e.g. 8K, 10K, etc.)")
   @JsonProperty(JSON_PROPERTY_FORM_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -382,7 +383,7 @@ public class InvestmentResearchObject implements Serializable {
    * A unique identifier given to each EDGAR filings document.
    * @return accession
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A unique identifier given to each EDGAR filings document.")
   @JsonProperty(JSON_PROPERTY_ACCESSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -408,7 +409,7 @@ public class InvestmentResearchObject implements Serializable {
    * Returns IDs used in the id&#39;s parameter. The identifier type is based on what was used in the parameter.
    * @return searchIds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Returns IDs used in the id's parameter. The identifier type is based on what was used in the parameter.")
   @JsonProperty(JSON_PROPERTY_SEARCH_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

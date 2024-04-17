@@ -45,7 +45,8 @@ import com.factset.sdk.Vault.JSON;
   VaultCalculationParameters.JSON_PROPERTY_CONFIGID,
   VaultCalculationParameters.JSON_PROPERTY_COMPONENTDETAIL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class VaultCalculationParameters implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -88,7 +89,7 @@ public class VaultCalculationParameters implements Serializable {
    * The Vault component identifier to analyze.
    * @return componentid
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The Vault component identifier to analyze.")
   @JsonProperty(JSON_PROPERTY_COMPONENTID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -114,7 +115,7 @@ public class VaultCalculationParameters implements Serializable {
    * Get account
    * @return account
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -140,7 +141,7 @@ public class VaultCalculationParameters implements Serializable {
    * Get dates
    * @return dates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -166,7 +167,7 @@ public class VaultCalculationParameters implements Serializable {
    * Vault Configuration identifier.
    * @return configid
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Vault Configuration identifier.")
   @JsonProperty(JSON_PROPERTY_CONFIGID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -192,7 +193,7 @@ public class VaultCalculationParameters implements Serializable {
    * Component detail type for the Vault component. It can be GROUPS or GROUPSALL or TOTALS or SECURITIES.
    * @return componentdetail
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Component detail type for the Vault component. It can be GROUPS or GROUPSALL or TOTALS or SECURITIES.")
   @JsonIgnore
 

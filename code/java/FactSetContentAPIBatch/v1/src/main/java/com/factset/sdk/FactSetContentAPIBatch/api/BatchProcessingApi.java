@@ -6,7 +6,7 @@ import com.factset.sdk.FactSetContentAPIBatch.ApiResponse;
 import com.factset.sdk.FactSetContentAPIBatch.Configuration;
 import com.factset.sdk.FactSetContentAPIBatch.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -17,7 +17,8 @@ import com.factset.sdk.FactSetContentAPIBatch.models.BatchStatusRequest;
 import com.factset.sdk.FactSetContentAPIBatch.models.BatchStatusResponse;
 import com.factset.sdk.FactSetContentAPIBatch.models.ErrorResponse;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class BatchProcessingApi {
   private ApiClient apiClient;
 

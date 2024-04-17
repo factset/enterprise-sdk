@@ -50,7 +50,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2001Data.JSON_PROPERTY_COMPANY,
   InlineResponse2001Data.JSON_PROPERTY_FISCAL_YEAR_DATA
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2001Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -87,7 +88,7 @@ public class InlineResponse2001Data implements Serializable {
    * The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument.
    * @return isin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument.")
   @JsonIgnore
 
@@ -121,7 +122,7 @@ public class InlineResponse2001Data implements Serializable {
    * Get nsin
    * @return nsin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NSIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -147,7 +148,7 @@ public class InlineResponse2001Data implements Serializable {
    * Name of the instrument.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the instrument.")
   @JsonIgnore
 
@@ -181,7 +182,7 @@ public class InlineResponse2001Data implements Serializable {
    * Short name of the instrument.
    * @return shortName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Short name of the instrument.")
   @JsonIgnore
 
@@ -223,7 +224,7 @@ public class InlineResponse2001Data implements Serializable {
    * Instrument type as defined by FactSet Digital Solutions. Instrument types are arranged in a hierarchy, with the first level representing the most coarse granularity and further levels successively refining the granularity (see MDG category system 18). See endpoint &#x60;/category/get&#x60; for possible values.
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Instrument type as defined by FactSet Digital Solutions. Instrument types are arranged in a hierarchy, with the first level representing the most coarse granularity and further levels successively refining the granularity (see MDG category system 18). See endpoint `/category/get` for possible values.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -249,7 +250,7 @@ public class InlineResponse2001Data implements Serializable {
    * Get company
    * @return company
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COMPANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -283,7 +284,7 @@ public class InlineResponse2001Data implements Serializable {
    * Values as of the end of a fiscal year for the set of selected figures. The figures are clustered based on their specifics but do not exhaust all potentially available data from that cluster. The default sorting is from the most recent fiscal year requested to the most distant in time.
    * @return fiscalYearData
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Values as of the end of a fiscal year for the set of selected figures. The figures are clustered based on their specifics but do not exhaust all potentially available data from that cluster. The default sorting is from the most recent fiscal year requested to the most distant in time.")
   @JsonProperty(JSON_PROPERTY_FISCAL_YEAR_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

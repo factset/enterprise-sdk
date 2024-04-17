@@ -47,7 +47,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20090Latest.JSON_PROPERTY_TRADING_VALUE,
   InlineResponse20090Latest.JSON_PROPERTY_PERFORMANCE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20090Latest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -81,7 +82,7 @@ public class InlineResponse20090Latest implements Serializable {
    * Date and time.
    * @return time
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Date and time.")
   @JsonIgnore
 
@@ -115,7 +116,7 @@ public class InlineResponse20090Latest implements Serializable {
    * Price value. See attribute &#x60;valueUnit&#x60; for its unit.
    * @return price
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Price value. See attribute `valueUnit` for its unit.")
   @JsonIgnore
 
@@ -149,7 +150,7 @@ public class InlineResponse20090Latest implements Serializable {
    * Quote condition. Possible values depend on the values delivered by the supplier of the price information.
    * @return quoteCondition
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Quote condition. Possible values depend on the values delivered by the supplier of the price information.")
   @JsonIgnore
 
@@ -183,7 +184,7 @@ public class InlineResponse20090Latest implements Serializable {
    * Number of units (e.g. shares) traded.
    * @return tradingVolume
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of units (e.g. shares) traded.")
   @JsonIgnore
 
@@ -217,7 +218,7 @@ public class InlineResponse20090Latest implements Serializable {
    * Monetary equivalent (cash value) of the trade. See attribute &#x60;currency&#x60; for its unit.
    * @return tradingValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Monetary equivalent (cash value) of the trade. See attribute `currency` for its unit.")
   @JsonIgnore
 
@@ -251,7 +252,7 @@ public class InlineResponse20090Latest implements Serializable {
    * Get performance
    * @return performance
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PERFORMANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

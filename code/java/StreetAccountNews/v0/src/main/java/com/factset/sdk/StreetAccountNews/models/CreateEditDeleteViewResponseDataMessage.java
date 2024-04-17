@@ -35,7 +35,8 @@ import com.factset.sdk.StreetAccountNews.JSON;
 @JsonPropertyOrder({
   CreateEditDeleteViewResponseDataMessage.JSON_PROPERTY_VIEW
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CreateEditDeleteViewResponseDataMessage implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -54,7 +55,7 @@ public class CreateEditDeleteViewResponseDataMessage implements Serializable {
    * Get view
    * @return view
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "View created/edited/deleted sucessfully", value = "")
   @JsonProperty(JSON_PROPERTY_VIEW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

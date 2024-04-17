@@ -39,7 +39,8 @@ import com.factset.sdk.IRNConfiguration.JSON;
 @JsonPropertyOrder({
   ReorderCustomSymbolTypeDto.JSON_PROPERTY_IDS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ReorderCustomSymbolTypeDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -70,7 +71,7 @@ public class ReorderCustomSymbolTypeDto implements Serializable {
    * Get ids
    * @return ids
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

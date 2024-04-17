@@ -6,7 +6,7 @@ import com.factset.sdk.OFDB.ApiResponse;
 import com.factset.sdk.OFDB.Configuration;
 import com.factset.sdk.OFDB.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -19,7 +19,8 @@ import com.factset.sdk.OFDB.models.InlineResponse404;
 import com.factset.sdk.OFDB.models.InlineResponse406;
 import com.factset.sdk.OFDB.models.InlineResponse429;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class DeleteApi {
   private ApiClient apiClient;
 

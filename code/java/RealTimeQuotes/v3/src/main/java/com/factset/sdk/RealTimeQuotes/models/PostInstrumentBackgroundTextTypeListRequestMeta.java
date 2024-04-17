@@ -37,7 +37,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   PostInstrumentBackgroundTextTypeListRequestMeta.JSON_PROPERTY_ATTRIBUTES,
   PostInstrumentBackgroundTextTypeListRequestMeta.JSON_PROPERTY_LANGUAGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostInstrumentBackgroundTextTypeListRequestMeta implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -67,7 +68,7 @@ public class PostInstrumentBackgroundTextTypeListRequestMeta implements Serializ
    * Limit the attributes returned in the response to the specified set.
    * @return attributes
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Limit the attributes returned in the response to the specified set.")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -93,7 +94,7 @@ public class PostInstrumentBackgroundTextTypeListRequestMeta implements Serializ
    * ISO 639-1 code of the language.
    * @return language
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "ISO 639-1 code of the language.")
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

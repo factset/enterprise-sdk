@@ -37,7 +37,8 @@ import com.factset.sdk.FactSetPrivateMarkets.JSON;
 @JsonPropertyOrder({
   EntityMatchRequest.JSON_PROPERTY_INPUT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EntityMatchRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -69,7 +70,7 @@ public class EntityMatchRequest implements Serializable {
    * Get input
    * @return input
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_INPUT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

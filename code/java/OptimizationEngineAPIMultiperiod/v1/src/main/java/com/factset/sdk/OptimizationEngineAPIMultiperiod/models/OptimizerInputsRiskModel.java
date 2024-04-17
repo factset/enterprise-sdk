@@ -40,7 +40,8 @@ import com.factset.sdk.OptimizationEngineAPIMultiperiod.JSON;
   OptimizerInputsRiskModel.JSON_PROPERTY_QUANT_RISK_MODEL,
   OptimizerInputsRiskModel.JSON_PROPERTY_RAW_MODEL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerInputsRiskModel implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -65,7 +66,7 @@ public class OptimizerInputsRiskModel implements Serializable {
    * Get simulatedRiskModel
    * @return simulatedRiskModel
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SIMULATED_RISK_MODEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -91,7 +92,7 @@ public class OptimizerInputsRiskModel implements Serializable {
    * Get quantRiskModel
    * @return quantRiskModel
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_QUANT_RISK_MODEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -117,7 +118,7 @@ public class OptimizerInputsRiskModel implements Serializable {
    * Get rawModel
    * @return rawModel
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RAW_MODEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

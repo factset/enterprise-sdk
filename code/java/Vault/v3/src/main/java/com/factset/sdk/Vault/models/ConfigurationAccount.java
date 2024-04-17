@@ -44,7 +44,8 @@ import com.factset.sdk.Vault.JSON;
   ConfigurationAccount.JSON_PROPERTY_LOCKING_DATE,
   ConfigurationAccount.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ConfigurationAccount implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -78,7 +79,7 @@ public class ConfigurationAccount implements Serializable {
    * Benchmark code.
    * @return benchmarkCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Benchmark code.")
   @JsonIgnore
 
@@ -112,7 +113,7 @@ public class ConfigurationAccount implements Serializable {
    * Benchmark name.
    * @return benchmarkName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Benchmark name.")
   @JsonIgnore
 
@@ -146,7 +147,7 @@ public class ConfigurationAccount implements Serializable {
    * Maximum end date.
    * @return maxEndDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Maximum end date.")
   @JsonIgnore
 
@@ -180,7 +181,7 @@ public class ConfigurationAccount implements Serializable {
    * Minimum start date.
    * @return minStartDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Minimum start date.")
   @JsonIgnore
 
@@ -214,7 +215,7 @@ public class ConfigurationAccount implements Serializable {
    * Locking date.
    * @return lockingDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Locking date.")
   @JsonIgnore
 
@@ -248,7 +249,7 @@ public class ConfigurationAccount implements Serializable {
    * Account name.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Account name.")
   @JsonIgnore
 

@@ -46,7 +46,8 @@ import com.factset.sdk.FactSetFunds.JSON;
   Managers.JSON_PROPERTY_MANAGER_JOB_ID,
   Managers.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Managers implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -83,7 +84,7 @@ public class Managers implements Serializable {
    * FactSet Security Identifier. Six alpha-numeric characters, excluding vowels, with a -S suffix (XXXXXX-S), resolved from the requestId of the Fund requested.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FNK7XP-S", value = "FactSet Security Identifier. Six alpha-numeric characters, excluding vowels, with a -S suffix (XXXXXX-S), resolved from the requestId of the Fund requested.")
   @JsonIgnore
 
@@ -117,7 +118,7 @@ public class Managers implements Serializable {
    * Proper Name of the Fund Manager
    * @return managerName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Mr. Antonio DeSpirito III", value = "Proper Name of the Fund Manager")
   @JsonIgnore
 
@@ -151,7 +152,7 @@ public class Managers implements Serializable {
    * Proper Title of the Fund Manager
    * @return managerTitle
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Managing Director", value = "Proper Title of the Fund Manager")
   @JsonIgnore
 
@@ -185,7 +186,7 @@ public class Managers implements Serializable {
    * Phone Number of the Fund Manager
    * @return managerPhone
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1.212.810.5300", value = "Phone Number of the Fund Manager")
   @JsonIgnore
 
@@ -219,7 +220,7 @@ public class Managers implements Serializable {
    * Inception Date of the Fund Manager
    * @return managerInceptionDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Wed Jan 01 00:00:00 UTC 2014", value = "Inception Date of the Fund Manager")
   @JsonIgnore
 
@@ -253,7 +254,7 @@ public class Managers implements Serializable {
    * Job Identifier for the Fund Manager
    * @return managerJobId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "6721381", value = "Job Identifier for the Fund Manager")
   @JsonIgnore
 
@@ -287,7 +288,7 @@ public class Managers implements Serializable {
    * The requested Id sent as input.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "MABAX", value = "The requested Id sent as input.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

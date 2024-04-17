@@ -43,7 +43,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2001DataBalanceSheetNetDebt.JSON_PROPERTY_GROWTH,
   InlineResponse2001DataBalanceSheetNetDebt.JSON_PROPERTY_RATIO_TO_TOTAL_EQUITY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2001DataBalanceSheetNetDebt implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class InlineResponse2001DataBalanceSheetNetDebt implements Serializable {
    * Vaue of the net debt.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Vaue of the net debt.")
   @JsonIgnore
 
@@ -102,7 +103,7 @@ public class InlineResponse2001DataBalanceSheetNetDebt implements Serializable {
    * Annual growth rate of the net debt.
    * @return growth
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Annual growth rate of the net debt.")
   @JsonIgnore
 
@@ -136,7 +137,7 @@ public class InlineResponse2001DataBalanceSheetNetDebt implements Serializable {
    * Net-debt-to-total-equity ratio, which is the ratio of the net debt, divided by the total shareholders&#39; equity.
    * @return ratioToTotalEquity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Net-debt-to-total-equity ratio, which is the ratio of the net debt, divided by the total shareholders' equity.")
   @JsonIgnore
 

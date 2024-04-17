@@ -38,7 +38,8 @@ import com.factset.sdk.IssueTracker.JSON;
   IssueRequestData.JSON_PROPERTY_PRODUCT_ID,
   IssueRequestData.JSON_PROPERTY_CATEGORY_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class IssueRequestData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -78,7 +79,7 @@ public class IssueRequestData implements Serializable {
    * subject for new Issue Tracker issue
    * @return subject
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "subject for new Issue Tracker issue")
   @JsonProperty(JSON_PROPERTY_SUBJECT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -104,7 +105,7 @@ public class IssueRequestData implements Serializable {
    * Comprehensive description of the issue, including any problems you&#39;ve observed or any specific changes you&#39;d like to request.
    * @return description
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Comprehensive description of the issue, including any problems you've observed or any specific changes you'd like to request.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -130,7 +131,7 @@ public class IssueRequestData implements Serializable {
    * Issue Tracker product 
    * @return productId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Issue Tracker product ")
   @JsonProperty(JSON_PROPERTY_PRODUCT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -156,7 +157,7 @@ public class IssueRequestData implements Serializable {
    * category of Factset Product. 
    * @return categoryId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "category of Factset Product. ")
   @JsonProperty(JSON_PROPERTY_CATEGORY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -35,7 +35,8 @@ import com.factset.sdk.IRNConfiguration.JSON;
 @JsonPropertyOrder({
   IdentifierSettingsDto.JSON_PROPERTY_ALLOW_EDIT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class IdentifierSettingsDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -54,7 +55,7 @@ public class IdentifierSettingsDto implements Serializable {
    * Get allowEdit
    * @return allowEdit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ALLOW_EDIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

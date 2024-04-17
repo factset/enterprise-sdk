@@ -46,7 +46,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20011Data.JSON_PROPERTY_TIME_TO_MATURITY,
   InlineResponse20011Data.JSON_PROPERTY_CREDIT_RATING
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20011Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -89,7 +90,7 @@ public class InlineResponse20011Data implements Serializable {
    * Date the analytics data was published. Available for the regions: US, Europe, and Canada.
    * @return asOfDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Date the analytics data was published. Available for the regions: US, Europe, and Canada.")
   @JsonProperty(JSON_PROPERTY_AS_OF_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +116,7 @@ public class InlineResponse20011Data implements Serializable {
    * A measure of portfolio diversification, calculated by summing the squared weights of each fund constituent. Low concentration implies high diversification, and vice versa. Outputs are Low, Medium or High. Available for regions: US.
    * @return numberHoldings
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A measure of portfolio diversification, calculated by summing the squared weights of each fund constituent. Low concentration implies high diversification, and vice versa. Outputs are Low, Medium or High. Available for regions: US.")
   @JsonProperty(JSON_PROPERTY_NUMBER_HOLDINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -141,7 +142,7 @@ public class InlineResponse20011Data implements Serializable {
    * A measure of portfolio diversification, calculated by summing the squared weights of each fund constituent. Low concentration implies high diversification, and vice versa. Possible values are Low, Medium or High. Available for regions: US.
    * @return concentration
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A measure of portfolio diversification, calculated by summing the squared weights of each fund constituent. Low concentration implies high diversification, and vice versa. Possible values are Low, Medium or High. Available for regions: US.")
   @JsonProperty(JSON_PROPERTY_CONCENTRATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -167,7 +168,7 @@ public class InlineResponse20011Data implements Serializable {
    * The annualized weighted average of the current dividend yield of the portfolio&#39;s holdings, gross of fees. Available for the regions: US.
    * @return dividendYield
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The annualized weighted average of the current dividend yield of the portfolio's holdings, gross of fees. Available for the regions: US.")
   @JsonProperty(JSON_PROPERTY_DIVIDEND_YIELD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -193,7 +194,7 @@ public class InlineResponse20011Data implements Serializable {
    * Weighted average ratio of prices of a fund’s stocks values to their trailing earnings of underlying stocks. Aggregate prices are scaled by the sum of individual earnings, including negative earnings. Available for the regions: US.
    * @return priceEarningsRatio
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Weighted average ratio of prices of a fund’s stocks values to their trailing earnings of underlying stocks. Aggregate prices are scaled by the sum of individual earnings, including negative earnings. Available for the regions: US.")
   @JsonProperty(JSON_PROPERTY_PRICE_EARNINGS_RATIO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -219,7 +220,7 @@ public class InlineResponse20011Data implements Serializable {
    * Weighted average ratio of prices of a fund’s stocks to the book value of underlying stocks. Aggregate prices are scaled by the sum of individual book values. Available for the regions: US.
    * @return priceBookRatio
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Weighted average ratio of prices of a fund’s stocks to the book value of underlying stocks. Aggregate prices are scaled by the sum of individual book values. Available for the regions: US.")
   @JsonProperty(JSON_PROPERTY_PRICE_BOOK_RATIO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -245,7 +246,7 @@ public class InlineResponse20011Data implements Serializable {
    * The weighted average market capitalization of the stocks in the fund&#39;s portfolio (USD). Available for regions: US.
    * @return marketCapitalization
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The weighted average market capitalization of the stocks in the fund's portfolio (USD). Available for regions: US.")
   @JsonProperty(JSON_PROPERTY_MARKET_CAPITALIZATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -271,7 +272,7 @@ public class InlineResponse20011Data implements Serializable {
    * The weighted average of remaining time until maturity for all bonds in the portfolio, measured in (possibly fractional) years. Available for the regions: US.
    * @return timeToMaturity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The weighted average of remaining time until maturity for all bonds in the portfolio, measured in (possibly fractional) years. Available for the regions: US.")
   @JsonProperty(JSON_PROPERTY_TIME_TO_MATURITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -297,7 +298,7 @@ public class InlineResponse20011Data implements Serializable {
    * Average credit rating for the portfolio, determined by mapping ratings from credit agencies (Fitch, Moody&#39;s and Standard &amp; Poor&#39;s) to numerical likelihood of default for each bond in the portfolio and then finding the weighted average default probability, then mapping back to an agency credit rating. Accounts for the nonlinear probability of default when aggregating agency ratings. FactSet has developed a numeric equivalent system that allows math functions such as averaging and comparisons across sources (using greater than, equal to, or less than operators), to facilitate easier evaluation. Available for the regions: US.
    * @return creditRating
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Average credit rating for the portfolio, determined by mapping ratings from credit agencies (Fitch, Moody's and Standard & Poor's) to numerical likelihood of default for each bond in the portfolio and then finding the weighted average default probability, then mapping back to an agency credit rating. Accounts for the nonlinear probability of default when aggregating agency ratings. FactSet has developed a numeric equivalent system that allows math functions such as averaging and comparisons across sources (using greater than, equal to, or less than operators), to facilitate easier evaluation. Available for the regions: US.")
   @JsonProperty(JSON_PROPERTY_CREDIT_RATING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

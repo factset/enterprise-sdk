@@ -48,7 +48,8 @@ import com.factset.sdk.IRNConfiguration.JSON;
   RelationshipDto.JSON_PROPERTY_HIDE_COMPANY,
   RelationshipDto.JSON_PROPERTY_IS_CUSTOMISABLE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class RelationshipDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -94,7 +95,7 @@ public class RelationshipDto implements Serializable {
    * Get id
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -120,7 +121,7 @@ public class RelationshipDto implements Serializable {
    * Get relationshipCategoryId
    * @return relationshipCategoryId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RELATIONSHIP_CATEGORY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -146,7 +147,7 @@ public class RelationshipDto implements Serializable {
    * Get relationshipCode
    * @return relationshipCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -180,7 +181,7 @@ public class RelationshipDto implements Serializable {
    * Get bidirectionalName
    * @return bidirectionalName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -214,7 +215,7 @@ public class RelationshipDto implements Serializable {
    * Get leftToRightName
    * @return leftToRightName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -248,7 +249,7 @@ public class RelationshipDto implements Serializable {
    * Get rightToLeftName
    * @return rightToLeftName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -282,7 +283,7 @@ public class RelationshipDto implements Serializable {
    * Get hideDates
    * @return hideDates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_HIDE_DATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -308,7 +309,7 @@ public class RelationshipDto implements Serializable {
    * Get hideComment
    * @return hideComment
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_HIDE_COMMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -334,7 +335,7 @@ public class RelationshipDto implements Serializable {
    * Get hideCompany
    * @return hideCompany
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_HIDE_COMPANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -360,7 +361,7 @@ public class RelationshipDto implements Serializable {
    * Get isCustomisable
    * @return isCustomisable
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IS_CUSTOMISABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

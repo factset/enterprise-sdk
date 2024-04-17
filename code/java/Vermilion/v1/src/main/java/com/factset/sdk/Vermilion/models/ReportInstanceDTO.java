@@ -43,7 +43,8 @@ import com.factset.sdk.Vermilion.JSON;
   ReportInstanceDTO.JSON_PROPERTY_REPORT_REVISION,
   ReportInstanceDTO.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ReportInstanceDTO implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -83,7 +84,7 @@ public class ReportInstanceDTO implements Serializable {
    * Get reportInstanceId
    * @return reportInstanceId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REPORT_INSTANCE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -109,7 +110,7 @@ public class ReportInstanceDTO implements Serializable {
    * Get reportDefinitionId
    * @return reportDefinitionId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REPORT_DEFINITION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -135,7 +136,7 @@ public class ReportInstanceDTO implements Serializable {
    * Get reportDefinitionName
    * @return reportDefinitionName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REPORT_DEFINITION_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -161,7 +162,7 @@ public class ReportInstanceDTO implements Serializable {
    * Get reportName
    * @return reportName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REPORT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -187,7 +188,7 @@ public class ReportInstanceDTO implements Serializable {
    * Get userFriendlyReportName
    * @return userFriendlyReportName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_USER_FRIENDLY_REPORT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -213,7 +214,7 @@ public class ReportInstanceDTO implements Serializable {
    * Get extension
    * @return extension
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EXTENSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -239,7 +240,7 @@ public class ReportInstanceDTO implements Serializable {
    * Get reportRevision
    * @return reportRevision
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REPORT_REVISION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -265,7 +266,7 @@ public class ReportInstanceDTO implements Serializable {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

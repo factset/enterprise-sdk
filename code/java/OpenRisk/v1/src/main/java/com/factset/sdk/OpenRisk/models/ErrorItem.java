@@ -39,7 +39,8 @@ import com.factset.sdk.OpenRisk.JSON;
   ErrorItem.JSON_PROPERTY_TITLE,
   ErrorItem.JSON_PROPERTY_DETAIL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ErrorItem implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -79,7 +80,7 @@ public class ErrorItem implements Serializable {
    * UUID for the particular occurrence of the problem
    * @return id
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "UUID for the particular occurrence of the problem")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -105,7 +106,7 @@ public class ErrorItem implements Serializable {
    * Error code for the problem type.
    * @return code
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Error code for the problem type.")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -131,7 +132,7 @@ public class ErrorItem implements Serializable {
    * Human-readable summary of the problem tied to the error code and not specific to the particular occurrence of the problem
    * @return title
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Human-readable summary of the problem tied to the error code and not specific to the particular occurrence of the problem")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -157,7 +158,7 @@ public class ErrorItem implements Serializable {
    * Human-readable explanation of the problem specific to the particular occurrence
    * @return detail
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Human-readable explanation of the problem specific to the particular occurrence")
   @JsonProperty(JSON_PROPERTY_DETAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

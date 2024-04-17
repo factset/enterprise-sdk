@@ -43,7 +43,8 @@ import com.factset.sdk.OpenFactSetPartnersDocuments.JSON;
   Bonds.JSON_PROPERTY_POSTISSUANCE_EXISTENCE,
   Bonds.JSON_PROPERTY_URL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Bonds implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -80,7 +81,7 @@ public class Bonds implements Serializable {
    * 12-digit alphanumeric code that uniquely identifies a specific security.
    * @return isin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "XS2486610541", value = "12-digit alphanumeric code that uniquely identifies a specific security.")
   @JsonProperty(JSON_PROPERTY_ISIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -106,7 +107,7 @@ public class Bonds implements Serializable {
    * The filename of the bonds data.
    * @return fileName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "XS2486610541.xml", value = "The filename of the bonds data.")
   @JsonProperty(JSON_PROPERTY_FILE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -132,7 +133,7 @@ public class Bonds implements Serializable {
    * Specifies the Pre-issuance date of the record. 
    * @return preissuancePubDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Fri Aug 26 00:00:00 UTC 2022", value = "Specifies the Pre-issuance date of the record. ")
   @JsonProperty(JSON_PROPERTY_PREISSUANCE_PUB_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,7 +159,7 @@ public class Bonds implements Serializable {
    * Specifies the Pre-issuance existence of the record. The Issuer has developed a Framework for its upcoming Green and/or Social and/or Sustainability bond issuances. File is publically available on the Issuer&#39;s website. 
    * @return preissuanceExistence
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "PUBLICLY_AVAILABLE", value = "Specifies the Pre-issuance existence of the record. The Issuer has developed a Framework for its upcoming Green and/or Social and/or Sustainability bond issuances. File is publically available on the Issuer's website. ")
   @JsonProperty(JSON_PROPERTY_PREISSUANCE_EXISTENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -184,7 +185,7 @@ public class Bonds implements Serializable {
    * Specifies the Post-issuance date of the record. 
    * @return postissuancePubDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Sat Sep 24 00:00:00 UTC 2022", value = "Specifies the Post-issuance date of the record. ")
   @JsonProperty(JSON_PROPERTY_POSTISSUANCE_PUB_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -210,7 +211,7 @@ public class Bonds implements Serializable {
    * Specifies the Post-issuance existence of the record.The Issuer has published a file presenting some information on the utilisation of the proceeds of the bond. File is publicly available. 
    * @return postissuanceExistence
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "PUBLICLY_AVAILABLE", value = "Specifies the Post-issuance existence of the record.The Issuer has published a file presenting some information on the utilisation of the proceeds of the bond. File is publicly available. ")
   @JsonProperty(JSON_PROPERTY_POSTISSUANCE_EXISTENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -236,7 +237,7 @@ public class Bonds implements Serializable {
    * Download link for the bonds data provided by the Luxembourg feed. This download link will expire after 30 mins.
    * @return url
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "https://fdss3-unstructured-data-delivery-luxembourg.s3.amazonaws.com/luxembourg_green_bonds/split/XS2486610541.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4NAFRGHDMNDXWUYH%2F20221017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221017T103314Z&X-Amz-Expires=1800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDsaCXVzLWVhc3QtMSJHMEUCIHYez7Q5O9E2TpbKcNvtYdtQbSK3bi6KI2hBTkpMTTI1AiEAzMcz3OhOznjS0Bksa1b9rVSRGcYkkhcQEFp03WGKLgAq7gIIFBACGgw4NTI1NjI2MjA4NzAiDOK94aV1LhKeVcZsairLAgzxbHvmsmtwWTV7REDFmw1ex6b1h7VWzWVNmxhZUlb3UMr3W%2BBSERk%2F3uRDS8U88nJsHpjqjumNal2sw1r6FKAqhHjNlcNP0%2BcCqbNHBVo74IYgEe6uqF%2Btt03vCYLZwkd9fSg7U8BZ3DD0QjB27iLCB1nWDtNN3VaTTSxe%2BYievqUI8kgg8kSDreHOocB5tmlvmE2LcCD5zeb0FxZEQSh6o4%2Bvduzg4giIxfnCEbLLWmEFT49E2VxGC8E6pWjNccC%2FK%2BibiNmkivhI4vtG6KWpQyPbgMAUE4WXBIFnsulZJz2lfn3MpU3xkLVEch1n2IZMVzBdT49hAIeG9KSjppf2faDIXB0N5WwsduWl29RAfwxTJu7V7IhdYLvZDEhQaf%2B7IQXS3zijzdWrf6uclgw6Me%2BDAS8WFzaj%2FIQuxurSjGZJZRaoxarydGsw5t60mgY6ngGA303sALk%2BrsSXtp%2B5cSEyW%2FkrZcits1gXatpTU%2BEOwJBatTbRcoQa8zEHuspFtZD6nKOXvX5ZBWzzvRNjHpX7sXyM0LNcMH409aAqJfU6IU5%2B7KaoaucLj3VhaMdQgSEMAqp%2BFi47UFOQ3FvnG0Ih%2FjxEcTO8iYBHg2MfAMpx%2BNW0WwrNEQUXFWNt70HPrM2RnDkkzaTTTz9NDEbHpg%3D%3D&X-Amz-Signature=9db775727619af7f31024d33f8c1cb391140460ed269cec869cd4cff8253611d", value = "Download link for the bonds data provided by the Luxembourg feed. This download link will expire after 30 mins.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

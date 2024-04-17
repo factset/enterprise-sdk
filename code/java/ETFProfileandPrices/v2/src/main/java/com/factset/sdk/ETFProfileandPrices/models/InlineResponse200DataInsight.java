@@ -37,7 +37,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse200DataInsight.JSON_PROPERTY_OVERVIEW,
   InlineResponse200DataInsight.JSON_PROPERTY_QUOTE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse200DataInsight implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -59,7 +60,7 @@ public class InlineResponse200DataInsight implements Serializable {
    * In-depth ETP overview from FactSet ETP Analytics. This data is available for the US regions.
    * @return overview
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "In-depth ETP overview from FactSet ETP Analytics. This data is available for the US regions.")
   @JsonProperty(JSON_PROPERTY_OVERVIEW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -85,7 +86,7 @@ public class InlineResponse200DataInsight implements Serializable {
    * Abbreviated ETP overview from the FactSet ETP Analytics. This data is available for the US regions.
    * @return quote
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Abbreviated ETP overview from the FactSet ETP Analytics. This data is available for the US regions.")
   @JsonProperty(JSON_PROPERTY_QUOTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

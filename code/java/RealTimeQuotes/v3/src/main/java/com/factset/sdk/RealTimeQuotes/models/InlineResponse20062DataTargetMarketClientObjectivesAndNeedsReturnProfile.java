@@ -48,7 +48,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile.JSON_PROPERTY_OTHER,
   InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile.JSON_PROPERTY_GERMANY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -361,7 +362,7 @@ public class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnPr
    * Indicates whether the investment product is suitable for investors with the return profile \&quot;preservation\&quot;.
    * @return preservation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the investment product is suitable for investors with the return profile \"preservation\".")
   @JsonIgnore
 
@@ -395,7 +396,7 @@ public class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnPr
    * Indicates whether the investment product is suitable for investors with the return profile \&quot;growth\&quot;.
    * @return growth
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the investment product is suitable for investors with the return profile \"growth\".")
   @JsonIgnore
 
@@ -429,7 +430,7 @@ public class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnPr
    * Indicates whether the investment product is suitable for investors with the return profile \&quot;income\&quot;.
    * @return income
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the investment product is suitable for investors with the return profile \"income\".")
   @JsonIgnore
 
@@ -463,7 +464,7 @@ public class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnPr
    * Indicates whether the investment product is suitable for investors with the return profile \&quot;financing\&quot;.
    * @return financing
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the investment product is suitable for investors with the return profile \"financing\".")
   @JsonIgnore
 
@@ -497,7 +498,7 @@ public class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnPr
    * Indicates whether the investment product is suitable for investors with the return profile \&quot;hedging\&quot;.
    * @return hedging
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the investment product is suitable for investors with the return profile \"hedging\".")
   @JsonIgnore
 
@@ -531,7 +532,7 @@ public class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnPr
    * Indicates whether the investment product is suitable for investors with the return profile \&quot;leverage\&quot;.
    * @return optionOrLeveraged
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the investment product is suitable for investors with the return profile \"leverage\".")
   @JsonIgnore
 
@@ -565,7 +566,7 @@ public class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnPr
    * Indicates whether the investment product is suitable for investors with the return profile \&quot;other\&quot;.
    * @return other
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the investment product is suitable for investors with the return profile \"other\".")
   @JsonIgnore
 
@@ -599,7 +600,7 @@ public class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnPr
    * Get germany
    * @return germany
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_GERMANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

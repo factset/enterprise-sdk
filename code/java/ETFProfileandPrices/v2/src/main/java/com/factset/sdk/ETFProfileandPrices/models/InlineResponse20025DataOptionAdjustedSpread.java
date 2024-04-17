@@ -48,7 +48,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20025DataOptionAdjustedSpread.JSON_PROPERTY_RANGE900_TO1000,
   InlineResponse20025DataOptionAdjustedSpread.JSON_PROPERTY_RANGE1000_PLUS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20025DataOptionAdjustedSpread implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -100,7 +101,7 @@ public class InlineResponse20025DataOptionAdjustedSpread implements Serializable
    * OAS value of the ETP.
    * @return range0
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "OAS value of the ETP.")
   @JsonProperty(JSON_PROPERTY_RANGE0)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -126,7 +127,7 @@ public class InlineResponse20025DataOptionAdjustedSpread implements Serializable
    * OAS weight of the ETP ranges between 0 to 99.9.
    * @return range0To100
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "OAS weight of the ETP ranges between 0 to 99.9.")
   @JsonProperty(JSON_PROPERTY_RANGE0_TO100)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -152,7 +153,7 @@ public class InlineResponse20025DataOptionAdjustedSpread implements Serializable
    * OAS weight of the ETP ranges between 100 to 199.99.
    * @return range100To200
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "OAS weight of the ETP ranges between 100 to 199.99.")
   @JsonProperty(JSON_PROPERTY_RANGE100_TO200)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -178,7 +179,7 @@ public class InlineResponse20025DataOptionAdjustedSpread implements Serializable
    * OAS weight of the ETP ranges between 200 to 299.99.
    * @return range200To300
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "OAS weight of the ETP ranges between 200 to 299.99.")
   @JsonProperty(JSON_PROPERTY_RANGE200_TO300)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -204,7 +205,7 @@ public class InlineResponse20025DataOptionAdjustedSpread implements Serializable
    * OAS weight of the ETF ranges between 300 to 399.99.
    * @return range300To400
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "OAS weight of the ETF ranges between 300 to 399.99.")
   @JsonProperty(JSON_PROPERTY_RANGE300_TO400)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -230,7 +231,7 @@ public class InlineResponse20025DataOptionAdjustedSpread implements Serializable
    * OAS weight of the ETF ranges between 400 to 499.99.
    * @return range400To500
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "OAS weight of the ETF ranges between 400 to 499.99.")
   @JsonProperty(JSON_PROPERTY_RANGE400_TO500)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -256,7 +257,7 @@ public class InlineResponse20025DataOptionAdjustedSpread implements Serializable
    * OAS weight of the ETF ranges between 500 to 599.99.
    * @return range500To600
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "OAS weight of the ETF ranges between 500 to 599.99.")
   @JsonProperty(JSON_PROPERTY_RANGE500_TO600)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -282,7 +283,7 @@ public class InlineResponse20025DataOptionAdjustedSpread implements Serializable
    * OAS weight of the ETF ranges between 600 to 699.99.
    * @return range600To700
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "OAS weight of the ETF ranges between 600 to 699.99.")
   @JsonProperty(JSON_PROPERTY_RANGE600_TO700)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -308,7 +309,7 @@ public class InlineResponse20025DataOptionAdjustedSpread implements Serializable
    * OAS weight of the ETF ranges between 700 to 799.99.
    * @return range700To800
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "OAS weight of the ETF ranges between 700 to 799.99.")
   @JsonProperty(JSON_PROPERTY_RANGE700_TO800)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -334,7 +335,7 @@ public class InlineResponse20025DataOptionAdjustedSpread implements Serializable
    * OAS weight of the ETF ranges between 800 to 899.99.
    * @return range800To900
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "OAS weight of the ETF ranges between 800 to 899.99.")
   @JsonProperty(JSON_PROPERTY_RANGE800_TO900)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -360,7 +361,7 @@ public class InlineResponse20025DataOptionAdjustedSpread implements Serializable
    * OAS weight of the ETF ranges between 900 to 999.99.
    * @return range900To1000
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "OAS weight of the ETF ranges between 900 to 999.99.")
   @JsonProperty(JSON_PROPERTY_RANGE900_TO1000)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -386,7 +387,7 @@ public class InlineResponse20025DataOptionAdjustedSpread implements Serializable
    * OAS weight of the ETF ranges above 1000.
    * @return range1000Plus
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "OAS weight of the ETF ranges above 1000.")
   @JsonProperty(JSON_PROPERTY_RANGE1000_PLUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

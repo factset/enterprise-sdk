@@ -47,7 +47,8 @@ import com.factset.sdk.RealTimeTimeSeries.JSON;
   InlineResponse2005DataPrices.JSON_PROPERTY_TRADING_VOLUME,
   InlineResponse2005DataPrices.JSON_PROPERTY_TRADING_VALUE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2005DataPrices implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -84,7 +85,7 @@ public class InlineResponse2005DataPrices implements Serializable {
    * Date.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Date.")
   @JsonIgnore
 
@@ -118,7 +119,7 @@ public class InlineResponse2005DataPrices implements Serializable {
    * First price.
    * @return first
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "First price.")
   @JsonIgnore
 
@@ -152,7 +153,7 @@ public class InlineResponse2005DataPrices implements Serializable {
    * Last price.
    * @return last
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Last price.")
   @JsonIgnore
 
@@ -186,7 +187,7 @@ public class InlineResponse2005DataPrices implements Serializable {
    * Lowest price.
    * @return low
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Lowest price.")
   @JsonIgnore
 
@@ -220,7 +221,7 @@ public class InlineResponse2005DataPrices implements Serializable {
    * Highest price.
    * @return high
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Highest price.")
   @JsonIgnore
 
@@ -254,7 +255,7 @@ public class InlineResponse2005DataPrices implements Serializable {
    * Number of units (e.g. shares) traded (price type trade and estimate), offered (price type ask), solicited (price type bid), or empty (price type yield).
    * @return tradingVolume
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of units (e.g. shares) traded (price type trade and estimate), offered (price type ask), solicited (price type bid), or empty (price type yield).")
   @JsonIgnore
 
@@ -288,7 +289,7 @@ public class InlineResponse2005DataPrices implements Serializable {
    * Monetary equivalent (cash value) of the trade. See attribute &#x60;currency&#x60; in endpoint &#x60;/prices/get&#x60; for its unit. Empty for price type yield.
    * @return tradingValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Monetary equivalent (cash value) of the trade. See attribute `currency` in endpoint `/prices/get` for its unit. Empty for price type yield.")
   @JsonIgnore
 

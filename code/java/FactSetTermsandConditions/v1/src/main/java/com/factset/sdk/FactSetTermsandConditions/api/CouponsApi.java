@@ -6,7 +6,7 @@ import com.factset.sdk.FactSetTermsandConditions.ApiResponse;
 import com.factset.sdk.FactSetTermsandConditions.Configuration;
 import com.factset.sdk.FactSetTermsandConditions.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -16,7 +16,8 @@ import com.factset.sdk.FactSetTermsandConditions.models.CouponSchedulesResponse;
 import com.factset.sdk.FactSetTermsandConditions.models.ErrorResponse;
 import com.factset.sdk.FactSetTermsandConditions.models.TermsAndConditionsScalarRequest;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CouponsApi {
   private ApiClient apiClient;
 

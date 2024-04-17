@@ -55,7 +55,8 @@ import com.factset.sdk.FactSetPeople.JSON;
   CompanyStats.JSON_PROPERTY_MB_TYPE,
   CompanyStats.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CompanyStats implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -116,7 +117,7 @@ public class CompanyStats implements Serializable {
    * Average compensation for the executives
    * @return averageMgmtCompensation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2267284", value = "Average compensation for the executives")
   @JsonIgnore
 
@@ -150,7 +151,7 @@ public class CompanyStats implements Serializable {
    * Avergae tenure of the people
    * @return averageTenure
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "12.19", value = "Avergae tenure of the people")
   @JsonIgnore
 
@@ -184,7 +185,7 @@ public class CompanyStats implements Serializable {
    * Median tenure
    * @return medianTenure
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0.2", value = "Median tenure")
   @JsonIgnore
 
@@ -218,7 +219,7 @@ public class CompanyStats implements Serializable {
    * Average of the executives on the management and board
    * @return averageAge
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "58.17", value = "Average of the executives on the management and board")
   @JsonIgnore
 
@@ -252,7 +253,7 @@ public class CompanyStats implements Serializable {
    * Maximum age of the people on Management &amp; Board
    * @return maxAge
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "68", value = "Maximum age of the people on Management & Board")
   @JsonIgnore
 
@@ -286,7 +287,7 @@ public class CompanyStats implements Serializable {
    * Minimum age of the person on board
    * @return minimumAge
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "53", value = "Minimum age of the person on board")
   @JsonIgnore
 
@@ -320,7 +321,7 @@ public class CompanyStats implements Serializable {
    * Median age of the people on board
    * @return medianAge
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "56", value = "Median age of the people on board")
   @JsonIgnore
 
@@ -354,7 +355,7 @@ public class CompanyStats implements Serializable {
    * Independent directors on the board
    * @return boardIndependentDirectors
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "7", value = "Independent directors on the board")
   @JsonIgnore
 
@@ -388,7 +389,7 @@ public class CompanyStats implements Serializable {
    * Number of female members on the board
    * @return femaleBoardMembers
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "3", value = "Number of female members on the board")
   @JsonIgnore
 
@@ -422,7 +423,7 @@ public class CompanyStats implements Serializable {
    * Percentage of female members on the board
    * @return femaleBoardMembersPercent
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "37.33", value = "Percentage of female members on the board")
   @JsonIgnore
 
@@ -456,7 +457,7 @@ public class CompanyStats implements Serializable {
    * Number of people on board.
    * @return numberOfMembers
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "25", value = "Number of people on board.")
   @JsonIgnore
 
@@ -490,7 +491,7 @@ public class CompanyStats implements Serializable {
    * On Other Boards All
    * @return onOtherBoardsAll
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "7", value = "On Other Boards All")
   @JsonIgnore
 
@@ -524,7 +525,7 @@ public class CompanyStats implements Serializable {
    * On Other Boards Corporate
    * @return onOtherBoardsCorporate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "6", value = "On Other Boards Corporate")
   @JsonIgnore
 
@@ -558,7 +559,7 @@ public class CompanyStats implements Serializable {
    * Management and Board type, where MB &#x3D; Management &amp; Board, MGMT &#x3D; Management, and BRD &#x3D; Board. This is a pass-through value from the input used in the &#x60;mbType&#x60; query parameter.
    * @return mbType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "MB", value = "Management and Board type, where MB = Management & Board, MGMT = Management, and BRD = Board. This is a pass-through value from the input used in the `mbType` query parameter.")
   @JsonIgnore
 
@@ -592,7 +593,7 @@ public class CompanyStats implements Serializable {
    * Original identifier used for the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FDS", value = "Original identifier used for the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

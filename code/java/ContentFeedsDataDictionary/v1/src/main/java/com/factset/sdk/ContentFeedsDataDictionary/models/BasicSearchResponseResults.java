@@ -38,7 +38,8 @@ import com.factset.sdk.ContentFeedsDataDictionary.JSON;
   BasicSearchResponseResults.JSON_PROPERTY_PRODUCT,
   BasicSearchResponseResults.JSON_PROPERTY_DATA_ITEM
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class BasicSearchResponseResults implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -70,7 +71,7 @@ public class BasicSearchResponseResults implements Serializable {
    * Get product
    * @return product
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_PRODUCT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -96,7 +97,7 @@ public class BasicSearchResponseResults implements Serializable {
    * Get dataItem
    * @return dataItem
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA_ITEM)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

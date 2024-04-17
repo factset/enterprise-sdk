@@ -47,7 +47,8 @@ import com.factset.sdk.FactSetOptions.JSON;
   OptionsVolume.JSON_PROPERTY_VOLUME,
   OptionsVolume.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptionsVolume implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -81,7 +82,7 @@ public class OptionsVolume implements Serializable {
    * FactSet&#39;s Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options)
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "TSLA.US#PYG8L", value = "FactSet's Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options)")
   @JsonIgnore
 
@@ -115,7 +116,7 @@ public class OptionsVolume implements Serializable {
    * The date of the data in YYYY-MM-DD format
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Thu May 06 00:00:00 UTC 2021", value = "The date of the data in YYYY-MM-DD format")
   @JsonIgnore
 
@@ -149,7 +150,7 @@ public class OptionsVolume implements Serializable {
    * Option Exchange ISO. Visit [OA 14925](https://my.apps.factset.com/oa/pages/14925) for a list of Exchange ISOs.
    * @return exchange
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USA", value = "Option Exchange ISO. Visit [OA 14925](https://my.apps.factset.com/oa/pages/14925) for a list of Exchange ISOs.")
   @JsonIgnore
 
@@ -183,7 +184,7 @@ public class OptionsVolume implements Serializable {
    * The total number of options and/or futures contracts that are not closed or delivered on a particular day.
    * @return openInterest
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "92", value = "The total number of options and/or futures contracts that are not closed or delivered on a particular day.")
   @JsonIgnore
 
@@ -217,7 +218,7 @@ public class OptionsVolume implements Serializable {
    * Volume of the option
    * @return volume
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "3017", value = "Volume of the option")
   @JsonIgnore
 
@@ -251,7 +252,7 @@ public class OptionsVolume implements Serializable {
    * The requested identifier submitted in the query.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "TSLA.US#PYG8L-USA", value = "The requested identifier submitted in the query.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

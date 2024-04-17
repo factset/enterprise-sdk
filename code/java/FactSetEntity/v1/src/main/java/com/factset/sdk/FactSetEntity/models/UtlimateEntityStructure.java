@@ -46,7 +46,8 @@ import com.factset.sdk.FactSetEntity.JSON;
   UtlimateEntityStructure.JSON_PROPERTY_DESCRIPTION,
   UtlimateEntityStructure.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class UtlimateEntityStructure implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -86,7 +87,7 @@ public class UtlimateEntityStructure implements Serializable {
    * Unique FactSet-generated identifier representing an entity for the current entity identifier (-E)
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "001MF1-E", value = "Unique FactSet-generated identifier representing an entity for the current entity identifier (-E)")
   @JsonIgnore
 
@@ -120,7 +121,7 @@ public class UtlimateEntityStructure implements Serializable {
    * Unique FactSet-generated identifier representing an entity
    * @return fsymEntityId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "001MF1-E", value = "Unique FactSet-generated identifier representing an entity")
   @JsonIgnore
 
@@ -154,7 +155,7 @@ public class UtlimateEntityStructure implements Serializable {
    * The ultimate parent id of the entity.
    * @return ultimateParentId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "001MF1-E", value = "The ultimate parent id of the entity.")
   @JsonIgnore
 
@@ -188,7 +189,7 @@ public class UtlimateEntityStructure implements Serializable {
    * Within the hierarchy, this id represents the immediate parent entity id for the level directly above. Ultimate parent id will return a blank string.
    * @return parentEntityId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "001MF1-E", value = "Within the hierarchy, this id represents the immediate parent entity id for the level directly above. Ultimate parent id will return a blank string.")
   @JsonIgnore
 
@@ -222,7 +223,7 @@ public class UtlimateEntityStructure implements Serializable {
    * Level within the ultimate entity structure. This is taken from the perspective of the ultimate parent id and the full entity hierarchy.
    * @return level
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "3", value = "Level within the ultimate entity structure. This is taken from the perspective of the ultimate parent id and the full entity hierarchy.")
   @JsonIgnore
 
@@ -256,7 +257,7 @@ public class UtlimateEntityStructure implements Serializable {
    * A flag for inactive securities; whereby 1 &#x3D; inactive and 0 &#x3D; active.
    * @return inactive
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0", value = "A flag for inactive securities; whereby 1 = inactive and 0 = active.")
   @JsonIgnore
 
@@ -290,7 +291,7 @@ public class UtlimateEntityStructure implements Serializable {
    * The proper name and entity type for the entity.
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Whole Foods Market, Inc. (Subsidiary)", value = "The proper name and entity type for the entity.")
   @JsonIgnore
 
@@ -324,7 +325,7 @@ public class UtlimateEntityStructure implements Serializable {
    * Identifier used in &#x60;ids&#x60;.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "AMZN-US", value = "Identifier used in `ids`.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

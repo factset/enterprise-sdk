@@ -39,7 +39,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20014DataGearing.JSON_PROPERTY_LEVERAGE,
   InlineResponse20014DataGearing.JSON_PROPERTY_EXPOSURE_RESET_PERIOD
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20014DataGearing implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -105,7 +106,7 @@ public class InlineResponse20014DataGearing implements Serializable {
    * Flags ETPs that deliver short exposure to an index, including leveraged short exposure. This data is available for all the regions.
    * @return isInverseFund
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Flags ETPs that deliver short exposure to an index, including leveraged short exposure. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_IS_INVERSE_FUND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -131,7 +132,7 @@ public class InlineResponse20014DataGearing implements Serializable {
    * Get leverage
    * @return leverage
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LEVERAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -157,7 +158,7 @@ public class InlineResponse20014DataGearing implements Serializable {
    * Exposure reset frequency of leveraged and inverse ETPs, text and standardized value available. This data is available for all the regions.
    * @return exposureResetPeriod
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Exposure reset frequency of leveraged and inverse ETPs, text and standardized value available. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_EXPOSURE_RESET_PERIOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

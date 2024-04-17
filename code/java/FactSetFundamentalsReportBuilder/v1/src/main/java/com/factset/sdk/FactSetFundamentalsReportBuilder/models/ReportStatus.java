@@ -36,7 +36,8 @@ import com.factset.sdk.FactSetFundamentalsReportBuilder.JSON;
 @JsonPropertyOrder({
   ReportStatus.JSON_PROPERTY_REPORT_STAUS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ReportStatus implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -55,7 +56,7 @@ public class ReportStatus implements Serializable {
    * Get reportStaus
    * @return reportStaus
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REPORT_STAUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

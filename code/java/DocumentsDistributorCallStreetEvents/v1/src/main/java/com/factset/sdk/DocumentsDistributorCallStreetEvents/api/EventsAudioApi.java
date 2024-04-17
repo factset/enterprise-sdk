@@ -6,7 +6,7 @@ import com.factset.sdk.DocumentsDistributorCallStreetEvents.ApiResponse;
 import com.factset.sdk.DocumentsDistributorCallStreetEvents.Configuration;
 import com.factset.sdk.DocumentsDistributorCallStreetEvents.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -17,7 +17,8 @@ import com.factset.sdk.DocumentsDistributorCallStreetEvents.models.EventsAudio40
 import com.factset.sdk.DocumentsDistributorCallStreetEvents.models.EventsAudioHistory;
 import com.factset.sdk.DocumentsDistributorCallStreetEvents.models.EventsAudioHistory400Response;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EventsAudioApi {
   private ApiClient apiClient;
 

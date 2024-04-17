@@ -38,7 +38,8 @@ import com.factset.sdk.Symbology.JSON;
   FactsetTranslationAdvancedRequest.JSON_PROPERTY_IDS,
   FactsetTranslationAdvancedRequest.JSON_PROPERTY_SYMBOL_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FactsetTranslationAdvancedRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -73,7 +74,7 @@ public class FactsetTranslationAdvancedRequest implements Serializable {
    * Requested market securities or entities. Accepted identifiers include all identifiers in the list above. This request value is sent back in the response as ‘requestId’.
    * @return ids
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "[\"GOOGL-US\"]", required = true, value = "Requested market securities or entities. Accepted identifiers include all identifiers in the list above. This request value is sent back in the response as ‘requestId’.")
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -99,7 +100,7 @@ public class FactsetTranslationAdvancedRequest implements Serializable {
    * Get symbolType
    * @return symbolType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SYMBOL_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

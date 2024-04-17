@@ -36,7 +36,8 @@ import com.factset.sdk.FactSetSearchAnswers.JSON;
 @JsonPropertyOrder({
   TemplateWithLinksAllOf.JSON_PROPERTY_APPLICATION_LINKS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class TemplateWithLinksAllOf implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class TemplateWithLinksAllOf implements Serializable {
    * Get applicationLinks
    * @return applicationLinks
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_APPLICATION_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -39,7 +39,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20099InstrumentName.JSON_PROPERTY_DEFAULT,
   InlineResponse20099InstrumentName.JSON_PROPERTY_ASSET_CLASS_SPECIFIC
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20099InstrumentName implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -61,7 +62,7 @@ public class InlineResponse20099InstrumentName implements Serializable {
    * Get _default
    * @return _default
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DEFAULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -87,7 +88,7 @@ public class InlineResponse20099InstrumentName implements Serializable {
    * Get assetClassSpecific
    * @return assetClassSpecific
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ASSET_CLASS_SPECIFIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

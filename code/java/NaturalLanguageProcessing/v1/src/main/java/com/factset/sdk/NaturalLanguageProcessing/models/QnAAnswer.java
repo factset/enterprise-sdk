@@ -38,7 +38,8 @@ import com.factset.sdk.NaturalLanguageProcessing.JSON;
   QnAAnswer.JSON_PROPERTY_ANSWER,
   QnAAnswer.JSON_PROPERTY_SCORE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class QnAAnswer implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -70,7 +71,7 @@ public class QnAAnswer implements Serializable {
    * The machine-generated answer to the question
    * @return answer
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "Joel Wilson", required = true, value = "The machine-generated answer to the question")
   @JsonProperty(JSON_PROPERTY_ANSWER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -96,7 +97,7 @@ public class QnAAnswer implements Serializable {
    * The confidence score associated to the answer
    * @return score
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "0.8831543922424316", required = true, value = "The confidence score associated to the answer")
   @JsonProperty(JSON_PROPERTY_SCORE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

@@ -43,7 +43,8 @@ import com.factset.sdk.FactSetTrading.JSON;
   EMSChildOrdersResponse.JSON_PROPERTY_ACCEPTED,
   EMSChildOrdersResponse.JSON_PROPERTY_REJECTED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EMSChildOrdersResponse implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -77,7 +78,7 @@ public class EMSChildOrdersResponse implements Serializable {
    * Accepted Orders. Key is the clientOrderId of the request.
    * @return accepted
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Accepted Orders. Key is the clientOrderId of the request.")
   @JsonIgnore
 
@@ -123,7 +124,7 @@ public class EMSChildOrdersResponse implements Serializable {
    * Rejected Orders. Key is the clientOrderId of the request.
    * @return rejected
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Rejected Orders. Key is the clientOrderId of the request.")
   @JsonIgnore
 

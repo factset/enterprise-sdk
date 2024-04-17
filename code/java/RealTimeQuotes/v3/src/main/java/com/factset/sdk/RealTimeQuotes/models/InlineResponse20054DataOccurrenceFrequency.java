@@ -42,7 +42,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20054DataOccurrenceFrequency.JSON_PROPERTY_ID,
   InlineResponse20054DataOccurrenceFrequency.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20054DataOccurrenceFrequency implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class InlineResponse20054DataOccurrenceFrequency implements Serializable 
    * Identifier of the frequency.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the frequency.")
   @JsonIgnore
 
@@ -98,7 +99,7 @@ public class InlineResponse20054DataOccurrenceFrequency implements Serializable 
    * Name of the frequency.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the frequency.")
   @JsonIgnore
 

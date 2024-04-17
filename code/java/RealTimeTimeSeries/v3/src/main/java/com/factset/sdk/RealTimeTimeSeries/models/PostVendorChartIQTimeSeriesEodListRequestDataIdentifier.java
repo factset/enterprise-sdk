@@ -37,7 +37,8 @@ import com.factset.sdk.RealTimeTimeSeries.JSON;
   PostVendorChartIQTimeSeriesEodListRequestDataIdentifier.JSON_PROPERTY_VALUE,
   PostVendorChartIQTimeSeriesEodListRequestDataIdentifier.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostVendorChartIQTimeSeriesEodListRequestDataIdentifier implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -110,7 +111,7 @@ public class PostVendorChartIQTimeSeriesEodListRequestDataIdentifier implements 
    * Identifier to resolve.
    * @return value
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Identifier to resolve.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -136,7 +137,7 @@ public class PostVendorChartIQTimeSeriesEodListRequestDataIdentifier implements 
    * Type of the identifier.
    * @return type
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Type of the identifier.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

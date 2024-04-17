@@ -61,7 +61,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2001DataIncomeStatement.JSON_PROPERTY_CLAIM_LOSS_EXPENSE,
   InlineResponse2001DataIncomeStatement.JSON_PROPERTY_LONG_TERM_INSURANCE_RESERVES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2001DataIncomeStatement implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -116,7 +117,7 @@ public class InlineResponse2001DataIncomeStatement implements Serializable {
    * Get sales
    * @return sales
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SALES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -142,7 +143,7 @@ public class InlineResponse2001DataIncomeStatement implements Serializable {
    * Get grossIncome
    * @return grossIncome
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_GROSS_INCOME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -168,7 +169,7 @@ public class InlineResponse2001DataIncomeStatement implements Serializable {
    * Get ebit
    * @return ebit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EBIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -194,7 +195,7 @@ public class InlineResponse2001DataIncomeStatement implements Serializable {
    * Get ebitda
    * @return ebitda
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EBITDA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -220,7 +221,7 @@ public class InlineResponse2001DataIncomeStatement implements Serializable {
    * Get interestIncome
    * @return interestIncome
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INTEREST_INCOME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -246,7 +247,7 @@ public class InlineResponse2001DataIncomeStatement implements Serializable {
    * Get interestExpense
    * @return interestExpense
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INTEREST_EXPENSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -272,7 +273,7 @@ public class InlineResponse2001DataIncomeStatement implements Serializable {
    * Get loanLossProvision
    * @return loanLossProvision
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LOAN_LOSS_PROVISION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -298,7 +299,7 @@ public class InlineResponse2001DataIncomeStatement implements Serializable {
    * Get netInterestIncome
    * @return netInterestIncome
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NET_INTEREST_INCOME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -324,7 +325,7 @@ public class InlineResponse2001DataIncomeStatement implements Serializable {
    * Get netIncome
    * @return netIncome
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NET_INCOME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -350,7 +351,7 @@ public class InlineResponse2001DataIncomeStatement implements Serializable {
    * Get operatingIncome
    * @return operatingIncome
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OPERATING_INCOME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -376,7 +377,7 @@ public class InlineResponse2001DataIncomeStatement implements Serializable {
    * Get operatingExpense
    * @return operatingExpense
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OPERATING_EXPENSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -402,7 +403,7 @@ public class InlineResponse2001DataIncomeStatement implements Serializable {
    * Get claimLossExpense
    * @return claimLossExpense
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CLAIM_LOSS_EXPENSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -428,7 +429,7 @@ public class InlineResponse2001DataIncomeStatement implements Serializable {
    * Get longTermInsuranceReserves
    * @return longTermInsuranceReserves
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LONG_TERM_INSURANCE_RESERVES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

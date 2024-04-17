@@ -68,7 +68,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   PostStockNotationScreenerSearchRequestData.JSON_PROPERTY_RECOMMENDATION,
   PostStockNotationScreenerSearchRequestData.JSON_PROPERTY_ESTIMATES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostStockNotationScreenerSearchRequestData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -174,7 +175,7 @@ public class PostStockNotationScreenerSearchRequestData implements Serializable 
    * Get validation
    * @return validation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VALIDATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -208,7 +209,7 @@ public class PostStockNotationScreenerSearchRequestData implements Serializable 
    * Type of stock.
    * @return stockType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Type of stock.")
   @JsonProperty(JSON_PROPERTY_STOCK_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -234,7 +235,7 @@ public class PostStockNotationScreenerSearchRequestData implements Serializable 
    * Get industryClassification
    * @return industryClassification
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INDUSTRY_CLASSIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -260,7 +261,7 @@ public class PostStockNotationScreenerSearchRequestData implements Serializable 
    * Get company
    * @return company
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COMPANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -286,7 +287,7 @@ public class PostStockNotationScreenerSearchRequestData implements Serializable 
    * Get indexMembership
    * @return indexMembership
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INDEX_MEMBERSHIP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -312,7 +313,7 @@ public class PostStockNotationScreenerSearchRequestData implements Serializable 
    * Get esg
    * @return esg
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ESG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -338,7 +339,7 @@ public class PostStockNotationScreenerSearchRequestData implements Serializable 
    * Get compliance
    * @return compliance
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COMPLIANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -364,7 +365,7 @@ public class PostStockNotationScreenerSearchRequestData implements Serializable 
    * Get currentKeyFigures
    * @return currentKeyFigures
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CURRENT_KEY_FIGURES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -398,7 +399,7 @@ public class PostStockNotationScreenerSearchRequestData implements Serializable 
    * Parameters for stock-specific key figures as reported for a fiscal year.
    * @return reportedKeyFigures
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Parameters for stock-specific key figures as reported for a fiscal year.")
   @JsonProperty(JSON_PROPERTY_REPORTED_KEY_FIGURES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -424,7 +425,7 @@ public class PostStockNotationScreenerSearchRequestData implements Serializable 
    * Get benchmark
    * @return benchmark
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BENCHMARK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -450,7 +451,7 @@ public class PostStockNotationScreenerSearchRequestData implements Serializable 
    * Get performance
    * @return performance
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PERFORMANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -476,7 +477,7 @@ public class PostStockNotationScreenerSearchRequestData implements Serializable 
    * Get volatility
    * @return volatility
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VOLATILITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -502,7 +503,7 @@ public class PostStockNotationScreenerSearchRequestData implements Serializable 
    * Get tradingValue
    * @return tradingValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TRADING_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -528,7 +529,7 @@ public class PostStockNotationScreenerSearchRequestData implements Serializable 
    * Get simpleMovingAverage
    * @return simpleMovingAverage
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SIMPLE_MOVING_AVERAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -554,7 +555,7 @@ public class PostStockNotationScreenerSearchRequestData implements Serializable 
    * Get rsiWilder
    * @return rsiWilder
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RSI_WILDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -580,7 +581,7 @@ public class PostStockNotationScreenerSearchRequestData implements Serializable 
    * Get recommendation
    * @return recommendation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RECOMMENDATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -614,7 +615,7 @@ public class PostStockNotationScreenerSearchRequestData implements Serializable 
    * Parameters for stock-specific consolidated estimates for a fiscal year.
    * @return estimates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Parameters for stock-specific consolidated estimates for a fiscal year.")
   @JsonProperty(JSON_PROPERTY_ESTIMATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

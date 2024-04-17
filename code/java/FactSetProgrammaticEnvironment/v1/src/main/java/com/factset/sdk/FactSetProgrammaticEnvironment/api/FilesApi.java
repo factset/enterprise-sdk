@@ -6,7 +6,7 @@ import com.factset.sdk.FactSetProgrammaticEnvironment.ApiResponse;
 import com.factset.sdk.FactSetProgrammaticEnvironment.Configuration;
 import com.factset.sdk.FactSetProgrammaticEnvironment.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -14,7 +14,8 @@ import java.util.Objects;
 import java.io.File;
 import com.factset.sdk.FactSetProgrammaticEnvironment.models.FileUploadStatus;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FilesApi {
   private ApiClient apiClient;
 

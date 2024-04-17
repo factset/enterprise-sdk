@@ -47,7 +47,8 @@ import com.factset.sdk.FactSetSearchAnswers.JSON;
   ValueLabelDateDataPairListTemplateData.JSON_PROPERTY_DATE,
   ValueLabelDateDataPairListTemplateData.JSON_PROPERTY_LIST
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ValueLabelDateDataPairListTemplateData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -95,7 +96,7 @@ public class ValueLabelDateDataPairListTemplateData implements Serializable {
    * Get headline
    * @return headline
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_HEADLINE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -121,7 +122,7 @@ public class ValueLabelDateDataPairListTemplateData implements Serializable {
    * Get footer
    * @return footer
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FOOTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -147,7 +148,7 @@ public class ValueLabelDateDataPairListTemplateData implements Serializable {
    * Get fdc3Context
    * @return fdc3Context
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FDC3_CONTEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -181,7 +182,7 @@ public class ValueLabelDateDataPairListTemplateData implements Serializable {
    * Get applicationLinks
    * @return applicationLinks
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_APPLICATION_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -207,7 +208,7 @@ public class ValueLabelDateDataPairListTemplateData implements Serializable {
    * Get value
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -233,7 +234,7 @@ public class ValueLabelDateDataPairListTemplateData implements Serializable {
    * Get label
    * @return label
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LABEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -259,7 +260,7 @@ public class ValueLabelDateDataPairListTemplateData implements Serializable {
    * Get date
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -293,7 +294,7 @@ public class ValueLabelDateDataPairListTemplateData implements Serializable {
    * Get _list
    * @return _list
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LIST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

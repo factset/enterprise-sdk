@@ -44,7 +44,8 @@ import com.factset.sdk.RealTimeTimeSeries.JSON;
   PostVendorChartIQTimeSeriesEodListRequestData.JSON_PROPERTY_NEWEST_FIRST,
   PostVendorChartIQTimeSeriesEodListRequestData.JSON_PROPERTY_ADJUSTMENTS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostVendorChartIQTimeSeriesEodListRequestData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -166,7 +167,7 @@ public class PostVendorChartIQTimeSeriesEodListRequestData implements Serializab
    * Get identifier
    * @return identifier
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -192,7 +193,7 @@ public class PostVendorChartIQTimeSeriesEodListRequestData implements Serializab
    * Type of the price as configured for the customer.
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Type of the price as configured for the customer.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -218,7 +219,7 @@ public class PostVendorChartIQTimeSeriesEodListRequestData implements Serializab
    * Quality of the price.
    * @return quality
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Quality of the price.")
   @JsonProperty(JSON_PROPERTY_QUALITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -244,7 +245,7 @@ public class PostVendorChartIQTimeSeriesEodListRequestData implements Serializab
    * Get range
    * @return range
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_RANGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -270,7 +271,7 @@ public class PostVendorChartIQTimeSeriesEodListRequestData implements Serializab
    * Deliver the chronological last part of the requested data first.
    * @return newestFirst
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Deliver the chronological last part of the requested data first.")
   @JsonProperty(JSON_PROPERTY_NEWEST_FIRST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -296,7 +297,7 @@ public class PostVendorChartIQTimeSeriesEodListRequestData implements Serializab
    * Get adjustments
    * @return adjustments
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ADJUSTMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

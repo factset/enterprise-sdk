@@ -48,7 +48,8 @@ import com.factset.sdk.PortfolioReportingBatcher.JSON;
   RunsForJob.JSON_PROPERTY_STATUS_DESCRIPTION,
   RunsForJob.JSON_PROPERTY_SUBMIT_TIME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class RunsForJob implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -91,7 +92,7 @@ public class RunsForJob implements Serializable {
    * The date and time the job was finished processing
    * @return endTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The date and time the job was finished processing")
   @JsonProperty(JSON_PROPERTY_END_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -117,7 +118,7 @@ public class RunsForJob implements Serializable {
    * The ID of the run
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The ID of the run")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -143,7 +144,7 @@ public class RunsForJob implements Serializable {
    * Indicates whether the job was triggered via the PRB API
    * @return isApiTriggered
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the job was triggered via the PRB API")
   @JsonProperty(JSON_PROPERTY_IS_API_TRIGGERED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -169,7 +170,7 @@ public class RunsForJob implements Serializable {
    * Get prbStatus
    * @return prbStatus
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRB_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -195,7 +196,7 @@ public class RunsForJob implements Serializable {
    * Number of seconds between startTime and endTime
    * @return runDuration
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of seconds between startTime and endTime")
   @JsonProperty(JSON_PROPERTY_RUN_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -221,7 +222,7 @@ public class RunsForJob implements Serializable {
    * The date and time the job started running after being submitted and potentially waiting in any queue
    * @return startTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The date and time the job started running after being submitted and potentially waiting in any queue")
   @JsonProperty(JSON_PROPERTY_START_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -247,7 +248,7 @@ public class RunsForJob implements Serializable {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -273,7 +274,7 @@ public class RunsForJob implements Serializable {
    * Further details on the job&#39;s status
    * @return statusDescription
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "job has completed with success", value = "Further details on the job's status")
   @JsonProperty(JSON_PROPERTY_STATUS_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -299,7 +300,7 @@ public class RunsForJob implements Serializable {
    * The date and time the job was submitted
    * @return submitTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The date and time the job was submitted")
   @JsonProperty(JSON_PROPERTY_SUBMIT_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

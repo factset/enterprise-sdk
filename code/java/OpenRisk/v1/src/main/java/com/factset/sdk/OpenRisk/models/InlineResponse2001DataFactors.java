@@ -37,7 +37,8 @@ import com.factset.sdk.OpenRisk.JSON;
   InlineResponse2001DataFactors.JSON_PROPERTY_ID,
   InlineResponse2001DataFactors.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2001DataFactors implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -109,7 +110,7 @@ public class InlineResponse2001DataFactors implements Serializable {
    * Defintion of factor returns. &#x60;PercentChg&#x60; - Factor returns defined as percent change, which should be geometrically linked to calculate cumulative factor returns &#x60;1stDiff&#x60; - Factor returns defined as level change. Cumulative returns should be defined as the sum of returns.
    * @return definedAs
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Defintion of factor returns. `PercentChg` - Factor returns defined as percent change, which should be geometrically linked to calculate cumulative factor returns `1stDiff` - Factor returns defined as level change. Cumulative returns should be defined as the sum of returns.")
   @JsonProperty(JSON_PROPERTY_DEFINED_AS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -135,7 +136,7 @@ public class InlineResponse2001DataFactors implements Serializable {
    * Factor id
    * @return id
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Factor id")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -161,7 +162,7 @@ public class InlineResponse2001DataFactors implements Serializable {
    * Factor name
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Factor name")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

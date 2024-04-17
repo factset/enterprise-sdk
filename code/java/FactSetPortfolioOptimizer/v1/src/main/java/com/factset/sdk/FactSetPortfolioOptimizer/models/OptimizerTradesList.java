@@ -36,7 +36,8 @@ import com.factset.sdk.FactSetPortfolioOptimizer.JSON;
   OptimizerTradesList.JSON_PROPERTY_IDENTIFIERTYPE,
   OptimizerTradesList.JSON_PROPERTY_INCLUDECASH
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerTradesList implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -109,7 +110,7 @@ public class OptimizerTradesList implements Serializable {
    * Identifier type
    * @return identifiertype
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier type")
   @JsonProperty(JSON_PROPERTY_IDENTIFIERTYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -135,7 +136,7 @@ public class OptimizerTradesList implements Serializable {
    * Include cash
    * @return includecash
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Include cash")
   @JsonProperty(JSON_PROPERTY_INCLUDECASH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

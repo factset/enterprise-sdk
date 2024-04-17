@@ -43,7 +43,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20051DataInterestRateAnnualized.JSON_PROPERTY_MINIMUM,
   InlineResponse20051DataInterestRateAnnualized.JSON_PROPERTY_MAXIMUM
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20051DataInterestRateAnnualized implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class InlineResponse20051DataInterestRateAnnualized implements Serializab
    * Fixed interest rate.
    * @return fixed
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Fixed interest rate.")
   @JsonIgnore
 
@@ -102,7 +103,7 @@ public class InlineResponse20051DataInterestRateAnnualized implements Serializab
    * Minimum interest rate.
    * @return minimum
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Minimum interest rate.")
   @JsonIgnore
 
@@ -136,7 +137,7 @@ public class InlineResponse20051DataInterestRateAnnualized implements Serializab
    * Maximum interest rate.
    * @return maximum
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Maximum interest rate.")
   @JsonIgnore
 

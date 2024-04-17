@@ -60,7 +60,8 @@ import com.factset.sdk.FactSetTrading.JSON;
   EMSChildOrder.JSON_PROPERTY_PROFILE,
   EMSChildOrder.JSON_PROPERTY_USER_DEFINED_FIELDS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EMSChildOrder implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -446,7 +447,7 @@ public class EMSChildOrder implements Serializable {
    * Get parentId
    * @return parentId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_PARENT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -472,7 +473,7 @@ public class EMSChildOrder implements Serializable {
    * Side of the order.If the parent order side is &#39;buy&#39;, valid values are &#39;buy&#39; or &#39;buyMinus&#39;. If the parent order side is &#39;sell&#39;, valid values are &#39;sell&#39; or &#39;sellPlus&#39;
    * @return side
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "buy", value = "Side of the order.If the parent order side is 'buy', valid values are 'buy' or 'buyMinus'. If the parent order side is 'sell', valid values are 'sell' or 'sellPlus'")
   @JsonIgnore
 
@@ -506,7 +507,7 @@ public class EMSChildOrder implements Serializable {
    * Type of the order
    * @return orderType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "market", required = true, value = "Type of the order")
   @JsonProperty(JSON_PROPERTY_ORDER_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -533,7 +534,7 @@ public class EMSChildOrder implements Serializable {
    * minimum: 0
    * @return orderQuantity
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "250", required = true, value = "Number of shares/Quantity to be routed. Must be less than or equal to the orderQuantity of the parent order.")
   @JsonProperty(JSON_PROPERTY_ORDER_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -559,7 +560,7 @@ public class EMSChildOrder implements Serializable {
    * Order price per share.
    * @return price
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "450", value = "Order price per share.")
   @JsonIgnore
 
@@ -593,7 +594,7 @@ public class EMSChildOrder implements Serializable {
    * Get timeInForce
    * @return timeInForce
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TIME_IN_FORCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -619,7 +620,7 @@ public class EMSChildOrder implements Serializable {
    * Instructions for order handling on Broker trading floor.
    * @return handlingInstructions
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "autoOrderPublic", value = "Instructions for order handling on Broker trading floor.")
   @JsonIgnore
 
@@ -653,7 +654,7 @@ public class EMSChildOrder implements Serializable {
    * Execution destination as defined by institution when order is entered.
    * @return exDestination
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "America Stock Exchange", value = "Execution destination as defined by institution when order is entered.")
   @JsonIgnore
 
@@ -687,7 +688,7 @@ public class EMSChildOrder implements Serializable {
    * Represents the designated venue or location to which an order is intended to be routed.
    * @return destination
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "PAPER", required = true, value = "Represents the designated venue or location to which an order is intended to be routed.")
   @JsonProperty(JSON_PROPERTY_DESTINATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -713,7 +714,7 @@ public class EMSChildOrder implements Serializable {
    * Stop-loss price to buy/sell stock at market.
    * @return stopPrice
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "250", value = "Stop-loss price to buy/sell stock at market.")
   @JsonIgnore
 
@@ -747,7 +748,7 @@ public class EMSChildOrder implements Serializable {
    * Maximum number of shares within an order to be shown on the exchange floor at any given time.
    * @return maxFloor
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "100", value = "Maximum number of shares within an order to be shown on the exchange floor at any given time.")
   @JsonIgnore
 
@@ -781,7 +782,7 @@ public class EMSChildOrder implements Serializable {
    * Minimum quantity of an order to be executed.
    * @return minQuantity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "120", value = "Minimum quantity of an order to be executed.")
   @JsonIgnore
 
@@ -815,7 +816,7 @@ public class EMSChildOrder implements Serializable {
    * Order settlement period
    * @return settlementType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "regular", value = "Order settlement period")
   @JsonIgnore
 
@@ -849,7 +850,7 @@ public class EMSChildOrder implements Serializable {
    * Specific date of trade settlement in YYYYMMDD format.
    * @return settlementDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "20230823", value = "Specific date of trade settlement in YYYYMMDD format.")
   @JsonIgnore
 
@@ -883,7 +884,7 @@ public class EMSChildOrder implements Serializable {
    * Instructions for order handling on exchange trading floor.
    * @return executionInstructions
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "notHeld", value = "Instructions for order handling on exchange trading floor.")
   @JsonIgnore
 
@@ -917,7 +918,7 @@ public class EMSChildOrder implements Serializable {
    * Indicates whether the broker is to locate the stock in conjunction with a short sell order.
    * @return locateRequired
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "false", value = "Indicates whether the broker is to locate the stock in conjunction with a short sell order.")
   @JsonIgnore
 
@@ -951,7 +952,7 @@ public class EMSChildOrder implements Serializable {
    * Free format text string.
    * @return text
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "routing 10 orders to PAPER destination", value = "Free format text string.")
   @JsonIgnore
 
@@ -985,7 +986,7 @@ public class EMSChildOrder implements Serializable {
    * A name given to broker algo
    * @return profile
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A name given to broker algo")
   @JsonIgnore
 
@@ -1031,7 +1032,7 @@ public class EMSChildOrder implements Serializable {
    * User defined fields
    * @return userDefinedFields
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "User defined fields")
   @JsonIgnore
 

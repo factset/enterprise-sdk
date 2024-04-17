@@ -55,7 +55,8 @@ import com.factset.sdk.IRNNotes.JSON;
   NoteSummaryDto.JSON_PROPERTY_SENTIMENT_ID,
   NoteSummaryDto.JSON_PROPERTY_CUSTOM_FIELDS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class NoteSummaryDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -119,7 +120,7 @@ public class NoteSummaryDto implements Serializable {
    * Get id
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -145,7 +146,7 @@ public class NoteSummaryDto implements Serializable {
    * Get date
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -179,7 +180,7 @@ public class NoteSummaryDto implements Serializable {
    * Get createdAt
    * @return createdAt
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -213,7 +214,7 @@ public class NoteSummaryDto implements Serializable {
    * Get authorId
    * @return authorId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AUTHOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -239,7 +240,7 @@ public class NoteSummaryDto implements Serializable {
    * Get contributorId
    * @return contributorId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CONTRIBUTOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -265,7 +266,7 @@ public class NoteSummaryDto implements Serializable {
    * Get title
    * @return title
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -299,7 +300,7 @@ public class NoteSummaryDto implements Serializable {
    * Get identifier
    * @return identifier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -333,7 +334,7 @@ public class NoteSummaryDto implements Serializable {
    * Get subjectId
    * @return subjectId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SUBJECT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -359,7 +360,7 @@ public class NoteSummaryDto implements Serializable {
    * Get isPersonal
    * @return isPersonal
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IS_PERSONAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -385,7 +386,7 @@ public class NoteSummaryDto implements Serializable {
    * Get state
    * @return state
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -419,7 +420,7 @@ public class NoteSummaryDto implements Serializable {
    * Get approvalStatus
    * @return approvalStatus
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -465,7 +466,7 @@ public class NoteSummaryDto implements Serializable {
    * Get attachmentIds
    * @return attachmentIds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -511,7 +512,7 @@ public class NoteSummaryDto implements Serializable {
    * Get relatedSymbols
    * @return relatedSymbols
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -545,7 +546,7 @@ public class NoteSummaryDto implements Serializable {
    * Get recommendationId
    * @return recommendationId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RECOMMENDATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -571,7 +572,7 @@ public class NoteSummaryDto implements Serializable {
    * Get sentimentId
    * @return sentimentId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SENTIMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -609,7 +610,7 @@ public class NoteSummaryDto implements Serializable {
    * Get customFields
    * @return customFields
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

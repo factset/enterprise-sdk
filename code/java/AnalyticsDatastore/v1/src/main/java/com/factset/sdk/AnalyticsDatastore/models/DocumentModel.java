@@ -39,7 +39,8 @@ import com.factset.sdk.AnalyticsDatastore.JSON;
   DocumentModel.JSON_PROPERTY_PRODUCT_TYPE,
   DocumentModel.JSON_PROPERTY_TAGS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class DocumentModel implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class DocumentModel implements Serializable {
    * The resolved URL pointing to the location of the underlying report
    * @return url
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "https://api.factset.com/analytics/datastore/cargo/v1/groups/a4186c50f8e74f979d271dd22298c901/objects/fe875bc4150542dea6bc237663a01a0d", value = "The resolved URL pointing to the location of the underlying report")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -90,7 +91,7 @@ public class DocumentModel implements Serializable {
    * string property to denote what Product created this document.
    * @return productType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Publisher", value = "string property to denote what Product created this document.")
   @JsonProperty(JSON_PROPERTY_PRODUCT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -124,7 +125,7 @@ public class DocumentModel implements Serializable {
    * The documents tags, represented in a key value format with the tag name as the key; and the tag&#39;s value as the value
    * @return tags
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "{\"account\":\"TEST_ACCOUNT.ACCT\",\"benchmark\":\"TEST_BENCHMARK\"}", value = "The documents tags, represented in a key value format with the tag name as the key; and the tag's value as the value")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

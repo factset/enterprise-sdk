@@ -50,7 +50,8 @@ import com.factset.sdk.FactSetPeople.JSON;
   Job.JSON_PROPERTY_PERSON_ID,
   Job.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Job implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -96,7 +97,7 @@ public class Job implements Serializable {
    * City the job is located in.
    * @return companyCity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Norwalk", value = "City the job is located in.")
   @JsonIgnore
 
@@ -130,7 +131,7 @@ public class Job implements Serializable {
    * FactSet Identifier for the company.
    * @return companyId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0016YD-E", value = "FactSet Identifier for the company.")
   @JsonIgnore
 
@@ -164,7 +165,7 @@ public class Job implements Serializable {
    * Name of the company.
    * @return companyName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FactSet Research Systems, Inc.", value = "Name of the company.")
   @JsonIgnore
 
@@ -198,7 +199,7 @@ public class Job implements Serializable {
    * Ending date for the Job.
    * @return jobEndDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Sat Jan 01 00:00:00 UTC 1", value = "Ending date for the Job.")
   @JsonIgnore
 
@@ -232,7 +233,7 @@ public class Job implements Serializable {
    * Job function code.
    * @return jobFunctionCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "CEO", value = "Job function code.")
   @JsonIgnore
 
@@ -266,7 +267,7 @@ public class Job implements Serializable {
    * Description of the job.
    * @return jobFunctionName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Chief Executive Officer", value = "Description of the job.")
   @JsonIgnore
 
@@ -300,7 +301,7 @@ public class Job implements Serializable {
    * Starting date for the Job.
    * @return jobStartDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Wed Jul 01 00:00:00 UTC 2015", value = "Starting date for the Job.")
   @JsonIgnore
 
@@ -334,7 +335,7 @@ public class Job implements Serializable {
    * Job Title
    * @return jobTitle
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Chief Executive Officer & Director", value = "Job Title")
   @JsonIgnore
 
@@ -368,7 +369,7 @@ public class Job implements Serializable {
    * FactSet Entity Identifier for the Person.
    * @return personId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0DPHLH-E", value = "FactSet Entity Identifier for the Person.")
   @JsonIgnore
 
@@ -402,7 +403,7 @@ public class Job implements Serializable {
    * Original identifier used for the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0DPHLH-E", value = "Original identifier used for the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

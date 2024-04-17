@@ -43,7 +43,8 @@ import com.factset.sdk.FactSetTickHistory.JSON;
   MinutesbarRequestBody.JSON_PROPERTY_GRANULARITY,
   MinutesbarRequestBody.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class MinutesbarRequestBody implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -95,7 +96,7 @@ public class MinutesbarRequestBody implements Serializable {
    * The requested list of one or more tickers. &lt;p&gt; NOTE: Maximum 500 tickers per request.&lt;/p&gt;.   
    * @return tickers
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "[\"FDS\"]", required = true, value = "The requested list of one or more tickers. <p> NOTE: Maximum 500 tickers per request.</p>.   ")
   @JsonProperty(JSON_PROPERTY_TICKERS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -121,7 +122,7 @@ public class MinutesbarRequestBody implements Serializable {
    * FactSet specific regional or composite exchange code and last exchange code. &lt;p&gt; NOTE:Does not support multiple factsetExchangeCodes&lt;/p&gt;. 
    * @return factsetExchangeCode
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "USA", required = true, value = "FactSet specific regional or composite exchange code and last exchange code. <p> NOTE:Does not support multiple factsetExchangeCodes</p>. ")
   @JsonProperty(JSON_PROPERTY_FACTSET_EXCHANGE_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -147,7 +148,7 @@ public class MinutesbarRequestBody implements Serializable {
    * Get dateTimeRange
    * @return dateTimeRange
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATE_TIME_RANGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -173,7 +174,7 @@ public class MinutesbarRequestBody implements Serializable {
    * Get granularity
    * @return granularity
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_GRANULARITY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -199,7 +200,7 @@ public class MinutesbarRequestBody implements Serializable {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

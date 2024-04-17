@@ -41,7 +41,8 @@ import com.factset.sdk.ExchangeDataFeedSnapshotAPISymbolList.JSON;
   DFSnapshotResponse.JSON_PROPERTY_HOST,
   DFSnapshotResponse.JSON_PROPERTY_SYMBOL2
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class DFSnapshotResponse implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -77,7 +78,7 @@ public class DFSnapshotResponse implements Serializable {
    * error value
    * @return error
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0", value = "error value")
   @JsonProperty(JSON_PROPERTY_ERROR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -111,7 +112,7 @@ public class DFSnapshotResponse implements Serializable {
    * first symbol from &#x60;ids&#x60; or &#x60;chain&#x60;
    * @return symbol1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "first symbol from `ids` or `chain`")
   @JsonProperty(JSON_PROPERTY_SYMBOL1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -137,7 +138,7 @@ public class DFSnapshotResponse implements Serializable {
    * host name
    * @return host
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FactSet", value = "host name")
   @JsonProperty(JSON_PROPERTY_HOST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -163,7 +164,7 @@ public class DFSnapshotResponse implements Serializable {
    * second symbol from &#x60;ids&#x60; or &#x60;chain&#x60; list
    * @return symbol2
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "second symbol from `ids` or `chain` list")
   @JsonProperty(JSON_PROPERTY_SYMBOL2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

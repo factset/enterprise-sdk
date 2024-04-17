@@ -47,7 +47,8 @@ import com.factset.sdk.IRNConfiguration.JSON;
   UpdateCustomSymbolTypeDto.JSON_PROPERTY_SUB_TYPES,
   UpdateCustomSymbolTypeDto.JSON_PROPERTY_CUSTOM_FIELD_IDS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class UpdateCustomSymbolTypeDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -92,7 +93,7 @@ public class UpdateCustomSymbolTypeDto implements Serializable {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -118,7 +119,7 @@ public class UpdateCustomSymbolTypeDto implements Serializable {
    * Get hideAddressField
    * @return hideAddressField
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_HIDE_ADDRESS_FIELD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -144,7 +145,7 @@ public class UpdateCustomSymbolTypeDto implements Serializable {
    * Get hideSymbolSubtype
    * @return hideSymbolSubtype
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_HIDE_SYMBOL_SUBTYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -170,7 +171,7 @@ public class UpdateCustomSymbolTypeDto implements Serializable {
    * Get isDefault
    * @return isDefault
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IS_DEFAULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -196,7 +197,7 @@ public class UpdateCustomSymbolTypeDto implements Serializable {
    * Get dueDiligenceSymbolEntityType
    * @return dueDiligenceSymbolEntityType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DUE_DILIGENCE_SYMBOL_ENTITY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -234,7 +235,7 @@ public class UpdateCustomSymbolTypeDto implements Serializable {
    * Get subTypes
    * @return subTypes
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -280,7 +281,7 @@ public class UpdateCustomSymbolTypeDto implements Serializable {
    * Get customFieldIds
    * @return customFieldIds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

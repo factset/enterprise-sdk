@@ -37,7 +37,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20015DataGeography.JSON_PROPERTY_REGION,
   InlineResponse20015DataGeography.JSON_PROPERTY_SPECIFIC
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20015DataGeography implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -110,7 +111,7 @@ public class InlineResponse20015DataGeography implements Serializable {
    * The broad regional exposure of the ETP&#39;s holdings (e.g., Latin America, Asia-Pacific, Global), text and standardized value available. This data is available for all the regions.
    * @return region
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The broad regional exposure of the ETP's holdings (e.g., Latin America, Asia-Pacific, Global), text and standardized value available. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_REGION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,7 +137,7 @@ public class InlineResponse20015DataGeography implements Serializable {
    * The specific geographic exposure of the ETP&#39;s holdings (e.g., BRICs, Chile, Asia-Pacific Ex-Japan), text and standardized value available. This data is available for all the regions. See endpoint /factset/etf/class/geography/list for possible values
    * @return specific
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The specific geographic exposure of the ETP's holdings (e.g., BRICs, Chile, Asia-Pacific Ex-Japan), text and standardized value available. This data is available for all the regions. See endpoint /factset/etf/class/geography/list for possible values")
   @JsonProperty(JSON_PROPERTY_SPECIFIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

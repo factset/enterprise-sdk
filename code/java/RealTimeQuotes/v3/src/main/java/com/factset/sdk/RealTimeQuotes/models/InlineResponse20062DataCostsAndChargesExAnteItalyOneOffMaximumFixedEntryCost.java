@@ -43,7 +43,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20062DataCostsAndChargesExAnteItalyOneOffMaximumFixedEntryCost.JSON_PROPERTY_VALUE,
   InlineResponse20062DataCostsAndChargesExAnteItalyOneOffMaximumFixedEntryCost.JSON_PROPERTY_VALUE_UNIT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20062DataCostsAndChargesExAnteItalyOneOffMaximumFixedEntryCost implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -65,7 +66,7 @@ public class InlineResponse20062DataCostsAndChargesExAnteItalyOneOffMaximumFixed
    * Value of the attribute.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Value of the attribute.")
   @JsonIgnore
 
@@ -99,7 +100,7 @@ public class InlineResponse20062DataCostsAndChargesExAnteItalyOneOffMaximumFixed
    * Get valueUnit
    * @return valueUnit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VALUE_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

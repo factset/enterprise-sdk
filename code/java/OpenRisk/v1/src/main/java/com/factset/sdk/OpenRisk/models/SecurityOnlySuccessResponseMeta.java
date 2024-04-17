@@ -41,7 +41,8 @@ import com.factset.sdk.OpenRisk.JSON;
   SecurityOnlySuccessResponseMeta.JSON_PROPERTY_RESOLVED_DATES,
   SecurityOnlySuccessResponseMeta.JSON_PROPERTY_WARNINGS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SecurityOnlySuccessResponseMeta implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -76,7 +77,7 @@ public class SecurityOnlySuccessResponseMeta implements Serializable {
    * Get labels
    * @return labels
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_LABELS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -102,7 +103,7 @@ public class SecurityOnlySuccessResponseMeta implements Serializable {
    * Get resolvedDates
    * @return resolvedDates
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_RESOLVED_DATES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -136,7 +137,7 @@ public class SecurityOnlySuccessResponseMeta implements Serializable {
    * Get warnings
    * @return warnings
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

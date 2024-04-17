@@ -43,7 +43,8 @@ import com.factset.sdk.PAEngine.JSON;
   LinkedPATemplateParameters.JSON_PROPERTY_DESCRIPTION,
   LinkedPATemplateParameters.JSON_PROPERTY_CONTENT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class LinkedPATemplateParameters implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -81,7 +82,7 @@ public class LinkedPATemplateParameters implements Serializable {
    * The directory to create a linked PA template
    * @return directory
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The directory to create a linked PA template")
   @JsonProperty(JSON_PROPERTY_DIRECTORY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -107,7 +108,7 @@ public class LinkedPATemplateParameters implements Serializable {
    * Parent component id
    * @return parentComponentId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Parent component id")
   @JsonProperty(JSON_PROPERTY_PARENT_COMPONENT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -133,7 +134,7 @@ public class LinkedPATemplateParameters implements Serializable {
    * Template description
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Template description")
   @JsonIgnore
 
@@ -167,7 +168,7 @@ public class LinkedPATemplateParameters implements Serializable {
    * Get content
    * @return content
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -44,7 +44,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20030Data.JSON_PROPERTY_NAME,
   InlineResponse20030Data.JSON_PROPERTY_ACTIVE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20030Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -75,7 +76,7 @@ public class InlineResponse20030Data implements Serializable {
    * Identifier of a currency.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of a currency.")
   @JsonIgnore
 
@@ -109,7 +110,7 @@ public class InlineResponse20030Data implements Serializable {
    * Code of the currency: If assigned, a code according to ISO 4217, otherwise a local code.
    * @return code
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Code of the currency: If assigned, a code according to ISO 4217, otherwise a local code.")
   @JsonIgnore
 
@@ -143,7 +144,7 @@ public class InlineResponse20030Data implements Serializable {
    * ISO 4217 code of the currency.
    * @return isoCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "ISO 4217 code of the currency.")
   @JsonIgnore
 
@@ -177,7 +178,7 @@ public class InlineResponse20030Data implements Serializable {
    * Name of the currency.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the currency.")
   @JsonIgnore
 
@@ -211,7 +212,7 @@ public class InlineResponse20030Data implements Serializable {
    * Indicates whether the currency is active.
    * @return active
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the currency is active.")
   @JsonIgnore
 

@@ -41,7 +41,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20023Data.JSON_PROPERTY_ID,
   InlineResponse20023Data.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20023Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class InlineResponse20023Data implements Serializable {
    * Identifier of a timezone.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of a timezone.")
   @JsonIgnore
 
@@ -97,7 +98,7 @@ public class InlineResponse20023Data implements Serializable {
    * Name according to the Internet Assigned Numbers Authority.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name according to the Internet Assigned Numbers Authority.")
   @JsonIgnore
 

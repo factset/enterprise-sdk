@@ -42,7 +42,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   PostStockNotationScreenerSearchRequestDataBenchmark.JSON_PROPERTY_CORRELATION,
   PostStockNotationScreenerSearchRequestDataBenchmark.JSON_PROPERTY_OUTPERFORMANCE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostStockNotationScreenerSearchRequestDataBenchmark implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -113,7 +114,7 @@ public class PostStockNotationScreenerSearchRequestDataBenchmark implements Seri
    * Type of benchmark.
    * @return type
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Type of benchmark.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -139,7 +140,7 @@ public class PostStockNotationScreenerSearchRequestDataBenchmark implements Seri
    * Get beta
    * @return beta
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BETA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -165,7 +166,7 @@ public class PostStockNotationScreenerSearchRequestDataBenchmark implements Seri
    * Get correlation
    * @return correlation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CORRELATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -191,7 +192,7 @@ public class PostStockNotationScreenerSearchRequestDataBenchmark implements Seri
    * Get outperformance
    * @return outperformance
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OUTPERFORMANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

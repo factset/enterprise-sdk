@@ -36,7 +36,8 @@ import com.factset.sdk.FactSetBenchmarks.JSON;
 @JsonPropertyOrder({
   BenchmarkIdListRequest.JSON_PROPERTY_FAMILY_FILTER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class BenchmarkIdListRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -55,7 +56,7 @@ public class BenchmarkIdListRequest implements Serializable {
    * Get familyFilter
    * @return familyFilter
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FAMILY_FILTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

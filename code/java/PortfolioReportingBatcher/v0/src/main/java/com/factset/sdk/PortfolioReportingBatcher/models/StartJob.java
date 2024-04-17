@@ -40,7 +40,8 @@ import com.factset.sdk.PortfolioReportingBatcher.JSON;
   StartJob.JSON_PROPERTY_OVERRIDES,
   StartJob.JSON_PROPERTY_JOB_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class StartJob implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -75,7 +76,7 @@ public class StartJob implements Serializable {
    * The name of the PRB job
    * @return jobName
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The name of the PRB job")
   @JsonProperty(JSON_PROPERTY_JOB_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -101,7 +102,7 @@ public class StartJob implements Serializable {
    * Get overrides
    * @return overrides
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OVERRIDES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -127,7 +128,7 @@ public class StartJob implements Serializable {
    * Get jobType
    * @return jobType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_JOB_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

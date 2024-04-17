@@ -44,7 +44,8 @@ import com.factset.sdk.StandardDatafeed.JSON;
   HistoricalFileObject.JSON_PROPERTY_URL,
   HistoricalFileObject.JSON_PROPERTY_FILE_SIZE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class HistoricalFileObject implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -84,7 +85,7 @@ public class HistoricalFileObject implements Serializable {
    * File type: full or delta.
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "File type: full or delta.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -110,7 +111,7 @@ public class HistoricalFileObject implements Serializable {
    * Bundle name.
    * @return bundle
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Bundle name.")
   @JsonProperty(JSON_PROPERTY_BUNDLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,7 +137,7 @@ public class HistoricalFileObject implements Serializable {
    * Schema name.
    * @return schema
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Schema name.")
   @JsonProperty(JSON_PROPERTY_SCHEMA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -162,7 +163,7 @@ public class HistoricalFileObject implements Serializable {
    * Full or delta file version.
    * @return version
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Full or delta file version.")
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -196,7 +197,7 @@ public class HistoricalFileObject implements Serializable {
    * Bundles related to the version number.
    * @return relatedBundles
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Bundles related to the version number.")
   @JsonProperty(JSON_PROPERTY_RELATED_BUNDLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -222,7 +223,7 @@ public class HistoricalFileObject implements Serializable {
    * Timestamp of when the bundle was generated.
    * @return timestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Timestamp of when the bundle was generated.")
   @JsonProperty(JSON_PROPERTY_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -248,7 +249,7 @@ public class HistoricalFileObject implements Serializable {
    * Pre-signed URL pointing to the location from where the schema details can be downloaded.
    * @return url
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Pre-signed URL pointing to the location from where the schema details can be downloaded.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -274,7 +275,7 @@ public class HistoricalFileObject implements Serializable {
    * File size of the particular bundle.
    * @return fileSize
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "File size of the particular bundle.")
   @JsonProperty(JSON_PROPERTY_FILE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

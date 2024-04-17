@@ -38,7 +38,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20014DataHedge.JSON_PROPERTY_SOURCE_CURRENCY,
   InlineResponse20014DataHedge.JSON_PROPERTY_TARGET_CURRENCY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20014DataHedge implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class InlineResponse20014DataHedge implements Serializable {
    * Flags ETPs that are hedged to eliminate or reduce foreign currency exposure for US investors. This data is available for all the regions.
    * @return isHedged
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Flags ETPs that are hedged to eliminate or reduce foreign currency exposure for US investors. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_IS_HEDGED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -89,7 +90,7 @@ public class InlineResponse20014DataHedge implements Serializable {
    * For currency-hedged funds, the values shows foreign currency the ETP is hedged against. Currency code is in ISO 4217 format. This data is available for all the regions.
    * @return sourceCurrency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "For currency-hedged funds, the values shows foreign currency the ETP is hedged against. Currency code is in ISO 4217 format. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_SOURCE_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +116,7 @@ public class InlineResponse20014DataHedge implements Serializable {
    * For currency-hedged funds, the currency the ETP is exposed to after hedging. Currency code is in ISO 4217 format. This data is available for all the regions.
    * @return targetCurrency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "For currency-hedged funds, the currency the ETP is exposed to after hedging. Currency code is in ISO 4217 format. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_TARGET_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -64,7 +64,8 @@ import com.factset.sdk.SPGlobalFixedIncomeEvaluatedPricesandAnalytics.JSON;
   BondMeta.JSON_PROPERTY_INDEX_TRANCHE_NAME,
   BondMeta.JSON_PROPERTY_REDEMPTION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class BondMeta implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -152,7 +153,7 @@ public class BondMeta implements Serializable {
    * Identifier that was used for the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "US45905URL07", value = "Identifier that was used for the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -178,7 +179,7 @@ public class BondMeta implements Serializable {
    * FactSet Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security&#39;s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "CJQZQ0-S", value = "FactSet Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.")
   @JsonIgnore
 
@@ -212,7 +213,7 @@ public class BondMeta implements Serializable {
    * The date on which the price is calculated.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Thu Jan 26 00:00:00 UTC 2023", value = "The date on which the price is calculated.")
   @JsonIgnore
 
@@ -246,7 +247,7 @@ public class BondMeta implements Serializable {
    * Returns the top level sector classification of the instrument.
    * @return classification
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "GovernmentRelated", value = "Returns the top level sector classification of the instrument.")
   @JsonIgnore
 
@@ -280,7 +281,7 @@ public class BondMeta implements Serializable {
    * The date on which the principal amount of the security becomes due and payable, as stated in the terms of the security. Available only for &#x60;corporate bonds&#x60; and &#x60;municipal bonds&#x60;.
    * @return maturityDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Mon Mar 03 00:00:00 UTC 2025", value = "The date on which the principal amount of the security becomes due and payable, as stated in the terms of the security. Available only for `corporate bonds` and `municipal bonds`.")
   @JsonIgnore
 
@@ -314,7 +315,7 @@ public class BondMeta implements Serializable {
    * The assumed maturity date on which the principal amount of the security becomes due and payable. This is controlled by the evaluator and represents the maturity date being used in the market. Available only for &#x60;corporate bonds&#x60;.
    * @return assumedMaturityDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The assumed maturity date on which the principal amount of the security becomes due and payable. This is controlled by the evaluator and represents the maturity date being used in the market. Available only for `corporate bonds`.")
   @JsonIgnore
 
@@ -348,7 +349,7 @@ public class BondMeta implements Serializable {
    * Indicates if an instrument is default or not. Available only for &#x60;corporate bonds&#x60;.
    * @return defaulted
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "N", value = "Indicates if an instrument is default or not. Available only for `corporate bonds`.")
   @JsonIgnore
 
@@ -382,7 +383,7 @@ public class BondMeta implements Serializable {
    * The ISIN (International Securities Identification Number) to which the price data applies.
    * @return isin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "US45905URL07", value = "The ISIN (International Securities Identification Number) to which the price data applies.")
   @JsonIgnore
 
@@ -416,7 +417,7 @@ public class BondMeta implements Serializable {
    * Unique CUSIP identifier for the instrument to which the price data applies.
    * @return cusip
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "45905URL0", value = "Unique CUSIP identifier for the instrument to which the price data applies.")
   @JsonIgnore
 
@@ -450,7 +451,7 @@ public class BondMeta implements Serializable {
    * Returns the Vendor ID.
    * @return vendorId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "US45905URL07", value = "Returns the Vendor ID.")
   @JsonIgnore
 
@@ -484,7 +485,7 @@ public class BondMeta implements Serializable {
    * The IHS Markit ticker for the organization. Available only for &#x60;corporate bonds&#x60; and &#x60;asset-backed security bonds&#x60;.
    * @return ticker
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "IBRD", value = "The IHS Markit ticker for the organization. Available only for `corporate bonds` and `asset-backed security bonds`.")
   @JsonIgnore
 
@@ -518,7 +519,7 @@ public class BondMeta implements Serializable {
    * EVB internal identifier of instrumentSet. Available only for &#x60;corporate bonds&#x60;.
    * @return setId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "684", value = "EVB internal identifier of instrumentSet. Available only for `corporate bonds`.")
   @JsonIgnore
 
@@ -552,7 +553,7 @@ public class BondMeta implements Serializable {
    * The ISIN of the benchmark instrument. Available only for &#x60;corporate bonds&#x60;.
    * @return benchmarkISIN
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "US91282CGD74", value = "The ISIN of the benchmark instrument. Available only for `corporate bonds`.")
   @JsonIgnore
 
@@ -586,7 +587,7 @@ public class BondMeta implements Serializable {
    * The CUSIP of the benchmark instrument. Available only for &#x60;corporate bonds&#x60;.
    * @return benchmarkCUSIP
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "91282CGD7", value = "The CUSIP of the benchmark instrument. Available only for `corporate bonds`.")
   @JsonIgnore
 
@@ -620,7 +621,7 @@ public class BondMeta implements Serializable {
    * Returns full bond name (issuer name-coupon rate-maturity year)
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Intl Bk for Recon & Dev 2.125 03-Mar-2025", value = "Returns full bond name (issuer name-coupon rate-maturity year)")
   @JsonIgnore
 
@@ -654,7 +655,7 @@ public class BondMeta implements Serializable {
    * Returns the short name of the issuer. Available only for &#x60;corporate bonds&#x60; and &#39;municipal bonds&#39;.
    * @return issuerName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Intl Bk for Recon & Dev", value = "Returns the short name of the issuer. Available only for `corporate bonds` and 'municipal bonds'.")
   @JsonIgnore
 
@@ -688,7 +689,7 @@ public class BondMeta implements Serializable {
    * The name of the benchmark instrument. Available only for &#x60;corporate bonds&#x60;.
    * @return benchmarkName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USGB 4.25 12/31/24", value = "The name of the benchmark instrument. Available only for `corporate bonds`.")
   @JsonIgnore
 
@@ -722,7 +723,7 @@ public class BondMeta implements Serializable {
    * Shows that a maturity date is not specified for the instrument. Available only for &#x60;corporate bonds&#x60;.
    * @return perpetual
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "N", value = "Shows that a maturity date is not specified for the instrument. Available only for `corporate bonds`.")
   @JsonIgnore
 
@@ -756,7 +757,7 @@ public class BondMeta implements Serializable {
    * Region of the coupon currency. Available only for &#x60;corporate bonds&#x60;.
    * @return region
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Americas", value = "Region of the coupon currency. Available only for `corporate bonds`.")
   @JsonIgnore
 
@@ -790,7 +791,7 @@ public class BondMeta implements Serializable {
    * The code representing the bond seniority type. Available only for &#x60;corporate bonds&#x60;.
    * @return tier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "SNRFOR", value = "The code representing the bond seniority type. Available only for `corporate bonds`.")
   @JsonIgnore
 
@@ -824,7 +825,7 @@ public class BondMeta implements Serializable {
    * Name of the instrument. Available only for &#x60;municipal bonds&#x60;.
    * @return issueName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the instrument. Available only for `municipal bonds`.")
   @JsonIgnore
 
@@ -858,7 +859,7 @@ public class BondMeta implements Serializable {
    * Returns the bond specific ticker. Available only for &#x60;asset-backed security bonds&#x60;.
    * @return bondTicker
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Returns the bond specific ticker. Available only for `asset-backed security bonds`.")
   @JsonIgnore
 
@@ -892,7 +893,7 @@ public class BondMeta implements Serializable {
    * The field shows Index Tranche Name. Available only for &#x60;asset-backed security bonds&#x60;.
    * @return indexTrancheName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The field shows Index Tranche Name. Available only for `asset-backed security bonds`.")
   @JsonIgnore
 
@@ -926,7 +927,7 @@ public class BondMeta implements Serializable {
    * Returns the indication of whether the bond is run to maturity or to the optional redemption/call. Available only for &#x60;asset-backed security bonds&#x60;.
    * @return redemption
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Returns the indication of whether the bond is run to maturity or to the optional redemption/call. Available only for `asset-backed security bonds`.")
   @JsonIgnore
 

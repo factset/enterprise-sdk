@@ -41,7 +41,8 @@ import com.factset.sdk.RealTimeNews.JSON;
   InlineResponse200DataInstruments.JSON_PROPERTY_ID,
   InlineResponse200DataInstruments.JSON_PROPERTY_FSYM
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse200DataInstruments implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class InlineResponse200DataInstruments implements Serializable {
    * Identifier of the instrument.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the instrument.")
   @JsonIgnore
 
@@ -97,7 +98,7 @@ public class InlineResponse200DataInstruments implements Serializable {
    * Get fsym
    * @return fsym
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FSYM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

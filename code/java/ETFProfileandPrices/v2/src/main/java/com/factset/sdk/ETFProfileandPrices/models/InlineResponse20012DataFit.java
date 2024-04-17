@@ -38,7 +38,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20012DataFit.JSON_PROPERTY_VALUE,
   InlineResponse20012DataFit.JSON_PROPERTY_AVERAGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20012DataFit implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -60,7 +61,7 @@ public class InlineResponse20012DataFit implements Serializable {
    * A measure of the exposure a fund provides relative to its FactSet designated &#39;Segment Benchmark&#39;. Scored in the range 0 (low) to 100 (high), with higher scores indicating better alignment with the performance and holdings of the Segment Benchmark. Available for the regions: US.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A measure of the exposure a fund provides relative to its FactSet designated 'Segment Benchmark'. Scored in the range 0 (low) to 100 (high), with higher scores indicating better alignment with the performance and holdings of the Segment Benchmark. Available for the regions: US.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,7 +87,7 @@ public class InlineResponse20012DataFit implements Serializable {
    * The average Fit score for all funds in the segment. Available for the regions: US.
    * @return average
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The average Fit score for all funds in the segment. Available for the regions: US.")
   @JsonProperty(JSON_PROPERTY_AVERAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

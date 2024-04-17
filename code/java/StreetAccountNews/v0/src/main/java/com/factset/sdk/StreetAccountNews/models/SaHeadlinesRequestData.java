@@ -43,7 +43,8 @@ import com.factset.sdk.StreetAccountNews.JSON;
   SaHeadlinesRequestData.JSON_PROPERTY_IS_PRIMARY,
   SaHeadlinesRequestData.JSON_PROPERTY_SEARCH_DATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SaHeadlinesRequestData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -88,7 +89,7 @@ public class SaHeadlinesRequestData implements Serializable {
    * Get tickers
    * @return tickers
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TICKERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -122,7 +123,7 @@ public class SaHeadlinesRequestData implements Serializable {
    * Get categories
    * @return categories
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CATEGORIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -156,7 +157,7 @@ public class SaHeadlinesRequestData implements Serializable {
    * Get regions
    * @return regions
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REGIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -190,7 +191,7 @@ public class SaHeadlinesRequestData implements Serializable {
    * Get topics
    * @return topics
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TOPICS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -224,7 +225,7 @@ public class SaHeadlinesRequestData implements Serializable {
    * Get sectors
    * @return sectors
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SECTORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -250,7 +251,7 @@ public class SaHeadlinesRequestData implements Serializable {
    * Get isPrimary
    * @return isPrimary
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "true", value = "")
   @JsonProperty(JSON_PROPERTY_IS_PRIMARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -276,7 +277,7 @@ public class SaHeadlinesRequestData implements Serializable {
    * Get searchDate
    * @return searchDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SEARCH_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

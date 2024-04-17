@@ -39,7 +39,8 @@ import com.factset.sdk.RealTimeNews.JSON;
   PostNewsArticleSearchByTextRequestData.JSON_PROPERTY_TEXT,
   PostNewsArticleSearchByTextRequestData.JSON_PROPERTY_CRITERIA
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostNewsArticleSearchByTextRequestData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -61,7 +62,7 @@ public class PostNewsArticleSearchByTextRequestData implements Serializable {
    * Get text
    * @return text
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -95,7 +96,7 @@ public class PostNewsArticleSearchByTextRequestData implements Serializable {
    * Restrict the response of news articles to given include and exclude criteria.
    * @return criteria
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Restrict the response of news articles to given include and exclude criteria.")
   @JsonProperty(JSON_PROPERTY_CRITERIA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

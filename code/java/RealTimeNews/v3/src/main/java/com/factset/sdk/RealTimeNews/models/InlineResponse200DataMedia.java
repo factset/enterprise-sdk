@@ -45,7 +45,8 @@ import com.factset.sdk.RealTimeNews.JSON;
   InlineResponse200DataMedia.JSON_PROPERTY_WIDTH,
   InlineResponse200DataMedia.JSON_PROPERTY_HEIGHT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse200DataMedia implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -79,7 +80,7 @@ public class InlineResponse200DataMedia implements Serializable {
    * URL of the media element. The URL is publicly available and hosted by either the publisher, the distributor, or FactSet.
    * @return url
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "URL of the media element. The URL is publicly available and hosted by either the publisher, the distributor, or FactSet.")
   @JsonIgnore
 
@@ -113,7 +114,7 @@ public class InlineResponse200DataMedia implements Serializable {
    * MIME type of the data of the media element.
    * @return mimeType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "MIME type of the data of the media element.")
   @JsonIgnore
 
@@ -147,7 +148,7 @@ public class InlineResponse200DataMedia implements Serializable {
    * Caption text that can be displayed with the media element. Empty if no caption is available for this media element.
    * @return caption
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Caption text that can be displayed with the media element. Empty if no caption is available for this media element.")
   @JsonIgnore
 
@@ -181,7 +182,7 @@ public class InlineResponse200DataMedia implements Serializable {
    * A short description of the media element that can be shown instead of the media element itself.
    * @return alternativeText
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A short description of the media element that can be shown instead of the media element itself.")
   @JsonIgnore
 
@@ -215,7 +216,7 @@ public class InlineResponse200DataMedia implements Serializable {
    * Width of the media element in pixels if applicable.
    * @return width
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Width of the media element in pixels if applicable.")
   @JsonIgnore
 
@@ -249,7 +250,7 @@ public class InlineResponse200DataMedia implements Serializable {
    * Height of the media element in pixels if applicable.
    * @return height
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Height of the media element in pixels if applicable.")
   @JsonIgnore
 

@@ -47,7 +47,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20014ReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFigures.JSON_PROPERTY_EBITDA,
   InlineResponse20014ReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFigures.JSON_PROPERTY_PER_SHARE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20014ReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFigures implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -78,7 +79,7 @@ public class InlineResponse20014ReportedKeyFiguresFirstFiscalYearCurrencyDepende
    * Get currency
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -104,7 +105,7 @@ public class InlineResponse20014ReportedKeyFiguresFirstFiscalYearCurrencyDepende
    * Market capitalization, which is the market value of the shares outstanding over all types of shares of the company.
    * @return marketCapitalization
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Market capitalization, which is the market value of the shares outstanding over all types of shares of the company.")
   @JsonIgnore
 
@@ -138,7 +139,7 @@ public class InlineResponse20014ReportedKeyFiguresFirstFiscalYearCurrencyDepende
    * EBIT (earnings before interest and taxes).
    * @return ebit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "EBIT (earnings before interest and taxes).")
   @JsonIgnore
 
@@ -172,7 +173,7 @@ public class InlineResponse20014ReportedKeyFiguresFirstFiscalYearCurrencyDepende
    * EBITDA (earnings before interest, taxes, depreciation, and amortization).
    * @return ebitda
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "EBITDA (earnings before interest, taxes, depreciation, and amortization).")
   @JsonIgnore
 
@@ -206,7 +207,7 @@ public class InlineResponse20014ReportedKeyFiguresFirstFiscalYearCurrencyDepende
    * Get perShare
    * @return perShare
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PER_SHARE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

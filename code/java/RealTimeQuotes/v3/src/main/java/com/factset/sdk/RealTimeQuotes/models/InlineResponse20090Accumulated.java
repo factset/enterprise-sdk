@@ -44,7 +44,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20090Accumulated.JSON_PROPERTY_TRADING_VALUE,
   InlineResponse20090Accumulated.JSON_PROPERTY_VOLUME_WEIGHTED_AVERAGE_PRICE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20090Accumulated implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -72,7 +73,7 @@ public class InlineResponse20090Accumulated implements Serializable {
    * Number of trades.
    * @return numberTrades
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of trades.")
   @JsonIgnore
 
@@ -106,7 +107,7 @@ public class InlineResponse20090Accumulated implements Serializable {
    * Number of units (e.g. shares) traded.
    * @return tradingVolume
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of units (e.g. shares) traded.")
   @JsonIgnore
 
@@ -140,7 +141,7 @@ public class InlineResponse20090Accumulated implements Serializable {
    * Monetary equivalent (cash value) of the trades. See attribute &#x60;currency&#x60; for its unit.
    * @return tradingValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Monetary equivalent (cash value) of the trades. See attribute `currency` for its unit.")
   @JsonIgnore
 
@@ -174,7 +175,7 @@ public class InlineResponse20090Accumulated implements Serializable {
    * The volume-weighted average price (VWAP). See attribute &#x60;valueUnit&#x60; for its unit.
    * @return volumeWeightedAveragePrice
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The volume-weighted average price (VWAP). See attribute `valueUnit` for its unit.")
   @JsonIgnore
 

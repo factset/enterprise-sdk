@@ -6,7 +6,7 @@ import com.factset.sdk.IRNMeetings.ApiResponse;
 import com.factset.sdk.IRNMeetings.Configuration;
 import com.factset.sdk.IRNMeetings.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -20,7 +20,8 @@ import com.factset.sdk.IRNMeetings.models.NewItemDto;
 import com.factset.sdk.IRNMeetings.models.Operation;
 import com.factset.sdk.IRNMeetings.models.ProblemDetails;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CommentsApi {
   private ApiClient apiClient;
 

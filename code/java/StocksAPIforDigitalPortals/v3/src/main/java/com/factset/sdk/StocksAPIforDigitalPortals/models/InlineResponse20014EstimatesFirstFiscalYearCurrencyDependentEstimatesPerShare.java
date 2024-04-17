@@ -43,7 +43,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20014EstimatesFirstFiscalYearCurrencyDependentEstimatesPerShare.JSON_PROPERTY_DIVIDENDS,
   InlineResponse20014EstimatesFirstFiscalYearCurrencyDependentEstimatesPerShare.JSON_PROPERTY_CASH_FLOW
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20014EstimatesFirstFiscalYearCurrencyDependentEstimatesPerShare implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -71,7 +72,7 @@ public class InlineResponse20014EstimatesFirstFiscalYearCurrencyDependentEstimat
    * Get sales
    * @return sales
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SALES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -97,7 +98,7 @@ public class InlineResponse20014EstimatesFirstFiscalYearCurrencyDependentEstimat
    * Get earnings
    * @return earnings
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -123,7 +124,7 @@ public class InlineResponse20014EstimatesFirstFiscalYearCurrencyDependentEstimat
    * Get dividends
    * @return dividends
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DIVIDENDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -149,7 +150,7 @@ public class InlineResponse20014EstimatesFirstFiscalYearCurrencyDependentEstimat
    * Get cashFlow
    * @return cashFlow
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CASH_FLOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

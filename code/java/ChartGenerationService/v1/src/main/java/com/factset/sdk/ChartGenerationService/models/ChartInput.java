@@ -40,7 +40,8 @@ import com.factset.sdk.ChartGenerationService.JSON;
   ChartInput.JSON_PROPERTY_TYPE,
   ChartInput.JSON_PROPERTY_EXAMPLE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ChartInput implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -109,7 +110,7 @@ public class ChartInput implements Serializable {
    * How to apply the additional input. Would be often via query parameter which can be appended to the request with &amp;
    * @return in
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "How to apply the additional input. Would be often via query parameter which can be appended to the request with &")
   @JsonProperty(JSON_PROPERTY_IN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -135,7 +136,7 @@ public class ChartInput implements Serializable {
    * The name of the parameter
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "tz", value = "The name of the parameter")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -161,7 +162,7 @@ public class ChartInput implements Serializable {
    * Whether or not the parameter is required to be specified to get the chart image.
    * @return required
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "false", value = "Whether or not the parameter is required to be specified to get the chart image.")
   @JsonProperty(JSON_PROPERTY_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -187,7 +188,7 @@ public class ChartInput implements Serializable {
    * A short description of the input and its use
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Can be used to specify timezone of the chart", value = "A short description of the input and its use")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -213,7 +214,7 @@ public class ChartInput implements Serializable {
    * The type of value expected for the input
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "string", value = "The type of value expected for the input")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -239,7 +240,7 @@ public class ChartInput implements Serializable {
    * An example value for the input
    * @return example
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "America/New_York", value = "An example value for the input")
   @JsonProperty(JSON_PROPERTY_EXAMPLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

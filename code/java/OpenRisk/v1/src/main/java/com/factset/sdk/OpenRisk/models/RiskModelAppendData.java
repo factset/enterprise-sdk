@@ -38,7 +38,8 @@ import com.factset.sdk.OpenRisk.JSON;
   RiskModelAppendData.JSON_PROPERTY_DATA,
   RiskModelAppendData.JSON_PROPERTY_FIELDS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class RiskModelAppendData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -75,7 +76,7 @@ public class RiskModelAppendData implements Serializable {
    * List of all rows of the append data.
    * @return data
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "[{\"0\":2.5,\"1\":\"SYMBOL_1\",\"2\":23.1},{\"1\":\"SYMBOL_2\",\"2\":7.2}]", required = true, value = "List of all rows of the append data.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -106,7 +107,7 @@ public class RiskModelAppendData implements Serializable {
    * List of fields in append data. Must contain &#39;SYMBOL&#39;. Index location will be used in &#39;data&#39; elements as keys. The entire set of factor IDs and specific risk are not required. If any inputs of exposures or specific risk are missing, 0 will be inserted for those field.
    * @return fields
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "[\"FACTOR_1\",\"SYMBOL\",\"STDERR\"]", required = true, value = "List of fields in append data. Must contain 'SYMBOL'. Index location will be used in 'data' elements as keys. The entire set of factor IDs and specific risk are not required. If any inputs of exposures or specific risk are missing, 0 will be inserted for those field.")
   @JsonProperty(JSON_PROPERTY_FIELDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

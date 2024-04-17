@@ -6,7 +6,7 @@ import com.factset.sdk.FactSetGeoRev.ApiResponse;
 import com.factset.sdk.FactSetGeoRev.Configuration;
 import com.factset.sdk.FactSetGeoRev.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -15,7 +15,8 @@ import com.factset.sdk.FactSetGeoRev.models.CountryRequest;
 import com.factset.sdk.FactSetGeoRev.models.CountryResponse;
 import com.factset.sdk.FactSetGeoRev.models.ErrorResponse;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CountriesApi {
   private ApiClient apiClient;
 

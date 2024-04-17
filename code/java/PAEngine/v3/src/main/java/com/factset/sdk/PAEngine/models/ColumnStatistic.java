@@ -39,7 +39,8 @@ import com.factset.sdk.PAEngine.JSON;
 @JsonPropertyOrder({
   ColumnStatistic.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ColumnStatistic implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -58,7 +59,7 @@ public class ColumnStatistic implements Serializable {
    * Column Statistic Name
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Column Statistic Name")
   @JsonIgnore
 

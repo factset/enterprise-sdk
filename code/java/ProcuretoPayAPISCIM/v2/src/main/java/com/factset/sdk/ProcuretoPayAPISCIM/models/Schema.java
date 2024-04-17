@@ -39,7 +39,8 @@ import com.factset.sdk.ProcuretoPayAPISCIM.JSON;
   Schema.JSON_PROPERTY_DESCRIPTION,
   Schema.JSON_PROPERTY_ATTRIBUTES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Schema implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -76,7 +77,7 @@ public class Schema implements Serializable {
    * The unique URI of the schema. When applicable, service providers MUST specify the URI.
    * @return id
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "urn:scim:schemas:extension:FactSet:Core:1.0:User", required = true, value = "The unique URI of the schema. When applicable, service providers MUST specify the URI.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -92,7 +93,7 @@ public class Schema implements Serializable {
    * The schema&#39;s human-readable name.  When applicable, service providers MUST specify the name, e.g., &#39;User&#39;.
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "FactSet Core User", required = true, value = "The schema's human-readable name.  When applicable, service providers MUST specify the name, e.g., 'User'.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -108,7 +109,7 @@ public class Schema implements Serializable {
    * The schema&#39;s human-readable name.  When applicable, service providers MUST specify the name, e.g., &#39;User&#39;.
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FactSet core user details", value = "The schema's human-readable name.  When applicable, service providers MUST specify the name, e.g., 'User'.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -124,7 +125,7 @@ public class Schema implements Serializable {
    * A complex attribute that includes the attributes of a schema.
    * @return attributes
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "[{\"name\":\"username\",\"type\":\"string\",\"multiValued\":false,\"description\":\"A FactSet \\\"username\\\" is FactSet's logical structure for grouping serial numbers into like-groups based on roleName, geographical location or line of business.\",\"required\":true,\"caseExact\":false,\"mutability\":\"immutable\",\"returned\":\"default\",\"uniqueness\":\"none\"},{\"name\":\"serialNumber\",\"type\":\"string\",\"multiValued\":false,\"description\":\"A serial number represents an individual's unique FactSet account identifier and base-workstation access. Serial numbers are allocated to an individual when a valid RoleName is present.\",\"required\":false,\"caseExact\":false,\"mutability\":\"readOnly\",\"returned\":\"default\",\"uniqueness\":\"global\"},{\"name\":\"factSetNetId\",\"type\":\"string\",\"multiValued\":false,\"description\":\"FactSet.net ID.\",\"required\":false,\"caseExact\":false,\"mutability\":\"readOnly\",\"returned\":\"default\",\"uniqueness\":\"global\"},{\"name\":\"locationId\",\"type\":\"string\",\"multiValued\":false,\"description\":\"Your reference to a distinct physical location in your organization (such as an office)\",\"required\":true,\"caseExact\":false,\"mutability\":\"readWrite\",\"returned\":\"default\",\"uniqueness\":\"none\"},{\"name\":\"roleName\",\"type\":\"string\",\"multiValued\":false,\"description\":\"Predetermined role of specific individual. Issues individual a base FactSet workstation and serial number. If passed as NULL a base-FactSet workstation will be allocated to the individual granting the individual a FactSet SerialNumber\",\"required\":false,\"caseExact\":false,\"mutability\":\"readWrite\",\"returned\":\"default\",\"uniqueness\":\"none\"},{\"name\":\"productIds\",\"type\":\"integer\",\"multiValued\":true,\"description\":\"An array of FactSet products to allocate/remove from an individual. Individual must have a FactSet serial number associated with them.\",\"required\":false,\"mutability\":\"readWrite\",\"returned\":\"default\",\"uniqueness\":\"none\"},{\"name\":\"assertionValue\",\"type\":\"string\",\"multiValued\":false,\"description\":\"Field containing the value, passed as nameID, used to assert the identity of an individual via SAML2.0 which maps service-provider-side to a FactSet serial number. Only applicable to individuals with a FactSet serial number with a Federation setup between your domain and FactSet's\",\"required\":false,\"caseExact\":false,\"mutability\":\"readWrite\",\"returned\":\"default\",\"uniqueness\":\"server\"}]", required = true, value = "A complex attribute that includes the attributes of a schema.")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

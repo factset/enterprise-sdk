@@ -48,7 +48,8 @@ import com.factset.sdk.DocumentsDistributorCallStreetEvents.JSON;
   NRTCallsData.JSON_PROPERTY_EVENT_TITLE,
   NRTCallsData.JSON_PROPERTY_EVENT_DATETIME_UTC
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class NRTCallsData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -94,7 +95,7 @@ public class NRTCallsData implements Serializable {
    * Status of the call i.e. ended or inProgress or ewn or issueAtSource.  * inProgress- the call is in progress. * ended- the call has ended. * ewn- the call has technically ended and can be considered as ended but is missing a notification from the upstream systems. * issueAtSource- the call has ended with no snippet data due to a possible issue at the source.
    * @return callStatus
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Status of the call i.e. ended or inProgress or ewn or issueAtSource.  * inProgress- the call is in progress. * ended- the call has ended. * ewn- the call has technically ended and can be considered as ended but is missing a notification from the upstream systems. * issueAtSource- the call has ended with no snippet data due to a possible issue at the source.")
   @JsonIgnore
 
@@ -128,7 +129,7 @@ public class NRTCallsData implements Serializable {
    * The unique ID for an event.
    * @return reportId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The unique ID for an event.")
   @JsonIgnore
 
@@ -162,7 +163,7 @@ public class NRTCallsData implements Serializable {
    * Identifier for the source of how the event is recorded. P:- Phone Replay W:- Webcast
    * @return sourceCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier for the source of how the event is recorded. P:- Phone Replay W:- Webcast")
   @JsonIgnore
 
@@ -196,7 +197,7 @@ public class NRTCallsData implements Serializable {
    * Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in - P or webcast - W). One reportId can have multiple audiosourceIDs.
    * @return audioSourceId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in - P or webcast - W). One reportId can have multiple audiosourceIDs.")
   @JsonIgnore
 
@@ -230,7 +231,7 @@ public class NRTCallsData implements Serializable {
    * The official UTC timestamp when FactSet starts the recording.
    * @return recordingStartTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The official UTC timestamp when FactSet starts the recording.")
   @JsonIgnore
 
@@ -264,7 +265,7 @@ public class NRTCallsData implements Serializable {
    * Ticker-region identifier for the company hosting the event.
    * @return ticker
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Ticker-region identifier for the company hosting the event.")
   @JsonIgnore
 
@@ -298,7 +299,7 @@ public class NRTCallsData implements Serializable {
    * Factset entity level identifier for the company hosting the event.
    * @return entityId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Factset entity level identifier for the company hosting the event.")
   @JsonIgnore
 
@@ -332,7 +333,7 @@ public class NRTCallsData implements Serializable {
    * Refers to the various event types covered by FactSet CallStreet - * Analyst, Investor &amp; Shareholder Meeting &#x3D;&gt; AS * Earnings Call &#x3D;&gt; E * Earnings Release &#x3D;&gt; ER * Guidance &#x3D;&gt; G * Sales &amp; Revenue Call &#x3D;&gt; SA * Sales &amp; Revenue Release &#x3D;&gt; SR * Special &amp; M&amp;A (Special Situation) &#x3D;&gt; SS
    * @return eventType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Refers to the various event types covered by FactSet CallStreet - * Analyst, Investor & Shareholder Meeting => AS * Earnings Call => E * Earnings Release => ER * Guidance => G * Sales & Revenue Call => SA * Sales & Revenue Release => SR * Special & M&A (Special Situation) => SS")
   @JsonIgnore
 
@@ -366,7 +367,7 @@ public class NRTCallsData implements Serializable {
    * Title of the Event.
    * @return eventTitle
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Title of the Event.")
   @JsonIgnore
 
@@ -400,7 +401,7 @@ public class NRTCallsData implements Serializable {
    * The official UTC timestamp of the start of the event.
    * @return eventDatetimeUtc
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The official UTC timestamp of the start of the event.")
   @JsonIgnore
 

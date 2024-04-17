@@ -43,7 +43,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20015DataPerformance.JSON_PROPERTY_INTRADAY,
   InlineResponse20015DataPerformance.JSON_PROPERTY_END_OF_DAY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20015DataPerformance implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -65,7 +66,7 @@ public class InlineResponse20015DataPerformance implements Serializable {
    * Get intraday
    * @return intraday
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -99,7 +100,7 @@ public class InlineResponse20015DataPerformance implements Serializable {
    * Get endOfDay
    * @return endOfDay
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_END_OF_DAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

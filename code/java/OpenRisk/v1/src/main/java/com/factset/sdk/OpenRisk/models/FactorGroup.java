@@ -38,7 +38,8 @@ import com.factset.sdk.OpenRisk.JSON;
   FactorGroup.JSON_PROPERTY_NAME,
   FactorGroup.JSON_PROPERTY_NODES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FactorGroup implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class FactorGroup implements Serializable {
    * Name of this factor group
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of this factor group")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,7 +100,7 @@ public class FactorGroup implements Serializable {
    * Recursively defined elements; base case array (i.e., lowest factor group) contains &#39;RiskModelFactor&#39; objects only and no &#39;FactorGroup&#39; objects
    * @return nodes
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Recursively defined elements; base case array (i.e., lowest factor group) contains 'RiskModelFactor' objects only and no 'FactorGroup' objects")
   @JsonProperty(JSON_PROPERTY_NODES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

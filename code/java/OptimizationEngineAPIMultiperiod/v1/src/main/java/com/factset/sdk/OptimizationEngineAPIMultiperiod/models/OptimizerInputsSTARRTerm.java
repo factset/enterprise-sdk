@@ -44,7 +44,8 @@ import com.factset.sdk.OptimizationEngineAPIMultiperiod.JSON;
   OptimizerInputsSTARRTerm.JSON_PROPERTY_ACTIVE_RISK,
   OptimizerInputsSTARRTerm.JSON_PROPERTY_BENCHMARK_INDEX
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerInputsSTARRTerm implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -84,7 +85,7 @@ public class OptimizerInputsSTARRTerm implements Serializable {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -110,7 +111,7 @@ public class OptimizerInputsSTARRTerm implements Serializable {
    * Get multiplier
    * @return multiplier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MULTIPLIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,7 +137,7 @@ public class OptimizerInputsSTARRTerm implements Serializable {
    * Get riskFreeRate
    * @return riskFreeRate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RISK_FREE_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -162,7 +163,7 @@ public class OptimizerInputsSTARRTerm implements Serializable {
    * Get direction
    * @return direction
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DIRECTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -188,7 +189,7 @@ public class OptimizerInputsSTARRTerm implements Serializable {
    * Get confidenceLevel
    * @return confidenceLevel
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CONFIDENCE_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -214,7 +215,7 @@ public class OptimizerInputsSTARRTerm implements Serializable {
    * Get useCenteredEtl
    * @return useCenteredEtl
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_USE_CENTERED_ETL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -240,7 +241,7 @@ public class OptimizerInputsSTARRTerm implements Serializable {
    * Get activeRisk
    * @return activeRisk
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ACTIVE_RISK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -266,7 +267,7 @@ public class OptimizerInputsSTARRTerm implements Serializable {
    * Get benchmarkIndex
    * @return benchmarkIndex
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BENCHMARK_INDEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

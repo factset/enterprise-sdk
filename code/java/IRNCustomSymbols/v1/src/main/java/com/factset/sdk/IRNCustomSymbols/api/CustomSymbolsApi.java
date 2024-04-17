@@ -6,7 +6,7 @@ import com.factset.sdk.IRNCustomSymbols.ApiResponse;
 import com.factset.sdk.IRNCustomSymbols.Configuration;
 import com.factset.sdk.IRNCustomSymbols.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -19,7 +19,8 @@ import com.factset.sdk.IRNCustomSymbols.models.ProblemDetails;
 import com.factset.sdk.IRNCustomSymbols.models.RecordPreviewDto;
 import com.factset.sdk.IRNCustomSymbols.models.StandardSymbolDto;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CustomSymbolsApi {
   private ApiClient apiClient;
 

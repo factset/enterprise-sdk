@@ -37,7 +37,8 @@ import com.factset.sdk.FactSetConcordance.JSON;
   UpdateUniverseRequest.JSON_PROPERTY_UNIVERSE_DESCRIPTION,
   UpdateUniverseRequest.JSON_PROPERTY_UNIVERSE_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class UpdateUniverseRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -70,7 +71,7 @@ public class UpdateUniverseRequest implements Serializable {
    * Universe name
    * @return universeName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "My Universe", value = "Universe name")
   @JsonProperty(JSON_PROPERTY_UNIVERSE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -96,7 +97,7 @@ public class UpdateUniverseRequest implements Serializable {
    * Universe description
    * @return universeDescription
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "This is my universe", value = "Universe description")
   @JsonProperty(JSON_PROPERTY_UNIVERSE_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -122,7 +123,7 @@ public class UpdateUniverseRequest implements Serializable {
    * Universe identifier
    * @return universeId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "1", required = true, value = "Universe identifier")
   @JsonProperty(JSON_PROPERTY_UNIVERSE_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

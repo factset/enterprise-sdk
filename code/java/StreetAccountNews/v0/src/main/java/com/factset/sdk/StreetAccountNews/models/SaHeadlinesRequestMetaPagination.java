@@ -37,7 +37,8 @@ import com.factset.sdk.StreetAccountNews.JSON;
   SaHeadlinesRequestMetaPagination.JSON_PROPERTY_LIMIT,
   SaHeadlinesRequestMetaPagination.JSON_PROPERTY_OFFSET
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SaHeadlinesRequestMetaPagination implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -59,7 +60,7 @@ public class SaHeadlinesRequestMetaPagination implements Serializable {
    * Non-negative maximum number of entries to return.
    * @return limit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "50", value = "Non-negative maximum number of entries to return.")
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -85,7 +86,7 @@ public class SaHeadlinesRequestMetaPagination implements Serializable {
    * Non-negative number of entries to skip.
    * @return offset
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "100", value = "Non-negative number of entries to skip.")
   @JsonProperty(JSON_PROPERTY_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -6,7 +6,7 @@ import com.factset.sdk.FixedIncomeAnalyticsBatcher.ApiResponse;
 import com.factset.sdk.FixedIncomeAnalyticsBatcher.Configuration;
 import com.factset.sdk.FixedIncomeAnalyticsBatcher.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -15,7 +15,8 @@ import com.factset.sdk.FixedIncomeAnalyticsBatcher.models.FIABCalculationParamet
 import com.factset.sdk.FixedIncomeAnalyticsBatcher.models.FIABCalculationStatus;
 import com.factset.sdk.FixedIncomeAnalyticsBatcher.models.FIABCalculationStatusSummary;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FiabCalculationsApi {
   private ApiClient apiClient;
 

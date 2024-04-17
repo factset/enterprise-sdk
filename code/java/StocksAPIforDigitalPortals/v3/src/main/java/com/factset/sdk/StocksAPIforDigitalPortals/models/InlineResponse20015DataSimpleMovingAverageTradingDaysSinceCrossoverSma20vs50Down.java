@@ -43,7 +43,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20015DataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50Down.JSON_PROPERTY_NUMBER_DAYS,
   InlineResponse20015DataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50Down.JSON_PROPERTY_COUNT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20015DataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50Down implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -65,7 +66,7 @@ public class InlineResponse20015DataSimpleMovingAverageTradingDaysSinceCrossover
    * Get numberDays
    * @return numberDays
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -99,7 +100,7 @@ public class InlineResponse20015DataSimpleMovingAverageTradingDaysSinceCrossover
    * Number of notations.
    * @return count
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of notations.")
   @JsonIgnore
 

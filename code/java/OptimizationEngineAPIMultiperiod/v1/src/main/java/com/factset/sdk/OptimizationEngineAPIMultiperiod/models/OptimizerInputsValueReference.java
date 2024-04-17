@@ -36,7 +36,8 @@ import com.factset.sdk.OptimizationEngineAPIMultiperiod.JSON;
 @JsonPropertyOrder({
   OptimizerInputsValueReference.JSON_PROPERTY_ASSET_VALUES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerInputsValueReference implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -55,7 +56,7 @@ public class OptimizerInputsValueReference implements Serializable {
    * Get assetValues
    * @return assetValues
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ASSET_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

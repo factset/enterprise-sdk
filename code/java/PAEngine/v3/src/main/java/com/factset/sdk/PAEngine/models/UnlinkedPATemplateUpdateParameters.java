@@ -54,7 +54,8 @@ import com.factset.sdk.PAEngine.JSON;
   UnlinkedPATemplateUpdateParameters.JSON_PROPERTY_COMPONENTDETAIL,
   UnlinkedPATemplateUpdateParameters.JSON_PROPERTY_CONTENT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class UnlinkedPATemplateUpdateParameters implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -100,7 +101,7 @@ public class UnlinkedPATemplateUpdateParameters implements Serializable {
    * Template description
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Template description")
   @JsonIgnore
 
@@ -146,7 +147,7 @@ public class UnlinkedPATemplateUpdateParameters implements Serializable {
    * List of accounts
    * @return accounts
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of accounts")
   @JsonIgnore
 
@@ -192,7 +193,7 @@ public class UnlinkedPATemplateUpdateParameters implements Serializable {
    * List of benchmarks
    * @return benchmarks
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of benchmarks")
   @JsonIgnore
 
@@ -238,7 +239,7 @@ public class UnlinkedPATemplateUpdateParameters implements Serializable {
    * List of columns for the PA calculation
    * @return columns
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of columns for the PA calculation")
   @JsonIgnore
 
@@ -272,7 +273,7 @@ public class UnlinkedPATemplateUpdateParameters implements Serializable {
    * Get dates
    * @return dates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -310,7 +311,7 @@ public class UnlinkedPATemplateUpdateParameters implements Serializable {
    * List of groupings for the PA calculation
    * @return groups
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of groupings for the PA calculation")
   @JsonIgnore
 
@@ -344,7 +345,7 @@ public class UnlinkedPATemplateUpdateParameters implements Serializable {
    * Get datasources
    * @return datasources
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATASOURCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -370,7 +371,7 @@ public class UnlinkedPATemplateUpdateParameters implements Serializable {
    * Currency ISO code for calculation.
    * @return currencyisocode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Currency ISO code for calculation.")
   @JsonIgnore
 
@@ -404,7 +405,7 @@ public class UnlinkedPATemplateUpdateParameters implements Serializable {
    * PA storage type. It can be GROUPS or GROUPSALL or TOTALS or SECURITIES.
    * @return componentdetail
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "PA storage type. It can be GROUPS or GROUPSALL or TOTALS or SECURITIES.")
   @JsonIgnore
 
@@ -438,7 +439,7 @@ public class UnlinkedPATemplateUpdateParameters implements Serializable {
    * Get content
    * @return content
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

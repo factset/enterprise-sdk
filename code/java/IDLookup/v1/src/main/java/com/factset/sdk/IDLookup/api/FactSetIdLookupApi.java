@@ -6,7 +6,7 @@ import com.factset.sdk.IDLookup.ApiResponse;
 import com.factset.sdk.IDLookup.Configuration;
 import com.factset.sdk.IDLookup.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -15,7 +15,8 @@ import com.factset.sdk.IDLookup.models.ErrorResponse;
 import com.factset.sdk.IDLookup.models.LookupRequest;
 import com.factset.sdk.IDLookup.models.LookupResponse;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FactSetIdLookupApi {
   private ApiClient apiClient;
 

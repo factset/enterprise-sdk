@@ -6,7 +6,7 @@ import com.factset.sdk.IssueTracker.ApiResponse;
 import com.factset.sdk.IssueTracker.Configuration;
 import com.factset.sdk.IssueTracker.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -17,7 +17,8 @@ import com.factset.sdk.IssueTracker.models.IdResponse;
 import com.factset.sdk.IssueTracker.models.Issue;
 import com.factset.sdk.IssueTracker.models.IssueRequest;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class IssueApi {
   private ApiClient apiClient;
 

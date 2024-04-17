@@ -38,7 +38,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20010DataIndexChange.JSON_PROPERTY_HAS_CHANGED,
   InlineResponse20010DataIndexChange.JSON_PROPERTY_DATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20010DataIndexChange implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -60,7 +61,7 @@ public class InlineResponse20010DataIndexChange implements Serializable {
    * States whether an index change has occurred. Available for the regions: US.
    * @return hasChanged
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "States whether an index change has occurred. Available for the regions: US.")
   @JsonProperty(JSON_PROPERTY_HAS_CHANGED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,7 +87,7 @@ public class InlineResponse20010DataIndexChange implements Serializable {
    * Date of the most recent index change, if applicable. Available for the regions: US.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Date of the most recent index change, if applicable. Available for the regions: US.")
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

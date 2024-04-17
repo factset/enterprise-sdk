@@ -6,7 +6,7 @@ import com.factset.sdk.FactSetFunds.ApiResponse;
 import com.factset.sdk.FactSetFunds.Configuration;
 import com.factset.sdk.FactSetFunds.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -25,7 +25,8 @@ import com.factset.sdk.FactSetFunds.models.RelatedFundsResponse;
 import com.factset.sdk.FactSetFunds.models.SummariesRequest;
 import com.factset.sdk.FactSetFunds.models.SummariesResponse;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ReferenceApi {
   private ApiClient apiClient;
 

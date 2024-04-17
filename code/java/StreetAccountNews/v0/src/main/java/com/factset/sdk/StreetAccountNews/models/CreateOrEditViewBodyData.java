@@ -42,7 +42,8 @@ import com.factset.sdk.StreetAccountNews.JSON;
   CreateOrEditViewBodyData.JSON_PROPERTY_IS_PRIMARY,
   CreateOrEditViewBodyData.JSON_PROPERTY_QUICK_ALERT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CreateOrEditViewBodyData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -87,7 +88,7 @@ public class CreateOrEditViewBodyData implements Serializable {
    * Get tickers
    * @return tickers
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TICKERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -121,7 +122,7 @@ public class CreateOrEditViewBodyData implements Serializable {
    * Get categories
    * @return categories
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CATEGORIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -155,7 +156,7 @@ public class CreateOrEditViewBodyData implements Serializable {
    * Get regions
    * @return regions
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REGIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -189,7 +190,7 @@ public class CreateOrEditViewBodyData implements Serializable {
    * Get topics
    * @return topics
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TOPICS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -223,7 +224,7 @@ public class CreateOrEditViewBodyData implements Serializable {
    * Get sectors
    * @return sectors
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SECTORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -249,7 +250,7 @@ public class CreateOrEditViewBodyData implements Serializable {
    * Get isPrimary
    * @return isPrimary
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "true", value = "")
   @JsonProperty(JSON_PROPERTY_IS_PRIMARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -275,7 +276,7 @@ public class CreateOrEditViewBodyData implements Serializable {
    * Get quickAlert
    * @return quickAlert
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "false", value = "")
   @JsonProperty(JSON_PROPERTY_QUICK_ALERT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

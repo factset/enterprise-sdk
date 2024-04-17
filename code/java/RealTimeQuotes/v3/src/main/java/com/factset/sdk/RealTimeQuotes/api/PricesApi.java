@@ -6,7 +6,7 @@ import com.factset.sdk.RealTimeQuotes.ApiResponse;
 import com.factset.sdk.RealTimeQuotes.Configuration;
 import com.factset.sdk.RealTimeQuotes.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -22,7 +22,8 @@ import com.factset.sdk.RealTimeQuotes.models.InlineResponse20095;
 import com.factset.sdk.RealTimeQuotes.models.InlineResponse20096;
 import com.factset.sdk.RealTimeQuotes.models.PostPricesTradingScheduleEventListRequest;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PricesApi {
   private ApiClient apiClient;
 

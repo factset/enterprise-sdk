@@ -38,7 +38,8 @@ import com.factset.sdk.OverviewReportBuilder.JSON;
   KeyStatsFundObjectMeta.JSON_PROPERTY_SOURCES,
   KeyStatsFundObjectMeta.JSON_PROPERTY_AS_OF_DATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class KeyStatsFundObjectMeta implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -60,7 +61,7 @@ public class KeyStatsFundObjectMeta implements Serializable {
    * Get sources
    * @return sources
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SOURCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,7 +87,7 @@ public class KeyStatsFundObjectMeta implements Serializable {
    * Get asOfDate
    * @return asOfDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AS_OF_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

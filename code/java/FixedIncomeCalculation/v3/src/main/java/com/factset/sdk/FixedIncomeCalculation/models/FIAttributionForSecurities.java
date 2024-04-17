@@ -43,7 +43,8 @@ import com.factset.sdk.FixedIncomeCalculation.JSON;
   FIAttributionForSecurities.JSON_PROPERTY_END_SPREAD,
   FIAttributionForSecurities.JSON_PROPERTY_PRICING_METHOD
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FIAttributionForSecurities implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -113,7 +114,7 @@ public class FIAttributionForSecurities implements Serializable {
    * Start Price
    * @return startPrice
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Start Price")
   @JsonIgnore
 
@@ -147,7 +148,7 @@ public class FIAttributionForSecurities implements Serializable {
    * End Price
    * @return endPrice
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "End Price")
   @JsonIgnore
 
@@ -181,7 +182,7 @@ public class FIAttributionForSecurities implements Serializable {
    * Start Spread
    * @return startSpread
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Start Spread")
   @JsonIgnore
 
@@ -215,7 +216,7 @@ public class FIAttributionForSecurities implements Serializable {
    * End Spread
    * @return endSpread
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "End Spread")
   @JsonIgnore
 
@@ -249,7 +250,7 @@ public class FIAttributionForSecurities implements Serializable {
    * Pricing Method
    * @return pricingMethod
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Pricing Method")
   @JsonIgnore
 

@@ -39,7 +39,8 @@ import com.factset.sdk.OpenRisk.JSON;
   RiskExclusionInfo.JSON_PROPERTY_EXCLUSION_INFO,
   RiskExclusionInfo.JSON_PROPERTY_MODEL_CLASS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class RiskExclusionInfo implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -111,7 +112,7 @@ public class RiskExclusionInfo implements Serializable {
    * Coverage flag. The value will always be false to indicate the security is excluded.
    * @return covered
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "false", required = true, value = "Coverage flag. The value will always be false to indicate the security is excluded.")
   @JsonProperty(JSON_PROPERTY_COVERED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -137,7 +138,7 @@ public class RiskExclusionInfo implements Serializable {
    * Get exclusionInfo
    * @return exclusionInfo
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_EXCLUSION_INFO)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -163,7 +164,7 @@ public class RiskExclusionInfo implements Serializable {
    * **(since 1.19.0)** Security asset classification according to the risk model, if available and determinable
    * @return modelClass
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "**(since 1.19.0)** Security asset classification according to the risk model, if available and determinable")
   @JsonProperty(JSON_PROPERTY_MODEL_CLASS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

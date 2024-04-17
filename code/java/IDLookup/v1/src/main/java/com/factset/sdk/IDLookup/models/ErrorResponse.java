@@ -36,7 +36,8 @@ import com.factset.sdk.IDLookup.JSON;
   ErrorResponse.JSON_PROPERTY_DESCRIPTION,
   ErrorResponse.JSON_PROPERTY_REQUEST_KEY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ErrorResponse implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -58,7 +59,7 @@ public class ErrorResponse implements Serializable {
    * Get description
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -84,7 +85,7 @@ public class ErrorResponse implements Serializable {
    * Get requestKey
    * @return requestKey
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REQUEST_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

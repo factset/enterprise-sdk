@@ -47,7 +47,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20054DataInterestRateCurrent.JSON_PROPERTY_ACCRUED_INTEREST,
   InlineResponse20054DataInterestRateCurrent.JSON_PROPERTY_PERIOD_END
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20054DataInterestRateCurrent implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -75,7 +76,7 @@ public class InlineResponse20054DataInterestRateCurrent implements Serializable 
    * Value of the interest rate.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Value of the interest rate.")
   @JsonIgnore
 
@@ -109,7 +110,7 @@ public class InlineResponse20054DataInterestRateCurrent implements Serializable 
    * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -135,7 +136,7 @@ public class InlineResponse20054DataInterestRateCurrent implements Serializable 
    * Get accruedInterest
    * @return accruedInterest
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ACCRUED_INTEREST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -161,7 +162,7 @@ public class InlineResponse20054DataInterestRateCurrent implements Serializable 
    * Ending date (inclusive).
    * @return periodEnd
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Ending date (inclusive).")
   @JsonIgnore
 

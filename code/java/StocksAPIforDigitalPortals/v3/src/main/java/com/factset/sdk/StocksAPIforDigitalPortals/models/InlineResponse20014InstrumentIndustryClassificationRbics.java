@@ -47,7 +47,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20014InstrumentIndustryClassificationRbics.JSON_PROPERTY_LEVEL5,
   InlineResponse20014InstrumentIndustryClassificationRbics.JSON_PROPERTY_LEVEL6
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20014InstrumentIndustryClassificationRbics implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -81,7 +82,7 @@ public class InlineResponse20014InstrumentIndustryClassificationRbics implements
    * Get level1
    * @return level1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LEVEL1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -107,7 +108,7 @@ public class InlineResponse20014InstrumentIndustryClassificationRbics implements
    * Get level2
    * @return level2
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LEVEL2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -133,7 +134,7 @@ public class InlineResponse20014InstrumentIndustryClassificationRbics implements
    * Get level3
    * @return level3
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LEVEL3)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -159,7 +160,7 @@ public class InlineResponse20014InstrumentIndustryClassificationRbics implements
    * Get level4
    * @return level4
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LEVEL4)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -185,7 +186,7 @@ public class InlineResponse20014InstrumentIndustryClassificationRbics implements
    * Get level5
    * @return level5
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LEVEL5)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -211,7 +212,7 @@ public class InlineResponse20014InstrumentIndustryClassificationRbics implements
    * Get level6
    * @return level6
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LEVEL6)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

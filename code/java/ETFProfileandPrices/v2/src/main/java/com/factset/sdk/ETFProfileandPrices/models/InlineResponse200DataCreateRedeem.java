@@ -38,7 +38,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse200DataCreateRedeem.JSON_PROPERTY_UNIT_COST,
   InlineResponse200DataCreateRedeem.JSON_PROPERTY_UNIT_SIZE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse200DataCreateRedeem implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -60,7 +61,7 @@ public class InlineResponse200DataCreateRedeem implements Serializable {
    * The standard fee in the ETP currency to create or redeem one unit of an ETP. This data is available for the US regions..
    * @return unitCost
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The standard fee in the ETP currency to create or redeem one unit of an ETP. This data is available for the US regions..")
   @JsonProperty(JSON_PROPERTY_UNIT_COST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,7 +87,7 @@ public class InlineResponse200DataCreateRedeem implements Serializable {
    * The minimum ETP share block at which issuers are willing to perform creations or redemptions per prospectus or other filing documents. This data is available for the US regions.
    * @return unitSize
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The minimum ETP share block at which issuers are willing to perform creations or redemptions per prospectus or other filing documents. This data is available for the US regions.")
   @JsonProperty(JSON_PROPERTY_UNIT_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

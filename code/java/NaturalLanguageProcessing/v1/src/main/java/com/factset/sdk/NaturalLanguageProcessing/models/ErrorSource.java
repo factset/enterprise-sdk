@@ -37,7 +37,8 @@ import com.factset.sdk.NaturalLanguageProcessing.JSON;
   ErrorSource.JSON_PROPERTY_PARAMETER,
   ErrorSource.JSON_PROPERTY_POINTER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ErrorSource implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -69,7 +70,7 @@ public class ErrorSource implements Serializable {
    * A string indicating which path or URI query parameter caused the error.
    * @return parameter
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "A string indicating which path or URI query parameter caused the error.")
   @JsonProperty(JSON_PROPERTY_PARAMETER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -95,7 +96,7 @@ public class ErrorSource implements Serializable {
    * More details pointing to the error.
    * @return pointer
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "More details pointing to the error.")
   @JsonProperty(JSON_PROPERTY_POINTER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

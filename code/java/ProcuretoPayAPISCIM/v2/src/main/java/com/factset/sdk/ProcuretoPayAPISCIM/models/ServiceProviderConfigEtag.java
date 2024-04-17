@@ -36,7 +36,8 @@ import com.factset.sdk.ProcuretoPayAPISCIM.JSON;
 @JsonPropertyOrder({
   ServiceProviderConfigEtag.JSON_PROPERTY_SUPPORTED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ServiceProviderConfigEtag implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -58,7 +59,7 @@ public class ServiceProviderConfigEtag implements Serializable {
    * A Boolean value specifying whether or not the operation is supported.
    * @return supported
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "false", required = true, value = "A Boolean value specifying whether or not the operation is supported.")
   @JsonProperty(JSON_PROPERTY_SUPPORTED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

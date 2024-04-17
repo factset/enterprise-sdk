@@ -38,7 +38,8 @@ import com.factset.sdk.FactSetTickHistory.JSON;
   DateTimePeriod.JSON_PROPERTY_START,
   DateTimePeriod.JSON_PROPERTY_END
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class DateTimePeriod implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -60,7 +61,7 @@ public class DateTimePeriod implements Serializable {
    * The date for (or from which) the data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format. 
    * @return start
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2012-01-01T11:00Z", value = "The date for (or from which) the data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format. ")
   @JsonProperty(JSON_PROPERTY_START)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,7 +87,7 @@ public class DateTimePeriod implements Serializable {
    * The date to which data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format. 
    * @return end
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2012-01-30T11:20:30Z", value = "The date to which data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format. ")
   @JsonProperty(JSON_PROPERTY_END)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

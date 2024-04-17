@@ -40,7 +40,8 @@ import com.factset.sdk.SPAREngine.JSON;
   ErrorSource.JSON_PROPERTY_POINTER,
   ErrorSource.JSON_PROPERTY_PARAMETER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ErrorSource implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -62,7 +63,7 @@ public class ErrorSource implements Serializable {
    * Get pointer
    * @return pointer
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -96,7 +97,7 @@ public class ErrorSource implements Serializable {
    * Get parameter
    * @return parameter
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

@@ -58,7 +58,8 @@ import com.factset.sdk.SPGlobalFixedIncomeEvaluatedPricesandAnalytics.JSON;
   AbsDetails.JSON_PROPERTY_WAL,
   AbsDetails.JSON_PROPERTY_WA_L_PRINCIPAL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class AbsDetails implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -131,7 +132,7 @@ public class AbsDetails implements Serializable {
    * Identifier that was used for the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "US05522RDC97", value = "Identifier that was used for the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -157,7 +158,7 @@ public class AbsDetails implements Serializable {
    * FactSet Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security&#39;s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "V1D5YM-S", value = "FactSet Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.")
   @JsonIgnore
 
@@ -191,7 +192,7 @@ public class AbsDetails implements Serializable {
    * The date on which the price is calculated.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Thu Jan 26 00:00:00 UTC 2023", value = "The date on which the price is calculated.")
   @JsonIgnore
 
@@ -225,7 +226,7 @@ public class AbsDetails implements Serializable {
    * A vector of conditional default rate assumption used in the evaluated price of the instrument. CDR represents the percentage of outstanding principal balances in the pool that are in default.
    * @return cdr
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0", value = "A vector of conditional default rate assumption used in the evaluated price of the instrument. CDR represents the percentage of outstanding principal balances in the pool that are in default.")
   @JsonIgnore
 
@@ -259,7 +260,7 @@ public class AbsDetails implements Serializable {
    * Returns the flat CPR that would equate to the same weighted average life (WAL) projection for Agency CMOs as the base case CPR vector
    * @return cpr
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Returns the flat CPR that would equate to the same weighted average life (WAL) projection for Agency CMOs as the base case CPR vector")
   @JsonIgnore
 
@@ -293,7 +294,7 @@ public class AbsDetails implements Serializable {
    * The representation of the amount of the principal of an amortizing bond that has been paid out or written down since issuance, expressed as a percentage of the original total principal
    * @return factor
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "The representation of the amount of the principal of an amortizing bond that has been paid out or written down since issuance, expressed as a percentage of the original total principal")
   @JsonIgnore
 
@@ -327,7 +328,7 @@ public class AbsDetails implements Serializable {
    * The projected agency pool factor between factor date and the day the actual factor is reported to investors (only applicable for agency passthrough securities).
    * @return estimatedFactor
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The projected agency pool factor between factor date and the day the actual factor is reported to investors (only applicable for agency passthrough securities).")
   @JsonIgnore
 
@@ -361,7 +362,7 @@ public class AbsDetails implements Serializable {
    * Returns the agency pool bid price that is adjusted to account for prepayment expectations during the first five business days of the month before the factors are reported.
    * @return bidPricePreFactor
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Returns the agency pool bid price that is adjusted to account for prepayment expectations during the first five business days of the month before the factors are reported.")
   @JsonIgnore
 
@@ -395,7 +396,7 @@ public class AbsDetails implements Serializable {
    * Returns the agency pool mid price that is adjusted to account for prepayment expectations during the first five business days of the month before the factors are reported.
    * @return midPricePreFactor
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Returns the agency pool mid price that is adjusted to account for prepayment expectations during the first five business days of the month before the factors are reported.")
   @JsonIgnore
 
@@ -429,7 +430,7 @@ public class AbsDetails implements Serializable {
    * Returns the agency pool ask price that is adjusted to account for prepayment expectations during the first five business days of the month before the factors are reported.
    * @return askPricePreFactor
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Returns the agency pool ask price that is adjusted to account for prepayment expectations during the first five business days of the month before the factors are reported.")
   @JsonIgnore
 
@@ -463,7 +464,7 @@ public class AbsDetails implements Serializable {
    * Returns the agency pool CPR estimate that is adjusted to account for prepayment expectations during the first five business days of the month before the factors are reported.
    * @return cpREstimatePreFactor
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Returns the agency pool CPR estimate that is adjusted to account for prepayment expectations during the first five business days of the month before the factors are reported.")
   @JsonIgnore
 
@@ -497,7 +498,7 @@ public class AbsDetails implements Serializable {
    * Returns the market liquidity score.
    * @return liquidity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "Returns the market liquidity score.")
   @JsonIgnore
 
@@ -531,7 +532,7 @@ public class AbsDetails implements Serializable {
    * Returns the number of ticks, in 32nds format, above the TBA price.
    * @return payUp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Returns the number of ticks, in 32nds format, above the TBA price.")
   @JsonIgnore
 
@@ -565,7 +566,7 @@ public class AbsDetails implements Serializable {
    * Returns the specified pool characteristics being used to drive the pay-up.
    * @return payUpDescription
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Returns the specified pool characteristics being used to drive the pay-up.")
   @JsonIgnore
 
@@ -599,7 +600,7 @@ public class AbsDetails implements Serializable {
    * &#39;Returns a vector of values of speed used in the evaluated price of the instrument. It is the estimated rate at which borrowers pays off the obligations that underlies an instrument.
    * @return prePayRate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "20", value = "'Returns a vector of values of speed used in the evaluated price of the instrument. It is the estimated rate at which borrowers pays off the obligations that underlies an instrument.")
   @JsonIgnore
 
@@ -633,7 +634,7 @@ public class AbsDetails implements Serializable {
    * Returns the type of prepayment speed used in the evaluated price of the instrument.
    * @return prePayType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "SMM", value = "Returns the type of prepayment speed used in the evaluated price of the instrument.")
   @JsonIgnore
 
@@ -667,7 +668,7 @@ public class AbsDetails implements Serializable {
    * Returns a vector of Loss Severity assumption used in evaluated price of the instrument. It is the percentage of the principal applied to the defaulted loan balance.
    * @return severity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0", value = "Returns a vector of Loss Severity assumption used in evaluated price of the instrument. It is the percentage of the principal applied to the defaulted loan balance.")
   @JsonIgnore
 
@@ -701,7 +702,7 @@ public class AbsDetails implements Serializable {
    * Returns the Weighted Average Life of the instrument.
    * @return wal
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0.886", value = "Returns the Weighted Average Life of the instrument.")
   @JsonIgnore
 
@@ -735,7 +736,7 @@ public class AbsDetails implements Serializable {
    * Returns the Weighted Average Life of the instrument.
    * @return waLPrincipal
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0.886", value = "Returns the Weighted Average Life of the instrument.")
   @JsonIgnore
 

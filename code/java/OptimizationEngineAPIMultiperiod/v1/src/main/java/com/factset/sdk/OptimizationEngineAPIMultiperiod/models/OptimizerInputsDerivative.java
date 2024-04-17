@@ -38,7 +38,8 @@ import com.factset.sdk.OptimizationEngineAPIMultiperiod.JSON;
   OptimizerInputsDerivative.JSON_PROPERTY_FUTURE,
   OptimizerInputsDerivative.JSON_PROPERTY_FORWARD
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerInputsDerivative implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class OptimizerInputsDerivative implements Serializable {
    * Index of the offset. E.g. CASH_USD_FUT for Futures or 2nd leg for Forwards. -1 if no offset generated
    * @return offsetIndex
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Index of the offset. E.g. CASH_USD_FUT for Futures or 2nd leg for Forwards. -1 if no offset generated")
   @JsonProperty(JSON_PROPERTY_OFFSET_INDEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -89,7 +90,7 @@ public class OptimizerInputsDerivative implements Serializable {
    * Get future
    * @return future
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FUTURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +116,7 @@ public class OptimizerInputsDerivative implements Serializable {
    * Nothing else is needed for forwards.
    * @return forward
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Nothing else is needed for forwards.")
   @JsonProperty(JSON_PROPERTY_FORWARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

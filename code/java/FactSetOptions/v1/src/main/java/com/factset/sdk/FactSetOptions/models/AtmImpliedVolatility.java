@@ -51,7 +51,8 @@ import com.factset.sdk.FactSetOptions.JSON;
   AtmImpliedVolatility.JSON_PROPERTY_PUT_A_T_M_IMPL_VOL_MARKET,
   AtmImpliedVolatility.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class AtmImpliedVolatility implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -100,7 +101,7 @@ public class AtmImpliedVolatility implements Serializable {
    * Option at the money implied volatility.
    * @return aTMImplVol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "58.015339", value = "Option at the money implied volatility.")
   @JsonIgnore
 
@@ -134,7 +135,7 @@ public class AtmImpliedVolatility implements Serializable {
    * Option at the money implied volatility market.
    * @return aTMImplVolMarket
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "58.579093", value = "Option at the money implied volatility market.")
   @JsonIgnore
 
@@ -168,7 +169,7 @@ public class AtmImpliedVolatility implements Serializable {
    * Call option at the money implied volatility.
    * @return callATMImplVol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "58.015339", value = "Call option at the money implied volatility.")
   @JsonIgnore
 
@@ -202,7 +203,7 @@ public class AtmImpliedVolatility implements Serializable {
    * Call option at the money implied volatility market.
    * @return callATMImplVolMarket
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "58.791874", value = "Call option at the money implied volatility market.")
   @JsonIgnore
 
@@ -236,7 +237,7 @@ public class AtmImpliedVolatility implements Serializable {
    * The date of the data represented in YYYY-MM-DD format
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Fri May 14 00:00:00 UTC 2021", value = "The date of the data represented in YYYY-MM-DD format")
   @JsonIgnore
 
@@ -270,7 +271,7 @@ public class AtmImpliedVolatility implements Serializable {
    * Option Exchange ISO. Visit [OA 14925](https://my.apps.factset.com/oa/pages/14925) for a list of Exchange ISOs.
    * @return exchange
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USA", value = "Option Exchange ISO. Visit [OA 14925](https://my.apps.factset.com/oa/pages/14925) for a list of Exchange ISOs.")
   @JsonIgnore
 
@@ -304,7 +305,7 @@ public class AtmImpliedVolatility implements Serializable {
    * FactSet&#39;s Security Permanent Identifier in XXXXXX-S format.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "WWDPYB-S", value = "FactSet's Security Permanent Identifier in XXXXXX-S format.")
   @JsonIgnore
 
@@ -338,7 +339,7 @@ public class AtmImpliedVolatility implements Serializable {
    * The period of the At-the-money volatility at current, 1, 2, 3, 4, and 6 month periods.
    * @return period
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "The period of the At-the-money volatility at current, 1, 2, 3, 4, and 6 month periods.")
   @JsonIgnore
 
@@ -372,7 +373,7 @@ public class AtmImpliedVolatility implements Serializable {
    * Put Option at the money implied volatility.
    * @return putATMImplVol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "58.015339", value = "Put Option at the money implied volatility.")
   @JsonIgnore
 
@@ -406,7 +407,7 @@ public class AtmImpliedVolatility implements Serializable {
    * Put Option at the money implied volatility market.
    * @return putATMImplVolMarket
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "58.810684", value = "Put Option at the money implied volatility market.")
   @JsonIgnore
 
@@ -440,7 +441,7 @@ public class AtmImpliedVolatility implements Serializable {
    * The requested identifier submitted in the query.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "TSLA", value = "The requested identifier submitted in the query.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

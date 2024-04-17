@@ -54,7 +54,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20013Data.JSON_PROPERTY_FSYM,
   InlineResponse20013Data.JSON_PROPERTY_INSTRUMENT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20013Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -100,7 +101,7 @@ public class InlineResponse20013Data implements Serializable {
    * Identifier of a notation.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of a notation.")
   @JsonIgnore
 
@@ -134,7 +135,7 @@ public class InlineResponse20013Data implements Serializable {
    * The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.
    * @return symbol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.")
   @JsonIgnore
 
@@ -168,7 +169,7 @@ public class InlineResponse20013Data implements Serializable {
    * Get market
    * @return market
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MARKET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -194,7 +195,7 @@ public class InlineResponse20013Data implements Serializable {
    * Get currency
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -220,7 +221,7 @@ public class InlineResponse20013Data implements Serializable {
    * Indicates whether the notation is an alternative one, i.e. not the original notation of the index constituent.
    * @return isAlternative
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the notation is an alternative one, i.e. not the original notation of the index constituent.")
   @JsonIgnore
 
@@ -254,7 +255,7 @@ public class InlineResponse20013Data implements Serializable {
    * Get trade
    * @return trade
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TRADE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -280,7 +281,7 @@ public class InlineResponse20013Data implements Serializable {
    * Quality of the trade-related attributes, see attributes &#x60;trade&#x60; and &#x60;accumulated&#x60;.
    * @return quality
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Quality of the trade-related attributes, see attributes `trade` and `accumulated`.")
   @JsonIgnore
 
@@ -314,7 +315,7 @@ public class InlineResponse20013Data implements Serializable {
    * Get accumulated
    * @return accumulated
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ACCUMULATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -340,7 +341,7 @@ public class InlineResponse20013Data implements Serializable {
    * Get fsym
    * @return fsym
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FSYM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -366,7 +367,7 @@ public class InlineResponse20013Data implements Serializable {
    * Get instrument
    * @return instrument
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INSTRUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

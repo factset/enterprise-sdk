@@ -37,7 +37,8 @@ import com.factset.sdk.FixedIncomeAnalyticsBatcher.JSON;
   FIABCalculationStatusSummary.JSON_PROPERTY_REQUESTTIME,
   FIABCalculationStatusSummary.JSON_PROPERTY_LASTPOLLTIME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FIABCalculationStatusSummary implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -59,7 +60,7 @@ public class FIABCalculationStatusSummary implements Serializable {
    * Request time of calculation.
    * @return requesttime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Request time of calculation.")
   @JsonProperty(JSON_PROPERTY_REQUESTTIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -85,7 +86,7 @@ public class FIABCalculationStatusSummary implements Serializable {
    * Last poll time of calculation.
    * @return lastpolltime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Last poll time of calculation.")
   @JsonProperty(JSON_PROPERTY_LASTPOLLTIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

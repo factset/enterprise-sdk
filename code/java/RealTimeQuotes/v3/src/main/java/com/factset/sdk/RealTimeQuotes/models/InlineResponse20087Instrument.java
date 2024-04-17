@@ -51,7 +51,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20087Instrument.JSON_PROPERTY_ASSET_CLASS,
   InlineResponse20087Instrument.JSON_PROPERTY_INSTRUMENT_CATEGORY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20087Instrument implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -88,7 +89,7 @@ public class InlineResponse20087Instrument implements Serializable {
    * Identifier of the instrument.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the instrument.")
   @JsonIgnore
 
@@ -122,7 +123,7 @@ public class InlineResponse20087Instrument implements Serializable {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -148,7 +149,7 @@ public class InlineResponse20087Instrument implements Serializable {
    * International Securities Identification Number of the instrument.
    * @return isin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "International Securities Identification Number of the instrument.")
   @JsonIgnore
 
@@ -182,7 +183,7 @@ public class InlineResponse20087Instrument implements Serializable {
    * Get nsin
    * @return nsin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NSIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -208,7 +209,7 @@ public class InlineResponse20087Instrument implements Serializable {
    * Get fsym
    * @return fsym
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FSYM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -234,7 +235,7 @@ public class InlineResponse20087Instrument implements Serializable {
    * Get assetClass
    * @return assetClass
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ASSET_CLASS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -268,7 +269,7 @@ public class InlineResponse20087Instrument implements Serializable {
    * Set of categories assigned to the instrument. The set of returned categories is limited to the values provided in the request parameter &#x60;category.restrict.ids.&#x60; Empty, if &#x60;category.restrict.ids&#x60; has not been used.
    * @return instrumentCategory
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Set of categories assigned to the instrument. The set of returned categories is limited to the values provided in the request parameter `category.restrict.ids.` Empty, if `category.restrict.ids` has not been used.")
   @JsonProperty(JSON_PROPERTY_INSTRUMENT_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

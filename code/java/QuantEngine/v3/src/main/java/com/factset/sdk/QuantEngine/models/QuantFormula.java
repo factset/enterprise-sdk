@@ -35,7 +35,8 @@ import com.factset.sdk.QuantEngine.JSON;
 @JsonPropertyOrder({
   QuantFormula.JSON_PROPERTY_SOURCE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class QuantFormula implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -101,7 +102,7 @@ public class QuantFormula implements Serializable {
    * Get source
    * @return source
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SOURCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

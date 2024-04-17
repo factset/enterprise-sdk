@@ -45,7 +45,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2003DataTargetPrice.JSON_PROPERTY_MEAN,
   InlineResponse2003DataTargetPrice.JSON_PROPERTY_CURRENCY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2003DataTargetPrice implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -70,7 +71,7 @@ public class InlineResponse2003DataTargetPrice implements Serializable {
    * Date of the latest update.
    * @return latestUpdate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Date of the latest update.")
   @JsonIgnore
 
@@ -104,7 +105,7 @@ public class InlineResponse2003DataTargetPrice implements Serializable {
    * Mean value.
    * @return mean
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Mean value.")
   @JsonIgnore
 
@@ -138,7 +139,7 @@ public class InlineResponse2003DataTargetPrice implements Serializable {
    * Get currency
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

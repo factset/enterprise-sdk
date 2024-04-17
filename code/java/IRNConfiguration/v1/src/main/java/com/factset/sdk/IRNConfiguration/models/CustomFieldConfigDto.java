@@ -57,7 +57,8 @@ import com.factset.sdk.IRNConfiguration.JSON;
   CustomFieldConfigDto.JSON_PROPERTY_EXTENDED_TEXT_CONFIG,
   CustomFieldConfigDto.JSON_PROPERTY_OPTIONS_CONFIG
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CustomFieldConfigDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -115,7 +116,7 @@ public class CustomFieldConfigDto implements Serializable {
    * Get id
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -141,7 +142,7 @@ public class CustomFieldConfigDto implements Serializable {
    * Get code
    * @return code
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -175,7 +176,7 @@ public class CustomFieldConfigDto implements Serializable {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -209,7 +210,7 @@ public class CustomFieldConfigDto implements Serializable {
    * Get source
    * @return source
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -243,7 +244,7 @@ public class CustomFieldConfigDto implements Serializable {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -277,7 +278,7 @@ public class CustomFieldConfigDto implements Serializable {
    * Get usePreviousValue
    * @return usePreviousValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_USE_PREVIOUS_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -303,7 +304,7 @@ public class CustomFieldConfigDto implements Serializable {
    * Get isMandatory
    * @return isMandatory
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IS_MANDATORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -329,7 +330,7 @@ public class CustomFieldConfigDto implements Serializable {
    * Get isHidden
    * @return isHidden
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IS_HIDDEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -355,7 +356,7 @@ public class CustomFieldConfigDto implements Serializable {
    * Get isFilePath
    * @return isFilePath
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IS_FILE_PATH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -381,7 +382,7 @@ public class CustomFieldConfigDto implements Serializable {
    * Get formulaConfig
    * @return formulaConfig
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FORMULA_CONFIG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -407,7 +408,7 @@ public class CustomFieldConfigDto implements Serializable {
    * Get numericConfig
    * @return numericConfig
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NUMERIC_CONFIG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -433,7 +434,7 @@ public class CustomFieldConfigDto implements Serializable {
    * Get integerConfig
    * @return integerConfig
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INTEGER_CONFIG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -459,7 +460,7 @@ public class CustomFieldConfigDto implements Serializable {
    * Get extendedTextConfig
    * @return extendedTextConfig
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EXTENDED_TEXT_CONFIG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -485,7 +486,7 @@ public class CustomFieldConfigDto implements Serializable {
    * Get optionsConfig
    * @return optionsConfig
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OPTIONS_CONFIG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

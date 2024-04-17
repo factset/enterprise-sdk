@@ -43,7 +43,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20062DataGeneralIssuer.JSON_PROPERTY_NAME,
   InlineResponse20062DataGeneralIssuer.JSON_PROPERTY_LEI
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20062DataGeneralIssuer implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class InlineResponse20062DataGeneralIssuer implements Serializable {
    * Identifier of the issuer.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the issuer.")
   @JsonIgnore
 
@@ -102,7 +103,7 @@ public class InlineResponse20062DataGeneralIssuer implements Serializable {
    * Name of the issuer.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the issuer.")
   @JsonIgnore
 
@@ -136,7 +137,7 @@ public class InlineResponse20062DataGeneralIssuer implements Serializable {
    * Legal entity identifier (LEI) of the issuer.
    * @return lei
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Legal entity identifier (LEI) of the issuer.")
   @JsonIgnore
 

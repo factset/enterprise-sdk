@@ -42,7 +42,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2001DataCashFlowNetInvestingCashFlow.JSON_PROPERTY_VALUE,
   InlineResponse2001DataCashFlowNetInvestingCashFlow.JSON_PROPERTY_GROWTH
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2001DataCashFlowNetInvestingCashFlow implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class InlineResponse2001DataCashFlowNetInvestingCashFlow implements Seria
    * Value of the net cash flow from investing activities.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Value of the net cash flow from investing activities.")
   @JsonIgnore
 
@@ -98,7 +99,7 @@ public class InlineResponse2001DataCashFlowNetInvestingCashFlow implements Seria
    * Annual growth rate of the net cash flow from investing activities.
    * @return growth
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Annual growth rate of the net cash flow from investing activities.")
   @JsonIgnore
 

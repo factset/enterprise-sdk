@@ -61,7 +61,8 @@ import com.factset.sdk.IRNMeetings.JSON;
   MeetingDto.JSON_PROPERTY_RELATED_RECORDS,
   MeetingDto.JSON_PROPERTY_RELATED_CONTACTS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class MeetingDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -134,7 +135,7 @@ public class MeetingDto implements Serializable {
    * Get id
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -160,7 +161,7 @@ public class MeetingDto implements Serializable {
    * Get start
    * @return start
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -194,7 +195,7 @@ public class MeetingDto implements Serializable {
    * Get end
    * @return end
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -228,7 +229,7 @@ public class MeetingDto implements Serializable {
    * Get createdAt
    * @return createdAt
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -262,7 +263,7 @@ public class MeetingDto implements Serializable {
    * Get authorId
    * @return authorId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AUTHOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -288,7 +289,7 @@ public class MeetingDto implements Serializable {
    * Get title
    * @return title
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -322,7 +323,7 @@ public class MeetingDto implements Serializable {
    * Get identifier
    * @return identifier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -358,7 +359,7 @@ public class MeetingDto implements Serializable {
    * @deprecated
   **/
   @Deprecated
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -392,7 +393,7 @@ public class MeetingDto implements Serializable {
    * Get organizerId
    * @return organizerId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ORGANIZER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -418,7 +419,7 @@ public class MeetingDto implements Serializable {
    * Get body
    * @return body
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -452,7 +453,7 @@ public class MeetingDto implements Serializable {
    * Get averageRating
    * @return averageRating
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -486,7 +487,7 @@ public class MeetingDto implements Serializable {
    * Get alertAttendees
    * @return alertAttendees
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ALERT_ATTENDEES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -512,7 +513,7 @@ public class MeetingDto implements Serializable {
    * Get alertAuthor
    * @return alertAuthor
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ALERT_AUTHOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -550,7 +551,7 @@ public class MeetingDto implements Serializable {
    * Get locations
    * @return locations
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -596,7 +597,7 @@ public class MeetingDto implements Serializable {
    * Get attendees
    * @return attendees
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -642,7 +643,7 @@ public class MeetingDto implements Serializable {
    * Get customFields
    * @return customFields
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -688,7 +689,7 @@ public class MeetingDto implements Serializable {
    * Get relatedSymbols
    * @return relatedSymbols
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -722,7 +723,7 @@ public class MeetingDto implements Serializable {
    * Get relatedRecords
    * @return relatedRecords
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RELATED_RECORDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -760,7 +761,7 @@ public class MeetingDto implements Serializable {
    * Get relatedContacts
    * @return relatedContacts
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

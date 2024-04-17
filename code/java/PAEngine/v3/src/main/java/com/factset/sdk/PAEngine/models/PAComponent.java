@@ -49,7 +49,8 @@ import com.factset.sdk.PAEngine.JSON;
   PAComponent.JSON_PROPERTY_NAME,
   PAComponent.JSON_PROPERTY_CATEGORY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PAComponent implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -92,7 +93,7 @@ public class PAComponent implements Serializable {
    * Component identifier.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Component identifier.")
   @JsonIgnore
 
@@ -138,7 +139,7 @@ public class PAComponent implements Serializable {
    * List of accounts saved in the PA document.
    * @return accounts
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of accounts saved in the PA document.")
   @JsonIgnore
 
@@ -184,7 +185,7 @@ public class PAComponent implements Serializable {
    * List of benchmarks saved in the PA document.
    * @return benchmarks
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of benchmarks saved in the PA document.")
   @JsonIgnore
 
@@ -218,7 +219,7 @@ public class PAComponent implements Serializable {
    * Get currencyisocode
    * @return currencyisocode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -252,7 +253,7 @@ public class PAComponent implements Serializable {
    * Get dates
    * @return dates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -278,7 +279,7 @@ public class PAComponent implements Serializable {
    * Is the component type snapshot or subperiod.
    * @return snapshot
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Is the component type snapshot or subperiod.")
   @JsonProperty(JSON_PROPERTY_SNAPSHOT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -304,7 +305,7 @@ public class PAComponent implements Serializable {
    * The path to the document
    * @return path
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The path to the document")
   @JsonIgnore
 
@@ -338,7 +339,7 @@ public class PAComponent implements Serializable {
    * Component name.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Component name.")
   @JsonIgnore
 
@@ -372,7 +373,7 @@ public class PAComponent implements Serializable {
    * Component category.
    * @return category
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Component category.")
   @JsonIgnore
 

@@ -37,7 +37,8 @@ import com.factset.sdk.IRNConfiguration.JSON;
   RelationshipCategorySaveDto.JSON_PROPERTY_IS_CONTACT_TO_CONTACT,
   RelationshipCategorySaveDto.JSON_PROPERTY_IS_CONTACT_TO_SYMBOL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class RelationshipCategorySaveDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -70,7 +71,7 @@ public class RelationshipCategorySaveDto implements Serializable {
    * Get categoryName
    * @return categoryName
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CATEGORY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -96,7 +97,7 @@ public class RelationshipCategorySaveDto implements Serializable {
    * Get isContactToContact
    * @return isContactToContact
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IS_CONTACT_TO_CONTACT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -122,7 +123,7 @@ public class RelationshipCategorySaveDto implements Serializable {
    * Get isContactToSymbol
    * @return isContactToSymbol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IS_CONTACT_TO_SYMBOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

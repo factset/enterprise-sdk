@@ -48,7 +48,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20084DataPrice.JSON_PROPERTY_DAYS200,
   InlineResponse20084DataPrice.JSON_PROPERTY_DAYS250
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20084DataPrice implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -88,7 +89,7 @@ public class InlineResponse20084DataPrice implements Serializable {
    * Five trading days.
    * @return days5
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Five trading days.")
   @JsonIgnore
 
@@ -122,7 +123,7 @@ public class InlineResponse20084DataPrice implements Serializable {
    * 20 trading days.
    * @return days20
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "20 trading days.")
   @JsonIgnore
 
@@ -156,7 +157,7 @@ public class InlineResponse20084DataPrice implements Serializable {
    * 30 trading days.
    * @return days30
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "30 trading days.")
   @JsonIgnore
 
@@ -190,7 +191,7 @@ public class InlineResponse20084DataPrice implements Serializable {
    * 38 trading days.
    * @return days38
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "38 trading days.")
   @JsonIgnore
 
@@ -224,7 +225,7 @@ public class InlineResponse20084DataPrice implements Serializable {
    * 50 trading days.
    * @return days50
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "50 trading days.")
   @JsonIgnore
 
@@ -258,7 +259,7 @@ public class InlineResponse20084DataPrice implements Serializable {
    * 100 trading days.
    * @return days100
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "100 trading days.")
   @JsonIgnore
 
@@ -292,7 +293,7 @@ public class InlineResponse20084DataPrice implements Serializable {
    * 200 trading days.
    * @return days200
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "200 trading days.")
   @JsonIgnore
 
@@ -326,7 +327,7 @@ public class InlineResponse20084DataPrice implements Serializable {
    * 250 trading days.
    * @return days250
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "250 trading days.")
   @JsonIgnore
 

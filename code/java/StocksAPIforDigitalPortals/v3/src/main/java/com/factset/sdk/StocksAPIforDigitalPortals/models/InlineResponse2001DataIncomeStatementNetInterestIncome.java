@@ -44,7 +44,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2001DataIncomeStatementNetInterestIncome.JSON_PROPERTY_GROWTH,
   InlineResponse2001DataIncomeStatementNetInterestIncome.JSON_PROPERTY_AFTER_LOAN_LOSS_PROVISION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2001DataIncomeStatementNetInterestIncome implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -69,7 +70,7 @@ public class InlineResponse2001DataIncomeStatementNetInterestIncome implements S
    * Value of the net interest income.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Value of the net interest income.")
   @JsonIgnore
 
@@ -103,7 +104,7 @@ public class InlineResponse2001DataIncomeStatementNetInterestIncome implements S
    * Annual growth rate of the net interest income.
    * @return growth
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Annual growth rate of the net interest income.")
   @JsonIgnore
 
@@ -137,7 +138,7 @@ public class InlineResponse2001DataIncomeStatementNetInterestIncome implements S
    * Get afterLoanLossProvision
    * @return afterLoanLossProvision
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AFTER_LOAN_LOSS_PROVISION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

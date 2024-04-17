@@ -37,7 +37,8 @@ import com.factset.sdk.FactSetSearchAnswers.JSON;
   TextBlockFootingTemplateDataAllOf.JSON_PROPERTY_BODY,
   TextBlockFootingTemplateDataAllOf.JSON_PROPERTY_FOOTING
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class TextBlockFootingTemplateDataAllOf implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -59,7 +60,7 @@ public class TextBlockFootingTemplateDataAllOf implements Serializable {
    * Get body
    * @return body
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BODY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -85,7 +86,7 @@ public class TextBlockFootingTemplateDataAllOf implements Serializable {
    * Get footing
    * @return footing
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FOOTING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

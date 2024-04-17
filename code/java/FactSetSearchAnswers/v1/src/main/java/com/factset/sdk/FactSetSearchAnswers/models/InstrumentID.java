@@ -45,7 +45,8 @@ import com.factset.sdk.FactSetSearchAnswers.JSON;
   InstrumentID.JSON_PROPERTY_S_E_D_O_L,
   InstrumentID.JSON_PROPERTY_TICKER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InstrumentID implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -94,7 +95,7 @@ public class InstrumentID implements Serializable {
    * Get BBG
    * @return BBG
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_B_B_G)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -120,7 +121,7 @@ public class InstrumentID implements Serializable {
    * Get CUSIP
    * @return CUSIP
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_C_U_S_I_P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -146,7 +147,7 @@ public class InstrumentID implements Serializable {
    * Get FDS_ID
    * @return FDS_ID
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_F_D_S_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -172,7 +173,7 @@ public class InstrumentID implements Serializable {
    * Get FDS_TICKER_REGION
    * @return FDS_TICKER_REGION
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_F_D_S_T_I_C_K_E_R_R_E_G_I_O_N)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -198,7 +199,7 @@ public class InstrumentID implements Serializable {
    * Get FDS_TICKER_EXCHANGE
    * @return FDS_TICKER_EXCHANGE
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_F_D_S_T_I_C_K_E_R_E_X_C_H_A_N_G_E)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -224,7 +225,7 @@ public class InstrumentID implements Serializable {
    * Get FIGI
    * @return FIGI
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_F_I_G_I)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -250,7 +251,7 @@ public class InstrumentID implements Serializable {
    * Get ISIN
    * @return ISIN
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_I_S_I_N)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -276,7 +277,7 @@ public class InstrumentID implements Serializable {
    * Get PERMID
    * @return PERMID
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_P_E_R_M_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -302,7 +303,7 @@ public class InstrumentID implements Serializable {
    * Get RIC
    * @return RIC
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_R_I_C)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -328,7 +329,7 @@ public class InstrumentID implements Serializable {
    * Get SEDOL
    * @return SEDOL
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_S_E_D_O_L)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -354,7 +355,7 @@ public class InstrumentID implements Serializable {
    * Get ticker
    * @return ticker
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TICKER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -36,7 +36,8 @@ import com.factset.sdk.FactSetProgrammaticEnvironment.JSON;
   Calculation.JSON_PROPERTY_SCRIPT,
   Calculation.JSON_PROPERTY_NOTEBOOK
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Calculation implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -58,7 +59,7 @@ public class Calculation implements Serializable {
    * The python script that will be executed
    * @return script
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The python script that will be executed")
   @JsonProperty(JSON_PROPERTY_SCRIPT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -84,7 +85,7 @@ public class Calculation implements Serializable {
    * Notebook file to be executed. Only notebooks in the Client directory are currently supported.
    * @return notebook
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Notebook file to be executed. Only notebooks in the Client directory are currently supported.")
   @JsonProperty(JSON_PROPERTY_NOTEBOOK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

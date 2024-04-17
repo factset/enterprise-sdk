@@ -35,7 +35,8 @@ import com.factset.sdk.OFDB.JSON;
 @JsonPropertyOrder({
   InlineResponse200Data.JSON_PROPERTY_MODIFICATION_TIMES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse200Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -62,7 +63,7 @@ public class InlineResponse200Data implements Serializable {
    * Get modificationTimes
    * @return modificationTimes
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MODIFICATION_TIMES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -39,7 +39,8 @@ import com.factset.sdk.Signals.JSON;
   SignalDefinitionData.JSON_PROPERTY_CATEGORIES,
   SignalDefinitionData.JSON_PROPERTY_CONTRACT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SignalDefinitionData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -81,7 +82,7 @@ public class SignalDefinitionData implements Serializable {
    * Get signalId
    * @return signalId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SIGNAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -107,7 +108,7 @@ public class SignalDefinitionData implements Serializable {
    * Get theme
    * @return theme
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_THEME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -138,7 +139,7 @@ public class SignalDefinitionData implements Serializable {
    * Get categories
    * @return categories
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CATEGORIES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -164,7 +165,7 @@ public class SignalDefinitionData implements Serializable {
    * Get contract
    * @return contract
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CONTRACT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

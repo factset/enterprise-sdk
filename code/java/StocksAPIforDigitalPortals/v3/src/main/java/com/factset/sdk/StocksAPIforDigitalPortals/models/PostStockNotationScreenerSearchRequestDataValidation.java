@@ -47,7 +47,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   PostStockNotationScreenerSearchRequestDataValidation.JSON_PROPERTY_INSTRUMENT_SELECTION_LIST,
   PostStockNotationScreenerSearchRequestDataValidation.JSON_PROPERTY_NOTATION_SELECTION_LIST
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostStockNotationScreenerSearchRequestDataValidation implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -84,7 +85,7 @@ public class PostStockNotationScreenerSearchRequestDataValidation implements Ser
    * If &#x60;true&#x60;, only active notations will be returned. The term \&quot;active\&quot; reflects the fact that notations and related data are not being deleted immediately after becoming irrelevant (e.g. because the source does not provide a price anymore), but remains in general retrievable for up to 6 months.
    * @return onlyActive
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "If `true`, only active notations will be returned. The term \"active\" reflects the fact that notations and related data are not being deleted immediately after becoming irrelevant (e.g. because the source does not provide a price anymore), but remains in general retrievable for up to 6 months.")
   @JsonProperty(JSON_PROPERTY_ONLY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -110,7 +111,7 @@ public class PostStockNotationScreenerSearchRequestDataValidation implements Ser
    * If &#x60;true&#x60;, only notations not suspended from trading will be returned.
    * @return onlyNotSuspended
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "If `true`, only notations not suspended from trading will be returned.")
   @JsonProperty(JSON_PROPERTY_ONLY_NOT_SUSPENDED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,7 +137,7 @@ public class PostStockNotationScreenerSearchRequestDataValidation implements Ser
    * Get prices
    * @return prices
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRICES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -162,7 +163,7 @@ public class PostStockNotationScreenerSearchRequestDataValidation implements Ser
    * Get valueUnit
    * @return valueUnit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VALUE_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -188,7 +189,7 @@ public class PostStockNotationScreenerSearchRequestDataValidation implements Ser
    * Get market
    * @return market
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MARKET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -214,7 +215,7 @@ public class PostStockNotationScreenerSearchRequestDataValidation implements Ser
    * Get instrumentSelectionList
    * @return instrumentSelectionList
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INSTRUMENT_SELECTION_LIST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -240,7 +241,7 @@ public class PostStockNotationScreenerSearchRequestDataValidation implements Ser
    * Get notationSelectionList
    * @return notationSelectionList
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NOTATION_SELECTION_LIST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

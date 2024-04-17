@@ -43,7 +43,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20027DataNav.JSON_PROPERTY_LAST,
   InlineResponse20027DataNav.JSON_PROPERTY_TOTAL_RETURN
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20027DataNav implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -123,7 +124,7 @@ public class InlineResponse20027DataNav implements Serializable {
    * Daily net asset value (NAV) of the ETP. This data is available for all the regions.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Daily net asset value (NAV) of the ETP. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -149,7 +150,7 @@ public class InlineResponse20027DataNav implements Serializable {
    * Currency of the ETP&#39;s NAV in ISO 4217 format. This data is available for all the regions.
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Currency of the ETP's NAV in ISO 4217 format. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -175,7 +176,7 @@ public class InlineResponse20027DataNav implements Serializable {
    * Date of first available NAV ex-date. This data is available for all the regions.
    * @return startDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Date of first available NAV ex-date. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_START_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -201,7 +202,7 @@ public class InlineResponse20027DataNav implements Serializable {
    * Get last
    * @return last
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LAST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -227,7 +228,7 @@ public class InlineResponse20027DataNav implements Serializable {
    * ETP NAV calculated by reinvesting dividends and compounding returns. This data is available for all the regions.
    * @return totalReturn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "ETP NAV calculated by reinvesting dividends and compounding returns. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_TOTAL_RETURN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

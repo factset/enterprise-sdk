@@ -42,7 +42,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20052Data.JSON_PROPERTY_NAME,
   InlineResponse20052Data.JSON_PROPERTY_DESCRIPTION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20052Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -67,7 +68,7 @@ public class InlineResponse20052Data implements Serializable {
    * Identifier of the type.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the type.")
   @JsonIgnore
 
@@ -101,7 +102,7 @@ public class InlineResponse20052Data implements Serializable {
    * Name of the type.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the type.")
   @JsonIgnore
 
@@ -135,7 +136,7 @@ public class InlineResponse20052Data implements Serializable {
    * Description of the type.
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Description of the type.")
   @JsonIgnore
 

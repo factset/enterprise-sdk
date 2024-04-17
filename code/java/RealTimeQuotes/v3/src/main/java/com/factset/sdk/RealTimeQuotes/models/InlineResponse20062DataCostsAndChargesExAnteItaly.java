@@ -39,7 +39,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20062DataCostsAndChargesExAnteItaly.JSON_PROPERTY_ONE_OFF_MAXIMUM_FIXED_ENTRY_COST,
   InlineResponse20062DataCostsAndChargesExAnteItaly.JSON_PROPERTY_ONE_OFF_MAXIMUM_FIXED_EXIT_COST
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20062DataCostsAndChargesExAnteItaly implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -61,7 +62,7 @@ public class InlineResponse20062DataCostsAndChargesExAnteItaly implements Serial
    * Get oneOffMaximumFixedEntryCost
    * @return oneOffMaximumFixedEntryCost
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ONE_OFF_MAXIMUM_FIXED_ENTRY_COST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -87,7 +88,7 @@ public class InlineResponse20062DataCostsAndChargesExAnteItaly implements Serial
    * Get oneOffMaximumFixedExitCost
    * @return oneOffMaximumFixedExitCost
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ONE_OFF_MAXIMUM_FIXED_EXIT_COST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

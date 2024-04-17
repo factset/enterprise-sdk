@@ -42,7 +42,8 @@ import com.factset.sdk.DocumentsDistributorDocuments.JSON;
   Checkstatusone.JSON_PROPERTY_END_DATE,
   Checkstatusone.JSON_PROPERTY_PART
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Checkstatusone implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -79,7 +80,7 @@ public class Checkstatusone implements Serializable {
    * Defines the name of the product
    * @return product
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Defines the name of the product")
   @JsonProperty(JSON_PROPERTY_PRODUCT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -105,7 +106,7 @@ public class Checkstatusone implements Serializable {
    * Unique id to get the xml files for the requested date
    * @return jobID
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Unique id to get the xml files for the requested date")
   @JsonProperty(JSON_PROPERTY_JOB_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -131,7 +132,7 @@ public class Checkstatusone implements Serializable {
    * Returns any of the 2 results Submitted -&gt;Running-&gt;Completed and Failed
    * @return status
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Returns any of the 2 results Submitted ->Running->Completed and Failed")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -157,7 +158,7 @@ public class Checkstatusone implements Serializable {
    * Returns how much percentage of  task is completed for the requested jobID
    * @return percentDone
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Returns how much percentage of  task is completed for the requested jobID")
   @JsonProperty(JSON_PROPERTY_PERCENT_DONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -183,7 +184,7 @@ public class Checkstatusone implements Serializable {
    * The date from which the data is required in YYYY-MM-DDTHH:MM:SSZ format
    * @return startDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The date from which the data is required in YYYY-MM-DDTHH:MM:SSZ format")
   @JsonProperty(JSON_PROPERTY_START_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -209,7 +210,7 @@ public class Checkstatusone implements Serializable {
    * The date until which the data is fetched in YYYY-MM-DDTHH:MM:SSZ format
    * @return endDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The date until which the data is fetched in YYYY-MM-DDTHH:MM:SSZ format")
   @JsonProperty(JSON_PROPERTY_END_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -235,7 +236,7 @@ public class Checkstatusone implements Serializable {
    * Returns the part number of the jobID
    * @return part
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Returns the part number of the jobID")
   @JsonProperty(JSON_PROPERTY_PART)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

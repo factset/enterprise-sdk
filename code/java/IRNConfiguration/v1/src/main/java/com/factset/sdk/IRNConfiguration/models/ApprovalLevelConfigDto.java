@@ -40,7 +40,8 @@ import com.factset.sdk.IRNConfiguration.JSON;
   ApprovalLevelConfigDto.JSON_PROPERTY_NAME,
   ApprovalLevelConfigDto.JSON_PROPERTY_APPROVER_IDS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ApprovalLevelConfigDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -62,7 +63,7 @@ public class ApprovalLevelConfigDto implements Serializable {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -108,7 +109,7 @@ public class ApprovalLevelConfigDto implements Serializable {
    * Get approverIds
    * @return approverIds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

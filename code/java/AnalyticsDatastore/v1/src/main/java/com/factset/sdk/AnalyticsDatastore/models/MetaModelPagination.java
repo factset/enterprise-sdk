@@ -37,7 +37,8 @@ import com.factset.sdk.AnalyticsDatastore.JSON;
   MetaModelPagination.JSON_PROPERTY_TOTAL,
   MetaModelPagination.JSON_PROPERTY_IS_ESTIMATED_TOTAL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class MetaModelPagination implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -59,7 +60,7 @@ public class MetaModelPagination implements Serializable {
    * Total number of entries in the result set
    * @return total
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "Total number of entries in the result set")
   @JsonProperty(JSON_PROPERTY_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -85,7 +86,7 @@ public class MetaModelPagination implements Serializable {
    * Flag indicating that the value of total is estimated
    * @return isEstimatedTotal
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "false", value = "Flag indicating that the value of total is estimated")
   @JsonProperty(JSON_PROPERTY_IS_ESTIMATED_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -39,7 +39,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse2004Data.JSON_PROPERTY_REPORT_DATE,
   InlineResponse2004Data.JSON_PROPERTY_CLASSIFICATIONS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2004Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -61,7 +62,7 @@ public class InlineResponse2004Data implements Serializable {
    * Reporting date for the allocations.
    * @return reportDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Reporting date for the allocations.")
   @JsonProperty(JSON_PROPERTY_REPORT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -95,7 +96,7 @@ public class InlineResponse2004Data implements Serializable {
    * List of allocations classified by a holding&#39;s economic development status, sorted by weight in descending order.
    * @return classifications
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of allocations classified by a holding's economic development status, sorted by weight in descending order.")
   @JsonProperty(JSON_PROPERTY_CLASSIFICATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

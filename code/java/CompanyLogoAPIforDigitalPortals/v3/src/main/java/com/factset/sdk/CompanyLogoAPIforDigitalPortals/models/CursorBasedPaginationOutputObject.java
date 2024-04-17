@@ -40,7 +40,8 @@ import com.factset.sdk.CompanyLogoAPIforDigitalPortals.JSON;
   CursorBasedPaginationOutputObject.JSON_PROPERTY_NEXT,
   CursorBasedPaginationOutputObject.JSON_PROPERTY_PREVIOUS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CursorBasedPaginationOutputObject implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -82,7 +83,7 @@ public class CursorBasedPaginationOutputObject implements Serializable {
    * Total number of entries in the result set.
    * @return total
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Total number of entries in the result set.")
   @JsonProperty(JSON_PROPERTY_TOTAL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -108,7 +109,7 @@ public class CursorBasedPaginationOutputObject implements Serializable {
    * Flag indicating that the value of &#x60;total&#x60; is estimated.
    * @return isEstimatedTotal
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Flag indicating that the value of `total` is estimated.")
   @JsonProperty(JSON_PROPERTY_IS_ESTIMATED_TOTAL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -134,7 +135,7 @@ public class CursorBasedPaginationOutputObject implements Serializable {
    * The next cursor position to use in the parameter &#x60;pagination.cursor&#x60; for an endpoint that supports cursor-based pagination, otherwise &#x60;null&#x60;.
    * @return next
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The next cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination, otherwise `null`.")
   @JsonProperty(JSON_PROPERTY_NEXT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -160,7 +161,7 @@ public class CursorBasedPaginationOutputObject implements Serializable {
    * The previous cursor position to use in the parameter &#x60;pagination.cursor&#x60; for an endpoint that supports cursor-based pagination. If a previous cursor position is not supported or available, &#x60;previous&#x60; is &#x60;null&#x60;.
    * @return previous
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The previous cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination. If a previous cursor position is not supported or available, `previous` is `null`.")
   @JsonProperty(JSON_PROPERTY_PREVIOUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

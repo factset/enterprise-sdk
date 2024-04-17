@@ -42,7 +42,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2001DataBalanceSheetTotalLoans.JSON_PROPERTY_VALUE,
   InlineResponse2001DataBalanceSheetTotalLoans.JSON_PROPERTY_GROWTH
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2001DataBalanceSheetTotalLoans implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class InlineResponse2001DataBalanceSheetTotalLoans implements Serializabl
    * Value of the total loans.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Value of the total loans.")
   @JsonIgnore
 
@@ -98,7 +99,7 @@ public class InlineResponse2001DataBalanceSheetTotalLoans implements Serializabl
    * Annual growth rate of the total loans.
    * @return growth
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Annual growth rate of the total loans.")
   @JsonIgnore
 

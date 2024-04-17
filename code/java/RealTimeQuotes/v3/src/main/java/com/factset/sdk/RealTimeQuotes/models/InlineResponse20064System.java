@@ -42,7 +42,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20064System.JSON_PROPERTY_ID,
   InlineResponse20064System.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20064System implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class InlineResponse20064System implements Serializable {
    * Identifier of the rating system.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the rating system.")
   @JsonIgnore
 
@@ -98,7 +99,7 @@ public class InlineResponse20064System implements Serializable {
    * Official name of the rating system in the original language, as supplied by the rating agency.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Official name of the rating system in the original language, as supplied by the rating agency.")
   @JsonIgnore
 

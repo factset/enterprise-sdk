@@ -42,7 +42,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20013FsymListing.JSON_PROPERTY_TICKER_EXCHANGE,
   InlineResponse20013FsymListing.JSON_PROPERTY_IS_PRIMARY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20013FsymListing implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -67,7 +68,7 @@ public class InlineResponse20013FsymListing implements Serializable {
    * FactSet Permanent Identifier for a notation. The format is six alpha numeric characters, excluding vowels, with an L suffix (XXXXXX-L).
    * @return permanentIdentifier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "FactSet Permanent Identifier for a notation. The format is six alpha numeric characters, excluding vowels, with an L suffix (XXXXXX-L).")
   @JsonIgnore
 
@@ -101,7 +102,7 @@ public class InlineResponse20013FsymListing implements Serializable {
    * FactSet market symbol of the notation, usually consisting of the ticker (e.g. \&quot;DAI\&quot; for Daimler AG) and the three-character code of the exchange on which the listing is traded (example: DAI-ETR).
    * @return tickerExchange
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "FactSet market symbol of the notation, usually consisting of the ticker (e.g. \"DAI\" for Daimler AG) and the three-character code of the exchange on which the listing is traded (example: DAI-ETR).")
   @JsonIgnore
 
@@ -135,7 +136,7 @@ public class InlineResponse20013FsymListing implements Serializable {
    * Indicates whether the notation is the primary notation among all notations within the same region (&#x60;true&#x60;) or not (&#x60;false&#x60;).
    * @return isPrimary
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the notation is the primary notation among all notations within the same region (`true`) or not (`false`).")
   @JsonIgnore
 

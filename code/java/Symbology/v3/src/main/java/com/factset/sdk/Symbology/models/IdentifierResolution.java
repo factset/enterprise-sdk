@@ -48,7 +48,8 @@ import com.factset.sdk.Symbology.JSON;
   IdentifierResolution.JSON_PROPERTY_FREF_LISTING_EXCHANGE,
   IdentifierResolution.JSON_PROPERTY_CURRENCY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class IdentifierResolution implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -79,7 +80,7 @@ public class IdentifierResolution implements Serializable {
    * Identifier inputted in the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "GOOGL-US", value = "Identifier inputted in the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -105,7 +106,7 @@ public class IdentifierResolution implements Serializable {
    * The type of identifier inputted in the request
    * @return inputSymbolType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "tickerRegion", value = "The type of identifier inputted in the request")
   @JsonProperty(JSON_PROPERTY_INPUT_SYMBOL_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -131,7 +132,7 @@ public class IdentifierResolution implements Serializable {
    * Name of the requested identifier
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Alphabet Inc. Class A", value = "Name of the requested identifier")
   @JsonIgnore
 
@@ -165,7 +166,7 @@ public class IdentifierResolution implements Serializable {
    * The 3 digit fref exchange code for the primary exchange of the security
    * @return frefListingExchange
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USA", value = "The 3 digit fref exchange code for the primary exchange of the security")
   @JsonIgnore
 
@@ -199,7 +200,7 @@ public class IdentifierResolution implements Serializable {
    * The 3 digit ISO code for the currency
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "The 3 digit ISO code for the currency")
   @JsonIgnore
 

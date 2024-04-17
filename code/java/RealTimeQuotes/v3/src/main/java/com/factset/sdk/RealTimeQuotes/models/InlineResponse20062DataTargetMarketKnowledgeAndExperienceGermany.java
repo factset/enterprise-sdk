@@ -40,7 +40,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
 @JsonPropertyOrder({
   InlineResponse20062DataTargetMarketKnowledgeAndExperienceGermany.JSON_PROPERTY_EXPERT_INVESTOR
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20062DataTargetMarketKnowledgeAndExperienceGermany implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -98,7 +99,7 @@ public class InlineResponse20062DataTargetMarketKnowledgeAndExperienceGermany im
    * Indicates whether the investment product is suitable for investors with an expert level of knowledge and experience. This regulatory requirement is available only in Germany, e.g. for investment in a contract for difference (CFD).
    * @return expertInvestor
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the investment product is suitable for investors with an expert level of knowledge and experience. This regulatory requirement is available only in Germany, e.g. for investment in a contract for difference (CFD).")
   @JsonIgnore
 

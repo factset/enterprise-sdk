@@ -36,7 +36,8 @@ import com.factset.sdk.Vermilion.JSON;
 @JsonPropertyOrder({
   ReportGenerationRequestBody.JSON_PROPERTY_VRS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ReportGenerationRequestBody implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class ReportGenerationRequestBody implements Serializable {
    * Get vrs
    * @return vrs
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VRS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

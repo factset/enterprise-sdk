@@ -6,7 +6,7 @@ import com.factset.sdk.FactSetGlobalPrices.ApiResponse;
 import com.factset.sdk.FactSetGlobalPrices.Configuration;
 import com.factset.sdk.FactSetGlobalPrices.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -18,7 +18,8 @@ import com.factset.sdk.FactSetGlobalPrices.models.CorporateActionsRequest;
 import com.factset.sdk.FactSetGlobalPrices.models.CorporateActionsResponse;
 import com.factset.sdk.FactSetGlobalPrices.models.ErrorResponse;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CorporateActionsApi {
   private ApiClient apiClient;
 

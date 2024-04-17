@@ -42,7 +42,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2002RatiosPriceCashFlow.JSON_PROPERTY_MEAN,
   InlineResponse2002RatiosPriceCashFlow.JSON_PROPERTY_MEDIAN
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2002RatiosPriceCashFlow implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class InlineResponse2002RatiosPriceCashFlow implements Serializable {
    * Mean value.
    * @return mean
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Mean value.")
   @JsonIgnore
 
@@ -98,7 +99,7 @@ public class InlineResponse2002RatiosPriceCashFlow implements Serializable {
    * Median value.
    * @return median
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Median value.")
   @JsonIgnore
 

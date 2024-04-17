@@ -41,7 +41,8 @@ import com.factset.sdk.FactSetTrading.JSON;
   EMSCancelChildOrder.JSON_PROPERTY_TICKET_ID,
   EMSCancelChildOrder.JSON_PROPERTY_REASON
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EMSCancelChildOrder implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -71,7 +72,7 @@ public class EMSCancelChildOrder implements Serializable {
    * Ticket Id for the child order to be cancelled
    * @return ticketId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "RKPW.3280015", required = true, value = "Ticket Id for the child order to be cancelled")
   @JsonProperty(JSON_PROPERTY_TICKET_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -97,7 +98,7 @@ public class EMSCancelChildOrder implements Serializable {
    * Reason for cancelling the child order
    * @return reason
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "mistyped order quantity to be routed", value = "Reason for cancelling the child order")
   @JsonIgnore
 

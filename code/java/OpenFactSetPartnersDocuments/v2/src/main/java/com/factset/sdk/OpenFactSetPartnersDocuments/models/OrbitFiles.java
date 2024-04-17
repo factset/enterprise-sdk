@@ -50,7 +50,8 @@ import com.factset.sdk.OpenFactSetPartnersDocuments.JSON;
   OrbitFiles.JSON_PROPERTY_FILE_SIZE,
   OrbitFiles.JSON_PROPERTY_URL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OrbitFiles implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -108,7 +109,7 @@ public class OrbitFiles implements Serializable {
    * The company/ticker which is associated with the transcript. Please submit a question via Issue Tracker under the Open:FactSet - Partner Communication to get the required list of tickers. 
    * @return stockCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "601236", value = "The company/ticker which is associated with the transcript. Please submit a question via Issue Tracker under the Open:FactSet - Partner Communication to get the required list of tickers. ")
   @JsonProperty(JSON_PROPERTY_STOCK_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -134,7 +135,7 @@ public class OrbitFiles implements Serializable {
    * The timestamp when latest version of the call was published at the source.
    * @return eventStartDateTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The timestamp when latest version of the call was published at the source.")
   @JsonProperty(JSON_PROPERTY_EVENT_START_DATE_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -160,7 +161,7 @@ public class OrbitFiles implements Serializable {
    * The timestamp when the file is last updated.
    * @return eventEndDateTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The timestamp when the file is last updated.")
   @JsonProperty(JSON_PROPERTY_EVENT_END_DATE_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -186,7 +187,7 @@ public class OrbitFiles implements Serializable {
    * Specifies the type of the call.
    * @return typesOfInvestorRelationsActivities
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "ecm", value = "Specifies the type of the call.")
   @JsonProperty(JSON_PROPERTY_TYPES_OF_INVESTOR_RELATIONS_ACTIVITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -212,7 +213,7 @@ public class OrbitFiles implements Serializable {
    * Unique identifier for the transcript
    * @return transcriptUniqueId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "195227c3-0806-3791-84f8-95812edcea51", value = "Unique identifier for the transcript")
   @JsonProperty(JSON_PROPERTY_TRANSCRIPT_UNIQUE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -238,7 +239,7 @@ public class OrbitFiles implements Serializable {
    * The timestamp when the transcript was last uploaded.
    * @return uploadTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The timestamp when the transcript was last uploaded.")
   @JsonProperty(JSON_PROPERTY_UPLOAD_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -264,7 +265,7 @@ public class OrbitFiles implements Serializable {
    * The headline of the transcript.
    * @return title
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "投资者关系活动记录表2022-001", value = "The headline of the transcript.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -290,7 +291,7 @@ public class OrbitFiles implements Serializable {
    * Exchange Code
    * @return exchangeCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "XSHG", value = "Exchange Code")
   @JsonProperty(JSON_PROPERTY_EXCHANGE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -316,7 +317,7 @@ public class OrbitFiles implements Serializable {
    * Helpful to distinguish corrected reports.
    * @return versionId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "Helpful to distinguish corrected reports.")
   @JsonProperty(JSON_PROPERTY_VERSION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -342,7 +343,7 @@ public class OrbitFiles implements Serializable {
    * The filename of the transcript.
    * @return fileName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "601236-195227c3-0806-3791-84f8-95812edcea51-ch-2022101619.json", value = "The filename of the transcript.")
   @JsonProperty(JSON_PROPERTY_FILE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -368,7 +369,7 @@ public class OrbitFiles implements Serializable {
    * The time when file is available for ingestion at the source.
    * @return fileTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The time when file is available for ingestion at the source.")
   @JsonProperty(JSON_PROPERTY_FILE_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -394,7 +395,7 @@ public class OrbitFiles implements Serializable {
    * The time when file is processed.
    * @return updateTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The time when file is processed.")
   @JsonProperty(JSON_PROPERTY_UPDATE_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -420,7 +421,7 @@ public class OrbitFiles implements Serializable {
    * Defines the size of the file.
    * @return fileSize
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "12744", value = "Defines the size of the file.")
   @JsonProperty(JSON_PROPERTY_FILE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -446,7 +447,7 @@ public class OrbitFiles implements Serializable {
    * Download link for the transcripts provided by the Orbit feed.
    * @return url
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "https://fdss3-unstructured-data-delivery-orbit-v2-prod.s3.amazonaws.com/2022/10/601236-195227c3-0806-3791-84f8-95812edcea51-ch-2022101619.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6B6XG7VEYODKETS6%2F20221017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221017T141632Z&X-Amz-Expires=1800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjED0aCXVzLWVhc3QtMSJIMEYCIQDzGmRWCkwvfl8WKsZ3rektfXyQa551ht8wkggj29qufwIhALaFsXrpyISV%2B6A3hASCdStEUtlzUEaBL9Bs0%2BSP3wUaKu4CCBYQARoMOTY2MjgyMTE2NDI1IgxkKPBJ4cINLlvTEkIqywKmD%2BMhpGDpCzI8LfS13Rvs%2FnCQ5S5khGdpMUk8j0kQ4%2F6xoX7SYyXjkn8VFk2OSJkfPpu6XBADJ3H6BmuJvAM5ovraQqQXjx8iuB7LPgYAHoIJNvZDivb8HV%2BmBSwbEoOyCIslX%2FFrlYNU6KmfpvKUZqJRPmpSVdb%2F2%2BwG6rw3WHO6qBxWjwPga2b9U7DvU0LCke0myB8cRhdimWuONNendFNuwm9KnvhrUbszsLT4dIxufiYQarCqQvx0FuMG21%2FPTKWXbpvHbSSG663qqBi2xYmIP%2BmvQ9JvZMkWN%2FOtVhkDqT8YcyaaLshDVv0xDvzdsP6h4YYjDohaABooNIuP1OVJ9fzzUe4F4ZlP5eZDAKKCPOU%2FfG9UitWHxm3feQDe460sVVbiGow7is85fhQsoeHQEfqqLifPXwxo2s72bwaxd2ZJOTYh7ra7MJeTtZoGOp0BJqQMDoOIol1WSTKBI02ne6rUGKfvR6ksj%2BjEQR9OURvMj843tnJketh6IUBNG%2Be0q7Y0YcV2AAKj1Q7nloa%2B6LoRFOyvKwy4SAfNh%2F1KGM8%2F%2FitZfxzOAwI%2BtlEPKuHWL3OWAyusy6VSXaw4PYtJrS9lual9O%2Brz3kK2au4JZnkeZH3KJsIefE4tJ2GcL%2FT3IOt7htI%2BGRZZDGNCHQ%3D%3D&X-Amz-Signature=7272242c3ec00491e43f6e20b39a65050599c033539c3ca8d8aeb2c9565d7ad1", value = "Download link for the transcripts provided by the Orbit feed.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -37,7 +37,8 @@ import com.factset.sdk.IDLookup.JSON;
 @JsonPropertyOrder({
   LookupResponse.JSON_PROPERTY_TYPEAHEAD
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class LookupResponse implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -56,7 +57,7 @@ public class LookupResponse implements Serializable {
    * Get typeahead
    * @return typeahead
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPEAHEAD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

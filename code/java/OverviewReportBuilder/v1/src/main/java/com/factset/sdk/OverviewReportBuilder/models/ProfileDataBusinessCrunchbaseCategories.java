@@ -36,7 +36,8 @@ import com.factset.sdk.OverviewReportBuilder.JSON;
   ProfileDataBusinessCrunchbaseCategories.JSON_PROPERTY_VALUE,
   ProfileDataBusinessCrunchbaseCategories.JSON_PROPERTY_NOTE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ProfileDataBusinessCrunchbaseCategories implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -73,7 +74,7 @@ public class ProfileDataBusinessCrunchbaseCategories implements Serializable {
    * Get value
    * @return value
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -99,7 +100,7 @@ public class ProfileDataBusinessCrunchbaseCategories implements Serializable {
    * Get note
    * @return note
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_NOTE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

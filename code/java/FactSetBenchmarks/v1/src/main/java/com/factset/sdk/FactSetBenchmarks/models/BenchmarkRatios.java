@@ -47,7 +47,8 @@ import com.factset.sdk.FactSetBenchmarks.JSON;
   BenchmarkRatios.JSON_PROPERTY_CURRENCY,
   BenchmarkRatios.JSON_PROPERTY_VALUE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class BenchmarkRatios implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -87,7 +88,7 @@ public class BenchmarkRatios implements Serializable {
    * Requested Identifier. Must be a valid Benchmark Identifier recognized by FactSet.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "SP50", value = "Requested Identifier. Must be a valid Benchmark Identifier recognized by FactSet.")
   @JsonIgnore
 
@@ -121,7 +122,7 @@ public class BenchmarkRatios implements Serializable {
    * The respective date for values as of the date requested in YYYY-MM-DD format.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Thu Dec 31 00:00:00 UTC 2020", value = "The respective date for values as of the date requested in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -155,7 +156,7 @@ public class BenchmarkRatios implements Serializable {
    * Proper Name of Index.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "S&P 500", value = "Proper Name of Index.")
   @JsonIgnore
 
@@ -189,7 +190,7 @@ public class BenchmarkRatios implements Serializable {
    * Benchmark Identifier specified in the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "SP50", value = "Benchmark Identifier specified in the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -215,7 +216,7 @@ public class BenchmarkRatios implements Serializable {
    * Metric requested
    * @return metric
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "GROSS_MARGIN", value = "Metric requested")
   @JsonIgnore
 
@@ -249,7 +250,7 @@ public class BenchmarkRatios implements Serializable {
    * The periodicity submitted in the request.
    * @return periodicity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "LTM", value = "The periodicity submitted in the request.")
   @JsonIgnore
 
@@ -283,7 +284,7 @@ public class BenchmarkRatios implements Serializable {
    * The currency submitted in the request.
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "The currency submitted in the request.")
   @JsonIgnore
 
@@ -317,7 +318,7 @@ public class BenchmarkRatios implements Serializable {
    * Ratio value based on the metric requested.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "35.4094680290153", value = "Ratio value based on the metric requested.")
   @JsonIgnore
 

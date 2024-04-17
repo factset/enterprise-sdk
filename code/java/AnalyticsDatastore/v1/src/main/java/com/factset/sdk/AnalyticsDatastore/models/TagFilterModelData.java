@@ -35,7 +35,8 @@ import com.factset.sdk.AnalyticsDatastore.JSON;
 @JsonPropertyOrder({
   TagFilterModelData.JSON_PROPERTY_TAGS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class TagFilterModelData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -62,7 +63,7 @@ public class TagFilterModelData implements Serializable {
    * The documents tags, represented in a key value format with the tag name as the key; and the tag&#39;s value as the value
    * @return tags
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "{\"account\":\"TEST_ACCOUNT.ACCT\",\"benchmark\":\"TEST_BENCHMARK\"}", value = "The documents tags, represented in a key value format with the tag name as the key; and the tag's value as the value")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

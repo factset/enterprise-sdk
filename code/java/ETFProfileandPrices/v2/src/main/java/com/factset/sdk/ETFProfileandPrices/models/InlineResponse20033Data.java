@@ -44,7 +44,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20033Data.JSON_PROPERTY_SHARES_OUTSTANDING,
   InlineResponse20033Data.JSON_PROPERTY_AUM
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20033Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -84,7 +85,7 @@ public class InlineResponse20033Data implements Serializable {
    * Historice NAV date value.
    * @return navDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Historice NAV date value.")
   @JsonProperty(JSON_PROPERTY_NAV_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -110,7 +111,7 @@ public class InlineResponse20033Data implements Serializable {
    * Returns historic Net Asset Value of the ETP.
    * @return nav
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Returns historic Net Asset Value of the ETP.")
   @JsonProperty(JSON_PROPERTY_NAV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,7 +137,7 @@ public class InlineResponse20033Data implements Serializable {
    * Absolute change in NAV value.
    * @return navChange
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Absolute change in NAV value.")
   @JsonProperty(JSON_PROPERTY_NAV_CHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -162,7 +163,7 @@ public class InlineResponse20033Data implements Serializable {
    * Related change in the NAV value.
    * @return navChangePercent
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Related change in the NAV value.")
   @JsonProperty(JSON_PROPERTY_NAV_CHANGE_PERCENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -188,7 +189,7 @@ public class InlineResponse20033Data implements Serializable {
    * Difference between market price and NAV of the ETP.
    * @return premiumDiscount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Difference between market price and NAV of the ETP.")
   @JsonProperty(JSON_PROPERTY_PREMIUM_DISCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -214,7 +215,7 @@ public class InlineResponse20033Data implements Serializable {
    * This value returns factset&#39;s ETF fundflow history. Rolling one day fund flows are calculated using the difference of shares outstanding at previous close and shares outstanding one day prior to close mulitplied by the NAV of one day prior to close.
    * @return fundFlows
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "This value returns factset's ETF fundflow history. Rolling one day fund flows are calculated using the difference of shares outstanding at previous close and shares outstanding one day prior to close mulitplied by the NAV of one day prior to close.")
   @JsonProperty(JSON_PROPERTY_FUND_FLOWS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -240,7 +241,7 @@ public class InlineResponse20033Data implements Serializable {
    * Returns the historic share Outstanding values of the ETP.
    * @return sharesOutstanding
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Returns the historic share Outstanding values of the ETP.")
   @JsonProperty(JSON_PROPERTY_SHARES_OUTSTANDING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -266,7 +267,7 @@ public class InlineResponse20033Data implements Serializable {
    * Returns the historic Total Asset Value of the ETP.
    * @return aum
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Returns the historic Total Asset Value of the ETP.")
   @JsonProperty(JSON_PROPERTY_AUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

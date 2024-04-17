@@ -36,7 +36,8 @@ import com.factset.sdk.FactSetSearchAnswers.JSON;
 @JsonPropertyOrder({
   AnswerWithoutDataAllOfTemplateData.JSON_PROPERTY_FDC3_CONTEXT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class AnswerWithoutDataAllOfTemplateData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -55,7 +56,7 @@ public class AnswerWithoutDataAllOfTemplateData implements Serializable {
    * Get fdc3Context
    * @return fdc3Context
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FDC3_CONTEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

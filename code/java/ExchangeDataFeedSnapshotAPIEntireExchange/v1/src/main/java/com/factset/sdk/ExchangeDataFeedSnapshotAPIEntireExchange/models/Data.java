@@ -41,7 +41,8 @@ import com.factset.sdk.ExchangeDataFeedSnapshotAPIEntireExchange.JSON;
   Data.JSON_PROPERTY_FILE_NAME,
   Data.JSON_PROPERTY_URL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -75,7 +76,7 @@ public class Data implements Serializable {
    * Product or Exchange code. Minimum value for prod code&#x3D;9001
    * @return product
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Product or Exchange code. Minimum value for prod code=9001")
   @JsonProperty(JSON_PROPERTY_PRODUCT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -101,7 +102,7 @@ public class Data implements Serializable {
    * Date for which data is requested
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Date for which data is requested")
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -127,7 +128,7 @@ public class Data implements Serializable {
    * time for which data is requested
    * @return time
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "time for which data is requested")
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -153,7 +154,7 @@ public class Data implements Serializable {
    * Type of data (Delayed or Real Time)
    * @return responseType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Type of data (Delayed or Real Time)")
   @JsonProperty(JSON_PROPERTY_RESPONSE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -179,7 +180,7 @@ public class Data implements Serializable {
    * Name of the file(s) generated for the query requested. This is a combination of product code, date &amp; time of request
    * @return fileName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the file(s) generated for the query requested. This is a combination of product code, date & time of request")
   @JsonProperty(JSON_PROPERTY_FILE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -205,7 +206,7 @@ public class Data implements Serializable {
    * Download link for the snapshot file with requested parameters
    * @return url
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Download link for the snapshot file with requested parameters")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

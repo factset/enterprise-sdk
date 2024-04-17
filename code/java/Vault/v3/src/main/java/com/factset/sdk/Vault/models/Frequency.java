@@ -39,7 +39,8 @@ import com.factset.sdk.Vault.JSON;
 @JsonPropertyOrder({
   Frequency.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Frequency implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -58,7 +59,7 @@ public class Frequency implements Serializable {
    * Frequency name.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Frequency name.")
   @JsonIgnore
 

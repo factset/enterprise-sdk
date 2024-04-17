@@ -39,7 +39,8 @@ import com.factset.sdk.FixedIncomeCalculation.JSON;
 @JsonPropertyOrder({
   FIBankLoans.JSON_PROPERTY_IGNORE_SINKING_FUND
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FIBankLoans implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -58,7 +59,7 @@ public class FIBankLoans implements Serializable {
    * Ignore Sinking Fund
    * @return ignoreSinkingFund
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Ignore Sinking Fund")
   @JsonIgnore
 

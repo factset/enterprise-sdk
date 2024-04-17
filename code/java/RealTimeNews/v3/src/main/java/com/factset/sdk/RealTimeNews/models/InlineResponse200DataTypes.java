@@ -41,7 +41,8 @@ import com.factset.sdk.RealTimeNews.JSON;
   InlineResponse200DataTypes.JSON_PROPERTY_ID,
   InlineResponse200DataTypes.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse200DataTypes implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class InlineResponse200DataTypes implements Serializable {
    * Identifier of the type of news article.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the type of news article.")
   @JsonIgnore
 
@@ -97,7 +98,7 @@ public class InlineResponse200DataTypes implements Serializable {
    * Name of the news article type.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the news article type.")
   @JsonIgnore
 

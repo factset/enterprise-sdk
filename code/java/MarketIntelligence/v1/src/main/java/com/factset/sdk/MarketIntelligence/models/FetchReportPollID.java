@@ -36,7 +36,8 @@ import com.factset.sdk.MarketIntelligence.JSON;
 @JsonPropertyOrder({
   FetchReportPollID.JSON_PROPERTY_POLLURL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FetchReportPollID implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -55,7 +56,7 @@ public class FetchReportPollID implements Serializable {
    * Poll URL.
    * @return pollurl
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "/get-data/414c98a9ccb740a3a338c4a4460b6ebf/result", value = "Poll URL.")
   @JsonProperty(JSON_PROPERTY_POLLURL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

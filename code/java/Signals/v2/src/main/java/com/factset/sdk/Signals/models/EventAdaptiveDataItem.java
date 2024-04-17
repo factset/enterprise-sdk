@@ -37,7 +37,8 @@ import com.factset.sdk.Signals.JSON;
   EventAdaptiveDataItem.JSON_PROPERTY_SIGNAL_ID,
   EventAdaptiveDataItem.JSON_PROPERTY_ADAPTIVE_CARD
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EventAdaptiveDataItem implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -74,7 +75,7 @@ public class EventAdaptiveDataItem implements Serializable {
    * The id that was requested, ticker, cusip, factset entity id etc.
    * @return requestId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "FDS-US", required = true, value = "The id that was requested, ticker, cusip, factset entity id etc.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -100,7 +101,7 @@ public class EventAdaptiveDataItem implements Serializable {
    * Signal Id for this event.
    * @return signalId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "dilutionTrigger", required = true, value = "Signal Id for this event.")
   @JsonProperty(JSON_PROPERTY_SIGNAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -131,7 +132,7 @@ public class EventAdaptiveDataItem implements Serializable {
    * A JSON object that&#39;s compliant with MS adaptive card schema.
    * @return adaptiveCard
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "A JSON object that's compliant with MS adaptive card schema.")
   @JsonProperty(JSON_PROPERTY_ADAPTIVE_CARD)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.ALWAYS)

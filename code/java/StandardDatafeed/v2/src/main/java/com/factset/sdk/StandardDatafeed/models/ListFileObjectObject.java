@@ -36,7 +36,8 @@ import com.factset.sdk.StandardDatafeed.JSON;
   ListFileObjectObject.JSON_PROPERTY_BUNDLE,
   ListFileObjectObject.JSON_PROPERTY_VERSION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ListFileObjectObject implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -58,7 +59,7 @@ public class ListFileObjectObject implements Serializable {
    * Bundle name.
    * @return bundle
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Bundle name.")
   @JsonProperty(JSON_PROPERTY_BUNDLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -84,7 +85,7 @@ public class ListFileObjectObject implements Serializable {
    * Bundle version.
    * @return version
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Bundle version.")
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

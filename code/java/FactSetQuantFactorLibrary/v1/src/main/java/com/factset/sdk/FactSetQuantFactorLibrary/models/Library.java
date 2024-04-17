@@ -41,7 +41,8 @@ import com.factset.sdk.FactSetQuantFactorLibrary.JSON;
   Library.JSON_PROPERTY_TAGS,
   Library.JSON_PROPERTY_FORMAT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Library implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -78,7 +79,7 @@ public class Library implements Serializable {
    * The Factor field that can be requested in the factors endpoint.
    * @return factor
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "rsi21D", value = "The Factor field that can be requested in the factors endpoint.")
   @JsonProperty(JSON_PROPERTY_FACTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -104,7 +105,7 @@ public class Library implements Serializable {
    * The Name or Description of the Factor
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "21D Relative Strength Index", value = "The Name or Description of the Factor")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -130,7 +131,7 @@ public class Library implements Serializable {
    * The Factor Group associated to the Factor.
    * @return factorGroup
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Momentum", value = "The Factor Group associated to the Factor.")
   @JsonProperty(JSON_PROPERTY_FACTOR_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -156,7 +157,7 @@ public class Library implements Serializable {
    * The Standard DataFeed name of the factor for use of mapping.
    * @return sdfName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "RSI_21D", value = "The Standard DataFeed name of the factor for use of mapping.")
   @JsonProperty(JSON_PROPERTY_SDF_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -182,7 +183,7 @@ public class Library implements Serializable {
    * The FactSet formula associated to the factor
    * @return formula
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "QFL_RSI(0,21D)", value = "The FactSet formula associated to the factor")
   @JsonProperty(JSON_PROPERTY_FORMULA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -208,7 +209,7 @@ public class Library implements Serializable {
    * Associated Tags regarding the factor for enhanced searching.
    * @return tags
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "momentum,prices", value = "Associated Tags regarding the factor for enhanced searching.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -234,7 +235,7 @@ public class Library implements Serializable {
    * The data type of the factor, including integer, double, or string.
    * @return format
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "double", value = "The data type of the factor, including integer, double, or string.")
   @JsonProperty(JSON_PROPERTY_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

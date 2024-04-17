@@ -38,7 +38,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse200DataTradingMedian.JSON_PROPERTY_VOLUME,
   InlineResponse200DataTradingMedian.JSON_PROPERTY_VALUE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse200DataTradingMedian implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -60,7 +61,7 @@ public class InlineResponse200DataTradingMedian implements Serializable {
    * Median daily number of shares traded over the past 45 trading days. This data is available for the regions.
    * @return volume
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Median daily number of shares traded over the past 45 trading days. This data is available for the regions.")
   @JsonProperty(JSON_PROPERTY_VOLUME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,7 +87,7 @@ public class InlineResponse200DataTradingMedian implements Serializable {
    * Median daily value traded over the past 45 trading days in ETP&#39;s listing currency. This data is available for the US regions.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Median daily value traded over the past 45 trading days in ETP's listing currency. This data is available for the US regions.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

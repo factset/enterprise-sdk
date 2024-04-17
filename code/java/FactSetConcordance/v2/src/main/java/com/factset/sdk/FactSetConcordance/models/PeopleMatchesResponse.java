@@ -37,7 +37,8 @@ import com.factset.sdk.FactSetConcordance.JSON;
 @JsonPropertyOrder({
   PeopleMatchesResponse.JSON_PROPERTY_DATA
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PeopleMatchesResponse implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class PeopleMatchesResponse implements Serializable {
    * Candidate list of &#x60;People Match&#x60; objects.
    * @return data
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Candidate list of `People Match` objects.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

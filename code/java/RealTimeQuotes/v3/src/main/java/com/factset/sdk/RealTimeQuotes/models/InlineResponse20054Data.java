@@ -47,7 +47,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20054Data.JSON_PROPERTY_INTEREST_RATE,
   InlineResponse20054Data.JSON_PROPERTY_DAY_COUNT_CONVENTION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20054Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -78,7 +79,7 @@ public class InlineResponse20054Data implements Serializable {
    * MDG identifier of the instrument.
    * @return idInstrument
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "MDG identifier of the instrument.")
   @JsonIgnore
 
@@ -112,7 +113,7 @@ public class InlineResponse20054Data implements Serializable {
    * Identifier used in the request.
    * @return sourceIdentifier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier used in the request.")
   @JsonIgnore
 
@@ -146,7 +147,7 @@ public class InlineResponse20054Data implements Serializable {
    * Get occurrence
    * @return occurrence
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OCCURRENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -172,7 +173,7 @@ public class InlineResponse20054Data implements Serializable {
    * Get interestRate
    * @return interestRate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INTEREST_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -198,7 +199,7 @@ public class InlineResponse20054Data implements Serializable {
    * Get dayCountConvention
    * @return dayCountConvention
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DAY_COUNT_CONVENTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

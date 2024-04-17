@@ -42,7 +42,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20015DataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50UpNumberDays.JSON_PROPERTY_MINIMUM,
   InlineResponse20015DataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50UpNumberDays.JSON_PROPERTY_MAXIMUM
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20015DataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50UpNumberDays implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class InlineResponse20015DataSimpleMovingAverageTradingDaysSinceCrossover
    * Minimum value.
    * @return minimum
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Minimum value.")
   @JsonIgnore
 
@@ -98,7 +99,7 @@ public class InlineResponse20015DataSimpleMovingAverageTradingDaysSinceCrossover
    * Maximum value.
    * @return maximum
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Maximum value.")
   @JsonIgnore
 

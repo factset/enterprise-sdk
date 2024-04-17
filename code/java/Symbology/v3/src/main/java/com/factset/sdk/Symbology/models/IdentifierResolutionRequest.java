@@ -39,7 +39,8 @@ import com.factset.sdk.Symbology.JSON;
   IdentifierResolutionRequest.JSON_PROPERTY_INPUT_SYMBOL_TYPE,
   IdentifierResolutionRequest.JSON_PROPERTY_OUTPUT_SYMBOL_TYPES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class IdentifierResolutionRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -164,7 +165,7 @@ public class IdentifierResolutionRequest implements Serializable {
    * Requested market securities or entities. All requested identifiers must be of the same type. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#39;.
    * @return ids
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "[\"GOOGL-US\"]", required = true, value = "Requested market securities or entities. All requested identifiers must be of the same type. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId'.")
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -190,7 +191,7 @@ public class IdentifierResolutionRequest implements Serializable {
    * Get inputSymbolType
    * @return inputSymbolType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_INPUT_SYMBOL_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -221,7 +222,7 @@ public class IdentifierResolutionRequest implements Serializable {
    * Requested identifiers to be returned. Multiple identifier types can be requested with each request.
    * @return outputSymbolTypes
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "[\"CUSIP\",\"SEDOL\"]", required = true, value = "Requested identifiers to be returned. Multiple identifier types can be requested with each request.")
   @JsonProperty(JSON_PROPERTY_OUTPUT_SYMBOL_TYPES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

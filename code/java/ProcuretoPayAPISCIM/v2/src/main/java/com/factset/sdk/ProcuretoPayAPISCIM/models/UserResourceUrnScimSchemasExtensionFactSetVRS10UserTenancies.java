@@ -36,7 +36,8 @@ import com.factset.sdk.ProcuretoPayAPISCIM.JSON;
 @JsonPropertyOrder({
   UserResourceUrnScimSchemasExtensionFactSetVRS10UserTenancies.JSON_PROPERTY_VALUE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class UserResourceUrnScimSchemasExtensionFactSetVRS10UserTenancies implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class UserResourceUrnScimSchemasExtensionFactSetVRS10UserTenancies implem
    * Name of a tenant.
    * @return value
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "MASTER", required = true, value = "Name of a tenant.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

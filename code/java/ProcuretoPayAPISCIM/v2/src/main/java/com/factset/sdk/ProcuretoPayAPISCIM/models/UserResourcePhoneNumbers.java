@@ -38,7 +38,8 @@ import com.factset.sdk.ProcuretoPayAPISCIM.JSON;
   UserResourcePhoneNumbers.JSON_PROPERTY_TYPE,
   UserResourcePhoneNumbers.JSON_PROPERTY_PRIMARY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class UserResourcePhoneNumbers implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -75,7 +76,7 @@ public class UserResourcePhoneNumbers implements Serializable {
    * Phone number of the User.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "tel:5558675309", value = "Phone number of the User.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -91,7 +92,7 @@ public class UserResourcePhoneNumbers implements Serializable {
    * A human-readable name, primarily used for display purposes.  READ-ONLY.
    * @return display
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "(555) 867-5309", value = "A human-readable name, primarily used for display purposes.  READ-ONLY.")
   @JsonProperty(JSON_PROPERTY_DISPLAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -107,7 +108,7 @@ public class UserResourcePhoneNumbers implements Serializable {
    * A label indicating the attribute&#39;s function, e.g., &#39;work&#39;, &#39;home&#39;, &#39;mobile&#39;.
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "work", value = "A label indicating the attribute's function, e.g., 'work', 'home', 'mobile'.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -123,7 +124,7 @@ public class UserResourcePhoneNumbers implements Serializable {
    * A Boolean value indicating the &#39;primary&#39; or preferred attribute value for this attribute, e.g., the preferred phone number or primary phone number.  The primary attribute value &#39;true&#39; MUST appear no more than once.
    * @return primary
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "true", value = "A Boolean value indicating the 'primary' or preferred attribute value for this attribute, e.g., the preferred phone number or primary phone number.  The primary attribute value 'true' MUST appear no more than once.")
   @JsonProperty(JSON_PROPERTY_PRIMARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

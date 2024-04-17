@@ -57,7 +57,8 @@ import com.factset.sdk.IRNNotes.JSON;
   CreateNoteDto.JSON_PROPERTY_CUSTOM_FIELD_VALUES,
   CreateNoteDto.JSON_PROPERTY_IS_PERSONAL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CreateNoteDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -128,7 +129,7 @@ public class CreateNoteDto implements Serializable {
    * Get author
    * @return author
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_AUTHOR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -154,7 +155,7 @@ public class CreateNoteDto implements Serializable {
    * Get title
    * @return title
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -188,7 +189,7 @@ public class CreateNoteDto implements Serializable {
    * Get identifier
    * @return identifier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -222,7 +223,7 @@ public class CreateNoteDto implements Serializable {
    * Get date
    * @return date
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -248,7 +249,7 @@ public class CreateNoteDto implements Serializable {
    * Get subjectId
    * @return subjectId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -282,7 +283,7 @@ public class CreateNoteDto implements Serializable {
    * Get recommendationId
    * @return recommendationId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -316,7 +317,7 @@ public class CreateNoteDto implements Serializable {
    * Get sentimentId
    * @return sentimentId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -350,7 +351,7 @@ public class CreateNoteDto implements Serializable {
    * Get body
    * @return body
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BODY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -376,7 +377,7 @@ public class CreateNoteDto implements Serializable {
    * Get source
    * @return source
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -410,7 +411,7 @@ public class CreateNoteDto implements Serializable {
    * Get link
    * @return link
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -456,7 +457,7 @@ public class CreateNoteDto implements Serializable {
    * Get relatedSymbols
    * @return relatedSymbols
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -502,7 +503,7 @@ public class CreateNoteDto implements Serializable {
    * Get relatedContacts
    * @return relatedContacts
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -536,7 +537,7 @@ public class CreateNoteDto implements Serializable {
    * Get relatedRecords
    * @return relatedRecords
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RELATED_RECORDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -574,7 +575,7 @@ public class CreateNoteDto implements Serializable {
    * Get customFieldValues
    * @return customFieldValues
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -608,7 +609,7 @@ public class CreateNoteDto implements Serializable {
    * Get isPersonal
    * @return isPersonal
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IS_PERSONAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -47,7 +47,8 @@ import com.factset.sdk.IRNContacts.JSON;
   ContactRelationshipSaveDto.JSON_PROPERTY_SYMBOL,
   ContactRelationshipSaveDto.JSON_PROPERTY_TITLE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ContactRelationshipSaveDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -87,7 +88,7 @@ public class ContactRelationshipSaveDto implements Serializable {
    * Get relationshipId
    * @return relationshipId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RELATIONSHIP_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -113,7 +114,7 @@ public class ContactRelationshipSaveDto implements Serializable {
    * Get contactId
    * @return contactId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -147,7 +148,7 @@ public class ContactRelationshipSaveDto implements Serializable {
    * Get start
    * @return start
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -181,7 +182,7 @@ public class ContactRelationshipSaveDto implements Serializable {
    * Get end
    * @return end
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -215,7 +216,7 @@ public class ContactRelationshipSaveDto implements Serializable {
    * Get comment
    * @return comment
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -249,7 +250,7 @@ public class ContactRelationshipSaveDto implements Serializable {
    * Get isCurrent
    * @return isCurrent
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IS_CURRENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -275,7 +276,7 @@ public class ContactRelationshipSaveDto implements Serializable {
    * Get symbol
    * @return symbol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -309,7 +310,7 @@ public class ContactRelationshipSaveDto implements Serializable {
    * Get title
    * @return title
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

@@ -36,7 +36,8 @@ import com.factset.sdk.FactSetConcordance.JSON;
   EntityMappingDeleteRequest.JSON_PROPERTY_UNIVERSE_ID,
   EntityMappingDeleteRequest.JSON_PROPERTY_CLIENT_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EntityMappingDeleteRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class EntityMappingDeleteRequest implements Serializable {
    * The universe to save this mapping to.
    * @return universeId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "1", required = true, value = "The universe to save this mapping to.")
   @JsonProperty(JSON_PROPERTY_UNIVERSE_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -99,7 +100,7 @@ public class EntityMappingDeleteRequest implements Serializable {
    * A unique identifier supplied by the user. ClientId is saved to the user&#39;s Concordance universe and will be used as the identifier for that entity within the universe.
    * @return clientId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "[\"abc-123\",\"dfg-456\"]", required = true, value = "A unique identifier supplied by the user. ClientId is saved to the user's Concordance universe and will be used as the identifier for that entity within the universe.")
   @JsonProperty(JSON_PROPERTY_CLIENT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

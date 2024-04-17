@@ -49,7 +49,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20012Data.JSON_PROPERTY_BETA,
   InlineResponse20012Data.JSON_PROPERTY_STANDARD_DEVIATION_DOWN
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20012Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -92,7 +93,7 @@ public class InlineResponse20012Data implements Serializable {
    * Get efficiency
    * @return efficiency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EFFICIENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -118,7 +119,7 @@ public class InlineResponse20012Data implements Serializable {
    * Get tradability
    * @return tradability
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TRADABILITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -144,7 +145,7 @@ public class InlineResponse20012Data implements Serializable {
    * Get fit
    * @return fit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -170,7 +171,7 @@ public class InlineResponse20012Data implements Serializable {
    * Combining the efficiency and tradability scores, FactSet assigns a letter grade (A-F) that provides a concise view on how efficient and tradable each ETP is. Available for the regions: US.
    * @return grade
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Combining the efficiency and tradability scores, FactSet assigns a letter grade (A-F) that provides a concise view on how efficient and tradable each ETP is. Available for the regions: US.")
   @JsonProperty(JSON_PROPERTY_GRADE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -196,7 +197,7 @@ public class InlineResponse20012Data implements Serializable {
    * If true, this fund has been chosen by the FactSet ETP Analytics Team to provide comprehensive, market-like exposure to an area of the market/segment, keeping costs and liquidity in mind. Available for the regions: US.
    * @return analystPick
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "If true, this fund has been chosen by the FactSet ETP Analytics Team to provide comprehensive, market-like exposure to an area of the market/segment, keeping costs and liquidity in mind. Available for the regions: US.")
   @JsonProperty(JSON_PROPERTY_ANALYST_PICK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -222,7 +223,7 @@ public class InlineResponse20012Data implements Serializable {
    * If true, this fund has been chosen by the FactSet ETP Analytics Team as providing potentially valuable but alternative exposure to the market/segment, keeping costs and liquidity in mind. Available for the regions: US.
    * @return onOpportunitiesList
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "If true, this fund has been chosen by the FactSet ETP Analytics Team as providing potentially valuable but alternative exposure to the market/segment, keeping costs and liquidity in mind. Available for the regions: US.")
   @JsonProperty(JSON_PROPERTY_ON_OPPORTUNITIES_LIST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -248,7 +249,7 @@ public class InlineResponse20012Data implements Serializable {
    * The degree to which the daily returns of fund NAV and its FactSet designated segment benchmark move up and down in unison, ranging from 1.0 (perfect co-movement) to zero (no relation). Available for the regions: US.
    * @return fitRsquared
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The degree to which the daily returns of fund NAV and its FactSet designated segment benchmark move up and down in unison, ranging from 1.0 (perfect co-movement) to zero (no relation). Available for the regions: US.")
   @JsonProperty(JSON_PROPERTY_FIT_RSQUARED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -274,7 +275,7 @@ public class InlineResponse20012Data implements Serializable {
    * Get beta
    * @return beta
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BETA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -300,7 +301,7 @@ public class InlineResponse20012Data implements Serializable {
    * A measure of the variability between the fund&#39;s returns and the FactSet designated segment benchmark returns on days when the fund underperforms the benchmark. Available for the regions: US.
    * @return standardDeviationDown
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A measure of the variability between the fund's returns and the FactSet designated segment benchmark returns on days when the fund underperforms the benchmark. Available for the regions: US.")
   @JsonProperty(JSON_PROPERTY_STANDARD_DEVIATION_DOWN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

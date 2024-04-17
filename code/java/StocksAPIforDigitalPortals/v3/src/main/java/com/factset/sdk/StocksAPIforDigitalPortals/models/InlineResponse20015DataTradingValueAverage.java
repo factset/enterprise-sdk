@@ -43,7 +43,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20015DataTradingValueAverage.JSON_PROPERTY_DAYS5,
   InlineResponse20015DataTradingValueAverage.JSON_PROPERTY_DAYS30
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20015DataTradingValueAverage implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -65,7 +66,7 @@ public class InlineResponse20015DataTradingValueAverage implements Serializable 
    * Get days5
    * @return days5
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -99,7 +100,7 @@ public class InlineResponse20015DataTradingValueAverage implements Serializable 
    * Get days30
    * @return days30
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

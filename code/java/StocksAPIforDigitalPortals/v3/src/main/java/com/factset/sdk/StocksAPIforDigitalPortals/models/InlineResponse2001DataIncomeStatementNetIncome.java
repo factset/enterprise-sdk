@@ -43,7 +43,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2001DataIncomeStatementNetIncome.JSON_PROPERTY_GROWTH,
   InlineResponse2001DataIncomeStatementNetIncome.JSON_PROPERTY_MARGIN
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2001DataIncomeStatementNetIncome implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class InlineResponse2001DataIncomeStatementNetIncome implements Serializa
    * Value of the net income.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Value of the net income.")
   @JsonIgnore
 
@@ -102,7 +103,7 @@ public class InlineResponse2001DataIncomeStatementNetIncome implements Serializa
    * Annual growth rate of the net income.
    * @return growth
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Annual growth rate of the net income.")
   @JsonIgnore
 
@@ -136,7 +137,7 @@ public class InlineResponse2001DataIncomeStatementNetIncome implements Serializa
    * Net income margin, which is the ratio of the net income, divided by the total sales revenue.
    * @return margin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Net income margin, which is the ratio of the net income, divided by the total sales revenue.")
   @JsonIgnore
 

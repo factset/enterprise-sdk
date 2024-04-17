@@ -43,7 +43,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20062DataDistributionChannel.JSON_PROPERTY_INVESTMENT_ADVICE,
   InlineResponse20062DataDistributionChannel.JSON_PROPERTY_PORTFOLIO_MANAGEMENT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20062DataDistributionChannel implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -227,7 +228,7 @@ public class InlineResponse20062DataDistributionChannel implements Serializable 
    * Indicates the client type(s) for which the investment product is suitable through the distribution channel \&quot;execution only / reception and transmission of orders (RTO) without appropriateness assessment\&quot;.
    * @return executionOnly
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates the client type(s) for which the investment product is suitable through the distribution channel \"execution only / reception and transmission of orders (RTO) without appropriateness assessment\".")
   @JsonIgnore
 
@@ -261,7 +262,7 @@ public class InlineResponse20062DataDistributionChannel implements Serializable 
    * Indicates the client type(s) for which the investment product is suitable through the distribution channel \&quot;execution only / reception and transmission of orders (RTO) with appropriateness assessment\&quot;.
    * @return executionAppropriateness
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates the client type(s) for which the investment product is suitable through the distribution channel \"execution only / reception and transmission of orders (RTO) with appropriateness assessment\".")
   @JsonIgnore
 
@@ -295,7 +296,7 @@ public class InlineResponse20062DataDistributionChannel implements Serializable 
    * Indicates the client type(s) for which the investment product is suitable through the distribution channel \&quot;investment advice with suitability assessment\&quot;.
    * @return investmentAdvice
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates the client type(s) for which the investment product is suitable through the distribution channel \"investment advice with suitability assessment\".")
   @JsonIgnore
 
@@ -329,7 +330,7 @@ public class InlineResponse20062DataDistributionChannel implements Serializable 
    * Indicates the client type for which the investment product is suitable through the distribution channel \&quot;discretionary/portfolio management with suitability assessment\&quot;.
    * @return portfolioManagement
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates the client type for which the investment product is suitable through the distribution channel \"discretionary/portfolio management with suitability assessment\".")
   @JsonIgnore
 

@@ -67,7 +67,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse200Data.JSON_PROPERTY_DOCUMENTATION,
   InlineResponse200Data.JSON_PROPERTY_INSIGHT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse200Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -180,7 +181,7 @@ public class InlineResponse200Data implements Serializable {
    * Date data was published. This data is available only for US region.
    * @return asOfDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Date data was published. This data is available only for US region.")
   @JsonProperty(JSON_PROPERTY_AS_OF_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -206,7 +207,7 @@ public class InlineResponse200Data implements Serializable {
    * The as of data for holdings statistics. This data available only for US region
    * @return holdingsDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The as of data for holdings statistics. This data available only for US region")
   @JsonProperty(JSON_PROPERTY_HOLDINGS_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -232,7 +233,7 @@ public class InlineResponse200Data implements Serializable {
    * Ticker of the ETP. This data is available for all region.
    * @return symbol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Ticker of the ETP. This data is available for all region.")
   @JsonProperty(JSON_PROPERTY_SYMBOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -258,7 +259,7 @@ public class InlineResponse200Data implements Serializable {
    * Get exchange
    * @return exchange
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EXCHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -284,7 +285,7 @@ public class InlineResponse200Data implements Serializable {
    * Name of the ETP. This data is available for all the regions.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the ETP. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -310,7 +311,7 @@ public class InlineResponse200Data implements Serializable {
    * Get issuer
    * @return issuer
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -336,7 +337,7 @@ public class InlineResponse200Data implements Serializable {
    * Get brand
    * @return brand
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -362,7 +363,7 @@ public class InlineResponse200Data implements Serializable {
    * Launch date of the ETP. This data is available for all the regions.
    * @return launchDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Launch date of the ETP. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_LAUNCH_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -388,7 +389,7 @@ public class InlineResponse200Data implements Serializable {
    * A brief description of the ETP. This data is available for all the regions.
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A brief description of the ETP. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -414,7 +415,7 @@ public class InlineResponse200Data implements Serializable {
    * Link to the ETP&#39;s homepage. This data is available for the US and Canada region.
    * @return website
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Link to the ETP's homepage. This data is available for the US and Canada region.")
   @JsonProperty(JSON_PROPERTY_WEBSITE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -440,7 +441,7 @@ public class InlineResponse200Data implements Serializable {
    * ETP country of domicile. This data is available for all the regions and country code is in format ISO 3166-1 alpha-2.
    * @return domicile
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "ETP country of domicile. This data is available for all the regions and country code is in format ISO 3166-1 alpha-2.")
   @JsonProperty(JSON_PROPERTY_DOMICILE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -466,7 +467,7 @@ public class InlineResponse200Data implements Serializable {
    * Staus of the ETP. This data is available for all the regions.
    * @return status
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Staus of the ETP. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -492,7 +493,7 @@ public class InlineResponse200Data implements Serializable {
    * Get currency
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -518,7 +519,7 @@ public class InlineResponse200Data implements Serializable {
    * Get index
    * @return index
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INDEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -544,7 +545,7 @@ public class InlineResponse200Data implements Serializable {
    * Get financialReport
    * @return financialReport
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FINANCIAL_REPORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -570,7 +571,7 @@ public class InlineResponse200Data implements Serializable {
    * Get createRedeem
    * @return createRedeem
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CREATE_REDEEM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -596,7 +597,7 @@ public class InlineResponse200Data implements Serializable {
    * The market value of the total assets that a individual ETP manages on behalf of it&#39;s investors. This data is available for all the regions.
    * @return aum
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The market value of the total assets that a individual ETP manages on behalf of it's investors. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_AUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -622,7 +623,7 @@ public class InlineResponse200Data implements Serializable {
    * Get trading
    * @return trading
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TRADING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -648,7 +649,7 @@ public class InlineResponse200Data implements Serializable {
    * Get documentation
    * @return documentation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DOCUMENTATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -674,7 +675,7 @@ public class InlineResponse200Data implements Serializable {
    * Get insight
    * @return insight
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INSIGHT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

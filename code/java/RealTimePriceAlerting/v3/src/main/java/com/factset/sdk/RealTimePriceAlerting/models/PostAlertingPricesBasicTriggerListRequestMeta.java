@@ -38,7 +38,8 @@ import com.factset.sdk.RealTimePriceAlerting.JSON;
   PostAlertingPricesBasicTriggerListRequestMeta.JSON_PROPERTY_ATTRIBUTES,
   PostAlertingPricesBasicTriggerListRequestMeta.JSON_PROPERTY_PAGINATION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostAlertingPricesBasicTriggerListRequestMeta implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class PostAlertingPricesBasicTriggerListRequestMeta implements Serializab
    * Limit the attributes returned in the response to the specified set.
    * @return attributes
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Limit the attributes returned in the response to the specified set.")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -94,7 +95,7 @@ public class PostAlertingPricesBasicTriggerListRequestMeta implements Serializab
    * Get pagination
    * @return pagination
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAGINATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

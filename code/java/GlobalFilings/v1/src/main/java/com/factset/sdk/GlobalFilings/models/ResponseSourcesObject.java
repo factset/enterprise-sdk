@@ -36,7 +36,8 @@ import com.factset.sdk.GlobalFilings.JSON;
 @JsonPropertyOrder({
   ResponseSourcesObject.JSON_PROPERTY_SOURCES_OBJECT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ResponseSourcesObject implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -55,7 +56,7 @@ public class ResponseSourcesObject implements Serializable {
    * Get sourcesObject
    * @return sourcesObject
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SOURCES_OBJECT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

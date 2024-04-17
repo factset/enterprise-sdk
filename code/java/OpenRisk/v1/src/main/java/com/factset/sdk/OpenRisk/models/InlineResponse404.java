@@ -37,7 +37,8 @@ import com.factset.sdk.OpenRisk.JSON;
   InlineResponse404.JSON_PROPERTY_STATUS,
   InlineResponse404.JSON_PROPERTY_OUTPUT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse404 implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -102,7 +103,7 @@ public class InlineResponse404 implements Serializable {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "fail", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -128,7 +129,7 @@ public class InlineResponse404 implements Serializable {
    * Raw error output describing the failure(s)
    * @return output
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Raw error output describing the failure(s)")
   @JsonProperty(JSON_PROPERTY_OUTPUT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

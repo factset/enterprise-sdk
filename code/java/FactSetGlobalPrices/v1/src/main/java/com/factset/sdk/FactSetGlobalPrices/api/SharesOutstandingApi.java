@@ -6,7 +6,7 @@ import com.factset.sdk.FactSetGlobalPrices.ApiResponse;
 import com.factset.sdk.FactSetGlobalPrices.Configuration;
 import com.factset.sdk.FactSetGlobalPrices.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -16,7 +16,8 @@ import com.factset.sdk.FactSetGlobalPrices.models.SharesOutstandingRequest;
 import com.factset.sdk.FactSetGlobalPrices.models.SharesOutstandingResponse;
 import com.factset.sdk.FactSetGlobalPrices.models.SoErrorResponse;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SharesOutstandingApi {
   private ApiClient apiClient;
 

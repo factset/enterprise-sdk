@@ -38,7 +38,8 @@ import com.factset.sdk.OptimizationEngineAPIMultiperiod.JSON;
   OptimizerInputsMPNumberOfBuysConstraint.JSON_PROPERTY_CONSTRAINT,
   OptimizerInputsMPNumberOfBuysConstraint.JSON_PROPERTY_ON_PERIODS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerInputsMPNumberOfBuysConstraint implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -60,7 +61,7 @@ public class OptimizerInputsMPNumberOfBuysConstraint implements Serializable {
    * Get constraint
    * @return constraint
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CONSTRAINT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,7 +87,7 @@ public class OptimizerInputsMPNumberOfBuysConstraint implements Serializable {
    * Get onPeriods
    * @return onPeriods
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ON_PERIODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

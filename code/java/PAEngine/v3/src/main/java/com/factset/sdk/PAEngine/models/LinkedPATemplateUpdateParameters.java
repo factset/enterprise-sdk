@@ -42,7 +42,8 @@ import com.factset.sdk.PAEngine.JSON;
   LinkedPATemplateUpdateParameters.JSON_PROPERTY_DESCRIPTION,
   LinkedPATemplateUpdateParameters.JSON_PROPERTY_CONTENT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class LinkedPATemplateUpdateParameters implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -67,7 +68,7 @@ public class LinkedPATemplateUpdateParameters implements Serializable {
    * Parent component id
    * @return parentComponentId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Parent component id")
   @JsonIgnore
 
@@ -101,7 +102,7 @@ public class LinkedPATemplateUpdateParameters implements Serializable {
    * Template description
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Template description")
   @JsonIgnore
 
@@ -135,7 +136,7 @@ public class LinkedPATemplateUpdateParameters implements Serializable {
    * Get content
    * @return content
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

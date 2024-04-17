@@ -69,7 +69,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20015Data.JSON_PROPERTY_RECOMMENDATION,
   InlineResponse20015Data.JSON_PROPERTY_ESTIMATES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20015Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -130,7 +131,7 @@ public class InlineResponse20015Data implements Serializable {
    * Number of notations that satisfy the request parameters, hence have been used to retrieve the possible values and value ranges.
    * @return totalCount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of notations that satisfy the request parameters, hence have been used to retrieve the possible values and value ranges.")
   @JsonIgnore
 
@@ -172,7 +173,7 @@ public class InlineResponse20015Data implements Serializable {
    * List of value unit identifiers. See endpoint &#x60;/basic/valueUnit/list&#x60; for possible values.
    * @return valueUnit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of value unit identifiers. See endpoint `/basic/valueUnit/list` for possible values.")
   @JsonProperty(JSON_PROPERTY_VALUE_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -206,7 +207,7 @@ public class InlineResponse20015Data implements Serializable {
    * List of market identifiers. See endpoint &#x60;/basic/market/list&#x60; for possible values.
    * @return market
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of market identifiers. See endpoint `/basic/market/list` for possible values.")
   @JsonProperty(JSON_PROPERTY_MARKET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -240,7 +241,7 @@ public class InlineResponse20015Data implements Serializable {
    * List of stock types.
    * @return stockType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of stock types.")
   @JsonProperty(JSON_PROPERTY_STOCK_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -274,7 +275,7 @@ public class InlineResponse20015Data implements Serializable {
    * Lists of categories of the industry classification. Here, an industry is a category from any level of category system FactSet Revere Business Industry Classification System (RBICS). Starting with the most coarse level (one), for each level of the category system, the list of categories of the stocks, matching the parameters, is returned. See endpoint &#x60;/category/listBySystem&#x60; with &#x60;id&#x3D;48&#x60; for possible values.
    * @return industryClassification
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Lists of categories of the industry classification. Here, an industry is a category from any level of category system FactSet Revere Business Industry Classification System (RBICS). Starting with the most coarse level (one), for each level of the category system, the list of categories of the stocks, matching the parameters, is returned. See endpoint `/category/listBySystem` with `id=48` for possible values.")
   @JsonProperty(JSON_PROPERTY_INDUSTRY_CLASSIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -300,7 +301,7 @@ public class InlineResponse20015Data implements Serializable {
    * Get company
    * @return company
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COMPANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -326,7 +327,7 @@ public class InlineResponse20015Data implements Serializable {
    * Get compliance
    * @return compliance
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COMPLIANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -352,7 +353,7 @@ public class InlineResponse20015Data implements Serializable {
    * Get reportedKeyFigures
    * @return reportedKeyFigures
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REPORTED_KEY_FIGURES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -378,7 +379,7 @@ public class InlineResponse20015Data implements Serializable {
    * Get performance
    * @return performance
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PERFORMANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -404,7 +405,7 @@ public class InlineResponse20015Data implements Serializable {
    * Get volatility
    * @return volatility
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VOLATILITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -430,7 +431,7 @@ public class InlineResponse20015Data implements Serializable {
    * Get tradingValue
    * @return tradingValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TRADING_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -456,7 +457,7 @@ public class InlineResponse20015Data implements Serializable {
    * Get simpleMovingAverage
    * @return simpleMovingAverage
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SIMPLE_MOVING_AVERAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -482,7 +483,7 @@ public class InlineResponse20015Data implements Serializable {
    * Get rsiWilder
    * @return rsiWilder
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RSI_WILDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -508,7 +509,7 @@ public class InlineResponse20015Data implements Serializable {
    * Get recommendation
    * @return recommendation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RECOMMENDATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -534,7 +535,7 @@ public class InlineResponse20015Data implements Serializable {
    * Get estimates
    * @return estimates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ESTIMATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

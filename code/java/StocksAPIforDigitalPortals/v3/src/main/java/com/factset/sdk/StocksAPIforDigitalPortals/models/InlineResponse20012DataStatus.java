@@ -42,7 +42,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20012DataStatus.JSON_PROPERTY_IDENTIFIER,
   InlineResponse20012DataStatus.JSON_PROPERTY_ENCRYPTED_DETAILS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20012DataStatus implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -102,7 +103,7 @@ public class InlineResponse20012DataStatus implements Serializable {
    * Code of the error condition.
    * @return code
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Code of the error condition.")
   @JsonIgnore
 
@@ -136,7 +137,7 @@ public class InlineResponse20012DataStatus implements Serializable {
    * Provided identifier.
    * @return identifier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Provided identifier.")
   @JsonIgnore
 
@@ -170,7 +171,7 @@ public class InlineResponse20012DataStatus implements Serializable {
    * Base64-encoded internal details about the error.
    * @return encryptedDetails
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Base64-encoded internal details about the error.")
   @JsonIgnore
 

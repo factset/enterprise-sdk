@@ -43,7 +43,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresShareInstrument.JSON_PROPERTY_RATIOS,
   PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresShareInstrument.JSON_PROPERTY_CURRENCY_DEPENDENT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresShareInstrument implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -71,7 +72,7 @@ public class PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresShareIns
    * Get sharesOutstanding
    * @return sharesOutstanding
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SHARES_OUTSTANDING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -97,7 +98,7 @@ public class PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresShareIns
    * Get freeFloat
    * @return freeFloat
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FREE_FLOAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -123,7 +124,7 @@ public class PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresShareIns
    * Get ratios
    * @return ratios
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RATIOS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -149,7 +150,7 @@ public class PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresShareIns
    * Get currencyDependent
    * @return currencyDependent
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CURRENCY_DEPENDENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

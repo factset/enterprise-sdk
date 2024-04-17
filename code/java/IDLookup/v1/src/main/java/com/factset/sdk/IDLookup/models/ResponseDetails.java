@@ -38,7 +38,8 @@ import com.factset.sdk.IDLookup.JSON;
   ResponseDetails.JSON_PROPERTY_NAME,
   ResponseDetails.JSON_PROPERTY_ENTITY_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ResponseDetails implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -66,7 +67,7 @@ public class ResponseDetails implements Serializable {
    * Type of Asset Class
    * @return index
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "equities", value = "Type of Asset Class")
   @JsonProperty(JSON_PROPERTY_INDEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -92,7 +93,7 @@ public class ResponseDetails implements Serializable {
    * Symbol is the only value that should be passed back to any FactSet services to retrieve data 
    * @return symbol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FDS-US", value = "Symbol is the only value that should be passed back to any FactSet services to retrieve data ")
   @JsonProperty(JSON_PROPERTY_SYMBOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -118,7 +119,7 @@ public class ResponseDetails implements Serializable {
    * Name of the related entity
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Factset Research Systems Inc", value = "Name of the related entity")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -144,7 +145,7 @@ public class ResponseDetails implements Serializable {
    * Displays Entity ID&#39;s for public companies and only if the asset class is equities 
    * @return entityId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "00BDWZ-E", value = "Displays Entity ID's for public companies and only if the asset class is equities ")
   @JsonProperty(JSON_PROPERTY_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

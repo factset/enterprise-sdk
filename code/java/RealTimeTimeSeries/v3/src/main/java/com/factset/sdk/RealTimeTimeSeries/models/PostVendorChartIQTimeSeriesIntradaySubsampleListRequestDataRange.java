@@ -37,7 +37,8 @@ import com.factset.sdk.RealTimeTimeSeries.JSON;
   PostVendorChartIQTimeSeriesIntradaySubsampleListRequestDataRange.JSON_PROPERTY_START,
   PostVendorChartIQTimeSeriesIntradaySubsampleListRequestDataRange.JSON_PROPERTY_END
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostVendorChartIQTimeSeriesIntradaySubsampleListRequestDataRange implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -69,7 +70,7 @@ public class PostVendorChartIQTimeSeriesIntradaySubsampleListRequestDataRange im
    * The starting point of the time range (inclusive). The data accessible in the past is limited to a few weeks at most.
    * @return start
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The starting point of the time range (inclusive). The data accessible in the past is limited to a few weeks at most.")
   @JsonProperty(JSON_PROPERTY_START)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -95,7 +96,7 @@ public class PostVendorChartIQTimeSeriesIntradaySubsampleListRequestDataRange im
    * The ending point of the time range (exclusive). Values in the future are not allowed.
    * @return end
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The ending point of the time range (exclusive). Values in the future are not allowed.")
   @JsonProperty(JSON_PROPERTY_END)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

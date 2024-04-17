@@ -40,7 +40,8 @@ import com.factset.sdk.FactSetConcordance.JSON;
   PeopleUniverseRequest.JSON_PROPERTY_CLIENT_ID,
   PeopleUniverseRequest.JSON_PROPERTY_SORT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PeopleUniverseRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -119,7 +120,7 @@ public class PeopleUniverseRequest implements Serializable {
    * the id of the universe that entities come from
    * @return universeId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "1", required = true, value = "the id of the universe that entities come from")
   @JsonProperty(JSON_PROPERTY_UNIVERSE_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -145,7 +146,7 @@ public class PeopleUniverseRequest implements Serializable {
    * starting row of the universe
    * @return offset
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0", value = "starting row of the universe")
   @JsonProperty(JSON_PROPERTY_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -172,7 +173,7 @@ public class PeopleUniverseRequest implements Serializable {
    * maximum: 10000
    * @return limit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "10", value = "Limits the number of records in the response.")
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -206,7 +207,7 @@ public class PeopleUniverseRequest implements Serializable {
    * Filter by the People Decisions that have the specified mapStatus, where -       * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)       * UNMAPPED - The requested Entity Name is unmapped by FactSet.       * INDETERMINATE - The requested Entity Name was unable to make a mapping. 
    * @return mapStatus
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "[\"MAPPED\"]", value = "Filter by the People Decisions that have the specified mapStatus, where -       * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)       * UNMAPPED - The requested Entity Name is unmapped by FactSet.       * INDETERMINATE - The requested Entity Name was unable to make a mapping. ")
   @JsonProperty(JSON_PROPERTY_MAP_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -240,7 +241,7 @@ public class PeopleUniverseRequest implements Serializable {
    * fetch only the mappings that has client id included in the specified list.
    * @return clientId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "[\"abc-123\",\"dfg-456\"]", value = "fetch only the mappings that has client id included in the specified list.")
   @JsonProperty(JSON_PROPERTY_CLIENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -274,7 +275,7 @@ public class PeopleUniverseRequest implements Serializable {
    * fetch according to sort orders
    * @return sort
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "[\"clientId:asc\",\"clientPersonName:desc\"]", value = "fetch according to sort orders")
   @JsonProperty(JSON_PROPERTY_SORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

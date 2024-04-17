@@ -37,7 +37,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse200DataDocumentation.JSON_PROPERTY_IS_PROSPECTUS_POSTED,
   InlineResponse200DataDocumentation.JSON_PROPERTY_IS_SAI_POSTED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse200DataDocumentation implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -59,7 +60,7 @@ public class InlineResponse200DataDocumentation implements Serializable {
    * Complete prospectus is available on issuer website. This data is available for all the regions.
    * @return isProspectusPosted
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Complete prospectus is available on issuer website. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_IS_PROSPECTUS_POSTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -85,7 +86,7 @@ public class InlineResponse200DataDocumentation implements Serializable {
    * Statement of Additional Information (SAI) is available on issuer website. This data is available for the US regions.
    * @return isSaiPosted
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Statement of Additional Information (SAI) is available on issuer website. This data is available for the US regions.")
   @JsonProperty(JSON_PROPERTY_IS_SAI_POSTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

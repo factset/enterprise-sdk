@@ -43,7 +43,8 @@ import com.factset.sdk.RealTimeTimeSeries.JSON;
   PostVendorChartIQTimeSeriesIntradaySubsampleGetRequestData.JSON_PROPERTY_GRANULARITY,
   PostVendorChartIQTimeSeriesIntradaySubsampleGetRequestData.JSON_PROPERTY_ADJUSTMENTS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostVendorChartIQTimeSeriesIntradaySubsampleGetRequestData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -214,7 +215,7 @@ public class PostVendorChartIQTimeSeriesIntradaySubsampleGetRequestData implemen
    * Get identifier
    * @return identifier
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -240,7 +241,7 @@ public class PostVendorChartIQTimeSeriesIntradaySubsampleGetRequestData implemen
    * Type of the price as configured for the customer.
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Type of the price as configured for the customer.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -266,7 +267,7 @@ public class PostVendorChartIQTimeSeriesIntradaySubsampleGetRequestData implemen
    * Quality of the price.
    * @return quality
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Quality of the price.")
   @JsonProperty(JSON_PROPERTY_QUALITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -292,7 +293,7 @@ public class PostVendorChartIQTimeSeriesIntradaySubsampleGetRequestData implemen
    * Date and time of the start point of the subsample (inclusive). &#x60;from&#x60; must be aligned to &#x60;granularity&#x60;. That is, the numerical value is an integral multiple of the time span value represented by &#x60;granularity&#x60;. The data accessible in the past is limited to a few weeks at most. Values in the future are not allowed.
    * @return from
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Date and time of the start point of the subsample (inclusive). `from` must be aligned to `granularity`. That is, the numerical value is an integral multiple of the time span value represented by `granularity`. The data accessible in the past is limited to a few weeks at most. Values in the future are not allowed.")
   @JsonProperty(JSON_PROPERTY_FROM)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -318,7 +319,7 @@ public class PostVendorChartIQTimeSeriesIntradaySubsampleGetRequestData implemen
    * Subsample granularities suitable for intraday data.
    * @return granularity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Subsample granularities suitable for intraday data.")
   @JsonProperty(JSON_PROPERTY_GRANULARITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -344,7 +345,7 @@ public class PostVendorChartIQTimeSeriesIntradaySubsampleGetRequestData implemen
    * Get adjustments
    * @return adjustments
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ADJUSTMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

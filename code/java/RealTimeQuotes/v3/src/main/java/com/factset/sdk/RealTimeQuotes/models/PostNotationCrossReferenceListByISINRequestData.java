@@ -38,7 +38,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   PostNotationCrossReferenceListByISINRequestData.JSON_PROPERTY_ISIN,
   PostNotationCrossReferenceListByISINRequestData.JSON_PROPERTY_FILTER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostNotationCrossReferenceListByISINRequestData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class PostNotationCrossReferenceListByISINRequestData implements Serializ
    * International Securities Identification Number.
    * @return isin
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "International Securities Identification Number.")
   @JsonProperty(JSON_PROPERTY_ISIN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -94,7 +95,7 @@ public class PostNotationCrossReferenceListByISINRequestData implements Serializ
    * Get filter
    * @return filter
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FILTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

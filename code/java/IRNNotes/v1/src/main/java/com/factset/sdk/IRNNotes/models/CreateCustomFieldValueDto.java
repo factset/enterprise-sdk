@@ -49,7 +49,8 @@ import com.factset.sdk.IRNNotes.JSON;
   CreateCustomFieldValueDto.JSON_PROPERTY_OPTION_VALUE,
   CreateCustomFieldValueDto.JSON_PROPERTY_OPTION_VALUES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CreateCustomFieldValueDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -103,7 +104,7 @@ public class CreateCustomFieldValueDto implements Serializable {
    * Get code
    * @return code
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -129,7 +130,7 @@ public class CreateCustomFieldValueDto implements Serializable {
    * Get integerValue
    * @return integerValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -163,7 +164,7 @@ public class CreateCustomFieldValueDto implements Serializable {
    * Get textValue
    * @return textValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -197,7 +198,7 @@ public class CreateCustomFieldValueDto implements Serializable {
    * Get filePathValue
    * @return filePathValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -231,7 +232,7 @@ public class CreateCustomFieldValueDto implements Serializable {
    * Get numericValue
    * @return numericValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -265,7 +266,7 @@ public class CreateCustomFieldValueDto implements Serializable {
    * Get dateValue
    * @return dateValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -299,7 +300,7 @@ public class CreateCustomFieldValueDto implements Serializable {
    * Get extendedTextValue
    * @return extendedTextValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -345,7 +346,7 @@ public class CreateCustomFieldValueDto implements Serializable {
    * Get contactLookupValues
    * @return contactLookupValues
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -379,7 +380,7 @@ public class CreateCustomFieldValueDto implements Serializable {
    * Get optionValue
    * @return optionValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -425,7 +426,7 @@ public class CreateCustomFieldValueDto implements Serializable {
    * Get optionValues
    * @return optionValues
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

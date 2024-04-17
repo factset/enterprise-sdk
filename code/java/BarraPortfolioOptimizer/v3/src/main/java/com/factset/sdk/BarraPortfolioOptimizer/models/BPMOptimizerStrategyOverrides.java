@@ -40,7 +40,8 @@ import com.factset.sdk.BarraPortfolioOptimizer.JSON;
   BPMOptimizerStrategyOverrides.JSON_PROPERTY_TAX,
   BPMOptimizerStrategyOverrides.JSON_PROPERTY_TRANSACTION_COST
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class BPMOptimizerStrategyOverrides implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -76,7 +77,7 @@ public class BPMOptimizerStrategyOverrides implements Serializable {
    * List of constraints
    * @return constraints
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of constraints")
   @JsonProperty(JSON_PROPERTY_CONSTRAINTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -102,7 +103,7 @@ public class BPMOptimizerStrategyOverrides implements Serializable {
    * Get alpha
    * @return alpha
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ALPHA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -128,7 +129,7 @@ public class BPMOptimizerStrategyOverrides implements Serializable {
    * Tax  Can be set to \&quot;\&quot; for local
    * @return tax
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Tax  Can be set to \"\" for local")
   @JsonProperty(JSON_PROPERTY_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -154,7 +155,7 @@ public class BPMOptimizerStrategyOverrides implements Serializable {
    * Transaction cost  Can be set to \&quot;\&quot; for local
    * @return transactionCost
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Transaction cost  Can be set to \"\" for local")
   @JsonProperty(JSON_PROPERTY_TRANSACTION_COST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

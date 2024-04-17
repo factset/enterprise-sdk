@@ -35,7 +35,8 @@ import com.factset.sdk.OptimizationEngineAPIMultiperiod.JSON;
 @JsonPropertyOrder({
   OptimizerInputsSpecificPoints.JSON_PROPERTY_POINTS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerInputsSpecificPoints implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -62,7 +63,7 @@ public class OptimizerInputsSpecificPoints implements Serializable {
    * Get points
    * @return points
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_POINTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

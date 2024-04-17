@@ -42,7 +42,8 @@ import com.factset.sdk.ForeignExchangeRate.JSON;
   Spot.JSON_PROPERTY_SPOT_ASK,
   Spot.JSON_PROPERTY_DATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Spot implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -76,7 +77,7 @@ public class Spot implements Serializable {
    * The FX Spot Rate currency pair requested in the &#39;ids&#39; parameter. This represents the base and quote currency.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USDGBP", value = "The FX Spot Rate currency pair requested in the 'ids' parameter. This represents the base and quote currency.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -102,7 +103,7 @@ public class Spot implements Serializable {
    * The full text currency pair name expressed in Proper Case.
    * @return currencyName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "British Pounds per U.S. Dollar", value = "The full text currency pair name expressed in Proper Case.")
   @JsonProperty(JSON_PROPERTY_CURRENCY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -128,7 +129,7 @@ public class Spot implements Serializable {
    * The currency pair&#39;s spot rate Bid.
    * @return spotBid
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0.799232737", value = "The currency pair's spot rate Bid.")
   @JsonProperty(JSON_PROPERTY_SPOT_BID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -154,7 +155,7 @@ public class Spot implements Serializable {
    * The currency pair&#39;s spot rate Mid.
    * @return spotMid
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0.799360512", value = "The currency pair's spot rate Mid.")
   @JsonProperty(JSON_PROPERTY_SPOT_MID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -180,7 +181,7 @@ public class Spot implements Serializable {
    * The currency pair&#39;s spot rate Ask.
    * @return spotAsk
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0.799488327", value = "The currency pair's spot rate Ask.")
   @JsonProperty(JSON_PROPERTY_SPOT_ASK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -206,7 +207,7 @@ public class Spot implements Serializable {
    * Ending date for the period expressed in YYYY-MM-DD format.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Tue Jul 07 00:00:00 UTC 2020", value = "Ending date for the period expressed in YYYY-MM-DD format.")
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

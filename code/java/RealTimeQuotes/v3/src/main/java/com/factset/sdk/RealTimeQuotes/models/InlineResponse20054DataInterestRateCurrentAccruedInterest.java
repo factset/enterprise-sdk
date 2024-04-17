@@ -42,7 +42,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20054DataInterestRateCurrentAccruedInterest.JSON_PROPERTY_ABSOLUTE,
   InlineResponse20054DataInterestRateCurrentAccruedInterest.JSON_PROPERTY_RELATIVE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20054DataInterestRateCurrentAccruedInterest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class InlineResponse20054DataInterestRateCurrentAccruedInterest implement
    * Monetary value of the accrued interest. The attribute is available only for instruments with a declared nominal value, e.g. securitized derivatives.
    * @return absolute
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Monetary value of the accrued interest. The attribute is available only for instruments with a declared nominal value, e.g. securitized derivatives.")
   @JsonIgnore
 
@@ -98,7 +99,7 @@ public class InlineResponse20054DataInterestRateCurrentAccruedInterest implement
    * Accrued interest.
    * @return relative
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Accrued interest.")
   @JsonIgnore
 

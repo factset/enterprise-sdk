@@ -43,7 +43,8 @@ import com.factset.sdk.PAEngine.JSON;
   TemplatedPAComponentParameters.JSON_PROPERTY_DESCRIPTION,
   TemplatedPAComponentParameters.JSON_PROPERTY_COMPONENT_DATA
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class TemplatedPAComponentParameters implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -81,7 +82,7 @@ public class TemplatedPAComponentParameters implements Serializable {
    * Directory to create templated components
    * @return directory
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Directory to create templated components")
   @JsonProperty(JSON_PROPERTY_DIRECTORY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -107,7 +108,7 @@ public class TemplatedPAComponentParameters implements Serializable {
    * Parent template id
    * @return parentTemplateId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Parent template id")
   @JsonProperty(JSON_PROPERTY_PARENT_TEMPLATE_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -133,7 +134,7 @@ public class TemplatedPAComponentParameters implements Serializable {
    * Component description.
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Component description.")
   @JsonIgnore
 
@@ -167,7 +168,7 @@ public class TemplatedPAComponentParameters implements Serializable {
    * Get componentData
    * @return componentData
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COMPONENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

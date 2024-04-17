@@ -6,7 +6,7 @@ import com.factset.sdk.NorthfieldPortfolioOptimizer.ApiResponse;
 import com.factset.sdk.NorthfieldPortfolioOptimizer.Configuration;
 import com.factset.sdk.NorthfieldPortfolioOptimizer.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -16,7 +16,8 @@ import com.factset.sdk.NorthfieldPortfolioOptimizer.models.ClientErrorResponse;
 import com.factset.sdk.NorthfieldPortfolioOptimizer.models.NPOOptimizationParametersRoot;
 import com.factset.sdk.NorthfieldPortfolioOptimizer.models.ObjectRoot;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class NpoOptimizerApi {
   private ApiClient apiClient;
 

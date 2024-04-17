@@ -36,7 +36,8 @@ import com.factset.sdk.FactSetFundamentals.JSON;
   FiscalPeriod.JSON_PROPERTY_START,
   FiscalPeriod.JSON_PROPERTY_END
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FiscalPeriod implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -58,7 +59,7 @@ public class FiscalPeriod implements Serializable {
    * The fiscal period start expressed as YYYY-MM-DD.  Calendar date that will fall back to the most recently completed period during resolution. 
    * @return start
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2012-01-01", value = "The fiscal period start expressed as YYYY-MM-DD.  Calendar date that will fall back to the most recently completed period during resolution. ")
   @JsonProperty(JSON_PROPERTY_START)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -84,7 +85,7 @@ public class FiscalPeriod implements Serializable {
    * The fiscal period end expressed YYYY-MM-DD.  Calendar date that will fall back to the most recent completed period during resolution. 
    * @return end
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2014-01-01", value = "The fiscal period end expressed YYYY-MM-DD.  Calendar date that will fall back to the most recent completed period during resolution. ")
   @JsonProperty(JSON_PROPERTY_END)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

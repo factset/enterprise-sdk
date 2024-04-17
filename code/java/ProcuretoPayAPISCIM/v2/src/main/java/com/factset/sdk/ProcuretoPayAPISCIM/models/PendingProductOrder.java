@@ -39,7 +39,8 @@ import com.factset.sdk.ProcuretoPayAPISCIM.JSON;
   PendingProductOrder.JSON_PROPERTY_STATUS,
   PendingProductOrder.JSON_PROPERTY_REQUESTED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PendingProductOrder implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -79,7 +80,7 @@ public class PendingProductOrder implements Serializable {
    * Get product
    * @return product
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_PRODUCT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -100,7 +101,7 @@ public class PendingProductOrder implements Serializable {
    * Type of product order, e.g. &#39;Add&#39; or &#39;Remove&#39;.
    * @return type
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "Add", required = true, value = "Type of product order, e.g. 'Add' or 'Remove'.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -116,7 +117,7 @@ public class PendingProductOrder implements Serializable {
    * Status of the pending product order.
    * @return status
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "Processing", required = true, value = "Status of the pending product order.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -132,7 +133,7 @@ public class PendingProductOrder implements Serializable {
    * Date and time when product was ordered.
    * @return requested
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "2019-06-07T08:59:37+00:00", required = true, value = "Date and time when product was ordered.")
   @JsonProperty(JSON_PROPERTY_REQUESTED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

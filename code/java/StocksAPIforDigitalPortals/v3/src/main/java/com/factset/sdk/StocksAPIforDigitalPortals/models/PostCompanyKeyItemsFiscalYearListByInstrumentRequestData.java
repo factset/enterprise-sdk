@@ -40,7 +40,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   PostCompanyKeyItemsFiscalYearListByInstrumentRequestData.JSON_PROPERTY_FISCAL_YEARS,
   PostCompanyKeyItemsFiscalYearListByInstrumentRequestData.JSON_PROPERTY_CURRENCY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostCompanyKeyItemsFiscalYearListByInstrumentRequestData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -73,7 +74,7 @@ public class PostCompanyKeyItemsFiscalYearListByInstrumentRequestData implements
    * Identifier of the instrument.
    * @return id
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Identifier of the instrument.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -99,7 +100,7 @@ public class PostCompanyKeyItemsFiscalYearListByInstrumentRequestData implements
    * Get fiscalYears
    * @return fiscalYears
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FISCAL_YEARS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -125,7 +126,7 @@ public class PostCompanyKeyItemsFiscalYearListByInstrumentRequestData implements
    * Get currency
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -43,7 +43,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2001DataCashFlow.JSON_PROPERTY_NET_INVESTING_CASH_FLOW,
   InlineResponse2001DataCashFlow.JSON_PROPERTY_NET_FINANCING_CASH_FLOW
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2001DataCashFlow implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -71,7 +72,7 @@ public class InlineResponse2001DataCashFlow implements Serializable {
    * Get netOperating
    * @return netOperating
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NET_OPERATING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -97,7 +98,7 @@ public class InlineResponse2001DataCashFlow implements Serializable {
    * Get capitalExpenditures
    * @return capitalExpenditures
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CAPITAL_EXPENDITURES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -123,7 +124,7 @@ public class InlineResponse2001DataCashFlow implements Serializable {
    * Get netInvestingCashFlow
    * @return netInvestingCashFlow
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NET_INVESTING_CASH_FLOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -149,7 +150,7 @@ public class InlineResponse2001DataCashFlow implements Serializable {
    * Get netFinancingCashFlow
    * @return netFinancingCashFlow
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NET_FINANCING_CASH_FLOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

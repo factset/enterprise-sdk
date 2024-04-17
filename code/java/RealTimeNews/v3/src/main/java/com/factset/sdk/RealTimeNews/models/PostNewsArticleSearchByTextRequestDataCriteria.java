@@ -53,7 +53,8 @@ import com.factset.sdk.RealTimeNews.JSON;
   PostNewsArticleSearchByTextRequestDataCriteria.JSON_PROPERTY_PUBLISHER,
   PostNewsArticleSearchByTextRequestDataCriteria.JSON_PROPERTY_LANGUAGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostNewsArticleSearchByTextRequestDataCriteria implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -134,7 +135,7 @@ public class PostNewsArticleSearchByTextRequestDataCriteria implements Serializa
    * Specify how the criteria should be applied to the search.
    * @return selectionType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Specify how the criteria should be applied to the search.")
   @JsonProperty(JSON_PROPERTY_SELECTION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -160,7 +161,7 @@ public class PostNewsArticleSearchByTextRequestDataCriteria implements Serializa
    * Get range
    * @return range
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -186,7 +187,7 @@ public class PostNewsArticleSearchByTextRequestDataCriteria implements Serializa
    * Get indices
    * @return indices
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INDICES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -212,7 +213,7 @@ public class PostNewsArticleSearchByTextRequestDataCriteria implements Serializa
    * Get instruments
    * @return instruments
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INSTRUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -238,7 +239,7 @@ public class PostNewsArticleSearchByTextRequestDataCriteria implements Serializa
    * Get types
    * @return types
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -264,7 +265,7 @@ public class PostNewsArticleSearchByTextRequestDataCriteria implements Serializa
    * Get categories
    * @return categories
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CATEGORIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -290,7 +291,7 @@ public class PostNewsArticleSearchByTextRequestDataCriteria implements Serializa
    * Get regions
    * @return regions
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REGIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -316,7 +317,7 @@ public class PostNewsArticleSearchByTextRequestDataCriteria implements Serializa
    * Get distributor
    * @return distributor
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DISTRIBUTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -342,7 +343,7 @@ public class PostNewsArticleSearchByTextRequestDataCriteria implements Serializa
    * Get publisher
    * @return publisher
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PUBLISHER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -368,7 +369,7 @@ public class PostNewsArticleSearchByTextRequestDataCriteria implements Serializa
    * Get language
    * @return language
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

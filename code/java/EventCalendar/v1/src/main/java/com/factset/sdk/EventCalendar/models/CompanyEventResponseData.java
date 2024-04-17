@@ -49,7 +49,8 @@ import com.factset.sdk.EventCalendar.JSON;
   CompanyEventResponseData.JSON_PROPERTY_CONTACT_PHONE,
   CompanyEventResponseData.JSON_PROPERTY_CONTACT_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CompanyEventResponseData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -162,7 +163,7 @@ public class CompanyEventResponseData implements Serializable {
    * Get ticker
    * @return ticker
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "AAPL-US", value = "")
   @JsonProperty(JSON_PROPERTY_TICKER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -188,7 +189,7 @@ public class CompanyEventResponseData implements Serializable {
    * Get companyName
    * @return companyName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Apple, Inc.", value = "")
   @JsonProperty(JSON_PROPERTY_COMPANY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -214,7 +215,7 @@ public class CompanyEventResponseData implements Serializable {
    * Get description
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Q2 2023 Earnings Release (Projected)", value = "")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -240,7 +241,7 @@ public class CompanyEventResponseData implements Serializable {
    * Get eventDateTime
    * @return eventDateTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2023-01-01T00:00Z", value = "")
   @JsonProperty(JSON_PROPERTY_EVENT_DATE_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -266,7 +267,7 @@ public class CompanyEventResponseData implements Serializable {
    * Get marketTimeCode
    * @return marketTimeCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Unspecified", value = "")
   @JsonProperty(JSON_PROPERTY_MARKET_TIME_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -292,7 +293,7 @@ public class CompanyEventResponseData implements Serializable {
    * Get eventType
    * @return eventType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "E", value = "")
   @JsonProperty(JSON_PROPERTY_EVENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -318,7 +319,7 @@ public class CompanyEventResponseData implements Serializable {
    * Get eventId
    * @return eventId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1200867930", value = "")
   @JsonProperty(JSON_PROPERTY_EVENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -344,7 +345,7 @@ public class CompanyEventResponseData implements Serializable {
    * Get webcastLink
    * @return webcastLink
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "", value = "")
   @JsonProperty(JSON_PROPERTY_WEBCAST_LINK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -370,7 +371,7 @@ public class CompanyEventResponseData implements Serializable {
    * Get irLink
    * @return irLink
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "investor.apple.com/investor-relations/default.aspx", value = "")
   @JsonProperty(JSON_PROPERTY_IR_LINK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -396,7 +397,7 @@ public class CompanyEventResponseData implements Serializable {
    * Get fiscalYear
    * @return fiscalYear
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2023", value = "")
   @JsonProperty(JSON_PROPERTY_FISCAL_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -422,7 +423,7 @@ public class CompanyEventResponseData implements Serializable {
    * Get fiscalPeriod
    * @return fiscalPeriod
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "")
   @JsonProperty(JSON_PROPERTY_FISCAL_PERIOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -448,7 +449,7 @@ public class CompanyEventResponseData implements Serializable {
    * Get contactEmail
    * @return contactEmail
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "jdoe@apple.com", value = "")
   @JsonProperty(JSON_PROPERTY_CONTACT_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -474,7 +475,7 @@ public class CompanyEventResponseData implements Serializable {
    * Get contactPhone
    * @return contactPhone
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1(888)227.0303", value = "")
   @JsonProperty(JSON_PROPERTY_CONTACT_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -500,7 +501,7 @@ public class CompanyEventResponseData implements Serializable {
    * Get contactName
    * @return contactName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "John Doe", value = "")
   @JsonProperty(JSON_PROPERTY_CONTACT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

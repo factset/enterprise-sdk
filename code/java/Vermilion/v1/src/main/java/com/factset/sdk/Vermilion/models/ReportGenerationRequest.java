@@ -42,7 +42,8 @@ import com.factset.sdk.Vermilion.JSON;
   ReportGenerationRequest.JSON_PROPERTY_START_DATE,
   ReportGenerationRequest.JSON_PROPERTY_ENTITY_SELECTION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ReportGenerationRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -134,7 +135,7 @@ public class ReportGenerationRequest implements Serializable {
    * Get report
    * @return report
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REPORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -160,7 +161,7 @@ public class ReportGenerationRequest implements Serializable {
    * Get tenancy
    * @return tenancy
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TENANCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -186,7 +187,7 @@ public class ReportGenerationRequest implements Serializable {
    * Get outputFormat
    * @return outputFormat
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OUTPUT_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -212,7 +213,7 @@ public class ReportGenerationRequest implements Serializable {
    * Get sectionFilter
    * @return sectionFilter
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SECTION_FILTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -238,7 +239,7 @@ public class ReportGenerationRequest implements Serializable {
    * Get priority
    * @return priority
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -264,7 +265,7 @@ public class ReportGenerationRequest implements Serializable {
    * Get startDate
    * @return startDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_START_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -298,7 +299,7 @@ public class ReportGenerationRequest implements Serializable {
    * Get entitySelection
    * @return entitySelection
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ENTITY_SELECTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

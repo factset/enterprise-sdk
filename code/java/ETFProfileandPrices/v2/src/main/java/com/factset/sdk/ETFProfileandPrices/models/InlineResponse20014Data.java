@@ -43,7 +43,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20014Data.JSON_PROPERTY_COUNTER_PARTY,
   InlineResponse20014Data.JSON_PROPERTY_SERVICE_PROVIDER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20014Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -71,7 +72,7 @@ public class InlineResponse20014Data implements Serializable {
    * Get gearing
    * @return gearing
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_GEARING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -97,7 +98,7 @@ public class InlineResponse20014Data implements Serializable {
    * Get hedge
    * @return hedge
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_HEDGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -123,7 +124,7 @@ public class InlineResponse20014Data implements Serializable {
    * Get counterParty
    * @return counterParty
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COUNTER_PARTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -149,7 +150,7 @@ public class InlineResponse20014Data implements Serializable {
    * Get serviceProvider
    * @return serviceProvider
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SERVICE_PROVIDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

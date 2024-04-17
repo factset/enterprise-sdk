@@ -37,7 +37,8 @@ import com.factset.sdk.OverviewReportBuilder.JSON;
   PeerListData.JSON_PROPERTY_NAME,
   PeerListData.JSON_PROPERTY_TICKER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PeerListData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -74,7 +75,7 @@ public class PeerListData implements Serializable {
    * The FactSet Entity ID of the peer
    * @return id
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The FactSet Entity ID of the peer")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -100,7 +101,7 @@ public class PeerListData implements Serializable {
    * The name of the peer
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The name of the peer")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -126,7 +127,7 @@ public class PeerListData implements Serializable {
    * The ticker of the peer
    * @return ticker
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The ticker of the peer")
   @JsonProperty(JSON_PROPERTY_TICKER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

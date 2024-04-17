@@ -42,7 +42,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20099Match.JSON_PROPERTY_VALUE,
   InlineResponse20099Match.JSON_PROPERTY_SCORE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20099Match implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class InlineResponse20099Match implements Serializable {
    * Value matched by the search string.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Value matched by the search string.")
   @JsonIgnore
 
@@ -98,7 +99,7 @@ public class InlineResponse20099Match implements Serializable {
    * Match score of the string used for the search.
    * @return score
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Match score of the string used for the search.")
   @JsonIgnore
 

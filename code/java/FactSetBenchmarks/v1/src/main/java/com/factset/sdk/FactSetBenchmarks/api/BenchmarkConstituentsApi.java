@@ -6,7 +6,7 @@ import com.factset.sdk.FactSetBenchmarks.ApiResponse;
 import com.factset.sdk.FactSetBenchmarks.Configuration;
 import com.factset.sdk.FactSetBenchmarks.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -17,7 +17,8 @@ import com.factset.sdk.FactSetBenchmarks.models.ErrorResponse;
 import com.factset.sdk.FactSetBenchmarks.models.FixedIncomeBenchmarkConstituentsRequest;
 import com.factset.sdk.FactSetBenchmarks.models.FixedIncomeBenchmarkConstituentsResponse;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class BenchmarkConstituentsApi {
   private ApiClient apiClient;
 

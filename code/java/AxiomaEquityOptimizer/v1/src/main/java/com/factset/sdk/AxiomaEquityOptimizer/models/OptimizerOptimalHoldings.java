@@ -37,7 +37,8 @@ import com.factset.sdk.AxiomaEquityOptimizer.JSON;
   OptimizerOptimalHoldings.JSON_PROPERTY_INCLUDECASH,
   OptimizerOptimalHoldings.JSON_PROPERTY_EXCLUDEZERO
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerOptimalHoldings implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -113,7 +114,7 @@ public class OptimizerOptimalHoldings implements Serializable {
    * Identifier type
    * @return identifiertype
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier type")
   @JsonProperty(JSON_PROPERTY_IDENTIFIERTYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -139,7 +140,7 @@ public class OptimizerOptimalHoldings implements Serializable {
    * Include cash
    * @return includecash
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Include cash")
   @JsonProperty(JSON_PROPERTY_INCLUDECASH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -165,7 +166,7 @@ public class OptimizerOptimalHoldings implements Serializable {
    * Exclude zero
    * @return excludezero
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Exclude zero")
   @JsonProperty(JSON_PROPERTY_EXCLUDEZERO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

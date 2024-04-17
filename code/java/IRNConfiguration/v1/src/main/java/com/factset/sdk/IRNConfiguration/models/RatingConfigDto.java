@@ -43,7 +43,8 @@ import com.factset.sdk.IRNConfiguration.JSON;
   RatingConfigDto.JSON_PROPERTY_VIEWER_IDS,
   RatingConfigDto.JSON_PROPERTY_OPTION_VALUES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class RatingConfigDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -74,7 +75,7 @@ public class RatingConfigDto implements Serializable {
    * Get ratingsVisibleToAuthor
    * @return ratingsVisibleToAuthor
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RATINGS_VISIBLE_TO_AUTHOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -100,7 +101,7 @@ public class RatingConfigDto implements Serializable {
    * Get ratingsVisibleToViewers
    * @return ratingsVisibleToViewers
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RATINGS_VISIBLE_TO_VIEWERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -126,7 +127,7 @@ public class RatingConfigDto implements Serializable {
    * Get ratingsVisibleToAll
    * @return ratingsVisibleToAll
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RATINGS_VISIBLE_TO_ALL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -164,7 +165,7 @@ public class RatingConfigDto implements Serializable {
    * Get viewerIds
    * @return viewerIds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -210,7 +211,7 @@ public class RatingConfigDto implements Serializable {
    * Get optionValues
    * @return optionValues
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

@@ -40,7 +40,8 @@ import com.factset.sdk.ProcuretoPayAPISCIM.JSON;
   ServiceProviderConfigAuthenticationSchemes.JSON_PROPERTY_SPEC_URI,
   ServiceProviderConfigAuthenticationSchemes.JSON_PROPERTY_DOCUMENTATION_URI
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ServiceProviderConfigAuthenticationSchemes implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -82,7 +83,7 @@ public class ServiceProviderConfigAuthenticationSchemes implements Serializable 
    * The authentication scheme.
    * @return type
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "httpbasic", required = true, value = "The authentication scheme.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -98,7 +99,7 @@ public class ServiceProviderConfigAuthenticationSchemes implements Serializable 
    * The common authentication scheme name, e.g., HTTP Basic.
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "HTTP Basic", required = true, value = "The common authentication scheme name, e.g., HTTP Basic.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -114,7 +115,7 @@ public class ServiceProviderConfigAuthenticationSchemes implements Serializable 
    * A description of the authentication scheme.
    * @return description
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "FactSet API key authentication.", required = true, value = "A description of the authentication scheme.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -130,7 +131,7 @@ public class ServiceProviderConfigAuthenticationSchemes implements Serializable 
    * An HTTP-addressable URL pointing to the authentication scheme&#39;s specification.
    * @return specUri
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "https://datatracker.ietf.org/doc/rfc7617/", value = "An HTTP-addressable URL pointing to the authentication scheme's specification.")
   @JsonProperty(JSON_PROPERTY_SPEC_URI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -146,7 +147,7 @@ public class ServiceProviderConfigAuthenticationSchemes implements Serializable 
    * An HTTP-addressable URL pointing to the authentication scheme&#39;s usage documentation.
    * @return documentationUri
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "https://developer.factset.com/authentication", value = "An HTTP-addressable URL pointing to the authentication scheme's usage documentation.")
   @JsonProperty(JSON_PROPERTY_DOCUMENTATION_URI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -5,7 +5,7 @@
   "java8": true,
   "groupId": "com.factset.sdk",
   "artifactId": "irnmeetings",
-  "artifactVersion": "2.0.3",
+  "artifactVersion": "3.0.0",
   "artifactUrl": "https://github.com/FactSet/enterprise-sdk",
   "artifactDescription": "IRN Meetings client library for Java",
   "scmConnection": "scm:git:git@github.com:FactSet/enterprise-sdk.git",
@@ -26,7 +26,7 @@
   "library": "jersey2",
   "dateLibrary": "java8",
   "servers":  false,
-  "httpUserAgent": "fds-sdk/java/IRNMeetings/2.0.3",
+  "httpUserAgent": "fds-sdk/java/IRNMeetings/3.0.0",
   "files": {
     "LICENSE": {},
     "auth/FactSetOAuth2ClientAuth.mustache": {

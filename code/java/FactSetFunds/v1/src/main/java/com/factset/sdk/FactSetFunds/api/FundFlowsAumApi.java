@@ -6,7 +6,7 @@ import com.factset.sdk.FactSetFunds.ApiResponse;
 import com.factset.sdk.FactSetFunds.Configuration;
 import com.factset.sdk.FactSetFunds.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -17,7 +17,8 @@ import com.factset.sdk.FactSetFunds.models.ErrorResponse;
 import com.factset.sdk.FactSetFunds.models.FlowsRequest;
 import com.factset.sdk.FactSetFunds.models.FlowsResponse;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FundFlowsAumApi {
   private ApiClient apiClient;
 

@@ -42,7 +42,8 @@ import com.factset.sdk.StreetAccountNews.JSON;
   SearchResponseArrayObject.JSON_PROPERTY_DOCS_STORY_BODY,
   SearchResponseArrayObject.JSON_PROPERTY_DOCS_REFERENCE_URIS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SearchResponseArrayObject implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -82,7 +83,7 @@ public class SearchResponseArrayObject implements Serializable {
    * Get docsStoryDateAndTime
    * @return docsStoryDateAndTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2022-09-15T06:48:19Z", value = "")
   @JsonProperty(JSON_PROPERTY_DOCS_STORY_DATE_AND_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -108,7 +109,7 @@ public class SearchResponseArrayObject implements Serializable {
    * Get docsHeadlines
    * @return docsHeadlines
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Sample Headline", value = "")
   @JsonProperty(JSON_PROPERTY_DOCS_HEADLINES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -134,7 +135,7 @@ public class SearchResponseArrayObject implements Serializable {
    * Get docsId
    * @return docsId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "sa_story_3393235", value = "")
   @JsonProperty(JSON_PROPERTY_DOCS_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -168,7 +169,7 @@ public class SearchResponseArrayObject implements Serializable {
    * Get docsPrimarySymbols
    * @return docsPrimarySymbols
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DOCS_PRIMARY_SYMBOLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -202,7 +203,7 @@ public class SearchResponseArrayObject implements Serializable {
    * Get docsSymbols
    * @return docsSymbols
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DOCS_SYMBOLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -236,7 +237,7 @@ public class SearchResponseArrayObject implements Serializable {
    * Get docsSubjects
    * @return docsSubjects
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DOCS_SUBJECTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -262,7 +263,7 @@ public class SearchResponseArrayObject implements Serializable {
    * Get docsStoryBody
    * @return docsStoryBody
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Sample Body", value = "")
   @JsonProperty(JSON_PROPERTY_DOCS_STORY_BODY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -288,7 +289,7 @@ public class SearchResponseArrayObject implements Serializable {
    * Get docsReferenceUris
    * @return docsReferenceUris
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Sample URI", value = "")
   @JsonProperty(JSON_PROPERTY_DOCS_REFERENCE_URIS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

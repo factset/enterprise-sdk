@@ -38,7 +38,8 @@ import com.factset.sdk.FactSetTermsandConditions.JSON;
   UseOfProceeds.JSON_PROPERTY_FSYM_ID,
   UseOfProceeds.JSON_PROPERTY_USE_OF_PROCEEDS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class UseOfProceeds implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class UseOfProceeds implements Serializable {
    * Security identifier used in the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Security identifier used in the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -89,7 +90,7 @@ public class UseOfProceeds implements Serializable {
    * FactSet Permanent Security Identifier.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "FactSet Permanent Security Identifier.")
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +116,7 @@ public class UseOfProceeds implements Serializable {
    * Use of proceeds.
    * @return useOfProceeds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Use of proceeds.")
   @JsonProperty(JSON_PROPERTY_USE_OF_PROCEEDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

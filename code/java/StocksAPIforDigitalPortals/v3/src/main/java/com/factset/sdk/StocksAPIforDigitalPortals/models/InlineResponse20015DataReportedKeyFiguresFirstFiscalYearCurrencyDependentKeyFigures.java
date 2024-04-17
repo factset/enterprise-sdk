@@ -49,7 +49,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20015DataReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFigures.JSON_PROPERTY_EBITDA,
   InlineResponse20015DataReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFigures.JSON_PROPERTY_PER_SHARE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20015DataReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFigures implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -80,7 +81,7 @@ public class InlineResponse20015DataReportedKeyFiguresFirstFiscalYearCurrencyDep
    * Get currency
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -106,7 +107,7 @@ public class InlineResponse20015DataReportedKeyFiguresFirstFiscalYearCurrencyDep
    * Get marketCapitalization
    * @return marketCapitalization
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -140,7 +141,7 @@ public class InlineResponse20015DataReportedKeyFiguresFirstFiscalYearCurrencyDep
    * Get ebit
    * @return ebit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -174,7 +175,7 @@ public class InlineResponse20015DataReportedKeyFiguresFirstFiscalYearCurrencyDep
    * Get ebitda
    * @return ebitda
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -208,7 +209,7 @@ public class InlineResponse20015DataReportedKeyFiguresFirstFiscalYearCurrencyDep
    * Get perShare
    * @return perShare
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PER_SHARE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

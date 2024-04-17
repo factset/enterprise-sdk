@@ -39,7 +39,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20014DataServiceProvider.JSON_PROPERTY_DISTRIBUTOR,
   InlineResponse20014DataServiceProvider.JSON_PROPERTY_IS_ISSUER_AFFILIATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20014DataServiceProvider implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -67,7 +68,7 @@ public class InlineResponse20014DataServiceProvider implements Serializable {
    * The name of the primary advisor of the ETP. This data is available for the US and Canada regions.
    * @return primaryAdvisor
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The name of the primary advisor of the ETP. This data is available for the US and Canada regions.")
   @JsonProperty(JSON_PROPERTY_PRIMARY_ADVISOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -93,7 +94,7 @@ public class InlineResponse20014DataServiceProvider implements Serializable {
    * The name of the sub-advisor of the ETP. This data is available for the US and Canada regions.
    * @return subAdvisor
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The name of the sub-advisor of the ETP. This data is available for the US and Canada regions.")
   @JsonProperty(JSON_PROPERTY_SUB_ADVISOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -119,7 +120,7 @@ public class InlineResponse20014DataServiceProvider implements Serializable {
    * The name of the distributor of the ETP. This data is available for the US region.
    * @return distributor
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The name of the distributor of the ETP. This data is available for the US region.")
   @JsonProperty(JSON_PROPERTY_DISTRIBUTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -145,7 +146,7 @@ public class InlineResponse20014DataServiceProvider implements Serializable {
    * Describes whether the swap counterparty is affiliated with the issuer. This data is available for the Europe regions.
    * @return isIssuerAffiliate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Describes whether the swap counterparty is affiliated with the issuer. This data is available for the Europe regions.")
   @JsonProperty(JSON_PROPERTY_IS_ISSUER_AFFILIATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

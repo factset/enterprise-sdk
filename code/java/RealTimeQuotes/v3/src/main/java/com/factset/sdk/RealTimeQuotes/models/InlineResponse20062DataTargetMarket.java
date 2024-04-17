@@ -47,7 +47,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20062DataTargetMarket.JSON_PROPERTY_CLIENT_OBJECTIVES_AND_NEEDS,
   InlineResponse20062DataTargetMarket.JSON_PROPERTY_RECOMMENDED_HOLDING_PERIOD
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20062DataTargetMarket implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -81,7 +82,7 @@ public class InlineResponse20062DataTargetMarket implements Serializable {
    * Get investorType
    * @return investorType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INVESTOR_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -107,7 +108,7 @@ public class InlineResponse20062DataTargetMarket implements Serializable {
    * Get knowledgeAndExperience
    * @return knowledgeAndExperience
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_KNOWLEDGE_AND_EXPERIENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -133,7 +134,7 @@ public class InlineResponse20062DataTargetMarket implements Serializable {
    * Get abilityToBearLosses
    * @return abilityToBearLosses
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ABILITY_TO_BEAR_LOSSES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -159,7 +160,7 @@ public class InlineResponse20062DataTargetMarket implements Serializable {
    * Get riskTolerance
    * @return riskTolerance
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RISK_TOLERANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -185,7 +186,7 @@ public class InlineResponse20062DataTargetMarket implements Serializable {
    * Get clientObjectivesAndNeeds
    * @return clientObjectivesAndNeeds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CLIENT_OBJECTIVES_AND_NEEDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -211,7 +212,7 @@ public class InlineResponse20062DataTargetMarket implements Serializable {
    * Get recommendedHoldingPeriod
    * @return recommendedHoldingPeriod
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RECOMMENDED_HOLDING_PERIOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -41,7 +41,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20022Data.JSON_PROPERTY_FLOWS_Y_T_D,
   InlineResponse20022Data.JSON_PROPERTY_FLOWS1_Y
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20022Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -72,7 +73,7 @@ public class InlineResponse20022Data implements Serializable {
    * One-day fund flows. This data is available for all the regions.
    * @return flows1D
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "One-day fund flows. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_FLOWS1_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -98,7 +99,7 @@ public class InlineResponse20022Data implements Serializable {
    * One-week fund flows. This data is available for all the regions.
    * @return flows1W
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "One-week fund flows. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_FLOWS1_W)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -124,7 +125,7 @@ public class InlineResponse20022Data implements Serializable {
    * One-month fund flows. This data is available for all the regions.
    * @return flows1M
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "One-month fund flows. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_FLOWS1_M)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -150,7 +151,7 @@ public class InlineResponse20022Data implements Serializable {
    * Year-to-date fund flows. This data is available for all the regions.
    * @return flowsYTD
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Year-to-date fund flows. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_FLOWS_Y_T_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -176,7 +177,7 @@ public class InlineResponse20022Data implements Serializable {
    * One-year fund flows. This data is available for all the regions.
    * @return flows1Y
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "One-year fund flows. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_FLOWS1_Y)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -53,7 +53,8 @@ import com.factset.sdk.FactSetPrices.JSON;
   Dividend.JSON_PROPERTY_DIVS_N_G_EQUIV,
   Dividend.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Dividend implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -154,7 +155,7 @@ public class Dividend implements Serializable {
    * Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security&#39;s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "SJY281-R", value = "Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.")
   @JsonIgnore
 
@@ -188,7 +189,7 @@ public class Dividend implements Serializable {
    * Ex-Date of the dividend expressed in YYYY-MM-DD format.
    * @return divsExDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Thu Aug 01 00:00:00 UTC 2013", value = "Ex-Date of the dividend expressed in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -222,7 +223,7 @@ public class Dividend implements Serializable {
    * Date of last split for which prices and volume have been adjusted.
    * @return adjDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Mon Feb 07 00:00:00 UTC 2005", value = "Date of last split for which prices and volume have been adjusted.")
   @JsonIgnore
 
@@ -256,7 +257,7 @@ public class Dividend implements Serializable {
    * Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).")
   @JsonIgnore
 
@@ -290,7 +291,7 @@ public class Dividend implements Serializable {
    * Amount of the dividend paid.
    * @return divsPaid
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "5", value = "Amount of the dividend paid.")
   @JsonIgnore
 
@@ -324,7 +325,7 @@ public class Dividend implements Serializable {
    * Date the dividend was recorded expressed in YYYY-MM-DD format.
    * @return divsRecDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Wed Jul 10 00:00:00 UTC 2013", value = "Date the dividend was recorded expressed in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -358,7 +359,7 @@ public class Dividend implements Serializable {
    * Date the dividend will be paid expressed in YYYY-MM-DD format.
    * @return divsPayDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Thu Aug 08 00:00:00 UTC 2013", value = "Date the dividend will be paid expressed in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -392,7 +393,7 @@ public class Dividend implements Serializable {
    * Dividend type code. For code descriptions, visit [Online Assistant Page #8764](https://oa.apps.factset.com/pages/8764).
    * @return divsTypeC
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1049", value = "Dividend type code. For code descriptions, visit [Online Assistant Page #8764](https://oa.apps.factset.com/pages/8764).")
   @JsonIgnore
 
@@ -426,7 +427,7 @@ public class Dividend implements Serializable {
    * Description of dividend type. For type descriptions, visit [Online Assistant Page #8764](https://oa.apps.factset.com/pages/8764).
    * @return divsTypeD
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "U.S. Currency", value = "Description of dividend type. For type descriptions, visit [Online Assistant Page #8764](https://oa.apps.factset.com/pages/8764).")
   @JsonIgnore
 
@@ -460,7 +461,7 @@ public class Dividend implements Serializable {
    * Tax Marker Code. For code descriptions, visit [Online Assistant Page #15265](https://oa.apps.factset.com/pages/15265).
    * @return divsTaxC
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FC", value = "Tax Marker Code. For code descriptions, visit [Online Assistant Page #15265](https://oa.apps.factset.com/pages/15265).")
   @JsonIgnore
 
@@ -494,7 +495,7 @@ public class Dividend implements Serializable {
    * Description of Tax Marker. For type descriptions, visit [Online Assistant Page #15265](https://oa.apps.factset.com/pages/15265).
    * @return divsTaxD
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Free of tax", value = "Description of Tax Marker. For type descriptions, visit [Online Assistant Page #15265](https://oa.apps.factset.com/pages/15265).")
   @JsonIgnore
 
@@ -528,7 +529,7 @@ public class Dividend implements Serializable {
    * Net/Gross Marker Code. For details describing Net vs. Gross dividends, visit [Online Assistant Page #11512](https://oa.apps.factset.com/pages/11512).
    * @return divsNGFlag
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Net/Gross Marker Code. For details describing Net vs. Gross dividends, visit [Online Assistant Page #11512](https://oa.apps.factset.com/pages/11512).")
   @JsonIgnore
 
@@ -562,7 +563,7 @@ public class Dividend implements Serializable {
    * Net/Gross equivalent (opposite of dividend paid). For details describing Net vs. Gross dividends, visit [Online Assistant Page #11512](https://oa.apps.factset.com/pages/11512).
    * @return divsNGEquiv
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "5.5", value = "Net/Gross equivalent (opposite of dividend paid). For details describing Net vs. Gross dividends, visit [Online Assistant Page #11512](https://oa.apps.factset.com/pages/11512).")
   @JsonIgnore
 
@@ -596,7 +597,7 @@ public class Dividend implements Serializable {
    * Identifier that was used for the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "IBM-US", value = "Identifier that was used for the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

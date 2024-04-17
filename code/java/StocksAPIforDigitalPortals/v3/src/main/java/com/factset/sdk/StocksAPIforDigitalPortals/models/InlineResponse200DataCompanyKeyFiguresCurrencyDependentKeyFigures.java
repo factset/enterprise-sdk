@@ -39,7 +39,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse200DataCompanyKeyFiguresCurrencyDependentKeyFigures.JSON_PROPERTY_MARKET_CAPITALIZATION_SHARES_OUTSTANDING,
   InlineResponse200DataCompanyKeyFiguresCurrencyDependentKeyFigures.JSON_PROPERTY_PER_SHARE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse200DataCompanyKeyFiguresCurrencyDependentKeyFigures implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -61,7 +62,7 @@ public class InlineResponse200DataCompanyKeyFiguresCurrencyDependentKeyFigures i
    * Get marketCapitalizationSharesOutstanding
    * @return marketCapitalizationSharesOutstanding
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MARKET_CAPITALIZATION_SHARES_OUTSTANDING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -87,7 +88,7 @@ public class InlineResponse200DataCompanyKeyFiguresCurrencyDependentKeyFigures i
    * Get perShare
    * @return perShare
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PER_SHARE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

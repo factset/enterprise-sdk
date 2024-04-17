@@ -40,7 +40,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
 @JsonPropertyOrder({
   InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfileGermany.JSON_PROPERTY_PENSION_SCHEME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfileGermany implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -98,7 +99,7 @@ public class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnPr
    * Indicates whether the investment product is suitable for investors with the return profile \&quot;pension scheme\&quot;. This regulatory requirement is available only in Germany (\&quot;Riester Rente\&quot;).
    * @return pensionScheme
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the investment product is suitable for investors with the return profile \"pension scheme\". This regulatory requirement is available only in Germany (\"Riester Rente\").")
   @JsonIgnore
 

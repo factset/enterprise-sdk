@@ -36,7 +36,8 @@ import com.factset.sdk.Signals.JSON;
   IdResolutionsMeta.JSON_PROPERTY_TICKER_REGION,
   IdResolutionsMeta.JSON_PROPERTY_REGIONAL_PERM_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class IdResolutionsMeta implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -66,7 +67,7 @@ public class IdResolutionsMeta implements Serializable {
    * Get tickerRegion
    * @return tickerRegion
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TICKER_REGION)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
@@ -100,7 +101,7 @@ public class IdResolutionsMeta implements Serializable {
    * Get regionalPermId
    * @return regionalPermId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REGIONAL_PERM_ID)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)

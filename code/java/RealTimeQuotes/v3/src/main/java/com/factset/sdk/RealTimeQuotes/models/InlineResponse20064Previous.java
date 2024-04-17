@@ -45,7 +45,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20064Previous.JSON_PROPERTY_RANK,
   InlineResponse20064Previous.JSON_PROPERTY_DATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20064Previous implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -73,7 +74,7 @@ public class InlineResponse20064Previous implements Serializable {
    * Identifier of the rating grade.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the rating grade.")
   @JsonIgnore
 
@@ -107,7 +108,7 @@ public class InlineResponse20064Previous implements Serializable {
    * Rating grade.
    * @return grade
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Rating grade.")
   @JsonIgnore
 
@@ -141,7 +142,7 @@ public class InlineResponse20064Previous implements Serializable {
    * Rank of the rating grade according to the sort order of the rating system.
    * @return rank
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Rank of the rating grade according to the sort order of the rating system.")
   @JsonIgnore
 
@@ -175,7 +176,7 @@ public class InlineResponse20064Previous implements Serializable {
    * Date on which the instrument was rated.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Date on which the instrument was rated.")
   @JsonIgnore
 

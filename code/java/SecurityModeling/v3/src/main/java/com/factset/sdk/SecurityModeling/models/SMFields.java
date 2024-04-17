@@ -35,7 +35,8 @@ import com.factset.sdk.SecurityModeling.JSON;
 @JsonPropertyOrder({
   SMFields.JSON_PROPERTY_SECURITY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SMFields implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -97,7 +98,7 @@ public class SMFields implements Serializable {
    * Get securityType
    * @return securityType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SECURITY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

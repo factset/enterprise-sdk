@@ -39,7 +39,8 @@ import com.factset.sdk.FactSetPortfolioOptimizer.JSON;
   FPOAccount.JSON_PROPERTY_ID,
   FPOAccount.JSON_PROPERTY_OVERRIDES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FPOAccount implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -72,7 +73,7 @@ public class FPOAccount implements Serializable {
    * Get paDocument
    * @return paDocument
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_PA_DOCUMENT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -98,7 +99,7 @@ public class FPOAccount implements Serializable {
    * Account path
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Account path")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -124,7 +125,7 @@ public class FPOAccount implements Serializable {
    * Get overrides
    * @return overrides
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OVERRIDES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

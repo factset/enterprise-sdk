@@ -37,7 +37,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
 @JsonPropertyOrder({
   PostInstrumentRatingGradeListRequestDataFilter.JSON_PROPERTY_RATING_SYSTEM
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostInstrumentRatingGradeListRequestDataFilter implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -56,7 +57,7 @@ public class PostInstrumentRatingGradeListRequestDataFilter implements Serializa
    * Get ratingSystem
    * @return ratingSystem
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RATING_SYSTEM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

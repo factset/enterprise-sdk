@@ -44,7 +44,8 @@ import com.factset.sdk.FactSetOptions.JSON;
   Chains.JSON_PROPERTY_DATE,
   Chains.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Chains implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -75,7 +76,7 @@ public class Chains implements Serializable {
    * FactSet&#39;s Security Permanent Identifier in XXXXXX-S format for the underlying security requested.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "WWDPYB-S", value = "FactSet's Security Permanent Identifier in XXXXXX-S format for the underlying security requested.")
   @JsonIgnore
 
@@ -109,7 +110,7 @@ public class Chains implements Serializable {
    * The option id, in the format requested via &#x60;idType&#x60; parameter.
    * @return optionId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "TSLA.US#C00LP", value = "The option id, in the format requested via `idType` parameter.")
   @JsonIgnore
 
@@ -143,7 +144,7 @@ public class Chains implements Serializable {
    * The type of id requested in the query. This is a straight pass-through value.
    * @return idType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FOS", value = "The type of id requested in the query. This is a straight pass-through value.")
   @JsonIgnore
 
@@ -177,7 +178,7 @@ public class Chains implements Serializable {
    * The date the data is as of in YYYY-MM-DD format.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Fri May 07 00:00:00 UTC 2021", value = "The date the data is as of in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -211,7 +212,7 @@ public class Chains implements Serializable {
    * The inputed value for the id parameter.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "TSLA", value = "The inputed value for the id parameter.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

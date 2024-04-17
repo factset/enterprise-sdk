@@ -6,14 +6,15 @@ import com.factset.sdk.BarraPortfolioOptimizer.ApiResponse;
 import com.factset.sdk.BarraPortfolioOptimizer.Configuration;
 import com.factset.sdk.BarraPortfolioOptimizer.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
 import com.factset.sdk.BarraPortfolioOptimizer.models.CurrencyRoot;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CurrenciesApi {
   private ApiClient apiClient;
 

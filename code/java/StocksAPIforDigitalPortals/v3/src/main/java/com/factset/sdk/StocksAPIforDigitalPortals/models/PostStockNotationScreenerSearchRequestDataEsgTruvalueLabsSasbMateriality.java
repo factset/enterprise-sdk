@@ -41,7 +41,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbMateriality.JSON_PROPERTY_MOMENTUM,
   PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbMateriality.JSON_PROPERTY_RANKING
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbMateriality implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -66,7 +67,7 @@ public class PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbMateri
    * Get insight
    * @return insight
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INSIGHT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -92,7 +93,7 @@ public class PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbMateri
    * Get momentum
    * @return momentum
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MOMENTUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -118,7 +119,7 @@ public class PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbMateri
    * Get ranking
    * @return ranking
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RANKING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

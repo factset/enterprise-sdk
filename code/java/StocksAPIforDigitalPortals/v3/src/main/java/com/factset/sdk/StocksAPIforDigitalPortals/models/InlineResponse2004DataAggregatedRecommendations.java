@@ -43,7 +43,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2004DataAggregatedRecommendations.JSON_PROPERTY_TARGET_PRICE,
   InlineResponse2004DataAggregatedRecommendations.JSON_PROPERTY_RECOMMENDATION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2004DataAggregatedRecommendations implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -111,7 +112,7 @@ public class InlineResponse2004DataAggregatedRecommendations implements Serializ
    * Identification of the historic snapshot for aggregated recommendations.
    * @return snapshot
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identification of the historic snapshot for aggregated recommendations.")
   @JsonIgnore
 
@@ -145,7 +146,7 @@ public class InlineResponse2004DataAggregatedRecommendations implements Serializ
    * Get targetPrice
    * @return targetPrice
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TARGET_PRICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -171,7 +172,7 @@ public class InlineResponse2004DataAggregatedRecommendations implements Serializ
    * Get recommendation
    * @return recommendation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RECOMMENDATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

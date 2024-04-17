@@ -35,7 +35,8 @@ import com.factset.sdk.FactSetEntityReportBuilder.JSON;
 @JsonPropertyOrder({
   ErrorObjectLinks.JSON_PROPERTY_ABOUT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ErrorObjectLinks implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -54,7 +55,7 @@ public class ErrorObjectLinks implements Serializable {
    * Get about
    * @return about
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ABOUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

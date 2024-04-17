@@ -44,7 +44,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20068DataValueUnit.JSON_PROPERTY_ISO_CODE,
   InlineResponse20068DataValueUnit.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20068DataValueUnit implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -72,7 +73,7 @@ public class InlineResponse20068DataValueUnit implements Serializable {
    * Identifier of the value unit.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the value unit.")
   @JsonIgnore
 
@@ -106,7 +107,7 @@ public class InlineResponse20068DataValueUnit implements Serializable {
    * Currency code according to ISO 4217, a code such as GBp (for British pence), USc (for U.S. cents), EUc for (Euro cent), or a code for an alternative unit such as PT (points), % (percent).
    * @return code
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Currency code according to ISO 4217, a code such as GBp (for British pence), USc (for U.S. cents), EUc for (Euro cent), or a code for an alternative unit such as PT (points), % (percent).")
   @JsonIgnore
 
@@ -140,7 +141,7 @@ public class InlineResponse20068DataValueUnit implements Serializable {
    * Currency code according to ISO 4217.
    * @return isoCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Currency code according to ISO 4217.")
   @JsonIgnore
 
@@ -174,7 +175,7 @@ public class InlineResponse20068DataValueUnit implements Serializable {
    * Name of the value unit.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the value unit.")
   @JsonIgnore
 

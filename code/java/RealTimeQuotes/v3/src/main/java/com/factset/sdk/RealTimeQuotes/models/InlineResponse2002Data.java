@@ -42,7 +42,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse2002Data.JSON_PROPERTY_NAME,
   InlineResponse2002Data.JSON_PROPERTY_DESCRIPTION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2002Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -67,7 +68,7 @@ public class InlineResponse2002Data implements Serializable {
    * Identifier of a benchmark type.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of a benchmark type.")
   @JsonIgnore
 
@@ -101,7 +102,7 @@ public class InlineResponse2002Data implements Serializable {
    * Name of the benchmark type.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the benchmark type.")
   @JsonIgnore
 
@@ -135,7 +136,7 @@ public class InlineResponse2002Data implements Serializable {
    * Description of the benchmark type.
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Description of the benchmark type.")
   @JsonIgnore
 

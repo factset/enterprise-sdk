@@ -41,7 +41,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20015Data.JSON_PROPERTY_GEOGRAPHY,
   InlineResponse20015Data.JSON_PROPERTY_CATEGORY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20015Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -151,7 +152,7 @@ public class InlineResponse20015Data implements Serializable {
    * Asset class of ETP holdings (Equity, Fixed Income, Currency, Commodities, Asset Allocation, or Alternatives), text and standardized value available. This data is available for all the regions.
    * @return asset
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Asset class of ETP holdings (Equity, Fixed Income, Currency, Commodities, Asset Allocation, or Alternatives), text and standardized value available. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_ASSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -177,7 +178,7 @@ public class InlineResponse20015Data implements Serializable {
    * The country development level of the ETP&#39;s holdings (Developed, Emerging, Frontier, or Blended), text and standardized value available. This data is available for all the regions.
    * @return economicDevelopment
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The country development level of the ETP's holdings (Developed, Emerging, Frontier, or Blended), text and standardized value available. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_ECONOMIC_DEVELOPMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -203,7 +204,7 @@ public class InlineResponse20015Data implements Serializable {
    * Get geography
    * @return geography
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_GEOGRAPHY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -229,7 +230,7 @@ public class InlineResponse20015Data implements Serializable {
    * Get category
    * @return category
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

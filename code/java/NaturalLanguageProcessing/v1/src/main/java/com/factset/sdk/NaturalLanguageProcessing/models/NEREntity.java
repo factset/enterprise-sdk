@@ -43,7 +43,8 @@ import com.factset.sdk.NaturalLanguageProcessing.JSON;
   NEREntity.JSON_PROPERTY_TEXT,
   NEREntity.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class NEREntity implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -152,7 +153,7 @@ public class NEREntity implements Serializable {
    * Organizations that are associated with this entity
    * @return associatedOrgs
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Organizations that are associated with this entity")
   @JsonProperty(JSON_PROPERTY_ASSOCIATED_ORGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -178,7 +179,7 @@ public class NEREntity implements Serializable {
    * The index of the last character of the entity text
    * @return endChar
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "11", required = true, value = "The index of the last character of the entity text")
   @JsonProperty(JSON_PROPERTY_END_CHAR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -204,7 +205,7 @@ public class NEREntity implements Serializable {
    * The FactSet Entity ID that is linked to this text.
    * @return entityId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0016YD-E", value = "The FactSet Entity ID that is linked to this text.")
   @JsonProperty(JSON_PROPERTY_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -230,7 +231,7 @@ public class NEREntity implements Serializable {
    * Name of the FactSet entity that is linked to this text.
    * @return lookupText
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FactSet Research Systems", value = "Name of the FactSet entity that is linked to this text.")
   @JsonProperty(JSON_PROPERTY_LOOKUP_TEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -256,7 +257,7 @@ public class NEREntity implements Serializable {
    * A link to the information page for the given entity
    * @return lookupUrl
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "https://....", value = "A link to the information page for the given entity")
   @JsonProperty(JSON_PROPERTY_LOOKUP_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -282,7 +283,7 @@ public class NEREntity implements Serializable {
    * The index of the starting character of the entity text
    * @return startChar
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "5", required = true, value = "The index of the starting character of the entity text")
   @JsonProperty(JSON_PROPERTY_START_CHAR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -308,7 +309,7 @@ public class NEREntity implements Serializable {
    * The substring of the source text that ws found as an entity
    * @return text
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "FactSet", required = true, value = "The substring of the source text that ws found as an entity")
   @JsonProperty(JSON_PROPERTY_TEXT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -334,7 +335,7 @@ public class NEREntity implements Serializable {
    * The type of entity (organization, person, etc.) that was found
    * @return type
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "NE_ORG", required = true, value = "The type of entity (organization, person, etc.) that was found")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

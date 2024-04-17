@@ -36,7 +36,8 @@ import com.factset.sdk.FactSetSearchAnswers.JSON;
 @JsonPropertyOrder({
   LinkTextBlockAnswerAllOf.JSON_PROPERTY_TEMPLATE_DATA
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class LinkTextBlockAnswerAllOf implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class LinkTextBlockAnswerAllOf implements Serializable {
    * Get templateData
    * @return templateData
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TEMPLATE_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

@@ -51,7 +51,8 @@ import com.factset.sdk.FactSetTermsandConditions.JSON;
   CouponHistory.JSON_PROPERTY_COUPON_VAR_PMT_FLAG,
   CouponHistory.JSON_PROPERTY_UNDERLYING_INDEX
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CouponHistory implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -112,7 +113,7 @@ public class CouponHistory implements Serializable {
    * Security identifier used in the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Security identifier used in the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -138,7 +139,7 @@ public class CouponHistory implements Serializable {
    * FactSet Permanent Security Identifier.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "FactSet Permanent Security Identifier.")
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -164,7 +165,7 @@ public class CouponHistory implements Serializable {
    * Coupon Accrual Date
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Coupon Accrual Date")
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -190,7 +191,7 @@ public class CouponHistory implements Serializable {
    * Coupon Basket Flag
    * @return couponBasketFlag
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Coupon Basket Flag")
   @JsonProperty(JSON_PROPERTY_COUPON_BASKET_FLAG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -216,7 +217,7 @@ public class CouponHistory implements Serializable {
    * Effective Payment Date
    * @return couponEffPmtDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Effective Payment Date")
   @JsonProperty(JSON_PROPERTY_COUPON_EFF_PMT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -242,7 +243,7 @@ public class CouponHistory implements Serializable {
    * Coupon Formula
    * @return couponFormula
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Coupon Formula")
   @JsonProperty(JSON_PROPERTY_COUPON_FORMULA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -268,7 +269,7 @@ public class CouponHistory implements Serializable {
    * First Coupon Reset Date
    * @return couponInitResetDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "First Coupon Reset Date")
   @JsonProperty(JSON_PROPERTY_COUPON_INIT_RESET_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -294,7 +295,7 @@ public class CouponHistory implements Serializable {
    * Coupon Reset Frequency
    * @return couponResetFreq
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Coupon Reset Frequency")
   @JsonProperty(JSON_PROPERTY_COUPON_RESET_FREQ)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -320,7 +321,7 @@ public class CouponHistory implements Serializable {
    * Coupon Link
    * @return couponLink
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Coupon Link")
   @JsonProperty(JSON_PROPERTY_COUPON_LINK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -346,7 +347,7 @@ public class CouponHistory implements Serializable {
    * Margin
    * @return couponMargin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Margin")
   @JsonProperty(JSON_PROPERTY_COUPON_MARGIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -372,7 +373,7 @@ public class CouponHistory implements Serializable {
    * Coupon Minimum-Floating Rate
    * @return couponMinFloatRate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Coupon Minimum-Floating Rate")
   @JsonProperty(JSON_PROPERTY_COUPON_MIN_FLOAT_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -398,7 +399,7 @@ public class CouponHistory implements Serializable {
    * Coupon Structure Sub Code
    * @return couponStructSubCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Coupon Structure Sub Code")
   @JsonProperty(JSON_PROPERTY_COUPON_STRUCT_SUB_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -424,7 +425,7 @@ public class CouponHistory implements Serializable {
    * Coupon Type
    * @return couponTypeStruct
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Coupon Type")
   @JsonProperty(JSON_PROPERTY_COUPON_TYPE_STRUCT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -450,7 +451,7 @@ public class CouponHistory implements Serializable {
    * Variable Coupon Payments
    * @return couponVarPmtFlag
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Variable Coupon Payments")
   @JsonProperty(JSON_PROPERTY_COUPON_VAR_PMT_FLAG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -476,7 +477,7 @@ public class CouponHistory implements Serializable {
    * Underlying Index
    * @return underlyingIndex
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Underlying Index")
   @JsonProperty(JSON_PROPERTY_UNDERLYING_INDEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

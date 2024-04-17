@@ -39,7 +39,8 @@ import com.factset.sdk.NaturalLanguageProcessing.JSON;
   Task.JSON_PROPERTY_STARTED_AT,
   Task.JSON_PROPERTY_STATUS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Task implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -117,7 +118,7 @@ public class Task implements Serializable {
    * The task identifier
    * @return id
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "ca509a4a-2ec9-4770-817a-f1caac18c95c", required = true, value = "The task identifier")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -143,7 +144,7 @@ public class Task implements Serializable {
    * The date time the task started (UTC).
    * @return startedAt
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The date time the task started (UTC).")
   @JsonProperty(JSON_PROPERTY_STARTED_AT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -169,7 +170,7 @@ public class Task implements Serializable {
    *  Completion status of the task.  The detailed description of each of the statuses is as follows: |Status|Description| |--------|--------| |queued|The task did not start yet.| |created|The task is completed and the underlying resource is created.| |failed|The task has failed and consequently the creation of the resource failed.| |executing|The task is executing.| |cancelled|The task is cancelled and the creation of the underlying resource was cancelled before it could finish.|
    * @return status
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "queued", required = true, value = " Completion status of the task.  The detailed description of each of the statuses is as follows: |Status|Description| |--------|--------| |queued|The task did not start yet.| |created|The task is completed and the underlying resource is created.| |failed|The task has failed and consequently the creation of the resource failed.| |executing|The task is executing.| |cancelled|The task is cancelled and the creation of the underlying resource was cancelled before it could finish.|")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

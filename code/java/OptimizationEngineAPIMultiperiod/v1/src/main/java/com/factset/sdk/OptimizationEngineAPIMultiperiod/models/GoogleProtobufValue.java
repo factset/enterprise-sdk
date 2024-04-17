@@ -43,7 +43,8 @@ import com.factset.sdk.OptimizationEngineAPIMultiperiod.JSON;
   GoogleProtobufValue.JSON_PROPERTY_STRUCT_VALUE,
   GoogleProtobufValue.JSON_PROPERTY_LIST_VALUE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class GoogleProtobufValue implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -77,7 +78,7 @@ public class GoogleProtobufValue implements Serializable {
    * Get nullValue
    * @return nullValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NULL_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -103,7 +104,7 @@ public class GoogleProtobufValue implements Serializable {
    * Get numberValue
    * @return numberValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NUMBER_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -129,7 +130,7 @@ public class GoogleProtobufValue implements Serializable {
    * Get stringValue
    * @return stringValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STRING_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -155,7 +156,7 @@ public class GoogleProtobufValue implements Serializable {
    * Get boolValue
    * @return boolValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BOOL_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -181,7 +182,7 @@ public class GoogleProtobufValue implements Serializable {
    * Get structValue
    * @return structValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STRUCT_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -207,7 +208,7 @@ public class GoogleProtobufValue implements Serializable {
    * Get listValue
    * @return listValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LIST_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

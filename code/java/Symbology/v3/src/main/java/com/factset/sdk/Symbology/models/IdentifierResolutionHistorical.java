@@ -49,7 +49,8 @@ import com.factset.sdk.Symbology.JSON;
   IdentifierResolutionHistorical.JSON_PROPERTY_START_DATE,
   IdentifierResolutionHistorical.JSON_PROPERTY_END_DATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class IdentifierResolutionHistorical implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -92,7 +93,7 @@ public class IdentifierResolutionHistorical implements Serializable {
    * Identifier inputted in the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "GOOGL-US", value = "Identifier inputted in the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -118,7 +119,7 @@ public class IdentifierResolutionHistorical implements Serializable {
    * The type of identifier inputted in the request
    * @return inputSymbolType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "tickerRegion", value = "The type of identifier inputted in the request")
   @JsonProperty(JSON_PROPERTY_INPUT_SYMBOL_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -144,7 +145,7 @@ public class IdentifierResolutionHistorical implements Serializable {
    * Name of the requested identifier
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Alphabet Inc. Class A", value = "Name of the requested identifier")
   @JsonIgnore
 
@@ -178,7 +179,7 @@ public class IdentifierResolutionHistorical implements Serializable {
    * The 3 digit fref exchange code for the primary exchange of the security
    * @return frefListingExchange
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USA", value = "The 3 digit fref exchange code for the primary exchange of the security")
   @JsonIgnore
 
@@ -212,7 +213,7 @@ public class IdentifierResolutionHistorical implements Serializable {
    * The 3 digit ISO code for the currency
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "The 3 digit ISO code for the currency")
   @JsonIgnore
 
@@ -246,7 +247,7 @@ public class IdentifierResolutionHistorical implements Serializable {
    * Type of identifier outputted.
    * @return outputType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "tickerRegion", value = "Type of identifier outputted.")
   @JsonIgnore
 
@@ -280,7 +281,7 @@ public class IdentifierResolutionHistorical implements Serializable {
    * Requested identifier.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "GOOGL-US", value = "Requested identifier.")
   @JsonIgnore
 
@@ -314,7 +315,7 @@ public class IdentifierResolutionHistorical implements Serializable {
    * Start Date in YYYY-MM-DD format.
    * @return startDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Fri Jan 01 00:00:00 UTC 2010", value = "Start Date in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -348,7 +349,7 @@ public class IdentifierResolutionHistorical implements Serializable {
    * End Date in YYYY-MM-DD format.
    * @return endDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Fri Jan 01 00:00:00 UTC 2010", value = "End Date in YYYY-MM-DD format.")
   @JsonIgnore
 

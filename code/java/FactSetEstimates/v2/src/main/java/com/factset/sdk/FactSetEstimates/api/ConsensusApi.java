@@ -6,7 +6,7 @@ import com.factset.sdk.FactSetEstimates.ApiResponse;
 import com.factset.sdk.FactSetEstimates.Configuration;
 import com.factset.sdk.FactSetEstimates.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -16,7 +16,8 @@ import com.factset.sdk.FactSetEstimates.models.ErrorResponse;
 import com.factset.sdk.FactSetEstimates.models.FixedConsensusRequest;
 import com.factset.sdk.FactSetEstimates.models.RollingConsensusRequest;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ConsensusApi {
   private ApiClient apiClient;
 

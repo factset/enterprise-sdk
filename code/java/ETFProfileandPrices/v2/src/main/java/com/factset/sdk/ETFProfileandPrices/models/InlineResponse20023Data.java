@@ -39,7 +39,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20023Data.JSON_PROPERTY_TENK_VALUE,
   InlineResponse20023Data.JSON_PROPERTY_TENK_PERCENT_CHANGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20023Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class InlineResponse20023Data implements Serializable {
    * Growth of the 10k calculation date
    * @return navDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Growth of the 10k calculation date")
   @JsonProperty(JSON_PROPERTY_NAV_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -90,7 +91,7 @@ public class InlineResponse20023Data implements Serializable {
    * Growth of the 10k calculation value.
    * @return tenkValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Growth of the 10k calculation value.")
   @JsonProperty(JSON_PROPERTY_TENK_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -116,7 +117,7 @@ public class InlineResponse20023Data implements Serializable {
    * Growth of the 10k calculation percent change.
    * @return tenkPercentChange
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Growth of the 10k calculation percent change.")
   @JsonProperty(JSON_PROPERTY_TENK_PERCENT_CHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -47,7 +47,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20014BenchmarkBeta.JSON_PROPERTY_YEARS3,
   InlineResponse20014BenchmarkBeta.JSON_PROPERTY_YEARS5
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20014BenchmarkBeta implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -84,7 +85,7 @@ public class InlineResponse20014BenchmarkBeta implements Serializable {
    * Beta for the time range one week.
    * @return week1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Beta for the time range one week.")
   @JsonIgnore
 
@@ -118,7 +119,7 @@ public class InlineResponse20014BenchmarkBeta implements Serializable {
    * Beta for the time range one month.
    * @return month1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Beta for the time range one month.")
   @JsonIgnore
 
@@ -152,7 +153,7 @@ public class InlineResponse20014BenchmarkBeta implements Serializable {
    * Beta for the time range three months.
    * @return months3
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Beta for the time range three months.")
   @JsonIgnore
 
@@ -186,7 +187,7 @@ public class InlineResponse20014BenchmarkBeta implements Serializable {
    * Beta for the time range six months.
    * @return months6
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Beta for the time range six months.")
   @JsonIgnore
 
@@ -220,7 +221,7 @@ public class InlineResponse20014BenchmarkBeta implements Serializable {
    * Beta for the time range one year.
    * @return year1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Beta for the time range one year.")
   @JsonIgnore
 
@@ -254,7 +255,7 @@ public class InlineResponse20014BenchmarkBeta implements Serializable {
    * Beta for the time range three years.
    * @return years3
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Beta for the time range three years.")
   @JsonIgnore
 
@@ -288,7 +289,7 @@ public class InlineResponse20014BenchmarkBeta implements Serializable {
    * Beta for the time range five years.
    * @return years5
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Beta for the time range five years.")
   @JsonIgnore
 

@@ -35,7 +35,8 @@ import com.factset.sdk.FactSetConcordance.JSON;
 @JsonPropertyOrder({
   SnowflakeEntityMatchRequest.JSON_PROPERTY_DATA
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SnowflakeEntityMatchRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -67,7 +68,7 @@ public class SnowflakeEntityMatchRequest implements Serializable {
    * Array of input rows
    * @return data
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Array of input rows")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

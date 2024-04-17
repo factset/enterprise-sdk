@@ -50,7 +50,8 @@ import com.factset.sdk.ProcuretoPayAPISCIM.JSON;
   ServiceProviderConfig.JSON_PROPERTY_ETAG,
   ServiceProviderConfig.JSON_PROPERTY_AUTHENTICATION_SCHEMES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ServiceProviderConfig implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -109,7 +110,7 @@ public class ServiceProviderConfig implements Serializable {
    * Get schemas
    * @return schemas
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "[\"urn:ietf:params:scim:schemas:core:2.0:ServiceProviderConfig\"]", value = "")
   @JsonProperty(JSON_PROPERTY_SCHEMAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -130,7 +131,7 @@ public class ServiceProviderConfig implements Serializable {
    * An HTTP-addressable URL pointing to the service provider&#39;s human-consumable help documentation.
    * @return documentationUri
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "https://developer-staging.factset.com/api-catalog/scim-api", value = "An HTTP-addressable URL pointing to the service provider's human-consumable help documentation.")
   @JsonProperty(JSON_PROPERTY_DOCUMENTATION_URI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -151,7 +152,7 @@ public class ServiceProviderConfig implements Serializable {
    * Get patch
    * @return patch
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_PATCH)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -177,7 +178,7 @@ public class ServiceProviderConfig implements Serializable {
    * Get bulk
    * @return bulk
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_BULK)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -203,7 +204,7 @@ public class ServiceProviderConfig implements Serializable {
    * Get filter
    * @return filter
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_FILTER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -229,7 +230,7 @@ public class ServiceProviderConfig implements Serializable {
    * Get changePassword
    * @return changePassword
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CHANGE_PASSWORD)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -255,7 +256,7 @@ public class ServiceProviderConfig implements Serializable {
    * Get sort
    * @return sort
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SORT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -281,7 +282,7 @@ public class ServiceProviderConfig implements Serializable {
    * Get etag
    * @return etag
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ETAG)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -307,7 +308,7 @@ public class ServiceProviderConfig implements Serializable {
    * Get authenticationSchemes
    * @return authenticationSchemes
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_SCHEMES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

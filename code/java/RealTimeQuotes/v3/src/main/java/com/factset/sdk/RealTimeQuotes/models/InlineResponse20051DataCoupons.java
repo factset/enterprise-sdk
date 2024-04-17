@@ -44,7 +44,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20051DataCoupons.JSON_PROPERTY_PAYMENT_DATE,
   InlineResponse20051DataCoupons.JSON_PROPERTY_INTEREST_RATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20051DataCoupons implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -69,7 +70,7 @@ public class InlineResponse20051DataCoupons implements Serializable {
    * Get period
    * @return period
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -103,7 +104,7 @@ public class InlineResponse20051DataCoupons implements Serializable {
    * Payment date of the coupon, usually 2 days after the ending date of the coupon period. For the latter, see attribute &#x60;coupons.period.end&#x60;.
    * @return paymentDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Payment date of the coupon, usually 2 days after the ending date of the coupon period. For the latter, see attribute `coupons.period.end`.")
   @JsonIgnore
 
@@ -137,7 +138,7 @@ public class InlineResponse20051DataCoupons implements Serializable {
    * Get interestRate
    * @return interestRate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INTEREST_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

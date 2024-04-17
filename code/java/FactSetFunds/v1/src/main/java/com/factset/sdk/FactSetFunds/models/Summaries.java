@@ -74,7 +74,8 @@ import com.factset.sdk.FactSetFunds.JSON;
   Summaries.JSON_PROPERTY_TYPE,
   Summaries.JSON_PROPERTY_WEB_SITE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Summaries implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -195,7 +196,7 @@ public class Summaries implements Serializable {
    * FactSet Security Identifier. Six alpha-numeric characters, excluding vowels, with a -S suffix (XXXXXX-S), resolved from the requestId of the Fund requested.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FNK7XP-S", value = "FactSet Security Identifier. Six alpha-numeric characters, excluding vowels, with a -S suffix (XXXXXX-S), resolved from the requestId of the Fund requested.")
   @JsonIgnore
 
@@ -229,7 +230,7 @@ public class Summaries implements Serializable {
    * FactSet Entity Identifier. Six alpha-numeric characters, excluding vowels, with a -E suffix (XXXXXX-E), resolved from the requestId of the Fund requested.
    * @return fsymEntityId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "04BFG7-E", value = "FactSet Entity Identifier. Six alpha-numeric characters, excluding vowels, with a -E suffix (XXXXXX-E), resolved from the requestId of the Fund requested.")
   @JsonIgnore
 
@@ -263,7 +264,7 @@ public class Summaries implements Serializable {
    * FactSet Regional Identifier. Six alpha-numeric characters, excluding vowels, with a -R suffix (XXXXXX-R), resolved from the requestId of the Fund requested.
    * @return fsymRegionalId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "SJY03Z-R", value = "FactSet Regional Identifier. Six alpha-numeric characters, excluding vowels, with a -R suffix (XXXXXX-R), resolved from the requestId of the Fund requested.")
   @JsonIgnore
 
@@ -297,7 +298,7 @@ public class Summaries implements Serializable {
    * FactSet Ticker-Region for the requested fund.
    * @return fsymTickerRegion
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "MABAX-US", value = "FactSet Ticker-Region for the requested fund.")
   @JsonIgnore
 
@@ -331,7 +332,7 @@ public class Summaries implements Serializable {
    * The FactSet Ultimate Parent Entity Identifer, with a -E suffix (XXXXXX-E).
    * @return fsymUltimateParentId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "002HJD-E", value = "The FactSet Ultimate Parent Entity Identifer, with a -E suffix (XXXXXX-E).")
   @JsonIgnore
 
@@ -365,7 +366,7 @@ public class Summaries implements Serializable {
    * The requested Id sent as input.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "MABAX", value = "The requested Id sent as input.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -391,7 +392,7 @@ public class Summaries implements Serializable {
    * Binary flag to indicate whether the fund is currently active, where 1 is active and 0 is inactive.
    * @return activeFlag
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "Binary flag to indicate whether the fund is currently active, where 1 is active and 0 is inactive.")
   @JsonIgnore
 
@@ -425,7 +426,7 @@ public class Summaries implements Serializable {
    * Binary indicator of whether the fund is actively managed, where 1 is active and 0 is inactive.
    * @return activelyManagedFlag
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "Binary indicator of whether the fund is actively managed, where 1 is active and 0 is inactive.")
   @JsonIgnore
 
@@ -459,7 +460,7 @@ public class Summaries implements Serializable {
    * The Funds Brand Name in proper format.
    * @return brand
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "BlackRock", value = "The Funds Brand Name in proper format.")
   @JsonIgnore
 
@@ -493,7 +494,7 @@ public class Summaries implements Serializable {
    * Returns the fund&#39;s country of domicile in ISO2 format. Only available for Mutual Funds.
    * @return countryDomicile
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "US", value = "Returns the fund's country of domicile in ISO2 format. Only available for Mutual Funds.")
   @JsonIgnore
 
@@ -527,7 +528,7 @@ public class Summaries implements Serializable {
    * The fund&#39;s currency.
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "The fund's currency.")
   @JsonIgnore
 
@@ -561,7 +562,7 @@ public class Summaries implements Serializable {
    * The Fund&#39;s Investment Strategy short description.
    * @return descInfo
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "The investment objective of the BlackRock Basic Value Fund, Inc. (the Fund) is to seek capital appreciation and, secondarily, income by investing in securities, primarily equity securities, that management of the Fund believes are undervalued and therefore represent basic investment value.", value = "The Fund's Investment Strategy short description.")
   @JsonIgnore
 
@@ -595,7 +596,7 @@ public class Summaries implements Serializable {
    * The fund of fund&#39;s id if applicable. Will provide plain Fund of Funds text.
    * @return fundOfFundsId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The fund of fund's id if applicable. Will provide plain Fund of Funds text.")
   @JsonIgnore
 
@@ -629,7 +630,7 @@ public class Summaries implements Serializable {
    * The fund&#39;s inception date in YYYY-MM-DD format.
    * @return inceptionDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Fri Jul 01 00:00:00 UTC 1977", value = "The fund's inception date in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -663,7 +664,7 @@ public class Summaries implements Serializable {
    * The fund&#39;s investment strategy long description. Use &#x60;descInfo&#x60; if needing short description.
    * @return insight
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The fund's investment strategy long description. Use `descInfo` if needing short description.")
   @JsonIgnore
 
@@ -697,7 +698,7 @@ public class Summaries implements Serializable {
    * The Issuer Identifier.
    * @return issuerId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The Issuer Identifier.")
   @JsonIgnore
 
@@ -731,7 +732,7 @@ public class Summaries implements Serializable {
    * The Issuer Name in proper format.
    * @return issuerName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "BlackRock Inc.", value = "The Issuer Name in proper format.")
   @JsonIgnore
 
@@ -765,7 +766,7 @@ public class Summaries implements Serializable {
    * The legal structure of the fund, e.g. Open-Ended Fund, close-ended fund
    * @return legalStructure
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Open-Ended Fund", value = "The legal structure of the fund, e.g. Open-Ended Fund, close-ended fund")
   @JsonIgnore
 
@@ -799,7 +800,7 @@ public class Summaries implements Serializable {
    * The leverage factor of the fund.
    * @return leverageFactor
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0", value = "The leverage factor of the fund.")
   @JsonIgnore
 
@@ -833,7 +834,7 @@ public class Summaries implements Serializable {
    * Indicates whether the fund is leveraged, inverse, or neither in proper format.
    * @return leverageInverse
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Neither", value = "Indicates whether the fund is leveraged, inverse, or neither in proper format.")
   @JsonIgnore
 
@@ -867,7 +868,7 @@ public class Summaries implements Serializable {
    * The Fund security&#39;s name in proper format.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "BlackRock Basic Value Fund Incorporated", value = "The Fund security's name in proper format.")
   @JsonIgnore
 
@@ -901,7 +902,7 @@ public class Summaries implements Serializable {
    * The NAV currency for the specified share class.
    * @return navCurrency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "The NAV currency for the specified share class.")
   @JsonIgnore
 
@@ -935,7 +936,7 @@ public class Summaries implements Serializable {
    * The Fund&#39;s objective long description.
    * @return objective
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "The Fund invests primarily in equity securities that Fund management believes are undervalued, which means that their prices are less than Fund management believes they are worth. Equity securities primarily consist of common stock, preferred stock, securities convertible into common stock, or securities or other instruments whose price is linked to the value of common stock. Fund management places particular emphasis on companies with below average price/earnings ratios that may pay above average dividends. The Fund invests primarily in common stock of U.S. companies, but the Fund may invest up to 25% of its total assets in the securities of foreign companies. The Fund focuses primarily on companies with market capitalizations of over $5 billion.", value = "The Fund's objective long description.")
   @JsonIgnore
 
@@ -969,7 +970,7 @@ public class Summaries implements Serializable {
    * The fund&#39;s first available date for prices (NAV) in YYYY-MM-DD format. This can be used to fetch the first available price from FactSet. *NOTE: This is not the inception date of fund.*
    * @return priceFirstDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Wed Apr 18 00:00:00 UTC 2018", value = "The fund's first available date for prices (NAV) in YYYY-MM-DD format. This can be used to fetch the first available price from FactSet. *NOTE: This is not the inception date of fund.*")
   @JsonIgnore
 
@@ -1003,7 +1004,7 @@ public class Summaries implements Serializable {
    * The fund&#39;s most recent available date for prices (NAV) in YYYY-MM-DD format.
    * @return priceRecentDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Fri Mar 26 00:00:00 UTC 2021", value = "The fund's most recent available date for prices (NAV) in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -1037,7 +1038,7 @@ public class Summaries implements Serializable {
    * The Funds Share class type name in proper format.
    * @return shrClass
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Institutional Class", value = "The Funds Share class type name in proper format.")
   @JsonIgnore
 
@@ -1071,7 +1072,7 @@ public class Summaries implements Serializable {
    * Returns a binary indicator of whether the specified share class is currently active, where 1 is active and 0 is inactive.
    * @return shrClassActiveFlag
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "Returns a binary indicator of whether the specified share class is currently active, where 1 is active and 0 is inactive.")
   @JsonIgnore
 
@@ -1105,7 +1106,7 @@ public class Summaries implements Serializable {
    * Returns a binary indicator of whether the specified share class is actively managed, where 1 is active and 0 is inactive.
    * @return shrClsActivelyManagedFlag
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "Returns a binary indicator of whether the specified share class is actively managed, where 1 is active and 0 is inactive.")
   @JsonIgnore
 
@@ -1139,7 +1140,7 @@ public class Summaries implements Serializable {
    * The currency for the specified share class.
    * @return shrClsCurrency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "The currency for the specified share class.")
   @JsonIgnore
 
@@ -1173,7 +1174,7 @@ public class Summaries implements Serializable {
    * The specified share class&#39;s inception date in YYYY-MM-DD format.
    * @return shrClsInceptDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Fri Jul 01 00:00:00 UTC 1977", value = "The specified share class's inception date in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -1207,7 +1208,7 @@ public class Summaries implements Serializable {
    * The specified share class name for the fund in proper format.
    * @return shrClsName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "BlackRock Basic Value I", value = "The specified share class name for the fund in proper format.")
   @JsonIgnore
 
@@ -1241,7 +1242,7 @@ public class Summaries implements Serializable {
    * The Share class Termination Date in YYYY-MM-DD format. If still active, value will be null.
    * @return shrClsTermDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The Share class Termination Date in YYYY-MM-DD format. If still active, value will be null.")
   @JsonIgnore
 
@@ -1275,7 +1276,7 @@ public class Summaries implements Serializable {
    * The Termination Date in YYYY-MM-DD format. If still active, value will be null.
    * @return terminationDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The Termination Date in YYYY-MM-DD format. If still active, value will be null.")
   @JsonIgnore
 
@@ -1309,7 +1310,7 @@ public class Summaries implements Serializable {
    * The Type of Fund, e.g. Mutual Fund, Unit Investment Trust
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Mutual Fund", value = "The Type of Fund, e.g. Mutual Fund, Unit Investment Trust")
   @JsonIgnore
 
@@ -1343,7 +1344,7 @@ public class Summaries implements Serializable {
    * The URL of the Fund.
    * @return webSite
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "https://www.blackrock.com/investing/products/227716/blackrock-basic-value-class-a-fund", value = "The URL of the Fund.")
   @JsonIgnore
 

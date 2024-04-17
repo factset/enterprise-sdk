@@ -41,7 +41,8 @@ import com.factset.sdk.PortfolioReportingBatcher.JSON;
   JobDetailsResponseData.JSON_PROPERTY_RUNS,
   JobDetailsResponseData.JSON_PROPERTY_TASKS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class JobDetailsResponseData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -77,7 +78,7 @@ public class JobDetailsResponseData implements Serializable {
    * Please note for PI jobs you will only see portfolioId
    * @return accounts
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "{\"my_task_1\":[{\"includeParent\":true,\"isSplit\":true,\"latestComponentsOnly\":true,\"level\":\"string\",\"portfolioId\":\"string\"}]}", value = "Please note for PI jobs you will only see portfolioId")
   @JsonProperty(JSON_PROPERTY_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -111,7 +112,7 @@ public class JobDetailsResponseData implements Serializable {
    * Shows the documents for each job where relevant with a collection of tasks under each document
    * @return documents
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "{\"my_task_1\":[\"Client:/equity/long_short/my PA document\"],\"my_task_2\":[\"Client:/equity/long_only/my PA document\",\"Client:/equity/long_short/my other PA document\"]}", value = "Shows the documents for each job where relevant with a collection of tasks under each document")
   @JsonProperty(JSON_PROPERTY_DOCUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -145,7 +146,7 @@ public class JobDetailsResponseData implements Serializable {
    * An array of information for each run
    * @return runs
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "An array of information for each run")
   @JsonProperty(JSON_PROPERTY_RUNS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -179,7 +180,7 @@ public class JobDetailsResponseData implements Serializable {
    * A list of tasks for the given job
    * @return tasks
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "[\"my_task_1\"]", value = "A list of tasks for the given job")
   @JsonProperty(JSON_PROPERTY_TASKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

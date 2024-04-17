@@ -68,7 +68,8 @@ import com.factset.sdk.FactSetConcordance.JSON;
   PeopleDecisions.JSON_PROPERTY_TITLE,
   PeopleDecisions.JSON_PROPERTY_UNIVERSE_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PeopleDecisions implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -208,7 +209,7 @@ public class PeopleDecisions implements Serializable {
    * If the role is active or not of the person.
    * @return activeRole
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "true", value = "If the role is active or not of the person.")
   @JsonIgnore
 
@@ -242,7 +243,7 @@ public class PeopleDecisions implements Serializable {
    * Name of the entity of the client. 
    * @return clientEntity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Tesla", value = "Name of the entity of the client. ")
   @JsonIgnore
 
@@ -276,7 +277,7 @@ public class PeopleDecisions implements Serializable {
    * Name of the column in the input file that contains a unique identifier supplied by the user.
    * @return clientId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "M7", value = "Name of the column in the input file that contains a unique identifier supplied by the user.")
   @JsonIgnore
 
@@ -310,7 +311,7 @@ public class PeopleDecisions implements Serializable {
    * First Name provided in the input file which is used in the &#x60;people-task&#x60; endpoint
    * @return clientFirstName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Elon", value = "First Name provided in the input file which is used in the `people-task` endpoint")
   @JsonIgnore
 
@@ -344,7 +345,7 @@ public class PeopleDecisions implements Serializable {
    * Last Name provided in the input file which is used in the &#x60;people-task&#x60; endpoint
    * @return clientLastName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Musk", value = "Last Name provided in the input file which is used in the `people-task` endpoint")
   @JsonIgnore
 
@@ -378,7 +379,7 @@ public class PeopleDecisions implements Serializable {
    * Middle Name provided in the input file which is used in the &#x60;people-task&#x60; endpoint
    * @return clientMiddleName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Federick", value = "Middle Name provided in the input file which is used in the `people-task` endpoint")
   @JsonIgnore
 
@@ -412,7 +413,7 @@ public class PeopleDecisions implements Serializable {
    * Salutation provided in the input file which is used in the &#x60;people-task&#x60; endpoint
    * @return clientSalutation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Mr", value = "Salutation provided in the input file which is used in the `people-task` endpoint")
   @JsonIgnore
 
@@ -446,7 +447,7 @@ public class PeopleDecisions implements Serializable {
    * Suffix provided in the input file which is used in the &#x60;people-task&#x60; endpoint
    * @return clientSuffix
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Sir", value = "Suffix provided in the input file which is used in the `people-task` endpoint")
   @JsonIgnore
 
@@ -480,7 +481,7 @@ public class PeopleDecisions implements Serializable {
    * Priority provided in the input file which is used in the &#x60;people-task&#x60; endpoint
    * @return clientPriority
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "HIGH", value = "Priority provided in the input file which is used in the `people-task` endpoint")
   @JsonIgnore
 
@@ -514,7 +515,7 @@ public class PeopleDecisions implements Serializable {
    * The name provided by the client.
    * @return clientPersonName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Elon Musk", value = "The name provided by the client.")
   @JsonIgnore
 
@@ -556,7 +557,7 @@ public class PeopleDecisions implements Serializable {
    * Any additional context column along with their values in the input file or single search.  To be used by Managed Service for any unmapped records. 
    * @return clientAdditionalContext
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "{\"Address\":\"123 Main St\",\"Phone\":\"555-555-5555\",\"City\":\"New York\"}", value = "Any additional context column along with their values in the input file or single search.  To be used by Managed Service for any unmapped records. ")
   @JsonProperty(JSON_PROPERTY_CLIENT_ADDITIONAL_CONTEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -582,7 +583,7 @@ public class PeopleDecisions implements Serializable {
    * The email address of the client.
    * @return email
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "abc@email.com", value = "The email address of the client.")
   @JsonIgnore
 
@@ -616,7 +617,7 @@ public class PeopleDecisions implements Serializable {
    * Full name corresponding to the matched entity.
    * @return entity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FACTSET RESEARCH SYSTEMS INC.", value = "Full name corresponding to the matched entity.")
   @JsonIgnore
 
@@ -650,7 +651,7 @@ public class PeopleDecisions implements Serializable {
    * Concordance status of the submitted, where -    * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)   * UNMAPPED - The requested Entity Name is unmapped by FactSet.   * INDETERMINATE - The requested Entity Name has unable to make a mapping. 
    * @return mapStatus
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "MAPPED", value = "Concordance status of the submitted, where -    * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)   * UNMAPPED - The requested Entity Name is unmapped by FactSet.   * INDETERMINATE - The requested Entity Name has unable to make a mapping. ")
   @JsonIgnore
 
@@ -684,7 +685,7 @@ public class PeopleDecisions implements Serializable {
    * Name of the column in the input file that contains the first name.
    * @return firstName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "firstName", value = "Name of the column in the input file that contains the first name.")
   @JsonIgnore
 
@@ -718,7 +719,7 @@ public class PeopleDecisions implements Serializable {
    * Name of the column in the input file that contains the first name. 
    * @return lastName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "lastName", value = "Name of the column in the input file that contains the first name. ")
   @JsonIgnore
 
@@ -752,7 +753,7 @@ public class PeopleDecisions implements Serializable {
    * Name of the column in the input file that contains the middle name. 
    * @return middleName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "middleName", value = "Name of the column in the input file that contains the middle name. ")
   @JsonIgnore
 
@@ -786,7 +787,7 @@ public class PeopleDecisions implements Serializable {
    * The id of the person.
    * @return personId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0DPHLH-E", value = "The id of the person.")
   @JsonIgnore
 
@@ -820,7 +821,7 @@ public class PeopleDecisions implements Serializable {
    * The salutation is same as the normal salutation we use .The salutation can be Mr, Mrs.The salutation should not be given along with personName. 
    * @return salutation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Mr", value = "The salutation is same as the normal salutation we use .The salutation can be Mr, Mrs.The salutation should not be given along with personName. ")
   @JsonProperty(JSON_PROPERTY_SALUTATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -846,7 +847,7 @@ public class PeopleDecisions implements Serializable {
    * Type of name that the nameMatchString matched. 
    * @return nameMatchSource
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Presentation Name", value = "Type of name that the nameMatchString matched. ")
   @JsonIgnore
 
@@ -880,7 +881,7 @@ public class PeopleDecisions implements Serializable {
    * String on which the Concordance algorithm mapped the submitted entity.
    * @return nameMatchString
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "factset", value = "String on which the Concordance algorithm mapped the submitted entity.")
   @JsonIgnore
 
@@ -914,7 +915,7 @@ public class PeopleDecisions implements Serializable {
    * Name of the column in the input file that contains the person name. 
    * @return personName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "personName", value = "Name of the column in the input file that contains the person name. ")
   @JsonIgnore
 
@@ -948,7 +949,7 @@ public class PeopleDecisions implements Serializable {
    * Name of the column in the input file that contains the person&#39;s suffix. 
    * @return suffix
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Suffix", value = "Name of the column in the input file that contains the person's suffix. ")
   @JsonIgnore
 
@@ -982,7 +983,7 @@ public class PeopleDecisions implements Serializable {
    * Probability of the match being similar to the entity requested as determined by the Concordance algorithm. A similarityScore of 1 is the highest level of similarity. 
    * @return similarityScore
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "Probability of the match being similar to the entity requested as determined by the Concordance algorithm. A similarityScore of 1 is the highest level of similarity. ")
   @JsonIgnore
 
@@ -1016,7 +1017,7 @@ public class PeopleDecisions implements Serializable {
    * Flag denoting if the row is a match. 
    * @return matchFlag
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Flag denoting if the row is a match. ")
   @JsonProperty(JSON_PROPERTY_MATCH_FLAG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1042,7 +1043,7 @@ public class PeopleDecisions implements Serializable {
    * Row number for match in the request or input file.
    * @return rowIndex
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Row number for match in the request or input file.")
   @JsonIgnore
 
@@ -1076,7 +1077,7 @@ public class PeopleDecisions implements Serializable {
    * Identifier denoting a specific Concordance task submitted by the user.
    * @return taskId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "31", value = "Identifier denoting a specific Concordance task submitted by the user.")
   @JsonIgnore
 
@@ -1110,7 +1111,7 @@ public class PeopleDecisions implements Serializable {
    * The title of the person.
    * @return title
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Director.", value = "The title of the person.")
   @JsonIgnore
 
@@ -1144,7 +1145,7 @@ public class PeopleDecisions implements Serializable {
    * The universe identifier
    * @return universeId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "The universe identifier")
   @JsonIgnore
 

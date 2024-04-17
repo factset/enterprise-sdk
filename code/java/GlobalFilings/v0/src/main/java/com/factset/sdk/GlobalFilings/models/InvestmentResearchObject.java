@@ -43,7 +43,8 @@ import com.factset.sdk.GlobalFilings.JSON;
   InvestmentResearchObject.JSON_PROPERTY_FILINGS_LINK,
   InvestmentResearchObject.JSON_PROPERTY_DOCUMENT_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InvestmentResearchObject implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -86,7 +87,7 @@ public class InvestmentResearchObject implements Serializable {
    * Headline of the story, actual time and date of the event.
    * @return headline
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Headline of the story, actual time and date of the event.")
   @JsonProperty(JSON_PROPERTY_HEADLINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -112,7 +113,7 @@ public class InvestmentResearchObject implements Serializable {
    * Provides source of the document.
    * @return source
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Provides source of the document.")
   @JsonProperty(JSON_PROPERTY_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -146,7 +147,7 @@ public class InvestmentResearchObject implements Serializable {
    * Refers to the main company a particular document refers to.
    * @return primaryIds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Refers to the main company a particular document refers to.")
   @JsonProperty(JSON_PROPERTY_PRIMARY_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -180,7 +181,7 @@ public class InvestmentResearchObject implements Serializable {
    * Refers to all companies mentioned in the document. This could also include the primary company id as well.
    * @return allIds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Refers to all companies mentioned in the document. This could also include the primary company id as well.")
   @JsonProperty(JSON_PROPERTY_ALL_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -206,7 +207,7 @@ public class InvestmentResearchObject implements Serializable {
    * Publish date of the latest version (in ET).
    * @return filingsDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Publish date of the latest version (in ET).")
   @JsonProperty(JSON_PROPERTY_FILINGS_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -232,7 +233,7 @@ public class InvestmentResearchObject implements Serializable {
    * Publish time of the latest version (in ET).
    * @return filingsTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Publish time of the latest version (in ET).")
   @JsonProperty(JSON_PROPERTY_FILINGS_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -266,7 +267,7 @@ public class InvestmentResearchObject implements Serializable {
    * Categories are country, industry, and subject codes. This is a comma-separated list.
    * @return categories
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Categories are country, industry, and subject codes. This is a comma-separated list.")
   @JsonProperty(JSON_PROPERTY_CATEGORIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -292,7 +293,7 @@ public class InvestmentResearchObject implements Serializable {
    * The link to download the document.
    * @return filingsLink
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The link to download the document.")
   @JsonProperty(JSON_PROPERTY_FILINGS_LINK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -318,7 +319,7 @@ public class InvestmentResearchObject implements Serializable {
    * Unique identifier for a document.
    * @return documentId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Unique identifier for a document.")
   @JsonProperty(JSON_PROPERTY_DOCUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

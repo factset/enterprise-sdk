@@ -46,7 +46,8 @@ import com.factset.sdk.FactSetTickHistory.JSON;
   CoverageTickHistory.JSON_PROPERTY_LAST_EXCHANGE_NAME,
   CoverageTickHistory.JSON_PROPERTY_PRIMARY_TICKER_EXCHANGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CoverageTickHistory implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -92,7 +93,7 @@ public class CoverageTickHistory implements Serializable {
    * a unique ticker given to a company
    * @return ticker
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "a unique ticker given to a company")
   @JsonProperty(JSON_PROPERTY_TICKER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -118,7 +119,7 @@ public class CoverageTickHistory implements Serializable {
    * FactSet specific exchange code.
    * @return factsetExchangeCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "FactSet specific exchange code.")
   @JsonProperty(JSON_PROPERTY_FACTSET_EXCHANGE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -144,7 +145,7 @@ public class CoverageTickHistory implements Serializable {
    * The date for (or from which) the coverage is required. 
    * @return startDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The date for (or from which) the coverage is required. ")
   @JsonProperty(JSON_PROPERTY_START_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -170,7 +171,7 @@ public class CoverageTickHistory implements Serializable {
    * This specifies the latest traded date from tick history.
    * @return latestTradeDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "This specifies the latest traded date from tick history.")
   @JsonProperty(JSON_PROPERTY_LATEST_TRADE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -196,7 +197,7 @@ public class CoverageTickHistory implements Serializable {
    * Name of the firm
    * @return companyName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the firm")
   @JsonProperty(JSON_PROPERTY_COMPANY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -222,7 +223,7 @@ public class CoverageTickHistory implements Serializable {
    * returns the ISIN of the requested company 
    * @return isin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "returns the ISIN of the requested company ")
   @JsonProperty(JSON_PROPERTY_ISIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -248,7 +249,7 @@ public class CoverageTickHistory implements Serializable {
    * Represents 3 digit ISO code for the currency
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Represents 3 digit ISO code for the currency")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -274,7 +275,7 @@ public class CoverageTickHistory implements Serializable {
    * the last traded exhange code from tick history
    * @return lastExchangeCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "the last traded exhange code from tick history")
   @JsonProperty(JSON_PROPERTY_LAST_EXCHANGE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -300,7 +301,7 @@ public class CoverageTickHistory implements Serializable {
    * the last traded exchange name from tick history
    * @return lastExchangeName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "the last traded exchange name from tick history")
   @JsonProperty(JSON_PROPERTY_LAST_EXCHANGE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -326,7 +327,7 @@ public class CoverageTickHistory implements Serializable {
    * the primary ticker iso
    * @return primaryTickerExchange
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "the primary ticker iso")
   @JsonProperty(JSON_PROPERTY_PRIMARY_TICKER_EXCHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

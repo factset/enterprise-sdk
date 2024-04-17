@@ -37,7 +37,8 @@ import com.factset.sdk.FactSetPortfolioOptimizer.JSON;
   OptimizerStrategy.JSON_PROPERTY_ID,
   OptimizerStrategy.JSON_PROPERTY_OVERRIDES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerStrategy implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -67,7 +68,7 @@ public class OptimizerStrategy implements Serializable {
    * OptimizerStrategy document path
    * @return id
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "OptimizerStrategy document path")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -93,7 +94,7 @@ public class OptimizerStrategy implements Serializable {
    * Get overrides
    * @return overrides
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OVERRIDES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

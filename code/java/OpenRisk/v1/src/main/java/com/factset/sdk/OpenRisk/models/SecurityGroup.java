@@ -38,7 +38,8 @@ import com.factset.sdk.OpenRisk.JSON;
   SecurityGroup.JSON_PROPERTY_INDICES,
   SecurityGroup.JSON_PROPERTY_GROUPS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SecurityGroup implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class SecurityGroup implements Serializable {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -97,7 +98,7 @@ public class SecurityGroup implements Serializable {
    * List of 0-based indices into the containing holding&#39;s security IDs array
    * @return indices
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of 0-based indices into the containing holding's security IDs array")
   @JsonProperty(JSON_PROPERTY_INDICES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -131,7 +132,7 @@ public class SecurityGroup implements Serializable {
    * Recursively defined elements; base case array (i.e., lowest security group) contains objects with &#39;indices&#39; only and not &#39;groups&#39;
    * @return groups
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Recursively defined elements; base case array (i.e., lowest security group) contains objects with 'indices' only and not 'groups'")
   @JsonProperty(JSON_PROPERTY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

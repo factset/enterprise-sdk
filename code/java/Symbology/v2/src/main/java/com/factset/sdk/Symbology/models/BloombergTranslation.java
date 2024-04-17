@@ -43,7 +43,8 @@ import com.factset.sdk.Symbology.JSON;
   BloombergTranslation.JSON_PROPERTY_BBG_TICKER_COMPOSITE,
   BloombergTranslation.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class BloombergTranslation implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -83,7 +84,7 @@ public class BloombergTranslation implements Serializable {
    * FactSet Default Permanent Identifier. Regional and Composite (-USA) request &#x60;ids&#x60; will use a Regional ID &#39;-R&#39;, Listing specific ids &#39;-NYS&#39; will use Listing ids &#39;-L&#39;, Entities will use &#39;-E&#39;, and FI will use security &#39;-S&#39; ids. [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "NSXGVV-L", value = "FactSet Default Permanent Identifier. Regional and Composite (-USA) request `ids` will use a Regional ID '-R', Listing specific ids '-NYS' will use Listing ids '-L', Entities will use '-E', and FI will use security '-S' ids. [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)")
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -109,7 +110,7 @@ public class BloombergTranslation implements Serializable {
    * Proper Name of company or issuer.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Costco Wholesale Corporation", value = "Proper Name of company or issuer.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -135,7 +136,7 @@ public class BloombergTranslation implements Serializable {
    * Bloomberg Security Identifier.
    * @return bbgSecurityId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "BBG001S9KRQ7", value = "Bloomberg Security Identifier.")
   @JsonProperty(JSON_PROPERTY_BBG_SECURITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -161,7 +162,7 @@ public class BloombergTranslation implements Serializable {
    * Bloomberg Security Identifier.
    * @return bbgCompositeId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "BBG000F6H8W8", value = "Bloomberg Security Identifier.")
   @JsonProperty(JSON_PROPERTY_BBG_COMPOSITE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -187,7 +188,7 @@ public class BloombergTranslation implements Serializable {
    * Bloomberg Security Identifier.
    * @return bbgListingId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "BBG000F6HLL1", value = "Bloomberg Security Identifier.")
   @JsonProperty(JSON_PROPERTY_BBG_LISTING_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -213,7 +214,7 @@ public class BloombergTranslation implements Serializable {
    * Bloomberg Security Identifier.
    * @return bbgTickerListing
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "COST UW", value = "Bloomberg Security Identifier.")
   @JsonProperty(JSON_PROPERTY_BBG_TICKER_LISTING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -239,7 +240,7 @@ public class BloombergTranslation implements Serializable {
    * Bloomberg Security Identifier.
    * @return bbgTickerComposite
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "COST US", value = "Bloomberg Security Identifier.")
   @JsonProperty(JSON_PROPERTY_BBG_TICKER_COMPOSITE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -265,7 +266,7 @@ public class BloombergTranslation implements Serializable {
    * Identifier specified in the request
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "COST", value = "Identifier specified in the request")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

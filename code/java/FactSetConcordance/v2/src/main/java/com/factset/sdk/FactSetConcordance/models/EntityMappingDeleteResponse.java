@@ -36,7 +36,8 @@ import com.factset.sdk.FactSetConcordance.JSON;
 @JsonPropertyOrder({
   EntityMappingDeleteResponse.JSON_PROPERTY_DATA
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EntityMappingDeleteResponse implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class EntityMappingDeleteResponse implements Serializable {
    * Array of &#x60;Entity Mapping&#x60; objects that have been successfully deleted.
    * @return data
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Array of `Entity Mapping` objects that have been successfully deleted.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

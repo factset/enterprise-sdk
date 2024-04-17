@@ -62,7 +62,8 @@ import com.factset.sdk.FixedIncomeCalculation.JSON;
   FISecurity.JSON_PROPERTY_SYMBOL,
   FISecurity.JSON_PROPERTY_DISCOUNT_CURVE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FISecurity implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -213,7 +214,7 @@ public class FISecurity implements Serializable {
    * Settlement date
    * @return settlement
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Settlement date")
   @JsonIgnore
 
@@ -247,7 +248,7 @@ public class FISecurity implements Serializable {
    * Call Method
    * @return callMethod
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Call Method")
   @JsonIgnore
 
@@ -281,7 +282,7 @@ public class FISecurity implements Serializable {
    * Get referenceSecurity
    * @return referenceSecurity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REFERENCE_SECURITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -307,7 +308,7 @@ public class FISecurity implements Serializable {
    * Get bankLoans
    * @return bankLoans
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BANK_LOANS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -333,7 +334,7 @@ public class FISecurity implements Serializable {
    * Get municipalBonds
    * @return municipalBonds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MUNICIPAL_BONDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -359,7 +360,7 @@ public class FISecurity implements Serializable {
    * Get loss
    * @return loss
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LOSS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -385,7 +386,7 @@ public class FISecurity implements Serializable {
    * Get prepay
    * @return prepay
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PREPAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -411,7 +412,7 @@ public class FISecurity implements Serializable {
    * Matrix Spread Adjustment
    * @return matrixSpreadAdjustment
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Matrix Spread Adjustment")
   @JsonIgnore
 
@@ -445,7 +446,7 @@ public class FISecurity implements Serializable {
    * Matrix Multiplier
    * @return matrixMultiplier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Matrix Multiplier")
   @JsonIgnore
 
@@ -479,7 +480,7 @@ public class FISecurity implements Serializable {
    * Get structuredProducts
    * @return structuredProducts
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STRUCTURED_PRODUCTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -505,7 +506,7 @@ public class FISecurity implements Serializable {
    * Get attribution
    * @return attribution
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -531,7 +532,7 @@ public class FISecurity implements Serializable {
    * Calculation Method.  Methods : Active Spread, Actual Spread, Actual Spread To Worst Call, OAS, Price, Yield, Yield To No Call, Act/Act Yield To No Call, Bond Equivalent Yield,  Yield To Worst Call, Discount Yield, Discount Margin, Implied Volatility, Bullet Spread, Bullet Spread To Worst Call, Pricing Matrix
    * @return calcFromMethod
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Calculation Method.  Methods : Active Spread, Actual Spread, Actual Spread To Worst Call, OAS, Price, Yield, Yield To No Call, Act/Act Yield To No Call, Bond Equivalent Yield,  Yield To Worst Call, Discount Yield, Discount Margin, Implied Volatility, Bullet Spread, Bullet Spread To Worst Call, Pricing Matrix")
   @JsonIgnore
 
@@ -565,7 +566,7 @@ public class FISecurity implements Serializable {
    * Calculation from value
    * @return calcFromValue
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Calculation from value")
   @JsonProperty(JSON_PROPERTY_CALC_FROM_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -591,7 +592,7 @@ public class FISecurity implements Serializable {
    * Face
    * @return face
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Face")
   @JsonIgnore
 
@@ -625,7 +626,7 @@ public class FISecurity implements Serializable {
    * Face type
    * @return faceType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Face type")
   @JsonIgnore
 
@@ -659,7 +660,7 @@ public class FISecurity implements Serializable {
    * Symbol
    * @return symbol
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Symbol")
   @JsonProperty(JSON_PROPERTY_SYMBOL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -685,7 +686,7 @@ public class FISecurity implements Serializable {
    * Discount curve
    * @return discountCurve
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Discount curve")
   @JsonIgnore
 

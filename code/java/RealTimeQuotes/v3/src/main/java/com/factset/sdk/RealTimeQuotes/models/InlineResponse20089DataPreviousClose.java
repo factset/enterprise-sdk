@@ -42,7 +42,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20089DataPreviousClose.JSON_PROPERTY_TIME,
   InlineResponse20089DataPreviousClose.JSON_PROPERTY_PRICE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20089DataPreviousClose implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class InlineResponse20089DataPreviousClose implements Serializable {
    * Date and time.
    * @return time
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Date and time.")
   @JsonIgnore
 
@@ -98,7 +99,7 @@ public class InlineResponse20089DataPreviousClose implements Serializable {
    * Price value. See attribute &#x60;valueUnit&#x60; for its unit.
    * @return price
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Price value. See attribute `valueUnit` for its unit.")
   @JsonIgnore
 

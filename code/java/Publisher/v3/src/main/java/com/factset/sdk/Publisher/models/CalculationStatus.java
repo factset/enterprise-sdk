@@ -38,7 +38,8 @@ import com.factset.sdk.Publisher.JSON;
   CalculationStatus.JSON_PROPERTY_STATUS,
   CalculationStatus.JSON_PROPERTY_UNITS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CalculationStatus implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -102,7 +103,7 @@ public class CalculationStatus implements Serializable {
    * Get calculationid
    * @return calculationid
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CALCULATIONID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -128,7 +129,7 @@ public class CalculationStatus implements Serializable {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -162,7 +163,7 @@ public class CalculationStatus implements Serializable {
    * Number of calculation units in batch.
    * @return units
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of calculation units in batch.")
   @JsonProperty(JSON_PROPERTY_UNITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

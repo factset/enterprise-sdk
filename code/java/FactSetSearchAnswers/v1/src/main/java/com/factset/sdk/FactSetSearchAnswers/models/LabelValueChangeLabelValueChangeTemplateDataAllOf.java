@@ -40,7 +40,8 @@ import com.factset.sdk.FactSetSearchAnswers.JSON;
   LabelValueChangeLabelValueChangeTemplateDataAllOf.JSON_PROPERTY_VALUE2,
   LabelValueChangeLabelValueChangeTemplateDataAllOf.JSON_PROPERTY_LABEL2
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class LabelValueChangeLabelValueChangeTemplateDataAllOf implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -71,7 +72,7 @@ public class LabelValueChangeLabelValueChangeTemplateDataAllOf implements Serial
    * Get value
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -97,7 +98,7 @@ public class LabelValueChangeLabelValueChangeTemplateDataAllOf implements Serial
    * Get label
    * @return label
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LABEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -123,7 +124,7 @@ public class LabelValueChangeLabelValueChangeTemplateDataAllOf implements Serial
    * Get valueChange
    * @return valueChange
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VALUE_CHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -149,7 +150,7 @@ public class LabelValueChangeLabelValueChangeTemplateDataAllOf implements Serial
    * Get value2
    * @return value2
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VALUE2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -175,7 +176,7 @@ public class LabelValueChangeLabelValueChangeTemplateDataAllOf implements Serial
    * Get label2
    * @return label2
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LABEL2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

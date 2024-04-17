@@ -45,7 +45,8 @@ import com.factset.sdk.FactSetFunds.JSON;
   RelatedFunds.JSON_PROPERTY_RELATED_FUND_ID_FIVE,
   RelatedFunds.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class RelatedFunds implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -82,7 +83,7 @@ public class RelatedFunds implements Serializable {
    * FactSet Security Identifier. Six alpha-numeric characters, excluding vowels, with a -S suffix (XXXXXX-S), resolved from the requestId of the Fund requested.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FNK7XP-S", value = "FactSet Security Identifier. Six alpha-numeric characters, excluding vowels, with a -S suffix (XXXXXX-S), resolved from the requestId of the Fund requested.")
   @JsonIgnore
 
@@ -116,7 +117,7 @@ public class RelatedFunds implements Serializable {
    * The first related fund to the requestedId returned as a FactSet Permanent Security Identifier (XXXXXX-S).
    * @return relatedFundIdOne
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "VTG6QP-S", value = "The first related fund to the requestedId returned as a FactSet Permanent Security Identifier (XXXXXX-S).")
   @JsonIgnore
 
@@ -150,7 +151,7 @@ public class RelatedFunds implements Serializable {
    * The second related fund to the requestedId returned as a FactSet Permanent Security Identifier (XXXXXX-S).
    * @return relatedFundIdTwo
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "MPWNZT-S", value = "The second related fund to the requestedId returned as a FactSet Permanent Security Identifier (XXXXXX-S).")
   @JsonIgnore
 
@@ -184,7 +185,7 @@ public class RelatedFunds implements Serializable {
    * The third related fund to the requestedId returned as a FactSet Permanent Security Identifier (XXXXXX-S).
    * @return relatedFundIdThree
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "NK7DYK-S", value = "The third related fund to the requestedId returned as a FactSet Permanent Security Identifier (XXXXXX-S).")
   @JsonIgnore
 
@@ -218,7 +219,7 @@ public class RelatedFunds implements Serializable {
    * The fourth related fund to the requestedId returned as a FactSet Permanent Security Identifier (XXXXXX-S).
    * @return relatedFundIdFour
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "VS6HXC-S", value = "The fourth related fund to the requestedId returned as a FactSet Permanent Security Identifier (XXXXXX-S).")
   @JsonIgnore
 
@@ -252,7 +253,7 @@ public class RelatedFunds implements Serializable {
    * The fifth related fund to the requestedId returned as a FactSet Permanent Security Identifier (XXXXXX-S).
    * @return relatedFundIdFive
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "NYQFB0-S", value = "The fifth related fund to the requestedId returned as a FactSet Permanent Security Identifier (XXXXXX-S).")
   @JsonIgnore
 
@@ -286,7 +287,7 @@ public class RelatedFunds implements Serializable {
    * The requested Id sent as input.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "MABAX", value = "The requested Id sent as input.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -38,7 +38,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20010DataRisk.JSON_PROPERTY_COUNTER_PARTY,
   InlineResponse20010DataRisk.JSON_PROPERTY_FUND_CLOSURE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20010DataRisk implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class InlineResponse20010DataRisk implements Serializable {
    * Indicates a fund whose issuer has any corporate actions pending (e.g. merger, purchase, and closing). Available for the regions: US.
    * @return isCorporateActionPending
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates a fund whose issuer has any corporate actions pending (e.g. merger, purchase, and closing). Available for the regions: US.")
   @JsonProperty(JSON_PROPERTY_IS_CORPORATE_ACTION_PENDING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -89,7 +90,7 @@ public class InlineResponse20010DataRisk implements Serializable {
    * Score predicting the likelihood that an ETN counterparty will default, as measured by 1-year credit default swap rates. Possible values are Low, Medium, or High. Empty for non-ETNs. Available for the regions: US.
    * @return counterParty
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Score predicting the likelihood that an ETN counterparty will default, as measured by 1-year credit default swap rates. Possible values are Low, Medium, or High. Empty for non-ETNs. Available for the regions: US.")
   @JsonProperty(JSON_PROPERTY_COUNTER_PARTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +116,7 @@ public class InlineResponse20010DataRisk implements Serializable {
    * Score estimating the likelihood that a fund will close. Based on a quantitative model. Outputs are Low, Medium, or High. Available for the regions: US.
    * @return fundClosure
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Score estimating the likelihood that a fund will close. Based on a quantitative model. Outputs are Low, Medium, or High. Available for the regions: US.")
   @JsonProperty(JSON_PROPERTY_FUND_CLOSURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -37,7 +37,8 @@ import com.factset.sdk.FactSetTrading.JSON;
   ParentId.JSON_PROPERTY_SYMBOL,
   ParentId.JSON_PROPERTY_BASKET_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ParentId implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -69,7 +70,7 @@ public class ParentId implements Serializable {
    * Ticker symbol
    * @return symbol
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "FDS-USA", required = true, value = "Ticker symbol")
   @JsonProperty(JSON_PROPERTY_SYMBOL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -95,7 +96,7 @@ public class ParentId implements Serializable {
    * Unique identifier assigned to basket order. Can be fetched from the WebSocket Order Update API.
    * @return basketId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "FACTSET_OMS-100823_12345", required = true, value = "Unique identifier assigned to basket order. Can be fetched from the WebSocket Order Update API.")
   @JsonProperty(JSON_PROPERTY_BASKET_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

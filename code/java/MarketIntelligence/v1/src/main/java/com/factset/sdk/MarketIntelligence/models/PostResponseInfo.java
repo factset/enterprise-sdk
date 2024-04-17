@@ -37,7 +37,8 @@ import com.factset.sdk.MarketIntelligence.JSON;
   PostResponseInfo.JSON_PROPERTY_STATUS,
   PostResponseInfo.JSON_PROPERTY_REPORT_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostResponseInfo implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -59,7 +60,7 @@ public class PostResponseInfo implements Serializable {
    * successful response status
    * @return status
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "200", value = "successful response status")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -85,7 +86,7 @@ public class PostResponseInfo implements Serializable {
    * Report ID
    * @return reportId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "65ba6dd63fb366464646426d0b", value = "Report ID")
   @JsonProperty(JSON_PROPERTY_REPORT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

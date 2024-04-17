@@ -42,7 +42,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2001DataPerShareDividends.JSON_PROPERTY_VALUE,
   InlineResponse2001DataPerShareDividends.JSON_PROPERTY_GROWTH
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2001DataPerShareDividends implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class InlineResponse2001DataPerShareDividends implements Serializable {
    * Value of the dividends per share.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Value of the dividends per share.")
   @JsonIgnore
 
@@ -98,7 +99,7 @@ public class InlineResponse2001DataPerShareDividends implements Serializable {
    * Annual growth rate of the diividends per share.
    * @return growth
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Annual growth rate of the diividends per share.")
   @JsonIgnore
 

@@ -43,7 +43,8 @@ import com.factset.sdk.QuantEngine.JSON;
   QuantScreeningExpressionUniverse.JSON_PROPERTY_SECURITY_EXPR,
   QuantScreeningExpressionUniverse.JSON_PROPERTY_SOURCE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class QuantScreeningExpressionUniverse implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -155,7 +156,7 @@ public class QuantScreeningExpressionUniverse implements Serializable {
    * Get universeExpr
    * @return universeExpr
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_UNIVERSE_EXPR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -181,7 +182,7 @@ public class QuantScreeningExpressionUniverse implements Serializable {
    * Get universeType
    * @return universeType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_UNIVERSE_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -207,7 +208,7 @@ public class QuantScreeningExpressionUniverse implements Serializable {
    * Get securityExpr
    * @return securityExpr
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -241,7 +242,7 @@ public class QuantScreeningExpressionUniverse implements Serializable {
    * Get source
    * @return source
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SOURCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

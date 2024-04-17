@@ -44,7 +44,8 @@ import com.factset.sdk.ProcuretoPayAPISCIM.JSON;
   ProductResource.JSON_PROPERTY_WHITELIST,
   ProductResource.JSON_PROPERTY_META
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ProductResource implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -115,7 +116,7 @@ public class ProductResource implements Serializable {
    * Get schemas
    * @return schemas
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "[\"urn:scim:schemas:extension:FactSet:Core:1.0:Product\"]", value = "")
   @JsonProperty(JSON_PROPERTY_SCHEMAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,7 +137,7 @@ public class ProductResource implements Serializable {
    * Get id
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "6781", value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -152,7 +153,7 @@ public class ProductResource implements Serializable {
    * Name of product.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FactSet Identity", value = "Name of product.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -168,7 +169,7 @@ public class ProductResource implements Serializable {
    * Details of product.
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "This workstation product will provide the user with a serial number and a \"blanket\" login. Examples of when this can be used is for web only users, notify clients, or to give users minimal access.", value = "Details of product.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -184,7 +185,7 @@ public class ProductResource implements Serializable {
    * Description of the group the product belongs in, e.g. Exchange, Product, Database, Workstation, etc.
    * @return groupDescription
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Workstations", value = "Description of the group the product belongs in, e.g. Exchange, Product, Database, Workstation, etc.")
   @JsonProperty(JSON_PROPERTY_GROUP_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -200,7 +201,7 @@ public class ProductResource implements Serializable {
    * A boolean representing whether the product is base-level access to FactSet, issuing the individual&#39;s serial number. Only one Product \&quot;id\&quot; per individual will have this value set to true.
    * @return workstation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "true", value = "A boolean representing whether the product is base-level access to FactSet, issuing the individual's serial number. Only one Product \"id\" per individual will have this value set to true.")
   @JsonProperty(JSON_PROPERTY_WORKSTATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -216,7 +217,7 @@ public class ProductResource implements Serializable {
    * A description of the type of approval required before an order for this product can be fulfilled. This value is null for those products that do not require any approval.
    * @return requiresApproval
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FactSet", value = "A description of the type of approval required before an order for this product can be fulfilled. This value is null for those products that do not require any approval.")
   @JsonProperty(JSON_PROPERTY_REQUIRES_APPROVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -232,7 +233,7 @@ public class ProductResource implements Serializable {
    * Whether the product appears in the requester&#39;s product whitelist. Presence in the product whitelist means the requester is authorized to order this product for other users.
    * @return whitelist
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "true", required = true, value = "Whether the product appears in the requester's product whitelist. Presence in the product whitelist means the requester is authorized to order this product for other users.")
   @JsonProperty(JSON_PROPERTY_WHITELIST)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -253,7 +254,7 @@ public class ProductResource implements Serializable {
    * Get meta
    * @return meta
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

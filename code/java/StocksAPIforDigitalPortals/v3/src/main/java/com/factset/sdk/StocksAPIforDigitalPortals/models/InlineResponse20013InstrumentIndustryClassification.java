@@ -37,7 +37,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
 @JsonPropertyOrder({
   InlineResponse20013InstrumentIndustryClassification.JSON_PROPERTY_RBICS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20013InstrumentIndustryClassification implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class InlineResponse20013InstrumentIndustryClassification implements Seri
    * Classification based on FactSet Revere Business Industry Classification System (RBICS). The categories are arranged in a hierarchy, with level 1 representing the most coarse granularity and further levels successively refining the granularity. See endpoint &#x60;/category/listBySystem&#x60; for category system 48 for possible values.
    * @return rbics
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Classification based on FactSet Revere Business Industry Classification System (RBICS). The categories are arranged in a hierarchy, with level 1 representing the most coarse granularity and further levels successively refining the granularity. See endpoint `/category/listBySystem` for category system 48 for possible values.")
   @JsonProperty(JSON_PROPERTY_RBICS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

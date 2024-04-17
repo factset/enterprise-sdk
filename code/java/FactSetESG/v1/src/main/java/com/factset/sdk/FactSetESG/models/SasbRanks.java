@@ -44,7 +44,8 @@ import com.factset.sdk.FactSetESG.JSON;
   SasbRanks.JSON_PROPERTY_SASB_CATEGORY,
   SasbRanks.JSON_PROPERTY_SASB_RANK
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SasbRanks implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -75,7 +76,7 @@ public class SasbRanks implements Serializable {
    * Date for the period requested expressed in YYYY-MM-DD format.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Wed Sep 30 00:00:00 UTC 2020", value = "Date for the period requested expressed in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -109,7 +110,7 @@ public class SasbRanks implements Serializable {
    * FactSet Entity Identifier. Six alpha-numeric characters, excluding vowels, with a -E suffix (XXXXXX-E).
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "000BJT-E", value = "FactSet Entity Identifier. Six alpha-numeric characters, excluding vowels, with a -E suffix (XXXXXX-E).")
   @JsonIgnore
 
@@ -143,7 +144,7 @@ public class SasbRanks implements Serializable {
    * Identifier that was used for the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "ADBE-US", value = "Identifier that was used for the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -169,7 +170,7 @@ public class SasbRanks implements Serializable {
    * The specific SASB &#39;category&#39; the Rank is referring to.
    * @return sasbCategory
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "ALLCATEGORIES", value = "The specific SASB 'category' the Rank is referring to.")
   @JsonIgnore
 
@@ -203,7 +204,7 @@ public class SasbRanks implements Serializable {
    * The SASB Rank for the given category in Proper format.   |Rank|Industry Percentile Range (%)|   |---|---|   |Leader|90 - 100|   |Above Average|70 - 89.9|   |Average|30 - 69.9|   |Below Average|10 - 29.9|   |Laggard|0 - 9.9| 
    * @return sasbRank
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Average", value = "The SASB Rank for the given category in Proper format.   |Rank|Industry Percentile Range (%)|   |---|---|   |Leader|90 - 100|   |Above Average|70 - 89.9|   |Average|30 - 69.9|   |Below Average|10 - 29.9|   |Laggard|0 - 9.9| ")
   @JsonIgnore
 

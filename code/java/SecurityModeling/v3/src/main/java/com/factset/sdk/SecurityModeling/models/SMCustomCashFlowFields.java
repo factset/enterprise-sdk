@@ -69,7 +69,8 @@ import com.factset.sdk.SecurityModeling.JSON;
   SMCustomCashFlowFields.JSON_PROPERTY_VENDOR_COVERAGE_DATE,
   SMCustomCashFlowFields.JSON_PROPERTY_SECURITY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SMCustomCashFlowFields implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -230,7 +231,7 @@ public class SMCustomCashFlowFields implements Serializable {
    * Get cashFlowAmounts
    * @return cashFlowAmounts
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -276,7 +277,7 @@ public class SMCustomCashFlowFields implements Serializable {
    * Get cashFlowDates
    * @return cashFlowDates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -310,7 +311,7 @@ public class SMCustomCashFlowFields implements Serializable {
    * Get country
    * @return country
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -344,7 +345,7 @@ public class SMCustomCashFlowFields implements Serializable {
    * Get currency
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -378,7 +379,7 @@ public class SMCustomCashFlowFields implements Serializable {
    * Get issueName
    * @return issueName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -412,7 +413,7 @@ public class SMCustomCashFlowFields implements Serializable {
    * Get parAmt
    * @return parAmt
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -446,7 +447,7 @@ public class SMCustomCashFlowFields implements Serializable {
    * Get parentName
    * @return parentName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -480,7 +481,7 @@ public class SMCustomCashFlowFields implements Serializable {
    * Get ratingFitch
    * @return ratingFitch
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -526,7 +527,7 @@ public class SMCustomCashFlowFields implements Serializable {
    * Get ratingFitchDates
    * @return ratingFitchDates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -572,7 +573,7 @@ public class SMCustomCashFlowFields implements Serializable {
    * Get ratingFitchValues
    * @return ratingFitchValues
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -618,7 +619,7 @@ public class SMCustomCashFlowFields implements Serializable {
    * Get ratingMoodysDates
    * @return ratingMoodysDates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -664,7 +665,7 @@ public class SMCustomCashFlowFields implements Serializable {
    * Get ratingMoodysValues
    * @return ratingMoodysValues
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -710,7 +711,7 @@ public class SMCustomCashFlowFields implements Serializable {
    * Get ratingSpDates
    * @return ratingSpDates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -756,7 +757,7 @@ public class SMCustomCashFlowFields implements Serializable {
    * Get ratingSpValues
    * @return ratingSpValues
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -790,7 +791,7 @@ public class SMCustomCashFlowFields implements Serializable {
    * Get secondaryToVendorFlag
    * @return secondaryToVendorFlag
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -824,7 +825,7 @@ public class SMCustomCashFlowFields implements Serializable {
    * Get sector
    * @return sector
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -858,7 +859,7 @@ public class SMCustomCashFlowFields implements Serializable {
    * Get sectorBarclay1
    * @return sectorBarclay1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -892,7 +893,7 @@ public class SMCustomCashFlowFields implements Serializable {
    * Get sectorBarclay2
    * @return sectorBarclay2
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -926,7 +927,7 @@ public class SMCustomCashFlowFields implements Serializable {
    * Get sectorBarclay3
    * @return sectorBarclay3
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -960,7 +961,7 @@ public class SMCustomCashFlowFields implements Serializable {
    * Get sectorBarclay4
    * @return sectorBarclay4
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -994,7 +995,7 @@ public class SMCustomCashFlowFields implements Serializable {
    * Get sectorDef
    * @return sectorDef
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -1028,7 +1029,7 @@ public class SMCustomCashFlowFields implements Serializable {
    * Get sectorIndustry
    * @return sectorIndustry
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -1062,7 +1063,7 @@ public class SMCustomCashFlowFields implements Serializable {
    * Get sectorMain
    * @return sectorMain
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -1096,7 +1097,7 @@ public class SMCustomCashFlowFields implements Serializable {
    * Get sectorMerrill1
    * @return sectorMerrill1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -1130,7 +1131,7 @@ public class SMCustomCashFlowFields implements Serializable {
    * Get sectorMerrill2
    * @return sectorMerrill2
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -1164,7 +1165,7 @@ public class SMCustomCashFlowFields implements Serializable {
    * Get sectorMerrill3
    * @return sectorMerrill3
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -1198,7 +1199,7 @@ public class SMCustomCashFlowFields implements Serializable {
    * Get sectorMerrill4
    * @return sectorMerrill4
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -1232,7 +1233,7 @@ public class SMCustomCashFlowFields implements Serializable {
    * Get sectorSubGroup
    * @return sectorSubGroup
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -1266,7 +1267,7 @@ public class SMCustomCashFlowFields implements Serializable {
    * Get vendorCoverageDate
    * @return vendorCoverageDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -1300,7 +1301,7 @@ public class SMCustomCashFlowFields implements Serializable {
    * Get securityType
    * @return securityType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SECURITY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

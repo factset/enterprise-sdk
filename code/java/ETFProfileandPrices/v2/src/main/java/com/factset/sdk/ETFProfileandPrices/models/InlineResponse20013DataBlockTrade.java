@@ -40,7 +40,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20013DataBlockTrade.JSON_PROPERTY_LIQUIDITY,
   InlineResponse20013DataBlockTrade.JSON_PROPERTY_CREATION_UNIT_PER_DAY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20013DataBlockTrade implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class InlineResponse20013DataBlockTrade implements Serializable {
    * A measurement of the overlap between the hours of trading for the ETF and that of its underlying portfolio. Available for the regions: US.
    * @return overlapHours
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A measurement of the overlap between the hours of trading for the ETF and that of its underlying portfolio. Available for the regions: US.")
   @JsonProperty(JSON_PROPERTY_OVERLAP_HOURS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -94,7 +95,7 @@ public class InlineResponse20013DataBlockTrade implements Serializable {
    * Weighted average of the ratios of each underlying&#39;s number of shares, represented in one creation unit of the ETP, relative to the median daily trading volume of the underlying over 45 trading days, expressed as a percentage. This is a measure of the liquidity available in the underlying portfolio of the ETP, whereby larger numbers indicate greater likelihood of adverse price impact on underlying securities from ETF creations/redemptions. Only applicable for ETF. Available for the regions: US.
    * @return underlyingVolumePerUnit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Weighted average of the ratios of each underlying's number of shares, represented in one creation unit of the ETP, relative to the median daily trading volume of the underlying over 45 trading days, expressed as a percentage. This is a measure of the liquidity available in the underlying portfolio of the ETP, whereby larger numbers indicate greater likelihood of adverse price impact on underlying securities from ETF creations/redemptions. Only applicable for ETF. Available for the regions: US.")
   @JsonProperty(JSON_PROPERTY_UNDERLYING_VOLUME_PER_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -120,7 +121,7 @@ public class InlineResponse20013DataBlockTrade implements Serializable {
    * A measurement of the liquidity available in an ETF for a hypothetical 1,000,000 USD trade. Measured on a scale of 0 to 5 -- 5 being very liquid and easy to execute, 1 being expensive and difficult to execute, and 0 indicating a closed or restricted creation window. Available for the regions: US.
    * @return liquidity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A measurement of the liquidity available in an ETF for a hypothetical 1,000,000 USD trade. Measured on a scale of 0 to 5 -- 5 being very liquid and easy to execute, 1 being expensive and difficult to execute, and 0 indicating a closed or restricted creation window. Available for the regions: US.")
   @JsonProperty(JSON_PROPERTY_LIQUIDITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -146,7 +147,7 @@ public class InlineResponse20013DataBlockTrade implements Serializable {
    * The median 45 day share volume divided by the creation unit size of the fund. The higher the number, the more likely that liquidity providers will trade the fund in size, or in odd lots. Available for the regions: US.
    * @return creationUnitPerDay
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The median 45 day share volume divided by the creation unit size of the fund. The higher the number, the more likely that liquidity providers will trade the fund in size, or in odd lots. Available for the regions: US.")
   @JsonProperty(JSON_PROPERTY_CREATION_UNIT_PER_DAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

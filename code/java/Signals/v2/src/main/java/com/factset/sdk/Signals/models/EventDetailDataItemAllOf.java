@@ -38,7 +38,8 @@ import com.factset.sdk.Signals.JSON;
   EventDetailDataItemAllOf.JSON_PROPERTY_UPDATED,
   EventDetailDataItemAllOf.JSON_PROPERTY_DETAILS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EventDetailDataItemAllOf implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -75,7 +76,7 @@ public class EventDetailDataItemAllOf implements Serializable {
    * Date/Time in UTC the event was first recorded in our data store.
    * @return created
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "2021-04-26T06:39:40.094Z", required = true, value = "Date/Time in UTC the event was first recorded in our data store.")
   @JsonProperty(JSON_PROPERTY_CREATED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -101,7 +102,7 @@ public class EventDetailDataItemAllOf implements Serializable {
    * Date/Time in UTC the event was last updated.
    * @return updated
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "2021-04-26T06:39:40.094Z", required = true, value = "Date/Time in UTC the event was last updated.")
   @JsonProperty(JSON_PROPERTY_UPDATED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -132,7 +133,7 @@ public class EventDetailDataItemAllOf implements Serializable {
    * Signal specific event properties.
    * @return details
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Signal specific event properties.")
   @JsonProperty(JSON_PROPERTY_DETAILS)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.ALWAYS)

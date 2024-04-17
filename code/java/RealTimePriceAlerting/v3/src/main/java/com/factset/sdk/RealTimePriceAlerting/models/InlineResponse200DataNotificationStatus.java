@@ -42,7 +42,8 @@ import com.factset.sdk.RealTimePriceAlerting.JSON;
   InlineResponse200DataNotificationStatus.JSON_PROPERTY_TIME,
   InlineResponse200DataNotificationStatus.JSON_PROPERTY_CODE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse200DataNotificationStatus implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -108,7 +109,7 @@ public class InlineResponse200DataNotificationStatus implements Serializable {
    * Get channel
    * @return channel
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CHANNEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -134,7 +135,7 @@ public class InlineResponse200DataNotificationStatus implements Serializable {
    * Date and time of the most recent change.
    * @return time
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Date and time of the most recent change.")
   @JsonIgnore
 
@@ -168,7 +169,7 @@ public class InlineResponse200DataNotificationStatus implements Serializable {
    * Code of the status.
    * @return code
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Code of the status.")
   @JsonIgnore
 

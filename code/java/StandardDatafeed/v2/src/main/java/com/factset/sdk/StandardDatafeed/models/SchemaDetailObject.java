@@ -39,7 +39,8 @@ import com.factset.sdk.StandardDatafeed.JSON;
   SchemaDetailObject.JSON_PROPERTY_URL,
   SchemaDetailObject.JSON_PROPERTY_TIMESTAMP
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SchemaDetailObject implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -67,7 +68,7 @@ public class SchemaDetailObject implements Serializable {
    * Name of the schema.
    * @return schema
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the schema.")
   @JsonProperty(JSON_PROPERTY_SCHEMA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -93,7 +94,7 @@ public class SchemaDetailObject implements Serializable {
    * Version number of the schema.
    * @return version
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Version number of the schema.")
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -119,7 +120,7 @@ public class SchemaDetailObject implements Serializable {
    * Pre-signed URL pointing to the location from where the schema details can be downloaded.
    * @return url
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Pre-signed URL pointing to the location from where the schema details can be downloaded.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -145,7 +146,7 @@ public class SchemaDetailObject implements Serializable {
    * Timestamp of when the schema version was last updated.
    * @return timestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Timestamp of when the schema version was last updated.")
   @JsonProperty(JSON_PROPERTY_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

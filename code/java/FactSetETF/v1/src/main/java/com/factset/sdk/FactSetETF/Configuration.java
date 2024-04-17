@@ -13,7 +13,8 @@
 
 package com.factset.sdk.FactSetETF;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Configuration {
     private static ApiClient defaultApiClient = new ApiClient();
 

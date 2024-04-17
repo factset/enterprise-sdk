@@ -37,7 +37,8 @@ import com.factset.sdk.OptimizationEngineAPIMultiperiod.JSON;
   OptimizerOutputsMultiPeriodOutput.JSON_PROPERTY_PERIODS,
   OptimizerOutputsMultiPeriodOutput.JSON_PROPERTY_RAW_STATS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerOutputsMultiPeriodOutput implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -67,7 +68,7 @@ public class OptimizerOutputsMultiPeriodOutput implements Serializable {
    * Get periods
    * @return periods
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PERIODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -93,7 +94,7 @@ public class OptimizerOutputsMultiPeriodOutput implements Serializable {
    * temporary
    * @return rawStats
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "temporary")
   @JsonProperty(JSON_PROPERTY_RAW_STATS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

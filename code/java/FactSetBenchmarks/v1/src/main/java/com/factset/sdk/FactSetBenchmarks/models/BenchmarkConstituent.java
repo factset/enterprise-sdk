@@ -50,7 +50,8 @@ import com.factset.sdk.FactSetBenchmarks.JSON;
   BenchmarkConstituent.JSON_PROPERTY_ADJ_MARKET_VALUE,
   BenchmarkConstituent.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class BenchmarkConstituent implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -99,7 +100,7 @@ public class BenchmarkConstituent implements Serializable {
    * Benchmark Id
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "SPY-US", value = "Benchmark Id")
   @JsonIgnore
 
@@ -133,7 +134,7 @@ public class BenchmarkConstituent implements Serializable {
    * Date of weight and shares.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Wed Jul 01 00:00:00 UTC 2020", value = "Date of weight and shares.")
   @JsonIgnore
 
@@ -167,7 +168,7 @@ public class BenchmarkConstituent implements Serializable {
    * FactSet Security Identifier (-S). If Cash or Generic Id holding, response will just pass through generic id (e.g. CASH_USD).
    * @return fsymSecurityId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "TKPJVY-S", value = "FactSet Security Identifier (-S). If Cash or Generic Id holding, response will just pass through generic id (e.g. CASH_USD).")
   @JsonIgnore
 
@@ -201,7 +202,7 @@ public class BenchmarkConstituent implements Serializable {
    * FactSet Regional Identifier (-R). If Cash or Generic Id holding, response will just pass through generic id (e.g. CASH_USD).
    * @return fsymRegionalId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "F07Q7W-R", value = "FactSet Regional Identifier (-R). If Cash or Generic Id holding, response will just pass through generic id (e.g. CASH_USD).")
   @JsonIgnore
 
@@ -235,7 +236,7 @@ public class BenchmarkConstituent implements Serializable {
    * Currency code for prices.
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "Currency code for prices.")
   @JsonIgnore
 
@@ -269,7 +270,7 @@ public class BenchmarkConstituent implements Serializable {
    * Weight of Security in benchmark (percent).
    * @return weightClose
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0.085717610340781", value = "Weight of Security in benchmark (percent).")
   @JsonIgnore
 
@@ -303,7 +304,7 @@ public class BenchmarkConstituent implements Serializable {
    * Shares held adjusted. Units in Millions.
    * @return adjHolding
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0.884722", value = "Shares held adjusted. Units in Millions.")
   @JsonIgnore
 
@@ -337,7 +338,7 @@ public class BenchmarkConstituent implements Serializable {
    * Shares held unadjusted. Units in Millions.
    * @return unadjHolding
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0.884722", value = "Shares held unadjusted. Units in Millions.")
   @JsonIgnore
 
@@ -371,7 +372,7 @@ public class BenchmarkConstituent implements Serializable {
    * Price of shares held.
    * @return price
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "267.97", value = "Price of shares held.")
   @JsonIgnore
 
@@ -405,7 +406,7 @@ public class BenchmarkConstituent implements Serializable {
    * Market value adjusted. Market Value represented in Millions.
    * @return adjMarketValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "237.07895434", value = "Market value adjusted. Market Value represented in Millions.")
   @JsonIgnore
 
@@ -439,7 +440,7 @@ public class BenchmarkConstituent implements Serializable {
    * Identifier specified in the request
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "SPY-US", value = "Identifier specified in the request")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

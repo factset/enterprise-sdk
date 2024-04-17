@@ -44,7 +44,8 @@ import com.factset.sdk.FactSetPrivateMarkets.JSON;
   Financials.JSON_PROPERTY_FSYM_ID,
   Financials.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Financials implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -66,7 +67,7 @@ public class Financials implements Serializable {
    * Unique FactSet-generated identifier representing an entity for the current entity identifier (-E)
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "000BGM-E", value = "Unique FactSet-generated identifier representing an entity for the current entity identifier (-E)")
   @JsonIgnore
 
@@ -100,7 +101,7 @@ public class Financials implements Serializable {
    * Identifier used in &#x60;ids&#x60;.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "000BGM-E", value = "Identifier used in `ids`.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

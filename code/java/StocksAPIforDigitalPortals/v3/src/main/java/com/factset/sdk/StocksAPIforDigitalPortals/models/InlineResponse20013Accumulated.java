@@ -43,7 +43,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20013Accumulated.JSON_PROPERTY_TRADING_VOLUME,
   InlineResponse20013Accumulated.JSON_PROPERTY_TRADING_VALUE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20013Accumulated implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class InlineResponse20013Accumulated implements Serializable {
    * Number of trades.
    * @return numberTrades
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of trades.")
   @JsonIgnore
 
@@ -102,7 +103,7 @@ public class InlineResponse20013Accumulated implements Serializable {
    * Number of shares traded.
    * @return tradingVolume
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of shares traded.")
   @JsonIgnore
 
@@ -136,7 +137,7 @@ public class InlineResponse20013Accumulated implements Serializable {
    * Monetary equivalent (cash value) of the trades. See attribute &#x60;currency&#x60; for its currency.
    * @return tradingValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Monetary equivalent (cash value) of the trades. See attribute `currency` for its currency.")
   @JsonIgnore
 

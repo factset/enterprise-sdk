@@ -46,7 +46,8 @@ import com.factset.sdk.RealTimeTimeSeries.JSON;
   PostPricesTimeSeriesIntradayListRequestData.JSON_PROPERTY_INCLUDE_VOLUME_ONLY_TICKS,
   PostPricesTimeSeriesIntradayListRequestData.JSON_PROPERTY_ADJUSTMENTS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostPricesTimeSeriesIntradayListRequestData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -207,7 +208,7 @@ public class PostPricesTimeSeriesIntradayListRequestData implements Serializable
    * Get identifier
    * @return identifier
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -233,7 +234,7 @@ public class PostPricesTimeSeriesIntradayListRequestData implements Serializable
    * Type of the price as configured for the customer.
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Type of the price as configured for the customer.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -259,7 +260,7 @@ public class PostPricesTimeSeriesIntradayListRequestData implements Serializable
    * Quality of the price.
    * @return quality
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Quality of the price.")
   @JsonProperty(JSON_PROPERTY_QUALITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -285,7 +286,7 @@ public class PostPricesTimeSeriesIntradayListRequestData implements Serializable
    * Get range
    * @return range
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_RANGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -311,7 +312,7 @@ public class PostPricesTimeSeriesIntradayListRequestData implements Serializable
    * Deliver the chronological last part of the requested data first.
    * @return newestFirst
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Deliver the chronological last part of the requested data first.")
   @JsonProperty(JSON_PROPERTY_NEWEST_FIRST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -337,7 +338,7 @@ public class PostPricesTimeSeriesIntradayListRequestData implements Serializable
    * This attribute represents the choice whether to apply insert, update, and delete corrections for individual ticks sent by the exchange or devised by FactSet Digital Solutions GmbH.   If the exchange or FactSet Digital Solutions GmbH decides to correct data, a correction instruction tick is sent shortly (usually on the same trading day) after dissemination of the corresponding original tick (if any). The correction instruction is then applied, yielding a corrected view. For \&quot;insert\&quot; corrections, there is no original tick, and the corrected view contains the inserted tick. For \&quot;update\&quot; corrections, the corrected view contains the updated original tick. For \&quot;delete\&quot; corrections, the original tick is removed from the corrected view.
    * @return applyTickCorrections
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "This attribute represents the choice whether to apply insert, update, and delete corrections for individual ticks sent by the exchange or devised by FactSet Digital Solutions GmbH.   If the exchange or FactSet Digital Solutions GmbH decides to correct data, a correction instruction tick is sent shortly (usually on the same trading day) after dissemination of the corresponding original tick (if any). The correction instruction is then applied, yielding a corrected view. For \"insert\" corrections, there is no original tick, and the corrected view contains the inserted tick. For \"update\" corrections, the corrected view contains the updated original tick. For \"delete\" corrections, the original tick is removed from the corrected view.")
   @JsonProperty(JSON_PROPERTY_APPLY_TICK_CORRECTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -363,7 +364,7 @@ public class PostPricesTimeSeriesIntradayListRequestData implements Serializable
    * Include ticks that contain a volume without a price.
    * @return includeVolumeOnlyTicks
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Include ticks that contain a volume without a price.")
   @JsonProperty(JSON_PROPERTY_INCLUDE_VOLUME_ONLY_TICKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -389,7 +390,7 @@ public class PostPricesTimeSeriesIntradayListRequestData implements Serializable
    * Get adjustments
    * @return adjustments
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ADJUSTMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

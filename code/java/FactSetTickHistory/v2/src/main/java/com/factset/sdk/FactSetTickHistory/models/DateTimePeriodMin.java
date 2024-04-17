@@ -38,7 +38,8 @@ import com.factset.sdk.FactSetTickHistory.JSON;
   DateTimePeriodMin.JSON_PROPERTY_START,
   DateTimePeriodMin.JSON_PROPERTY_END
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class DateTimePeriodMin implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -70,7 +71,7 @@ public class DateTimePeriodMin implements Serializable {
    * The date for (or from which) the data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format. 
    * @return start
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "2012-01-01T11:00Z", required = true, value = "The date for (or from which) the data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format. ")
   @JsonProperty(JSON_PROPERTY_START)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -96,7 +97,7 @@ public class DateTimePeriodMin implements Serializable {
    * The date to which data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format. 
    * @return end
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "2012-01-30T11:20:30Z", required = true, value = "The date to which data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format. ")
   @JsonProperty(JSON_PROPERTY_END)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

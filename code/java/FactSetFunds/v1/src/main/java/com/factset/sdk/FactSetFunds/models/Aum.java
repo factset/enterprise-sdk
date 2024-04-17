@@ -46,7 +46,8 @@ import com.factset.sdk.FactSetFunds.JSON;
   Aum.JSON_PROPERTY_DATE,
   Aum.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Aum implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -83,7 +84,7 @@ public class Aum implements Serializable {
    * FactSet Security Identifier. Six alpha-numeric characters, excluding vowels, with a -S suffix (XXXXXX-S), resolved from the requestId of the Fund requested.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FNK7XP-S", value = "FactSet Security Identifier. Six alpha-numeric characters, excluding vowels, with a -S suffix (XXXXXX-S), resolved from the requestId of the Fund requested.")
   @JsonIgnore
 
@@ -117,7 +118,7 @@ public class Aum implements Serializable {
    * Returns fund-level Assets Under Management (AUM) data. Fund-level AUM is the sum of the market values of the positions in the fund&#39;s portfolio. This represents all share classes.
    * @return fundLevelAUM
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1908934757.1935", value = "Returns fund-level Assets Under Management (AUM) data. Fund-level AUM is the sum of the market values of the positions in the fund's portfolio. This represents all share classes.")
   @JsonIgnore
 
@@ -151,7 +152,7 @@ public class Aum implements Serializable {
    * As-Reported AUM. Calculated by using shares outstanding at previous close multiplied by NAV at previous close. This is typically the value seen on fund websites. As Reported AUM &#x3D; (Shares Outstanding t0 * NAV t0).
    * @return shrClassAUMRpt
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "902354605.39548", value = "As-Reported AUM. Calculated by using shares outstanding at previous close multiplied by NAV at previous close. This is typically the value seen on fund websites. As Reported AUM = (Shares Outstanding t0 * NAV t0).")
   @JsonIgnore
 
@@ -185,7 +186,7 @@ public class Aum implements Serializable {
    * Actual AUM. Calculated by using shares outstanding at previous close multiplied by NAV of one day prior to close. This is the value used in calculating fund flows. Actual AUM &#x3D; (Shares Outstanding t0 * NAV t-1)
    * @return shrClassAUMAct
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "914573047.89582", value = "Actual AUM. Calculated by using shares outstanding at previous close multiplied by NAV of one day prior to close. This is the value used in calculating fund flows. Actual AUM = (Shares Outstanding t0 * NAV t-1)")
   @JsonIgnore
 
@@ -219,7 +220,7 @@ public class Aum implements Serializable {
    * The Currency of the AUM values. By default it will be in the FUnds Currency, unless otherwise requested via the currency parameter.
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "The Currency of the AUM values. By default it will be in the FUnds Currency, unless otherwise requested via the currency parameter.")
   @JsonIgnore
 
@@ -253,7 +254,7 @@ public class Aum implements Serializable {
    * The date of the AUM in YYYY-MM-DD format.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Sun Feb 28 00:00:00 UTC 2021", value = "The date of the AUM in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -287,7 +288,7 @@ public class Aum implements Serializable {
    * The requested Id sent as input.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "MABAX", value = "The requested Id sent as input.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

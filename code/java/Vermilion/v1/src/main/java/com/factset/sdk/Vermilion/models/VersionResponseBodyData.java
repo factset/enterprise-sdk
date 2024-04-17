@@ -37,7 +37,8 @@ import com.factset.sdk.Vermilion.JSON;
   VersionResponseBodyData.JSON_PROPERTY_WRS_VERSION,
   VersionResponseBodyData.JSON_PROPERTY_DB_SERVER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class VersionResponseBodyData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -62,7 +63,7 @@ public class VersionResponseBodyData implements Serializable {
    * VRS version
    * @return vrsVersion
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "VRS version")
   @JsonProperty(JSON_PROPERTY_VRS_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -88,7 +89,7 @@ public class VersionResponseBodyData implements Serializable {
    * WRS version
    * @return wrsVersion
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "WRS version")
   @JsonProperty(JSON_PROPERTY_WRS_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -114,7 +115,7 @@ public class VersionResponseBodyData implements Serializable {
    * DB version
    * @return dbServer
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "DB version")
   @JsonProperty(JSON_PROPERTY_DB_SERVER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -42,7 +42,8 @@ import com.factset.sdk.RealTimeNews.JSON;
   InlineResponse2009DataDistributor.JSON_PROPERTY_ID,
   InlineResponse2009DataDistributor.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2009DataDistributor implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class InlineResponse2009DataDistributor implements Serializable {
    * Identifier of the distributor.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the distributor.")
   @JsonIgnore
 
@@ -98,7 +99,7 @@ public class InlineResponse2009DataDistributor implements Serializable {
    * Name of the distributor.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the distributor.")
   @JsonIgnore
 

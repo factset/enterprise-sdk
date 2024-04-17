@@ -60,7 +60,8 @@ import com.factset.sdk.OptimizationEngineAPIMultiperiod.JSON;
   OptimizerInputsObjective.JSON_PROPERTY_RISK_PARITY,
   OptimizerInputsObjective.JSON_PROPERTY_TRANSACTION_COST
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerInputsObjective implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -123,7 +124,7 @@ public class OptimizerInputsObjective implements Serializable {
    * Get factorExposure
    * @return factorExposure
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FACTOR_EXPOSURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -157,7 +158,7 @@ public class OptimizerInputsObjective implements Serializable {
    * Get expectedTailLoss
    * @return expectedTailLoss
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EXPECTED_TAIL_LOSS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -191,7 +192,7 @@ public class OptimizerInputsObjective implements Serializable {
    * Get volatility
    * @return volatility
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VOLATILITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -225,7 +226,7 @@ public class OptimizerInputsObjective implements Serializable {
    * Get drawdown
    * @return drawdown
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DRAWDOWN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -259,7 +260,7 @@ public class OptimizerInputsObjective implements Serializable {
    * Get generalLinear
    * @return generalLinear
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_GENERAL_LINEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -293,7 +294,7 @@ public class OptimizerInputsObjective implements Serializable {
    * Get expectedReturn
    * @return expectedReturn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EXPECTED_RETURN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -327,7 +328,7 @@ public class OptimizerInputsObjective implements Serializable {
    * Get sensitivity
    * @return sensitivity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SENSITIVITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -353,7 +354,7 @@ public class OptimizerInputsObjective implements Serializable {
    * Get sharpeRatio
    * @return sharpeRatio
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SHARPE_RATIO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -379,7 +380,7 @@ public class OptimizerInputsObjective implements Serializable {
    * Get starr
    * @return starr
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STARR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -405,7 +406,7 @@ public class OptimizerInputsObjective implements Serializable {
    * Get diversificationRatio
    * @return diversificationRatio
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DIVERSIFICATION_RATIO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -431,7 +432,7 @@ public class OptimizerInputsObjective implements Serializable {
    * This is true when there is no risk_parity
    * @return nullRiskParity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "This is true when there is no risk_parity")
   @JsonProperty(JSON_PROPERTY_NULL_RISK_PARITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -457,7 +458,7 @@ public class OptimizerInputsObjective implements Serializable {
    * Get riskParity
    * @return riskParity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RISK_PARITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -491,7 +492,7 @@ public class OptimizerInputsObjective implements Serializable {
    * Get transactionCost
    * @return transactionCost
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TRANSACTION_COST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

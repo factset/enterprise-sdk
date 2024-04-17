@@ -38,7 +38,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20012DataEfficiency.JSON_PROPERTY_VALUE,
   InlineResponse20012DataEfficiency.JSON_PROPERTY_AVERAGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20012DataEfficiency implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -60,7 +61,7 @@ public class InlineResponse20012DataEfficiency implements Serializable {
    * A measure of how well a fund delivers on its core promise of delivering the returns of an underlying index, taking into account the expense ratio, tracking error, tax risk, fund closure risk and structural risk. In the range 0 (low) to 100 (high). Available for the regions: US.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A measure of how well a fund delivers on its core promise of delivering the returns of an underlying index, taking into account the expense ratio, tracking error, tax risk, fund closure risk and structural risk. In the range 0 (low) to 100 (high). Available for the regions: US.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,7 +87,7 @@ public class InlineResponse20012DataEfficiency implements Serializable {
    * The average efficiency score for all funds in the segment. Available for the regions: US.
    * @return average
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The average efficiency score for all funds in the segment. Available for the regions: US.")
   @JsonProperty(JSON_PROPERTY_AVERAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

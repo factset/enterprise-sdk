@@ -42,7 +42,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20021Data.JSON_PROPERTY_TOTAL_DISTRIBUTION,
   InlineResponse20021Data.JSON_PROPERTY_DISTRIBUTION_YIELD
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20021Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -70,7 +71,7 @@ public class InlineResponse20021Data implements Serializable {
    * Get dividend
    * @return dividend
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DIVIDEND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -96,7 +97,7 @@ public class InlineResponse20021Data implements Serializable {
    * Get capitalGains
    * @return capitalGains
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CAPITAL_GAINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -122,7 +123,7 @@ public class InlineResponse20021Data implements Serializable {
    * Total Distribution on exDividend-date. Values are in the ETP&#39;s listing currency in the ISO 4217 format. This data is available for all regions. Please refer currency.listing in /factset/etf/getBySymbol for currency value.
    * @return totalDistribution
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Total Distribution on exDividend-date. Values are in the ETP's listing currency in the ISO 4217 format. This data is available for all regions. Please refer currency.listing in /factset/etf/getBySymbol for currency value.")
   @JsonProperty(JSON_PROPERTY_TOTAL_DISTRIBUTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -148,7 +149,7 @@ public class InlineResponse20021Data implements Serializable {
    * Total 12-month distribution of the ETP multiplied by split factor then divided by its net asset value. Data is split adjusted. This data is available for the US regions.
    * @return distributionYield
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Total 12-month distribution of the ETP multiplied by split factor then divided by its net asset value. Data is split adjusted. This data is available for the US regions.")
   @JsonProperty(JSON_PROPERTY_DISTRIBUTION_YIELD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

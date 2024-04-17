@@ -51,7 +51,8 @@ import com.factset.sdk.FactSetFunds.JSON;
   ReturnsSnapshot.JSON_PROPERTY_DATE,
   ReturnsSnapshot.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ReturnsSnapshot implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -103,7 +104,7 @@ public class ReturnsSnapshot implements Serializable {
    * FactSet Security Identifier. Six alpha-numeric characters, excluding vowels, with a -S suffix (XXXXXX-S), resolved from the requestId of the Fund requested.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FNK7XP-S", value = "FactSet Security Identifier. Six alpha-numeric characters, excluding vowels, with a -S suffix (XXXXXX-S), resolved from the requestId of the Fund requested.")
   @JsonIgnore
 
@@ -137,7 +138,7 @@ public class ReturnsSnapshot implements Serializable {
    * The one-week return for the requested id and date. The return type is determined by including or excluding dividends through the dividendAdjust parameter.
    * @return oneWeek
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2.38777459407833", value = "The one-week return for the requested id and date. The return type is determined by including or excluding dividends through the dividendAdjust parameter.")
   @JsonIgnore
 
@@ -171,7 +172,7 @@ public class ReturnsSnapshot implements Serializable {
    * The one-month return for the requested id and date. The return type is determined by including or excluding dividends through the dividendAdjust parameter.
    * @return oneMonth
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "7.52256770310935", value = "The one-month return for the requested id and date. The return type is determined by including or excluding dividends through the dividendAdjust parameter.")
   @JsonIgnore
 
@@ -205,7 +206,7 @@ public class ReturnsSnapshot implements Serializable {
    * The three-month return for the requested id and date. The return type is determined by including or excluding dividends through the dividendAdjust parameter.
    * @return threeMonth
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "13.8004246284501", value = "The three-month return for the requested id and date. The return type is determined by including or excluding dividends through the dividendAdjust parameter.")
   @JsonIgnore
 
@@ -239,7 +240,7 @@ public class ReturnsSnapshot implements Serializable {
    * The year-to-date return for the requested id and date. The return type is determined by including or excluding dividends through the dividendAdjust parameter.
    * @return yearToDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "13.1398416886544", value = "The year-to-date return for the requested id and date. The return type is determined by including or excluding dividends through the dividendAdjust parameter.")
   @JsonIgnore
 
@@ -273,7 +274,7 @@ public class ReturnsSnapshot implements Serializable {
    * The one-year return for the requested id and date. The return type is determined by including or excluding dividends through the dividendAdjust parameter.
    * @return oneYear
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "40.2223675604972", value = "The one-year return for the requested id and date. The return type is determined by including or excluding dividends through the dividendAdjust parameter.")
   @JsonIgnore
 
@@ -307,7 +308,7 @@ public class ReturnsSnapshot implements Serializable {
    * The three-year return for the requested id and date. The return type is determined by including or excluding dividends through the dividendAdjust parameter.
    * @return threeYear
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The three-year return for the requested id and date. The return type is determined by including or excluding dividends through the dividendAdjust parameter.")
   @JsonIgnore
 
@@ -341,7 +342,7 @@ public class ReturnsSnapshot implements Serializable {
    * The three-year annualized return for the requested id and date. The return type is determined by including or excluding dividends through the dividendAdjust parameter.
    * @return threeYearAnnualized
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The three-year annualized return for the requested id and date. The return type is determined by including or excluding dividends through the dividendAdjust parameter.")
   @JsonIgnore
 
@@ -375,7 +376,7 @@ public class ReturnsSnapshot implements Serializable {
    * The five-year return for the requested id and date. The return type is determined by including or excluding dividends through the dividendAdjust parameter.
    * @return fiveYear
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "25.2970433246628", value = "The five-year return for the requested id and date. The return type is determined by including or excluding dividends through the dividendAdjust parameter.")
   @JsonIgnore
 
@@ -409,7 +410,7 @@ public class ReturnsSnapshot implements Serializable {
    * The five year annualized return for the requested id and date. The return type is determined by including or excluding dividends through the dividendAdjust parameter.
    * @return fiveYearAnnualized
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The five year annualized return for the requested id and date. The return type is determined by including or excluding dividends through the dividendAdjust parameter.")
   @JsonIgnore
 
@@ -443,7 +444,7 @@ public class ReturnsSnapshot implements Serializable {
    * The date of the return in YYYY-MM-DD format.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Tue Mar 30 00:00:00 UTC 2021", value = "The date of the return in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -477,7 +478,7 @@ public class ReturnsSnapshot implements Serializable {
    * The requested Id sent as input.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "MABAX", value = "The requested Id sent as input.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

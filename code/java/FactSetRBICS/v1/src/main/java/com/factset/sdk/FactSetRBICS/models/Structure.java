@@ -45,7 +45,8 @@ import com.factset.sdk.FactSetRBICS.JSON;
   Structure.JSON_PROPERTY_FIRST_DATE,
   Structure.JSON_PROPERTY_LAST_DATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Structure implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -70,7 +71,7 @@ public class Structure implements Serializable {
    * RBICS Code for the classification.
    * @return rbicsId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "101010101010", value = "RBICS Code for the classification.")
   @JsonIgnore
 
@@ -104,7 +105,7 @@ public class Structure implements Serializable {
    * First date of the classification.
    * @return firstDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1945-01-01T00:00:00.000", value = "First date of the classification.")
   @JsonIgnore
 
@@ -138,7 +139,7 @@ public class Structure implements Serializable {
    * Date when the classification became no longer valid. If &#x60;null&#x60;, the classification is still valid.
    * @return lastDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Date when the classification became no longer valid. If `null`, the classification is still valid.")
   @JsonIgnore
 

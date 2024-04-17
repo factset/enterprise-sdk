@@ -42,7 +42,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20054DataOccurrence.JSON_PROPERTY_TYPE,
   InlineResponse20054DataOccurrence.JSON_PROPERTY_FREQUENCY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20054DataOccurrence implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -101,7 +102,7 @@ public class InlineResponse20054DataOccurrence implements Serializable {
    * Occurrence type of the coupon payments.
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Occurrence type of the coupon payments.")
   @JsonIgnore
 
@@ -135,7 +136,7 @@ public class InlineResponse20054DataOccurrence implements Serializable {
    * Get frequency
    * @return frequency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FREQUENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

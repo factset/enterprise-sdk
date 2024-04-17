@@ -67,7 +67,8 @@ import com.factset.sdk.OverviewReportBuilder.JSON;
   KeyStatsFundObject.JSON_PROPERTY_SFDR_CLASSIFICATION,
   KeyStatsFundObject.JSON_PROPERTY_META
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class KeyStatsFundObject implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -131,7 +132,7 @@ public class KeyStatsFundObject implements Serializable {
    * Get expenseRatio
    * @return expenseRatio
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EXPENSE_RATIO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -157,7 +158,7 @@ public class KeyStatsFundObject implements Serializable {
    * Get distributionYield
    * @return distributionYield
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DISTRIBUTION_YIELD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -183,7 +184,7 @@ public class KeyStatsFundObject implements Serializable {
    * Get aumShareDaily
    * @return aumShareDaily
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AUM_SHARE_DAILY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -209,7 +210,7 @@ public class KeyStatsFundObject implements Serializable {
    * Get aumFundMonth
    * @return aumFundMonth
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AUM_FUND_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -235,7 +236,7 @@ public class KeyStatsFundObject implements Serializable {
    * Get outstandingShare
    * @return outstandingShare
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OUTSTANDING_SHARE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -261,7 +262,7 @@ public class KeyStatsFundObject implements Serializable {
    * Get fundFlowYTD
    * @return fundFlowYTD
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FUND_FLOW_Y_T_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -287,7 +288,7 @@ public class KeyStatsFundObject implements Serializable {
    * Get firstNavRecord
    * @return firstNavRecord
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FIRST_NAV_RECORD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -313,7 +314,7 @@ public class KeyStatsFundObject implements Serializable {
    * Get dailyTradingVol
    * @return dailyTradingVol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DAILY_TRADING_VOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -339,7 +340,7 @@ public class KeyStatsFundObject implements Serializable {
    * Get averageSpread
    * @return averageSpread
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AVERAGE_SPREAD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -365,7 +366,7 @@ public class KeyStatsFundObject implements Serializable {
    * Get inceptionDateShare
    * @return inceptionDateShare
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INCEPTION_DATE_SHARE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -391,7 +392,7 @@ public class KeyStatsFundObject implements Serializable {
    * Get inceptionDateFund
    * @return inceptionDateFund
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INCEPTION_DATE_FUND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -417,7 +418,7 @@ public class KeyStatsFundObject implements Serializable {
    * Get availableForSale
    * @return availableForSale
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AVAILABLE_FOR_SALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -443,7 +444,7 @@ public class KeyStatsFundObject implements Serializable {
    * Get currencyIso
    * @return currencyIso
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CURRENCY_ISO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -469,7 +470,7 @@ public class KeyStatsFundObject implements Serializable {
    * Get esgCompliance
    * @return esgCompliance
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ESG_COMPLIANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -495,7 +496,7 @@ public class KeyStatsFundObject implements Serializable {
    * Get sfdrClassification
    * @return sfdrClassification
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SFDR_CLASSIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -521,7 +522,7 @@ public class KeyStatsFundObject implements Serializable {
    * Get meta
    * @return meta
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

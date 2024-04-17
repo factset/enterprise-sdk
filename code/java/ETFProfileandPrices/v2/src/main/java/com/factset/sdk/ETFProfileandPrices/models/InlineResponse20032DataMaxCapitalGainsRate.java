@@ -38,7 +38,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20032DataMaxCapitalGainsRate.JSON_PROPERTY_LONG_TERM,
   InlineResponse20032DataMaxCapitalGainsRate.JSON_PROPERTY_SHORT_TERM
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20032DataMaxCapitalGainsRate implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -60,7 +61,7 @@ public class InlineResponse20032DataMaxCapitalGainsRate implements Serializable 
    * The maximum US federal personal income tax rate that applies to long-term capital gains associated with the ETP. This data is available for the US regions.
    * @return longTerm
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The maximum US federal personal income tax rate that applies to long-term capital gains associated with the ETP. This data is available for the US regions.")
   @JsonProperty(JSON_PROPERTY_LONG_TERM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,7 +87,7 @@ public class InlineResponse20032DataMaxCapitalGainsRate implements Serializable 
    * The maximum US federal personal income tax rate that applies to short-term capital gains associated with the ETP. This data is available for the US regions.
    * @return shortTerm
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The maximum US federal personal income tax rate that applies to short-term capital gains associated with the ETP. This data is available for the US regions.")
   @JsonProperty(JSON_PROPERTY_SHORT_TERM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

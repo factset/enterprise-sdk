@@ -42,7 +42,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20075DataRegionalListing.JSON_PROPERTY_PERMANENT_IDENTIFIER,
   InlineResponse20075DataRegionalListing.JSON_PROPERTY_TICKER_EXCHANGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20075DataRegionalListing implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -67,7 +68,7 @@ public class InlineResponse20075DataRegionalListing implements Serializable {
    * Indicates whether the listing identifier is the one for the primary listing among all listings with the same regional identifier (&#x60;true&#x60;) or not (&#x60;false&#x60;).
    * @return isPrimary
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the listing identifier is the one for the primary listing among all listings with the same regional identifier (`true`) or not (`false`).")
   @JsonIgnore
 
@@ -101,7 +102,7 @@ public class InlineResponse20075DataRegionalListing implements Serializable {
    * FactSet Permanent Identifier for a notation. The format is six alpha numeric characters, excluding vowels, with an L suffix (XXXXXX-L).
    * @return permanentIdentifier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "FactSet Permanent Identifier for a notation. The format is six alpha numeric characters, excluding vowels, with an L suffix (XXXXXX-L).")
   @JsonIgnore
 
@@ -135,7 +136,7 @@ public class InlineResponse20075DataRegionalListing implements Serializable {
    * FactSet market symbol of the notation, usually consisting of the ticker (e.g. \&quot;FDS\&quot; for FactSet Research Systems Inc.) and the three-character code of the exchange on which the listing is traded (example: FDS-NYS).
    * @return tickerExchange
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "FactSet market symbol of the notation, usually consisting of the ticker (e.g. \"FDS\" for FactSet Research Systems Inc.) and the three-character code of the exchange on which the listing is traded (example: FDS-NYS).")
   @JsonIgnore
 

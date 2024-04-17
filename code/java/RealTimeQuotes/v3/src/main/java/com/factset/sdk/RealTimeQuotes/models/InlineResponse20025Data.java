@@ -45,7 +45,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20025Data.JSON_PROPERTY_TYPE,
   InlineResponse20025Data.JSON_PROPERTY_ACTIVE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20025Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -116,7 +117,7 @@ public class InlineResponse20025Data implements Serializable {
    * Identifier of a value unit.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of a value unit.")
   @JsonIgnore
 
@@ -150,7 +151,7 @@ public class InlineResponse20025Data implements Serializable {
    * Code of the value unit: If assigned, a code according to ISO 4217, otherwise a local code, for a main currency; a code such as GBp (for British pence) for a fractional currency; or a code such as PT (points) for non-currency value units.
    * @return code
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Code of the value unit: If assigned, a code according to ISO 4217, otherwise a local code, for a main currency; a code such as GBp (for British pence) for a fractional currency; or a code such as PT (points) for non-currency value units.")
   @JsonIgnore
 
@@ -184,7 +185,7 @@ public class InlineResponse20025Data implements Serializable {
    * ISO 4217 code of the value unit. Empty if the ISO 4217 standard does not define a code for the currency.
    * @return isoCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "ISO 4217 code of the value unit. Empty if the ISO 4217 standard does not define a code for the currency.")
   @JsonIgnore
 
@@ -218,7 +219,7 @@ public class InlineResponse20025Data implements Serializable {
    * Name of the value unit.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the value unit.")
   @JsonIgnore
 
@@ -252,7 +253,7 @@ public class InlineResponse20025Data implements Serializable {
    * Type of the value unit.
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Type of the value unit.")
   @JsonIgnore
 
@@ -286,7 +287,7 @@ public class InlineResponse20025Data implements Serializable {
    * Indicates whether the currency is active.
    * @return active
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the currency is active.")
   @JsonIgnore
 

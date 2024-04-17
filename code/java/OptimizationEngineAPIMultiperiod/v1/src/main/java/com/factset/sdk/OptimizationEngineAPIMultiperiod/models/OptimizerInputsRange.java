@@ -39,7 +39,8 @@ import com.factset.sdk.OptimizationEngineAPIMultiperiod.JSON;
   OptimizerInputsRange.JSON_PROPERTY_START_TO_END,
   OptimizerInputsRange.JSON_PROPERTY_SPECIFIC_POINTS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerInputsRange implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class OptimizerInputsRange implements Serializable {
    * points determined by Engine
    * @return points
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "points determined by Engine")
   @JsonProperty(JSON_PROPERTY_POINTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -90,7 +91,7 @@ public class OptimizerInputsRange implements Serializable {
    * Get startToEnd
    * @return startToEnd
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_START_TO_END)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -116,7 +117,7 @@ public class OptimizerInputsRange implements Serializable {
    * Get specificPoints
    * @return specificPoints
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SPECIFIC_POINTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

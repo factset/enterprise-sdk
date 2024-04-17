@@ -43,7 +43,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20014CurrentKeyFiguresCompany.JSON_PROPERTY_FREE_FLOAT,
   InlineResponse20014CurrentKeyFiguresCompany.JSON_PROPERTY_CURRENCY_DEPENDENT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20014CurrentKeyFiguresCompany implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class InlineResponse20014CurrentKeyFiguresCompany implements Serializable
    * Number of outstanding shares.
    * @return sharesOutstanding
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of outstanding shares.")
   @JsonIgnore
 
@@ -102,7 +103,7 @@ public class InlineResponse20014CurrentKeyFiguresCompany implements Serializable
    * Number of free float shares.
    * @return freeFloat
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of free float shares.")
   @JsonIgnore
 
@@ -136,7 +137,7 @@ public class InlineResponse20014CurrentKeyFiguresCompany implements Serializable
    * Get currencyDependent
    * @return currencyDependent
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CURRENCY_DEPENDENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

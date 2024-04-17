@@ -45,7 +45,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20028Data.JSON_PROPERTY_FACTOR,
   InlineResponse20028Data.JSON_PROPERTY_MAIN_CURRENCY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20028Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -73,7 +74,7 @@ public class InlineResponse20028Data implements Serializable {
    * Code of the fractional currency such as GBp (for British pence), USc (for U.S. cents), EUc for (Euro cent).
    * @return code
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Code of the fractional currency such as GBp (for British pence), USc (for U.S. cents), EUc for (Euro cent).")
   @JsonIgnore
 
@@ -107,7 +108,7 @@ public class InlineResponse20028Data implements Serializable {
    * Name of the fractional currency.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the fractional currency.")
   @JsonIgnore
 
@@ -141,7 +142,7 @@ public class InlineResponse20028Data implements Serializable {
    * Conversion factor between the fractional and its main currency. For example, the value 100 indicates that 100 US cents are equivalent to one US dollar.
    * @return factor
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Conversion factor between the fractional and its main currency. For example, the value 100 indicates that 100 US cents are equivalent to one US dollar.")
   @JsonIgnore
 
@@ -175,7 +176,7 @@ public class InlineResponse20028Data implements Serializable {
    * Get mainCurrency
    * @return mainCurrency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MAIN_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -38,7 +38,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20015DataCategory.JSON_PROPERTY_FOCUS,
   InlineResponse20015DataCategory.JSON_PROPERTY_NICHE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20015DataCategory implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class InlineResponse20015DataCategory implements Serializable {
    * The 1st of 3 asset-class-specific, hierarchical exposure tiers; the broadest category the ETP falls under within its asset class (e.g., Size &amp; Style, Sector, Precious Metals, Absolute Returns), text and standardized value available. This data is available for all the regions. Please refer /factset/etf/class/category/broad/list for possible values.
    * @return broad
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The 1st of 3 asset-class-specific, hierarchical exposure tiers; the broadest category the ETP falls under within its asset class (e.g., Size & Style, Sector, Precious Metals, Absolute Returns), text and standardized value available. This data is available for all the regions. Please refer /factset/etf/class/category/broad/list for possible values.")
   @JsonProperty(JSON_PROPERTY_BROAD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -89,7 +90,7 @@ public class InlineResponse20015DataCategory implements Serializable {
    * The 2nd of 3 asset-class-specific, hierarchical exposure tiers; the ETP&#39;s classification within its category (e.g., Small Cap, Energy, Palladium, Long/Short), text and standardized value available. This data is available for all the regions. Please refer /factset/etf/class/category/focus/list for possible values.
    * @return focus
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The 2nd of 3 asset-class-specific, hierarchical exposure tiers; the ETP's classification within its category (e.g., Small Cap, Energy, Palladium, Long/Short), text and standardized value available. This data is available for all the regions. Please refer /factset/etf/class/category/focus/list for possible values.")
   @JsonProperty(JSON_PROPERTY_FOCUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +116,7 @@ public class InlineResponse20015DataCategory implements Serializable {
    * The 3rd of 3 asset-class-specific, hierarchical exposure tiers; The ETP&#39;s classification within its Focus. Most granular tier of exposure sort (e.g., Growth, Coal, Physically held, Merger Arbitrage), text and standardized value available. This data is available for all the regions. Please refer /factset/etf/class/category/niche/list for possible values.
    * @return niche
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The 3rd of 3 asset-class-specific, hierarchical exposure tiers; The ETP's classification within its Focus. Most granular tier of exposure sort (e.g., Growth, Coal, Physically held, Merger Arbitrage), text and standardized value available. This data is available for all the regions. Please refer /factset/etf/class/category/niche/list for possible values.")
   @JsonProperty(JSON_PROPERTY_NICHE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

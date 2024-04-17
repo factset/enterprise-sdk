@@ -44,7 +44,8 @@ import com.factset.sdk.FactSetTermsandConditions.JSON;
   IssueSize.JSON_PROPERTY_OUT_AMT_CHANGE_PRICE,
   IssueSize.JSON_PROPERTY_OUT_AMT_CHANGE_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class IssueSize implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -94,7 +95,7 @@ public class IssueSize implements Serializable {
    * Security identifier used in the request.
    * @return requestId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Security identifier used in the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -120,7 +121,7 @@ public class IssueSize implements Serializable {
    * FactSet Permanent Security Identifier.
    * @return fsymId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "FactSet Permanent Security Identifier.")
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -146,7 +147,7 @@ public class IssueSize implements Serializable {
    * Amount Outstanding Effective Date (out_amt_eff_date)
    * @return outAmtEffDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Amount Outstanding Effective Date (out_amt_eff_date)")
   @JsonProperty(JSON_PROPERTY_OUT_AMT_EFF_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -172,7 +173,7 @@ public class IssueSize implements Serializable {
    * Amount Outstanding Currency
    * @return outAmtCurrency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Amount Outstanding Currency")
   @JsonProperty(JSON_PROPERTY_OUT_AMT_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -198,7 +199,7 @@ public class IssueSize implements Serializable {
    * Amount Outstanding
    * @return outAmt
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Amount Outstanding")
   @JsonProperty(JSON_PROPERTY_OUT_AMT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -224,7 +225,7 @@ public class IssueSize implements Serializable {
    * Amount Outstanding Action Amount
    * @return outAmtChange
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Amount Outstanding Action Amount")
   @JsonProperty(JSON_PROPERTY_OUT_AMT_CHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -250,7 +251,7 @@ public class IssueSize implements Serializable {
    * Price - Amount Outstanding Action
    * @return outAmtChangePrice
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Price - Amount Outstanding Action")
   @JsonProperty(JSON_PROPERTY_OUT_AMT_CHANGE_PRICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -276,7 +277,7 @@ public class IssueSize implements Serializable {
    * Amount Outstanding Action Type
    * @return outAmtChangeType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Amount Outstanding Action Type")
   @JsonProperty(JSON_PROPERTY_OUT_AMT_CHANGE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

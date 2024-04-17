@@ -46,7 +46,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20035Data.JSON_PROPERTY_SYSTEM,
   InlineResponse20035Data.JSON_PROPERTY_DELIVERY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20035Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -77,7 +78,7 @@ public class InlineResponse20035Data implements Serializable {
    * Identifier of the dataset.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the dataset.")
   @JsonIgnore
 
@@ -111,7 +112,7 @@ public class InlineResponse20035Data implements Serializable {
    * Name of the dataset.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the dataset.")
   @JsonIgnore
 
@@ -145,7 +146,7 @@ public class InlineResponse20035Data implements Serializable {
    * Number of levels covered by this dataset for the category system.
    * @return depth
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of levels covered by this dataset for the category system.")
   @JsonIgnore
 
@@ -179,7 +180,7 @@ public class InlineResponse20035Data implements Serializable {
    * Get system
    * @return system
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SYSTEM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -205,7 +206,7 @@ public class InlineResponse20035Data implements Serializable {
    * Get delivery
    * @return delivery
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DELIVERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

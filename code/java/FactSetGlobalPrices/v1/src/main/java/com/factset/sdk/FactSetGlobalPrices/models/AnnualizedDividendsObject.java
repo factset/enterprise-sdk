@@ -44,7 +44,8 @@ import com.factset.sdk.FactSetGlobalPrices.JSON;
   AnnualizedDividendsObject.JSON_PROPERTY_CURRENCY,
   AnnualizedDividendsObject.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class AnnualizedDividendsObject implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -78,7 +79,7 @@ public class AnnualizedDividendsObject implements Serializable {
    * Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security&#39;s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "SJY281-R", value = "Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.")
   @JsonIgnore
 
@@ -112,7 +113,7 @@ public class AnnualizedDividendsObject implements Serializable {
    * FactSet identifier that uniquely identifies the Event.
    * @return eventId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "JTHPFN-A", value = "FactSet identifier that uniquely identifies the Event.")
   @JsonIgnore
 
@@ -146,7 +147,7 @@ public class AnnualizedDividendsObject implements Serializable {
    * Effective Date or Ex-Date of Annualized Dividend in YYYY-MM-DD format.
    * @return effectiveDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2022-03-11T00:00:00.000Z", value = "Effective Date or Ex-Date of Annualized Dividend in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -180,7 +181,7 @@ public class AnnualizedDividendsObject implements Serializable {
    * Annualized Dividend value in the trading currency. The value is adjusted for splits
    * @return iadDefTradingAdj
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0.7584434", value = "Annualized Dividend value in the trading currency. The value is adjusted for splits")
   @JsonIgnore
 
@@ -214,7 +215,7 @@ public class AnnualizedDividendsObject implements Serializable {
    * Currency ISO code associated with the annualized dividends.For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "Currency ISO code associated with the annualized dividends.For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).")
   @JsonIgnore
 
@@ -248,7 +249,7 @@ public class AnnualizedDividendsObject implements Serializable {
    * Identifier that was used for the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "AAPL-US", value = "Identifier that was used for the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

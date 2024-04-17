@@ -37,7 +37,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   PostPricesTradingScheduleEventListRequestDataFilterRange.JSON_PROPERTY_START,
   PostPricesTradingScheduleEventListRequestDataFilterRange.JSON_PROPERTY_END
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostPricesTradingScheduleEventListRequestDataFilterRange implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -69,7 +70,7 @@ public class PostPricesTradingScheduleEventListRequestDataFilterRange implements
    * The starting point of the time range (inclusive).
    * @return start
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The starting point of the time range (inclusive).")
   @JsonProperty(JSON_PROPERTY_START)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -95,7 +96,7 @@ public class PostPricesTradingScheduleEventListRequestDataFilterRange implements
    * The ending point of the time range (exclusive).
    * @return end
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The ending point of the time range (exclusive).")
   @JsonProperty(JSON_PROPERTY_END)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

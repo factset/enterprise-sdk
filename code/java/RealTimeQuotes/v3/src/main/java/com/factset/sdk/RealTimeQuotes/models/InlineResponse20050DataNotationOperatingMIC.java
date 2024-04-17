@@ -43,7 +43,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20050DataNotationOperatingMIC.JSON_PROPERTY_ISO_CODE,
   InlineResponse20050DataNotationOperatingMIC.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20050DataNotationOperatingMIC implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class InlineResponse20050DataNotationOperatingMIC implements Serializable
    * Identifier of the operating MIC.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the operating MIC.")
   @JsonIgnore
 
@@ -102,7 +103,7 @@ public class InlineResponse20050DataNotationOperatingMIC implements Serializable
    * ISO 10383 code of the operating MIC.
    * @return isoCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "ISO 10383 code of the operating MIC.")
   @JsonIgnore
 
@@ -136,7 +137,7 @@ public class InlineResponse20050DataNotationOperatingMIC implements Serializable
    * English name of the operating MIC.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "English name of the operating MIC.")
   @JsonIgnore
 

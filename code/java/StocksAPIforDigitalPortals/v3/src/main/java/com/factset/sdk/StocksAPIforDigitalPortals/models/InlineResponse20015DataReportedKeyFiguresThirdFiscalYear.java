@@ -59,7 +59,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20015DataReportedKeyFiguresThirdFiscalYear.JSON_PROPERTY_RETURN_ON_EQUITY,
   InlineResponse20015DataReportedKeyFiguresThirdFiscalYear.JSON_PROPERTY_RATIOS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20015DataReportedKeyFiguresThirdFiscalYear implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -105,7 +106,7 @@ public class InlineResponse20015DataReportedKeyFiguresThirdFiscalYear implements
    * Get fiscalYear
    * @return fiscalYear
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FISCAL_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -131,7 +132,7 @@ public class InlineResponse20015DataReportedKeyFiguresThirdFiscalYear implements
    * Get currencyDependentKeyFigures
    * @return currencyDependentKeyFigures
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CURRENCY_DEPENDENT_KEY_FIGURES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -157,7 +158,7 @@ public class InlineResponse20015DataReportedKeyFiguresThirdFiscalYear implements
    * Get ebitMargin
    * @return ebitMargin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -191,7 +192,7 @@ public class InlineResponse20015DataReportedKeyFiguresThirdFiscalYear implements
    * Get ebitdaMargin
    * @return ebitdaMargin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -225,7 +226,7 @@ public class InlineResponse20015DataReportedKeyFiguresThirdFiscalYear implements
    * Get netIncomeMargin
    * @return netIncomeMargin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -259,7 +260,7 @@ public class InlineResponse20015DataReportedKeyFiguresThirdFiscalYear implements
    * Get grossIncomeMargin
    * @return grossIncomeMargin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -293,7 +294,7 @@ public class InlineResponse20015DataReportedKeyFiguresThirdFiscalYear implements
    * Get operatingMargin
    * @return operatingMargin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -327,7 +328,7 @@ public class InlineResponse20015DataReportedKeyFiguresThirdFiscalYear implements
    * Get returnOnAssets
    * @return returnOnAssets
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -361,7 +362,7 @@ public class InlineResponse20015DataReportedKeyFiguresThirdFiscalYear implements
    * Get returnOnEquity
    * @return returnOnEquity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -395,7 +396,7 @@ public class InlineResponse20015DataReportedKeyFiguresThirdFiscalYear implements
    * Get ratios
    * @return ratios
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RATIOS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

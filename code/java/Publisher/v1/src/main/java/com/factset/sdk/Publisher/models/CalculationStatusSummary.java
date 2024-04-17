@@ -39,7 +39,8 @@ import com.factset.sdk.Publisher.JSON;
   CalculationStatusSummary.JSON_PROPERTY_REQUEST_TIME,
   CalculationStatusSummary.JSON_PROPERTY_LAST_POLL_TIME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CalculationStatusSummary implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -106,7 +107,7 @@ public class CalculationStatusSummary implements Serializable {
    * The status of the calculation.
    * @return status
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The status of the calculation.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -132,7 +133,7 @@ public class CalculationStatusSummary implements Serializable {
    * Number of calculation units in batch.
    * @return units
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of calculation units in batch.")
   @JsonProperty(JSON_PROPERTY_UNITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,7 +159,7 @@ public class CalculationStatusSummary implements Serializable {
    * Request time of calculation.
    * @return requestTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Request time of calculation.")
   @JsonProperty(JSON_PROPERTY_REQUEST_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -184,7 +185,7 @@ public class CalculationStatusSummary implements Serializable {
    * Last poll time of calculation.
    * @return lastPollTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Last poll time of calculation.")
   @JsonProperty(JSON_PROPERTY_LAST_POLL_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

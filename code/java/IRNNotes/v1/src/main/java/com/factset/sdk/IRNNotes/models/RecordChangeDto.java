@@ -44,7 +44,8 @@ import com.factset.sdk.IRNNotes.JSON;
   RecordChangeDto.JSON_PROPERTY_OLD_LIST,
   RecordChangeDto.JSON_PROPERTY_NEW_LIST
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class RecordChangeDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -78,7 +79,7 @@ public class RecordChangeDto implements Serializable {
    * Get field
    * @return field
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -112,7 +113,7 @@ public class RecordChangeDto implements Serializable {
    * Get operation
    * @return operation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -146,7 +147,7 @@ public class RecordChangeDto implements Serializable {
    * Get oldValue
    * @return oldValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -180,7 +181,7 @@ public class RecordChangeDto implements Serializable {
    * Get newValue
    * @return newValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -226,7 +227,7 @@ public class RecordChangeDto implements Serializable {
    * Get oldList
    * @return oldList
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -272,7 +273,7 @@ public class RecordChangeDto implements Serializable {
    * Get newList
    * @return newList
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

@@ -39,7 +39,8 @@ import com.factset.sdk.AxiomaEquityOptimizer.JSON;
   OptimizerStrategyOverrides.JSON_PROPERTY_ALPHA,
   OptimizerStrategyOverrides.JSON_PROPERTY_TRANSACTION_COST
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerStrategyOverrides implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -105,7 +106,7 @@ public class OptimizerStrategyOverrides implements Serializable {
    * Tax
    * @return tax
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Tax")
   @JsonProperty(JSON_PROPERTY_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -131,7 +132,7 @@ public class OptimizerStrategyOverrides implements Serializable {
    * Objective
    * @return objective
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Objective")
   @JsonProperty(JSON_PROPERTY_OBJECTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -165,7 +166,7 @@ public class OptimizerStrategyOverrides implements Serializable {
    * List of constraints
    * @return constraints
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of constraints")
   @JsonProperty(JSON_PROPERTY_CONSTRAINTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -191,7 +192,7 @@ public class OptimizerStrategyOverrides implements Serializable {
    * Alpha
    * @return alpha
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Alpha")
   @JsonProperty(JSON_PROPERTY_ALPHA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -217,7 +218,7 @@ public class OptimizerStrategyOverrides implements Serializable {
    * Transaction cost
    * @return transactionCost
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Transaction cost")
   @JsonProperty(JSON_PROPERTY_TRANSACTION_COST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

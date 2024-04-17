@@ -42,7 +42,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20014EstimatesFirstFiscalYearCurrencyDependentEstimatesCurrency.JSON_PROPERTY_ID,
   InlineResponse20014EstimatesFirstFiscalYearCurrencyDependentEstimatesCurrency.JSON_PROPERTY_ISO_CODE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20014EstimatesFirstFiscalYearCurrencyDependentEstimatesCurrency implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class InlineResponse20014EstimatesFirstFiscalYearCurrencyDependentEstimat
    * Identifier of a currency.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of a currency.")
   @JsonIgnore
 
@@ -98,7 +99,7 @@ public class InlineResponse20014EstimatesFirstFiscalYearCurrencyDependentEstimat
    * ISO 4217 code of the currency.
    * @return isoCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "ISO 4217 code of the currency.")
   @JsonIgnore
 

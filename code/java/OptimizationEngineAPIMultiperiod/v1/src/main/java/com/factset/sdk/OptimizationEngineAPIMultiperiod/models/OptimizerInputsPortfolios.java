@@ -40,7 +40,8 @@ import com.factset.sdk.OptimizationEngineAPIMultiperiod.JSON;
   OptimizerInputsPortfolios.JSON_PROPERTY_BUYLIST,
   OptimizerInputsPortfolios.JSON_PROPERTY_CASH_UNIV_INDEX
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptimizerInputsPortfolios implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class OptimizerInputsPortfolios implements Serializable {
    * Get initial
    * @return initial
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INITIAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -102,7 +103,7 @@ public class OptimizerInputsPortfolios implements Serializable {
    * index 0 is always the \&quot;Primary Benchmark\&quot;
    * @return benchmarks
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "index 0 is always the \"Primary Benchmark\"")
   @JsonProperty(JSON_PROPERTY_BENCHMARKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,7 +137,7 @@ public class OptimizerInputsPortfolios implements Serializable {
    * Get buylist
    * @return buylist
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BUYLIST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -162,7 +163,7 @@ public class OptimizerInputsPortfolios implements Serializable {
    * Get cashUnivIndex
    * @return cashUnivIndex
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CASH_UNIV_INDEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

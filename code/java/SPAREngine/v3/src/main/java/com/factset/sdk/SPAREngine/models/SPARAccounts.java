@@ -40,7 +40,8 @@ import com.factset.sdk.SPAREngine.JSON;
 @JsonPropertyOrder({
   SPARAccounts.JSON_PROPERTY_RETURNS_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SPARAccounts implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -71,7 +72,7 @@ public class SPARAccounts implements Serializable {
    * List of SPAR returnsType
    * @return returnsType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of SPAR returnsType")
   @JsonIgnore
 

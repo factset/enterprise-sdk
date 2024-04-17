@@ -36,7 +36,8 @@ import com.factset.sdk.StreetAccountNews.JSON;
   RequestfilesResponse.JSON_PROPERTY_JOB_I_D,
   RequestfilesResponse.JSON_PROPERTY_STATUS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class RequestfilesResponse implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -58,7 +59,7 @@ public class RequestfilesResponse implements Serializable {
    * Unique id to get the xml files for the requested date
    * @return jobID
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Unique id to get the xml files for the requested date")
   @JsonProperty(JSON_PROPERTY_JOB_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -84,7 +85,7 @@ public class RequestfilesResponse implements Serializable {
    * Returns the value as submitted. Tells the request has been submitted
    * @return status
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Returns the value as submitted. Tells the request has been submitted")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

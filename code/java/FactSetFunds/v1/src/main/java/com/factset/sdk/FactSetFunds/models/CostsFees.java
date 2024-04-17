@@ -58,7 +58,8 @@ import com.factset.sdk.FactSetFunds.JSON;
   CostsFees.JSON_PROPERTY_TRADING_EXPENSE_RATIO,
   CostsFees.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CostsFees implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -131,7 +132,7 @@ public class CostsFees implements Serializable {
    * FactSet Security Identifier. Six alpha-numeric characters, excluding vowels, with a -S suffix (XXXXXX-S), resolved from the requestId of the Fund requested.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FNK7XP-S", value = "FactSet Security Identifier. Six alpha-numeric characters, excluding vowels, with a -S suffix (XXXXXX-S), resolved from the requestId of the Fund requested.")
   @JsonIgnore
 
@@ -165,7 +166,7 @@ public class CostsFees implements Serializable {
    * The management fee, or maintenance fee, is charged by the fund manager. This cost is usually between 0.5% and 2% of assets on average and is a periodic fee.
    * @return managementExpenses
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0.42", value = "The management fee, or maintenance fee, is charged by the fund manager. This cost is usually between 0.5% and 2% of assets on average and is a periodic fee.")
   @JsonIgnore
 
@@ -199,7 +200,7 @@ public class CostsFees implements Serializable {
    * The Expense Date expressed in YYYY-MM-DD.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Wed Oct 28 00:00:00 UTC 2020", value = "The Expense Date expressed in YYYY-MM-DD.")
   @JsonIgnore
 
@@ -233,7 +234,7 @@ public class CostsFees implements Serializable {
    * ISO3 Currency
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "ISO3 Currency")
   @JsonIgnore
 
@@ -267,7 +268,7 @@ public class CostsFees implements Serializable {
    * The transaction entry fee or purchase fee collected from investors when they join or leave a scheme. The fee is paid to the fund
    * @return entryExpenses
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The transaction entry fee or purchase fee collected from investors when they join or leave a scheme. The fee is paid to the fund")
   @JsonIgnore
 
@@ -301,7 +302,7 @@ public class CostsFees implements Serializable {
    * The transaction exit fee is charged to investors when they redeem shares from a fund.
    * @return exitExpenses
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The transaction exit fee is charged to investors when they redeem shares from a fund.")
   @JsonIgnore
 
@@ -335,7 +336,7 @@ public class CostsFees implements Serializable {
    * The Maximum sales load or initial Sales Fee is a reduction made from each investment in the fund, the maximum paid is dependent on the size of the purchase, it decreases as the investment increases. Often associated with class &#39;A&#39; shares of a mutual fund it is also known as Sales Charge, this is a fee paid when shares are purchased. Also known as a \&quot;front-end load\&quot;, this fee typically goes to the brokers that sell the fund&#39;s shares.  (Under the Investment Company Act of 1940 is 9%. The maximum sales load under NASD Rules is 8 1/2%).\&quot; 
    * @return frontExpensesMax
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The Maximum sales load or initial Sales Fee is a reduction made from each investment in the fund, the maximum paid is dependent on the size of the purchase, it decreases as the investment increases. Often associated with class 'A' shares of a mutual fund it is also known as Sales Charge, this is a fee paid when shares are purchased. Also known as a \"front-end load\", this fee typically goes to the brokers that sell the fund's shares.  (Under the Investment Company Act of 1940 is 9%. The maximum sales load under NASD Rules is 8 1/2%).\" ")
   @JsonIgnore
 
@@ -369,7 +370,7 @@ public class CostsFees implements Serializable {
    * The Back Expense Maximum
    * @return backExpensesMax
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The Back Expense Maximum")
   @JsonIgnore
 
@@ -403,7 +404,7 @@ public class CostsFees implements Serializable {
    * The Expense Ratio
    * @return expenseRatio
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0.53", value = "The Expense Ratio")
   @JsonIgnore
 
@@ -437,7 +438,7 @@ public class CostsFees implements Serializable {
    * The Expense Ratio Prospectus
    * @return expenseRatioProspectus
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0.53", value = "The Expense Ratio Prospectus")
   @JsonIgnore
 
@@ -471,7 +472,7 @@ public class CostsFees implements Serializable {
    * The Initial Investment Minimum
    * @return initInvestmentMin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2000000", value = "The Initial Investment Minimum")
   @JsonIgnore
 
@@ -505,7 +506,7 @@ public class CostsFees implements Serializable {
    * The Initial Investment Individual Retirement Accounts
    * @return initInvestmentIra
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The Initial Investment Individual Retirement Accounts")
   @JsonIgnore
 
@@ -539,7 +540,7 @@ public class CostsFees implements Serializable {
    * Swing Price. Swing pricing occurs when a fund provider adjusts the net asset value (NAV) of a fund in order to pass on trading costs to purchasing or redeeming shareholders. This anti-dilution technique is used to protect long-term shareholder&#39;s interests.
    * @return swingPrice
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Swing Price. Swing pricing occurs when a fund provider adjusts the net asset value (NAV) of a fund in order to pass on trading costs to purchasing or redeeming shareholders. This anti-dilution technique is used to protect long-term shareholder's interests.")
   @JsonIgnore
 
@@ -573,7 +574,7 @@ public class CostsFees implements Serializable {
    * Swing Price Date. Swing pricing occurs when a fund provider adjusts the net asset value (NAV) of a fund in order to pass on trading costs to purchasing or redeeming shareholders. This anti-dilution technique is used to protect long-term shareholder&#39;s interests.
    * @return swingPriceDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Swing Price Date. Swing pricing occurs when a fund provider adjusts the net asset value (NAV) of a fund in order to pass on trading costs to purchasing or redeeming shareholders. This anti-dilution technique is used to protect long-term shareholder's interests.")
   @JsonIgnore
 
@@ -607,7 +608,7 @@ public class CostsFees implements Serializable {
    * The SRI (Summary Risk Indicator) illustrates PRIIPs&#39; risk and reward profile by measuring the market and credit risk level. Returns 1 for low risk up to 7 for higher risk.
    * @return sriPriips
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The SRI (Summary Risk Indicator) illustrates PRIIPs' risk and reward profile by measuring the market and credit risk level. Returns 1 for low risk up to 7 for higher risk.")
   @JsonIgnore
 
@@ -641,7 +642,7 @@ public class CostsFees implements Serializable {
    * Synthetic Risk and Reward Indicator illustrates a UCITS or NURS (Non-UCITS Retail Scheme) fund&#39;s risk and reward profile by measuring the market risk level. Returns 1 for low risk up to 7 for high risk.
    * @return srriUcits
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Synthetic Risk and Reward Indicator illustrates a UCITS or NURS (Non-UCITS Retail Scheme) fund's risk and reward profile by measuring the market risk level. Returns 1 for low risk up to 7 for high risk.")
   @JsonIgnore
 
@@ -675,7 +676,7 @@ public class CostsFees implements Serializable {
    * Represents fees made to an investment manager as a percentage of investment profits for generating positive returns.
    * @return performanceFee
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Represents fees made to an investment manager as a percentage of investment profits for generating positive returns.")
   @JsonIgnore
 
@@ -709,7 +710,7 @@ public class CostsFees implements Serializable {
    * Represents the amount of trading commissions incurred to manage the portfolio as a percentage of the total assets of the fund.
    * @return tradingExpenseRatio
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Represents the amount of trading commissions incurred to manage the portfolio as a percentage of the total assets of the fund.")
   @JsonIgnore
 
@@ -743,7 +744,7 @@ public class CostsFees implements Serializable {
    * The requested Id sent as input.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "MABAX", value = "The requested Id sent as input.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

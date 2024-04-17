@@ -44,7 +44,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20015Data.JSON_PROPERTY_TYPE,
   InlineResponse20015Data.JSON_PROPERTY_NESTED_REGIONS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20015Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -113,7 +114,7 @@ public class InlineResponse20015Data implements Serializable {
    * ISO 3166-1 alpha-2 code of the country. This attribute is set for each country, may be set for miscellaneous regions and is empty for regions of other types.
    * @return code
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "ISO 3166-1 alpha-2 code of the country. This attribute is set for each country, may be set for miscellaneous regions and is empty for regions of other types.")
   @JsonIgnore
 
@@ -147,7 +148,7 @@ public class InlineResponse20015Data implements Serializable {
    * Name of the region.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the region.")
   @JsonIgnore
 
@@ -181,7 +182,7 @@ public class InlineResponse20015Data implements Serializable {
    * Type of the region.
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Type of the region.")
   @JsonIgnore
 
@@ -223,7 +224,7 @@ public class InlineResponse20015Data implements Serializable {
    * Nested regions of this region.
    * @return nestedRegions
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Nested regions of this region.")
   @JsonProperty(JSON_PROPERTY_NESTED_REGIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

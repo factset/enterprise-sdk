@@ -49,7 +49,8 @@ import com.factset.sdk.FactSetConcordance.JSON;
   Universe.JSON_PROPERTY_UPDATED_BY,
   Universe.JSON_PROPERTY_UPDATED_ON
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Universe implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -92,7 +93,7 @@ public class Universe implements Serializable {
    * The universe identifier
    * @return universeId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "The universe identifier")
   @JsonIgnore
 
@@ -126,7 +127,7 @@ public class Universe implements Serializable {
    * The user specified universe name
    * @return universeName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "My Universe", value = "The user specified universe name")
   @JsonIgnore
 
@@ -160,7 +161,7 @@ public class Universe implements Serializable {
    * The user specified universe description
    * @return universeDescription
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "This is a universe", value = "The user specified universe description")
   @JsonIgnore
 
@@ -194,7 +195,7 @@ public class Universe implements Serializable {
    * The user specified universe entity.
    * @return universeType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "ENTITY", value = "The user specified universe entity.")
   @JsonIgnore
 
@@ -228,7 +229,7 @@ public class Universe implements Serializable {
    * False if the universe is managed by FactSet Managed Service, True otherwise
    * @return selfManaged
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "true", value = "False if the universe is managed by FactSet Managed Service, True otherwise")
   @JsonIgnore
 
@@ -262,7 +263,7 @@ public class Universe implements Serializable {
    * The user who created the universe
    * @return createdBy
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FDSQAR_C-000000", value = "The user who created the universe")
   @JsonIgnore
 
@@ -296,7 +297,7 @@ public class Universe implements Serializable {
    * When the universe was created
    * @return createdOn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "When the universe was created")
   @JsonIgnore
 
@@ -330,7 +331,7 @@ public class Universe implements Serializable {
    * The user who most recently updated the universe metadata
    * @return updatedBy
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FDSQAR_C-000000", value = "The user who most recently updated the universe metadata")
   @JsonIgnore
 
@@ -364,7 +365,7 @@ public class Universe implements Serializable {
    * When the universe metadata was most recently updated
    * @return updatedOn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "When the universe metadata was most recently updated")
   @JsonIgnore
 

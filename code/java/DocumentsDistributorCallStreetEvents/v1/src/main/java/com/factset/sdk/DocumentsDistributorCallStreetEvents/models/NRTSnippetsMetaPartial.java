@@ -35,7 +35,8 @@ import com.factset.sdk.DocumentsDistributorCallStreetEvents.JSON;
 @JsonPropertyOrder({
   NRTSnippetsMetaPartial.JSON_PROPERTY_IS_PARTIAL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class NRTSnippetsMetaPartial implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -54,7 +55,7 @@ public class NRTSnippetsMetaPartial implements Serializable {
    * If the value is True, it indicates additional results are available. False represents that this is the last set of results for this request.
    * @return isPartial
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "If the value is True, it indicates additional results are available. False represents that this is the last set of results for this request.")
   @JsonProperty(JSON_PROPERTY_IS_PARTIAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

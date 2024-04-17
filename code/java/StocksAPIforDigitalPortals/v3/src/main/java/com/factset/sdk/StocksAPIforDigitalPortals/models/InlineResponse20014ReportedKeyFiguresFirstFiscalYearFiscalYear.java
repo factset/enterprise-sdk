@@ -42,7 +42,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20014ReportedKeyFiguresFirstFiscalYearFiscalYear.JSON_PROPERTY_YEAR_END,
   InlineResponse20014ReportedKeyFiguresFirstFiscalYearFiscalYear.JSON_PROPERTY_YEAR
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20014ReportedKeyFiguresFirstFiscalYearFiscalYear implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class InlineResponse20014ReportedKeyFiguresFirstFiscalYearFiscalYear impl
    * Calendar year of the ending date of the fiscal year.
    * @return yearEnd
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Calendar year of the ending date of the fiscal year.")
   @JsonIgnore
 
@@ -98,7 +99,7 @@ public class InlineResponse20014ReportedKeyFiguresFirstFiscalYearFiscalYear impl
    * Derived fiscal year.
    * @return year
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Derived fiscal year.")
   @JsonIgnore
 

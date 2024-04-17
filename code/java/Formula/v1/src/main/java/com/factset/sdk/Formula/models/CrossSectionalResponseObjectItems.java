@@ -38,8 +38,8 @@ import com.factset.sdk.Formula.JSON;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 
-import javax.ws.rs.core.GenericType;
-import javax.ws.rs.core.Response;
+import jakarta.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.Response;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -64,7 +64,8 @@ import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import com.factset.sdk.Formula.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 @JsonDeserialize(using = CrossSectionalResponseObjectItems.CrossSectionalResponseObjectItemsDeserializer.class)
 @JsonSerialize(using = CrossSectionalResponseObjectItems.CrossSectionalResponseObjectItemsSerializer.class)
 public class CrossSectionalResponseObjectItems extends AbstractOpenApiSchema implements Serializable {

@@ -53,7 +53,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   PostStockNotationScreenerSearchRequestDataPerformanceEndOfDay.JSON_PROPERTY_YEARS5,
   PostStockNotationScreenerSearchRequestDataPerformanceEndOfDay.JSON_PROPERTY_YEAR_TO_DATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostStockNotationScreenerSearchRequestDataPerformanceEndOfDay implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -96,7 +97,7 @@ public class PostStockNotationScreenerSearchRequestDataPerformanceEndOfDay imple
    * Get day1
    * @return day1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DAY1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -122,7 +123,7 @@ public class PostStockNotationScreenerSearchRequestDataPerformanceEndOfDay imple
    * Get week1
    * @return week1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WEEK1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -148,7 +149,7 @@ public class PostStockNotationScreenerSearchRequestDataPerformanceEndOfDay imple
    * Get month1
    * @return month1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MONTH1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -174,7 +175,7 @@ public class PostStockNotationScreenerSearchRequestDataPerformanceEndOfDay imple
    * Get months3
    * @return months3
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MONTHS3)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -200,7 +201,7 @@ public class PostStockNotationScreenerSearchRequestDataPerformanceEndOfDay imple
    * Get months6
    * @return months6
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MONTHS6)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -226,7 +227,7 @@ public class PostStockNotationScreenerSearchRequestDataPerformanceEndOfDay imple
    * Get year1
    * @return year1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_YEAR1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -252,7 +253,7 @@ public class PostStockNotationScreenerSearchRequestDataPerformanceEndOfDay imple
    * Get years3
    * @return years3
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_YEARS3)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -278,7 +279,7 @@ public class PostStockNotationScreenerSearchRequestDataPerformanceEndOfDay imple
    * Get years5
    * @return years5
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_YEARS5)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -304,7 +305,7 @@ public class PostStockNotationScreenerSearchRequestDataPerformanceEndOfDay imple
    * Get yearToDate
    * @return yearToDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_YEAR_TO_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

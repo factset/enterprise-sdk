@@ -38,7 +38,8 @@ import com.factset.sdk.IDLookup.JSON;
   LookupObject.JSON_PROPERTY_ENTITIES,
   LookupObject.JSON_PROPERTY_FILTERS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class LookupObject implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class LookupObject implements Serializable {
    * The string or keyword being searched on. Concurrent searches for multiple patterns is NOT supported 
    * @return pattern
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "US", value = "The string or keyword being searched on. Concurrent searches for multiple patterns is NOT supported ")
   @JsonProperty(JSON_PROPERTY_PATTERN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -97,7 +98,7 @@ public class LookupObject implements Serializable {
    * Asset class that is being searched against
    * @return entities
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "[\"bonds\"]", value = "Asset class that is being searched against")
   @JsonProperty(JSON_PROPERTY_ENTITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -123,7 +124,7 @@ public class LookupObject implements Serializable {
    * Get filters
    * @return filters
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FILTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

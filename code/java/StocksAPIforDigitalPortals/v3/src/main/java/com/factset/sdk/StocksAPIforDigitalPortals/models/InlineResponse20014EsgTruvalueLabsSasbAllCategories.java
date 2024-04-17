@@ -43,7 +43,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20014EsgTruvalueLabsSasbAllCategories.JSON_PROPERTY_MOMENTUM,
   InlineResponse20014EsgTruvalueLabsSasbAllCategories.JSON_PROPERTY_RANKING
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20014EsgTruvalueLabsSasbAllCategories implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -109,7 +110,7 @@ public class InlineResponse20014EsgTruvalueLabsSasbAllCategories implements Seri
    * Insight score.
    * @return insight
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Insight score.")
   @JsonIgnore
 
@@ -143,7 +144,7 @@ public class InlineResponse20014EsgTruvalueLabsSasbAllCategories implements Seri
    * Momentum score.
    * @return momentum
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Momentum score.")
   @JsonIgnore
 
@@ -177,7 +178,7 @@ public class InlineResponse20014EsgTruvalueLabsSasbAllCategories implements Seri
    * Ranking.
    * @return ranking
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Ranking.")
   @JsonIgnore
 

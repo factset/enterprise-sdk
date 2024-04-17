@@ -43,7 +43,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20031DataLevel.JSON_PROPERTY_NAME,
   InlineResponse20031DataLevel.JSON_PROPERTY_NUMBER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20031DataLevel implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class InlineResponse20031DataLevel implements Serializable {
    * Identifier of the category level.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the category level.")
   @JsonIgnore
 
@@ -102,7 +103,7 @@ public class InlineResponse20031DataLevel implements Serializable {
    * Name of the category level.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the category level.")
   @JsonIgnore
 
@@ -136,7 +137,7 @@ public class InlineResponse20031DataLevel implements Serializable {
    * Number of the category level starting with 1, indicating the distance to the root of the category hierarchy.
    * @return number
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of the category level starting with 1, indicating the distance to the root of the category hierarchy.")
   @JsonIgnore
 

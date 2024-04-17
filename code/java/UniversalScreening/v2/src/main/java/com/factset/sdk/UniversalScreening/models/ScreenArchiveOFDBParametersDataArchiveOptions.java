@@ -45,7 +45,8 @@ import com.factset.sdk.UniversalScreening.JSON;
   ScreenArchiveOFDBParametersDataArchiveOptions.JSON_PROPERTY_UNSPLIT_HISTORY,
   ScreenArchiveOFDBParametersDataArchiveOptions.JSON_PROPERTY_USE_REPORT_ORDER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ScreenArchiveOFDBParametersDataArchiveOptions implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -104,7 +105,7 @@ public class ScreenArchiveOFDBParametersDataArchiveOptions implements Serializab
    * YYYYMMDD date to archive to
    * @return archiveDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "YYYYMMDD date to archive to")
   @JsonProperty(JSON_PROPERTY_ARCHIVE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -130,7 +131,7 @@ public class ScreenArchiveOFDBParametersDataArchiveOptions implements Serializab
    * Type of archive, i.e. ofdbSymbols, ofdbNts, ofdbQuickNts, ofdb
    * @return archiveType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Type of archive, i.e. ofdbSymbols, ofdbNts, ofdbQuickNts, ofdb")
   @JsonProperty(JSON_PROPERTY_ARCHIVE_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -156,7 +157,7 @@ public class ScreenArchiveOFDBParametersDataArchiveOptions implements Serializab
    * Flag to enable automatic symbol updates
    * @return autoSymbolUpdates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Flag to enable automatic symbol updates")
   @JsonProperty(JSON_PROPERTY_AUTO_SYMBOL_UPDATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -182,7 +183,7 @@ public class ScreenArchiveOFDBParametersDataArchiveOptions implements Serializab
    * Indicates that the output file exists
    * @return existed
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates that the output file exists")
   @JsonProperty(JSON_PROPERTY_EXISTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -208,7 +209,7 @@ public class ScreenArchiveOFDBParametersDataArchiveOptions implements Serializab
    * OFDB Filename to archive to
    * @return filename
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "OFDB Filename to archive to")
   @JsonProperty(JSON_PROPERTY_FILENAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -234,7 +235,7 @@ public class ScreenArchiveOFDBParametersDataArchiveOptions implements Serializab
    * If true and target file (or date for a time series file) exists, it will be cleared before archiving
    * @return overwriteData
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "If true and target file (or date for a time series file) exists, it will be cleared before archiving")
   @JsonProperty(JSON_PROPERTY_OVERWRITE_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -260,7 +261,7 @@ public class ScreenArchiveOFDBParametersDataArchiveOptions implements Serializab
    * Space delimited list of parameter references to be archived, which are UPPERCASED with the #P. omitted
    * @return quickColumns
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Space delimited list of parameter references to be archived, which are UPPERCASED with the #P. omitted")
   @JsonProperty(JSON_PROPERTY_QUICK_COLUMNS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -286,7 +287,7 @@ public class ScreenArchiveOFDBParametersDataArchiveOptions implements Serializab
    * The symbol type for archiving
    * @return symbolType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The symbol type for archiving")
   @JsonProperty(JSON_PROPERTY_SYMBOL_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -312,7 +313,7 @@ public class ScreenArchiveOFDBParametersDataArchiveOptions implements Serializab
    * If true, archive 3D time series OFDB
    * @return timeSeries
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "If true, archive 3D time series OFDB")
   @JsonProperty(JSON_PROPERTY_TIME_SERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -338,7 +339,7 @@ public class ScreenArchiveOFDBParametersDataArchiveOptions implements Serializab
    * Flag indicating split adjust
    * @return unsplitHistory
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Flag indicating split adjust")
   @JsonProperty(JSON_PROPERTY_UNSPLIT_HISTORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -364,7 +365,7 @@ public class ScreenArchiveOFDBParametersDataArchiveOptions implements Serializab
    * If true, archive in report order
    * @return useReportOrder
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "If true, archive in report order")
   @JsonProperty(JSON_PROPERTY_USE_REPORT_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

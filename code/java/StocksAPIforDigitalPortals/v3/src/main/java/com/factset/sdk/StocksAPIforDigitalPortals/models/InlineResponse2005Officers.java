@@ -45,7 +45,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2005Officers.JSON_PROPERTY_TITLE_OFFICER,
   InlineResponse2005Officers.JSON_PROPERTY_FUNCTION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2005Officers implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -76,7 +77,7 @@ public class InlineResponse2005Officers implements Serializable {
    * Identifier of an officer.  See endpoint &#x60;/legalEntity/list&#x60; for possible values.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of an officer.  See endpoint `/legalEntity/list` for possible values.")
   @JsonIgnore
 
@@ -110,7 +111,7 @@ public class InlineResponse2005Officers implements Serializable {
    * Full name of the officer.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Full name of the officer.")
   @JsonIgnore
 
@@ -144,7 +145,7 @@ public class InlineResponse2005Officers implements Serializable {
    * Presentation name of the officer, potentially shortened and/or containing name supplementssuch as a title.
    * @return presentationName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Presentation name of the officer, potentially shortened and/or containing name supplementssuch as a title.")
   @JsonIgnore
 
@@ -178,7 +179,7 @@ public class InlineResponse2005Officers implements Serializable {
    * Job title of the officer.
    * @return titleOfficer
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Job title of the officer.")
   @JsonIgnore
 
@@ -212,7 +213,7 @@ public class InlineResponse2005Officers implements Serializable {
    * Get function
    * @return function
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FUNCTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

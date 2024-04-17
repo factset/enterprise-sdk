@@ -38,7 +38,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20014DataCounterParty.JSON_PROPERTY_SWAP,
   InlineResponse20014DataCounterParty.JSON_PROPERTY_HOLDS_DERIVATIVES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20014DataCounterParty implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class InlineResponse20014DataCounterParty implements Serializable {
    * Name of the ETP&#39;s credit counterparty. This data is available for all the regions.
    * @return credit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the ETP's credit counterparty. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_CREDIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -89,7 +90,7 @@ public class InlineResponse20014DataCounterParty implements Serializable {
    * Name of the ETP&#39;s swap counterparty. This data is available for all the regions.
    * @return swap
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the ETP's swap counterparty. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_SWAP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +116,7 @@ public class InlineResponse20014DataCounterParty implements Serializable {
    * Flags ETPs that are expected to hold OTC derivatives in the course of normal fund operations. This data is available for the US and Canada regions.
    * @return holdsDerivatives
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Flags ETPs that are expected to hold OTC derivatives in the course of normal fund operations. This data is available for the US and Canada regions.")
   @JsonProperty(JSON_PROPERTY_HOLDS_DERIVATIVES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

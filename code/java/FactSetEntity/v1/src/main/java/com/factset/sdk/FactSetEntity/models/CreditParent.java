@@ -46,7 +46,8 @@ import com.factset.sdk.FactSetEntity.JSON;
   CreditParent.JSON_PROPERTY_EFFECTIVE_START_DATE,
   CreditParent.JSON_PROPERTY_EFFECTIVE_END_DATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CreditParent implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -83,7 +84,7 @@ public class CreditParent implements Serializable {
    * Unique FactSet-generated identifier representing an entity for the current entity identifier (-E)
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0028BD-E", value = "Unique FactSet-generated identifier representing an entity for the current entity identifier (-E)")
   @JsonIgnore
 
@@ -117,7 +118,7 @@ public class CreditParent implements Serializable {
    * Identifier used in &#x60;ids&#x60;.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "CYQYNL-S", value = "Identifier used in `ids`.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -143,7 +144,7 @@ public class CreditParent implements Serializable {
    * The proper name for the credit parent entity.
    * @return entityProperName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "BNP Paribas S.A. Class A", value = "The proper name for the credit parent entity.")
   @JsonIgnore
 
@@ -177,7 +178,7 @@ public class CreditParent implements Serializable {
    * This id represents the credit parent entity id.
    * @return factsetCreditParentId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0028BD-E", value = "This id represents the credit parent entity id.")
   @JsonIgnore
 
@@ -211,7 +212,7 @@ public class CreditParent implements Serializable {
    * The effective date of this record in YYYY-MM-DD format. If an asOfDate is not specified in the request, this field will be null in the response.
    * @return asOfDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Wed Jan 01 00:00:00 UTC 2020", value = "The effective date of this record in YYYY-MM-DD format. If an asOfDate is not specified in the request, this field will be null in the response.")
   @JsonIgnore
 
@@ -245,7 +246,7 @@ public class CreditParent implements Serializable {
    * The initial effective date of this record in YYYY-MM-DD format.
    * @return effectiveStartDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Tue May 28 00:00:00 UTC 1996", value = "The initial effective date of this record in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -279,7 +280,7 @@ public class CreditParent implements Serializable {
    * The last day on which this record is effective date in YYYY-MM-DD format.
    * @return effectiveEndDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Mon May 28 00:00:00 UTC 2001", value = "The last day on which this record is effective date in YYYY-MM-DD format.")
   @JsonIgnore
 

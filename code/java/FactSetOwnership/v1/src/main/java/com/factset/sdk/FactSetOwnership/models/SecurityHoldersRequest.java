@@ -41,7 +41,8 @@ import com.factset.sdk.FactSetOwnership.JSON;
   SecurityHoldersRequest.JSON_PROPERTY_TOPN,
   SecurityHoldersRequest.JSON_PROPERTY_CURRENCY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SecurityHoldersRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -85,7 +86,7 @@ public class SecurityHoldersRequest implements Serializable {
    * Security Requested for Holders information.
    * @return ids
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "[\"FDS-US\"]", required = true, value = "Security Requested for Holders information.")
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -111,7 +112,7 @@ public class SecurityHoldersRequest implements Serializable {
    * Get holderType
    * @return holderType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_HOLDER_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -137,7 +138,7 @@ public class SecurityHoldersRequest implements Serializable {
    * Date of holdings expressed in YYYY-MM-DD format.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2019-09-30", value = "Date of holdings expressed in YYYY-MM-DD format.")
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -163,7 +164,7 @@ public class SecurityHoldersRequest implements Serializable {
    * Limits number of holdings or holders displayed by the top *n* securities. Default is ALL, or use integer to limit number.
    * @return topn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "5", value = "Limits number of holdings or holders displayed by the top *n* securities. Default is ALL, or use integer to limit number.")
   @JsonProperty(JSON_PROPERTY_TOPN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -189,7 +190,7 @@ public class SecurityHoldersRequest implements Serializable {
    * Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

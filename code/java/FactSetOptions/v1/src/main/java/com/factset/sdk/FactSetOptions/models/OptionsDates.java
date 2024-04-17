@@ -52,7 +52,8 @@ import com.factset.sdk.FactSetOptions.JSON;
   OptionsDates.JSON_PROPERTY_FSYM_ID,
   OptionsDates.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OptionsDates implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -104,7 +105,7 @@ public class OptionsDates implements Serializable {
    * The date on which an options contract is no longer valid and, therefore, ceases to exist in YYYY-MM-DD format.
    * @return expirationDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Fri Sep 17 00:00:00 UTC 2021", value = "The date on which an options contract is no longer valid and, therefore, ceases to exist in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -138,7 +139,7 @@ public class OptionsDates implements Serializable {
    * The date of first ask price for the option in YYYY-MM-DD format.
    * @return firstAskDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Mon Aug 31 00:00:00 UTC 2020", value = "The date of first ask price for the option in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -172,7 +173,7 @@ public class OptionsDates implements Serializable {
    * The date of first bid price for the option in YYYY-MM-DD format.
    * @return firstBidDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Mon Aug 31 00:00:00 UTC 2020", value = "The date of first bid price for the option in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -206,7 +207,7 @@ public class OptionsDates implements Serializable {
    * The date of first settlement price for the option in YYYY-MM-DD format.
    * @return firstSettlementDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The date of first settlement price for the option in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -240,7 +241,7 @@ public class OptionsDates implements Serializable {
    * First Trading Date of the Option in YYYY-MM-DD format.
    * @return firstTradeDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Tue Sep 01 00:00:00 UTC 2020", value = "First Trading Date of the Option in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -274,7 +275,7 @@ public class OptionsDates implements Serializable {
    * The date of last ask price for the option in YYYY-MM-DD format.
    * @return lastAskDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Wed May 05 00:00:00 UTC 2021", value = "The date of last ask price for the option in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -308,7 +309,7 @@ public class OptionsDates implements Serializable {
    * The date of last bid price for the option in YYYY-MM-DD format.
    * @return lastBidDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Wed May 05 00:00:00 UTC 2021", value = "The date of last bid price for the option in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -342,7 +343,7 @@ public class OptionsDates implements Serializable {
    * The date of last settlement price for the option in YYYY-MM-DD format.
    * @return lastSettlementDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The date of last settlement price for the option in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -376,7 +377,7 @@ public class OptionsDates implements Serializable {
    * Last Trading Date of the Option in YYYY-MM-DD format.
    * @return lastTradeDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Tue Feb 16 00:00:00 UTC 2021", value = "Last Trading Date of the Option in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -410,7 +411,7 @@ public class OptionsDates implements Serializable {
    * The date the data is as of in YYYY-MM-DD format.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Fri May 07 00:00:00 UTC 2021", value = "The date the data is as of in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -444,7 +445,7 @@ public class OptionsDates implements Serializable {
    * FactSet&#39;s Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options)
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "TSLA.US#C00LP", value = "FactSet's Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options)")
   @JsonIgnore
 
@@ -478,7 +479,7 @@ public class OptionsDates implements Serializable {
    * The requested identifier submitted in the query.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "TSLA.US#C00LP", value = "The requested identifier submitted in the query.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

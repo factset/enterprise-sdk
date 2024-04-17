@@ -37,7 +37,8 @@ import com.factset.sdk.OFDB.JSON;
   AddSymbolsData.JSON_PROPERTY_SYMBOL,
   AddSymbolsData.JSON_PROPERTY_CONTENT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class AddSymbolsData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -59,7 +60,7 @@ public class AddSymbolsData implements Serializable {
    * Names of the symbol and unique to this database
    * @return symbol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Names of the symbol and unique to this database")
   @JsonProperty(JSON_PROPERTY_SYMBOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -93,7 +94,7 @@ public class AddSymbolsData implements Serializable {
    * date must be provided in the case of a 3d ofdb with atleast one iterative field
    * @return content
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "date must be provided in the case of a 3d ofdb with atleast one iterative field")
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

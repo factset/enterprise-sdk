@@ -44,7 +44,8 @@ import com.factset.sdk.QuantEngine.JSON;
   QuantFqlExpression.JSON_PROPERTY_IS_ARRAY_RETURN_TYPE,
   QuantFqlExpression.JSON_PROPERTY_SOURCE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class QuantFqlExpression implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -126,7 +127,7 @@ public class QuantFqlExpression implements Serializable {
    * Get expr
    * @return expr
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_EXPR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -152,7 +153,7 @@ public class QuantFqlExpression implements Serializable {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -178,7 +179,7 @@ public class QuantFqlExpression implements Serializable {
    * Get dateOffset
    * @return dateOffset
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -212,7 +213,7 @@ public class QuantFqlExpression implements Serializable {
    * Get isArrayReturnType
    * @return isArrayReturnType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -246,7 +247,7 @@ public class QuantFqlExpression implements Serializable {
    * Get source
    * @return source
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SOURCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

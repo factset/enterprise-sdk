@@ -36,7 +36,8 @@ import com.factset.sdk.OpenRisk.JSON;
   InlineResponse2001DataRiskModelAppendFormat.JSON_PROPERTY_ID,
   InlineResponse2001DataRiskModelAppendFormat.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2001DataRiskModelAppendFormat implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -105,7 +106,7 @@ public class InlineResponse2001DataRiskModelAppendFormat implements Serializable
    * Field id
    * @return id
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Field id")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -131,7 +132,7 @@ public class InlineResponse2001DataRiskModelAppendFormat implements Serializable
    * The type of data which must be provided
    * @return type
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The type of data which must be provided")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

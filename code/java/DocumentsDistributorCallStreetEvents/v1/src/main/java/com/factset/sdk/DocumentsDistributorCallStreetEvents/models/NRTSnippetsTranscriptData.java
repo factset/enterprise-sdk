@@ -36,7 +36,8 @@ import com.factset.sdk.DocumentsDistributorCallStreetEvents.JSON;
 @JsonPropertyOrder({
   NRTSnippetsTranscriptData.JSON_PROPERTY_SNIPPET_DATA
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class NRTSnippetsTranscriptData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -55,7 +56,7 @@ public class NRTSnippetsTranscriptData implements Serializable {
    * Get snippetData
    * @return snippetData
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SNIPPET_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

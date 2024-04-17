@@ -37,7 +37,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
 @JsonPropertyOrder({
   InlineResponse20014Compliance.JSON_PROPERTY_FRANCE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20014Compliance implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class InlineResponse20014Compliance implements Serializable {
    * List of compliance properties in accordance with the French law to which the stock is compliant.
    * @return france
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of compliance properties in accordance with the French law to which the stock is compliant.")
   @JsonProperty(JSON_PROPERTY_FRANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

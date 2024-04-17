@@ -6,7 +6,7 @@ import com.factset.sdk.FactSetTrading.ApiResponse;
 import com.factset.sdk.FactSetTrading.Configuration;
 import com.factset.sdk.FactSetTrading.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -18,7 +18,8 @@ import com.factset.sdk.FactSetTrading.models.EMSChildOrdersRoot;
 import com.factset.sdk.FactSetTrading.models.EMSCreateChildOrdersResponseRoot;
 import com.factset.sdk.FactSetTrading.models.EMSReplaceChildOrdersRoot;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ChildOrdersApi {
   private ApiClient apiClient;
 

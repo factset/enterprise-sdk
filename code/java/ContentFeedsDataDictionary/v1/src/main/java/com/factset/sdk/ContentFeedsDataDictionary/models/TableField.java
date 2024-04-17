@@ -46,7 +46,8 @@ import com.factset.sdk.ContentFeedsDataDictionary.JSON;
   TableField.JSON_PROPERTY_UNIT_FACTOR,
   TableField.JSON_PROPERTY_DESCRIPTION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class TableField implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -98,7 +99,7 @@ public class TableField implements Serializable {
    * Unique identifier for a combination of table and data field
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1335", value = "Unique identifier for a combination of table and data field")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -124,7 +125,7 @@ public class TableField implements Serializable {
    * Unique identifier for the data item
    * @return dataItemId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1778", value = "Unique identifier for the data item")
   @JsonProperty(JSON_PROPERTY_DATA_ITEM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -150,7 +151,7 @@ public class TableField implements Serializable {
    * Name of the data field
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "fsym_id", value = "Name of the data field")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -176,7 +177,7 @@ public class TableField implements Serializable {
    * Data type of the data field
    * @return dataType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "CHAR(8)", value = "Data type of the data field")
   @JsonProperty(JSON_PROPERTY_DATA_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -202,7 +203,7 @@ public class TableField implements Serializable {
    * Column position of the data field within the table
    * @return position
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "Column position of the data field within the table")
   @JsonProperty(JSON_PROPERTY_POSITION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -228,7 +229,7 @@ public class TableField implements Serializable {
    * Flag indicating if the data field is a primary key.
    * @return isPrimaryKey
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "false", value = "Flag indicating if the data field is a primary key.")
   @JsonProperty(JSON_PROPERTY_IS_PRIMARY_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -254,7 +255,7 @@ public class TableField implements Serializable {
    * Flag indicating if a data field is nullable
    * @return nullable
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "false", value = "Flag indicating if a data field is nullable")
   @JsonProperty(JSON_PROPERTY_NULLABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -280,7 +281,7 @@ public class TableField implements Serializable {
    * Flag indicating if the field&#39;s value is determined by a code value in its row. The monetary, splitAffected and unitFactor fields for that value will also be inherited from the code.
    * @return hasCodeDependency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "false", value = "Flag indicating if the field's value is determined by a code value in its row. The monetary, splitAffected and unitFactor fields for that value will also be inherited from the code.")
   @JsonProperty(JSON_PROPERTY_HAS_CODE_DEPENDENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -306,7 +307,7 @@ public class TableField implements Serializable {
    * Flag indicating if the data field contained in this TableField is monetary. If true, this field can have exchange rates applied to convert to other currencies
    * @return monetary
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "false", value = "Flag indicating if the data field contained in this TableField is monetary. If true, this field can have exchange rates applied to convert to other currencies")
   @JsonProperty(JSON_PROPERTY_MONETARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -332,7 +333,7 @@ public class TableField implements Serializable {
    * Flag indicating if the data field contained in this TableField can be affected by splits
    * @return splitAffected
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "true", value = "Flag indicating if the data field contained in this TableField can be affected by splits")
   @JsonProperty(JSON_PROPERTY_SPLIT_AFFECTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -358,7 +359,7 @@ public class TableField implements Serializable {
    * Factor to indicate what units that the data field is displayed in. If null, the field does not need to have a factor applied to obtain the real value
    * @return unitFactor
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "None", value = "Factor to indicate what units that the data field is displayed in. If null, the field does not need to have a factor applied to obtain the real value")
   @JsonProperty(JSON_PROPERTY_UNIT_FACTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -384,7 +385,7 @@ public class TableField implements Serializable {
    * A description of the data field within the context of its table
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FactSet Security-Level Permanent Identifier", value = "A description of the data field within the context of its table")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

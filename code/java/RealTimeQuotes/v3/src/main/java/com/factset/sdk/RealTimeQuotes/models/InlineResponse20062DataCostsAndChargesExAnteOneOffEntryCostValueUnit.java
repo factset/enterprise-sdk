@@ -42,7 +42,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20062DataCostsAndChargesExAnteOneOffEntryCostValueUnit.JSON_PROPERTY_ID,
   InlineResponse20062DataCostsAndChargesExAnteOneOffEntryCostValueUnit.JSON_PROPERTY_CODE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20062DataCostsAndChargesExAnteOneOffEntryCostValueUnit implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class InlineResponse20062DataCostsAndChargesExAnteOneOffEntryCostValueUni
    * Identifier of the value unit
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the value unit")
   @JsonIgnore
 
@@ -98,7 +99,7 @@ public class InlineResponse20062DataCostsAndChargesExAnteOneOffEntryCostValueUni
    * Code of the value unit
    * @return code
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Code of the value unit")
   @JsonIgnore
 

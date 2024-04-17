@@ -35,7 +35,8 @@ import com.factset.sdk.IssueTracker.JSON;
 @JsonPropertyOrder({
   IdResponseData.JSON_PROPERTY_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class IdResponseData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -54,7 +55,7 @@ public class IdResponseData implements Serializable {
    * The generated ID for either an issue or a comment varies depending on the endpoint. Specifically, for the Issues endpoint, it will return &#39;issueid,&#39; and for the comments endpoint, it will return &#39;commentid.&#39;
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The generated ID for either an issue or a comment varies depending on the endpoint. Specifically, for the Issues endpoint, it will return 'issueid,' and for the comments endpoint, it will return 'commentid.'")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

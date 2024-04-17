@@ -45,7 +45,8 @@ import com.factset.sdk.FactSetESG.JSON;
   SasbScores.JSON_PROPERTY_SASB_SCORE,
   SasbScores.JSON_PROPERTY_SCORE_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SasbScores implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -79,7 +80,7 @@ public class SasbScores implements Serializable {
    * Date for the period requested expressed in YYYY-MM-DD format.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Wed Sep 30 00:00:00 UTC 2020", value = "Date for the period requested expressed in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -113,7 +114,7 @@ public class SasbScores implements Serializable {
    * FactSet Entity Identifier. Six alpha-numeric characters, excluding vowels, with a -E suffix (XXXXXX-E).
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "000BJT-E", value = "FactSet Entity Identifier. Six alpha-numeric characters, excluding vowels, with a -E suffix (XXXXXX-E).")
   @JsonIgnore
 
@@ -147,7 +148,7 @@ public class SasbScores implements Serializable {
    * Identifier that was used for the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "ADBE-US", value = "Identifier that was used for the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -173,7 +174,7 @@ public class SasbScores implements Serializable {
    * The specific SASB &#39;category&#39; the score is referring to.
    * @return sasbCategory
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "AIRQUALITY", value = "The specific SASB 'category' the score is referring to.")
   @JsonIgnore
 
@@ -207,7 +208,7 @@ public class SasbScores implements Serializable {
    * The SASB Score value for the given &#39;scoreType&#39; and &#39;category&#39;. When scoreType &#x3D; ESG_RANK, the data type will be string, otherwise data type will be a number with double format.
    * @return sasbScore
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "41.61229277", value = "The SASB Score value for the given 'scoreType' and 'category'. When scoreType = ESG_RANK, the data type will be string, otherwise data type will be a number with double format.")
   @JsonIgnore
 
@@ -241,7 +242,7 @@ public class SasbScores implements Serializable {
    * The name of the specific SASB Score type being shown in the response. This will be represented by the scoreTypes input: PULSE, INSIGHT, MOMENTUM, ART_VOL_TTM, CAT_VOL_TTM, or DYNAMIC_MAT.
    * @return scoreType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "PULSE", value = "The name of the specific SASB Score type being shown in the response. This will be represented by the scoreTypes input: PULSE, INSIGHT, MOMENTUM, ART_VOL_TTM, CAT_VOL_TTM, or DYNAMIC_MAT.")
   @JsonIgnore
 

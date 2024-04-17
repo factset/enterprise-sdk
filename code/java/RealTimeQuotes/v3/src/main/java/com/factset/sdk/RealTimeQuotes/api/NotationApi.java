@@ -6,7 +6,7 @@ import com.factset.sdk.RealTimeQuotes.ApiResponse;
 import com.factset.sdk.RealTimeQuotes.Configuration;
 import com.factset.sdk.RealTimeQuotes.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -46,7 +46,8 @@ import com.factset.sdk.RealTimeQuotes.models.PostNotationMarketListRequest;
 import com.factset.sdk.RealTimeQuotes.models.PostNotationSearchByTextRequest;
 import com.factset.sdk.RealTimeQuotes.models.PostNotationSelectionListMembersListRequest;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class NotationApi {
   private ApiClient apiClient;
 

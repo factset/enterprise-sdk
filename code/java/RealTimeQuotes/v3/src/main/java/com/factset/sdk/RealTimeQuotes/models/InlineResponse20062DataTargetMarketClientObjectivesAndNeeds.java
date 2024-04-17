@@ -45,7 +45,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20062DataTargetMarketClientObjectivesAndNeeds.JSON_PROPERTY_MAY_BE_TERMINATED_EARLY,
   InlineResponse20062DataTargetMarketClientObjectivesAndNeeds.JSON_PROPERTY_SPECIFIC_INVESTMENT_NEED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20062DataTargetMarketClientObjectivesAndNeeds implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -157,7 +158,7 @@ public class InlineResponse20062DataTargetMarketClientObjectivesAndNeeds impleme
    * Get returnProfile
    * @return returnProfile
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RETURN_PROFILE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -183,7 +184,7 @@ public class InlineResponse20062DataTargetMarketClientObjectivesAndNeeds impleme
    * Maturity date of the investment product.
    * @return maturityDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Maturity date of the investment product.")
   @JsonIgnore
 
@@ -217,7 +218,7 @@ public class InlineResponse20062DataTargetMarketClientObjectivesAndNeeds impleme
    * Indicates whether the investment product is unsuitable for investors not accepting financial products with potential termination prior to maturity. (That means, a \&quot;yes\&quot; value indicates that the product may not last until maturity and thus conflicts with an investor profile rejecting premature redemption.) The termination could be initiated by the issuer (callable), by the investor (puttable) or automatically due to an event, e.g. barrier breach (auto-callable).
    * @return mayBeTerminatedEarly
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the investment product is unsuitable for investors not accepting financial products with potential termination prior to maturity. (That means, a \"yes\" value indicates that the product may not last until maturity and thus conflicts with an investor profile rejecting premature redemption.) The termination could be initiated by the issuer (callable), by the investor (puttable) or automatically due to an event, e.g. barrier breach (auto-callable).")
   @JsonIgnore
 
@@ -259,7 +260,7 @@ public class InlineResponse20062DataTargetMarketClientObjectivesAndNeeds impleme
    * Indicates whether the investment product is suitable for investors with a specific investment need. This attribute provides either a general statement (yes or no) or a set of needs (green investment, ethical investment, islamic banking, Environmental, social and governance (ESG), other) covered by the product.
    * @return specificInvestmentNeed
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the investment product is suitable for investors with a specific investment need. This attribute provides either a general statement (yes or no) or a set of needs (green investment, ethical investment, islamic banking, Environmental, social and governance (ESG), other) covered by the product.")
   @JsonProperty(JSON_PROPERTY_SPECIFIC_INVESTMENT_NEED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

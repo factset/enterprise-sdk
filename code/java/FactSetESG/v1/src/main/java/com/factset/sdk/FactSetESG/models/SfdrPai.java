@@ -48,7 +48,8 @@ import com.factset.sdk.FactSetESG.JSON;
   SfdrPai.JSON_PROPERTY_STANDARDIZED_UNIT,
   SfdrPai.JSON_PROPERTY_STANDARDIZED_VALUE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SfdrPai implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -91,7 +92,7 @@ public class SfdrPai implements Serializable {
    * FactSet Entity Identifier. Six alpha-numeric characters, excluding vowels, with a -E suffix (XXXXXX-E).
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "001MF1-E", value = "FactSet Entity Identifier. Six alpha-numeric characters, excluding vowels, with a -E suffix (XXXXXX-E).")
   @JsonIgnore
 
@@ -125,7 +126,7 @@ public class SfdrPai implements Serializable {
    * Identifier that was used for the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "US0231351067", value = "Identifier that was used for the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -151,7 +152,7 @@ public class SfdrPai implements Serializable {
    * Codes for the General, Mandatory and Additional PAI indicators
    * @return subTopicCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "EN001", value = "Codes for the General, Mandatory and Additional PAI indicators")
   @JsonIgnore
 
@@ -185,7 +186,7 @@ public class SfdrPai implements Serializable {
    * Names for the General, Mandatory and Additional PAI indicators
    * @return subTopicName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Scope 1 GHG emissions", value = "Names for the General, Mandatory and Additional PAI indicators")
   @JsonIgnore
 
@@ -219,7 +220,7 @@ public class SfdrPai implements Serializable {
    * The type of indicator - General, Additional &amp; Mandatory
    * @return indicatorType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Mandatory", value = "The type of indicator - General, Additional & Mandatory")
   @JsonIgnore
 
@@ -253,7 +254,7 @@ public class SfdrPai implements Serializable {
    * The Reporting period end date expressed in YYYY-MM-DD format
    * @return periodEndDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Sat Sep 26 00:00:00 UTC 2020", value = "The Reporting period end date expressed in YYYY-MM-DD format")
   @JsonIgnore
 
@@ -287,7 +288,7 @@ public class SfdrPai implements Serializable {
    * The reporting period of the company expressed in YYYY format
    * @return reportingPeriod
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2020", value = "The reporting period of the company expressed in YYYY format")
   @JsonIgnore
 
@@ -321,7 +322,7 @@ public class SfdrPai implements Serializable {
    * The units of measurements for the indicators
    * @return standardizedUnit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Metric ton CO2 e", value = "The units of measurements for the indicators")
   @JsonIgnore
 
@@ -355,7 +356,7 @@ public class SfdrPai implements Serializable {
    * The PAI calculations based on the company-reported data, some metrics sourced from Factset Databases and Truvalue SASB Spotlights
    * @return standardizedValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "9620000", value = "The PAI calculations based on the company-reported data, some metrics sourced from Factset Databases and Truvalue SASB Spotlights")
   @JsonIgnore
 

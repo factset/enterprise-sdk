@@ -6,7 +6,7 @@ import com.factset.sdk.FactSetOptions.ApiResponse;
 import com.factset.sdk.FactSetOptions.Configuration;
 import com.factset.sdk.FactSetOptions.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -15,7 +15,8 @@ import com.factset.sdk.FactSetOptions.models.ErrorResponse;
 import com.factset.sdk.FactSetOptions.models.SnapshotRequest;
 import com.factset.sdk.FactSetOptions.models.SnapshotResponse;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SnapshotApi {
   private ApiClient apiClient;
 

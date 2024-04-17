@@ -41,7 +41,8 @@ import com.factset.sdk.OpenFactSetPartnersDocuments.JSON;
   LinkupFiles.JSON_PROPERTY_TYPE,
   LinkupFiles.JSON_PROPERTY_URL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class LinkupFiles implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -72,7 +73,7 @@ public class LinkupFiles implements Serializable {
    * The filename of the daily LinkUp file.
    * @return filename
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "raw_daily_v2_2022-10-16.xml", value = "The filename of the daily LinkUp file.")
   @JsonProperty(JSON_PROPERTY_FILENAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -98,7 +99,7 @@ public class LinkupFiles implements Serializable {
    * The timestamp when LinkUp provided the file to FactSet.
    * @return fileTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The timestamp when LinkUp provided the file to FactSet.")
   @JsonProperty(JSON_PROPERTY_FILE_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -124,7 +125,7 @@ public class LinkupFiles implements Serializable {
    * The timestamp when the file is last updated.
    * @return updateTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The timestamp when the file is last updated.")
   @JsonProperty(JSON_PROPERTY_UPDATE_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -150,7 +151,7 @@ public class LinkupFiles implements Serializable {
    * Used to provide the full job descriptions when value - full is used for this parameter.
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "delta", value = "Used to provide the full job descriptions when value - full is used for this parameter.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -176,7 +177,7 @@ public class LinkupFiles implements Serializable {
    * Download link for daily file from LinkUp on various job postings.
    * @return url
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "https://fdss3-unstructured-data-delivery-linkup-prod.s3.amazonaws.com/2022/10/raw_daily_v2_2022-10-16.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6B6XG7VE4KPAQD6S%2F20221017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221017T151252Z&X-Amz-Expires=1800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjED8aCXVzLWVhc3QtMSJGMEQCIEYZImk3I5of13kAbNkbWW7Ib0NnLkesTPO5lWMHbh83AiBuQMuFxXGRP9vcTAyCukgNzakuGUl40YqIKLAUZQ4axyruAggYEAEaDDk2NjI4MjExNjQyNSIMvMcMv4%2F0uRNVeQFUKssCh7n9%2BG6jIll%2BYG76a6NmKEz5Re6eeoDDS9%2FyyoP%2FvyBzJ9WRkvOY%2BuGsRbavlXr8tCUW%2F4trNJiukntRN8xKd66JRioQC9kTXEeGYeEIk3g7kcHBrG1yvPx1iY96XXPn5%2BW%2Bw%2FSZJluWWM0glYRnsJ01HBmS6VW%2Fad7x3guxP6QZz%2BReASeNjpvI60lc4qkasb9sCGy6wggC2KmMfQuQfGcrTqMF71%2F0LRzD12Jw1Drgyr7HH12r3k5w16x7sTJqxmEy4ovuUIV7R0AyMhBAsbPWAnrMrZmMndQyP5ZfDuqaIkmx2VZzX0NdIzYOhSMrgUjJNLJT6VKbolXJpVe4bQN5ZDMa88mi6Xol6v8IbxVNBjKhi8cVN3bVFg2TFbXNVMdu%2FewIO6nVbYMb7qtKORM4aeELr5xlFkPdHwdw7G0KdKAGpXtP9MeDQDCv17WaBjqfAegRsmgqBZGqhRXL4Y3YXWjpzURSMl4EHsltSr6%2FdNNbwe%2Fm8DdnmKQI0%2BBkLCPpIYwT0tzW4FwW4GwcUtpcZ7V5fAoHsQ4Wu2jKX2x1plTd9G2WU5CAnPn7OCKCH9zyj8Ck38L0GMBpfP3ltc0BwrlvX0Swuw33PvgB4iPsE6yR9vrF55oKwkgRn4WczoiBf3MJmhmmTades7odetEUpQ%3D%3D&X-Amz-Signature=a9221535699761e4d574b950778cc4d2460a952e9e9a5d532fb921e67483a74c", value = "Download link for daily file from LinkUp on various job postings.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

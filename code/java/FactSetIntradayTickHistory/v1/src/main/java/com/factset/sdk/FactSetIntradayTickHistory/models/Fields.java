@@ -54,7 +54,8 @@ import com.factset.sdk.FactSetIntradayTickHistory.JSON;
   Fields.JSON_PROPERTY_G_M_T_O_F_F_S_E_T,
   Fields.JSON_PROPERTY_P_R_I_C_E_C_U_R_R_E_N_C_Y
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Fields implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -127,7 +128,7 @@ public class Fields implements Serializable {
    * The last bid price or last bid price in an interval. FID # 100
    * @return BID_1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The last bid price or last bid price in an interval. FID # 100")
   @JsonProperty(JSON_PROPERTY_B_I_D1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -153,7 +154,7 @@ public class Fields implements Serializable {
    * The volume of the last bid in an interval. FID # 104
    * @return BID_VOL_1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The volume of the last bid in an interval. FID # 104")
   @JsonProperty(JSON_PROPERTY_B_I_D_V_O_L1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -179,7 +180,7 @@ public class Fields implements Serializable {
    * The volume of the last bid or last bid in an interval. FID # 107. Enumeration Table 7
    * @return BID_EXCH_1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The volume of the last bid or last bid in an interval. FID # 107. Enumeration Table 7")
   @JsonProperty(JSON_PROPERTY_B_I_D_E_X_C_H1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -205,7 +206,7 @@ public class Fields implements Serializable {
    * The last ask price or last ask price in an interval. FID # 200
    * @return ASK_1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The last ask price or last ask price in an interval. FID # 200")
   @JsonProperty(JSON_PROPERTY_A_S_K1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -231,7 +232,7 @@ public class Fields implements Serializable {
    * The volume of the last ask or last ask in an interval. FID # 204
    * @return ASK_VOL_1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The volume of the last ask or last ask in an interval. FID # 204")
   @JsonProperty(JSON_PROPERTY_A_S_K_V_O_L1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -257,7 +258,7 @@ public class Fields implements Serializable {
    * The exchange of the last ask or last ask in an interval. FID # 207. Enumeration Table 7.
    * @return ASK_EXCH_1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The exchange of the last ask or last ask in an interval. FID # 207. Enumeration Table 7.")
   @JsonProperty(JSON_PROPERTY_A_S_K_E_X_C_H1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -283,7 +284,7 @@ public class Fields implements Serializable {
    * The last trade price or last trade price in an interval. FID # 300
    * @return LAST_1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The last trade price or last trade price in an interval. FID # 300")
   @JsonProperty(JSON_PROPERTY_L_A_S_T1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -309,7 +310,7 @@ public class Fields implements Serializable {
    * The date of the last trade or last trade in an interval. FID # 301
    * @return LAST_DATE_1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The date of the last trade or last trade in an interval. FID # 301")
   @JsonProperty(JSON_PROPERTY_L_A_S_T_D_A_T_E1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -335,7 +336,7 @@ public class Fields implements Serializable {
    * The time of the last trade or last trade in an interval. FID # 302
    * @return LAST_TIME_1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The time of the last trade or last trade in an interval. FID # 302")
   @JsonProperty(JSON_PROPERTY_L_A_S_T_T_I_M_E1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -361,7 +362,7 @@ public class Fields implements Serializable {
    * The trade volume, or the sum of all trade volumes inside a bin. FID # 304
    * @return LAST_VOL_1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The trade volume, or the sum of all trade volumes inside a bin. FID # 304")
   @JsonProperty(JSON_PROPERTY_L_A_S_T_V_O_L1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -387,7 +388,7 @@ public class Fields implements Serializable {
    * The exchange of the last trade or last trade in an interval. FID # 307. Enumeration Table 7
    * @return LAST_EXCH_1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The exchange of the last trade or last trade in an interval. FID # 307. Enumeration Table 7")
   @JsonProperty(JSON_PROPERTY_L_A_S_T_E_X_C_H1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -413,7 +414,7 @@ public class Fields implements Serializable {
    * The symbol&#39;s daily cumulative volume, or the last cumulative volume in an interval. FID # 601
    * @return CUM_VOL
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The symbol's daily cumulative volume, or the last cumulative volume in an interval. FID # 601")
   @JsonProperty(JSON_PROPERTY_C_U_M_V_O_L)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -439,7 +440,7 @@ public class Fields implements Serializable {
    * The daily volume weighted average price, or the last VWAP in an interval. FID # 603
    * @return VWAP
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The daily volume weighted average price, or the last VWAP in an interval. FID # 603")
   @JsonProperty(JSON_PROPERTY_V_W_A_P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -465,7 +466,7 @@ public class Fields implements Serializable {
    * The first trade of an interval. FID # 710
    * @return OPEN_1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The first trade of an interval. FID # 710")
   @JsonProperty(JSON_PROPERTY_O_P_E_N1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -491,7 +492,7 @@ public class Fields implements Serializable {
    * The highest trade price in an interval. FID # 720
    * @return HIGH_1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The highest trade price in an interval. FID # 720")
   @JsonProperty(JSON_PROPERTY_H_I_G_H1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -517,7 +518,7 @@ public class Fields implements Serializable {
    * The lowest trade price in an interval. FID # 723
    * @return LOW_1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The lowest trade price in an interval. FID # 723")
   @JsonProperty(JSON_PROPERTY_L_O_W1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -543,7 +544,7 @@ public class Fields implements Serializable {
    * Trade Condition. FID # 2709
    * @return TRADE_CONDITION
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Trade Condition. FID # 2709")
   @JsonProperty(JSON_PROPERTY_T_R_A_D_E_C_O_N_D_I_T_I_O_N)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -569,7 +570,7 @@ public class Fields implements Serializable {
    * GMT Offset in Minutes. FID # 2037
    * @return GMT_OFFSET
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "GMT Offset in Minutes. FID # 2037")
   @JsonProperty(JSON_PROPERTY_G_M_T_O_F_F_S_E_T)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -595,7 +596,7 @@ public class Fields implements Serializable {
    * Price Currency Code. FID # 2032
    * @return PRICE_CURRENCY
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Price Currency Code. FID # 2032")
   @JsonProperty(JSON_PROPERTY_P_R_I_C_E_C_U_R_R_E_N_C_Y)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

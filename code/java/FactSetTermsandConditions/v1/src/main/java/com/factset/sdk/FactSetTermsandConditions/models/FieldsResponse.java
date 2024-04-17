@@ -36,7 +36,8 @@ import com.factset.sdk.FactSetTermsandConditions.JSON;
 @JsonPropertyOrder({
   FieldsResponse.JSON_PROPERTY_DATA
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FieldsResponse implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class FieldsResponse implements Serializable {
    * Array of metric objects representing the metrics that can be requested from the Fixed Income APIs. 
    * @return data
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Array of metric objects representing the metrics that can be requested from the Fixed Income APIs. ")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

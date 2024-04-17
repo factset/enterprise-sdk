@@ -61,7 +61,8 @@ import com.factset.sdk.FactSetPrices.JSON;
   ReturnsSnapshot.JSON_PROPERTY_IPO_TO_DATE_ANNUALIZED,
   ReturnsSnapshot.JSON_PROPERTY_DIVIDEND_ADJUST
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ReturnsSnapshot implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -143,7 +144,7 @@ public class ReturnsSnapshot implements Serializable {
    * Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security&#39;s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "SJY281-R", value = "Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.")
   @JsonIgnore
 
@@ -177,7 +178,7 @@ public class ReturnsSnapshot implements Serializable {
    * Specific reference date for the period expressed in YYYY-MM-DD format.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Wed Sep 09 00:00:00 UTC 2020", value = "Specific reference date for the period expressed in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -211,7 +212,7 @@ public class ReturnsSnapshot implements Serializable {
    * Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).")
   @JsonIgnore
 
@@ -245,7 +246,7 @@ public class ReturnsSnapshot implements Serializable {
    * Identifier that was used for the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "IBM-US", value = "Identifier that was used for the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -271,7 +272,7 @@ public class ReturnsSnapshot implements Serializable {
    * Returns the price performance of the security for the previous one day from the given date.
    * @return oneDay
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0.86627007", value = "Returns the price performance of the security for the previous one day from the given date.")
   @JsonIgnore
 
@@ -305,7 +306,7 @@ public class ReturnsSnapshot implements Serializable {
    * Returns the price performance of the security for the past one month.
    * @return oneMonth
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "-2.1606863", value = "Returns the price performance of the security for the past one month.")
   @JsonIgnore
 
@@ -339,7 +340,7 @@ public class ReturnsSnapshot implements Serializable {
    * Returns the price performance of the security for the past three months.
    * @return threeMonth
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "-7.2874727", value = "Returns the price performance of the security for the past three months.")
   @JsonIgnore
 
@@ -373,7 +374,7 @@ public class ReturnsSnapshot implements Serializable {
    * Returns the price performance of the security for the past six months.
    * @return sixMonth
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "3.7772775", value = "Returns the price performance of the security for the past six months.")
   @JsonIgnore
 
@@ -407,7 +408,7 @@ public class ReturnsSnapshot implements Serializable {
    * Returns the price performance of the security for the past nine months.
    * @return nineMonth
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "-8.706689", value = "Returns the price performance of the security for the past nine months.")
   @JsonIgnore
 
@@ -441,7 +442,7 @@ public class ReturnsSnapshot implements Serializable {
    * Returns the price performance of the security for the past one year.
    * @return oneYear
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "-14.263678", value = "Returns the price performance of the security for the past one year.")
   @JsonIgnore
 
@@ -475,7 +476,7 @@ public class ReturnsSnapshot implements Serializable {
    * Returns the price performance of the security from the previous calendar quarter end to the given date.
    * @return quarterToDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1.2337565", value = "Returns the price performance of the security from the previous calendar quarter end to the given date.")
   @JsonIgnore
 
@@ -509,7 +510,7 @@ public class ReturnsSnapshot implements Serializable {
    * Returns the price performance of the security from the previous week (usually Friday) to the given date.
    * @return weekToDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "-0.03270507", value = "Returns the price performance of the security from the previous week (usually Friday) to the given date.")
   @JsonIgnore
 
@@ -543,7 +544,7 @@ public class ReturnsSnapshot implements Serializable {
    * Returns the price performance of the security from the previous month-end to the given date.
    * @return monthToDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "-0.851506", value = "Returns the price performance of the security from the previous month-end to the given date.")
   @JsonIgnore
 
@@ -577,7 +578,7 @@ public class ReturnsSnapshot implements Serializable {
    * Returns the price performance of the security from the previous calendar year-end to the given date.
    * @return yearToDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "-8.788413", value = "Returns the price performance of the security from the previous calendar year-end to the given date.")
   @JsonIgnore
 
@@ -611,7 +612,7 @@ public class ReturnsSnapshot implements Serializable {
    * Returns the annualized compound total return for two years.
    * @return twoYearAnnualized
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "-3.7836754", value = "Returns the annualized compound total return for two years.")
   @JsonIgnore
 
@@ -645,7 +646,7 @@ public class ReturnsSnapshot implements Serializable {
    * Returns the annualized compound total return for three years.
    * @return threeYearAnnualized
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "-0.49112806", value = "Returns the annualized compound total return for three years.")
   @JsonIgnore
 
@@ -679,7 +680,7 @@ public class ReturnsSnapshot implements Serializable {
    * Returns the annualized compound total return for five years.
    * @return fiveYearAnnualized
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0.8408688", value = "Returns the annualized compound total return for five years.")
   @JsonIgnore
 
@@ -713,7 +714,7 @@ public class ReturnsSnapshot implements Serializable {
    * Returns the annualized compound total return for ten years.
    * @return tenYearAnnualized
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2.8786583", value = "Returns the annualized compound total return for ten years.")
   @JsonIgnore
 
@@ -747,7 +748,7 @@ public class ReturnsSnapshot implements Serializable {
    * Returns the annualized compound total return for twenty years.
    * @return twentyYearAnnualized
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1.8996516", value = "Returns the annualized compound total return for twenty years.")
   @JsonIgnore
 
@@ -781,7 +782,7 @@ public class ReturnsSnapshot implements Serializable {
    * Returns the annualized compound total return for thirty years.
    * @return thirtyYearAnnualized
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "7.5250373", value = "Returns the annualized compound total return for thirty years.")
   @JsonIgnore
 
@@ -815,7 +816,7 @@ public class ReturnsSnapshot implements Serializable {
    * Returns the annualized compound total return from the ipo date. The calculation uses the closing price as of the IPO date, and not the IPO price itself.
    * @return ipoToDateAnnualized
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "6.5763993", value = "Returns the annualized compound total return from the ipo date. The calculation uses the closing price as of the IPO date, and not the IPO price itself.")
   @JsonIgnore
 
@@ -849,7 +850,7 @@ public class ReturnsSnapshot implements Serializable {
    * Controls the dividend reinvestment for the returns calculation. Dividends will be reinvested on the date the dividends go ex (when the dividends belong to the seller rather than the buyer). Visit [OA 8748](https://my.apps.factset.com/oa/pages/8748) for calculation methodology.   * **PRICE** &#x3D; Price Change - Dividends Excluded.   * **EXDATE** &#x3D; Simple Return - Dividends Received on exdate but not reinvested. Dividends accumulated throughout the specified period are added to the price at the end of the period.   * **EXDATE_C** &#x3D; Compound Return - Dividends reinvested on exdate. Dividends accumulated throughout the specified period are used to buy more shares of stock in the company. 
    * @return dividendAdjust
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "PRICE", value = "Controls the dividend reinvestment for the returns calculation. Dividends will be reinvested on the date the dividends go ex (when the dividends belong to the seller rather than the buyer). Visit [OA 8748](https://my.apps.factset.com/oa/pages/8748) for calculation methodology.   * **PRICE** = Price Change - Dividends Excluded.   * **EXDATE** = Simple Return - Dividends Received on exdate but not reinvested. Dividends accumulated throughout the specified period are added to the price at the end of the period.   * **EXDATE_C** = Compound Return - Dividends reinvested on exdate. Dividends accumulated throughout the specified period are used to buy more shares of stock in the company. ")
   @JsonIgnore
 

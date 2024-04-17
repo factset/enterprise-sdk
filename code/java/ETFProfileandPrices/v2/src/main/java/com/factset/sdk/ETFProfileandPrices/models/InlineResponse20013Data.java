@@ -45,7 +45,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20013Data.JSON_PROPERTY_SPREAD,
   InlineResponse20013Data.JSON_PROPERTY_TRACKING_DIFFERENCE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20013Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -76,7 +77,7 @@ public class InlineResponse20013Data implements Serializable {
    * Get impedimentsToCreation
    * @return impedimentsToCreation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IMPEDIMENTS_TO_CREATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -102,7 +103,7 @@ public class InlineResponse20013Data implements Serializable {
    * Get premiumDiscount
    * @return premiumDiscount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PREMIUM_DISCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -128,7 +129,7 @@ public class InlineResponse20013Data implements Serializable {
    * Get blockTrade
    * @return blockTrade
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BLOCK_TRADE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -154,7 +155,7 @@ public class InlineResponse20013Data implements Serializable {
    * Get spread
    * @return spread
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SPREAD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -180,7 +181,7 @@ public class InlineResponse20013Data implements Serializable {
    * Get trackingDifference
    * @return trackingDifference
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TRACKING_DIFFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -40,7 +40,8 @@ import com.factset.sdk.PAEngine.JSON;
   PACalculationColumn.JSON_PROPERTY_ID,
   PACalculationColumn.JSON_PROPERTY_STATISTICS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PACalculationColumn implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -62,7 +63,7 @@ public class PACalculationColumn implements Serializable {
    * FactSet-defined or User-defined Column identifier.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "FactSet-defined or User-defined Column identifier.")
   @JsonIgnore
 
@@ -108,7 +109,7 @@ public class PACalculationColumn implements Serializable {
    * Column Statistic identifier
    * @return statistics
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Column Statistic identifier")
   @JsonIgnore
 

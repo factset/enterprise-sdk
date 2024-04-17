@@ -43,7 +43,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2006Data.JSON_PROPERTY_NAME,
   InlineResponse2006Data.JSON_PROPERTY_FUNCTIONS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2006Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class InlineResponse2006Data implements Serializable {
    * Identifier of a delivery.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of a delivery.")
   @JsonIgnore
 
@@ -102,7 +103,7 @@ public class InlineResponse2006Data implements Serializable {
    * Name of the delivery.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the delivery.")
   @JsonIgnore
 
@@ -144,7 +145,7 @@ public class InlineResponse2006Data implements Serializable {
    * List of officer functions.
    * @return functions
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of officer functions.")
   @JsonProperty(JSON_PROPERTY_FUNCTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

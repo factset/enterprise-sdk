@@ -45,7 +45,8 @@ import com.factset.sdk.OpenRisk.JSON;
   SuccessResponseMeta.JSON_PROPERTY_RESOLVED_DATES,
   SuccessResponseMeta.JSON_PROPERTY_WARNINGS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SuccessResponseMeta implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -78,7 +79,7 @@ public class SuccessResponseMeta implements Serializable {
    * Get labels
    * @return labels
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -112,7 +113,7 @@ public class SuccessResponseMeta implements Serializable {
    * Get resolvedDates
    * @return resolvedDates
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_RESOLVED_DATES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -146,7 +147,7 @@ public class SuccessResponseMeta implements Serializable {
    * Get warnings
    * @return warnings
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

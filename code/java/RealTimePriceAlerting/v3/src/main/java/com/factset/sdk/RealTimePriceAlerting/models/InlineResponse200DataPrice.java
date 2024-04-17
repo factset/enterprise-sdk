@@ -42,7 +42,8 @@ import com.factset.sdk.RealTimePriceAlerting.JSON;
   InlineResponse200DataPrice.JSON_PROPERTY_VALUE,
   InlineResponse200DataPrice.JSON_PROPERTY_TIME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse200DataPrice implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class InlineResponse200DataPrice implements Serializable {
    * Depending on &#x60;trigger.price.type&#x60;, the trade, bid, or ask price.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Depending on `trigger.price.type`, the trade, bid, or ask price.")
   @JsonIgnore
 
@@ -98,7 +99,7 @@ public class InlineResponse200DataPrice implements Serializable {
    * Date and time of the price.
    * @return time
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Date and time of the price.")
   @JsonIgnore
 

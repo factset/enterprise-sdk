@@ -39,7 +39,8 @@ import com.factset.sdk.RealTimeTimeSeries.JSON;
   PostVendorChartIQTimeSeriesEodSubsampleListRequestDataIntervalSelection.JSON_PROPERTY_INTERVALS,
   PostVendorChartIQTimeSeriesEodSubsampleListRequestDataIntervalSelection.JSON_PROPERTY_SAMPLES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostVendorChartIQTimeSeriesEodSubsampleListRequestDataIntervalSelection implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -69,7 +70,7 @@ public class PostVendorChartIQTimeSeriesEodSubsampleListRequestDataIntervalSelec
    * Non-empty intervals of days to consider for the request. The array contains a list of at least two days in increasing order. Each pair of adjacent entries day_n and day_(n+1) specifies a half-open interval, that is a range of days d where day_n &lt;&#x3D; d &lt; day_(n+1). A subsample is computed for each interval. The valid range of intervals is between 1900-01-01 and the day after the current day.
    * @return intervals
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Non-empty intervals of days to consider for the request. The array contains a list of at least two days in increasing order. Each pair of adjacent entries day_n and day_(n+1) specifies a half-open interval, that is a range of days d where day_n <= d < day_(n+1). A subsample is computed for each interval. The valid range of intervals is between 1900-01-01 and the day after the current day.")
   @JsonProperty(JSON_PROPERTY_INTERVALS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -95,7 +96,7 @@ public class PostVendorChartIQTimeSeriesEodSubsampleListRequestDataIntervalSelec
    * Get samples
    * @return samples
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SAMPLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

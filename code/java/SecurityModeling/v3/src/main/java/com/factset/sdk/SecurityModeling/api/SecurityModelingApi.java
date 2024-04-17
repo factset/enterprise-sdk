@@ -6,7 +6,7 @@ import com.factset.sdk.SecurityModeling.ApiResponse;
 import com.factset.sdk.SecurityModeling.Configuration;
 import com.factset.sdk.SecurityModeling.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -18,7 +18,8 @@ import com.factset.sdk.SecurityModeling.models.SMDeleteResponseRoot;
 import com.factset.sdk.SecurityModeling.models.SMRetrieveParametersRoot;
 import com.factset.sdk.SecurityModeling.models.SMRetrieveResponseRoot;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SecurityModelingApi {
   private ApiClient apiClient;
 

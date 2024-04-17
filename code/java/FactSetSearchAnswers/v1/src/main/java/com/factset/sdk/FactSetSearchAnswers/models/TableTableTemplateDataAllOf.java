@@ -37,7 +37,8 @@ import com.factset.sdk.FactSetSearchAnswers.JSON;
   TableTableTemplateDataAllOf.JSON_PROPERTY_TABLE1,
   TableTableTemplateDataAllOf.JSON_PROPERTY_TABLE2
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class TableTableTemplateDataAllOf implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -59,7 +60,7 @@ public class TableTableTemplateDataAllOf implements Serializable {
    * Get table1
    * @return table1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TABLE1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -85,7 +86,7 @@ public class TableTableTemplateDataAllOf implements Serializable {
    * Get table2
    * @return table2
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TABLE2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

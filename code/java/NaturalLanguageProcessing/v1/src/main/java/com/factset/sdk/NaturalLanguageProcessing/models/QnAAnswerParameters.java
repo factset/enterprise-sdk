@@ -38,7 +38,8 @@ import com.factset.sdk.NaturalLanguageProcessing.JSON;
   QnAAnswerParameters.JSON_PROPERTY_NUMBER_OF_ANSWERS,
   QnAAnswerParameters.JSON_PROPERTY_QUESTION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class QnAAnswerParameters implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -73,7 +74,7 @@ public class QnAAnswerParameters implements Serializable {
    * The text input that provides the context
    * @return input
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = " Matchbox.io Uses Voice-First Games as A Natural Way of Learning matchbox.ioCredit: matchbox.io Alexa and gaming have been rubbing shoulders since day one. From guiding children through LEGO adventures to multi-player trivia games for bored drivers, Voice has proven to be the new frontier of gaming. When voice assistants first bobbed into the mainstream, marketing solution architect and data scientist Joel Wilson immediately saw the potential of Voice not only for games, but for education. He started his venture with the Alexa skill Question of the Day, a simple trivia game that poses a different question each day. Over 4,000 five-star reviews and hundreds of thousands of users later, it has become a routine skill for people happy to learn something new every day. \"We're on a mission to enable frictionless learning,\" Wilson told Amazon. \"We've just scratched the surface of how we can do that with voice-first games.\" Meet matchbox.io In 2017, Wilson founded the voice-first gaming company matchbox.io, dedicated to creating interactive, educational experiences through Amazon Alexa and, more recently, Samsung Bixby. In just a few years, matchbox.io has become a recognized leader in educational games on voice-first devices. With Question of the Day growing into one of the most popular and highest rated skills in the Alexa Skill Store, Wilson and his team of Data Scientists and Education Innovators immersed themselves in helping people learn more about the world through Voice. Before long, they launched another educational skill called Kids Quiz. Kids Quiz poses new questions every day for children ages 5-12, from animals and science to brainteasers and fun facts. They can also collect stars and unlock surprises as they go. Another addition to the matchbox.io repertoire is Three Questions, which provides, well, three questions a day rather than just one. Like their other skills, players can earn points and unlock bonus content. With three successful voice-first experiences under their belt, matchbox.io is marching forward with their mission to leverage Voice to disperse a little bit more knowledge to their users every single day.  Why Voice for learning? At this point, the question is almost rhetorical. We've seen games capture the short attention spans of children, teach stubborn students and professionals new skills, and hold the curiosity of busy adults for decades. With Voice, the captivating effect of gaming is multiplied by the prospect of playing with increasingly less effort. There are no controls to untangle (or fight over), no keyboard to pound repeatedly, and no limitation for people with limited vision or mobility. \"Voice is the perfect, most accessible interface for gaming,\" says Wilson in an Amazon blog post. \"We can tailor the experience to customers wants and needs, so they can learn something quick, hear more in-depth info about a particular fact, or settle in for an extended game play.\" With over 6 million users playing his company's voice-first gaming apps, it's clear that the marriage between Voice and traditional learning is set for the long-run. The question now is which gaming companies will take advantage of it.  The future of voice-first gaming Using Voice for interactive learning is all well and good, but what about the business side of things? Wilson knows a few things about this too. Feeling confident about their skills' continued popularity, they made a move to monetize them with In-Skill Purchasing (ISP). This feature allows the company to fund the creation of more educational experiences by adding paid, premium content to their apps. This way, they can keep their users engaged while safely sustaining their business. Wilson believes that this is the future of voice-first gaming industry. In his eyes, all you need is a good idea, quality content, and the smarts to know how and when to monetize it. As voice assistants and devices evolve, however, so will the methods to run a successful business with them. But Wilson is already dabbling in new ways to make his passion for learning and gaming a long-term venture. \"There's still a lot to be explored with Voice gaming,\" says Wilson. To learn so much more about Voice and gaming experiences, you'll be excited to know that Wilson will be at VOICE Summit to share design and strategy insights alongside equally bright minds from Gamefuly, Drivetime, and V Group Inc.  Don't miss their talk \"Gaming in the voice-first era,\" and make sure you stick around for hundreds more sessions, workshops, expert panels, and our exclusive VOICE Awards dinner. It's the world's largest voice tech event and we're pulling out all the stops. To join us at our annual showdown and have a summer you'll never forget, snatch one of the very last tickets! ", required = true, value = "The text input that provides the context")
   @JsonProperty(JSON_PROPERTY_INPUT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -101,7 +102,7 @@ public class QnAAnswerParameters implements Serializable {
    * maximum: 10
    * @return numberOfAnswers
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2", value = "Number of answers for the question")
   @JsonProperty(JSON_PROPERTY_NUMBER_OF_ANSWERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -127,7 +128,7 @@ public class QnAAnswerParameters implements Serializable {
    * Question associated to the provided context
    * @return question
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "Who is the founder?", required = true, value = "Question associated to the provided context")
   @JsonProperty(JSON_PROPERTY_QUESTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

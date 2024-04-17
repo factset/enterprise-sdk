@@ -42,7 +42,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20021Data.JSON_PROPERTY_CODE,
   InlineResponse20021Data.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20021Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -67,7 +68,7 @@ public class InlineResponse20021Data implements Serializable {
    * Identifier of a country.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of a country.")
   @JsonIgnore
 
@@ -101,7 +102,7 @@ public class InlineResponse20021Data implements Serializable {
    * ISO 3166-1 alpha-2 code of the country.
    * @return code
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "ISO 3166-1 alpha-2 code of the country.")
   @JsonIgnore
 
@@ -135,7 +136,7 @@ public class InlineResponse20021Data implements Serializable {
    * Name of the country.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the country.")
   @JsonIgnore
 

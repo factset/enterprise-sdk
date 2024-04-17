@@ -55,7 +55,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20014EstimatesFirstFiscalYearRatios.JSON_PROPERTY_ENTERPRISE_VALUE_EBITDA,
   InlineResponse20014EstimatesFirstFiscalYearRatios.JSON_PROPERTY_ENTERPRISE_VALUE_SALES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20014EstimatesFirstFiscalYearRatios implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -101,7 +102,7 @@ public class InlineResponse20014EstimatesFirstFiscalYearRatios implements Serial
    * Get priceSales
    * @return priceSales
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRICE_SALES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -127,7 +128,7 @@ public class InlineResponse20014EstimatesFirstFiscalYearRatios implements Serial
    * Get priceEarnings
    * @return priceEarnings
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRICE_EARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -153,7 +154,7 @@ public class InlineResponse20014EstimatesFirstFiscalYearRatios implements Serial
    * Get priceEarningsGrowth
    * @return priceEarningsGrowth
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRICE_EARNINGS_GROWTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -179,7 +180,7 @@ public class InlineResponse20014EstimatesFirstFiscalYearRatios implements Serial
    * Get priceBookValue
    * @return priceBookValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRICE_BOOK_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -205,7 +206,7 @@ public class InlineResponse20014EstimatesFirstFiscalYearRatios implements Serial
    * Get priceCashFlow
    * @return priceCashFlow
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRICE_CASH_FLOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -231,7 +232,7 @@ public class InlineResponse20014EstimatesFirstFiscalYearRatios implements Serial
    * Get priceFreeCashFlow
    * @return priceFreeCashFlow
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRICE_FREE_CASH_FLOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -257,7 +258,7 @@ public class InlineResponse20014EstimatesFirstFiscalYearRatios implements Serial
    * Get dividendYield
    * @return dividendYield
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DIVIDEND_YIELD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -283,7 +284,7 @@ public class InlineResponse20014EstimatesFirstFiscalYearRatios implements Serial
    * Get enterpriseValueEbit
    * @return enterpriseValueEbit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ENTERPRISE_VALUE_EBIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -309,7 +310,7 @@ public class InlineResponse20014EstimatesFirstFiscalYearRatios implements Serial
    * Get enterpriseValueEbitda
    * @return enterpriseValueEbitda
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ENTERPRISE_VALUE_EBITDA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -335,7 +336,7 @@ public class InlineResponse20014EstimatesFirstFiscalYearRatios implements Serial
    * Get enterpriseValueSales
    * @return enterpriseValueSales
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ENTERPRISE_VALUE_SALES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

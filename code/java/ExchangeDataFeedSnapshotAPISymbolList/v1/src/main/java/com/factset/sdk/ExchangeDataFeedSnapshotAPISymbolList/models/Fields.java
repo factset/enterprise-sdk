@@ -158,7 +158,8 @@ import com.factset.sdk.ExchangeDataFeedSnapshotAPISymbolList.JSON;
   Fields.JSON_PROPERTY_TOTAL_RETURN3_M,
   Fields.JSON_PROPERTY_TOTAL_RETURN52_W
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Fields implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -540,7 +541,7 @@ public class Fields implements Serializable {
    * Field ID # 20. Exchange ISO-Code. Enumeration in Data Service Manual.
    * @return exchange
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 20. Exchange ISO-Code. Enumeration in Data Service Manual.")
   @JsonProperty(JSON_PROPERTY_EXCHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -566,7 +567,7 @@ public class Fields implements Serializable {
    * Field ID # 4. Product identifier. Enumeration in Data Service Manual.
    * @return product
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 4. Product identifier. Enumeration in Data Service Manual.")
   @JsonProperty(JSON_PROPERTY_PRODUCT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -592,7 +593,7 @@ public class Fields implements Serializable {
    * Field ID # 509. Current bid price
    * @return bid
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 509. Current bid price")
   @JsonProperty(JSON_PROPERTY_BID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -618,7 +619,7 @@ public class Fields implements Serializable {
    * Field ID # 386. Current bid date
    * @return bidDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 386. Current bid date")
   @JsonProperty(JSON_PROPERTY_BID_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -644,7 +645,7 @@ public class Fields implements Serializable {
    * Field ID # 385. Current bid time
    * @return bidTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 385. Current bid time")
   @JsonProperty(JSON_PROPERTY_BID_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -670,7 +671,7 @@ public class Fields implements Serializable {
    * Field ID # 505. Current bid size
    * @return bidVol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 505. Current bid size")
   @JsonProperty(JSON_PROPERTY_BID_VOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -696,7 +697,7 @@ public class Fields implements Serializable {
    * Field ID # 518. Current bid tick direction. Enumeration in Data Service Manual.
    * @return bidTick
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 518. Current bid tick direction. Enumeration in Data Service Manual.")
   @JsonProperty(JSON_PROPERTY_BID_TICK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -722,7 +723,7 @@ public class Fields implements Serializable {
    * Field ID # 648. Official Closing Bid
    * @return bidClose
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 648. Official Closing Bid")
   @JsonProperty(JSON_PROPERTY_BID_CLOSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -748,7 +749,7 @@ public class Fields implements Serializable {
    * Field ID # 1062. Official Closing Bid Date
    * @return bidCloseDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 1062. Official Closing Bid Date")
   @JsonProperty(JSON_PROPERTY_BID_CLOSE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -774,7 +775,7 @@ public class Fields implements Serializable {
    * Field ID # 296. Official Closing Bid Volume
    * @return bidCloseVol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 296. Official Closing Bid Volume")
   @JsonProperty(JSON_PROPERTY_BID_CLOSE_VOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -800,7 +801,7 @@ public class Fields implements Serializable {
    * Field ID # 506. Exchange of the current bid price. Enumeration in Data Service Manual.
    * @return bidExch
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 506. Exchange of the current bid price. Enumeration in Data Service Manual.")
   @JsonProperty(JSON_PROPERTY_BID_EXCH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -826,7 +827,7 @@ public class Fields implements Serializable {
    * Field ID # 609. Current ask price
    * @return ask
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 609. Current ask price")
   @JsonProperty(JSON_PROPERTY_ASK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -852,7 +853,7 @@ public class Fields implements Serializable {
    * Field ID # 388. Current ask date
    * @return askDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 388. Current ask date")
   @JsonProperty(JSON_PROPERTY_ASK_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -878,7 +879,7 @@ public class Fields implements Serializable {
    * Field ID # 387. Current ask time
    * @return askTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 387. Current ask time")
   @JsonProperty(JSON_PROPERTY_ASK_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -904,7 +905,7 @@ public class Fields implements Serializable {
    * Field ID # 605. Current ask size
    * @return askVol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 605. Current ask size")
   @JsonProperty(JSON_PROPERTY_ASK_VOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -930,7 +931,7 @@ public class Fields implements Serializable {
    * Field ID # 649. Official Closing ask
    * @return askClose
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 649. Official Closing ask")
   @JsonProperty(JSON_PROPERTY_ASK_CLOSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -956,7 +957,7 @@ public class Fields implements Serializable {
    * Field ID # 1064. Official Closing ask Date
    * @return askCloseDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 1064. Official Closing ask Date")
   @JsonProperty(JSON_PROPERTY_ASK_CLOSE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -982,7 +983,7 @@ public class Fields implements Serializable {
    * Field ID # 297. Official Closing ask Volume
    * @return askCloseVol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 297. Official Closing ask Volume")
   @JsonProperty(JSON_PROPERTY_ASK_CLOSE_VOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1008,7 +1009,7 @@ public class Fields implements Serializable {
    * Field ID # 606. Exchange of the current ask price.  Enumeration in Data Service Manual.
    * @return askExch
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 606. Exchange of the current ask price.  Enumeration in Data Service Manual.")
   @JsonProperty(JSON_PROPERTY_ASK_EXCH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1034,7 +1035,7 @@ public class Fields implements Serializable {
    * Field ID # 277. Flag to indicate if a security is restricted from being sold short
    * @return shortSaleIndicator
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 277. Flag to indicate if a security is restricted from being sold short")
   @JsonProperty(JSON_PROPERTY_SHORT_SALE_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1060,7 +1061,7 @@ public class Fields implements Serializable {
    * Field ID # 38. Current Quote Condition.  Enumeration in Data Service Manual.
    * @return quoteCondition
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 38. Current Quote Condition.  Enumeration in Data Service Manual.")
   @JsonProperty(JSON_PROPERTY_QUOTE_CONDITION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1086,7 +1087,7 @@ public class Fields implements Serializable {
    * Field ID # 50. Official last trade price
    * @return lastPrice
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 50. Official last trade price")
   @JsonProperty(JSON_PROPERTY_LAST_PRICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1112,7 +1113,7 @@ public class Fields implements Serializable {
    * Field ID # 384. Last Date
    * @return lastDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 384. Last Date")
   @JsonProperty(JSON_PROPERTY_LAST_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1138,7 +1139,7 @@ public class Fields implements Serializable {
    * Field ID # 383. Official last traded time
    * @return lastTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 383. Official last traded time")
   @JsonProperty(JSON_PROPERTY_LAST_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1164,7 +1165,7 @@ public class Fields implements Serializable {
    * Field ID # 31. Official last traded volume
    * @return lastVol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 31. Official last traded volume")
   @JsonProperty(JSON_PROPERTY_LAST_VOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1190,7 +1191,7 @@ public class Fields implements Serializable {
    * Field ID # 25. Official last tick. Enumeration in Data Service Manual.
    * @return lastTick
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 25. Official last tick. Enumeration in Data Service Manual.")
   @JsonProperty(JSON_PROPERTY_LAST_TICK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1216,7 +1217,7 @@ public class Fields implements Serializable {
    * Field ID # 526. Official Close/Close Range 1 Price
    * @return officialClose
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 526. Official Close/Close Range 1 Price")
   @JsonProperty(JSON_PROPERTY_OFFICIAL_CLOSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1242,7 +1243,7 @@ public class Fields implements Serializable {
    * Field ID # 1065. Official Close/Close Range 1 Time
    * @return officialCloseTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 1065. Official Close/Close Range 1 Time")
   @JsonProperty(JSON_PROPERTY_OFFICIAL_CLOSE_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1268,7 +1269,7 @@ public class Fields implements Serializable {
    * Field ID # 33. Official last traded exchange. Enumeration in Data Service Manual.
    * @return lastExch
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 33. Official last traded exchange. Enumeration in Data Service Manual.")
   @JsonProperty(JSON_PROPERTY_LAST_EXCH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1294,7 +1295,7 @@ public class Fields implements Serializable {
    * Field ID # 815. Settle Price
    * @return settlement
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 815. Settle Price")
   @JsonProperty(JSON_PROPERTY_SETTLEMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1320,7 +1321,7 @@ public class Fields implements Serializable {
    * Field ID # 912. Last traded Price
    * @return tradedPrice
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 912. Last traded Price")
   @JsonProperty(JSON_PROPERTY_TRADED_PRICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1346,7 +1347,7 @@ public class Fields implements Serializable {
    * Field ID # 868. Last traded Date
    * @return tradedDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 868. Last traded Date")
   @JsonProperty(JSON_PROPERTY_TRADED_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1372,7 +1373,7 @@ public class Fields implements Serializable {
    * Field ID # 916. Last traded Time
    * @return tradedTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 916. Last traded Time")
   @JsonProperty(JSON_PROPERTY_TRADED_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1398,7 +1399,7 @@ public class Fields implements Serializable {
    * Field ID # 918. Last traded Volume
    * @return tradedVol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 918. Last traded Volume")
   @JsonProperty(JSON_PROPERTY_TRADED_VOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1424,7 +1425,7 @@ public class Fields implements Serializable {
    * Field ID # 1098. Last traded trade condition
    * @return tradedCondition
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 1098. Last traded trade condition")
   @JsonProperty(JSON_PROPERTY_TRADED_CONDITION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1450,7 +1451,7 @@ public class Fields implements Serializable {
    * Field ID # 662. Official last change
    * @return netChange
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 662. Official last change")
   @JsonProperty(JSON_PROPERTY_NET_CHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1476,7 +1477,7 @@ public class Fields implements Serializable {
    * Field ID # 816. Official last percentage change
    * @return percentChange
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 816. Official last percentage change")
   @JsonProperty(JSON_PROPERTY_PERCENT_CHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1502,7 +1503,7 @@ public class Fields implements Serializable {
    * Field ID # 1019. Unofficial last premarket trade price
    * @return premktPrice
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 1019. Unofficial last premarket trade price")
   @JsonProperty(JSON_PROPERTY_PREMKT_PRICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1528,7 +1529,7 @@ public class Fields implements Serializable {
    * Field ID # 1075. Unofficial last premarket traded time
    * @return premktTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 1075. Unofficial last premarket traded time")
   @JsonProperty(JSON_PROPERTY_PREMKT_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1554,7 +1555,7 @@ public class Fields implements Serializable {
    * Field ID # 1832. Unofficial last premarket traded volume
    * @return premktVol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 1832. Unofficial last premarket traded volume")
   @JsonProperty(JSON_PROPERTY_PREMKT_VOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1580,7 +1581,7 @@ public class Fields implements Serializable {
    * Field ID # 1836. Unofficial last premarket cumulative volume
    * @return premktCVol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 1836. Unofficial last premarket cumulative volume")
   @JsonProperty(JSON_PROPERTY_PREMKT_C_VOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1606,7 +1607,7 @@ public class Fields implements Serializable {
    * Field ID # 2029. Unofficial last post market trade price
    * @return postmktPrice
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 2029. Unofficial last post market trade price")
   @JsonProperty(JSON_PROPERTY_POSTMKT_PRICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1632,7 +1633,7 @@ public class Fields implements Serializable {
    * Field ID # 1076. Unofficial last post market traded time
    * @return postmktTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 1076. Unofficial last post market traded time")
   @JsonProperty(JSON_PROPERTY_POSTMKT_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1658,7 +1659,7 @@ public class Fields implements Serializable {
    * Field ID # 1860. Unofficial last post market traded volume
    * @return postmktVol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 1860. Unofficial last post market traded volume")
   @JsonProperty(JSON_PROPERTY_POSTMKT_VOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1684,7 +1685,7 @@ public class Fields implements Serializable {
    * Field ID # 1864. Unofficial last post market cumulative volume
    * @return postmktCvol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 1864. Unofficial last post market cumulative volume")
   @JsonProperty(JSON_PROPERTY_POSTMKT_CVOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1710,7 +1711,7 @@ public class Fields implements Serializable {
    * Field ID # 528. Off Book Cumulative Volume
    * @return offbookCumVol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 528. Off Book Cumulative Volume")
   @JsonProperty(JSON_PROPERTY_OFFBOOK_CUM_VOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1736,7 +1737,7 @@ public class Fields implements Serializable {
    * Field ID # 448. The bid close price of today
    * @return officialBidClose
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 448. The bid close price of today")
   @JsonProperty(JSON_PROPERTY_OFFICIAL_BID_CLOSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1762,7 +1763,7 @@ public class Fields implements Serializable {
    * Field ID # 476. The ask close price of today
    * @return officialAskClose
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 476. The ask close price of today")
   @JsonProperty(JSON_PROPERTY_OFFICIAL_ASK_CLOSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1788,7 +1789,7 @@ public class Fields implements Serializable {
    * Field ID # 136. Current mid date
    * @return midDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 136. Current mid date")
   @JsonProperty(JSON_PROPERTY_MID_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1814,7 +1815,7 @@ public class Fields implements Serializable {
    * Field ID # 135. Current mid price time
    * @return midTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 135. Current mid price time")
   @JsonProperty(JSON_PROPERTY_MID_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1840,7 +1841,7 @@ public class Fields implements Serializable {
    * Field ID # 132. Cumulative volume
    * @return cvol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 132. Cumulative volume")
   @JsonProperty(JSON_PROPERTY_CVOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1866,7 +1867,7 @@ public class Fields implements Serializable {
    * Field ID # 341. Turnover
    * @return turnover
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 341. Turnover")
   @JsonProperty(JSON_PROPERTY_TURNOVER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1892,7 +1893,7 @@ public class Fields implements Serializable {
    * Field ID # 780. Volume Weighted Average Price
    * @return vwap
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 780. Volume Weighted Average Price")
   @JsonProperty(JSON_PROPERTY_VWAP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1918,7 +1919,7 @@ public class Fields implements Serializable {
    * Field ID # 267. Cumulative trade count
    * @return tradeCount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 267. Cumulative trade count")
   @JsonProperty(JSON_PROPERTY_TRADE_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1944,7 +1945,7 @@ public class Fields implements Serializable {
    * Field ID # 269. Cumulative block count
    * @return blockTradeCount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 269. Cumulative block count")
   @JsonProperty(JSON_PROPERTY_BLOCK_TRADE_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1970,7 +1971,7 @@ public class Fields implements Serializable {
    * Field ID # 271. Cumulative block volume
    * @return blockCvol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 271. Cumulative block volume")
   @JsonProperty(JSON_PROPERTY_BLOCK_CVOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1996,7 +1997,7 @@ public class Fields implements Serializable {
    * Field ID # 208. Previous trading days Close
    * @return prevClose
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 208. Previous trading days Close")
   @JsonProperty(JSON_PROPERTY_PREV_CLOSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2022,7 +2023,7 @@ public class Fields implements Serializable {
    * Field ID # 1051. Previous trading days Closing Date
    * @return closeDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 1051. Previous trading days Closing Date")
   @JsonProperty(JSON_PROPERTY_CLOSE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2048,7 +2049,7 @@ public class Fields implements Serializable {
    * Field ID # 892. Unadjusted Previous trading days Close
    * @return prevCloseUnadj
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 892. Unadjusted Previous trading days Close")
   @JsonProperty(JSON_PROPERTY_PREV_CLOSE_UNADJ)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2074,7 +2075,7 @@ public class Fields implements Serializable {
    * Field ID # 1172. Previous trading days Close  late rollover[1]
    * @return prevClose2
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 1172. Previous trading days Close  late rollover[1]")
   @JsonProperty(JSON_PROPERTY_PREV_CLOSE2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2100,7 +2101,7 @@ public class Fields implements Serializable {
    * Field ID # 1176. Unadjusted Previous trading days Close  late rollover
    * @return prevCloseUnadj2
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 1176. Unadjusted Previous trading days Close  late rollover")
   @JsonProperty(JSON_PROPERTY_PREV_CLOSE_UNADJ2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2126,7 +2127,7 @@ public class Fields implements Serializable {
    * Field ID # 1093. Lower trading band
    * @return lowerTradingBand
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 1093. Lower trading band")
   @JsonProperty(JSON_PROPERTY_LOWER_TRADING_BAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2152,7 +2153,7 @@ public class Fields implements Serializable {
    * Field ID # 1087. Upper trading band
    * @return upperTradingBand
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 1087. Upper trading band")
   @JsonProperty(JSON_PROPERTY_UPPER_TRADING_BAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2178,7 +2179,7 @@ public class Fields implements Serializable {
    * Field ID # 495. NYSE buy imbalance
    * @return buyImbalance
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 495. NYSE buy imbalance")
   @JsonProperty(JSON_PROPERTY_BUY_IMBALANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2204,7 +2205,7 @@ public class Fields implements Serializable {
    * Field ID # 496. NYSE sell imbalance
    * @return sellImbalance
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 496. NYSE sell imbalance")
   @JsonProperty(JSON_PROPERTY_SELL_IMBALANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2230,7 +2231,7 @@ public class Fields implements Serializable {
    * Field ID # 948. NAS buy imbalance
    * @return nasBuyImbalance
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 948. NAS buy imbalance")
   @JsonProperty(JSON_PROPERTY_NAS_BUY_IMBALANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2256,7 +2257,7 @@ public class Fields implements Serializable {
    * Field ID # 949. NAS sell imbalance
    * @return nasSellImbalance
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 949. NAS sell imbalance")
   @JsonProperty(JSON_PROPERTY_NAS_SELL_IMBALANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2282,7 +2283,7 @@ public class Fields implements Serializable {
    * Field ID # 158. The Open Range 1 or Open Price
    * @return open
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 158. The Open Range 1 or Open Price")
   @JsonProperty(JSON_PROPERTY_OPEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2308,7 +2309,7 @@ public class Fields implements Serializable {
    * Field ID # 107. Current high for the day
    * @return high
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 107. Current high for the day")
   @JsonProperty(JSON_PROPERTY_HIGH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2334,7 +2335,7 @@ public class Fields implements Serializable {
    * Field ID # 307. Current low for the day
    * @return low
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 307. Current low for the day")
   @JsonProperty(JSON_PROPERTY_LOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2360,7 +2361,7 @@ public class Fields implements Serializable {
    * Field ID # 530. Venue
    * @return venue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 530. Venue")
   @JsonProperty(JSON_PROPERTY_VENUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2386,7 +2387,7 @@ public class Fields implements Serializable {
    * Field ID # 1820. Buy Id
    * @return buyId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 1820. Buy Id")
   @JsonProperty(JSON_PROPERTY_BUY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2412,7 +2413,7 @@ public class Fields implements Serializable {
    * Field ID # 1824. Sell Id
    * @return sellId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 1824. Sell Id")
   @JsonProperty(JSON_PROPERTY_SELL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2438,7 +2439,7 @@ public class Fields implements Serializable {
    * Field ID # 637. VWAP including only order book (automatic) trades
    * @return autoTradeVwap
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 637. VWAP including only order book (automatic) trades")
   @JsonProperty(JSON_PROPERTY_AUTO_TRADE_VWAP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2464,7 +2465,7 @@ public class Fields implements Serializable {
    * Field ID # 635. Cumulative Volume calculated on all automated trading volumes for order-based segments
    * @return autoTradeCvol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 635. Cumulative Volume calculated on all automated trading volumes for order-based segments")
   @JsonProperty(JSON_PROPERTY_AUTO_TRADE_CVOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2490,7 +2491,7 @@ public class Fields implements Serializable {
    * Field ID # 636. Trade Quantity including only order book (automatic) trades
    * @return autoTradeCount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 636. Trade Quantity including only order book (automatic) trades")
   @JsonProperty(JSON_PROPERTY_AUTO_TRADE_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2516,7 +2517,7 @@ public class Fields implements Serializable {
    * Field ID # 531. Ex-Date Status
    * @return exDateStatus
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 531. Ex-Date Status")
   @JsonProperty(JSON_PROPERTY_EX_DATE_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2542,7 +2543,7 @@ public class Fields implements Serializable {
    * Field ID # 896. Net change in pre-market session(US stocks only)
    * @return premktNetChange
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 896. Net change in pre-market session(US stocks only)")
   @JsonProperty(JSON_PROPERTY_PREMKT_NET_CHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2568,7 +2569,7 @@ public class Fields implements Serializable {
    * Field ID # 897. Percent change in pre-market session(US stocks only)
    * @return premktPercentChange
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 897. Percent change in pre-market session(US stocks only)")
   @JsonProperty(JSON_PROPERTY_PREMKT_PERCENT_CHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2594,7 +2595,7 @@ public class Fields implements Serializable {
    * Field ID # 1345. Volume of the closing trade
    * @return closingVol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 1345. Volume of the closing trade")
   @JsonProperty(JSON_PROPERTY_CLOSING_VOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2620,7 +2621,7 @@ public class Fields implements Serializable {
    * Field ID # 1517. FactSet Exchange Code of primary market for instrument. Determined by highest trading volume over a 3-day calendar period
    * @return primaryMarket
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 1517. FactSet Exchange Code of primary market for instrument. Determined by highest trading volume over a 3-day calendar period")
   @JsonProperty(JSON_PROPERTY_PRIMARY_MARKET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2646,7 +2647,7 @@ public class Fields implements Serializable {
    * Field ID # 1621. Three Letter Country Code from ISO-3166
    * @return isoCountryExchange
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 1621. Three Letter Country Code from ISO-3166")
   @JsonProperty(JSON_PROPERTY_ISO_COUNTRY_EXCHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2672,7 +2673,7 @@ public class Fields implements Serializable {
    * Field ID # 1743. Premarket Exchange. Enumeration in Data Service Manual. 
    * @return premktExch
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 1743. Premarket Exchange. Enumeration in Data Service Manual. ")
   @JsonProperty(JSON_PROPERTY_PREMKT_EXCH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2698,7 +2699,7 @@ public class Fields implements Serializable {
    * Field ID # 1744. Post Market Exchange. Enumeration in Data Service Manual.
    * @return postmktExch
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 1744. Post Market Exchange. Enumeration in Data Service Manual.")
   @JsonProperty(JSON_PROPERTY_POSTMKT_EXCH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2724,7 +2725,7 @@ public class Fields implements Serializable {
    * Field ID # 1751. The Security type returned by FREF_SECURITY_type
    * @return frefSecurityType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 1751. The Security type returned by FREF_SECURITY_type")
   @JsonProperty(JSON_PROPERTY_FREF_SECURITY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2750,7 +2751,7 @@ public class Fields implements Serializable {
    * Field ID # 1762. Sub type of the security populated for funds right now
    * @return securitySubType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 1762. Sub type of the security populated for funds right now")
   @JsonProperty(JSON_PROPERTY_SECURITY_SUB_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2776,7 +2777,7 @@ public class Fields implements Serializable {
    * Field ID # 1881. Post Market Net Change
    * @return postmktNetChange
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 1881. Post Market Net Change")
   @JsonProperty(JSON_PROPERTY_POSTMKT_NET_CHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2802,7 +2803,7 @@ public class Fields implements Serializable {
    * Field ID # 1882. Post Market Percent Change. 
    * @return postmktPercentChange
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 1882. Post Market Percent Change. ")
   @JsonProperty(JSON_PROPERTY_POSTMKT_PERCENT_CHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2828,7 +2829,7 @@ public class Fields implements Serializable {
    * Field ID # 12. ISIN
    * @return isin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 12. ISIN")
   @JsonProperty(JSON_PROPERTY_ISIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2854,7 +2855,7 @@ public class Fields implements Serializable {
    * Field ID # 14. CUSIP
    * @return cusip
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 14. CUSIP")
   @JsonProperty(JSON_PROPERTY_CUSIP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2880,7 +2881,7 @@ public class Fields implements Serializable {
    * Field ID # 15. SEDOL
    * @return sedol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 15. SEDOL")
   @JsonProperty(JSON_PROPERTY_SEDOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2906,7 +2907,7 @@ public class Fields implements Serializable {
    * Field ID # 8. Security Description
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 8. Security Description")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2932,7 +2933,7 @@ public class Fields implements Serializable {
    * Field ID # 29. Total number of shares outstanding
    * @return sharesOutstanding
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 29. Total number of shares outstanding")
   @JsonProperty(JSON_PROPERTY_SHARES_OUTSTANDING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2958,7 +2959,7 @@ public class Fields implements Serializable {
    * Field ID # 62. Price currency code
    * @return priceCurrency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 62. Price currency code")
   @JsonProperty(JSON_PROPERTY_PRICE_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2984,7 +2985,7 @@ public class Fields implements Serializable {
    * Field ID # 2800. Security Status or Halt Indicator. Enumeration in Data manual
    * @return securityStatus
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 2800. Security Status or Halt Indicator. Enumeration in Data manual")
   @JsonProperty(JSON_PROPERTY_SECURITY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -3010,7 +3011,7 @@ public class Fields implements Serializable {
    * Field ID # 389. GMT Offset in Minutes
    * @return gmtOffset
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 389. GMT Offset in Minutes")
   @JsonProperty(JSON_PROPERTY_GMT_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -3036,7 +3037,7 @@ public class Fields implements Serializable {
    * Field ID # 650. Market segment
    * @return marketSegment
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 650. Market segment")
   @JsonProperty(JSON_PROPERTY_MARKET_SEGMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -3062,7 +3063,7 @@ public class Fields implements Serializable {
    * Field ID # 651. Market sector
    * @return marketSector
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 651. Market sector")
   @JsonProperty(JSON_PROPERTY_MARKET_SECTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -3088,7 +3089,7 @@ public class Fields implements Serializable {
    * Field ID # 633. Period
    * @return period
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 633. Period")
   @JsonProperty(JSON_PROPERTY_PERIOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -3114,7 +3115,7 @@ public class Fields implements Serializable {
    * Field ID # 652. ISO Country code
    * @return countryCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 652. ISO Country code")
   @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -3140,7 +3141,7 @@ public class Fields implements Serializable {
    * Field ID # 1896. Financial Status Enumeration Table
    * @return financialStatus
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 1896. Financial Status Enumeration Table")
   @JsonProperty(JSON_PROPERTY_FINANCIAL_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -3166,7 +3167,7 @@ public class Fields implements Serializable {
    * Field ID # 722. FactSet Industry Classification
    * @return factsetIndustry
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 722. FactSet Industry Classification")
   @JsonProperty(JSON_PROPERTY_FACTSET_INDUSTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -3192,7 +3193,7 @@ public class Fields implements Serializable {
    * Field ID # 723. FactSet Sector Classification
    * @return factsetSector
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 723. FactSet Sector Classification")
   @JsonProperty(JSON_PROPERTY_FACTSET_SECTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -3218,7 +3219,7 @@ public class Fields implements Serializable {
    * Field ID # 1414. Halt Status
    * @return haltInfo
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 1414. Halt Status")
   @JsonProperty(JSON_PROPERTY_HALT_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -3244,7 +3245,7 @@ public class Fields implements Serializable {
    * Field ID # 724. Company Homepage
    * @return homepage
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 724. Company Homepage")
   @JsonProperty(JSON_PROPERTY_HOMEPAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -3270,7 +3271,7 @@ public class Fields implements Serializable {
    * Field ID # 1184. Halt description
    * @return haltDescription
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 1184. Halt description")
   @JsonProperty(JSON_PROPERTY_HALT_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -3296,7 +3297,7 @@ public class Fields implements Serializable {
    * Field ID # 1182. Currency the Exchange sends the prices to FactSet in
    * @return feedCurrency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 1182. Currency the Exchange sends the prices to FactSet in")
   @JsonProperty(JSON_PROPERTY_FEED_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -3322,7 +3323,7 @@ public class Fields implements Serializable {
    * Field ID # 1190. Name of Country
    * @return countryName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 1190. Name of Country")
   @JsonProperty(JSON_PROPERTY_COUNTRY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -3348,7 +3349,7 @@ public class Fields implements Serializable {
    * Field ID # 427. Number of securities in a lot
    * @return orderLotSize
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 427. Number of securities in a lot")
   @JsonProperty(JSON_PROPERTY_ORDER_LOT_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -3374,7 +3375,7 @@ public class Fields implements Serializable {
    * Field ID # 1335. The minimum number of lots required to trade
    * @return tradeLotSize
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 1335. The minimum number of lots required to trade")
   @JsonProperty(JSON_PROPERTY_TRADE_LOT_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -3400,7 +3401,7 @@ public class Fields implements Serializable {
    * Field ID # 1499. Tick Size
    * @return tickSize
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 1499. Tick Size")
   @JsonProperty(JSON_PROPERTY_TICK_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -3426,7 +3427,7 @@ public class Fields implements Serializable {
    * Field ID # 1507. Tick Group
    * @return tickGroup
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 1507. Tick Group")
   @JsonProperty(JSON_PROPERTY_TICK_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -3452,7 +3453,7 @@ public class Fields implements Serializable {
    * Field ID # 1508. Tick Pilot effective day
    * @return tickPilotEffDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 1508. Tick Pilot effective day")
   @JsonProperty(JSON_PROPERTY_TICK_PILOT_EFF_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -3478,7 +3479,7 @@ public class Fields implements Serializable {
    * Field ID # 709. Average cumulative volume for last 30 days
    * @return avg30DayVol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 709. Average cumulative volume for last 30 days")
   @JsonProperty(JSON_PROPERTY_AVG30_DAY_VOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -3504,7 +3505,7 @@ public class Fields implements Serializable {
    * Field ID # 719. Average cumulative volume over last 5 trading days
    * @return avg5DayVol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 719. Average cumulative volume over last 5 trading days")
   @JsonProperty(JSON_PROPERTY_AVG5_DAY_VOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -3530,7 +3531,7 @@ public class Fields implements Serializable {
    * Field ID # 767. 52 Week High Price
    * @return high52Week
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 767. 52 Week High Price")
   @JsonProperty(JSON_PROPERTY_HIGH52_WEEK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -3556,7 +3557,7 @@ public class Fields implements Serializable {
    * Field ID # 768. 52 Week Low Price
    * @return low52Week
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 768. 52 Week Low Price")
   @JsonProperty(JSON_PROPERTY_LOW52_WEEK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -3582,7 +3583,7 @@ public class Fields implements Serializable {
    * Field ID # 1220. 52 Week High Price Date
    * @return high52WeekDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 1220. 52 Week High Price Date")
   @JsonProperty(JSON_PROPERTY_HIGH52_WEEK_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -3608,7 +3609,7 @@ public class Fields implements Serializable {
    * Field ID # 1295. 52 Week Low Price Date
    * @return low52WeekDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 1295. 52 Week Low Price Date")
   @JsonProperty(JSON_PROPERTY_LOW52_WEEK_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -3634,7 +3635,7 @@ public class Fields implements Serializable {
    * Field ID # 174. Trade Condition
    * @return tradeCondition
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 174. Trade Condition")
   @JsonProperty(JSON_PROPERTY_TRADE_CONDITION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -3660,7 +3661,7 @@ public class Fields implements Serializable {
    * Field ID # 746. 3 Month return for US mutual funds
    * @return totalReturn3M
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 746. 3 Month return for US mutual funds")
   @JsonProperty(JSON_PROPERTY_TOTAL_RETURN3_M)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -3686,7 +3687,7 @@ public class Fields implements Serializable {
    * Field ID # 747. 52-Week Total Return for US mutual funds
    * @return totalReturn52W
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Field ID # 747. 52-Week Total Return for US mutual funds")
   @JsonProperty(JSON_PROPERTY_TOTAL_RETURN52_W)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

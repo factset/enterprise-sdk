@@ -55,7 +55,8 @@ import com.factset.sdk.FactSetGlobalPrices.JSON;
   SharesOutstandingResponseObject.JSON_PROPERTY_TOTAL_OUTSTANDING,
   SharesOutstandingResponseObject.JSON_PROPERTY_ADR_TOTAL_OUTSTANDING
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SharesOutstandingResponseObject implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -116,7 +117,7 @@ public class SharesOutstandingResponseObject implements Serializable {
    * Security-level FactSet Permanent Identifier associated with the identifier.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "C6J726-S", value = "Security-level FactSet Permanent Identifier associated with the identifier.")
   @JsonIgnore
 
@@ -150,7 +151,7 @@ public class SharesOutstandingResponseObject implements Serializable {
    * Date of the record in YYYY-MM-DD format.
    * @return date
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Wed Aug 10 00:00:00 UTC 2022", value = "Date of the record in YYYY-MM-DD format.")
   @JsonIgnore
 
@@ -184,7 +185,7 @@ public class SharesOutstandingResponseObject implements Serializable {
    * Unique Identifier for each document or filing which contains the outstanding shares position.
    * @return documentId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "956881", value = "Unique Identifier for each document or filing which contains the outstanding shares position.")
   @JsonIgnore
 
@@ -218,7 +219,7 @@ public class SharesOutstandingResponseObject implements Serializable {
    * FactSet Security Permanent Identifier that was used for the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "C6J726-S", value = "FactSet Security Permanent Identifier that was used for the request.")
   @JsonIgnore
 
@@ -252,7 +253,7 @@ public class SharesOutstandingResponseObject implements Serializable {
    * Reporting date of the position.
    * @return reportDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Tue Aug 02 00:00:00 UTC 2022", value = "Reporting date of the position.")
   @JsonIgnore
 
@@ -286,7 +287,7 @@ public class SharesOutstandingResponseObject implements Serializable {
    * Exact date that results have been communicated to the market.
    * @return publicationDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Thu Aug 04 00:00:00 UTC 2022", value = "Exact date that results have been communicated to the market.")
   @JsonIgnore
 
@@ -320,7 +321,7 @@ public class SharesOutstandingResponseObject implements Serializable {
    * The company&#39;s fiscal year corresponding to the report.
    * @return fiscalYear
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2022", value = "The company's fiscal year corresponding to the report.")
   @JsonIgnore
 
@@ -354,7 +355,7 @@ public class SharesOutstandingResponseObject implements Serializable {
    * Textual description of the reporting period.
    * @return reportingPeriodDescription
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2nd Quarter", value = "Textual description of the reporting period.")
   @JsonIgnore
 
@@ -388,7 +389,7 @@ public class SharesOutstandingResponseObject implements Serializable {
    * Code representing the unique reporting period. Options are as follows: - 1 - 1st Quarter - 2 - 2nd Quarter - 3 - 3rd Quarter - 4 - 4th Quarter - 6 - Mid-Year 
    * @return reportingPeriod
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "3", value = "Code representing the unique reporting period. Options are as follows: - 1 - 1st Quarter - 2 - 2nd Quarter - 3 - 3rd Quarter - 4 - 4th Quarter - 6 - Mid-Year ")
   @JsonIgnore
 
@@ -422,7 +423,7 @@ public class SharesOutstandingResponseObject implements Serializable {
    * Different stock types based on the rights and benefits from ownership.
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Class A Shares", value = "Different stock types based on the rights and benefits from ownership.")
   @JsonIgnore
 
@@ -456,7 +457,7 @@ public class SharesOutstandingResponseObject implements Serializable {
    * Different stock types based on the rights and benefits from ownership for the ADR.
    * @return adrDescription
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Class A Shares", value = "Different stock types based on the rights and benefits from ownership for the ADR.")
   @JsonIgnore
 
@@ -490,7 +491,7 @@ public class SharesOutstandingResponseObject implements Serializable {
    * Number of common or ordinary shares that are equivalent to one American Depositary Receipt (ADR).
    * @return adrRatio
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0.5", value = "Number of common or ordinary shares that are equivalent to one American Depositary Receipt (ADR).")
   @JsonIgnore
 
@@ -524,7 +525,7 @@ public class SharesOutstandingResponseObject implements Serializable {
    * Unique FactSet generated identifier assigned to a security, representing the ADR security.
    * @return adrFsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "V9GGRZ-S", value = "Unique FactSet generated identifier assigned to a security, representing the ADR security.")
   @JsonIgnore
 
@@ -558,7 +559,7 @@ public class SharesOutstandingResponseObject implements Serializable {
    * Number of shares outstanding as of &#x60;date&#x60;.
    * @return totalOutstanding
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1351.828", value = "Number of shares outstanding as of `date`.")
   @JsonIgnore
 
@@ -592,7 +593,7 @@ public class SharesOutstandingResponseObject implements Serializable {
    * Number of shares outstanding for the ADR as of &#x60;date&#x60;.
    * @return adrTotalOutstanding
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "980.22284", value = "Number of shares outstanding for the ADR as of `date`.")
   @JsonIgnore
 

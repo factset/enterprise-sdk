@@ -38,7 +38,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   PostBasicMarketListRequestDataFilter.JSON_PROPERTY_MARKETS,
   PostBasicMarketListRequestDataFilter.JSON_PROPERTY_ONLY_ACTIVE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostBasicMarketListRequestDataFilter implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -60,7 +61,7 @@ public class PostBasicMarketListRequestDataFilter implements Serializable {
    * Get markets
    * @return markets
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MARKETS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,7 +87,7 @@ public class PostBasicMarketListRequestDataFilter implements Serializable {
    * Indicates whether the market exists.
    * @return onlyActive
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the market exists.")
   @JsonProperty(JSON_PROPERTY_ONLY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

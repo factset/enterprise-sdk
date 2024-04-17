@@ -40,7 +40,8 @@ import com.factset.sdk.IRNConfiguration.JSON;
   FormulaConfigDto.JSON_PROPERTY_FORMULA,
   FormulaConfigDto.JSON_PROPERTY_FORMULA_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FormulaConfigDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -62,7 +63,7 @@ public class FormulaConfigDto implements Serializable {
    * Get formula
    * @return formula
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -96,7 +97,7 @@ public class FormulaConfigDto implements Serializable {
    * Get formulaType
    * @return formulaType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

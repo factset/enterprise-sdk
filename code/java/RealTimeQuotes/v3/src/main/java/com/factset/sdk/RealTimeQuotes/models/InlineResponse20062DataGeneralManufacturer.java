@@ -43,7 +43,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20062DataGeneralManufacturer.JSON_PROPERTY_NAME,
   InlineResponse20062DataGeneralManufacturer.JSON_PROPERTY_LEI
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20062DataGeneralManufacturer implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class InlineResponse20062DataGeneralManufacturer implements Serializable 
    * Identifier of the manufacturer.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the manufacturer.")
   @JsonIgnore
 
@@ -102,7 +103,7 @@ public class InlineResponse20062DataGeneralManufacturer implements Serializable 
    * Name of the manufacturer.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the manufacturer.")
   @JsonIgnore
 
@@ -136,7 +137,7 @@ public class InlineResponse20062DataGeneralManufacturer implements Serializable 
    * Legal entity identifier (LEI) of the manufacturer.
    * @return lei
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Legal entity identifier (LEI) of the manufacturer.")
   @JsonIgnore
 

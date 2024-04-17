@@ -55,7 +55,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2001DataBalanceSheet.JSON_PROPERTY_TOTAL_DEPOSITS,
   InlineResponse2001DataBalanceSheet.JSON_PROPERTY_TOTAL_CASH
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2001DataBalanceSheet implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -101,7 +102,7 @@ public class InlineResponse2001DataBalanceSheet implements Serializable {
    * Get cashAndShortTermInvestments
    * @return cashAndShortTermInvestments
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CASH_AND_SHORT_TERM_INVESTMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -127,7 +128,7 @@ public class InlineResponse2001DataBalanceSheet implements Serializable {
    * Get totalAssets
    * @return totalAssets
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TOTAL_ASSETS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -153,7 +154,7 @@ public class InlineResponse2001DataBalanceSheet implements Serializable {
    * Get totalDebt
    * @return totalDebt
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TOTAL_DEBT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -179,7 +180,7 @@ public class InlineResponse2001DataBalanceSheet implements Serializable {
    * Get netDebt
    * @return netDebt
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NET_DEBT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -205,7 +206,7 @@ public class InlineResponse2001DataBalanceSheet implements Serializable {
    * Get totalLiabilities
    * @return totalLiabilities
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TOTAL_LIABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -231,7 +232,7 @@ public class InlineResponse2001DataBalanceSheet implements Serializable {
    * Get totalShareholdersEquity
    * @return totalShareholdersEquity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TOTAL_SHAREHOLDERS_EQUITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -257,7 +258,7 @@ public class InlineResponse2001DataBalanceSheet implements Serializable {
    * Get totalLoans
    * @return totalLoans
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TOTAL_LOANS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -283,7 +284,7 @@ public class InlineResponse2001DataBalanceSheet implements Serializable {
    * Get cashAndDueFromBanks
    * @return cashAndDueFromBanks
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CASH_AND_DUE_FROM_BANKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -309,7 +310,7 @@ public class InlineResponse2001DataBalanceSheet implements Serializable {
    * Get totalDeposits
    * @return totalDeposits
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TOTAL_DEPOSITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -335,7 +336,7 @@ public class InlineResponse2001DataBalanceSheet implements Serializable {
    * Get totalCash
    * @return totalCash
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TOTAL_CASH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

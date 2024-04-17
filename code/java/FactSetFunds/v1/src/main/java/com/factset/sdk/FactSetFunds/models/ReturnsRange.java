@@ -44,7 +44,8 @@ import com.factset.sdk.FactSetFunds.JSON;
   ReturnsRange.JSON_PROPERTY_RETURN_END_DATE,
   ReturnsRange.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ReturnsRange implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -75,7 +76,7 @@ public class ReturnsRange implements Serializable {
    * FactSet Security Identifier. Six alpha-numeric characters, excluding vowels, with a -S suffix (XXXXXX-S), resolved from the requestId of the Fund requested.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FNK7XP-S", value = "FactSet Security Identifier. Six alpha-numeric characters, excluding vowels, with a -S suffix (XXXXXX-S), resolved from the requestId of the Fund requested.")
   @JsonIgnore
 
@@ -109,7 +110,7 @@ public class ReturnsRange implements Serializable {
    * The Return calculated between two dates. The return type is determined by including or excluding dividends through the dividendAdjust parameter.
    * @return _return
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "-3.16187341965815", value = "The Return calculated between two dates. The return type is determined by including or excluding dividends through the dividendAdjust parameter.")
   @JsonIgnore
 
@@ -143,7 +144,7 @@ public class ReturnsRange implements Serializable {
    * The start date of the return in YYYY-MM-DD format. *NOTE - the startDate cannot be less than the &#x60;priceFirstDate&#x60; which can be accessed in the /summary endpoint.
    * @return returnStartDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Wed Apr 18 00:00:00 UTC 2018", value = "The start date of the return in YYYY-MM-DD format. *NOTE - the startDate cannot be less than the `priceFirstDate` which can be accessed in the /summary endpoint.")
   @JsonIgnore
 
@@ -177,7 +178,7 @@ public class ReturnsRange implements Serializable {
    * The end date of the return in YYYY-MM-DD format. The start date of the return in YYYY-MM-DD format. *NOTE - the startDate cannot be less than the &#x60;priceFirstDate&#x60; which can be accessed in the /summary endpoint.
    * @return returnEndDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Tue Mar 30 00:00:00 UTC 2021", value = "The end date of the return in YYYY-MM-DD format. The start date of the return in YYYY-MM-DD format. *NOTE - the startDate cannot be less than the `priceFirstDate` which can be accessed in the /summary endpoint.")
   @JsonIgnore
 
@@ -211,7 +212,7 @@ public class ReturnsRange implements Serializable {
    * The requested Id sent as input.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "MABAX", value = "The requested Id sent as input.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

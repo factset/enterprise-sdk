@@ -40,7 +40,8 @@ import com.factset.sdk.DocumentsDistributorCallStreetEvents.JSON;
   NRTSnippetsData.JSON_PROPERTY_SNIPPET_SEQUENCE,
   NRTSnippetsData.JSON_PROPERTY_AUDIO_SOURCE_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class NRTSnippetsData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -71,7 +72,7 @@ public class NRTSnippetsData implements Serializable {
    * The unique ID for an event.
    * @return reportId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The unique ID for an event.")
   @JsonProperty(JSON_PROPERTY_REPORT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -97,7 +98,7 @@ public class NRTSnippetsData implements Serializable {
    * The snippet end time is calculated based off the endTime in the snippetData section and the recordingStartTime from the calls endpoint.
    * @return snippetEndTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The snippet end time is calculated based off the endTime in the snippetData section and the recordingStartTime from the calls endpoint.")
   @JsonProperty(JSON_PROPERTY_SNIPPET_END_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -131,7 +132,7 @@ public class NRTSnippetsData implements Serializable {
    * Get transcriptData
    * @return transcriptData
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TRANSCRIPT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -157,7 +158,7 @@ public class NRTSnippetsData implements Serializable {
    * The sequence number of the snippet from the start of the current call. 
    * @return snippetSequence
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The sequence number of the snippet from the start of the current call. ")
   @JsonProperty(JSON_PROPERTY_SNIPPET_SEQUENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -183,7 +184,7 @@ public class NRTSnippetsData implements Serializable {
    * The Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from a different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs.
    * @return audioSourceId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from a different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs.")
   @JsonProperty(JSON_PROPERTY_AUDIO_SOURCE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -36,7 +36,8 @@ import com.factset.sdk.OpenRisk.JSON;
 @JsonPropertyOrder({
   SupportedStats.JSON_PROPERTY_DATA
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SupportedStats implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class SupportedStats implements Serializable {
    * Contains all available risk statistics. In the event &#39;data&#39; property is empty, no stats are available at all.
    * @return data
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Contains all available risk statistics. In the event 'data' property is empty, no stats are available at all.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

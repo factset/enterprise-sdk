@@ -41,7 +41,8 @@ import com.factset.sdk.RealTimeNews.JSON;
   InlineResponse2002Data.JSON_PROPERTY_PUBLISHER,
   InlineResponse2002Data.JSON_PROPERTY_ARTICLES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2002Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -66,7 +67,7 @@ public class InlineResponse2002Data implements Serializable {
    * Get distributor
    * @return distributor
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DISTRIBUTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -92,7 +93,7 @@ public class InlineResponse2002Data implements Serializable {
    * Get publisher
    * @return publisher
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PUBLISHER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -126,7 +127,7 @@ public class InlineResponse2002Data implements Serializable {
    * News articles that match the filter criteria ordered by descending article time.
    * @return articles
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "News articles that match the filter criteria ordered by descending article time.")
   @JsonProperty(JSON_PROPERTY_ARTICLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

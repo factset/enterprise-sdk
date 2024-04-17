@@ -44,7 +44,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2001DataBalanceSheetTotalDebt.JSON_PROPERTY_RATIO_TO_TOTAL_ASSETS,
   InlineResponse2001DataBalanceSheetTotalDebt.JSON_PROPERTY_RATIO_TO_TOTAL_EQUITY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2001DataBalanceSheetTotalDebt implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -72,7 +73,7 @@ public class InlineResponse2001DataBalanceSheetTotalDebt implements Serializable
    * Value of the total debt.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Value of the total debt.")
   @JsonIgnore
 
@@ -106,7 +107,7 @@ public class InlineResponse2001DataBalanceSheetTotalDebt implements Serializable
    * Annual growth rate of the total debt.
    * @return growth
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Annual growth rate of the total debt.")
   @JsonIgnore
 
@@ -140,7 +141,7 @@ public class InlineResponse2001DataBalanceSheetTotalDebt implements Serializable
    * Total-debt-to-total-assets ratio, which is the ratio of the total debt, divided by the total assets.
    * @return ratioToTotalAssets
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Total-debt-to-total-assets ratio, which is the ratio of the total debt, divided by the total assets.")
   @JsonIgnore
 
@@ -174,7 +175,7 @@ public class InlineResponse2001DataBalanceSheetTotalDebt implements Serializable
    * Total-debt-to-total-equity ratio, which is the ratio of the total debt, divided by the total shareholders&#39; equity.
    * @return ratioToTotalEquity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Total-debt-to-total-equity ratio, which is the ratio of the total debt, divided by the total shareholders' equity.")
   @JsonIgnore
 

@@ -42,7 +42,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2008DataOwnership.JSON_PROPERTY_FRACTION,
   InlineResponse2008DataOwnership.JSON_PROPERTY_NUMBER_SHARES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2008DataOwnership implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class InlineResponse2008DataOwnership implements Serializable {
    * Fraction of stocks held by the owner.
    * @return fraction
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Fraction of stocks held by the owner.")
   @JsonIgnore
 
@@ -98,7 +99,7 @@ public class InlineResponse2008DataOwnership implements Serializable {
    * Number of stocks held by the owner.
    * @return numberShares
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of stocks held by the owner.")
   @JsonIgnore
 

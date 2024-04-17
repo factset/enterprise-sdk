@@ -38,7 +38,8 @@ import com.factset.sdk.Portfolio.JSON;
   ModelAccountFields.JSON_PROPERTY_NON_ITERATIVE,
   ModelAccountFields.JSON_PROPERTY_ADDITIONAL_FIELDS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ModelAccountFields implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -76,7 +77,7 @@ public class ModelAccountFields implements Serializable {
    * Get iterative
    * @return iterative
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ITERATIVE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -110,7 +111,7 @@ public class ModelAccountFields implements Serializable {
    * Get nonIterative
    * @return nonIterative
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NON_ITERATIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -144,7 +145,7 @@ public class ModelAccountFields implements Serializable {
    * Get additionalFields
    * @return additionalFields
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

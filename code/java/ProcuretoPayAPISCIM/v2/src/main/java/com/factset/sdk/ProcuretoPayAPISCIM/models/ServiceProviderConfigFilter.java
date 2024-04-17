@@ -37,7 +37,8 @@ import com.factset.sdk.ProcuretoPayAPISCIM.JSON;
   ServiceProviderConfigFilter.JSON_PROPERTY_SUPPORTED,
   ServiceProviderConfigFilter.JSON_PROPERTY_MAX_RESULTS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ServiceProviderConfigFilter implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class ServiceProviderConfigFilter implements Serializable {
    * A Boolean value specifying whether or not the operation is supported.
    * @return supported
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "false", required = true, value = "A Boolean value specifying whether or not the operation is supported.")
   @JsonProperty(JSON_PROPERTY_SUPPORTED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -80,7 +81,7 @@ public class ServiceProviderConfigFilter implements Serializable {
    * An integer value specifying the maximum number of resources returned in a response.
    * @return maxResults
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "0", required = true, value = "An integer value specifying the maximum number of resources returned in a response.")
   @JsonProperty(JSON_PROPERTY_MAX_RESULTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

@@ -46,7 +46,8 @@ import com.factset.sdk.IRNCustomSymbols.JSON;
   SymbolRelationshipUpdateDto.JSON_PROPERTY_END_DATE,
   SymbolRelationshipUpdateDto.JSON_PROPERTY_COMMENT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SymbolRelationshipUpdateDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -83,7 +84,7 @@ public class SymbolRelationshipUpdateDto implements Serializable {
    * Get id
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -109,7 +110,7 @@ public class SymbolRelationshipUpdateDto implements Serializable {
    * Get symbolsRelationshipId
    * @return symbolsRelationshipId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SYMBOLS_RELATIONSHIP_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -135,7 +136,7 @@ public class SymbolRelationshipUpdateDto implements Serializable {
    * Get parentSymbol
    * @return parentSymbol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -169,7 +170,7 @@ public class SymbolRelationshipUpdateDto implements Serializable {
    * Get childSymbol
    * @return childSymbol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -203,7 +204,7 @@ public class SymbolRelationshipUpdateDto implements Serializable {
    * Get startDate
    * @return startDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -237,7 +238,7 @@ public class SymbolRelationshipUpdateDto implements Serializable {
    * Get endDate
    * @return endDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -271,7 +272,7 @@ public class SymbolRelationshipUpdateDto implements Serializable {
    * Get comment
    * @return comment
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

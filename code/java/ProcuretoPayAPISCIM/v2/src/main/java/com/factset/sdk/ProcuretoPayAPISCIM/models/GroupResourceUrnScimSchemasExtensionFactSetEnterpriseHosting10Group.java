@@ -35,7 +35,8 @@ import com.factset.sdk.ProcuretoPayAPISCIM.JSON;
 @JsonPropertyOrder({
   GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group.JSON_PROPERTY_DOMAIN_CODE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -57,7 +58,7 @@ public class GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group
    * Domain code of the Enterprise Hosting pod containing this group.
    * @return domainCode
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "btud", required = true, value = "Domain code of the Enterprise Hosting pod containing this group.")
   @JsonProperty(JSON_PROPERTY_DOMAIN_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

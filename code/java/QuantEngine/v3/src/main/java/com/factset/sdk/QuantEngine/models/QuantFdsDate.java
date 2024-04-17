@@ -45,7 +45,8 @@ import com.factset.sdk.QuantEngine.JSON;
   QuantFdsDate.JSON_PROPERTY_CALENDAR,
   QuantFdsDate.JSON_PROPERTY_OVERRIDE_UNIVERSAL_SCREEN_CALENDAR
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class QuantFdsDate implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -130,7 +131,7 @@ public class QuantFdsDate implements Serializable {
    * Get startDate
    * @return startDate
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_START_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -156,7 +157,7 @@ public class QuantFdsDate implements Serializable {
    * Get endDate
    * @return endDate
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_END_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -182,7 +183,7 @@ public class QuantFdsDate implements Serializable {
    * Get source
    * @return source
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SOURCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -208,7 +209,7 @@ public class QuantFdsDate implements Serializable {
    * Get frequency
    * @return frequency
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_FREQUENCY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -234,7 +235,7 @@ public class QuantFdsDate implements Serializable {
    * Get calendar
    * @return calendar
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CALENDAR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -260,7 +261,7 @@ public class QuantFdsDate implements Serializable {
    * Get overrideUniversalScreenCalendar
    * @return overrideUniversalScreenCalendar
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

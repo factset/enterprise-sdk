@@ -37,7 +37,8 @@ import com.factset.sdk.NaturalLanguageProcessing.JSON;
   NERInputDataSchema.JSON_PROPERTY_FILTER_ENTITIES,
   NERInputDataSchema.JSON_PROPERTY_TEXT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class NERInputDataSchema implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -70,7 +71,7 @@ public class NERInputDataSchema implements Serializable {
    * Retrieve Entity IDs using FactSet concordance systems.
    * @return enableIdLookup
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Retrieve Entity IDs using FactSet concordance systems.")
   @JsonProperty(JSON_PROPERTY_ENABLE_ID_LOOKUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -96,7 +97,7 @@ public class NERInputDataSchema implements Serializable {
    * Drop potentially spurious entities based on filtering rules
    * @return filterEntities
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Drop potentially spurious entities based on filtering rules")
   @JsonProperty(JSON_PROPERTY_FILTER_ENTITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -122,7 +123,7 @@ public class NERInputDataSchema implements Serializable {
    * English plain-text from which entities should be retrieved
    * @return text
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(example = "Phil Snow is the CEO of FactSet Research Systems Inc. (NYSE:FDS), with its headquarter at NORWALK, Conn., Sept. 22, 2015 (GLOBE NEWSWIRE).", required = true, value = "English plain-text from which entities should be retrieved")
   @JsonProperty(JSON_PROPERTY_TEXT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

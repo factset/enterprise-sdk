@@ -6,7 +6,7 @@ import com.factset.sdk.OpenRisk.ApiResponse;
 import com.factset.sdk.OpenRisk.Configuration;
 import com.factset.sdk.OpenRisk.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -20,7 +20,8 @@ import com.factset.sdk.OpenRisk.models.InlineResponse404;
 import com.factset.sdk.OpenRisk.models.SupportedStats;
 import com.factset.sdk.OpenRisk.models.SupportedStatsNamesOnly;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class AboutApi {
   private ApiClient apiClient;
 

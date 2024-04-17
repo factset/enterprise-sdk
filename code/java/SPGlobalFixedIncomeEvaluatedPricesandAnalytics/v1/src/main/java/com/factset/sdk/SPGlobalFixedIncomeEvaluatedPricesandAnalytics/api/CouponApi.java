@@ -6,7 +6,7 @@ import com.factset.sdk.SPGlobalFixedIncomeEvaluatedPricesandAnalytics.ApiRespons
 import com.factset.sdk.SPGlobalFixedIncomeEvaluatedPricesandAnalytics.Configuration;
 import com.factset.sdk.SPGlobalFixedIncomeEvaluatedPricesandAnalytics.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -15,7 +15,8 @@ import com.factset.sdk.SPGlobalFixedIncomeEvaluatedPricesandAnalytics.models.Bon
 import com.factset.sdk.SPGlobalFixedIncomeEvaluatedPricesandAnalytics.models.BondCouponResponse;
 import com.factset.sdk.SPGlobalFixedIncomeEvaluatedPricesandAnalytics.models.ErrorResponse;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CouponApi {
   private ApiClient apiClient;
 

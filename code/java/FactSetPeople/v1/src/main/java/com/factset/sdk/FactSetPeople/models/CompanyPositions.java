@@ -49,7 +49,8 @@ import com.factset.sdk.FactSetPeople.JSON;
   CompanyPositions.JSON_PROPERTY_REQUEST_POSITION,
   CompanyPositions.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CompanyPositions implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -92,7 +93,7 @@ public class CompanyPositions implements Serializable {
    * FactSet Identifier for the company.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "006XY7-E", value = "FactSet Identifier for the company.")
   @JsonIgnore
 
@@ -126,7 +127,7 @@ public class CompanyPositions implements Serializable {
    * Factset Entity Identifier for the Person
    * @return personId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "05H8B8-E", value = "Factset Entity Identifier for the Person")
   @JsonIgnore
 
@@ -160,7 +161,7 @@ public class CompanyPositions implements Serializable {
    * FactSet Name of the person
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Elon Reeve Musk", value = "FactSet Name of the person")
   @JsonIgnore
 
@@ -194,7 +195,7 @@ public class CompanyPositions implements Serializable {
    * The requested Position Title
    * @return title
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Technoking of Tesla", value = "The requested Position Title")
   @JsonIgnore
 
@@ -228,7 +229,7 @@ public class CompanyPositions implements Serializable {
    * The number of years individual is at firm. For founders, this is since inception.
    * @return yearsAtFirm
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "17.78", value = "The number of years individual is at firm. For founders, this is since inception.")
   @JsonIgnore
 
@@ -262,7 +263,7 @@ public class CompanyPositions implements Serializable {
    * The age of the person requested.
    * @return age
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "48", value = "The age of the person requested.")
   @JsonIgnore
 
@@ -296,7 +297,7 @@ public class CompanyPositions implements Serializable {
    * The Gender of the person requested.
    * @return gender
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Male", value = "The Gender of the person requested.")
   @JsonIgnore
 
@@ -330,7 +331,7 @@ public class CompanyPositions implements Serializable {
    * The requested position code.
    * @return requestPosition
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "CEO", value = "The requested position code.")
   @JsonIgnore
 
@@ -364,7 +365,7 @@ public class CompanyPositions implements Serializable {
    * Original identifier used for the request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "TSLA-US", value = "Original identifier used for the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

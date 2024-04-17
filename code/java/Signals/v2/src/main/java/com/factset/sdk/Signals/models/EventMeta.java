@@ -37,7 +37,8 @@ import com.factset.sdk.Signals.JSON;
   EventMeta.JSON_PROPERTY_SIGNAL_REQUEST_ID,
   EventMeta.JSON_PROPERTY_ID_RESOLUTIONS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EventMeta implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -69,7 +70,7 @@ public class EventMeta implements Serializable {
    * Get signalRequestId
    * @return signalRequestId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SIGNAL_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -95,7 +96,7 @@ public class EventMeta implements Serializable {
    * Get idResolutions
    * @return idResolutions
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ID_RESOLUTIONS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

@@ -45,7 +45,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20014ReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFiguresPerShare.JSON_PROPERTY_BOOK_VALUE,
   InlineResponse20014ReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFiguresPerShare.JSON_PROPERTY_CASH_FLOW
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20014ReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFiguresPerShare implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -76,7 +77,7 @@ public class InlineResponse20014ReportedKeyFiguresFirstFiscalYearCurrencyDepende
    * Total sales revenue per share.
    * @return sales
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Total sales revenue per share.")
   @JsonIgnore
 
@@ -110,7 +111,7 @@ public class InlineResponse20014ReportedKeyFiguresFirstFiscalYearCurrencyDepende
    * Recurring (excluding extraordinary items) diluted earnings per share, which is the ratio of the net income excluding extraordinary items, divided by the diluted shares outstanding. An extraordinary item is an atypical and infrequent gain or loss due to an unforeseeable event.
    * @return recurringDilutedEarnings
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Recurring (excluding extraordinary items) diluted earnings per share, which is the ratio of the net income excluding extraordinary items, divided by the diluted shares outstanding. An extraordinary item is an atypical and infrequent gain or loss due to an unforeseeable event.")
   @JsonIgnore
 
@@ -144,7 +145,7 @@ public class InlineResponse20014ReportedKeyFiguresFirstFiscalYearCurrencyDepende
    * Dividends per share, which is the ratio of the total dividends paid out, divided by the shares outstanding. In general, the figure is based on the gross dividend, i.e. before taxes, except for countries with special tax regimes.
    * @return dividends
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Dividends per share, which is the ratio of the total dividends paid out, divided by the shares outstanding. In general, the figure is based on the gross dividend, i.e. before taxes, except for countries with special tax regimes.")
   @JsonIgnore
 
@@ -178,7 +179,7 @@ public class InlineResponse20014ReportedKeyFiguresFirstFiscalYearCurrencyDepende
    * Book value per share, which is the ratio of the book value (common equity), divided by the shares outstanding.
    * @return bookValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Book value per share, which is the ratio of the book value (common equity), divided by the shares outstanding.")
   @JsonIgnore
 
@@ -212,7 +213,7 @@ public class InlineResponse20014ReportedKeyFiguresFirstFiscalYearCurrencyDepende
    * Cash flow per share, which is the ratio of the net operating cash flow, divided by the diluted shares outstanding.
    * @return cashFlow
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Cash flow per share, which is the ratio of the net operating cash flow, divided by the diluted shares outstanding.")
   @JsonIgnore
 

@@ -39,7 +39,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse200DataFinancialReport.JSON_PROPERTY_ANNUAL,
   InlineResponse200DataFinancialReport.JSON_PROPERTY_SEMI_ANNUAL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse200DataFinancialReport implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -61,7 +62,7 @@ public class InlineResponse200DataFinancialReport implements Serializable {
    * Get annual
    * @return annual
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ANNUAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -87,7 +88,7 @@ public class InlineResponse200DataFinancialReport implements Serializable {
    * Get semiAnnual
    * @return semiAnnual
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SEMI_ANNUAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -42,7 +42,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20015DataMarket.JSON_PROPERTY_NAME,
   InlineResponse20015DataMarket.JSON_PROPERTY_COUNT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20015DataMarket implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -67,7 +68,7 @@ public class InlineResponse20015DataMarket implements Serializable {
    * Identifier of a market.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of a market.")
   @JsonIgnore
 
@@ -101,7 +102,7 @@ public class InlineResponse20015DataMarket implements Serializable {
    * Name of the market.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the market.")
   @JsonIgnore
 
@@ -135,7 +136,7 @@ public class InlineResponse20015DataMarket implements Serializable {
    * Number of notations.
    * @return count
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of notations.")
   @JsonIgnore
 

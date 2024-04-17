@@ -43,7 +43,8 @@ import com.factset.sdk.FactSetFunds.JSON;
   Statuses.JSON_PROPERTY_ISON_F_F_D,
   Statuses.JSON_PROPERTY_REQUEST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Statuses implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -74,7 +75,7 @@ public class Statuses implements Serializable {
    * FactSet Security Identifier. Six alpha-numeric characters, excluding vowels, with a -S suffix (XXXXXX-S), resolved from the requestId of the Fund requested.
    * @return fsymId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "FNK7XP-S", value = "FactSet Security Identifier. Six alpha-numeric characters, excluding vowels, with a -S suffix (XXXXXX-S), resolved from the requestId of the Fund requested.")
   @JsonIgnore
 
@@ -108,7 +109,7 @@ public class Statuses implements Serializable {
    * Binary flag to indicate whether the fund is currently active, where 1 is active and 0 is inactive.
    * @return activeFlag
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "Binary flag to indicate whether the fund is currently active, where 1 is active and 0 is inactive.")
   @JsonIgnore
 
@@ -142,7 +143,7 @@ public class Statuses implements Serializable {
    * Returns a binary indicator of whether the specified share class is currently active, where 1 is active and 0 is inactive.
    * @return shrClassActiveFlag
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "Returns a binary indicator of whether the specified share class is currently active, where 1 is active and 0 is inactive.")
   @JsonIgnore
 
@@ -176,7 +177,7 @@ public class Statuses implements Serializable {
    * Returns a binary indicator of whether the specified fund is available in the FactSet Funds Database (FFD).
    * @return isonFFD
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "1", value = "Returns a binary indicator of whether the specified fund is available in the FactSet Funds Database (FFD).")
   @JsonIgnore
 
@@ -210,7 +211,7 @@ public class Statuses implements Serializable {
    * The requested Id sent as input.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "MABAX", value = "The requested Id sent as input.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -41,7 +41,8 @@ import com.factset.sdk.FixedIncomeAnalyticsBatcher.JSON;
   FIABCalculationParameters.JSON_PROPERTY_MSL,
   FIABCalculationParameters.JSON_PROPERTY_FISETTINGSDOCUMENT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FIABCalculationParameters implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -82,7 +83,7 @@ public class FIABCalculationParameters implements Serializable {
    * FiabDocument (optional) - FIAB document to use as a template. Should  be a path to a FIAB document. Expects a GUI-style path (Client:/foo/bar)
    * @return fiabdocument
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "FiabDocument (optional) - FIAB document to use as a template. Should  be a path to a FIAB document. Expects a GUI-style path (Client:/foo/bar)")
   @JsonProperty(JSON_PROPERTY_FIABDOCUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -108,7 +109,7 @@ public class FIABCalculationParameters implements Serializable {
    * Get account
    * @return account
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -134,7 +135,7 @@ public class FIABCalculationParameters implements Serializable {
    * Get dates
    * @return dates
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -160,7 +161,7 @@ public class FIABCalculationParameters implements Serializable {
    * Master Security List. Analytics results will be written to the selected MSL. Expects a GUI-style path (Client:/foo/bar)
    * @return msl
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Master Security List. Analytics results will be written to the selected MSL. Expects a GUI-style path (Client:/foo/bar)")
   @JsonProperty(JSON_PROPERTY_MSL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -186,7 +187,7 @@ public class FIABCalculationParameters implements Serializable {
    * FISettingsDocument (optional) - The given @FIS document will be used to  configure analytics assumptions and settings. Expects a GUI-style path (Client:/foo/bar)
    * @return fisettingsdocument
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "FISettingsDocument (optional) - The given @FIS document will be used to  configure analytics assumptions and settings. Expects a GUI-style path (Client:/foo/bar)")
   @JsonProperty(JSON_PROPERTY_FISETTINGSDOCUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

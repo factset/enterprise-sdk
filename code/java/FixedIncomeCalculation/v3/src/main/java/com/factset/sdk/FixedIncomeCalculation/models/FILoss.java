@@ -39,7 +39,8 @@ import com.factset.sdk.FixedIncomeCalculation.JSON;
 @JsonPropertyOrder({
   FILoss.JSON_PROPERTY_LOSS_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FILoss implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -58,7 +59,7 @@ public class FILoss implements Serializable {
    * Loss Name
    * @return lossName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Loss Name")
   @JsonIgnore
 

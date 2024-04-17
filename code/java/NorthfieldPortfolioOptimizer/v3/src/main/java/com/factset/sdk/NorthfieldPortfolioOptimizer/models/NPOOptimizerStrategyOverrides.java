@@ -40,7 +40,8 @@ import com.factset.sdk.NorthfieldPortfolioOptimizer.JSON;
   NPOOptimizerStrategyOverrides.JSON_PROPERTY_TRANSACTION_COST,
   NPOOptimizerStrategyOverrides.JSON_PROPERTY_ALPHA
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class NPOOptimizerStrategyOverrides implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -79,7 +80,7 @@ public class NPOOptimizerStrategyOverrides implements Serializable {
    * Objective parameters
    * @return objective
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Objective parameters")
   @JsonProperty(JSON_PROPERTY_OBJECTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -113,7 +114,7 @@ public class NPOOptimizerStrategyOverrides implements Serializable {
    * List of constraints
    * @return constraints
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of constraints")
   @JsonProperty(JSON_PROPERTY_CONSTRAINTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -139,7 +140,7 @@ public class NPOOptimizerStrategyOverrides implements Serializable {
    * Tax  Can be set to \&quot;\&quot; for local
    * @return tax
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Tax  Can be set to \"\" for local")
   @JsonProperty(JSON_PROPERTY_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -165,7 +166,7 @@ public class NPOOptimizerStrategyOverrides implements Serializable {
    * Transaction cost  Can be set to \&quot;\&quot; for local
    * @return transactionCost
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Transaction cost  Can be set to \"\" for local")
   @JsonProperty(JSON_PROPERTY_TRANSACTION_COST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -191,7 +192,7 @@ public class NPOOptimizerStrategyOverrides implements Serializable {
    * Alpha
    * @return alpha
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Alpha")
   @JsonProperty(JSON_PROPERTY_ALPHA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

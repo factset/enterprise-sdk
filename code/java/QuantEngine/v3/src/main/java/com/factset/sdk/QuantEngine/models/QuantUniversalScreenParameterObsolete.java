@@ -36,7 +36,8 @@ import com.factset.sdk.QuantEngine.JSON;
   QuantUniversalScreenParameterObsolete.JSON_PROPERTY_REFERENCE_NAME,
   QuantUniversalScreenParameterObsolete.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class QuantUniversalScreenParameterObsolete implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class QuantUniversalScreenParameterObsolete implements Serializable {
    * Get referenceName
    * @return referenceName
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_REFERENCE_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -94,7 +95,7 @@ public class QuantUniversalScreenParameterObsolete implements Serializable {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

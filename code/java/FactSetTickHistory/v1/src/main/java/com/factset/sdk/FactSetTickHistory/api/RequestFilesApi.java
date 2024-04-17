@@ -6,7 +6,7 @@ import com.factset.sdk.FactSetTickHistory.ApiResponse;
 import com.factset.sdk.FactSetTickHistory.Configuration;
 import com.factset.sdk.FactSetTickHistory.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -15,7 +15,8 @@ import java.time.LocalDate;
 import com.factset.sdk.FactSetTickHistory.models.RequestFilesResponse;
 import com.factset.sdk.FactSetTickHistory.models.RequestFilestatus;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class RequestFilesApi {
   private ApiClient apiClient;
 

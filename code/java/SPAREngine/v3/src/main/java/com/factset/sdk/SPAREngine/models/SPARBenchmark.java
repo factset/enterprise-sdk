@@ -42,7 +42,8 @@ import com.factset.sdk.SPAREngine.JSON;
   SPARBenchmark.JSON_PROPERTY_NAME,
   SPARBenchmark.JSON_PROPERTY_IDENTIFIERS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SPARBenchmark implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -67,7 +68,7 @@ public class SPARBenchmark implements Serializable {
    * Benchmark identifier
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Benchmark identifier")
   @JsonIgnore
 
@@ -101,7 +102,7 @@ public class SPARBenchmark implements Serializable {
    * Benchmark Name
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Benchmark Name")
   @JsonIgnore
 
@@ -147,7 +148,7 @@ public class SPARBenchmark implements Serializable {
    * List of SPAR identifiers
    * @return identifiers
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of SPAR identifiers")
   @JsonIgnore
 

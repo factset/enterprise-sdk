@@ -35,7 +35,8 @@ import com.factset.sdk.GlobalFilings.JSON;
 @JsonPropertyOrder({
   ResponseTimeObject.JSON_PROPERTY_TIME_ZONE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ResponseTimeObject implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -54,7 +55,7 @@ public class ResponseTimeObject implements Serializable {
    * timeZone
    * @return timeZone
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Africa/Malabo", value = "timeZone")
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

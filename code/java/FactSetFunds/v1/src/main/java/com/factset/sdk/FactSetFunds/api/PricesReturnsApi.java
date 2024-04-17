@@ -6,7 +6,7 @@ import com.factset.sdk.FactSetFunds.ApiResponse;
 import com.factset.sdk.FactSetFunds.Configuration;
 import com.factset.sdk.FactSetFunds.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -21,7 +21,8 @@ import com.factset.sdk.FactSetFunds.models.FundsReturnsSnapshotResponse;
 import com.factset.sdk.FactSetFunds.models.ReturnsRangeRequest;
 import com.factset.sdk.FactSetFunds.models.ReturnsRangeResponse;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PricesReturnsApi {
   private ApiClient apiClient;
 

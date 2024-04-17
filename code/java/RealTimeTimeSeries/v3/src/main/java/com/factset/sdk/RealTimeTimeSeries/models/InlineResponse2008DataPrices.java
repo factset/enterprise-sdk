@@ -44,7 +44,8 @@ import com.factset.sdk.RealTimeTimeSeries.JSON;
   InlineResponse2008DataPrices.JSON_PROPERTY_TRADING_VOLUME,
   InlineResponse2008DataPrices.JSON_PROPERTY_TRADING_VALUE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2008DataPrices implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -75,7 +76,7 @@ public class InlineResponse2008DataPrices implements Serializable {
    * Date and time.
    * @return time
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Date and time.")
   @JsonIgnore
 
@@ -109,7 +110,7 @@ public class InlineResponse2008DataPrices implements Serializable {
    * Price value. See attribute &#x60;valueUnit&#x60; in endpoint &#x60;/prices/get&#x60; for its unit, except for price type yield, where the &#x60;valueUnit&#x60; is always &#x60;percent&#x60; (id&#x3D;258).
    * @return price
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Price value. See attribute `valueUnit` in endpoint `/prices/get` for its unit, except for price type yield, where the `valueUnit` is always `percent` (id=258).")
   @JsonIgnore
 
@@ -143,7 +144,7 @@ public class InlineResponse2008DataPrices implements Serializable {
    * Quote condition. Possible values depend on the values delivered by the supplier of the price information.
    * @return quoteCondition
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Quote condition. Possible values depend on the values delivered by the supplier of the price information.")
   @JsonIgnore
 
@@ -177,7 +178,7 @@ public class InlineResponse2008DataPrices implements Serializable {
    * Number of units (e.g. shares) traded, offered (price type ask), solicited (price type bid), or empty (price type yield).
    * @return tradingVolume
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of units (e.g. shares) traded, offered (price type ask), solicited (price type bid), or empty (price type yield).")
   @JsonIgnore
 
@@ -211,7 +212,7 @@ public class InlineResponse2008DataPrices implements Serializable {
    * Monetary equivalent (cash value) of the trade. See attribute &#x60;currency&#x60; in endpoint &#x60;/prices/get&#x60; for its unit. Empty for price type yield.
    * @return tradingValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Monetary equivalent (cash value) of the trade. See attribute `currency` in endpoint `/prices/get` for its unit. Empty for price type yield.")
   @JsonIgnore
 

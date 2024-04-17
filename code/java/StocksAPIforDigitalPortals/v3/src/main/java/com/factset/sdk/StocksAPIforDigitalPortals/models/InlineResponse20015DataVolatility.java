@@ -55,7 +55,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse20015DataVolatility.JSON_PROPERTY_YEARS5,
   InlineResponse20015DataVolatility.JSON_PROPERTY_YEAR_TO_DATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20015DataVolatility implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -95,7 +96,7 @@ public class InlineResponse20015DataVolatility implements Serializable {
    * Get week1
    * @return week1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -129,7 +130,7 @@ public class InlineResponse20015DataVolatility implements Serializable {
    * Get month1
    * @return month1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -163,7 +164,7 @@ public class InlineResponse20015DataVolatility implements Serializable {
    * Get months3
    * @return months3
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -197,7 +198,7 @@ public class InlineResponse20015DataVolatility implements Serializable {
    * Get months6
    * @return months6
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -231,7 +232,7 @@ public class InlineResponse20015DataVolatility implements Serializable {
    * Get year1
    * @return year1
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -265,7 +266,7 @@ public class InlineResponse20015DataVolatility implements Serializable {
    * Get years3
    * @return years3
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -299,7 +300,7 @@ public class InlineResponse20015DataVolatility implements Serializable {
    * Get years5
    * @return years5
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -333,7 +334,7 @@ public class InlineResponse20015DataVolatility implements Serializable {
    * Get yearToDate
    * @return yearToDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

@@ -58,7 +58,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse2001DataFiscalYearData.JSON_PROPERTY_RATIOS,
   InlineResponse2001DataFiscalYearData.JSON_PROPERTY_PER_SHARE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse2001DataFiscalYearData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -107,7 +108,7 @@ public class InlineResponse2001DataFiscalYearData implements Serializable {
    * Get fiscalYear
    * @return fiscalYear
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FISCAL_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -133,7 +134,7 @@ public class InlineResponse2001DataFiscalYearData implements Serializable {
    * Get currency
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -159,7 +160,7 @@ public class InlineResponse2001DataFiscalYearData implements Serializable {
    * End-of-day price as of the end of the fiscal year. It is used for calculation of all price-related data items corresponding to the end of the fiscal year.
    * @return price
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "End-of-day price as of the end of the fiscal year. It is used for calculation of all price-related data items corresponding to the end of the fiscal year.")
   @JsonIgnore
 
@@ -193,7 +194,7 @@ public class InlineResponse2001DataFiscalYearData implements Serializable {
    * Free float, which is the number of shares outstanding available for trading to the public. Closely-held shares (e.g. held by a majority investor) and temporarily restricted shares (e.g. due to insider lock-up periods) are not part of the free float.
    * @return freeFloat
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Free float, which is the number of shares outstanding available for trading to the public. Closely-held shares (e.g. held by a majority investor) and temporarily restricted shares (e.g. due to insider lock-up periods) are not part of the free float.")
   @JsonIgnore
 
@@ -227,7 +228,7 @@ public class InlineResponse2001DataFiscalYearData implements Serializable {
    * Get sharesOutstanding
    * @return sharesOutstanding
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SHARES_OUTSTANDING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -253,7 +254,7 @@ public class InlineResponse2001DataFiscalYearData implements Serializable {
    * Market capitalization, which is the market value of the shares outstanding over all types of shares of the company.
    * @return marketCapitalization
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Market capitalization, which is the market value of the shares outstanding over all types of shares of the company.")
   @JsonIgnore
 
@@ -287,7 +288,7 @@ public class InlineResponse2001DataFiscalYearData implements Serializable {
    * Get incomeStatement
    * @return incomeStatement
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INCOME_STATEMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -313,7 +314,7 @@ public class InlineResponse2001DataFiscalYearData implements Serializable {
    * Get balanceSheet
    * @return balanceSheet
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BALANCE_SHEET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -339,7 +340,7 @@ public class InlineResponse2001DataFiscalYearData implements Serializable {
    * Get cashFlow
    * @return cashFlow
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CASH_FLOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -365,7 +366,7 @@ public class InlineResponse2001DataFiscalYearData implements Serializable {
    * Get ratios
    * @return ratios
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RATIOS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -391,7 +392,7 @@ public class InlineResponse2001DataFiscalYearData implements Serializable {
    * Get perShare
    * @return perShare
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PER_SHARE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

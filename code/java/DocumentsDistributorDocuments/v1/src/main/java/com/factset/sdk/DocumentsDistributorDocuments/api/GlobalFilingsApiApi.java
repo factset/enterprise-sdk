@@ -6,7 +6,7 @@ import com.factset.sdk.DocumentsDistributorDocuments.ApiResponse;
 import com.factset.sdk.DocumentsDistributorDocuments.Configuration;
 import com.factset.sdk.DocumentsDistributorDocuments.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -15,7 +15,8 @@ import com.factset.sdk.DocumentsDistributorDocuments.models.FilingsFiles;
 import java.time.LocalDate;
 import com.factset.sdk.DocumentsDistributorDocuments.models.Status;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class GlobalFilingsApiApi {
   private ApiClient apiClient;
 

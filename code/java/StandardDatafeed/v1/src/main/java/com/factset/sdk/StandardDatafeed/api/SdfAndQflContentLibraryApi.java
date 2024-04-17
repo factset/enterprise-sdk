@@ -6,7 +6,7 @@ import com.factset.sdk.StandardDatafeed.ApiResponse;
 import com.factset.sdk.StandardDatafeed.Configuration;
 import com.factset.sdk.StandardDatafeed.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -14,7 +14,8 @@ import java.util.Objects;
 import com.factset.sdk.StandardDatafeed.models.ListFiles200Response;
 import com.factset.sdk.StandardDatafeed.models.ListFiles400Response;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SdfAndQflContentLibraryApi {
   private ApiClient apiClient;
 

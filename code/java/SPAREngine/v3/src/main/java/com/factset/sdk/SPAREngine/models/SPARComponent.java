@@ -46,7 +46,8 @@ import com.factset.sdk.SPAREngine.JSON;
   SPARComponent.JSON_PROPERTY_NAME,
   SPARComponent.JSON_PROPERTY_CATEGORY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SPARComponent implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -83,7 +84,7 @@ public class SPARComponent implements Serializable {
    * Component identifier.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Component identifier.")
   @JsonIgnore
 
@@ -129,7 +130,7 @@ public class SPARComponent implements Serializable {
    * List of accounts in SPAR document.
    * @return accounts
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of accounts in SPAR document.")
   @JsonIgnore
 
@@ -163,7 +164,7 @@ public class SPARComponent implements Serializable {
    * Get benchmarks
    * @return benchmarks
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BENCHMARKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -189,7 +190,7 @@ public class SPARComponent implements Serializable {
    * CurrencyCode in SPAR document.
    * @return currencyIsoCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "CurrencyCode in SPAR document.")
   @JsonIgnore
 
@@ -223,7 +224,7 @@ public class SPARComponent implements Serializable {
    * The path to the document
    * @return path
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The path to the document")
   @JsonIgnore
 
@@ -257,7 +258,7 @@ public class SPARComponent implements Serializable {
    * Component name.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Component name.")
   @JsonIgnore
 
@@ -291,7 +292,7 @@ public class SPARComponent implements Serializable {
    * Component category.
    * @return category
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Component category.")
   @JsonIgnore
 

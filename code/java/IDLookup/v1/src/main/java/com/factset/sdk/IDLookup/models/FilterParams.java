@@ -38,7 +38,8 @@ import com.factset.sdk.IDLookup.JSON;
   FilterParams.JSON_PROPERTY_INCLUDE,
   FilterParams.JSON_PROPERTY_EXCLUDE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FilterParams implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class FilterParams implements Serializable {
    * This parameter filter objects to be included in the results
    * @return include
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "This parameter filter objects to be included in the results")
   @JsonProperty(JSON_PROPERTY_INCLUDE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -102,7 +103,7 @@ public class FilterParams implements Serializable {
    * This parameter filter objects to be excluded from the results
    * @return exclude
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "[]", value = "This parameter filter objects to be excluded from the results")
   @JsonProperty(JSON_PROPERTY_EXCLUDE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

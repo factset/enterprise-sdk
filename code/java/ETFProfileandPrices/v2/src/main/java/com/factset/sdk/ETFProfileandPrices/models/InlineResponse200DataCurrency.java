@@ -37,7 +37,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse200DataCurrency.JSON_PROPERTY_LISTING,
   InlineResponse200DataCurrency.JSON_PROPERTY_FUND
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse200DataCurrency implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -59,7 +60,7 @@ public class InlineResponse200DataCurrency implements Serializable {
    * Currency of exchange specific listing. This data is available for all the regions and currency code is in the format ISO 4217.
    * @return listing
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Currency of exchange specific listing. This data is available for all the regions and currency code is in the format ISO 4217.")
   @JsonProperty(JSON_PROPERTY_LISTING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -85,7 +86,7 @@ public class InlineResponse200DataCurrency implements Serializable {
    * Base calculation currency of the ETP. This data is available for all the regions and currency code is in the format ISO 4217.
    * @return fund
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Base calculation currency of the ETP. This data is available for all the regions and currency code is in the format ISO 4217.")
   @JsonProperty(JSON_PROPERTY_FUND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

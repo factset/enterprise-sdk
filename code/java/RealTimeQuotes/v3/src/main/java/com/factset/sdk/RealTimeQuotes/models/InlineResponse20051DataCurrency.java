@@ -43,7 +43,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
   InlineResponse20051DataCurrency.JSON_PROPERTY_CODE,
   InlineResponse20051DataCurrency.JSON_PROPERTY_ISO_CODE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20051DataCurrency implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -68,7 +69,7 @@ public class InlineResponse20051DataCurrency implements Serializable {
    * Identifier of the main currency.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the main currency.")
   @JsonIgnore
 
@@ -102,7 +103,7 @@ public class InlineResponse20051DataCurrency implements Serializable {
    * Code of the currency: If assigned, a code according to ISO 4217, otherwise a local code.
    * @return code
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Code of the currency: If assigned, a code according to ISO 4217, otherwise a local code.")
   @JsonIgnore
 
@@ -136,7 +137,7 @@ public class InlineResponse20051DataCurrency implements Serializable {
    * ISO 4217 code of the value unit. Empty if the ISO 4217 standard does not define a code for the currency.
    * @return isoCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "ISO 4217 code of the value unit. Empty if the ISO 4217 standard does not define a code for the currency.")
   @JsonIgnore
 

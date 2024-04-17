@@ -38,7 +38,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   PostStockNotationScreenerSearchRequestDataEbitMarginMaximum.JSON_PROPERTY_VALUE,
   PostStockNotationScreenerSearchRequestDataEbitMarginMaximum.JSON_PROPERTY_INCLUSIVE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostStockNotationScreenerSearchRequestDataEbitMarginMaximum implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -60,7 +61,7 @@ public class PostStockNotationScreenerSearchRequestDataEbitMarginMaximum impleme
    * The maximum value.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The maximum value.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,7 +87,7 @@ public class PostStockNotationScreenerSearchRequestDataEbitMarginMaximum impleme
    * Indicates whether the maximum value is included in the range or not.
    * @return inclusive
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the maximum value is included in the range or not.")
   @JsonProperty(JSON_PROPERTY_INCLUSIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

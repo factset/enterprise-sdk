@@ -40,7 +40,8 @@ import com.factset.sdk.IRNNotes.JSON;
   RelatedRecordsDto.JSON_PROPERTY_NOTE_IDS,
   RelatedRecordsDto.JSON_PROPERTY_MEETING_IDS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class RelatedRecordsDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -74,7 +75,7 @@ public class RelatedRecordsDto implements Serializable {
    * Get noteIds
    * @return noteIds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
@@ -120,7 +121,7 @@ public class RelatedRecordsDto implements Serializable {
    * Get meetingIds
    * @return meetingIds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 

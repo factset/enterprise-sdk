@@ -6,7 +6,7 @@ import com.factset.sdk.ExchangeDataFeedSnapshotAPIEntireExchange.ApiResponse;
 import com.factset.sdk.ExchangeDataFeedSnapshotAPIEntireExchange.Configuration;
 import com.factset.sdk.ExchangeDataFeedSnapshotAPIEntireExchange.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -15,7 +15,8 @@ import com.factset.sdk.ExchangeDataFeedSnapshotAPIEntireExchange.models.ErrorMes
 import com.factset.sdk.ExchangeDataFeedSnapshotAPIEntireExchange.models.InlineResponse200;
 import java.time.LocalDate;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SnapshotApi {
   private ApiClient apiClient;
 

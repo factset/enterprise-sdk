@@ -41,7 +41,8 @@ import com.factset.sdk.PAEngine.JSON;
   LinkedPATemplateSummary.JSON_PROPERTY_NAME,
   LinkedPATemplateSummary.JSON_PROPERTY_PARENT_COMPONENT_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class LinkedPATemplateSummary implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -66,7 +67,7 @@ public class LinkedPATemplateSummary implements Serializable {
    * Template description.
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Template description.")
   @JsonIgnore
 
@@ -100,7 +101,7 @@ public class LinkedPATemplateSummary implements Serializable {
    * Template name.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Template name.")
   @JsonIgnore
 
@@ -134,7 +135,7 @@ public class LinkedPATemplateSummary implements Serializable {
    * Template parent tile.
    * @return parentComponentId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Template parent tile.")
   @JsonIgnore
 

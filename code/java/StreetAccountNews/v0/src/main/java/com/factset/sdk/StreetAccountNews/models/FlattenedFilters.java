@@ -45,7 +45,8 @@ import com.factset.sdk.StreetAccountNews.JSON;
   FlattenedFilters.JSON_PROPERTY_SECTORS,
   FlattenedFilters.JSON_PROPERTY_WATCHLISTS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FlattenedFilters implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -84,7 +85,7 @@ public class FlattenedFilters implements Serializable {
    * Get categories
    * @return categories
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CATEGORIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -118,7 +119,7 @@ public class FlattenedFilters implements Serializable {
    * Get topics
    * @return topics
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TOPICS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -152,7 +153,7 @@ public class FlattenedFilters implements Serializable {
    * Get regions
    * @return regions
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REGIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -186,7 +187,7 @@ public class FlattenedFilters implements Serializable {
    * Get sectors
    * @return sectors
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SECTORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -220,7 +221,7 @@ public class FlattenedFilters implements Serializable {
    * Get watchlists
    * @return watchlists
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WATCHLISTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

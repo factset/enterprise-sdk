@@ -36,7 +36,8 @@ import com.factset.sdk.RealTimeQuotes.JSON;
 @JsonPropertyOrder({
   PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequestData.JSON_PROPERTY_SYMBOLOGY_IDENTIFIER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequestData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierR
    * FactSet Symbology Identifier. See the endpoint description for valid FactSet Symbology Identifier types.
    * @return symbologyIdentifier
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "FactSet Symbology Identifier. See the endpoint description for valid FactSet Symbology Identifier types.")
   @JsonProperty(JSON_PROPERTY_SYMBOLOGY_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

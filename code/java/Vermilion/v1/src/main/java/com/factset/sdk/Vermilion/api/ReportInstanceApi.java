@@ -6,7 +6,7 @@ import com.factset.sdk.Vermilion.ApiResponse;
 import com.factset.sdk.Vermilion.Configuration;
 import com.factset.sdk.Vermilion.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -19,7 +19,8 @@ import com.factset.sdk.Vermilion.models.ReportInstanceDataResponse;
 import com.factset.sdk.Vermilion.models.ReportInstanceList;
 import com.factset.sdk.Vermilion.models.ReportInstanceLogList;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ReportInstanceApi {
   private ApiClient apiClient;
 

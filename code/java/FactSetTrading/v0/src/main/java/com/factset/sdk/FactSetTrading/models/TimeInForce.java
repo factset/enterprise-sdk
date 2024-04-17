@@ -42,7 +42,8 @@ import com.factset.sdk.FactSetTrading.JSON;
   TimeInForce.JSON_PROPERTY_EXPIRE_DATE,
   TimeInForce.JSON_PROPERTY_EXPIRE_TIME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class TimeInForce implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -114,7 +115,7 @@ public class TimeInForce implements Serializable {
    * Time in force: if goodTillDate, then Expire Time or Expire Date is a required field
    * @return tif
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Time in force: if goodTillDate, then Expire Time or Expire Date is a required field")
   @JsonProperty(JSON_PROPERTY_TIF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -140,7 +141,7 @@ public class TimeInForce implements Serializable {
    * Expire date in YYYYMMDD format expressed in UTC
    * @return expireDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "20230823", value = "Expire date in YYYYMMDD format expressed in UTC")
   @JsonIgnore
 
@@ -174,7 +175,7 @@ public class TimeInForce implements Serializable {
    * Expire time in YYYYMMDD-HH:MM:SS format expressed in UTC
    * @return expireTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "20230823-12:20:25", value = "Expire time in YYYYMMDD-HH:MM:SS format expressed in UTC")
   @JsonIgnore
 

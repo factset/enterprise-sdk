@@ -37,7 +37,8 @@ import com.factset.sdk.FactSetQuantFactorLibrary.JSON;
   LibraryRequest.JSON_PROPERTY_FACTORS,
   LibraryRequest.JSON_PROPERTY_FACTOR_GROUPS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class LibraryRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -67,7 +68,7 @@ public class LibraryRequest implements Serializable {
    * List of Factors. 
    * @return factors
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "[\"rsi21D\",\"ulcer252D\"]", value = "List of Factors. ")
   @JsonProperty(JSON_PROPERTY_FACTORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -101,7 +102,7 @@ public class LibraryRequest implements Serializable {
    * List of Factor Groupings to return all factors within the group. 
    * @return factorGroups
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(example = "[\"Momentum\",\"Technical\"]", value = "List of Factor Groupings to return all factors within the group. ")
   @JsonProperty(JSON_PROPERTY_FACTOR_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

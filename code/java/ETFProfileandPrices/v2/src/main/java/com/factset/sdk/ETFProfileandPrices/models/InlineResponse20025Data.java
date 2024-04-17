@@ -41,7 +41,8 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
   InlineResponse20025Data.JSON_PROPERTY_OPTION_ADJUSTED_SPREAD,
   InlineResponse20025Data.JSON_PROPERTY_AVERAGE_LIFE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse20025Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -66,7 +67,7 @@ public class InlineResponse20025Data implements Serializable {
    * Date the analytics data was published. Available for the regions: US, Europe,and Canada.
    * @return asOfDate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Date the analytics data was published. Available for the regions: US, Europe,and Canada.")
   @JsonProperty(JSON_PROPERTY_AS_OF_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -92,7 +93,7 @@ public class InlineResponse20025Data implements Serializable {
    * Get optionAdjustedSpread
    * @return optionAdjustedSpread
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OPTION_ADJUSTED_SPREAD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -118,7 +119,7 @@ public class InlineResponse20025Data implements Serializable {
    * Get averageLife
    * @return averageLife
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AVERAGE_LIFE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

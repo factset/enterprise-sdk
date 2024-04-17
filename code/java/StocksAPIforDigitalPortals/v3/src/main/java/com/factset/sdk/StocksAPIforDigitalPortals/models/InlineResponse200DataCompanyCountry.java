@@ -42,7 +42,8 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
   InlineResponse200DataCompanyCountry.JSON_PROPERTY_ID,
   InlineResponse200DataCompanyCountry.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class InlineResponse200DataCompanyCountry implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class InlineResponse200DataCompanyCountry implements Serializable {
    * Identifier of the country.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the country.")
   @JsonIgnore
 
@@ -98,7 +99,7 @@ public class InlineResponse200DataCompanyCountry implements Serializable {
    * Name of the country.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the country.")
   @JsonIgnore
 

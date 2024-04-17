@@ -51,7 +51,8 @@ import com.factset.sdk.PAEngine.JSON;
   PAComponentData.JSON_PROPERTY_CURRENCYISOCODE,
   PAComponentData.JSON_PROPERTY_COMPONENTDETAIL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class PAComponentData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -103,7 +104,7 @@ public class PAComponentData implements Serializable {
    * List of accounts.
    * @return accounts
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of accounts.")
   @JsonIgnore
 
@@ -149,7 +150,7 @@ public class PAComponentData implements Serializable {
    * List of benchmarks.
    * @return benchmarks
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of benchmarks.")
   @JsonIgnore
 
@@ -195,7 +196,7 @@ public class PAComponentData implements Serializable {
    * List of groupings for the PA calculation. This will take precedence over the groupings saved in the PA document.
    * @return groups
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of groupings for the PA calculation. This will take precedence over the groupings saved in the PA document.")
   @JsonIgnore
 
@@ -241,7 +242,7 @@ public class PAComponentData implements Serializable {
    * List of columns for the PA calculation. This will take precedence over the columns saved in the PA document.
    * @return columns
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of columns for the PA calculation. This will take precedence over the columns saved in the PA document.")
   @JsonIgnore
 
@@ -275,7 +276,7 @@ public class PAComponentData implements Serializable {
    * Get dates
    * @return dates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -301,7 +302,7 @@ public class PAComponentData implements Serializable {
    * Get datasources
    * @return datasources
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATASOURCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -327,7 +328,7 @@ public class PAComponentData implements Serializable {
    * Currency ISO code for calculation.
    * @return currencyisocode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Currency ISO code for calculation.")
   @JsonIgnore
 
@@ -361,7 +362,7 @@ public class PAComponentData implements Serializable {
    * PA Storage type. It can be GROUPS or GROUPSALL or TOTALS or SECURITIES.
    * @return componentdetail
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "PA Storage type. It can be GROUPS or GROUPSALL or TOTALS or SECURITIES.")
   @JsonIgnore
 
