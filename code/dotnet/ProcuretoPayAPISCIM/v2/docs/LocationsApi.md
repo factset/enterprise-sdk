@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**LocationsIdGet**](LocationsApi.md#locationsidget) | **GET** /Locations/{id} | Get a location.
 [**LocationsIdPatch**](LocationsApi.md#locationsidpatch) | **PATCH** /Locations/{id} | Patch a location (add, replace, or remove attributes of a location.)
 [**LocationsIdPut**](LocationsApi.md#locationsidput) | **PUT** /Locations/{id} | Replace a location.
+[**LocationsPost**](LocationsApi.md#locationspost) | **POST** /Locations | Create a location.
 
 
 
@@ -419,6 +420,106 @@ Name | Type | Description  | Notes
 | **401** | User has not been authenticated. |  -  |
 | **403** | User is not authorized to use this API. |  -  |
 | **404** | Location not found. |  -  |
+| **500** | Internal server error. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+<a name="locationspost"></a>
+# **LocationsPost**
+> LocationResource LocationsPost (LocationResource locationResource)
+
+Create a location.
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```csharp
+using System;
+using System.Threading.Tasks;
+using FactSet.SDK.Utils.Authentication;
+using FactSet.SDK.ProcuretoPayAPISCIM.Api;
+using FactSet.SDK.ProcuretoPayAPISCIM.Client;
+using FactSet.SDK.ProcuretoPayAPISCIM.Model;
+
+namespace Example
+{
+    public class LocationsPostExample
+    {
+        public static async Task Main()
+        {
+            var config = new FactSet.SDK.ProcuretoPayAPISCIM.Client.Configuration();
+
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
+
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            //
+            // The confidential client instance should be reused in production environments.
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
+
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
+
+            var apiInstance = new LocationsApi(config);
+
+            var locationResource = new LocationResource(); // LocationResource | Location resource.
+
+            try
+            {
+                // Create a location.
+                LocationResource result = apiInstance.LocationsPost(locationResource);
+                Console.WriteLine(result.ToJson());
+            }
+            catch (ApiException  e)
+            {
+                Console.WriteLine("Exception when calling LocationsApi.LocationsPost: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **locationResource** | [**LocationResource**](LocationResource.md)| Location resource. | 
+
+### Return type
+[**LocationResource**](LocationResource.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/scim+json
+ - **Accept**: application/scim+json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Success. |  -  |
+| **400** | Provided resource contains invalid data. |  -  |
+| **401** | User has not been authenticated. |  -  |
+| **403** | User is not authorized to use this API. |  -  |
 | **500** | Internal server error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

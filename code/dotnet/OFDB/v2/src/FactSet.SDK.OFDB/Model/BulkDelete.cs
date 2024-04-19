@@ -36,7 +36,7 @@ namespace FactSet.SDK.OFDB.Model
         /// Initializes a new instance of the <see cref="BulkDelete" /> class.
         /// </summary>
         /// <param name="data">data.</param>
-        public BulkDelete(List<BulkDeleteData> data = default(List<BulkDeleteData>))
+        public BulkDelete(List<BulkDeleteItem> data = default(List<BulkDeleteItem>))
         {
             this.Data = data;
         }
@@ -45,7 +45,7 @@ namespace FactSet.SDK.OFDB.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name = "data", EmitDefaultValue = false)]
-        public List<BulkDeleteData> Data { get; set; }
+        public List<BulkDeleteItem> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -309,6 +309,25 @@ paths:
           $ref: '#/components/responses/forbiddenError'
         '500':
           $ref: '#/components/responses/internalServerError'
+    post:
+      tags:
+        - Locations
+      summary: Create a location.
+      security:
+        - basicAuth: []
+      requestBody:
+        $ref: '#/components/requestBodies/locationResource'
+      responses:
+        '201':
+          $ref: '#/components/responses/locationSuccess'
+        '400':
+          $ref: '#/components/responses/invalidResourceProvidedError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '403':
+          $ref: '#/components/responses/forbiddenError'
+        '500':
+          $ref: '#/components/responses/internalServerError'
   /Locations/{id}:
     get:
       tags:
@@ -371,6 +390,138 @@ paths:
           $ref: '#/components/responses/unauthorizedError'
         '403':
           $ref: '#/components/responses/forbiddenError'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+  /FirmDescriptions:
+    get:
+      tags:
+        - FirmDescriptions
+      summary: Get a list of firm descriptions.
+      security:
+        - basicAuth: []
+      parameters:
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/startIndex'
+        - $ref: '#/components/parameters/count'
+        - $ref: '#/components/parameters/attributes'
+        - $ref: '#/components/parameters/excludedAttributes'
+      responses:
+        '200':
+          $ref: '#/components/responses/firmDescriptionsSuccess'
+        '400':
+          $ref: '#/components/responses/invalidFilterError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '403':
+          $ref: '#/components/responses/forbiddenError'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+  /FirmDescriptions/{id}:
+    get:
+      tags:
+        - FirmDescriptions
+      summary: Get a firm description.
+      security:
+        - basicAuth: []
+      parameters:
+        - $ref: '#/components/parameters/resourceId'
+      responses:
+        '200':
+          $ref: '#/components/responses/firmDescriptionSuccess'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '403':
+          $ref: '#/components/responses/forbiddenError'
+        '404':
+          $ref: '#/components/responses/firmDescriptionNotFoundError'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+  /UserClasses:
+    get:
+      tags:
+        - UserClasses
+      summary: Get a list of user classes.
+      security:
+        - basicAuth: []
+      parameters:
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/startIndex'
+        - $ref: '#/components/parameters/count'
+        - $ref: '#/components/parameters/attributes'
+        - $ref: '#/components/parameters/excludedAttributes'
+      responses:
+        '200':
+          $ref: '#/components/responses/userClassesSuccess'
+        '400':
+          $ref: '#/components/responses/invalidFilterError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '403':
+          $ref: '#/components/responses/forbiddenError'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+  /UserClasses/{id}:
+    get:
+      tags:
+        - UserClasses
+      summary: Get a user class.
+      security:
+        - basicAuth: []
+      parameters:
+        - $ref: '#/components/parameters/resourceId'
+      responses:
+        '200':
+          $ref: '#/components/responses/userClassSuccess'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '403':
+          $ref: '#/components/responses/forbiddenError'
+        '404':
+          $ref: '#/components/responses/userClassNotFoundError'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+  /UserPositions:
+    get:
+      tags:
+        - UserPositions
+      summary: Get a list of user positions.
+      security:
+        - basicAuth: []
+      parameters:
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/startIndex'
+        - $ref: '#/components/parameters/count'
+        - $ref: '#/components/parameters/attributes'
+        - $ref: '#/components/parameters/excludedAttributes'
+      responses:
+        '200':
+          $ref: '#/components/responses/userPositionsSuccess'
+        '400':
+          $ref: '#/components/responses/invalidFilterError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '403':
+          $ref: '#/components/responses/forbiddenError'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+  /UserPositions/{id}:
+    get:
+      tags:
+        - UserPositions
+      summary: Get a user position.
+      security:
+        - basicAuth: []
+      parameters:
+        - $ref: '#/components/parameters/resourceId'
+      responses:
+        '200':
+          $ref: '#/components/responses/userPositionSuccess'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '403':
+          $ref: '#/components/responses/forbiddenError'
+        '404':
+          $ref: '#/components/responses/userPositionNotFoundError'
         '500':
           $ref: '#/components/responses/internalServerError'
   /Products:
@@ -749,6 +900,75 @@ components:
             schemas:
               - urn:ietf:params:scim:api:messages:2.0:Error
             detail: Location 1598276 was not found.
+            status: '404'
+    firmDescriptionSuccess:
+      description: Success.
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/FirmDescriptionResource'
+    firmDescriptionsSuccess:
+      description: Success.
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/FirmDescriptionResourceList'
+    firmDescriptionNotFoundError:
+      description: Firm description not found.
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            schemas:
+              - urn:ietf:params:scim:api:messages:2.0:Error
+            detail: FirmDescription 1 was not found.
+            status: '404'
+    userClassSuccess:
+      description: Success.
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/UserClassResource'
+    userClassesSuccess:
+      description: Success.
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/UserClassResourceList'
+    userClassNotFoundError:
+      description: User class not found.
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            schemas:
+              - urn:ietf:params:scim:api:messages:2.0:Error
+            detail: UserClass 1 was not found.
+            status: '404'
+    userPositionSuccess:
+      description: Success.
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/UserPositionResource'
+    userPositionsSuccess:
+      description: Success.
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/UserPositionResourceList'
+    userPositionNotFoundError:
+      description: User position not found.
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            schemas:
+              - urn:ietf:params:scim:api:messages:2.0:Error
+            detail: UserPosition 1 was not found.
             status: '404'
     productSuccess:
       description: Success.
@@ -1141,26 +1361,142 @@ components:
               mutability: readOnly
               returned: default
               uniqueness: global
-            - name: factSetNetId
-              type: string
+            - name: location
+              type: complex
               multiValued: false
-              description: FactSet.net ID.
+              description: The physical location associated with this user.
               required: false
-              caseExact: false
-              mutability: readOnly
-              returned: default
-              uniqueness: global
-            - name: locationId
-              type: string
-              multiValued: false
-              description: >-
-                Your reference to a distinct physical location in your
-                organization (such as an office)
-              required: true
-              caseExact: false
+              subAttributes:
+                - name: value
+                  type: string
+                  multiValued: false
+                  description: Identifier of the Location.
+                  required: true
+                  caseExact: false
+                  mutability: readWrite
+                  returned: default
+                  uniqueness: none
+                - name: $ref
+                  type: reference
+                  referenceTypes:
+                    - Location
+                  multiValued: false
+                  description: >-
+                    The URI corresponding to a SCIM resource that is this
+                    Location.
+                  required: false
+                  caseExact: false
+                  mutability: immutable
+                  returned: default
+                  uniqueness: none
+                - name: display
+                  type: string
+                  multiValued: false
+                  description: A human-readable name, primarily used for display purposes.
+                  required: false
+                  caseExact: false
+                  mutability: immutable
+                  returned: default
+                  uniqueness: none
               mutability: readWrite
               returned: default
-              uniqueness: none
+            - name: userTaxonomyData
+              type: complex
+              multiValued: false
+              description: >-
+                FactSet's classification of the user. Use taxonomy is composed
+                of a user class as well as a user position.
+              required: false
+              subAttributes:
+                - name: userClass
+                  type: complex
+                  multiValued: false
+                  description: >-
+                    FactSet's classification of the user's class. The set of
+                    available user classes is based on the firm description
+                    associated with the user's location.
+                  required: true
+                  subAttributes:
+                    - name: value
+                      type: string
+                      multiValued: false
+                      description: Identifier of the User Class.
+                      required: true
+                      caseExact: false
+                      mutability: readWrite
+                      returned: default
+                      uniqueness: none
+                    - name: $ref
+                      type: reference
+                      referenceTypes:
+                        - UserClass
+                      multiValued: false
+                      description: >-
+                        The URI corresponding to a SCIM resource that is this
+                        User Class.
+                      required: false
+                      caseExact: false
+                      mutability: readOnly
+                      returned: default
+                      uniqueness: none
+                    - name: display
+                      type: string
+                      multiValued: false
+                      description: >-
+                        A human-readable name, primarily used for display
+                        purposes.
+                      required: false
+                      caseExact: false
+                      mutability: readOnly
+                      returned: default
+                      uniqueness: none
+                  mutability: readWrite
+                  returned: default
+                - name: userPosition
+                  type: complex
+                  multiValued: false
+                  description: >-
+                    FactSet's classification of the user's position. The set of
+                    available user positions is based on the user's class.
+                  required: true
+                  subAttributes:
+                    - name: value
+                      type: string
+                      multiValued: false
+                      description: Identifier of the User Position.
+                      required: true
+                      caseExact: false
+                      mutability: readWrite
+                      returned: default
+                      uniqueness: none
+                    - name: $ref
+                      type: reference
+                      referenceTypes:
+                        - UserPosition
+                      multiValued: false
+                      description: >-
+                        The URI corresponding to a SCIM resource that is this
+                        User Position.
+                      required: false
+                      caseExact: false
+                      mutability: readOnly
+                      returned: default
+                      uniqueness: none
+                    - name: display
+                      type: string
+                      multiValued: false
+                      description: >-
+                        A human-readable name, primarily used for display
+                        purposes.
+                      required: false
+                      caseExact: false
+                      mutability: readOnly
+                      returned: default
+                      uniqueness: none
+                  mutability: readWrite
+                  returned: default
+              mutability: readWrite
+              returned: default
             - name: roleName
               type: string
               multiValued: false
@@ -1174,17 +1510,120 @@ components:
               mutability: readWrite
               returned: default
               uniqueness: none
-            - name: productIds
-              type: integer
+            - name: products
+              type: complex
               multiValued: true
               description: >-
                 An array of FactSet products to allocate/remove from an
                 individual. Individual must have a FactSet serial number
                 associated with them.
               required: false
+              subAttributes:
+                - name: value
+                  type: string
+                  multiValued: false
+                  description: Identifier of the product.
+                  required: true
+                  caseExact: false
+                  mutability: immutable
+                  returned: default
+                  uniqueness: none
+                - name: $ref
+                  type: reference
+                  referenceTypes:
+                    - Product
+                  multiValued: false
+                  description: The URI corresponding to this product.
+                  required: false
+                  caseExact: false
+                  mutability: immutable
+                  returned: default
+                  uniqueness: none
+                - name: display
+                  type: string
+                  multiValued: false
+                  description: A human-readable name, primarily used for display purposes.
+                  required: false
+                  caseExact: false
+                  mutability: immutable
+                  returned: default
+                  uniqueness: none
               mutability: readWrite
               returned: default
-              uniqueness: none
+            - name: pendingProductOrders
+              type: complex
+              multiValued: true
+              description: An array of pending FactSet product orders.
+              required: false
+              subAttributes:
+                - name: product
+                  type: complex
+                  multiValued: false
+                  description: The FactSet product referenced by the order.
+                  required: true
+                  subAttributes:
+                    - name: value
+                      type: string
+                      multiValued: false
+                      description: Identifier of the product.
+                      required: true
+                      caseExact: false
+                      mutability: readOnly
+                      returned: default
+                      uniqueness: none
+                    - name: $ref
+                      type: reference
+                      referenceTypes:
+                        - Product
+                      multiValued: false
+                      description: The URI corresponding to this product.
+                      required: true
+                      caseExact: false
+                      mutability: readOnly
+                      returned: default
+                      uniqueness: none
+                    - name: display
+                      type: string
+                      multiValued: false
+                      description: >-
+                        A human-readable name, primarily used for display
+                        purposes.
+                      required: true
+                      caseExact: false
+                      mutability: readOnly
+                      returned: default
+                      uniqueness: none
+                  mutability: readOnly
+                  returned: default
+                - name: type
+                  type: string
+                  multiValued: false
+                  description: Type of product order, e.g. ''Add'' or ''Remove''
+                  required: true
+                  caseExact: false
+                  mutability: readOnly
+                  returned: default
+                  uniqueness: none
+                - name: status
+                  type: string
+                  multiValued: false
+                  description: Status of the pending product order.
+                  required: true
+                  caseExact: false
+                  mutability: readOnly
+                  returned: default
+                  uniqueness: none
+                - name: requested
+                  type: dateTime
+                  multiValued: false
+                  description: Date and time when product was ordered.
+                  required: true
+                  caseExact: false
+                  mutability: readOnly
+                  returned: default
+                  uniqueness: none
+              mutability: readOnly
+              returned: default
             - name: assertionValue
               type: string
               multiValued: false
@@ -1195,10 +1634,25 @@ components:
                 applicable to individuals with a FactSet serial number with a
                 Federation setup between your domain and FactSet's
               required: false
-              caseExact: false
+              caseExact: true
               mutability: readWrite
               returned: default
               uniqueness: server
+        meta:
+          type: object
+          properties:
+            resourceType:
+              type: string
+              example: Schema
+              readOnly: true
+            location:
+              type: string
+              example: >-
+                https://api.factset.com/scim/v2/Schemas/urn:ietf:params:scim:schemas:core:2.0:User
+              readOnly: true
+          required:
+            - resourceType
+            - location
       required:
         - id
         - name
@@ -1236,6 +1690,10 @@ components:
           example: FIN_WEALTH-123456
         externalId:
           type: string
+          description: >-
+            An arbitrary identifier for the resource defined by the client. This
+            can assist the client locate the resource through the use of search
+            filters.
           example: C3574707-FFF9-433C-A17F-DFF806C72A7F
         userName:
           type: string
@@ -1367,13 +1825,21 @@ components:
                 are allocated to an individual when a valid RoleName is present.
               readOnly: true
               example: '123456'
-            factSetNetId:
-              type: string
-              description: FactSet.net ID.
-              readOnly: true
-              example: John.Doe9@factset.net
             location:
               $ref: '#/components/schemas/LocationResourceReference'
+            userTaxonomyData:
+              type: object
+              description: >-
+                FactSet's classification of the user. Use taxonomy is composed
+                of a user class as well as a user position.
+              properties:
+                userClass:
+                  $ref: '#/components/schemas/UserClassResourceReference'
+                userPosition:
+                  $ref: '#/components/schemas/UserPositionResourceReference'
+              required:
+                - userClass
+                - userPosition
             roleName:
               type: string
               description: >-
@@ -1382,6 +1848,13 @@ components:
                 base-FactSet workstation will be allocated to the individual
                 granting the individual a FactSet SerialNumber
               example: Wealth Manager
+            royaltyClass:
+              type: string
+              description: >-
+                Determines the type of client the individual and the royalty fee
+                to be remitted to FactSet for the individual. Expected Royalty
+                Class values will be provided to you by your FactSet account
+                representative.
             products:
               type: array
               description: >-
@@ -1606,58 +2079,127 @@ components:
           readOnly: true
         externalId:
           type: string
+          description: >-
+            An identifier for the resource defined by the client. This can
+            assist the client locate the resource through the use of search
+            filters. Note: for clients that are not FactSet partners, this
+            identifier must be unique within the main location associated with
+            the client's FactSet username.
           example: '1598276'
         name:
           type: string
           description: Name of the location.
-          readOnly: true
           example: FIN Wealth Management
         description:
           type: string
           description: Description of the location.
-          readOnly: true
         address1:
           type: string
           description: First line of location's address.
-          readOnly: true
           example: 601 Main Avenue
         address2:
           type: string
           description: Second line of location's address.
-          readOnly: true
           example: Factset - First Floor
         address3:
           type: string
           description: Third line of location's address.
-          readOnly: true
         locality:
           type: string
           description: City of location.
-          readOnly: true
           example: Norwalk
         region:
           type: string
           description: State or province of location.
-          readOnly: true
           example: Connecticut
         postalCode:
           type: string
           description: Postal code of location.
-          readOnly: true
           example: '06850'
         country:
           type: string
           description: Country of location.
-          readOnly: true
           example: United States
         phoneNumber:
           type: string
           description: Phone number of location.
+          example: (555) 123-4567
           readOnly: true
-        mainLocation:
+        firmDescription:
+          allOf:
+            - $ref: '#/components/schemas/FirmDescriptionResourceReference'
+            - description: >-
+                The firm description associated with this location. Users
+                created in this location must have a user class available to
+                this firm description.
+        emailDomains:
+          type: array
+          description: >-
+            The domain names that are valid for use with email addresses
+            associated with users in this location.
+          items:
+            type: string
+          example:
+            - foo.com
+        partnerAssertedEntityId:
+          type: string
+          description: >-
+            Identifier assigned to the Corporate Entity. Value is provided as
+            "fsymEntityId" from FactSet's Symbology API.
+        companyAgreementUrls:
+          type: array
+          description: >-
+            Provides FactSet with signed documents allowing entitlement to
+            pre-established exchanges for individuals associated with the
+            location. Document URL provided must be available over the public
+            internet.
+          items:
+            type: object
+            properties:
+              $ref:
+                type: string
+                description: >-
+                  The company agreement URL for authorizing pre-established
+                  Exchange Entitlements for this location. This URL must use
+                  either the "http" or "https" schemas and the URL must be
+                  available for download by FactSet systems.
+                example: https://example-corp.com/company_agreements.pdf
+            required:
+              - $ref
+        managedLocations:
+          type: array
+          description: >-
+            Lists FactSet locations managed by Research Entitlements
+            Administrators at this location for requesting location-based
+            research entitlements.
+          items:
+            $ref: '#/components/schemas/LocationResourceReference'
+        managingLocation:
+          description: >-
+            FactSet location ID managing this location for a Research
+            Entitlements Administrator and requesting location-based
+            entitlements for all managed locations associated.
           allOf:
             - $ref: '#/components/schemas/LocationResourceReference'
             - readOnly: true
+        mainLocation:
+          description: >-
+            The managing or otherwise parent location associated with this
+            location. All locations associated with the mainLocation are viewed
+            as related and within the same business unit in FactSet's CRM
+            systems.
+          allOf:
+            - $ref: '#/components/schemas/LocationResourceReference'
+            - readOnly: true
+        usernames:
+          type: array
+          description: The FactSet usernames that are valid for users in this location.
+          items:
+            type: string
+          example:
+            - FOO
+            - BAR
+          readOnly: true
         meta:
           type: object
           properties:
@@ -1674,6 +2216,8 @@ components:
               type: string
               example: https://api.factset.com/scim/v2/Locations/1598276
           readOnly: true
+      required:
+        - name
     LocationResourceList:
       type: object
       properties:
@@ -1705,6 +2249,254 @@ components:
           type: string
           description: A human-readable name, primarily used for display purposes.
           example: FIN Wealth Management
+      required:
+        - value
+    FirmDescriptionResource:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+          example:
+            - urn:scim:schemas:extension:FactSet:Core:1.0:FirmDescription
+        id:
+          type: string
+          example: '3'
+          readOnly: true
+        name:
+          type: string
+          description: Name of the firm description.
+          readOnly: true
+          example: Wealth Management
+        userClasses:
+          type: array
+          description: >-
+            The user classes available to the firm description. Users created in
+            a location with this firm description must have one of these user
+            classes.
+          items:
+            $ref: '#/components/schemas/UserClassResourceReference'
+          example:
+            - value: '0'
+              $ref: https://api.factset.com/scim/v2/UserClasses/0
+              display: Pending Assignment
+            - value: '2'
+              $ref: https://api.factset.com/scim/v2/UserClasses/2
+              display: Buy-Side Research
+            - value: '3'
+              $ref: https://api.factset.com/scim/v2/UserClasses/3
+              display: Performance/Risk Management
+            - value: '4'
+              $ref: https://api.factset.com/scim/v2/UserClasses/4
+              display: Trading
+            - value: '5'
+              $ref: https://api.factset.com/scim/v2/UserClasses/5
+              display: Client Services/Sales/Marketing
+            - value: '6'
+              $ref: https://api.factset.com/scim/v2/UserClasses/6
+              display: Wealth/Advisory
+            - value: '20'
+              $ref: https://api.factset.com/scim/v2/UserClasses/20
+              display: Application Developer
+            - value: '27'
+              $ref: https://api.factset.com/scim/v2/UserClasses/27
+              display: IT/Production Support
+            - value: '28'
+              $ref: https://api.factset.com/scim/v2/UserClasses/27
+              display: Machine
+        meta:
+          type: object
+          properties:
+            resourceType:
+              type: string
+              example: FirmDescription
+            location:
+              type: string
+              example: https://api.factset.com/scim/v2/FirmDescriptions/3
+          readOnly: true
+      required:
+        - name
+    FirmDescriptionResourceList:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+          example:
+            - urn:ietf:params:scim:api:messages:2.0:ListResponse
+        totalResults:
+          type: integer
+          example: 1
+        Resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/FirmDescriptionResource'
+    FirmDescriptionResourceReference:
+      type: object
+      properties:
+        value:
+          type: string
+          description: Identifier of the Firm Description.
+          example: '3'
+        $ref:
+          type: string
+          description: >-
+            The URI corresponding to a SCIM resource that is this Firm
+            Description.
+          example: https://api.factset.com/scim/v2/FirmDescriptions/3
+        display:
+          type: string
+          description: A human-readable name, primarily used for display purposes.
+          example: Wealth Management
+      required:
+        - value
+    UserClassResource:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+          example:
+            - urn:scim:schemas:extension:FactSet:Core:1.0:UserClass
+        id:
+          type: string
+          example: '4'
+          readOnly: true
+        name:
+          type: string
+          description: Name of the user class.
+          readOnly: true
+          example: Trading
+        userPositions:
+          type: array
+          description: The user positions available to this user class.
+          items:
+            $ref: '#/components/schemas/UserPositionResourceReference'
+          example:
+            - value: '0'
+              $ref: https://api.factset.com/scim/v2/UserPositions/0
+              display: Pending Assignment
+            - value: '3'
+              $ref: https://api.factset.com/scim/v2/UserPositions/3
+              display: Other
+            - value: '30'
+              $ref: https://api.factset.com/scim/v2/UserPositions/30
+              display: Head Trader
+            - value: '31'
+              $ref: https://api.factset.com/scim/v2/UserPositions/31
+              display: Trader
+            - value: '68'
+              $ref: https://api.factset.com/scim/v2/UserPositions/68
+              display: Assistant
+        meta:
+          type: object
+          properties:
+            resourceType:
+              type: string
+              example: UserClass
+            location:
+              type: string
+              example: https://api.factset.com/scim/v2/UserClasses/4
+          readOnly: true
+      required:
+        - name
+    UserClassResourceList:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+          example:
+            - urn:ietf:params:scim:api:messages:2.0:ListResponse
+        totalResults:
+          type: integer
+          example: 1
+        Resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserClassResource'
+    UserClassResourceReference:
+      type: object
+      properties:
+        value:
+          type: string
+          description: Identifier of the User Class.
+          example: '20'
+        $ref:
+          type: string
+          description: The URI corresponding to a SCIM resource that is this User Class.
+          example: https://api.factset.com/scim/v2/UserClasses/20
+        display:
+          type: string
+          description: A human-readable name, primarily used for display purposes.
+          example: Application Developer
+      required:
+        - value
+    UserPositionResource:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+          example:
+            - urn:scim:schemas:extension:FactSet:Core:1.0:UserPosition
+        id:
+          type: string
+          example: '31'
+          readOnly: true
+        name:
+          type: string
+          description: Name of the user position.
+          readOnly: true
+          example: Trader
+        meta:
+          type: object
+          properties:
+            resourceType:
+              type: string
+              example: UserPosition
+            location:
+              type: string
+              example: https://api.factset.com/scim/v2/UserPositions/31
+          readOnly: true
+      required:
+        - name
+    UserPositionResourceList:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+          example:
+            - urn:ietf:params:scim:api:messages:2.0:ListResponse
+        totalResults:
+          type: integer
+          example: 1
+        Resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserPositionResource'
+    UserPositionResourceReference:
+      type: object
+      properties:
+        value:
+          type: string
+          description: Identifier of the User Position.
+          example: '46'
+        $ref:
+          type: string
+          description: The URI corresponding to a SCIM resource that is this User Position.
+          example: https://api.factset.com/scim/v2/UserPositions/46
+        display:
+          type: string
+          description: A human-readable name, primarily used for display purposes.
+          example: Application Developer
       required:
         - value
     ProductResource:
@@ -1748,6 +2540,11 @@ components:
             "id" per individual will have this value set to true.
           readOnly: true
           example: true
+        orderable:
+          type: boolean
+          description: Whether the product can be ordered by the current client.
+          readOnly: true
+          example: true
         requiresApproval:
           type: string
           description: >-
@@ -1756,6 +2553,13 @@ components:
             that do not require any approval.
           readOnly: true
           example: FactSet
+        trialAvailable:
+          type: boolean
+          description: >-
+            Whether a temporary trial use of this product is available for
+            users.
+          readOnly: true
+          example: true
         whitelist:
           type: boolean
           description: >-
@@ -1775,6 +2579,8 @@ components:
               example: https://api.factset.com/scim/v2/Products/6781
           readOnly: true
       required:
+        - orderable
+        - trialAvailable
         - whitelist
     ProductResourceList:
       type: object

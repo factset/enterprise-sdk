@@ -34,14 +34,53 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LocationResource" /> class.
         /// </summary>
+        [JsonConstructorAttribute]
+        protected LocationResource() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LocationResource" /> class.
+        /// </summary>
         /// <param name="schemas">schemas.</param>
-        /// <param name="externalId">externalId.</param>
-        /// <param name="mainLocation">mainLocation.</param>
+        /// <param name="externalId">An identifier for the resource defined by the client. This can assist the client locate the resource through the use of search filters. Note: for clients that are not FactSet partners, this identifier must be unique within the main location associated with the client&#39;s FactSet username..</param>
+        /// <param name="name">Name of the location. (required).</param>
+        /// <param name="description">Description of the location..</param>
+        /// <param name="address1">First line of location&#39;s address..</param>
+        /// <param name="address2">Second line of location&#39;s address..</param>
+        /// <param name="address3">Third line of location&#39;s address..</param>
+        /// <param name="locality">City of location..</param>
+        /// <param name="region">State or province of location..</param>
+        /// <param name="postalCode">Postal code of location..</param>
+        /// <param name="country">Country of location..</param>
+        /// <param name="firmDescription">firmDescription.</param>
+        /// <param name="emailDomains">The domain names that are valid for use with email addresses associated with users in this location..</param>
+        /// <param name="partnerAssertedEntityId">Identifier assigned to the Corporate Entity. Value is provided as \&quot;fsymEntityId\&quot; from FactSet&#39;s Symbology API..</param>
+        /// <param name="companyAgreementUrls">Provides FactSet with signed documents allowing entitlement to pre-established exchanges for individuals associated with the location. Document URL provided must be available over the public internet..</param>
+        /// <param name="managedLocations">Lists FactSet locations managed by Research Entitlements Administrators at this location for requesting location-based research entitlements..</param>
+        /// <param name="managingLocation">FactSet location ID managing this location for a Research Entitlements Administrator and requesting location-based entitlements for all managed locations associated..</param>
+        /// <param name="mainLocation">The managing or otherwise parent location associated with this location. All locations associated with the mainLocation are viewed as related and within the same business unit in FactSet&#39;s CRM systems..</param>
         /// <param name="meta">meta.</param>
-        public LocationResource(List<string> schemas = default(List<string>), string id = default(string), string externalId = default(string), string name = default(string), string description = default(string), string address1 = default(string), string address2 = default(string), string address3 = default(string), string locality = default(string), string region = default(string), string postalCode = default(string), string country = default(string), string phoneNumber = default(string), LocationResourceReference mainLocation = default(LocationResourceReference), LocationResourceMeta meta = default(LocationResourceMeta))
+        public LocationResource(string name,List<string> schemas = default(List<string>), string id = default(string), string externalId = default(string), string description = default(string), string address1 = default(string), string address2 = default(string), string address3 = default(string), string locality = default(string), string region = default(string), string postalCode = default(string), string country = default(string), string phoneNumber = default(string), FirmDescriptionResourceReference firmDescription = default(FirmDescriptionResourceReference), List<string> emailDomains = default(List<string>), string partnerAssertedEntityId = default(string), List<LocationResourceCompanyAgreementUrls> companyAgreementUrls = default(List<LocationResourceCompanyAgreementUrls>), List<LocationResourceReference> managedLocations = default(List<LocationResourceReference>), LocationResourceReference managingLocation = default(LocationResourceReference), LocationResourceReference mainLocation = default(LocationResourceReference), List<string> usernames = default(List<string>), LocationResourceMeta meta = default(LocationResourceMeta))
         {
+            // to ensure "name" is required (not null)
+            if (name == null) {
+                throw new ArgumentNullException("name is a required property for LocationResource and cannot be null");
+            }
+            this.Name = name;
             this.Schemas = schemas;
             this.ExternalId = externalId;
+            this.Description = description;
+            this.Address1 = address1;
+            this.Address2 = address2;
+            this.Address3 = address3;
+            this.Locality = locality;
+            this.Region = region;
+            this.PostalCode = postalCode;
+            this.Country = country;
+            this.FirmDescription = firmDescription;
+            this.EmailDomains = emailDomains;
+            this.PartnerAssertedEntityId = partnerAssertedEntityId;
+            this.CompanyAgreementUrls = companyAgreementUrls;
+            this.ManagedLocations = managedLocations;
+            this.ManagingLocation = managingLocation;
             this.MainLocation = mainLocation;
             this.Meta = meta;
         }
@@ -67,8 +106,9 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
             return false;
         }
         /// <summary>
-        /// Gets or Sets ExternalId
+        /// An identifier for the resource defined by the client. This can assist the client locate the resource through the use of search filters. Note: for clients that are not FactSet partners, this identifier must be unique within the main location associated with the client&#39;s FactSet username.
         /// </summary>
+        /// <value>An identifier for the resource defined by the client. This can assist the client locate the resource through the use of search filters. Note: for clients that are not FactSet partners, this identifier must be unique within the main location associated with the client&#39;s FactSet username.</value>
         [DataMember(Name = "externalId", EmitDefaultValue = false)]
         public string ExternalId { get; set; }
 
@@ -76,137 +116,65 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
         /// Name of the location.
         /// </summary>
         /// <value>Name of the location.</value>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
-        public string Name { get; private set; }
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
+        public string Name { get; set; }
 
-        /// <summary>
-        /// Returns false as Name should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeName()
-        {
-            return false;
-        }
         /// <summary>
         /// Description of the location.
         /// </summary>
         /// <value>Description of the location.</value>
         [DataMember(Name = "description", EmitDefaultValue = false)]
-        public string Description { get; private set; }
+        public string Description { get; set; }
 
-        /// <summary>
-        /// Returns false as Description should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeDescription()
-        {
-            return false;
-        }
         /// <summary>
         /// First line of location&#39;s address.
         /// </summary>
         /// <value>First line of location&#39;s address.</value>
         [DataMember(Name = "address1", EmitDefaultValue = false)]
-        public string Address1 { get; private set; }
+        public string Address1 { get; set; }
 
-        /// <summary>
-        /// Returns false as Address1 should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeAddress1()
-        {
-            return false;
-        }
         /// <summary>
         /// Second line of location&#39;s address.
         /// </summary>
         /// <value>Second line of location&#39;s address.</value>
         [DataMember(Name = "address2", EmitDefaultValue = false)]
-        public string Address2 { get; private set; }
+        public string Address2 { get; set; }
 
-        /// <summary>
-        /// Returns false as Address2 should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeAddress2()
-        {
-            return false;
-        }
         /// <summary>
         /// Third line of location&#39;s address.
         /// </summary>
         /// <value>Third line of location&#39;s address.</value>
         [DataMember(Name = "address3", EmitDefaultValue = false)]
-        public string Address3 { get; private set; }
+        public string Address3 { get; set; }
 
-        /// <summary>
-        /// Returns false as Address3 should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeAddress3()
-        {
-            return false;
-        }
         /// <summary>
         /// City of location.
         /// </summary>
         /// <value>City of location.</value>
         [DataMember(Name = "locality", EmitDefaultValue = false)]
-        public string Locality { get; private set; }
+        public string Locality { get; set; }
 
-        /// <summary>
-        /// Returns false as Locality should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeLocality()
-        {
-            return false;
-        }
         /// <summary>
         /// State or province of location.
         /// </summary>
         /// <value>State or province of location.</value>
         [DataMember(Name = "region", EmitDefaultValue = false)]
-        public string Region { get; private set; }
+        public string Region { get; set; }
 
-        /// <summary>
-        /// Returns false as Region should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeRegion()
-        {
-            return false;
-        }
         /// <summary>
         /// Postal code of location.
         /// </summary>
         /// <value>Postal code of location.</value>
         [DataMember(Name = "postalCode", EmitDefaultValue = false)]
-        public string PostalCode { get; private set; }
+        public string PostalCode { get; set; }
 
-        /// <summary>
-        /// Returns false as PostalCode should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializePostalCode()
-        {
-            return false;
-        }
         /// <summary>
         /// Country of location.
         /// </summary>
         /// <value>Country of location.</value>
         [DataMember(Name = "country", EmitDefaultValue = false)]
-        public string Country { get; private set; }
+        public string Country { get; set; }
 
-        /// <summary>
-        /// Returns false as Country should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeCountry()
-        {
-            return false;
-        }
         /// <summary>
         /// Phone number of location.
         /// </summary>
@@ -223,11 +191,68 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
             return false;
         }
         /// <summary>
-        /// Gets or Sets MainLocation
+        /// Gets or Sets FirmDescription
         /// </summary>
+        [DataMember(Name = "firmDescription", EmitDefaultValue = true)]
+        public FirmDescriptionResourceReference FirmDescription { get; set; }
+
+        /// <summary>
+        /// The domain names that are valid for use with email addresses associated with users in this location.
+        /// </summary>
+        /// <value>The domain names that are valid for use with email addresses associated with users in this location.</value>
+        [DataMember(Name = "emailDomains", EmitDefaultValue = false)]
+        public List<string> EmailDomains { get; set; }
+
+        /// <summary>
+        /// Identifier assigned to the Corporate Entity. Value is provided as \&quot;fsymEntityId\&quot; from FactSet&#39;s Symbology API.
+        /// </summary>
+        /// <value>Identifier assigned to the Corporate Entity. Value is provided as \&quot;fsymEntityId\&quot; from FactSet&#39;s Symbology API.</value>
+        [DataMember(Name = "partnerAssertedEntityId", EmitDefaultValue = false)]
+        public string PartnerAssertedEntityId { get; set; }
+
+        /// <summary>
+        /// Provides FactSet with signed documents allowing entitlement to pre-established exchanges for individuals associated with the location. Document URL provided must be available over the public internet.
+        /// </summary>
+        /// <value>Provides FactSet with signed documents allowing entitlement to pre-established exchanges for individuals associated with the location. Document URL provided must be available over the public internet.</value>
+        [DataMember(Name = "companyAgreementUrls", EmitDefaultValue = false)]
+        public List<LocationResourceCompanyAgreementUrls> CompanyAgreementUrls { get; set; }
+
+        /// <summary>
+        /// Lists FactSet locations managed by Research Entitlements Administrators at this location for requesting location-based research entitlements.
+        /// </summary>
+        /// <value>Lists FactSet locations managed by Research Entitlements Administrators at this location for requesting location-based research entitlements.</value>
+        [DataMember(Name = "managedLocations", EmitDefaultValue = false)]
+        public List<LocationResourceReference> ManagedLocations { get; set; }
+
+        /// <summary>
+        /// FactSet location ID managing this location for a Research Entitlements Administrator and requesting location-based entitlements for all managed locations associated.
+        /// </summary>
+        /// <value>FactSet location ID managing this location for a Research Entitlements Administrator and requesting location-based entitlements for all managed locations associated.</value>
+        [DataMember(Name = "managingLocation", EmitDefaultValue = true)]
+        public LocationResourceReference ManagingLocation { get; set; }
+
+        /// <summary>
+        /// The managing or otherwise parent location associated with this location. All locations associated with the mainLocation are viewed as related and within the same business unit in FactSet&#39;s CRM systems.
+        /// </summary>
+        /// <value>The managing or otherwise parent location associated with this location. All locations associated with the mainLocation are viewed as related and within the same business unit in FactSet&#39;s CRM systems.</value>
         [DataMember(Name = "mainLocation", EmitDefaultValue = true)]
         public LocationResourceReference MainLocation { get; set; }
 
+        /// <summary>
+        /// The FactSet usernames that are valid for users in this location.
+        /// </summary>
+        /// <value>The FactSet usernames that are valid for users in this location.</value>
+        [DataMember(Name = "usernames", EmitDefaultValue = false)]
+        public List<string> Usernames { get; private set; }
+
+        /// <summary>
+        /// Returns false as Usernames should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeUsernames()
+        {
+            return false;
+        }
         /// <summary>
         /// Gets or Sets Meta
         /// </summary>
@@ -255,7 +280,14 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
             sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
             sb.Append("  Country: ").Append(Country).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
+            sb.Append("  FirmDescription: ").Append(FirmDescription).Append("\n");
+            sb.Append("  EmailDomains: ").Append(EmailDomains).Append("\n");
+            sb.Append("  PartnerAssertedEntityId: ").Append(PartnerAssertedEntityId).Append("\n");
+            sb.Append("  CompanyAgreementUrls: ").Append(CompanyAgreementUrls).Append("\n");
+            sb.Append("  ManagedLocations: ").Append(ManagedLocations).Append("\n");
+            sb.Append("  ManagingLocation: ").Append(ManagingLocation).Append("\n");
             sb.Append("  MainLocation: ").Append(MainLocation).Append("\n");
+            sb.Append("  Usernames: ").Append(Usernames).Append("\n");
             sb.Append("  Meta: ").Append(Meta).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -359,9 +391,48 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
                     this.PhoneNumber.Equals(input.PhoneNumber))
                 ) && 
                 (
+                    this.FirmDescription == input.FirmDescription ||
+                    (this.FirmDescription != null &&
+                    this.FirmDescription.Equals(input.FirmDescription))
+                ) && 
+                (
+                    this.EmailDomains == input.EmailDomains ||
+                    this.EmailDomains != null &&
+                    input.EmailDomains != null &&
+                    this.EmailDomains.SequenceEqual(input.EmailDomains)
+                ) && 
+                (
+                    this.PartnerAssertedEntityId == input.PartnerAssertedEntityId ||
+                    (this.PartnerAssertedEntityId != null &&
+                    this.PartnerAssertedEntityId.Equals(input.PartnerAssertedEntityId))
+                ) && 
+                (
+                    this.CompanyAgreementUrls == input.CompanyAgreementUrls ||
+                    this.CompanyAgreementUrls != null &&
+                    input.CompanyAgreementUrls != null &&
+                    this.CompanyAgreementUrls.SequenceEqual(input.CompanyAgreementUrls)
+                ) && 
+                (
+                    this.ManagedLocations == input.ManagedLocations ||
+                    this.ManagedLocations != null &&
+                    input.ManagedLocations != null &&
+                    this.ManagedLocations.SequenceEqual(input.ManagedLocations)
+                ) && 
+                (
+                    this.ManagingLocation == input.ManagingLocation ||
+                    (this.ManagingLocation != null &&
+                    this.ManagingLocation.Equals(input.ManagingLocation))
+                ) && 
+                (
                     this.MainLocation == input.MainLocation ||
                     (this.MainLocation != null &&
                     this.MainLocation.Equals(input.MainLocation))
+                ) && 
+                (
+                    this.Usernames == input.Usernames ||
+                    this.Usernames != null &&
+                    input.Usernames != null &&
+                    this.Usernames.SequenceEqual(input.Usernames)
                 ) && 
                 (
                     this.Meta == input.Meta ||
@@ -431,9 +502,37 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
                 {
                     hashCode = (hashCode * 59) + this.PhoneNumber.GetHashCode();
                 }
+                if (this.FirmDescription != null)
+                {
+                    hashCode = (hashCode * 59) + this.FirmDescription.GetHashCode();
+                }
+                if (this.EmailDomains != null)
+                {
+                    hashCode = (hashCode * 59) + this.EmailDomains.GetHashCode();
+                }
+                if (this.PartnerAssertedEntityId != null)
+                {
+                    hashCode = (hashCode * 59) + this.PartnerAssertedEntityId.GetHashCode();
+                }
+                if (this.CompanyAgreementUrls != null)
+                {
+                    hashCode = (hashCode * 59) + this.CompanyAgreementUrls.GetHashCode();
+                }
+                if (this.ManagedLocations != null)
+                {
+                    hashCode = (hashCode * 59) + this.ManagedLocations.GetHashCode();
+                }
+                if (this.ManagingLocation != null)
+                {
+                    hashCode = (hashCode * 59) + this.ManagingLocation.GetHashCode();
+                }
                 if (this.MainLocation != null)
                 {
                     hashCode = (hashCode * 59) + this.MainLocation.GetHashCode();
+                }
+                if (this.Usernames != null)
+                {
+                    hashCode = (hashCode * 59) + this.Usernames.GetHashCode();
                 }
                 if (this.Meta != null)
                 {

@@ -13,6 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import SchemaAttributes from './SchemaAttributes';
+import SchemaMeta from './SchemaMeta';
 
 /**
  * The Schema model module.
@@ -65,6 +66,9 @@ class Schema {
             if (data.hasOwnProperty('attributes')) {
                 obj['attributes'] = ApiClient.convertToType(data['attributes'], [SchemaAttributes]);
             }
+            if (data.hasOwnProperty('meta')) {
+                obj['meta'] = SchemaMeta.constructFromObject(data['meta']);
+            }
         }
         return obj;
     }
@@ -95,6 +99,11 @@ Schema.prototype['description'] = undefined;
  * @member {Array.<module:model/SchemaAttributes>} attributes
  */
 Schema.prototype['attributes'] = undefined;
+
+/**
+ * @member {module:model/SchemaMeta} meta
+ */
+Schema.prototype['meta'] = undefined;
 
 
 

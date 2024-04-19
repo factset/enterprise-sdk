@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import FieldProperties from './FieldProperties';
 
 /**
  * The DatabaseSchemaData model module.
@@ -53,7 +54,7 @@ class DatabaseSchemaData {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
             if (data.hasOwnProperty('fields')) {
-                obj['fields'] = ApiClient.convertToType(data['fields'], [Object]);
+                obj['fields'] = ApiClient.convertToType(data['fields'], [FieldProperties]);
             }
         }
         return obj;
@@ -73,7 +74,7 @@ DatabaseSchemaData.prototype['path'] = undefined;
 DatabaseSchemaData.prototype['description'] = undefined;
 
 /**
- * @member {Array.<Object>} fields
+ * @member {Array.<module:model/FieldProperties>} fields
  */
 DatabaseSchemaData.prototype['fields'] = undefined;
 

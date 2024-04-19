@@ -33,13 +33,12 @@ from fds.sdk.OFDB.model.inline_response2003 import InlineResponse2003
 from fds.sdk.OFDB.model.inline_response2004 import InlineResponse2004
 from fds.sdk.OFDB.model.inline_response2005 import InlineResponse2005
 from fds.sdk.OFDB.model.inline_response2006 import InlineResponse2006
+from fds.sdk.OFDB.model.inline_response2007 import InlineResponse2007
+from fds.sdk.OFDB.model.inline_response2008 import InlineResponse2008
 from fds.sdk.OFDB.model.inline_response201 import InlineResponse201
 from fds.sdk.OFDB.model.inline_response202 import InlineResponse202
 from fds.sdk.OFDB.model.inline_response400 import InlineResponse400
 from fds.sdk.OFDB.model.inline_response403 import InlineResponse403
-from fds.sdk.OFDB.model.inline_response404 import InlineResponse404
-from fds.sdk.OFDB.model.inline_response406 import InlineResponse406
-from fds.sdk.OFDB.model.inline_response429 import InlineResponse429
 from fds.sdk.OFDB.model.success_post_response import SuccessPostResponse
 
 
@@ -58,18 +57,18 @@ class LongRunningApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-        self.get_resource_audit_endpoint = _Endpoint(
+        self.get_resource_delete_bulk_items_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse200,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse404,), 406: (InlineResponse406,), 429: (InlineResponse429,),  },
+                  { 200: (InlineResponse2003,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 429: (InlineResponse403,),  },
                   None
                 ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
-                'endpoint_path': '/database/{path}/audit/jobs/{id}',
-                'operation_id': 'get_resource_audit',
+                'endpoint_path': '/database/{path}/delete/jobs/post/{id}',
+                'operation_id': 'get_resource_delete_bulk_items',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -120,198 +119,15 @@ class LongRunningApi(object):
             api_client=api_client
         )
 
-        self.get_resource_bulk_delete_endpoint = _Endpoint(
+        self.get_resource_delete_date_endpoint = _Endpoint(
             settings={
-                'response_type': (
-                  { 200: (InlineResponse2003,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse404,), 406: (InlineResponse406,), 429: (InlineResponse429,),  },
-                  None
-                ),
+                'response_type': None,
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
-                'endpoint_path': '/database/{path}/delete/jobs/{id}',
-                'operation_id': 'get_resource_bulk_delete',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'path',
-                    'id',
-                ],
-                'required': [
-                    'path',
-                    'id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'path':
-                        (str,),
-                    'id':
-                        (str,),
-                },
-                'attribute_map': {
-                    'path': 'path',
-                    'id': 'id',
-                },
-                'location_map': {
-                    'path': 'path',
-                    'id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-
-        self.get_resource_data_endpoint = _Endpoint(
-            settings={
-                'response_type': (
-                  { 200: (InlineResponse2006,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse404,), 406: (InlineResponse406,), 429: (InlineResponse429,),  },
-                  None
-                ),
-                'auth': [
-                    'FactSetApiKey',
-                    'FactSetOAuth2'
-                ],
-                'endpoint_path': '/database/{path}/jobs/{id}',
-                'operation_id': 'get_resource_data',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'path',
-                    'id',
-                ],
-                'required': [
-                    'path',
-                    'id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'path':
-                        (str,),
-                    'id':
-                        (str,),
-                },
-                'attribute_map': {
-                    'path': 'path',
-                    'id': 'id',
-                },
-                'location_map': {
-                    'path': 'path',
-                    'id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-
-        self.get_resource_database_endpoint = _Endpoint(
-            settings={
-                'response_type': (
-                  { 200: (CreateDatabase,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse404,), 406: (InlineResponse406,), 429: (InlineResponse429,),  },
-                  None
-                ),
-                'auth': [
-                    'FactSetApiKey',
-                    'FactSetOAuth2'
-                ],
-                'endpoint_path': '/database/jobs/{id}',
-                'operation_id': 'get_resource_database',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'id',
-                ],
-                'required': [
-                    'id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'id':
-                        (str,),
-                },
-                'attribute_map': {
-                    'id': 'id',
-                },
-                'location_map': {
-                    'id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-
-        self.get_resource_date_endpoint = _Endpoint(
-            settings={
-                'response_type': (
-                  { 200: (SuccessPostResponse,), 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse404,), 406: (InlineResponse406,), 429: (InlineResponse429,),  },
-                  None
-                ),
-                'auth': [
-                    'FactSetApiKey',
-                    'FactSetOAuth2'
-                ],
-                'endpoint_path': '/database/{path}/dates/{date}/jobs/{id}',
-                'operation_id': 'get_resource_date',
+                'endpoint_path': '/database/{path}/dates/{date}/jobs/delete/{id}',
+                'operation_id': 'get_resource_delete_date',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -368,28 +184,29 @@ class LongRunningApi(object):
             api_client=api_client
         )
 
-        self.get_resource_dates_endpoint = _Endpoint(
+        self.get_resource_delete_date_from_symbol_endpoint = _Endpoint(
             settings={
-                'response_type': (
-                  { 200: (InlineResponse2005,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse404,), 406: (InlineResponse406,), 429: (InlineResponse429,),  },
-                  None
-                ),
+                'response_type': None,
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
-                'endpoint_path': '/database/{path}/dates/jobs/{id}',
-                'operation_id': 'get_resource_dates',
+                'endpoint_path': '/database/{path}/dates/{date}/symbols/{symbol}/jobs/delete/{id}',
+                'operation_id': 'get_resource_delete_date_from_symbol',
                 'http_method': 'GET',
                 'servers': None,
             },
             params_map={
                 'all': [
                     'path',
+                    'date',
+                    'symbol',
                     'id',
                 ],
                 'required': [
                     'path',
+                    'date',
+                    'symbol',
                     'id',
                 ],
                 'nullable': [
@@ -407,15 +224,23 @@ class LongRunningApi(object):
                 'openapi_types': {
                     'path':
                         (str,),
+                    'date':
+                        (int,),
+                    'symbol':
+                        (str,),
                     'id':
                         (str,),
                 },
                 'attribute_map': {
                     'path': 'path',
+                    'date': 'date',
+                    'symbol': 'symbol',
                     'id': 'id',
                 },
                 'location_map': {
                     'path': 'path',
+                    'date': 'path',
+                    'symbol': 'path',
                     'id': 'path',
                 },
                 'collection_format_map': {
@@ -430,142 +255,15 @@ class LongRunningApi(object):
             api_client=api_client
         )
 
-        self.get_resource_fields_endpoint = _Endpoint(
+        self.get_resource_delete_symbol_endpoint = _Endpoint(
             settings={
-                'response_type': (
-                  { 200: (InlineResponse2002,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse404,), 406: (InlineResponse406,), 429: (InlineResponse429,),  },
-                  None
-                ),
+                'response_type': None,
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
-                'endpoint_path': '/database/{path}/fields/jobs/{id}',
-                'operation_id': 'get_resource_fields',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'path',
-                    'id',
-                ],
-                'required': [
-                    'path',
-                    'id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'path':
-                        (str,),
-                    'id':
-                        (str,),
-                },
-                'attribute_map': {
-                    'path': 'path',
-                    'id': 'id',
-                },
-                'location_map': {
-                    'path': 'path',
-                    'id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-
-        self.get_resource_stats_endpoint = _Endpoint(
-            settings={
-                'response_type': (
-                  { 200: (InlineResponse2001,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse404,), 406: (InlineResponse406,), 429: (InlineResponse429,),  },
-                  None
-                ),
-                'auth': [
-                    'FactSetApiKey',
-                    'FactSetOAuth2'
-                ],
-                'endpoint_path': '/database/{path}/stats/jobs/{id}',
-                'operation_id': 'get_resource_stats',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'path',
-                    'id',
-                ],
-                'required': [
-                    'path',
-                    'id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'path':
-                        (str,),
-                    'id':
-                        (str,),
-                },
-                'attribute_map': {
-                    'path': 'path',
-                    'id': 'id',
-                },
-                'location_map': {
-                    'path': 'path',
-                    'id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-
-        self.get_resource_symbol_endpoint = _Endpoint(
-            settings={
-                'response_type': (
-                  { 200: (SuccessPostResponse,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse404,), 406: (InlineResponse406,), 429: (InlineResponse429,),  },
-                  None
-                ),
-                'auth': [
-                    'FactSetApiKey',
-                    'FactSetOAuth2'
-                ],
-                'endpoint_path': '/database/{path}/symbols/{symbol}/jobs/{id}',
-                'operation_id': 'get_resource_symbol',
+                'endpoint_path': '/database/{path}/symbols/{symbol}/jobs/delete/{id}',
+                'operation_id': 'get_resource_delete_symbol',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -622,18 +320,830 @@ class LongRunningApi(object):
             api_client=api_client
         )
 
-        self.get_resource_symbols_endpoint = _Endpoint(
+        self.get_resource_get_audit_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse2004,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse404,), 406: (InlineResponse406,), 429: (InlineResponse429,),  },
+                  { 200: (InlineResponse200,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 429: (InlineResponse403,),  },
                   None
                 ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
-                'endpoint_path': '/database/{path}/symbols/jobs/{id}',
-                'operation_id': 'get_resource_symbols',
+                'endpoint_path': '/database/{path}/audit/jobs/get/{id}',
+                'operation_id': 'get_resource_get_audit',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'path',
+                    'id',
+                ],
+                'required': [
+                    'path',
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'path':
+                        (str,),
+                    'id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'path': 'path',
+                    'id': 'id',
+                },
+                'location_map': {
+                    'path': 'path',
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+
+        self.get_resource_get_data_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 200: (InlineResponse2008,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 429: (InlineResponse403,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/database/{path}/jobs/get/{id}',
+                'operation_id': 'get_resource_get_data',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'path',
+                    'id',
+                ],
+                'required': [
+                    'path',
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'path':
+                        (str,),
+                    'id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'path': 'path',
+                    'id': 'id',
+                },
+                'location_map': {
+                    'path': 'path',
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+
+        self.get_resource_get_dates_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 200: (InlineResponse2006,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 429: (InlineResponse403,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/database/{path}/dates/jobs/get/{id}',
+                'operation_id': 'get_resource_get_dates',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'path',
+                    'id',
+                ],
+                'required': [
+                    'path',
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'path':
+                        (str,),
+                    'id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'path': 'path',
+                    'id': 'id',
+                },
+                'location_map': {
+                    'path': 'path',
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+
+        self.get_resource_get_fields_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 200: (InlineResponse2002,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 429: (InlineResponse403,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/database/{path}/fields/jobs/get/{id}',
+                'operation_id': 'get_resource_get_fields',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'path',
+                    'id',
+                ],
+                'required': [
+                    'path',
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'path':
+                        (str,),
+                    'id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'path': 'path',
+                    'id': 'id',
+                },
+                'location_map': {
+                    'path': 'path',
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+
+        self.get_resource_get_stats_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 200: (InlineResponse2001,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 429: (InlineResponse403,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/database/{path}/stats/jobs/get/{id}',
+                'operation_id': 'get_resource_get_stats',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'path',
+                    'id',
+                ],
+                'required': [
+                    'path',
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'path':
+                        (str,),
+                    'id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'path': 'path',
+                    'id': 'id',
+                },
+                'location_map': {
+                    'path': 'path',
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+
+        self.get_resource_get_symbols_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 200: (InlineResponse2004,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 429: (InlineResponse403,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/database/{path}/symbols/jobs/get/{id}',
+                'operation_id': 'get_resource_get_symbols',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'path',
+                    'id',
+                ],
+                'required': [
+                    'path',
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'path':
+                        (str,),
+                    'id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'path': 'path',
+                    'id': 'id',
+                },
+                'location_map': {
+                    'path': 'path',
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+
+        self.get_resource_post_database_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 200: (CreateDatabase,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 429: (InlineResponse403,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/database/jobs/post/{id}',
+                'operation_id': 'get_resource_post_database',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+
+        self.get_resource_post_dates_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 200: (InlineResponse2007,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 429: (InlineResponse403,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/database/{path}/dates/jobs/post/{id}',
+                'operation_id': 'get_resource_post_dates',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'path',
+                    'id',
+                ],
+                'required': [
+                    'path',
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'path':
+                        (str,),
+                    'id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'path': 'path',
+                    'id': 'id',
+                },
+                'location_map': {
+                    'path': 'path',
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+
+        self.get_resource_post_fields_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 200: (InlineResponse2002,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 429: (InlineResponse403,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/database/{path}/fields/jobs/post/{id}',
+                'operation_id': 'get_resource_post_fields',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'path',
+                    'id',
+                ],
+                'required': [
+                    'path',
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'path':
+                        (str,),
+                    'id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'path': 'path',
+                    'id': 'id',
+                },
+                'location_map': {
+                    'path': 'path',
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+
+        self.get_resource_post_symbols_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 200: (InlineResponse2005,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 429: (InlineResponse403,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/database/{path}/symbols/jobs/post/{id}',
+                'operation_id': 'get_resource_post_symbols',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'path',
+                    'id',
+                ],
+                'required': [
+                    'path',
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'path':
+                        (str,),
+                    'id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'path': 'path',
+                    'id': 'id',
+                },
+                'location_map': {
+                    'path': 'path',
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+
+        self.get_resource_put_date_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 200: (SuccessPostResponse,), 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 429: (InlineResponse403,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/database/{path}/dates/{date}/jobs/put/{id}',
+                'operation_id': 'get_resource_put_date',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'path',
+                    'date',
+                    'id',
+                ],
+                'required': [
+                    'path',
+                    'date',
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'path':
+                        (str,),
+                    'date':
+                        (int,),
+                    'id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'path': 'path',
+                    'date': 'date',
+                    'id': 'id',
+                },
+                'location_map': {
+                    'path': 'path',
+                    'date': 'path',
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+
+        self.get_resource_put_dates_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 200: (InlineResponse2007,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 429: (InlineResponse403,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/database/{path}/dates/jobs/put/{id}',
+                'operation_id': 'get_resource_put_dates',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'path',
+                    'id',
+                ],
+                'required': [
+                    'path',
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'path':
+                        (str,),
+                    'id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'path': 'path',
+                    'id': 'id',
+                },
+                'location_map': {
+                    'path': 'path',
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+
+        self.get_resource_put_symbol_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 200: (SuccessPostResponse,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 429: (InlineResponse403,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/database/{path}/symbols/{symbol}/jobs/put/{id}',
+                'operation_id': 'get_resource_put_symbol',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'path',
+                    'symbol',
+                    'id',
+                ],
+                'required': [
+                    'path',
+                    'symbol',
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'path':
+                        (str,),
+                    'symbol':
+                        (str,),
+                    'id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'path': 'path',
+                    'symbol': 'symbol',
+                    'id': 'id',
+                },
+                'location_map': {
+                    'path': 'path',
+                    'symbol': 'path',
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+
+        self.get_resource_put_symbols_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 200: (InlineResponse2005,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 429: (InlineResponse403,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/database/{path}/symbols/jobs/put/{id}',
+                'operation_id': 'get_resource_put_symbols',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -687,7 +1197,7 @@ class LongRunningApi(object):
         self.get_status_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 201: (InlineResponse201,), 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse404,), 406: (InlineResponse406,), 429: (InlineResponse429,),  },
+                  { 201: (InlineResponse201,), 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 429: (InlineResponse403,),  },
                   None
                 ),
                 'auth': [
@@ -754,220 +1264,13 @@ class LongRunningApi(object):
         kwargs["_host_index"] = kwargs.get("_host_index")
 
 
-    def get_resource_audit(
-        self,
-        path,
-        id,
-        **kwargs
-    ) -> InlineResponse200:
-        """get_resource_audit  # noqa: E501
-
-        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns the http data only
-
-        Args:
-            path (str): Encode database path
-            id (str): A unique pickup ID returned by the original request
-
-        Keyword Args:
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True. NOTE: if this API returns a file, it is the responsibility
-                of the caller to close the file stream.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse200
-                Response Object
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['path'] = \
-            path
-        kwargs['id'] = \
-            id
-        return self.get_resource_audit_endpoint.call_with_http_info(**kwargs)
-
-    def get_resource_audit_with_http_info(
-        self,
-        path,
-        id,
-        **kwargs
-    ) -> typing.Tuple[InlineResponse200, int, typing.MutableMapping]:
-        """get_resource_audit  # noqa: E501
-
-        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns http data, http status and headers
-
-        Args:
-            path (str): Encode database path
-            id (str): A unique pickup ID returned by the original request
-
-        Keyword Args:
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True. NOTE: if this API returns a file, it is the responsibility
-                of the caller to close the file stream.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse200
-                Response Object
-            int
-                Http Status Code
-            dict
-                Dictionary of the response headers
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['path'] = \
-            path
-        kwargs['id'] = \
-            id
-        return self.get_resource_audit_endpoint.call_with_http_info(**kwargs)
-
-    def get_resource_audit_async(
-        self,
-        path,
-        id,
-        **kwargs
-    ) -> "ApplyResult[InlineResponse200]":
-        """get_resource_audit  # noqa: E501
-
-        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
-
-        Args:
-            path (str): Encode database path
-            id (str): A unique pickup ID returned by the original request
-
-        Keyword Args:
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True. NOTE: if this API returns a file, it is the responsibility
-                of the caller to close the file stream.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[InlineResponse200]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['path'] = \
-            path
-        kwargs['id'] = \
-            id
-        return self.get_resource_audit_endpoint.call_with_http_info(**kwargs)
-
-    def get_resource_audit_with_http_info_async(
-        self,
-        path,
-        id,
-        **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse200, int, typing.MutableMapping]]":
-        """get_resource_audit  # noqa: E501
-
-        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
-
-        Args:
-            path (str): Encode database path
-            id (str): A unique pickup ID returned by the original request
-
-        Keyword Args:
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True. NOTE: if this API returns a file, it is the responsibility
-                of the caller to close the file stream.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[(InlineResponse200, int, typing.Dict)]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['path'] = \
-            path
-        kwargs['id'] = \
-            id
-        return self.get_resource_audit_endpoint.call_with_http_info(**kwargs)
-
-
-    def get_resource_bulk_delete(
+    def get_resource_delete_bulk_items(
         self,
         path,
         id,
         **kwargs
     ) -> InlineResponse2003:
-        """get_resource_bulk_delete  # noqa: E501
+        """get_resource_delete_bulk_items  # noqa: E501
 
         Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
@@ -1010,15 +1313,15 @@ class LongRunningApi(object):
             path
         kwargs['id'] = \
             id
-        return self.get_resource_bulk_delete_endpoint.call_with_http_info(**kwargs)
+        return self.get_resource_delete_bulk_items_endpoint.call_with_http_info(**kwargs)
 
-    def get_resource_bulk_delete_with_http_info(
+    def get_resource_delete_bulk_items_with_http_info(
         self,
         path,
         id,
         **kwargs
     ) -> typing.Tuple[InlineResponse2003, int, typing.MutableMapping]:
-        """get_resource_bulk_delete  # noqa: E501
+        """get_resource_delete_bulk_items  # noqa: E501
 
         Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
@@ -1065,15 +1368,15 @@ class LongRunningApi(object):
             path
         kwargs['id'] = \
             id
-        return self.get_resource_bulk_delete_endpoint.call_with_http_info(**kwargs)
+        return self.get_resource_delete_bulk_items_endpoint.call_with_http_info(**kwargs)
 
-    def get_resource_bulk_delete_async(
+    def get_resource_delete_bulk_items_async(
         self,
         path,
         id,
         **kwargs
     ) -> "ApplyResult[InlineResponse2003]":
-        """get_resource_bulk_delete  # noqa: E501
+        """get_resource_delete_bulk_items  # noqa: E501
 
         Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
@@ -1115,15 +1418,15 @@ class LongRunningApi(object):
             path
         kwargs['id'] = \
             id
-        return self.get_resource_bulk_delete_endpoint.call_with_http_info(**kwargs)
+        return self.get_resource_delete_bulk_items_endpoint.call_with_http_info(**kwargs)
 
-    def get_resource_bulk_delete_with_http_info_async(
+    def get_resource_delete_bulk_items_with_http_info_async(
         self,
         path,
         id,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[InlineResponse2003, int, typing.MutableMapping]]":
-        """get_resource_bulk_delete  # noqa: E501
+        """get_resource_delete_bulk_items  # noqa: E501
 
         Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
@@ -1165,16 +1468,1115 @@ class LongRunningApi(object):
             path
         kwargs['id'] = \
             id
-        return self.get_resource_bulk_delete_endpoint.call_with_http_info(**kwargs)
+        return self.get_resource_delete_bulk_items_endpoint.call_with_http_info(**kwargs)
 
 
-    def get_resource_data(
+    def get_resource_delete_date(
+        self,
+        path,
+        date,
+        id,
+        **kwargs
+    ) -> None:
+        """get_resource_delete_date  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            path (str): Encode database path
+            date (int): Date in YYYYMMDD format
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            None
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['path'] = \
+            path
+        kwargs['date'] = \
+            date
+        kwargs['id'] = \
+            id
+        return self.get_resource_delete_date_endpoint.call_with_http_info(**kwargs)
+
+    def get_resource_delete_date_with_http_info(
+        self,
+        path,
+        date,
+        id,
+        **kwargs
+    ) -> typing.Tuple[None, int, typing.MutableMapping]:
+        """get_resource_delete_date  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            path (str): Encode database path
+            date (int): Date in YYYYMMDD format
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            None
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['path'] = \
+            path
+        kwargs['date'] = \
+            date
+        kwargs['id'] = \
+            id
+        return self.get_resource_delete_date_endpoint.call_with_http_info(**kwargs)
+
+    def get_resource_delete_date_async(
+        self,
+        path,
+        date,
+        id,
+        **kwargs
+    ) -> "ApplyResult[None]":
+        """get_resource_delete_date  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            path (str): Encode database path
+            date (int): Date in YYYYMMDD format
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[None]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['path'] = \
+            path
+        kwargs['date'] = \
+            date
+        kwargs['id'] = \
+            id
+        return self.get_resource_delete_date_endpoint.call_with_http_info(**kwargs)
+
+    def get_resource_delete_date_with_http_info_async(
+        self,
+        path,
+        date,
+        id,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[None, int, typing.MutableMapping]]":
+        """get_resource_delete_date  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            path (str): Encode database path
+            date (int): Date in YYYYMMDD format
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(None, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['path'] = \
+            path
+        kwargs['date'] = \
+            date
+        kwargs['id'] = \
+            id
+        return self.get_resource_delete_date_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_resource_delete_date_from_symbol(
+        self,
+        path,
+        date,
+        symbol,
+        id,
+        **kwargs
+    ) -> None:
+        """get_resource_delete_date_from_symbol  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            path (str): Encode database path
+            date (int): Date in YYYYMMDD format
+            symbol (str): Symbol with in the ofdb
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            None
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['path'] = \
+            path
+        kwargs['date'] = \
+            date
+        kwargs['symbol'] = \
+            symbol
+        kwargs['id'] = \
+            id
+        return self.get_resource_delete_date_from_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_resource_delete_date_from_symbol_with_http_info(
+        self,
+        path,
+        date,
+        symbol,
+        id,
+        **kwargs
+    ) -> typing.Tuple[None, int, typing.MutableMapping]:
+        """get_resource_delete_date_from_symbol  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            path (str): Encode database path
+            date (int): Date in YYYYMMDD format
+            symbol (str): Symbol with in the ofdb
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            None
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['path'] = \
+            path
+        kwargs['date'] = \
+            date
+        kwargs['symbol'] = \
+            symbol
+        kwargs['id'] = \
+            id
+        return self.get_resource_delete_date_from_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_resource_delete_date_from_symbol_async(
+        self,
+        path,
+        date,
+        symbol,
+        id,
+        **kwargs
+    ) -> "ApplyResult[None]":
+        """get_resource_delete_date_from_symbol  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            path (str): Encode database path
+            date (int): Date in YYYYMMDD format
+            symbol (str): Symbol with in the ofdb
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[None]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['path'] = \
+            path
+        kwargs['date'] = \
+            date
+        kwargs['symbol'] = \
+            symbol
+        kwargs['id'] = \
+            id
+        return self.get_resource_delete_date_from_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_resource_delete_date_from_symbol_with_http_info_async(
+        self,
+        path,
+        date,
+        symbol,
+        id,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[None, int, typing.MutableMapping]]":
+        """get_resource_delete_date_from_symbol  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            path (str): Encode database path
+            date (int): Date in YYYYMMDD format
+            symbol (str): Symbol with in the ofdb
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(None, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['path'] = \
+            path
+        kwargs['date'] = \
+            date
+        kwargs['symbol'] = \
+            symbol
+        kwargs['id'] = \
+            id
+        return self.get_resource_delete_date_from_symbol_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_resource_delete_symbol(
+        self,
+        path,
+        symbol,
+        id,
+        **kwargs
+    ) -> None:
+        """get_resource_delete_symbol  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            path (str): Encode database path
+            symbol (str): Symbol with in the ofdb
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            None
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['path'] = \
+            path
+        kwargs['symbol'] = \
+            symbol
+        kwargs['id'] = \
+            id
+        return self.get_resource_delete_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_resource_delete_symbol_with_http_info(
+        self,
+        path,
+        symbol,
+        id,
+        **kwargs
+    ) -> typing.Tuple[None, int, typing.MutableMapping]:
+        """get_resource_delete_symbol  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            path (str): Encode database path
+            symbol (str): Symbol with in the ofdb
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            None
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['path'] = \
+            path
+        kwargs['symbol'] = \
+            symbol
+        kwargs['id'] = \
+            id
+        return self.get_resource_delete_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_resource_delete_symbol_async(
+        self,
+        path,
+        symbol,
+        id,
+        **kwargs
+    ) -> "ApplyResult[None]":
+        """get_resource_delete_symbol  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            path (str): Encode database path
+            symbol (str): Symbol with in the ofdb
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[None]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['path'] = \
+            path
+        kwargs['symbol'] = \
+            symbol
+        kwargs['id'] = \
+            id
+        return self.get_resource_delete_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_resource_delete_symbol_with_http_info_async(
+        self,
+        path,
+        symbol,
+        id,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[None, int, typing.MutableMapping]]":
+        """get_resource_delete_symbol  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            path (str): Encode database path
+            symbol (str): Symbol with in the ofdb
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(None, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['path'] = \
+            path
+        kwargs['symbol'] = \
+            symbol
+        kwargs['id'] = \
+            id
+        return self.get_resource_delete_symbol_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_resource_get_audit(
+        self,
+        path,
+        id,
+        **kwargs
+    ) -> InlineResponse200:
+        """get_resource_get_audit  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            path (str): Encode database path
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse200
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['path'] = \
+            path
+        kwargs['id'] = \
+            id
+        return self.get_resource_get_audit_endpoint.call_with_http_info(**kwargs)
+
+    def get_resource_get_audit_with_http_info(
+        self,
+        path,
+        id,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse200, int, typing.MutableMapping]:
+        """get_resource_get_audit  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            path (str): Encode database path
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse200
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['path'] = \
+            path
+        kwargs['id'] = \
+            id
+        return self.get_resource_get_audit_endpoint.call_with_http_info(**kwargs)
+
+    def get_resource_get_audit_async(
+        self,
+        path,
+        id,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse200]":
+        """get_resource_get_audit  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            path (str): Encode database path
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse200]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['path'] = \
+            path
+        kwargs['id'] = \
+            id
+        return self.get_resource_get_audit_endpoint.call_with_http_info(**kwargs)
+
+    def get_resource_get_audit_with_http_info_async(
+        self,
+        path,
+        id,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse200, int, typing.MutableMapping]]":
+        """get_resource_get_audit  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            path (str): Encode database path
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse200, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['path'] = \
+            path
+        kwargs['id'] = \
+            id
+        return self.get_resource_get_audit_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_resource_get_data(
+        self,
+        path,
+        id,
+        **kwargs
+    ) -> InlineResponse2008:
+        """get_resource_get_data  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            path (str): Encode database path
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse2008
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['path'] = \
+            path
+        kwargs['id'] = \
+            id
+        return self.get_resource_get_data_endpoint.call_with_http_info(**kwargs)
+
+    def get_resource_get_data_with_http_info(
+        self,
+        path,
+        id,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse2008, int, typing.MutableMapping]:
+        """get_resource_get_data  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            path (str): Encode database path
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse2008
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['path'] = \
+            path
+        kwargs['id'] = \
+            id
+        return self.get_resource_get_data_endpoint.call_with_http_info(**kwargs)
+
+    def get_resource_get_data_async(
+        self,
+        path,
+        id,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse2008]":
+        """get_resource_get_data  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            path (str): Encode database path
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse2008]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['path'] = \
+            path
+        kwargs['id'] = \
+            id
+        return self.get_resource_get_data_endpoint.call_with_http_info(**kwargs)
+
+    def get_resource_get_data_with_http_info_async(
+        self,
+        path,
+        id,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse2008, int, typing.MutableMapping]]":
+        """get_resource_get_data  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            path (str): Encode database path
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse2008, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['path'] = \
+            path
+        kwargs['id'] = \
+            id
+        return self.get_resource_get_data_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_resource_get_dates(
         self,
         path,
         id,
         **kwargs
     ) -> InlineResponse2006:
-        """get_resource_data  # noqa: E501
+        """get_resource_get_dates  # noqa: E501
 
         Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
@@ -1217,15 +2619,15 @@ class LongRunningApi(object):
             path
         kwargs['id'] = \
             id
-        return self.get_resource_data_endpoint.call_with_http_info(**kwargs)
+        return self.get_resource_get_dates_endpoint.call_with_http_info(**kwargs)
 
-    def get_resource_data_with_http_info(
+    def get_resource_get_dates_with_http_info(
         self,
         path,
         id,
         **kwargs
     ) -> typing.Tuple[InlineResponse2006, int, typing.MutableMapping]:
-        """get_resource_data  # noqa: E501
+        """get_resource_get_dates  # noqa: E501
 
         Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
@@ -1272,15 +2674,15 @@ class LongRunningApi(object):
             path
         kwargs['id'] = \
             id
-        return self.get_resource_data_endpoint.call_with_http_info(**kwargs)
+        return self.get_resource_get_dates_endpoint.call_with_http_info(**kwargs)
 
-    def get_resource_data_async(
+    def get_resource_get_dates_async(
         self,
         path,
         id,
         **kwargs
     ) -> "ApplyResult[InlineResponse2006]":
-        """get_resource_data  # noqa: E501
+        """get_resource_get_dates  # noqa: E501
 
         Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
@@ -1322,15 +2724,15 @@ class LongRunningApi(object):
             path
         kwargs['id'] = \
             id
-        return self.get_resource_data_endpoint.call_with_http_info(**kwargs)
+        return self.get_resource_get_dates_endpoint.call_with_http_info(**kwargs)
 
-    def get_resource_data_with_http_info_async(
+    def get_resource_get_dates_with_http_info_async(
         self,
         path,
         id,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[InlineResponse2006, int, typing.MutableMapping]]":
-        """get_resource_data  # noqa: E501
+        """get_resource_get_dates  # noqa: E501
 
         Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
@@ -1372,637 +2774,16 @@ class LongRunningApi(object):
             path
         kwargs['id'] = \
             id
-        return self.get_resource_data_endpoint.call_with_http_info(**kwargs)
+        return self.get_resource_get_dates_endpoint.call_with_http_info(**kwargs)
 
 
-    def get_resource_database(
-        self,
-        id,
-        **kwargs
-    ) -> CreateDatabase:
-        """get_resource_database  # noqa: E501
-
-        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns the http data only
-
-        Args:
-            id (str): A unique pickup ID returned by the original request
-
-        Keyword Args:
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True. NOTE: if this API returns a file, it is the responsibility
-                of the caller to close the file stream.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            CreateDatabase
-                Response Object
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['id'] = \
-            id
-        return self.get_resource_database_endpoint.call_with_http_info(**kwargs)
-
-    def get_resource_database_with_http_info(
-        self,
-        id,
-        **kwargs
-    ) -> typing.Tuple[CreateDatabase, int, typing.MutableMapping]:
-        """get_resource_database  # noqa: E501
-
-        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns http data, http status and headers
-
-        Args:
-            id (str): A unique pickup ID returned by the original request
-
-        Keyword Args:
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True. NOTE: if this API returns a file, it is the responsibility
-                of the caller to close the file stream.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            CreateDatabase
-                Response Object
-            int
-                Http Status Code
-            dict
-                Dictionary of the response headers
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['id'] = \
-            id
-        return self.get_resource_database_endpoint.call_with_http_info(**kwargs)
-
-    def get_resource_database_async(
-        self,
-        id,
-        **kwargs
-    ) -> "ApplyResult[CreateDatabase]":
-        """get_resource_database  # noqa: E501
-
-        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
-
-        Args:
-            id (str): A unique pickup ID returned by the original request
-
-        Keyword Args:
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True. NOTE: if this API returns a file, it is the responsibility
-                of the caller to close the file stream.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[CreateDatabase]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['id'] = \
-            id
-        return self.get_resource_database_endpoint.call_with_http_info(**kwargs)
-
-    def get_resource_database_with_http_info_async(
-        self,
-        id,
-        **kwargs
-    ) -> "ApplyResult[typing.Tuple[CreateDatabase, int, typing.MutableMapping]]":
-        """get_resource_database  # noqa: E501
-
-        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
-
-        Args:
-            id (str): A unique pickup ID returned by the original request
-
-        Keyword Args:
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True. NOTE: if this API returns a file, it is the responsibility
-                of the caller to close the file stream.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[(CreateDatabase, int, typing.Dict)]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['id'] = \
-            id
-        return self.get_resource_database_endpoint.call_with_http_info(**kwargs)
-
-
-    def get_resource_date(
-        self,
-        path,
-        date,
-        id,
-        **kwargs
-    ) -> SuccessPostResponse:
-        """get_resource_date  # noqa: E501
-
-        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns the http data only
-
-        Args:
-            path (str): Encode database path
-            date (int): Date in YYYYMMDD format
-            id (str): A unique pickup ID returned by the original request
-
-        Keyword Args:
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True. NOTE: if this API returns a file, it is the responsibility
-                of the caller to close the file stream.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            SuccessPostResponse
-                Response Object
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['path'] = \
-            path
-        kwargs['date'] = \
-            date
-        kwargs['id'] = \
-            id
-        return self.get_resource_date_endpoint.call_with_http_info(**kwargs)
-
-    def get_resource_date_with_http_info(
-        self,
-        path,
-        date,
-        id,
-        **kwargs
-    ) -> typing.Tuple[SuccessPostResponse, int, typing.MutableMapping]:
-        """get_resource_date  # noqa: E501
-
-        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns http data, http status and headers
-
-        Args:
-            path (str): Encode database path
-            date (int): Date in YYYYMMDD format
-            id (str): A unique pickup ID returned by the original request
-
-        Keyword Args:
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True. NOTE: if this API returns a file, it is the responsibility
-                of the caller to close the file stream.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            SuccessPostResponse
-                Response Object
-            int
-                Http Status Code
-            dict
-                Dictionary of the response headers
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['path'] = \
-            path
-        kwargs['date'] = \
-            date
-        kwargs['id'] = \
-            id
-        return self.get_resource_date_endpoint.call_with_http_info(**kwargs)
-
-    def get_resource_date_async(
-        self,
-        path,
-        date,
-        id,
-        **kwargs
-    ) -> "ApplyResult[SuccessPostResponse]":
-        """get_resource_date  # noqa: E501
-
-        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
-
-        Args:
-            path (str): Encode database path
-            date (int): Date in YYYYMMDD format
-            id (str): A unique pickup ID returned by the original request
-
-        Keyword Args:
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True. NOTE: if this API returns a file, it is the responsibility
-                of the caller to close the file stream.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[SuccessPostResponse]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['path'] = \
-            path
-        kwargs['date'] = \
-            date
-        kwargs['id'] = \
-            id
-        return self.get_resource_date_endpoint.call_with_http_info(**kwargs)
-
-    def get_resource_date_with_http_info_async(
-        self,
-        path,
-        date,
-        id,
-        **kwargs
-    ) -> "ApplyResult[typing.Tuple[SuccessPostResponse, int, typing.MutableMapping]]":
-        """get_resource_date  # noqa: E501
-
-        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
-
-        Args:
-            path (str): Encode database path
-            date (int): Date in YYYYMMDD format
-            id (str): A unique pickup ID returned by the original request
-
-        Keyword Args:
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True. NOTE: if this API returns a file, it is the responsibility
-                of the caller to close the file stream.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[(SuccessPostResponse, int, typing.Dict)]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['path'] = \
-            path
-        kwargs['date'] = \
-            date
-        kwargs['id'] = \
-            id
-        return self.get_resource_date_endpoint.call_with_http_info(**kwargs)
-
-
-    def get_resource_dates(
-        self,
-        path,
-        id,
-        **kwargs
-    ) -> InlineResponse2005:
-        """get_resource_dates  # noqa: E501
-
-        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns the http data only
-
-        Args:
-            path (str): Encode database path
-            id (str): A unique pickup ID returned by the original request
-
-        Keyword Args:
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True. NOTE: if this API returns a file, it is the responsibility
-                of the caller to close the file stream.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse2005
-                Response Object
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['path'] = \
-            path
-        kwargs['id'] = \
-            id
-        return self.get_resource_dates_endpoint.call_with_http_info(**kwargs)
-
-    def get_resource_dates_with_http_info(
-        self,
-        path,
-        id,
-        **kwargs
-    ) -> typing.Tuple[InlineResponse2005, int, typing.MutableMapping]:
-        """get_resource_dates  # noqa: E501
-
-        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns http data, http status and headers
-
-        Args:
-            path (str): Encode database path
-            id (str): A unique pickup ID returned by the original request
-
-        Keyword Args:
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True. NOTE: if this API returns a file, it is the responsibility
-                of the caller to close the file stream.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse2005
-                Response Object
-            int
-                Http Status Code
-            dict
-                Dictionary of the response headers
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['path'] = \
-            path
-        kwargs['id'] = \
-            id
-        return self.get_resource_dates_endpoint.call_with_http_info(**kwargs)
-
-    def get_resource_dates_async(
-        self,
-        path,
-        id,
-        **kwargs
-    ) -> "ApplyResult[InlineResponse2005]":
-        """get_resource_dates  # noqa: E501
-
-        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
-
-        Args:
-            path (str): Encode database path
-            id (str): A unique pickup ID returned by the original request
-
-        Keyword Args:
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True. NOTE: if this API returns a file, it is the responsibility
-                of the caller to close the file stream.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[InlineResponse2005]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['path'] = \
-            path
-        kwargs['id'] = \
-            id
-        return self.get_resource_dates_endpoint.call_with_http_info(**kwargs)
-
-    def get_resource_dates_with_http_info_async(
-        self,
-        path,
-        id,
-        **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse2005, int, typing.MutableMapping]]":
-        """get_resource_dates  # noqa: E501
-
-        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
-
-        Args:
-            path (str): Encode database path
-            id (str): A unique pickup ID returned by the original request
-
-        Keyword Args:
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True. NOTE: if this API returns a file, it is the responsibility
-                of the caller to close the file stream.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[(InlineResponse2005, int, typing.Dict)]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['path'] = \
-            path
-        kwargs['id'] = \
-            id
-        return self.get_resource_dates_endpoint.call_with_http_info(**kwargs)
-
-
-    def get_resource_fields(
+    def get_resource_get_fields(
         self,
         path,
         id,
         **kwargs
     ) -> InlineResponse2002:
-        """get_resource_fields  # noqa: E501
+        """get_resource_get_fields  # noqa: E501
 
         Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
@@ -2045,15 +2826,15 @@ class LongRunningApi(object):
             path
         kwargs['id'] = \
             id
-        return self.get_resource_fields_endpoint.call_with_http_info(**kwargs)
+        return self.get_resource_get_fields_endpoint.call_with_http_info(**kwargs)
 
-    def get_resource_fields_with_http_info(
+    def get_resource_get_fields_with_http_info(
         self,
         path,
         id,
         **kwargs
     ) -> typing.Tuple[InlineResponse2002, int, typing.MutableMapping]:
-        """get_resource_fields  # noqa: E501
+        """get_resource_get_fields  # noqa: E501
 
         Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
@@ -2100,15 +2881,15 @@ class LongRunningApi(object):
             path
         kwargs['id'] = \
             id
-        return self.get_resource_fields_endpoint.call_with_http_info(**kwargs)
+        return self.get_resource_get_fields_endpoint.call_with_http_info(**kwargs)
 
-    def get_resource_fields_async(
+    def get_resource_get_fields_async(
         self,
         path,
         id,
         **kwargs
     ) -> "ApplyResult[InlineResponse2002]":
-        """get_resource_fields  # noqa: E501
+        """get_resource_get_fields  # noqa: E501
 
         Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
@@ -2150,15 +2931,15 @@ class LongRunningApi(object):
             path
         kwargs['id'] = \
             id
-        return self.get_resource_fields_endpoint.call_with_http_info(**kwargs)
+        return self.get_resource_get_fields_endpoint.call_with_http_info(**kwargs)
 
-    def get_resource_fields_with_http_info_async(
+    def get_resource_get_fields_with_http_info_async(
         self,
         path,
         id,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[InlineResponse2002, int, typing.MutableMapping]]":
-        """get_resource_fields  # noqa: E501
+        """get_resource_get_fields  # noqa: E501
 
         Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
@@ -2200,16 +2981,16 @@ class LongRunningApi(object):
             path
         kwargs['id'] = \
             id
-        return self.get_resource_fields_endpoint.call_with_http_info(**kwargs)
+        return self.get_resource_get_fields_endpoint.call_with_http_info(**kwargs)
 
 
-    def get_resource_stats(
+    def get_resource_get_stats(
         self,
         path,
         id,
         **kwargs
     ) -> InlineResponse2001:
-        """get_resource_stats  # noqa: E501
+        """get_resource_get_stats  # noqa: E501
 
         Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
@@ -2252,15 +3033,15 @@ class LongRunningApi(object):
             path
         kwargs['id'] = \
             id
-        return self.get_resource_stats_endpoint.call_with_http_info(**kwargs)
+        return self.get_resource_get_stats_endpoint.call_with_http_info(**kwargs)
 
-    def get_resource_stats_with_http_info(
+    def get_resource_get_stats_with_http_info(
         self,
         path,
         id,
         **kwargs
     ) -> typing.Tuple[InlineResponse2001, int, typing.MutableMapping]:
-        """get_resource_stats  # noqa: E501
+        """get_resource_get_stats  # noqa: E501
 
         Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
@@ -2307,15 +3088,15 @@ class LongRunningApi(object):
             path
         kwargs['id'] = \
             id
-        return self.get_resource_stats_endpoint.call_with_http_info(**kwargs)
+        return self.get_resource_get_stats_endpoint.call_with_http_info(**kwargs)
 
-    def get_resource_stats_async(
+    def get_resource_get_stats_async(
         self,
         path,
         id,
         **kwargs
     ) -> "ApplyResult[InlineResponse2001]":
-        """get_resource_stats  # noqa: E501
+        """get_resource_get_stats  # noqa: E501
 
         Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
@@ -2357,15 +3138,15 @@ class LongRunningApi(object):
             path
         kwargs['id'] = \
             id
-        return self.get_resource_stats_endpoint.call_with_http_info(**kwargs)
+        return self.get_resource_get_stats_endpoint.call_with_http_info(**kwargs)
 
-    def get_resource_stats_with_http_info_async(
+    def get_resource_get_stats_with_http_info_async(
         self,
         path,
         id,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[InlineResponse2001, int, typing.MutableMapping]]":
-        """get_resource_stats  # noqa: E501
+        """get_resource_get_stats  # noqa: E501
 
         Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
@@ -2407,17 +3188,1466 @@ class LongRunningApi(object):
             path
         kwargs['id'] = \
             id
-        return self.get_resource_stats_endpoint.call_with_http_info(**kwargs)
+        return self.get_resource_get_stats_endpoint.call_with_http_info(**kwargs)
 
 
-    def get_resource_symbol(
+    def get_resource_get_symbols(
+        self,
+        path,
+        id,
+        **kwargs
+    ) -> InlineResponse2004:
+        """get_resource_get_symbols  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            path (str): Encode database path
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse2004
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['path'] = \
+            path
+        kwargs['id'] = \
+            id
+        return self.get_resource_get_symbols_endpoint.call_with_http_info(**kwargs)
+
+    def get_resource_get_symbols_with_http_info(
+        self,
+        path,
+        id,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse2004, int, typing.MutableMapping]:
+        """get_resource_get_symbols  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            path (str): Encode database path
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse2004
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['path'] = \
+            path
+        kwargs['id'] = \
+            id
+        return self.get_resource_get_symbols_endpoint.call_with_http_info(**kwargs)
+
+    def get_resource_get_symbols_async(
+        self,
+        path,
+        id,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse2004]":
+        """get_resource_get_symbols  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            path (str): Encode database path
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse2004]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['path'] = \
+            path
+        kwargs['id'] = \
+            id
+        return self.get_resource_get_symbols_endpoint.call_with_http_info(**kwargs)
+
+    def get_resource_get_symbols_with_http_info_async(
+        self,
+        path,
+        id,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse2004, int, typing.MutableMapping]]":
+        """get_resource_get_symbols  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            path (str): Encode database path
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse2004, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['path'] = \
+            path
+        kwargs['id'] = \
+            id
+        return self.get_resource_get_symbols_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_resource_post_database(
+        self,
+        id,
+        **kwargs
+    ) -> CreateDatabase:
+        """get_resource_post_database  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            CreateDatabase
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['id'] = \
+            id
+        return self.get_resource_post_database_endpoint.call_with_http_info(**kwargs)
+
+    def get_resource_post_database_with_http_info(
+        self,
+        id,
+        **kwargs
+    ) -> typing.Tuple[CreateDatabase, int, typing.MutableMapping]:
+        """get_resource_post_database  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            CreateDatabase
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['id'] = \
+            id
+        return self.get_resource_post_database_endpoint.call_with_http_info(**kwargs)
+
+    def get_resource_post_database_async(
+        self,
+        id,
+        **kwargs
+    ) -> "ApplyResult[CreateDatabase]":
+        """get_resource_post_database  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[CreateDatabase]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['id'] = \
+            id
+        return self.get_resource_post_database_endpoint.call_with_http_info(**kwargs)
+
+    def get_resource_post_database_with_http_info_async(
+        self,
+        id,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[CreateDatabase, int, typing.MutableMapping]]":
+        """get_resource_post_database  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(CreateDatabase, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['id'] = \
+            id
+        return self.get_resource_post_database_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_resource_post_dates(
+        self,
+        path,
+        id,
+        **kwargs
+    ) -> InlineResponse2007:
+        """get_resource_post_dates  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            path (str): Encode database path
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse2007
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['path'] = \
+            path
+        kwargs['id'] = \
+            id
+        return self.get_resource_post_dates_endpoint.call_with_http_info(**kwargs)
+
+    def get_resource_post_dates_with_http_info(
+        self,
+        path,
+        id,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse2007, int, typing.MutableMapping]:
+        """get_resource_post_dates  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            path (str): Encode database path
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse2007
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['path'] = \
+            path
+        kwargs['id'] = \
+            id
+        return self.get_resource_post_dates_endpoint.call_with_http_info(**kwargs)
+
+    def get_resource_post_dates_async(
+        self,
+        path,
+        id,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse2007]":
+        """get_resource_post_dates  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            path (str): Encode database path
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse2007]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['path'] = \
+            path
+        kwargs['id'] = \
+            id
+        return self.get_resource_post_dates_endpoint.call_with_http_info(**kwargs)
+
+    def get_resource_post_dates_with_http_info_async(
+        self,
+        path,
+        id,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse2007, int, typing.MutableMapping]]":
+        """get_resource_post_dates  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            path (str): Encode database path
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse2007, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['path'] = \
+            path
+        kwargs['id'] = \
+            id
+        return self.get_resource_post_dates_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_resource_post_fields(
+        self,
+        path,
+        id,
+        **kwargs
+    ) -> InlineResponse2002:
+        """get_resource_post_fields  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            path (str): Encode database path
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse2002
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['path'] = \
+            path
+        kwargs['id'] = \
+            id
+        return self.get_resource_post_fields_endpoint.call_with_http_info(**kwargs)
+
+    def get_resource_post_fields_with_http_info(
+        self,
+        path,
+        id,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse2002, int, typing.MutableMapping]:
+        """get_resource_post_fields  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            path (str): Encode database path
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse2002
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['path'] = \
+            path
+        kwargs['id'] = \
+            id
+        return self.get_resource_post_fields_endpoint.call_with_http_info(**kwargs)
+
+    def get_resource_post_fields_async(
+        self,
+        path,
+        id,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse2002]":
+        """get_resource_post_fields  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            path (str): Encode database path
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse2002]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['path'] = \
+            path
+        kwargs['id'] = \
+            id
+        return self.get_resource_post_fields_endpoint.call_with_http_info(**kwargs)
+
+    def get_resource_post_fields_with_http_info_async(
+        self,
+        path,
+        id,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse2002, int, typing.MutableMapping]]":
+        """get_resource_post_fields  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            path (str): Encode database path
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse2002, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['path'] = \
+            path
+        kwargs['id'] = \
+            id
+        return self.get_resource_post_fields_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_resource_post_symbols(
+        self,
+        path,
+        id,
+        **kwargs
+    ) -> InlineResponse2005:
+        """get_resource_post_symbols  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            path (str): Encode database path
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse2005
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['path'] = \
+            path
+        kwargs['id'] = \
+            id
+        return self.get_resource_post_symbols_endpoint.call_with_http_info(**kwargs)
+
+    def get_resource_post_symbols_with_http_info(
+        self,
+        path,
+        id,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse2005, int, typing.MutableMapping]:
+        """get_resource_post_symbols  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            path (str): Encode database path
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse2005
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['path'] = \
+            path
+        kwargs['id'] = \
+            id
+        return self.get_resource_post_symbols_endpoint.call_with_http_info(**kwargs)
+
+    def get_resource_post_symbols_async(
+        self,
+        path,
+        id,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse2005]":
+        """get_resource_post_symbols  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            path (str): Encode database path
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse2005]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['path'] = \
+            path
+        kwargs['id'] = \
+            id
+        return self.get_resource_post_symbols_endpoint.call_with_http_info(**kwargs)
+
+    def get_resource_post_symbols_with_http_info_async(
+        self,
+        path,
+        id,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse2005, int, typing.MutableMapping]]":
+        """get_resource_post_symbols  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            path (str): Encode database path
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse2005, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['path'] = \
+            path
+        kwargs['id'] = \
+            id
+        return self.get_resource_post_symbols_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_resource_put_date(
+        self,
+        path,
+        date,
+        id,
+        **kwargs
+    ) -> SuccessPostResponse:
+        """get_resource_put_date  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            path (str): Encode database path
+            date (int): Date in YYYYMMDD format
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            SuccessPostResponse
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['path'] = \
+            path
+        kwargs['date'] = \
+            date
+        kwargs['id'] = \
+            id
+        return self.get_resource_put_date_endpoint.call_with_http_info(**kwargs)
+
+    def get_resource_put_date_with_http_info(
+        self,
+        path,
+        date,
+        id,
+        **kwargs
+    ) -> typing.Tuple[SuccessPostResponse, int, typing.MutableMapping]:
+        """get_resource_put_date  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            path (str): Encode database path
+            date (int): Date in YYYYMMDD format
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            SuccessPostResponse
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['path'] = \
+            path
+        kwargs['date'] = \
+            date
+        kwargs['id'] = \
+            id
+        return self.get_resource_put_date_endpoint.call_with_http_info(**kwargs)
+
+    def get_resource_put_date_async(
+        self,
+        path,
+        date,
+        id,
+        **kwargs
+    ) -> "ApplyResult[SuccessPostResponse]":
+        """get_resource_put_date  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            path (str): Encode database path
+            date (int): Date in YYYYMMDD format
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[SuccessPostResponse]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['path'] = \
+            path
+        kwargs['date'] = \
+            date
+        kwargs['id'] = \
+            id
+        return self.get_resource_put_date_endpoint.call_with_http_info(**kwargs)
+
+    def get_resource_put_date_with_http_info_async(
+        self,
+        path,
+        date,
+        id,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[SuccessPostResponse, int, typing.MutableMapping]]":
+        """get_resource_put_date  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            path (str): Encode database path
+            date (int): Date in YYYYMMDD format
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(SuccessPostResponse, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['path'] = \
+            path
+        kwargs['date'] = \
+            date
+        kwargs['id'] = \
+            id
+        return self.get_resource_put_date_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_resource_put_dates(
+        self,
+        path,
+        id,
+        **kwargs
+    ) -> InlineResponse2007:
+        """get_resource_put_dates  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            path (str): Encode database path
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse2007
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['path'] = \
+            path
+        kwargs['id'] = \
+            id
+        return self.get_resource_put_dates_endpoint.call_with_http_info(**kwargs)
+
+    def get_resource_put_dates_with_http_info(
+        self,
+        path,
+        id,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse2007, int, typing.MutableMapping]:
+        """get_resource_put_dates  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            path (str): Encode database path
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse2007
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['path'] = \
+            path
+        kwargs['id'] = \
+            id
+        return self.get_resource_put_dates_endpoint.call_with_http_info(**kwargs)
+
+    def get_resource_put_dates_async(
+        self,
+        path,
+        id,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse2007]":
+        """get_resource_put_dates  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            path (str): Encode database path
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse2007]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['path'] = \
+            path
+        kwargs['id'] = \
+            id
+        return self.get_resource_put_dates_endpoint.call_with_http_info(**kwargs)
+
+    def get_resource_put_dates_with_http_info_async(
+        self,
+        path,
+        id,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse2007, int, typing.MutableMapping]]":
+        """get_resource_put_dates  # noqa: E501
+
+        Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            path (str): Encode database path
+            id (str): A unique pickup ID returned by the original request
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse2007, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['path'] = \
+            path
+        kwargs['id'] = \
+            id
+        return self.get_resource_put_dates_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_resource_put_symbol(
         self,
         path,
         symbol,
         id,
         **kwargs
     ) -> SuccessPostResponse:
-        """get_resource_symbol  # noqa: E501
+        """get_resource_put_symbol  # noqa: E501
 
         Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
@@ -2463,16 +4693,16 @@ class LongRunningApi(object):
             symbol
         kwargs['id'] = \
             id
-        return self.get_resource_symbol_endpoint.call_with_http_info(**kwargs)
+        return self.get_resource_put_symbol_endpoint.call_with_http_info(**kwargs)
 
-    def get_resource_symbol_with_http_info(
+    def get_resource_put_symbol_with_http_info(
         self,
         path,
         symbol,
         id,
         **kwargs
     ) -> typing.Tuple[SuccessPostResponse, int, typing.MutableMapping]:
-        """get_resource_symbol  # noqa: E501
+        """get_resource_put_symbol  # noqa: E501
 
         Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
@@ -2522,16 +4752,16 @@ class LongRunningApi(object):
             symbol
         kwargs['id'] = \
             id
-        return self.get_resource_symbol_endpoint.call_with_http_info(**kwargs)
+        return self.get_resource_put_symbol_endpoint.call_with_http_info(**kwargs)
 
-    def get_resource_symbol_async(
+    def get_resource_put_symbol_async(
         self,
         path,
         symbol,
         id,
         **kwargs
     ) -> "ApplyResult[SuccessPostResponse]":
-        """get_resource_symbol  # noqa: E501
+        """get_resource_put_symbol  # noqa: E501
 
         Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
@@ -2576,16 +4806,16 @@ class LongRunningApi(object):
             symbol
         kwargs['id'] = \
             id
-        return self.get_resource_symbol_endpoint.call_with_http_info(**kwargs)
+        return self.get_resource_put_symbol_endpoint.call_with_http_info(**kwargs)
 
-    def get_resource_symbol_with_http_info_async(
+    def get_resource_put_symbol_with_http_info_async(
         self,
         path,
         symbol,
         id,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[SuccessPostResponse, int, typing.MutableMapping]]":
-        """get_resource_symbol  # noqa: E501
+        """get_resource_put_symbol  # noqa: E501
 
         Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
@@ -2630,16 +4860,16 @@ class LongRunningApi(object):
             symbol
         kwargs['id'] = \
             id
-        return self.get_resource_symbol_endpoint.call_with_http_info(**kwargs)
+        return self.get_resource_put_symbol_endpoint.call_with_http_info(**kwargs)
 
 
-    def get_resource_symbols(
+    def get_resource_put_symbols(
         self,
         path,
         id,
         **kwargs
-    ) -> InlineResponse2004:
-        """get_resource_symbols  # noqa: E501
+    ) -> InlineResponse2005:
+        """get_resource_put_symbols  # noqa: E501
 
         Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
@@ -2674,7 +4904,7 @@ class LongRunningApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse2004
+            InlineResponse2005
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -2682,15 +4912,15 @@ class LongRunningApi(object):
             path
         kwargs['id'] = \
             id
-        return self.get_resource_symbols_endpoint.call_with_http_info(**kwargs)
+        return self.get_resource_put_symbols_endpoint.call_with_http_info(**kwargs)
 
-    def get_resource_symbols_with_http_info(
+    def get_resource_put_symbols_with_http_info(
         self,
         path,
         id,
         **kwargs
-    ) -> typing.Tuple[InlineResponse2004, int, typing.MutableMapping]:
-        """get_resource_symbols  # noqa: E501
+    ) -> typing.Tuple[InlineResponse2005, int, typing.MutableMapping]:
+        """get_resource_put_symbols  # noqa: E501
 
         Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
@@ -2725,7 +4955,7 @@ class LongRunningApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse2004
+            InlineResponse2005
                 Response Object
             int
                 Http Status Code
@@ -2737,15 +4967,15 @@ class LongRunningApi(object):
             path
         kwargs['id'] = \
             id
-        return self.get_resource_symbols_endpoint.call_with_http_info(**kwargs)
+        return self.get_resource_put_symbols_endpoint.call_with_http_info(**kwargs)
 
-    def get_resource_symbols_async(
+    def get_resource_put_symbols_async(
         self,
         path,
         id,
         **kwargs
-    ) -> "ApplyResult[InlineResponse2004]":
-        """get_resource_symbols  # noqa: E501
+    ) -> "ApplyResult[InlineResponse2005]":
+        """get_resource_put_symbols  # noqa: E501
 
         Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
@@ -2780,22 +5010,22 @@ class LongRunningApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[InlineResponse2004]
+            ApplyResult[InlineResponse2005]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['path'] = \
             path
         kwargs['id'] = \
             id
-        return self.get_resource_symbols_endpoint.call_with_http_info(**kwargs)
+        return self.get_resource_put_symbols_endpoint.call_with_http_info(**kwargs)
 
-    def get_resource_symbols_with_http_info_async(
+    def get_resource_put_symbols_with_http_info_async(
         self,
         path,
         id,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse2004, int, typing.MutableMapping]]":
-        """get_resource_symbols  # noqa: E501
+    ) -> "ApplyResult[typing.Tuple[InlineResponse2005, int, typing.MutableMapping]]":
+        """get_resource_put_symbols  # noqa: E501
 
         Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
@@ -2830,14 +5060,14 @@ class LongRunningApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(InlineResponse2004, int, typing.Dict)]
+            ApplyResult[(InlineResponse2005, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['path'] = \
             path
         kwargs['id'] = \
             id
-        return self.get_resource_symbols_endpoint.call_with_http_info(**kwargs)
+        return self.get_resource_put_symbols_endpoint.call_with_http_info(**kwargs)
 
 
     def get_status(

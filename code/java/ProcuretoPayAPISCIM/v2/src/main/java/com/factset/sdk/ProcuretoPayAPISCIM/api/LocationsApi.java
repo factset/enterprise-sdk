@@ -66,6 +66,15 @@ public class LocationsApi {
     locationsIdPutResponseTypeMap.put(500, new GenericType<Error>(){});
   }
 
+  private static final Map<Integer, GenericType> locationsPostResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    locationsPostResponseTypeMap.put(201, new GenericType<LocationResource>(){});
+    locationsPostResponseTypeMap.put(400, new GenericType<Error>(){});
+    locationsPostResponseTypeMap.put(401, new GenericType<Error>(){});
+    locationsPostResponseTypeMap.put(403, new GenericType<Error>(){});
+    locationsPostResponseTypeMap.put(500, new GenericType<Error>(){});
+  }
+
   
 
 
@@ -429,6 +438,87 @@ public class LocationsApi {
     > apiResponse = apiClient.invokeAPI("LocationsApi.locationsIdPut", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, locationsIdPutResponseTypeMap, false);
+
+    return apiResponse;
+
+  }
+  /**
+   * Create a location.
+   * 
+   * @param locationResource Location resource. (required)
+   * @return LocationResource
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 201 </td><td> Success. </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Provided resource contains invalid data. </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> User has not been authenticated. </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> User is not authorized to use this API. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+   */
+  public LocationResource locationsPost(LocationResource locationResource) throws ApiException {
+    return locationsPostWithHttpInfo(locationResource).getData();
+  }
+
+  /**
+   * Create a location.
+   * 
+   * @param locationResource Location resource. (required)
+   * @return ApiResponse&lt;LocationResource&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 201 </td><td> Success. </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Provided resource contains invalid data. </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> User has not been authenticated. </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> User is not authorized to use this API. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<LocationResource> locationsPostWithHttpInfo(LocationResource locationResource) throws ApiException {
+    Object localVarPostBody = locationResource;
+    
+    // verify the required parameter 'locationResource' is set
+    if (locationResource == null) {
+      throw new ApiException(400, "Missing the required parameter 'locationResource' when calling locationsPost");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/Locations";
+
+    // query params
+    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
+    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/scim+json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/scim+json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
+
+
+    ApiResponse<
+        
+        LocationResource
+      
+    > apiResponse = apiClient.invokeAPI("LocationsApi.locationsPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, locationsPostResponseTypeMap, false);
 
     return apiResponse;
 

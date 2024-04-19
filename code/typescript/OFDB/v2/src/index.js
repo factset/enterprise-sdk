@@ -13,20 +13,26 @@
 
 import ApiClient from './ApiClient';
 import AddDates from './model/AddDates';
-import AddDatesContent from './model/AddDatesContent';
-import AddDatesData from './model/AddDatesData';
 import AddFields from './model/AddFields';
 import AddSymbols from './model/AddSymbols';
-import AddSymbolsContent from './model/AddSymbolsContent';
-import AddSymbolsData from './model/AddSymbolsData';
 import BulkDelete from './model/BulkDelete';
 import BulkDeleteArrayItem from './model/BulkDeleteArrayItem';
 import BulkDeleteArrayItemNested from './model/BulkDeleteArrayItemNested';
-import BulkDeleteData from './model/BulkDeleteData';
+import BulkDeleteItem from './model/BulkDeleteItem';
+import ContentWithDate from './model/ContentWithDate';
+import ContentWithSymbol from './model/ContentWithSymbol';
 import CreateDatabase from './model/CreateDatabase';
 import CreateDatabaseData from './model/CreateDatabaseData';
+import DataValue from './model/DataValue';
 import DatabaseSchema from './model/DatabaseSchema';
 import DatabaseSchemaData from './model/DatabaseSchemaData';
+import DateAndContent from './model/DateAndContent';
+import DateAndFields from './model/DateAndFields';
+import DatesWithId from './model/DatesWithId';
+import ErrorObject from './model/ErrorObject';
+import ErrorObjectWithSource from './model/ErrorObjectWithSource';
+import ErrorObjectWithSourceSource from './model/ErrorObjectWithSourceSource';
+import FieldProperties from './model/FieldProperties';
 import InlineResponse200 from './model/InlineResponse200';
 import InlineResponse2001 from './model/InlineResponse2001';
 import InlineResponse2001Data from './model/InlineResponse2001Data';
@@ -35,36 +41,24 @@ import InlineResponse2003 from './model/InlineResponse2003';
 import InlineResponse2004 from './model/InlineResponse2004';
 import InlineResponse2005 from './model/InlineResponse2005';
 import InlineResponse2006 from './model/InlineResponse2006';
-import InlineResponse2006Data from './model/InlineResponse2006Data';
+import InlineResponse2007 from './model/InlineResponse2007';
+import InlineResponse2008 from './model/InlineResponse2008';
 import InlineResponse200Data from './model/InlineResponse200Data';
 import InlineResponse201 from './model/InlineResponse201';
 import InlineResponse201Data from './model/InlineResponse201Data';
 import InlineResponse202 from './model/InlineResponse202';
 import InlineResponse202Data from './model/InlineResponse202Data';
 import InlineResponse400 from './model/InlineResponse400';
-import InlineResponse400Errors from './model/InlineResponse400Errors';
-import InlineResponse400Source from './model/InlineResponse400Source';
 import InlineResponse403 from './model/InlineResponse403';
-import InlineResponse403Errors from './model/InlineResponse403Errors';
-import InlineResponse404 from './model/InlineResponse404';
-import InlineResponse404Errors from './model/InlineResponse404Errors';
-import InlineResponse406 from './model/InlineResponse406';
-import InlineResponse406Errors from './model/InlineResponse406Errors';
-import InlineResponse413 from './model/InlineResponse413';
-import InlineResponse413Errors from './model/InlineResponse413Errors';
-import InlineResponse429 from './model/InlineResponse429';
-import InlineResponse429Errors from './model/InlineResponse429Errors';
 import SuccessPostResponse from './model/SuccessPostResponse';
 import SuccessPostResponseData from './model/SuccessPostResponseData';
+import SymbolAndContent from './model/SymbolAndContent';
+import SymbolAndFields from './model/SymbolAndFields';
+import SymbolsWithId from './model/SymbolsWithId';
 import UpdateDate from './model/UpdateDate';
-import UpdateDateData from './model/UpdateDateData';
 import UpdateDates from './model/UpdateDates';
-import UpdateDatesData from './model/UpdateDatesData';
 import UpdateSymbol from './model/UpdateSymbol';
-import UpdateSymbolContent from './model/UpdateSymbolContent';
-import UpdateSymbolData from './model/UpdateSymbolData';
 import UpdateSymbols from './model/UpdateSymbols';
-import UpdateSymbolsData from './model/UpdateSymbolsData';
 
 import AddApi from './api/AddApi';
 import CreateApi from './api/CreateApi';
@@ -118,18 +112,6 @@ export {
     AddDates,
 
     /**
-     * The AddDatesContent model constructor.
-     * @property {module:model/AddDatesContent}
-     */
-    AddDatesContent,
-
-    /**
-     * The AddDatesData model constructor.
-     * @property {module:model/AddDatesData}
-     */
-    AddDatesData,
-
-    /**
      * The AddFields model constructor.
      * @property {module:model/AddFields}
      */
@@ -140,18 +122,6 @@ export {
      * @property {module:model/AddSymbols}
      */
     AddSymbols,
-
-    /**
-     * The AddSymbolsContent model constructor.
-     * @property {module:model/AddSymbolsContent}
-     */
-    AddSymbolsContent,
-
-    /**
-     * The AddSymbolsData model constructor.
-     * @property {module:model/AddSymbolsData}
-     */
-    AddSymbolsData,
 
     /**
      * The BulkDelete model constructor.
@@ -172,10 +142,22 @@ export {
     BulkDeleteArrayItemNested,
 
     /**
-     * The BulkDeleteData model constructor.
-     * @property {module:model/BulkDeleteData}
+     * The BulkDeleteItem model constructor.
+     * @property {module:model/BulkDeleteItem}
      */
-    BulkDeleteData,
+    BulkDeleteItem,
+
+    /**
+     * The ContentWithDate model constructor.
+     * @property {module:model/ContentWithDate}
+     */
+    ContentWithDate,
+
+    /**
+     * The ContentWithSymbol model constructor.
+     * @property {module:model/ContentWithSymbol}
+     */
+    ContentWithSymbol,
 
     /**
      * The CreateDatabase model constructor.
@@ -190,6 +172,12 @@ export {
     CreateDatabaseData,
 
     /**
+     * The DataValue model constructor.
+     * @property {module:model/DataValue}
+     */
+    DataValue,
+
+    /**
      * The DatabaseSchema model constructor.
      * @property {module:model/DatabaseSchema}
      */
@@ -200,6 +188,48 @@ export {
      * @property {module:model/DatabaseSchemaData}
      */
     DatabaseSchemaData,
+
+    /**
+     * The DateAndContent model constructor.
+     * @property {module:model/DateAndContent}
+     */
+    DateAndContent,
+
+    /**
+     * The DateAndFields model constructor.
+     * @property {module:model/DateAndFields}
+     */
+    DateAndFields,
+
+    /**
+     * The DatesWithId model constructor.
+     * @property {module:model/DatesWithId}
+     */
+    DatesWithId,
+
+    /**
+     * The ErrorObject model constructor.
+     * @property {module:model/ErrorObject}
+     */
+    ErrorObject,
+
+    /**
+     * The ErrorObjectWithSource model constructor.
+     * @property {module:model/ErrorObjectWithSource}
+     */
+    ErrorObjectWithSource,
+
+    /**
+     * The ErrorObjectWithSourceSource model constructor.
+     * @property {module:model/ErrorObjectWithSourceSource}
+     */
+    ErrorObjectWithSourceSource,
+
+    /**
+     * The FieldProperties model constructor.
+     * @property {module:model/FieldProperties}
+     */
+    FieldProperties,
 
     /**
      * The InlineResponse200 model constructor.
@@ -250,10 +280,16 @@ export {
     InlineResponse2006,
 
     /**
-     * The InlineResponse2006Data model constructor.
-     * @property {module:model/InlineResponse2006Data}
+     * The InlineResponse2007 model constructor.
+     * @property {module:model/InlineResponse2007}
      */
-    InlineResponse2006Data,
+    InlineResponse2007,
+
+    /**
+     * The InlineResponse2008 model constructor.
+     * @property {module:model/InlineResponse2008}
+     */
+    InlineResponse2008,
 
     /**
      * The InlineResponse200Data model constructor.
@@ -292,76 +328,10 @@ export {
     InlineResponse400,
 
     /**
-     * The InlineResponse400Errors model constructor.
-     * @property {module:model/InlineResponse400Errors}
-     */
-    InlineResponse400Errors,
-
-    /**
-     * The InlineResponse400Source model constructor.
-     * @property {module:model/InlineResponse400Source}
-     */
-    InlineResponse400Source,
-
-    /**
      * The InlineResponse403 model constructor.
      * @property {module:model/InlineResponse403}
      */
     InlineResponse403,
-
-    /**
-     * The InlineResponse403Errors model constructor.
-     * @property {module:model/InlineResponse403Errors}
-     */
-    InlineResponse403Errors,
-
-    /**
-     * The InlineResponse404 model constructor.
-     * @property {module:model/InlineResponse404}
-     */
-    InlineResponse404,
-
-    /**
-     * The InlineResponse404Errors model constructor.
-     * @property {module:model/InlineResponse404Errors}
-     */
-    InlineResponse404Errors,
-
-    /**
-     * The InlineResponse406 model constructor.
-     * @property {module:model/InlineResponse406}
-     */
-    InlineResponse406,
-
-    /**
-     * The InlineResponse406Errors model constructor.
-     * @property {module:model/InlineResponse406Errors}
-     */
-    InlineResponse406Errors,
-
-    /**
-     * The InlineResponse413 model constructor.
-     * @property {module:model/InlineResponse413}
-     */
-    InlineResponse413,
-
-    /**
-     * The InlineResponse413Errors model constructor.
-     * @property {module:model/InlineResponse413Errors}
-     */
-    InlineResponse413Errors,
-
-    /**
-     * The InlineResponse429 model constructor.
-     * @property {module:model/InlineResponse429}
-     */
-    InlineResponse429,
-
-    /**
-     * The InlineResponse429Errors model constructor.
-     * @property {module:model/InlineResponse429Errors}
-     */
-    InlineResponse429Errors,
 
     /**
      * The SuccessPostResponse model constructor.
@@ -376,16 +346,28 @@ export {
     SuccessPostResponseData,
 
     /**
+     * The SymbolAndContent model constructor.
+     * @property {module:model/SymbolAndContent}
+     */
+    SymbolAndContent,
+
+    /**
+     * The SymbolAndFields model constructor.
+     * @property {module:model/SymbolAndFields}
+     */
+    SymbolAndFields,
+
+    /**
+     * The SymbolsWithId model constructor.
+     * @property {module:model/SymbolsWithId}
+     */
+    SymbolsWithId,
+
+    /**
      * The UpdateDate model constructor.
      * @property {module:model/UpdateDate}
      */
     UpdateDate,
-
-    /**
-     * The UpdateDateData model constructor.
-     * @property {module:model/UpdateDateData}
-     */
-    UpdateDateData,
 
     /**
      * The UpdateDates model constructor.
@@ -394,40 +376,16 @@ export {
     UpdateDates,
 
     /**
-     * The UpdateDatesData model constructor.
-     * @property {module:model/UpdateDatesData}
-     */
-    UpdateDatesData,
-
-    /**
      * The UpdateSymbol model constructor.
      * @property {module:model/UpdateSymbol}
      */
     UpdateSymbol,
 
     /**
-     * The UpdateSymbolContent model constructor.
-     * @property {module:model/UpdateSymbolContent}
-     */
-    UpdateSymbolContent,
-
-    /**
-     * The UpdateSymbolData model constructor.
-     * @property {module:model/UpdateSymbolData}
-     */
-    UpdateSymbolData,
-
-    /**
      * The UpdateSymbols model constructor.
      * @property {module:model/UpdateSymbols}
      */
     UpdateSymbols,
-
-    /**
-     * The UpdateSymbolsData model constructor.
-     * @property {module:model/UpdateSymbolsData}
-     */
-    UpdateSymbolsData,
 
     /**
     * The AddApi service constructor.

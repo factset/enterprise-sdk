@@ -162,11 +162,11 @@ public class UserResource implements Serializable {
   }
 
    /**
-   * Get externalId
+   * An arbitrary identifier for the resource defined by the client. This can assist the client locate the resource through the use of search filters.
    * @return externalId
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "C3574707-FFF9-433C-A17F-DFF806C72A7F", value = "")
+  @ApiModelProperty(example = "C3574707-FFF9-433C-A17F-DFF806C72A7F", value = "An arbitrary identifier for the resource defined by the client. This can assist the client locate the resource through the use of search filters.")
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

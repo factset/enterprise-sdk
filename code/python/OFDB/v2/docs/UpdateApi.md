@@ -69,11 +69,10 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     update_date = UpdateDate(
         data=[
-            UpdateDateData(
+            ContentWithSymbol(
                 content=[
-                    AddDatesContent(
-                        symbol="symbol_example",
-                        field=1,
+                    SymbolAndFields(
+                        key=DataValue(None),
                     ),
                 ],
             ),
@@ -185,12 +184,11 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     update_dates = UpdateDates(
         data=[
-            UpdateDatesData(
-                date=1,
+            DateAndContent(
+                date=20220202,
                 content=[
-                    AddDatesContent(
-                        symbol="symbol_example",
-                        field=1,
+                    SymbolAndFields(
+                        key=DataValue(None),
                     ),
                 ],
             ),
@@ -303,12 +301,10 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     update_symbol = UpdateSymbol(
         data=[
-            UpdateSymbolData(
+            ContentWithDate(
                 content=[
-                    UpdateSymbolContent(
-                        date=1,
-                        field1=1,
-                        field2="field2_example",
+                    DateAndFields(
+                        key=DataValue(None),
                     ),
                 ],
             ),
@@ -420,13 +416,11 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     update_symbols = UpdateSymbols(
         data=[
-            UpdateSymbolsData(
+            SymbolAndContent(
                 symbol="symbol_example",
                 content=[
-                    UpdateSymbolContent(
-                        date=1,
-                        field1=1,
-                        field2="field2_example",
+                    DateAndFields(
+                        key=DataValue(None),
                     ),
                 ],
             ),

@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | **[Number]** |  | [optional] 
+**data** | [**SymbolsWithId**](SymbolsWithId.md) |  | [optional] 
 
 

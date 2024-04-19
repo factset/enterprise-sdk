@@ -17,7 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.OFDB.models.AddSymbolsData;
+import com.factset.sdk.OFDB.models.SymbolAndContent;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -42,17 +42,17 @@ public class AddSymbols implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private java.util.List<AddSymbolsData> data = null;
+  private java.util.List<SymbolAndContent> data = null;
 
   public AddSymbols() { 
   }
 
-  public AddSymbols data(java.util.List<AddSymbolsData> data) {
+  public AddSymbols data(java.util.List<SymbolAndContent> data) {
     this.data = data;
     return this;
   }
 
-  public AddSymbols addDataItem(AddSymbolsData dataItem) {
+  public AddSymbols addDataItem(SymbolAndContent dataItem) {
     if (this.data == null) {
       this.data = new java.util.ArrayList<>();
     }
@@ -69,14 +69,14 @@ public class AddSymbols implements Serializable {
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public java.util.List<AddSymbolsData> getData() {
+  public java.util.List<SymbolAndContent> getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setData(java.util.List<AddSymbolsData> data) {
+  public void setData(java.util.List<SymbolAndContent> data) {
     this.data = data;
   }
 

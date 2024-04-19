@@ -65,15 +65,15 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
             path="CLIENT:this_is_a_test_.OFDB",
             description="A user would fill this with relevant information",
             fields=Fields([
-                {
+                FieldProperties(
                     description="description_example",
                     iteration="2D",
                     name="name_example",
                     size=1,
                     split_direction="NONE",
                     type="INT",
-                    code_page_flag="ASCII",
-                },
+                    code_page_flag="code_page_flag_example",
+                ),
             ]),
         ),
     ) # DatabaseSchema |  (optional)

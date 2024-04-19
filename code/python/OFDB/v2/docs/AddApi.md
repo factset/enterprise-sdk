@@ -66,12 +66,11 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     add_dates = AddDates(
         data=[
-            AddDatesData(
+            DateAndContent(
                 date=20220202,
                 content=[
-                    AddDatesContent(
-                        symbol="symbol_example",
-                        field=1,
+                    SymbolAndFields(
+                        key=DataValue(None),
                     ),
                 ],
             ),
@@ -182,15 +181,15 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     add_fields = AddFields(
         data=Fields([
-            {
+            FieldProperties(
                 description="description_example",
                 iteration="2D",
                 name="name_example",
                 size=1,
                 split_direction="NONE",
                 type="INT",
-                code_page_flag="ASCII",
-            },
+                code_page_flag="code_page_flag_example",
+            ),
         ]),
     ) # AddFields | Data for creating fields in the database.
 
@@ -297,12 +296,11 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     add_symbols = AddSymbols(
         data=[
-            AddSymbolsData(
+            SymbolAndContent(
                 symbol="symbol_example",
                 content=[
-                    AddSymbolsContent(
-                        date=1,
-                        field="field_example",
+                    DateAndFields(
+                        key=DataValue(None),
                     ),
                 ],
             ),

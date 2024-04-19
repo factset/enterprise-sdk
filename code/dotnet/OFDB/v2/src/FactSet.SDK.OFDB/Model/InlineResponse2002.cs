@@ -36,7 +36,7 @@ namespace FactSet.SDK.OFDB.Model
         /// Initializes a new instance of the <see cref="InlineResponse2002" /> class.
         /// </summary>
         /// <param name="data">data.</param>
-        public InlineResponse2002(List<Object> data = default(List<Object>))
+        public InlineResponse2002(List<FieldProperties> data = default(List<FieldProperties>))
         {
             this.Data = data;
         }
@@ -45,7 +45,7 @@ namespace FactSet.SDK.OFDB.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name = "data", EmitDefaultValue = false)]
-        public List<Object> Data { get; set; }
+        public List<FieldProperties> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

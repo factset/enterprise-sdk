@@ -109,6 +109,7 @@ UserResource.prototype['schemas'] = undefined;
 UserResource.prototype['id'] = undefined;
 
 /**
+ * An arbitrary identifier for the resource defined by the client. This can assist the client locate the resource through the use of search filters.
  * @member {String} externalId
  */
 UserResource.prototype['externalId'] = undefined;

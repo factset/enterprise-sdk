@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **email** | **str** | Email addresses for the user.  The value SHOULD be canonicalized by the service provider, e.g., &#39;bjensen@example.com&#39; instead of &#39;bjensen@EXAMPLE.COM&#39;. | 
 **schemas** | **[str]** |  | [optional] 
 **id** | **str** |  | [optional] [readonly] 
-**external_id** | **str** |  | [optional] 
+**external_id** | **str** | An arbitrary identifier for the resource defined by the client. This can assist the client locate the resource through the use of search filters. | [optional] 
 **phone_numbers** | [**[UserResourcePhoneNumbers]**](UserResourcePhoneNumbers.md) | Phone numbers for the User.  The value SHOULD be canonicalized by the service provider according to the format specified in RFC 3966, e.g., &#39;tel:+1-201-555-0123&#39;. Canonical type values of &#39;main&#39;, &#39;work&#39;, &#39;mobile&#39;, and &#39;home&#39;. | [optional] [readonly] 
 **groups** | [**[UserResourceGroups]**](UserResourceGroups.md) | A list of groups to which the user belongs, either through direct membership, through nested groups, or dynamically calculated. | [optional] [readonly] 
 **urnscimschemasextension_fact_set_core1_0_user** | [**UserResourceUrnScimSchemasExtensionFactSetCore10User**](UserResourceUrnScimSchemasExtensionFactSetCore10User.md) |  | [optional] 

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **name** | **String** | The schema&#39;s human-readable name.  When applicable, service providers MUST specify the name, e.g., &#39;User&#39;. |  [readonly]
 **description** | **String** | The schema&#39;s human-readable name.  When applicable, service providers MUST specify the name, e.g., &#39;User&#39;. |  [optional] [readonly]
 **attributes** | [**java.util.List&lt;SchemaAttributes&gt;**](SchemaAttributes.md) | A complex attribute that includes the attributes of a schema. |  [readonly]
+**meta** | [**SchemaMeta**](SchemaMeta.md) |  |  [optional]
 
 
 ## Implemented Interfaces

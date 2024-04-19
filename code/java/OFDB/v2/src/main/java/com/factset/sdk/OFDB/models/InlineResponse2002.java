@@ -17,6 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.factset.sdk.OFDB.models.FieldProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -41,17 +42,17 @@ public class InlineResponse2002 implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private java.util.List<Object> data = null;
+  private java.util.List<FieldProperties> data = null;
 
   public InlineResponse2002() { 
   }
 
-  public InlineResponse2002 data(java.util.List<Object> data) {
+  public InlineResponse2002 data(java.util.List<FieldProperties> data) {
     this.data = data;
     return this;
   }
 
-  public InlineResponse2002 addDataItem(Object dataItem) {
+  public InlineResponse2002 addDataItem(FieldProperties dataItem) {
     if (this.data == null) {
       this.data = new java.util.ArrayList<>();
     }
@@ -68,14 +69,14 @@ public class InlineResponse2002 implements Serializable {
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public java.util.List<Object> getData() {
+  public java.util.List<FieldProperties> getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setData(java.util.List<Object> data) {
+  public void setData(java.util.List<FieldProperties> data) {
     this.data = data;
   }
 

@@ -36,7 +36,7 @@ namespace FactSet.SDK.OFDB.Model
         /// Initializes a new instance of the <see cref="InlineResponse400" /> class.
         /// </summary>
         /// <param name="errors">An array containing errors.</param>
-        public InlineResponse400(List<InlineResponse400Errors> errors = default(List<InlineResponse400Errors>))
+        public InlineResponse400(List<ErrorObjectWithSource> errors = default(List<ErrorObjectWithSource>))
         {
             this.Errors = errors;
         }
@@ -46,7 +46,7 @@ namespace FactSet.SDK.OFDB.Model
         /// </summary>
         /// <value>An array containing errors</value>
         [DataMember(Name = "errors", EmitDefaultValue = false)]
-        public List<InlineResponse400Errors> Errors { get; set; }
+        public List<ErrorObjectWithSource> Errors { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

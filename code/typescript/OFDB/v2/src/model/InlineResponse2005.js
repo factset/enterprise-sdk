@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import SymbolsWithId from './SymbolsWithId';
 
 /**
  * The InlineResponse2005 model module.
@@ -47,7 +48,7 @@ class InlineResponse2005 {
             obj = obj || new InlineResponse2005();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], ['Number']);
+                obj['data'] = SymbolsWithId.constructFromObject(data['data']);
             }
         }
         return obj;
@@ -57,7 +58,7 @@ class InlineResponse2005 {
 }
 
 /**
- * @member {Array.<Number>} data
+ * @member {module:model/SymbolsWithId} data
  */
 InlineResponse2005.prototype['data'] = undefined;
 

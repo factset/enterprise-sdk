@@ -31,8 +31,8 @@ from fds.sdk.OFDB.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.OFDB.model.update_date_data import UpdateDateData
-    globals()['UpdateDateData'] = UpdateDateData
+    from fds.sdk.OFDB.model.content_with_symbol import ContentWithSymbol
+    globals()['ContentWithSymbol'] = ContentWithSymbol
 
 
 class UpdateDate(ModelNormal):
@@ -88,7 +88,7 @@ class UpdateDate(ModelNormal):
         """
         lazy_import()
         return {
-            'data': ([UpdateDateData],),  # noqa: E501
+            'data': ([ContentWithSymbol],),  # noqa: E501
         }
 
     @cached_property
@@ -141,7 +141,7 @@ class UpdateDate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([UpdateDateData]): date has to be provide in case 3d OFDB with date and atleast one iterative field. [optional]  # noqa: E501
+            data ([ContentWithSymbol]): date has to be provide in case 3d OFDB with date and atleast one iterative field. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,7 +223,7 @@ class UpdateDate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([UpdateDateData]): date has to be provide in case 3d OFDB with date and atleast one iterative field. [optional]  # noqa: E501
+            data ([ContentWithSymbol]): date has to be provide in case 3d OFDB with date and atleast one iterative field. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

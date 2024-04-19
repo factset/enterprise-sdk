@@ -4,6 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**orderable** | **bool** | Whether the product can be ordered by the current client. | [readonly] 
+**trial_available** | **bool** | Whether a temporary trial use of this product is available for users. | [readonly] 
 **whitelist** | **bool** | Whether the product appears in the requester&#39;s product whitelist. Presence in the product whitelist means the requester is authorized to order this product for other users. | [readonly] 
 **schemas** | **[str]** |  | [optional] 
 **id** | **str** |  | [optional] [readonly] 

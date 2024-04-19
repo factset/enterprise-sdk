@@ -41,7 +41,7 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
         /// </summary>
         /// <param name="schemas">schemas.</param>
         /// <param name="meta">meta.</param>
-        public ProductResource(bool whitelist,List<string> schemas = default(List<string>), string id = default(string), string name = default(string), string description = default(string), string groupDescription = default(string), bool workstation = default(bool), string requiresApproval = default(string), ProductResourceMeta meta = default(ProductResourceMeta))
+        public ProductResource(bool orderable, bool trialAvailable, bool whitelist,List<string> schemas = default(List<string>), string id = default(string), string name = default(string), string description = default(string), string groupDescription = default(string), bool workstation = default(bool), string requiresApproval = default(string), ProductResourceMeta meta = default(ProductResourceMeta))
         {
             this.Schemas = schemas;
             this.Meta = meta;
@@ -128,6 +128,21 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
             return false;
         }
         /// <summary>
+        /// Whether the product can be ordered by the current client.
+        /// </summary>
+        /// <value>Whether the product can be ordered by the current client.</value>
+        [DataMember(Name = "orderable", IsRequired = true, EmitDefaultValue = true)]
+        public bool Orderable { get; private set; }
+
+        /// <summary>
+        /// Returns false as Orderable should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeOrderable()
+        {
+            return false;
+        }
+        /// <summary>
         /// A description of the type of approval required before an order for this product can be fulfilled. This value is null for those products that do not require any approval.
         /// </summary>
         /// <value>A description of the type of approval required before an order for this product can be fulfilled. This value is null for those products that do not require any approval.</value>
@@ -139,6 +154,21 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
         /// </summary>
         /// <returns>false (boolean)</returns>
         public bool ShouldSerializeRequiresApproval()
+        {
+            return false;
+        }
+        /// <summary>
+        /// Whether a temporary trial use of this product is available for users.
+        /// </summary>
+        /// <value>Whether a temporary trial use of this product is available for users.</value>
+        [DataMember(Name = "trialAvailable", IsRequired = true, EmitDefaultValue = true)]
+        public bool TrialAvailable { get; private set; }
+
+        /// <summary>
+        /// Returns false as TrialAvailable should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeTrialAvailable()
         {
             return false;
         }
@@ -177,7 +207,9 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  GroupDescription: ").Append(GroupDescription).Append("\n");
             sb.Append("  Workstation: ").Append(Workstation).Append("\n");
+            sb.Append("  Orderable: ").Append(Orderable).Append("\n");
             sb.Append("  RequiresApproval: ").Append(RequiresApproval).Append("\n");
+            sb.Append("  TrialAvailable: ").Append(TrialAvailable).Append("\n");
             sb.Append("  Whitelist: ").Append(Whitelist).Append("\n");
             sb.Append("  Meta: ").Append(Meta).Append("\n");
             sb.Append("}\n");
@@ -246,9 +278,17 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
                     this.Workstation.Equals(input.Workstation)
                 ) && 
                 (
+                    this.Orderable == input.Orderable ||
+                    this.Orderable.Equals(input.Orderable)
+                ) && 
+                (
                     this.RequiresApproval == input.RequiresApproval ||
                     (this.RequiresApproval != null &&
                     this.RequiresApproval.Equals(input.RequiresApproval))
+                ) && 
+                (
+                    this.TrialAvailable == input.TrialAvailable ||
+                    this.TrialAvailable.Equals(input.TrialAvailable)
                 ) && 
                 (
                     this.Whitelist == input.Whitelist ||
@@ -291,10 +331,12 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
                     hashCode = (hashCode * 59) + this.GroupDescription.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Workstation.GetHashCode();
+                hashCode = (hashCode * 59) + this.Orderable.GetHashCode();
                 if (this.RequiresApproval != null)
                 {
                     hashCode = (hashCode * 59) + this.RequiresApproval.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.TrialAvailable.GetHashCode();
                 hashCode = (hashCode * 59) + this.Whitelist.GetHashCode();
                 if (this.Meta != null)
                 {

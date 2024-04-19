@@ -31,8 +31,8 @@ from fds.sdk.OFDB.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.OFDB.model.inline_response2006_data import InlineResponse2006Data
-    globals()['InlineResponse2006Data'] = InlineResponse2006Data
+    from fds.sdk.OFDB.model.dates import Dates
+    globals()['Dates'] = Dates
 
 
 class InlineResponse2006(ModelNormal):
@@ -88,7 +88,7 @@ class InlineResponse2006(ModelNormal):
         """
         lazy_import()
         return {
-            'data': ([InlineResponse2006Data],),  # noqa: E501
+            'data': (Dates,),  # noqa: E501
         }
 
     @cached_property
@@ -141,7 +141,7 @@ class InlineResponse2006(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([InlineResponse2006Data]): [optional]  # noqa: E501
+            data (Dates): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,7 +223,7 @@ class InlineResponse2006(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([InlineResponse2006Data]): [optional]  # noqa: E501
+            data (Dates): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

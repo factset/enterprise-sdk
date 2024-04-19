@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**errors** | [**[InlineResponse403Errors]**](InlineResponse403Errors.md) | An array containing errors | [optional] 
+**errors** | [**[ErrorObject]**](ErrorObject.md) | An array containing errors | [optional] 
 
 

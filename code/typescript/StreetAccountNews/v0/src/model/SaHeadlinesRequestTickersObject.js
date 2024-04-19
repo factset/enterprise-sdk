@@ -110,7 +110,25 @@ SaHeadlinesRequestTickersObject['TypeEnum'] = {
      * value: "Portfolios"
      * @const
      */
-    "Portfolios": "Portfolios"
+    "Portfolios": "Portfolios",
+
+    /**
+     * value: "Equity"
+     * @const
+     */
+    "Equity": "Equity",
+
+    /**
+     * value: "privateCompanies"
+     * @const
+     */
+    "privateCompanies": "privateCompanies",
+
+    /**
+     * value: "Fixed_Income"
+     * @const
+     */
+    "Fixed_Income": "Fixed_Income"
 };
 
 

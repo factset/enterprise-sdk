@@ -17,6 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.factset.sdk.OFDB.models.FieldProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -49,7 +50,7 @@ public class DatabaseSchemaData implements Serializable {
   private String description;
 
   public static final String JSON_PROPERTY_FIELDS = "fields";
-  private java.util.List<Object> fields = null;
+  private java.util.List<FieldProperties> fields = null;
 
   public DatabaseSchemaData() { 
   }
@@ -106,12 +107,12 @@ public class DatabaseSchemaData implements Serializable {
   }
 
 
-  public DatabaseSchemaData fields(java.util.List<Object> fields) {
+  public DatabaseSchemaData fields(java.util.List<FieldProperties> fields) {
     this.fields = fields;
     return this;
   }
 
-  public DatabaseSchemaData addFieldsItem(Object fieldsItem) {
+  public DatabaseSchemaData addFieldsItem(FieldProperties fieldsItem) {
     if (this.fields == null) {
       this.fields = new java.util.ArrayList<>();
     }
@@ -128,14 +129,14 @@ public class DatabaseSchemaData implements Serializable {
   @JsonProperty(JSON_PROPERTY_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public java.util.List<Object> getFields() {
+  public java.util.List<FieldProperties> getFields() {
     return fields;
   }
 
 
   @JsonProperty(JSON_PROPERTY_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFields(java.util.List<Object> fields) {
+  public void setFields(java.util.List<FieldProperties> fields) {
     this.fields = fields;
   }
 

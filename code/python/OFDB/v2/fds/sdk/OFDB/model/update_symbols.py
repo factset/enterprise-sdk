@@ -31,8 +31,8 @@ from fds.sdk.OFDB.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.OFDB.model.update_symbols_data import UpdateSymbolsData
-    globals()['UpdateSymbolsData'] = UpdateSymbolsData
+    from fds.sdk.OFDB.model.symbol_and_content import SymbolAndContent
+    globals()['SymbolAndContent'] = SymbolAndContent
 
 
 class UpdateSymbols(ModelNormal):
@@ -88,7 +88,7 @@ class UpdateSymbols(ModelNormal):
         """
         lazy_import()
         return {
-            'data': ([UpdateSymbolsData],),  # noqa: E501
+            'data': ([SymbolAndContent],),  # noqa: E501
         }
 
     @cached_property
@@ -141,7 +141,7 @@ class UpdateSymbols(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([UpdateSymbolsData]): [optional]  # noqa: E501
+            data ([SymbolAndContent]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,7 +223,7 @@ class UpdateSymbols(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([UpdateSymbolsData]): [optional]  # noqa: E501
+            data ([SymbolAndContent]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**locations_id_get**](LocationsApi.md#locations_id_get) | **GET** /Locations/{id} | Get a location.
 [**locations_id_patch**](LocationsApi.md#locations_id_patch) | **PATCH** /Locations/{id} | Patch a location (add, replace, or remove attributes of a location.)
 [**locations_id_put**](LocationsApi.md#locations_id_put) | **PUT** /Locations/{id} | Replace a location.
+[**locations_post**](LocationsApi.md#locations_post) | **POST** /Locations | Create a location.
 
 
 
@@ -382,6 +383,31 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
     location_resource = LocationResource(
         schemas=["urn:scim:schemas:extension:FactSet:Core:1.0:Location"],
         external_id="1598276",
+        name="FIN Wealth Management",
+        description="description_example",
+        address1="601 Main Avenue",
+        address2="Factset - First Floor",
+        address3="address3_example",
+        locality="Norwalk",
+        region="Connecticut",
+        postal_code="06850",
+        country="United States",
+        firm_description=None,
+        email_domains=["foo.com"],
+        partner_asserted_entity_id="partner_asserted_entity_id_example",
+        company_agreement_urls=[
+            LocationResourceCompanyAgreementUrls(
+                ref="https://example-corp.com/company_agreements.pdf",
+            ),
+        ],
+        managed_locations=[
+            LocationResourceReference(
+                value="1598276",
+                ref="https://api.factset.com/scim/v2/Locations/1598276",
+                display="FIN Wealth Management",
+            ),
+        ],
+        managing_location=None,
         main_location=None,
     ) # LocationResource | Location resource.
 
@@ -427,6 +453,131 @@ Name | Type | Description  | Notes
 **401** | User has not been authenticated. |  -  |
 **403** | User is not authorized to use this API. |  -  |
 **404** | Location not found. |  -  |
+**500** | Internal server error. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **locations_post**
+> LocationResource locations_post(location_resource)
+
+Create a location.
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```python
+from fds.sdk.utils.authentication import ConfidentialClient
+import fds.sdk.ProcuretoPayAPISCIM
+from fds.sdk.ProcuretoPayAPISCIM.api import locations_api
+from fds.sdk.ProcuretoPayAPISCIM.models import *
+from dateutil.parser import parse as dateutil_parser
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
+
+# (Preferred) OAuth 2.0: FactSetOAuth2
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+#
+# The confidential client instance should be reused in production environments.
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
+configuration = fds.sdk.ProcuretoPayAPISCIM.Configuration(
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
+)
+
+# Basic authentication: FactSetApiKey
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
+# configuration = fds.sdk.ProcuretoPayAPISCIM.Configuration(
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
+# )
+
+# Enter a context with an instance of the API client
+with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = locations_api.LocationsApi(api_client)
+
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    location_resource = LocationResource(
+        schemas=["urn:scim:schemas:extension:FactSet:Core:1.0:Location"],
+        external_id="1598276",
+        name="FIN Wealth Management",
+        description="description_example",
+        address1="601 Main Avenue",
+        address2="Factset - First Floor",
+        address3="address3_example",
+        locality="Norwalk",
+        region="Connecticut",
+        postal_code="06850",
+        country="United States",
+        firm_description=None,
+        email_domains=["foo.com"],
+        partner_asserted_entity_id="partner_asserted_entity_id_example",
+        company_agreement_urls=[
+            LocationResourceCompanyAgreementUrls(
+                ref="https://example-corp.com/company_agreements.pdf",
+            ),
+        ],
+        managed_locations=[
+            LocationResourceReference(
+                value="1598276",
+                ref="https://api.factset.com/scim/v2/Locations/1598276",
+                display="FIN Wealth Management",
+            ),
+        ],
+        managing_location=None,
+        main_location=None,
+    ) # LocationResource | Location resource.
+
+    try:
+        # Create a location.
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.locations_post(location_resource)
+
+        pprint(api_response)
+
+    except fds.sdk.ProcuretoPayAPISCIM.ApiException as e:
+        print("Exception when calling LocationsApi->locations_post: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **location_resource** | [**LocationResource**](LocationResource.md)| Location resource. |
+
+### Return type
+
+[**LocationResource**](LocationResource.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/scim+json
+ - **Accept**: application/scim+json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Success. |  -  |
+**400** | Provided resource contains invalid data. |  -  |
+**401** | User has not been authenticated. |  -  |
+**403** | User is not authorized to use this API. |  -  |
 **500** | Internal server error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

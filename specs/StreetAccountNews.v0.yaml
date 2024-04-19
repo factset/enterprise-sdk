@@ -983,6 +983,9 @@ components:
             - ETF
             - Mutual_Fund
             - Portfolios
+            - Equity
+            - privateCompanies
+            - Fixed_Income
     saHeadlinesRequestByView:
       type: object
       properties:

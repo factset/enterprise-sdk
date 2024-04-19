@@ -21,6 +21,12 @@ Name | Type | Description | Notes
 
 * `Portfolios` (value: `"Portfolios"`)
 
+* `Equity` (value: `"Equity"`)
+
+* `privateCompanies` (value: `"privateCompanies"`)
+
+* `Fixed_Income` (value: `"Fixed_Income"`)
+
 
 
 

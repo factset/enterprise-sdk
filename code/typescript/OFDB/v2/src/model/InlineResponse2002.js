@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import FieldProperties from './FieldProperties';
 
 /**
  * The InlineResponse2002 model module.
@@ -47,7 +48,7 @@ class InlineResponse2002 {
             obj = obj || new InlineResponse2002();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [Object]);
+                obj['data'] = ApiClient.convertToType(data['data'], [FieldProperties]);
             }
         }
         return obj;
@@ -57,7 +58,7 @@ class InlineResponse2002 {
 }
 
 /**
- * @member {Array.<Object>} data
+ * @member {Array.<module:model/FieldProperties>} data
  */
 InlineResponse2002.prototype['data'] = undefined;
 

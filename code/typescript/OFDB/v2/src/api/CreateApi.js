@@ -17,9 +17,6 @@ import DatabaseSchema from '../model/DatabaseSchema';
 import InlineResponse202 from '../model/InlineResponse202';
 import InlineResponse400 from '../model/InlineResponse400';
 import InlineResponse403 from '../model/InlineResponse403';
-import InlineResponse404 from '../model/InlineResponse404';
-import InlineResponse406 from '../model/InlineResponse406';
-import InlineResponse429 from '../model/InlineResponse429';
 
 /**
 * Create service.

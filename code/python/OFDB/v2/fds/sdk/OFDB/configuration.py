@@ -430,7 +430,7 @@ conf = fds.sdk.OFDB.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 2.1.0\n"\
-               "SDK Package Version: 0.30.11".\
+               "SDK Package Version: 0.31.0".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):

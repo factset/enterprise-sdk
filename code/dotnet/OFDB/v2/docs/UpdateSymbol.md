@@ -5,7 +5,7 @@ Any arbitary set of fields that are provided while creating the ofdb and their v
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Data** | [**List&lt;UpdateSymbolData&gt;**](UpdateSymbolData.md) |  | [optional] 
+**Data** | [**List&lt;ContentWithDate&gt;**](ContentWithDate.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -15,4 +15,3 @@
 
 # Import APIs into API package:
 from fds.sdk.FactSetTickHistory.api.level_1_api import Level1Api
-from fds.sdk.FactSetTickHistory.api.level_2_api import Level2Api

@@ -17,10 +17,6 @@ import com.factset.sdk.OFDB.models.AddSymbols;
 import com.factset.sdk.OFDB.models.InlineResponse202;
 import com.factset.sdk.OFDB.models.InlineResponse400;
 import com.factset.sdk.OFDB.models.InlineResponse403;
-import com.factset.sdk.OFDB.models.InlineResponse404;
-import com.factset.sdk.OFDB.models.InlineResponse406;
-import com.factset.sdk.OFDB.models.InlineResponse413;
-import com.factset.sdk.OFDB.models.InlineResponse429;
 
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -40,10 +36,10 @@ public class AddApi {
     addDatesResponseTypeMap.put(202, new GenericType<InlineResponse202>(){});
     addDatesResponseTypeMap.put(400, new GenericType<InlineResponse400>(){});
     addDatesResponseTypeMap.put(403, new GenericType<InlineResponse403>(){});
-    addDatesResponseTypeMap.put(404, new GenericType<InlineResponse404>(){});
-    addDatesResponseTypeMap.put(406, new GenericType<InlineResponse406>(){});
-    addDatesResponseTypeMap.put(413, new GenericType<InlineResponse413>(){});
-    addDatesResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
+    addDatesResponseTypeMap.put(404, new GenericType<InlineResponse403>(){});
+    addDatesResponseTypeMap.put(406, new GenericType<InlineResponse403>(){});
+    addDatesResponseTypeMap.put(413, new GenericType<InlineResponse403>(){});
+    addDatesResponseTypeMap.put(429, new GenericType<InlineResponse403>(){});
   }
 
   private static final Map<Integer, GenericType> addFieldsResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -51,9 +47,9 @@ public class AddApi {
     addFieldsResponseTypeMap.put(202, new GenericType<InlineResponse202>(){});
     addFieldsResponseTypeMap.put(400, new GenericType<InlineResponse400>(){});
     addFieldsResponseTypeMap.put(403, new GenericType<InlineResponse403>(){});
-    addFieldsResponseTypeMap.put(404, new GenericType<InlineResponse404>(){});
-    addFieldsResponseTypeMap.put(406, new GenericType<InlineResponse406>(){});
-    addFieldsResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
+    addFieldsResponseTypeMap.put(404, new GenericType<InlineResponse403>(){});
+    addFieldsResponseTypeMap.put(406, new GenericType<InlineResponse403>(){});
+    addFieldsResponseTypeMap.put(429, new GenericType<InlineResponse403>(){});
   }
 
   private static final Map<Integer, GenericType> addSymbolsResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -61,10 +57,10 @@ public class AddApi {
     addSymbolsResponseTypeMap.put(202, new GenericType<InlineResponse202>(){});
     addSymbolsResponseTypeMap.put(400, new GenericType<InlineResponse400>(){});
     addSymbolsResponseTypeMap.put(403, new GenericType<InlineResponse403>(){});
-    addSymbolsResponseTypeMap.put(404, new GenericType<InlineResponse404>(){});
-    addSymbolsResponseTypeMap.put(406, new GenericType<InlineResponse406>(){});
-    addSymbolsResponseTypeMap.put(413, new GenericType<InlineResponse413>(){});
-    addSymbolsResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
+    addSymbolsResponseTypeMap.put(404, new GenericType<InlineResponse403>(){});
+    addSymbolsResponseTypeMap.put(406, new GenericType<InlineResponse403>(){});
+    addSymbolsResponseTypeMap.put(413, new GenericType<InlineResponse403>(){});
+    addSymbolsResponseTypeMap.put(429, new GenericType<InlineResponse403>(){});
   }
 
   

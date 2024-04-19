@@ -17,7 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.OFDB.models.InlineResponse400Errors;
+import com.factset.sdk.OFDB.models.ErrorObjectWithSource;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -42,17 +42,17 @@ public class InlineResponse400 implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_ERRORS = "errors";
-  private java.util.List<InlineResponse400Errors> errors = null;
+  private java.util.List<ErrorObjectWithSource> errors = null;
 
   public InlineResponse400() { 
   }
 
-  public InlineResponse400 errors(java.util.List<InlineResponse400Errors> errors) {
+  public InlineResponse400 errors(java.util.List<ErrorObjectWithSource> errors) {
     this.errors = errors;
     return this;
   }
 
-  public InlineResponse400 addErrorsItem(InlineResponse400Errors errorsItem) {
+  public InlineResponse400 addErrorsItem(ErrorObjectWithSource errorsItem) {
     if (this.errors == null) {
       this.errors = new java.util.ArrayList<>();
     }
@@ -69,14 +69,14 @@ public class InlineResponse400 implements Serializable {
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public java.util.List<InlineResponse400Errors> getErrors() {
+  public java.util.List<ErrorObjectWithSource> getErrors() {
     return errors;
   }
 
 
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setErrors(java.util.List<InlineResponse400Errors> errors) {
+  public void setErrors(java.util.List<ErrorObjectWithSource> errors) {
     this.errors = errors;
   }
 

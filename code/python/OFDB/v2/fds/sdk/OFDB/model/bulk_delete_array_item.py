@@ -31,8 +31,10 @@ from fds.sdk.OFDB.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.OFDB.model.bulk_delete_array_item_nested import BulkDeleteArrayItemNested
-    globals()['BulkDeleteArrayItemNested'] = BulkDeleteArrayItemNested
+    from fds.sdk.OFDB.model.bulk_delete_array_item_array import BulkDeleteArrayItemArray
+    from fds.sdk.OFDB.model.bulk_delete_array_item_object import BulkDeleteArrayItemObject
+    globals()['BulkDeleteArrayItemArray'] = BulkDeleteArrayItemArray
+    globals()['BulkDeleteArrayItemObject'] = BulkDeleteArrayItemObject
 
 
 class BulkDeleteArrayItem(ModelComposed):
@@ -299,11 +301,11 @@ class BulkDeleteArrayItem(ModelComposed):
         lazy_import()
         return {
           'anyOf': [
-              [str],
-              {str: (BulkDeleteArrayItemNested,)},
           ],
           'allOf': [
           ],
           'oneOf': [
+              BulkDeleteArrayItemArray,
+              BulkDeleteArrayItemObject,
           ],
         }

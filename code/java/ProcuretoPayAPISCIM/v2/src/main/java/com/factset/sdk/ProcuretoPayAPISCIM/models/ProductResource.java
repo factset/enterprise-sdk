@@ -40,7 +40,9 @@ import com.factset.sdk.ProcuretoPayAPISCIM.JSON;
   ProductResource.JSON_PROPERTY_DESCRIPTION,
   ProductResource.JSON_PROPERTY_GROUP_DESCRIPTION,
   ProductResource.JSON_PROPERTY_WORKSTATION,
+  ProductResource.JSON_PROPERTY_ORDERABLE,
   ProductResource.JSON_PROPERTY_REQUIRES_APPROVAL,
+  ProductResource.JSON_PROPERTY_TRIAL_AVAILABLE,
   ProductResource.JSON_PROPERTY_WHITELIST,
   ProductResource.JSON_PROPERTY_META
 })
@@ -67,8 +69,14 @@ public class ProductResource implements Serializable {
   public static final String JSON_PROPERTY_WORKSTATION = "workstation";
   private Boolean workstation;
 
+  public static final String JSON_PROPERTY_ORDERABLE = "orderable";
+  private Boolean orderable;
+
   public static final String JSON_PROPERTY_REQUIRES_APPROVAL = "requiresApproval";
   private String requiresApproval;
+
+  public static final String JSON_PROPERTY_TRIAL_AVAILABLE = "trialAvailable";
+  private Boolean trialAvailable;
 
   public static final String JSON_PROPERTY_WHITELIST = "whitelist";
   private Boolean whitelist;
@@ -86,7 +94,9 @@ public class ProductResource implements Serializable {
     @JsonProperty(JSON_PROPERTY_DESCRIPTION) String description, 
     @JsonProperty(JSON_PROPERTY_GROUP_DESCRIPTION) String groupDescription, 
     @JsonProperty(JSON_PROPERTY_WORKSTATION) Boolean workstation, 
+    @JsonProperty(JSON_PROPERTY_ORDERABLE) Boolean orderable, 
     @JsonProperty(JSON_PROPERTY_REQUIRES_APPROVAL) String requiresApproval, 
+    @JsonProperty(JSON_PROPERTY_TRIAL_AVAILABLE) Boolean trialAvailable, 
     @JsonProperty(JSON_PROPERTY_WHITELIST) Boolean whitelist
   ) {
     this();
@@ -95,7 +105,9 @@ public class ProductResource implements Serializable {
     this.description = description;
     this.groupDescription = groupDescription;
     this.workstation = workstation;
+    this.orderable = orderable;
     this.requiresApproval = requiresApproval;
+    this.trialAvailable = trialAvailable;
     this.whitelist = whitelist;
   }
 
@@ -214,6 +226,22 @@ public class ProductResource implements Serializable {
 
 
    /**
+   * Whether the product can be ordered by the current client.
+   * @return orderable
+  **/
+  @jakarta.annotation.Nonnull
+  @ApiModelProperty(example = "true", required = true, value = "Whether the product can be ordered by the current client.")
+  @JsonProperty(JSON_PROPERTY_ORDERABLE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Boolean getOrderable() {
+    return orderable;
+  }
+
+
+
+
+   /**
    * A description of the type of approval required before an order for this product can be fulfilled. This value is null for those products that do not require any approval.
    * @return requiresApproval
   **/
@@ -224,6 +252,22 @@ public class ProductResource implements Serializable {
 
   public String getRequiresApproval() {
     return requiresApproval;
+  }
+
+
+
+
+   /**
+   * Whether a temporary trial use of this product is available for users.
+   * @return trialAvailable
+  **/
+  @jakarta.annotation.Nonnull
+  @ApiModelProperty(example = "true", required = true, value = "Whether a temporary trial use of this product is available for users.")
+  @JsonProperty(JSON_PROPERTY_TRIAL_AVAILABLE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Boolean getTrialAvailable() {
+    return trialAvailable;
   }
 
 
@@ -289,14 +333,16 @@ public class ProductResource implements Serializable {
         Objects.equals(this.description, productResource.description) &&
         Objects.equals(this.groupDescription, productResource.groupDescription) &&
         Objects.equals(this.workstation, productResource.workstation) &&
+        Objects.equals(this.orderable, productResource.orderable) &&
         Objects.equals(this.requiresApproval, productResource.requiresApproval) &&
+        Objects.equals(this.trialAvailable, productResource.trialAvailable) &&
         Objects.equals(this.whitelist, productResource.whitelist) &&
         Objects.equals(this.meta, productResource.meta);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(schemas, id, name, description, groupDescription, workstation, requiresApproval, whitelist, meta);
+    return Objects.hash(schemas, id, name, description, groupDescription, workstation, orderable, requiresApproval, trialAvailable, whitelist, meta);
   }
 
   @Override
@@ -309,7 +355,9 @@ public class ProductResource implements Serializable {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    groupDescription: ").append(toIndentedString(groupDescription)).append("\n");
     sb.append("    workstation: ").append(toIndentedString(workstation)).append("\n");
+    sb.append("    orderable: ").append(toIndentedString(orderable)).append("\n");
     sb.append("    requiresApproval: ").append(toIndentedString(requiresApproval)).append("\n");
+    sb.append("    trialAvailable: ").append(toIndentedString(trialAvailable)).append("\n");
     sb.append("    whitelist: ").append(toIndentedString(whitelist)).append("\n");
     sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("}");

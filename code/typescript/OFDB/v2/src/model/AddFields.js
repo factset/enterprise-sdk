@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import FieldProperties from './FieldProperties';
 
 /**
  * The AddFields model module.
@@ -47,7 +48,7 @@ class AddFields {
             obj = obj || new AddFields();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [Object]);
+                obj['data'] = ApiClient.convertToType(data['data'], [FieldProperties]);
             }
         }
         return obj;
@@ -57,7 +58,7 @@ class AddFields {
 }
 
 /**
- * @member {Array.<Object>} data
+ * @member {Array.<module:model/FieldProperties>} data
  */
 AddFields.prototype['data'] = undefined;
 

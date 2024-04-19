@@ -255,6 +255,54 @@ export default class LocationsApi {
     }
 
 
+    /**
+     * Create a location.
+     * @param {module:model/LocationResource} locationResource Location resource.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/LocationResource} and HTTP response
+     */
+    locationsPostWithHttpInfo(locationResource) {
+      let postBody = locationResource;
+      // verify the required parameter 'locationResource' is set
+      if (locationResource === undefined || locationResource === null) {
+        throw new Error("Missing the required parameter 'locationResource' when calling locationsPost");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = ['application/scim+json'];
+      let accepts = ['application/scim+json'];
+
+
+      let returnType = LocationResource;
+
+      return this.apiClient.callApi(
+        '/Locations', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Create a location.
+     * @param {module:model/LocationResource} locationResource Location resource.
+     * @return { Promise.< module:model/LocationResource > } a Promise, with data of type {@link module:model/LocationResource }
+     */
+    locationsPost(locationResource) {
+      return this.locationsPostWithHttpInfo(locationResource)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
 }
 
 

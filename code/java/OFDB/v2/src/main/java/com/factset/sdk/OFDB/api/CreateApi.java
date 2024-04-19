@@ -15,9 +15,6 @@ import com.factset.sdk.OFDB.models.DatabaseSchema;
 import com.factset.sdk.OFDB.models.InlineResponse202;
 import com.factset.sdk.OFDB.models.InlineResponse400;
 import com.factset.sdk.OFDB.models.InlineResponse403;
-import com.factset.sdk.OFDB.models.InlineResponse404;
-import com.factset.sdk.OFDB.models.InlineResponse406;
-import com.factset.sdk.OFDB.models.InlineResponse429;
 
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -37,9 +34,9 @@ public class CreateApi {
     createDatabaseResponseTypeMap.put(202, new GenericType<InlineResponse202>(){});
     createDatabaseResponseTypeMap.put(400, new GenericType<InlineResponse400>(){});
     createDatabaseResponseTypeMap.put(403, new GenericType<InlineResponse403>(){});
-    createDatabaseResponseTypeMap.put(404, new GenericType<InlineResponse404>(){});
-    createDatabaseResponseTypeMap.put(406, new GenericType<InlineResponse406>(){});
-    createDatabaseResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
+    createDatabaseResponseTypeMap.put(404, new GenericType<InlineResponse403>(){});
+    createDatabaseResponseTypeMap.put(406, new GenericType<InlineResponse403>(){});
+    createDatabaseResponseTypeMap.put(429, new GenericType<InlineResponse403>(){});
   }
 
   

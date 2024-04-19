@@ -44,6 +44,8 @@ class BulkDeleteArrayItem {
      * @return {module:model/BulkDeleteArrayItem} The populated <code>BulkDeleteArrayItem</code> instance.
      */
     static constructFromObject(data, obj) {
+        // openApiType:array format:
+        if (Array.isArray(data)) return ApiClient.setValue(obj || new BulkDeleteArrayItem(), data);
     }
 
 

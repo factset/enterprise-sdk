@@ -12,7 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse2006Data from './InlineResponse2006Data';
 
 /**
  * The InlineResponse2006 model module.
@@ -48,7 +47,7 @@ class InlineResponse2006 {
             obj = obj || new InlineResponse2006();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [InlineResponse2006Data]);
+                obj['data'] = ApiClient.convertToType(data['data'], ['Number']);
             }
         }
         return obj;
@@ -58,7 +57,7 @@ class InlineResponse2006 {
 }
 
 /**
- * @member {Array.<module:model/InlineResponse2006Data>} data
+ * @member {Array.<Number>} data
  */
 InlineResponse2006.prototype['data'] = undefined;
 

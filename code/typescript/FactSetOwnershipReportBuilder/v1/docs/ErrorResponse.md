@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**errors** | [**[ErrorObject]**](ErrorObject.md) |  | [optional] 
-**meta** | **{String: String}** |  | [optional] 
+**errors** | [**[ErrorObject]**](ErrorObject.md) | Any errors that occured which made this request unservicable | [optional] 
 
 

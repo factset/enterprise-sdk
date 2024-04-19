@@ -17,7 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.OFDB.models.UpdateDateData;
+import com.factset.sdk.OFDB.models.ContentWithSymbol;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -43,17 +43,17 @@ public class UpdateDate implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private java.util.List<UpdateDateData> data = null;
+  private java.util.List<ContentWithSymbol> data = null;
 
   public UpdateDate() { 
   }
 
-  public UpdateDate data(java.util.List<UpdateDateData> data) {
+  public UpdateDate data(java.util.List<ContentWithSymbol> data) {
     this.data = data;
     return this;
   }
 
-  public UpdateDate addDataItem(UpdateDateData dataItem) {
+  public UpdateDate addDataItem(ContentWithSymbol dataItem) {
     if (this.data == null) {
       this.data = new java.util.ArrayList<>();
     }
@@ -70,14 +70,14 @@ public class UpdateDate implements Serializable {
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public java.util.List<UpdateDateData> getData() {
+  public java.util.List<ContentWithSymbol> getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setData(java.util.List<UpdateDateData> data) {
+  public void setData(java.util.List<ContentWithSymbol> data) {
     this.data = data;
   }
 

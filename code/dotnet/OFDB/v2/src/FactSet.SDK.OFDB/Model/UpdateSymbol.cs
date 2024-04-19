@@ -36,7 +36,7 @@ namespace FactSet.SDK.OFDB.Model
         /// Initializes a new instance of the <see cref="UpdateSymbol" /> class.
         /// </summary>
         /// <param name="data">data.</param>
-        public UpdateSymbol(List<UpdateSymbolData> data = default(List<UpdateSymbolData>))
+        public UpdateSymbol(List<ContentWithDate> data = default(List<ContentWithDate>))
         {
             this.Data = data;
         }
@@ -45,7 +45,7 @@ namespace FactSet.SDK.OFDB.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name = "data", EmitDefaultValue = false)]
-        public List<UpdateSymbolData> Data { get; set; }
+        public List<ContentWithDate> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

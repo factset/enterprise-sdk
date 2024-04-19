@@ -491,7 +491,20 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
                 ref="https://api.factset.com/scim/v2/Locations/1598276",
                 display="FIN Wealth Management",
             ),
+            user_taxonomy_data=UserResourceUrnScimSchemasExtensionFactSetCore10UserUserTaxonomyData(
+                user_class=UserClassResourceReference(
+                    value="20",
+                    ref="https://api.factset.com/scim/v2/UserClasses/20",
+                    display="Application Developer",
+                ),
+                user_position=UserPositionResourceReference(
+                    value="46",
+                    ref="https://api.factset.com/scim/v2/UserPositions/46",
+                    display="Application Developer",
+                ),
+            ),
             role_name="Wealth Manager",
+            royalty_class="royalty_class_example",
             products=[
                 ProductResourceReference(
                     value="6781",
@@ -626,7 +639,20 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
                 ref="https://api.factset.com/scim/v2/Locations/1598276",
                 display="FIN Wealth Management",
             ),
+            user_taxonomy_data=UserResourceUrnScimSchemasExtensionFactSetCore10UserUserTaxonomyData(
+                user_class=UserClassResourceReference(
+                    value="20",
+                    ref="https://api.factset.com/scim/v2/UserClasses/20",
+                    display="Application Developer",
+                ),
+                user_position=UserPositionResourceReference(
+                    value="46",
+                    ref="https://api.factset.com/scim/v2/UserPositions/46",
+                    display="Application Developer",
+                ),
+            ),
             role_name="Wealth Manager",
+            royalty_class="royalty_class_example",
             products=[
                 ProductResourceReference(
                     value="6781",

@@ -41,10 +41,12 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
         /// </summary>
         /// <param name="username">A FactSet \&quot;username\&quot; is FactSet&#39;s logical structure for grouping serial numbers into like-groups based on roleName, geographical location or line of business. (required).</param>
         /// <param name="location">location.</param>
+        /// <param name="userTaxonomyData">userTaxonomyData.</param>
         /// <param name="roleName">Predetermined role of specific individual. Issues individual a base FactSet workstation and serial number. If passed as NULL a base-FactSet workstation will be allocated to the individual granting the individual a FactSet SerialNumber.</param>
+        /// <param name="royaltyClass">Determines the type of client the individual and the royalty fee to be remitted to FactSet for the individual. Expected Royalty Class values will be provided to you by your FactSet account representative..</param>
         /// <param name="products">An array of FactSet products to allocate/remove from an individual. Individual must have a FactSet serial number associated with them..</param>
         /// <param name="assertionValue">Field containing the value, passed as nameID, used to assert the identity of an individual via SAML2.0 which maps service-provider-side to a FactSet serial number. Only applicable to individuals with a FactSet serial number with a Federation setup between your domain and FactSet&#39;s.</param>
-        public UserResourceUrnScimSchemasExtensionFactSetCore10User(string username,string serialNumber = default(string), string factSetNetId = default(string), LocationResourceReference location = default(LocationResourceReference), string roleName = default(string), List<ProductResourceReference> products = default(List<ProductResourceReference>), List<PendingProductOrder> pendingProductOrders = default(List<PendingProductOrder>), string assertionValue = default(string))
+        public UserResourceUrnScimSchemasExtensionFactSetCore10User(string username,string serialNumber = default(string), LocationResourceReference location = default(LocationResourceReference), UserResourceUrnScimSchemasExtensionFactSetCore10UserUserTaxonomyData userTaxonomyData = default(UserResourceUrnScimSchemasExtensionFactSetCore10UserUserTaxonomyData), string roleName = default(string), string royaltyClass = default(string), List<ProductResourceReference> products = default(List<ProductResourceReference>), List<PendingProductOrder> pendingProductOrders = default(List<PendingProductOrder>), string assertionValue = default(string))
         {
             // to ensure "username" is required (not null)
             if (username == null) {
@@ -52,7 +54,9 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
             }
             this.Username = username;
             this.Location = location;
+            this.UserTaxonomyData = userTaxonomyData;
             this.RoleName = roleName;
+            this.RoyaltyClass = royaltyClass;
             this.Products = products;
             this.AssertionValue = assertionValue;
         }
@@ -80,25 +84,16 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
             return false;
         }
         /// <summary>
-        /// FactSet.net ID.
-        /// </summary>
-        /// <value>FactSet.net ID.</value>
-        [DataMember(Name = "factSetNetId", EmitDefaultValue = false)]
-        public string FactSetNetId { get; private set; }
-
-        /// <summary>
-        /// Returns false as FactSetNetId should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeFactSetNetId()
-        {
-            return false;
-        }
-        /// <summary>
         /// Gets or Sets Location
         /// </summary>
         [DataMember(Name = "location", EmitDefaultValue = false)]
         public LocationResourceReference Location { get; set; }
+
+        /// <summary>
+        /// Gets or Sets UserTaxonomyData
+        /// </summary>
+        [DataMember(Name = "userTaxonomyData", EmitDefaultValue = false)]
+        public UserResourceUrnScimSchemasExtensionFactSetCore10UserUserTaxonomyData UserTaxonomyData { get; set; }
 
         /// <summary>
         /// Predetermined role of specific individual. Issues individual a base FactSet workstation and serial number. If passed as NULL a base-FactSet workstation will be allocated to the individual granting the individual a FactSet SerialNumber
@@ -106,6 +101,13 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
         /// <value>Predetermined role of specific individual. Issues individual a base FactSet workstation and serial number. If passed as NULL a base-FactSet workstation will be allocated to the individual granting the individual a FactSet SerialNumber</value>
         [DataMember(Name = "roleName", EmitDefaultValue = false)]
         public string RoleName { get; set; }
+
+        /// <summary>
+        /// Determines the type of client the individual and the royalty fee to be remitted to FactSet for the individual. Expected Royalty Class values will be provided to you by your FactSet account representative.
+        /// </summary>
+        /// <value>Determines the type of client the individual and the royalty fee to be remitted to FactSet for the individual. Expected Royalty Class values will be provided to you by your FactSet account representative.</value>
+        [DataMember(Name = "royaltyClass", EmitDefaultValue = false)]
+        public string RoyaltyClass { get; set; }
 
         /// <summary>
         /// An array of FactSet products to allocate/remove from an individual. Individual must have a FactSet serial number associated with them.
@@ -146,9 +148,10 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
             sb.Append("class UserResourceUrnScimSchemasExtensionFactSetCore10User {\n");
             sb.Append("  Username: ").Append(Username).Append("\n");
             sb.Append("  SerialNumber: ").Append(SerialNumber).Append("\n");
-            sb.Append("  FactSetNetId: ").Append(FactSetNetId).Append("\n");
             sb.Append("  Location: ").Append(Location).Append("\n");
+            sb.Append("  UserTaxonomyData: ").Append(UserTaxonomyData).Append("\n");
             sb.Append("  RoleName: ").Append(RoleName).Append("\n");
+            sb.Append("  RoyaltyClass: ").Append(RoyaltyClass).Append("\n");
             sb.Append("  Products: ").Append(Products).Append("\n");
             sb.Append("  PendingProductOrders: ").Append(PendingProductOrders).Append("\n");
             sb.Append("  AssertionValue: ").Append(AssertionValue).Append("\n");
@@ -198,19 +201,24 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
                     this.SerialNumber.Equals(input.SerialNumber))
                 ) && 
                 (
-                    this.FactSetNetId == input.FactSetNetId ||
-                    (this.FactSetNetId != null &&
-                    this.FactSetNetId.Equals(input.FactSetNetId))
-                ) && 
-                (
                     this.Location == input.Location ||
                     (this.Location != null &&
                     this.Location.Equals(input.Location))
                 ) && 
                 (
+                    this.UserTaxonomyData == input.UserTaxonomyData ||
+                    (this.UserTaxonomyData != null &&
+                    this.UserTaxonomyData.Equals(input.UserTaxonomyData))
+                ) && 
+                (
                     this.RoleName == input.RoleName ||
                     (this.RoleName != null &&
                     this.RoleName.Equals(input.RoleName))
+                ) && 
+                (
+                    this.RoyaltyClass == input.RoyaltyClass ||
+                    (this.RoyaltyClass != null &&
+                    this.RoyaltyClass.Equals(input.RoyaltyClass))
                 ) && 
                 (
                     this.Products == input.Products ||
@@ -248,17 +256,21 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
                 {
                     hashCode = (hashCode * 59) + this.SerialNumber.GetHashCode();
                 }
-                if (this.FactSetNetId != null)
-                {
-                    hashCode = (hashCode * 59) + this.FactSetNetId.GetHashCode();
-                }
                 if (this.Location != null)
                 {
                     hashCode = (hashCode * 59) + this.Location.GetHashCode();
                 }
+                if (this.UserTaxonomyData != null)
+                {
+                    hashCode = (hashCode * 59) + this.UserTaxonomyData.GetHashCode();
+                }
                 if (this.RoleName != null)
                 {
                     hashCode = (hashCode * 59) + this.RoleName.GetHashCode();
+                }
+                if (this.RoyaltyClass != null)
+                {
+                    hashCode = (hashCode * 59) + this.RoyaltyClass.GetHashCode();
                 }
                 if (this.Products != null)
                 {

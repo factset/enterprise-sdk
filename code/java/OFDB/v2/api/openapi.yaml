@@ -127,7 +127,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_404'
+                $ref: '#/components/schemas/inline_response_403'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -144,7 +144,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_406'
+                $ref: '#/components/schemas/inline_response_403'
           description: Unsupported Accept header. Header needs to be set to application/json
           headers:
             X-DataDirect-Request-Key:
@@ -161,7 +161,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_429'
+                $ref: '#/components/schemas/inline_response_403'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -280,7 +280,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_404'
+                $ref: '#/components/schemas/inline_response_403'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -297,7 +297,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_406'
+                $ref: '#/components/schemas/inline_response_403'
           description: Unsupported Accept header. Header needs to be set to application/json
           headers:
             X-DataDirect-Request-Key:
@@ -314,7 +314,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_429'
+                $ref: '#/components/schemas/inline_response_403'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -360,12 +360,12 @@ paths:
       tags:
       - Get
       x-accepts: application/json
-  /database/{path}/audit/jobs/{id}:
+  /database/{path}/audit/jobs/get/{id}:
     get:
       description: Returns the end results of a long running request. The full URL
         is normally provided for you in the Location header of a finished long running
         response.
-      operationId: getResourceAudit
+      operationId: getResourceGetAudit
       parameters:
       - description: Encode database path
         explode: false
@@ -440,7 +440,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_404'
+                $ref: '#/components/schemas/inline_response_403'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -457,7 +457,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_406'
+                $ref: '#/components/schemas/inline_response_403'
           description: Unsupported Accept header. Header needs to be set to application/json
           headers:
             X-DataDirect-Request-Key:
@@ -474,7 +474,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_429'
+                $ref: '#/components/schemas/inline_response_403'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -592,7 +592,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_404'
+                $ref: '#/components/schemas/inline_response_403'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -609,7 +609,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_406'
+                $ref: '#/components/schemas/inline_response_403'
           description: Unsupported Accept header. Header needs to be set to application/json
           headers:
             X-DataDirect-Request-Key:
@@ -626,7 +626,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_429'
+                $ref: '#/components/schemas/inline_response_403'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -672,12 +672,12 @@ paths:
       tags:
       - Get
       x-accepts: application/json
-  /database/{path}/stats/jobs/{id}:
+  /database/{path}/stats/jobs/get/{id}:
     get:
       description: Returns the end results of a long running request. The full URL
         is normally provided for you in the Location header of a finished long running
         response.
-      operationId: getResourceStats
+      operationId: getResourceGetStats
       parameters:
       - description: Encode database path
         explode: false
@@ -751,7 +751,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_404'
+                $ref: '#/components/schemas/inline_response_403'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -768,7 +768,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_406'
+                $ref: '#/components/schemas/inline_response_403'
           description: Unsupported Accept header. Header needs to be set to application/json
           headers:
             X-DataDirect-Request-Key:
@@ -785,7 +785,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_429'
+                $ref: '#/components/schemas/inline_response_403'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -903,7 +903,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_404'
+                $ref: '#/components/schemas/inline_response_403'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -920,7 +920,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_406'
+                $ref: '#/components/schemas/inline_response_403'
           description: Unsupported Accept header. Header needs to be set to application/json
           headers:
             X-DataDirect-Request-Key:
@@ -937,7 +937,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_429'
+                $ref: '#/components/schemas/inline_response_403'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -1073,7 +1073,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_404'
+                $ref: '#/components/schemas/inline_response_403'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -1090,7 +1090,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_406'
+                $ref: '#/components/schemas/inline_response_403'
           description: Unsupported Accept header. Header needs to be set to application/json
           headers:
             X-DataDirect-Request-Key:
@@ -1107,7 +1107,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_429'
+                $ref: '#/components/schemas/inline_response_403'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -1154,12 +1154,12 @@ paths:
       - Add
       x-contentType: application/json
       x-accepts: application/json
-  /database/{path}/fields/jobs/{id}:
+  /database/{path}/fields/jobs/get/{id}:
     get:
       description: Returns the end results of a long running request. The full URL
         is normally provided for you in the Location header of a finished long running
         response.
-      operationId: getResourceFields
+      operationId: getResourceGetFields
       parameters:
       - description: Encode database path
         explode: false
@@ -1233,7 +1233,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_404'
+                $ref: '#/components/schemas/inline_response_403'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -1250,7 +1250,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_406'
+                $ref: '#/components/schemas/inline_response_403'
           description: Unsupported Accept header. Header needs to be set to application/json
           headers:
             X-DataDirect-Request-Key:
@@ -1267,7 +1267,166 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_429'
+                $ref: '#/components/schemas/inline_response_403'
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "503":
+          description: Request timed out. Retry the request in some time
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+      tags:
+      - Long Running
+      x-accepts: application/json
+  /database/{path}/fields/jobs/post/{id}:
+    get:
+      description: Returns the end results of a long running request. The full URL
+        is normally provided for you in the Location header of a finished long running
+        response.
+      operationId: getResourcePostFields
+      parameters:
+      - description: Encode database path
+        explode: false
+        in: path
+        name: path
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: A unique pickup ID returned by the original request
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_2'
+          description: List of fields within the database
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+          description: Invalid query parameter or value provided
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: Path not found
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: Unsupported Accept header. Header needs to be set to application/json
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -1391,7 +1550,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_404'
+                $ref: '#/components/schemas/inline_response_403'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -1408,7 +1567,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_406'
+                $ref: '#/components/schemas/inline_response_403'
           description: Unsupported Accept header. Header needs to be set to application/json
           headers:
             X-DataDirect-Request-Key:
@@ -1425,7 +1584,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_429'
+                $ref: '#/components/schemas/inline_response_403'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -1472,12 +1631,12 @@ paths:
       - Delete
       x-contentType: application/json
       x-accepts: application/json
-  /database/{path}/delete/jobs/{id}:
+  /database/{path}/delete/jobs/post/{id}:
     get:
       description: Returns the end results of a long running request. The full URL
         is normally provided for you in the Location header of a finished long running
         response.
-      operationId: getResourceBulkDelete
+      operationId: getResourceDeleteBulkItems
       parameters:
       - description: Encode database path
         explode: false
@@ -1571,7 +1730,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_404'
+                $ref: '#/components/schemas/inline_response_403'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -1588,7 +1747,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_406'
+                $ref: '#/components/schemas/inline_response_403'
           description: Unsupported Accept header. Header needs to be set to application/json
           headers:
             X-DataDirect-Request-Key:
@@ -1605,7 +1764,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_429'
+                $ref: '#/components/schemas/inline_response_403'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -1767,7 +1926,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_404'
+                $ref: '#/components/schemas/inline_response_403'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -1784,7 +1943,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_406'
+                $ref: '#/components/schemas/inline_response_403'
           description: Unsupported Accept header. Header needs to be set to application/json
           headers:
             X-DataDirect-Request-Key:
@@ -1801,7 +1960,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_429'
+                $ref: '#/components/schemas/inline_response_403'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -1945,7 +2104,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_404'
+                $ref: '#/components/schemas/inline_response_403'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -1962,7 +2121,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_406'
+                $ref: '#/components/schemas/inline_response_403'
           description: Unsupported Accept header. Header needs to be set to application/json
           headers:
             X-DataDirect-Request-Key:
@@ -1979,7 +2138,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_413'
+                $ref: '#/components/schemas/inline_response_403'
           description: Post body too large
           headers:
             X-DataDirect-Request-Key:
@@ -1996,7 +2155,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_429'
+                $ref: '#/components/schemas/inline_response_403'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -2142,7 +2301,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_404'
+                $ref: '#/components/schemas/inline_response_403'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -2159,7 +2318,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_406'
+                $ref: '#/components/schemas/inline_response_403'
           description: Unsupported Accept header. Header needs to be set to application/json
           headers:
             X-DataDirect-Request-Key:
@@ -2176,7 +2335,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_413'
+                $ref: '#/components/schemas/inline_response_403'
           description: Post body too large
           headers:
             X-DataDirect-Request-Key:
@@ -2193,7 +2352,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_429'
+                $ref: '#/components/schemas/inline_response_403'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -2240,12 +2399,12 @@ paths:
       - Update
       x-contentType: application/json
       x-accepts: application/json
-  /database/{path}/symbols/jobs/{id}:
+  /database/{path}/symbols/jobs/get/{id}:
     get:
       description: Returns the end results of a long running request. The full URL
         is normally provided for you in the Location header of a finished long running
         response.
-      operationId: getResourceSymbols
+      operationId: getResourceGetSymbols
       parameters:
       - description: Encode database path
         explode: false
@@ -2319,7 +2478,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_404'
+                $ref: '#/components/schemas/inline_response_403'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -2336,7 +2495,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_406'
+                $ref: '#/components/schemas/inline_response_403'
           description: Unsupported Accept header. Header needs to be set to application/json
           headers:
             X-DataDirect-Request-Key:
@@ -2353,7 +2512,325 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_429'
+                $ref: '#/components/schemas/inline_response_403'
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "503":
+          description: Request timed out. Retry the request in some time
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+      tags:
+      - Long Running
+      x-accepts: application/json
+  /database/{path}/symbols/jobs/post/{id}:
+    get:
+      description: Returns the end results of a long running request. The full URL
+        is normally provided for you in the Location header of a finished long running
+        response.
+      operationId: getResourcePostSymbols
+      parameters:
+      - description: Encode database path
+        explode: false
+        in: path
+        name: path
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: A unique pickup ID returned by the original request
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_5'
+          description: Successful symbols array within OFDB
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+          description: Invalid query parameter or value provided
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: Path not found
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: Unsupported Accept header. Header needs to be set to application/json
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "503":
+          description: Request timed out. Retry the request in some time
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+      tags:
+      - Long Running
+      x-accepts: application/json
+  /database/{path}/symbols/jobs/put/{id}:
+    get:
+      description: Returns the end results of a long running request. The full URL
+        is normally provided for you in the Location header of a finished long running
+        response.
+      operationId: getResourcePutSymbols
+      parameters:
+      - description: Encode database path
+        explode: false
+        in: path
+        name: path
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: A unique pickup ID returned by the original request
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_5'
+          description: Successful symbols array within OFDB
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+          description: Invalid query parameter or value provided
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: Path not found
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: Unsupported Accept header. Header needs to be set to application/json
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -2442,8 +2919,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-RateLimit-Reset:
               $ref: '#/components/headers/X-RateLimit-Reset'
-        "204":
-          description: Resource is deleted successfully
         "400":
           content:
             application/json:
@@ -2482,7 +2957,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_404'
+                $ref: '#/components/schemas/inline_response_403'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -2499,7 +2974,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_406'
+                $ref: '#/components/schemas/inline_response_403'
           description: Unsupported Accept header. Header needs to be set to application/json
           headers:
             X-DataDirect-Request-Key:
@@ -2516,7 +2991,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_429'
+                $ref: '#/components/schemas/inline_response_403'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -2667,7 +3142,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_404'
+                $ref: '#/components/schemas/inline_response_403'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -2684,7 +3159,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_406'
+                $ref: '#/components/schemas/inline_response_403'
           description: Unsupported Accept header. Header needs to be set to application/json
           headers:
             X-DataDirect-Request-Key:
@@ -2701,7 +3176,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_413'
+                $ref: '#/components/schemas/inline_response_403'
           description: Post body too large
           headers:
             X-DataDirect-Request-Key:
@@ -2718,7 +3193,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_429'
+                $ref: '#/components/schemas/inline_response_403'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -2765,12 +3240,12 @@ paths:
       - Update
       x-contentType: application/json
       x-accepts: application/json
-  /database/{path}/symbols/{symbol}/jobs/{id}:
+  /database/{path}/symbols/{symbol}/jobs/put/{id}:
     get:
       description: Returns the end results of a long running request. The full URL
         is normally provided for you in the Location header of a finished long running
         response.
-      operationId: getResourceSymbol
+      operationId: getResourcePutSymbol
       parameters:
       - description: Encode database path
         explode: false
@@ -2854,7 +3329,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_404'
+                $ref: '#/components/schemas/inline_response_403'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -2871,7 +3346,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_406'
+                $ref: '#/components/schemas/inline_response_403'
           description: Unsupported Accept header. Header needs to be set to application/json
           headers:
             X-DataDirect-Request-Key:
@@ -2888,7 +3363,159 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_429'
+                $ref: '#/components/schemas/inline_response_403'
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "503":
+          description: Request timed out. Retry the request in some time
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+      tags:
+      - Long Running
+      x-accepts: application/json
+  /database/{path}/symbols/{symbol}/jobs/delete/{id}:
+    get:
+      description: Returns the end results of a long running request. The full URL
+        is normally provided for you in the Location header of a finished long running
+        response.
+      operationId: getResourceDeleteSymbol
+      parameters:
+      - description: Encode database path
+        explode: false
+        in: path
+        name: path
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Symbol with in the ofdb
+        explode: false
+        in: path
+        name: symbol
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: A unique pickup ID returned by the original request
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Resource is deleted successfully
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+          description: Invalid query parameter or value provided
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: Path not found
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: Unsupported Accept header. Header needs to be set to application/json
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -3051,7 +3678,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_404'
+                $ref: '#/components/schemas/inline_response_403'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -3068,7 +3695,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_406'
+                $ref: '#/components/schemas/inline_response_403'
           description: Unsupported Accept header. Header needs to be set to application/json
           headers:
             X-DataDirect-Request-Key:
@@ -3085,7 +3712,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_429'
+                $ref: '#/components/schemas/inline_response_403'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -3216,7 +3843,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_404'
+                $ref: '#/components/schemas/inline_response_403'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -3233,7 +3860,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_406'
+                $ref: '#/components/schemas/inline_response_403'
           description: Unsupported Accept header. Header needs to be set to application/json
           headers:
             X-DataDirect-Request-Key:
@@ -3250,7 +3877,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_413'
+                $ref: '#/components/schemas/inline_response_403'
           description: Post body too large
           headers:
             X-DataDirect-Request-Key:
@@ -3267,7 +3894,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_429'
+                $ref: '#/components/schemas/inline_response_403'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -3393,7 +4020,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_404'
+                $ref: '#/components/schemas/inline_response_403'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -3410,7 +4037,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_406'
+                $ref: '#/components/schemas/inline_response_403'
           description: Unsupported Accept header. Header needs to be set to application/json
           headers:
             X-DataDirect-Request-Key:
@@ -3427,7 +4054,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_413'
+                $ref: '#/components/schemas/inline_response_403'
           description: Post body too large
           headers:
             X-DataDirect-Request-Key:
@@ -3444,7 +4071,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_429'
+                $ref: '#/components/schemas/inline_response_403'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -3491,12 +4118,12 @@ paths:
       - Update
       x-contentType: application/json
       x-accepts: application/json
-  /database/{path}/dates/jobs/{id}:
+  /database/{path}/dates/jobs/get/{id}:
     get:
       description: Returns the end results of a long running request. The full URL
         is normally provided for you in the Location header of a finished long running
         response.
-      operationId: getResourceDates
+      operationId: getResourceGetDates
       parameters:
       - description: Encode database path
         explode: false
@@ -3519,7 +4146,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_5'
+                $ref: '#/components/schemas/inline_response_200_6'
           description: Successful output
           headers:
             X-DataDirect-Request-Key:
@@ -3570,7 +4197,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_404'
+                $ref: '#/components/schemas/inline_response_403'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -3587,7 +4214,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_406'
+                $ref: '#/components/schemas/inline_response_403'
           description: Unsupported Accept header. Header needs to be set to application/json
           headers:
             X-DataDirect-Request-Key:
@@ -3604,7 +4231,325 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_429'
+                $ref: '#/components/schemas/inline_response_403'
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "503":
+          description: Request timed out. Retry the request in some time
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+      tags:
+      - Long Running
+      x-accepts: application/json
+  /database/{path}/dates/jobs/post/{id}:
+    get:
+      description: Returns the end results of a long running request. The full URL
+        is normally provided for you in the Location header of a finished long running
+        response.
+      operationId: getResourcePostDates
+      parameters:
+      - description: Encode database path
+        explode: false
+        in: path
+        name: path
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: A unique pickup ID returned by the original request
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_7'
+          description: Successful output
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+          description: Invalid query parameter or value provided
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: Path not found
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: Unsupported Accept header. Header needs to be set to application/json
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "503":
+          description: Request timed out. Retry the request in some time
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+      tags:
+      - Long Running
+      x-accepts: application/json
+  /database/{path}/dates/jobs/put/{id}:
+    get:
+      description: Returns the end results of a long running request. The full URL
+        is normally provided for you in the Location header of a finished long running
+        response.
+      operationId: getResourcePutDates
+      parameters:
+      - description: Encode database path
+        explode: false
+        in: path
+        name: path
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: A unique pickup ID returned by the original request
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_7'
+          description: Successful output
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+          description: Invalid query parameter or value provided
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: Path not found
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: Unsupported Accept header. Header needs to be set to application/json
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -3693,8 +4638,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-RateLimit-Reset:
               $ref: '#/components/headers/X-RateLimit-Reset'
-        "204":
-          description: Resource is deleted successfully
         "400":
           content:
             application/json:
@@ -3733,7 +4676,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_404'
+                $ref: '#/components/schemas/inline_response_403'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -3750,7 +4693,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_406'
+                $ref: '#/components/schemas/inline_response_403'
           description: Unsupported Accept header. Header needs to be set to application/json
           headers:
             X-DataDirect-Request-Key:
@@ -3767,7 +4710,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_429'
+                $ref: '#/components/schemas/inline_response_403'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -3900,7 +4843,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_404'
+                $ref: '#/components/schemas/inline_response_403'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -3917,7 +4860,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_406'
+                $ref: '#/components/schemas/inline_response_403'
           description: Unsupported Accept header. Header needs to be set to application/json
           headers:
             X-DataDirect-Request-Key:
@@ -3934,7 +4877,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_413'
+                $ref: '#/components/schemas/inline_response_403'
           description: Post body too large
           headers:
             X-DataDirect-Request-Key:
@@ -3951,7 +4894,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_429'
+                $ref: '#/components/schemas/inline_response_403'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -3998,12 +4941,12 @@ paths:
       - Update
       x-contentType: application/json
       x-accepts: application/json
-  /database/{path}/dates/{date}/jobs/{id}:
+  /database/{path}/dates/{date}/jobs/put/{id}:
     get:
       description: Returns the end results of a long running request. The full URL
         is normally provided for you in the Location header of a finished long running
         response.
-      operationId: getResourceDate
+      operationId: getResourcePutDate
       parameters:
       - description: Encode database path
         explode: false
@@ -4107,7 +5050,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_404'
+                $ref: '#/components/schemas/inline_response_403'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -4124,7 +5067,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_406'
+                $ref: '#/components/schemas/inline_response_403'
           description: Unsupported Accept header. Header needs to be set to application/json
           headers:
             X-DataDirect-Request-Key:
@@ -4141,7 +5084,179 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_429'
+                $ref: '#/components/schemas/inline_response_403'
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "503":
+          description: Request timed out. Retry the request in some time
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+      tags:
+      - Long Running
+      x-accepts: application/json
+  /database/{path}/dates/{date}/jobs/delete/{id}:
+    get:
+      description: Returns the end results of a long running request. The full URL
+        is normally provided for you in the Location header of a finished long running
+        response.
+      operationId: getResourceDeleteDate
+      parameters:
+      - description: Encode database path
+        explode: false
+        in: path
+        name: path
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Date in YYYYMMDD format
+        explode: false
+        in: path
+        name: date
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: A unique pickup ID returned by the original request
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Resource is deleted successfully
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_202'
+          description: Returns when the request is moved to long running mode. The
+            next pickup URL is provided by the Location header.
+          headers:
+            Location:
+              $ref: '#/components/headers/Long-Running-Location'
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+          description: Invalid query parameter or value provided
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: Path not found
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: Unsupported Accept header. Header needs to be set to application/json
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -4237,8 +5352,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-RateLimit-Reset:
               $ref: '#/components/headers/X-RateLimit-Reset'
-        "204":
-          description: Resource is deleted successfully
         "400":
           content:
             application/json:
@@ -4277,7 +5390,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_404'
+                $ref: '#/components/schemas/inline_response_403'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -4294,7 +5407,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_406'
+                $ref: '#/components/schemas/inline_response_403'
           description: Unsupported Accept header. Header needs to be set to application/json
           headers:
             X-DataDirect-Request-Key:
@@ -4311,7 +5424,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_429'
+                $ref: '#/components/schemas/inline_response_403'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -4357,10 +5470,12 @@ paths:
       tags:
       - Delete
       x-accepts: application/json
-  /database/{path}/dates/{date}/symbols/{symbol}/jobs/{id}:
-    delete:
-      description: Deletes data specific to the symbol and date from a 3d database(OFDB).
-      operationId: getResourceDateFromSymbol
+  /database/{path}/dates/{date}/symbols/{symbol}/jobs/delete/{id}:
+    get:
+      description: Returns the end results of a long running request. The full URL
+        is normally provided for you in the Location header of a finished long running
+        response.
+      operationId: getResourceDeleteDateFromSymbol
       parameters:
       - description: Encode database path
         explode: false
@@ -4396,26 +5511,6 @@ paths:
         style: simple
       responses:
         "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/inline_response_202'
-          description: Returns when the request is moved to long running mode. The
-            next pickup URL is provided by the Location header.
-          headers:
-            Location:
-              $ref: '#/components/headers/Long-Running-Location'
-            X-DataDirect-Request-Key:
-              $ref: '#/components/headers/X-DataDirect-Request-Key'
-            X-FactSet-Api-Request-Key:
-              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
-            X-RateLimit-Limit:
-              $ref: '#/components/headers/X-RateLimit-Limit'
-            X-RateLimit-Remaining:
-              $ref: '#/components/headers/X-RateLimit-Remaining'
-            X-RateLimit-Reset:
-              $ref: '#/components/headers/X-RateLimit-Reset'
-        "204":
           description: Resource is deleted successfully
         "400":
           content:
@@ -4455,7 +5550,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_404'
+                $ref: '#/components/schemas/inline_response_403'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -4472,7 +5567,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_406'
+                $ref: '#/components/schemas/inline_response_403'
           description: Unsupported Accept header. Header needs to be set to application/json
           headers:
             X-DataDirect-Request-Key:
@@ -4489,7 +5584,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_429'
+                $ref: '#/components/schemas/inline_response_403'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -4533,7 +5628,7 @@ paths:
             X-RateLimit-Reset:
               $ref: '#/components/headers/X-RateLimit-Reset'
       tags:
-      - Delete
+      - Long Running
       x-accepts: application/json
   /database/{path}:
     get:
@@ -4775,7 +5870,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_404'
+                $ref: '#/components/schemas/inline_response_403'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -4792,7 +5887,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_406'
+                $ref: '#/components/schemas/inline_response_403'
           description: Unsupported Accept header. Header needs to be set to application/json
           headers:
             X-DataDirect-Request-Key:
@@ -4809,7 +5904,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_429'
+                $ref: '#/components/schemas/inline_response_403'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -4855,12 +5950,12 @@ paths:
       tags:
       - Get
       x-accepts: application/json
-  /database/{path}/jobs/{id}:
+  /database/{path}/jobs/get/{id}:
     get:
       description: Returns the end results of a long running request. The full URL
         is normally provided for you in the Location header of a finished long running
         response.
-      operationId: getResourceData
+      operationId: getResourceGetData
       parameters:
       - description: Encode database path
         explode: false
@@ -4883,7 +5978,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_6'
+                $ref: '#/components/schemas/inline_response_200_8'
           description: successful output
           headers:
             X-DataDirect-Request-Key:
@@ -4934,7 +6029,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_404'
+                $ref: '#/components/schemas/inline_response_403'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -4951,7 +6046,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_406'
+                $ref: '#/components/schemas/inline_response_403'
           description: Unsupported Accept header. Header needs to be set to application/json
           headers:
             X-DataDirect-Request-Key:
@@ -4968,7 +6063,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_429'
+                $ref: '#/components/schemas/inline_response_403'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -5084,7 +6179,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_404'
+                $ref: '#/components/schemas/inline_response_403'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -5101,7 +6196,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_406'
+                $ref: '#/components/schemas/inline_response_403'
           description: Unsupported Accept header. Header needs to be set to application/json
           headers:
             X-DataDirect-Request-Key:
@@ -5118,7 +6213,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_429'
+                $ref: '#/components/schemas/inline_response_403'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -5165,12 +6260,12 @@ paths:
       - Create
       x-contentType: application/json
       x-accepts: application/json
-  /database/jobs/{id}:
+  /database/jobs/post/{id}:
     get:
       description: Returns the end results of a long running request. The full URL
         is normally provided for you in the Location header of a finished long running
         response.
-      operationId: getResourceDatabase
+      operationId: getResourcePostDatabase
       parameters:
       - description: A unique pickup ID returned by the original request
         explode: false
@@ -5243,7 +6338,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_404'
+                $ref: '#/components/schemas/inline_response_403'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -5260,7 +6355,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_406'
+                $ref: '#/components/schemas/inline_response_403'
           description: Unsupported Accept header. Header needs to be set to application/json
           headers:
             X-DataDirect-Request-Key:
@@ -5277,7 +6372,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_429'
+                $ref: '#/components/schemas/inline_response_403'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -5449,6 +6544,40 @@ components:
           $ref: '#/components/headers/X-RateLimit-Remaining'
         X-RateLimit-Reset:
           $ref: '#/components/headers/X-RateLimit-Reset'
+    "200AddDates":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_200_7'
+      description: Successful output
+      headers:
+        X-DataDirect-Request-Key:
+          $ref: '#/components/headers/X-DataDirect-Request-Key'
+        X-FactSet-Api-Request-Key:
+          $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        X-RateLimit-Limit:
+          $ref: '#/components/headers/X-RateLimit-Limit'
+        X-RateLimit-Remaining:
+          $ref: '#/components/headers/X-RateLimit-Remaining'
+        X-RateLimit-Reset:
+          $ref: '#/components/headers/X-RateLimit-Reset'
+    "200AddSymbols":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_200_5'
+      description: Successful symbols array within OFDB
+      headers:
+        X-DataDirect-Request-Key:
+          $ref: '#/components/headers/X-DataDirect-Request-Key'
+        X-FactSet-Api-Request-Key:
+          $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        X-RateLimit-Limit:
+          $ref: '#/components/headers/X-RateLimit-Limit'
+        X-RateLimit-Remaining:
+          $ref: '#/components/headers/X-RateLimit-Remaining'
+        X-RateLimit-Reset:
+          $ref: '#/components/headers/X-RateLimit-Reset'
     "200GetStats":
       content:
         application/json:
@@ -5522,7 +6651,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/inline_response_200_5'
+            $ref: '#/components/schemas/inline_response_200_6'
       description: Successful output
       headers:
         X-DataDirect-Request-Key:
@@ -5539,7 +6668,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/inline_response_200_6'
+            $ref: '#/components/schemas/inline_response_200_8'
       description: successful output
       headers:
         X-DataDirect-Request-Key:
@@ -5629,7 +6758,7 @@ components:
           $ref: '#/components/headers/X-RateLimit-Remaining'
         X-RateLimit-Reset:
           $ref: '#/components/headers/X-RateLimit-Reset'
-    "204Response":
+    "200NoResponse":
       description: Resource is deleted successfully
     "403Response":
       content:
@@ -5652,7 +6781,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/inline_response_404'
+            $ref: '#/components/schemas/inline_response_403'
       description: Path not found
       headers:
         X-DataDirect-Request-Key:
@@ -5669,7 +6798,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/inline_response_406'
+            $ref: '#/components/schemas/inline_response_403'
       description: Unsupported Accept header. Header needs to be set to application/json
       headers:
         X-DataDirect-Request-Key:
@@ -5686,7 +6815,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/inline_response_413'
+            $ref: '#/components/schemas/inline_response_403'
       description: Post body too large
       headers:
         X-DataDirect-Request-Key:
@@ -5703,7 +6832,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/inline_response_429'
+            $ref: '#/components/schemas/inline_response_403'
       description: Rate limit reached. Wait till the time specified in Retry-After
         header value to make further requests.
       headers:
@@ -5753,19 +6882,15 @@ components:
         - symbol: symbol
           content:
           - date: 0
-            field: field
           - date: 0
-            field: field
         - symbol: symbol
           content:
           - date: 0
-            field: field
           - date: 0
-            field: field
       properties:
         data:
           items:
-            $ref: '#/components/schemas/AddSymbols_data'
+            $ref: '#/components/schemas/SymbolAndContent'
           type: array
       type: object
     CreateDatabase:
@@ -5782,62 +6907,38 @@ components:
         - date: 20220202
           content:
           - symbol: symbol
-            field: 0
           - symbol: symbol
-            field: 0
         - date: 20220202
           content:
           - symbol: symbol
-            field: 0
           - symbol: symbol
-            field: 0
       properties:
         data:
           items:
-            $ref: '#/components/schemas/AddDates_data'
+            $ref: '#/components/schemas/DateAndContent'
           type: array
       type: object
     AddFields:
       example:
         data:
-        - '{}'
-        - '{}'
+        - codePageFlag: codePageFlag
+          size: 0
+          name: name
+          description: description
+          iteration: 2D
+          splitDirection: NONE
+          type: INT
+        - codePageFlag: codePageFlag
+          size: 0
+          name: name
+          description: description
+          iteration: 2D
+          splitDirection: NONE
+          type: INT
       properties:
         data:
           items:
-            properties:
-              description:
-                type: string
-              iteration:
-                enum:
-                - 2D
-                - 3D
-                type: string
-              name:
-                type: string
-              size:
-                type: integer
-              splitDirection:
-                enum:
-                - NONE
-                - NORMAL
-                - REVERSE
-                type: string
-              type:
-                enum:
-                - INT
-                - FLOAT
-                - DOUBLE
-                - CHAR
-                - LONG_CHAR
-                - STRING
-                - DATE
-                type: string
-              codePageFlag:
-                enum:
-                - ASCII
-                type: string
-            type: object
+            $ref: '#/components/schemas/FieldProperties'
           type: array
       type: object
     UpdateDate:
@@ -5856,7 +6957,7 @@ components:
             - symbol: FDS
               price: 100
           items:
-            $ref: '#/components/schemas/UpdateDate_data'
+            $ref: '#/components/schemas/ContentWithSymbol'
           type: array
       type: object
     UpdateDates:
@@ -5877,7 +6978,7 @@ components:
             - symbol: FDS
               price: 100
           items:
-            $ref: '#/components/schemas/UpdateDates_data'
+            $ref: '#/components/schemas/DateAndContent'
           type: array
       type: object
     UpdateSymbol:
@@ -5887,22 +6988,14 @@ components:
         data:
         - content:
           - date: 0
-            field1: 6
-            field2: field2
           - date: 0
-            field1: 6
-            field2: field2
         - content:
           - date: 0
-            field1: 6
-            field2: field2
           - date: 0
-            field1: 6
-            field2: field2
       properties:
         data:
           items:
-            $ref: '#/components/schemas/UpdateSymbol_data'
+            $ref: '#/components/schemas/ContentWithDate'
           type: array
       type: object
     UpdateSymbols:
@@ -5913,23 +7006,15 @@ components:
         - symbol: symbol
           content:
           - date: 0
-            field1: 6
-            field2: field2
           - date: 0
-            field1: 6
-            field2: field2
         - symbol: symbol
           content:
           - date: 0
-            field1: 6
-            field2: field2
           - date: 0
-            field1: 6
-            field2: field2
       properties:
         data:
           items:
-            $ref: '#/components/schemas/UpdateSymbols_data'
+            $ref: '#/components/schemas/SymbolAndContent'
           type: array
       type: object
     BulkDelete:
@@ -5955,7 +7040,7 @@ components:
             date: 20240404
             field: SHARES
           items:
-            $ref: '#/components/schemas/BulkDelete_data'
+            $ref: '#/components/schemas/BulkDeleteItem'
           type: array
       type: object
     Symbols:
@@ -5963,46 +7048,38 @@ components:
         example: FDS
         type: string
       type: array
+    SymbolsWithId:
+      example:
+        id:
+        - FDS
+        - FDS
+      properties:
+        id:
+          items:
+            example: FDS
+            type: string
+          type: array
+      type: object
     Dates:
       items:
         example: 20220202
         type: integer
       type: array
+    DatesWithId:
+      example:
+        id:
+        - 20220202
+        - 20220202
+      properties:
+        id:
+          items:
+            example: 20220202
+            type: integer
+          type: array
+      type: object
     Fields:
       items:
-        properties:
-          description:
-            type: string
-          iteration:
-            enum:
-            - 2D
-            - 3D
-            type: string
-          name:
-            type: string
-          size:
-            type: integer
-          splitDirection:
-            enum:
-            - NONE
-            - NORMAL
-            - REVERSE
-            type: string
-          type:
-            enum:
-            - INT
-            - FLOAT
-            - DOUBLE
-            - CHAR
-            - LONG_CHAR
-            - STRING
-            - DATE
-            type: string
-          codePageFlag:
-            enum:
-            - ASCII
-            type: string
-        type: object
+        $ref: '#/components/schemas/FieldProperties'
       type: array
     DatabaseSchema:
       example:
@@ -6010,8 +7087,20 @@ components:
           path: CLIENT:this_is_a_test_.OFDB
           description: A user would fill this with relevant information
           fields:
-          - '{}'
-          - '{}'
+          - codePageFlag: codePageFlag
+            size: 0
+            name: name
+            description: description
+            iteration: 2D
+            splitDirection: NONE
+            type: INT
+          - codePageFlag: codePageFlag
+            size: 0
+            name: name
+            description: description
+            iteration: 2D
+            splitDirection: NONE
+            type: INT
       properties:
         data:
           $ref: '#/components/schemas/DatabaseSchema_data'
@@ -6035,23 +7124,186 @@ components:
         $ref: '#/components/schemas/BulkDeleteArrayItem'
       type: array
     BulkDeleteArrayItem:
-      anyOf:
-      - additionalProperties:
-          $ref: '#/components/schemas/BulkDeleteArrayItemNested'
-        type: object
-      - items:
-          type: string
-        type: array
+      oneOf:
+      - $ref: '#/components/schemas/BulkDeleteArrayItemObject'
+      - $ref: '#/components/schemas/BulkDeleteArrayItemArray'
+    BulkDeleteArrayItemObject:
+      additionalProperties:
+        $ref: '#/components/schemas/BulkDeleteArrayItemNested'
+      type: object
+    BulkDeleteArrayItemArray:
+      items:
+        type: string
+      type: array
     BulkDeleteArrayItemNested:
       oneOf:
-      - additionalProperties:
-          items:
-            type: integer
-          type: array
-        type: object
-      - items:
+      - $ref: '#/components/schemas/BulkDeleteArrayItemNestedObject'
+      - $ref: '#/components/schemas/BulkDeleteArrayItemNestedArray'
+    BulkDeleteArrayItemNestedObject:
+      additionalProperties:
+        items:
           type: integer
         type: array
+      type: object
+    BulkDeleteArrayItemNestedArray:
+      items:
+        type: integer
+      type: array
+    SymbolAndContent:
+      example:
+        symbol: symbol
+        content:
+        - date: 0
+        - date: 0
+      properties:
+        symbol:
+          description: Names of the symbol and unique to this database
+          type: string
+        content:
+          description: date must be provided in the case of a 3d ofdb with atleast
+            one iterative field
+          items:
+            $ref: '#/components/schemas/DateAndFields'
+          type: array
+      type: object
+    DateAndContent:
+      example:
+        date: 20220202
+        content:
+        - symbol: symbol
+        - symbol: symbol
+      properties:
+        date:
+          description: Date unique to the database.
+          example: 20220202
+          type: integer
+        content:
+          items:
+            $ref: '#/components/schemas/SymbolAndFields'
+          type: array
+      type: object
+    ContentWithSymbol:
+      properties:
+        content:
+          items:
+            $ref: '#/components/schemas/SymbolAndFields'
+          type: array
+      type: object
+    ContentWithDate:
+      example:
+        content:
+        - date: 0
+        - date: 0
+      properties:
+        content:
+          items:
+            $ref: '#/components/schemas/DateAndFields'
+          type: array
+      type: object
+    DateAndFields:
+      additionalProperties:
+        $ref: '#/components/schemas/DataValue'
+      example:
+        date: 0
+      properties:
+        date:
+          type: integer
+      type: object
+    SymbolAndFields:
+      additionalProperties:
+        $ref: '#/components/schemas/DataValue'
+      example:
+        symbol: symbol
+      properties:
+        symbol:
+          type: string
+      type: object
+    DataValue:
+      oneOf:
+      - type: string
+      - format: double
+        type: number
+      - type: integer
+    BulkDeleteItem:
+      description: Users may provide any combination of a symbol, date, and/or field
+        to perform a bulk delete operation. For example, if a user provides both a
+        symbol and a date within the same data point {} then the endpoint will delete
+        the symbol for just that date. If they provide a symbol, date, and field then
+        the endpoint will delete just that singular field entry point for that date
+        for the given symbol. Providing singular entities within a {} will delete
+        the complete data for that given value.
+      properties:
+        symbol:
+          type: string
+        date:
+          type: integer
+        field:
+          type: string
+      type: object
+    FieldProperties:
+      example:
+        codePageFlag: codePageFlag
+        size: 0
+        name: name
+        description: description
+        iteration: 2D
+        splitDirection: NONE
+        type: INT
+      properties:
+        description:
+          type: string
+        iteration:
+          enum:
+          - 2D
+          - 3D
+          type: string
+        name:
+          type: string
+        size:
+          type: integer
+        splitDirection:
+          enum:
+          - NONE
+          - NORMAL
+          - REVERSE
+          type: string
+        type:
+          enum:
+          - INT
+          - FLOAT
+          - DOUBLE
+          - CHAR
+          - LONG_CHAR
+          - STRING
+          - DATE
+          type: string
+        codePageFlag:
+          type: string
+      type: object
+    ErrorObject:
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        code:
+          default: parameterError
+          example: parameterError
+          type: string
+      type: object
+    ErrorObjectWithSource:
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        code:
+          default: parameterError
+          example: parameterError
+          type: string
+        source:
+          $ref: '#/components/schemas/ErrorObjectWithSource_source'
+      type: object
     inline_response_201_data:
       example:
         id: id
@@ -6095,108 +7347,20 @@ components:
         data:
           $ref: '#/components/schemas/inline_response_202_data'
       type: object
-    inline_response_400_source:
-      properties:
-        location:
-          type: string
-        param:
-          type: string
-      type: object
-    inline_response_400_errors:
-      properties:
-        id:
-          type: string
-        title:
-          type: string
-        code:
-          default: parameterError
-          example: parameterError
-          type: string
-        source:
-          $ref: '#/components/schemas/inline_response_400_source'
-      type: object
     inline_response_400:
       properties:
         errors:
           description: An array containing errors
           items:
-            $ref: '#/components/schemas/inline_response_400_errors'
+            $ref: '#/components/schemas/ErrorObjectWithSource'
           type: array
-      type: object
-    inline_response_403_errors:
-      properties:
-        id:
-          type: string
-        title:
-          type: string
-        code:
-          default: notAuthorized
-          example: notAuthorized
-          type: string
       type: object
     inline_response_403:
       properties:
         errors:
           description: An array containing errors
           items:
-            $ref: '#/components/schemas/inline_response_403_errors'
-          type: array
-      type: object
-    inline_response_404_errors:
-      properties:
-        id:
-          type: string
-        title:
-          type: string
-        code:
-          default: endPointNotFound
-          example: endPointNotFound
-          type: string
-      type: object
-    inline_response_404:
-      properties:
-        errors:
-          description: An array containing errors
-          items:
-            $ref: '#/components/schemas/inline_response_404_errors'
-          type: array
-      type: object
-    inline_response_406_errors:
-      properties:
-        id:
-          type: string
-        title:
-          type: string
-        code:
-          default: notAcceptable
-          example: notAcceptable
-          type: string
-      type: object
-    inline_response_406:
-      properties:
-        errors:
-          description: An array containing errors
-          items:
-            $ref: '#/components/schemas/inline_response_406_errors'
-          type: array
-      type: object
-    inline_response_429_errors:
-      properties:
-        id:
-          type: string
-        title:
-          type: string
-        code:
-          default: rateLimitExceeded
-          example: rateLimitExceeded
-          type: string
-      type: object
-    inline_response_429:
-      properties:
-        errors:
-          description: An array containing errors
-          items:
-            $ref: '#/components/schemas/inline_response_429_errors'
+            $ref: '#/components/schemas/ErrorObject'
           type: array
       type: object
     inline_response_200_data:
@@ -6260,44 +7424,24 @@ components:
     inline_response_200_2:
       example:
         data:
-        - '{}'
-        - '{}'
+        - codePageFlag: codePageFlag
+          size: 0
+          name: name
+          description: description
+          iteration: 2D
+          splitDirection: NONE
+          type: INT
+        - codePageFlag: codePageFlag
+          size: 0
+          name: name
+          description: description
+          iteration: 2D
+          splitDirection: NONE
+          type: INT
       properties:
         data:
           items:
-            properties:
-              description:
-                type: string
-              iteration:
-                enum:
-                - 2D
-                - 3D
-                type: string
-              name:
-                type: string
-              size:
-                type: integer
-              splitDirection:
-                enum:
-                - NONE
-                - NORMAL
-                - REVERSE
-                type: string
-              type:
-                enum:
-                - INT
-                - FLOAT
-                - DOUBLE
-                - CHAR
-                - LONG_CHAR
-                - STRING
-                - DATE
-                type: string
-              codePageFlag:
-                enum:
-                - ASCII
-                type: string
-            type: object
+            $ref: '#/components/schemas/FieldProperties'
           type: array
       type: object
     inline_response_200_3:
@@ -6316,25 +7460,6 @@ components:
             $ref: '#/components/schemas/BulkDeleteArrayItem'
           type: array
       type: object
-    inline_response_413_errors:
-      properties:
-        id:
-          type: string
-        title:
-          type: string
-        code:
-          default: payloadTooLarge
-          example: payloadTooLarge
-          type: string
-      type: object
-    inline_response_413:
-      properties:
-        errors:
-          description: An array containing errors
-          items:
-            $ref: '#/components/schemas/inline_response_413_errors'
-          type: array
-      type: object
     inline_response_200_4:
       example:
         data:
@@ -6350,6 +7475,16 @@ components:
     inline_response_200_5:
       example:
         data:
+          id:
+          - FDS
+          - FDS
+      properties:
+        data:
+          $ref: '#/components/schemas/SymbolsWithId'
+      type: object
+    inline_response_200_6:
+      example:
+        data:
         - 20220202
         - 20220202
       properties:
@@ -6359,58 +7494,25 @@ components:
             type: integer
           type: array
       type: object
-    inline_response_200_6_data:
-      example:
-        symbol: FDS
-        field: 1
-      properties:
-        symbol:
-          example: FDS
-          type: string
-        field:
-          example: 1
-          type: integer
-      type: object
-    inline_response_200_6:
+    inline_response_200_7:
       example:
         data:
-        - symbol: FDS
-          field: 1
-        - symbol: FDS
-          field: 1
+          id:
+          - 20220202
+          - 20220202
+      properties:
+        data:
+          $ref: '#/components/schemas/DatesWithId'
+      type: object
+    inline_response_200_8:
+      example:
+        data:
+        - symbol: symbol
+        - symbol: symbol
       properties:
         data:
           items:
-            $ref: '#/components/schemas/inline_response_200_6_data'
-          type: array
-      type: object
-    AddSymbols_content:
-      example:
-        date: 0
-        field: field
-      properties:
-        date:
-          type: integer
-        field:
-          type: string
-      type: object
-    AddSymbols_data:
-      example:
-        symbol: symbol
-        content:
-        - date: 0
-          field: field
-        - date: 0
-          field: field
-      properties:
-        symbol:
-          description: Names of the symbol and unique to this database
-          type: string
-        content:
-          description: date must be provided in the case of a 3d ofdb with atleast
-            one iterative field
-          items:
-            $ref: '#/components/schemas/AddSymbols_content'
+            $ref: '#/components/schemas/SymbolAndFields'
           type: array
       type: object
     CreateDatabase_data:
@@ -6421,123 +7523,25 @@ components:
           description: path of the newly created database.
           type: string
       type: object
-    AddDates_content:
-      example:
-        symbol: symbol
-        field: 0
-      properties:
-        symbol:
-          type: string
-        field:
-          type: integer
-      type: object
-    AddDates_data:
-      example:
-        date: 20220202
-        content:
-        - symbol: symbol
-          field: 0
-        - symbol: symbol
-          field: 0
-      properties:
-        date:
-          description: Date unique to the database.
-          example: 20220202
-          type: integer
-        content:
-          items:
-            $ref: '#/components/schemas/AddDates_content'
-          type: array
-      type: object
-    UpdateDate_data:
-      properties:
-        content:
-          items:
-            $ref: '#/components/schemas/AddDates_content'
-          type: array
-      type: object
-    UpdateDates_data:
-      properties:
-        date:
-          type: integer
-        content:
-          items:
-            $ref: '#/components/schemas/AddDates_content'
-          type: array
-      type: object
-    UpdateSymbol_content:
-      example:
-        date: 0
-        field1: 6
-        field2: field2
-      properties:
-        date:
-          type: integer
-        field1:
-          type: integer
-        field2:
-          type: string
-      type: object
-    UpdateSymbol_data:
-      example:
-        content:
-        - date: 0
-          field1: 6
-          field2: field2
-        - date: 0
-          field1: 6
-          field2: field2
-      properties:
-        content:
-          description: date must be provided in the case of a 3d ofdb with at least
-            one iterative field
-          items:
-            $ref: '#/components/schemas/UpdateSymbol_content'
-          type: array
-      type: object
-    UpdateSymbols_data:
-      example:
-        symbol: symbol
-        content:
-        - date: 0
-          field1: 6
-          field2: field2
-        - date: 0
-          field1: 6
-          field2: field2
-      properties:
-        symbol:
-          type: string
-        content:
-          description: date must be provided in the case of a 3d ofdb with at least
-            one iterative field
-          items:
-            $ref: '#/components/schemas/UpdateSymbol_content'
-          type: array
-      type: object
-    BulkDelete_data:
-      description: Users may provide any combination of a symbol, date, and/or field
-        to perform a bulk delete operation. For example, if a user provides both a
-        symbol and a date within the same data point {} then the endpoint will delete
-        the symbol for just that date. If they provide a symbol, date, and field then
-        the endpoint will delete just that singular field entry point for that date
-        for the given symbol. Providing singular entities within a {} will delete
-        the complete data for that given value.
-      properties:
-        symbol:
-          type: string
-        date:
-          type: integer
-        field:
-          type: string
-      type: object
     DatabaseSchema_data:
       example:
         path: CLIENT:this_is_a_test_.OFDB
         description: A user would fill this with relevant information
         fields:
-        - '{}'
-        - '{}'
+        - codePageFlag: codePageFlag
+          size: 0
+          name: name
+          description: description
+          iteration: 2D
+          splitDirection: NONE
+          type: INT
+        - codePageFlag: codePageFlag
+          size: 0
+          name: name
+          description: description
+          iteration: 2D
+          splitDirection: NONE
+          type: INT
       properties:
         path:
           example: CLIENT:this_is_a_test_.OFDB
@@ -6547,39 +7551,7 @@ components:
           type: string
         fields:
           items:
-            properties:
-              description:
-                type: string
-              iteration:
-                enum:
-                - 2D
-                - 3D
-                type: string
-              name:
-                type: string
-              size:
-                type: integer
-              splitDirection:
-                enum:
-                - NONE
-                - NORMAL
-                - REVERSE
-                type: string
-              type:
-                enum:
-                - INT
-                - FLOAT
-                - DOUBLE
-                - CHAR
-                - LONG_CHAR
-                - STRING
-                - DATE
-                type: string
-              codePageFlag:
-                enum:
-                - ASCII
-                type: string
-            type: object
+            $ref: '#/components/schemas/FieldProperties'
           type: array
       type: object
     SuccessPostResponse_data:
@@ -6588,6 +7560,13 @@ components:
       properties:
         id:
           description: id of the newly created resource
+          type: string
+      type: object
+    ErrorObjectWithSource_source:
+      properties:
+        location:
+          type: string
+        param:
           type: string
       type: object
   securitySchemes:

@@ -15,9 +15,6 @@ import com.factset.sdk.OFDB.models.BulkDelete;
 import com.factset.sdk.OFDB.models.InlineResponse202;
 import com.factset.sdk.OFDB.models.InlineResponse400;
 import com.factset.sdk.OFDB.models.InlineResponse403;
-import com.factset.sdk.OFDB.models.InlineResponse404;
-import com.factset.sdk.OFDB.models.InlineResponse406;
-import com.factset.sdk.OFDB.models.InlineResponse429;
 
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -37,9 +34,9 @@ public class DeleteApi {
     deleteBulkItemsResponseTypeMap.put(202, new GenericType<InlineResponse202>(){});
     deleteBulkItemsResponseTypeMap.put(400, new GenericType<InlineResponse400>(){});
     deleteBulkItemsResponseTypeMap.put(403, new GenericType<InlineResponse403>(){});
-    deleteBulkItemsResponseTypeMap.put(404, new GenericType<InlineResponse404>(){});
-    deleteBulkItemsResponseTypeMap.put(406, new GenericType<InlineResponse406>(){});
-    deleteBulkItemsResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
+    deleteBulkItemsResponseTypeMap.put(404, new GenericType<InlineResponse403>(){});
+    deleteBulkItemsResponseTypeMap.put(406, new GenericType<InlineResponse403>(){});
+    deleteBulkItemsResponseTypeMap.put(429, new GenericType<InlineResponse403>(){});
   }
 
   private static final Map<Integer, GenericType> deleteDateResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -47,9 +44,9 @@ public class DeleteApi {
     deleteDateResponseTypeMap.put(202, new GenericType<InlineResponse202>(){});
     deleteDateResponseTypeMap.put(400, new GenericType<InlineResponse400>(){});
     deleteDateResponseTypeMap.put(403, new GenericType<InlineResponse403>(){});
-    deleteDateResponseTypeMap.put(404, new GenericType<InlineResponse404>(){});
-    deleteDateResponseTypeMap.put(406, new GenericType<InlineResponse406>(){});
-    deleteDateResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
+    deleteDateResponseTypeMap.put(404, new GenericType<InlineResponse403>(){});
+    deleteDateResponseTypeMap.put(406, new GenericType<InlineResponse403>(){});
+    deleteDateResponseTypeMap.put(429, new GenericType<InlineResponse403>(){});
   }
 
   private static final Map<Integer, GenericType> deleteDateFromSymbolResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -57,9 +54,9 @@ public class DeleteApi {
     deleteDateFromSymbolResponseTypeMap.put(202, new GenericType<InlineResponse202>(){});
     deleteDateFromSymbolResponseTypeMap.put(400, new GenericType<InlineResponse400>(){});
     deleteDateFromSymbolResponseTypeMap.put(403, new GenericType<InlineResponse403>(){});
-    deleteDateFromSymbolResponseTypeMap.put(404, new GenericType<InlineResponse404>(){});
-    deleteDateFromSymbolResponseTypeMap.put(406, new GenericType<InlineResponse406>(){});
-    deleteDateFromSymbolResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
+    deleteDateFromSymbolResponseTypeMap.put(404, new GenericType<InlineResponse403>(){});
+    deleteDateFromSymbolResponseTypeMap.put(406, new GenericType<InlineResponse403>(){});
+    deleteDateFromSymbolResponseTypeMap.put(429, new GenericType<InlineResponse403>(){});
   }
 
   private static final Map<Integer, GenericType> deleteSymbolResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -67,19 +64,9 @@ public class DeleteApi {
     deleteSymbolResponseTypeMap.put(202, new GenericType<InlineResponse202>(){});
     deleteSymbolResponseTypeMap.put(400, new GenericType<InlineResponse400>(){});
     deleteSymbolResponseTypeMap.put(403, new GenericType<InlineResponse403>(){});
-    deleteSymbolResponseTypeMap.put(404, new GenericType<InlineResponse404>(){});
-    deleteSymbolResponseTypeMap.put(406, new GenericType<InlineResponse406>(){});
-    deleteSymbolResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
-  }
-
-  private static final Map<Integer, GenericType> getResourceDateFromSymbolResponseTypeMap = new HashMap<Integer, GenericType>();
-  static {
-    getResourceDateFromSymbolResponseTypeMap.put(200, new GenericType<InlineResponse202>(){});
-    getResourceDateFromSymbolResponseTypeMap.put(400, new GenericType<InlineResponse400>(){});
-    getResourceDateFromSymbolResponseTypeMap.put(403, new GenericType<InlineResponse403>(){});
-    getResourceDateFromSymbolResponseTypeMap.put(404, new GenericType<InlineResponse404>(){});
-    getResourceDateFromSymbolResponseTypeMap.put(406, new GenericType<InlineResponse406>(){});
-    getResourceDateFromSymbolResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
+    deleteSymbolResponseTypeMap.put(404, new GenericType<InlineResponse403>(){});
+    deleteSymbolResponseTypeMap.put(406, new GenericType<InlineResponse403>(){});
+    deleteSymbolResponseTypeMap.put(429, new GenericType<InlineResponse403>(){});
   }
 
   
@@ -204,7 +191,6 @@ public class DeleteApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 202 </td><td> Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 204 </td><td> Resource is deleted successfully </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Invalid query parameter or value provided </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 404 </td><td> Path not found </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
@@ -229,7 +215,6 @@ public class DeleteApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 202 </td><td> Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 204 </td><td> Resource is deleted successfully </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Invalid query parameter or value provided </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 404 </td><td> Path not found </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
@@ -303,7 +288,6 @@ public class DeleteApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 202 </td><td> Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 204 </td><td> Resource is deleted successfully </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Invalid query parameter or value provided </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 404 </td><td> Path not found </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
@@ -329,7 +313,6 @@ public class DeleteApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 202 </td><td> Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 204 </td><td> Resource is deleted successfully </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Invalid query parameter or value provided </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 404 </td><td> Path not found </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
@@ -408,7 +391,6 @@ public class DeleteApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 202 </td><td> Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 204 </td><td> Resource is deleted successfully </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Invalid query parameter or value provided </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 404 </td><td> Path not found </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
@@ -433,7 +415,6 @@ public class DeleteApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 202 </td><td> Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 204 </td><td> Resource is deleted successfully </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Invalid query parameter or value provided </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 404 </td><td> Path not found </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
@@ -491,120 +472,6 @@ public class DeleteApi {
     > apiResponse = apiClient.invokeAPI("DeleteApi.deleteSymbol", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, deleteSymbolResponseTypeMap, false);
-
-    return apiResponse;
-
-  }
-  /**
-   * 
-   * Deletes data specific to the symbol and date from a 3d database(OFDB).
-   * @param path Encode database path (required)
-   * @param date Date in YYYYMMDD format (required)
-   * @param symbol Symbol with in the ofdb (required)
-   * @param id A unique pickup ID returned by the original request (required)
-   * @return InlineResponse202
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 204 </td><td> Resource is deleted successfully </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> Invalid query parameter or value provided </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 404 </td><td> Path not found </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 406 </td><td> Unsupported Accept header. Header needs to be set to application/json </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 429 </td><td> Rate limit reached. Wait till the time specified in Retry-After header value to make further requests. </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  * Retry-After -  <br>  </td></tr>
-       <tr><td> 500 </td><td> Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-     </table>
-   */
-  public InlineResponse202 getResourceDateFromSymbol(String path, Integer date, String symbol, String id) throws ApiException {
-    return getResourceDateFromSymbolWithHttpInfo(path, date, symbol, id).getData();
-  }
-
-  /**
-   * 
-   * Deletes data specific to the symbol and date from a 3d database(OFDB).
-   * @param path Encode database path (required)
-   * @param date Date in YYYYMMDD format (required)
-   * @param symbol Symbol with in the ofdb (required)
-   * @param id A unique pickup ID returned by the original request (required)
-   * @return ApiResponse&lt;InlineResponse202&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 204 </td><td> Resource is deleted successfully </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> Invalid query parameter or value provided </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 404 </td><td> Path not found </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 406 </td><td> Unsupported Accept header. Header needs to be set to application/json </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 429 </td><td> Rate limit reached. Wait till the time specified in Retry-After header value to make further requests. </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  * Retry-After -  <br>  </td></tr>
-       <tr><td> 500 </td><td> Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-     </table>
-   */
-  public ApiResponse<InlineResponse202> getResourceDateFromSymbolWithHttpInfo(String path, Integer date, String symbol, String id) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'path' is set
-    if (path == null) {
-      throw new ApiException(400, "Missing the required parameter 'path' when calling getResourceDateFromSymbol");
-    }
-    
-    // verify the required parameter 'date' is set
-    if (date == null) {
-      throw new ApiException(400, "Missing the required parameter 'date' when calling getResourceDateFromSymbol");
-    }
-    
-    // verify the required parameter 'symbol' is set
-    if (symbol == null) {
-      throw new ApiException(400, "Missing the required parameter 'symbol' when calling getResourceDateFromSymbol");
-    }
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getResourceDateFromSymbol");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/database/{path}/dates/{date}/symbols/{symbol}/jobs/{id}"
-      .replaceAll("\\{" + "path" + "\\}", apiClient.escapeString(path.toString()))
-      .replaceAll("\\{" + "date" + "\\}", apiClient.escapeString(date.toString()))
-      .replaceAll("\\{" + "symbol" + "\\}", apiClient.escapeString(symbol.toString()))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
-
-    // query params
-    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
-    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
-    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
-    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
-
-
-    ApiResponse<
-        
-        InlineResponse202
-      
-    > apiResponse = apiClient.invokeAPI("DeleteApi.getResourceDateFromSymbol", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, getResourceDateFromSymbolResponseTypeMap, false);
 
     return apiResponse;
 

@@ -2,7 +2,7 @@
 
 # BulkDeleteArrayItem
 
-## anyOf schemas
+## oneOf schemas
 * [java.util.List<String>](java.util.List<String>.md)
 * [java.util.Map<String, BulkDeleteArrayItemNested>](java.util.Map<String, BulkDeleteArrayItemNested>.md)
 

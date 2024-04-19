@@ -13,6 +13,10 @@
 
 import ApiClient from './ApiClient';
 import Error from './model/Error';
+import FirmDescriptionResource from './model/FirmDescriptionResource';
+import FirmDescriptionResourceList from './model/FirmDescriptionResourceList';
+import FirmDescriptionResourceMeta from './model/FirmDescriptionResourceMeta';
+import FirmDescriptionResourceReference from './model/FirmDescriptionResourceReference';
 import GroupResource from './model/GroupResource';
 import GroupResourceList from './model/GroupResourceList';
 import GroupResourceMembers from './model/GroupResourceMembers';
@@ -20,6 +24,7 @@ import GroupResourceMeta from './model/GroupResourceMeta';
 import GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group from './model/GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group';
 import GroupResourceUrnScimSchemasExtensionFactSetVRS10Group from './model/GroupResourceUrnScimSchemasExtensionFactSetVRS10Group';
 import LocationResource from './model/LocationResource';
+import LocationResourceCompanyAgreementUrls from './model/LocationResourceCompanyAgreementUrls';
 import LocationResourceList from './model/LocationResourceList';
 import LocationResourceMeta from './model/LocationResourceMeta';
 import LocationResourceReference from './model/LocationResourceReference';
@@ -33,6 +38,7 @@ import ProductResourceReference from './model/ProductResourceReference';
 import Schema from './model/Schema';
 import SchemaAttributes from './model/SchemaAttributes';
 import SchemaList from './model/SchemaList';
+import SchemaMeta from './model/SchemaMeta';
 import SchemaSubAttributes from './model/SchemaSubAttributes';
 import ServiceProviderConfig from './model/ServiceProviderConfig';
 import ServiceProviderConfigAuthenticationSchemes from './model/ServiceProviderConfigAuthenticationSchemes';
@@ -42,6 +48,14 @@ import ServiceProviderConfigEtag from './model/ServiceProviderConfigEtag';
 import ServiceProviderConfigFilter from './model/ServiceProviderConfigFilter';
 import ServiceProviderConfigPatch from './model/ServiceProviderConfigPatch';
 import ServiceProviderConfigSort from './model/ServiceProviderConfigSort';
+import UserClassResource from './model/UserClassResource';
+import UserClassResourceList from './model/UserClassResourceList';
+import UserClassResourceMeta from './model/UserClassResourceMeta';
+import UserClassResourceReference from './model/UserClassResourceReference';
+import UserPositionResource from './model/UserPositionResource';
+import UserPositionResourceList from './model/UserPositionResourceList';
+import UserPositionResourceMeta from './model/UserPositionResourceMeta';
+import UserPositionResourceReference from './model/UserPositionResourceReference';
 import UserResource from './model/UserResource';
 import UserResourceGroups from './model/UserResourceGroups';
 import UserResourceList from './model/UserResourceList';
@@ -49,16 +63,20 @@ import UserResourceMeta from './model/UserResourceMeta';
 import UserResourceName from './model/UserResourceName';
 import UserResourcePhoneNumbers from './model/UserResourcePhoneNumbers';
 import UserResourceUrnScimSchemasExtensionFactSetCore10User from './model/UserResourceUrnScimSchemasExtensionFactSetCore10User';
+import UserResourceUrnScimSchemasExtensionFactSetCore10UserUserTaxonomyData from './model/UserResourceUrnScimSchemasExtensionFactSetCore10UserUserTaxonomyData';
 import UserResourceUrnScimSchemasExtensionFactSetVRS10User from './model/UserResourceUrnScimSchemasExtensionFactSetVRS10User';
 import UserResourceUrnScimSchemasExtensionFactSetVRS10UserDomainData from './model/UserResourceUrnScimSchemasExtensionFactSetVRS10UserDomainData';
 import UserResourceUrnScimSchemasExtensionFactSetVRS10UserTenancies from './model/UserResourceUrnScimSchemasExtensionFactSetVRS10UserTenancies';
 
 import FileManagerAuditApi from './api/FileManagerAuditApi';
+import FirmDescriptionsApi from './api/FirmDescriptionsApi';
 import GroupsApi from './api/GroupsApi';
 import LocationsApi from './api/LocationsApi';
 import ProductsApi from './api/ProductsApi';
 import SchemasApi from './api/SchemasApi';
 import ServerConfigurationApi from './api/ServerConfigurationApi';
+import UserClassesApi from './api/UserClassesApi';
+import UserPositionsApi from './api/UserPositionsApi';
 import UsersApi from './api/UsersApi';
 
 
@@ -106,6 +124,30 @@ export {
     Error,
 
     /**
+     * The FirmDescriptionResource model constructor.
+     * @property {module:model/FirmDescriptionResource}
+     */
+    FirmDescriptionResource,
+
+    /**
+     * The FirmDescriptionResourceList model constructor.
+     * @property {module:model/FirmDescriptionResourceList}
+     */
+    FirmDescriptionResourceList,
+
+    /**
+     * The FirmDescriptionResourceMeta model constructor.
+     * @property {module:model/FirmDescriptionResourceMeta}
+     */
+    FirmDescriptionResourceMeta,
+
+    /**
+     * The FirmDescriptionResourceReference model constructor.
+     * @property {module:model/FirmDescriptionResourceReference}
+     */
+    FirmDescriptionResourceReference,
+
+    /**
      * The GroupResource model constructor.
      * @property {module:model/GroupResource}
      */
@@ -146,6 +188,12 @@ export {
      * @property {module:model/LocationResource}
      */
     LocationResource,
+
+    /**
+     * The LocationResourceCompanyAgreementUrls model constructor.
+     * @property {module:model/LocationResourceCompanyAgreementUrls}
+     */
+    LocationResourceCompanyAgreementUrls,
 
     /**
      * The LocationResourceList model constructor.
@@ -226,6 +274,12 @@ export {
     SchemaList,
 
     /**
+     * The SchemaMeta model constructor.
+     * @property {module:model/SchemaMeta}
+     */
+    SchemaMeta,
+
+    /**
      * The SchemaSubAttributes model constructor.
      * @property {module:model/SchemaSubAttributes}
      */
@@ -280,6 +334,54 @@ export {
     ServiceProviderConfigSort,
 
     /**
+     * The UserClassResource model constructor.
+     * @property {module:model/UserClassResource}
+     */
+    UserClassResource,
+
+    /**
+     * The UserClassResourceList model constructor.
+     * @property {module:model/UserClassResourceList}
+     */
+    UserClassResourceList,
+
+    /**
+     * The UserClassResourceMeta model constructor.
+     * @property {module:model/UserClassResourceMeta}
+     */
+    UserClassResourceMeta,
+
+    /**
+     * The UserClassResourceReference model constructor.
+     * @property {module:model/UserClassResourceReference}
+     */
+    UserClassResourceReference,
+
+    /**
+     * The UserPositionResource model constructor.
+     * @property {module:model/UserPositionResource}
+     */
+    UserPositionResource,
+
+    /**
+     * The UserPositionResourceList model constructor.
+     * @property {module:model/UserPositionResourceList}
+     */
+    UserPositionResourceList,
+
+    /**
+     * The UserPositionResourceMeta model constructor.
+     * @property {module:model/UserPositionResourceMeta}
+     */
+    UserPositionResourceMeta,
+
+    /**
+     * The UserPositionResourceReference model constructor.
+     * @property {module:model/UserPositionResourceReference}
+     */
+    UserPositionResourceReference,
+
+    /**
      * The UserResource model constructor.
      * @property {module:model/UserResource}
      */
@@ -322,6 +424,12 @@ export {
     UserResourceUrnScimSchemasExtensionFactSetCore10User,
 
     /**
+     * The UserResourceUrnScimSchemasExtensionFactSetCore10UserUserTaxonomyData model constructor.
+     * @property {module:model/UserResourceUrnScimSchemasExtensionFactSetCore10UserUserTaxonomyData}
+     */
+    UserResourceUrnScimSchemasExtensionFactSetCore10UserUserTaxonomyData,
+
+    /**
      * The UserResourceUrnScimSchemasExtensionFactSetVRS10User model constructor.
      * @property {module:model/UserResourceUrnScimSchemasExtensionFactSetVRS10User}
      */
@@ -344,6 +452,12 @@ export {
     * @property {module:api/FileManagerAuditApi}
     */
     FileManagerAuditApi,
+
+    /**
+    * The FirmDescriptionsApi service constructor.
+    * @property {module:api/FirmDescriptionsApi}
+    */
+    FirmDescriptionsApi,
 
     /**
     * The GroupsApi service constructor.
@@ -374,6 +488,18 @@ export {
     * @property {module:api/ServerConfigurationApi}
     */
     ServerConfigurationApi,
+
+    /**
+    * The UserClassesApi service constructor.
+    * @property {module:api/UserClassesApi}
+    */
+    UserClassesApi,
+
+    /**
+    * The UserPositionsApi service constructor.
+    * @property {module:api/UserPositionsApi}
+    */
+    UserPositionsApi,
 
     /**
     * The UsersApi service constructor.

@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import UpdateSymbolData from './UpdateSymbolData';
+import ContentWithDate from './ContentWithDate';
 
 /**
  * The UpdateSymbol model module.
@@ -49,7 +49,7 @@ class UpdateSymbol {
             obj = obj || new UpdateSymbol();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [UpdateSymbolData]);
+                obj['data'] = ApiClient.convertToType(data['data'], [ContentWithDate]);
             }
         }
         return obj;
@@ -59,7 +59,7 @@ class UpdateSymbol {
 }
 
 /**
- * @member {Array.<module:model/UpdateSymbolData>} data
+ * @member {Array.<module:model/ContentWithDate>} data
  */
 UpdateSymbol.prototype['data'] = undefined;
 

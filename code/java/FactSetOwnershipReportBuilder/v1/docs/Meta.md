@@ -1,0 +1,21 @@
+
+
+# Meta
+
+Standard Ownership response meta object.  Contains metadata about the response at the root level.
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**requestId** | **String** | The identifier which was requested by the client |  [optional]
+**currency** | **String** | The currency ISO of the data which was returned |  [optional]
+**fsymId** | **String** | The resolved fsymId that corresponds to the provided requestId |  [optional]
+**noData** | **Boolean** | Indicator of whether FactSet had data for this request |  [optional]
+
+
+## Implemented Interfaces
+
+* Serializable
+
+

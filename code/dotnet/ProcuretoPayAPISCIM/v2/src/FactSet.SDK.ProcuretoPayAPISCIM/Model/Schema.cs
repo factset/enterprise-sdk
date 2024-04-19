@@ -35,8 +35,14 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
         /// Initializes a new instance of the <see cref="Schema" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public Schema(string id, string name, List<SchemaAttributes> attributes,string description = default(string))
+        protected Schema() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Schema" /> class.
+        /// </summary>
+        /// <param name="meta">meta.</param>
+        public Schema(string id, string name, List<SchemaAttributes> attributes,string description = default(string), SchemaMeta meta = default(SchemaMeta))
         {
+            this.Meta = meta;
         }
 
         /// <summary>
@@ -100,6 +106,12 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
             return false;
         }
         /// <summary>
+        /// Gets or Sets Meta
+        /// </summary>
+        [DataMember(Name = "meta", EmitDefaultValue = false)]
+        public SchemaMeta Meta { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -111,6 +123,7 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
+            sb.Append("  Meta: ").Append(Meta).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -166,6 +179,11 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
                     this.Attributes != null &&
                     input.Attributes != null &&
                     this.Attributes.SequenceEqual(input.Attributes)
+                ) && 
+                (
+                    this.Meta == input.Meta ||
+                    (this.Meta != null &&
+                    this.Meta.Equals(input.Meta))
                 );
         }
 
@@ -193,6 +211,10 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
                 if (this.Attributes != null)
                 {
                     hashCode = (hashCode * 59) + this.Attributes.GetHashCode();
+                }
+                if (this.Meta != null)
+                {
+                    hashCode = (hashCode * 59) + this.Meta.GetHashCode();
                 }
                 return hashCode;
             }

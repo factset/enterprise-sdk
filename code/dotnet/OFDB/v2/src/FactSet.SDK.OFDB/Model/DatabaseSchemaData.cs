@@ -38,7 +38,7 @@ namespace FactSet.SDK.OFDB.Model
         /// <param name="path">path.</param>
         /// <param name="description">description.</param>
         /// <param name="fields">fields.</param>
-        public DatabaseSchemaData(string path = default(string), string description = default(string), List<Object> fields = default(List<Object>))
+        public DatabaseSchemaData(string path = default(string), string description = default(string), List<FieldProperties> fields = default(List<FieldProperties>))
         {
             this.Path = path;
             this.Description = description;
@@ -61,7 +61,7 @@ namespace FactSet.SDK.OFDB.Model
         /// Gets or Sets Fields
         /// </summary>
         [DataMember(Name = "fields", EmitDefaultValue = false)]
-        public List<Object> Fields { get; set; }
+        public List<FieldProperties> Fields { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**java.util.List&lt;Object&gt;**](Object.md) |  |  [optional]
+**data** | [**java.util.List&lt;FieldProperties&gt;**](FieldProperties.md) |  |  [optional]
 
 
 ## Implemented Interfaces

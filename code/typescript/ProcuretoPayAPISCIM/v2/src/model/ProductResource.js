@@ -22,11 +22,13 @@ class ProductResource {
     /**
      * Constructs a new <code>ProductResource</code>.
      * @alias module:model/ProductResource
+     * @param orderable {Boolean} Whether the product can be ordered by the current client.
+     * @param trialAvailable {Boolean} Whether a temporary trial use of this product is available for users.
      * @param whitelist {Boolean} Whether the product appears in the requester's product whitelist. Presence in the product whitelist means the requester is authorized to order this product for other users.
      */
-    constructor(whitelist) { 
+    constructor(orderable, trialAvailable, whitelist) { 
         
-        ProductResource.initialize(this, whitelist);
+        ProductResource.initialize(this, orderable, trialAvailable, whitelist);
     }
 
     /**
@@ -34,7 +36,9 @@ class ProductResource {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, whitelist) { 
+    static initialize(obj, orderable, trialAvailable, whitelist) { 
+        obj['orderable'] = orderable;
+        obj['trialAvailable'] = trialAvailable;
         obj['whitelist'] = whitelist;
     }
 
@@ -67,8 +71,14 @@ class ProductResource {
             if (data.hasOwnProperty('workstation')) {
                 obj['workstation'] = ApiClient.convertToType(data['workstation'], 'Boolean');
             }
+            if (data.hasOwnProperty('orderable')) {
+                obj['orderable'] = ApiClient.convertToType(data['orderable'], 'Boolean');
+            }
             if (data.hasOwnProperty('requiresApproval')) {
                 obj['requiresApproval'] = ApiClient.convertToType(data['requiresApproval'], 'String');
+            }
+            if (data.hasOwnProperty('trialAvailable')) {
+                obj['trialAvailable'] = ApiClient.convertToType(data['trialAvailable'], 'Boolean');
             }
             if (data.hasOwnProperty('whitelist')) {
                 obj['whitelist'] = ApiClient.convertToType(data['whitelist'], 'Boolean');
@@ -118,10 +128,22 @@ ProductResource.prototype['groupDescription'] = undefined;
 ProductResource.prototype['workstation'] = undefined;
 
 /**
+ * Whether the product can be ordered by the current client.
+ * @member {Boolean} orderable
+ */
+ProductResource.prototype['orderable'] = undefined;
+
+/**
  * A description of the type of approval required before an order for this product can be fulfilled. This value is null for those products that do not require any approval.
  * @member {String} requiresApproval
  */
 ProductResource.prototype['requiresApproval'] = undefined;
+
+/**
+ * Whether a temporary trial use of this product is available for users.
+ * @member {Boolean} trialAvailable
+ */
+ProductResource.prototype['trialAvailable'] = undefined;
 
 /**
  * Whether the product appears in the requester's product whitelist. Presence in the product whitelist means the requester is authorized to order this product for other users.

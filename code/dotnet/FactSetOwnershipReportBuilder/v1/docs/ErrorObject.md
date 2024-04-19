@@ -1,4 +1,5 @@
 # FactSet.SDK.FactSetOwnershipReportBuilder.Model.ErrorObject
+Schema describing an API error
 
 ## Properties
 

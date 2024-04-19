@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import UpdateDatesData from './UpdateDatesData';
+import DateAndContent from './DateAndContent';
 
 /**
  * The UpdateDates model module.
@@ -49,7 +49,7 @@ class UpdateDates {
             obj = obj || new UpdateDates();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [UpdateDatesData]);
+                obj['data'] = ApiClient.convertToType(data['data'], [DateAndContent]);
             }
         }
         return obj;
@@ -60,7 +60,7 @@ class UpdateDates {
 
 /**
  * date has to be provide in case 3d OFDB with date and atleast one iterative field
- * @member {Array.<module:model/UpdateDatesData>} data
+ * @member {Array.<module:model/DateAndContent>} data
  */
 UpdateDates.prototype['data'] = undefined;
 

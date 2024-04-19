@@ -15,6 +15,7 @@ import ApiClient from '../ApiClient';
 import LocationResourceReference from './LocationResourceReference';
 import PendingProductOrder from './PendingProductOrder';
 import ProductResourceReference from './ProductResourceReference';
+import UserResourceUrnScimSchemasExtensionFactSetCore10UserUserTaxonomyData from './UserResourceUrnScimSchemasExtensionFactSetCore10UserUserTaxonomyData';
 
 /**
  * The UserResourceUrnScimSchemasExtensionFactSetCore10User model module.
@@ -57,14 +58,17 @@ class UserResourceUrnScimSchemasExtensionFactSetCore10User {
             if (data.hasOwnProperty('serialNumber')) {
                 obj['serialNumber'] = ApiClient.convertToType(data['serialNumber'], 'String');
             }
-            if (data.hasOwnProperty('factSetNetId')) {
-                obj['factSetNetId'] = ApiClient.convertToType(data['factSetNetId'], 'String');
-            }
             if (data.hasOwnProperty('location')) {
                 obj['location'] = LocationResourceReference.constructFromObject(data['location']);
             }
+            if (data.hasOwnProperty('userTaxonomyData')) {
+                obj['userTaxonomyData'] = UserResourceUrnScimSchemasExtensionFactSetCore10UserUserTaxonomyData.constructFromObject(data['userTaxonomyData']);
+            }
             if (data.hasOwnProperty('roleName')) {
                 obj['roleName'] = ApiClient.convertToType(data['roleName'], 'String');
+            }
+            if (data.hasOwnProperty('royaltyClass')) {
+                obj['royaltyClass'] = ApiClient.convertToType(data['royaltyClass'], 'String');
             }
             if (data.hasOwnProperty('products')) {
                 obj['products'] = ApiClient.convertToType(data['products'], [ProductResourceReference]);
@@ -95,21 +99,26 @@ UserResourceUrnScimSchemasExtensionFactSetCore10User.prototype['username'] = und
 UserResourceUrnScimSchemasExtensionFactSetCore10User.prototype['serialNumber'] = undefined;
 
 /**
- * FactSet.net ID.
- * @member {String} factSetNetId
- */
-UserResourceUrnScimSchemasExtensionFactSetCore10User.prototype['factSetNetId'] = undefined;
-
-/**
  * @member {module:model/LocationResourceReference} location
  */
 UserResourceUrnScimSchemasExtensionFactSetCore10User.prototype['location'] = undefined;
+
+/**
+ * @member {module:model/UserResourceUrnScimSchemasExtensionFactSetCore10UserUserTaxonomyData} userTaxonomyData
+ */
+UserResourceUrnScimSchemasExtensionFactSetCore10User.prototype['userTaxonomyData'] = undefined;
 
 /**
  * Predetermined role of specific individual. Issues individual a base FactSet workstation and serial number. If passed as NULL a base-FactSet workstation will be allocated to the individual granting the individual a FactSet SerialNumber
  * @member {String} roleName
  */
 UserResourceUrnScimSchemasExtensionFactSetCore10User.prototype['roleName'] = undefined;
+
+/**
+ * Determines the type of client the individual and the royalty fee to be remitted to FactSet for the individual. Expected Royalty Class values will be provided to you by your FactSet account representative.
+ * @member {String} royaltyClass
+ */
+UserResourceUrnScimSchemasExtensionFactSetCore10User.prototype['royaltyClass'] = undefined;
 
 /**
  * An array of FactSet products to allocate/remove from an individual. Individual must have a FactSet serial number associated with them.

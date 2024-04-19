@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse400Errors from './InlineResponse400Errors';
+import ErrorObjectWithSource from './ErrorObjectWithSource';
 
 /**
  * The InlineResponse400 model module.
@@ -48,7 +48,7 @@ class InlineResponse400 {
             obj = obj || new InlineResponse400();
 
             if (data.hasOwnProperty('errors')) {
-                obj['errors'] = ApiClient.convertToType(data['errors'], [InlineResponse400Errors]);
+                obj['errors'] = ApiClient.convertToType(data['errors'], [ErrorObjectWithSource]);
             }
         }
         return obj;
@@ -59,7 +59,7 @@ class InlineResponse400 {
 
 /**
  * An array containing errors
- * @member {Array.<module:model/InlineResponse400Errors>} errors
+ * @member {Array.<module:model/ErrorObjectWithSource>} errors
  */
 InlineResponse400.prototype['errors'] = undefined;
 

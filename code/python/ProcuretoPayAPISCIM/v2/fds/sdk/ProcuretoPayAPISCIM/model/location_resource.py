@@ -30,8 +30,12 @@ from fds.sdk.ProcuretoPayAPISCIM.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from fds.sdk.ProcuretoPayAPISCIM.model.firm_description_resource_reference import FirmDescriptionResourceReference
+    from fds.sdk.ProcuretoPayAPISCIM.model.location_resource_company_agreement_urls import LocationResourceCompanyAgreementUrls
     from fds.sdk.ProcuretoPayAPISCIM.model.location_resource_meta import LocationResourceMeta
     from fds.sdk.ProcuretoPayAPISCIM.model.location_resource_reference import LocationResourceReference
+    globals()['FirmDescriptionResourceReference'] = FirmDescriptionResourceReference
+    globals()['LocationResourceCompanyAgreementUrls'] = LocationResourceCompanyAgreementUrls
     globals()['LocationResourceMeta'] = LocationResourceMeta
     globals()['LocationResourceReference'] = LocationResourceReference
 
@@ -89,10 +93,10 @@ class LocationResource(ModelNormal):
         """
         lazy_import()
         return {
+            'name': (str,),  # noqa: E501
             'schemas': ([str],),  # noqa: E501
             'id': (str,),  # noqa: E501
             'external_id': (str,),  # noqa: E501
-            'name': (str,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'address1': (str,),  # noqa: E501
             'address2': (str,),  # noqa: E501
@@ -102,7 +106,14 @@ class LocationResource(ModelNormal):
             'postal_code': (str,),  # noqa: E501
             'country': (str,),  # noqa: E501
             'phone_number': (str,),  # noqa: E501
+            'firm_description': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'email_domains': ([str],),  # noqa: E501
+            'partner_asserted_entity_id': (str,),  # noqa: E501
+            'company_agreement_urls': ([LocationResourceCompanyAgreementUrls],),  # noqa: E501
+            'managed_locations': ([LocationResourceReference],),  # noqa: E501
+            'managing_location': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'main_location': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'usernames': ([str],),  # noqa: E501
             'meta': (LocationResourceMeta,),  # noqa: E501
         }
 
@@ -112,10 +123,10 @@ class LocationResource(ModelNormal):
 
 
     attribute_map = {
+        'name': 'name',  # noqa: E501
         'schemas': 'schemas',  # noqa: E501
         'id': 'id',  # noqa: E501
         'external_id': 'externalId',  # noqa: E501
-        'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
         'address1': 'address1',  # noqa: E501
         'address2': 'address2',  # noqa: E501
@@ -125,30 +136,32 @@ class LocationResource(ModelNormal):
         'postal_code': 'postalCode',  # noqa: E501
         'country': 'country',  # noqa: E501
         'phone_number': 'phoneNumber',  # noqa: E501
+        'firm_description': 'firmDescription',  # noqa: E501
+        'email_domains': 'emailDomains',  # noqa: E501
+        'partner_asserted_entity_id': 'partnerAssertedEntityId',  # noqa: E501
+        'company_agreement_urls': 'companyAgreementUrls',  # noqa: E501
+        'managed_locations': 'managedLocations',  # noqa: E501
+        'managing_location': 'managingLocation',  # noqa: E501
         'main_location': 'mainLocation',  # noqa: E501
+        'usernames': 'usernames',  # noqa: E501
         'meta': 'meta',  # noqa: E501
     }
 
     read_only_vars = {
         'id',  # noqa: E501
-        'name',  # noqa: E501
-        'description',  # noqa: E501
-        'address1',  # noqa: E501
-        'address2',  # noqa: E501
-        'address3',  # noqa: E501
-        'locality',  # noqa: E501
-        'region',  # noqa: E501
-        'postal_code',  # noqa: E501
-        'country',  # noqa: E501
         'phone_number',  # noqa: E501
+        'usernames',  # noqa: E501
     }
 
     _composed_schemas = {}
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, *args, **kwargs):  # noqa: E501
         """LocationResource - a model defined in OpenAPI
+
+        Args:
+            name (str): Name of the location.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -183,8 +196,7 @@ class LocationResource(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             schemas ([str]): [optional]  # noqa: E501
             id (str): [optional]  # noqa: E501
-            external_id (str): [optional]  # noqa: E501
-            name (str): Name of the location.. [optional]  # noqa: E501
+            external_id (str): An identifier for the resource defined by the client. This can assist the client locate the resource through the use of search filters. Note: for clients that are not FactSet partners, this identifier must be unique within the main location associated with the client's FactSet username.. [optional]  # noqa: E501
             description (str): Description of the location.. [optional]  # noqa: E501
             address1 (str): First line of location's address.. [optional]  # noqa: E501
             address2 (str): Second line of location's address.. [optional]  # noqa: E501
@@ -194,7 +206,14 @@ class LocationResource(ModelNormal):
             postal_code (str): Postal code of location.. [optional]  # noqa: E501
             country (str): Country of location.. [optional]  # noqa: E501
             phone_number (str): Phone number of location.. [optional]  # noqa: E501
-            main_location (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            firm_description (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            email_domains ([str]): The domain names that are valid for use with email addresses associated with users in this location.. [optional]  # noqa: E501
+            partner_asserted_entity_id (str): Identifier assigned to the Corporate Entity. Value is provided as \"fsymEntityId\" from FactSet's Symbology API.. [optional]  # noqa: E501
+            company_agreement_urls ([LocationResourceCompanyAgreementUrls]): Provides FactSet with signed documents allowing entitlement to pre-established exchanges for individuals associated with the location. Document URL provided must be available over the public internet.. [optional]  # noqa: E501
+            managed_locations ([LocationResourceReference]): Lists FactSet locations managed by Research Entitlements Administrators at this location for requesting location-based research entitlements.. [optional]  # noqa: E501
+            managing_location (bool, date, datetime, dict, float, int, list, str, none_type): FactSet location ID managing this location for a Research Entitlements Administrator and requesting location-based entitlements for all managed locations associated.. [optional]  # noqa: E501
+            main_location (bool, date, datetime, dict, float, int, list, str, none_type): The managing or otherwise parent location associated with this location. All locations associated with the mainLocation are viewed as related and within the same business unit in FactSet's CRM systems.. [optional]  # noqa: E501
+            usernames ([str]): The FactSet usernames that are valid for users in this location.. [optional]  # noqa: E501
             meta (LocationResourceMeta): [optional]  # noqa: E501
         """
 
@@ -223,6 +242,7 @@ class LocationResource(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.name = name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -243,8 +263,11 @@ class LocationResource(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, *args, **kwargs):  # noqa: E501
         """LocationResource - a model defined in OpenAPI
+
+        Args:
+            name (str): Name of the location.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -279,8 +302,7 @@ class LocationResource(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             schemas ([str]): [optional]  # noqa: E501
             id (str): [optional]  # noqa: E501
-            external_id (str): [optional]  # noqa: E501
-            name (str): Name of the location.. [optional]  # noqa: E501
+            external_id (str): An identifier for the resource defined by the client. This can assist the client locate the resource through the use of search filters. Note: for clients that are not FactSet partners, this identifier must be unique within the main location associated with the client's FactSet username.. [optional]  # noqa: E501
             description (str): Description of the location.. [optional]  # noqa: E501
             address1 (str): First line of location's address.. [optional]  # noqa: E501
             address2 (str): Second line of location's address.. [optional]  # noqa: E501
@@ -290,7 +312,14 @@ class LocationResource(ModelNormal):
             postal_code (str): Postal code of location.. [optional]  # noqa: E501
             country (str): Country of location.. [optional]  # noqa: E501
             phone_number (str): Phone number of location.. [optional]  # noqa: E501
-            main_location (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            firm_description (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            email_domains ([str]): The domain names that are valid for use with email addresses associated with users in this location.. [optional]  # noqa: E501
+            partner_asserted_entity_id (str): Identifier assigned to the Corporate Entity. Value is provided as \"fsymEntityId\" from FactSet's Symbology API.. [optional]  # noqa: E501
+            company_agreement_urls ([LocationResourceCompanyAgreementUrls]): Provides FactSet with signed documents allowing entitlement to pre-established exchanges for individuals associated with the location. Document URL provided must be available over the public internet.. [optional]  # noqa: E501
+            managed_locations ([LocationResourceReference]): Lists FactSet locations managed by Research Entitlements Administrators at this location for requesting location-based research entitlements.. [optional]  # noqa: E501
+            managing_location (bool, date, datetime, dict, float, int, list, str, none_type): FactSet location ID managing this location for a Research Entitlements Administrator and requesting location-based entitlements for all managed locations associated.. [optional]  # noqa: E501
+            main_location (bool, date, datetime, dict, float, int, list, str, none_type): The managing or otherwise parent location associated with this location. All locations associated with the mainLocation are viewed as related and within the same business unit in FactSet's CRM systems.. [optional]  # noqa: E501
+            usernames ([str]): The FactSet usernames that are valid for users in this location.. [optional]  # noqa: E501
             meta (LocationResourceMeta): [optional]  # noqa: E501
         """
 
@@ -317,6 +346,7 @@ class LocationResource(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.name = name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

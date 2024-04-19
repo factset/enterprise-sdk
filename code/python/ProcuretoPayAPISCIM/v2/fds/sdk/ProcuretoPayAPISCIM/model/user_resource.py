@@ -181,7 +181,7 @@ class UserResource(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             schemas ([str]): [optional]  # noqa: E501
             id (str): [optional]  # noqa: E501
-            external_id (str): [optional]  # noqa: E501
+            external_id (str): An arbitrary identifier for the resource defined by the client. This can assist the client locate the resource through the use of search filters.. [optional]  # noqa: E501
             phone_numbers ([UserResourcePhoneNumbers]): Phone numbers for the User.  The value SHOULD be canonicalized by the service provider according to the format specified in RFC 3966, e.g., 'tel:+1-201-555-0123'. Canonical type values of 'main', 'work', 'mobile', and 'home'.. [optional]  # noqa: E501
             groups ([UserResourceGroups]): A list of groups to which the user belongs, either through direct membership, through nested groups, or dynamically calculated.. [optional]  # noqa: E501
             urnscimschemasextension_fact_set_core1_0_user (UserResourceUrnScimSchemasExtensionFactSetCore10User): [optional]  # noqa: E501
@@ -276,7 +276,7 @@ class UserResource(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             schemas ([str]): [optional]  # noqa: E501
             id (str): [optional]  # noqa: E501
-            external_id (str): [optional]  # noqa: E501
+            external_id (str): An arbitrary identifier for the resource defined by the client. This can assist the client locate the resource through the use of search filters.. [optional]  # noqa: E501
             phone_numbers ([UserResourcePhoneNumbers]): Phone numbers for the User.  The value SHOULD be canonicalized by the service provider according to the format specified in RFC 3966, e.g., 'tel:+1-201-555-0123'. Canonical type values of 'main', 'work', 'mobile', and 'home'.. [optional]  # noqa: E501
             groups ([UserResourceGroups]): A list of groups to which the user belongs, either through direct membership, through nested groups, or dynamically calculated.. [optional]  # noqa: E501
             urnscimschemasextension_fact_set_core1_0_user (UserResourceUrnScimSchemasExtensionFactSetCore10User): [optional]  # noqa: E501

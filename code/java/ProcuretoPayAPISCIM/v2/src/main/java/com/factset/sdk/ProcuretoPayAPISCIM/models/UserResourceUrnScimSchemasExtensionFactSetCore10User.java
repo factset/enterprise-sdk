@@ -20,6 +20,7 @@ import java.util.HashMap;
 import com.factset.sdk.ProcuretoPayAPISCIM.models.LocationResourceReference;
 import com.factset.sdk.ProcuretoPayAPISCIM.models.PendingProductOrder;
 import com.factset.sdk.ProcuretoPayAPISCIM.models.ProductResourceReference;
+import com.factset.sdk.ProcuretoPayAPISCIM.models.UserResourceUrnScimSchemasExtensionFactSetCore10UserUserTaxonomyData;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -38,9 +39,10 @@ import com.factset.sdk.ProcuretoPayAPISCIM.JSON;
 @JsonPropertyOrder({
   UserResourceUrnScimSchemasExtensionFactSetCore10User.JSON_PROPERTY_USERNAME,
   UserResourceUrnScimSchemasExtensionFactSetCore10User.JSON_PROPERTY_SERIAL_NUMBER,
-  UserResourceUrnScimSchemasExtensionFactSetCore10User.JSON_PROPERTY_FACT_SET_NET_ID,
   UserResourceUrnScimSchemasExtensionFactSetCore10User.JSON_PROPERTY_LOCATION,
+  UserResourceUrnScimSchemasExtensionFactSetCore10User.JSON_PROPERTY_USER_TAXONOMY_DATA,
   UserResourceUrnScimSchemasExtensionFactSetCore10User.JSON_PROPERTY_ROLE_NAME,
+  UserResourceUrnScimSchemasExtensionFactSetCore10User.JSON_PROPERTY_ROYALTY_CLASS,
   UserResourceUrnScimSchemasExtensionFactSetCore10User.JSON_PROPERTY_PRODUCTS,
   UserResourceUrnScimSchemasExtensionFactSetCore10User.JSON_PROPERTY_PENDING_PRODUCT_ORDERS,
   UserResourceUrnScimSchemasExtensionFactSetCore10User.JSON_PROPERTY_ASSERTION_VALUE
@@ -56,14 +58,17 @@ public class UserResourceUrnScimSchemasExtensionFactSetCore10User implements Ser
   public static final String JSON_PROPERTY_SERIAL_NUMBER = "serialNumber";
   private String serialNumber;
 
-  public static final String JSON_PROPERTY_FACT_SET_NET_ID = "factSetNetId";
-  private String factSetNetId;
-
   public static final String JSON_PROPERTY_LOCATION = "location";
   private LocationResourceReference location;
 
+  public static final String JSON_PROPERTY_USER_TAXONOMY_DATA = "userTaxonomyData";
+  private UserResourceUrnScimSchemasExtensionFactSetCore10UserUserTaxonomyData userTaxonomyData;
+
   public static final String JSON_PROPERTY_ROLE_NAME = "roleName";
   private String roleName;
+
+  public static final String JSON_PROPERTY_ROYALTY_CLASS = "royaltyClass";
+  private String royaltyClass;
 
   public static final String JSON_PROPERTY_PRODUCTS = "products";
   private java.util.List<ProductResourceReference> products = null;
@@ -80,12 +85,10 @@ public class UserResourceUrnScimSchemasExtensionFactSetCore10User implements Ser
   @JsonCreator
   public UserResourceUrnScimSchemasExtensionFactSetCore10User(
     @JsonProperty(JSON_PROPERTY_SERIAL_NUMBER) String serialNumber, 
-    @JsonProperty(JSON_PROPERTY_FACT_SET_NET_ID) String factSetNetId, 
     @JsonProperty(JSON_PROPERTY_PENDING_PRODUCT_ORDERS) java.util.List<PendingProductOrder> pendingProductOrders
   ) {
     this();
     this.serialNumber = serialNumber;
-    this.factSetNetId = factSetNetId;
     this.pendingProductOrders = pendingProductOrders;
   }
 
@@ -131,22 +134,6 @@ public class UserResourceUrnScimSchemasExtensionFactSetCore10User implements Ser
 
 
 
-   /**
-   * FactSet.net ID.
-   * @return factSetNetId
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "John.Doe9@factset.net", value = "FactSet.net ID.")
-  @JsonProperty(JSON_PROPERTY_FACT_SET_NET_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getFactSetNetId() {
-    return factSetNetId;
-  }
-
-
-
-
   public UserResourceUrnScimSchemasExtensionFactSetCore10User location(LocationResourceReference location) {
     this.location = location;
     return this;
@@ -173,6 +160,32 @@ public class UserResourceUrnScimSchemasExtensionFactSetCore10User implements Ser
   }
 
 
+  public UserResourceUrnScimSchemasExtensionFactSetCore10User userTaxonomyData(UserResourceUrnScimSchemasExtensionFactSetCore10UserUserTaxonomyData userTaxonomyData) {
+    this.userTaxonomyData = userTaxonomyData;
+    return this;
+  }
+
+   /**
+   * Get userTaxonomyData
+   * @return userTaxonomyData
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_USER_TAXONOMY_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public UserResourceUrnScimSchemasExtensionFactSetCore10UserUserTaxonomyData getUserTaxonomyData() {
+    return userTaxonomyData;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_USER_TAXONOMY_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setUserTaxonomyData(UserResourceUrnScimSchemasExtensionFactSetCore10UserUserTaxonomyData userTaxonomyData) {
+    this.userTaxonomyData = userTaxonomyData;
+  }
+
+
   public UserResourceUrnScimSchemasExtensionFactSetCore10User roleName(String roleName) {
     this.roleName = roleName;
     return this;
@@ -196,6 +209,32 @@ public class UserResourceUrnScimSchemasExtensionFactSetCore10User implements Ser
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoleName(String roleName) {
     this.roleName = roleName;
+  }
+
+
+  public UserResourceUrnScimSchemasExtensionFactSetCore10User royaltyClass(String royaltyClass) {
+    this.royaltyClass = royaltyClass;
+    return this;
+  }
+
+   /**
+   * Determines the type of client the individual and the royalty fee to be remitted to FactSet for the individual. Expected Royalty Class values will be provided to you by your FactSet account representative.
+   * @return royaltyClass
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Determines the type of client the individual and the royalty fee to be remitted to FactSet for the individual. Expected Royalty Class values will be provided to you by your FactSet account representative.")
+  @JsonProperty(JSON_PROPERTY_ROYALTY_CLASS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getRoyaltyClass() {
+    return royaltyClass;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ROYALTY_CLASS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRoyaltyClass(String royaltyClass) {
+    this.royaltyClass = royaltyClass;
   }
 
 
@@ -289,9 +328,10 @@ public class UserResourceUrnScimSchemasExtensionFactSetCore10User implements Ser
     UserResourceUrnScimSchemasExtensionFactSetCore10User userResourceUrnScimSchemasExtensionFactSetCore10User = (UserResourceUrnScimSchemasExtensionFactSetCore10User) o;
     return Objects.equals(this.username, userResourceUrnScimSchemasExtensionFactSetCore10User.username) &&
         Objects.equals(this.serialNumber, userResourceUrnScimSchemasExtensionFactSetCore10User.serialNumber) &&
-        Objects.equals(this.factSetNetId, userResourceUrnScimSchemasExtensionFactSetCore10User.factSetNetId) &&
         Objects.equals(this.location, userResourceUrnScimSchemasExtensionFactSetCore10User.location) &&
+        Objects.equals(this.userTaxonomyData, userResourceUrnScimSchemasExtensionFactSetCore10User.userTaxonomyData) &&
         Objects.equals(this.roleName, userResourceUrnScimSchemasExtensionFactSetCore10User.roleName) &&
+        Objects.equals(this.royaltyClass, userResourceUrnScimSchemasExtensionFactSetCore10User.royaltyClass) &&
         Objects.equals(this.products, userResourceUrnScimSchemasExtensionFactSetCore10User.products) &&
         Objects.equals(this.pendingProductOrders, userResourceUrnScimSchemasExtensionFactSetCore10User.pendingProductOrders) &&
         Objects.equals(this.assertionValue, userResourceUrnScimSchemasExtensionFactSetCore10User.assertionValue);
@@ -299,7 +339,7 @@ public class UserResourceUrnScimSchemasExtensionFactSetCore10User implements Ser
 
   @Override
   public int hashCode() {
-    return Objects.hash(username, serialNumber, factSetNetId, location, roleName, products, pendingProductOrders, assertionValue);
+    return Objects.hash(username, serialNumber, location, userTaxonomyData, roleName, royaltyClass, products, pendingProductOrders, assertionValue);
   }
 
   @Override
@@ -308,9 +348,10 @@ public class UserResourceUrnScimSchemasExtensionFactSetCore10User implements Ser
     sb.append("class UserResourceUrnScimSchemasExtensionFactSetCore10User {\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    serialNumber: ").append(toIndentedString(serialNumber)).append("\n");
-    sb.append("    factSetNetId: ").append(toIndentedString(factSetNetId)).append("\n");
     sb.append("    location: ").append(toIndentedString(location)).append("\n");
+    sb.append("    userTaxonomyData: ").append(toIndentedString(userTaxonomyData)).append("\n");
     sb.append("    roleName: ").append(toIndentedString(roleName)).append("\n");
+    sb.append("    royaltyClass: ").append(toIndentedString(royaltyClass)).append("\n");
     sb.append("    products: ").append(toIndentedString(products)).append("\n");
     sb.append("    pendingProductOrders: ").append(toIndentedString(pendingProductOrders)).append("\n");
     sb.append("    assertionValue: ").append(toIndentedString(assertionValue)).append("\n");

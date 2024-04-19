@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**[AddDatesData]**](AddDatesData.md) |  | [optional] 
+**data** | [**[DateAndContent]**](DateAndContent.md) |  | [optional] 
 
 

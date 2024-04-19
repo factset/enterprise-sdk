@@ -8,7 +8,7 @@ Any arbitrary set of fields that are provided while creating the ofdb and their 
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**java.util.List&lt;UpdateSymbolsData&gt;**](UpdateSymbolsData.md) |  |  [optional]
+**data** | [**java.util.List&lt;SymbolAndContent&gt;**](SymbolAndContent.md) |  |  [optional]
 
 
 ## Implemented Interfaces

@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import AddSymbolsData from './AddSymbolsData';
+import SymbolAndContent from './SymbolAndContent';
 
 /**
  * The AddSymbols model module.
@@ -48,7 +48,7 @@ class AddSymbols {
             obj = obj || new AddSymbols();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [AddSymbolsData]);
+                obj['data'] = ApiClient.convertToType(data['data'], [SymbolAndContent]);
             }
         }
         return obj;
@@ -58,7 +58,7 @@ class AddSymbols {
 }
 
 /**
- * @member {Array.<module:model/AddSymbolsData>} data
+ * @member {Array.<module:model/SymbolAndContent>} data
  */
 AddSymbols.prototype['data'] = undefined;
 

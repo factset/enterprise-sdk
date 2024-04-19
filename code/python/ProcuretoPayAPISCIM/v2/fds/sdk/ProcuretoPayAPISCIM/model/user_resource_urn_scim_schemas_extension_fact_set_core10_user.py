@@ -33,9 +33,11 @@ def lazy_import():
     from fds.sdk.ProcuretoPayAPISCIM.model.location_resource_reference import LocationResourceReference
     from fds.sdk.ProcuretoPayAPISCIM.model.pending_product_order import PendingProductOrder
     from fds.sdk.ProcuretoPayAPISCIM.model.product_resource_reference import ProductResourceReference
+    from fds.sdk.ProcuretoPayAPISCIM.model.user_resource_urn_scim_schemas_extension_fact_set_core10_user_user_taxonomy_data import UserResourceUrnScimSchemasExtensionFactSetCore10UserUserTaxonomyData
     globals()['LocationResourceReference'] = LocationResourceReference
     globals()['PendingProductOrder'] = PendingProductOrder
     globals()['ProductResourceReference'] = ProductResourceReference
+    globals()['UserResourceUrnScimSchemasExtensionFactSetCore10UserUserTaxonomyData'] = UserResourceUrnScimSchemasExtensionFactSetCore10UserUserTaxonomyData
 
 
 class UserResourceUrnScimSchemasExtensionFactSetCore10User(ModelNormal):
@@ -93,9 +95,10 @@ class UserResourceUrnScimSchemasExtensionFactSetCore10User(ModelNormal):
         return {
             'username': (str,),  # noqa: E501
             'serial_number': (str,),  # noqa: E501
-            'fact_set_net_id': (str,),  # noqa: E501
             'location': (LocationResourceReference,),  # noqa: E501
+            'user_taxonomy_data': (UserResourceUrnScimSchemasExtensionFactSetCore10UserUserTaxonomyData,),  # noqa: E501
             'role_name': (str,),  # noqa: E501
+            'royalty_class': (str,),  # noqa: E501
             'products': ([ProductResourceReference],),  # noqa: E501
             'pending_product_orders': ([PendingProductOrder],),  # noqa: E501
             'assertion_value': (str,),  # noqa: E501
@@ -109,9 +112,10 @@ class UserResourceUrnScimSchemasExtensionFactSetCore10User(ModelNormal):
     attribute_map = {
         'username': 'username',  # noqa: E501
         'serial_number': 'serialNumber',  # noqa: E501
-        'fact_set_net_id': 'factSetNetId',  # noqa: E501
         'location': 'location',  # noqa: E501
+        'user_taxonomy_data': 'userTaxonomyData',  # noqa: E501
         'role_name': 'roleName',  # noqa: E501
+        'royalty_class': 'royaltyClass',  # noqa: E501
         'products': 'products',  # noqa: E501
         'pending_product_orders': 'pendingProductOrders',  # noqa: E501
         'assertion_value': 'assertionValue',  # noqa: E501
@@ -119,7 +123,6 @@ class UserResourceUrnScimSchemasExtensionFactSetCore10User(ModelNormal):
 
     read_only_vars = {
         'serial_number',  # noqa: E501
-        'fact_set_net_id',  # noqa: E501
         'pending_product_orders',  # noqa: E501
     }
 
@@ -165,9 +168,10 @@ class UserResourceUrnScimSchemasExtensionFactSetCore10User(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             serial_number (str): A serial number represents an individual's unique FactSet account identifier and base-workstation access. Serial numbers are allocated to an individual when a valid RoleName is present.. [optional]  # noqa: E501
-            fact_set_net_id (str): FactSet.net ID.. [optional]  # noqa: E501
             location (LocationResourceReference): [optional]  # noqa: E501
+            user_taxonomy_data (UserResourceUrnScimSchemasExtensionFactSetCore10UserUserTaxonomyData): [optional]  # noqa: E501
             role_name (str): Predetermined role of specific individual. Issues individual a base FactSet workstation and serial number. If passed as NULL a base-FactSet workstation will be allocated to the individual granting the individual a FactSet SerialNumber. [optional]  # noqa: E501
+            royalty_class (str): Determines the type of client the individual and the royalty fee to be remitted to FactSet for the individual. Expected Royalty Class values will be provided to you by your FactSet account representative.. [optional]  # noqa: E501
             products ([ProductResourceReference]): An array of FactSet products to allocate/remove from an individual. Individual must have a FactSet serial number associated with them.. [optional]  # noqa: E501
             pending_product_orders ([PendingProductOrder]): An array of pending FactSet product orders.. [optional]  # noqa: E501
             assertion_value (str): Field containing the value, passed as nameID, used to assert the identity of an individual via SAML2.0 which maps service-provider-side to a FactSet serial number. Only applicable to individuals with a FactSet serial number with a Federation setup between your domain and FactSet's. [optional]  # noqa: E501
@@ -257,9 +261,10 @@ class UserResourceUrnScimSchemasExtensionFactSetCore10User(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             serial_number (str): A serial number represents an individual's unique FactSet account identifier and base-workstation access. Serial numbers are allocated to an individual when a valid RoleName is present.. [optional]  # noqa: E501
-            fact_set_net_id (str): FactSet.net ID.. [optional]  # noqa: E501
             location (LocationResourceReference): [optional]  # noqa: E501
+            user_taxonomy_data (UserResourceUrnScimSchemasExtensionFactSetCore10UserUserTaxonomyData): [optional]  # noqa: E501
             role_name (str): Predetermined role of specific individual. Issues individual a base FactSet workstation and serial number. If passed as NULL a base-FactSet workstation will be allocated to the individual granting the individual a FactSet SerialNumber. [optional]  # noqa: E501
+            royalty_class (str): Determines the type of client the individual and the royalty fee to be remitted to FactSet for the individual. Expected Royalty Class values will be provided to you by your FactSet account representative.. [optional]  # noqa: E501
             products ([ProductResourceReference]): An array of FactSet products to allocate/remove from an individual. Individual must have a FactSet serial number associated with them.. [optional]  # noqa: E501
             pending_product_orders ([PendingProductOrder]): An array of pending FactSet product orders.. [optional]  # noqa: E501
             assertion_value (str): Field containing the value, passed as nameID, used to assert the identity of an individual via SAML2.0 which maps service-provider-side to a FactSet serial number. Only applicable to individuals with a FactSet serial number with a Federation setup between your domain and FactSet's. [optional]  # noqa: E501

@@ -31,10 +31,6 @@ from fds.sdk.OFDB.model.add_symbols import AddSymbols
 from fds.sdk.OFDB.model.inline_response202 import InlineResponse202
 from fds.sdk.OFDB.model.inline_response400 import InlineResponse400
 from fds.sdk.OFDB.model.inline_response403 import InlineResponse403
-from fds.sdk.OFDB.model.inline_response404 import InlineResponse404
-from fds.sdk.OFDB.model.inline_response406 import InlineResponse406
-from fds.sdk.OFDB.model.inline_response413 import InlineResponse413
-from fds.sdk.OFDB.model.inline_response429 import InlineResponse429
 
 
 
@@ -55,7 +51,7 @@ class AddApi(object):
         self.add_dates_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse404,), 406: (InlineResponse406,), 413: (InlineResponse413,), 429: (InlineResponse429,),  },
+                  { 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 413: (InlineResponse403,), 429: (InlineResponse403,),  },
                   None
                 ),
                 'auth': [
@@ -118,7 +114,7 @@ class AddApi(object):
         self.add_fields_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse404,), 406: (InlineResponse406,), 429: (InlineResponse429,),  },
+                  { 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 429: (InlineResponse403,),  },
                   None
                 ),
                 'auth': [
@@ -181,7 +177,7 @@ class AddApi(object):
         self.add_symbols_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse404,), 406: (InlineResponse406,), 413: (InlineResponse413,), 429: (InlineResponse429,),  },
+                  { 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 413: (InlineResponse403,), 429: (InlineResponse403,),  },
                   None
                 ),
                 'auth': [

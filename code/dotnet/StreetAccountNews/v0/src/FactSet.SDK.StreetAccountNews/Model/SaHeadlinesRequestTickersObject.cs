@@ -60,7 +60,25 @@ namespace FactSet.SDK.StreetAccountNews.Model
             /// Enum Portfolios for value: Portfolios
             /// </summary>
             [EnumMember(Value = "Portfolios")]
-            Portfolios = 4
+            Portfolios = 4,
+
+            /// <summary>
+            /// Enum Equity for value: Equity
+            /// </summary>
+            [EnumMember(Value = "Equity")]
+            Equity = 5,
+
+            /// <summary>
+            /// Enum PrivateCompanies for value: privateCompanies
+            /// </summary>
+            [EnumMember(Value = "privateCompanies")]
+            PrivateCompanies = 6,
+
+            /// <summary>
+            /// Enum FixedIncome for value: Fixed_Income
+            /// </summary>
+            [EnumMember(Value = "Fixed_Income")]
+            FixedIncome = 7
 
         }
 

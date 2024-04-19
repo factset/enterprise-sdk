@@ -61,6 +61,9 @@ class SaHeadlinesRequestTickersObject(ModelNormal):
             'ETF': "ETF",
             'MUTUAL_FUND': "Mutual_Fund",
             'PORTFOLIOS': "Portfolios",
+            'EQUITY': "Equity",
+            'PRIVATECOMPANIES': "privateCompanies",
+            'FIXED_INCOME': "Fixed_Income",
         },
     }
 

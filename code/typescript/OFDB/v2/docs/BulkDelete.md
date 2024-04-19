@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**[BulkDeleteData]**](BulkDeleteData.md) |  | [optional] 
+**data** | [**[BulkDeleteItem]**](BulkDeleteItem.md) |  | [optional] 
 
 

@@ -12,6 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
+import FirmDescriptionResourceReference from './FirmDescriptionResourceReference';
+import LocationResourceCompanyAgreementUrls from './LocationResourceCompanyAgreementUrls';
 import LocationResourceMeta from './LocationResourceMeta';
 import LocationResourceReference from './LocationResourceReference';
 
@@ -23,10 +25,11 @@ class LocationResource {
     /**
      * Constructs a new <code>LocationResource</code>.
      * @alias module:model/LocationResource
+     * @param name {String} Name of the location.
      */
-    constructor() { 
+    constructor(name) { 
         
-        LocationResource.initialize(this);
+        LocationResource.initialize(this, name);
     }
 
     /**
@@ -34,7 +37,8 @@ class LocationResource {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, name) { 
+        obj['name'] = name;
     }
 
     /**
@@ -87,8 +91,29 @@ class LocationResource {
             if (data.hasOwnProperty('phoneNumber')) {
                 obj['phoneNumber'] = ApiClient.convertToType(data['phoneNumber'], 'String');
             }
+            if (data.hasOwnProperty('firmDescription')) {
+                obj['firmDescription'] = ApiClient.convertToType(data['firmDescription'], FirmDescriptionResourceReference);
+            }
+            if (data.hasOwnProperty('emailDomains')) {
+                obj['emailDomains'] = ApiClient.convertToType(data['emailDomains'], ['String']);
+            }
+            if (data.hasOwnProperty('partnerAssertedEntityId')) {
+                obj['partnerAssertedEntityId'] = ApiClient.convertToType(data['partnerAssertedEntityId'], 'String');
+            }
+            if (data.hasOwnProperty('companyAgreementUrls')) {
+                obj['companyAgreementUrls'] = ApiClient.convertToType(data['companyAgreementUrls'], [LocationResourceCompanyAgreementUrls]);
+            }
+            if (data.hasOwnProperty('managedLocations')) {
+                obj['managedLocations'] = ApiClient.convertToType(data['managedLocations'], [LocationResourceReference]);
+            }
+            if (data.hasOwnProperty('managingLocation')) {
+                obj['managingLocation'] = ApiClient.convertToType(data['managingLocation'], LocationResourceReference);
+            }
             if (data.hasOwnProperty('mainLocation')) {
                 obj['mainLocation'] = ApiClient.convertToType(data['mainLocation'], LocationResourceReference);
+            }
+            if (data.hasOwnProperty('usernames')) {
+                obj['usernames'] = ApiClient.convertToType(data['usernames'], ['String']);
             }
             if (data.hasOwnProperty('meta')) {
                 obj['meta'] = LocationResourceMeta.constructFromObject(data['meta']);
@@ -111,6 +136,7 @@ LocationResource.prototype['schemas'] = undefined;
 LocationResource.prototype['id'] = undefined;
 
 /**
+ * An identifier for the resource defined by the client. This can assist the client locate the resource through the use of search filters. Note: for clients that are not FactSet partners, this identifier must be unique within the main location associated with the client's FactSet username.
  * @member {String} externalId
  */
 LocationResource.prototype['externalId'] = undefined;
@@ -176,9 +202,51 @@ LocationResource.prototype['country'] = undefined;
 LocationResource.prototype['phoneNumber'] = undefined;
 
 /**
+ * @member {module:model/FirmDescriptionResourceReference} firmDescription
+ */
+LocationResource.prototype['firmDescription'] = undefined;
+
+/**
+ * The domain names that are valid for use with email addresses associated with users in this location.
+ * @member {Array.<String>} emailDomains
+ */
+LocationResource.prototype['emailDomains'] = undefined;
+
+/**
+ * Identifier assigned to the Corporate Entity. Value is provided as \"fsymEntityId\" from FactSet's Symbology API.
+ * @member {String} partnerAssertedEntityId
+ */
+LocationResource.prototype['partnerAssertedEntityId'] = undefined;
+
+/**
+ * Provides FactSet with signed documents allowing entitlement to pre-established exchanges for individuals associated with the location. Document URL provided must be available over the public internet.
+ * @member {Array.<module:model/LocationResourceCompanyAgreementUrls>} companyAgreementUrls
+ */
+LocationResource.prototype['companyAgreementUrls'] = undefined;
+
+/**
+ * Lists FactSet locations managed by Research Entitlements Administrators at this location for requesting location-based research entitlements.
+ * @member {Array.<module:model/LocationResourceReference>} managedLocations
+ */
+LocationResource.prototype['managedLocations'] = undefined;
+
+/**
+ * FactSet location ID managing this location for a Research Entitlements Administrator and requesting location-based entitlements for all managed locations associated.
+ * @member {module:model/LocationResourceReference} managingLocation
+ */
+LocationResource.prototype['managingLocation'] = undefined;
+
+/**
+ * The managing or otherwise parent location associated with this location. All locations associated with the mainLocation are viewed as related and within the same business unit in FactSet's CRM systems.
  * @member {module:model/LocationResourceReference} mainLocation
  */
 LocationResource.prototype['mainLocation'] = undefined;
+
+/**
+ * The FactSet usernames that are valid for users in this location.
+ * @member {Array.<String>} usernames
+ */
+LocationResource.prototype['usernames'] = undefined;
 
 /**
  * @member {module:model/LocationResourceMeta} meta

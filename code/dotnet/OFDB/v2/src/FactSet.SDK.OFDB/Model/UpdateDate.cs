@@ -36,7 +36,7 @@ namespace FactSet.SDK.OFDB.Model
         /// Initializes a new instance of the <see cref="UpdateDate" /> class.
         /// </summary>
         /// <param name="data">date has to be provide in case 3d OFDB with date and atleast one iterative field.</param>
-        public UpdateDate(List<UpdateDateData> data = default(List<UpdateDateData>))
+        public UpdateDate(List<ContentWithSymbol> data = default(List<ContentWithSymbol>))
         {
             this.Data = data;
         }
@@ -46,7 +46,7 @@ namespace FactSet.SDK.OFDB.Model
         /// </summary>
         /// <value>date has to be provide in case 3d OFDB with date and atleast one iterative field</value>
         [DataMember(Name = "data", EmitDefaultValue = false)]
-        public List<UpdateDateData> Data { get; set; }
+        public List<ContentWithSymbol> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

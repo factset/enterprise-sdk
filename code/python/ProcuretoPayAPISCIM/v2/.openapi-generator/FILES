@@ -7,6 +7,11 @@ README.md
 docs/Error.md
 docs/FileManagerAudit.md
 docs/FileManagerAuditApi.md
+docs/FirmDescriptionResource.md
+docs/FirmDescriptionResourceList.md
+docs/FirmDescriptionResourceMeta.md
+docs/FirmDescriptionResourceReference.md
+docs/FirmDescriptionsApi.md
 docs/GroupResource.md
 docs/GroupResourceList.md
 docs/GroupResourceMembers.md
@@ -15,6 +20,7 @@ docs/GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group.md
 docs/GroupResourceUrnScimSchemasExtensionFactSetVRS10Group.md
 docs/GroupsApi.md
 docs/LocationResource.md
+docs/LocationResourceCompanyAgreementUrls.md
 docs/LocationResourceList.md
 docs/LocationResourceMeta.md
 docs/LocationResourceReference.md
@@ -30,6 +36,7 @@ docs/ProductsApi.md
 docs/Schema.md
 docs/SchemaAttributes.md
 docs/SchemaList.md
+docs/SchemaMeta.md
 docs/SchemaSubAttributes.md
 docs/SchemasApi.md
 docs/ServerConfigurationApi.md
@@ -41,6 +48,16 @@ docs/ServiceProviderConfigEtag.md
 docs/ServiceProviderConfigFilter.md
 docs/ServiceProviderConfigPatch.md
 docs/ServiceProviderConfigSort.md
+docs/UserClassResource.md
+docs/UserClassResourceList.md
+docs/UserClassResourceMeta.md
+docs/UserClassResourceReference.md
+docs/UserClassesApi.md
+docs/UserPositionResource.md
+docs/UserPositionResourceList.md
+docs/UserPositionResourceMeta.md
+docs/UserPositionResourceReference.md
+docs/UserPositionsApi.md
 docs/UserResource.md
 docs/UserResourceGroups.md
 docs/UserResourceList.md
@@ -48,6 +65,7 @@ docs/UserResourceMeta.md
 docs/UserResourceName.md
 docs/UserResourcePhoneNumbers.md
 docs/UserResourceUrnScimSchemasExtensionFactSetCore10User.md
+docs/UserResourceUrnScimSchemasExtensionFactSetCore10UserUserTaxonomyData.md
 docs/UserResourceUrnScimSchemasExtensionFactSetVRS10User.md
 docs/UserResourceUrnScimSchemasExtensionFactSetVRS10UserDomainData.md
 docs/UserResourceUrnScimSchemasExtensionFactSetVRS10UserTenancies.md
@@ -56,11 +74,14 @@ fds/__init__.py
 fds/sdk/ProcuretoPayAPISCIM/__init__.py
 fds/sdk/ProcuretoPayAPISCIM/api/__init__.py
 fds/sdk/ProcuretoPayAPISCIM/api/file_manager_audit_api.py
+fds/sdk/ProcuretoPayAPISCIM/api/firm_descriptions_api.py
 fds/sdk/ProcuretoPayAPISCIM/api/groups_api.py
 fds/sdk/ProcuretoPayAPISCIM/api/locations_api.py
 fds/sdk/ProcuretoPayAPISCIM/api/products_api.py
 fds/sdk/ProcuretoPayAPISCIM/api/schemas_api.py
 fds/sdk/ProcuretoPayAPISCIM/api/server_configuration_api.py
+fds/sdk/ProcuretoPayAPISCIM/api/user_classes_api.py
+fds/sdk/ProcuretoPayAPISCIM/api/user_positions_api.py
 fds/sdk/ProcuretoPayAPISCIM/api/users_api.py
 fds/sdk/ProcuretoPayAPISCIM/api_client.py
 fds/sdk/ProcuretoPayAPISCIM/apis/__init__.py
@@ -69,6 +90,10 @@ fds/sdk/ProcuretoPayAPISCIM/exceptions.py
 fds/sdk/ProcuretoPayAPISCIM/model/__init__.py
 fds/sdk/ProcuretoPayAPISCIM/model/error.py
 fds/sdk/ProcuretoPayAPISCIM/model/file_manager_audit.py
+fds/sdk/ProcuretoPayAPISCIM/model/firm_description_resource.py
+fds/sdk/ProcuretoPayAPISCIM/model/firm_description_resource_list.py
+fds/sdk/ProcuretoPayAPISCIM/model/firm_description_resource_meta.py
+fds/sdk/ProcuretoPayAPISCIM/model/firm_description_resource_reference.py
 fds/sdk/ProcuretoPayAPISCIM/model/group_resource.py
 fds/sdk/ProcuretoPayAPISCIM/model/group_resource_list.py
 fds/sdk/ProcuretoPayAPISCIM/model/group_resource_members.py
@@ -76,6 +101,7 @@ fds/sdk/ProcuretoPayAPISCIM/model/group_resource_meta.py
 fds/sdk/ProcuretoPayAPISCIM/model/group_resource_urn_scim_schemas_extension_fact_set_enterprise_hosting10_group.py
 fds/sdk/ProcuretoPayAPISCIM/model/group_resource_urn_scim_schemas_extension_fact_set_vrs10_group.py
 fds/sdk/ProcuretoPayAPISCIM/model/location_resource.py
+fds/sdk/ProcuretoPayAPISCIM/model/location_resource_company_agreement_urls.py
 fds/sdk/ProcuretoPayAPISCIM/model/location_resource_list.py
 fds/sdk/ProcuretoPayAPISCIM/model/location_resource_meta.py
 fds/sdk/ProcuretoPayAPISCIM/model/location_resource_reference.py
@@ -89,6 +115,7 @@ fds/sdk/ProcuretoPayAPISCIM/model/product_resource_reference.py
 fds/sdk/ProcuretoPayAPISCIM/model/schema.py
 fds/sdk/ProcuretoPayAPISCIM/model/schema_attributes.py
 fds/sdk/ProcuretoPayAPISCIM/model/schema_list.py
+fds/sdk/ProcuretoPayAPISCIM/model/schema_meta.py
 fds/sdk/ProcuretoPayAPISCIM/model/schema_sub_attributes.py
 fds/sdk/ProcuretoPayAPISCIM/model/service_provider_config.py
 fds/sdk/ProcuretoPayAPISCIM/model/service_provider_config_authentication_schemes.py
@@ -98,6 +125,14 @@ fds/sdk/ProcuretoPayAPISCIM/model/service_provider_config_etag.py
 fds/sdk/ProcuretoPayAPISCIM/model/service_provider_config_filter.py
 fds/sdk/ProcuretoPayAPISCIM/model/service_provider_config_patch.py
 fds/sdk/ProcuretoPayAPISCIM/model/service_provider_config_sort.py
+fds/sdk/ProcuretoPayAPISCIM/model/user_class_resource.py
+fds/sdk/ProcuretoPayAPISCIM/model/user_class_resource_list.py
+fds/sdk/ProcuretoPayAPISCIM/model/user_class_resource_meta.py
+fds/sdk/ProcuretoPayAPISCIM/model/user_class_resource_reference.py
+fds/sdk/ProcuretoPayAPISCIM/model/user_position_resource.py
+fds/sdk/ProcuretoPayAPISCIM/model/user_position_resource_list.py
+fds/sdk/ProcuretoPayAPISCIM/model/user_position_resource_meta.py
+fds/sdk/ProcuretoPayAPISCIM/model/user_position_resource_reference.py
 fds/sdk/ProcuretoPayAPISCIM/model/user_resource.py
 fds/sdk/ProcuretoPayAPISCIM/model/user_resource_groups.py
 fds/sdk/ProcuretoPayAPISCIM/model/user_resource_list.py
@@ -105,6 +140,7 @@ fds/sdk/ProcuretoPayAPISCIM/model/user_resource_meta.py
 fds/sdk/ProcuretoPayAPISCIM/model/user_resource_name.py
 fds/sdk/ProcuretoPayAPISCIM/model/user_resource_phone_numbers.py
 fds/sdk/ProcuretoPayAPISCIM/model/user_resource_urn_scim_schemas_extension_fact_set_core10_user.py
+fds/sdk/ProcuretoPayAPISCIM/model/user_resource_urn_scim_schemas_extension_fact_set_core10_user_user_taxonomy_data.py
 fds/sdk/ProcuretoPayAPISCIM/model/user_resource_urn_scim_schemas_extension_fact_set_vrs10_user.py
 fds/sdk/ProcuretoPayAPISCIM/model/user_resource_urn_scim_schemas_extension_fact_set_vrs10_user_domain_data.py
 fds/sdk/ProcuretoPayAPISCIM/model/user_resource_urn_scim_schemas_extension_fact_set_vrs10_user_tenancies.py

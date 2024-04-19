@@ -14,10 +14,6 @@ import java.util.Objects;
 import com.factset.sdk.OFDB.models.InlineResponse202;
 import com.factset.sdk.OFDB.models.InlineResponse400;
 import com.factset.sdk.OFDB.models.InlineResponse403;
-import com.factset.sdk.OFDB.models.InlineResponse404;
-import com.factset.sdk.OFDB.models.InlineResponse406;
-import com.factset.sdk.OFDB.models.InlineResponse413;
-import com.factset.sdk.OFDB.models.InlineResponse429;
 import com.factset.sdk.OFDB.models.UpdateDate;
 import com.factset.sdk.OFDB.models.UpdateDates;
 import com.factset.sdk.OFDB.models.UpdateSymbol;
@@ -41,10 +37,10 @@ public class UpdateApi {
     updateDateResponseTypeMap.put(202, new GenericType<InlineResponse202>(){});
     updateDateResponseTypeMap.put(400, new GenericType<InlineResponse400>(){});
     updateDateResponseTypeMap.put(403, new GenericType<InlineResponse403>(){});
-    updateDateResponseTypeMap.put(404, new GenericType<InlineResponse404>(){});
-    updateDateResponseTypeMap.put(406, new GenericType<InlineResponse406>(){});
-    updateDateResponseTypeMap.put(413, new GenericType<InlineResponse413>(){});
-    updateDateResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
+    updateDateResponseTypeMap.put(404, new GenericType<InlineResponse403>(){});
+    updateDateResponseTypeMap.put(406, new GenericType<InlineResponse403>(){});
+    updateDateResponseTypeMap.put(413, new GenericType<InlineResponse403>(){});
+    updateDateResponseTypeMap.put(429, new GenericType<InlineResponse403>(){});
   }
 
   private static final Map<Integer, GenericType> updateDatesResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -52,10 +48,10 @@ public class UpdateApi {
     updateDatesResponseTypeMap.put(202, new GenericType<InlineResponse202>(){});
     updateDatesResponseTypeMap.put(400, new GenericType<InlineResponse400>(){});
     updateDatesResponseTypeMap.put(403, new GenericType<InlineResponse403>(){});
-    updateDatesResponseTypeMap.put(404, new GenericType<InlineResponse404>(){});
-    updateDatesResponseTypeMap.put(406, new GenericType<InlineResponse406>(){});
-    updateDatesResponseTypeMap.put(413, new GenericType<InlineResponse413>(){});
-    updateDatesResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
+    updateDatesResponseTypeMap.put(404, new GenericType<InlineResponse403>(){});
+    updateDatesResponseTypeMap.put(406, new GenericType<InlineResponse403>(){});
+    updateDatesResponseTypeMap.put(413, new GenericType<InlineResponse403>(){});
+    updateDatesResponseTypeMap.put(429, new GenericType<InlineResponse403>(){});
   }
 
   private static final Map<Integer, GenericType> updateSymbolResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -63,10 +59,10 @@ public class UpdateApi {
     updateSymbolResponseTypeMap.put(202, new GenericType<InlineResponse202>(){});
     updateSymbolResponseTypeMap.put(400, new GenericType<InlineResponse400>(){});
     updateSymbolResponseTypeMap.put(403, new GenericType<InlineResponse403>(){});
-    updateSymbolResponseTypeMap.put(404, new GenericType<InlineResponse404>(){});
-    updateSymbolResponseTypeMap.put(406, new GenericType<InlineResponse406>(){});
-    updateSymbolResponseTypeMap.put(413, new GenericType<InlineResponse413>(){});
-    updateSymbolResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
+    updateSymbolResponseTypeMap.put(404, new GenericType<InlineResponse403>(){});
+    updateSymbolResponseTypeMap.put(406, new GenericType<InlineResponse403>(){});
+    updateSymbolResponseTypeMap.put(413, new GenericType<InlineResponse403>(){});
+    updateSymbolResponseTypeMap.put(429, new GenericType<InlineResponse403>(){});
   }
 
   private static final Map<Integer, GenericType> updateSymbolsResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -74,10 +70,10 @@ public class UpdateApi {
     updateSymbolsResponseTypeMap.put(202, new GenericType<InlineResponse202>(){});
     updateSymbolsResponseTypeMap.put(400, new GenericType<InlineResponse400>(){});
     updateSymbolsResponseTypeMap.put(403, new GenericType<InlineResponse403>(){});
-    updateSymbolsResponseTypeMap.put(404, new GenericType<InlineResponse404>(){});
-    updateSymbolsResponseTypeMap.put(406, new GenericType<InlineResponse406>(){});
-    updateSymbolsResponseTypeMap.put(413, new GenericType<InlineResponse413>(){});
-    updateSymbolsResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
+    updateSymbolsResponseTypeMap.put(404, new GenericType<InlineResponse403>(){});
+    updateSymbolsResponseTypeMap.put(406, new GenericType<InlineResponse403>(){});
+    updateSymbolsResponseTypeMap.put(413, new GenericType<InlineResponse403>(){});
+    updateSymbolsResponseTypeMap.put(429, new GenericType<InlineResponse403>(){});
   }
 
   

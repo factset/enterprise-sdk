@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import AddDatesData from './AddDatesData';
+import DateAndContent from './DateAndContent';
 
 /**
  * The AddDates model module.
@@ -48,7 +48,7 @@ class AddDates {
             obj = obj || new AddDates();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [AddDatesData]);
+                obj['data'] = ApiClient.convertToType(data['data'], [DateAndContent]);
             }
         }
         return obj;
@@ -58,7 +58,7 @@ class AddDates {
 }
 
 /**
- * @member {Array.<module:model/AddDatesData>} data
+ * @member {Array.<module:model/DateAndContent>} data
  */
 AddDates.prototype['data'] = undefined;
 

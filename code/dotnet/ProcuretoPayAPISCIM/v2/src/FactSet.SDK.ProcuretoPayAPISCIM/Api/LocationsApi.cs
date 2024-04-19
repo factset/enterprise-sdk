@@ -111,6 +111,24 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Api
         /// <param name="locationResource">Location resource.</param>
         /// <returns>ApiResponse of LocationResource</returns>
         ApiResponse<LocationResource> LocationsIdPutWithHttpInfo(string id, LocationResource locationResource);
+        /// <summary>
+        /// Create a location.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ProcuretoPayAPISCIM.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="locationResource">Location resource.</param>
+        /// <returns>LocationResource</returns>
+        LocationResource LocationsPost(LocationResource locationResource);
+
+        /// <summary>
+        /// Create a location.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ProcuretoPayAPISCIM.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="locationResource">Location resource.</param>
+        /// <returns>ApiResponse of LocationResource</returns>
+        ApiResponse<LocationResource> LocationsPostWithHttpInfo(LocationResource locationResource);
         #endregion Synchronous Operations
     }
 
@@ -224,6 +242,29 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LocationResource)</returns>
         System.Threading.Tasks.Task<ApiResponse<LocationResource>> LocationsIdPutWithHttpInfoAsync(string id, LocationResource locationResource, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Create a location.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ProcuretoPayAPISCIM.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="locationResource">Location resource.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of LocationResource</returns>
+        System.Threading.Tasks.Task<LocationResource> LocationsPostAsync(LocationResource locationResource, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Create a location.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ProcuretoPayAPISCIM.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="locationResource">Location resource.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (LocationResource)</returns>
+        System.Threading.Tasks.Task<ApiResponse<LocationResource>> LocationsPostWithHttpInfoAsync(LocationResource locationResource, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -278,6 +319,15 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Api
             { (HttpStatusCode)401, typeof(Error) },
             { (HttpStatusCode)403, typeof(Error) },
             { (HttpStatusCode)404, typeof(Error) },
+            { (HttpStatusCode)500, typeof(Error) },
+        };
+
+        private static readonly Dictionary<HttpStatusCode, System.Type> LocationsPostResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)201, typeof(LocationResource) },
+            { (HttpStatusCode)400, typeof(Error) },
+            { (HttpStatusCode)401, typeof(Error) },
+            { (HttpStatusCode)403, typeof(Error) },
             { (HttpStatusCode)500, typeof(Error) },
         };
 
@@ -1159,6 +1209,185 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("LocationsIdPut", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Create a location. 
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ProcuretoPayAPISCIM.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="locationResource">Location resource.</param>
+        /// <returns>LocationResource</returns>
+        public LocationResource LocationsPost(LocationResource locationResource)
+        {
+            var localVarResponse = LocationsPostWithHttpInfo(locationResource);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create a location. 
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ProcuretoPayAPISCIM.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="locationResource">Location resource.</param>
+        /// <returns>ApiResponse of LocationResource</returns>
+        public ApiResponse<LocationResource> LocationsPostWithHttpInfo(LocationResource locationResource)
+        {
+            // verify the required parameter 'locationResource' is set
+            if (locationResource == null)
+            {
+                throw new FactSet.SDK.ProcuretoPayAPISCIM.Client.ApiException(400, "Missing required parameter 'locationResource' when calling LocationsApi->LocationsPost");
+            }
+
+            FactSet.SDK.ProcuretoPayAPISCIM.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ProcuretoPayAPISCIM.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/scim+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/scim+json"
+            };
+
+            var localVarContentType = FactSet.SDK.ProcuretoPayAPISCIM.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.ProcuretoPayAPISCIM.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = locationResource;
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ProcuretoPayAPISCIM.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = LocationsPostResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            LocationResource>("/Locations", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("LocationsPost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Create a location. 
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ProcuretoPayAPISCIM.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="locationResource">Location resource.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of LocationResource</returns>
+        public async System.Threading.Tasks.Task<LocationResource>LocationsPostAsync(LocationResource locationResource, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await LocationsPostWithHttpInfoAsync(locationResource, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create a location. 
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ProcuretoPayAPISCIM.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="locationResource">Location resource.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (LocationResource)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<LocationResource>> LocationsPostWithHttpInfoAsync(LocationResource locationResource, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'locationResource' is set
+            if (locationResource == null)
+            {
+                throw new FactSet.SDK.ProcuretoPayAPISCIM.Client.ApiException(400, "Missing required parameter 'locationResource' when calling LocationsApi->LocationsPost");
+            }
+
+
+            FactSet.SDK.ProcuretoPayAPISCIM.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ProcuretoPayAPISCIM.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/scim+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/scim+json"
+            };
+
+            var localVarContentType = FactSet.SDK.ProcuretoPayAPISCIM.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.ProcuretoPayAPISCIM.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = locationResource;
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ProcuretoPayAPISCIM.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = LocationsPostResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<LocationResource>("/Locations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("LocationsPost", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**[AddSymbolsData]**](AddSymbolsData.md) |  | [optional] 
+**data** | [**[SymbolAndContent]**](SymbolAndContent.md) |  | [optional] 
 
 

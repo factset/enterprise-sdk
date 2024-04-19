@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**java.util.List&lt;BulkDeleteData&gt;**](BulkDeleteData.md) |  |  [optional]
+**data** | [**java.util.List&lt;BulkDeleteItem&gt;**](BulkDeleteItem.md) |  |  [optional]
 
 
 ## Implemented Interfaces

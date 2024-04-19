@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**locationsIdGet**](LocationsApi.md#locationsIdGet) | **GET** /Locations/{id} | Get a location.
 [**locationsIdPatch**](LocationsApi.md#locationsIdPatch) | **PATCH** /Locations/{id} | Patch a location (add, replace, or remove attributes of a location.)
 [**locationsIdPut**](LocationsApi.md#locationsIdPut) | **PUT** /Locations/{id} | Replace a location.
+[**locationsPost**](LocationsApi.md#locationsPost) | **POST** /Locations | Create a location.
 
 
 
@@ -393,5 +394,98 @@ Name | Type | Description  | Notes
 | **401** | User has not been authenticated. |  -  |
 | **403** | User is not authorized to use this API. |  -  |
 | **404** | Location not found. |  -  |
+| **500** | Internal server error. |  -  |
+
+
+## locationsPost
+
+> LocationResource locationsPost(locationResource)
+
+Create a location.
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```java
+// Import classes:
+import com.factset.sdk.ProcuretoPayAPISCIM.ApiClient;
+import com.factset.sdk.ProcuretoPayAPISCIM.ApiException;
+import com.factset.sdk.ProcuretoPayAPISCIM.Configuration;
+import com.factset.sdk.ProcuretoPayAPISCIM.auth.*;
+import com.factset.sdk.ProcuretoPayAPISCIM.models.*;
+import com.factset.sdk.ProcuretoPayAPISCIM.api.LocationsApi;
+
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+public class Example {
+    public static void main(String[] args) throws Exception {
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
+
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        //
+        // The confidential client instance should be reused in production environments.
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
+
+        LocationsApi apiInstance = new LocationsApi(defaultClient);
+        LocationResource locationResource = new LocationResource(); // LocationResource | Location resource.
+        try {
+            LocationResource result = apiInstance.locationsPost(locationResource);
+            System.out.println(result);
+
+        } catch (ApiException e) {
+            System.err.println("Exception when calling LocationsApi#locationsPost");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **locationResource** | [**LocationResource**](LocationResource.md)| Location resource. |
+
+### Return type
+
+[**LocationResource**](LocationResource.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/scim+json
+- **Accept**: application/scim+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Success. |  -  |
+| **400** | Provided resource contains invalid data. |  -  |
+| **401** | User has not been authenticated. |  -  |
+| **403** | User is not authorized to use this API. |  -  |
 | **500** | Internal server error. |  -  |
 

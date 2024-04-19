@@ -16,7 +16,7 @@ def read(filename):
   return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 NAME = "fds.sdk.OFDB"
-VERSION = "0.30.11"
+VERSION = "0.31.0"
 # To install the library, run the following
 #
 # python setup.py install

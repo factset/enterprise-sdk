@@ -138,9 +138,9 @@
         }
       }
     },
-    "/database/{path}/audit/jobs/{id}": {
+    "/database/{path}/audit/jobs/get/{id}": {
       "get": {
-        "operationId": "getResourceAudit",
+        "operationId": "getResourceGetAudit",
         "tags": [
           "Long Running"
         ],
@@ -221,9 +221,9 @@
         }
       }
     },
-    "/database/{path}/stats/jobs/{id}": {
+    "/database/{path}/stats/jobs/get/{id}": {
       "get": {
-        "operationId": "getResourceStats",
+        "operationId": "getResourceGetStats",
         "tags": [
           "Long Running"
         ],
@@ -371,9 +371,52 @@
         }
       }
     },
-    "/database/{path}/fields/jobs/{id}": {
+    "/database/{path}/fields/jobs/get/{id}": {
       "get": {
-        "operationId": "getResourceFields",
+        "operationId": "getResourceGetFields",
+        "tags": [
+          "Long Running"
+        ],
+        "description": "Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/databaseLocationPathParam"
+          },
+          {
+            "$ref": "#/components/parameters/idPathParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/200GetFields"
+          },
+          "400": {
+            "$ref": "#/components/responses/400Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/403Response"
+          },
+          "404": {
+            "$ref": "#/components/responses/404Response"
+          },
+          "406": {
+            "$ref": "#/components/responses/406Response"
+          },
+          "429": {
+            "$ref": "#/components/responses/429Response"
+          },
+          "500": {
+            "$ref": "#/components/responses/500Response"
+          },
+          "503": {
+            "$ref": "#/components/responses/503Response"
+          }
+        }
+      }
+    },
+    "/database/{path}/fields/jobs/post/{id}": {
+      "get": {
+        "operationId": "getResourcePostFields",
         "tags": [
           "Long Running"
         ],
@@ -463,9 +506,9 @@
         }
       }
     },
-    "/database/{path}/delete/jobs/{id}": {
+    "/database/{path}/delete/jobs/post/{id}": {
       "get": {
-        "operationId": "getResourceBulkDelete",
+        "operationId": "getResourceDeleteBulkItems",
         "tags": [
           "Long Running"
         ],
@@ -761,9 +804,9 @@
         }
       }
     },
-    "/database/{path}/symbols/jobs/{id}": {
+    "/database/{path}/symbols/jobs/get/{id}": {
       "get": {
-        "operationId": "getResourceSymbols",
+        "operationId": "getResourceGetSymbols",
         "tags": [
           "Long Running"
         ],
@@ -779,6 +822,92 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/200GetSymbols"
+          },
+          "400": {
+            "$ref": "#/components/responses/400Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/403Response"
+          },
+          "404": {
+            "$ref": "#/components/responses/404Response"
+          },
+          "406": {
+            "$ref": "#/components/responses/406Response"
+          },
+          "429": {
+            "$ref": "#/components/responses/429Response"
+          },
+          "500": {
+            "$ref": "#/components/responses/500Response"
+          },
+          "503": {
+            "$ref": "#/components/responses/503Response"
+          }
+        }
+      }
+    },
+    "/database/{path}/symbols/jobs/post/{id}": {
+      "get": {
+        "operationId": "getResourcePostSymbols",
+        "tags": [
+          "Long Running"
+        ],
+        "description": "Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/databaseLocationPathParam"
+          },
+          {
+            "$ref": "#/components/parameters/idPathParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/200AddSymbols"
+          },
+          "400": {
+            "$ref": "#/components/responses/400Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/403Response"
+          },
+          "404": {
+            "$ref": "#/components/responses/404Response"
+          },
+          "406": {
+            "$ref": "#/components/responses/406Response"
+          },
+          "429": {
+            "$ref": "#/components/responses/429Response"
+          },
+          "500": {
+            "$ref": "#/components/responses/500Response"
+          },
+          "503": {
+            "$ref": "#/components/responses/503Response"
+          }
+        }
+      }
+    },
+    "/database/{path}/symbols/jobs/put/{id}": {
+      "get": {
+        "operationId": "getResourcePutSymbols",
+        "tags": [
+          "Long Running"
+        ],
+        "description": "Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/databaseLocationPathParam"
+          },
+          {
+            "$ref": "#/components/parameters/idPathParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/200AddSymbols"
           },
           "400": {
             "$ref": "#/components/responses/400Response"
@@ -909,8 +1038,51 @@
           "202": {
             "$ref": "#/components/responses/202LongRunningResponse"
           },
-          "204": {
-            "$ref": "#/components/responses/204Response"
+          "400": {
+            "$ref": "#/components/responses/400Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/403Response"
+          },
+          "404": {
+            "$ref": "#/components/responses/404Response"
+          },
+          "406": {
+            "$ref": "#/components/responses/406Response"
+          },
+          "429": {
+            "$ref": "#/components/responses/429Response"
+          },
+          "500": {
+            "$ref": "#/components/responses/500Response"
+          },
+          "503": {
+            "$ref": "#/components/responses/503Response"
+          }
+        }
+      }
+    },
+    "/database/{path}/symbols/{symbol}/jobs/put/{id}": {
+      "get": {
+        "operationId": "getResourcePutSymbol",
+        "tags": [
+          "Long Running"
+        ],
+        "description": "Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/databaseLocationPathParam"
+          },
+          {
+            "$ref": "#/components/parameters/symbolPathParam"
+          },
+          {
+            "$ref": "#/components/parameters/idPathParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/PostRequestsSuccessCompleteResponse"
           },
           "400": {
             "$ref": "#/components/responses/400Response"
@@ -936,9 +1108,9 @@
         }
       }
     },
-    "/database/{path}/symbols/{symbol}/jobs/{id}": {
+    "/database/{path}/symbols/{symbol}/jobs/delete/{id}": {
       "get": {
-        "operationId": "getResourceSymbol",
+        "operationId": "getResourceDeleteSymbol",
         "tags": [
           "Long Running"
         ],
@@ -956,7 +1128,7 @@
         ],
         "responses": {
           "200": {
-            "$ref": "#/components/responses/PostRequestsSuccessCompleteResponse"
+            "$ref": "#/components/responses/200NoResponse"
           },
           "400": {
             "$ref": "#/components/responses/400Response"
@@ -1185,9 +1357,9 @@
         }
       }
     },
-    "/database/{path}/dates/jobs/{id}": {
+    "/database/{path}/dates/jobs/get/{id}": {
       "get": {
-        "operationId": "getResourceDates",
+        "operationId": "getResourceGetDates",
         "tags": [
           "Long Running"
         ],
@@ -1203,6 +1375,92 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/200GetDates"
+          },
+          "400": {
+            "$ref": "#/components/responses/400Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/403Response"
+          },
+          "404": {
+            "$ref": "#/components/responses/404Response"
+          },
+          "406": {
+            "$ref": "#/components/responses/406Response"
+          },
+          "429": {
+            "$ref": "#/components/responses/429Response"
+          },
+          "500": {
+            "$ref": "#/components/responses/500Response"
+          },
+          "503": {
+            "$ref": "#/components/responses/503Response"
+          }
+        }
+      }
+    },
+    "/database/{path}/dates/jobs/post/{id}": {
+      "get": {
+        "operationId": "getResourcePostDates",
+        "tags": [
+          "Long Running"
+        ],
+        "description": "Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/databaseLocationPathParam"
+          },
+          {
+            "$ref": "#/components/parameters/idPathParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/200AddDates"
+          },
+          "400": {
+            "$ref": "#/components/responses/400Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/403Response"
+          },
+          "404": {
+            "$ref": "#/components/responses/404Response"
+          },
+          "406": {
+            "$ref": "#/components/responses/406Response"
+          },
+          "429": {
+            "$ref": "#/components/responses/429Response"
+          },
+          "500": {
+            "$ref": "#/components/responses/500Response"
+          },
+          "503": {
+            "$ref": "#/components/responses/503Response"
+          }
+        }
+      }
+    },
+    "/database/{path}/dates/jobs/put/{id}": {
+      "get": {
+        "operationId": "getResourcePutDates",
+        "tags": [
+          "Long Running"
+        ],
+        "description": "Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/databaseLocationPathParam"
+          },
+          {
+            "$ref": "#/components/parameters/idPathParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/200AddDates"
           },
           "400": {
             "$ref": "#/components/responses/400Response"
@@ -1302,8 +1560,54 @@
           "202": {
             "$ref": "#/components/responses/202LongRunningResponse"
           },
-          "204": {
-            "$ref": "#/components/responses/204Response"
+          "400": {
+            "$ref": "#/components/responses/400Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/403Response"
+          },
+          "404": {
+            "$ref": "#/components/responses/404Response"
+          },
+          "406": {
+            "$ref": "#/components/responses/406Response"
+          },
+          "429": {
+            "$ref": "#/components/responses/429Response"
+          },
+          "500": {
+            "$ref": "#/components/responses/500Response"
+          },
+          "503": {
+            "$ref": "#/components/responses/503Response"
+          }
+        }
+      }
+    },
+    "/database/{path}/dates/{date}/jobs/put/{id}": {
+      "get": {
+        "operationId": "getResourcePutDate",
+        "tags": [
+          "Long Running"
+        ],
+        "description": "Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/databaseLocationPathParam"
+          },
+          {
+            "$ref": "#/components/parameters/datePathParam"
+          },
+          {
+            "$ref": "#/components/parameters/idPathParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/PostRequestsSuccessCompleteResponse"
+          },
+          "202": {
+            "$ref": "#/components/responses/202LongRunningResponse"
           },
           "400": {
             "$ref": "#/components/responses/400Response"
@@ -1329,9 +1633,9 @@
         }
       }
     },
-    "/database/{path}/dates/{date}/jobs/{id}": {
+    "/database/{path}/dates/{date}/jobs/delete/{id}": {
       "get": {
-        "operationId": "getResourceDate",
+        "operationId": "getResourceDeleteDate",
         "tags": [
           "Long Running"
         ],
@@ -1349,7 +1653,7 @@
         ],
         "responses": {
           "200": {
-            "$ref": "#/components/responses/PostRequestsSuccessCompleteResponse"
+            "$ref": "#/components/responses/200NoResponse"
           },
           "202": {
             "$ref": "#/components/responses/202LongRunningResponse"
@@ -1400,9 +1704,6 @@
           "202": {
             "$ref": "#/components/responses/202LongRunningResponse"
           },
-          "204": {
-            "$ref": "#/components/responses/204Response"
-          },
           "400": {
             "$ref": "#/components/responses/400Response"
           },
@@ -1427,13 +1728,13 @@
         }
       }
     },
-    "/database/{path}/dates/{date}/symbols/{symbol}/jobs/{id}": {
-      "delete": {
-        "operationId": "getResourceDateFromSymbol",
+    "/database/{path}/dates/{date}/symbols/{symbol}/jobs/delete/{id}": {
+      "get": {
+        "operationId": "getResourceDeleteDateFromSymbol",
         "tags": [
-          "Delete"
+          "Long Running"
         ],
-        "description": "Deletes data specific to the symbol and date from a 3d database(OFDB).",
+        "description": "Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.",
         "parameters": [
           {
             "$ref": "#/components/parameters/databaseLocationPathParam"
@@ -1450,10 +1751,7 @@
         ],
         "responses": {
           "200": {
-            "$ref": "#/components/responses/202LongRunningResponse"
-          },
-          "204": {
-            "$ref": "#/components/responses/204Response"
+            "$ref": "#/components/responses/200NoResponse"
           },
           "400": {
             "$ref": "#/components/responses/400Response"
@@ -1629,9 +1927,9 @@
         }
       }
     },
-    "/database/{path}/jobs/{id}": {
+    "/database/{path}/jobs/get/{id}": {
       "get": {
-        "operationId": "getResourceData",
+        "operationId": "getResourceGetData",
         "tags": [
           "Long Running"
         ],
@@ -1716,9 +2014,9 @@
         }
       }
     },
-    "/database/jobs/{id}": {
+    "/database/jobs/post/{id}": {
       "get": {
-        "operationId": "getResourceDatabase",
+        "operationId": "getResourcePostDatabase",
         "tags": [
           "Long Running"
         ],
@@ -1813,28 +2111,7 @@
           "data": {
             "type": "array",
             "items": {
-              "type": "object",
-              "properties": {
-                "symbol": {
-                  "type": "string",
-                  "description": "Names of the symbol and unique to this database"
-                },
-                "content": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "date": {
-                        "type": "integer"
-                      },
-                      "field": {
-                        "type": "string"
-                      }
-                    }
-                  },
-                  "description": "date must be provided in the case of a 3d ofdb with atleast one iterative field"
-                }
-              }
+              "$ref": "#/components/schemas/SymbolAndContent"
             }
           }
         }
@@ -1859,28 +2136,7 @@
           "data": {
             "type": "array",
             "items": {
-              "type": "object",
-              "properties": {
-                "date": {
-                  "type": "integer",
-                  "description": "Date unique to the database.",
-                  "example": 20220202
-                },
-                "content": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "symbol": {
-                        "type": "string"
-                      },
-                      "field": {
-                        "type": "integer"
-                      }
-                    }
-                  }
-                }
-              }
+              "$ref": "#/components/schemas/DateAndContent"
             }
           }
         }
@@ -1900,23 +2156,7 @@
           "data": {
             "type": "array",
             "items": {
-              "type": "object",
-              "properties": {
-                "content": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "symbol": {
-                        "type": "string"
-                      },
-                      "field": {
-                        "type": "integer"
-                      }
-                    }
-                  }
-                }
-              }
+              "$ref": "#/components/schemas/ContentWithSymbol"
             },
             "description": "date has to be provide in case 3d OFDB with date and atleast one iterative field",
             "example": [
@@ -1939,26 +2179,7 @@
           "data": {
             "type": "array",
             "items": {
-              "type": "object",
-              "properties": {
-                "date": {
-                  "type": "integer"
-                },
-                "content": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "symbol": {
-                        "type": "string"
-                      },
-                      "field": {
-                        "type": "integer"
-                      }
-                    }
-                  }
-                }
-              }
+              "$ref": "#/components/schemas/DateAndContent"
             },
             "description": "date has to be provide in case 3d OFDB with date and atleast one iterative field",
             "example": [
@@ -1982,27 +2203,7 @@
           "data": {
             "type": "array",
             "items": {
-              "type": "object",
-              "properties": {
-                "content": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "date": {
-                        "type": "integer"
-                      },
-                      "field1": {
-                        "type": "integer"
-                      },
-                      "field2": {
-                        "type": "string"
-                      }
-                    }
-                  },
-                  "description": "date must be provided in the case of a 3d ofdb with at least one iterative field"
-                }
-              }
+              "$ref": "#/components/schemas/ContentWithDate"
             }
           }
         }
@@ -2014,30 +2215,7 @@
           "data": {
             "type": "array",
             "items": {
-              "type": "object",
-              "properties": {
-                "symbol": {
-                  "type": "string"
-                },
-                "content": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "date": {
-                        "type": "integer"
-                      },
-                      "field1": {
-                        "type": "integer"
-                      },
-                      "field2": {
-                        "type": "string"
-                      }
-                    }
-                  },
-                  "description": "date must be provided in the case of a 3d ofdb with at least one iterative field"
-                }
-              }
+              "$ref": "#/components/schemas/SymbolAndContent"
             }
           }
         }
@@ -2048,19 +2226,7 @@
           "data": {
             "type": "array",
             "items": {
-              "description": "Users may provide any combination of a symbol, date, and/or field to perform a bulk delete operation. For example, if a user provides both a symbol and a date within the same data point {} then the endpoint will delete the symbol for just that date. If they provide a symbol, date, and field then the endpoint will delete just that singular field entry point for that date for the given symbol. Providing singular entities within a {} will delete the complete data for that given value.",
-              "type": "object",
-              "properties": {
-                "symbol": {
-                  "type": "string"
-                },
-                "date": {
-                  "type": "integer"
-                },
-                "field": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/components/schemas/BulkDeleteItem"
             },
             "example": [
               {
@@ -2092,6 +2258,14 @@
           "example": "FDS"
         }
       },
+      "SymbolsWithId": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/Symbols"
+          }
+        }
+      },
       "Dates": {
         "type": "array",
         "items": {
@@ -2099,54 +2273,18 @@
           "example": 20220202
         }
       },
+      "DatesWithId": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/Dates"
+          }
+        }
+      },
       "Fields": {
         "type": "array",
         "items": {
-          "type": "object",
-          "properties": {
-            "description": {
-              "type": "string"
-            },
-            "iteration": {
-              "type": "string",
-              "enum": [
-                "2D",
-                "3D"
-              ]
-            },
-            "name": {
-              "type": "string"
-            },
-            "size": {
-              "type": "integer"
-            },
-            "splitDirection": {
-              "type": "string",
-              "enum": [
-                "NONE",
-                "NORMAL",
-                "REVERSE"
-              ]
-            },
-            "type": {
-              "type": "string",
-              "enum": [
-                "INT",
-                "FLOAT",
-                "DOUBLE",
-                "CHAR",
-                "LONG_CHAR",
-                "STRING",
-                "DATE"
-              ]
-            },
-            "codePageFlag": {
-              "type": "string",
-              "enum": [
-                "ASCII"
-              ]
-            }
-          }
+          "$ref": "#/components/schemas/FieldProperties"
         }
       },
       "DatabaseSchema": {
@@ -2193,39 +2331,243 @@
         }
       },
       "BulkDeleteArrayItem": {
-        "anyOf": [
+        "oneOf": [
           {
-            "type": "object",
-            "additionalProperties": {
-              "$ref": "#/components/schemas/BulkDeleteArrayItemNested"
-            }
+            "$ref": "#/components/schemas/BulkDeleteArrayItemObject"
           },
           {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+            "$ref": "#/components/schemas/BulkDeleteArrayItemArray"
           }
         ]
+      },
+      "BulkDeleteArrayItemObject": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/BulkDeleteArrayItemNested"
+        }
+      },
+      "BulkDeleteArrayItemArray": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
       },
       "BulkDeleteArrayItemNested": {
         "oneOf": [
           {
-            "type": "object",
-            "additionalProperties": {
-              "type": "array",
-              "items": {
-                "type": "integer"
-              }
-            }
+            "$ref": "#/components/schemas/BulkDeleteArrayItemNestedObject"
           },
           {
-            "type": "array",
-            "items": {
-              "type": "integer"
-            }
+            "$ref": "#/components/schemas/BulkDeleteArrayItemNestedArray"
           }
         ]
+      },
+      "BulkDeleteArrayItemNestedObject": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        }
+      },
+      "BulkDeleteArrayItemNestedArray": {
+        "type": "array",
+        "items": {
+          "type": "integer"
+        }
+      },
+      "SymbolAndContent": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "Names of the symbol and unique to this database"
+          },
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DateAndFields"
+            },
+            "description": "date must be provided in the case of a 3d ofdb with atleast one iterative field"
+          }
+        }
+      },
+      "DateAndContent": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "integer",
+            "description": "Date unique to the database.",
+            "example": 20220202
+          },
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SymbolAndFields"
+            }
+          }
+        }
+      },
+      "ContentWithSymbol": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SymbolAndFields"
+            }
+          }
+        }
+      },
+      "ContentWithDate": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DateAndFields"
+            }
+          }
+        }
+      },
+      "DateAndFields": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/components/schemas/DataValue"
+        }
+      },
+      "SymbolAndFields": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/components/schemas/DataValue"
+        }
+      },
+      "DataValue": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "type": "integer"
+          }
+        ]
+      },
+      "BulkDeleteItem": {
+        "description": "Users may provide any combination of a symbol, date, and/or field to perform a bulk delete operation. For example, if a user provides both a symbol and a date within the same data point {} then the endpoint will delete the symbol for just that date. If they provide a symbol, date, and field then the endpoint will delete just that singular field entry point for that date for the given symbol. Providing singular entities within a {} will delete the complete data for that given value.",
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string"
+          },
+          "date": {
+            "type": "integer"
+          },
+          "field": {
+            "type": "string"
+          }
+        }
+      },
+      "FieldProperties": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "iteration": {
+            "type": "string",
+            "enum": [
+              "2D",
+              "3D"
+            ]
+          },
+          "name": {
+            "type": "string"
+          },
+          "size": {
+            "type": "integer"
+          },
+          "splitDirection": {
+            "type": "string",
+            "enum": [
+              "NONE",
+              "NORMAL",
+              "REVERSE"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "INT",
+              "FLOAT",
+              "DOUBLE",
+              "CHAR",
+              "LONG_CHAR",
+              "STRING",
+              "DATE"
+            ]
+          },
+          "codePageFlag": {
+            "type": "string"
+          }
+        }
+      },
+      "ErrorObject": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string",
+            "example": "parameterError",
+            "default": "parameterError"
+          }
+        }
+      },
+      "ErrorObjectWithSource": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string",
+            "example": "parameterError",
+            "default": "parameterError"
+          },
+          "source": {
+            "type": "object",
+            "properties": {
+              "location": {
+                "type": "string"
+              },
+              "param": {
+                "type": "string"
+              }
+            }
+          }
+        }
       }
     },
     "parameters": {
@@ -2375,32 +2717,72 @@
                   "type": "array",
                   "description": "An array containing errors",
                   "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      },
-                      "title": {
-                        "type": "string"
-                      },
-                      "code": {
-                        "type": "string",
-                        "example": "parameterError",
-                        "default": "parameterError"
-                      },
-                      "source": {
-                        "type": "object",
-                        "properties": {
-                          "location": {
-                            "type": "string"
-                          },
-                          "param": {
-                            "type": "string"
-                          }
-                        }
-                      }
-                    }
+                    "$ref": "#/components/schemas/ErrorObjectWithSource"
                   }
+                }
+              }
+            }
+          }
+        }
+      },
+      "200AddDates": {
+        "description": "Successful output",
+        "headers": {
+          "X-DataDirect-Request-Key": {
+            "$ref": "#/components/headers/X-DataDirect-Request-Key"
+          },
+          "X-FactSet-Api-Request-Key": {
+            "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+          },
+          "X-RateLimit-Limit": {
+            "$ref": "#/components/headers/X-RateLimit-Limit"
+          },
+          "X-RateLimit-Remaining": {
+            "$ref": "#/components/headers/X-RateLimit-Remaining"
+          },
+          "X-RateLimit-Reset": {
+            "$ref": "#/components/headers/X-RateLimit-Reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/DatesWithId"
+                }
+              }
+            }
+          }
+        }
+      },
+      "200AddSymbols": {
+        "description": "Successful symbols array within OFDB",
+        "headers": {
+          "X-DataDirect-Request-Key": {
+            "$ref": "#/components/headers/X-DataDirect-Request-Key"
+          },
+          "X-FactSet-Api-Request-Key": {
+            "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+          },
+          "X-RateLimit-Limit": {
+            "$ref": "#/components/headers/X-RateLimit-Limit"
+          },
+          "X-RateLimit-Remaining": {
+            "$ref": "#/components/headers/X-RateLimit-Remaining"
+          },
+          "X-RateLimit-Reset": {
+            "$ref": "#/components/headers/X-RateLimit-Reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/SymbolsWithId"
                 }
               }
             }
@@ -2625,17 +3007,7 @@
                 "data": {
                   "type": "array",
                   "items": {
-                    "type": "object",
-                    "properties": {
-                      "symbol": {
-                        "type": "string",
-                        "example": "FDS"
-                      },
-                      "field": {
-                        "type": "integer",
-                        "example": 1
-                      }
-                    }
+                    "$ref": "#/components/schemas/SymbolAndFields"
                   }
                 }
               }
@@ -2805,7 +3177,7 @@
           }
         }
       },
-      "204Response": {
+      "200NoResponse": {
         "description": "Resource is deleted successfully"
       },
       "403Response": {
@@ -2836,20 +3208,7 @@
                   "type": "array",
                   "description": "An array containing errors",
                   "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      },
-                      "title": {
-                        "type": "string"
-                      },
-                      "code": {
-                        "type": "string",
-                        "example": "notAuthorized",
-                        "default": "notAuthorized"
-                      }
-                    }
+                    "$ref": "#/components/schemas/ErrorObject"
                   }
                 }
               }
@@ -2885,20 +3244,7 @@
                   "type": "array",
                   "description": "An array containing errors",
                   "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      },
-                      "title": {
-                        "type": "string"
-                      },
-                      "code": {
-                        "type": "string",
-                        "example": "endPointNotFound",
-                        "default": "endPointNotFound"
-                      }
-                    }
+                    "$ref": "#/components/schemas/ErrorObject"
                   }
                 }
               }
@@ -2934,20 +3280,7 @@
                   "type": "array",
                   "description": "An array containing errors",
                   "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      },
-                      "title": {
-                        "type": "string"
-                      },
-                      "code": {
-                        "type": "string",
-                        "example": "notAcceptable",
-                        "default": "notAcceptable"
-                      }
-                    }
+                    "$ref": "#/components/schemas/ErrorObject"
                   }
                 }
               }
@@ -2983,20 +3316,7 @@
                   "type": "array",
                   "description": "An array containing errors",
                   "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      },
-                      "title": {
-                        "type": "string"
-                      },
-                      "code": {
-                        "type": "string",
-                        "example": "payloadTooLarge",
-                        "default": "payloadTooLarge"
-                      }
-                    }
+                    "$ref": "#/components/schemas/ErrorObject"
                   }
                 }
               }
@@ -3035,20 +3355,7 @@
                   "type": "array",
                   "description": "An array containing errors",
                   "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      },
-                      "title": {
-                        "type": "string"
-                      },
-                      "code": {
-                        "type": "string",
-                        "example": "rateLimitExceeded",
-                        "default": "rateLimitExceeded"
-                      }
-                    }
+                    "$ref": "#/components/schemas/ErrorObject"
                   }
                 }
               }

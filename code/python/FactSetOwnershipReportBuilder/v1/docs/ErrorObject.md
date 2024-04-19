@@ -1,5 +1,6 @@
 # ErrorObject
 
+Schema describing an API error
 
 ## Properties
 Name | Type | Description | Notes

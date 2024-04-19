@@ -87,6 +87,8 @@ class ProductResource(ModelNormal):
         """
         lazy_import()
         return {
+            'orderable': (bool,),  # noqa: E501
+            'trial_available': (bool,),  # noqa: E501
             'whitelist': (bool,),  # noqa: E501
             'schemas': ([str],),  # noqa: E501
             'id': (str,),  # noqa: E501
@@ -104,6 +106,8 @@ class ProductResource(ModelNormal):
 
 
     attribute_map = {
+        'orderable': 'orderable',  # noqa: E501
+        'trial_available': 'trialAvailable',  # noqa: E501
         'whitelist': 'whitelist',  # noqa: E501
         'schemas': 'schemas',  # noqa: E501
         'id': 'id',  # noqa: E501
@@ -116,6 +120,8 @@ class ProductResource(ModelNormal):
     }
 
     read_only_vars = {
+        'orderable',  # noqa: E501
+        'trial_available',  # noqa: E501
         'whitelist',  # noqa: E501
         'id',  # noqa: E501
         'name',  # noqa: E501
@@ -129,10 +135,12 @@ class ProductResource(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, whitelist, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, orderable, trial_available, whitelist, *args, **kwargs):  # noqa: E501
         """ProductResource - a model defined in OpenAPI
 
         Args:
+            orderable (bool): Whether the product can be ordered by the current client.
+            trial_available (bool): Whether a temporary trial use of this product is available for users.
             whitelist (bool): Whether the product appears in the requester's product whitelist. Presence in the product whitelist means the requester is authorized to order this product for other users.
 
         Keyword Args:
@@ -201,6 +209,8 @@ class ProductResource(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.orderable = orderable
+        self.trial_available = trial_available
         self.whitelist = whitelist
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

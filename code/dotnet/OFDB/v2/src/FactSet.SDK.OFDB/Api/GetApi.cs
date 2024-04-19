@@ -410,9 +410,9 @@ namespace FactSet.SDK.OFDB.Api
             { (HttpStatusCode)202, typeof(InlineResponse202) },
             { (HttpStatusCode)400, typeof(InlineResponse400) },
             { (HttpStatusCode)403, typeof(InlineResponse403) },
-            { (HttpStatusCode)404, typeof(InlineResponse404) },
-            { (HttpStatusCode)406, typeof(InlineResponse406) },
-            { (HttpStatusCode)429, typeof(InlineResponse429) },
+            { (HttpStatusCode)404, typeof(InlineResponse403) },
+            { (HttpStatusCode)406, typeof(InlineResponse403) },
+            { (HttpStatusCode)429, typeof(InlineResponse403) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetDataResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
@@ -420,9 +420,9 @@ namespace FactSet.SDK.OFDB.Api
             { (HttpStatusCode)202, typeof(InlineResponse202) },
             { (HttpStatusCode)400, typeof(InlineResponse400) },
             { (HttpStatusCode)403, typeof(InlineResponse403) },
-            { (HttpStatusCode)404, typeof(InlineResponse404) },
-            { (HttpStatusCode)406, typeof(InlineResponse406) },
-            { (HttpStatusCode)429, typeof(InlineResponse429) },
+            { (HttpStatusCode)404, typeof(InlineResponse403) },
+            { (HttpStatusCode)406, typeof(InlineResponse403) },
+            { (HttpStatusCode)429, typeof(InlineResponse403) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetDatesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
@@ -430,9 +430,9 @@ namespace FactSet.SDK.OFDB.Api
             { (HttpStatusCode)202, typeof(InlineResponse202) },
             { (HttpStatusCode)400, typeof(InlineResponse400) },
             { (HttpStatusCode)403, typeof(InlineResponse403) },
-            { (HttpStatusCode)404, typeof(InlineResponse404) },
-            { (HttpStatusCode)406, typeof(InlineResponse406) },
-            { (HttpStatusCode)429, typeof(InlineResponse429) },
+            { (HttpStatusCode)404, typeof(InlineResponse403) },
+            { (HttpStatusCode)406, typeof(InlineResponse403) },
+            { (HttpStatusCode)429, typeof(InlineResponse403) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFieldsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
@@ -440,9 +440,9 @@ namespace FactSet.SDK.OFDB.Api
             { (HttpStatusCode)202, typeof(InlineResponse202) },
             { (HttpStatusCode)400, typeof(InlineResponse400) },
             { (HttpStatusCode)403, typeof(InlineResponse403) },
-            { (HttpStatusCode)404, typeof(InlineResponse404) },
-            { (HttpStatusCode)406, typeof(InlineResponse406) },
-            { (HttpStatusCode)429, typeof(InlineResponse429) },
+            { (HttpStatusCode)404, typeof(InlineResponse403) },
+            { (HttpStatusCode)406, typeof(InlineResponse403) },
+            { (HttpStatusCode)429, typeof(InlineResponse403) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetStatsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
@@ -450,9 +450,9 @@ namespace FactSet.SDK.OFDB.Api
             { (HttpStatusCode)202, typeof(InlineResponse202) },
             { (HttpStatusCode)400, typeof(InlineResponse400) },
             { (HttpStatusCode)403, typeof(InlineResponse403) },
-            { (HttpStatusCode)404, typeof(InlineResponse404) },
-            { (HttpStatusCode)406, typeof(InlineResponse406) },
-            { (HttpStatusCode)429, typeof(InlineResponse429) },
+            { (HttpStatusCode)404, typeof(InlineResponse403) },
+            { (HttpStatusCode)406, typeof(InlineResponse403) },
+            { (HttpStatusCode)429, typeof(InlineResponse403) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetSymbolsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
@@ -460,9 +460,9 @@ namespace FactSet.SDK.OFDB.Api
             { (HttpStatusCode)202, typeof(InlineResponse202) },
             { (HttpStatusCode)400, typeof(InlineResponse400) },
             { (HttpStatusCode)403, typeof(InlineResponse403) },
-            { (HttpStatusCode)404, typeof(InlineResponse404) },
-            { (HttpStatusCode)406, typeof(InlineResponse406) },
-            { (HttpStatusCode)429, typeof(InlineResponse429) },
+            { (HttpStatusCode)404, typeof(InlineResponse403) },
+            { (HttpStatusCode)406, typeof(InlineResponse403) },
+            { (HttpStatusCode)429, typeof(InlineResponse403) },
         };
 
         # endregion Response Type Disctionaries

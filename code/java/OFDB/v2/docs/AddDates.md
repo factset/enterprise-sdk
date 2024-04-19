@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**java.util.List&lt;AddDatesData&gt;**](AddDatesData.md) |  |  [optional]
+**data** | [**java.util.List&lt;DateAndContent&gt;**](DateAndContent.md) |  |  [optional]
 
 
 ## Implemented Interfaces

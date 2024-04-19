@@ -28,10 +28,6 @@ from fds.sdk.OFDB.exceptions import ApiException
 from fds.sdk.OFDB.model.inline_response202 import InlineResponse202
 from fds.sdk.OFDB.model.inline_response400 import InlineResponse400
 from fds.sdk.OFDB.model.inline_response403 import InlineResponse403
-from fds.sdk.OFDB.model.inline_response404 import InlineResponse404
-from fds.sdk.OFDB.model.inline_response406 import InlineResponse406
-from fds.sdk.OFDB.model.inline_response413 import InlineResponse413
-from fds.sdk.OFDB.model.inline_response429 import InlineResponse429
 from fds.sdk.OFDB.model.update_date import UpdateDate
 from fds.sdk.OFDB.model.update_dates import UpdateDates
 from fds.sdk.OFDB.model.update_symbol import UpdateSymbol
@@ -56,7 +52,7 @@ class UpdateApi(object):
         self.update_date_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse404,), 406: (InlineResponse406,), 413: (InlineResponse413,), 429: (InlineResponse429,),  },
+                  { 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 413: (InlineResponse403,), 429: (InlineResponse403,),  },
                   None
                 ),
                 'auth': [
@@ -125,7 +121,7 @@ class UpdateApi(object):
         self.update_dates_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse404,), 406: (InlineResponse406,), 413: (InlineResponse413,), 429: (InlineResponse429,),  },
+                  { 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 413: (InlineResponse403,), 429: (InlineResponse403,),  },
                   None
                 ),
                 'auth': [
@@ -188,7 +184,7 @@ class UpdateApi(object):
         self.update_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse404,), 406: (InlineResponse406,), 413: (InlineResponse413,), 429: (InlineResponse429,),  },
+                  { 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 413: (InlineResponse403,), 429: (InlineResponse403,),  },
                   None
                 ),
                 'auth': [
@@ -257,7 +253,7 @@ class UpdateApi(object):
         self.update_symbols_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse404,), 406: (InlineResponse406,), 413: (InlineResponse413,), 429: (InlineResponse429,),  },
+                  { 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 413: (InlineResponse403,), 429: (InlineResponse403,),  },
                   None
                 ),
                 'auth': [

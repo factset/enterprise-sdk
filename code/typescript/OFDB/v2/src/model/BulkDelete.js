@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import BulkDeleteData from './BulkDeleteData';
+import BulkDeleteItem from './BulkDeleteItem';
 
 /**
  * The BulkDelete model module.
@@ -48,7 +48,7 @@ class BulkDelete {
             obj = obj || new BulkDelete();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [BulkDeleteData]);
+                obj['data'] = ApiClient.convertToType(data['data'], [BulkDeleteItem]);
             }
         }
         return obj;
@@ -58,7 +58,7 @@ class BulkDelete {
 }
 
 /**
- * @member {Array.<module:model/BulkDeleteData>} data
+ * @member {Array.<module:model/BulkDeleteItem>} data
  */
 BulkDelete.prototype['data'] = undefined;
 

@@ -22,6 +22,7 @@ import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.OFDB.JSON;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 
 import jakarta.ws.rs.core.GenericType;
 import jakarta.ws.rs.core.Response;
@@ -31,14 +32,17 @@ import java.util.logging.Logger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.math.BigDecimal;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -48,7 +52,7 @@ import com.factset.sdk.OFDB.JSON;
 
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-@JsonDeserialize(using=BulkDeleteArrayItem.BulkDeleteArrayItemDeserializer.class)
+@JsonDeserialize(using = BulkDeleteArrayItem.BulkDeleteArrayItemDeserializer.class)
 @JsonSerialize(using = BulkDeleteArrayItem.BulkDeleteArrayItemSerializer.class)
 public class BulkDeleteArrayItem extends AbstractOpenApiSchema implements Serializable {
     private static final Logger log = Logger.getLogger(BulkDeleteArrayItem.class.getName());
@@ -80,31 +84,68 @@ public class BulkDeleteArrayItem extends AbstractOpenApiSchema implements Serial
         @Override
         public BulkDeleteArrayItem deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
             JsonNode tree = jp.readValueAsTree();
-
             Object deserialized = null;
+            boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
+            int match = 0;
+            JsonToken token = tree.traverse(jp.getCodec()).nextToken();
             // deserialize java.util.Map<String, BulkDeleteArrayItemNested>
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<java.util.Map<String, BulkDeleteArrayItemNested>>(){});
-                BulkDeleteArrayItem ret = new BulkDeleteArrayItem();
-                ret.setActualInstance(deserialized);
-                return ret;
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (java.util.Map.class.equals(Integer.class) || java.util.Map.class.equals(Long.class) || java.util.Map.class.equals(Float.class) || java.util.Map.class.equals(Double.class) || java.util.Map.class.equals(Boolean.class) || java.util.Map.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((java.util.Map.class.equals(Integer.class) || java.util.Map.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((java.util.Map.class.equals(Float.class) || java.util.Map.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (java.util.Map.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (java.util.Map.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<java.util.Map<String, BulkDeleteArrayItemNested>>() { });
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'java.util.Map'");
+                }
             } catch (Exception e) {
-                // deserialization failed, continue, log to help debugging
-                log.log(Level.FINER, "Input data does not match 'BulkDeleteArrayItem'", e);
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'java.util.Map'", e);
             }
 
             // deserialize java.util.List<String>
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<java.util.List<String>>(){});
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (java.util.List.class.equals(Integer.class) || java.util.List.class.equals(Long.class) || java.util.List.class.equals(Float.class) || java.util.List.class.equals(Double.class) || java.util.List.class.equals(Boolean.class) || java.util.List.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((java.util.List.class.equals(Integer.class) || java.util.List.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((java.util.List.class.equals(Float.class) || java.util.List.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (java.util.List.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (java.util.List.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<java.util.List<String>>() { });
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'java.util.List'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'java.util.List'", e);
+            }
+
+            if (match == 1) {
                 BulkDeleteArrayItem ret = new BulkDeleteArrayItem();
                 ret.setActualInstance(deserialized);
                 return ret;
-            } catch (Exception e) {
-                // deserialization failed, continue, log to help debugging
-                log.log(Level.FINER, "Input data does not match 'BulkDeleteArrayItem'", e);
             }
-
-            throw new IOException(String.format("Failed deserialization for BulkDeleteArrayItem: no match found"));
+            throw new IOException(String.format("Failed deserialization for BulkDeleteArrayItem: %d classes match result, expected 1", match));
         }
 
         /**
@@ -116,21 +157,11 @@ public class BulkDeleteArrayItem extends AbstractOpenApiSchema implements Serial
         }
     }
 
-    // store a list of schema names defined in anyOf
+    // store a list of schema names defined in oneOf
     public static final Map<String, GenericType> schemas = new HashMap<String, GenericType>();
 
     public BulkDeleteArrayItem() {
-        super("anyOf", Boolean.FALSE);
-    }
-
-    public BulkDeleteArrayItem(java.util.List<String> o) {
-        super("anyOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-
-    public BulkDeleteArrayItem(java.util.Map<String, BulkDeleteArrayItemNested> o) {
-        super("anyOf", Boolean.FALSE);
-        setActualInstance(o);
+        super("oneOf", Boolean.FALSE);
     }
 
     static {
@@ -147,20 +178,22 @@ public class BulkDeleteArrayItem extends AbstractOpenApiSchema implements Serial
     }
 
     /**
-     * Set the instance that matches the anyOf child schema, check
-     * the instance parameter is valid against the anyOf child schemas:
+     * Set the instance that matches the oneOf child schema, check
+     * the instance parameter is valid against the oneOf child schemas:
      * java.util.List<String>, java.util.Map<String, BulkDeleteArrayItemNested>
      *
-     * It could be an instance of the 'anyOf' schemas.
-     * The anyOf child schemas may themselves be a composed schema (allOf, anyOf, anyOf).
+     * It could be an instance of the 'oneOf' schemas.
+     * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
      */
     @Override
     public void setActualInstance(Object instance) {
+        // java.util.Map<String, BulkDeleteArrayItemNested>
         if (JSON.isInstanceOf(java.util.Map.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
+        // java.util.List<String>
         if (JSON.isInstanceOf(java.util.List.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
@@ -181,26 +214,24 @@ public class BulkDeleteArrayItem extends AbstractOpenApiSchema implements Serial
     }
 
     /**
-     * Get the actual instance of `java.util.Map<String, BulkDeleteArrayItemNested>`.
-     * If the actual instance is not `java.util.Map<String, BulkDeleteArrayItemNested>`,
+     * Get the actual instance of `java.util.Map<String, BulkDeleteArrayItemNested>`. If the actual instance is not `java.util.Map<String, BulkDeleteArrayItemNested>`,
      * the ClassCastException will be thrown.
      *
      * @return The actual instance of `java.util.Map<String, BulkDeleteArrayItemNested>`
      * @throws ClassCastException if the instance is not `java.util.Map<String, BulkDeleteArrayItemNested>`
      */
-    public java.util.Map<String, BulkDeleteArrayItemNested> getAnyOf0() throws ClassCastException {
+    public java.util.Map<String, BulkDeleteArrayItemNested> getOneOf0() throws ClassCastException {
         return (java.util.Map<String, BulkDeleteArrayItemNested>)super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `java.util.List<String>`.
-     * If the actual instance is not `java.util.List<String>`,
+     * Get the actual instance of `java.util.List<String>`. If the actual instance is not `java.util.List<String>`,
      * the ClassCastException will be thrown.
      *
      * @return The actual instance of `java.util.List<String>`
      * @throws ClassCastException if the instance is not `java.util.List<String>`
      */
-    public java.util.List<String> getAnyOf1() throws ClassCastException {
+    public java.util.List<String> getOneOf1() throws ClassCastException {
         return (java.util.List<String>)super.getActualInstance();
     }
 

@@ -36,7 +36,7 @@ namespace FactSet.SDK.OFDB.Model
         /// Initializes a new instance of the <see cref="AddDates" /> class.
         /// </summary>
         /// <param name="data">data.</param>
-        public AddDates(List<AddDatesData> data = default(List<AddDatesData>))
+        public AddDates(List<DateAndContent> data = default(List<DateAndContent>))
         {
             this.Data = data;
         }
@@ -45,7 +45,7 @@ namespace FactSet.SDK.OFDB.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name = "data", EmitDefaultValue = false)]
-        public List<AddDatesData> Data { get; set; }
+        public List<DateAndContent> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

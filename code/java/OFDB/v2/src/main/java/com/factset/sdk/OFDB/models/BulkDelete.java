@@ -17,7 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.OFDB.models.BulkDeleteData;
+import com.factset.sdk.OFDB.models.BulkDeleteItem;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -42,17 +42,17 @@ public class BulkDelete implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private java.util.List<BulkDeleteData> data = null;
+  private java.util.List<BulkDeleteItem> data = null;
 
   public BulkDelete() { 
   }
 
-  public BulkDelete data(java.util.List<BulkDeleteData> data) {
+  public BulkDelete data(java.util.List<BulkDeleteItem> data) {
     this.data = data;
     return this;
   }
 
-  public BulkDelete addDataItem(BulkDeleteData dataItem) {
+  public BulkDelete addDataItem(BulkDeleteItem dataItem) {
     if (this.data == null) {
       this.data = new java.util.ArrayList<>();
     }
@@ -69,14 +69,14 @@ public class BulkDelete implements Serializable {
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public java.util.List<BulkDeleteData> getData() {
+  public java.util.List<BulkDeleteItem> getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setData(java.util.List<BulkDeleteData> data) {
+  public void setData(java.util.List<BulkDeleteItem> data) {
     this.data = data;
   }
 

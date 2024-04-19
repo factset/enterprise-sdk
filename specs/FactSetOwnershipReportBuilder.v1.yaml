@@ -1,18 +1,24 @@
 openapi: 3.0.3
 info:
   title: FactSet Ownership API
-  description: ''
+  description: description.md
+  contact:
+    name: FactSet Research Systems
+    email: api@factset.com
+    url: https://developer.factset.com/contact
   license:
-    name: Apache 2.0
+    name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
-  version: 1.0.0
+  version: 1.1.0
 servers:
   - url: https://api.factset.com/report/ownership/v1
 externalDocs:
-  description: Read more about STACH 2.0's row organized schema
-  url: https://factset.github.io/stachschema/#/v2/RowOrganized
+  description: API Documentation
+  url: >-
+    https://developer.factset.com/api-catalog/factset-ownership-report-builder-api
 tags:
   - name: Ownership
+    description: FactSet Ownership Data
 paths:
   /holders:
     get:
@@ -28,7 +34,8 @@ paths:
           required: true
           schema:
             type: string
-            example: FDS
+            example: FDS-US
+            maxLength: 12
         - name: asset_type
           in: query
           description: Controls the Asset Type of the data returned
@@ -53,11 +60,23 @@ paths:
               - INSTITUTIONS_INSIDERS
               - INSIDERS_STAKEHOLDERS
             default: INSTITUTIONS
+        - name: entity_type
+          in: query
+          description: >-
+            Controls the type of Entity data returned. Defaults to Security
+            data, but can also be used to display Company data.
+          required: false
+          schema:
+            type: string
+            enum:
+              - SECURITY
+              - COMPANY
+            default: SECURITY
         - name: topn
           in: query
           description: >
             Limits the number of holders returned based on their Market Value
-            position in the security.  
+            position in the security.
 
             Default is ALL, otherwise use a valid number above 0.
           schema:
@@ -72,10 +91,260 @@ paths:
           required: false
           schema:
             type: string
+            format: date
+            maxLength: 10
             example: '2019-12-31'
       responses:
         '200':
-          $ref: '#/components/responses/200OKStach'
+          $ref: '#/components/responses/200OKStach2'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+        '429':
+          $ref: '#/components/responses/429TooManyRequests'
+        '500':
+          $ref: '#/components/responses/500InternalServerError'
+        '503':
+          $ref: '#/components/responses/503ServiceUnavailable'
+  /ultimate-parent:
+    get:
+      tags:
+        - Ownership
+      operationId: getOwnershipUltimateParent
+      summary: >-
+        Get FactSet's ownership breakdown about a specific security.  The
+        returned table will display the institutions, insiders, funds, and
+        beneficial owners that comprise the ownership of the provided security. 
+        These holders will be grouped by the ultimate parent in their entity
+        structure.
+      description: >-
+        Get FactSet's ownership breakdown about a specific security.  The
+        returned table will display the institutions, insiders, funds, and
+        beneficial owners that comprise the ownership of the provided security. 
+        These holders will be grouped by the ultimate parent in their entity
+        structure.
+      parameters:
+        - name: id
+          in: query
+          description: >
+            Any valid FactSet identifier which points to a security.  This could
+            be Ticker Region, Entity ID, CUSIP, or SEDOL.
+          required: true
+          schema:
+            type: string
+            maxLength: 12
+            example: FDS-US
+        - name: currency
+          in: query
+          description: >
+            Currency ISO code that any currency-based data should be returned
+            in.  If excluded, the value will default to the special keyword
+            "LOCAL" which will cause the currency-based values to be calculated
+            in currency which is local to the exchange it is traded on.
+          schema:
+            type: string
+            example: LOCAL
+            enum:
+              - LOCAL
+              - AED
+              - ARS
+              - ATS
+              - AUD
+              - BBD
+              - BDT
+              - BEF
+              - BHD
+              - BMD
+              - BOB
+              - BRL
+              - CAD
+              - CHF
+              - CLP
+              - CNY
+              - COP
+              - CYP
+              - CZK
+              - DKK
+              - DOP
+              - EEK
+              - EGP
+              - ESP
+              - EUR
+              - FIM
+              - FRF
+              - GBP
+              - GHS
+              - GRD
+              - HKD
+              - HRK
+              - HUF
+              - IDR
+              - IEP
+              - ILS
+              - INR
+              - ISK
+              - ITL
+              - JMD
+              - JOD
+              - JPY
+              - KES
+              - KRW
+              - KWD
+              - KYD
+              - KZT
+              - LBP
+              - LKR
+              - LTL
+              - LUF
+              - LVL
+              - MAD
+              - MKD
+              - MNT
+              - MTL
+              - MUR
+              - MWK
+              - MXN
+              - MYR
+              - NAD
+              - NGN
+              - NLG
+              - NOK
+              - NZD
+              - OMR
+              - PAB
+              - PEN
+              - PHP
+              - PKR
+              - PLN
+              - PTE
+              - PYG
+              - QAR
+              - RUB
+              - SAR
+              - SEK
+              - SGD
+              - SIT
+              - SKK
+              - SZL
+              - THB
+              - TND
+              - TWD
+              - TZS
+              - UGX
+              - USD
+              - VND
+              - XAF
+              - ZAR
+        - name: attributes
+          in: query
+          description: The columns to be returned in the resulting table
+          schema:
+            type: array
+            maxItems: 40
+            example:
+              - percentOwnership
+              - position
+              - positionChange
+              - marketValue
+              - marketValueChange
+              - percentPortfolio
+              - reportDate
+              - source
+              - holderId
+            default:
+              - percentOwnership
+              - position
+              - positionChange
+              - marketValue
+              - marketValueChange
+              - percentPortfolio
+              - reportDate
+              - source
+              - holderId
+            items:
+              type: string
+              enum:
+                - percentOwnership
+                - position
+                - positionChange
+                - marketValue
+                - marketValueChange
+                - percentPortfolio
+                - reportDate
+                - source
+                - holderId
+                - percentOwnershipChange
+                - percentPortfolioChange
+                - optionsIndirectShares
+                - fullyDilutedShares
+                - contactName
+                - contactPhone
+                - contactEmail
+                - contactTitle
+                - holderRegion
+                - holderSubRegion
+                - holderCountry
+                - holderMetroRegion
+                - holderCity
+                - holderState
+                - holderIsForeignOrDomestic
+                - holderCapGroupStyle
+                - holderManagerStyle
+                - holderHoldingsStyles
+                - holderTurnover
+                - holderActivismLevel
+                - holderUltimateParent
+                - holderAssetsUnderManagement
+                - holderGroupLevelCount
+                - holderType
+                - investorType
+                - institutionOrInsider
+                - equityAssets
+        - name: period
+          in: query
+          description: The period over which we should return holdings for.
+          schema:
+            type: string
+            enum:
+              - 1m
+              - 3m
+              - 6m
+              - 12m
+              - recent
+            default: 6m
+        - name: holderType
+          in: query
+          description: The holder types which should be included in this table
+          required: false
+          schema:
+            type: string
+            enum:
+              - allHolders
+              - beneficialOwners
+              - funds
+              - institutions
+              - institutionsInsiders
+              - insidersStakeholders
+            default: institutions
+        - name: date
+          in: query
+          description: >-
+            The date as of which this data should be returned. YYYY-MM-DD
+            format. Defaults to current date.
+          required: false
+          schema:
+            type: string
+            format: date
+            maxLength: 10
+            example: '2019-12-31'
+      responses:
+        '200':
+          $ref: '#/components/responses/200OKStach3'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -105,7 +374,7 @@ components:
       type: http
       scheme: basic
   responses:
-    200OKStach:
+    200OKStach2:
       description: >-
         Expected response; returns JSON data containing STACH 2.0 row organized
         package format
@@ -122,17 +391,61 @@ components:
           schema:
             type: string
           description: API version (semantic versioning)
+        X-FactSet-Api-RateLimit-Limit:
+          schema:
+            type: string
+          description: Number of allowed requests for the time window.
+        X-FactSet-Api-RateLimit-Limit-Remaining:
+          schema:
+            type: string
+          description: Number of requests remaining for the time window
+        X-FactSet-Api-RateLimit-Limit-Reset:
+          schema:
+            type: string
+          description: Number of seconds remaining until rate limit resets
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Response'
+            $ref: '#/components/schemas/ResponseHolders'
           examples:
             default200ResponseExample:
               $ref: '#/components/examples/default200Response'
-            debtHolders200ResponseExample:
-              $ref: '#/components/examples/debtHolders200Response'
             noData200ResponseExample:
               $ref: '#/components/examples/noData200Response'
+    200OKStach3:
+      description: Expected response; returns JSON data containing STACH 3.1 table format
+      headers:
+        X-DataDirect-Request-Key:
+          schema:
+            type: string
+          description: FactSet request ID
+        Api-Supported-Versions:
+          schema:
+            type: string
+          description: Supported API versions (semantic versioning)
+        Api-Version:
+          schema:
+            type: string
+          description: API version (semantic versioning)
+        X-FactSet-Api-RateLimit-Limit:
+          schema:
+            type: string
+          description: Number of allowed requests for the time window.
+        X-FactSet-Api-RateLimit-Limit-Remaining:
+          schema:
+            type: string
+          description: Number of requests remaining for the time window
+        X-FactSet-Api-RateLimit-Limit-Reset:
+          schema:
+            type: string
+          description: Number of seconds remaining until rate limit resets
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ResponseUltimateParent'
+          examples:
+            200ResponseExample:
+              $ref: '#/components/examples/defaultUltimateParent200Response'
     400BadRequest:
       description: >-
         Bad Request. For further assistance, file an issue under "Workflow &
@@ -152,10 +465,22 @@ components:
           schema:
             type: string
           description: API version (semantic versioning)
+        X-FactSet-Api-RateLimit-Limit:
+          schema:
+            type: string
+          description: Number of allowed requests for the time window.
+        X-FactSet-Api-RateLimit-Limit-Remaining:
+          schema:
+            type: string
+          description: Number of requests remaining for the time window
+        X-FactSet-Api-RateLimit-Limit-Reset:
+          schema:
+            type: string
+          description: Number of seconds remaining until rate limit resets
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ErrorResponse'
+            $ref: '#/components/schemas/ErrorWithMetaResponse'
           examples:
             idRequiredParameterError:
               $ref: '#/components/examples/idRequiredParameterError'
@@ -165,6 +490,8 @@ components:
               $ref: '#/components/examples/parameterErrorAssetType'
             parameterErrorHolderType:
               $ref: '#/components/examples/parameterErrorHolderType'
+            parameterErrorEntityType:
+              $ref: '#/components/examples/parameterErrorEntityType'
             parameterErrorTopn:
               $ref: '#/components/examples/parameterErrorTopn'
             parameterErrorDate:
@@ -182,6 +509,18 @@ components:
           schema:
             type: string
           description: FactSet request ID
+        X-FactSet-Api-RateLimit-Limit:
+          schema:
+            type: string
+          description: Number of allowed requests for the time window.
+        X-FactSet-Api-RateLimit-Limit-Remaining:
+          schema:
+            type: string
+          description: Number of requests remaining for the time window
+        X-FactSet-Api-RateLimit-Limit-Reset:
+          schema:
+            type: string
+          description: Number of seconds remaining until rate limit resets
     403Forbidden:
       description: >-
         User is forbidden access with current credentials. Reach out to your
@@ -194,6 +533,18 @@ components:
           schema:
             type: string
           description: FactSet request ID
+        X-FactSet-Api-RateLimit-Limit:
+          schema:
+            type: string
+          description: Number of allowed requests for the time window.
+        X-FactSet-Api-RateLimit-Limit-Remaining:
+          schema:
+            type: string
+          description: Number of requests remaining for the time window
+        X-FactSet-Api-RateLimit-Limit-Reset:
+          schema:
+            type: string
+          description: Number of seconds remaining until rate limit resets
       content:
         application/json:
           schema:
@@ -212,6 +563,18 @@ components:
           schema:
             type: string
           description: FactSet request ID
+        X-FactSet-Api-RateLimit-Limit:
+          schema:
+            type: string
+          description: Number of allowed requests for the time window.
+        X-FactSet-Api-RateLimit-Limit-Remaining:
+          schema:
+            type: string
+          description: Number of requests remaining for the time window
+        X-FactSet-Api-RateLimit-Limit-Reset:
+          schema:
+            type: string
+          description: Number of seconds remaining until rate limit resets
       content:
         application/json:
           schema:
@@ -231,6 +594,18 @@ components:
           schema:
             type: string
           description: FactSet request ID
+        X-FactSet-Api-RateLimit-Limit:
+          schema:
+            type: string
+          description: Number of allowed requests for the time window.
+        X-FactSet-Api-RateLimit-Limit-Remaining:
+          schema:
+            type: string
+          description: Number of requests remaining for the time window
+        X-FactSet-Api-RateLimit-Limit-Reset:
+          schema:
+            type: string
+          description: Number of seconds remaining until rate limit resets
     500InternalServerError:
       description: >-
         Server error. For further assistance, file an issue under "Performance -
@@ -347,7 +722,7 @@ components:
                       - '2020-06-30'
                       - 13F Form
                     rowMetadata:
-                      fsymId:
+                      holderId:
                         value: F72998
                   - cells:
                       - ' Vanguard Total Stock Market Index Fund'
@@ -360,7 +735,7 @@ components:
                       - '2020-07-31'
                       - US Fund (N-30D)
                     rowMetadata:
-                      fsymId:
+                      holderId:
                         value: ' M4004630'
                   - cells:
                       - ' Vanguard Mid Cap Index Fund'
@@ -373,7 +748,7 @@ components:
                       - '2020-07-31'
                       - US Fund (N-30D)
                     rowMetadata:
-                      fsymId:
+                      holderId:
                         value: ' M4005398'
                   - cells:
                       - ' Vanguard Extended Market Index Fund'
@@ -386,7 +761,7 @@ components:
                       - '2020-07-31'
                       - US Fund (N-30D)
                     rowMetadata:
-                      fsymId:
+                      holderId:
                         value: ' M4004539'
                   - cells:
                       - ' Vanguard Growth Index Fund'
@@ -399,7 +774,7 @@ components:
                       - '2020-07-31'
                       - US Fund (N-30D)
                     rowMetadata:
-                      fsymId:
+                      holderId:
                         value: ' M4004567'
                   - cells:
                       - ' Vanguard Dividend Appreciation Index Fund'
@@ -412,7 +787,7 @@ components:
                       - '2020-07-31'
                       - US Fund (N-30D)
                     rowMetadata:
-                      fsymId:
+                      holderId:
                         value: ' M4048126'
                   - cells:
                       - ' Vanguard Mid Cap Growth Index Fund'
@@ -425,7 +800,7 @@ components:
                       - '2020-07-31'
                       - US Fund (N-30D)
                     rowMetadata:
-                      fsymId:
+                      holderId:
                         value: ' M4048682'
                   - cells:
                       - ' Vanguard Financials Index Fund'
@@ -438,7 +813,7 @@ components:
                       - '2020-07-31'
                       - US Fund (N-30D)
                     rowMetadata:
-                      fsymId:
+                      holderId:
                         value: ' M4039461'
                   - cells:
                       - ' Vanguard S&P Mid Cap 400 Index Fund'
@@ -451,7 +826,7 @@ components:
                       - '2020-07-31'
                       - US Fund (N-30D)
                     rowMetadata:
-                      fsymId:
+                      holderId:
                         value: ' M4107013'
                   - cells:
                       - ' Vanguard Strategic Equity Fund'
@@ -464,7 +839,7 @@ components:
                       - '2020-06-30'
                       - US Fund (N-30D)
                     rowMetadata:
-                      fsymId:
+                      holderId:
                         value: ' M4007901'
                   - cells:
                       - ' Vanguard Institutional Total Stock Market Index Fund'
@@ -477,7 +852,7 @@ components:
                       - '2020-07-31'
                       - US Fund (N-30D)
                     rowMetadata:
-                      fsymId:
+                      holderId:
                         value: ' M4017307'
                 columnMetadata:
                   pctowns:
@@ -507,132 +882,6 @@ components:
         meta:
           requestId: FDS-US
           fsymId: SQFMK3-R
-    debtHolders200Response:
-      summary: (dummy data- debt holders)
-      value:
-        data:
-          version: '2.0'
-          tables:
-            main:
-              definition:
-                columns:
-                  - id: holderName
-                    type: string
-                    isDimension: true
-                  - id: pctowns
-                    type: real
-                  - id: position
-                    type: real
-              headersDefinition:
-                columns:
-                  - id: ownershipTableHeader
-                    type: string
-                    isDimension: true
-              data:
-                rows:
-                  - rowType: Header
-                    cells:
-                      - Institutions
-                      - '%OS'
-                      - Position (MM)
-                    headerCellDetails:
-                      '0':
-                        source: HEADERS
-                        columnIndex: 0
-                      '1':
-                        source: HEADERS
-                        columnIndex: 0
-                      '2':
-                        source: HEADERS
-                        columnIndex: 0
-                  - cells:
-                      - The Vanguard Group, Inc.
-                      - 6.590663
-                      - 4094.054
-                    rowMetadata:
-                      fsymId:
-                        value: F72998
-                  - cells:
-                      - Pacific Investment Management Co. LLC
-                      - 5.969819
-                      - 3708.391636
-                    rowMetadata:
-                      fsymId:
-                        value: F5017088
-                  - cells:
-                      - Lord, Abbett & Co. LLC
-                      - 2.032207
-                      - 1262.386837
-                    rowMetadata:
-                      fsymId:
-                        value: F20448
-                  - cells:
-                      - >-
-                        Capital Research & Management Co. (Fixed Income
-                        Investors)
-                      - 1.628714
-                      - 1011.741
-                    rowMetadata:
-                      fsymId:
-                        value: F12947256
-                  - cells:
-                      - Capital Research & Management Co. (World Investors)
-                      - 1.605221
-                      - 997.147
-                    rowMetadata:
-                      fsymId:
-                        value: F6158007
-                  - cells:
-                      - BlackRock Fund Advisors
-                      - 1.502151
-                      - 933.121
-                    rowMetadata:
-                      fsymId:
-                        value: F7749421
-                  - cells:
-                      - PGIM, Inc.
-                      - 1.331821
-                      - 827.314
-                    rowMetadata:
-                      fsymId:
-                        value: F24891
-                  - cells:
-                      - Western Asset Management Co. LLC
-                      - 1.084589
-                      - 673.736
-                    rowMetadata:
-                      fsymId:
-                        value: F5112696
-                  - cells:
-                      - Fidelity Management & Research Co. LLC
-                      - 0.966759
-                      - 600.540811
-                    rowMetadata:
-                      fsymId:
-                        value: F16925
-                  - cells:
-                      - Loomis, Sayles & Co. LP
-                      - 0.923711
-                      - 573.8
-                    rowMetadata:
-                      fsymId:
-                        value: F20445
-                columnMetadata:
-                  pctowns:
-                    items:
-                      valueType:
-                        value: PERCENTAGE
-                  position:
-                    items:
-                      scale:
-                        value: 6
-                      currencyCode:
-                        value: USD
-                      currencySymbol:
-                        value: $
-        meta:
-          requestId: BA-US
-          fsymId: RXHN9P-R
     noData200Response:
       summary: (debt holders - no data case)
       value:
@@ -676,7 +925,7 @@ components:
                       - null
                       - null
                     rowMetadata:
-                      fsymId:
+                      holderId:
                         value: '@NA'
                 columnMetadata:
                   pctowns:
@@ -696,6 +945,162 @@ components:
           fsymId: DT59Y2-R
           noData: true
           message: There is no data for this request.
+    defaultUltimateParent200Response:
+      summary: (dummy data - ultimate parent)
+      value:
+        data:
+          version: '3.1'
+          columns:
+            - name: name
+              contextualType: string
+            - name: pctos
+              contextualType: int64
+            - name: pos
+              contextualType: int64
+            - name: poschg
+              contextualType: int64
+            - name: mv
+              contextualType: int64
+            - name: mvchg
+              contextualType: int64
+            - name: pcprt
+              contextualType: int64
+            - name: report_date
+              contextualType: string
+            - name: source
+              contextualType: string
+            - name: holderId
+              contextualType: string
+            - name: pk
+              contextualType: string
+            - name: rowPath
+              contextualType: string
+            - name: aggr
+              contextualType: boolean
+          table:
+            primaryKeys:
+              - pk
+            groupResult:
+              by:
+                - name
+              rowPath: rowPath
+              aggregateRows: aggr
+            customMetadata:
+              title:
+                contextualType: string
+                value: Single Company - Point in Time - 03/12/2024
+            totalNumRows: 1779
+          views:
+            - name: UltimateParentTable
+              table:
+                columns:
+                  - $collapsedColumn
+                  - pctos
+                  - pos
+                  - poschg
+                  - mv
+                  - mvchg
+                  - pcprt
+                  - report_date
+                  - source
+                  - holderId
+                headers:
+                  $collapsedColumn: Name
+                  name: Name
+                  pctos: '%OS'
+                  pos: Position (000)
+                  poschg: Position Chg (000) [6M]
+                  mv: Mkt Val (MM)
+                  mvchg: Mkt Val Chg (MM) [6M]
+                  pcprt: '%Port'
+                  report_date: Report Date
+                  source: Source
+                  holderId: Holder ID
+                group:
+                  collapsedColumn:
+                    alias: $collapsedColumn
+          rows:
+            - name: The Vanguard Group, Inc.
+              pctos: 11.9781
+              pos: 4562.01
+              poschg: -31.840999999999998
+              mv: 2190.677202
+              mvchg: 185.87468708999998
+              pcprt: 0.10960070590000001
+              report_date: ''
+              source: ''
+              holderId: ''
+              pk: TheVanguardGroupInc
+              rowPath: ''
+              aggr: true
+            - name: The Vanguard Group, Inc.
+              pctos: 11.54
+              pos: 4395.161
+              poschg: -36.3
+              mv: 2110.5563122
+              mvchg: 176.62241719
+              pcprt: 0.0279046476
+              report_date: 12/31/2023
+              source: 13F Form
+              holderId: F72998
+              pk: ''
+              rowPath: TheVanguardGroupInc
+              aggr: true
+            - name: Vanguard Global Advisers LLC
+              pctos: 0.313
+              pos: 119.211
+              poschg: 6.715
+              mv: 57.2451222
+              mvchg: 8.15074284
+              pcprt: 0.0174503751
+              report_date: 12/31/2023
+              source: 13F Form
+              holderId: F11628548
+              pk: ''
+              rowPath: TheVanguardGroupInc
+              aggr: false
+            - name: Vanguard Fiduciary Trust Co.
+              pctos: 0.0751
+              pos: 28.607
+              poschg: -1.139
+              mv: 13.7370814
+              mvchg: 0.75562954
+              pcprt: 0.0267013638
+              report_date: 12/31/2023
+              source: 13F Form
+              holderId: F60034
+              pk: ''
+              rowPath: TheVanguardGroupInc
+              aggr: false
+            - name: Vanguard Investments Australia Ltd.
+              pctos: 0.0436
+              pos: 16.597
+              poschg: -0.34
+              mv: 7.9698794
+              mvchg: 0.57840323
+              pcprt: 0.0094628924
+              report_date: 12/31/2023
+              source: 13F Form
+              holderId: F5547256
+              pk: ''
+              rowPath: TheVanguardGroupInc
+              aggr: false
+            - name: Vanguard Personalized Indexing Management LLC
+              pctos: 0.0064
+              pos: 2.434
+              poschg: -0.777
+              mv: 1.1688068
+              mvchg: -0.23250571
+              pcprt: 0.028081427
+              report_date: 12/31/2023
+              source: 13F Form
+              holderId: F17008500
+              pk: ''
+              rowPath: TheVanguardGroupInc
+              aggr: false
+        meta:
+          requestId: FDS
+          fsymId: SQFMK3-R
     genericServerError:
       summary: generic server error
       value:
@@ -717,6 +1122,9 @@ components:
           - id: 39314614-e607-465a-ba95-5bb79c362e23
             code: parameterError
             title: 'Invalid parameter(s): ''id'''
+        meta:
+          requestId: BAD_TICKER
+          fsymId: null
     parameterErrorAssetType:
       summary: asset type parameter error
       value:
@@ -724,6 +1132,9 @@ components:
           - id: 39314614-e607-465a-ba95-5bb79c362e23
             code: parameterError
             title: 'Invalid parameter: ''asset_type'''
+        meta:
+          requestId: FDS
+          fsymId: SQFMK3-R
     parameterErrorHolderType:
       summary: holder type parameter error
       value:
@@ -737,6 +1148,19 @@ components:
               holderType parameter value is invalid with assetType ‘DEBT’. Only
               holderType ‘INSTITUTIONS’ or ‘FUNDS’ are valid when returning
               assetType ‘DEBT’.
+        meta:
+          requestId: FDS
+          fsymId: SQFMK3-R
+    parameterErrorEntityType:
+      summary: entity type parameter error
+      value:
+        errors:
+          - id: 39314614-e607-465a-ba95-5bb79c362e23
+            code: parameterError
+            title: 'Invalid parameter: ''entity_type'''
+        meta:
+          requestId: FDS
+          fsymId: SQFMK3-R
     parameterErrorTopn:
       summary: topn parameter error
       value:
@@ -744,6 +1168,9 @@ components:
           - id: 39314614-e607-465a-ba95-5bb79c362e23
             code: parameterError
             title: 'Invalid parameter: ''topn'''
+        meta:
+          requestId: FDS
+          fsymId: SQFMK3-R
     parameterErrorDate:
       summary: date parameter error
       value:
@@ -751,6 +1178,9 @@ components:
           - id: 39314614-e607-465a-ba95-5bb79c362e23
             code: parameterError
             title: 'Invalid parameter: ''date'''
+        meta:
+          requestId: FDS
+          fsymId: SQFMK3-R
     endpointNotFound:
       summary: endpoint not found
       value:
@@ -768,28 +1198,72 @@ components:
               User is forbidden access with current credentials. For access,
               contact your FactSet sales representative
   schemas:
-    Response:
+    ResponseHolders:
       type: object
+      description: Standard response schema for the Holders endpoint
       properties:
         data:
+          type: object
           title: STACH
           description: Returns a STACH 2.0 row organized package
         meta:
           $ref: '#/components/schemas/Meta'
-    Meta:
+    ResponseUltimateParent:
+      description: Standard response schema for the Ultimate Parent endpoint
       type: object
-      additionalProperties:
-        type: string
+      properties:
+        data:
+          type: object
+          title: STACH
+          description: >-
+            Returns a STACH 3.1 row organized package.  For more detail on the
+            STACH format, please view our publicly hosted
+            [documentation](https://factset.github.io/stachschema/#/)
+        meta:
+          $ref: '#/components/schemas/Meta'
+    Meta:
+      description: >-
+        Standard Ownership response meta object.  Contains metadata about the
+        response at the root level.
+      type: object
+      properties:
+        requestId:
+          type: string
+          description: The identifier which was requested by the client
+        currency:
+          type: string
+          nullable: true
+          description: The currency ISO of the data which was returned
+        fsymId:
+          type: string
+          description: The resolved fsymId that corresponds to the provided requestId
+          nullable: true
+        noData:
+          type: boolean
+          nullable: true
+          description: Indicator of whether FactSet had data for this request
     ErrorResponse:
+      description: Standard Ownership response when an error occurs.
       type: object
       properties:
         errors:
+          description: Any errors that occured which made this request unservicable
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorObject'
+    ErrorWithMetaResponse:
+      description: Standard Ownership response when an error occurs.
+      type: object
+      properties:
+        errors:
+          description: Any errors that occured which made this request unservicable
           type: array
           items:
             $ref: '#/components/schemas/ErrorObject'
         meta:
           $ref: '#/components/schemas/Meta'
     ErrorObject:
+      description: Schema describing an API error
       type: object
       properties:
         id:
@@ -810,177 +1284,3 @@ components:
           properties:
             parameter:
               type: string
-    MetadataEntry:
-      type: object
-      description: >
-        Restricted metadata entries. Restricts the possible key in the following
-        STACH schema:
-
-        - RowOrganizedPackage.CellDetail.CellMetadataEntry
-
-        - RowOrganizedPackage.HeaderCellDetail.CellMetadataEntry
-
-        - RowOrganizedPackage.MapOfMetadata.ItemsEntry
-
-        - RowOrganizedPackage.Row.RowMetadataEntry
-
-        - RowOrganizedPackage.TableData.TableMetadataEntry
-
-        And sets restrictions on the possible values for a MetadataItem.
-      oneOf:
-        - $ref: '#/components/schemas/fsymId'
-        - $ref: '#/components/schemas/currencyCode'
-        - $ref: '#/components/schemas/currencySymbol'
-        - $ref: '#/components/schemas/category'
-        - $ref: '#/components/schemas/valueType'
-        - $ref: '#/components/schemas/scale'
-        - $ref: '#/components/schemas/description'
-        - $ref: '#/components/schemas/frequency'
-    fsymId:
-      type: object
-      properties:
-        fsymId:
-          type: object
-          description: Describes fund id or institution id
-          properties:
-            value:
-              type: string
-              nullable: true
-    currencyCode:
-      type: object
-      properties:
-        currencyCode:
-          type: object
-          description: Code for data currency
-          properties:
-            value:
-              type: string
-    currencySymbol:
-      type: object
-      properties:
-        currencySymbol:
-          type: object
-          description: Symbol for data currency
-          properties:
-            value:
-              type: string
-    category:
-      type: object
-      properties:
-        category:
-          type: object
-          description: >
-            Describes data based on source or kind of value
-
-            - ACTUAL - Historical data collected directly from a press release
-            or a median consensus from brokers after a report date.
-
-            - ESTIMATE - Forward looking average of broker estimates within a
-            specific time horizon.
-
-            - GUIDANCE - Forward looking indication or estimate of future
-            performance issued by the company itself.
-
-            - DETAIL - Indicates data that is more granular and may be secondary
-            in focus.
-
-            - MAIN - Indicates data is of more impactful or higher importance
-            and may want to be emphasized.
-
-            - SECTION - Indicates data that is used in sectioning rows in group
-            level STACH format.
-          properties:
-            value:
-              type: string
-              enum:
-                - ACTUAL
-                - ESTIMATE
-                - GUIDANCE
-                - EXCLUDED
-                - CHANGE
-                - DETAIL
-                - MAIN
-                - SECTION
-    valueType:
-      type: object
-      properties:
-        valueType:
-          type: object
-          description: Describes how to interpret numbers
-          properties:
-            value:
-              type: string
-              enum:
-                - PERCENTAGE
-                - RATIO
-                - TREND
-                - RANGE
-    scale:
-      type: object
-      properties:
-        scale:
-          type: object
-          description: >
-            Integer power of 10 to which numbers have been scaled. For example:
-            6 implies millions.
-
-            Default is 0.
-          properties:
-            value:
-              type: integer
-    description:
-      type: object
-      properties:
-        description:
-          type: object
-          description: Text describing the data
-          properties:
-            value:
-              type: string
-    frequency:
-      type: object
-      properties:
-        frequency:
-          type: object
-          description: |
-            String with frequency of a data series. Allowed values:
-            - "D" (daily)
-            - "W" (weekly)
-            - "AW" (actual weekly)
-            - "M" (monthly)
-            - "AM" (actual monthly)
-            - "Q" (quarterly)
-            - "FQ" (fiscal quarterly)
-            - "CQ" (calendar quarterly)
-            - "AQ" (actual quarterly)
-            - "Y" (yearly)
-            - "FY" (fiscal yearly)
-            - "CY" (calendar yearly)
-            - "AY" (actual yearly)
-            - "MTD" (month-to-date)
-            - "QTD" (quarter-to-date)
-            - "YTD" (year-to-date)
-            - "FYTD" (fiscal-year-to-date)
-            - "CYTD" (calendar-year-to-date)
-          properties:
-            value:
-              type: string
-              enum:
-                - D
-                - W
-                - AW
-                - M
-                - AM
-                - Q
-                - FQ
-                - CQ
-                - AQ
-                - 'Y'
-                - FY
-                - CY
-                - AY
-                - MTD
-                - QTD
-                - YTD
-                - FYTD
-                - CYTD

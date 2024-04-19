@@ -31,8 +31,8 @@ from fds.sdk.OFDB.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.OFDB.model.inline_response403_errors import InlineResponse403Errors
-    globals()['InlineResponse403Errors'] = InlineResponse403Errors
+    from fds.sdk.OFDB.model.error_object import ErrorObject
+    globals()['ErrorObject'] = ErrorObject
 
 
 class InlineResponse403(ModelNormal):
@@ -88,7 +88,7 @@ class InlineResponse403(ModelNormal):
         """
         lazy_import()
         return {
-            'errors': ([InlineResponse403Errors],),  # noqa: E501
+            'errors': ([ErrorObject],),  # noqa: E501
         }
 
     @cached_property
@@ -141,7 +141,7 @@ class InlineResponse403(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            errors ([InlineResponse403Errors]): An array containing errors. [optional]  # noqa: E501
+            errors ([ErrorObject]): An array containing errors. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,7 +223,7 @@ class InlineResponse403(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            errors ([InlineResponse403Errors]): An array containing errors. [optional]  # noqa: E501
+            errors ([ErrorObject]): An array containing errors. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

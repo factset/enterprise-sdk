@@ -40,7 +40,7 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
         /// Initializes a new instance of the <see cref="UserResource" /> class.
         /// </summary>
         /// <param name="schemas">schemas.</param>
-        /// <param name="externalId">externalId.</param>
+        /// <param name="externalId">An arbitrary identifier for the resource defined by the client. This can assist the client locate the resource through the use of search filters..</param>
         /// <param name="name">name (required).</param>
         /// <param name="email">Email addresses for the user.  The value SHOULD be canonicalized by the service provider, e.g., &#39;bjensen@example.com&#39; instead of &#39;bjensen@EXAMPLE.COM&#39;. (required).</param>
         /// <param name="urnscimschemasextensionFactSetCore10User">urnscimschemasextensionFactSetCore10User.</param>
@@ -86,8 +86,9 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
             return false;
         }
         /// <summary>
-        /// Gets or Sets ExternalId
+        /// An arbitrary identifier for the resource defined by the client. This can assist the client locate the resource through the use of search filters.
         /// </summary>
+        /// <value>An arbitrary identifier for the resource defined by the client. This can assist the client locate the resource through the use of search filters.</value>
         [DataMember(Name = "externalId", EmitDefaultValue = false)]
         public string ExternalId { get; set; }
 

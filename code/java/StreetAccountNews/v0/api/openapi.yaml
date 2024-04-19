@@ -981,6 +981,9 @@ components:
           - ETF
           - Mutual_Fund
           - Portfolios
+          - Equity
+          - privateCompanies
+          - Fixed_Income
           example: Index
           type: string
       type: object

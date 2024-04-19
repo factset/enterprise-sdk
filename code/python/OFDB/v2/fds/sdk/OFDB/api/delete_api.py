@@ -29,9 +29,6 @@ from fds.sdk.OFDB.model.bulk_delete import BulkDelete
 from fds.sdk.OFDB.model.inline_response202 import InlineResponse202
 from fds.sdk.OFDB.model.inline_response400 import InlineResponse400
 from fds.sdk.OFDB.model.inline_response403 import InlineResponse403
-from fds.sdk.OFDB.model.inline_response404 import InlineResponse404
-from fds.sdk.OFDB.model.inline_response406 import InlineResponse406
-from fds.sdk.OFDB.model.inline_response429 import InlineResponse429
 
 
 
@@ -52,7 +49,7 @@ class DeleteApi(object):
         self.delete_bulk_items_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse404,), 406: (InlineResponse406,), 429: (InlineResponse429,),  },
+                  { 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 429: (InlineResponse403,),  },
                   None
                 ),
                 'auth': [
@@ -114,7 +111,7 @@ class DeleteApi(object):
         self.delete_date_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse404,), 406: (InlineResponse406,), 429: (InlineResponse429,),  },
+                  { 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 429: (InlineResponse403,),  },
                   None
                 ),
                 'auth': [
@@ -176,7 +173,7 @@ class DeleteApi(object):
         self.delete_date_from_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse404,), 406: (InlineResponse406,), 429: (InlineResponse429,),  },
+                  { 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 429: (InlineResponse403,),  },
                   None
                 ),
                 'auth': [
@@ -244,7 +241,7 @@ class DeleteApi(object):
         self.delete_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse404,), 406: (InlineResponse406,), 429: (InlineResponse429,),  },
+                  { 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 429: (InlineResponse403,),  },
                   None
                 ),
                 'auth': [
@@ -290,80 +287,6 @@ class DeleteApi(object):
                 'location_map': {
                     'path': 'path',
                     'symbol': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-
-        self.get_resource_date_from_symbol_endpoint = _Endpoint(
-            settings={
-                'response_type': (
-                  { 200: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse404,), 406: (InlineResponse406,), 429: (InlineResponse429,),  },
-                  None
-                ),
-                'auth': [
-                    'FactSetApiKey',
-                    'FactSetOAuth2'
-                ],
-                'endpoint_path': '/database/{path}/dates/{date}/symbols/{symbol}/jobs/{id}',
-                'operation_id': 'get_resource_date_from_symbol',
-                'http_method': 'DELETE',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'path',
-                    'date',
-                    'symbol',
-                    'id',
-                ],
-                'required': [
-                    'path',
-                    'date',
-                    'symbol',
-                    'id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'path':
-                        (str,),
-                    'date':
-                        (int,),
-                    'symbol':
-                        (str,),
-                    'id':
-                        (str,),
-                },
-                'attribute_map': {
-                    'path': 'path',
-                    'date': 'date',
-                    'symbol': 'symbol',
-                    'id': 'id',
-                },
-                'location_map': {
-                    'path': 'path',
-                    'date': 'path',
-                    'symbol': 'path',
-                    'id': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -1221,244 +1144,5 @@ class DeleteApi(object):
         kwargs['symbol'] = \
             symbol
         return self.delete_symbol_endpoint.call_with_http_info(**kwargs)
-
-
-    def get_resource_date_from_symbol(
-        self,
-        path,
-        date,
-        symbol,
-        id,
-        **kwargs
-    ) -> InlineResponse202:
-        """get_resource_date_from_symbol  # noqa: E501
-
-        Deletes data specific to the symbol and date from a 3d database(OFDB).  # noqa: E501
-        This method makes a synchronous HTTP request. Returns the http data only
-
-        Args:
-            path (str): Encode database path
-            date (int): Date in YYYYMMDD format
-            symbol (str): Symbol with in the ofdb
-            id (str): A unique pickup ID returned by the original request
-
-        Keyword Args:
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True. NOTE: if this API returns a file, it is the responsibility
-                of the caller to close the file stream.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse202
-                Response Object
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['path'] = \
-            path
-        kwargs['date'] = \
-            date
-        kwargs['symbol'] = \
-            symbol
-        kwargs['id'] = \
-            id
-        return self.get_resource_date_from_symbol_endpoint.call_with_http_info(**kwargs)
-
-    def get_resource_date_from_symbol_with_http_info(
-        self,
-        path,
-        date,
-        symbol,
-        id,
-        **kwargs
-    ) -> typing.Tuple[InlineResponse202, int, typing.MutableMapping]:
-        """get_resource_date_from_symbol  # noqa: E501
-
-        Deletes data specific to the symbol and date from a 3d database(OFDB).  # noqa: E501
-        This method makes a synchronous HTTP request. Returns http data, http status and headers
-
-        Args:
-            path (str): Encode database path
-            date (int): Date in YYYYMMDD format
-            symbol (str): Symbol with in the ofdb
-            id (str): A unique pickup ID returned by the original request
-
-        Keyword Args:
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True. NOTE: if this API returns a file, it is the responsibility
-                of the caller to close the file stream.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse202
-                Response Object
-            int
-                Http Status Code
-            dict
-                Dictionary of the response headers
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['path'] = \
-            path
-        kwargs['date'] = \
-            date
-        kwargs['symbol'] = \
-            symbol
-        kwargs['id'] = \
-            id
-        return self.get_resource_date_from_symbol_endpoint.call_with_http_info(**kwargs)
-
-    def get_resource_date_from_symbol_async(
-        self,
-        path,
-        date,
-        symbol,
-        id,
-        **kwargs
-    ) -> "ApplyResult[InlineResponse202]":
-        """get_resource_date_from_symbol  # noqa: E501
-
-        Deletes data specific to the symbol and date from a 3d database(OFDB).  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
-
-        Args:
-            path (str): Encode database path
-            date (int): Date in YYYYMMDD format
-            symbol (str): Symbol with in the ofdb
-            id (str): A unique pickup ID returned by the original request
-
-        Keyword Args:
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True. NOTE: if this API returns a file, it is the responsibility
-                of the caller to close the file stream.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[InlineResponse202]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['path'] = \
-            path
-        kwargs['date'] = \
-            date
-        kwargs['symbol'] = \
-            symbol
-        kwargs['id'] = \
-            id
-        return self.get_resource_date_from_symbol_endpoint.call_with_http_info(**kwargs)
-
-    def get_resource_date_from_symbol_with_http_info_async(
-        self,
-        path,
-        date,
-        symbol,
-        id,
-        **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse202, int, typing.MutableMapping]]":
-        """get_resource_date_from_symbol  # noqa: E501
-
-        Deletes data specific to the symbol and date from a 3d database(OFDB).  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
-
-        Args:
-            path (str): Encode database path
-            date (int): Date in YYYYMMDD format
-            symbol (str): Symbol with in the ofdb
-            id (str): A unique pickup ID returned by the original request
-
-        Keyword Args:
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True. NOTE: if this API returns a file, it is the responsibility
-                of the caller to close the file stream.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[(InlineResponse202, int, typing.Dict)]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['path'] = \
-            path
-        kwargs['date'] = \
-            date
-        kwargs['symbol'] = \
-            symbol
-        kwargs['id'] = \
-            id
-        return self.get_resource_date_from_symbol_endpoint.call_with_http_info(**kwargs)
 
 

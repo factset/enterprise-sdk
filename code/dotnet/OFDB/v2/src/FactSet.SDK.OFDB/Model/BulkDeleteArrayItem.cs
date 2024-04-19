@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.SDK.OFDB.Client.OpenAPIDateConverter;
+using System.Reflection;
 
 namespace FactSet.SDK.OFDB.Model
 {
@@ -40,7 +41,7 @@ namespace FactSet.SDK.OFDB.Model
         public BulkDeleteArrayItem(Dictionary<string, BulkDeleteArrayItemNested> actualInstance)
         {
             this.IsNullable = false;
-            this.SchemaType= "anyOf";
+            this.SchemaType= "oneOf";
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
@@ -51,7 +52,7 @@ namespace FactSet.SDK.OFDB.Model
         public BulkDeleteArrayItem(List<string> actualInstance)
         {
             this.IsNullable = false;
-            this.SchemaType= "anyOf";
+            this.SchemaType= "oneOf";
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
@@ -139,16 +140,19 @@ namespace FactSet.SDK.OFDB.Model
             {
                 return newBulkDeleteArrayItem;
             }
+            int match = 0;
+            List<string> matchedTypes = new List<string>();
 
             try
             {
                 var hasAdditionalProperties = !(typeof(Dictionary<string, BulkDeleteArrayItemNested>).GetProperty("AdditionalProperties") is null);
-                newBulkDeleteArrayItem = new BulkDeleteArrayItem(JsonConvert.DeserializeObject<Dictionary<string, BulkDeleteArrayItemNested>>(
-                    jsonString, 
+                var parsedValue = JsonConvert.DeserializeObject<Dictionary<string, BulkDeleteArrayItemNested>>(
+                    jsonString,
                     hasAdditionalProperties ? BulkDeleteArrayItem.AdditionalPropertiesSerializerSettings : BulkDeleteArrayItem.SerializerSettings
-                )); 
-                // deserialization is considered successful at this point if no exception has been thrown.
-                return newBulkDeleteArrayItem;
+                );
+                newBulkDeleteArrayItem = new BulkDeleteArrayItem(parsedValue);
+                matchedTypes.Add("Dictionary<string, BulkDeleteArrayItemNested>");
+                match++;
             }
             catch (Exception exception)
             {
@@ -158,13 +162,10 @@ namespace FactSet.SDK.OFDB.Model
 
             try
             {
-                var hasAdditionalProperties = !(typeof(List<string>).GetProperty("AdditionalProperties") is null);
-                newBulkDeleteArrayItem = new BulkDeleteArrayItem(JsonConvert.DeserializeObject<List<string>>(
-                    jsonString, 
-                    hasAdditionalProperties ? BulkDeleteArrayItem.AdditionalPropertiesSerializerSettings : BulkDeleteArrayItem.SerializerSettings
-                )); 
-                // deserialization is considered successful at this point if no exception has been thrown.
-                return newBulkDeleteArrayItem;
+                var parsedValue = JsonConvert.DeserializeObject<List<string>>(jsonString, BulkDeleteArrayItem.SerializerSettings);
+                newBulkDeleteArrayItem = new BulkDeleteArrayItem(parsedValue);
+                matchedTypes.Add("List<string>");
+                match++;
             }
             catch (Exception exception)
             {
@@ -172,8 +173,17 @@ namespace FactSet.SDK.OFDB.Model
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into List<string>: {1}", jsonString, exception.ToString()));
             }
 
-            // no match found, throw an exception
-            throw new InvalidDataException("The JSON string `" + jsonString + "` cannot be deserialized into any schema defined.");
+            if (match == 0)
+            {
+                throw new InvalidDataException("The JSON string `" + jsonString + "` cannot be deserialized into any schema defined.");
+            }
+            else if (match > 1)
+            {
+                throw new InvalidDataException("The JSON string `" + jsonString + "` incorrectly matches more than one schema (should be exactly one match): " + matchedTypes);
+            }
+
+            // deserialization is considered successful at this point if no exception has been thrown.
+            return newBulkDeleteArrayItem;
         }
 
         /// <summary>
@@ -253,7 +263,7 @@ namespace FactSet.SDK.OFDB.Model
         {
             if(reader.TokenType != JsonToken.Null)
             {
-                return BulkDeleteArrayItem.FromJson(JObject.Load(reader).ToString(Formatting.None));
+                return BulkDeleteArrayItem.FromJson(JToken.Load(reader).ToString(Formatting.None));
             }
             return null;
         }

@@ -58,7 +58,13 @@ public class SaHeadlinesRequestTickersObject implements Serializable {
     
     MUTUAL_FUND("Mutual_Fund"),
     
-    PORTFOLIOS("Portfolios");
+    PORTFOLIOS("Portfolios"),
+    
+    EQUITY("Equity"),
+    
+    PRIVATECOMPANIES("privateCompanies"),
+    
+    FIXED_INCOME("Fixed_Income");
 
     private String value;
 

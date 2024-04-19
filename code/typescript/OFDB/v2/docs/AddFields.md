@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | **[Object]** |  | [optional] 
+**data** | [**[FieldProperties]**](FieldProperties.md) |  | [optional] 
 
 

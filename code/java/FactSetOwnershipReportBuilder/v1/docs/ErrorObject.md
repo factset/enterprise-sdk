@@ -2,6 +2,7 @@
 
 # ErrorObject
 
+Schema describing an API error
 
 ## Properties
 

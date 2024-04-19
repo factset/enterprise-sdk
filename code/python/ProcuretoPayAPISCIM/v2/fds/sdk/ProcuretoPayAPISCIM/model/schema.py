@@ -31,7 +31,9 @@ from fds.sdk.ProcuretoPayAPISCIM.exceptions import ApiAttributeError
 
 def lazy_import():
     from fds.sdk.ProcuretoPayAPISCIM.model.schema_attributes import SchemaAttributes
+    from fds.sdk.ProcuretoPayAPISCIM.model.schema_meta import SchemaMeta
     globals()['SchemaAttributes'] = SchemaAttributes
+    globals()['SchemaMeta'] = SchemaMeta
 
 
 class Schema(ModelNormal):
@@ -91,6 +93,7 @@ class Schema(ModelNormal):
             'name': (str,),  # noqa: E501
             'attributes': ([SchemaAttributes],),  # noqa: E501
             'description': (str,),  # noqa: E501
+            'meta': (SchemaMeta,),  # noqa: E501
         }
 
     @cached_property
@@ -103,6 +106,7 @@ class Schema(ModelNormal):
         'name': 'name',  # noqa: E501
         'attributes': 'attributes',  # noqa: E501
         'description': 'description',  # noqa: E501
+        'meta': 'meta',  # noqa: E501
     }
 
     read_only_vars = {
@@ -156,6 +160,7 @@ class Schema(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str): The schema's human-readable name.  When applicable, service providers MUST specify the name, e.g., 'User'.. [optional]  # noqa: E501
+            meta (SchemaMeta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -241,6 +246,7 @@ class Schema(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str): The schema's human-readable name.  When applicable, service providers MUST specify the name, e.g., 'User'.. [optional]  # noqa: E501
+            meta (SchemaMeta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

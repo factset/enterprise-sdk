@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**java.util.List&lt;AddSymbolsData&gt;**](AddSymbolsData.md) |  |  [optional]
+**data** | [**java.util.List&lt;SymbolAndContent&gt;**](SymbolAndContent.md) |  |  [optional]
 
 
 ## Implemented Interfaces
