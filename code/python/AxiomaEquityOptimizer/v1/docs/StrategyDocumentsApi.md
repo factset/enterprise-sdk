@@ -59,6 +59,7 @@ with fds.sdk.AxiomaEquityOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = strategy_documents_api.StrategyDocumentsApi(api_client)
 
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
 
     try:
         # Get Axioma Equity strategy documents and sub-directories in a directory

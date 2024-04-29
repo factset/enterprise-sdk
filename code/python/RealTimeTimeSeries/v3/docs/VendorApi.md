@@ -63,7 +63,7 @@ with fds.sdk.RealTimeTimeSeries.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vendor_api.VendorApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     post_vendor_chart_iq_time_series_eod_list_request = PostVendorChartIQTimeSeriesEodListRequest(
         data=PostVendorChartIQTimeSeriesEodListRequestData(
             identifier=PostVendorChartIQTimeSeriesEodListRequestDataIdentifier(
@@ -184,7 +184,7 @@ with fds.sdk.RealTimeTimeSeries.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vendor_api.VendorApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     post_vendor_chart_iq_time_series_eod_subsample_get_request = PostVendorChartIQTimeSeriesEodSubsampleGetRequest(
         data=PostVendorChartIQTimeSeriesEodSubsampleGetRequestData(
             identifier=PostVendorChartIQTimeSeriesEodListRequestDataIdentifier(
@@ -300,7 +300,7 @@ with fds.sdk.RealTimeTimeSeries.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vendor_api.VendorApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     post_vendor_chart_iq_time_series_eod_subsample_list_request = PostVendorChartIQTimeSeriesEodSubsampleListRequest(
         data=PostVendorChartIQTimeSeriesEodSubsampleListRequestData(
             identifier=PostVendorChartIQTimeSeriesEodListRequestDataIdentifier(
@@ -427,7 +427,7 @@ with fds.sdk.RealTimeTimeSeries.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vendor_api.VendorApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     post_vendor_chart_iq_time_series_intraday_subsample_get_request = PostVendorChartIQTimeSeriesIntradaySubsampleGetRequest(
         data=PostVendorChartIQTimeSeriesIntradaySubsampleGetRequestData(
             identifier=PostVendorChartIQTimeSeriesEodListRequestDataIdentifier(
@@ -540,7 +540,7 @@ with fds.sdk.RealTimeTimeSeries.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vendor_api.VendorApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     post_vendor_chart_iq_time_series_intraday_subsample_list_request = PostVendorChartIQTimeSeriesIntradaySubsampleListRequest(
         data=PostVendorChartIQTimeSeriesIntradaySubsampleListRequestData(
             identifier=PostVendorChartIQTimeSeriesEodListRequestDataIdentifier(

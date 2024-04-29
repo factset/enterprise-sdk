@@ -64,7 +64,7 @@ with fds.sdk.StreetAccountNews.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = filters_api.FiltersApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     attributes = [
         "structured",
     ] # [str] | Pass a list of filters to return the respective type of filter. Accepted list values are \"structured\" and/or \"flattened\". If no _atrributes are specified, all filters will be returned in the response (this is the default response).  (optional)
@@ -165,7 +165,7 @@ with fds.sdk.StreetAccountNews.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = filters_api.FiltersApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     attributes = [
         "structured",
     ] # [str] | Pass a list of filters to return the respective type of filter categories. Accepted list values are \"structured\" and/or \"flattened\". If no _atrributes are specified, all filters will be returned in the response (this is the default response).  (optional)
@@ -266,7 +266,7 @@ with fds.sdk.StreetAccountNews.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = filters_api.FiltersApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     attributes = [
         "structured",
     ] # [str] | Pass a list of filters to return the respective type of filter Regions. Accepted list values are \"structured\" and/or \"flattened\". If no _atrributes are specified, all filters will be returned in the response (this is the default response).  (optional)
@@ -367,7 +367,7 @@ with fds.sdk.StreetAccountNews.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = filters_api.FiltersApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     attributes = [
         "structured",
     ] # [str] | Pass a list of filters to return the respective type of filter Sectors. Accepted list values are \"structured\" and/or \"flattened\". If no _atrributes are specified, all filters will be returned in the response (this is the default response).  (optional)
@@ -468,7 +468,7 @@ with fds.sdk.StreetAccountNews.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = filters_api.FiltersApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     attributes = [
         "structured",
     ] # [str] | Pass a list of filters to return the respective type of filter topics. Accepted list values are \"structured\" and/or \"flattened\". If no _atrributes are specified, all filters will be returned in the response (this is the default response).  (optional)
@@ -569,7 +569,7 @@ with fds.sdk.StreetAccountNews.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = filters_api.FiltersApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     attributes = [
         "structured",
     ] # [str] | Pass a list of filters to return the respective type of filter Watchlists. Accepted list values are \"structured\" and/or \"flattened\". If no _atrributes are specified, all filters will be returned in the response (this is the default response).  (optional)

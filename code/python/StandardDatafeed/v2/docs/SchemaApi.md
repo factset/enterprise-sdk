@@ -60,6 +60,7 @@ with fds.sdk.StandardDatafeed.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = schema_api.SchemaApi(api_client)
 
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
 
     try:
         # List of Standard DataFeed (SDF) schemas.
@@ -154,9 +155,8 @@ with fds.sdk.StandardDatafeed.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = schema_api.SchemaApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     schema = "fgp_v1" # str | Name of the schema.
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     version = 5 # int | Version number of the schema.
 
     try:

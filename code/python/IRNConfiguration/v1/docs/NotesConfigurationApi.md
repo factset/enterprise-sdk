@@ -67,6 +67,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notes___configuration_api.NotesConfigurationApi(api_client)
 
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
 
     try:
         # Get all assigned FactSet users
@@ -154,7 +155,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notes___configuration_api.NotesConfigurationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     x_irn_ignore_permissions = False # bool |  (optional) if omitted the server will use the default value of False
 
     try:
@@ -248,6 +249,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notes___configuration_api.NotesConfigurationApi(api_client)
 
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
 
     try:
         # example, this endpoint has no required or optional parameters
@@ -335,7 +337,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notes___configuration_api.NotesConfigurationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     x_irn_ignore_permissions = False # bool |  (optional) if omitted the server will use the default value of False
 
     try:
@@ -429,6 +431,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notes___configuration_api.NotesConfigurationApi(api_client)
 
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
 
     try:
         # Get Group details
@@ -516,6 +519,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notes___configuration_api.NotesConfigurationApi(api_client)
 
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
 
     try:
         # Get all Recommendations
@@ -603,6 +607,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notes___configuration_api.NotesConfigurationApi(api_client)
 
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
 
     try:
         # Get all Sentiments
@@ -690,9 +695,8 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notes___configuration_api.NotesConfigurationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     subject_id = "subjectId_example" # str | Id
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     x_irn_ignore_permissions = False # bool |  (optional) if omitted the server will use the default value of False
 
     try:
@@ -788,7 +792,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notes___configuration_api.NotesConfigurationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     x_irn_ignore_permissions = False # bool |  (optional) if omitted the server will use the default value of False
 
     try:
@@ -882,9 +886,8 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notes___configuration_api.NotesConfigurationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     team_id = "teamId_example" # str | Id
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     x_irn_ignore_permissions = False # bool |  (optional) if omitted the server will use the default value of False
 
     try:
@@ -980,7 +983,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notes___configuration_api.NotesConfigurationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     x_irn_ignore_permissions = False # bool |  (optional) if omitted the server will use the default value of False
 
     try:

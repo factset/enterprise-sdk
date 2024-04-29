@@ -62,13 +62,10 @@ with fds.sdk.FactSetPrices.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = prices_api.PricesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     ids = ["037833BX"] # [str] | The requested list of Fixed Income security identifiers. <p>***ids limit** =  2000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     start_date = "2019-01-01" # str | The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.  (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     end_date = "2019-12-31" # str | The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.  (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     frequency = "D" # str | Controls the display frequency of the data returned.   * **D** = Daily   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **MTD** = Month-to-date   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **CQTD** =  Calendar quarter-to-date   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.   * **CYTD** = Calendar Year-to-date.  (optional) if omitted the server will use the default value of "D"
 
     try:
@@ -171,7 +168,7 @@ with fds.sdk.FactSetPrices.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = prices_api.PricesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     prices_fixed_income_request = PricesFixedIncomeRequest(
         ids=FixedIds(["037833BX"]),
         start_date="2019-01-01",
@@ -275,21 +272,14 @@ with fds.sdk.FactSetPrices.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = prices_api.PricesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     ids = ["AAPL-USA"] # [str] | The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.<p>***ids limit** =  2000 per non-batch request / 5000 per batch request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     start_date = "2019-01-01" # str | The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.  (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     end_date = "2019-12-31" # str | The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.  (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     frequency = "D" # str | Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **FQ** = Fiscal Quarter of the company.   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.   * **FY** = Fiscal Annual, based on the last trading day of the company's fiscal year.  (optional) if omitted the server will use the default value of "D"
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     calendar = "FIVEDAY" # str | Calendar of data returned. SEVENDAY includes weekends. LOCAL calendar will default to the securities' trading calendar which excludes date records for respective holiday periods. (optional) if omitted the server will use the default value of "FIVEDAY"
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     currency = "USD" # str | Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     adjust = "SPLIT" # str | Controls the split, spinoff, and dividend adjustments for the prices. <p>For more information, visit [Online Assistant Page 614](https://oa.apps.factset.com/pages/614)</p>   * **SPLIT** = Split ONLY Adjusted. This is used by default.   * **SPINOFF** = Splits & Spinoff Adjusted.   * **DIVADJ** = Splits, Spinoffs, and Dividends adjusted.   * **UNSPLIT** = No Adjustments.  (optional) if omitted the server will use the default value of "SPLIT"
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     batch = "N" # str | Enables the ability to asynchronously \"batch\" the request, supporting a long-running request up to **10 minutes**. Upon requesting batch=Y, the service will respond back with an HTTP Status Code of 202.  **Additional Access Required. To gain access to this feature, reach out to your FactSet Account team or \"Report Issue\" above and our support teams can assist.**  Once a batch request is submitted, use `batch/v1/status` to see if the job has completed. Once completed, retrieve the results of the request via `batch/v1/result`.  When using Batch, `ids` limit is increased to **5000** ids per request, though limits on query string via GET method still apply. It's advised to submit large lists of ids via POST method.  (optional) if omitted the server will use the default value of "N"
 
     try:
@@ -327,7 +317,10 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PricesResponse**](PricesResponse.md)
+The endpoint generates varying objects correlating with the successful status code, encapsulated within a response wrapper housing the appropriate object. The response wrapper includes the subsequent response types:
+- **200**: [**PricesResponse**](PricesResponse.md)
+- **202**: [**BatchStatusResponse**](BatchStatusResponse.md)
+
 
 ### Authorization
 
@@ -404,7 +397,7 @@ with fds.sdk.FactSetPrices.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = prices_api.PricesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     prices_request = PricesRequest(
         ids=IdsBatchMax5000(["FDS-US"]),
         start_date="2019-01-01",
@@ -443,7 +436,10 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PricesResponse**](PricesResponse.md)
+The endpoint generates varying objects correlating with the successful status code, encapsulated within a response wrapper housing the appropriate object. The response wrapper includes the subsequent response types:
+- **200**: [**PricesResponse**](PricesResponse.md)
+- **202**: [**BatchStatusResponse**](BatchStatusResponse.md)
+
 
 ### Authorization
 

@@ -1285,18 +1285,21 @@ components:
     dateTimeRange:
       $ref: '#/components/schemas/dateTimePeriod'
     dateTimePeriod:
-      description: |
-        Date-Time <p> NOTE: Using start and end parameters within dateTimeRange will fetch the data on particular days in between the timestamps given.</p>.
+      description: "\nNOTE: \n  \n  - Using start and end parameters within dateTimeRange\
+        \ will fetch the data on particular days in between the timestamps given.\n\
+        \  \n  - The start and end times are processed as the local time of the factsetExchangeCode\
+        \ provided. Please refer to the **Data Model User Guide** for time zone to\
+        \ exchange mappings.\n"
       properties:
         start:
-          description: |
-            The date for (or from which) the data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format.
+          description: "The date for (or from which) the data is required. Supports\
+            \ in YYYY-MM-DDTHH:MM:SSZ format. \n"
           example: 2012-01-01T11:00:00Z
           format: date-time
           type: string
         end:
           description: |
-            The date to which data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format.
+            The date to which data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format. end time is interpreted in the local timezone as the selected exchange.
           example: 2012-01-30T11:20:30Z
           format: date-time
           type: string

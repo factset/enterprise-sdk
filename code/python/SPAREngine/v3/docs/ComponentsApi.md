@@ -60,7 +60,7 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = components_api.ComponentsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "067F5DE2E2A11F9AD734594AA8957E11B633438D0FADFCCE0F423ABEF2FC5F1D" # str | Unique identifier for a SPAR component
 
     try:
@@ -162,7 +162,7 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = components_api.ComponentsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     document = "SPAR_DOCUMENTS:Factset Default Document" # str | Document Name
 
     try:

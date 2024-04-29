@@ -60,6 +60,7 @@ with fds.sdk.FactSetPrices.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = database_rollover_api.DatabaseRolloverApi(api_client)
 
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
 
     try:
         # Gets the latest relative rollover date for the database.
@@ -154,6 +155,7 @@ with fds.sdk.FactSetPrices.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = database_rollover_api.DatabaseRolloverApi(api_client)
 
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
 
     try:
         # Gets the latest relative rollover date for the database.

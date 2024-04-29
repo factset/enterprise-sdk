@@ -61,7 +61,7 @@ with fds.sdk.FixedIncomeAnalyticsBatcher.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fiab_calculations_api.FIABCalculationsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | from url, provided from the location header in the Run FIAB Calculation endpoint
 
     try:
@@ -162,6 +162,7 @@ with fds.sdk.FixedIncomeAnalyticsBatcher.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fiab_calculations_api.FIABCalculationsApi(api_client)
 
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
 
     try:
         # Get all FIAB calculation summaries
@@ -257,7 +258,7 @@ with fds.sdk.FixedIncomeAnalyticsBatcher.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fiab_calculations_api.FIABCalculationsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     fiab_calculation_parameters = FIABCalculationParameters(
         fiabdocument="fiabdocument_example",
         account=FIABIdentifier(

@@ -90,7 +90,7 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -187,11 +187,10 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     language = "_language_example" # str |  (optional)
 
     try:
@@ -287,11 +286,10 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     language = "_language_example" # str |  (optional)
 
     try:
@@ -387,13 +385,11 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = 3.14 # float | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     language = "_language_example" # str |  (optional)
 
     try:
@@ -490,13 +486,11 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     code = "code_example" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     language = "_language_example" # str |  (optional)
 
     try:
@@ -593,13 +587,11 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     language = "_language_example" # str |  (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     sort = ["name"] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
 
     try:
@@ -696,13 +688,11 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = 3.14 # float | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     language = "_language_example" # str |  (optional)
 
     try:
@@ -799,13 +789,11 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     language = "_language_example" # str |  (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     sort = ["name"] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
 
     try:
@@ -902,13 +890,11 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     language = "_language_example" # str |  (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     sort = ["name"] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
 
     try:
@@ -1005,7 +991,7 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -1102,13 +1088,11 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = 3.14 # float | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     language = "_language_example" # str |  (optional)
 
     try:
@@ -1205,13 +1189,11 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     language = "_language_example" # str |  (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     sort = ["name"] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
 
     try:
@@ -1308,13 +1290,11 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = 3.14 # float | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     language = "_language_example" # str |  (optional)
 
     try:
@@ -1411,13 +1391,11 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     code = "code_example" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     language = "_language_example" # str |  (optional)
 
     try:
@@ -1514,13 +1492,11 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     language = "_language_example" # str |  (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     sort = ["name"] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
 
     try:
@@ -1617,13 +1593,11 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = 3.14 # float | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     language = "_language_example" # str |  (optional)
 
     try:
@@ -1720,13 +1694,11 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     language = "_language_example" # str |  (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     sort = ["name"] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
 
     try:
@@ -1823,9 +1795,8 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = 3.14 # float | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -1923,9 +1894,8 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     name = "W" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -2023,13 +1993,11 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     language = "_language_example" # str |  (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     sort = ["name"] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
 
     try:
@@ -2126,13 +2094,11 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = 3.14 # float | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     language = "_language_example" # str |  (optional)
 
     try:
@@ -2229,13 +2195,11 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     language = "_language_example" # str |  (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     sort = ["name"] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
 
     try:
@@ -2332,13 +2296,11 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = 3.14 # float | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     language = "_language_example" # str |  (optional)
 
     try:
@@ -2435,7 +2397,7 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     post_basic_background_text_type_list_request = PostBasicBackgroundTextTypeListRequest(
         data=PostBasicBackgroundTextTypeListRequestData(
             filter=PostBasicBackgroundTextTypeListRequestDataFilter(
@@ -2543,7 +2505,7 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     post_basic_delivery_list_request = PostBasicDeliveryListRequest(
         data=PostBasicDeliveryListRequestData(
             filter=PostBasicDeliveryListRequestDataFilter(
@@ -2652,7 +2614,7 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     post_basic_market_list_request = PostBasicMarketListRequest(
         data=PostBasicMarketListRequestData(
             filter=PostBasicMarketListRequestDataFilter(
@@ -2769,7 +2731,7 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     post_basic_media_type_list_request = PostBasicMediaTypeListRequest(
         data=PostBasicMediaTypeListRequestData(
             filter=PostBasicMediaTypeListRequestDataFilter(
@@ -2878,7 +2840,7 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     post_basic_mic_operating_list_request = PostBasicMicOperatingListRequest(
         data=PostBasicMicOperatingListRequestData(
             filter=PostBasicMicOperatingListRequestDataFilter(
@@ -2989,7 +2951,7 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     post_basic_timezone_list_request = PostBasicTimezoneListRequest(
         data=PostBasicTimezoneListRequestData(
             filter=PostBasicTimezoneListRequestDataFilter(
@@ -3097,7 +3059,7 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     post_basic_value_unit_currency_list_request = PostBasicValueUnitCurrencyListRequest(
         data=PostBasicValueUnitListRequestData(
             filter=PostBasicValueUnitListRequestDataFilter(
@@ -3205,7 +3167,7 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     post_basic_value_unit_currency_main_list_request = PostBasicValueUnitCurrencyMainListRequest(
         data=PostBasicValueUnitCurrencyMainListRequestData(
             filter=PostBasicValueUnitCurrencyMainListRequestDataFilter(
@@ -3313,7 +3275,7 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     post_basic_value_unit_list_request = PostBasicValueUnitListRequest(
         data=PostBasicValueUnitListRequestData(
             filter=PostBasicValueUnitListRequestDataFilter(

@@ -60,7 +60,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_symbols___relationships_api.CustomSymbolsRelationshipsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     symbols_relation_ship_save_dto = SymbolsRelationShipSaveDto(
         relationship_code="relationship_code_example",
         parent_to_child_name="parent_to_child_name_example",
@@ -162,7 +162,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_symbols___relationships_api.CustomSymbolsRelationshipsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     symbols_relationship_id = "symbolsRelationshipId_example" # str | symbolsRelationshipId to delete associated record
 
     try:
@@ -256,9 +256,8 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_symbols___relationships_api.CustomSymbolsRelationshipsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     symbols_relationship_id = "symbolsRelationshipId_example" # str | symbolsRelationshipId to update associated record
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     symbols_relation_ship_save_dto = SymbolsRelationShipSaveDto(
         relationship_code="relationship_code_example",
         parent_to_child_name="parent_to_child_name_example",
@@ -361,6 +360,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_symbols___relationships_api.CustomSymbolsRelationshipsApi(api_client)
 
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
 
     try:
         # Get all the Symbols Relationships

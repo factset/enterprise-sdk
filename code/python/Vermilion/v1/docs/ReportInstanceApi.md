@@ -64,9 +64,8 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = report_instance_api.ReportInstanceApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     tenant = "XXXXXXXXXX" # str | The code of the tenancy
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     report_instance_id = "123456789" # str | The id of the report instance
 
     try:
@@ -165,11 +164,9 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = report_instance_api.ReportInstanceApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     tenant = "XXXXXXXXXX" # str | The code of the tenancy
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     report_instance_id = "123456789" # str | Used to validate that report file name belongs to the report instance passed
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     report_file_name = "xyz.pdf" # str | The report file name that has to be retrieved. report file name. E.g: xyz.pdf
 
     try:
@@ -269,23 +266,15 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = report_instance_api.ReportInstanceApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     tenant = "XXXXXXXXXX" # str | The code of the tenancy
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     report_definition_code = "XXXXXXXXXX" # str | Acts as a filter for the retrieval process. Filters the report instances that match the report definition code (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     entity_codes = "SYSTEM_LANG" # str | A series of query parameters used to filter the report instances by entity code. E.g: entityCode=DATE&entityCode=SYSTEM_LANG (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     entity_keys = "en-gb" # str | A series of query parameters used to filter the report instances by entity keys. E.g: entityKey=en-gb (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     section_filter = "testFilter" # str | Acts as a filter for the retrieval process. Filters the report instances that match the section filter (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     output_format = "pdf" # str | Acts as a filter for the retrieval process. Filters the report instances that match the output format (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     sort = ["reportInstanceId"] # [str] | The column to sort on. Append - to sort in descending order. If parameter is not given, sorting will be based on the report instance id in descending order (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_limit = 25 # int | Non-negative maximum number of entries to return (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_offset = 0 # int | Non-negative number of entries to skip (optional)
 
     try:
@@ -391,17 +380,12 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = report_instance_api.ReportInstanceApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     tenant = "XXXXXXXXXX" # str | The code of the tenancy
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     report_instance_id = "123456789" # str | Used to validate that report file name belongs to the report instance passed
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     errors_only = "true" # str | If the parameter is set to true the endpoint should return just errors and warnings E.g: errorsOnly=true (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     sort = ["sequenceNumber"] # [str] | The column to sort on. Can add - to sort (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_limit = 25 # int | Non-negative maximum number of entries to return (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_offset = 0 # int | Non-negative number of entries to skip (optional)
 
     try:
@@ -505,9 +489,8 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = report_instance_api.ReportInstanceApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     report_instance_id = "1256789" # str | The ID of the report instance
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     tenant = "XXXXXXXXXX" # str | The code of the tenancy
 
     try:
@@ -607,7 +590,7 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = report_instance_api.ReportInstanceApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     report_generation_request_body = ReportGenerationRequestBody(
         vrs={
             "key": ReportGenerationRequest(

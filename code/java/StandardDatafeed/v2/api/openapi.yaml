@@ -683,17 +683,20 @@ components:
         - schema: fgp_v1
           version: 26
           url: https://fdss3-bulk-data-delivery-sdf.s3.amazonaws.com/schema/fgp_v1/555/2020-05-28_14_18_33.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4NAFRGHDMSAGCE52%2F20210511%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210511T170435Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjECIaCXVzLWVhc3QtMSJIMEYCIQD1He0st1G1qElczFiEEG0DVpLHRkTfIyCgA9pUbHmT4wIhAPyz46DpoaSZDfmk%2FZqbG7xUZjZjDyCbr5uBRw5jlz1JKtkBCKr%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQARoMODUyNTYyNjIwODcwIgzHhlGrM5TOWg50o9IqrQGOySsSusfChhxaGUj7dfJDMdnJBOJtm6O5pAnVMnzuHhyr%2FLg69QHy%2BmxSO6SdqykHRjuLMnUeNgQ34n75gaLQDe7B%2Bsw9jSZV3NI6O6B2G4Gjga4X7%2Fm1OlKbStb0CgTVjYTjSI4vIMMn1jKmGZvosl9ZSJgpEbeYk5kKG4Kmr%2FXDGbn4C0ZKXbdnWY4yZCaZitNAkJ74hQSxlk7DWBrTKY1QZUT7WBvd3hRXRTCY8uqEBjrfAdcXYNIJmuyJRel22QcGZ24xPyUXJyW9%2B3vbmDQx3QHLyyHZq%2BbKGKt0sphxhfna%2Bu9qdApKhkBbk1N1%2Bv%2FXLvItRG5Y38ZPpy4gj6hgs6h5%2Buay1Esb32f4083L8uBL26NuUDg09odjE6sBpuqkJoTiBMXaKdlHbU0GfrOli2dK46rhDmY6m1jbF2Najd1v5rbDW%2FPRzYnpM638paqbwUev%2FcLgGvRI%2FXuWoNH%2FfhXFCZf9G20BGWWyhuOoq0%2BSL0a4BQkZXHNjiCXQrysuQtonI4NF%2BD%2FfwZtPuD%2BEsJg%3D&X-Amz-Signature=58517963bbb5b77b481ce68df391c7e29166ac330c552c79f4df68cfdd0585ab
-          timestamp: 2020-05-28 14:18:33
+          timestamp: 2020-05-28T14:18:33Z
     ListSchemaResponse:
       summary: No Parameters Response
       value:
         data:
         - schemaName: acta_v1
-          schemaVersion: "8"
+          schemaVersion:
+          - "8"
         - schemaName: actr_v1
-          schemaVersion: "2"
+          schemaVersion:
+          - "2"
         - schemaName: qfl_v1
-          schemaVersion: "2"
+          schemaVersion:
+          - "3"
   parameters:
     schema:
       description: Name of the schema.
@@ -967,9 +970,13 @@ components:
       description: Schema List Object.
       example:
         data:
-        - schemaVersion: schemaVersion
+        - schemaVersion:
+          - schemaVersion
+          - schemaVersion
           schemaName: schemaName
-        - schemaVersion: schemaVersion
+        - schemaVersion:
+          - schemaVersion
+          - schemaVersion
           schemaName: schemaName
       properties:
         data:
@@ -983,7 +990,9 @@ components:
       type: object
     ListSchemaObject:
       example:
-        schemaVersion: schemaVersion
+        schemaVersion:
+        - schemaVersion
+        - schemaVersion
         schemaName: schemaName
       properties:
         schemaName:
@@ -991,7 +1000,9 @@ components:
           type: string
         schemaVersion:
           description: The version of the schema.
-          type: string
+          items:
+            type: string
+          type: array
       type: object
     ListFile:
       description: List Files Object

@@ -64,7 +64,7 @@ with fds.sdk.RealTimeTimeSeries.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = prices_api.PricesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     post_prices_time_series_eod_list_request = PostPricesTimeSeriesEodListRequest(
         data=PostVendorChartIQTimeSeriesEodListRequestData(
             identifier=PostVendorChartIQTimeSeriesEodListRequestDataIdentifier(
@@ -185,7 +185,7 @@ with fds.sdk.RealTimeTimeSeries.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = prices_api.PricesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     post_prices_time_series_eod_subsample_get_request = PostPricesTimeSeriesEodSubsampleGetRequest(
         data=PostPricesTimeSeriesEodSubsampleGetRequestData(
             identifier=PostVendorChartIQTimeSeriesEodListRequestDataIdentifier(
@@ -301,7 +301,7 @@ with fds.sdk.RealTimeTimeSeries.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = prices_api.PricesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     post_prices_time_series_eod_subsample_list_request = PostPricesTimeSeriesEodSubsampleListRequest(
         data=PostVendorChartIQTimeSeriesEodSubsampleListRequestData(
             identifier=PostVendorChartIQTimeSeriesEodListRequestDataIdentifier(
@@ -428,7 +428,7 @@ with fds.sdk.RealTimeTimeSeries.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = prices_api.PricesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     post_prices_time_series_intraday_list_request = PostPricesTimeSeriesIntradayListRequest(
         data=PostPricesTimeSeriesIntradayListRequestData(
             identifier=PostVendorChartIQTimeSeriesEodListRequestDataIdentifier(
@@ -550,7 +550,7 @@ with fds.sdk.RealTimeTimeSeries.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = prices_api.PricesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     post_prices_time_series_intraday_subsample_get_request = PostPricesTimeSeriesIntradaySubsampleGetRequest(
         data=PostVendorChartIQTimeSeriesIntradaySubsampleGetRequestData(
             identifier=PostVendorChartIQTimeSeriesEodListRequestDataIdentifier(
@@ -663,7 +663,7 @@ with fds.sdk.RealTimeTimeSeries.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = prices_api.PricesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     post_prices_time_series_intraday_subsample_list_request = PostPricesTimeSeriesIntradaySubsampleListRequest(
         data=PostVendorChartIQTimeSeriesIntradaySubsampleListRequestData(
             identifier=PostVendorChartIQTimeSeriesEodListRequestDataIdentifier(

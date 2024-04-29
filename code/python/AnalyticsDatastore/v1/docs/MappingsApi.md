@@ -62,19 +62,13 @@ with fds.sdk.AnalyticsDatastore.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mappings_api.MappingsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     document = "Analytics_Datastore" # str | The Analytics Datafeed document containing the report
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     asset_name = "ADS_Demo.PA3" # str | The PA/SPAR asset name and extension
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     report_id = "report7" # str | The PA/SPAR report ID
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     tile_id = "tile0" # str | The PA/SPAR tile ID
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     account_id = "LARGE_CORE" # str | The account ID
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     config_id = "acb5150d-4333-49e7-8e33-4f7fa749691e" # str | The Vault configuration ID
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     date = dateutil_parser('2023-01-01').date() # date | The as of date for the report
 
     try:
@@ -179,11 +173,9 @@ with fds.sdk.AnalyticsDatastore.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mappings_api.MappingsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     document = "Analytics_Datastore" # str | The Publisher document containing the report
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     account_id = "LARGE_CORE" # str | The account ID
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     date = dateutil_parser('2023-01-01').date() # date | The as of date for the report
 
     try:
@@ -284,17 +276,12 @@ with fds.sdk.AnalyticsDatastore.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mappings_api.MappingsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     document = "Analytics_Datastore" # str | The Publisher or Analytics Datafeed document containing the report
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     asset_name = "ADS_Demo.PA3" # str | The PA/SPAR asset name and extension
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     report_id = "report7" # str | The PA/SPAR report ID
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     tile_id = "tile0" # str | The PA/SPAR tile ID
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     account_id = "LARGE_CORE" # str | The account ID
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     date = dateutil_parser('2023-01-01').date() # date | The as of date for the report
 
     try:
@@ -398,15 +385,11 @@ with fds.sdk.AnalyticsDatastore.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mappings_api.MappingsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     document = "Analytics_Datastore" # str | The Publisher or Analytics Datafeed document containing the report
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     asset_name = "ADS_Demo.PA3" # str | The PA/SPAR asset name and extension
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     report_id = "report7" # str | The PA/SPAR report ID
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     tile_id = "tile0" # str | The PA/SPAR tile ID
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     account_id = "LARGE_CORE" # str | The account ID
 
     try:

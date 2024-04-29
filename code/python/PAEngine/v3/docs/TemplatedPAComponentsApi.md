@@ -63,7 +63,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = templated_pa_components_api.TemplatedPAComponentsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     templated_pa_component_parameters_root = TemplatedPAComponentParametersRoot(
         data=TemplatedPAComponentParameters(
             directory="directory_example",
@@ -220,7 +220,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = templated_pa_components_api.TemplatedPAComponentsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "01234567890123456789012345678901" # str | Unique identifier for a templated PA component
 
     try:
@@ -321,7 +321,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = templated_pa_components_api.TemplatedPAComponentsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "01234567890123456789012345678901" # str | Unique identifier for a templated PA component
 
     try:
@@ -423,7 +423,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = templated_pa_components_api.TemplatedPAComponentsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     directory = "Personal:TemplatedPAComponents/" # str | Get templated PA components in path
 
     try:
@@ -524,9 +524,8 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = templated_pa_components_api.TemplatedPAComponentsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "01234567890123456789012345678901" # str | Unique identifier for a templated PA component
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     templated_pa_component_update_parameters_root = TemplatedPAComponentUpdateParametersRoot(
         data=TemplatedPAComponentUpdateParameters(
             parent_template_id="parent_template_id_example",

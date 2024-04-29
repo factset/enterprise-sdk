@@ -16,6 +16,4 @@
 # Import APIs into API package:
 from fds.sdk.FactSetESG.api.articles_api import ArticlesApi
 from fds.sdk.FactSetESG.api.sasb_api import SASBApi
-from fds.sdk.FactSetESG.api.sdg_api import SDGApi
-from fds.sdk.FactSetESG.api.sfdr_api import SFDRApi
 from fds.sdk.FactSetESG.api.spotlights_api import SpotlightsApi

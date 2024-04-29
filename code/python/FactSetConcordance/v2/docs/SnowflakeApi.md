@@ -60,7 +60,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = snowflake_api.SnowflakeApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     snowflake_entity_match_request = SnowflakeEntityMatchRequest(
         data=[0,"FactSet","US","CT","www.factset.com",1,10],
     ) # SnowflakeEntityMatchRequest | A request to match an entity name and its attributes within Snowflake.
@@ -156,7 +156,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = snowflake_api.SnowflakeApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     snowflake_entity_mapping_request = SnowflakeEntityMappingRequest(
         data=[0,123,"my_id","FactSet","0016YD-E"],
     ) # SnowflakeEntityMappingRequest | A request to save entity mappings to a universe

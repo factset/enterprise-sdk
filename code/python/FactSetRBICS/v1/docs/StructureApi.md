@@ -60,13 +60,10 @@ with fds.sdk.FactSetRBICS.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = structure_api.StructureApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     rbics_ids = ["101010000000","55"] # [str] | RBICS Taxonomy Id Filter. Use to lookup the structure details for the Id requested.  (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     level = 1 # int | RBICS industry levels to include in the response. All levels from 1-N will be returned. For example, '3' returns all levels 1,2 and 3. To request all levels, request level=6. Level 1 is returned by default.   |Level|Description|Number of Groups|   |---|---|---|   |1|Economomy|14|   |2|Sector|37   |3|Sub-Sector|109|   |4|Industry Group|366|   |5|Inudstry|901|   |6|Sub-Industry|1629|  (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     include_names = True # bool | Option to include or exclude industry Names and the L6 Description. true = Include Names; false = Exclude Names. (optional) if omitted the server will use the default value of True
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     date = "2017-07-24" # str | Effective date for data expressed in YYYY-MM-DD format. If no date is requested, the default behavior is to return the full history for the requested entity. (optional)
 
     try:
@@ -169,7 +166,7 @@ with fds.sdk.FactSetRBICS.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = structure_api.StructureApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     structure_request = StructureRequest(
         rbics_ids=RbicsIds(["101010000000","55"]),
         level=LevelStructure(3),

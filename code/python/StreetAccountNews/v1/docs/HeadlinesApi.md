@@ -60,7 +60,7 @@ with fds.sdk.StreetAccountNews.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = headlines_api.HeadlinesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     headlines_request = HeadlinesRequest(
         data=HeadlinesRequestData(
             tickers=[
@@ -193,7 +193,7 @@ with fds.sdk.StreetAccountNews.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = headlines_api.HeadlinesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     headlines_request_by_view = HeadlinesRequestByView(
         data=HeadlinesRequestByViewData(
             name="SA News View",

@@ -1,0 +1,1471 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: FactSet Mergers and Acquisitions API
+  contact:
+    name: FactSet Research Systems
+    email: api@factset.com
+    url: https://developer.factset.com/contact
+  description: >
+    The FactSet Mergers and Acquisitions API provides access to key transactions
+    and pricing metrics on over 60,000 globally traded deals. Reference a Global
+    Universe of Mergers and Acquisitions (M&A) transactions where the target of
+    the deal is a Publicly traded Company. Review premiums, multiples and
+    fundamental data to gather insights on deals and create predictive models
+    based on different deal characteristics.
+
+      Monetary values returned by this API are converted and represented in USD.
+
+      This API is allows a limit of 10 requests per second and a maximum of 10 concurrent requests.
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/factset-mergers-acquisitions-api
+servers:
+  - url: https://api.factset.com/content/factset-mergers-acquisitions/v1
+    description: Production
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
+tags:
+  - name: Deals
+    description: Get deals for a list of ids and date range
+paths:
+  /deals/by-company:
+    post:
+      tags:
+        - Deals
+      summary: Returns details for a list of companies.
+      description: >
+        Gets deals for a specified list of companies within a date range. Deals
+        returned are any in which the requested company is involved as either
+        the buyer, seller, or target. The start and end date parameters will
+        find deals based on their announcement date. The response of this
+        endpoint includes `dealId` which can be sent to the `/deals/details`
+        endpoint for more information about the deal.
+      operationId: getDealsByCompanyList
+      requestBody:
+        required: true
+        description: Request object for `Deals`.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DealsRequest'
+            examples:
+              Request for Single Company Deals:
+                $ref: '#/components/examples/dealsCompanyRequestAll'
+      responses:
+        '200':
+          description: Array of deals
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DealsResponse'
+              examples:
+                Result of Single Company Deals:
+                  $ref: '#/components/examples/dealsCompanyResponseAll'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /deals/public-targets:
+    post:
+      tags:
+        - Deals
+      summary: Returns a list of deals in which the target is a public company.
+      description: >
+        Gets deals in which the target is a public company for a specified date
+        range and status. The start and end date parameters will find deals
+        based on their announcement date. The response of this endpoint includes
+        `dealId` which can be sent to the `/deals/details` endpoint for more
+        information about the deal.
+      operationId: getPublicTargetDealsList
+      requestBody:
+        required: true
+        description: Request object for `Deals`.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DealsPublicRequest'
+            examples:
+              Request for All Deals in Date Range:
+                $ref: '#/components/examples/dealsPublicRequestAll'
+      responses:
+        '200':
+          description: Array of deals
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DealsPublicResponse'
+              examples:
+                Result of Pending Deals in Date Range:
+                  $ref: '#/components/examples/dealsPublicResponseAll'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /deals/details:
+    post:
+      tags:
+        - Deals
+      summary: Returns details for specified deals.
+      description: >
+        Gets deal details for a specified list of FactSet deal identifiers.
+        Monetary values returned by this API are converted and represented in
+        USD.
+      operationId: getDealsDetailsList
+      requestBody:
+        required: true
+        description: Request object for `Deal Details`.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DetailsRequest'
+            examples:
+              Request for details for deal id:
+                $ref: '#/components/examples/detailsRequestAll'
+      responses:
+        '200':
+          description: Array of deal details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DetailsResponse'
+              examples:
+                Result of details for deal id:
+                  $ref: '#/components/examples/detailsResponseAll'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+components:
+  securitySchemes:
+    FactSetOAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+          scopes: {}
+    FactSetApiKey:
+      type: http
+      scheme: basic
+  schemas:
+    DealsRequest:
+      title: Deals Request
+      description: Deals Request
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/DealsRequestBody'
+      required:
+        - data
+    DealsRequestBody:
+      title: Deals Request Body
+      description: Deals Request Body
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/Ids'
+        startDate:
+          $ref: '#/components/schemas/StartDate'
+        endDate:
+          $ref: '#/components/schemas/EndDate'
+      required:
+        - ids
+    DealsPublicRequest:
+      title: Deals Request
+      description: Deals Request
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/DealsPublicRequestBody'
+      required:
+        - data
+    DealsPublicRequestBody:
+      title: Deals Request Body
+      description: Deals Request Body
+      type: object
+      properties:
+        startDate:
+          $ref: '#/components/schemas/StartDate'
+        endDate:
+          $ref: '#/components/schemas/EndDate'
+        status:
+          $ref: '#/components/schemas/Status'
+    DetailsRequest:
+      title: Details Request
+      description: Details Request
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/DetailsRequestBody'
+      required:
+        - data
+    DetailsRequestBody:
+      title: Details Request Body
+      description: Details Request Body
+      type: object
+      properties:
+        dealIds:
+          $ref: '#/components/schemas/DealIds'
+      required:
+        - dealIds
+    DealsResponse:
+      type: object
+      title: Deals Response
+      properties:
+        data:
+          description: Array of Deals Objects
+          type: array
+          items:
+            $ref: '#/components/schemas/DealCompany'
+    DealsPublicResponse:
+      type: object
+      title: Deals Public Response
+      properties:
+        data:
+          description: Array of Deals Objects
+          type: array
+          items:
+            $ref: '#/components/schemas/DealPublic'
+    Participant:
+      title: Participant Object
+      description: Participant Object
+      type: object
+      properties:
+        fsymId:
+          $ref: '#/components/schemas/FsymId'
+        name:
+          $ref: '#/components/schemas/Name'
+        industry:
+          $ref: '#/components/schemas/Industry'
+        ultimateParentId:
+          $ref: '#/components/schemas/UltimateParentId'
+      required:
+        - fsymId
+    Target:
+      title: Target Object
+      description: Target Object
+      type: object
+      properties:
+        fsymId:
+          $ref: '#/components/schemas/FsymId'
+        name:
+          $ref: '#/components/schemas/Name'
+        industry:
+          $ref: '#/components/schemas/Industry'
+      required:
+        - fsymId
+    FsymId:
+      type: string
+      description: >-
+        FactSet Permanent Identifier of the participant. Six alpha-numeric
+        characters, excluding vowels, with an -E suffix (XXXXXX-E).
+      example: 000N1N-E
+    Name:
+      type: string
+      description: Entity name of the participant.
+      example: International Business Machines Corp.
+    Industry:
+      type: string
+      description: >-
+        Industry of the participant based on the FactSet Industry Classification
+        system.
+      example: Information Technology Services
+      nullable: true
+    UltimateParentId:
+      type: string
+      description: >-
+        FactSet Permanent Identifier of the ultimate parent of the participant.
+        Six alpha-numeric characters, excluding vowels, with an -E suffix
+        (XXXXXX-E).
+      example: 000N1N-E
+    DealValue:
+      title: Deal Value Object
+      description: Deal Value Object
+      type: object
+      properties:
+        baseEquity:
+          type: number
+          description: >-
+            The total value of cash and all other forms of payment made to the
+            Target – commonly cash and/or stock, though the calculation can
+            include other methods of payment (e.g., notes, convertible debt,
+            preferred stock, etc.) if disclosed and calculable. In transactions
+            where multiple forms of payment are being made (e.g., cash and
+            stock), the individual consideration components are calculated
+            separately and then summed to arrive at the total Base Equity Value
+            (e.g., cash component + stock component). Amounts returned are in
+            USD.
+          example: 4178.77714
+          nullable: true
+        transactionValue:
+          type: number
+          description: >-
+            Base Equity Value plus the value of the target’s outstanding net
+            debt (where applicable). The target's outstanding net debt is
+            defined as the total amount of short and long term interest-bearing
+            debt less any cash and cash equivalents. The target's outstanding
+            net debt will only be included in the Transaction Value calculation
+            if a.) the acquirer is seeking to own 100% of the target, b.) the
+            target is a non-financial company; and c.) the target's outstanding
+            net debt is publicly disclosed (or the acquirer publicly states it
+            is assuming a specific amount of liabilities). Otherwise,
+            Transaction Value will be equal to the amount paid for the portion
+            of the target acquired (Base Equity Value) and will exclude the
+            target's outstanding net debt. Amounts returned are in USD.
+          example: 4276.71114
+          nullable: true
+        enterpriseValue:
+          type: number
+          description: >-
+            The full value of the business acquired, using % sought to determine
+            the value of 100% of the business if less than 100% was sought in
+            the transaction. Amounts returned are in USD.
+          example: 4276.71114
+          nullable: true
+        annOfferPriceShare:
+          type: number
+          description: >-
+            The current price offered for each share of target stock (including
+            all forms of consideration). In a transaction in which the acquirer
+            has increased or decrease the price they are offering on a per share
+            basis from their original offer price, this item will always reflect
+            the most current price per share being offered. Amounts returned are
+            in USD.
+          example: 8.5
+          nullable: true
+        buyerExchangeRatio:
+          type: number
+          description: >-
+            Number of shares being issued by the acquirer to the target.
+            Applicable only if the acquirer is issuing stock in the transaction.
+            For example, Express Scripts, Inc. acquired Medco Health Solutions,
+            Inc. in April 2012 for $28.5 bil in cash and stock. Medco
+            shareholders received $28.8 in cash and 0.81 Express Scripts shares
+            for every share held. Here, Stock Exchange Ratio - Buyers Shares is
+            0.81.
+          example: 0.15
+          nullable: true
+        targetExchangeRatio:
+          type: number
+          description: >-
+            Number of target shares the stock swap exchange ratio is based upon
+            when the acquirer is issuing stock in the transaction. For example,
+            Express Scripts, Inc. acquired Medco Health Solutions, Inc. in April
+            2012 for $28.5 bil in cash and stock. Medco shareholders received
+            $28.8 in cash and 0.81 Express Scripts shares for every share held.
+            Here, Stock Exchange Ratio - Target Shares is 1.
+          example: 0.15
+          nullable: true
+        cashShare:
+          type: number
+          description: >-
+            Portion of the current offer price per share to be paid in cash. For
+            example, Pfizer acquired Wyeth in 2009 for $66.8 in cash and stock.
+            Pfizer paid $50.19 per share, comprised of $33 in cash and 0.985
+            shares of Pfizer stock (representing $17.19 based upon Pfizer's last
+            closing stock price of $17.45 prior to announcement). Here, the
+            Price/Share - Cash ($) is 33. Amounts returned are in USD.
+          example: 0.5
+          nullable: true
+        stockShare:
+          type: number
+          description: >-
+            Portion of the current offer price per share to be paid in the
+            acquirer's stock. For example, Pfizer acquired Wyeth in 2009 for
+            $66.8 in cash and stock. Pfizer paid $50.19 per share, comprised of
+            $33 in cash and 0.985 shares of Pfizer stock (representing $17.19
+            based upon Pfizer's last closing stock price of $17.45 prior to
+            announcement). Here, the Price/Share - Stock ($) is 17.19. Amounts
+            returned are in USD.
+          example: 0.5
+          nullable: true
+        choice:
+          type: boolean
+          description: >-
+            Indicates if the acquirer is offering the target shareholders a
+            choice of considerations (which is almost always a choice between
+            selecting cash only, stock only or a mixture of cash and stock) for
+            the specified deal identifier.
+          example: true
+          nullable: true
+        buyerSharesIssued:
+          type: number
+          description: >-
+            The number of shares issued by the buyer to the target as part of
+            the payment.
+          example: 122
+          nullable: true
+        percentSought:
+          type: number
+          description: >-
+            The percentage of the target company's stock sought by the acquirer
+            at the time the transaction was publicly announced.
+          example: 100
+          nullable: true
+        sharesSought:
+          type: number
+          description: >-
+            The number of shares of the target company's stock sought by the
+            acquirer at the time the transaction was publicly announced.
+          example: 122
+          nullable: true
+        sharesOwnedPrior:
+          type: number
+          description: >-
+            The percent of the target company's shares owned by the buyer prior
+            to the transaction.
+          example: 50
+          nullable: true
+        premium1Day:
+          type: number
+          description: >-
+            The percentage difference between the price per share offered by the
+            acquirer and the target's closing stock price 1 trading day prior to
+            the announcement date. This data is only available if the target is
+            a public company and the price/share is disclosed.
+          example: 0.15
+          nullable: true
+        premium5Day:
+          type: number
+          description: >-
+            The percentage difference between the price per share offered by the
+            acquirer and the target's closing stock price 5 trading days prior
+            to the announcement date. This data is only available if the target
+            is a public company and the price/share is disclosed.
+          example: 0.15
+          nullable: true
+        premium30Day:
+          type: number
+          description: >-
+            The percentage difference between the price per share offered by the
+            acquirer and the target's closing stock price 30 trading days prior
+            to the announcement date. This data is only available if the target
+            is a public company and the price/share is disclosed.
+          example: 0.25
+          nullable: true
+        paymentMethod:
+          type: array
+          description: >-
+            Payment method/structure used in the transaction, including cash,
+            stock, combination, or debt.
+          items:
+            type: string
+            enum:
+              - Cash
+              - Cash & Stock
+              - Convertible Preferred Stock
+              - Debt
+              - Notes
+              - Other
+              - Preferred Stock
+              - Stock
+              - Warrant / Options
+          example:
+            - Cash
+            - Debt
+          nullable: true
+    DealCompany:
+      title: Deal Object
+      type: object
+      properties:
+        dealId:
+          description: Identifier for the deal.
+          type: string
+          example: 4181800MM
+        target:
+          $ref: '#/components/schemas/Target'
+        buyers:
+          description: Array of participants in the deal who are buyers.
+          type: array
+          items:
+            $ref: '#/components/schemas/Participant'
+        sellers:
+          description: Array of participants in the deal who are sellers.
+          type: array
+          items:
+            $ref: '#/components/schemas/Participant'
+          nullable: true
+        dealType:
+          description: Type of deal.
+          type: string
+          enum:
+            - Acquisition / Merger
+            - Majority Stake
+            - Minority Stake
+            - Spinoff
+          example: Acquisition / Merger
+        announceDate:
+          description: >-
+            Date the deal was announced. If the deal has a status of `rumor` or
+            `rumor cancelled`, then this may be the same as `rumorDate`.
+          type: string
+          format: date
+          example: '2020-11-19'
+        closeDate:
+          description: Date the deal was closed.
+          type: string
+          format: date
+          example: '2020-11-19'
+          nullable: true
+        transactionValue:
+          type: number
+          description: >-
+            Base Equity Value plus the value of the target’s outstanding net
+            debt (where applicable). The target's outstanding net debt is
+            defined as the total amount of short and long term interest-bearing
+            debt less any cash and cash equivalents. The target's outstanding
+            net debt will only be included in the Transaction Value calculation
+            if a.) the acquirer is seeking to own 100% of the target, b.) the
+            target is a non-financial company; and c.) the target's outstanding
+            net debt is publicly disclosed (or the acquirer publicly states it
+            is assuming a specific amount of liabilities). Otherwise,
+            Transaction Value will be equal to the amount paid for the portion
+            of the target acquired (Base Equity Value) and will exclude the
+            target's outstanding net debt. Amounts returned are in USD.
+          example: 42996.1034
+          nullable: true
+        status:
+          title: Status
+          type: string
+          description: |
+            Status of the deal
+          enum:
+            - Pending
+            - Complete
+            - Cancelled
+            - Rumor
+            - Rumor Cancelled
+          example: Pending
+        requestId:
+          description: Identifier that was used for the request.
+          type: string
+          example: IBM-USA
+    DealPublic:
+      title: Deal Public Object
+      type: object
+      properties:
+        dealId:
+          description: Identifier for the deal.
+          type: string
+          example: 4181800MM
+        target:
+          $ref: '#/components/schemas/Target'
+        buyers:
+          description: Array of participants in the deal who are buyers.
+          type: array
+          items:
+            $ref: '#/components/schemas/Participant'
+        sellers:
+          description: Array of participants in the deal who are sellers.
+          type: array
+          items:
+            $ref: '#/components/schemas/Participant'
+          nullable: true
+        dealType:
+          description: Type of deal.
+          type: string
+          enum:
+            - Acquisition / Merger
+            - Majority Stake
+            - Minority Stake
+            - Spinoff
+          example: Acquisition / Merger
+        announceDate:
+          description: Date the deal was announced.
+          type: string
+          format: date
+          example: '2020-11-19'
+        closeDate:
+          description: Date the deal was closed.
+          type: string
+          format: date
+          example: '2020-11-19'
+          nullable: true
+        transactionValue:
+          type: number
+          description: >-
+            Base Equity Value plus the value of the target’s outstanding net
+            debt (where applicable). The target's outstanding net debt is
+            defined as the total amount of short and long term interest-bearing
+            debt less any cash and cash equivalents. The target's outstanding
+            net debt will only be included in the Transaction Value calculation
+            if a.) the acquirer is seeking to own 100% of the target, b.) the
+            target is a non-financial company; and c.) the target's outstanding
+            net debt is publicly disclosed (or the acquirer publicly states it
+            is assuming a specific amount of liabilities). Otherwise,
+            Transaction Value will be equal to the amount paid for the portion
+            of the target acquired (Base Equity Value) and will exclude the
+            target's outstanding net debt. Amounts returned are in USD.
+          example: 42799.104
+          nullable: true
+        status:
+          title: Status
+          type: string
+          description: |
+            Status of the deal
+          enum:
+            - Pending
+            - Complete
+            - Cancelled
+            - Rumor
+            - Rumor Cancelled
+          example: Pending
+    DetailsResponse:
+      type: object
+      title: Deal Detail Response
+      properties:
+        data:
+          description: Array of Details Objects
+          type: array
+          items:
+            $ref: '#/components/schemas/Detail'
+    Detail:
+      title: Detail Object
+      type: object
+      properties:
+        dealId:
+          description: FactSet unique deal Identifier.
+          type: string
+          example: 32870367MM
+        target:
+          $ref: '#/components/schemas/Target'
+        buyers:
+          description: Array of participants in the deal who are buyers.
+          type: array
+          items:
+            $ref: '#/components/schemas/Participant'
+        sellers:
+          description: Array of participants in the deal who are sellers.
+          type: array
+          items:
+            $ref: '#/components/schemas/Participant'
+          nullable: true
+        status:
+          description: Status of the deal.
+          type: string
+          enum:
+            - Pending
+            - Complete
+            - Cancelled
+            - Rumor
+            - Rumor Cancelled
+          example: Complete
+        rumorDate:
+          description: >-
+            For a transaction that initially start out as a rumor, the date on
+            which talks of the transaction first appeared in a major financial
+            or trade publication. For so long as the transaction remains a
+            rumor, the Rumor Date and the Announcement Date will be the same.
+            Once confirmed and the transaction is no longer a rumor, the Rumor
+            Date will remain unchanged and the Announcement Date will be updated
+            to reflect the date upon which one of the parties involved in the
+            deal disclosed the formal offer or a definitive agreement.
+          type: string
+          format: date
+          example: '2020-11-19'
+          nullable: true
+        announceDate:
+          description: Date the deal was announced.
+          type: string
+          format: date
+          example: '2020-11-19'
+          nullable: true
+        referenceDate:
+          description: >-
+            In a competing bid situation, the common date (earliest announcement
+            date) used across all related transactions in order to determine the
+            target's share prices, financials, premiums/multiples and all
+            currency conversions (allowing for a common basis of comparison).
+            For all other transactions, the Competing Bid Reference Date will be
+            the same as the Announcement Date. For example, Peet's Coffee & Tea,
+            Inc. announced its intent to acquire Diedrich Coffee, Inc. on
+            2009-11-02. Green Mountain Coffee Roasters jumped this transaction,
+            announcing its own competing bid on 2009-11-23. Green Mountain
+            eventually won its bid, completing the acquisition on 2010-05-11.
+            For both transactions, the Competing Bid Reference Date is
+            2009-11-02.
+          type: string
+          format: date
+          example: '2020-11-19'
+          nullable: true
+        expectedCloseDate:
+          description: Expected close date of the deal.
+          type: string
+          format: date
+          example: '2020-11-19'
+          nullable: true
+        closeDate:
+          description: Date the deal was closed.
+          type: string
+          format: date
+          example: '2020-11-19'
+          nullable: true
+        cancelDate:
+          description: Date the deal was cancelled.
+          type: string
+          format: date
+          example: '2020-11-19'
+          nullable: true
+        dealType:
+          description: Type of deal.
+          type: string
+          enum:
+            - Acquisition / Merger
+            - Majority Stake
+            - Minority Stake
+            - Spinoff
+          example: Acquisition / Merger
+        sourceFunds:
+          description: >-
+            Method by which the acquirer was to finance the cash portion of the
+            consideration offered in transaction (e.g., cash, bank debt,
+            issuance of notes/bonds, etc.). For example, VF Corp financed its
+            $2.2 bil all cash offer for The Timberland Company by issuing $900
+            mil in term notes and funding the balance through a combination of
+            cash on hand and commercial paper.
+          type: array
+          items:
+            type: string
+            enum:
+              - Bank Loan
+              - Bond/Note Issuance
+              - Internally Generated Funds
+              - Mezzanine
+              - Private Company Debt
+              - Private Equity/Venture Funding
+              - Private Warrant Option
+              - Source of Funding Not Disclosed
+              - 'Stock Issuance: Pref & Com (Public)'
+          example:
+            - Bank Loan
+          nullable: true
+        dealValue:
+          $ref: '#/components/schemas/DealValue'
+        purpose:
+          type: string
+          description: Transaction purpose code or description.
+          enum:
+            - Financial
+            - Strategic
+          example: Strategic
+          nullable: true
+        evSales:
+          type: number
+          description: 'Ratio: Enterprise value/sales.'
+          example: 6.78243384816915
+          nullable: true
+        evEBIT:
+          type: number
+          description: 'Ratio: Enterprise value/EBIT.'
+          example: -57.2732903899721
+          nullable: true
+        evEBITDA:
+          type: number
+          description: 'Ratio: Enterprise value/EBITDA.'
+          example: 77.1398629173355
+          nullable: true
+        bepBV:
+          type: number
+          description: 'Ratio: BEP/BV.'
+          example: -14.967663752252
+          nullable: true
+        sales:
+          type: number
+          description: Sales at the time of the deal in USD.
+          example: 516.405
+          nullable: true
+        ebit:
+          type: number
+          description: EBIT at the time of the deal in USD.
+          example: -74.672
+          nullable: true
+        ebitda:
+          type: number
+          description: EBITDA at the time of the deal in USD.
+          example: 55.441
+          nullable: true
+        netIncome:
+          type: number
+          description: Net income at the time of the deal in USD.
+          example: 235.865
+          nullable: true
+        cash:
+          type: number
+          description: Cash at the time of the deal in USD.
+          example: 140.848
+          nullable: true
+        intBearingDebt:
+          type: number
+          description: Interest bearing debt at the time of the deal in USD.
+          example: 238.782
+          nullable: true
+        prefStockValue:
+          type: number
+          description: Preferred stock value at the time of the deal in USD.
+          example: 82.497
+          nullable: true
+        totalAssets:
+          type: number
+          description: Total assets at the time of the deal in USD.
+          example: 2265.933
+          nullable: true
+        sharesOutstanding:
+          type: number
+          description: Shares outstanding at the time of the deal.
+          example: 485.772963
+          nullable: true
+        eps:
+          type: number
+          description: Earnings per share at the time of the deal in USD.
+          example: -0.206411240717816
+          nullable: true
+        bookValueShare:
+          type: number
+          description: Book value per share at the time of the deal in USD.
+          example: -0.574727334094137
+          nullable: true
+        targetPostMergerOwn:
+          type: number
+          description: >-
+            Post Merger Ownership % - Target: The pro forma percentage of
+            ownership to be held by target shareholders in the newly merged
+            company. This data item is designed to reflect the expected
+            ownership of the newly merged company at the time the transaction
+            was announced. This data item will not be populated for Going
+            Private transactions as they are not applicable since the acquirer
+            in a going private transaction is not publicly traded.
+          example: 0.52
+          nullable: true
+        buyerPostMergerOwn:
+          type: number
+          description: >-
+            Post Merger Ownership % - Acquirer: The pro forma percentage of
+            ownership to be held by acquirer shareholders in the newly merged
+            company. This data item is designed to reflect the expected
+            ownership of the newly merged company at the time the transaction
+            was announced. This data item will not be populated for Going
+            Private transactions as they are not applicable since the acquirer
+            in a going private transaction is not publicly traded.
+          example: 0.48
+          nullable: true
+        attitude:
+          type: string
+          description: >-
+            The way the target's board of directors viewed the acquirer's
+            proposal to enter into the transaction - Friendly, Hostile, Neutral.
+          example: Friendly
+          enum:
+            - Friendly
+            - Hostile
+            - Neutral
+          nullable: true
+        dealSummary:
+          type: string
+          description: Summary of the deal.
+          example: >-
+            The private equity arm of Blackstone Inc acquired Cvent Holding
+            Corp, a portfolio company of Vista Equity Partners Management LLC,
+            for US$4.2 billion in cash. Under the terms of the agreement,
+            Blackstone would pay US$8.5 in cash for every shares acquired in
+            Cvent Holding Corp, representing a premium of 52% to the VWAP over
+            the 90 days prior to January 30, 2023. The transaction would be
+            funded through a fully committed credit facility. It was initially
+            reported that Cvent Holding Corp was exploring a sale of the firm,
+            and a number of private equity firms, including Blackstone, are
+            considering a bid.
+          nullable: true
+        dealCharacteristics:
+          description: The secondary deal type(s).
+          type: array
+          example:
+            - Exit
+            - Going Private
+          items:
+            type: string
+            enum:
+              - Divestment
+              - Employee Buy-Out
+              - Exit
+              - Investor Buy-In
+              - Investor Buy-Out
+              - Insolvency
+              - Management Buy-Out
+              - Reverse Takeover
+              - Secondary Buy-Out
+              - Leveraged Buy-Out
+              - Going Private
+              - Exit (Partial)
+              - Control Premium Study
+              - Private Equity Group
+              - Asset Purchase
+              - Related Party
+              - Tender Offer
+              - Unequal Voting
+              - Target Controlling Shareholder
+              - Auction
+              - Club Deal - PE Group
+              - Club Deal - Corp/PE
+              - Venture Backed Acquirer
+              - Unsolicited Bid
+              - Rumor
+              - Scheme of Arrangement
+              - Golden Share
+              - Merger of Equals
+              - Privatization
+              - Indicative / Tentative Proposal
+              - Club Deal - Corporate Group
+              - Multiple Target Deal
+              - SPAC
+              - Squeeze Out
+              - Special Committee
+              - Collar
+              - Forced Regulatory Divestiture
+              - Venture-Backed Target
+              - Bank Branch Purchase
+              - Bidder Special Committee
+              - Target Special Committee
+              - Bidder Controlling Shareholder
+              - Property Transaction
+              - Power Plant Purchase
+          nullable: true
+    Ids:
+      type: array
+      items:
+        type: string
+      description: >
+        The requested list of security identifiers. Accepted ID types include
+        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. Maximum
+        of 500 IDs are supported.
+      example:
+        - FDS-US
+    DealIds:
+      type: array
+      items:
+        type: string
+      description: >
+        The requested list of deal identifiers. Maximum of 100 IDs are
+        supported.
+      example:
+        - 4143886MM
+    StartDate:
+      title: Start Date
+      type: string
+      description: >
+        The start date requested for a given date range in **YYYY-MM-DD**
+        format. Future dates (T+1) are not accepted in this endpoint.
+      example: '2017-12-01'
+    EndDate:
+      title: End Date
+      type: string
+      description: >
+        The end date requested for a given date range in **YYYY-MM-DD** format.
+        Future dates (T+1) are not accepted in this endpoint.
+      example: '2017-12-31'
+    Status:
+      title: Status
+      type: string
+      description: |
+        Status of the deal
+      enum:
+        - All
+        - Pending
+        - Complete
+      default: All
+      example: All
+    ErrorResponse:
+      type: object
+      title: Error Response
+      description: Error Default Response
+      properties:
+        errors:
+          type: array
+          description: An array containing errors
+          items:
+            $ref: '#/components/schemas/ErrorObject'
+    ErrorObject:
+      type: object
+      properties:
+        id:
+          description: A UUID for this particular occurrence of the problem.
+          type: string
+          example: adb01824-252f-4420-b0c6-35a1e3507ef5
+        code:
+          description: status
+          type: string
+          example: Bad Request
+        title:
+          description: The plain text error message
+          type: string
+          example: Validation Error
+        detail:
+          description: The detailed error message
+          type: string
+          example: >-
+            The request body is malformed. Please review the request body and
+            try again.
+  responses:
+    '400':
+      description: >-
+        Bad Request. This can occur for several reasons. Please review the
+        "message" for more details.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/badRequestDateFormat'
+            Bad Request - Missing Required Parameter:
+              $ref: '#/components/examples/badRequestRequiredParameter'
+            Bad Request - Future Date:
+              $ref: '#/components/examples/badRequestFutureDate'
+            Bad Request - Invalid Parameter:
+              $ref: '#/components/examples/badRequestInvalidParameters'
+            Bad Request - Malformed JSON:
+              $ref: '#/components/examples/badRequestMalformedJSON'
+            Bad Request - Read Timeout:
+              $ref: '#/components/examples/badRequestReadTimeout'
+    '401':
+      description: >-
+        Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+        successfully generated an API KEY for the IP range you are connecting
+        from. For more help, select the **Report Issue** in the top right corner
+        of this Developer Portal specification card and choose Connectivity 401
+        or 403 Responses.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unauthenticated'
+    '403':
+      description: >-
+        The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing
+        to respond. Please reach out to FactSet Account Team for assistance with
+        authorization.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/forbidden'
+    '404':
+      description: Not Found. The requested data could not be found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/notFound'
+    '415':
+      description: >-
+        Unsupported Media Type. This error may be returned when the caller sends
+        a resource in a format that is not accepted by the server. This can be
+        fixed by ensuring that Content-Type header is set to the correct value.
+        In this instance, "application/json" would be the appropriate value.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unsupportedMediaType'
+    '500':
+      description: Internal Server Error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            Internal Server Error - Not Writable:
+              $ref: '#/components/examples/notWritable'
+            Internal Server Error - General Exception:
+              $ref: '#/components/examples/generalException'
+  examples:
+    dealsCompanyRequestAll:
+      summary: Deal request for IBM (IBM-US).
+      value:
+        data:
+          ids:
+            - IBM-US
+          startDate: '2023-10-30'
+          endDate: '2023-12-31'
+    dealsCompanyResponseAll:
+      summary: Deal response for IBM (IBM-US).
+      value:
+        data:
+          - dealId: 4181800MM
+            target:
+              fsymId: 0Y2Y0H-E
+              name: Software AG / 2 Subsidaries/
+              industry: Software and Consulting
+            buyers:
+              - fsymId: 000N1N-E
+                name: International Business Machines Corp.
+                industry: Information Technology Services
+                ultimateParentId: 000N1N-E
+            sellers:
+              - fsymId: 0032XD-E
+                name: Software AG
+                industry: Packaged Software
+                ultimateParentId: 009ZTC-E
+            dealType: Acquisition / Merger
+            announceDate: '2023-12-18'
+            closeDate: null
+            transactionValue: 2325.0015
+            status: Pending
+            requestId: IBM-US
+          - dealId: 4177123MM
+            target:
+              fsymId: 0LJ5VS-E
+              name: PT Equine Global
+              industry: null
+            buyers:
+              - fsymId: 000N1N-E
+                name: International Business Machines Corp.
+                industry: Information Technology Services
+                ultimateParentId: 000N1N-E
+            sellers:
+              - fsymId: 0DDMWJ-E
+                name: PT Computrade Technology International
+                industry: null
+                ultimateParentId: 0DC7HQ-E
+            dealType: Acquisition / Merger
+            announceDate: '2023-10-31'
+            closeDate: null
+            transactionValue: null
+            status: Pending
+            requestId: IBM-US
+    dealsPublicRequestAll:
+      summary: Deal request for date range.
+      value:
+        data:
+          startDate: '2023-10-30'
+          endDate: '2023-12-31'
+          status: All
+    dealsPublicResponseAll:
+      summary: Deal response for date range.
+      value:
+        data:
+          - dealId: 3028497MM
+            target:
+              fsymId: 0017BR-E
+              name: Aetna, Inc.
+              industry: Managed Health Care
+            buyers:
+              - fsymId: 001HHK-E
+                name: CVS Health Corp.
+                industry: Drugstore Chains
+                ultimateParentId: 001HHK-E
+            sellers:
+              - fsymId: 0017BR-E
+                name: Aetna, Inc.
+                industry: Managed Health Care
+                ultimateParentId: 001HHK-E
+            dealType: Acquisition / Merger
+            announceDate: '2017-12-03'
+            closeDate: '2018-11-28'
+            transactionValue: 72309.094486
+            status: Complete
+    detailsRequestAll:
+      summary: Detail request for deal id.
+      value:
+        data:
+          dealIds:
+            - 4143886MM
+    detailsResponseAll:
+      summary: Details response for deal id.
+      value:
+        data:
+          - dealId: 4143886MM
+            target:
+              fsymId: 0P2YM7-E
+              name: Cvent Holding Corp.
+              industry: Packaged Software
+            buyers:
+              - fsymId: 05F2TR-E
+                name: Blackstone Corporate Private Equity
+                industry: null
+                ultimateParentId: 05F2TR-E
+            sellers:
+              - fsymId: 05W9HD-E
+                name: Vista Equity Partners Management LLC
+                industry: null
+                ultimateParentId: 05W9HD-E
+            status: Complete
+            rumorDate: '2023-01-31'
+            announceDate: '2023-03-14'
+            referenceDate: '2023-03-14'
+            expectedCloseDate: '2023-06-30'
+            closeDate: '2023-06-15'
+            cancelDate: null
+            dealType: Acquisition / Merger
+            sourceFunds:
+              - Bank Loan
+            dealValue:
+              baseEquity: 4178.77714
+              transactionValue: 4276.71114
+              enterpriseValue: 4276.71114
+              annOfferPriceShare: 8.5
+              buyerExchangeRatio: null
+              targetExchangeRatio: null
+              cashShare: 8.5
+              stockShare: null
+              choice: false
+              buyerSharesIssued: null
+              percentSought: 1
+              sharesSought: 491620.84
+              sharesOwnedPrior: null
+              premium1Day: 0.1486486
+              premium5Day: 0.1517615
+              premium30Day: 0.2937595
+              paymentMethod:
+                - Cash
+            purpose: Financial
+            evSales: 6.78243384816915
+            evEBIT: -57.2732903899721
+            evEBITDA: 77.1398629173355
+            bepBV: -14.967663752252
+            sales: null
+            ebit: -74.672
+            ebitda: 55.441
+            netIncome: null
+            cash: 140.848
+            intBearingDebt: 238.782
+            prefStockValue: 0
+            totalAssets: 2265.933
+            sharesOutstanding: 485.772963
+            eps: -0.206411240717816
+            bookValueShare: -0.574727334094137
+            targetPostMergerOwn: null
+            buyerPostMergerOwn: null
+            attitude: Friendly
+            dealSummary: >-
+              The private equity arm of Blackstone Inc acquired Cvent Holding
+              Corp, a portfolio company of Vista Equity Partners Management LLC,
+              for US$4.2 billion in cash. Under the terms of the agreement,
+              Blackstone would pay US$8.5 in cash for every shares acquired in
+              Cvent Holding Corp, representing a premium of 52% to the VWAP over
+              the 90 days prior to January 30, 2023. The transaction would be
+              funded through a fully committed credit facility. It was initially
+              reported that Cvent Holding Corp was exploring a sale of the firm,
+              and a number of private equity firms, including Blackstone, are
+              considering a bid. Subsequently, on February 24, 2023, it was
+              reported that Cvent Holding Corp rejected Blackstone's offer and
+              that Blackstone would take a break from negotiations. Following
+              the acquisition, Cvent Holding Corp would cease its listing in
+              Nasdaq Stock Market. Founded by Reggie Aggarwal in 1999, Cvent
+              Holding Corp is located in Tysons, Virginia, United States and
+              provides software solutions to event planners and marketers. The
+              deal was expected to close mid-year 2023, subject to customary
+              closing conditions, shareholders' approval of Cvent, and
+              regulatory approvals. On March 21, 2023, Kaskela Law LLC announces
+              that it was investigating Cvent Holding Corp on behalf of
+              stakeholders. On April 5, 2023, The Austrian Federal Competition
+              Authority has received a notification concerning the transaction.
+              On April 12, 2023, It was announced that The Service of the
+              Commission for the Protection of Competition has received a
+              notification concerning the transaction. On May 3, 2023, it was
+              announced that Cvent Holding Corp would hold its shareholders
+              meeting on June 1, 2023 to approve the transaction. On May 4,
+              2023, it was announced that the Competition Commission approved
+              the transaction.
+            dealCharacteristics:
+              - Exit
+              - Secondary Buy-Out
+              - Leveraged Buy-Out
+              - Going Private
+              - Private Equity Group
+              - Target Controlling Shareholder
+              - Auction
+              - Unsolicited Bid
+              - Rumor
+              - Target Special Committee
+            requestId: 4143886MM
+    badRequestDateFormat:
+      summary: Bad Request - Date Format
+      description: >-
+        This bad request occurs when a request doesn't use the YYYY-MM-DD in the
+        date parameters. To resolve, convert your date to YYYY-MM-DD.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6
+            code: Bad Request
+            title: >-
+              The date parameter must be in the following date format:
+              YYYY-MM-DD
+            detail: >-
+              The date parameter must be in the following date format:
+              YYYY-MM-DD
+    badRequestRequiredParameter:
+      summary: Bad Request - Required Parameter Missing
+      description: >-
+        This error message occurs when the request does not include the required
+        parameters. Required parameters are indicated with a red asterisks
+        symbol in the specification file.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6
+            code: Bad Request
+            title: Missing/Invalid Parameters.
+            detail: The parameter 'ids' is required and may not be empty.
+    badRequestFutureDate:
+      summary: Bad Request - Future Date
+      description: >-
+        This error message occurs when a future date is requested in the
+        startDate and endDate parameters. Please revise your request to include
+        dates as of today's current date or any prior historical date.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6
+            code: Bad Request
+            title: Missing/Invalid Parameters
+            detail: >-
+              The use of future dates is not applicable in this endpoint. Please
+              revise your request to include dates up to today's current date.
+    badRequestInvalidParameters:
+      summary: Bad Request - Invalid Parameters
+      description: >-
+        This error message occurs when a request parameter is used in which is
+        not recognized by the service. Please revise your request to include
+        only the parameters listed in the specification. Typical causes are
+        spelling mistakes and use of improper casing.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6
+            code: Bad Request
+            title: Missing/Invalid Parameters
+            detail: >-
+              Invalid Parameter (s): fakeParameterName1 fakeParameterName2.
+              Please modify your request to use parameters outlined in the
+              specification for this endpoint.
+    badRequestMalformedJSON:
+      summary: Bad Request - Malformed JSON Request
+      description: >-
+        This error may be returned when the request body is specified as JSON,
+        but is not in proper JSON format.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6
+            code: Bad Request
+            title: Malformed JSON Request
+            detail: >-
+              The request body is malformed. Please review the request body and
+              try again.
+    badRequestReadTimeout:
+      summary: Bad Request - Read Timeout
+      description: >-
+        This error may be returned if it takes more than 29 seconds to hear back
+        from the fql service.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6
+            code: Bad Request
+            title: Read Timeout
+            detail: The request took too long. Try again with a smaller request.
+    unauthenticated:
+      summary: User Authentication Failed
+      description: >-
+        This occurs when a user is not properly authenticated or recognized by
+        the service. Please double check the USERNAME-SERIAL and API-Key used to
+        request and ensure you are within the IP range specified for the Key.
+        Report Issue under 401 error for help with troubleshooting.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6
+            code: Unauthorized
+            title: User Authentication Failed.
+            detail: User Authentication Failed.
+    forbidden:
+      summary: Forbidden
+      description: >-
+        The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing
+        to respond. Please reach out to FactSet Account Team for assistance with
+        authorization.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6
+            code: Forbidden
+            title: User Authorization Failed.
+            detail: >-
+              User is not authorized for the id requested, please reach out to
+              FactSet for support
+    notFound:
+      summary: Not Found
+      description: The requested data could not be found.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6
+            code: Not Found
+            title: No data found
+            detail: The requested data could not be found.
+    unsupportedMediaType:
+      summary: Unsupported Media Type
+      description: >-
+        This bad request occurs when the media type passed in the request is not
+        supported. Currently the APIs only support 'application/json'.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6
+            code: Unsupported Media Type
+            title: Unsupported Media Type
+            detail: >-
+              text/html media type is not supported. Supported media types are
+              application/json.
+    notWritable:
+      summary: Internal Server Error - Not Writable
+      description: >-
+        This error may be returned when the server encounters an error writing
+        the JSON response.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6
+            code: Internal Server Error
+            title: Error writing JSON output
+            detail: >-
+              The server encountered an error writing the JSON response. Please
+              `Report Issue` to FactSet.
+    generalException:
+      summary: Internal Server Error - General Exception
+      description: >-
+        This is the most general error that can be returned to by the service.
+        Please `Report Issue` to FactSet.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6
+            code: Internal Server Error
+            title: Unexpected error
+            detail: An unexpected error occurred. Please `Report Issue` to FactSet.

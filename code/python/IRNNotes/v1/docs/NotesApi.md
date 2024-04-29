@@ -61,7 +61,7 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notes_api.NotesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     create_note_dto = CreateNoteDto(
         author=UserSerialDto(
             username="username_example",
@@ -112,9 +112,7 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
         ],
         is_personal=False,
     ) # CreateNoteDto | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     x_irn_contributor_username = "X-IRN-Contributor-Username_example" # str |  (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     x_irn_contributor_serial = "X-IRN-Contributor-Serial_example" # str |  (optional)
 
     try:
@@ -210,7 +208,7 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notes_api.NotesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     note_id = "noteId_example" # str | 
 
     try:
@@ -304,7 +302,7 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notes_api.NotesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     note_id = "noteId_example" # str | Note Id
 
     try:
@@ -398,45 +396,32 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notes_api.NotesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     start = "start_example" # str | StartDate (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     end = "end_example" # str | EndDate (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifiers = [
         "identifiers_example",
     ] # [str] | Set of identifiers to filter on (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     authors = [
         "authors_example",
     ] # [str] | Set of authors to filter on (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     subjects = [
         "subjects_example",
     ] # [str] | Set of subjects to filter on (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     recommendations = [
         "recommendations_example",
     ] # [str] | Set of recommendations to filter on (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     sentiments = [
         "sentiments_example",
     ] # [str] | Set of sentiments to filter on (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     limit = 1 # int | Limit on the number of notes retrieved (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     offset = 1 # int | Fetch notes after the offset (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     modified_since = "modifiedSince_example" # str | Only return notes which have been modified or created since a particular time (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     states = [
         "states_example",
     ] # [str] | Set of states to filter on (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     filter_on_related_symbols = False # bool | Include notes whose related symbols match the identifier filter (optional) if omitted the server will use the default value of False
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     include_related_entities = False # bool | When set to true fetches notes tagged with all the entities related to identifiers param (optional) if omitted the server will use the default value of False
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     x_irn_include_deleted = False # bool |  (optional) if omitted the server will use the default value of False
 
     try:
@@ -543,9 +528,8 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notes_api.NotesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     note_id = "noteId_example" # str | Note Id
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     update_note_dto = UpdateNoteDto(
         author=UserSerialDto(
             username="username_example",

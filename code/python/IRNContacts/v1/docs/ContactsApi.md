@@ -65,7 +65,7 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = contacts_api.ContactsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     contact_save_dto = ContactSaveDto(
         primary_email_address="primary_email_address_example",
         full_name="full_name_example",
@@ -224,7 +224,7 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = contacts_api.ContactsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     contact_id = "contactId_example" # str | contactId to delete associated record
 
     try:
@@ -318,7 +318,7 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = contacts_api.ContactsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     contact_id = "contactId_example" # str | contactId to get associated record
 
     try:
@@ -412,7 +412,7 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = contacts_api.ContactsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     contact_id = "contactId_example" # str | contactId to get associated records
 
     try:
@@ -506,7 +506,7 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = contacts_api.ContactsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     contact_id = "contactId_example" # str | contactId of associated record
 
     try:
@@ -600,7 +600,7 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = contacts_api.ContactsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     contact_id = "contactId_example" # str | contactId to get associated records
 
     try:
@@ -694,7 +694,7 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = contacts_api.ContactsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     contact_id = "contactId_example" # str | contactId to get associated records
 
     try:
@@ -788,23 +788,15 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = contacts_api.ContactsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     full_name = "fullName_example" # str | Filter results on fullName (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     email_address = "emailAddress_example" # str | Filter results on emailAddress (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifier = "identifier_example" # str | Filter results on identifier (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     employer_name = "employerName_example" # str | Filter results on employerName (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     custom_field_values = False # bool | Includes custom field values in response if true (optional) if omitted the server will use the default value of False
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     search = "search_example" # str | Filter results on the combination of fullName, emailAddress, identifier and employerName (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     sort = "sort_example" # str |  (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     include_last_meeting_date = False # bool | If true, returns when they were last tagged as an attendee in an IRN meeting (optional) if omitted the server will use the default value of False
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     limit = 0 # int | Restrict number of records returned (optional) if omitted the server will use the default value of 0
 
     try:
@@ -905,9 +897,8 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = contacts_api.ContactsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     contact_id = "contactId_example" # str | contactId to update associated record
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     operation = [
         Operation(
             operation_type=OperationType(0),

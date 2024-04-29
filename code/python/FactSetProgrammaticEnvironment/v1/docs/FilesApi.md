@@ -60,11 +60,9 @@ with fds.sdk.FactSetProgrammaticEnvironment.ApiClient(configuration) as api_clie
     # Create an instance of the API class
     api_instance = files_api.FilesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     server = "server_example" # str | The server to upload the file to. Either `interactive` or `batch`.
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     file = "file_example" # str | The file name to upload the file to. Existing directory can be specified.
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     body = open('/path/to/file', 'rb') # file_type |  (optional)
 
     try:
@@ -163,7 +161,7 @@ with fds.sdk.FactSetProgrammaticEnvironment.ApiClient(configuration) as api_clie
     # Create an instance of the API class
     api_instance = files_api.FilesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | From url, provided by location header or response body in the upload start endpoint
 
     try:

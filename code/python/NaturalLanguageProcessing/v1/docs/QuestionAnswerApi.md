@@ -61,7 +61,7 @@ with fds.sdk.NaturalLanguageProcessing.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = question__answer_api.QuestionAnswerApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | Identifier from the Question & Answer task and comes from the POST request which created the task
 
     try:
@@ -91,7 +91,10 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**QnAAnswerRoot**](QnAAnswerRoot.md)
+The endpoint generates varying objects correlating with the successful status code, encapsulated within a response wrapper housing the appropriate object. The response wrapper includes the subsequent response types:
+- **200**: [**QnAAnswerRoot**](QnAAnswerRoot.md)
+- **202**: [**TaskRoot**](TaskRoot.md)
+
 
 ### Authorization
 
@@ -166,7 +169,7 @@ with fds.sdk.NaturalLanguageProcessing.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = question__answer_api.QuestionAnswerApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | Identifier from the Question & Answer task and comes from the POST request which created the task
 
     try:
@@ -264,7 +267,7 @@ with fds.sdk.NaturalLanguageProcessing.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = question__answer_api.QuestionAnswerApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     qn_a_answer_parameters_root = QnAAnswerParametersRoot(
         data=QnAAnswerParameters(
             input='''

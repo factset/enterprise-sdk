@@ -60,7 +60,7 @@ with fds.sdk.FactSetOptions.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = reference_api.ReferenceApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     options_dates_request = OptionsDatesRequest(
         ids=OptionIds(["TSLA.US#CD33M-USA"]),
     ) # OptionsDatesRequest | 
@@ -161,7 +161,7 @@ with fds.sdk.FactSetOptions.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = reference_api.ReferenceApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     options_references_request = OptionsReferencesRequest(
         ids=OptionIds(["TSLA.US#CD33M-USA"]),
     ) # OptionsReferencesRequest | Options Reference Request Body

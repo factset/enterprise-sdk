@@ -31,9 +31,9 @@ import com.factset.sdk.FactSetTickHistory.JSON;
 
 
 /**
- * Date-Time &lt;p&gt; NOTE: Using start and end parameters within dateTimeRange will fetch the data on particular days in between the timestamps given.&lt;/p&gt;. 
+ *  NOTE:       - Using start and end parameters within dateTimeRange will fetch the data on particular days in between the timestamps given.      - The start and end times are processed as the local time of the factsetExchangeCode provided. Please refer to the **Data Model User Guide** for time zone to exchange mappings. 
  */
-@ApiModel(description = "Date-Time <p> NOTE: Using start and end parameters within dateTimeRange will fetch the data on particular days in between the timestamps given.</p>. ")
+@ApiModel(description = " NOTE:       - Using start and end parameters within dateTimeRange will fetch the data on particular days in between the timestamps given.      - The start and end times are processed as the local time of the factsetExchangeCode provided. Please refer to the **Data Model User Guide** for time zone to exchange mappings. ")
 @JsonPropertyOrder({
   DateTimePeriod.JSON_PROPERTY_START,
   DateTimePeriod.JSON_PROPERTY_END
@@ -58,11 +58,11 @@ public class DateTimePeriod implements Serializable {
   }
 
    /**
-   * The date for (or from which) the data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format. 
+   * The date for (or from which) the data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format.  
    * @return start
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "2012-01-01T11:00Z", value = "The date for (or from which) the data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format. ")
+  @ApiModelProperty(example = "2012-01-01T11:00Z", value = "The date for (or from which) the data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format.  ")
   @JsonProperty(JSON_PROPERTY_START)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -84,11 +84,11 @@ public class DateTimePeriod implements Serializable {
   }
 
    /**
-   * The date to which data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format. 
+   * The date to which data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format. end time is interpreted in the local timezone as the selected exchange. 
    * @return end
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "2012-01-30T11:20:30Z", value = "The date to which data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format. ")
+  @ApiModelProperty(example = "2012-01-30T11:20:30Z", value = "The date to which data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format. end time is interpreted in the local timezone as the selected exchange. ")
   @JsonProperty(JSON_PROPERTY_END)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

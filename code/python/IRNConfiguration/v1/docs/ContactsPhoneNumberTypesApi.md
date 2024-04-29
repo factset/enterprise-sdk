@@ -60,7 +60,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = contacts___phone_number_types_api.ContactsPhoneNumberTypesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     body = "body_example" # str | To add phoneNumberType
 
     try:
@@ -154,7 +154,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = contacts___phone_number_types_api.ContactsPhoneNumberTypesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     phone_number_type_id = "phoneNumberTypeId_example" # str | phoneNumberTypeId for deleting associated record
 
     try:
@@ -248,6 +248,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = contacts___phone_number_types_api.ContactsPhoneNumberTypesApi(api_client)
 
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
 
     try:
         # Get list of the phone types configured in your group
@@ -335,9 +336,8 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = contacts___phone_number_types_api.ContactsPhoneNumberTypesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     phone_number_type_id = "phoneNumberTypeId_example" # str | phoneNumberTypeId to update associated record
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     body = "body_example" # str | Update with phoneNumberType
 
     try:

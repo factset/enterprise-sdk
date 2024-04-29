@@ -57,7 +57,7 @@ with fds.sdk.OptimizationEngineAPIMultiperiod.ApiClient(configuration) as api_cl
     # Create an instance of the API class
     api_instance = default_api.DefaultApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     multi_period_input = OptimizerInputsMultiPeriodInput(
         strategy=OptimizerInputsMultiPeriodStrategy(
             objective=OptimizerInputsMultiPeriodObjective(

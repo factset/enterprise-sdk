@@ -62,9 +62,8 @@ with fds.sdk.RealTimePriceAlerting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = alerting_api.AlertingApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -162,15 +161,12 @@ with fds.sdk.RealTimePriceAlerting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = alerting_api.AlertingApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     subscription_minimum_interval = 0 # float | Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (optional) if omitted the server will use the default value of 0
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_cursor = "_paginationCursor_example" # str | Starting point as returned in the attributes `pagination.next` or `pagination.previous` by a prior invocation of this endpoint, or undefined (default). (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_limit = 20 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20
 
     try:
@@ -268,9 +264,8 @@ with fds.sdk.RealTimePriceAlerting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = alerting_api.AlertingApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -368,7 +363,7 @@ with fds.sdk.RealTimePriceAlerting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = alerting_api.AlertingApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     post_alerting_prices_basic_trigger_list_request = PostAlertingPricesBasicTriggerListRequest(
         data=PostAlertingPricesBasicTriggerListRequestData(
             filter=PostAlertingPricesBasicTriggerListRequestDataFilter(

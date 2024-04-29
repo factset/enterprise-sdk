@@ -45,7 +45,7 @@ public class ListSchemaObject implements Serializable {
   private String schemaName;
 
   public static final String JSON_PROPERTY_SCHEMA_VERSION = "schemaVersion";
-  private String schemaVersion;
+  private java.util.List<String> schemaVersion = null;
 
   public ListSchemaObject() { 
   }
@@ -76,8 +76,16 @@ public class ListSchemaObject implements Serializable {
   }
 
 
-  public ListSchemaObject schemaVersion(String schemaVersion) {
+  public ListSchemaObject schemaVersion(java.util.List<String> schemaVersion) {
     this.schemaVersion = schemaVersion;
+    return this;
+  }
+
+  public ListSchemaObject addSchemaVersionItem(String schemaVersionItem) {
+    if (this.schemaVersion == null) {
+      this.schemaVersion = new java.util.ArrayList<>();
+    }
+    this.schemaVersion.add(schemaVersionItem);
     return this;
   }
 
@@ -90,14 +98,14 @@ public class ListSchemaObject implements Serializable {
   @JsonProperty(JSON_PROPERTY_SCHEMA_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getSchemaVersion() {
+  public java.util.List<String> getSchemaVersion() {
     return schemaVersion;
   }
 
 
   @JsonProperty(JSON_PROPERTY_SCHEMA_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSchemaVersion(String schemaVersion) {
+  public void setSchemaVersion(java.util.List<String> schemaVersion) {
     this.schemaVersion = schemaVersion;
   }
 

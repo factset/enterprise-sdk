@@ -62,7 +62,7 @@ with fds.sdk.FactSetProgrammaticEnvironment.ApiClient(configuration) as api_clie
     # Create an instance of the API class
     api_instance = calculations_api.CalculationsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | From url, provided by location header or response body in the calculation start endpoint
 
     try:
@@ -159,7 +159,7 @@ with fds.sdk.FactSetProgrammaticEnvironment.ApiClient(configuration) as api_clie
     # Create an instance of the API class
     api_instance = calculations_api.CalculationsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | From url, provided by location header or response body in the calculation start endpoint
 
     try:
@@ -256,7 +256,7 @@ with fds.sdk.FactSetProgrammaticEnvironment.ApiClient(configuration) as api_clie
     # Create an instance of the API class
     api_instance = calculations_api.CalculationsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | From url, provided by location header or response body in the calculation start endpoint
 
     try:
@@ -353,7 +353,7 @@ with fds.sdk.FactSetProgrammaticEnvironment.ApiClient(configuration) as api_clie
     # Create an instance of the API class
     api_instance = calculations_api.CalculationsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     calculation = Calculation(None) # Calculation |  (optional)
 
     try:

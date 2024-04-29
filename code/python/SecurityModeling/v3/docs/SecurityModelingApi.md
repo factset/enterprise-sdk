@@ -61,7 +61,7 @@ with fds.sdk.SecurityModeling.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = security_modeling_api.SecurityModelingApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     sm_delete_parameters_root = SMDeleteParametersRoot(
         data=[
             SMDeleteParameters(
@@ -172,7 +172,7 @@ with fds.sdk.SecurityModeling.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = security_modeling_api.SecurityModelingApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     sm_retrieve_parameters_root = SMRetrieveParametersRoot(
         data=[
             SMRetrieveParameters(
@@ -283,7 +283,7 @@ with fds.sdk.SecurityModeling.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = security_modeling_api.SecurityModelingApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     sm_create_parameters_root = SMCreateParametersRoot(
         data=[
             SMCreateParameters(

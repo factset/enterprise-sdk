@@ -64,9 +64,8 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = comments_api.CommentsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     note_id = "noteId_example" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     create_comment_dto = CreateCommentDto(
         author_id="author_id_example",
         parent_comment_id="parent_comment_id_example",
@@ -168,11 +167,9 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = comments_api.CommentsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     note_id = "noteId_example" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     comment_id = "commentId_example" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     file = open('/path/to/file', 'rb') # file_type | 
 
     try:
@@ -270,9 +267,8 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = comments_api.CommentsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     note_id = "noteId_example" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     comment_id = "commentId_example" # str | 
 
     try:
@@ -367,11 +363,9 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = comments_api.CommentsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     note_id = "noteId_example" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     comment_id = "commentId_example" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attachment_id = "attachmentId_example" # str | 
 
     try:
@@ -467,9 +461,8 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = comments_api.CommentsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     note_id = "noteId_example" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     comment_id = "commentId_example" # str | 
 
     try:
@@ -565,9 +558,8 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = comments_api.CommentsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     note_id = "noteId_example" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     comment_id = "commentId_example" # str | 
 
     try:
@@ -663,7 +655,7 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = comments_api.CommentsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     note_id = "noteId_example" # str | 
 
     try:
@@ -758,11 +750,9 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = comments_api.CommentsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     note_id = "noteId_example" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     comment_id = "commentId_example" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     operation = [
         Operation(
             operation_type=OperationType(0),

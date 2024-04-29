@@ -70,7 +70,7 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = scim_api.SCIMApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     scim_group = ScimGroup(
         schemas=[
             "schemas_example",
@@ -187,7 +187,7 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = scim_api.SCIMApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     create_scim_user_json_request = CreateScimUserJSONRequest(
         user_name="user_name_example",
         password="password_example",
@@ -321,7 +321,7 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = scim_api.SCIMApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     group_id = "scimgroup1" # str | The ID of the group
 
     try:
@@ -416,7 +416,7 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = scim_api.SCIMApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     user_id = "scimuser1" # str | The ID of the user
 
     try:
@@ -511,9 +511,8 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = scim_api.SCIMApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     count = 25 # int | Non-negative maximum number of entries to return (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     start_index = 1 # int | The 1-based index of the first query result (optional)
 
     try:
@@ -610,9 +609,8 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = scim_api.SCIMApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     count = 25 # int | Non-negative maximum number of entries to return (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     start_index = 1 # int | The 1-based index of the first query result (optional)
 
     try:
@@ -709,7 +707,7 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = scim_api.SCIMApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     group_id = "scimgroup1" # str | The ID of the role
 
     try:
@@ -805,7 +803,7 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = scim_api.SCIMApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     user_id = "scimuser1" # str | The ID of the user
 
     try:
@@ -901,9 +899,8 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = scim_api.SCIMApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     group_id = "scimgroup1" # str | The ID of the role
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     scim_group_patch_request_body = ScimGroupPatchRequestBody(
         schemas=[
             "schemas_example",
@@ -1013,9 +1010,8 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = scim_api.SCIMApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     user_id = "scimuser1" # str | The ID of the user
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     scim_user_patch_request_body = ScimUserPatchRequestBody(
         schemas=[
             "schemas_example",
@@ -1123,9 +1119,8 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = scim_api.SCIMApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     group_id = "scimgroup1" # str | The ID of the group
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     scim_group = ScimGroup(
         schemas=[
             "schemas_example",
@@ -1243,9 +1238,8 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = scim_api.SCIMApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     user_id = "scimuser1" # str | The ID of the user
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     scim_user = ScimUser(
         schemas=[
             "schemas_example",

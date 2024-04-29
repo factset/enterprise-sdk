@@ -66,7 +66,7 @@ with fds.sdk.QuantEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = quant_calculations_api.QuantCalculationsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | from url, provided from the location header in the Create and Run Quant calculation endpoint
 
     try:
@@ -165,7 +165,7 @@ with fds.sdk.QuantEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = quant_calculations_api.QuantCalculationsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     page_number = 1 # int |  (optional) if omitted the server will use the default value of 1
 
     try:
@@ -268,7 +268,7 @@ with fds.sdk.QuantEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = quant_calculations_api.QuantCalculationsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | from url, provided from the location header in the Create and Run Quant Engine calculation endpoint
 
     try:
@@ -368,7 +368,7 @@ with fds.sdk.QuantEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = quant_calculations_api.QuantCalculationsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | from url, provided from the location header in the Create and Run Quant Engine calculation endpoint
 
     try:
@@ -469,9 +469,8 @@ with fds.sdk.QuantEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = quant_calculations_api.QuantCalculationsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | from url, provided from the location header in the Get Quant calculation status by id endpoint
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     unit_id = "unitId_example" # str | from url, provided from the location header in the Get Quant calculation status by id endpoint
 
     try:
@@ -572,9 +571,8 @@ with fds.sdk.QuantEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = quant_calculations_api.QuantCalculationsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | from url, provided from the location header in the Get Quant Engine calculation status by id endpoint
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     unit_id = "unitId_example" # str | from url, provided from the location header in the Get Quant Engine calculation status by id endpoint
 
     try:
@@ -675,9 +673,8 @@ with fds.sdk.QuantEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = quant_calculations_api.QuantCalculationsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     cache_control = "Cache-Control_example" # str | Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     quant_calculation_parameters_root = QuantCalculationParametersRoot(
         data={
             "key": QuantCalculationParameters(
@@ -729,7 +726,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CalculationStatusRoot**](CalculationStatusRoot.md)
+The endpoint generates varying objects correlating with the successful status code, encapsulated within a response wrapper housing the appropriate object. The response wrapper includes the subsequent response types:
+- **200**: [**CalculationStatusRoot**](CalculationStatusRoot.md)
+- **201**: [**ObjectRoot**](ObjectRoot.md)
+- **202**: [**CalculationStatusRoot**](CalculationStatusRoot.md)
+
 
 ### Authorization
 
@@ -811,11 +812,9 @@ with fds.sdk.QuantEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = quant_calculations_api.QuantCalculationsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | from url, provided from the location header in the Create and Run Quant Engine calculation endpoint
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     cache_control = "Cache-Control_example" # str | Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     quant_calculation_parameters_root = QuantCalculationParametersRoot(
         data={
             "key": QuantCalculationParameters(
@@ -868,7 +867,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CalculationStatusRoot**](CalculationStatusRoot.md)
+The endpoint generates varying objects correlating with the successful status code, encapsulated within a response wrapper housing the appropriate object. The response wrapper includes the subsequent response types:
+- **200**: [**CalculationStatusRoot**](CalculationStatusRoot.md)
+- **201**: [**ObjectRoot**](ObjectRoot.md)
+- **202**: [**CalculationStatusRoot**](CalculationStatusRoot.md)
+
 
 ### Authorization
 

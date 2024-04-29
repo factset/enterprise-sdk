@@ -62,7 +62,7 @@ with fds.sdk.Publisher.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = calculations_api.CalculationsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | From url, provided from the location header in the Run Multiple Calculations endpoint.
 
     try:
@@ -162,7 +162,7 @@ with fds.sdk.Publisher.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = calculations_api.CalculationsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | From url, provided from the location header in the Run Multiple Calculations endpoint.
 
     try:
@@ -264,6 +264,7 @@ with fds.sdk.Publisher.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = calculations_api.CalculationsApi(api_client)
 
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
 
     try:
         # Get all calculation statuses
@@ -359,7 +360,7 @@ with fds.sdk.Publisher.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = calculations_api.CalculationsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     calculation = Calculation(
         pa={
             "key": PACalculationParameters(

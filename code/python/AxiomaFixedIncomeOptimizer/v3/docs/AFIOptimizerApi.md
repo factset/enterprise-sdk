@@ -64,7 +64,7 @@ with fds.sdk.AxiomaFixedIncomeOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = afi_optimizer_api.AFIOptimizerApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | from url, provided from the location header in the Create and Run AFI optimization endpoint
 
     try:
@@ -163,7 +163,7 @@ with fds.sdk.AxiomaFixedIncomeOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = afi_optimizer_api.AFIOptimizerApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | from url, provided from the location header in the Create and Run AFI optimization endpoint
 
     try:
@@ -263,7 +263,7 @@ with fds.sdk.AxiomaFixedIncomeOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = afi_optimizer_api.AFIOptimizerApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | from url, provided from the location header in the Get AFI optimization status by id endpoint
 
     try:
@@ -363,7 +363,7 @@ with fds.sdk.AxiomaFixedIncomeOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = afi_optimizer_api.AFIOptimizerApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | from url, provided from the location header in the Create and Run AFI optimization endpoint
 
     try:
@@ -464,11 +464,9 @@ with fds.sdk.AxiomaFixedIncomeOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = afi_optimizer_api.AFIOptimizerApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     x_fact_set_api_long_running_deadline = 1 # int | Long running deadline in seconds. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     cache_control = "Cache-Control_example" # str | Standard HTTP header.  Accepts max-stale. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     afi_optimization_parameters_root = AFIOptimizationParametersRoot(
         data=AFIOptimizationParameters(
             strategy=AFIOptimizerStrategy(
@@ -549,7 +547,10 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ObjectRoot**](ObjectRoot.md)
+The endpoint generates varying objects correlating with the successful status code, encapsulated within a response wrapper housing the appropriate object. The response wrapper includes the subsequent response types:
+- **201**: [**ObjectRoot**](ObjectRoot.md)
+- **202**: [**CalculationInfoRoot**](CalculationInfoRoot.md)
+
 
 ### Authorization
 
@@ -629,13 +630,10 @@ with fds.sdk.AxiomaFixedIncomeOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = afi_optimizer_api.AFIOptimizerApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | from url, provided from the location header in the Create and Run AFI optimization endpoint
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     x_fact_set_api_long_running_deadline = 1 # int | Long running deadline in seconds. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     cache_control = "Cache-Control_example" # str | Standard HTTP header.  Accepts max-stale. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     afi_optimization_parameters_root = AFIOptimizationParametersRoot(
         data=AFIOptimizationParameters(
             strategy=AFIOptimizerStrategy(
@@ -717,7 +715,10 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ObjectRoot**](ObjectRoot.md)
+The endpoint generates varying objects correlating with the successful status code, encapsulated within a response wrapper housing the appropriate object. The response wrapper includes the subsequent response types:
+- **201**: [**ObjectRoot**](ObjectRoot.md)
+- **202**: [**CalculationInfoRoot**](CalculationInfoRoot.md)
+
 
 ### Authorization
 

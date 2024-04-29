@@ -57,7 +57,7 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = identifiers_api.IdentifiersApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     identifiers = "identifiers_example" # str | Identifiers (optional)
 
     try:

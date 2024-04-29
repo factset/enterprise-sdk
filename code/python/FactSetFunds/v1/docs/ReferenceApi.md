@@ -70,7 +70,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = reference_api.ReferenceApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     ids = ["MABAX-US"] # [str] | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
 
     try:
@@ -169,7 +169,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = reference_api.ReferenceApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     benchmark_details_request = BenchmarkDetailsRequest(
         ids=Ids(["MABAX","FCNTX"]),
     ) # BenchmarkDetailsRequest | The Benchmark Details request body, allowing the user to specify a list of ids.
@@ -270,7 +270,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = reference_api.ReferenceApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     ids = ["MABAX-US"] # [str] | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
 
     try:
@@ -369,7 +369,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = reference_api.ReferenceApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     classifications_request = ClassificationsRequest(
         ids=Ids(["MABAX","FCNTX"]),
     ) # ClassificationsRequest | The Classifications request body, allowing the user to specify a list of ids.
@@ -470,11 +470,9 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = reference_api.ReferenceApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     ids = ["MABAX-US"] # [str] | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     date = "2019-12-31" # str | The date requested in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     currency = "USD" # str | Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. (optional) if omitted the server will use the default value of "LOCAL"
 
     try:
@@ -576,7 +574,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = reference_api.ReferenceApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     costs_fees_request = CostsFeesRequest(
         ids=CostsFeesIds(["MABAX","FCNTX"]),
         date="2019-12-31",
@@ -679,7 +677,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = reference_api.ReferenceApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     ids = ["MABAX-US"] # [str] | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
 
     try:
@@ -778,7 +776,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = reference_api.ReferenceApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     managers_request = ManagersRequest(
         ids=Ids(["MABAX","FCNTX"]),
     ) # ManagersRequest | The Funds Managers request body, allowing the user to specify a list of ids.
@@ -879,7 +877,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = reference_api.ReferenceApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     ids = ["MABAX-US"] # [str] | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
 
     try:
@@ -978,7 +976,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = reference_api.ReferenceApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     summaries_request = SummariesRequest(
         ids=Ids(["MABAX","FCNTX"]),
     ) # SummariesRequest | The Funds Summary request body, allowing the user to specify a list of ids.
@@ -1079,7 +1077,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = reference_api.ReferenceApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     ids = ["MABAX-US"] # [str] | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
 
     try:
@@ -1178,7 +1176,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = reference_api.ReferenceApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     related_funds_request = RelatedFundsRequest(
         ids=Ids(["MABAX","FCNTX"]),
     ) # RelatedFundsRequest | The Related Funds request body, allowing the user to specify a list of ids.

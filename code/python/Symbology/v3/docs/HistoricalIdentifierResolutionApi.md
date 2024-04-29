@@ -60,7 +60,7 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = historical_identifier_resolution_api.HistoricalIdentifierResolutionApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     identifier_resolution_historical_request = IdentifierResolutionHistoricalRequest(
         data=IdentifierResolutionHistoricalRequestBody(
             ids=GetIdsResolution(["GOOGL-US"]),
@@ -166,13 +166,10 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = historical_identifier_resolution_api.HistoricalIdentifierResolutionApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     ids = ["GOOGL-US"] # [str] | Requested security or entity identifiers. All requested identifiers must be of the same type. This request value is sent back in the response as, `requestId'. <p>***ids limit** =  100 per request*</p>   *<p>NOTE:  GET Method URL request lines are also limited to a total   length of 8192 bytes (8KB). In cases where the service allows for thousands   of ids, which may lead to exceeding this request line limit of 8KB, its   advised for any requests with large request lines to be requested through   the respective \"POST\" method.</p>* 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     input_symbol_type = "tickerRegion" # str | The type of symbol being inputted. Only one type of symbol is accepted with each request. 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     output_symbol_types = ["CUSIP","SEDOL"] # [str] | The type of symbols being outputted. Multiple types of symbols can be outputted with each request. The user must be authorized for the requested identifier type.
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     as_of_date = dateutil_parser('2010-01-01').date() # date | As of date for historical symbol request in YYYY-MM-DD format. If no `asOfDate` is requested, the response will include the full history of the identifier.  (optional)
 
     try:

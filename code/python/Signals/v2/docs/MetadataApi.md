@@ -62,6 +62,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = metadata_api.MetadataApi(api_client)
 
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
 
     try:
         # example, this endpoint has no required or optional parameters
@@ -152,6 +153,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = metadata_api.MetadataApi(api_client)
 
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
 
     try:
         # example, this endpoint has no required or optional parameters
@@ -242,7 +244,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = metadata_api.MetadataApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     signal_id = "dilutionTrigger" # str | 
 
     try:
@@ -338,6 +340,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = metadata_api.MetadataApi(api_client)
 
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
 
     try:
         # example, this endpoint has no required or optional parameters

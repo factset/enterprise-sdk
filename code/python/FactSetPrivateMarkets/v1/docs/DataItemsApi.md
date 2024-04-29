@@ -59,7 +59,7 @@ with fds.sdk.FactSetPrivateMarkets.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = data_items_api.DataItemsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     category = "FINANCIALS" # str | Filters the list of available fields per endpoint  -   * **FINANCIALS** = Financials endpoint data items, such as Assets, Liabilities, and EBITDA.   * **NON_PERIODIC** = Non-Periodic endpoint data items, such as ISO Currency, Current CEO, and Investor List.  (optional)
 
     try:

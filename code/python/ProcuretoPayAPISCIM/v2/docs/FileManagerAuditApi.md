@@ -57,6 +57,7 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = file_manager_audit_api.FileManagerAuditApi(api_client)
 
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
 
     try:
         # Get File Manager audit data.

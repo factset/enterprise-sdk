@@ -63,7 +63,7 @@ with fds.sdk.AnalyticsDatastore.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = documents_api.DocumentsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     document_request = DocumentRequest(
         meta=MetaRequestModel(
             pagination=MetaRequestModelPagination(
@@ -177,7 +177,7 @@ with fds.sdk.AnalyticsDatastore.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = documents_api.DocumentsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     tag_filter_model = TagFilterModel(
         meta=MetaRequestModel(
             pagination=MetaRequestModelPagination(
@@ -289,7 +289,7 @@ with fds.sdk.AnalyticsDatastore.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = documents_api.DocumentsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     name = "name_example" # str | The name of the tag
 
     try:
@@ -389,9 +389,8 @@ with fds.sdk.AnalyticsDatastore.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = documents_api.DocumentsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     name = "name_example" # str | The name of the tag
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     tag_filter_model = TagFilterModel(
         meta=MetaRequestModel(
             pagination=MetaRequestModelPagination(
@@ -504,9 +503,8 @@ with fds.sdk.AnalyticsDatastore.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = documents_api.DocumentsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     pagination_offset = 0 # int | The offset integer on where to begin paginating (optional) if omitted the server will use the default value of 0
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_limit = 50 # int | The limit of records to return when paginating (optional) if omitted the server will use the default value of 50
 
     try:

@@ -16,6 +16,10 @@ docs/IdStatus.md
 docs/IdStatusData.md
 docs/JobDetailsResponse.md
 docs/JobDetailsResponseData.md
+docs/JobListResponse.md
+docs/JobListResponseMeta.md
+docs/JobListResponseMetaPagination.md
+docs/JobListResponseRoot.md
 docs/JobOverrides.md
 docs/JobOverridesCombinationsRoot.md
 docs/JobOverridesDates.md
@@ -53,6 +57,10 @@ fds/sdk/PortfolioReportingBatcher/model/id_status.py
 fds/sdk/PortfolioReportingBatcher/model/id_status_data.py
 fds/sdk/PortfolioReportingBatcher/model/job_details_response.py
 fds/sdk/PortfolioReportingBatcher/model/job_details_response_data.py
+fds/sdk/PortfolioReportingBatcher/model/job_list_response.py
+fds/sdk/PortfolioReportingBatcher/model/job_list_response_meta.py
+fds/sdk/PortfolioReportingBatcher/model/job_list_response_meta_pagination.py
+fds/sdk/PortfolioReportingBatcher/model/job_list_response_root.py
 fds/sdk/PortfolioReportingBatcher/model/job_overrides.py
 fds/sdk/PortfolioReportingBatcher/model/job_overrides_combinations_root.py
 fds/sdk/PortfolioReportingBatcher/model/job_overrides_dates.py

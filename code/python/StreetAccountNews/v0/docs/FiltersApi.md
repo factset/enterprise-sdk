@@ -59,9 +59,8 @@ with fds.sdk.StreetAccountNews.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = filters_api.FiltersApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     structured = True # bool | Pass structured to generate a structured view of the available filters. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     flattened = True # bool | Pass flattened to generate a structured view of the available filters. (optional)
 
     try:

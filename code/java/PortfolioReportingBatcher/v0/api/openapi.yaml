@@ -4,16 +4,13 @@ info:
     email: api@factset.com
     name: FactSet Research Systems
     url: https://developer.factset.com/contact
-  description: |-
-    The Portfolio Reporting Batcher (PRB) API allows clients to systematically leverage functionalities of the PRB application. With the initial release, clients can
-    - trigger existing jobs
-    - check status of running jobs
-    - get various details of existing jobs
+  description: The Portfolio Reporting Batcher (PRB) API allows clients to systematically
+    leverage functionalities of the PRB application.
   license:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Portfolio Reporting Batcher
-  version: 0.4.0
+  version: 0.5.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/portfolio-reporting-batcher-api
@@ -28,6 +25,173 @@ tags:
 - description: These endpoints refer to specific runs for a PRB job
   name: Runs
 paths:
+  /jobs:
+    get:
+      description: |
+        Use this endpoint with the optional 'type' or 'name' filters to get a list of PRB jobs.
+      operationId: getPrbJobs
+      parameters:
+      - description: The job type
+        explode: true
+        in: query
+        name: type
+        required: false
+        schema:
+          $ref: '#/components/schemas/jobTypes'
+        style: form
+      - description: The job name
+        explode: true
+        in: query
+        name: name
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: The number of jobs to skip (please note the jobs are ordered
+          by last modified in descending order, i.e. most recently modified will show
+          on the
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          example: 0
+          type: integer
+        style: form
+      - description: The number of jobs to bring back (maximum 50)
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          maximum: 50
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Example 1:
+                  value:
+                    data:
+                    - name: my_vault_job
+                      type: vault
+                      serialNumber: "894550"
+                      status: created
+                      runId: 4d0544b6-f327-45dd-856b-7990181f695a
+                      isApiTriggered: true
+                    - name: my_pa_job
+                      type: PA
+                      serialNumber: "894550"
+                      status: failed
+                      runId: "128756"
+                      isApiTriggered: false
+                    meta:
+                      pagination:
+                        hasNext: false
+                Example 2:
+                  description: Only `name`, `type`, and `serialNumber` will be shown
+                    if the jobs have not been run before
+                  value:
+                    data:
+                    - name: my_new_vault_job
+                      type: vault
+                      serialNumber: "310361"
+                    - name: my_new_pa_job
+                      type: PA
+                      serialNumber: "310362"
+                    meta:
+                      pagination:
+                        hasNext: false
+                Example 3:
+                  description: An empty `data` array can be expected if no jobs are
+                    found, please expand the query parameters
+                  value:
+                    data: []
+                    meta:
+                      pagination:
+                        hasNext: false
+              schema:
+                $ref: '#/components/schemas/jobListResponse'
+          description: OK
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/clientErrorResponse'
+          description: Invalid input parameters.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "401":
+          description: Missing or invalid authentication.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "403":
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "429":
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "503":
+          description: Request timed out. Retry the request in sometime.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+      summary: Get a list of existing jobs
+      tags:
+      - Jobs
+      x-accepts: application/json
   /jobs/{type}/{name}:
     get:
       description: Use this endpoint to fetch the documents, tasks, accounts, and/or
@@ -166,7 +330,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/clientErrorResponse'
-          description: Invalid post body parameters.
+          description: Invalid input parameters.
           headers:
             X-DataDirect-Request-Key:
               $ref: '#/components/headers/X-DataDirect-Request-Key'
@@ -1038,6 +1202,65 @@ components:
           $ref: '#/components/schemas/jobDetailsResponse_data'
       title: jobDetailsResponse
       type: object
+    jobListResponse:
+      description: Summary of the jobs available in PRB.
+      example:
+        data:
+        - serialNumber: serialNumber
+          isApiTriggered: true
+          name: my_vault_job
+          runId: runId
+          type: vault
+          status: queued
+        - serialNumber: serialNumber
+          isApiTriggered: true
+          name: my_vault_job
+          runId: runId
+          type: vault
+          status: queued
+        meta:
+          pagination:
+            hasNext: true
+      properties:
+        data:
+          description: The object that contains the main information requested
+          items:
+            $ref: '#/components/schemas/jobListResponseRoot'
+          type: array
+        meta:
+          $ref: '#/components/schemas/jobListResponse_meta'
+      title: jobListResponse
+      type: object
+    jobListResponseRoot:
+      description: Available details of a PRB job, please note limited details are
+        available if the job has not been run before, please see the examples
+      example:
+        serialNumber: serialNumber
+        isApiTriggered: true
+        name: my_vault_job
+        runId: runId
+        type: vault
+        status: queued
+      properties:
+        runId:
+          description: Latest run ID for the job
+          type: string
+        isApiTriggered:
+          description: Indicates if the latest run was triggered by this API
+          type: boolean
+        name:
+          description: The name of the job
+          example: my_vault_job
+          type: string
+        serialNumber:
+          description: The FactSet serial number which identifies the person or account
+            the job is assigned to
+          type: string
+        status:
+          $ref: '#/components/schemas/status'
+        type:
+          $ref: '#/components/schemas/jobTypes'
+      type: object
     jobOverrides:
       description: If this object is provided, the settings given here will override
         the default settings of the job for the job run (settings will only be used
@@ -1347,6 +1570,25 @@ components:
           maxItems: 200
           title: tasksForJob
           type: array
+      type: object
+    jobListResponse_meta_pagination:
+      description: Contains pagination information
+      example:
+        hasNext: true
+      properties:
+        hasNext:
+          description: Indicates whether more information exists which can be requested
+            by changing the input pagination parameters
+          type: boolean
+      type: object
+    jobListResponse_meta:
+      description: Contains meta information, e.g. about pagination
+      example:
+        pagination:
+          hasNext: true
+      properties:
+        pagination:
+          $ref: '#/components/schemas/jobListResponse_meta_pagination'
       type: object
     jobOverrides_dates:
       description: Used only for jobs where type is ADF. If using dates override,

@@ -14,6 +14,10 @@ docs/IdStatus.md
 docs/IdStatusData.md
 docs/JobDetailsResponse.md
 docs/JobDetailsResponseData.md
+docs/JobListResponse.md
+docs/JobListResponseMeta.md
+docs/JobListResponseMetaPagination.md
+docs/JobListResponseRoot.md
 docs/JobOverrides.md
 docs/JobOverridesCombinationsRoot.md
 docs/JobOverridesDates.md
@@ -58,6 +62,10 @@ src/FactSet.SDK.PortfolioReportingBatcher/Model/IdStatus.cs
 src/FactSet.SDK.PortfolioReportingBatcher/Model/IdStatusData.cs
 src/FactSet.SDK.PortfolioReportingBatcher/Model/JobDetailsResponse.cs
 src/FactSet.SDK.PortfolioReportingBatcher/Model/JobDetailsResponseData.cs
+src/FactSet.SDK.PortfolioReportingBatcher/Model/JobListResponse.cs
+src/FactSet.SDK.PortfolioReportingBatcher/Model/JobListResponseMeta.cs
+src/FactSet.SDK.PortfolioReportingBatcher/Model/JobListResponseMetaPagination.cs
+src/FactSet.SDK.PortfolioReportingBatcher/Model/JobListResponseRoot.cs
 src/FactSet.SDK.PortfolioReportingBatcher/Model/JobOverrides.cs
 src/FactSet.SDK.PortfolioReportingBatcher/Model/JobOverridesCombinationsRoot.cs
 src/FactSet.SDK.PortfolioReportingBatcher/Model/JobOverridesDates.cs

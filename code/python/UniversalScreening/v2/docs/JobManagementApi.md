@@ -61,7 +61,7 @@ with fds.sdk.UniversalScreening.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = job_management_api.JobManagementApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | Unique identifier for a screen calculation job
 
     try:
@@ -156,6 +156,7 @@ with fds.sdk.UniversalScreening.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = job_management_api.JobManagementApi(api_client)
 
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
 
     try:
         # example, this endpoint has no required or optional parameters
@@ -246,6 +247,7 @@ with fds.sdk.UniversalScreening.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = job_management_api.JobManagementApi(api_client)
 
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
 
     try:
         # example, this endpoint has no required or optional parameters

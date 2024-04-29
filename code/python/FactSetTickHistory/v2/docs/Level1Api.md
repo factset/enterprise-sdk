@@ -65,7 +65,7 @@ with fds.sdk.FactSetTickHistory.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = level_1_api.Level1Api(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | id returned by files create endpoint to poll and collect status of the query
 
     try:
@@ -95,7 +95,10 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CompletedResponse**](CompletedResponse.md)
+The endpoint generates varying objects correlating with the successful status code, encapsulated within a response wrapper housing the appropriate object. The response wrapper includes the subsequent response types:
+- **201**: [**CompletedResponse**](CompletedResponse.md)
+- **202**: [**SubmittedResponse**](SubmittedResponse.md)
+
 
 ### Authorization
 
@@ -171,7 +174,7 @@ with fds.sdk.FactSetTickHistory.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = level_1_api.Level1Api(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | id returned by files create endpoint to poll and collect status of the query
 
     try:
@@ -201,7 +204,10 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CompletedResponse**](CompletedResponse.md)
+The endpoint generates varying objects correlating with the successful status code, encapsulated within a response wrapper housing the appropriate object. The response wrapper includes the subsequent response types:
+- **201**: [**CompletedResponse**](CompletedResponse.md)
+- **202**: [**SubmittedResponse**](SubmittedResponse.md)
+
 
 ### Authorization
 
@@ -277,11 +283,9 @@ with fds.sdk.FactSetTickHistory.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = level_1_api.Level1Api(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | id returned by files create endpoint to poll and collect results of the query
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_limit = 20 # int | Specifies the maximum number of results to return per response page (optional) if omitted the server will use the default value of 20
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_offset = 0 # int | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results (optional) if omitted the server will use the default value of 0
 
     try:
@@ -314,7 +318,10 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetFilesMinuteResponse**](GetFilesMinuteResponse.md)
+The endpoint generates varying objects correlating with the successful status code, encapsulated within a response wrapper housing the appropriate object. The response wrapper includes the subsequent response types:
+- **200**: [**GetFilesMinuteResponse**](GetFilesMinuteResponse.md)
+- **202**: [**SubmittedResponse**](SubmittedResponse.md)
+
 
 ### Authorization
 
@@ -391,11 +398,9 @@ with fds.sdk.FactSetTickHistory.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = level_1_api.Level1Api(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | id returned by files create endpoint to poll and collect results of the query
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_limit = 20 # int | Specifies the maximum number of results to return per response page (optional) if omitted the server will use the default value of 20
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_offset = 0 # int | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results (optional) if omitted the server will use the default value of 0
 
     try:
@@ -428,7 +433,10 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetFilesResponse**](GetFilesResponse.md)
+The endpoint generates varying objects correlating with the successful status code, encapsulated within a response wrapper housing the appropriate object. The response wrapper includes the subsequent response types:
+- **200**: [**GetFilesResponse**](GetFilesResponse.md)
+- **202**: [**SubmittedResponse**](SubmittedResponse.md)
+
 
 ### Authorization
 
@@ -505,7 +513,7 @@ with fds.sdk.FactSetTickHistory.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = level_1_api.Level1Api(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     min_request = MinRequest(
         data=MinutesbarRequestBody(
             tickers=Tickers(["FDS"]),
@@ -615,11 +623,9 @@ with fds.sdk.FactSetTickHistory.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = level_1_api.Level1Api(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     tickers = ["CBA"] # [str] | <P> The requested list of one or more tickers.</p>   The `tickers` and `isins`  parameters provide two different ways to specify the identifiers for data retrieved. Please enter either the tickers or isins parameter.   <P> Maximum 10 tickers per request</p>      (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     factset_exchange_code = "AUS" # str | <p>This parameter is used to filter the results based on the FactSet specific regional or composite exchange code.</p> **NOTE**:Does not support multiple factsetExchangeCodes (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     isins = [] # [str] | <P> Specifies the ISIN of the record. </p>    Please enter either the `tickers` or `isins` parameter.     <P> Maximum 10 ISINs per request.</p>       (optional)
 
     try:
@@ -721,7 +727,7 @@ with fds.sdk.FactSetTickHistory.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = level_1_api.Level1Api(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     levelone_request = LeveloneRequest(
         data=Level1RequestBody(
             tickers=Tickers(["FDS"]),

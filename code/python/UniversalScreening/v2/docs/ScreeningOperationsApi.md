@@ -62,11 +62,9 @@ with fds.sdk.UniversalScreening.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = screening_operations_api.ScreeningOperationsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | Unique identifier for a screen calculation job
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_limit = 1 # int | Page size limit (minumum 1000, default 10,000, maximum 100,000) (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_cursor = 1 # int | Paging index (Initial request may omit) (optional)
 
     try:
@@ -168,7 +166,7 @@ with fds.sdk.UniversalScreening.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = screening_operations_api.ScreeningOperationsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | Unique identifier for a screen calculation job
 
     try:
@@ -266,7 +264,7 @@ with fds.sdk.UniversalScreening.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = screening_operations_api.ScreeningOperationsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     screen_archive_ofdb_parameters = ScreenArchiveOFDBParameters(
         data=ScreenArchiveOFDBParametersData(
             archive_options=ScreenArchiveOFDBParametersDataArchiveOptions(
@@ -386,7 +384,7 @@ with fds.sdk.UniversalScreening.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = screening_operations_api.ScreeningOperationsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     screen_calc_parameters = ScreenCalcParameters(
         data=ScreenCalcParametersData(
             backtest_date="backtest_date_example",

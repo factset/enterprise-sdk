@@ -60,7 +60,7 @@ with fds.sdk.FactSetFundamentals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = batch_processing_api.BatchProcessingApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | Batch Request identifier.
 
     try:
@@ -90,7 +90,10 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BatchResultResponse**](BatchResultResponse.md)
+The endpoint generates varying objects correlating with the successful status code, encapsulated within a response wrapper housing the appropriate object. The response wrapper includes the subsequent response types:
+- **200**: [**BatchResultResponse**](BatchResultResponse.md)
+- **202**: [**BatchStatusResponse**](BatchStatusResponse.md)
+
 
 ### Authorization
 
@@ -163,7 +166,7 @@ with fds.sdk.FactSetFundamentals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = batch_processing_api.BatchProcessingApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | Batch Request identifier.
 
     try:

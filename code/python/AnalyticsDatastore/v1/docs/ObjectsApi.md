@@ -59,9 +59,8 @@ with fds.sdk.AnalyticsDatastore.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = objects_api.ObjectsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     group_id = "a4186c50f8e74f979d271dd22298c901" # str | The ID of the group
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     object_id = "fe875bc4150542dea6bc237663a01a0d" # str | The ID of the object
 
     try:

@@ -59,6 +59,7 @@ with fds.sdk.MarketIntelligence.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = retrieve_report_list_api.RetrieveReportListApi(api_client)
 
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
 
     try:
         # Retrieve a list of previously created reports and associated report metadata.

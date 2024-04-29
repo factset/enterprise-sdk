@@ -83,7 +83,7 @@ class ListSchemaObject(ModelNormal):
         """
         return {
             'schema_name': (str,),  # noqa: E501
-            'schema_version': (str,),  # noqa: E501
+            'schema_version': ([str],),  # noqa: E501
         }
 
     @cached_property
@@ -138,7 +138,7 @@ class ListSchemaObject(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             schema_name (str): The name of the schema.. [optional]  # noqa: E501
-            schema_version (str): The version of the schema.. [optional]  # noqa: E501
+            schema_version ([str]): The version of the schema.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -221,7 +221,7 @@ class ListSchemaObject(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             schema_name (str): The name of the schema.. [optional]  # noqa: E501
-            schema_version (str): The version of the schema.. [optional]  # noqa: E501
+            schema_version ([str]): The version of the schema.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

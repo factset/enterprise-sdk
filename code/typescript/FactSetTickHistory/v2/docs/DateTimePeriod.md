@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**start** | **Date** | The date for (or from which) the data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format.  | [optional] 
-**end** | **Date** | The date to which data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format.  | [optional] 
+**start** | **Date** | The date for (or from which) the data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format.   | [optional] 
+**end** | **Date** | The date to which data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format. end time is interpreted in the local timezone as the selected exchange.  | [optional] 
 
 

@@ -61,11 +61,9 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = terms__conditions_api.TermsConditionsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     ids = ["30231GBJ","88579EAA"] # [str] | List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).  **ID LIMIT = 250** *per request*. 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     fields = ["principalAmt","issueDesc","denomMin","maturityDate"] # [str] | List of data items for Terms and Conditions. For a full list of available fields, definitions, and category assignments, use the `/fields` endpoint. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     categories = [
         "SECURITY_DETAILS",
     ] # [str] | Selects the Fixed Income metrics by major category. Use the `/fields` endpoint to get a list of all fields associated with each category.   * **SECURITY_DETAILS** = Detailed information about the security.   * **COUPON_DETAILS** = Coupon details.   * **CONVERTIBLE_FEATURES** = Features of convertible instruments.   * **REDEMPTION_OPTIONS** = Redemption options.  (optional)
@@ -169,7 +167,7 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = terms__conditions_api.TermsConditionsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     category = "SECURITY_DETAILS" # str | Filters the list of Fixed Income metrics by major category -   * **SECURITY_DETAILS** = Detailed information about the security.   * **COUPON_DETAILS** = Coupon details.   * **CONVERTIBLE_FEATURES** = Features of convertible instruments.   * **REDEMPTION_OPTIONS** = Redemption options.  (optional)
 
     try:
@@ -269,7 +267,7 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = terms__conditions_api.TermsConditionsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     terms_and_conditions_request = TermsAndConditionsRequest(
         ids=[
             "ids_example",

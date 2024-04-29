@@ -16,6 +16,10 @@ docs/IdStatus.md
 docs/IdStatusData.md
 docs/JobDetailsResponse.md
 docs/JobDetailsResponseData.md
+docs/JobListResponse.md
+docs/JobListResponseMeta.md
+docs/JobListResponseMetaPagination.md
+docs/JobListResponseRoot.md
 docs/JobOverrides.md
 docs/JobOverridesCombinationsRoot.md
 docs/JobOverridesDates.md
@@ -69,6 +73,10 @@ src/main/java/com/factset/sdk/PortfolioReportingBatcher/models/IdStatus.java
 src/main/java/com/factset/sdk/PortfolioReportingBatcher/models/IdStatusData.java
 src/main/java/com/factset/sdk/PortfolioReportingBatcher/models/JobDetailsResponse.java
 src/main/java/com/factset/sdk/PortfolioReportingBatcher/models/JobDetailsResponseData.java
+src/main/java/com/factset/sdk/PortfolioReportingBatcher/models/JobListResponse.java
+src/main/java/com/factset/sdk/PortfolioReportingBatcher/models/JobListResponseMeta.java
+src/main/java/com/factset/sdk/PortfolioReportingBatcher/models/JobListResponseMetaPagination.java
+src/main/java/com/factset/sdk/PortfolioReportingBatcher/models/JobListResponseRoot.java
 src/main/java/com/factset/sdk/PortfolioReportingBatcher/models/JobOverrides.java
 src/main/java/com/factset/sdk/PortfolioReportingBatcher/models/JobOverridesCombinationsRoot.java
 src/main/java/com/factset/sdk/PortfolioReportingBatcher/models/JobOverridesDates.java

@@ -62,7 +62,7 @@ with fds.sdk.FactSetPrices.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = batch_processing_api.BatchProcessingApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | Batch Request identifier.
 
     try:
@@ -92,7 +92,10 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BatchDataResponse**](BatchDataResponse.md)
+The endpoint generates varying objects correlating with the successful status code, encapsulated within a response wrapper housing the appropriate object. The response wrapper includes the subsequent response types:
+- **200**: [**BatchDataResponse**](BatchDataResponse.md)
+- **202**: [**BatchStatusResponse**](BatchStatusResponse.md)
+
 
 ### Authorization
 
@@ -165,7 +168,7 @@ with fds.sdk.FactSetPrices.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = batch_processing_api.BatchProcessingApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     batch_data_request = BatchDataRequest(
         id="2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c",
     ) # BatchDataRequest | Batch Data Request Post Body
@@ -197,7 +200,10 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BatchDataResponse**](BatchDataResponse.md)
+The endpoint generates varying objects correlating with the successful status code, encapsulated within a response wrapper housing the appropriate object. The response wrapper includes the subsequent response types:
+- **200**: [**BatchDataResponse**](BatchDataResponse.md)
+- **202**: [**BatchStatusResponse**](BatchStatusResponse.md)
+
 
 ### Authorization
 
@@ -270,7 +276,7 @@ with fds.sdk.FactSetPrices.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = batch_processing_api.BatchProcessingApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | Batch Request identifier.
 
     try:
@@ -366,7 +372,7 @@ with fds.sdk.FactSetPrices.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = batch_processing_api.BatchProcessingApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     batch_status_request = BatchStatusRequest(
         id="2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c",
     ) # BatchStatusRequest | Batch Status Request Post Body

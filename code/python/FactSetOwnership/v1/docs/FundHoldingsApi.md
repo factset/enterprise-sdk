@@ -60,15 +60,11 @@ with fds.sdk.FactSetOwnership.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fund_holdings_api.FundHoldingsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     ids = ["VTI-USA"] # [str] | List of requested fund identifiers. <p>***ids limit** =  10 per request*</p>
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     date = "2019-12-31" # str | Date of holdings expressed in YYYY-MM-DD format. The fund-holdings endpoint will default to latest month-end close. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     topn = "5" # str | Limits number of holdings or holders displayed by the top *n* securities based on positions Market Value. Default is ALL, otherwise use number to limit number. (optional) if omitted the server will use the default value of "ALL"
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     asset_type = "EQ" # str | Filter holdings by the following major asset classes -   * **EQ**  = Equity   * **FI** = Fixed Income   * **ALL** = ALL  (optional) if omitted the server will use the default value of "EQ"
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     currency = "USD" # str | Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional)
 
     try:
@@ -172,7 +168,7 @@ with fds.sdk.FactSetOwnership.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fund_holdings_api.FundHoldingsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     fund_holdings_request = FundHoldingsRequest(
         ids=IdFundHoldings(["FDIVX-US"]),
         date="2019-09-30",

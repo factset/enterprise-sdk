@@ -66,17 +66,13 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = prices_api.PricesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     identifier = "80728880015" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifier_type = "idNotation" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     quality = "DLY" # str |  (optional) if omitted the server will use the default value of "DLY"
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     subscription_minimum_interval = 5000 # float | Minimum number of milliseconds at which updates are send. (optional) if omitted the server will use the default value of 5000
 
     try:
@@ -175,17 +171,13 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = prices_api.PricesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     identifiers = [
         "80728880015",
     ] # [str] | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifier_type = "idNotation" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     quality = "DLY" # str |  (optional) if omitted the server will use the default value of "DLY"
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     same_quality = True # bool |  (optional) if omitted the server will use the default value of True
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -286,17 +278,13 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = prices_api.PricesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     identifier = "80728880015" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifier_type = "idNotation" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     quality = "DLY" # str |  (optional) if omitted the server will use the default value of "DLY"
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     subscription_minimum_interval = 5000 # float | Minimum number of milliseconds at which updates are sent. (optional) if omitted the server will use the default value of 5000
 
     try:
@@ -395,17 +383,13 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = prices_api.PricesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     identifiers = [
         "80728880015",
     ] # [str] | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifier_type = "idNotation" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     quality = "DLY" # str |  (optional) if omitted the server will use the default value of "DLY"
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     same_quality = True # bool |  (optional) if omitted the server will use the default value of True
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -506,17 +490,13 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = prices_api.PricesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     identifier = "80728880015" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifier_type = "idNotation" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     quality = "RLT" # str |  (optional) if omitted the server will use the default value of "RLT"
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     subscription_minimum_interval = 5000 # float | Non-negative number of milliseconds to throttle the update rate. (optional) if omitted the server will use the default value of 5000
 
     try:
@@ -615,17 +595,13 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = prices_api.PricesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     identifier = "80728880015" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifier_type = "idNotation" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     quality = "RLT" # str |  (optional) if omitted the server will use the default value of "RLT"
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     subscription_minimum_interval = 5000 # float | Non-negative number of milliseconds to throttle the update rate. (optional) if omitted the server will use the default value of 5000
 
     try:
@@ -724,7 +700,7 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = prices_api.PricesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -821,7 +797,7 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = prices_api.PricesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     post_prices_trading_schedule_event_list_request = PostPricesTradingScheduleEventListRequest(
         data=PostPricesTradingScheduleEventListRequestData(
             identifier=PostPricesTradingScheduleEventListRequestDataIdentifier(

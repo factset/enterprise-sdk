@@ -66,7 +66,7 @@ with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = company_api.CompanyApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     ids = ["AAPL-US","IBM-US"] # [str] | The requested company identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
 
     try:
@@ -165,7 +165,7 @@ with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = company_api.CompanyApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     company_compensation_request = CompanyCompensationRequest(
         ids=CompanyIds(["AAPL-US"]),
     ) # CompanyCompensationRequest | 
@@ -266,9 +266,8 @@ with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = company_api.CompanyApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     ids = ["AAPL-US","IBM-US"] # [str] | The requested company identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     function = "PEOPLE" # str | Controls the types of people returned based on high-level job functions. Filter by -    |function|description|   |---|---|   |PEOPLE|Retrieve **ALL** Executives of a requested company|   |OFFICER|Retrieve only the Officers of a requested company|   |DIRECTOR|Retrieve only the Directors of a requested company|  (optional) if omitted the server will use the default value of "PEOPLE"
 
     try:
@@ -369,7 +368,7 @@ with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = company_api.CompanyApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     company_people_request = CompanyPeopleRequest(
         ids=CompanyIds(["AAPL-US"]),
         function=Function("DIRECTOR"),
@@ -471,9 +470,8 @@ with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = company_api.CompanyApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     ids = ["AAPL-US","IBM-US"] # [str] | The requested company identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     position = "FOU" # str | Controls the position details returned for the requested company. By default, the service returns the CEO name, title, and ID for the requested company ids.   |position|description|   |---|---|   |CHAIR|Chairman|   |CEO|Chief Executive Officer|   |PRES|President|   |COO|Chief Operating Officer|   |CFO|Chief Financial Officer|   |CTO|Chief Technology Officer|   |CIO|Chief Investment Officer|   |FOU|Founder(s)|   |CMP|Compliance Officer|   |ADM|Admin|   |IND|Independent Director|   |BRD|Directors/Board Members|   |IR|Investor Relations|   |LEG|Legal Counsel|   |TREAS|Treasurer|   |MKT|Sales and Marketing Managers|   |HR|Human Resources|  (optional) if omitted the server will use the default value of "CEO"
 
     try:
@@ -574,7 +572,7 @@ with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = company_api.CompanyApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     company_positions_request = CompanyPositionsRequest(
         ids=CompanyIds(["AAPL-US"]),
         position=Position("FOU"),
@@ -676,9 +674,8 @@ with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = company_api.CompanyApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     ids = ["AAPL-US","IBM-US"] # [str] | The requested company identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     mb_type = "MB" # str | Search based on the management and board types. The types include -  |type|description| |---|---| |MB|Management & Board| |MGMT|Management| |BRD|Board|  (optional) if omitted the server will use the default value of "MB"
 
     try:
@@ -779,7 +776,7 @@ with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = company_api.CompanyApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     company_stats_request = CompanyStatsRequest(
         ids=CompanyIds(["AAPL-US"]),
         mb_type=MbType("MB"),

@@ -60,13 +60,10 @@ with fds.sdk.FactSetSearchAnswers.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = answers_api.AnswersApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     query = "query_example" # str | Query for desired answer (e.g., \"fds price\")
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     include_thumbnail = False # bool | Includes thumbnail of Adaptive Card in response (optional) if omitted the server will use the default value of False
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     disable_no_answer_responses = True # bool | Disables no-result answer responses (no-results and answer without data) (optional) if omitted the server will use the default value of True
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     theme = "Light" # str | Theme for desired answer (e.g., \"Light\", \"Dark\") (optional) if omitted the server will use the default value of "Light"
 
     try:
@@ -167,9 +164,8 @@ with fds.sdk.FactSetSearchAnswers.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = answers_api.AnswersApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     query = "query_example" # str | Query for desired answer (e.g., \"fds price\")
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     consuming_application = "Developer Portal" # str | Name of application consuming the API (used for analytics purposes) (optional) if omitted the server will use the default value of "Developer Portal"
 
     try:

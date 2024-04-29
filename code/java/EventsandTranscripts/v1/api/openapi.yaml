@@ -1,0 +1,4775 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
+  description: "<p>The Calendar Events API provides access to FactSet’s Event Calendar\
+    \ data alongside business logic that allows users to replicate views and functionality\
+    \ consistent with the experience provided by the Workstation. This API provides\
+    \ the ability to pull Event Calendar data based on specific filters.</p>\n<p>Events\
+    \ Audio API provides access to historical as well as the latest audio recordings\
+    \ of various company events covered by FactSet. The events include, but are not\
+    \ limited to: earnings calls, conferences, and investor days. This API also provides\
+    \ relevant metadata such as timestamps and identifiers around each audio file.</p>\n\
+    <p>The  Near Real-time Transcripts API enables access to Near Real-time Transcripts\
+    \ provided by CallStreet to time-sensitive clients. This API also provides the\
+    \ relevant speaker metadata along with their confidence scores. This data caters\
+    \ to quant clients interested in building machine learning models. Clients can\
+    \ leverage this API to perform sentiment analysis through natural language processing\
+    \ or machine learning. It can also be used to complement analysis using FactSet's\
+    \ transcripts service.</p>\n<p>Transcripts API provides conference call transcripts\
+    \ for companies' publicly held conference calls and a wealth of information regarding\
+    \ upcoming corporate events, such as conference call date and time, phone number\
+    \ and password, type of conference call, and important company investor relations\
+    \ contact information.</p> \n"
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  title: EVENTS AND TRANSCRIPTS API
+  version: 1.0.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/documents-distributor-callstreet-events
+servers:
+- url: https://api.factset.com/events/v1
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- description: This endpoint provides access to FactSet's Event Calendar data alongside
+    business logic that allows users to replicate views and functionality consistent
+    with the experience provided by the Workstation.
+  name: Calendar Events
+- description: This endpoints provides access to historical as well as the latest
+    audio recordings of various company events covered by FactSet.
+  name: Events Audio
+- description: This endpoint enables access to Near Real-time Transcripts provided
+    by CallStreet to time-sensitive clients.
+  name: Near Real-Time Transcripts
+- description: This endpoints provides conference call transcripts for companies publicly
+    held conference calls and a wealth of information.
+  name: Transcripts
+paths:
+  /calendar/events:
+    post:
+      description: This endpoint returns all company events with filters from the
+        request.
+      operationId: getCompanyEvent
+      requestBody:
+        $ref: '#/components/requestBodies/CompanyEventRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Sample Response:
+                  value:
+                    data:
+                    - ticker: AAPL-US
+                      companyName: Apple, Inc.
+                      description: Q2 2023 Earnings Release (Projected)
+                      eventDateTime: 2023-01-01T00:00:00Z
+                      marketTimeCode: Unspecified
+                      eventType: Earnings
+                      eventId: "1200867930"
+                      webcastLink: ""
+                      irLink: investor.apple.com/investor-relations/default.aspx
+                      fiscalYear: "2023"
+                      fiscalPeriod: "1"
+                      contactEmail: jdoe@apple.com
+                      contactPhone: 1(888)227.0303
+                      contactName: John Doe
+              schema:
+                $ref: '#/components/schemas/CompanyEventResponse'
+          description: The company events based on provided filters from the request.
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the Report Issue in the top right corner of
+            this Developer Portal specification card and choose Connectivity 401 or
+            403 Responses.
+        "404":
+          content:
+            application/json:
+              examples:
+                default404ResponseExample:
+                  $ref: '#/components/examples/404Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/500Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      summary: Retrieve Company Event data
+      tags:
+      - Calendar Events
+      x-contentType: application/json
+      x-accepts: application/json
+  /audio/history:
+    get:
+      description: |2
+
+        This endpoint retrieves an object containing a pre-signed URL from which an archive of all audio data for a specified year can be downloaded.
+
+        * Returns **untrimmed** historical audio recordings, which include complete audio files such as intro music & non-speaking portions, and related metadata dating back from May 10, 2011 to Sep 30, 2022.
+
+        * Returns **trimmed** historical audio recordings, which are audio files with the non-speaking portions removed, and related metadata dating back from May 10, 2011 to Dec 31, 2022.
+      operationId: getDocsDistributorAudioV1HistoryFiles
+      parameters:
+      - description: |
+          Specifies the year for which the historical audio recordings and related metadata are to be retrieved.
+        example: 2021
+        explode: true
+        in: query
+        name: year
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: Specifies if trimmed/untrimmed historical audio recordings should
+          be returned.
+        example: true
+        explode: true
+        in: query
+        name: trimmed
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Audio recordings and metadata of 2020:
+                  value:
+                    data:
+                      year: 2021
+                      trimmed: true
+                      fileName: 2021_trimmed.tar.gz
+                      fileSize: 191173623046875
+                      url: https://fdss3-cts-data-delivery-prod-1-us-east-1.s3.amazonaws.com/audiofiles/A512D0F2-4549-EC11-8124-8CDCD4AF21E4.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIASXWF7GTDZZHNXO4D%2F20211119%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211119T143756Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEB4aCXVzLWVhc3QtMSJHMEUCIAZPE65Cyr2GFwHLDFiDWEj3aUW66s6HuKk3vMz7hWR1AiEAiLS3ce5AC1hsDkZWdf9WklbnGoXCD6JMNsYKZLSZtKoqmAII1%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgwxODgzMjAwMDMyNzEiDIEOfxabmh%2FtadnmnirsAToraA%2BQJ8Hmg2YS03b7IpkX6W6FJDjnDJ9M6sCLN7Q0mUT60Jc1OV%2BzuJ5IbCKhZhDV24mKPSPkyYs4Eh1%2Bp5E2YeclzHqSn44zB5g9UkVHP1bCkFCxv12pqhdIJ5NX4xBIPhWfXDQyIFQm%2BstD1FL3AqugJb19s0o79N032dOX1H3wvfqfkP4av9wKYRFhc2yO7qHMLUHmYnL2IAcnGRq5ukvO2%2FIrmGVYTFGr4wAWMDQFZRX6%2FiYvC7V3f3smsoy2jrJ8UDDn599%2BH32Nh%2FKfTO8yYSnt1ky%2FFJb%2FmheEF9PWnf%2FZxuG6o9ajMInX3owGOpoBFurBn4Hwi3d1xuSsXNVMEuSj7vWPV6dc8tSynf8yH7wRVtVyfz%2BnWH4EYPh0l2qeHuGhzAeQtLVfJNApnSVfEeyaGo1DOpieFST9bxhQIBG8ZloD%2FlojRhJT5AEwcRTryXAXWb%2FeuLKcH9izcUGx80wBcc6L8I6YFFFwwqyA4mhhYYMDAL3o3p0QE1Q4s99PDYPR0YCH7UzThg%3D%3D&X-Amz-Signature=4b8ae68420f7cc87da7c7a797f683e85528b6a96add83ce19ba3ffac0359a938
+              schema:
+                $ref: '#/components/schemas/EventsAudioHistory'
+          description: The historical audio recordings based on the provided year.
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "details" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the Report Issue in the top right corner of
+            this Developer Portal specification card and choose Connectivity 401 or
+            403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/403Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "500":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/500Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      summary: Retrieve historical audio recordings and related metadata within FactSet
+        coverage.
+      tags:
+      - Events Audio
+      x-accepts: application/json
+  /audio/by-date:
+    get:
+      description: Retrieves the most recent audio recordings based on specified dates
+        and allows filtering through both source code and Ids.
+      operationId: getDocsDistributorAudioV1ListFilesDate
+      parameters:
+      - description: "The earliest date of the audio file the API should fetch for.\
+          \ \n- Format: Should be absolute (YYYY-MM-DD).\n"
+        example: 2020-10-01T00:00:00.000Z
+        explode: true
+        in: query
+        name: startDate
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: |
+          The latest date of the audio file the API should fetch for.
+          - Format: Should be absolute (YYYY-MM-DD).
+        example: 2020-12-26T00:00:00.000Z
+        explode: true
+        in: query
+        name: endDate
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: |
+          The earliest date of the feed file the API should fetch based on the file timestamp.
+
+          - Format: Specify the date using a relative term as an integer: '0' for today, '-1' for yesterday, '-2' for two days ago, and so forth. Negative values are used to represent past dates.
+
+
+          - *Either `startDate` or `startDateRelative` should be used, but not both.*
+          - *If both `startDate` and `startDateRelative` are provided in the same request, the API will return an error.*
+          - *If users provide future dates in requests for `startDate` or `startDateRelative`, the API will not return any data.*
+        explode: true
+        in: query
+        name: startDateRelative
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: "The latest date of the feed file the API should fetch based\
+          \ on the file timestamp. \n\nFormat: Specify the date using a relative term\
+          \ as an integer: '0' for today, '-1' for yesterday, '-2' for two days ago,\
+          \ and so forth. Negative values are used to represent past dates.\n\n- Either\
+          \ `endDate` or `endDateRelative` should be used, but not both.\n- If both\
+          \ `endDate` and `endDateRelative` are provided in the same request, the\
+          \ API will return an error.\n- If users provide future dates in requests\
+          \ for `endDate` or `endDateRelative`, the API will not return any data.\n"
+        explode: true
+        in: query
+        name: endDateRelative
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: |-
+          This parameter filters the results based on Source of the Audio file. Below are the descriptions for each Source Code -
+          * Phone = Originated from phone call
+          * Webcast = Originated from a webcast
+          * Vendor = Received from vendor
+          * WebcastReplay = Replay of a webcast
+          * Flash = Identical to webcast; can merge with "Webcast" in the future
+          * Replay = Phone replay
+        example: Webcast
+        explode: true
+        in: query
+        name: sourceCode
+        required: false
+        schema:
+          enum:
+          - Phone
+          - Webcast
+          - Vendor
+          - WebcastReplay
+          - Flash
+          - Replay
+          type: string
+        style: form
+      - description: |
+          This parameter filters the results based on ticker-region or Entity ID or the combination of both. A comma is used to separate each identifier.
+        examples:
+          oneId:
+            summary: One identifier
+            value:
+            - SPWH-US
+          noId:
+            summary: No identifier
+            value: []
+          multipleIds:
+            summary: Multiple Identifiers
+            value:
+            - FDS-US
+            - AAPL-US
+            - MSFT-US
+        explode: false
+        in: query
+        name: ids
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: |
+          This parameter helps to search for trimmed audio files, with the non-speaking portions removed, and related metadata. The data ranges from May 10, 2011 to Dec 31, 2022.
+        example: false
+        explode: true
+        in: query
+        name: trimmed
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: form
+      - description: |
+          Enables sorting data in ascending or descending chronological order based on startDate.
+        explode: false
+        in: query
+        name: _sort
+        required: false
+        schema:
+          default:
+          - -startDate
+          items:
+            enum:
+            - startDate
+            - -startDate
+            type: string
+          maxItems: 1
+          type: array
+        style: form
+      - description: Specifies the number of results to return per page.
+        example: 25
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          default: 25
+          format: int32
+          maximum: 500
+          minimum: 0
+          type: integer
+        style: form
+      - description: Page number of the results to return.
+        example: 0
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                example-1:
+                  value:
+                    data:
+                    - reportId: 2666621
+                      fileName: 835A1FD9-3CE1-EC11-8128-8CDCD4AF21E4.mp3
+                      url: https://fdss3-cts-data-delivery-prod-1-us-east-1.s3.amazonaws.com/audiofiles/A512D0F2-4549-EC11-8124-8CDCD4AF21E4.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIASXWF7GTDZZHNXO4D%2F20211119%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211119T143756Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEB4aCXVzLWVhc3QtMSJHMEUCIAZPE65Cyr2GFwHLDFiDWEj3aUW66s6HuKk3vMz7hWR1AiEAiLS3ce5AC1hsDkZWdf9WklbnGoXCD6JMNsYKZLSZtKoqmAII1%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgwxODgzMjAwMDMyNzEiDIEOfxabmh%2FtadnmnirsAToraA%2BQJ8Hmg2YS03b7IpkX6W6FJDjnDJ9M6sCLN7Q0mUT60Jc1OV%2BzuJ5IbCKhZhDV24mKPSPkyYs4Eh1%2Bp5E2YeclzHqSn44zB5g9UkVHP1bCkFCxv12pqhdIJ5NX4xBIPhWfXDQyIFQm%2BstD1FL3AqugJb19s0o79N032dOX1H3wvfqfkP4av9wKYRFhc2yO7qHMLUHmYnL2IAcnGRq5ukvO2%2FIrmGVYTFGr4wAWMDQFZRX6%2FiYvC7V3f3smsoy2jrJ8UDDn599%2BH32Nh%2FKfTO8yYSnt1ky%2FFJb%2FmheEF9PWnf%2FZxuG6o9ajMInX3owGOpoBFurBn4Hwi3d1xuSsXNVMEuSj7vWPV6dc8tSynf8yH7wRVtVyfz%2BnWH4EYPh0l2qeHuGhzAeQtLVfJNApnSVfEeyaGo1DOpieFST9bxhQIBG8ZloD%2FlojRhJT5AEwcRTryXAXWb%2FeuLKcH9izcUGx80wBcc6L8I6YFFFwwqyA4mhhYYMDAL3o3p0QE1Q4s99PDYPR0YCH7UzThg%3D%3D&X-Amz-Signature=4b8ae68420f7cc87da7c7a797f683e85528b6a96add83ce19ba3ffac0359a938
+                      fileSize: 20090671
+                      audioSourceId: 3256781
+                      ticker: SPWH-US
+                      entityId: 0CT2ZZ-E
+                      sourceCode: Webcast
+                      trimmed: false
+                      durationSecs: 5022
+                      startOffsetSeconds: 1717
+                      endOffsetSeconds: 4379
+                      startTime: null
+                      endTime: null
+                      uploadTime: 2022-05-31T23:57:01
+                      sampleRate: null
+                      bitrate: null
+                    meta:
+                      pagination:
+                        total: 1
+                        isEstimatedTotal: false
+              schema:
+                $ref: '#/components/schemas/EventsAudioDaily'
+          description: The latest audio recordings based on the provided date ranges.
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "details" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the Report Issue in the top right corner of
+            this Developer Portal specification card and choose Connectivity 401 or
+            403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/403Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "500":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/500Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      summary: Retrieve latest audio recordings and related metadata within FactSet
+        coverage based on a specific date ranges.
+      tags:
+      - Events Audio
+      x-accepts: application/json
+  /audio/by-upload-time:
+    get:
+      description: Returns the latest audio recordings based on upload time and allows
+        filtering through both source code and Ids.
+      operationId: getDocsDistributorAudioV1ListFilesUploadTime
+      parameters:
+      - description: |-
+          This parameter filters data based on uploadTime relative to the current time, in hours. For example:- uploadTime = -15 (fetches audio files between 15 hours ago and now)
+
+          Minimum is 1 hour i.e., uploadTime= -1
+
+          Maximum is 1 week/168 hours i.e., uploadTime=-168
+        example: -20
+        explode: true
+        in: query
+        name: uploadTime
+        required: false
+        schema:
+          format: int32
+          maximum: -1
+          minimum: -168
+          type: integer
+        style: form
+      - description: |-
+          This parameter filters the results based on Source of the Audio file. Below are the descriptions for each Source Code -
+          * Phone = Originated from phone call
+          * Webcast = Originated from a webcast
+          * Vendor = Received from vendor
+          * WebcastReplay = Replay of a webcast
+          * Flash = Identical to webcast; can merge with "Webcast" in the future
+          * Replay = Phone replay
+        example: Webcast
+        explode: true
+        in: query
+        name: sourceCode
+        required: false
+        schema:
+          enum:
+          - Phone
+          - Webcast
+          - Vendor
+          - WebcastReplay
+          - Flash
+          - Replay
+          type: string
+        style: form
+      - description: |
+          This parameter filters the results based on ticker-region or Entity ID or the combination of both. A comma is used to separate each identifier.
+        examples:
+          oneId:
+            summary: One identifier
+            value:
+            - SNA-AR
+          noId:
+            summary: No identifier
+            value: []
+          multipleIds:
+            summary: Multiple Identifiers
+            value:
+            - SNA-AR
+            - OZK-US
+        explode: false
+        in: query
+        name: ids
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: |
+          This parameter helps to search for trimmed audio files, with the non-speaking portions removed, and related metadata. The data ranges from May 10, 2011 to Dec 31, 2022.
+        example: false
+        explode: true
+        in: query
+        name: trimmed
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: form
+      - description: |
+          Enables sorting data in ascending or descending chronological order based on uploadTime.
+        explode: false
+        in: query
+        name: _sort
+        required: false
+        schema:
+          default:
+          - -uploadTime
+          items:
+            enum:
+            - uploadTime
+            - -uploadTime
+            type: string
+          maxItems: 1
+          type: array
+        style: form
+      - description: Specifies the number of results to return per page.
+        example: 25
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          default: 25
+          format: int32
+          maximum: 500
+          minimum: 0
+          type: integer
+        style: form
+      - description: Page number of the results to return.
+        example: 0
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                example-1:
+                  value:
+                    data:
+                    - reportId: 2666621
+                      fileName: 835A1FD9-3CE1-EC11-8128-8CDCD4AF21E4.mp3
+                      url: https://fdss3-cts-data-delivery-prod-1-us-east-1.s3.amazonaws.com/audiofiles/A512D0F2-4549-EC11-8124-8CDCD4AF21E4.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIASXWF7GTDZZHNXO4D%2F20211119%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211119T143756Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEB4aCXVzLWVhc3QtMSJHMEUCIAZPE65Cyr2GFwHLDFiDWEj3aUW66s6HuKk3vMz7hWR1AiEAiLS3ce5AC1hsDkZWdf9WklbnGoXCD6JMNsYKZLSZtKoqmAII1%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgwxODgzMjAwMDMyNzEiDIEOfxabmh%2FtadnmnirsAToraA%2BQJ8Hmg2YS03b7IpkX6W6FJDjnDJ9M6sCLN7Q0mUT60Jc1OV%2BzuJ5IbCKhZhDV24mKPSPkyYs4Eh1%2Bp5E2YeclzHqSn44zB5g9UkVHP1bCkFCxv12pqhdIJ5NX4xBIPhWfXDQyIFQm%2BstD1FL3AqugJb19s0o79N032dOX1H3wvfqfkP4av9wKYRFhc2yO7qHMLUHmYnL2IAcnGRq5ukvO2%2FIrmGVYTFGr4wAWMDQFZRX6%2FiYvC7V3f3smsoy2jrJ8UDDn599%2BH32Nh%2FKfTO8yYSnt1ky%2FFJb%2FmheEF9PWnf%2FZxuG6o9ajMInX3owGOpoBFurBn4Hwi3d1xuSsXNVMEuSj7vWPV6dc8tSynf8yH7wRVtVyfz%2BnWH4EYPh0l2qeHuGhzAeQtLVfJNApnSVfEeyaGo1DOpieFST9bxhQIBG8ZloD%2FlojRhJT5AEwcRTryXAXWb%2FeuLKcH9izcUGx80wBcc6L8I6YFFFwwqyA4mhhYYMDAL3o3p0QE1Q4s99PDYPR0YCH7UzThg%3D%3D&X-Amz-Signature=4b8ae68420f7cc87da7c7a797f683e85528b6a96add83ce19ba3ffac0359a938
+                      fileSize: 20090671
+                      audioSourceId: 3256781
+                      ticker: SPWH-US
+                      entityId: 0CT2ZZ-E
+                      sourceCode: Webcast
+                      trimmed: false
+                      durationSecs: 5022
+                      startOffsetSeconds: 1717
+                      endOffsetSeconds: 4379
+                      startTime: null
+                      endTime: null
+                      uploadTime: 2022-05-31T23:57:01
+                      sampleRate: null
+                      bitrate: null
+                    meta:
+                      pagination:
+                        total: 1
+                        isEstimatedTotal: false
+              schema:
+                $ref: '#/components/schemas/EventsAudioDaily'
+          description: The latest audio recordings based on the provided upload time,
+            source code and IDs.
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "details" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the Report Issue in the top right corner of
+            this Developer Portal specification card and choose Connectivity 401 or
+            403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/403Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "500":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/500Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      summary: Retrieve latest audio recordings and related metadata within FactSet
+        coverage based on upload time.
+      tags:
+      - Events Audio
+      x-accepts: application/json
+  /audio/by-file-name:
+    get:
+      description: Retrieves the latest audio recordings corresponding to the provided
+        file name.
+      operationId: getDocsDistributorAudioV1ListFilesFileName
+      parameters:
+      - description: This parameter is used to filter the data on based on the file
+          name.
+        example: 835A1FD9-3CE1-EC11-8128-8CDCD4AF21E4.mp3
+        explode: true
+        in: query
+        name: fileName
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                example-1:
+                  value:
+                    data:
+                      reportId: 2666621
+                      fileName: 835A1FD9-3CE1-EC11-8128-8CDCD4AF21E4.mp3
+                      url: https://fdss3-cts-data-delivery-prod-1-us-east-1.s3.amazonaws.com/audiofiles/A512D0F2-4549-EC11-8124-8CDCD4AF21E4.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIASXWF7GTDZZHNXO4D%2F20211119%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211119T143756Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEB4aCXVzLWVhc3QtMSJHMEUCIAZPE65Cyr2GFwHLDFiDWEj3aUW66s6HuKk3vMz7hWR1AiEAiLS3ce5AC1hsDkZWdf9WklbnGoXCD6JMNsYKZLSZtKoqmAII1%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgwxODgzMjAwMDMyNzEiDIEOfxabmh%2FtadnmnirsAToraA%2BQJ8Hmg2YS03b7IpkX6W6FJDjnDJ9M6sCLN7Q0mUT60Jc1OV%2BzuJ5IbCKhZhDV24mKPSPkyYs4Eh1%2Bp5E2YeclzHqSn44zB5g9UkVHP1bCkFCxv12pqhdIJ5NX4xBIPhWfXDQyIFQm%2BstD1FL3AqugJb19s0o79N032dOX1H3wvfqfkP4av9wKYRFhc2yO7qHMLUHmYnL2IAcnGRq5ukvO2%2FIrmGVYTFGr4wAWMDQFZRX6%2FiYvC7V3f3smsoy2jrJ8UDDn599%2BH32Nh%2FKfTO8yYSnt1ky%2FFJb%2FmheEF9PWnf%2FZxuG6o9ajMInX3owGOpoBFurBn4Hwi3d1xuSsXNVMEuSj7vWPV6dc8tSynf8yH7wRVtVyfz%2BnWH4EYPh0l2qeHuGhzAeQtLVfJNApnSVfEeyaGo1DOpieFST9bxhQIBG8ZloD%2FlojRhJT5AEwcRTryXAXWb%2FeuLKcH9izcUGx80wBcc6L8I6YFFFwwqyA4mhhYYMDAL3o3p0QE1Q4s99PDYPR0YCH7UzThg%3D%3D&X-Amz-Signature=4b8ae68420f7cc87da7c7a797f683e85528b6a96add83ce19ba3ffac0359a938
+                      fileSize: 20090671
+                      audioSourceId: 3256781
+                      ticker: SPWH-US
+                      entityId: 0CT2ZZ-E
+                      sourceCode: Webcast
+                      trimmed: false
+                      durationSecs: 5022
+                      startOffsetSeconds: 1717
+                      endOffsetSeconds: 4379
+                      startTime: null
+                      endTime: null
+                      uploadTime: 2022-05-31T23:57:01
+                      sampleRate: null
+                      bitrate: null
+              schema:
+                $ref: '#/components/schemas/EventsAudioDailyFileName'
+          description: The latest audio recordings based on the provided file name.
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "details" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the Report Issue in the top right corner of
+            this Developer Portal specification card and choose Connectivity 401 or
+            403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/403Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "500":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/500Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      summary: Retrieve latest audio recordings and related metadata within FactSet
+        coverage based on file name.
+      tags:
+      - Events Audio
+      x-accepts: application/json
+  /audio/by-ids:
+    get:
+      description: Retrieves the latest audio recordings based on the provided report
+        ID and audio source ID.
+      operationId: getDocsDistributorAudioV1ListFilesIds
+      parameters:
+      - description: |
+          Unique identifier for fetching the audio file for an event. The same ID is used for the transcript of the same event.
+        example: 3015749
+        explode: true
+        in: query
+        name: reportId
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: |
+          Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (phone or webcast or vendor or replay). One ReportID can have multiple AudioSourceIDs.
+        example: 594948
+        explode: true
+        in: query
+        name: audioSourceId
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: This parameters helps to search trimmed audio files.
+        example: false
+        explode: true
+        in: query
+        name: trimmed
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                example-1:
+                  value:
+                    data:
+                      reportId: 2666621
+                      fileName: 835A1FD9-3CE1-EC11-8128-8CDCD4AF21E4.mp3
+                      url: https://fdss3-cts-data-delivery-prod-1-us-east-1.s3.amazonaws.com/audiofiles/A512D0F2-4549-EC11-8124-8CDCD4AF21E4.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIASXWF7GTDZZHNXO4D%2F20211119%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211119T143756Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEB4aCXVzLWVhc3QtMSJHMEUCIAZPE65Cyr2GFwHLDFiDWEj3aUW66s6HuKk3vMz7hWR1AiEAiLS3ce5AC1hsDkZWdf9WklbnGoXCD6JMNsYKZLSZtKoqmAII1%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgwxODgzMjAwMDMyNzEiDIEOfxabmh%2FtadnmnirsAToraA%2BQJ8Hmg2YS03b7IpkX6W6FJDjnDJ9M6sCLN7Q0mUT60Jc1OV%2BzuJ5IbCKhZhDV24mKPSPkyYs4Eh1%2Bp5E2YeclzHqSn44zB5g9UkVHP1bCkFCxv12pqhdIJ5NX4xBIPhWfXDQyIFQm%2BstD1FL3AqugJb19s0o79N032dOX1H3wvfqfkP4av9wKYRFhc2yO7qHMLUHmYnL2IAcnGRq5ukvO2%2FIrmGVYTFGr4wAWMDQFZRX6%2FiYvC7V3f3smsoy2jrJ8UDDn599%2BH32Nh%2FKfTO8yYSnt1ky%2FFJb%2FmheEF9PWnf%2FZxuG6o9ajMInX3owGOpoBFurBn4Hwi3d1xuSsXNVMEuSj7vWPV6dc8tSynf8yH7wRVtVyfz%2BnWH4EYPh0l2qeHuGhzAeQtLVfJNApnSVfEeyaGo1DOpieFST9bxhQIBG8ZloD%2FlojRhJT5AEwcRTryXAXWb%2FeuLKcH9izcUGx80wBcc6L8I6YFFFwwqyA4mhhYYMDAL3o3p0QE1Q4s99PDYPR0YCH7UzThg%3D%3D&X-Amz-Signature=4b8ae68420f7cc87da7c7a797f683e85528b6a96add83ce19ba3ffac0359a938
+                      fileSize: 20090671
+                      audioSourceId: 3256781
+                      ticker: SPWH-US
+                      entityId: 0CT2ZZ-E
+                      sourceCode: Webcast
+                      trimmed: false
+                      durationSecs: 5022
+                      startOffsetSeconds: 1717
+                      endOffsetSeconds: 4379
+                      startTime: null
+                      endTime: null
+                      uploadTime: 2022-05-31T23:57:01
+                      sampleRate: null
+                      bitrate: null
+              schema:
+                $ref: '#/components/schemas/EventsAudioDailyIds'
+          description: The latest audio recordings based on the provided report ID
+            and audio source ID.
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "details" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the Report Issue in the top right corner of
+            this Developer Portal specification card and choose Connectivity 401 or
+            403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/403Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "500":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/500Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      summary: Retrieve the latest audio recordings along with their corresponding
+        metadata from the FactSet coverage based on specific IDs.
+      tags:
+      - Events Audio
+      x-accepts: application/json
+  /nrt/by-ticker:
+    get:
+      description: Returns the active calls happening at the moment
+      operationId: getBulkDocumentsNrtV1Calls
+      parameters:
+      - description: Ticker-region identifier for the company hosting the event.
+        example: AZZ-US
+        explode: true
+        in: query
+        name: ticker
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Factset entity level identifier for the company hosting the event.
+        example: 000CGP-E
+        explode: true
+        in: query
+        name: entityId
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Status of the call, i.e., Ended, InProgress, EndedWithoutNotification,
+          or IssueAtSource.
+        example: Ended
+        explode: true
+        in: query
+        name: callStatus
+        required: false
+        schema:
+          enum:
+          - InProgress
+          - Ended
+          - EWN
+          - IssueAtSource
+          type: string
+        style: form
+      - description: |
+          Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc.
+        explode: false
+        in: query
+        name: _sort
+        required: false
+        schema:
+          default:
+          - -eventDatetimeUtc
+          items:
+            enum:
+            - eventDatetimeUtc
+            - -eventDatetimeUtc
+            type: string
+          maxItems: 2
+          type: array
+        style: form
+      - description: Number of results to return per page.
+        example: 20
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          default: 25
+          format: int32
+          type: integer
+        style: form
+      - description: Page number of the results to return.
+        example: 0
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                example-1:
+                  value:
+                    data:
+                    - reportId: 2683372
+                      sourceCode: Webcast
+                      audioSourceId: 471849
+                      ticker: AZZ-US
+                      entityId: 000CGP-E
+                      eventType: EarningsRelease
+                      eventTitle: Q1 2023 Earnings Call
+                      callStatus: InProgress
+                      recordingStartTime: 2022-07-11T14:46:59Z
+                      eventDatetimeUtc: 2022-07-11T15:00:00Z
+                    meta:
+                      pagination:
+                        total: 1
+                        isEstimatedTotal: false
+              schema:
+                $ref: '#/components/schemas/NrtCalls'
+          description: The active calls happening at the moment, based on the provided
+            ticker, call status, and entity ID.
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: |
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/403Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: |
+            The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization.
+        "500":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/500Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      summary: Returns the active calls happening at the moment based on ticker,call
+        status and entity ID.
+      tags:
+      - Near Real-Time Transcripts
+      x-accepts: application/json
+  /nrt/by-ids:
+    get:
+      description: Returns the active calls happening at the moment
+      operationId: getBulkDocumentsNrtV1CallsByAudioSourceId
+      parameters:
+      - description: Unique ID for an Internal recording specific to reportID. For
+          example, ReportID X would have multiple recordings from different source
+          (dial-in or webcast). One ReportID can have multiple AudioSourceIDs.
+        example: 471849
+        explode: true
+        in: query
+        name: audioSourceId
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: Unique identifier for an event.
+        example: 2683372
+        explode: true
+        in: query
+        name: reportId
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: |
+          Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc.
+        explode: false
+        in: query
+        name: _sort
+        required: false
+        schema:
+          default:
+          - -eventDatetimeUtc
+          items:
+            enum:
+            - eventDatetimeUtc
+            - -eventDatetimeUtc
+            type: string
+          maxItems: 2
+          type: array
+        style: form
+      - description: Number of results to return per page.
+        example: 20
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          default: 25
+          format: int32
+          type: integer
+        style: form
+      - description: Page number of the results to return.
+        example: 0
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                example-1:
+                  value:
+                    data:
+                    - reportId: 2683372
+                      sourceCode: Webcast
+                      audioSourceId: 471849
+                      ticker: AZZ-US
+                      entityId: 000CGP-E
+                      eventType: EarningsRelease
+                      eventTitle: Q1 2023 Earnings Call
+                      callStatus: InProgress
+                      recordingStartTime: 2022-07-11T14:46:59Z
+                      eventDatetimeUtc: 2022-07-11T15:00:00Z
+                    meta:
+                      pagination:
+                        total: 1
+                        isEstimatedTotal: false
+              schema:
+                $ref: '#/components/schemas/NrtCalls'
+          description: The active calls happening at the moment, based on IDs.
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: |
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/403Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: |
+            The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization.
+        "500":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/500Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      summary: Returns the active calls happening at the moment based on audio source
+        ID and report ID.
+      tags:
+      - Near Real-Time Transcripts
+      x-accepts: application/json
+  /nrt/speakerids:
+    get:
+      description: Returns the latest speakerIds with the confidence scores generated
+        for an active call.
+      operationId: getBulkDocumentsNrtV1SpeakerIds
+      parameters:
+      - description: Unique ID for an Internal recording specific to reportID. For
+          example, ReportID X would have multiple recordings from different source
+          (dial-in or webcast). One ReportID can have multiple AudioSourceIDs.
+        example: 471849
+        explode: true
+        in: query
+        name: audioSourceId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: |
+          Enables sorting data in ascending or descending chronological order based on the start offset of the speaker.
+        explode: false
+        in: query
+        name: _sort
+        required: false
+        schema:
+          default:
+          - -speakerStartOffset
+          items:
+            enum:
+            - speakerStartOffset
+            - -speakerStartOffset
+            type: string
+          maxItems: 2
+          type: array
+        style: form
+      - description: Number of results to return per page.
+        example: 20
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          default: 25
+          format: int32
+          type: integer
+        style: form
+      - description: Page number of the results to return.
+        example: 0
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                example-1:
+                  value:
+                    data:
+                    - audioSourceId: 471849
+                      speakerStartOffset: 0
+                      speakerId: 00797V-E
+                      confidenceScore: 0.6958988631392222
+                      affiliationId: 0016YD-E
+                    - audioSourceId: 471849
+                      speakerStartOffset: 61.488
+                      speakerId: 00797V-E
+                      confidenceScore: 0.7166958724380188
+                      affiliationId: 0016YD-E
+                    - audioSourceId: 471849
+                      speakerStartOffset: 71.712
+                      speakerId: 00797V-E
+                      confidenceScore: 0.7045775184563546
+                      affiliationId: 0016YD-E
+                    - audioSourceId: 471849
+                      speakerStartOffset: 81.712
+                      speakerId: 00797V-E
+                      confidenceScore: 0.7845775184563546
+                      affiliationId: 0016YD-E
+                    - audioSourceId: 471849
+                      speakerStartOffset: 91.712
+                      speakerId: 00797V-E
+                      confidenceScore: 0.7645775184563546
+                      affiliationId: 0016YD-E
+                    meta:
+                      pagination:
+                        total: 439
+                        isEstimatedTotal: false
+              schema:
+                $ref: '#/components/schemas/NrtSpeakerIds'
+          description: The up-to-date speaker IDs and their associated confidence
+            scores, based on the audio source ID.
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: |
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/403Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "500":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/500Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      summary: Returns the latest speakerIds with the confidence scores generated
+        for an active call.
+      tags:
+      - Near Real-Time Transcripts
+      x-accepts: application/json
+  /nrt/indexed:
+    get:
+      description: Returns the  indexed transcript data  in small increments throughout
+        the duration of an active call.
+      operationId: getBulkDocumentsNrtV1Indexedrt
+      parameters:
+      - description: Unique ID for an Internal recording specific to reportID. For
+          example, ReportID X would have multiple recordings from different source
+          (dial-in or webcast). One ReportID can have multiple AudioSourceIDs.
+        example: 471849
+        explode: true
+        in: query
+        name: audioSourceId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: Number of results to return per page.
+        example: 5
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          default: 25
+          format: int32
+          maximum: 50
+          minimum: 0
+          type: integer
+        style: form
+      - description: Page number of the results to return.
+        example: 0
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                example-1:
+                  value:
+                    data:
+                    - snippetEndTimestamp: 2022-01-14T15:03:08Z
+                      snippetSequence: 7
+                      audioSourceId: 471849
+                      transcriptData:
+                      - indexedData:
+                        - index:
+                          - confidence: 1
+                            content: Revenue
+                            language: en
+                          endTime: 782.6299999976159
+                          startTime: 782.1199999922515
+                          type: Word
+                        - index:
+                          - confidence: 0.9172338247299194
+                            content: increased
+                            language: en
+                          endTime: 782.9899999523163
+                          startTime: 782.6299999976159
+                          type: Word
+                        - index:
+                          - confidence: 0.9998389482498169
+                            content: six
+                            language: en
+                          endTime: 783.2299999618531
+                          startTime: 782.9899999523163
+                          type: Word
+                        - index:
+                          - confidence: 0.9989027976989746
+                            content: percent
+                            language: en
+                          endTime: 783.7999383831025
+                          startTime: 783.2299999618531
+                          type: Word
+                        - index:
+                          - confidence: 1
+                            content: as
+                            language: en
+                          endTime: 784.0099999332429
+                          startTime: 783.8000000143052
+                          type: Word
+                        - index:
+                          - confidence: 0.9140177965164185
+                            content: we
+                            language: en
+                          endTime: 784.0999967479706
+                          startTime: 784.0099999332429
+                          type: Word
+                        - index:
+                          - confidence: 0.8930811285972595
+                            content: benefited
+                            language: en
+                          endTime: 784.6999999904633
+                          startTime: 784.1026543998719
+                          type: Word
+                        - index:
+                          - confidence: 1
+                            content: from
+                            language: en
+                          endTime: 784.9100000286103
+                          startTime: 784.6999999904633
+                          type: Word
+                        - index:
+                          - confidence: 1
+                            content: strong
+                            language: en
+                          endTime: 785.4499999904633
+                          startTime: 784.9100546264649
+                          type: Word
+                        - index:
+                          - confidence: 1
+                            content: gains
+                            language: en
+                          endTime: 786.3499998474122
+                          startTime: 785.7499999427796
+                          type: Word
+                        - index:
+                          - confidence: 0.9999908208847046
+                            content: from
+                            language: en
+                          endTime: 786.8299755477906
+                          startTime: 786.5599998855591
+                          type: Word
+                        - index:
+                          - confidence: 0.9939011335372925
+                            content: equity
+                            language: en
+                          endTime: 787.19
+                          startTime: 786.8299998664857
+                          type: Word
+                        - index:
+                          - confidence: 0.9999626874923706
+                            content: securities
+                            language: en
+                          endTime: 787.9399942779542
+                          startTime: 787.1901826286316
+                          type: Word
+                        - index:
+                          - confidence: 1
+                            content: and
+                            language: en
+                          endTime: 788.4499997520447
+                          startTime: 788.1800994300843
+                          type: Word
+                        - index:
+                          - confidence: 0.6049093008041382
+                            content: gain
+                            language: en
+                          endTime: 788.9599990272523
+                          startTime: 788.4499997520447
+                          type: Word
+                        - index:
+                          - confidence: 1
+                            content: from
+                            language: en
+                          endTime: 789.5299996757508
+                          startTime: 789.2599996948243
+                          type: Word
+                        - index:
+                          - confidence: 0.9999662637710571
+                            content: sales
+                            language: en
+                          endTime: 790.0999998474122
+                          startTime: 789.5299996757508
+                          type: Word
+                        - index:
+                          - confidence: 1
+                            content: of
+                            language: en
+                          endTime: 790.280000152588
+                          startTime: 790.0999998474122
+                          type: Word
+                        - index:
+                          - confidence: 1
+                            content: our
+                            language: en
+                          endTime: 790.3699993515015
+                          startTime: 790.280000152588
+                          type: Word
+                        - index:
+                          - confidence: 0.999971866607666
+                            content: student
+                            language: en
+                          endTime: 790.7000002288819
+                          startTime: 790.3699993515015
+                          type: Word
+                        - index:
+                          - confidence: 0.9998940825462341
+                            content: lending
+                            language: en
+                          endTime: 791.150000038147
+                          startTime: 790.7000011825562
+                          type: Word
+                        - index:
+                          - confidence: 1
+                            content: asset
+                            language: en
+                          endTime: 791.7499994659424
+                          startTime: 791.2999996566773
+                          type: Word
+                        snippetData:
+                          transcript: 'Revenue increased six percent as we benefited
+                            from strong gains from equity securities and gain from
+                            sales of our student lending asset '
+                          endTime: 791.75
+                          startTime: 781.94
+                    - snippetEndTimestamp: 2022-01-14T15:03:28Z
+                      snippetSequence: 8
+                      audioSourceId: 471849
+                      transcriptData:
+                      - indexedData:
+                        - index:
+                          - confidence: 1
+                            content: management
+                            language: en
+                          endTime: 792.4099999666214
+                          startTime: 791.7799999993294
+                          type: Word
+                        - index:
+                          - confidence: 0.9995142221450806
+                            content: and
+                            language: en
+                          endTime: 792.589999973774
+                          startTime: 792.4099999666214
+                          type: Word
+                        - index:
+                          - confidence: 1
+                            content: corporate
+                            language: en
+                          endTime: 792.9199999570847
+                          startTime: 792.589999973774
+                          type: Word
+                        - index:
+                          - confidence: 0.9906429052352905
+                            content: trust
+                            language: en
+                          endTime: 793.2199999094009
+                          startTime: 792.9199999570847
+                          type: Word
+                        - index:
+                          - confidence: 0.9990030527114868
+                            content: businesses
+                            language: en
+                          endTime: 793.8563723564148
+                          startTime: 793.2199999094009
+                          type: Word
+                        - index:
+                          - confidence: 1
+                            content: "."
+                            language: en
+                          endTime: 793.8563723564148
+                          startTime: 793.8563723564148
+                          isEOS: true
+                          type: Punctuation
+                        - index:
+                          - confidence: 1
+                            content: We
+                            language: en
+                          endTime: 794.5999999046326
+                          startTime: 794.3899998664856
+                          type: Word
+                        - index:
+                          - confidence: 1
+                            content: also
+                            language: en
+                          endTime: 794.9299998283386
+                          startTime: 794.5999999046326
+                          type: Word
+                        - index:
+                          - confidence: 0.8609960079193115
+                            content: have
+                            language: en
+                          endTime: 795.0797309875488
+                          startTime: 794.9299998283386
+                          type: Word
+                        - index:
+                          - confidence: 1
+                            content: broad
+                            language: en
+                          endTime: 795.4099998474121
+                          startTime: 795.079999923706
+                          type: Word
+                        - index:
+                          - confidence: 1
+                            content: based
+                            language: en
+                          endTime: 795.7099997997284
+                          startTime: 795.4099998474121
+                          type: Word
+                        - index:
+                          - confidence: 1
+                            content: revenue
+                            language: en
+                          endTime: 796.0699996948242
+                          startTime: 795.7099997997284
+                          type: Word
+                        - index:
+                          - confidence: 1
+                            content: growth
+                            language: en
+                          endTime: 796.4899997711182
+                          startTime: 796.0699996948242
+                          type: Word
+                        - index:
+                          - confidence: 1
+                            content: across
+                            language: en
+                          endTime: 796.8800001144409
+                          startTime: 796.4899997711182
+                          type: Word
+                        - index:
+                          - confidence: 1
+                            content: our
+                            language: en
+                          endTime: 796.9699997901917
+                          startTime: 796.8800001144409
+                          type: Word
+                        - index:
+                          - confidence: 1
+                            content: businesses
+                            language: en
+                          endTime: 797.539999961853
+                          startTime: 796.9699997901917
+                          type: Word
+                        - index:
+                          - confidence: 1
+                            content: ','
+                            language: en
+                          endTime: 797.539999961853
+                          startTime: 797.539999961853
+                          isEOS: false
+                          type: Punctuation
+                        - index:
+                          - confidence: 1
+                            content: including
+                            language: en
+                          endTime: 797.9600076675415
+                          startTime: 797.539999961853
+                          type: Word
+                        - index:
+                          - confidence: 0.9997471570968628
+                            content: home
+                            language: en
+                          endTime: 798.1699695587158
+                          startTime: 797.9600076675415
+                          type: Word
+                        - index:
+                          - confidence: 0.9999999403953552
+                            content: lending
+                            language: en
+                          endTime: 798.5899996757507
+                          startTime: 798.170000076294
+                          type: Word
+                        - index:
+                          - confidence: 1
+                            content: ','
+                            language: en
+                          endTime: 798.5899996757507
+                          startTime: 798.5899996757507
+                          isEOS: false
+                          type: Punctuation
+                        - index:
+                          - confidence: 0.9962349534034729
+                            content: consumer
+                            language: en
+                          endTime: 799.4587783813477
+                          startTime: 798.9800000190735
+                          type: Word
+                        - index:
+                          - confidence: 0.9955459237098694
+                            content: and
+                            language: en
+                          endTime: 799.5499267578125
+                          startTime: 799.4600353240967
+                          type: Word
+                        - index:
+                          - confidence: 1
+                            content: small
+                            language: en
+                          endTime: 799.789999961853
+                          startTime: 799.5499997138977
+                          type: Word
+                        - index:
+                          - confidence: 1
+                            content: business
+                            language: en
+                          endTime: 800.1199998855591
+                          startTime: 799.789999961853
+                          type: Word
+                        - index:
+                          - confidence: 1
+                            content: banking
+                            language: en
+                          endTime: 800.5999069213867
+                          startTime: 800.1199998855591
+                          type: Word
+                        - index:
+                          - confidence: 1
+                            content: ','
+                            language: en
+                          endTime: 800.5999069213867
+                          startTime: 800.5999069213867
+                          isEOS: false
+                          type: Punctuation
+                        - index:
+                          - confidence: 1
+                            content: credit
+                            language: en
+                          endTime: 801.2600002288818
+                          startTime: 800.8699998855591
+                          type: Word
+                        - index:
+                          - confidence: 1
+                            content: card
+                            language: en
+                          endTime: 801.6499996185303
+                          startTime: 801.2600002288818
+                          type: Word
+                        snippetData:
+                          transcript: 'management and corporate trust businesses.
+                            We also have broad based revenue growth across our businesses,
+                            including home lending, consumer and small business banking,
+                            credit card '
+                          endTime: 801.65
+                          startTime: 791.75
+                      - indexedData:
+                        - index:
+                          - confidence: 1
+                            content: ','
+                            language: en
+                          endTime: 801.9799999833107
+                          startTime: 801.9799999833107
+                          isEOS: false
+                          type: Punctuation
+                        - index:
+                          - confidence: 0.9995478391647339
+                            content: auto
+                            language: en
+                          endTime: 802.5800000071525
+                          startTime: 801.9799999833107
+                          type: Word
+                        - index:
+                          - confidence: 1
+                            content: ','
+                            language: en
+                          endTime: 802.5800000071525
+                          startTime: 802.5800000071525
+                          isEOS: false
+                          type: Punctuation
+                        - index:
+                          - confidence: 1
+                            content: commercial
+                            language: en
+                          endTime: 803.2399999141693
+                          startTime: 802.7899999856949
+                          type: Word
+                        - index:
+                          - confidence: 1
+                            content: real
+                            language: en
+                          endTime: 803.4199999809265
+                          startTime: 803.2399999141693
+                          type: Word
+                        - index:
+                          - confidence: 1
+                            content: estate
+                            language: en
+                          endTime: 803.8999732971191
+                          startTime: 803.4199999809265
+                          type: Word
+                        - index:
+                          - confidence: 1
+                            content: ','
+                            language: en
+                          endTime: 803.8999732971191
+                          startTime: 803.8999732971191
+                          isEOS: false
+                          type: Punctuation
+                        - index:
+                          - confidence: 1
+                            content: banking
+                            language: en
+                          endTime: 804.8299998283386
+                          startTime: 804.229999923706
+                          type: Word
+                        - index:
+                          - confidence: 1
+                            content: and
+                            language: en
+                          endTime: 805.3399998188019
+                          startTime: 805.0699998378753
+                          type: Word
+                        - index:
+                          - confidence: 1
+                            content: wealth
+                            language: en
+                          endTime: 805.6699999809265
+                          startTime: 805.3399998188019
+                          type: Word
+                        - index:
+                          - confidence: 0.9995111227035522
+                            content: and
+                            language: en
+                          endTime: 805.8200000762939
+                          startTime: 805.6699999809265
+                          type: Word
+                        - index:
+                          - confidence: 1
+                            content: investment
+                            language: en
+                          endTime: 806.3000000953674
+                          startTime: 805.8200000762939
+                          type: Word
+                        - index:
+                          - confidence: 1
+                            content: management
+                            language: en
+                          endTime: 806.8099998474121
+                          startTime: 806.3000000953674
+                          type: Word
+                        - index:
+                          - confidence: 1
+                            content: "."
+                            language: en
+                          endTime: 806.8099998474121
+                          startTime: 806.8099998474121
+                          isEOS: true
+                          type: Punctuation
+                        - index:
+                          - confidence: 1
+                            content: Credit
+                            language: en
+                          endTime: 807.9199999809265
+                          startTime: 807.5599998474121
+                          type: Word
+                        - index:
+                          - confidence: 1
+                            content: quality
+                            language: en
+                          endTime: 808.4
+                          startTime: 807.9199999809265
+                          type: Word
+                        - index:
+                          - confidence: 0.6613963842391968
+                            content: improved
+                            language: en
+                          endTime: 808.7600001335144
+                          startTime: 808.4000004768371
+                          type: Word
+                        - index:
+                          - confidence: 1
+                            content: significantly
+                            language: en
+                          endTime: 809.689999961853
+                          startTime: 808.7640556335449
+                          type: Word
+                        - index:
+                          - confidence: 0.9995760321617126
+                            content: as
+                            language: en
+                          endTime: 809.9599994659424
+                          startTime: 809.7199996948242
+                          type: Word
+                        - index:
+                          - confidence: 1
+                            content: the
+                            language: en
+                          endTime: 810.0499996185303
+                          startTime: 809.9599994659424
+                          type: Word
+                        - index:
+                          - confidence: 1
+                            content: economy
+                            language: en
+                          endTime: 810.7099994659424
+                          startTime: 810.0499996185303
+                          type: Word
+                        - index:
+                          - confidence: 0.9282795786857605
+                            content: improved
+                            language: en
+                          endTime: 811.7000907897949
+                          startTime: 811.0399993896484
+                          type: Word
+                        snippetData:
+                          transcript: ', auto, commercial real estate, banking and
+                            wealth and investment management. Credit quality improved
+                            significantly as the economy improved '
+                          endTime: 811.6999999999999
+                          startTime: 801.65
+                    meta:
+                      pagination:
+                        total: 191
+                        isEstimatedTotal: false
+              schema:
+                $ref: '#/components/schemas/IndexedNrt'
+          description: The transcript data that has been indexed according to the
+            specific audio source ID.
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: |
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/403Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: |
+            The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization.
+        "500":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/500Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      summary: Returns the  indexed transcript data  in small increments throughout
+        the duration of an active call.
+      tags:
+      - Near Real-Time Transcripts
+      x-accepts: application/json
+  /transcripts/dates:
+    get:
+      description: "Returns the transcripts documents within FactSet coverage along\
+        \ with other\nresponse fields. \n\nAll transcripts originate from Factset\
+        \ Callstreet Transcripts.\n"
+      operationId: getTranscriptsDates
+      parameters:
+      - description: "Start Date. Format is YYYY-MM-DD \n\n\n**The API supports data\
+          \ from 1999 onwards. Ensure that the provided Date falls within this range\
+          \ for accurate results.**\n"
+        example: 2020-10-01
+        explode: true
+        in: query
+        name: startDate
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: End Date. Format is YYYY-MM-DD.
+        example: 2020-12-26
+        explode: true
+        in: query
+        name: endDate
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: |
+          The earliest date of the feed file the API should fetch based on the file timestamp.
+
+          - Format: Specify the date using a relative term as an integer: '0' for today, '-1' for yesterday, '-2' for two days ago, and so forth. Negative values are used to represent past dates.
+
+
+          - *Either `startDate` or `startDateRelative` should be used, but not both.*
+          - *If both `startDate` and `startDateRelative` are provided in the same request, the API will return an error.*
+          - *If users provide future dates in requests for `startDate` or `startDateRelative`, the API will not return any data.*
+        explode: true
+        in: query
+        name: startDateRelative
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: |
+          The latest date of the feed file the API should fetch for based on the file timestamp.
+
+          - Format: Specify the date using a relative term as an integer: '0' for today, '-1' for yesterday, '-2' for two days ago, and so forth. Negative values are used to represent past dates.
+
+
+          - *Either `endDate` or `endDateRelative` should be used, but not both.*
+          - *If both `endDate` and `endDateRelative` are provided in the same request, the API will return an error.*
+          - *If users provide future dates in requests for `endDate` or `endDateRelative`, the API will not return any data.*
+        explode: true
+        in: query
+        name: endDateRelative
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: timeZone to return story dates and times.Time zones, represented
+          in POSIX format, are automatically adjusted for daylight savings. timeZone
+          names are sourced from the IANA timezone registry. The time fields in the
+          response will adhere to this specified timezone.
+        example: America/New_York
+        explode: true
+        in: query
+        name: timeZone
+        required: false
+        schema:
+          default: America/New_York
+          type: string
+        style: form
+      - description: |
+          Enables sorting data in ascending or descending chronological order based on eventDate.
+        explode: false
+        in: query
+        name: _sort
+        required: false
+        schema:
+          default:
+          - -storyDateTime
+          items:
+            enum:
+            - storyDateTime
+            - -storyDateTime
+            type: string
+          maxItems: 2
+          type: array
+        style: form
+      - description: Number of results to return per page.
+        example: 20
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          default: 25
+          format: int32
+          type: integer
+        style: form
+      - description: Page number of the results to return.
+        example: 0
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Sample Response:
+                  value:
+                    data:
+                    - versionId: "7063634"
+                      primaryIds:
+                      - XPRO-US
+                      allIds:
+                      - XPRO-US
+                      reportId: "2958054"
+                      eventId: "1202983246"
+                      eventDate: 2024-01-04
+                      transcriptType: Corrected
+                      headline: 'CORRECTED TRANSCRIPT: Expro Group Holdings NV(XPRO-US),  Goldman
+                        Sachs Energy, CleanTech & Utilities Conference, 4-January-2024
+                        1:40 PM ET'''
+                      storyDateTime: 2023-03-07T19:40:26Z
+                      uploadDateTime: 2024-01-08T04:19:24Z
+                      eventType: ConferencePresentation
+                      categories:
+                      - CN:US,DT:CONF,DT:EVTS,DT:EV_ME,DT:FILNS_TS_TR,IN:OIL,LN:EN,RN:AM,RN:NA,SB:EVTS,SB:EV_ME
+                      transcriptsLink: https://api.factset.com/v1/transcripts?report=story&key=U2FsdGVkX18b15tR%2bV9L1xvjo6Vnz7C7PhIbUvoMrgF%2f43aEWomYlhVruC6G6874fEX
+                    meta:
+                      pagination:
+                        isEstimatedTotal: false
+              schema:
+                $ref: '#/components/schemas/Transcripts'
+          description: The latest transcripts based on the provided date ranges.
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad request
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the Report Issue in the top right corner of
+            this Developer Portal specification card and choose Connectivity 401 or
+            403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/403Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "500":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/500Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      summary: Returns the transcript documents in XML format and related metadata
+        within FactSet coverage based on specific date range and time zones.
+      tags:
+      - Transcripts
+      x-accepts: application/json
+  /transcripts/search:
+    get:
+      description: "Returns the transcripts documents within FactSet coverage along\
+        \ with other\nresponse fields. \n\nAll transcripts originate from Factset\
+        \ Callstreet Transcripts.\n"
+      operationId: getTranscripts
+      parameters:
+      - description: Restricts the search to include only document stories which include
+          the text searched.
+        example: Updates
+        explode: true
+        in: query
+        name: searchText
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: |
+          Enables sorting data in ascending or descending chronological order based on eventDate.
+        explode: false
+        in: query
+        name: _sort
+        required: false
+        schema:
+          default:
+          - -storyDateTime
+          items:
+            enum:
+            - storyDateTime
+            - -storyDateTime
+            type: string
+          maxItems: 2
+          type: array
+        style: form
+      - description: Number of results to return per page.
+        example: 20
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          default: 25
+          format: int32
+          type: integer
+        style: form
+      - description: Page number of the results to return.
+        example: 0
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Sample Response:
+                  value:
+                    data:
+                    - versionId: "7063634"
+                      primaryIds:
+                      - XPRO-US
+                      allIds:
+                      - XPRO-US
+                      reportId: "2958054"
+                      eventId: "1202983246"
+                      eventDate: 2024-01-04
+                      transcriptType: Corrected
+                      headline: 'CORRECTED TRANSCRIPT: Expro Group Holdings NV(XPRO-US),  Goldman
+                        Sachs Energy, CleanTech & Utilities Conference, 4-January-2024
+                        1:40 PM ET'''
+                      storyDateTime: 2023-03-07T19:40:26Z
+                      uploadDateTime: 2024-01-08T04:19:24Z
+                      eventType: ConferencePresentation
+                      categories:
+                      - CN:US,DT:CONF,DT:EVTS,DT:EV_ME,DT:FILNS_TS_TR,IN:OIL,LN:EN,RN:AM,RN:NA,SB:EVTS,SB:EV_ME
+                      transcriptsLink: https://api.factset.com/v1/transcripts?report=story&key=U2FsdGVkX18b15tR%2bV9L1xvjo6Vnz7C7PhIbUvoMrgF%2f43aEWomYlhVruC6G6874fEX
+                    meta:
+                      pagination:
+                        isEstimatedTotal: false
+              schema:
+                $ref: '#/components/schemas/Transcripts'
+          description: The latest transcripts based on the provided search text.
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad request
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the Report Issue in the top right corner of
+            this Developer Portal specification card and choose Connectivity 401 or
+            403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/403Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "500":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/500Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      summary: Returns the transcript documents in XML format and related metadata
+        within FactSet coverage based on search text.
+      tags:
+      - Transcripts
+      x-accepts: application/json
+  /transcripts/ids:
+    get:
+      description: "Returns the transcripts documents within FactSet coverage along\
+        \ with other\nresponse fields. \n\nAll transcripts originate from Factset\
+        \ Callstreet Transcripts.\n"
+      operationId: getTranscriptsIds
+      parameters:
+      - description: |-
+          Type of identifier search
+          * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier.
+          * false - Returns headlines of stories that mentioned or referred to the  identifier.
+        example: false
+        explode: true
+        in: query
+        name: primaryId
+        required: false
+        schema:
+          default: false
+          enum:
+          - true
+          - false
+          type: boolean
+        style: form
+      - description: Requested symbols or securities.  This is a comma-separated list
+          with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,
+          CUSIP, or SEDOL.
+        examples:
+          oneId:
+            summary: One identifier
+            value:
+            - RTO-GB
+          multipleIds:
+            summary: Multiple Identifiers
+            value:
+            - RTO-GB
+            - ROAD-US
+        explode: false
+        in: query
+        name: ids
+        required: false
+        schema:
+          items:
+            type: string
+          maxItems: 1000
+          type: array
+        style: form
+      - description: Requests Report IDs. This is a comma-separated list with a maximum
+          limit of 1000
+        examples:
+          oneId:
+            summary: One identifier
+            value:
+            - "3022837"
+        explode: false
+        in: query
+        name: reportIds
+        required: false
+        schema:
+          items:
+            type: string
+          maxItems: 1000
+          type: array
+        style: form
+      - description: |-
+          Code for categories to include. This is a comma-separated list.which represent country, industry, and subject codes. Use the ```/reference/categories``` endpoint to get the list of available categories.
+
+          Default = All categories.
+        example:
+        - CN:GB
+        explode: false
+        in: query
+        name: categories
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: |
+          Enables sorting data in ascending or descending chronological order based on eventDate.
+        explode: false
+        in: query
+        name: _sort
+        required: false
+        schema:
+          default:
+          - -storyDateTime
+          items:
+            enum:
+            - storyDateTime
+            - -storyDateTime
+            type: string
+          maxItems: 2
+          type: array
+        style: form
+      - description: Number of results to return per page.
+        example: 20
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          default: 25
+          format: int32
+          type: integer
+        style: form
+      - description: Page number of the results to return.
+        example: 0
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Sample Response:
+                  value:
+                    data:
+                    - versionId: "7063634"
+                      primaryIds:
+                      - XPRO-US
+                      allIds:
+                      - XPRO-US
+                      searchId: XPRO-US
+                      reportId: "2958054"
+                      eventId: "1202983246"
+                      eventDate: 2024-01-04
+                      transcriptType: Corrected
+                      headline: 'CORRECTED TRANSCRIPT: Expro Group Holdings NV(XPRO-US),  Goldman
+                        Sachs Energy, CleanTech & Utilities Conference, 4-January-2024
+                        1:40 PM ET'''
+                      storyDateTime: 2023-03-07T19:40:26Z
+                      uploadDateTime: 2024-01-08T04:19:24Z
+                      eventType: ConferencePresentation
+                      categories:
+                      - CN:US,DT:CONF,DT:EVTS,DT:EV_ME,DT:FILNS_TS_TR,IN:OIL,LN:EN,RN:AM,RN:NA,SB:EVTS,SB:EV_ME
+                      transcriptsLink: https://api.factset.com/v1/transcripts?report=story&key=U2FsdGVkX18b15tR%2bV9L1xvjo6Vnz7C7PhIbUvoMrgF%2f43aEWomYlhVruC6G6874fEX
+                    meta:
+                      pagination:
+                        isEstimatedTotal: false
+              schema:
+                $ref: '#/components/schemas/TranscriptsOne'
+          description: The latest transcripts based on the provided report ID, IDs
+            and primary ID.
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad request
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the Report Issue in the top right corner of
+            this Developer Portal specification card and choose Connectivity 401 or
+            403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/403Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "500":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/500Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      summary: Returns the transcript documents in XML format and related metadata
+        within FactSet coverage based on specific IDs.
+      tags:
+      - Transcripts
+      x-accepts: application/json
+  /transcripts/events:
+    get:
+      description: "Returns the transcripts documents within FactSet coverage along\
+        \ with other\nresponse fields. \n\nAll transcripts originate from Factset\
+        \ Callstreet Transcripts.\n"
+      operationId: getTranscriptsEvents
+      parameters:
+      - description: Requests Event IDs. This is a comma-separated list with a maximum
+          limit of 1000.
+        examples:
+          oneId:
+            summary: One identifier
+            value:
+            - "1202993804"
+        explode: false
+        in: query
+        name: eventIds
+        required: false
+        schema:
+          items:
+            type: string
+          maxItems: 1000
+          type: array
+        style: form
+      - description: |-
+          Specifies the type of event you want to retrieve.
+            Earnings - Denotes an Earnings event.
+            Guidance - Denotes a Guidance event.
+            AnalystsShareholdersMeeting - Denotes an Analysts and Shareholders Meeting event.
+            ConferencePresentation - Denotes a Conference Presentation event.
+            SalesRevenue - Denotes a Sales/Revenue event.
+            SpecialSituation - Denotes a Special Situation event (i.e. Merger/Acquisition).
+        example: Earnings
+        explode: true
+        in: query
+        name: eventType
+        required: false
+        schema:
+          enum:
+          - Earnings
+          - Guidance
+          - AnalystsShareholdersMeeting
+          - ConferencePresentation
+          - SalesRevenue
+          - SpecialSituation
+          type: string
+        style: form
+      - description: |
+          Enables sorting data in ascending or descending chronological order based on eventDate.
+        explode: false
+        in: query
+        name: _sort
+        required: false
+        schema:
+          default:
+          - -storyDateTime
+          items:
+            enum:
+            - storyDateTime
+            - -storyDateTime
+            type: string
+          maxItems: 2
+          type: array
+        style: form
+      - description: Number of results to return per page.
+        example: 20
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          default: 25
+          format: int32
+          type: integer
+        style: form
+      - description: Page number of the results to return.
+        example: 0
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Sample Response:
+                  value:
+                    data:
+                    - versionId: "7063634"
+                      primaryIds:
+                      - XPRO-US
+                      allIds:
+                      - XPRO-US
+                      reportId: "2958054"
+                      eventId: "1202983246"
+                      eventDate: 2024-01-04
+                      transcriptType: Corrected
+                      headline: 'CORRECTED TRANSCRIPT: Expro Group Holdings NV(XPRO-US),  Goldman
+                        Sachs Energy, CleanTech & Utilities Conference, 4-January-2024
+                        1:40 PM ET'''
+                      storyDateTime: 2023-03-07T19:40:26Z
+                      uploadDateTime: 2024-01-08T04:19:24Z
+                      eventType: ConferencePresentation
+                      categories:
+                      - CN:US,DT:CONF,DT:EVTS,DT:EV_ME,DT:FILNS_TS_TR,IN:OIL,LN:EN,RN:AM,RN:NA,SB:EVTS,SB:EV_ME
+                      transcriptsLink: https://api.factset.com/v1/transcripts?report=story&key=U2FsdGVkX18b15tR%2bV9L1xvjo6Vnz7C7PhIbUvoMrgF%2f43aEWomYlhVruC6G6874fEX
+                    meta:
+                      pagination:
+                        isEstimatedTotal: false
+              schema:
+                $ref: '#/components/schemas/Transcripts'
+          description: The latest transcripts based on the provided event IDs and
+            event type.
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad request
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the Report Issue in the top right corner of
+            this Developer Portal specification card and choose Connectivity 401 or
+            403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/403Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "500":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/500Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      summary: Returns the transcript documents in XML format and related metadata
+        within FactSet coverage based on eventIds and eventType.
+      tags:
+      - Transcripts
+      x-accepts: application/json
+  /reference/time-zones:
+    get:
+      description: Retrieves and delivers a comprehensive list of all available `timeZones`.
+      operationId: getTimezone
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                default200ResponseExample:
+                  $ref: '#/components/examples/sampleResponseTime'
+              schema:
+                $ref: '#/components/schemas/ResponseTime'
+          description: List of all available time zones.
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad request.
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the Report Issue in the top right corner of
+            this Developer Portal specification card and choose Connectivity 401 or
+            403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/403Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "500":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/500Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      summary: Returns the time zones.
+      tags:
+      - Transcripts
+      x-accepts: application/json
+  /reference/categories:
+    get:
+      description: Retrieves and delivers a comprehensive list of all available `categories`which
+        are defined as country, industry, and subject codes. The data is returned
+        as a comma-separated list.
+      operationId: getcategories
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                default200ResponseExample:
+                  $ref: '#/components/examples/sampleResponseCategories'
+              schema:
+                $ref: '#/components/schemas/ResponseCategories'
+          description: list of all available categories.
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad request.
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the Report Issue in the top right corner of
+            this Developer Portal specification card and choose Connectivity 401 or
+            403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/403Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "500":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/500Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      summary: Returns the categories.
+      tags:
+      - Transcripts
+      x-accepts: application/json
+components:
+  examples:
+    postBodyOfSingleSymbol:
+      description: Post body request example to fetch details of the AAPL-US
+      summary: Single symbol for the given period
+      value:
+        data:
+          dateTime:
+            start: 2022-12-01T00:00:00Z
+            end: 2022-12-31T22:59:02Z
+          universe:
+            symbols:
+            - FDS-US
+            type: Tickers
+          eventTypes:
+          - Earnings
+    postMultipleSymbols:
+      description: Post body request example to fetch details of the AAPL-US, MSFT-US
+        and FDS-US
+      summary: Multiple symbols for the given period
+      value:
+        data:
+          dateTime:
+            start: 2022-12-01T00:00:00Z
+            end: 2022-12-31T22:59:02Z
+          universe:
+            symbols:
+            - AAPL-US
+            - MSFT-US
+            - FDS-US
+            type: Tickers
+          eventTypes:
+          - Earnings
+    "400Example":
+      summary: Sample error Response
+      value:
+        errors:
+        - code: Bad Request
+          title: parameterError:['_id'] is not a valid parameter(s)
+          id: 7af3d86ca5954503b9244f2620fcf5eb
+    "401Example":
+      summary: sample error response
+      value:
+        errors:
+        - code: Not Authenticated
+          title: USERNAME-SERIAL does not have permission
+          id: 7af3d86ca5954503b9244f2620fcf5eb
+    "403Example":
+      summary: sample error response
+      value:
+        errors:
+        - code: Forbidden
+          title: USERNAME-SERIAL does not have permission
+          id: 7af3d86ca5954503b9244f2620fcf5eb
+    "404Example":
+      summary: sample error response
+      value:
+        errors:
+        - code: Not Found
+          title: id not found
+          id: 7af3d86ca5954503b9244f2620fcf5eb
+    "500Example":
+      summary: sample error response
+      value:
+        errors:
+        - code: Internal server error
+          title: An unexpected error happened
+          id: 7af3d86ca5954503b9244f2620fcf5eb
+    sampleResponseTime:
+      summary: Sample 200 Response for timeZones parameter
+      value:
+        data:
+        - timeZone: Africa/Malabo
+    sampleResponseCategories:
+      summary: Sample 200 Response for categories parameter.
+      value:
+        data:
+        - subject: SB
+          category: SB:ANLCH
+          description: Analysts Revisions
+  parameters:
+    ids:
+      description: Requested symbols or securities.  This is a comma-separated list
+        with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,
+        CUSIP, or SEDOL.
+      examples:
+        oneId:
+          summary: One identifier
+          value:
+          - RTO-GB
+        multipleIds:
+          summary: Multiple Identifiers
+          value:
+          - RTO-GB
+          - ROAD-US
+      explode: false
+      in: query
+      name: ids
+      required: false
+      schema:
+        items:
+          type: string
+        maxItems: 1000
+        type: array
+      style: form
+    startDate:
+      description: "Start Date. Format is YYYY-MM-DD \n\n\n**The API supports data\
+        \ from 1999 onwards. Ensure that the provided Date falls within this range\
+        \ for accurate results.**\n"
+      example: 2020-10-01
+      explode: true
+      in: query
+      name: startDate
+      required: false
+      schema:
+        format: date
+        type: string
+      style: form
+    startDateRelative:
+      description: |
+        The earliest date of the feed file the API should fetch based on the file timestamp.
+
+        - Format: Specify the date using a relative term as an integer: '0' for today, '-1' for yesterday, '-2' for two days ago, and so forth. Negative values are used to represent past dates.
+
+
+        - *Either `startDate` or `startDateRelative` should be used, but not both.*
+        - *If both `startDate` and `startDateRelative` are provided in the same request, the API will return an error.*
+        - *If users provide future dates in requests for `startDate` or `startDateRelative`, the API will not return any data.*
+      explode: true
+      in: query
+      name: startDateRelative
+      required: false
+      schema:
+        format: int32
+        type: integer
+      style: form
+    endDate:
+      description: End Date. Format is YYYY-MM-DD.
+      example: 2020-12-26
+      explode: true
+      in: query
+      name: endDate
+      required: false
+      schema:
+        format: date
+        type: string
+      style: form
+    endDateRelative:
+      description: |
+        The latest date of the feed file the API should fetch for based on the file timestamp.
+
+        - Format: Specify the date using a relative term as an integer: '0' for today, '-1' for yesterday, '-2' for two days ago, and so forth. Negative values are used to represent past dates.
+
+
+        - *Either `endDate` or `endDateRelative` should be used, but not both.*
+        - *If both `endDate` and `endDateRelative` are provided in the same request, the API will return an error.*
+        - *If users provide future dates in requests for `endDate` or `endDateRelative`, the API will not return any data.*
+      explode: true
+      in: query
+      name: endDateRelative
+      required: false
+      schema:
+        format: int32
+        type: integer
+      style: form
+    eventType:
+      description: |-
+        Specifies the type of event you want to retrieve.
+          Earnings - Denotes an Earnings event.
+          Guidance - Denotes a Guidance event.
+          AnalystsShareholdersMeeting - Denotes an Analysts and Shareholders Meeting event.
+          ConferencePresentation - Denotes a Conference Presentation event.
+          SalesRevenue - Denotes a Sales/Revenue event.
+          SpecialSituation - Denotes a Special Situation event (i.e. Merger/Acquisition).
+      example: Earnings
+      explode: true
+      in: query
+      name: eventType
+      required: false
+      schema:
+        enum:
+        - Earnings
+        - Guidance
+        - AnalystsShareholdersMeeting
+        - ConferencePresentation
+        - SalesRevenue
+        - SpecialSituation
+        type: string
+      style: form
+    primaryId:
+      description: |-
+        Type of identifier search
+        * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier.
+        * false - Returns headlines of stories that mentioned or referred to the  identifier.
+      example: false
+      explode: true
+      in: query
+      name: primaryId
+      required: false
+      schema:
+        default: false
+        enum:
+        - true
+        - false
+        type: boolean
+      style: form
+    paginationLimit:
+      description: Number of results to return per page.
+      example: 20
+      explode: true
+      in: query
+      name: _paginationLimit
+      required: false
+      schema:
+        default: 25
+        format: int32
+        type: integer
+      style: form
+    paginationOffset:
+      description: Page number of the results to return.
+      example: 0
+      explode: true
+      in: query
+      name: _paginationOffset
+      required: false
+      schema:
+        default: 0
+        format: int32
+        type: integer
+      style: form
+    timeZone:
+      description: timeZone to return story dates and times.Time zones, represented
+        in POSIX format, are automatically adjusted for daylight savings. timeZone
+        names are sourced from the IANA timezone registry. The time fields in the
+        response will adhere to this specified timezone.
+      example: America/New_York
+      explode: true
+      in: query
+      name: timeZone
+      required: false
+      schema:
+        default: America/New_York
+        type: string
+      style: form
+    _sort:
+      description: |
+        Enables sorting data in ascending or descending chronological order based on eventDate.
+      explode: false
+      in: query
+      name: _sort
+      required: false
+      schema:
+        default:
+        - -storyDateTime
+        items:
+          enum:
+          - storyDateTime
+          - -storyDateTime
+          type: string
+        maxItems: 2
+        type: array
+      style: form
+    categories:
+      description: |-
+        Code for categories to include. This is a comma-separated list.which represent country, industry, and subject codes. Use the ```/reference/categories``` endpoint to get the list of available categories.
+
+        Default = All categories.
+      example:
+      - CN:GB
+      explode: false
+      in: query
+      name: categories
+      required: false
+      schema:
+        items:
+          type: string
+        type: array
+      style: form
+    searchText:
+      description: Restricts the search to include only document stories which include
+        the text searched.
+      example: Updates
+      explode: true
+      in: query
+      name: searchText
+      required: false
+      schema:
+        type: string
+      style: form
+    report_ids:
+      description: Requests Report IDs. This is a comma-separated list with a maximum
+        limit of 1000
+      examples:
+        oneId:
+          summary: One identifier
+          value:
+          - "3022837"
+      explode: false
+      in: query
+      name: reportIds
+      required: false
+      schema:
+        items:
+          type: string
+        maxItems: 1000
+        type: array
+      style: form
+    event_ids:
+      description: Requests Event IDs. This is a comma-separated list with a maximum
+        limit of 1000.
+      examples:
+        oneId:
+          summary: One identifier
+          value:
+          - "1202993804"
+      explode: false
+      in: query
+      name: eventIds
+      required: false
+      schema:
+        items:
+          type: string
+        maxItems: 1000
+        type: array
+      style: form
+    indexedpaginationLimit:
+      description: Number of results to return per page.
+      example: 5
+      explode: true
+      in: query
+      name: _paginationLimit
+      required: false
+      schema:
+        default: 25
+        format: int32
+        maximum: 50
+        minimum: 0
+        type: integer
+      style: form
+    reportId:
+      description: Unique identifier for an event.
+      example: 2683372
+      explode: true
+      in: query
+      name: reportId
+      required: false
+      schema:
+        format: int32
+        type: integer
+      style: form
+    audioSourceId:
+      description: Unique ID for an Internal recording specific to reportID. For example,
+        ReportID X would have multiple recordings from different source (dial-in or
+        webcast). One ReportID can have multiple AudioSourceIDs.
+      example: 471849
+      explode: true
+      in: query
+      name: audioSourceId
+      required: true
+      schema:
+        format: int32
+        type: integer
+      style: form
+    audioSourceId1:
+      description: Unique ID for an Internal recording specific to reportID. For example,
+        ReportID X would have multiple recordings from different source (dial-in or
+        webcast). One ReportID can have multiple AudioSourceIDs.
+      example: 471849
+      explode: true
+      in: query
+      name: audioSourceId
+      required: false
+      schema:
+        format: int32
+        type: integer
+      style: form
+    speakerSort:
+      description: |
+        Enables sorting data in ascending or descending chronological order based on the start offset of the speaker.
+      explode: false
+      in: query
+      name: _sort
+      required: false
+      schema:
+        default:
+        - -speakerStartOffset
+        items:
+          enum:
+          - speakerStartOffset
+          - -speakerStartOffset
+          type: string
+        maxItems: 2
+        type: array
+      style: form
+    callSort:
+      description: |
+        Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc.
+      explode: false
+      in: query
+      name: _sort
+      required: false
+      schema:
+        default:
+        - -eventDatetimeUtc
+        items:
+          enum:
+          - eventDatetimeUtc
+          - -eventDatetimeUtc
+          type: string
+        maxItems: 2
+        type: array
+      style: form
+    entityId:
+      description: Factset entity level identifier for the company hosting the event.
+      example: 000CGP-E
+      explode: true
+      in: query
+      name: entityId
+      required: false
+      schema:
+        type: string
+      style: form
+    ticker:
+      description: Ticker-region identifier for the company hosting the event.
+      example: AZZ-US
+      explode: true
+      in: query
+      name: ticker
+      required: false
+      schema:
+        type: string
+      style: form
+    callStatus:
+      description: Status of the call, i.e., Ended, InProgress, EndedWithoutNotification,
+        or IssueAtSource.
+      example: Ended
+      explode: true
+      in: query
+      name: callStatus
+      required: false
+      schema:
+        enum:
+        - InProgress
+        - Ended
+        - EWN
+        - IssueAtSource
+        type: string
+      style: form
+    trimmed:
+      description: Specifies if trimmed/untrimmed historical audio recordings should
+        be returned.
+      example: true
+      explode: true
+      in: query
+      name: trimmed
+      required: false
+      schema:
+        default: false
+        type: boolean
+      style: form
+    year:
+      description: |
+        Specifies the year for which the historical audio recordings and related metadata are to be retrieved.
+      example: 2021
+      explode: true
+      in: query
+      name: year
+      required: true
+      schema:
+        format: int32
+        type: integer
+      style: form
+  requestBodies:
+    CompanyEventRequest:
+      content:
+        application/json:
+          examples:
+            Single symbol for the given period:
+              $ref: '#/components/examples/postBodyOfSingleSymbol'
+            Multiple symbols for the given period:
+              $ref: '#/components/examples/postMultipleSymbols'
+          schema:
+            $ref: '#/components/schemas/CompanyEventRequest'
+      description: Company Event request body
+      required: true
+  schemas:
+    Transcripts:
+      description: Response containing transcripts.
+      example:
+        data:
+        - eventId: eventId
+          reportId: reportId
+          eventType: Earnings
+          uploadDateTime: 2000-01-23T04:56:07.000+00:00
+          transcriptType: Raw
+          transcriptsLink: transcriptsLink
+          versionId: versionId
+          primaryIds:
+          - primaryIds
+          - primaryIds
+          storyDateTime: 2000-01-23T04:56:07.000+00:00
+          categories:
+          - categories
+          - categories
+          allIds:
+          - allIds
+          - allIds
+          headline: headline
+          eventDate: 2000-01-23
+        - eventId: eventId
+          reportId: reportId
+          eventType: Earnings
+          uploadDateTime: 2000-01-23T04:56:07.000+00:00
+          transcriptType: Raw
+          transcriptsLink: transcriptsLink
+          versionId: versionId
+          primaryIds:
+          - primaryIds
+          - primaryIds
+          storyDateTime: 2000-01-23T04:56:07.000+00:00
+          categories:
+          - categories
+          - categories
+          allIds:
+          - allIds
+          - allIds
+          headline: headline
+          eventDate: 2000-01-23
+        meta:
+          pagination:
+            total: 0
+            isEstimatedTotal: true
+      properties:
+        data:
+          description: Collection of data elements.
+          items:
+            $ref: '#/components/schemas/TranscriptObject'
+          type: array
+        meta:
+          $ref: '#/components/schemas/Transcripts_meta'
+      type: object
+    TranscriptsOne:
+      description: Response containing transcripts.
+      example:
+        data:
+        - eventId: eventId
+          reportId: reportId
+          eventType: Earnings
+          uploadDateTime: 2000-01-23T04:56:07.000+00:00
+          transcriptType: Raw
+          transcriptsLink: transcriptsLink
+          versionId: versionId
+          primaryIds:
+          - primaryIds
+          - primaryIds
+          searchId: searchId
+          storyDateTime: 2000-01-23T04:56:07.000+00:00
+          categories:
+          - categories
+          - categories
+          allIds:
+          - allIds
+          - allIds
+          headline: headline
+          eventDate: 2000-01-23
+        - eventId: eventId
+          reportId: reportId
+          eventType: Earnings
+          uploadDateTime: 2000-01-23T04:56:07.000+00:00
+          transcriptType: Raw
+          transcriptsLink: transcriptsLink
+          versionId: versionId
+          primaryIds:
+          - primaryIds
+          - primaryIds
+          searchId: searchId
+          storyDateTime: 2000-01-23T04:56:07.000+00:00
+          categories:
+          - categories
+          - categories
+          allIds:
+          - allIds
+          - allIds
+          headline: headline
+          eventDate: 2000-01-23
+        meta:
+          pagination:
+            total: 0
+            isEstimatedTotal: true
+      properties:
+        data:
+          description: Collection of data elements.
+          items:
+            $ref: '#/components/schemas/TranscriptObjectOne'
+          type: array
+        meta:
+          $ref: '#/components/schemas/TranscriptsOne_meta'
+      type: object
+    ResponseTime:
+      description: Filings Response Time
+      example:
+        data:
+        - timeZone: Africa/Malabo
+        - timeZone: Africa/Malabo
+      properties:
+        data:
+          description: Data Array Object
+          items:
+            $ref: '#/components/schemas/ResponseTimeObject'
+          type: array
+      type: object
+    ResponseTimeObject:
+      example:
+        timeZone: Africa/Malabo
+      properties:
+        timeZone:
+          description: timeZone
+          example: Africa/Malabo
+          type: string
+      type: object
+    ResponseCategories:
+      description: Response containing filing categories.
+      example:
+        data:
+        - subject: SB
+          description: Analysts Revisions
+          category: SB:ANLCH
+        - subject: SB
+          description: Analysts Revisions
+          category: SB:ANLCH
+      properties:
+        data:
+          description: Collection of data elements.
+          items:
+            $ref: '#/components/schemas/ResponseCategoriesObject'
+          type: array
+      type: object
+    ResponseCategoriesObject:
+      example:
+        subject: SB
+        description: Analysts Revisions
+        category: SB:ANLCH
+      properties:
+        subject:
+          description: subject code
+          example: SB
+          type: string
+        category:
+          description: category
+          example: SB:ANLCH
+          type: string
+        description:
+          description: description
+          example: Analysts Revisions
+          type: string
+      type: object
+    TranscriptObject:
+      example:
+        eventId: eventId
+        reportId: reportId
+        eventType: Earnings
+        uploadDateTime: 2000-01-23T04:56:07.000+00:00
+        transcriptType: Raw
+        transcriptsLink: transcriptsLink
+        versionId: versionId
+        primaryIds:
+        - primaryIds
+        - primaryIds
+        storyDateTime: 2000-01-23T04:56:07.000+00:00
+        categories:
+        - categories
+        - categories
+        allIds:
+        - allIds
+        - allIds
+        headline: headline
+        eventDate: 2000-01-23
+      properties:
+        versionId:
+          description: Used to distinguish the corrected reports. As such, one `reportId`
+            can have many `versionIds`.
+          type: string
+        primaryIds:
+          description: Refers to the main companies a particular document pertains
+            to.
+          items:
+            type: string
+          type: array
+        allIds:
+          description: 'Refers to all companies mentioned in the document. '
+          items:
+            type: string
+          type: array
+        reportId:
+          description: This is a unique identifier for a specific transcript (audio
+            or video) returned.
+          type: string
+        eventId:
+          description: ID of the conference call.
+          type: string
+        eventDate:
+          description: The date when the event took place. Formatted as 'YYYY-MM-DD'.
+          format: date
+          type: string
+        transcriptType:
+          description: "Specifies the type of transcript. \n"
+          enum:
+          - Raw
+          - Corrected
+          type: string
+        headline:
+          description: Headline of the story.
+          type: string
+        storyDateTime:
+          description: Refers to either the date and time of the story, when it is
+            available in workstation (in the specified timezone) or the date and time
+            FactSet received it from the vendor.
+          format: date-time
+          type: string
+        uploadDateTime:
+          description: It is the time when transcript is created (in the specified
+            timezone).
+          format: date-time
+          type: string
+        eventType:
+          description: |
+            Specifies the type of event. Choose from the available options.
+          enum:
+          - Earnings
+          - Guidance
+          - AnalystsShareholdersMeeting
+          - ConferencePresentation
+          - SalesRevenue
+          - SpecialSituation
+          type: string
+        categories:
+          description: Categories are country, industry, and subject codes. This is
+            a comma-separated list.
+          items:
+            type: string
+          type: array
+        transcriptsLink:
+          description: This is a link for downloading the document with an expiration
+            duration of 24 hours.
+          type: string
+      type: object
+    TranscriptObjectOne:
+      example:
+        eventId: eventId
+        reportId: reportId
+        eventType: Earnings
+        uploadDateTime: 2000-01-23T04:56:07.000+00:00
+        transcriptType: Raw
+        transcriptsLink: transcriptsLink
+        versionId: versionId
+        primaryIds:
+        - primaryIds
+        - primaryIds
+        searchId: searchId
+        storyDateTime: 2000-01-23T04:56:07.000+00:00
+        categories:
+        - categories
+        - categories
+        allIds:
+        - allIds
+        - allIds
+        headline: headline
+        eventDate: 2000-01-23
+      properties:
+        versionId:
+          description: Used to distinguish the corrected reports. As such, one `reportId`
+            can have many `versionIds`.
+          type: string
+        primaryIds:
+          description: Refers to the main companies a particular document pertains
+            to.
+          items:
+            type: string
+          type: array
+        searchId:
+          description: Returns IDs used in the ids parameter. The identifier type
+            is based on what was used in the parameter
+          type: string
+        allIds:
+          description: 'Refers to all companies mentioned in the document. '
+          items:
+            type: string
+          type: array
+        reportId:
+          description: This is a unique identifier for a specific transcript (audio
+            or video) returned.
+          type: string
+        eventId:
+          description: ID of the conference call.
+          type: string
+        eventDate:
+          description: The date when the event took place. Formatted as 'YYYY-MM-DD'.
+          format: date
+          type: string
+        transcriptType:
+          description: "Specifies the type of transcript. \n"
+          enum:
+          - Raw
+          - Corrected
+          type: string
+        headline:
+          description: Headline of the story.
+          type: string
+        storyDateTime:
+          description: Refers to either the date and time of the story, when it is
+            available in workstation (in the specified timezone) or the date and time
+            FactSet received it from the vendor.
+          format: date-time
+          type: string
+        uploadDateTime:
+          description: It is the time when transcript is created (in the specified
+            timezone).
+          format: date-time
+          type: string
+        eventType:
+          description: |
+            Specifies the type of event. Choose from the available options.
+          enum:
+          - Earnings
+          - Guidance
+          - AnalystsShareholdersMeeting
+          - ConferencePresentation
+          - SalesRevenue
+          - SpecialSituation
+          type: string
+        categories:
+          description: Categories are country, industry, and subject codes. This is
+            a comma-separated list.
+          items:
+            type: string
+          type: array
+        transcriptsLink:
+          description: This is a link for downloading the document with an expiration
+            duration of 24 hours.
+          type: string
+      type: object
+    NrtCalls:
+      description: "\t\t\nMetadata of active calls happening at that moment are returned.\n"
+      example:
+        data:
+        - sourceCode: PhoneReplay
+          recordingStartTime: 2000-01-23T04:56:07.000+00:00
+          ticker: ticker
+          eventTitle: eventTitle
+          reportId: 0
+          audioSourceId: 6
+          callStatus: InProgress
+          eventDatetimeUtc: 2000-01-23T04:56:07.000+00:00
+          entityId: entityId
+          eventType: AnalystsInvestorsShareholdersMeeting
+        - sourceCode: PhoneReplay
+          recordingStartTime: 2000-01-23T04:56:07.000+00:00
+          ticker: ticker
+          eventTitle: eventTitle
+          reportId: 0
+          audioSourceId: 6
+          callStatus: InProgress
+          eventDatetimeUtc: 2000-01-23T04:56:07.000+00:00
+          entityId: entityId
+          eventType: AnalystsInvestorsShareholdersMeeting
+        meta:
+          pagination:
+            total: 1
+            isEstimatedTotal: true
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/NrtCallsObject'
+          type: array
+        meta:
+          $ref: '#/components/schemas/NrtCalls_meta'
+      type: object
+    NrtCallsObject:
+      example:
+        sourceCode: PhoneReplay
+        recordingStartTime: 2000-01-23T04:56:07.000+00:00
+        ticker: ticker
+        eventTitle: eventTitle
+        reportId: 0
+        audioSourceId: 6
+        callStatus: InProgress
+        eventDatetimeUtc: 2000-01-23T04:56:07.000+00:00
+        entityId: entityId
+        eventType: AnalystsInvestorsShareholdersMeeting
+      properties:
+        reportId:
+          description: The unique ID for an event.
+          nullable: true
+          type: integer
+        sourceCode:
+          description: |-
+            Identifier for the source of how the event is recorded.
+            PhoneReplay: Event is recorded through a phone replay
+            Webcast: Event is recorded through a webcast.
+          enum:
+          - PhoneReplay
+          - Webcast
+          nullable: true
+          type: string
+        audioSourceId:
+          description: Unique ID for an Internal recording specific to reportID. For
+            example, ReportID X would have multiple recordings from different source
+            (dial-in - P or webcast - W). One reportId can have multiple audiosourceIDs.
+          nullable: true
+          type: integer
+        ticker:
+          description: Ticker-region identifier for the company hosting the event.
+          nullable: true
+          type: string
+        entityId:
+          description: Factset entity level identifier for the company hosting the
+            event.
+          nullable: true
+          type: string
+        eventType:
+          description: Refers to the various event types covered by FactSet CallStreet.
+          enum:
+          - AnalystsInvestorsShareholdersMeeting
+          - EarningsCall
+          - EarningsRelease
+          - Guidance
+          - SalesRevenueCall
+          - SalesRevenueRelease
+          - SpecialSituation
+          nullable: true
+          type: string
+        eventTitle:
+          description: Title of the Event.
+          nullable: true
+          type: string
+        callStatus:
+          description: |-
+            Status of the call i.e. Ended, InProgress, EndedWithoutNotification, or IssueAtSource.
+
+            * InProgress - the call is in progress.
+            * Ended - the call has ended.
+            * EndedWithoutNotification - the call has technically ended and can be considered as ended but is missing a notification from the upstream systems.
+            * IssueAtSource - the call has ended with no snippet data due to a possible issue at the source.
+          enum:
+          - InProgress
+          - Ended
+          - EndedWithoutNotification
+          - IssueAtSource
+          nullable: true
+          type: string
+        recordingStartTime:
+          format: date-time
+          nullable: true
+          type: string
+        eventDatetimeUtc:
+          description: The official UTC timestamp of the start of the event.
+          format: date-time
+          nullable: true
+          type: string
+      type: object
+    NrtSpeakerIds:
+      description: Speaker metadata and the cosine scores(confidence scores ) generated
+        for an active  call are returned.
+      example:
+        data:
+        - confidenceScore: 1.4658129805029452
+          audioSourceId: 0
+          speakerId: speakerId
+          affiliationId: affiliationId
+          speakerStartOffset: 6.027456183070403
+        - confidenceScore: 1.4658129805029452
+          audioSourceId: 0
+          speakerId: speakerId
+          affiliationId: affiliationId
+          speakerStartOffset: 6.027456183070403
+        meta:
+          pagination:
+            total: 5
+            isEstimatedTotal: true
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/NrtSpeakerIdObject'
+          type: array
+        meta:
+          $ref: '#/components/schemas/NrtSpeakerIds_meta'
+      type: object
+    NrtSpeakerIdObject:
+      example:
+        confidenceScore: 1.4658129805029452
+        audioSourceId: 0
+        speakerId: speakerId
+        affiliationId: affiliationId
+        speakerStartOffset: 6.027456183070403
+      properties:
+        audioSourceId:
+          description: The Unique ID for an Internal recording specific to reportID.
+            For example, ReportID X would have multiple recordings from a different
+            source (dial-in or webcast). One ReportID can have multiple audioSourceIDs.
+          nullable: true
+          type: integer
+        speakerStartOffset:
+          description: The number of seconds into the call when a speaker starts /
+            is speaking.
+          nullable: true
+          type: number
+        speakerId:
+          description: |
+            A unique identifier for a speaker. You can find speakerIds within [FactSet People API](https://developer.factset.com/api-catalog/factset-people-api).
+          nullable: true
+          type: string
+        confidenceScore:
+          description: |-
+            The  Confidence score similarity for a particular speaker.
+
+            A score >= 0.49 while a speaker is speaking can be considered as a high confidence in the predicted speaker.
+
+            Only the speakerIDs with confidenceScore >= 0.49 are rendered in the result set.
+          nullable: true
+          type: number
+        affiliationId:
+          description: The affiliationId represents the entity ID associated with
+            the organization or company to which the speaker is affiliated.
+          nullable: true
+          type: string
+      type: object
+    EventsAudioDailyIds:
+      example:
+        data:
+          fileName: fileName
+          ticker: ticker
+          reportId: 0
+          audioSourceId: 1
+          endOffsetSeconds: 2.3021358869347655
+          entityId: entityId
+          bitrate: 9.301444243932576
+          uploadTime: uploadTime
+          sampleRate: 7.061401241503109
+          url: url
+          sourceCode: Webcast
+          durationSecs: 5.962133916683182
+          fileSize: 6.027456183070403
+          startOffsetSeconds: 5.637376656633329
+          startTime: startTime
+          endTime: endTime
+          trimmed: true
+      properties:
+        data:
+          $ref: '#/components/schemas/EventsAudioIdsObject'
+      type: object
+    EventsAudioIdsObject:
+      example:
+        fileName: fileName
+        ticker: ticker
+        reportId: 0
+        audioSourceId: 1
+        endOffsetSeconds: 2.3021358869347655
+        entityId: entityId
+        bitrate: 9.301444243932576
+        uploadTime: uploadTime
+        sampleRate: 7.061401241503109
+        url: url
+        sourceCode: Webcast
+        durationSecs: 5.962133916683182
+        fileSize: 6.027456183070403
+        startOffsetSeconds: 5.637376656633329
+        startTime: startTime
+        endTime: endTime
+        trimmed: true
+      properties:
+        reportId:
+          description: |-
+            The unique ID of the audio file for an event. The same ID is used for the transcript of the same event.
+            This report ID can also be used to map to the Event details in SDF tables.
+          type: integer
+        fileName:
+          description: The filename of the audio file.
+          type: string
+        url:
+          description: A pre-signed URL that allows downloading the audio file, expiring
+            after 24 hours.
+          type: string
+        fileSize:
+          description: Size of the Audio file, in bytes.
+          type: number
+        audioSourceId:
+          description: |-
+            Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (Phone or Webcast or Vendor or Replay). One ReportID can have multiple AudioSourceIDs.
+
+            The audioSourceId identifier is available for audio calls since November 29, 2022.
+            Only un-trimmed audio files contain an audioSourceId value. All the vendor and trimmed audio files will have an audioSourceId value of null.
+          nullable: true
+          type: integer
+        ticker:
+          description: Ticker-region identifier for the company hosting the event.
+          nullable: true
+          type: string
+        entityId:
+          description: FactSet entity level identifier for the company hosting the
+            event.
+          type: string
+        sourceCode:
+          description: |-
+            This parameter filters the results based on Source of the Audio file. Below are the descriptions for each Source Code -
+            * Phone = Originated from phone call
+            * Webcast = Originated from a webcast
+            * Vendor = Received from vendor
+            * WebcastReplay = Replay of a webcast
+            * Flash = Identical to webcast; can merge with "Webcast" in the future
+            * Replay = Phone replay
+          enum:
+          - Webcast
+          - Vendor
+          - WebcastReplay
+          - Flash
+          - Replay
+          - Phone
+          example: Webcast
+          type: string
+        trimmed:
+          description: "\nThe trimmed attribute indicates whether the audio is the\
+            \ trimmed version. If `sourceCode` is set to vendor, this attribute will\
+            \ always be true.\n  \n"
+          type: boolean
+        durationSecs:
+          description: Total duration of the recording in seconds based on startOffsetSeconds
+            to endOffsetSeconds.
+          nullable: true
+          type: number
+        startOffsetSeconds:
+          description: The delta in seconds between start of audio file to when FactSet
+            marks the beginning of the call.
+          nullable: true
+          type: number
+        endOffsetSeconds:
+          description: The delta in seconds between startTime to when FactSet marks
+            the end of the call.
+          nullable: true
+          type: number
+        startTime:
+          description: The official timestamp when FactSet begins the recording.
+          nullable: true
+          type: string
+        endTime:
+          description: The official timestamp when FactSet ends the recording.
+          nullable: true
+          type: string
+        uploadTime:
+          description: The official timestamp when FactSet publishes the audio file
+            externally.
+          nullable: true
+          type: string
+        sampleRate:
+          description: The number of samples of audio carried per second in Kbps.
+          nullable: true
+          type: number
+        bitrate:
+          description: The total number of bits of information stored per second of
+            sound in Kbps.
+          nullable: true
+          type: number
+      type: object
+    EventsAudioDailyFileName:
+      example:
+        data:
+          fileName: fileName
+          ticker: ticker
+          reportId: 0
+          audioSourceId: 1
+          endOffsetSeconds: 2.3021358869347655
+          entityId: entityId
+          bitrate: 9.301444243932576
+          uploadTime: uploadTime
+          sampleRate: 7.061401241503109
+          url: url
+          sourceCode: Webcast
+          durationSecs: 5.962133916683182
+          fileSize: 6.027456183070403
+          startOffsetSeconds: 5.637376656633329
+          startTime: startTime
+          endTime: endTime
+          trimmed: true
+      properties:
+        data:
+          $ref: '#/components/schemas/EventsAudioDailyFileName_data'
+      type: object
+    EventsAudioDaily:
+      example:
+        data:
+        - fileName: fileName
+          ticker: ticker
+          reportId: 0
+          audioSourceId: 1
+          endOffsetSeconds: 2.3021358869347655
+          entityId: entityId
+          bitrate: 9.301444243932576
+          uploadTime: uploadTime
+          sampleRate: 7.061401241503109
+          url: url
+          sourceCode: Webcast
+          durationSecs: 5.962133916683182
+          fileSize: 6.027456183070403
+          startOffsetSeconds: 5.637376656633329
+          startTime: startTime
+          endTime: endTime
+          trimmed: true
+        - fileName: fileName
+          ticker: ticker
+          reportId: 0
+          audioSourceId: 1
+          endOffsetSeconds: 2.3021358869347655
+          entityId: entityId
+          bitrate: 9.301444243932576
+          uploadTime: uploadTime
+          sampleRate: 7.061401241503109
+          url: url
+          sourceCode: Webcast
+          durationSecs: 5.962133916683182
+          fileSize: 6.027456183070403
+          startOffsetSeconds: 5.637376656633329
+          startTime: startTime
+          endTime: endTime
+          trimmed: true
+        meta:
+          pagination:
+            total: 3
+            isEstimatedTotal: true
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/EventsAudioDailyObject'
+          type: array
+        meta:
+          $ref: '#/components/schemas/EventsAudioDaily_meta'
+      type: object
+    EventsAudioDailyObject:
+      example:
+        fileName: fileName
+        ticker: ticker
+        reportId: 0
+        audioSourceId: 1
+        endOffsetSeconds: 2.3021358869347655
+        entityId: entityId
+        bitrate: 9.301444243932576
+        uploadTime: uploadTime
+        sampleRate: 7.061401241503109
+        url: url
+        sourceCode: Webcast
+        durationSecs: 5.962133916683182
+        fileSize: 6.027456183070403
+        startOffsetSeconds: 5.637376656633329
+        startTime: startTime
+        endTime: endTime
+        trimmed: true
+      properties:
+        reportId:
+          description: |-
+            The unique ID of the audio file for an event. The same ID is used for the transcript of the same event.
+            This report ID can also be used to map to the Event details in SDF tables.
+          type: integer
+        fileName:
+          description: The filename of the audio file.
+          type: string
+        url:
+          description: A pre-signed URL that allows downloading the audio file, expiring
+            after 24 hours.
+          type: string
+        fileSize:
+          description: Size of the Audio file, in bytes.
+          type: number
+        audioSourceId:
+          description: |-
+            Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (Phone or Webcast or Vendor or Replay). One ReportID can have multiple AudioSourceIDs.
+
+            The audioSourceId identifier is available for audio calls since November 29, 2022.
+            Only un-trimmed audio files contain an audioSourceId value. All the vendor and trimmed audio files will have an audioSourceId value of null.
+          nullable: true
+          type: integer
+        ticker:
+          description: Ticker-region identifier for the company hosting the event.
+          nullable: true
+          type: string
+        entityId:
+          description: FactSet entity level identifier for the company hosting the
+            event.
+          type: string
+        sourceCode:
+          description: |-
+            This parameter filters the results based on Source of the Audio file. Below are the descriptions for each Source Code -
+            * Phone = Originated from phone call
+            * Webcast = Originated from a webcast
+            * Vendor = Received from vendor
+            * WebcastReplay = Replay of a webcast
+            * Flash = Identical to webcast; can merge with "Webcast" in the future
+            * Replay = Phone replay
+          enum:
+          - Webcast
+          - Vendor
+          - WebcastReplay
+          - Flash
+          - Replay
+          - Phone
+          example: Webcast
+          type: string
+        trimmed:
+          description: "\nThe trimmed attribute indicates whether the audio is the\
+            \ trimmed version. If `sourceCode` is set to vendor, this attribute will\
+            \ always be true.\n  \n"
+          type: boolean
+        durationSecs:
+          description: Total duration of the recording in seconds based on startOffsetSeconds
+            to endOffsetSeconds.
+          nullable: true
+          type: number
+        startOffsetSeconds:
+          description: The delta in seconds between start of audio file to when FactSet
+            marks the beginning of the call.
+          nullable: true
+          type: number
+        endOffsetSeconds:
+          description: The delta in seconds between startTime to when FactSet marks
+            the end of the call.
+          nullable: true
+          type: number
+        startTime:
+          description: The official timestamp when FactSet begins the recording.
+          nullable: true
+          type: string
+        endTime:
+          description: The official timestamp when FactSet ends the recording.
+          nullable: true
+          type: string
+        uploadTime:
+          description: The official timestamp when FactSet publishes the audio file
+            externally.
+          nullable: true
+          type: string
+        sampleRate:
+          description: The number of samples of audio carried per second in Kbps.
+          nullable: true
+          type: number
+        bitrate:
+          description: The total number of bits of information stored per second of
+            sound in Kbps.
+          nullable: true
+          type: number
+      type: object
+    EventsAudioHistory:
+      example:
+        data:
+          fileName: fileName
+          year: 0
+          fileSize: 6
+          trimmed: true
+          url: url
+      properties:
+        data:
+          $ref: '#/components/schemas/EventsAudioHistory_data'
+      type: object
+    Error:
+      description: specifies the error message fields in the response
+      properties:
+        errors:
+          description: Collection of any encountered errors
+          items:
+            $ref: '#/components/schemas/ErrorExample'
+          type: array
+      type: object
+    ErrorExample:
+      description: Specifies the fields in the error message
+      properties:
+        code:
+          description: It specifies the unique code
+          type: string
+        title:
+          description: ' Specifies the error message'
+          type: string
+        id:
+          description: Specifies the id
+          type: string
+      type: object
+    IndexedNrt:
+      description: Indexed transcript metadata of active calls happening at that moment
+        are returned.
+      example:
+        data:
+        - '{}'
+        - '{}'
+        meta:
+          pagination:
+            total: 1
+            isEstimatedTotal: true
+      properties:
+        data:
+          items:
+            properties:
+              reportId:
+                description: The unique ID for an event.
+                type: integer
+              snippetEndTimestamp:
+                description: The snippet end time is calculated based off the endTime
+                  in the snippetData section and the recordingStartTime from the calls
+                  endpoint.
+                format: date-time
+                type: string
+              snippetSequence:
+                description: The sequence number of the snippet from the start of
+                  the current call.
+                type: integer
+              audioSourceId:
+                description: The Unique ID for an Internal recording specific to reportID.
+                  For example, ReportID X would have multiple recordings from a different
+                  source (dial-in or webcast). One ReportID can have multiple audioSourceIDs.
+                type: integer
+              transcriptData:
+                items:
+                  properties:
+                    indexedData:
+                      items:
+                        properties:
+                          index:
+                            items:
+                              properties:
+                                confidence:
+                                  description: Represents the confidence with which
+                                    the speech to text recognition engine predicts.
+                                    1 represents 100% confidence about the content.
+                                  type: number
+                                content:
+                                  description: It denotes the spoken content.
+                                  type: string
+                                language:
+                                  description: It denotes the spoken language. Its
+                                    always english.
+                                  type: string
+                            type: array
+                          endTime:
+                            description: The number of seconds into the call, when
+                              the content ends.
+                            type: number
+                          startTime:
+                            description: The number of seconds into the call, when
+                              the content begins.
+                            type: number
+                          type:
+                            description: |-
+                              It denotes the type of content.
+                              Values- Punctuation, Word, SpeakerChange
+                            enum:
+                            - Punctuation
+                            - Word
+                            - SpeakerChange
+                            type: string
+                          isEndOfSentence:
+                            description: "\nThis parameter indicates if the current\
+                              \ content signifies the end of a sentence. It returns\
+                              \ true when the type is punctuation and the content\
+                              \ is a period '.'. It does not return true if a sentence\
+                              \ ends with a question mark or an exclamation mark.\n\
+                              \n                                "
+                            type: boolean
+                      type: array
+                    snippetData:
+                      properties:
+                        transcript:
+                          description: The actual transcript snippet.
+                          type: string
+                        endTime:
+                          description: The number of seconds into the call,when the
+                            transcript snippet ended.
+                          type: number
+                        startTime:
+                          description: The number of seconds into the call,when the
+                            transcript snippet started.
+                          type: number
+                      type: object
+                type: array
+          type: array
+        meta:
+          $ref: '#/components/schemas/NrtCalls_meta'
+      type: object
+    CompanyEventRequest:
+      example:
+        data:
+          dateTime:
+            start: 2022-12-01T00:00:00Z
+            end: 2022-12-31T22:59:02Z
+          universe:
+            type: Tickers
+            symbols:
+            - AAPL-US
+            - MSFT-US
+            - FDS-US
+          eventTypes:
+          - Earnings
+          - Earnings
+      properties:
+        data:
+          $ref: '#/components/schemas/CompanyEventRequest_data'
+      type: object
+    CompanyEventResponse:
+      example:
+        data:
+        - eventDateTime: 2023-01-01T00:00:00Z
+          eventId: "1200867930"
+          ticker: AAPL-US
+          contactEmail: jdoe@apple.com
+          contactName: John Doe
+          companyName: Apple, Inc.
+          description: Q2 2023 Earnings Release (Projected)
+          eventType: Earnings
+          irLink: investor.apple.com/investor-relations/default.aspx
+          marketTimeCode: Unspecified
+          fiscalPeriod: "1"
+          contactPhone: 1(888)227.0303
+          webcastLink: ""
+          fiscalYear: "2023"
+        - eventDateTime: 2023-01-01T00:00:00Z
+          eventId: "1200867930"
+          ticker: AAPL-US
+          contactEmail: jdoe@apple.com
+          contactName: John Doe
+          companyName: Apple, Inc.
+          description: Q2 2023 Earnings Release (Projected)
+          eventType: Earnings
+          irLink: investor.apple.com/investor-relations/default.aspx
+          marketTimeCode: Unspecified
+          fiscalPeriod: "1"
+          contactPhone: 1(888)227.0303
+          webcastLink: ""
+          fiscalYear: "2023"
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/CompanyEventResponseObject'
+          type: array
+      type: object
+    CompanyEventResponseObject:
+      example:
+        eventDateTime: 2023-01-01T00:00:00Z
+        eventId: "1200867930"
+        ticker: AAPL-US
+        contactEmail: jdoe@apple.com
+        contactName: John Doe
+        companyName: Apple, Inc.
+        description: Q2 2023 Earnings Release (Projected)
+        eventType: Earnings
+        irLink: investor.apple.com/investor-relations/default.aspx
+        marketTimeCode: Unspecified
+        fiscalPeriod: "1"
+        contactPhone: 1(888)227.0303
+        webcastLink: ""
+        fiscalYear: "2023"
+      properties:
+        ticker:
+          description: Ticker-region identifier for the company hosting the event.
+          example: AAPL-US
+          type: string
+        companyName:
+          description: The official name of the company.
+          example: Apple, Inc.
+          type: string
+        description:
+          description: Brief description of the event.
+          example: Q2 2023 Earnings Release (Projected)
+          type: string
+        eventDateTime:
+          description: Event start time as date/time string according to ISO 8601.
+          example: 2023-01-01T00:00:00Z
+          format: date-time
+          type: string
+        marketTimeCode:
+          description: Timing code related to opening or closing of market.
+          example: Unspecified
+          type: string
+        eventType:
+          description: Type/Category of the event based on a predefined list.
+          enum:
+          - Earnings
+          - SalesRevenueCall
+          - GuidanceCall
+          - AnalystsInvestorsMeeting
+          - ShareholdersMeeting
+          - SpecialSituation
+          - ConferencePresentation
+          - ConfirmedEarningsRelease
+          - SalesRevenueRelease
+          - ProjectedEarningsRelease
+          - Split
+          - Dividend
+          example: Earnings
+          type: string
+        eventId:
+          description: Unique identifier for the event.
+          example: "1200867930"
+          type: string
+        webcastLink:
+          description: Link to the webcast of the event.
+          example: ""
+          type: string
+        irLink:
+          description: Link to the ir page of the company.
+          example: investor.apple.com/investor-relations/default.aspx
+          type: string
+        fiscalYear:
+          description: The fiscal year of the company to which the event pertains.
+          example: "2023"
+          type: string
+        fiscalPeriod:
+          description: The fiscal period of the company to which the event pertains.
+          example: "1"
+          type: string
+        contactEmail:
+          description: Contact email for inquiries related to the event.
+          example: jdoe@apple.com
+          type: string
+        contactPhone:
+          description: Contact phone number for inquiries related to the event.
+          example: 1(888)227.0303
+          type: string
+        contactName:
+          description: Name of the contact person for queries related to the event.
+          example: John Doe
+          type: string
+      type: object
+    Transcripts_meta_pagination:
+      description: Pagination Object
+      example:
+        total: 0
+        isEstimatedTotal: true
+      properties:
+        isEstimatedTotal:
+          description: This field acts as a flag for the exact count of results and
+            is defaulted to false as the API should always return the exact count
+            of results.
+          type: boolean
+        total:
+          description: Total number of files the API returns for a particular query.
+          type: integer
+      type: object
+    Transcripts_meta:
+      description: Meta Object
+      example:
+        pagination:
+          total: 0
+          isEstimatedTotal: true
+      properties:
+        pagination:
+          $ref: '#/components/schemas/Transcripts_meta_pagination'
+      type: object
+    TranscriptsOne_meta_pagination:
+      description: Pagination Object
+      example:
+        total: 0
+        isEstimatedTotal: true
+      properties:
+        isEstimatedTotal:
+          description: 'This field acts as a flag for the exact count of results and
+            is defaulted to false as the API should always return the exact count
+            of results.             '
+          type: boolean
+        total:
+          description: Total number of files the API returns for a particular query.
+          type: integer
+      type: object
+    TranscriptsOne_meta:
+      description: Meta Object
+      example:
+        pagination:
+          total: 0
+          isEstimatedTotal: true
+      properties:
+        pagination:
+          $ref: '#/components/schemas/TranscriptsOne_meta_pagination'
+      type: object
+    NrtCalls_meta_pagination:
+      example:
+        total: 1
+        isEstimatedTotal: true
+      properties:
+        total:
+          description: Total number for results returned for a specific query.
+          type: integer
+        isEstimatedTotal:
+          description: This field acts as a flag for the exact count of results and
+            is defaulted to false as the API should always return the exact count
+            of results.
+          type: boolean
+      type: object
+    NrtCalls_meta:
+      example:
+        pagination:
+          total: 1
+          isEstimatedTotal: true
+      properties:
+        pagination:
+          $ref: '#/components/schemas/NrtCalls_meta_pagination'
+      type: object
+    NrtSpeakerIds_meta_pagination:
+      example:
+        total: 5
+        isEstimatedTotal: true
+      properties:
+        total:
+          description: Total number of results the API returns for a particular query.
+          type: integer
+        isEstimatedTotal:
+          description: Boolean value that represents whether the total count of results
+            returned is exact or an estimate. This is defaulted to False as the API
+            should always return the exact count.
+          type: boolean
+      type: object
+    NrtSpeakerIds_meta:
+      example:
+        pagination:
+          total: 5
+          isEstimatedTotal: true
+      properties:
+        pagination:
+          $ref: '#/components/schemas/NrtSpeakerIds_meta_pagination'
+      type: object
+    EventsAudioDailyFileName_data:
+      example:
+        fileName: fileName
+        ticker: ticker
+        reportId: 0
+        audioSourceId: 1
+        endOffsetSeconds: 2.3021358869347655
+        entityId: entityId
+        bitrate: 9.301444243932576
+        uploadTime: uploadTime
+        sampleRate: 7.061401241503109
+        url: url
+        sourceCode: Webcast
+        durationSecs: 5.962133916683182
+        fileSize: 6.027456183070403
+        startOffsetSeconds: 5.637376656633329
+        startTime: startTime
+        endTime: endTime
+        trimmed: true
+      properties:
+        reportId:
+          description: |-
+            The unique ID of the audio file for an event. The same ID is used for the transcript of the same event.
+            This report ID can also be used to map to the Event details in SDF tables.
+          type: integer
+        fileName:
+          description: The filename of the audio file.
+          type: string
+        url:
+          description: A pre-signed URL that allows downloading the audio file, expiring
+            after 24 hours.
+          type: string
+        fileSize:
+          description: Size of the Audio file, in bytes.
+          type: number
+        audioSourceId:
+          description: |-
+            Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (Phone or Webcast or Vendor or Replay). One ReportID can have multiple AudioSourceIDs.
+
+            The audioSourceId identifier is available for audio calls since November 29, 2022.
+            Only un-trimmed audio files contain an audioSourceId value. All the vendor and trimmed audio files will have an audioSourceId value of null.
+          nullable: true
+          type: integer
+        ticker:
+          description: Ticker-region identifier for the company hosting the event.
+          nullable: true
+          type: string
+        entityId:
+          description: FactSet entity level identifier for the company hosting the
+            event.
+          type: string
+        sourceCode:
+          description: |-
+            This parameter filters the results based on Source of the Audio file. Below are the descriptions for each Source Code -
+            * Phone = Originated from phone call
+            * Webcast = Originated from a webcast
+            * Vendor = Received from vendor
+            * WebcastReplay = Replay of a webcast
+            * Flash = Identical to webcast; can merge with "Webcast" in the future
+            * Replay = Phone replay
+          enum:
+          - Webcast
+          - Vendor
+          - WebcastReplay
+          - Flash
+          - Replay
+          - Phone
+          example: Webcast
+          type: string
+        trimmed:
+          description: "\nThe trimmed attribute indicates whether the audio is the\
+            \ trimmed version. If `sourceCode` is set to vendor, this attribute will\
+            \ always be true.\n  \n"
+          type: boolean
+        durationSecs:
+          description: Total duration of the recording in seconds based on startOffsetSeconds
+            to endOffsetSeconds.
+          nullable: true
+          type: number
+        startOffsetSeconds:
+          description: The delta in seconds between start of audio file to when FactSet
+            marks the beginning of the call.
+          nullable: true
+          type: number
+        endOffsetSeconds:
+          description: The delta in seconds between startTime to when FactSet marks
+            the end of the call.
+          nullable: true
+          type: number
+        startTime:
+          description: The official timestamp when FactSet begins the recording.
+          nullable: true
+          type: string
+        endTime:
+          description: The official timestamp when FactSet ends the recording.
+          nullable: true
+          type: string
+        uploadTime:
+          description: The official timestamp when FactSet publishes the audio file
+            externally.
+          nullable: true
+          type: string
+        sampleRate:
+          description: The number of samples of audio carried per second in Kbps.
+          nullable: true
+          type: number
+        bitrate:
+          description: The total number of bits of information stored per second of
+            sound in Kbps.
+          nullable: true
+          type: number
+      type: object
+    EventsAudioDaily_meta_pagination:
+      description: "\t\nList of pagination elements"
+      example:
+        total: 3
+        isEstimatedTotal: true
+      properties:
+        total:
+          description: Total number of files the API returns for a particular query.
+          type: integer
+        isEstimatedTotal:
+          description: Boolean value that represents whether the total count of files
+            returned is exact or an estimate. This is defaulted to False as the API
+            should always return the exact count.
+          type: boolean
+      type: object
+    EventsAudioDaily_meta:
+      example:
+        pagination:
+          total: 3
+          isEstimatedTotal: true
+      properties:
+        pagination:
+          $ref: '#/components/schemas/EventsAudioDaily_meta_pagination'
+      type: object
+    EventsAudioHistory_data:
+      example:
+        fileName: fileName
+        year: 0
+        fileSize: 6
+        trimmed: true
+        url: url
+      properties:
+        year:
+          description: The year corresponding to the file containing historical audio
+            recordings that can be downloaded via presigned URL.
+          type: integer
+        trimmed:
+          description: |-
+            True  it signifies that the pre-signed URL for downloading includes trimmed historical audio recordings along with their metadata for a specific year.
+
+            False  it signifies that the pre-signed URL for downloading contains the untrimmed historical audio recordings along with their relevant metadata for a specific year.
+          type: boolean
+        fileName:
+          description: The name of the file.
+          type: string
+        fileSize:
+          description: The size of the file, in bytes.
+          type: integer
+        url:
+          description: A pre-signed URL for downloading historical audio recordings
+            and related metadata of a specific year. The URL provided in the response
+            will expire after 3 hours.
+          type: string
+      type: object
+    CompanyEventRequest_data_dateTime:
+      description: |
+        - Data is available from 2002.
+        - If users provide future dates in requests, the API will not return any data.
+      example:
+        start: 2022-12-01T00:00:00Z
+        end: 2022-12-31T22:59:02Z
+      properties:
+        start:
+          description: Start time of the event in ISO 8601 format. The maximum dateTime
+            limit between start and end is upto 90 days.
+          example: 2022-12-01T00:00:00Z
+          format: date-time
+          type: string
+        end:
+          description: End time of the event in ISO 8601 format. The maximum dateTime
+            limit between start and end is upto 90 days.
+          example: 2022-12-31T22:59:02Z
+          format: date-time
+          type: string
+      required:
+      - end
+      - start
+      type: object
+    CompanyEventRequest_data_universe:
+      example:
+        type: Tickers
+        symbols:
+        - AAPL-US
+        - MSFT-US
+        - FDS-US
+      properties:
+        symbols:
+          description: "Companies to return in the response. \n - Only Tickers type\
+            \ can support multiple entries.\n"
+          example:
+          - AAPL-US
+          - MSFT-US
+          - FDS-US
+          items:
+            type: string
+          type: array
+        type:
+          description: "NOTE:\n - Etf: Requires additionl access to get the data.\
+            \ \n - AllCompanies: While using this, we should not pass any symbols\
+            \ in the symbols field.\n"
+          enum:
+          - Tickers
+          - Index
+          - Etf
+          - AllCompanies
+          example: Tickers
+          type: string
+      required:
+      - symbols
+      - type
+      type: object
+    CompanyEventRequest_data:
+      example:
+        dateTime:
+          start: 2022-12-01T00:00:00Z
+          end: 2022-12-31T22:59:02Z
+        universe:
+          type: Tickers
+          symbols:
+          - AAPL-US
+          - MSFT-US
+          - FDS-US
+        eventTypes:
+        - Earnings
+        - Earnings
+      properties:
+        dateTime:
+          $ref: '#/components/schemas/CompanyEventRequest_data_dateTime'
+        universe:
+          $ref: '#/components/schemas/CompanyEventRequest_data_universe'
+        eventTypes:
+          description: The type of events returned in the response
+          items:
+            enum:
+            - Earnings
+            - SalesRevenueCall
+            - GuidanceCall
+            - AnalystsInvestorsMeeting
+            - ShareholdersMeeting
+            - SpecialSituation
+            - Conference
+            - ConfirmedEarningsRelease
+            - ProjectedEarningsRelease
+            - SalesRevenueRelease
+            - Split
+            - Dividend
+            example: Earnings
+            type: string
+          type: array
+      required:
+      - dateTime
+      - universe
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

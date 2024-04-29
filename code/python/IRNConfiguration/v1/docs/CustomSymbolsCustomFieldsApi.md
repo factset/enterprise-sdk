@@ -61,7 +61,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_symbols___custom_fields_api.CustomSymbolsCustomFieldsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     create_custom_symbol_custom_field_dto = CreateCustomSymbolCustomFieldDto(
         code="code_example",
         name="name_example",
@@ -173,7 +173,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_symbols___custom_fields_api.CustomSymbolsCustomFieldsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     custom_symbol_custom_field_id = "customSymbolCustomFieldId_example" # str | customSymbolCustomFieldId to delete associated record
 
     try:
@@ -267,7 +267,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_symbols___custom_fields_api.CustomSymbolsCustomFieldsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     custom_symbol_custom_field_id = "customSymbolCustomFieldId_example" # str | customSymbolCustomFieldId to get associated record
 
     try:
@@ -361,6 +361,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_symbols___custom_fields_api.CustomSymbolsCustomFieldsApi(api_client)
 
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
 
     try:
         # Get all the Custom symbol custom fields
@@ -448,9 +449,8 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_symbols___custom_fields_api.CustomSymbolsCustomFieldsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     custom_symbol_custom_field_id = "customSymbolCustomFieldId_example" # str | customSymbolCustomFieldId to update associated record
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     operation = [
         Operation(
             operation_type=OperationType(0),

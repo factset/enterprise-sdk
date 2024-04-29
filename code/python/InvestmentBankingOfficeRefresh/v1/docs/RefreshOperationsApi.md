@@ -61,7 +61,7 @@ with fds.sdk.InvestmentBankingOfficeRefresh.ApiClient(configuration) as api_clie
     # Create an instance of the API class
     api_instance = refresh_operations_api.RefreshOperationsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | Unique identifier for the job (resource ID returned from FactSet).
 
     try:
@@ -91,7 +91,10 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**file_type**
+The endpoint generates varying objects correlating with the successful status code, encapsulated within a response wrapper housing the appropriate object. The response wrapper includes the subsequent response types:
+- **200**: **file_type**
+- **202**: **JobStatus**
+
 
 ### Authorization
 
@@ -167,7 +170,7 @@ with fds.sdk.InvestmentBankingOfficeRefresh.ApiClient(configuration) as api_clie
     # Create an instance of the API class
     api_instance = refresh_operations_api.RefreshOperationsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | Unique identifier for the job (resource ID returned from FactSet).
 
     try:
@@ -266,13 +269,10 @@ with fds.sdk.InvestmentBankingOfficeRefresh.ApiClient(configuration) as api_clie
     # Create an instance of the API class
     api_instance = refresh_operations_api.RefreshOperationsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     body = open('/path/to/file', 'rb') # file_type | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     now_handling_enabled = True # bool | Return \\#VALUE for =FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     refresh_auto_filters = True # bool | Option to refresh =FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is false.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     resize_arrays = True # bool | Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)
 
     try:

@@ -137,8 +137,8 @@ class DateTimePeriod(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            start (datetime): The date for (or from which) the data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format. . [optional]  # noqa: E501
-            end (datetime): The date to which data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format. . [optional]  # noqa: E501
+            start (datetime): The date for (or from which) the data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format.  . [optional]  # noqa: E501
+            end (datetime): The date to which data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format. end time is interpreted in the local timezone as the selected exchange. . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -220,8 +220,8 @@ class DateTimePeriod(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            start (datetime): The date for (or from which) the data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format. . [optional]  # noqa: E501
-            end (datetime): The date to which data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format. . [optional]  # noqa: E501
+            start (datetime): The date for (or from which) the data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format.  . [optional]  # noqa: E501
+            end (datetime): The date to which data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format. end time is interpreted in the local timezone as the selected exchange. . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

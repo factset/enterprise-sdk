@@ -60,7 +60,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = contacts___relationships_api.ContactsRelationshipsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     relationship_save_dto = RelationshipSaveDto(
         relationship_category_id="relationship_category_id_example",
         relationship_code="relationship_code_example",
@@ -164,7 +164,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = contacts___relationships_api.ContactsRelationshipsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     relationship_id = "relationshipId_example" # str | relationshipId to delete associated record
 
     try:
@@ -258,9 +258,8 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = contacts___relationships_api.ContactsRelationshipsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     relationship_id = "relationshipId_example" # str | relationshipId to update associated record
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     relationship_save_dto = RelationshipSaveDto(
         relationship_category_id="relationship_category_id_example",
         relationship_code="relationship_code_example",
@@ -365,7 +364,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = contacts___relationships_api.ContactsRelationshipsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     type = RelationshipType(0) # RelationshipType |  (optional)
 
     try:

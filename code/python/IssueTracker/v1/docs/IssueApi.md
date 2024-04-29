@@ -61,7 +61,7 @@ with fds.sdk.IssueTracker.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = issue_api.IssueApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str |   ID of Issue Tracker issue
 
     try:
@@ -159,7 +159,7 @@ with fds.sdk.IssueTracker.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = issue_api.IssueApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     issue_request = IssueRequest(
         data=IssueRequestData(
             subject="subject_example",
@@ -265,9 +265,8 @@ with fds.sdk.IssueTracker.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = issue_api.IssueApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | ID of Issue Tracker issue
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     comment_request = CommentRequest(
         data=CommentRequestData(
             content="content_example",

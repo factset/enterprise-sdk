@@ -64,7 +64,7 @@ with fds.sdk.StreetAccountNews.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = views_api.ViewsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     quick_alerts_body = QuickAlertsBody(
         data=QuickAlertsBodyData(
             name="StreetAccount News",
@@ -167,7 +167,7 @@ with fds.sdk.StreetAccountNews.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = views_api.ViewsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     create_or_edit_view_body = CreateOrEditViewBody(
         data=CreateOrEditViewBodyData(
             name="SA News View",
@@ -291,7 +291,7 @@ with fds.sdk.StreetAccountNews.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = views_api.ViewsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     quick_alerts_body = QuickAlertsBody(
         data=QuickAlertsBodyData(
             name="StreetAccount News",
@@ -393,7 +393,7 @@ with fds.sdk.StreetAccountNews.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = views_api.ViewsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     delete_view_body = DeleteViewBody(
         data=DeleteViewBodyData(
             name="SA News View",
@@ -495,7 +495,7 @@ with fds.sdk.StreetAccountNews.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = views_api.ViewsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     create_or_edit_view_body = CreateOrEditViewBody(
         data=CreateOrEditViewBodyData(
             name="SA News View",
@@ -618,6 +618,7 @@ with fds.sdk.StreetAccountNews.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = views_api.ViewsApi(api_client)
 
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
 
     try:
         # Retrieves StreetAccount search views

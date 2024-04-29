@@ -60,7 +60,7 @@ with fds.sdk.FactSetEntity.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = entity_reference_chinese_api.EntityReferenceChineseApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     ids = ["05X6LC-E","062T6N-E"] # [str] | The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, BBGs or FactSet Permanent Ids, such as -R, -L, or -E.<p>**Max Ids Limit set to 1500 in a single request**</p>   *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,       which may lead to exceeding this request line limit of 8KB, its       advised for any requests with large request lines to be requested through       the respective \\\"POST\\\" method.</p>* 
 
     try:
@@ -159,7 +159,7 @@ with fds.sdk.FactSetEntity.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = entity_reference_chinese_api.EntityReferenceChineseApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     entity_reference_chi_request = EntityReferenceChiRequest(
         ids=IdsChi(["05X6LC-E","062T6N-E"]),
     ) # EntityReferenceChiRequest | Request Body to request a list of Entity Reference Chinese objects.

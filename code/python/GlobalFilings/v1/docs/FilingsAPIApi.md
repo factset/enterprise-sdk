@@ -64,13 +64,10 @@ with fds.sdk.GlobalFilings.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = filings_api_api.FilingsAPIApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     sources = ["EDG"] # [str] | Code for document source to include.This is a comma-separated list. Use the ```/reference/sources``` endpoint to get the list of available sources.  
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     start_date = "20231222" # str | Start Date. Format is YYYYMMDD or relative +/- days (0,-1,etc).  **Note:** **The API supports data from 1995 onwards. Ensure that the provided Date falls within this range for accurate results.**  (optional) if omitted the server will use the default value of "0"
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     end_date = "20231223" # str | End Date. Format is YYYYMMDD or relative +/- days (0,-1,etc). (optional) if omitted the server will use the default value of "0"
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     ids = ["MODN-US"] # [str] | Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. (optional)
 
     try:
@@ -172,31 +169,19 @@ with fds.sdk.GlobalFilings.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = filings_api_api.FilingsAPIApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     sources = ["EDG"] # [str] | Code for document source to include.  This is a comma-separated list. Use the ```/reference/sources``` endpoint to get the list of available sources.
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     ids = ["MODN-US"] # [str] | Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     start_date = "20231222" # str | Start Date. Format is YYYYMMDD or relative +/- days (0,-1,etc).  **Note:** **The API supports data from 1995 onwards. Ensure that the provided Date falls within this range for accurate results.**  (optional) if omitted the server will use the default value of "0"
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     end_date = "20231223" # str | End Date. Format is YYYYMMDD or relative +/- days (0,-1,etc). (optional) if omitted the server will use the default value of "0"
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_limit = 20 # int | Number of results to return per page. (optional) if omitted the server will use the default value of 25
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_offset = 1 # int | Page number of the results to return. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     time_zone = "America/New_York" # str | timeZone to return story dates and times.Time zones, represented in POSIX format, are automatically adjusted for daylight savings. timeZone names are sourced from the IANA timezone registry. (optional) if omitted the server will use the default value of "America/New_York"
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     sort = "desc" # str | Sorting the results in chronological (oldest to newest) or reverse chronological (newest to oldest) order.    *  desc - sorting results in reverse chronological (descending) order. This is the default value if     the sort parameter isn't used in the query.       *   asc - sorting results in chronological (ascending) order. If a start date is not specified, the    API has a 10-year searching limitation.  (optional) if omitted the server will use the default value of "desc"
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     categories = ["CN:US","LN:EN"] # [str] | Code for categories to include.  This is a comma-separated list. Use the ```/reference/categories``` endpoint to get the list of available categories.  Default = All categories. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     primary_id = False # bool | Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. (optional) if omitted the server will use the default value of False
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     search_text = "Updates" # str | Restricts the search to include only document stories which include the text searched. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     edgar_form_type = "edgarFormType_example" # str | Restricts the search to include any form types of EDGAR.  **Note:This parameter applies exclusively to EDGAR searches; it is ignored when used with non-EDGAR sources.**  (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     edgar_accession = "edgarAccession_example" # str | A unique identifier given to each EDGAR filings document. e.g. accession=0001013237-21-000069&sources=EDG.  **Note:  When used in conjunction with the 'source' parameter set to 'EDGAR', the API considers this accession for data retrieval. For non-EDGAR sources, this parameter is ignored.** (optional)
 
     try:
@@ -307,6 +292,7 @@ with fds.sdk.GlobalFilings.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = filings_api_api.FilingsAPIApi(api_client)
 
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
 
     try:
         # Returns the form types of EDGAR.
@@ -400,6 +386,7 @@ with fds.sdk.GlobalFilings.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = filings_api_api.FilingsAPIApi(api_client)
 
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
 
     try:
         # Returns the sources.
@@ -493,6 +480,7 @@ with fds.sdk.GlobalFilings.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = filings_api_api.FilingsAPIApi(api_client)
 
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
 
     try:
         # Returns the time zones.
@@ -586,6 +574,7 @@ with fds.sdk.GlobalFilings.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = filings_api_api.FilingsAPIApi(api_client)
 
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
 
     try:
         # Returns the categories.

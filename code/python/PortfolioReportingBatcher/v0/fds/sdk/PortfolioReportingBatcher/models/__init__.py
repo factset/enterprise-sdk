@@ -21,6 +21,10 @@ from fds.sdk.PortfolioReportingBatcher.model.id_status import IdStatus
 from fds.sdk.PortfolioReportingBatcher.model.id_status_data import IdStatusData
 from fds.sdk.PortfolioReportingBatcher.model.job_details_response import JobDetailsResponse
 from fds.sdk.PortfolioReportingBatcher.model.job_details_response_data import JobDetailsResponseData
+from fds.sdk.PortfolioReportingBatcher.model.job_list_response import JobListResponse
+from fds.sdk.PortfolioReportingBatcher.model.job_list_response_meta import JobListResponseMeta
+from fds.sdk.PortfolioReportingBatcher.model.job_list_response_meta_pagination import JobListResponseMetaPagination
+from fds.sdk.PortfolioReportingBatcher.model.job_list_response_root import JobListResponseRoot
 from fds.sdk.PortfolioReportingBatcher.model.job_overrides import JobOverrides
 from fds.sdk.PortfolioReportingBatcher.model.job_overrides_combinations_root import JobOverridesCombinationsRoot
 from fds.sdk.PortfolioReportingBatcher.model.job_overrides_dates import JobOverridesDates

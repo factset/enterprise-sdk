@@ -59,6 +59,7 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = documents_api.DocumentsApi(api_client)
 
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
 
     try:
         # Get Vault documents and sub-directories in a directory

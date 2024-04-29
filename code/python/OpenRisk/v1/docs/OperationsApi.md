@@ -60,9 +60,8 @@ with fds.sdk.OpenRisk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = operations_api.OperationsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     version = "v1" # str | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     calculate_from_holdings_request_body = CalculateFromHoldingsRequestBody(
         data=CalculateFromHoldingsRequestData(
             additional_calc_inputs=AdditionalCalculationInputs(
@@ -245,9 +244,8 @@ with fds.sdk.OpenRisk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = operations_api.OperationsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     version = "v1" # str | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     generate_id_mapping_request_body = GenerateIDMappingRequestBody(
         data=GenerateIDMappingRequestData(
             allow_forced_riskless_assets=False,

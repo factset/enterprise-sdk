@@ -59,9 +59,8 @@ with fds.sdk.CapitalStructureReportBuilder.ApiClient(configuration) as api_clien
     # Create an instance of the API class
     api_instance = capital_structure_api.CapitalStructureApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "FDS" # str | Company ticker
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) if omitted the server will use the default value of "table_parent_child_columns"
 
     try:
@@ -162,9 +161,8 @@ with fds.sdk.CapitalStructureReportBuilder.ApiClient(configuration) as api_clien
     # Create an instance of the API class
     api_instance = capital_structure_api.CapitalStructureApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "FDS" # str | Company ticker
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) if omitted the server will use the default value of "table_parent_child_columns"
 
     try:
@@ -265,7 +263,7 @@ with fds.sdk.CapitalStructureReportBuilder.ApiClient(configuration) as api_clien
     # Create an instance of the API class
     api_instance = capital_structure_api.CapitalStructureApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "FDS" # str | Company ticker
 
     try:

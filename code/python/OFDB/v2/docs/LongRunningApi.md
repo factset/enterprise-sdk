@@ -77,9 +77,8 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = long_running_api.LongRunningApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     path = "path_example" # str | Encode database path
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | A unique pickup ID returned by the original request
 
     try:
@@ -180,11 +179,9 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = long_running_api.LongRunningApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     path = "path_example" # str | Encode database path
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     date = 1 # int | Date in YYYYMMDD format
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | A unique pickup ID returned by the original request
 
     try:
@@ -286,13 +283,10 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = long_running_api.LongRunningApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     path = "path_example" # str | Encode database path
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     date = 1 # int | Date in YYYYMMDD format
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     symbol = "symbol_example" # str | Symbol with in the ofdb
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | A unique pickup ID returned by the original request
 
     try:
@@ -394,11 +388,9 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = long_running_api.LongRunningApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     path = "path_example" # str | Encode database path
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     symbol = "symbol_example" # str | Symbol with in the ofdb
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | A unique pickup ID returned by the original request
 
     try:
@@ -499,9 +491,8 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = long_running_api.LongRunningApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     path = "path_example" # str | Encode database path
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | A unique pickup ID returned by the original request
 
     try:
@@ -602,9 +593,8 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = long_running_api.LongRunningApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     path = "path_example" # str | Encode database path
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | A unique pickup ID returned by the original request
 
     try:
@@ -705,9 +695,8 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = long_running_api.LongRunningApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     path = "path_example" # str | Encode database path
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | A unique pickup ID returned by the original request
 
     try:
@@ -808,9 +797,8 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = long_running_api.LongRunningApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     path = "path_example" # str | Encode database path
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | A unique pickup ID returned by the original request
 
     try:
@@ -911,9 +899,8 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = long_running_api.LongRunningApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     path = "path_example" # str | Encode database path
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | A unique pickup ID returned by the original request
 
     try:
@@ -1014,9 +1001,8 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = long_running_api.LongRunningApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     path = "path_example" # str | Encode database path
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | A unique pickup ID returned by the original request
 
     try:
@@ -1117,7 +1103,7 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = long_running_api.LongRunningApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | A unique pickup ID returned by the original request
 
     try:
@@ -1217,9 +1203,8 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = long_running_api.LongRunningApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     path = "path_example" # str | Encode database path
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | A unique pickup ID returned by the original request
 
     try:
@@ -1320,9 +1305,8 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = long_running_api.LongRunningApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     path = "path_example" # str | Encode database path
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | A unique pickup ID returned by the original request
 
     try:
@@ -1423,9 +1407,8 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = long_running_api.LongRunningApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     path = "path_example" # str | Encode database path
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | A unique pickup ID returned by the original request
 
     try:
@@ -1526,11 +1509,9 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = long_running_api.LongRunningApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     path = "path_example" # str | Encode database path
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     date = 1 # int | Date in YYYYMMDD format
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | A unique pickup ID returned by the original request
 
     try:
@@ -1633,9 +1614,8 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = long_running_api.LongRunningApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     path = "path_example" # str | Encode database path
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | A unique pickup ID returned by the original request
 
     try:
@@ -1736,11 +1716,9 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = long_running_api.LongRunningApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     path = "path_example" # str | Encode database path
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     symbol = "symbol_example" # str | Symbol with in the ofdb
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | A unique pickup ID returned by the original request
 
     try:
@@ -1842,9 +1820,8 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = long_running_api.LongRunningApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     path = "path_example" # str | Encode database path
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | A unique pickup ID returned by the original request
 
     try:
@@ -1945,7 +1922,7 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = long_running_api.LongRunningApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | A unique pickup ID returned by the original request
 
     try:

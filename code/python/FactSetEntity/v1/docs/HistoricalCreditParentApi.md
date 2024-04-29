@@ -60,9 +60,8 @@ with fds.sdk.FactSetEntity.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = historical_credit_parent_api.HistoricalCreditParentApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     ids = ["CYQYNL-S","G17920AA0","US40434YTB38"] # [str] | The requested security level Market Identifiers. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet -S Permanent Ids.<p>**Max Ids Limit set to 50 in a single request**</p>   *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,       which may lead to exceeding this request line limit of 8KB, its       advised for any requests with large request lines to be requested through       the respective \\\"POST\\\" method.</p>* 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     as_of_date = "2020-01-01" # str | The date requested for credit parent calculation. Represented in **YYYY-MM-DD** format. If left blank or not specified, the full credit parent history will be returned.  (optional)
 
     try:
@@ -163,7 +162,7 @@ with fds.sdk.FactSetEntity.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = historical_credit_parent_api.HistoricalCreditParentApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     credit_parent_request = CreditParentRequest(
         ids=HcpIds(["CYQYNL-S","G17920AA0","US40434YTB38"]),
         as_of_date="2020-06-30",

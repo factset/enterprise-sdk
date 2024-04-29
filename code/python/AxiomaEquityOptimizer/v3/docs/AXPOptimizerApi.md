@@ -64,7 +64,7 @@ with fds.sdk.AxiomaEquityOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = axp_optimizer_api.AXPOptimizerApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | from url, provided from the location header in the Create and Run Axioma optimization endpoint
 
     try:
@@ -163,7 +163,7 @@ with fds.sdk.AxiomaEquityOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = axp_optimizer_api.AXPOptimizerApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | from url, provided from the location header in the Create and Run Axioma optimization endpoint
 
     try:
@@ -263,9 +263,8 @@ with fds.sdk.AxiomaEquityOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = axp_optimizer_api.AXPOptimizerApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | from url, provided from the location header in the Get Axioma optimization status by id endpoint
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     accept = "Accept_example" # str | Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * (optional)
 
     try:
@@ -367,7 +366,7 @@ with fds.sdk.AxiomaEquityOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = axp_optimizer_api.AXPOptimizerApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | from url, provided from the location header in the Create and Run Axioma optimization endpoint
 
     try:
@@ -468,11 +467,9 @@ with fds.sdk.AxiomaEquityOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = axp_optimizer_api.AXPOptimizerApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     x_fact_set_api_long_running_deadline = 1 # int | Long running deadline in seconds. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     cache_control = "Cache-Control_example" # str | Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     axioma_equity_optimization_parameters_root = AxiomaEquityOptimizationParametersRoot(
         data=AxiomaEquityOptimizationParameters(
             strategy=OptimizerStrategy(
@@ -553,7 +550,10 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ObjectRoot**](ObjectRoot.md)
+The endpoint generates varying objects correlating with the successful status code, encapsulated within a response wrapper housing the appropriate object. The response wrapper includes the subsequent response types:
+- **201**: [**ObjectRoot**](ObjectRoot.md)
+- **202**: [**CalculationInfoRoot**](CalculationInfoRoot.md)
+
 
 ### Authorization
 
@@ -633,13 +633,10 @@ with fds.sdk.AxiomaEquityOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = axp_optimizer_api.AXPOptimizerApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | from url, provided from the location header in the Create and Run Axioma optimization endpoint
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     x_fact_set_api_long_running_deadline = 1 # int | Long running deadline in seconds. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     cache_control = "Cache-Control_example" # str | Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     axioma_equity_optimization_parameters_root = AxiomaEquityOptimizationParametersRoot(
         data=AxiomaEquityOptimizationParameters(
             strategy=OptimizerStrategy(
@@ -721,7 +718,10 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ObjectRoot**](ObjectRoot.md)
+The endpoint generates varying objects correlating with the successful status code, encapsulated within a response wrapper housing the appropriate object. The response wrapper includes the subsequent response types:
+- **201**: [**ObjectRoot**](ObjectRoot.md)
+- **202**: [**CalculationInfoRoot**](CalculationInfoRoot.md)
+
 
 ### Authorization
 

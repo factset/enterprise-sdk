@@ -1,14 +1,14 @@
 {
   "packageName": "fds.sdk.FactSetESG",
   "projectName": "fds.sdk.FactSetESG",
-  "packageVersion": "1.2.3",
+  "packageVersion": "1.3.0",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache License, Version 2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "packageDescription": "FactSet ESG client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/FactSetESG/v1",
-  "httpUserAgent": "fds-sdk/python/FactSetESG/1.2.3",
+  "httpUserAgent": "fds-sdk/python/FactSetESG/1.3.0",
   "files": {
     "LICENSE": {}
   }

@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.FactSetTickHistory.Client.OpenAPIDateCo
 namespace FactSet.SDK.FactSetTickHistory.Model
 {
     /// <summary>
-    /// Date-Time &lt;p&gt; NOTE: Using start and end parameters within dateTimeRange will fetch the data on particular days in between the timestamps given.&lt;/p&gt;. 
+    ///  NOTE:       - Using start and end parameters within dateTimeRange will fetch the data on particular days in between the timestamps given.      - The start and end times are processed as the local time of the factsetExchangeCode provided. Please refer to the **Data Model User Guide** for time zone to exchange mappings. 
     /// </summary>
     [DataContract(Name = "dateTimePeriod")]
     public partial class DateTimePeriod : IEquatable<DateTimePeriod>, IValidatableObject
@@ -35,8 +35,8 @@ namespace FactSet.SDK.FactSetTickHistory.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DateTimePeriod" /> class.
         /// </summary>
-        /// <param name="start">The date for (or from which) the data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format. .</param>
-        /// <param name="end">The date to which data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format. .</param>
+        /// <param name="start">The date for (or from which) the data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format.  .</param>
+        /// <param name="end">The date to which data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format. end time is interpreted in the local timezone as the selected exchange. .</param>
         public DateTimePeriod(DateTime start = default(DateTime), DateTime end = default(DateTime))
         {
             this.Start = start;
@@ -44,16 +44,16 @@ namespace FactSet.SDK.FactSetTickHistory.Model
         }
 
         /// <summary>
-        /// The date for (or from which) the data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format. 
+        /// The date for (or from which) the data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format.  
         /// </summary>
-        /// <value>The date for (or from which) the data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format. </value>
+        /// <value>The date for (or from which) the data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format.  </value>
         [DataMember(Name = "start", EmitDefaultValue = false)]
         public DateTime Start { get; set; }
 
         /// <summary>
-        /// The date to which data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format. 
+        /// The date to which data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format. end time is interpreted in the local timezone as the selected exchange. 
         /// </summary>
-        /// <value>The date to which data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format. </value>
+        /// <value>The date to which data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format. end time is interpreted in the local timezone as the selected exchange. </value>
         [DataMember(Name = "end", EmitDefaultValue = false)]
         public DateTime End { get; set; }
 

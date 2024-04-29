@@ -59,7 +59,7 @@ with fds.sdk.FactSetFundamentals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fact_set_fundamentals_api.FactSetFundamentalsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     fundamentals_request = FundamentalsRequest(
         data=FundamentalRequestBody(
             ids=IdsBatchMax30000(["FDS-US"]),
@@ -102,7 +102,10 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FundamentalsResponse**](FundamentalsResponse.md)
+The endpoint generates varying objects correlating with the successful status code, encapsulated within a response wrapper housing the appropriate object. The response wrapper includes the subsequent response types:
+- **200**: [**FundamentalsResponse**](FundamentalsResponse.md)
+- **202**: [**BatchStatusResponse**](BatchStatusResponse.md)
+
 
 ### Authorization
 

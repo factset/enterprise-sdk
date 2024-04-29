@@ -59,6 +59,7 @@ with fds.sdk.ChartGenerationService.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = chart_templates_api.ChartTemplatesApi(api_client)
 
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
 
     try:
         # Get a list of chart categories
@@ -149,9 +150,8 @@ with fds.sdk.ChartGenerationService.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = chart_templates_api.ChartTemplatesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     categories = "categories_example" # str | A comma delimited string of catgory names to limit the response to certain categories. If nothing is provided, all charts under every category would be listed out. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     type = "json" # str | return type of the response (optional)
 
     try:
@@ -246,35 +246,21 @@ with fds.sdk.ChartGenerationService.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = chart_templates_api.ChartTemplatesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     chart = "Equity/RSI" # str | Path to the saved chart. For any of the default charts, the option should be `categoryName + '/' + chartName`. For charts under the Client or Personal directories, the option should be `directoryName + ':/' + pathTotheChart`.  
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     ids = "FDS,AAPL" # str | List of identifiers to be charted in a comma(,) separated string. Only the first one would be considered as primary and rest would be added as comps. Check the catalog for more information on which charts require a ticker. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     sd = "-1Y" # str | Option for overriding the startDate of the chart. For absolute dates provide a string in `YYYYMMDD` format. We can also specify relative date options (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     ed = "0" # str | Option for overriding the endDate of the chart. For absolute dates provide a string in `YYYYMMDD` format. We can also specify relative date options (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     width = 600 # int | Option for setting the width of the image (optional) if omitted the server will use the default value of 1056
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     height = 500 # int | Option for setting the height of the image (optional) if omitted the server will use the default value of 816
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     freq = "D" # str | A shorthand string for the overall frequency of the chart like `D` (daily), `W` (weekly), `Y` (yearly) and `Q` (Quarterly). This will default to frequency stored in the document. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     ccy = "USD" # str | Currency ISO code for the overall currency of the chart. The API doesn't allow per series currency at this point in time. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     split = "SPLIT" # str | Option to specify the splits adjustment (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     spin = 1 # float | Numeric option to specify the spinOffs adjustment. Possible options include `0` (When we only want spits adjustment), `1` (spinOffs), `4` (spinOffs and cash dividends) and `9` (No adjustments) (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     cal = "local" # str | Option for the calendarType of the chart (optional) if omitted the server will use the default value of "local"
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     title = "title_example" # str | Option to customize the title. If you don't customize the title, then it displays by default the security name. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     font_size = 10 # float | Option to adjust chart's fontSize (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     type = "png" # str | The type of image to be generated by the service (optional) if omitted the server will use the default value of "png"
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     grid_lines = False # bool | Option to toggle gridLines on/off on the chart (optional) if omitted the server will use the default value of True
 
     try:

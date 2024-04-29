@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-standarddatafeed",
-  "version": "0.40.0",
+  "version": "0.40.1",
   "description": "Standard Datafeed client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",

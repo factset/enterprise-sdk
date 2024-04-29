@@ -61,7 +61,7 @@ with fds.sdk.FactSetOptions.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = risk_measures_api.RiskMeasuresApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     atm_implied_volatility_request = AtmImpliedVolatilityRequest(
         ids=UnderlyingIds(["TSLA-US"]),
         start_date="2021-05-09",
@@ -167,7 +167,7 @@ with fds.sdk.FactSetOptions.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = risk_measures_api.RiskMeasuresApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     greeks_request = GreeksRequest(
         ids=OptionIds(["TSLA.US#CD33M-USA"]),
         start_date="2021-05-09",
@@ -273,7 +273,7 @@ with fds.sdk.FactSetOptions.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = risk_measures_api.RiskMeasuresApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     implied_volatility_request = ImpliedVolatilityRequest(
         ids=OptionIds(["TSLA.US#CD33M-USA"]),
         start_date="2021-05-09",

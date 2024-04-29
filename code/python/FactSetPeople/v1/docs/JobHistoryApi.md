@@ -60,13 +60,10 @@ with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = job_history_api.JobHistoryApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     ids = ["0DPHLH-E","07MZV9-E"] # [str] | List of FactSet Person Entity identifier.
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     status = "ALL" # str | Select only Jobs with a certain status primary, active, or inactive. (optional) if omitted the server will use the default value of "ALL"
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     level = "DETAIL" # str | Select the level of detail only main Jobs or include other Jobs at a company. (optional) if omitted the server will use the default value of "DETAIL"
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     type = "ALL" # str | Select only Jobs of a certain type board member or employee. (optional) if omitted the server will use the default value of "ALL"
 
     try:
@@ -169,7 +166,7 @@ with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = job_history_api.JobHistoryApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     people_jobs_request = PeopleJobsRequest(
         ids=Ids(["0DPHLH-E"]),
         status=Status("ALL"),

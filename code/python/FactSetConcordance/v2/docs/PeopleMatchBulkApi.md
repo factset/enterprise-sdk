@@ -61,11 +61,9 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = people_match___bulk_api.PeopleMatchBulkApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     task_id = 31589 # int | Concordance Task Identifier. The taskId is created in response from the /people-task endpoint.
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     offset = 0 # int | Starting row for records to return or rows to skip. (optional) if omitted the server will use the default value of 0
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     limit = 10 # int | Limits the number of records in the response. (optional)
 
     try:
@@ -167,33 +165,21 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = people_match___bulk_api.PeopleMatchBulkApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     universe_id = 1 # int | The id of the universe that entities should be mapped to. Reference the `/universe` endpoint to create a universe, or view available universes via `/universes`.
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     task_name = "test31" # str | User defined name for the task that will be used to name the output files.
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     input_file = open('/path/to/file', 'rb') # file_type | The UTF-8 encoded CSV File containing the entity names to be concorded to a FactSet Entity Identifier. The files first row **MUST** include headers as defined in the *Column parameters. Be mindful of casing and spacing in column headers. The input file is posted as a file object in the form. For this reason, the mime type of this post request must be multipart/form-data. 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     client_id_column = "ClientId" # str | Header Name of the column in the input file that contains a unique identifier supplied by the user referred to as a \\\"clientId\\\". This clientId can be used to create custom mappings or references. 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     entity_column = "Microsoft" # str | Header name of the column in the input file that contains the Entity Name to be matched. 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     additional_context_columns = [
         "Address",
     ] # [str] | Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records.  (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     first_name_column = "Bill" # str | First name of the person.**Do not include with `personNameColumn`**.   (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     last_name_column = "Gates" # str | Lat name of the person.**Do not include with `personNameColumn`**.  (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     middle_name_column = "Henry" # str | Middle name of the person.**Do not include within `personNameColumn`**.  (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     person_name_column = "Bill Gates" # str | Header name of the column in the input file that contains the name of the person to be matched. **Do not include with `firstNameColumn` and `lastNameColumn`.**  (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     priority_column = "HIGH" # str | Priority associated to the clientId. Used for manual mapping.  (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     salutation_column = "Mr." # str | The salutation of the person.**Do not include with `personNameColumn`**.  (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     suffix_column = "HIGH" # str | A name suffix, that follows a person's full name and provides additional information about the person.**Do not include with `personNameColumn`**.  (optional)
 
     try:
@@ -305,13 +291,10 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = people_match___bulk_api.PeopleMatchBulkApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     task_id = 31589 # int | Concordance Task Identifier. The taskId is created in response from the /people-task endpoint. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     offset = 0 # int | Starting row for records to return or rows to skip. (optional) if omitted the server will use the default value of 0
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     limit = 10 # int | Limits the number of records in the response. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     status = [
         "PENDING",
     ] # [str] | Filter on the status of the Concordance Tasks. Default is no filter.   * PENDING - The task has not yet started   * IN_PROGRESS - The task is submitted and decisions are in progress.   * SUCCESS - The task was successful! Move to the /entity-decisions endpoint to retrieve decisions.   * FAILURE - The task failed. Reach out to FactSet Support for assistance.   * BAD_REQUEST - The task creation was unsuccesfull. Typically occurs with an incorrect input file format or column headers.   * ABORTED - The task was aborted.  (optional)

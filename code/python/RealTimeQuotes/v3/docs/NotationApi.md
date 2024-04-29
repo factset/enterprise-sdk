@@ -96,11 +96,9 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     identifier = "80728880015" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifier_type = "idNotation" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -199,13 +197,11 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     fact_set_market_symbol = "factSetMarketSymbol_example" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     language = "_language_example" # str |  (optional)
 
     try:
@@ -302,15 +298,12 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     identifier = "80728880015" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifier_type = "idNotation" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     language = "_language_example" # str |  (optional)
 
     try:
@@ -408,11 +401,9 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     identifier = "80728880015" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifier_type = "idNotation" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -511,13 +502,11 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     identifiers = [
         "80728880015",
     ] # [str] | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifier_type = "idNotation" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -616,11 +605,9 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     identifier = "80728880015" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifier_type = "idNotation" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -719,13 +706,11 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     identifiers = [
         "80728880015",
     ] # [str] | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifier_type = "idNotation" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -824,11 +809,9 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     identifier = "80728880015" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifier_type = "idNotation" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -927,13 +910,11 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     identifiers = [
         "80728880015",
     ] # [str] | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifier_type = "idNotation" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -1032,11 +1013,9 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     identifier = "80728880015" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifier_type = "idNotation" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -1135,11 +1114,9 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     identifier = "80728880015" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifier_type = "idNotation" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -1238,13 +1215,11 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     identifiers = [
         "80728880015",
     ] # [str] | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifier_type = "idNotation" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -1343,11 +1318,9 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     identifier = "80728880015" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifier_type = "idNotation" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -1446,13 +1419,11 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     identifiers = [
         "80728880015",
     ] # [str] | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifier_type = "idNotation" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -1551,11 +1522,9 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     identifier = "80728880015" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifier_type = "idNotation" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -1654,13 +1623,11 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     identifiers = [
         "80728880015",
     ] # [str] | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifier_type = "idNotation" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -1759,11 +1726,9 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     identifier = "80728880015" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifier_type = "idNotation" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -1862,13 +1827,11 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     identifiers = [
         "80728880015",
     ] # [str] | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifier_type = "idNotation" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -1967,11 +1930,9 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     identifier = "80728880015" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifier_type = "idNotation" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -2070,13 +2031,11 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     identifiers = [
         "80728880015",
     ] # [str] | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifier_type = "idNotation" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -2175,11 +2134,9 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     identifier = "80728880015" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifier_type = "idNotation" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -2278,13 +2235,11 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     identifiers = [
         "80728880015",
     ] # [str] | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifier_type = "idNotation" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -2383,11 +2338,9 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     identifier = "80728880015" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifier_type = "idNotation" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -2486,13 +2439,11 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     identifiers = [
         "80728880015",
     ] # [str] | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifier_type = "idNotation" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -2591,17 +2542,14 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     identifiers = [
         "80728880015",
     ] # [str] | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifier_type = "idNotation" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     language = "_language_example" # str |  (optional)
 
     try:
@@ -2699,27 +2647,19 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     search_value = "RyDnZVoeN782F) 9-xW)gz" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     nsins = [
         "wkn",
     ] # [str] |  (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     asset_class = "index" # str |  (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     only_active = True # bool |  (optional) if omitted the server will use the default value of True
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     popularity = False # bool |  (optional) if omitted the server will use the default value of False
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     language = "_language_example" # str |  (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_offset = 0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_limit = 20 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20
 
     try:
@@ -2822,7 +2762,7 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -2919,13 +2859,11 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     identifiers = [
         "80728880015",
     ] # [str] | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifier_type = "idNotation" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -3024,17 +2962,13 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     identifier = "80728880015" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifier_type = "idNotation" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     quality = "DLY" # str |  (optional) if omitted the server will use the default value of "DLY"
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     subscription_minimum_interval = 5000 # float | Minimum number of milliseconds at which updates are sent. (optional) if omitted the server will use the default value of 5000
 
     try:
@@ -3133,7 +3067,7 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     post_notation_category_list_request = PostNotationCategoryListRequest(
         data=PostNotationCategoryListRequestData(
             identifier="80728880015",
@@ -3245,7 +3179,7 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_request = PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest(
         data=PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequestData(
             symbology_identifier="I&XQ7UAO6.&H3LOQTQJ#H7XZ1DO5-34",
@@ -3349,7 +3283,7 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     post_notation_cross_reference_fact_set_identifier_list_by_instrument_request = PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest(
         data=PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequestData(
             identifier=PostInstrumentBenchmarkListRequestDataIdentifier(
@@ -3456,7 +3390,7 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     post_notation_cross_reference_list_by_instrument_request = PostNotationCrossReferenceListByInstrumentRequest(
         data=PostNotationCrossReferenceListByInstrumentRequestData(
             identifier=PostInstrumentBenchmarkListRequestDataIdentifier(
@@ -3577,7 +3511,7 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     post_notation_cross_reference_list_by_isin_request = PostNotationCrossReferenceListByISINRequest(
         data=PostNotationCrossReferenceListByISINRequestData(
             isin="isin_example",
@@ -3695,7 +3629,7 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     post_notation_cross_reference_list_by_symbol_request = PostNotationCrossReferenceListBySymbolRequest(
         data=PostNotationCrossReferenceListBySymbolRequestData(
             symbol="symbol_example",
@@ -3813,7 +3747,7 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     post_notation_market_list_request = PostNotationMarketListRequest(
         data=PostNotationMarketListRequestData(
             filter=PostNotationMarketListRequestDataFilter(
@@ -3944,7 +3878,7 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     post_notation_search_by_text_request = PostNotationSearchByTextRequest(
         data=PostNotationSearchByTextRequestData(
             text=PostNotationSearchByTextRequestDataText(
@@ -4150,7 +4084,7 @@ with fds.sdk.RealTimeQuotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     post_notation_selection_list_members_list_request = PostNotationSelectionListMembersListRequest(
         data=PostNotationSelectionListMembersListRequestData(
             id=3.14,

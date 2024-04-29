@@ -61,7 +61,7 @@ with fds.sdk.PortfolioReportingBatcher.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = runs_api.RunsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | 
 
     try:
@@ -161,7 +161,7 @@ with fds.sdk.PortfolioReportingBatcher.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = runs_api.RunsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "1013456" # str | run id
 
     try:
@@ -261,7 +261,7 @@ with fds.sdk.PortfolioReportingBatcher.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = runs_api.RunsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     start_job_root = StartJobRoot(
         data=StartJob(
             job_name="job_name_example",

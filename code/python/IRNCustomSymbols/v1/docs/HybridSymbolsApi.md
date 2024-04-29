@@ -59,7 +59,7 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = hybrid_symbols_api.HybridSymbolsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     create_standard_symbol_metadata_dto = CreateStandardSymbolMetadataDto(
         standard_symbol="standard_symbol_example",
         description="description_example",
@@ -180,7 +180,7 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = hybrid_symbols_api.HybridSymbolsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     standard_symbol = "standardSymbol_example" # str | Standard symbol to get associated customSymbolId
 
     try:
@@ -274,9 +274,8 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = hybrid_symbols_api.HybridSymbolsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     standard_symbol_id = "standardSymbolId_example" # str | standardSymbolId to update associated standard symbol
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     operation = [
         Operation(
             operation_type=OperationType(0),

@@ -14,6 +14,10 @@ docs/IdStatus.md
 docs/IdStatusData.md
 docs/JobDetailsResponse.md
 docs/JobDetailsResponseData.md
+docs/JobListResponse.md
+docs/JobListResponseMeta.md
+docs/JobListResponseMetaPagination.md
+docs/JobListResponseRoot.md
 docs/JobOverrides.md
 docs/JobOverridesCombinationsRoot.md
 docs/JobOverridesDates.md
@@ -44,6 +48,10 @@ src/model/IdStatus.js
 src/model/IdStatusData.js
 src/model/JobDetailsResponse.js
 src/model/JobDetailsResponseData.js
+src/model/JobListResponse.js
+src/model/JobListResponseMeta.js
+src/model/JobListResponseMetaPagination.js
+src/model/JobListResponseRoot.js
 src/model/JobOverrides.js
 src/model/JobOverridesCombinationsRoot.js
 src/model/JobOverridesDates.js

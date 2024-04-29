@@ -60,7 +60,7 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = redemptions_api.RedemptionsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     ids = ["30231GBJ","88579EAA"] # [str] | List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).  **ID LIMIT = 250** *per request*. 
 
     try:
@@ -160,7 +160,7 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = redemptions_api.RedemptionsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     redemption_prices_request = RedemptionPricesRequest(
         ids=[
             "ids_example",

@@ -20,7 +20,7 @@ import ApiClient from '../ApiClient';
 class DateTimePeriod {
     /**
      * Constructs a new <code>DateTimePeriod</code>.
-     * Date-Time &lt;p&gt; NOTE: Using start and end parameters within dateTimeRange will fetch the data on particular days in between the timestamps given.&lt;/p&gt;. 
+     *  NOTE:       - Using start and end parameters within dateTimeRange will fetch the data on particular days in between the timestamps given.      - The start and end times are processed as the local time of the factsetExchangeCode provided. Please refer to the **Data Model User Guide** for time zone to exchange mappings. 
      * @alias module:model/DateTimePeriod
      */
     constructor() { 
@@ -61,13 +61,13 @@ class DateTimePeriod {
 }
 
 /**
- * The date for (or from which) the data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format. 
+ * The date for (or from which) the data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format.  
  * @member {Date} start
  */
 DateTimePeriod.prototype['start'] = undefined;
 
 /**
- * The date to which data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format. 
+ * The date to which data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format. end time is interpreted in the local timezone as the selected exchange. 
  * @member {Date} end
  */
 DateTimePeriod.prototype['end'] = undefined;

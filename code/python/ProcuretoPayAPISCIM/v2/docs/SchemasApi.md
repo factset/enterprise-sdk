@@ -58,9 +58,8 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = schemas_api.SchemasApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     start_index = 1 # int | Result start index. The one-based index of the first result to be returned in the list of resources. For example, to exclude the first two resources, use a *startIndex* value of 3. This parameter has a default value of 1. This index applies *after* any resource filtration has been applied as specified by the *filter* argument. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     count = 1 # int | Maximum resource count. The server will not return more resources than this value, although it may return fewer. (optional)
 
     try:
@@ -157,7 +156,7 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = schemas_api.SchemasApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | ID of resource.
 
     try:

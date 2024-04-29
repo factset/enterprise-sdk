@@ -50,7 +50,7 @@ class ListSchemaObject {
                 obj['schemaName'] = ApiClient.convertToType(data['schemaName'], 'String');
             }
             if (data.hasOwnProperty('schemaVersion')) {
-                obj['schemaVersion'] = ApiClient.convertToType(data['schemaVersion'], 'String');
+                obj['schemaVersion'] = ApiClient.convertToType(data['schemaVersion'], ['String']);
             }
         }
         return obj;
@@ -67,7 +67,7 @@ ListSchemaObject.prototype['schemaName'] = undefined;
 
 /**
  * The version of the schema.
- * @member {String} schemaVersion
+ * @member {Array.<String>} schemaVersion
  */
 ListSchemaObject.prototype['schemaVersion'] = undefined;
 

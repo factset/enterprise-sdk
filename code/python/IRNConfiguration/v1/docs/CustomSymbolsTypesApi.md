@@ -63,7 +63,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_symbols___types_api.CustomSymbolsTypesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     save_custom_symbol_type_dto = SaveCustomSymbolTypeDto(
         name="name_example",
         hide_address_field=True,
@@ -170,7 +170,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_symbols___types_api.CustomSymbolsTypesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     custom_symbol_type_id = "customSymbolTypeId_example" # str | customSymbolTypeId to delete associated record
 
     try:
@@ -264,7 +264,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_symbols___types_api.CustomSymbolsTypesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     custom_symbol_type_id = "customSymbolTypeId_example" # str | customSymbolTypeId to get associated record
 
     try:
@@ -358,6 +358,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_symbols___types_api.CustomSymbolsTypesApi(api_client)
 
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
 
     try:
         # Get all the custom symbol types
@@ -445,7 +446,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_symbols___types_api.CustomSymbolsTypesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     custom_symbol_type_id = "customSymbolTypeId_example" # str | customSymbolTypeId to get associated Custom fileds
 
     try:
@@ -539,9 +540,8 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_symbols___types_api.CustomSymbolsTypesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     custom_symbol_type_id = "customSymbolTypeId_example" # str | customSymbolTypeId to update associated record
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     update_custom_symbol_type_dto = UpdateCustomSymbolTypeDto(
         name="name_example",
         hide_address_field=True,
@@ -652,7 +652,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_symbols___types_api.CustomSymbolsTypesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     reorder_custom_symbol_type_dto = ReorderCustomSymbolTypeDto(
         ids=[
             "ids_example",

@@ -62,15 +62,12 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = benchmark_constituents_api.BenchmarkConstituentsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     ids = [
         "ids_example",
     ] # [str] | Benchmark Identifiers. Reference the helper endpoint **/id-list** to get a sample list of  valid identifiers. You must be authorized for the `ids` requested, otherwise you will receive an error. <p>***ids limit** =  1 per request*</p>
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     date = "date_example" # str | Date of holding expressed in YYYY-MM-DD format. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     currency = "currency_example" # str | Currency for response. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     calendar = "FIVEDAY" # str | Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. (optional)
 
     try:
@@ -173,7 +170,7 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = benchmark_constituents_api.BenchmarkConstituentsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     benchmark_constituents_request = BenchmarkConstituentsRequest(
         ids=ConstituentIds(["SP50"]),
         date="2020-08-06",
@@ -277,13 +274,11 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = benchmark_constituents_api.BenchmarkConstituentsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     ids = [
         "LHMN0001",
     ] # [str] | Fixed Income Benchmark Identifiers. You must be authorized for the `ids` requested, otherwise you will receive an error. <p>***ids limit** =  1 per request*</p>
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     date = "date_example" # str | Date of holding expressed in YYYY-MM-DD format. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     currency = "currency_example" # str | Currency for response. (optional)
 
     try:
@@ -385,7 +380,7 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = benchmark_constituents_api.BenchmarkConstituentsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     fixed_income_benchmark_constituents_request = FixedIncomeBenchmarkConstituentsRequest(
         ids=FIConstituentIds(["LHMN0001"]),
         date="2020-08-06",

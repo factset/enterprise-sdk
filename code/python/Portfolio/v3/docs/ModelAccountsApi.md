@@ -65,9 +65,8 @@ with fds.sdk.Portfolio.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = model_accounts_api.ModelAccountsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     name = "name_example" # str | The path and filename of the model account to create or update
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     model_account_fields_root = ModelAccountFieldsRoot(
         data=ModelAccountFields(
             iterative={
@@ -199,7 +198,7 @@ with fds.sdk.Portfolio.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = model_accounts_api.ModelAccountsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     name = "name_example" # str | The path and filename of model account to delete
 
     try:
@@ -295,11 +294,9 @@ with fds.sdk.Portfolio.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = model_accounts_api.ModelAccountsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     name = "name_example" # str | The filename of model account to delete
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     date = "date_example" # str | The date from the given file name to delete
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     symbols = [
         "symbols_example",
     ] # [str] | The symbols from the given file name and date to delete (Maximum 10 symbols are allowed) (optional)
@@ -401,11 +398,9 @@ with fds.sdk.Portfolio.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = model_accounts_api.ModelAccountsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     name = "name_example" # str | The filename of model account to delete
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     symbol = "symbol_example" # str | The symbol from the given file name to delete
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     dates = [
         "dates_example",
     ] # [str] | The dates from the given file name and symbol to delete (Maximum 10 dates are allowed) (optional)
@@ -507,9 +502,8 @@ with fds.sdk.Portfolio.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = model_accounts_api.ModelAccountsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     name = "name_example" # str | The path and filename of the account to get
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     format = "JsonStach" # str | Optional format for the response, supported formats are JsonStach and AccountModel (optional) if omitted the server will use the default value of "JsonStach"
 
     try:
@@ -610,11 +604,9 @@ with fds.sdk.Portfolio.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = model_accounts_api.ModelAccountsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     name = "name_example" # str | The path and filename of the account to get
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     date = "date_example" # str | The date for which data needs to be updated
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     format = "JsonStach" # str | Optional format for the response, supported formats are JsonStach and AccountModel (optional) if omitted the server will use the default value of "JsonStach"
 
     try:
@@ -716,13 +708,10 @@ with fds.sdk.Portfolio.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = model_accounts_api.ModelAccountsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     name = "name_example" # str | The path and filename of the account to get
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     symbol = "symbol_example" # str | The symbol for which data needs to be updated
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     date = "date_example" # str | The date for which data needs to be updated
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     format = "JsonStach" # str | Optional format for the response, supported formats are JsonStach and AccountModel (optional) if omitted the server will use the default value of "JsonStach"
 
     try:
@@ -825,11 +814,9 @@ with fds.sdk.Portfolio.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = model_accounts_api.ModelAccountsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     name = "name_example" # str | The path and filename of the account to get
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     symbol = "symbol_example" # str | The symbol for which data needs to be updated
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     format = "JsonStach" # str | Optional format for the response, supported formats are JsonStach and AccountModel (optional) if omitted the server will use the default value of "JsonStach"
 
     try:
@@ -931,7 +918,7 @@ with fds.sdk.Portfolio.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = model_accounts_api.ModelAccountsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     name = "name_example" # str | The path and filename of the account to get its schema
 
     try:

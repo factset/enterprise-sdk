@@ -63,7 +63,7 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_symbols_api.CustomSymbolsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     create_custom_symbol_dto = CreateCustomSymbolDto(
         code="code_example",
         name="name_example",
@@ -185,7 +185,7 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_symbols_api.CustomSymbolsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     custom_symbol_id = "customSymbolId_example" # str | customSymbolId to delete associated custom symbol
 
     try:
@@ -279,9 +279,8 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_symbols_api.CustomSymbolsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     custom_symbol_id = "customSymbolId_example" # str | customSymbolId to get associated custom symbol
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     include_event = False # bool | Whether or not to include event (optional) if omitted the server will use the default value of False
 
     try:
@@ -375,7 +374,7 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_symbols_api.CustomSymbolsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     custom_symbol_id = "customSymbolId_example" # str | CustomSymbolId to get associated records
 
     try:
@@ -469,15 +468,11 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_symbols_api.CustomSymbolsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     type_name = "typeName_example" # str | filter custom symbols based on custom symbol type (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     query = "query_example" # str | filter custom symbols based on custom symbol code or name (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     include_custom_field_values = False # bool | Whether or not to include customFieldValues (optional) if omitted the server will use the default value of False
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     exclude_linked_custom_symbol = False # bool | Whether or not to exclude linked custom symbol (optional) if omitted the server will use the default value of False
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     include_event = True # bool | Whether or not to include event (optional) if omitted the server will use the default value of True
 
     try:
@@ -576,9 +571,8 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_symbols_api.CustomSymbolsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     custom_symbol_id = "customSymbolId_example" # str | customSymbolId associated with custom symbol
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     standard_symbol_dto = StandardSymbolDto(
         standard_symbol="standard_symbol_example",
     ) # StandardSymbolDto | standard symbol name (optional)
@@ -673,9 +667,8 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_symbols_api.CustomSymbolsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     custom_symbol_id = "customSymbolId_example" # str | customSymbolId to update associated custom symbol
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     operation = [
         Operation(
             operation_type=OperationType(0),

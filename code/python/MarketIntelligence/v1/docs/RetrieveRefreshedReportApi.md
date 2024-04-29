@@ -59,7 +59,7 @@ with fds.sdk.MarketIntelligence.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = retrieve_refreshed_report_api.RetrieveRefreshedReportApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     report_id = "report_id_example" # str | example: 65ba6dd63fb366464646426d0b
 
     try:

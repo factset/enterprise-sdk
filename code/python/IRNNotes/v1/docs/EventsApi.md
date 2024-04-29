@@ -59,11 +59,9 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = events_api.EventsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     start_date = "startDate_example" # str | StartDate
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     end_date = "endDate_example" # str | EndDate (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     types = [
         "types_example",
     ] # [str] | Set of event types to filter on (optional)
@@ -161,7 +159,7 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = events_api.EventsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     note_id = "noteId_example" # str | Note Id
 
     try:
@@ -255,9 +253,8 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = events_api.EventsApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     note_id = "noteId_example" # str | Note Id
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     record_event_id = "recordEventId_example" # str | Record Event Id
 
     try:

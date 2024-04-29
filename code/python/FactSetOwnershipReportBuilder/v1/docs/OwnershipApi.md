@@ -60,17 +60,12 @@ with fds.sdk.FactSetOwnershipReportBuilder.ApiClient(configuration) as api_clien
     # Create an instance of the API class
     api_instance = ownership_api.OwnershipApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "FDS-US" # str | Company or Fund Identifier
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     asset_type = "EQUITY" # str | Controls the Asset Type of the data returned (optional) if omitted the server will use the default value of "EQUITY"
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     holder_type = "INSTITUTIONS" # str | Controls the Holder Type of the data returned (optional) if omitted the server will use the default value of "INSTITUTIONS"
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     entity_type = "SECURITY" # str | Controls the type of Entity data returned. Defaults to Security data, but can also be used to display Company data. (optional) if omitted the server will use the default value of "SECURITY"
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     topn = "ALL" # str | Limits the number of holders returned based on their Market Value position in the security. Default is ALL, otherwise use a valid number above 0.  (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     date = dateutil_parser('Tue Dec 31 00:00:00 UTC 2019').date() # date | Top Holders as of date expressed in YYYY-MM-DD format. Defaults to latest month-end close; non-month-end dates are converted to month-end dates. (optional)
 
     try:
@@ -177,17 +172,12 @@ with fds.sdk.FactSetOwnershipReportBuilder.ApiClient(configuration) as api_clien
     # Create an instance of the API class
     api_instance = ownership_api.OwnershipApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "FDS-US" # str | Any valid FactSet identifier which points to a security.  This could be Ticker Region, Entity ID, CUSIP, or SEDOL. 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     currency = "LOCAL" # str | Currency ISO code that any currency-based data should be returned in.  If excluded, the value will default to the special keyword \"LOCAL\" which will cause the currency-based values to be calculated in currency which is local to the exchange it is traded on.  (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = ["percentOwnership","position","positionChange","marketValue","marketValueChange","percentPortfolio","reportDate","source","holderId"] # [str] | The columns to be returned in the resulting table (optional) if omitted the server will use the default value of ["percentOwnership","position","positionChange","marketValue","marketValueChange","percentPortfolio","reportDate","source","holderId"]
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     period = "6m" # str | The period over which we should return holdings for. (optional) if omitted the server will use the default value of "6m"
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     holder_type = "institutions" # str | The holder types which should be included in this table (optional) if omitted the server will use the default value of "institutions"
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     date = dateutil_parser('Tue Dec 31 00:00:00 UTC 2019').date() # date | The date as of which this data should be returned. YYYY-MM-DD format. Defaults to current date. (optional)
 
     try:

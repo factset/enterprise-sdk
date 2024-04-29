@@ -61,7 +61,7 @@ with fds.sdk.NaturalLanguageProcessing.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = ai_themes_api.AIThemesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     themes_parameters_root = ThemesParametersRoot(
         data=ThemesParameters(
             include_sentiments=False,
@@ -164,7 +164,7 @@ with fds.sdk.NaturalLanguageProcessing.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = ai_themes_api.AIThemesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | Long running task identifier
 
     try:
@@ -261,7 +261,7 @@ with fds.sdk.NaturalLanguageProcessing.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = ai_themes_api.AIThemesApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | Long running task identifier
 
     try:

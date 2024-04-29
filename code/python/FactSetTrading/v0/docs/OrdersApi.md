@@ -61,7 +61,7 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = orders_api.OrdersApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     ems_cancel_orders_root = EMSCancelOrdersRoot(
         data=EMSCancelOrders(
             investor_id="DEMO-12345",
@@ -173,7 +173,7 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = orders_api.OrdersApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     ems_orders_root = EMSOrdersRoot(
         data=EMSOrders(
             investor_id="DEMO-12345",
@@ -323,7 +323,7 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = orders_api.OrdersApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     ems_replace_orders_root = EMSReplaceOrdersRoot(
         data=EMSReplaceOrders(
             investor_id="DEMO-12345",

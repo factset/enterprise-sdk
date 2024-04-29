@@ -37,7 +37,7 @@ namespace FactSet.SDK.StandardDatafeed.Model
         /// </summary>
         /// <param name="schemaName">The name of the schema..</param>
         /// <param name="schemaVersion">The version of the schema..</param>
-        public ListSchemaObject(string schemaName = default(string), string schemaVersion = default(string))
+        public ListSchemaObject(string schemaName = default(string), List<string> schemaVersion = default(List<string>))
         {
             this.SchemaName = schemaName;
             this.SchemaVersion = schemaVersion;
@@ -55,7 +55,7 @@ namespace FactSet.SDK.StandardDatafeed.Model
         /// </summary>
         /// <value>The version of the schema.</value>
         [DataMember(Name = "schemaVersion", EmitDefaultValue = false)]
-        public string SchemaVersion { get; set; }
+        public List<string> SchemaVersion { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -109,8 +109,9 @@ namespace FactSet.SDK.StandardDatafeed.Model
                 ) && 
                 (
                     this.SchemaVersion == input.SchemaVersion ||
-                    (this.SchemaVersion != null &&
-                    this.SchemaVersion.Equals(input.SchemaVersion))
+                    this.SchemaVersion != null &&
+                    input.SchemaVersion != null &&
+                    this.SchemaVersion.SequenceEqual(input.SchemaVersion)
                 );
         }
 

@@ -60,9 +60,8 @@ with fds.sdk.FactSetPrivateMarkets.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = universe_api.UniverseApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     name = "Cargill" # str | Name of Entity to match.
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     country = "US" # str | ISO2 country code corresponding to the entity name that is used when evaluating candidates for a match. For a list of ISO2 Country codes, visit [OA 8754](https://my.apps.factset.com/oa/pages/8754). (optional)
 
     try:
@@ -163,7 +162,7 @@ with fds.sdk.FactSetPrivateMarkets.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = universe_api.UniverseApi(api_client)
 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     entity_match_request = EntityMatchRequest(
         input=[
             EntityMatchRequestInput(
