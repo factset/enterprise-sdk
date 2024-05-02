@@ -4,7 +4,9 @@
 
 * Library Update: The Jersey library version has been updated from 2.35 to 3.0.
 * Package Change: All imports that previously used `javax.ws.rs.client` are now updated to use `jakarta.ws.rs.client`.
-* Compatibility Update: The update makes the Java SDKs compatible with SpringBoot 3 and SpringFramework 6.
+* Spring Boot / Spring Framework
+  * This update makes the Java SDKs compatible with Spring Boot 3 and Spring Framework 6.
+  * And **incompatible** with earlier versions (e.g. Spring Boot 2 and Spring Framework 5).
 
 Affected SDKs: All Java SDKs
 

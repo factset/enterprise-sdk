@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "0.1.9"
+__version__ = "0.1.10"
 
 # import ApiClient
 from fds.sdk.SPGlobalFixedIncomeEvaluatedPricesandAnalytics.api_client import ApiClient

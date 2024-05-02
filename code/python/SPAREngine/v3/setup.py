@@ -16,7 +16,7 @@ def read(filename):
   return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 NAME = "fds.sdk.SPAREngine"
-VERSION = "1.0.2"
+VERSION = "1.0.3"
 # To install the library, run the following
 #
 # python setup.py install
@@ -33,7 +33,7 @@ REQUIRES = [
 setup(
     name=NAME,
     version=VERSION,
-    description="SPAR Engine client library for Python",
+    description="Style Performance and Risk Analysis (SPAR) Engine client library for Python",
     author="FactSet Research Systems",
     url="https://github.com/FactSet/enterprise-sdk/tree/main/code/python/SPAREngine/v3",
     keywords=["FactSet", "API", "SDK"],

@@ -1,6 +1,6 @@
 [![FactSet](https://raw.githubusercontent.com/factset/enterprise-sdk/main/docs/images/factset-logo.svg)](https://www.factset.com)
 
-# SPAR Engine client library for JavaScript
+# Style Performance and Risk Analysis (SPAR) Engine client library for JavaScript
 
 [![API Version](https://img.shields.io/badge/api-v3.13.4-blue)](https://developer.factset.com/api-catalog/spar-engine-api)
 [![npm](https://img.shields.io/npm/v/@factset/sdk-sparengine)](https://www.npmjs.com/package/@factset/sdk-sparengine)

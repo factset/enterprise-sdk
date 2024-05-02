@@ -1,6 +1,6 @@
 [![FactSet](https://raw.githubusercontent.com/factset/enterprise-sdk/main/docs/images/factset-logo.svg)](https://www.factset.com)
 
-# SPAR Engine client library for Java
+# Style Performance and Risk Analysis (SPAR) Engine client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v3.13.4-blue)](https://developer.factset.com/api-catalog/spar-engine-api)
 [![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/sparengine)](https://search.maven.org/artifact/com.factset.sdk/sparengine)

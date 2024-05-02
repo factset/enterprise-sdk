@@ -2,7 +2,7 @@
   "projectName": "@factset/sdk-sparengine",
   "projectVersion": "1.0.1",
   "projectAuthor": "FactSet Research Systems",
-  "projectDescription": "SPAR Engine client library for JavaScript",
+  "projectDescription": "Style Performance and Risk Analysis (SPAR) Engine client library for JavaScript",
   "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "moduleName": "sparengine",
   "disallowAdditionalPropertiesIfNotPresent": false,

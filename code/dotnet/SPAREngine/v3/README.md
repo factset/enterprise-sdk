@@ -1,6 +1,6 @@
 [![FactSet](https://raw.githubusercontent.com/factset/enterprise-sdk/main/docs/images/factset-logo.svg)](https://www.factset.com)
 
-# SPAR Engine client library for .NET
+# Style Performance and Risk Analysis (SPAR) Engine client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v3.13.4-blue)](https://developer.factset.com/api-catalog/spar-engine-api)
 [![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.SPAREngine)](https://www.nuget.org/packages/FactSet.SDK.SPAREngine)

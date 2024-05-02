@@ -16,7 +16,7 @@ def read(filename):
   return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 NAME = "fds.sdk.IssueTracker"
-VERSION = "0.2.1"
+VERSION = "0.2.2"
 # To install the library, run the following
 #
 # python setup.py install

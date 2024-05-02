@@ -10,7 +10,7 @@
     <Authors>FactSet Research Systems</Authors>
     <Company>FactSet Research Systems</Company>
     <AssemblyTitle>FactSet SDK</AssemblyTitle>
-    <Description>SPAR Engine client library for .NET</Description>
+    <Description>Style Performance and Risk Analysis (SPAR) Engine client library for .NET</Description>
     <Copyright></Copyright>
     <RootNamespace>FactSet.SDK.SPAREngine</RootNamespace>
     <Version>1.0.2</Version>

@@ -16,7 +16,7 @@ def read(filename):
   return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 NAME = "fds.sdk.RealTimeQuotes"
-VERSION = "0.12.2"
+VERSION = "0.12.3"
 # To install the library, run the following
 #
 # python setup.py install

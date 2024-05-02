@@ -1,14 +1,14 @@
 {
   "packageName": "fds.sdk.RealTimePriceAlerting",
   "projectName": "fds.sdk.RealTimePriceAlerting",
-  "packageVersion": "0.11.2",
+  "packageVersion": "0.11.3",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache License, Version 2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "packageDescription": "Real-Time Price Alerting client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/RealTimePriceAlerting/v3",
-  "httpUserAgent": "fds-sdk/python/RealTimePriceAlerting/0.11.2",
+  "httpUserAgent": "fds-sdk/python/RealTimePriceAlerting/0.11.3",
   "files": {
     "LICENSE": {}
   }

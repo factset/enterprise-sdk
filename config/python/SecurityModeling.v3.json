@@ -1,14 +1,14 @@
 {
   "packageName": "fds.sdk.SecurityModeling",
   "projectName": "fds.sdk.SecurityModeling",
-  "packageVersion": "0.20.10",
+  "packageVersion": "0.20.11",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache License, Version 2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "packageDescription": "Security Modeling client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/SecurityModeling/v3",
-  "httpUserAgent": "fds-sdk/python/SecurityModeling/0.20.10",
+  "httpUserAgent": "fds-sdk/python/SecurityModeling/0.20.11",
   "files": {
     "LICENSE": {}
   }

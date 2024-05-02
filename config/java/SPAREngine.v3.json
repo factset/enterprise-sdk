@@ -7,7 +7,7 @@
   "artifactId": "sparengine",
   "artifactVersion": "2.0.0",
   "artifactUrl": "https://github.com/FactSet/enterprise-sdk",
-  "artifactDescription": "SPAR Engine client library for Java",
+  "artifactDescription": "Style Performance and Risk Analysis (SPAR) Engine client library for Java",
   "scmConnection": "scm:git:git@github.com:FactSet/enterprise-sdk.git",
   "scmDeveloperConnection": "scm:git:git@github.com:FactSet/enterprise-sdk.git",
   "scmUrl": "http://github.com/FactSet/enterprise-sdk",

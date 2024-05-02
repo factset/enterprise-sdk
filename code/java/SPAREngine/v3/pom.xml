@@ -7,7 +7,7 @@
     <name>sparengine</name>
     <version>2.0.0</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
-    <description>SPAR Engine client library for Java</description>
+    <description>Style Performance and Risk Analysis (SPAR) Engine client library for Java</description>
     <scm>
         <connection>scm:git:git@github.com:FactSet/enterprise-sdk.git</connection>
         <developerConnection>scm:git:git@github.com:FactSet/enterprise-sdk.git</developerConnection>

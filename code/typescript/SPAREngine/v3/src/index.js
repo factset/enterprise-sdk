@@ -60,7 +60,7 @@ import PutAndCalculateResponseWrapper from './api/SPARCalculationsApi';
 
 
 /**
-* SPAR Engine client library for JavaScript.<br>
+* Style Performance and Risk Analysis (SPAR) Engine client library for JavaScript.<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
