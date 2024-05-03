@@ -20,6 +20,7 @@ docs/FIBankLoans.md
 docs/FICalculationParameters.md
 docs/FICalculationParametersRoot.md
 docs/FICashflows.md
+docs/FIConvertibleSettings.md
 docs/FIDiscountCurveInfo.md
 docs/FIDiscountCurveInfoRoot.md
 docs/FIJobSettings.md
@@ -81,6 +82,7 @@ src/main/java/com/factset/sdk/FixedIncomeCalculation/models/FIBankLoans.java
 src/main/java/com/factset/sdk/FixedIncomeCalculation/models/FICalculationParameters.java
 src/main/java/com/factset/sdk/FixedIncomeCalculation/models/FICalculationParametersRoot.java
 src/main/java/com/factset/sdk/FixedIncomeCalculation/models/FICashflows.java
+src/main/java/com/factset/sdk/FixedIncomeCalculation/models/FIConvertibleSettings.java
 src/main/java/com/factset/sdk/FixedIncomeCalculation/models/FIDiscountCurveInfo.java
 src/main/java/com/factset/sdk/FixedIncomeCalculation/models/FIDiscountCurveInfoRoot.java
 src/main/java/com/factset/sdk/FixedIncomeCalculation/models/FIJobSettings.java

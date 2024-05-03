@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **matrixMultiplier** | **Number** | Matrix Multiplier | [optional] 
 **structuredProducts** | [**FIStructuredProductsForSecurities**](FIStructuredProductsForSecurities.md) |  | [optional] 
 **attribution** | [**FIAttributionForSecurities**](FIAttributionForSecurities.md) |  | [optional] 
+**convertible** | [**FIConvertibleSettings**](FIConvertibleSettings.md) |  | [optional] 
 **calcFromMethod** | **String** | Calculation Method.  Methods : Active Spread, Actual Spread, Actual Spread To Worst Call, OAS, Price, Yield, Yield To No Call, Act/Act Yield To No Call, Bond Equivalent Yield,  Yield To Worst Call, Discount Yield, Discount Margin, Implied Volatility, Bullet Spread, Bullet Spread To Worst Call, Pricing Matrix | [optional] 
 **calcFromValue** | **Number** | Calculation from value | 
 **face** | **Number** | Face | [optional] [default to 1]

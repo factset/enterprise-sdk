@@ -1,0 +1,15 @@
+{
+  "packageName": "fds.sdk.EventsContribution",
+  "projectName": "fds.sdk.EventsContribution",
+  "packageVersion": "0.20.0",
+  "packageAuthor": "FactSet Research Systems",
+  "packageLicense": "Apache License, Version 2.0",
+  "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+  "packageDescription": "Events Contribution client library for Python",
+  "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/EventsContribution/v0",
+  "httpUserAgent": "fds-sdk/python/EventsContribution/0.20.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

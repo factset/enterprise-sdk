@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "SPAR Engine API",
+    "title": "Style Performance and Risk Analysis (SPAR) Engine API",
     "description": "Allow clients to fetch Analytics through APIs.",
     "contact": {
       "name": "FactSet Research Systems",

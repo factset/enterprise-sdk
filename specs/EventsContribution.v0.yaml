@@ -1,0 +1,513 @@
+openapi: 3.0.3
+info:
+  title: Events Contribution API
+  description: >-
+    The Events Contribution API provides the ability to add specific types of
+    corporate events to FactSet’s own events calendar, for display within
+    FactSet’s applications, as well as for off-platform re-distribution via
+    FactSet’s Events Calendar API.
+  version: 0.1.0
+  contact:
+    name: FactSet Research Systems
+    email: api@factset.com
+    url: https://developer.factset.com/contact
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/events-contribution-api
+servers:
+  - url: https://api.factset.com/events-contribution/v0
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
+tags:
+  - name: Events Contribution
+    description: Insert, update, or delete events
+paths:
+  /events:
+    post:
+      summary: Insert Event data
+      description: >-
+        This endpoint inserts an event. Once the event is inserted, it will show
+        up immediately among FactSet’s own event calendar apps, for display
+        within FactSet’s applications.
+      tags:
+        - Events Contribution
+      operationId: insertEvent
+      requestBody:
+        $ref: '#/components/requestBodies/insertRequestBody'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/insertResponse'
+        '400':
+          content:
+            application/json:
+              examples:
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/invalidParameter'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              examples:
+                Bad Request - Not Authenticated:
+                  $ref: '#/components/examples/notAuthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              examples:
+                Bad Request - Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Forbidden
+        '500':
+          content:
+            application/json:
+              examples:
+                Bad Request - Internal Server Error:
+                  $ref: '#/components/examples/internalServerError'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error
+  /events/{eventId}:
+    put:
+      summary: Update Event data
+      description: >-
+        This endpoint allows you to update a previously inserted event. Existing
+        event will be replaced with the event data provided in the request body.
+      tags:
+        - Events Contribution
+      operationId: updateEvent
+      parameters:
+        - in: path
+          name: eventId
+          schema:
+            type: string
+            example: '1234'
+          description: Id of event to be updated
+          required: true
+      requestBody:
+        $ref: '#/components/requestBodies/updateRequestBody'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/updateResponse'
+        '400':
+          content:
+            application/json:
+              examples:
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/invalidParameter'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              examples:
+                Bad Request - Not Authenticated:
+                  $ref: '#/components/examples/notAuthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              examples:
+                Bad Request - Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Forbidden
+        '500':
+          content:
+            application/json:
+              examples:
+                Bad Request - Internal Server Error:
+                  $ref: '#/components/examples/internalServerError'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error
+    delete:
+      summary: Delete Event data
+      description: >-
+        This endpoint allows you to delete a previously inserted event with the
+        corresponding event id.
+      tags:
+        - Events Contribution
+      operationId: deleteEvent
+      parameters:
+        - in: path
+          name: eventId
+          schema:
+            type: string
+            example: '1234'
+          description: Id of event to be deleted
+          required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/deleteResponse'
+        '204':
+          description: No Content
+        '400':
+          content:
+            application/json:
+              examples:
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/invalidParameter'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              examples:
+                Bad Request - Not Authenticated:
+                  $ref: '#/components/examples/notAuthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              examples:
+                Bad Request - Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Forbidden
+        '500':
+          content:
+            application/json:
+              examples:
+                Bad Request - Internal Server Error:
+                  $ref: '#/components/examples/internalServerError'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error
+components:
+  securitySchemes:
+    FactSetOAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+          scopes: {}
+    FactSetApiKey:
+      type: http
+      scheme: basic
+  requestBodies:
+    insertRequestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/insertRequest'
+      description: INSERT request body which needs to be sent with request
+      required: true
+    updateRequestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/updateRequest'
+      description: UPDATE request body which needs to be sent with request
+      required: true
+  schemas:
+    insertRequest:
+      description: Request body containing event data which needs to be sent with request
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            eventData:
+              $ref: '#/components/schemas/eventData'
+          required:
+            - eventData
+    updateRequest:
+      description: Request body containing event data which needs to be sent with request
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            eventData:
+              $ref: '#/components/schemas/eventUpdateData'
+          required:
+            - eventData
+    eventData:
+      type: object
+      properties:
+        eventId:
+          type: string
+          example: '1234'
+          description: Id that corresponds to the event
+        title:
+          type: string
+          maxLength: 500
+          example: the event title
+          description: Title of the event to be displayed
+        startDatetime:
+          type: string
+          format: date-time
+          example: '2024-01-16T08:00:00Z'
+          description: Start date and time of the event
+        agendaUrl:
+          type: string
+          example: http://www.factset.com
+          description: The meeting agenda which can be a document file or a webpage.
+        participants:
+          type: array
+          items:
+            $ref: '#/components/schemas/participantsData'
+        location:
+          $ref: '#/components/schemas/locationData'
+        symbols:
+          type: array
+          items:
+            $ref: '#/components/schemas/symbolData'
+        registrationInfo:
+          $ref: '#/components/schemas/registrationInfoData'
+      required:
+        - eventId
+        - title
+        - startDatetime
+        - symbols
+    eventUpdateData:
+      type: object
+      properties:
+        title:
+          type: string
+          maxLength: 500
+          example: the event title
+          description: Title of the event to be displayed
+        startDatetime:
+          type: string
+          format: date-time
+          example: '2024-01-16T08:00:00Z'
+          description: Start date and time of the event
+        agendaUrl:
+          type: string
+          example: http://www.factset.com
+          description: The meeting agenda which can be a document file or a webpage.
+        participants:
+          type: array
+          items:
+            $ref: '#/components/schemas/participantsData'
+        location:
+          $ref: '#/components/schemas/locationData'
+        symbols:
+          type: array
+          items:
+            $ref: '#/components/schemas/symbolData'
+        registrationInfo:
+          $ref: '#/components/schemas/registrationInfoData'
+      required:
+        - title
+        - startDatetime
+        - symbols
+    participantsData:
+      description: Participants of the event
+      type: object
+      required:
+        - firstName
+        - lastName
+      properties:
+        firstName:
+          type: string
+          example: Jane
+          description: The first name of the participant
+        lastName:
+          type: string
+          example: Doe
+          description: The last name of the participant
+        title:
+          type: string
+          example: CEO
+          description: The title of the participant
+    locationData:
+      description: Location of the event
+      type: object
+      properties:
+        country:
+          type: string
+          minLength: 2
+          maxLength: 2
+          example: US
+          description: >-
+            Country must be provided in ISO 3166 (alpha 2) format, i.e.,
+            two-letter country code
+        state:
+          type: string
+          example: New York
+        city:
+          type: string
+          example: New York
+    symbolData:
+      description: An identifier indicating which company the event belongs to
+      type: object
+      required:
+        - value
+        - name
+      properties:
+        type:
+          type: string
+          enum:
+            - isin
+            - ticker
+            - entity
+            - sedol
+          example: ticker
+          description: Type of symbol
+        value:
+          type: string
+          example: FDS
+          description: Value of symbol
+        name:
+          type: string
+          example: FactSet System Research Inc.
+          description: Name of symbol
+    registrationInfoData:
+      description: Information regarding event registrant
+      type: object
+      properties:
+        contactEmailAddress:
+          type: string
+          format: email
+          description: Contact email of event registrant
+          example: factset@factset.com
+        contactName:
+          type: string
+          description: Contact name of event registrant
+          example: FactSet
+        extraInfo:
+          type: string
+          maxLength: 500
+          description: >-
+            Extra information can be provided regarding event registration.
+            Input must be in English and will be validated upon indication.
+          example: >-
+            this field can be used to display extra information regarding
+            registration
+    insertResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            eventData:
+              type: object
+              properties:
+                eventId:
+                  type: string
+                  example: '1234'
+                  description: Id of the event that was successfully inserted
+            message:
+              type: object
+              properties:
+                event:
+                  type: string
+                  example: Event inserted successfully
+    updateResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            eventData:
+              type: object
+              properties:
+                eventId:
+                  type: string
+                  example: '1234'
+                  description: Id of the event that was successfully updated
+            message:
+              type: object
+              properties:
+                event:
+                  type: string
+                  example: Event updated successfully
+    deleteResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            eventData:
+              type: object
+              properties:
+                eventId:
+                  type: string
+                  example: '1234'
+                  description: Id of the event that was successfully deleted
+            message:
+              type: object
+              properties:
+                event:
+                  type: string
+                  example: Event deleted successfully
+    errorResponse:
+      type: object
+      properties:
+        errors:
+          type: array
+          description: An array containing errors
+          items:
+            $ref: '#/components/schemas/errorObject'
+    errorObject:
+      type: object
+      properties:
+        id:
+          description: A UUID for this particular occurrence of the error.
+          type: string
+        code:
+          description: A common or API-specific error code.
+          type: string
+        title:
+          description: Summary of the error.
+          type: string
+  examples:
+    invalidParameter:
+      value:
+        errors:
+          - id: 7af3d86ca5954503b9244f2620fcf5eb
+            code: parameterError
+            title: Invalid parameter(s)
+    notAuthenticated:
+      value:
+        errors:
+          - id: 7af3d86ca5954503b9244f2620fcf5eb
+            code: notAuthenticated
+            title: >-
+              There were either no, invalid, or expired credentials present in
+              the request.
+    forbidden:
+      value:
+        errors:
+          - id: 7af3d86ca5954503b9244f2620fcf5eb
+            code: notAuthorized
+            title: Not authorized to access.
+    internalServerError:
+      value:
+        errors:
+          - id: 7af3d86ca5954503b9244f2620fcf5eb
+            code: internalServerError
+            title: An unexpected error happened.

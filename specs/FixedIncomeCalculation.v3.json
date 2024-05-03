@@ -12,7 +12,7 @@
       "name": "Apache License, Version 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0"
     },
-    "version": "3.11.0"
+    "version": "3.12.0"
   },
   "servers": [
     {
@@ -297,9 +297,10 @@
           {
             "name": "X-FactSet-Api-Long-Running-Deadline",
             "in": "header",
-            "description": "Long running deadline in seconds.",
+            "description": "Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation.",
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "example": 10
             }
           },
           {
@@ -865,9 +866,10 @@
           {
             "name": "X-FactSet-Api-Long-Running-Deadline",
             "in": "header",
-            "description": "Long running deadline in seconds.",
+            "description": "Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation.",
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "example": 10
             }
           },
           {
@@ -1682,17 +1684,7 @@
               }
             },
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
                 }
@@ -1792,17 +1784,7 @@
               }
             },
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
                 }
@@ -2485,6 +2467,7 @@
             }
           },
           "meta": {
+            "type": "object",
             "nullable": true
           }
         }
@@ -2809,6 +2792,23 @@
           }
         }
       },
+      "FIConvertibleSettings": {
+        "type": "object",
+        "properties": {
+          "equityPrice": {
+            "type": "number",
+            "description": "Equity Price",
+            "format": "double",
+            "nullable": true
+          },
+          "equityIndexVolatility": {
+            "type": "number",
+            "description": "Equity Index Volatility",
+            "format": "double",
+            "nullable": true
+          }
+        }
+      },
       "FISecurity": {
         "required": [
           "calcFromValue",
@@ -2864,6 +2864,9 @@
           },
           "attribution": {
             "$ref": "#/components/schemas/FIAttributionForSecurities"
+          },
+          "convertible": {
+            "$ref": "#/components/schemas/FIConvertibleSettings"
           },
           "calcFromMethod": {
             "type": "string",
@@ -3166,6 +3169,7 @@
             "$ref": "#/components/schemas/CalculationInfo"
           },
           "meta": {
+            "type": "object",
             "nullable": true
           }
         }
@@ -3176,8 +3180,11 @@
         ],
         "type": "object",
         "properties": {
-          "data": {},
+          "data": {
+            "type": "object"
+          },
           "meta": {
+            "type": "object",
             "nullable": true
           }
         }
@@ -3205,6 +3212,14 @@
     },
     {
       "FactSetOAuth2": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "DiscountCurves"
+    },
+    {
+      "name": "FICalculations"
     }
   ],
   "externalDocs": {

@@ -19,6 +19,7 @@ docs/FICalculationParameters.md
 docs/FICalculationParametersRoot.md
 docs/FICalculationsApi.md
 docs/FICashflows.md
+docs/FIConvertibleSettings.md
 docs/FIDiscountCurveInfo.md
 docs/FIDiscountCurveInfoRoot.md
 docs/FIJobSettings.md
@@ -56,6 +57,7 @@ src/model/FIBankLoans.js
 src/model/FICalculationParameters.js
 src/model/FICalculationParametersRoot.js
 src/model/FICashflows.js
+src/model/FIConvertibleSettings.js
 src/model/FIDiscountCurveInfo.js
 src/model/FIDiscountCurveInfoRoot.js
 src/model/FIJobSettings.js

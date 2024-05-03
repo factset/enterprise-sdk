@@ -99,7 +99,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -482,7 +482,7 @@ namespace Example
 
             var apiInstance = new FICalculationsApi(config);
 
-            var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds. (optional) 
+            var xFactSetApiLongRunningDeadline = 10;  // int? | Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional) 
             var cacheControl = "cacheControl_example";  // string | Standard HTTP header.  Accepts max-stale. (optional) 
             var fICalculationParametersRoot = new FICalculationParametersRoot(); // FICalculationParametersRoot | Calculation Parameters (optional) 
 
@@ -519,7 +519,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xFactSetApiLongRunningDeadline** | **int?**| Long running deadline in seconds. | [optional] 
+ **xFactSetApiLongRunningDeadline** | **int?**| Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. | [optional] 
  **cacheControl** | **string**| Standard HTTP header.  Accepts max-stale. | [optional] 
  **fICalculationParametersRoot** | [**FICalculationParametersRoot**](FICalculationParametersRoot.md)| Calculation Parameters | [optional] 
 
@@ -607,7 +607,7 @@ namespace Example
             var apiInstance = new FICalculationsApi(config);
 
             var id = "id_example";  // string | from url, provided from the location header in the Create and Run FI calculation endpoint
-            var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds. (optional) 
+            var xFactSetApiLongRunningDeadline = 10;  // int? | Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional) 
             var cacheControl = "cacheControl_example";  // string | Standard HTTP header.  Accepts max-stale. (optional) 
             var fICalculationParametersRoot = new FICalculationParametersRoot(); // FICalculationParametersRoot | Calculation Parameters (optional) 
 
@@ -645,7 +645,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| from url, provided from the location header in the Create and Run FI calculation endpoint | 
- **xFactSetApiLongRunningDeadline** | **int?**| Long running deadline in seconds. | [optional] 
+ **xFactSetApiLongRunningDeadline** | **int?**| Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. | [optional] 
  **cacheControl** | **string**| Standard HTTP header.  Accepts max-stale. | [optional] 
  **fICalculationParametersRoot** | [**FICalculationParametersRoot**](FICalculationParametersRoot.md)| Calculation Parameters | [optional] 
 

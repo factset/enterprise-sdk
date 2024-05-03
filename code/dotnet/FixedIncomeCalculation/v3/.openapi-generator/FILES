@@ -19,6 +19,7 @@ docs/FICalculationParameters.md
 docs/FICalculationParametersRoot.md
 docs/FICalculationsApi.md
 docs/FICashflows.md
+docs/FIConvertibleSettings.md
 docs/FIDiscountCurveInfo.md
 docs/FIDiscountCurveInfoRoot.md
 docs/FIJobSettings.md
@@ -70,6 +71,7 @@ src/FactSet.SDK.FixedIncomeCalculation/Model/FIBankLoans.cs
 src/FactSet.SDK.FixedIncomeCalculation/Model/FICalculationParameters.cs
 src/FactSet.SDK.FixedIncomeCalculation/Model/FICalculationParametersRoot.cs
 src/FactSet.SDK.FixedIncomeCalculation/Model/FICashflows.cs
+src/FactSet.SDK.FixedIncomeCalculation/Model/FIConvertibleSettings.cs
 src/FactSet.SDK.FixedIncomeCalculation/Model/FIDiscountCurveInfo.cs
 src/FactSet.SDK.FixedIncomeCalculation/Model/FIDiscountCurveInfoRoot.cs
 src/FactSet.SDK.FixedIncomeCalculation/Model/FIJobSettings.cs

@@ -1,7 +1,7 @@
 # flake8: noqa
 
 """
-    SPAR Engine API
+    Style Performance and Risk Analysis (SPAR) Engine API
 
     Allow clients to fetch Analytics through APIs.  # noqa: E501
 
@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "1.0.3"
+__version__ = "1.0.4"
 
 # import ApiClient
 from fds.sdk.SPAREngine.api_client import ApiClient

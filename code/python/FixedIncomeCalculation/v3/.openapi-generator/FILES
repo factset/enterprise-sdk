@@ -19,6 +19,7 @@ docs/FICalculationParameters.md
 docs/FICalculationParametersRoot.md
 docs/FICalculationsApi.md
 docs/FICashflows.md
+docs/FIConvertibleSettings.md
 docs/FIDiscountCurveInfo.md
 docs/FIDiscountCurveInfoRoot.md
 docs/FIJobSettings.md
@@ -59,6 +60,7 @@ fds/sdk/FixedIncomeCalculation/model/fi_bank_loans.py
 fds/sdk/FixedIncomeCalculation/model/fi_calculation_parameters.py
 fds/sdk/FixedIncomeCalculation/model/fi_calculation_parameters_root.py
 fds/sdk/FixedIncomeCalculation/model/fi_cashflows.py
+fds/sdk/FixedIncomeCalculation/model/fi_convertible_settings.py
 fds/sdk/FixedIncomeCalculation/model/fi_discount_curve_info.py
 fds/sdk/FixedIncomeCalculation/model/fi_discount_curve_info_root.py
 fds/sdk/FixedIncomeCalculation/model/fi_job_settings.py

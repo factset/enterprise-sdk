@@ -1,5 +1,5 @@
 """
-    SPAR Engine API
+    Style Performance and Risk Analysis (SPAR) Engine API
 
     Allow clients to fetch Analytics through APIs.  # noqa: E501
 
@@ -16,7 +16,7 @@ def read(filename):
   return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 NAME = "fds.sdk.SPAREngine"
-VERSION = "1.0.3"
+VERSION = "1.0.4"
 # To install the library, run the following
 #
 # python setup.py install

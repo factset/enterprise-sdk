@@ -87,7 +87,7 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
 ## getCalculationParameters
@@ -369,7 +369,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new FICalculationsApi();
 const opts = {
-  'xFactSetApiLongRunningDeadline': 56, // Number | Long running deadline in seconds.
+  'xFactSetApiLongRunningDeadline': 10, // Number | Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation.
   'cacheControl': "cacheControl_example", // String | Standard HTTP header.  Accepts max-stale.
   'fICalculationParametersRoot': new fixedincomecalculation.FICalculationParametersRoot() // FICalculationParametersRoot | Calculation Parameters
 };
@@ -407,7 +407,7 @@ apiInstance.postAndCalculate(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xFactSetApiLongRunningDeadline** | **Number**| Long running deadline in seconds. | [optional] 
+ **xFactSetApiLongRunningDeadline** | **Number**| Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. | [optional] 
  **cacheControl** | **String**| Standard HTTP header.  Accepts max-stale. | [optional] 
  **fICalculationParametersRoot** | [**FICalculationParametersRoot**](FICalculationParametersRoot.md)| Calculation Parameters | [optional] 
 
@@ -468,7 +468,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 const apiInstance = new FICalculationsApi();
 const id = "id_example"; // String | from url, provided from the location header in the Create and Run FI calculation endpoint
 const opts = {
-  'xFactSetApiLongRunningDeadline': 56, // Number | Long running deadline in seconds.
+  'xFactSetApiLongRunningDeadline': 10, // Number | Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation.
   'cacheControl': "cacheControl_example", // String | Standard HTTP header.  Accepts max-stale.
   'fICalculationParametersRoot': new fixedincomecalculation.FICalculationParametersRoot() // FICalculationParametersRoot | Calculation Parameters
 };
@@ -507,7 +507,7 @@ apiInstance.putAndCalculate(id, opts).then(
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| from url, provided from the location header in the Create and Run FI calculation endpoint | 
- **xFactSetApiLongRunningDeadline** | **Number**| Long running deadline in seconds. | [optional] 
+ **xFactSetApiLongRunningDeadline** | **Number**| Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. | [optional] 
  **cacheControl** | **String**| Standard HTTP header.  Accepts max-stale. | [optional] 
  **fICalculationParametersRoot** | [**FICalculationParametersRoot**](FICalculationParametersRoot.md)| Calculation Parameters | [optional] 
 

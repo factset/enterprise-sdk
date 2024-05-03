@@ -22,6 +22,7 @@ from fds.sdk.FixedIncomeCalculation.model.fi_bank_loans import FIBankLoans
 from fds.sdk.FixedIncomeCalculation.model.fi_calculation_parameters import FICalculationParameters
 from fds.sdk.FixedIncomeCalculation.model.fi_calculation_parameters_root import FICalculationParametersRoot
 from fds.sdk.FixedIncomeCalculation.model.fi_cashflows import FICashflows
+from fds.sdk.FixedIncomeCalculation.model.fi_convertible_settings import FIConvertibleSettings
 from fds.sdk.FixedIncomeCalculation.model.fi_discount_curve_info import FIDiscountCurveInfo
 from fds.sdk.FixedIncomeCalculation.model.fi_discount_curve_info_root import FIDiscountCurveInfoRoot
 from fds.sdk.FixedIncomeCalculation.model.fi_job_settings import FIJobSettings

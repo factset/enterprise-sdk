@@ -9,7 +9,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: FI API
-  version: 3.11.0
+  version: 3.12.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/fixed-income-calculation-api
@@ -18,6 +18,9 @@ servers:
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
+tags:
+- name: DiscountCurves
+- name: FICalculations
 paths:
   /analytics/engines/fi/v3/discount-curves:
     get:
@@ -284,12 +287,14 @@ paths:
         the post body.
       operationId: postAndCalculate
       parameters:
-      - description: Long running deadline in seconds.
+      - description: Long running deadline in seconds. Example value is set to 10s.
+          Please update it as per requirement before triggering a calculation.
         explode: false
         in: header
         name: X-FactSet-Api-Long-Running-Deadline
         required: false
         schema:
+          example: 10
           type: integer
         style: simple
       - description: Standard HTTP header.  Accepts max-stale.
@@ -871,13 +876,7 @@ paths:
               style: simple
         "400":
           content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ClientErrorResponse'
             application/json:
-              schema:
-                $ref: '#/components/schemas/ClientErrorResponse'
-            text/json:
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Invalid identifier provided.
@@ -974,13 +973,7 @@ paths:
               style: simple
         "404":
           content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ClientErrorResponse'
             application/json:
-              schema:
-                $ref: '#/components/schemas/ClientErrorResponse'
-            text/json:
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: There was no request for the calculation identifier provided,
@@ -1344,12 +1337,14 @@ paths:
             Run FI calculation endpoint
           type: string
         style: simple
-      - description: Long running deadline in seconds.
+      - description: Long running deadline in seconds. Example value is set to 10s.
+          Please update it as per requirement before triggering a calculation.
         explode: false
         in: header
         name: X-FactSet-Api-Long-Running-Deadline
         required: false
         schema:
+          example: 10
           type: integer
         style: simple
       - description: Standard HTTP header.  Accepts max-stale.
@@ -2389,7 +2384,7 @@ components:
             name: name
             currency: currency
             category: category
-        meta: ""
+        meta: '{}'
       properties:
         data:
           additionalProperties:
@@ -2397,6 +2392,7 @@ components:
           type: object
         meta:
           nullable: true
+          type: object
       required:
       - data
       type: object
@@ -2705,13 +2701,32 @@ components:
           nullable: true
           type: string
       type: object
+    FIConvertibleSettings:
+      example:
+        equityPrice: 1.4894159098541704
+        equityIndexVolatility: 6.84685269835264
+      properties:
+        equityPrice:
+          description: Equity Price
+          format: double
+          nullable: true
+          type: number
+        equityIndexVolatility:
+          description: Equity Index Volatility
+          format: double
+          nullable: true
+          type: number
+      type: object
     FISecurity:
       example:
         callMethod: No Call
         symbol: symbol
         matrixMultiplier: 1.4658129805029452
         discountCurve: discountCurve
-        calcFromValue: 1.4894159098541704
+        calcFromValue: 7.457744773683766
+        convertible:
+          equityPrice: 1.4894159098541704
+          equityIndexVolatility: 6.84685269835264
         bankLoans:
           ignoreSinkingFund: true
         faceType: Current
@@ -2750,7 +2765,7 @@ components:
             optionalRedemptionCallWhenUnits: Manual
             optionalRedemptionCallWhen: 2
             recoveryLag: 7
-        face: 6.84685269835264
+        face: 1.1730742509559433
         municipalBonds:
           useAnticipatedSinkSchedule: true
           ignoreSinkingFund: true
@@ -2799,6 +2814,8 @@ components:
           $ref: '#/components/schemas/FIStructuredProductsForSecurities'
         attribution:
           $ref: '#/components/schemas/FIAttributionForSecurities'
+        convertible:
+          $ref: '#/components/schemas/FIConvertibleSettings'
         calcFromMethod:
           description: "Calculation Method.\r\nMethods : Active Spread, Actual Spread,\
             \ Actual Spread To Worst Call, OAS, Price, Yield, Yield To No Call, Act/Act\
@@ -2974,8 +2991,8 @@ components:
         bankLoans:
           ignoreSinkingFund: true
         partialDurationMonths:
-        - 7
-        - 7
+        - 4
+        - 4
         settlement: settlement
       properties:
         asOfDate:
@@ -3059,8 +3076,8 @@ components:
           bankLoans:
             ignoreSinkingFund: true
           partialDurationMonths:
-          - 7
-          - 7
+          - 4
+          - 4
           settlement: settlement
         calculations:
         - calculations
@@ -3070,7 +3087,10 @@ components:
           symbol: symbol
           matrixMultiplier: 1.4658129805029452
           discountCurve: discountCurve
-          calcFromValue: 1.4894159098541704
+          calcFromValue: 7.457744773683766
+          convertible:
+            equityPrice: 1.4894159098541704
+            equityIndexVolatility: 6.84685269835264
           bankLoans:
             ignoreSinkingFund: true
           faceType: Current
@@ -3109,7 +3129,7 @@ components:
               optionalRedemptionCallWhenUnits: Manual
               optionalRedemptionCallWhen: 2
               recoveryLag: 7
-          face: 6.84685269835264
+          face: 1.1730742509559433
           municipalBonds:
             useAnticipatedSinkSchedule: true
             ignoreSinkingFund: true
@@ -3124,7 +3144,10 @@ components:
           symbol: symbol
           matrixMultiplier: 1.4658129805029452
           discountCurve: discountCurve
-          calcFromValue: 1.4894159098541704
+          calcFromValue: 7.457744773683766
+          convertible:
+            equityPrice: 1.4894159098541704
+            equityIndexVolatility: 6.84685269835264
           bankLoans:
             ignoreSinkingFund: true
           faceType: Current
@@ -3163,7 +3186,7 @@ components:
               optionalRedemptionCallWhenUnits: Manual
               optionalRedemptionCallWhen: 2
               recoveryLag: 7
-          face: 6.84685269835264
+          face: 1.1730742509559433
           municipalBonds:
             useAnticipatedSinkSchedule: true
             ignoreSinkingFund: true
@@ -3275,8 +3298,8 @@ components:
             bankLoans:
               ignoreSinkingFund: true
             partialDurationMonths:
-            - 7
-            - 7
+            - 4
+            - 4
             settlement: settlement
           calculations:
           - calculations
@@ -3286,7 +3309,10 @@ components:
             symbol: symbol
             matrixMultiplier: 1.4658129805029452
             discountCurve: discountCurve
-            calcFromValue: 1.4894159098541704
+            calcFromValue: 7.457744773683766
+            convertible:
+              equityPrice: 1.4894159098541704
+              equityIndexVolatility: 6.84685269835264
             bankLoans:
               ignoreSinkingFund: true
             faceType: Current
@@ -3325,7 +3351,7 @@ components:
                 optionalRedemptionCallWhenUnits: Manual
                 optionalRedemptionCallWhen: 2
                 recoveryLag: 7
-            face: 6.84685269835264
+            face: 1.1730742509559433
             municipalBonds:
               useAnticipatedSinkSchedule: true
               ignoreSinkingFund: true
@@ -3340,7 +3366,10 @@ components:
             symbol: symbol
             matrixMultiplier: 1.4658129805029452
             discountCurve: discountCurve
-            calcFromValue: 1.4894159098541704
+            calcFromValue: 7.457744773683766
+            convertible:
+              equityPrice: 1.4894159098541704
+              equityIndexVolatility: 6.84685269835264
             bankLoans:
               ignoreSinkingFund: true
             faceType: Current
@@ -3379,7 +3408,7 @@ components:
                 optionalRedemptionCallWhenUnits: Manual
                 optionalRedemptionCallWhen: 2
                 recoveryLag: 7
-            face: 6.84685269835264
+            face: 1.1730742509559433
             municipalBonds:
               useAnticipatedSinkSchedule: true
               ignoreSinkingFund: true
@@ -3414,17 +3443,20 @@ components:
           $ref: '#/components/schemas/CalculationInfo'
         meta:
           nullable: true
+          type: object
       required:
       - data
       type: object
     ObjectRoot:
       example:
-        data: ""
-        meta: ""
+        data: '{}'
+        meta: '{}'
       properties:
-        data: {}
+        data:
+          type: object
         meta:
           nullable: true
+          type: object
       required:
       - data
       type: object

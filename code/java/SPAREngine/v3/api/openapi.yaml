@@ -8,7 +8,7 @@ info:
   license:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
-  title: SPAR Engine API
+  title: Style Performance and Risk Analysis (SPAR) Engine API
   version: 3.13.4
 externalDocs:
   description: API Documentation

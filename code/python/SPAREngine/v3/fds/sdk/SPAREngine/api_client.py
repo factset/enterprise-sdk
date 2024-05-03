@@ -1,5 +1,5 @@
 """
-    SPAR Engine API
+    Style Performance and Risk Analysis (SPAR) Engine API
 
     Allow clients to fetch Analytics through APIs.  # noqa: E501
 
@@ -106,7 +106,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'fds-sdk/python/SPAREngine/1.0.3'
+        self.user_agent = 'fds-sdk/python/SPAREngine/1.0.4'
 
     def __enter__(self):
         return self

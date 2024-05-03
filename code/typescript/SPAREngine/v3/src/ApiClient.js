@@ -1,5 +1,5 @@
 /**
- * SPAR Engine API
+ * Style Performance and Risk Analysis (SPAR) Engine API
  * Allow clients to fetch Analytics through APIs.
  *
  * The version of the OpenAPI document: 3.13.4
@@ -62,7 +62,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'fds-sdk/javascript/SPAREngine/1.0.1'
+            'User-Agent': 'fds-sdk/javascript/SPAREngine/1.0.2'
         };
 
         /**

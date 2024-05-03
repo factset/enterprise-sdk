@@ -95,7 +95,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -465,7 +465,7 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
     api_instance = fi_calculations_api.FICalculationsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    x_fact_set_api_long_running_deadline = 1 # int | Long running deadline in seconds. (optional)
+    x_fact_set_api_long_running_deadline = 10 # int | Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)
     cache_control = "Cache-Control_example" # str | Standard HTTP header.  Accepts max-stale. (optional)
     fi_calculation_parameters_root = FICalculationParametersRoot(
         data=FICalculationParameters(
@@ -530,6 +530,10 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
                         start_spread=3.14,
                         end_spread=3.14,
                         pricing_method="Inputted Price",
+                    ),
+                    convertible=FIConvertibleSettings(
+                        equity_price=3.14,
+                        equity_index_volatility=3.14,
                     ),
                     calc_from_method="calc_from_method_example",
                     calc_from_value=3.14,
@@ -623,7 +627,7 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_fact_set_api_long_running_deadline** | **int**| Long running deadline in seconds. | [optional]
+ **x_fact_set_api_long_running_deadline** | **int**| Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. | [optional]
  **cache_control** | **str**| Standard HTTP header.  Accepts max-stale. | [optional]
  **fi_calculation_parameters_root** | [**FICalculationParametersRoot**](FICalculationParametersRoot.md)| Calculation Parameters | [optional]
 
@@ -714,7 +718,7 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | from url, provided from the location header in the Create and Run FI calculation endpoint
-    x_fact_set_api_long_running_deadline = 1 # int | Long running deadline in seconds. (optional)
+    x_fact_set_api_long_running_deadline = 10 # int | Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)
     cache_control = "Cache-Control_example" # str | Standard HTTP header.  Accepts max-stale. (optional)
     fi_calculation_parameters_root = FICalculationParametersRoot(
         data=FICalculationParameters(
@@ -779,6 +783,10 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
                         start_spread=3.14,
                         end_spread=3.14,
                         pricing_method="Inputted Price",
+                    ),
+                    convertible=FIConvertibleSettings(
+                        equity_price=3.14,
+                        equity_index_volatility=3.14,
                     ),
                     calc_from_method="calc_from_method_example",
                     calc_from_value=3.14,
@@ -873,7 +881,7 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| from url, provided from the location header in the Create and Run FI calculation endpoint |
- **x_fact_set_api_long_running_deadline** | **int**| Long running deadline in seconds. | [optional]
+ **x_fact_set_api_long_running_deadline** | **int**| Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. | [optional]
  **cache_control** | **str**| Standard HTTP header.  Accepts max-stale. | [optional]
  **fi_calculation_parameters_root** | [**FICalculationParametersRoot**](FICalculationParametersRoot.md)| Calculation Parameters | [optional]
 

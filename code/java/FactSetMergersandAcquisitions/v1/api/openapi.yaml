@@ -59,6 +59,8 @@ paths:
               examples:
                 Bad Request - Date Format:
                   $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Not Found:
+                  $ref: '#/components/examples/badRequestNotFound'
                 Bad Request - Missing Required Parameter:
                   $ref: '#/components/examples/badRequestRequiredParameter'
                 Bad Request - Future Date:
@@ -102,11 +104,11 @@ paths:
           content:
             application/json:
               examples:
-                Bad Request - Date Format:
+                Bad Request - Endpoint Not Found:
                   $ref: '#/components/examples/notFound'
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-          description: Not Found. The requested data could not be found.
+          description: The requested endpoint could not be found.
         "415":
           content:
             application/json:
@@ -166,6 +168,8 @@ paths:
               examples:
                 Bad Request - Date Format:
                   $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Not Found:
+                  $ref: '#/components/examples/badRequestNotFound'
                 Bad Request - Missing Required Parameter:
                   $ref: '#/components/examples/badRequestRequiredParameter'
                 Bad Request - Future Date:
@@ -209,11 +213,11 @@ paths:
           content:
             application/json:
               examples:
-                Bad Request - Date Format:
+                Bad Request - Endpoint Not Found:
                   $ref: '#/components/examples/notFound'
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-          description: Not Found. The requested data could not be found.
+          description: The requested endpoint could not be found.
         "415":
           content:
             application/json:
@@ -273,6 +277,8 @@ paths:
               examples:
                 Bad Request - Date Format:
                   $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Not Found:
+                  $ref: '#/components/examples/badRequestNotFound'
                 Bad Request - Missing Required Parameter:
                   $ref: '#/components/examples/badRequestRequiredParameter'
                 Bad Request - Future Date:
@@ -316,11 +322,11 @@ paths:
           content:
             application/json:
               examples:
-                Bad Request - Date Format:
+                Bad Request - Endpoint Not Found:
                   $ref: '#/components/examples/notFound'
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-          description: Not Found. The requested data could not be found.
+          description: The requested endpoint could not be found.
         "415":
           content:
             application/json:
@@ -556,6 +562,16 @@ components:
           code: Bad Request
           title: 'The date parameter must be in the following date format: YYYY-MM-DD'
           detail: 'The date parameter must be in the following date format: YYYY-MM-DD'
+    badRequestNotFound:
+      description: This bad request occurs when a request doesn't have data for requested
+        identifier. To resolve, give valid parameters.
+      summary: Bad Request - Data Not Found
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6
+          code: Bad Request
+          title: The requested data could not be found
+          detail: No data exists for the provided criteria or identifier.
     badRequestRequiredParameter:
       description: This error message occurs when the request does not include the
         required parameters. Required parameters are indicated with a red asterisks
@@ -639,14 +655,14 @@ components:
           detail: User is not authorized for the id requested, please reach out to
             FactSet for support
     notFound:
-      description: The requested data could not be found.
+      description: The requested endpoint could not be found.
       summary: Not Found
       value:
         errors:
         - id: adb01824-252f-4420-b0c6
           code: Not Found
           title: No data found
-          detail: The requested data could not be found.
+          detail: The requested endpoint could not be found.
     unsupportedMediaType:
       description: This bad request occurs when the media type passed in the request
         is not supported. Currently the APIs only support 'application/json'.
@@ -686,6 +702,8 @@ components:
           examples:
             Bad Request - Date Format:
               $ref: '#/components/examples/badRequestDateFormat'
+            Bad Request - Not Found:
+              $ref: '#/components/examples/badRequestNotFound'
             Bad Request - Missing Required Parameter:
               $ref: '#/components/examples/badRequestRequiredParameter'
             Bad Request - Future Date:
@@ -727,11 +745,11 @@ components:
       content:
         application/json:
           examples:
-            Bad Request - Date Format:
+            Bad Request - Endpoint Not Found:
               $ref: '#/components/examples/notFound'
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-      description: Not Found. The requested data could not be found.
+      description: The requested endpoint could not be found.
     "415":
       content:
         application/json:

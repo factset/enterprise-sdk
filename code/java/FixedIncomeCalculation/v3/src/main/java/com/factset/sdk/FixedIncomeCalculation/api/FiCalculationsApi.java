@@ -316,7 +316,7 @@ public class FiCalculationsApi {
     
     
     final String[] localVarAccepts = {
-      "text/plain", "application/json", "text/json"
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -600,7 +600,7 @@ public class FiCalculationsApi {
   /**
    * Create and Run FI calculation
    * This endpoint creates and runs a new FI calculation specified in the post body.
-   * @param xFactSetApiLongRunningDeadline Long running deadline in seconds. (optional)
+   * @param xFactSetApiLongRunningDeadline Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)
    * @param cacheControl Standard HTTP header.  Accepts max-stale. (optional)
    * @param fiCalculationParametersRoot Calculation Parameters (optional)
    * @return PostAndCalculateResponseWrapper
@@ -627,7 +627,7 @@ public class FiCalculationsApi {
   /**
    * Create and Run FI calculation
    * This endpoint creates and runs a new FI calculation specified in the post body.
-   * @param xFactSetApiLongRunningDeadline Long running deadline in seconds. (optional)
+   * @param xFactSetApiLongRunningDeadline Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)
    * @param cacheControl Standard HTTP header.  Accepts max-stale. (optional)
    * @param fiCalculationParametersRoot Calculation Parameters (optional)
    * @return ApiResponse&lt;PostAndCalculateResponseWrapper&gt;
@@ -702,7 +702,7 @@ if (cacheControl != null)
    * Create or Update FI calculation and run it.
    * This endpoint updates and run the FI optimization specified in the PUT body parameters. It also allows the creation of new FI optimization with custom id.
    * @param id from url, provided from the location header in the Create and Run FI calculation endpoint (required)
-   * @param xFactSetApiLongRunningDeadline Long running deadline in seconds. (optional)
+   * @param xFactSetApiLongRunningDeadline Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)
    * @param cacheControl Standard HTTP header.  Accepts max-stale. (optional)
    * @param fiCalculationParametersRoot Calculation Parameters (optional)
    * @return PutAndCalculateResponseWrapper
@@ -731,7 +731,7 @@ if (cacheControl != null)
    * Create or Update FI calculation and run it.
    * This endpoint updates and run the FI optimization specified in the PUT body parameters. It also allows the creation of new FI optimization with custom id.
    * @param id from url, provided from the location header in the Create and Run FI calculation endpoint (required)
-   * @param xFactSetApiLongRunningDeadline Long running deadline in seconds. (optional)
+   * @param xFactSetApiLongRunningDeadline Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)
    * @param cacheControl Standard HTTP header.  Accepts max-stale. (optional)
    * @param fiCalculationParametersRoot Calculation Parameters (optional)
    * @return ApiResponse&lt;PutAndCalculateResponseWrapper&gt;

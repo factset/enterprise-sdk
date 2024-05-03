@@ -1,5 +1,5 @@
 /*
- * SPAR Engine API
+ * Style Performance and Risk Analysis (SPAR) Engine API
  * Allow clients to fetch Analytics through APIs.
  *
  * The version of the OpenAPI document: 3.13.4
