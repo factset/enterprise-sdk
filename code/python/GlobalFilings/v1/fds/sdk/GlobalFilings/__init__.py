@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "0.20.2"
+__version__ = "1.0.0"
 
 # import ApiClient
 from fds.sdk.GlobalFilings.api_client import ApiClient
