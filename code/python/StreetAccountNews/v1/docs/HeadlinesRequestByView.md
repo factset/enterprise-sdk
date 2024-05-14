@@ -1,5 +1,6 @@
 # HeadlinesRequestByView
 
+Elements of headlines request by view.
 
 ## Properties
 Name | Type | Description | Notes

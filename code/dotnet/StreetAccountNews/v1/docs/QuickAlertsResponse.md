@@ -1,4 +1,5 @@
 # FactSet.SDK.StreetAccountNews.Model.QuickAlertsResponse
+Elements of quick alerts response object.
 
 ## Properties
 

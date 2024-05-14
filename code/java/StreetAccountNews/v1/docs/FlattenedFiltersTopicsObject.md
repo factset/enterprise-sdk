@@ -2,7 +2,7 @@
 
 # FlattenedFiltersTopicsObject
 
-  '(Note: the value array will always have just one value.)' 
+Elements of flattened filters topics object.  '(Note: the value array will always have just one value.)' 
 
 ## Properties
 

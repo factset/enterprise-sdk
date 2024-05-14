@@ -5,6 +5,7 @@ All URIs are relative to *https://api.factset.com/issue-tracker/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getIssue**](IssueApi.md#getIssue) | **GET** /issues/{id} | Get the matched issue details
+[**patchIssue**](IssueApi.md#patchIssue) | **PATCH** /issues/{id} | Update severity and subject of existing issue
 [**postIssue**](IssueApi.md#postIssue) | **POST** /issues | Creates a Issue Tracker issue
 [**postReply**](IssueApi.md#postReply) | **POST** /issues/{id}/comments | post comment to Issue Tracker issue
 
@@ -59,7 +60,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         IssueApi apiInstance = new IssueApi(defaultClient);
-        String id = "id_example"; // String |   ID of Issue Tracker issue
+        String id = "id_example"; // String | ID of Issue Tracker issue
         try {
             Issue result = apiInstance.getIssue(id);
             System.out.println(result);
@@ -80,7 +81,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**|   ID of Issue Tracker issue |
+ **id** | **String**| ID of Issue Tracker issue |
 
 ### Return type
 
@@ -102,6 +103,102 @@ Name | Type | Description  | Notes
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
+| **500** | Internal Server Error |  -  |
+
+
+## patchIssue
+
+> patchIssue(id, updateIssueRequest)
+
+Update severity and subject of existing issue
+
+Update subject and severity of issue
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```java
+// Import classes:
+import com.factset.sdk.IssueTracker.ApiClient;
+import com.factset.sdk.IssueTracker.ApiException;
+import com.factset.sdk.IssueTracker.Configuration;
+import com.factset.sdk.IssueTracker.auth.*;
+import com.factset.sdk.IssueTracker.models.*;
+import com.factset.sdk.IssueTracker.api.IssueApi;
+
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+public class Example {
+    public static void main(String[] args) throws Exception {
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
+
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        //
+        // The confidential client instance should be reused in production environments.
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
+
+        IssueApi apiInstance = new IssueApi(defaultClient);
+        String id = "id_example"; // String | ID of Issue Tracker issue
+        UpdateIssueRequest updateIssueRequest = new UpdateIssueRequest(); // UpdateIssueRequest | 
+        try {
+            apiInstance.patchIssue(id, updateIssueRequest);
+
+        } catch (ApiException e) {
+            System.err.println("Exception when calling IssueApi#patchIssue");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| ID of Issue Tracker issue |
+ **updateIssueRequest** | [**UpdateIssueRequest**](UpdateIssueRequest.md)|  | [optional]
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
 | **500** | Internal Server Error |  -  |
 
 

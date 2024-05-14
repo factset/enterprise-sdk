@@ -1,5 +1,6 @@
 # QuickAlertsBody
 
+Elements of quick alerts body object.
 
 ## Properties
 Name | Type | Description | Notes

@@ -2,6 +2,7 @@
 
 # DeleteViewBody
 
+Elements of delete view body object.
 
 ## Properties
 

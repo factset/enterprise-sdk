@@ -1,5 +1,6 @@
 # StructuredFiltersWatchlistsObject
 
+Elements of structured filters watchlists object.
 
 ## Properties
 Name | Type | Description | Notes

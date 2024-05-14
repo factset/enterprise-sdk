@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.StreetAccountNews.Client.OpenAPIDateCon
 namespace FactSet.SDK.StreetAccountNews.Model
 {
     /// <summary>
-    /// SearchResponseArrayObject
+    /// Elements of search response array object.
     /// </summary>
     [DataContract(Name = "searchResponseArrayObject")]
     public partial class SearchResponseArrayObject : IEquatable<SearchResponseArrayObject>, IValidatableObject

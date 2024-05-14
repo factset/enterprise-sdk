@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class HeadlinesRequestDataSearchTime {
     /**
      * Constructs a new <code>HeadlinesRequestDataSearchTime</code>.
+     * Elements of search time.
      * @alias module:model/HeadlinesRequestDataSearchTime
      */
     constructor() { 

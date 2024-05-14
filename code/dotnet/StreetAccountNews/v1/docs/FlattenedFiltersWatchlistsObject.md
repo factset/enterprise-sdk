@@ -1,4 +1,5 @@
 # FactSet.SDK.StreetAccountNews.Model.FlattenedFiltersWatchlistsObject
+Elements of flattened filters watchlists object.
 
 ## Properties
 

@@ -2,6 +2,7 @@
 
 # StructuredFiltersTopicsObject
 
+Elements of structured filters topics object.
 
 ## Properties
 

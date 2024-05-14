@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class ErrorObject {
     /**
      * Constructs a new <code>ErrorObject</code>.
+     * An object representing an error.
      * @alias module:model/ErrorObject
      */
     constructor() { 
@@ -63,16 +64,19 @@ class ErrorObject {
 }
 
 /**
+ * The unique identifier for the error.
  * @member {String} id
  */
 ErrorObject.prototype['id'] = undefined;
 
 /**
+ * A title or summary of the error.
  * @member {String} title
  */
 ErrorObject.prototype['title'] = undefined;
 
 /**
+ * The error code associated with the error.
  * @member {String} code
  */
 ErrorObject.prototype['code'] = undefined;

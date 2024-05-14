@@ -62,7 +62,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'fds-sdk/javascript/StreetAccountNews/0.40.0'
+            'User-Agent': 'fds-sdk/javascript/StreetAccountNews/0.40.1'
         };
 
         /**

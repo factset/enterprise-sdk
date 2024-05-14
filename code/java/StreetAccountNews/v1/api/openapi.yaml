@@ -1461,19 +1461,25 @@ components:
           style: simple
   schemas:
     Error:
+      description: Object representing an error response.
       properties:
         errors:
+          description: An array of error objects.
           items:
             $ref: '#/components/schemas/errorObject'
           type: array
       type: object
     errorObject:
+      description: An object representing an error.
       properties:
         id:
+          description: The unique identifier for the error.
           type: string
         title:
+          description: A title or summary of the error.
           type: string
         code:
+          description: The error code associated with the error.
           type: string
       type: object
     HeadlinesRequest:
@@ -1516,6 +1522,7 @@ components:
           $ref: '#/components/schemas/HeadlinesRequest_meta'
       type: object
     HeadlinesRequestTickersObject:
+      description: Elements of headlines request tickers.
       example:
         type: Index
         value: SP50
@@ -1540,6 +1547,7 @@ components:
           type: string
       type: object
     HeadlinesRequestByView:
+      description: Elements of headlines request by view.
       example:
         data:
           searchTime:
@@ -1558,6 +1566,7 @@ components:
           $ref: '#/components/schemas/HeadlinesRequestByView_meta'
       type: object
     QuickAlertsBody:
+      description: Elements of quick alerts body object.
       example:
         data:
           name: StreetAccount News
@@ -1566,6 +1575,7 @@ components:
           $ref: '#/components/schemas/QuickAlertsBody_data'
       type: object
     QuickAlertsResponse:
+      description: Elements of quick alerts response object.
       example:
         data:
           name: StreetAccount News
@@ -1574,7 +1584,7 @@ components:
           $ref: '#/components/schemas/QuickAlertsBody_data'
       type: object
     HeadlinesResponse:
-      description: Properties in results objects are based on return values
+      description: Properties in results objects are based on return values.
       example:
         data:
         - storyTime: 2022-09-15T06:48:19Z
@@ -1621,6 +1631,7 @@ components:
           $ref: '#/components/schemas/HeadlinesResponse_meta'
       type: object
     searchResponseArrayObject:
+      description: Elements of search response array object.
       example:
         storyTime: 2022-09-15T06:48:19Z
         headlines: Sample Headline
@@ -1683,6 +1694,7 @@ components:
           type: string
       type: object
     CreateOrEditViewBody:
+      description: Elements of create or edit view body object.
       example:
         data:
           sectors:
@@ -1712,6 +1724,7 @@ components:
           $ref: '#/components/schemas/CreateOrEditViewBody_data'
       type: object
     DeleteViewBody:
+      description: Elements of delete view body object.
       example:
         data:
           name: SA News View
@@ -1720,18 +1733,22 @@ components:
           $ref: '#/components/schemas/DeleteViewBody_data'
       type: object
     createOrEditViewTickers:
+      description: Elements of create or edit view tickers object.
       example:
         name: Russell 1000
         type: Index
         value: R.1000
       properties:
         name:
+          description: name of the ticker
           example: Russell 1000
           type: string
         value:
+          description: The ticker symbol
           example: R.1000
           type: string
         type:
+          description: The type of the asset associated with the ticker.
           enum:
           - Index
           - ETF
@@ -1803,6 +1820,7 @@ components:
           type: array
       type: object
     viewsObject:
+      description: Elements of views object.
       example:
         sectors:
         - Chemicals - Plastics & Rubber
@@ -1871,26 +1889,32 @@ components:
         data:
           flattened:
             sectors:
-            - name: Chemical Manufacturing
+            - name: name
               value:
-              - 106
-            - name: Chemical Manufacturing
+              - 6.027456183070403
+              - 6.027456183070403
+            - name: name
               value:
-              - 106
+              - 6.027456183070403
+              - 6.027456183070403
             regions:
-            - name: Canada
+            - name: name
               value:
-              - "5"
-            - name: Canada
+              - value
+              - value
+            - name: name
               value:
-              - "5"
+              - value
+              - value
             topics:
-            - name: '13F Summary '
+            - name: name
               value:
-              - SA_13F_SUMMARY
-            - name: '13F Summary '
+              - value
+              - value
+            - name: name
               value:
-              - SA_13F_SUMMARY
+              - value
+              - value
             watchlists:
             - name: S&P 500
               type: Index
@@ -1899,80 +1923,94 @@ components:
               type: Index
               value: SP50
             categories:
-            - name: Dividends
+            - name: name
               value:
-              - SA_DIVIDENDS
-            - name: Dividends
+              - value
+              - value
+            - name: name
               value:
-              - SA_DIVIDENDS
+              - value
+              - value
           structured:
             sectors:
             - expanded: true
               children:
-              - name: Alternative Energy
+              - name: name
                 value:
-                - 108
-              - name: Alternative Energy
+                - 0.8008281904610115
+                - 0.8008281904610115
+              - name: name
                 value:
-                - 108
+                - 0.8008281904610115
+                - 0.8008281904610115
               name: Conglomerates
               value:
               - 6
               - 6
             - expanded: true
               children:
-              - name: Alternative Energy
+              - name: name
                 value:
-                - 108
-              - name: Alternative Energy
+                - 0.8008281904610115
+                - 0.8008281904610115
+              - name: name
                 value:
-                - 108
+                - 0.8008281904610115
+                - 0.8008281904610115
               name: Conglomerates
               value:
               - 6
               - 6
             regions:
             - children:
-              - name: South Africa
+              - name: name
                 value:
-                - "6"
-              - name: South Africa
+                - value
+                - value
+              - name: name
                 value:
-                - "6"
+                - value
+                - value
               name: Asia Pacific
               value:
               - value
               - value
             - children:
-              - name: South Africa
+              - name: name
                 value:
-                - "6"
-              - name: South Africa
+                - value
+                - value
+              - name: name
                 value:
-                - "6"
+                - value
+                - value
               name: Asia Pacific
               value:
               - value
               - value
             topics:
             - children:
-              - name: Business Model & Innovation
+              - name: name
                 value:
-                - SA_ESG_MATERIAL_BUSINESS_MODEL_INNOVATION
-              - name: Business Model & Innovation
+                - value
+                - value
+              - name: name
                 value:
-                - SA_ESG_MATERIAL_BUSINESS_MODEL_INNOVATION
+                - value
+                - value
               name: ESG Content Summary
               value:
               - SA_ESG_US
               - SA_ESG_US
             - children:
-              - name: Business Model & Innovation
+              - name: name
                 value:
-                - SA_ESG_MATERIAL_BUSINESS_MODEL_INNOVATION
-              - name: Business Model & Innovation
+                - value
+                - value
+              - name: name
                 value:
-                - SA_ESG_MATERIAL_BUSINESS_MODEL_INNOVATION
+                - value
+                - value
               name: ESG Content Summary
               value:
               - SA_ESG_US
@@ -1986,23 +2024,27 @@ components:
               value: SP50
             categories:
             - children:
-              - name: Mergers & Acquisitions
+              - name: name
                 value:
-                - SA_FILTERED_MNA
-              - name: Mergers & Acquisitions
+                - value
+                - value
+              - name: name
                 value:
-                - SA_FILTERED_MNA
+                - value
+                - value
               name: Litigation
               value:
               - SA_LITIGATION
               - SA_LITIGATION
             - children:
-              - name: Mergers & Acquisitions
+              - name: name
                 value:
-                - SA_FILTERED_MNA
-              - name: Mergers & Acquisitions
+                - value
+                - value
+              - name: name
                 value:
-                - SA_FILTERED_MNA
+                - value
+                - value
               name: Litigation
               value:
               - SA_LITIGATION
@@ -2012,29 +2054,35 @@ components:
           $ref: '#/components/schemas/FilterResponse_data'
       type: object
     FlattenedFilters:
-      description: Flattened Filters Object
+      description: Flattened Filters Object.
       example:
         sectors:
-        - name: Chemical Manufacturing
+        - name: name
           value:
-          - 106
-        - name: Chemical Manufacturing
+          - 6.027456183070403
+          - 6.027456183070403
+        - name: name
           value:
-          - 106
+          - 6.027456183070403
+          - 6.027456183070403
         regions:
-        - name: Canada
+        - name: name
           value:
-          - "5"
-        - name: Canada
+          - value
+          - value
+        - name: name
           value:
-          - "5"
+          - value
+          - value
         topics:
-        - name: '13F Summary '
+        - name: name
           value:
-          - SA_13F_SUMMARY
-        - name: '13F Summary '
+          - value
+          - value
+        - name: name
           value:
-          - SA_13F_SUMMARY
+          - value
+          - value
         watchlists:
         - name: S&P 500
           type: Index
@@ -2043,12 +2091,14 @@ components:
           type: Index
           value: SP50
         categories:
-        - name: Dividends
+        - name: name
           value:
-          - SA_DIVIDENDS
-        - name: Dividends
+          - value
+          - value
+        - name: name
           value:
-          - SA_DIVIDENDS
+          - value
+          - value
       properties:
         categories:
           items:
@@ -2072,13 +2122,15 @@ components:
           type: array
       type: object
     flattenedFiltersCategoriesObject:
-      description: |2
+      description: |
+        Elements of flattened filters categories object.
 
         '(Note: the value array will always have just one value.)'
       example:
-        name: Dividends
+        name: name
         value:
-        - SA_DIVIDENDS
+        - value
+        - value
       properties:
         name:
           description: The name of the category.
@@ -2091,14 +2143,15 @@ components:
           type: array
       type: object
     flattenedFiltersTopicsObject:
-      description: |2
-
+      description: |
+        Elements of flattened filters topics object.
 
         '(Note: the value array will always have just one value.)'
       example:
-        name: '13F Summary '
+        name: name
         value:
-        - SA_13F_SUMMARY
+        - value
+        - value
       properties:
         name:
           description: The name of the topic.
@@ -2110,11 +2163,15 @@ components:
           type: array
       type: object
     flattenedFiltersRegionsObject:
-      description: '(Note: the value array will always have just one value.)'
+      description: |
+        Elements of flattened filters regions object.
+
+        '(Note: the value array will always have just one value.)'
       example:
-        name: Canada
+        name: name
         value:
-        - "5"
+        - value
+        - value
       properties:
         name:
           description: The name of the region.
@@ -2127,11 +2184,15 @@ components:
           type: array
       type: object
     flattenedFiltersSectorsObject:
-      description: '(Note: the value array will always have just one value.)'
+      description: |
+        Elements of flattened filters sectors object.
+
+        '(Note: the value array will always have just one value.)'
       example:
-        name: Chemical Manufacturing
+        name: name
         value:
-        - 106
+        - 6.027456183070403
+        - 6.027456183070403
       properties:
         name:
           description: The name of the sector.
@@ -2144,6 +2205,7 @@ components:
           type: array
       type: object
     flattenedFiltersWatchlistsObject:
+      description: Elements of flattened filters watchlists object.
       example:
         name: S&P 500
         type: Index
@@ -2165,70 +2227,82 @@ components:
         sectors:
         - expanded: true
           children:
-          - name: Alternative Energy
+          - name: name
             value:
-            - 108
-          - name: Alternative Energy
+            - 0.8008281904610115
+            - 0.8008281904610115
+          - name: name
             value:
-            - 108
+            - 0.8008281904610115
+            - 0.8008281904610115
           name: Conglomerates
           value:
           - 6
           - 6
         - expanded: true
           children:
-          - name: Alternative Energy
+          - name: name
             value:
-            - 108
-          - name: Alternative Energy
+            - 0.8008281904610115
+            - 0.8008281904610115
+          - name: name
             value:
-            - 108
+            - 0.8008281904610115
+            - 0.8008281904610115
           name: Conglomerates
           value:
           - 6
           - 6
         regions:
         - children:
-          - name: South Africa
+          - name: name
             value:
-            - "6"
-          - name: South Africa
+            - value
+            - value
+          - name: name
             value:
-            - "6"
+            - value
+            - value
           name: Asia Pacific
           value:
           - value
           - value
         - children:
-          - name: South Africa
+          - name: name
             value:
-            - "6"
-          - name: South Africa
+            - value
+            - value
+          - name: name
             value:
-            - "6"
+            - value
+            - value
           name: Asia Pacific
           value:
           - value
           - value
         topics:
         - children:
-          - name: Business Model & Innovation
+          - name: name
             value:
-            - SA_ESG_MATERIAL_BUSINESS_MODEL_INNOVATION
-          - name: Business Model & Innovation
+            - value
+            - value
+          - name: name
             value:
-            - SA_ESG_MATERIAL_BUSINESS_MODEL_INNOVATION
+            - value
+            - value
           name: ESG Content Summary
           value:
           - SA_ESG_US
           - SA_ESG_US
         - children:
-          - name: Business Model & Innovation
+          - name: name
             value:
-            - SA_ESG_MATERIAL_BUSINESS_MODEL_INNOVATION
-          - name: Business Model & Innovation
+            - value
+            - value
+          - name: name
             value:
-            - SA_ESG_MATERIAL_BUSINESS_MODEL_INNOVATION
+            - value
+            - value
           name: ESG Content Summary
           value:
           - SA_ESG_US
@@ -2242,23 +2316,27 @@ components:
           value: SP50
         categories:
         - children:
-          - name: Mergers & Acquisitions
+          - name: name
             value:
-            - SA_FILTERED_MNA
-          - name: Mergers & Acquisitions
+            - value
+            - value
+          - name: name
             value:
-            - SA_FILTERED_MNA
+            - value
+            - value
           name: Litigation
           value:
           - SA_LITIGATION
           - SA_LITIGATION
         - children:
-          - name: Mergers & Acquisitions
+          - name: name
             value:
-            - SA_FILTERED_MNA
-          - name: Mergers & Acquisitions
+            - value
+            - value
+          - name: name
             value:
-            - SA_FILTERED_MNA
+            - value
+            - value
           name: Litigation
           value:
           - SA_LITIGATION
@@ -2286,14 +2364,17 @@ components:
           type: array
       type: object
     structuredFiltersCategoriesObject:
+      description: Elements of structured filters categories.
       example:
         children:
-        - name: Mergers & Acquisitions
+        - name: name
           value:
-          - SA_FILTERED_MNA
-        - name: Mergers & Acquisitions
+          - value
+          - value
+        - name: name
           value:
-          - SA_FILTERED_MNA
+          - value
+          - value
         name: Litigation
         value:
         - SA_LITIGATION
@@ -2316,10 +2397,12 @@ components:
           type: array
       type: object
     structuredFiltersChildrenObjectTopics:
+      description: Elements of structured filters children topics object.
       example:
-        name: Business Model & Innovation
+        name: name
         value:
-        - SA_ESG_MATERIAL_BUSINESS_MODEL_INNOVATION
+        - value
+        - value
       properties:
         name:
           description: The name of the children.
@@ -2331,10 +2414,12 @@ components:
           type: array
       type: object
     structuredFiltersChildrenObjectCategories:
+      description: Elements of structured filters children categories object.
       example:
-        name: Mergers & Acquisitions
+        name: name
         value:
-        - SA_FILTERED_MNA
+        - value
+        - value
       properties:
         name:
           description: The name of the children.
@@ -2346,10 +2431,12 @@ components:
           type: array
       type: object
     structuredFiltersChildrenObjectRegions:
+      description: Elements of structured filters regions children object.
       example:
-        name: South Africa
+        name: name
         value:
-        - "6"
+        - value
+        - value
       properties:
         name:
           description: The name of the children.
@@ -2361,10 +2448,12 @@ components:
           type: array
       type: object
     structuredFiltersChildrenObjectSectors:
+      description: Elements of structured filters sectors children object.
       example:
-        name: Alternative Energy
+        name: name
         value:
-        - 108
+        - 0.8008281904610115
+        - 0.8008281904610115
       properties:
         name:
           description: The name of the children.
@@ -2376,14 +2465,17 @@ components:
           type: array
       type: object
     structuredFiltersTopicsObject:
+      description: Elements of structured filters topics object.
       example:
         children:
-        - name: Business Model & Innovation
+        - name: name
           value:
-          - SA_ESG_MATERIAL_BUSINESS_MODEL_INNOVATION
-        - name: Business Model & Innovation
+          - value
+          - value
+        - name: name
           value:
-          - SA_ESG_MATERIAL_BUSINESS_MODEL_INNOVATION
+          - value
+          - value
         name: ESG Content Summary
         value:
         - SA_ESG_US
@@ -2406,14 +2498,17 @@ components:
           type: array
       type: object
     structuredFiltersRegionsObject:
+      description: Elements of structured filters regions object.
       example:
         children:
-        - name: South Africa
+        - name: name
           value:
-          - "6"
-        - name: South Africa
+          - value
+          - value
+        - name: name
           value:
-          - "6"
+          - value
+          - value
         name: Asia Pacific
         value:
         - value
@@ -2435,15 +2530,18 @@ components:
           type: array
       type: object
     structuredFiltersSectorsObject:
+      description: Elements of structured filters sectors object.
       example:
         expanded: true
         children:
-        - name: Alternative Energy
+        - name: name
           value:
-          - 108
-        - name: Alternative Energy
+          - 0.8008281904610115
+          - 0.8008281904610115
+        - name: name
           value:
-          - 108
+          - 0.8008281904610115
+          - 0.8008281904610115
         name: Conglomerates
         value:
         - 6
@@ -2469,6 +2567,7 @@ components:
           type: array
       type: object
     structuredFiltersWatchlistsObject:
+      description: Elements of structured filters watchlists object.
       example:
         name: S&P 500
         type: Index
@@ -2493,32 +2592,38 @@ components:
         data:
           flattened:
             topics:
-            - name: '13F Summary '
+            - name: name
               value:
-              - SA_13F_SUMMARY
-            - name: '13F Summary '
+              - value
+              - value
+            - name: name
               value:
-              - SA_13F_SUMMARY
+              - value
+              - value
           structured:
             topics:
             - children:
-              - name: Business Model & Innovation
+              - name: name
                 value:
-                - SA_ESG_MATERIAL_BUSINESS_MODEL_INNOVATION
-              - name: Business Model & Innovation
+                - value
+                - value
+              - name: name
                 value:
-                - SA_ESG_MATERIAL_BUSINESS_MODEL_INNOVATION
+                - value
+                - value
               name: ESG Content Summary
               value:
               - SA_ESG_US
               - SA_ESG_US
             - children:
-              - name: Business Model & Innovation
+              - name: name
                 value:
-                - SA_ESG_MATERIAL_BUSINESS_MODEL_INNOVATION
-              - name: Business Model & Innovation
+                - value
+                - value
+              - name: name
                 value:
-                - SA_ESG_MATERIAL_BUSINESS_MODEL_INNOVATION
+                - value
+                - value
               name: ESG Content Summary
               value:
               - SA_ESG_US
@@ -2531,12 +2636,14 @@ components:
       description: Flattened FiltersTopic Object
       example:
         topics:
-        - name: '13F Summary '
+        - name: name
           value:
-          - SA_13F_SUMMARY
-        - name: '13F Summary '
+          - value
+          - value
+        - name: name
           value:
-          - SA_13F_SUMMARY
+          - value
+          - value
       properties:
         topics:
           items:
@@ -2548,23 +2655,27 @@ components:
       example:
         topics:
         - children:
-          - name: Business Model & Innovation
+          - name: name
             value:
-            - SA_ESG_MATERIAL_BUSINESS_MODEL_INNOVATION
-          - name: Business Model & Innovation
+            - value
+            - value
+          - name: name
             value:
-            - SA_ESG_MATERIAL_BUSINESS_MODEL_INNOVATION
+            - value
+            - value
           name: ESG Content Summary
           value:
           - SA_ESG_US
           - SA_ESG_US
         - children:
-          - name: Business Model & Innovation
+          - name: name
             value:
-            - SA_ESG_MATERIAL_BUSINESS_MODEL_INNOVATION
-          - name: Business Model & Innovation
+            - value
+            - value
+          - name: name
             value:
-            - SA_ESG_MATERIAL_BUSINESS_MODEL_INNOVATION
+            - value
+            - value
           name: ESG Content Summary
           value:
           - SA_ESG_US
@@ -2581,32 +2692,38 @@ components:
         data:
           flattened:
             categories:
-            - name: Dividends
+            - name: name
               value:
-              - SA_DIVIDENDS
-            - name: Dividends
+              - value
+              - value
+            - name: name
               value:
-              - SA_DIVIDENDS
+              - value
+              - value
           structured:
             categories:
             - children:
-              - name: Mergers & Acquisitions
+              - name: name
                 value:
-                - SA_FILTERED_MNA
-              - name: Mergers & Acquisitions
+                - value
+                - value
+              - name: name
                 value:
-                - SA_FILTERED_MNA
+                - value
+                - value
               name: Litigation
               value:
               - SA_LITIGATION
               - SA_LITIGATION
             - children:
-              - name: Mergers & Acquisitions
+              - name: name
                 value:
-                - SA_FILTERED_MNA
-              - name: Mergers & Acquisitions
+                - value
+                - value
+              - name: name
                 value:
-                - SA_FILTERED_MNA
+                - value
+                - value
               name: Litigation
               value:
               - SA_LITIGATION
@@ -2619,12 +2736,14 @@ components:
       description: Flattened FiltersCategories Object
       example:
         categories:
-        - name: Dividends
+        - name: name
           value:
-          - SA_DIVIDENDS
-        - name: Dividends
+          - value
+          - value
+        - name: name
           value:
-          - SA_DIVIDENDS
+          - value
+          - value
       properties:
         categories:
           items:
@@ -2636,23 +2755,27 @@ components:
       example:
         categories:
         - children:
-          - name: Mergers & Acquisitions
+          - name: name
             value:
-            - SA_FILTERED_MNA
-          - name: Mergers & Acquisitions
+            - value
+            - value
+          - name: name
             value:
-            - SA_FILTERED_MNA
+            - value
+            - value
           name: Litigation
           value:
           - SA_LITIGATION
           - SA_LITIGATION
         - children:
-          - name: Mergers & Acquisitions
+          - name: name
             value:
-            - SA_FILTERED_MNA
-          - name: Mergers & Acquisitions
+            - value
+            - value
+          - name: name
             value:
-            - SA_FILTERED_MNA
+            - value
+            - value
           name: Litigation
           value:
           - SA_LITIGATION
@@ -2669,32 +2792,38 @@ components:
         data:
           flattened:
             regions:
-            - name: Canada
+            - name: name
               value:
-              - "5"
-            - name: Canada
+              - value
+              - value
+            - name: name
               value:
-              - "5"
+              - value
+              - value
           structured:
             regions:
             - children:
-              - name: South Africa
+              - name: name
                 value:
-                - "6"
-              - name: South Africa
+                - value
+                - value
+              - name: name
                 value:
-                - "6"
+                - value
+                - value
               name: Asia Pacific
               value:
               - value
               - value
             - children:
-              - name: South Africa
+              - name: name
                 value:
-                - "6"
-              - name: South Africa
+                - value
+                - value
+              - name: name
                 value:
-                - "6"
+                - value
+                - value
               name: Asia Pacific
               value:
               - value
@@ -2707,12 +2836,14 @@ components:
       description: Flattened FiltersRegions Object
       example:
         regions:
-        - name: Canada
+        - name: name
           value:
-          - "5"
-        - name: Canada
+          - value
+          - value
+        - name: name
           value:
-          - "5"
+          - value
+          - value
       properties:
         regions:
           items:
@@ -2724,23 +2855,27 @@ components:
       example:
         regions:
         - children:
-          - name: South Africa
+          - name: name
             value:
-            - "6"
-          - name: South Africa
+            - value
+            - value
+          - name: name
             value:
-            - "6"
+            - value
+            - value
           name: Asia Pacific
           value:
           - value
           - value
         - children:
-          - name: South Africa
+          - name: name
             value:
-            - "6"
-          - name: South Africa
+            - value
+            - value
+          - name: name
             value:
-            - "6"
+            - value
+            - value
           name: Asia Pacific
           value:
           - value
@@ -2757,34 +2892,40 @@ components:
         data:
           flattened:
             sectors:
-            - name: Chemical Manufacturing
+            - name: name
               value:
-              - 106
-            - name: Chemical Manufacturing
+              - 6.027456183070403
+              - 6.027456183070403
+            - name: name
               value:
-              - 106
+              - 6.027456183070403
+              - 6.027456183070403
           structured:
             sectors:
             - expanded: true
               children:
-              - name: Alternative Energy
+              - name: name
                 value:
-                - 108
-              - name: Alternative Energy
+                - 0.8008281904610115
+                - 0.8008281904610115
+              - name: name
                 value:
-                - 108
+                - 0.8008281904610115
+                - 0.8008281904610115
               name: Conglomerates
               value:
               - 6
               - 6
             - expanded: true
               children:
-              - name: Alternative Energy
+              - name: name
                 value:
-                - 108
-              - name: Alternative Energy
+                - 0.8008281904610115
+                - 0.8008281904610115
+              - name: name
                 value:
-                - 108
+                - 0.8008281904610115
+                - 0.8008281904610115
               name: Conglomerates
               value:
               - 6
@@ -2797,12 +2938,14 @@ components:
       description: Flattened FiltersSectors Object
       example:
         sectors:
-        - name: Chemical Manufacturing
+        - name: name
           value:
-          - 106
-        - name: Chemical Manufacturing
+          - 6.027456183070403
+          - 6.027456183070403
+        - name: name
           value:
-          - 106
+          - 6.027456183070403
+          - 6.027456183070403
       properties:
         sectors:
           items:
@@ -2815,24 +2958,28 @@ components:
         sectors:
         - expanded: true
           children:
-          - name: Alternative Energy
+          - name: name
             value:
-            - 108
-          - name: Alternative Energy
+            - 0.8008281904610115
+            - 0.8008281904610115
+          - name: name
             value:
-            - 108
+            - 0.8008281904610115
+            - 0.8008281904610115
           name: Conglomerates
           value:
           - 6
           - 6
         - expanded: true
           children:
-          - name: Alternative Energy
+          - name: name
             value:
-            - 108
-          - name: Alternative Energy
+            - 0.8008281904610115
+            - 0.8008281904610115
+          - name: name
             value:
-            - 108
+            - 0.8008281904610115
+            - 0.8008281904610115
           name: Conglomerates
           value:
           - 6
@@ -2900,6 +3047,7 @@ components:
           type: array
       type: object
     HeadlinesRequest_data_searchTime:
+      description: Elements of search time.
       example:
         start: 2022-08-21T12:35:45Z
         end: 2022-08-29T08:10:30Z
@@ -3029,6 +3177,7 @@ components:
           type: integer
       type: object
     HeadlinesRequest_meta:
+      description: Elements of meta object.
       example:
         pagination:
           offset: 100
@@ -3089,6 +3238,7 @@ components:
           $ref: '#/components/schemas/HeadlinesRequest_data_searchTime'
       type: object
     HeadlinesRequestByView_meta:
+      description: Elements of meta object.
       example:
         pagination:
           offset: 100
@@ -3107,18 +3257,25 @@ components:
           type: string
       type: object
     HeadlinesResponse_meta_pagination:
+      description: |
+        Pagination information for the search result.
       example:
         total: 50
         isEstimatedTotal: false
       properties:
         total:
+          description: |
+            The total number of items available in the search. result.
           example: 50
           type: integer
         isEstimatedTotal:
+          description: |
+            Indicates whether the total count provided is an estimation.
           example: false
           type: boolean
       type: object
     HeadlinesResponse_meta:
+      description: Elements of meta object.
       example:
         pagination:
           total: 50
@@ -3224,26 +3381,32 @@ components:
       example:
         flattened:
           sectors:
-          - name: Chemical Manufacturing
+          - name: name
             value:
-            - 106
-          - name: Chemical Manufacturing
+            - 6.027456183070403
+            - 6.027456183070403
+          - name: name
             value:
-            - 106
+            - 6.027456183070403
+            - 6.027456183070403
           regions:
-          - name: Canada
+          - name: name
             value:
-            - "5"
-          - name: Canada
+            - value
+            - value
+          - name: name
             value:
-            - "5"
+            - value
+            - value
           topics:
-          - name: '13F Summary '
+          - name: name
             value:
-            - SA_13F_SUMMARY
-          - name: '13F Summary '
+            - value
+            - value
+          - name: name
             value:
-            - SA_13F_SUMMARY
+            - value
+            - value
           watchlists:
           - name: S&P 500
             type: Index
@@ -3252,80 +3415,94 @@ components:
             type: Index
             value: SP50
           categories:
-          - name: Dividends
+          - name: name
             value:
-            - SA_DIVIDENDS
-          - name: Dividends
+            - value
+            - value
+          - name: name
             value:
-            - SA_DIVIDENDS
+            - value
+            - value
         structured:
           sectors:
           - expanded: true
             children:
-            - name: Alternative Energy
+            - name: name
               value:
-              - 108
-            - name: Alternative Energy
+              - 0.8008281904610115
+              - 0.8008281904610115
+            - name: name
               value:
-              - 108
+              - 0.8008281904610115
+              - 0.8008281904610115
             name: Conglomerates
             value:
             - 6
             - 6
           - expanded: true
             children:
-            - name: Alternative Energy
+            - name: name
               value:
-              - 108
-            - name: Alternative Energy
+              - 0.8008281904610115
+              - 0.8008281904610115
+            - name: name
               value:
-              - 108
+              - 0.8008281904610115
+              - 0.8008281904610115
             name: Conglomerates
             value:
             - 6
             - 6
           regions:
           - children:
-            - name: South Africa
+            - name: name
               value:
-              - "6"
-            - name: South Africa
+              - value
+              - value
+            - name: name
               value:
-              - "6"
+              - value
+              - value
             name: Asia Pacific
             value:
             - value
             - value
           - children:
-            - name: South Africa
+            - name: name
               value:
-              - "6"
-            - name: South Africa
+              - value
+              - value
+            - name: name
               value:
-              - "6"
+              - value
+              - value
             name: Asia Pacific
             value:
             - value
             - value
           topics:
           - children:
-            - name: Business Model & Innovation
+            - name: name
               value:
-              - SA_ESG_MATERIAL_BUSINESS_MODEL_INNOVATION
-            - name: Business Model & Innovation
+              - value
+              - value
+            - name: name
               value:
-              - SA_ESG_MATERIAL_BUSINESS_MODEL_INNOVATION
+              - value
+              - value
             name: ESG Content Summary
             value:
             - SA_ESG_US
             - SA_ESG_US
           - children:
-            - name: Business Model & Innovation
+            - name: name
               value:
-              - SA_ESG_MATERIAL_BUSINESS_MODEL_INNOVATION
-            - name: Business Model & Innovation
+              - value
+              - value
+            - name: name
               value:
-              - SA_ESG_MATERIAL_BUSINESS_MODEL_INNOVATION
+              - value
+              - value
             name: ESG Content Summary
             value:
             - SA_ESG_US
@@ -3339,23 +3516,27 @@ components:
             value: SP50
           categories:
           - children:
-            - name: Mergers & Acquisitions
+            - name: name
               value:
-              - SA_FILTERED_MNA
-            - name: Mergers & Acquisitions
+              - value
+              - value
+            - name: name
               value:
-              - SA_FILTERED_MNA
+              - value
+              - value
             name: Litigation
             value:
             - SA_LITIGATION
             - SA_LITIGATION
           - children:
-            - name: Mergers & Acquisitions
+            - name: name
               value:
-              - SA_FILTERED_MNA
-            - name: Mergers & Acquisitions
+              - value
+              - value
+            - name: name
               value:
-              - SA_FILTERED_MNA
+              - value
+              - value
             name: Litigation
             value:
             - SA_LITIGATION
@@ -3370,32 +3551,38 @@ components:
       example:
         flattened:
           topics:
-          - name: '13F Summary '
+          - name: name
             value:
-            - SA_13F_SUMMARY
-          - name: '13F Summary '
+            - value
+            - value
+          - name: name
             value:
-            - SA_13F_SUMMARY
+            - value
+            - value
         structured:
           topics:
           - children:
-            - name: Business Model & Innovation
+            - name: name
               value:
-              - SA_ESG_MATERIAL_BUSINESS_MODEL_INNOVATION
-            - name: Business Model & Innovation
+              - value
+              - value
+            - name: name
               value:
-              - SA_ESG_MATERIAL_BUSINESS_MODEL_INNOVATION
+              - value
+              - value
             name: ESG Content Summary
             value:
             - SA_ESG_US
             - SA_ESG_US
           - children:
-            - name: Business Model & Innovation
+            - name: name
               value:
-              - SA_ESG_MATERIAL_BUSINESS_MODEL_INNOVATION
-            - name: Business Model & Innovation
+              - value
+              - value
+            - name: name
               value:
-              - SA_ESG_MATERIAL_BUSINESS_MODEL_INNOVATION
+              - value
+              - value
             name: ESG Content Summary
             value:
             - SA_ESG_US
@@ -3410,32 +3597,38 @@ components:
       example:
         flattened:
           categories:
-          - name: Dividends
+          - name: name
             value:
-            - SA_DIVIDENDS
-          - name: Dividends
+            - value
+            - value
+          - name: name
             value:
-            - SA_DIVIDENDS
+            - value
+            - value
         structured:
           categories:
           - children:
-            - name: Mergers & Acquisitions
+            - name: name
               value:
-              - SA_FILTERED_MNA
-            - name: Mergers & Acquisitions
+              - value
+              - value
+            - name: name
               value:
-              - SA_FILTERED_MNA
+              - value
+              - value
             name: Litigation
             value:
             - SA_LITIGATION
             - SA_LITIGATION
           - children:
-            - name: Mergers & Acquisitions
+            - name: name
               value:
-              - SA_FILTERED_MNA
-            - name: Mergers & Acquisitions
+              - value
+              - value
+            - name: name
               value:
-              - SA_FILTERED_MNA
+              - value
+              - value
             name: Litigation
             value:
             - SA_LITIGATION
@@ -3450,32 +3643,38 @@ components:
       example:
         flattened:
           regions:
-          - name: Canada
+          - name: name
             value:
-            - "5"
-          - name: Canada
+            - value
+            - value
+          - name: name
             value:
-            - "5"
+            - value
+            - value
         structured:
           regions:
           - children:
-            - name: South Africa
+            - name: name
               value:
-              - "6"
-            - name: South Africa
+              - value
+              - value
+            - name: name
               value:
-              - "6"
+              - value
+              - value
             name: Asia Pacific
             value:
             - value
             - value
           - children:
-            - name: South Africa
+            - name: name
               value:
-              - "6"
-            - name: South Africa
+              - value
+              - value
+            - name: name
               value:
-              - "6"
+              - value
+              - value
             name: Asia Pacific
             value:
             - value
@@ -3490,34 +3689,40 @@ components:
       example:
         flattened:
           sectors:
-          - name: Chemical Manufacturing
+          - name: name
             value:
-            - 106
-          - name: Chemical Manufacturing
+            - 6.027456183070403
+            - 6.027456183070403
+          - name: name
             value:
-            - 106
+            - 6.027456183070403
+            - 6.027456183070403
         structured:
           sectors:
           - expanded: true
             children:
-            - name: Alternative Energy
+            - name: name
               value:
-              - 108
-            - name: Alternative Energy
+              - 0.8008281904610115
+              - 0.8008281904610115
+            - name: name
               value:
-              - 108
+              - 0.8008281904610115
+              - 0.8008281904610115
             name: Conglomerates
             value:
             - 6
             - 6
           - expanded: true
             children:
-            - name: Alternative Energy
+            - name: name
               value:
-              - 108
-            - name: Alternative Energy
+              - 0.8008281904610115
+              - 0.8008281904610115
+            - name: name
               value:
-              - 108
+              - 0.8008281904610115
+              - 0.8008281904610115
             name: Conglomerates
             value:
             - 6

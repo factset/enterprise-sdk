@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class HeadlinesResponseMetaPagination {
     /**
      * Constructs a new <code>HeadlinesResponseMetaPagination</code>.
+     * Pagination information for the search result. 
      * @alias module:model/HeadlinesResponseMetaPagination
      */
     constructor() { 
@@ -60,11 +61,13 @@ class HeadlinesResponseMetaPagination {
 }
 
 /**
+ * The total number of items available in the search. result. 
  * @member {Number} total
  */
 HeadlinesResponseMetaPagination.prototype['total'] = undefined;
 
 /**
+ * Indicates whether the total count provided is an estimation. 
  * @member {Boolean} isEstimatedTotal
  */
 HeadlinesResponseMetaPagination.prototype['isEstimatedTotal'] = undefined;

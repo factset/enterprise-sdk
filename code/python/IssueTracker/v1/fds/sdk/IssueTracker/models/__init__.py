@@ -20,3 +20,5 @@ from fds.sdk.IssueTracker.model.issue import Issue
 from fds.sdk.IssueTracker.model.issue_data import IssueData
 from fds.sdk.IssueTracker.model.issue_request import IssueRequest
 from fds.sdk.IssueTracker.model.issue_request_data import IssueRequestData
+from fds.sdk.IssueTracker.model.update_issue_request import UpdateIssueRequest
+from fds.sdk.IssueTracker.model.update_issue_request_data import UpdateIssueRequestData

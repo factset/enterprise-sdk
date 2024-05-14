@@ -1275,20 +1275,26 @@ components:
   schemas:
     Error:
       type: object
+      description: Object representing an error response.
       properties:
         errors:
           type: array
+          description: An array of error objects.
           items:
             $ref: '#/components/schemas/errorObject'
     errorObject:
       type: object
+      description: An object representing an error.
       properties:
         id:
           type: string
+          description: The unique identifier for the error.
         title:
           type: string
+          description: A title or summary of the error.
         code:
           type: string
+          description: The error code associated with the error.
     HeadlinesRequest:
       type: object
       description: >-
@@ -1372,6 +1378,7 @@ components:
                 - allAvailable
             searchTime:
               type: object
+              description: Elements of search time.
               properties:
                 start:
                   type: string
@@ -1393,6 +1400,7 @@ components:
                   example: '2022-08-29T08:10:30Z'
         meta:
           type: object
+          description: Elements of meta object.
           properties:
             pagination:
               type: object
@@ -1431,6 +1439,7 @@ components:
                 - headlines
     HeadlinesRequestTickersObject:
       type: object
+      description: Elements of headlines request tickers.
       properties:
         value:
           type: string
@@ -1453,6 +1462,7 @@ components:
             - Fixed_Income
     HeadlinesRequestByView:
       type: object
+      description: Elements of headlines request by view.
       properties:
         data:
           type: object
@@ -1480,6 +1490,7 @@ components:
                 - allAvailable
             searchTime:
               type: object
+              description: Elements of search time.
               properties:
                 start:
                   type: string
@@ -1501,6 +1512,7 @@ components:
                   example: '2022-08-29T08:10:30Z'
         meta:
           type: object
+          description: Elements of meta object.
           properties:
             pagination:
               type: object
@@ -1520,6 +1532,7 @@ components:
                   description: Non-negative number of entries to skip.
     QuickAlertsBody:
       type: object
+      description: Elements of quick alerts body object.
       properties:
         data:
           type: object
@@ -1530,6 +1543,7 @@ components:
               example: StreetAccount News
     QuickAlertsResponse:
       type: object
+      description: Elements of quick alerts response object.
       properties:
         data:
           type: object
@@ -1540,7 +1554,7 @@ components:
               example: StreetAccount News
     HeadlinesResponse:
       type: object
-      description: Properties in results objects are based on return values
+      description: Properties in results objects are based on return values.
       properties:
         data:
           type: array
@@ -1548,6 +1562,7 @@ components:
             $ref: '#/components/schemas/searchResponseArrayObject'
         meta:
           type: object
+          description: Elements of meta object.
           properties:
             requestGuid:
               type: string
@@ -1556,15 +1571,22 @@ components:
                 produced that search response.
             pagination:
               type: object
+              description: |
+                Pagination information for the search result.
               properties:
                 total:
                   type: integer
+                  description: |
+                    The total number of items available in the search. result.
                   example: 50
                 isEstimatedTotal:
                   type: boolean
+                  description: |
+                    Indicates whether the total count provided is an estimation.
                   example: false
     searchResponseArrayObject:
       type: object
+      description: Elements of search response array object.
       properties:
         storyTime:
           type: string
@@ -1612,6 +1634,7 @@ components:
             https://my.apps.factset.com/viewer-fusion/?_doc_id=sa_story_3819300&_doc_date=2000&_doc_product=SA
     CreateOrEditViewBody:
       type: object
+      description: Elements of create or edit view body object.
       properties:
         data:
           type: object
@@ -1666,6 +1689,7 @@ components:
               example: false
     DeleteViewBody:
       type: object
+      description: Elements of delete view body object.
       properties:
         data:
           type: object
@@ -1676,15 +1700,19 @@ components:
               example: SA News View
     createOrEditViewTickers:
       type: object
+      description: Elements of create or edit view tickers object.
       properties:
         name:
           type: string
+          description: name of the ticker
           example: Russell 1000
         value:
           type: string
+          description: The ticker symbol
           example: R.1000
         type:
           type: string
+          description: The type of the asset associated with the ticker.
           example: Index
           enum:
             - Index
@@ -1713,6 +1741,7 @@ components:
             $ref: '#/components/schemas/viewsObject'
     viewsObject:
       type: object
+      description: Elements of views object.
       properties:
         name:
           type: string
@@ -1767,7 +1796,7 @@ components:
               $ref: '#/components/schemas/FlattenedFilters'
     FlattenedFilters:
       type: object
-      description: Flattened Filters Object
+      description: Flattened Filters Object.
       properties:
         categories:
           type: array
@@ -1792,6 +1821,7 @@ components:
     flattenedFiltersCategoriesObject:
       type: object
       description: |
+        Elements of flattened filters categories object.
 
         '(Note: the value array will always have just one value.)'
       properties:
@@ -1804,14 +1834,10 @@ components:
             type: string
           description: |
             An array containing a single value associated with the category.
-      example:
-        name: Dividends
-        value:
-          - SA_DIVIDENDS
     flattenedFiltersTopicsObject:
       type: object
       description: |
-
+        Elements of flattened filters topics object.
 
         '(Note: the value array will always have just one value.)'
       properties:
@@ -1823,13 +1849,12 @@ components:
           items:
             type: string
           description: An array containing a single value associated with the topic.
-      example:
-        name: '13F Summary '
-        value:
-          - SA_13F_SUMMARY
     flattenedFiltersRegionsObject:
       type: object
-      description: '(Note: the value array will always have just one value.)'
+      description: |
+        Elements of flattened filters regions object.
+
+        '(Note: the value array will always have just one value.)'
       properties:
         name:
           type: string
@@ -1841,13 +1866,12 @@ components:
           description: >-
             An array containing a single numeric value associated with the
             region.
-      example:
-        name: Canada
-        value:
-          - '5'
     flattenedFiltersSectorsObject:
       type: object
-      description: '(Note: the value array will always have just one value.)'
+      description: |
+        Elements of flattened filters sectors object.
+
+        '(Note: the value array will always have just one value.)'
       properties:
         name:
           type: string
@@ -1859,12 +1883,9 @@ components:
           description: >
             An array containing a single numeric value associated with the
             sector.
-      example:
-        name: Chemical Manufacturing
-        value:
-          - 106
     flattenedFiltersWatchlistsObject:
       type: object
+      description: Elements of flattened filters watchlists object.
       properties:
         name:
           type: string
@@ -1905,6 +1926,7 @@ components:
             $ref: '#/components/schemas/structuredFiltersWatchlistsObject'
     structuredFiltersCategoriesObject:
       type: object
+      description: Elements of structured filters categories.
       properties:
         name:
           type: string
@@ -1923,6 +1945,7 @@ components:
           description: An array of children objects.
     structuredFiltersChildrenObjectTopics:
       type: object
+      description: Elements of structured filters children topics object.
       properties:
         name:
           type: string
@@ -1932,12 +1955,9 @@ components:
           items:
             type: string
             description: The values associated with the children.
-      example:
-        name: Business Model & Innovation
-        value:
-          - SA_ESG_MATERIAL_BUSINESS_MODEL_INNOVATION
     structuredFiltersChildrenObjectCategories:
       type: object
+      description: Elements of structured filters children categories object.
       properties:
         name:
           type: string
@@ -1947,12 +1967,9 @@ components:
           items:
             type: string
             description: The values associated with the children.
-      example:
-        name: Mergers & Acquisitions
-        value:
-          - SA_FILTERED_MNA
     structuredFiltersChildrenObjectRegions:
       type: object
+      description: Elements of structured filters regions children object.
       properties:
         name:
           type: string
@@ -1962,12 +1979,9 @@ components:
           items:
             type: string
             description: The values associated with the children.
-      example:
-        name: South Africa
-        value:
-          - '6'
     structuredFiltersChildrenObjectSectors:
       type: object
+      description: Elements of structured filters sectors children object.
       properties:
         name:
           type: string
@@ -1977,12 +1991,9 @@ components:
           items:
             type: number
             description: The values associated with the children.
-      example:
-        name: Alternative Energy
-        value:
-          - 108
     structuredFiltersTopicsObject:
       type: object
+      description: Elements of structured filters topics object.
       properties:
         name:
           type: string
@@ -2001,6 +2012,7 @@ components:
           description: An array of child objects.
     structuredFiltersRegionsObject:
       type: object
+      description: Elements of structured filters regions object.
       properties:
         name:
           type: string
@@ -2018,6 +2030,7 @@ components:
           description: An array of children objects.
     structuredFiltersSectorsObject:
       type: object
+      description: Elements of structured filters sectors object.
       properties:
         name:
           type: string
@@ -2039,6 +2052,7 @@ components:
             example: 6
     structuredFiltersWatchlistsObject:
       type: object
+      description: Elements of structured filters watchlists object.
       properties:
         name:
           type: string

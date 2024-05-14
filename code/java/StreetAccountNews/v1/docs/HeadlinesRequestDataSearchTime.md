@@ -2,6 +2,7 @@
 
 # HeadlinesRequestDataSearchTime
 
+Elements of search time.
 
 ## Properties
 

@@ -1,4 +1,5 @@
 # FactSet.SDK.StreetAccountNews.Model.ViewsObject
+Elements of views object.
 
 ## Properties
 

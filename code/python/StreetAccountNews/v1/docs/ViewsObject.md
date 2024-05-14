@@ -1,5 +1,6 @@
 # ViewsObject
 
+Elements of views object.
 
 ## Properties
 Name | Type | Description | Notes

@@ -27,14 +27,15 @@ using OpenAPIDateConverter = FactSet.SDK.StreetAccountNews.Client.OpenAPIDateCon
 namespace FactSet.SDK.StreetAccountNews.Model
 {
     /// <summary>
-    /// CreateOrEditViewTickers
+    /// Elements of create or edit view tickers object.
     /// </summary>
     [DataContract(Name = "createOrEditViewTickers")]
     public partial class CreateOrEditViewTickers : IEquatable<CreateOrEditViewTickers>, IValidatableObject
     {
         /// <summary>
-        /// Defines Type
+        /// The type of the asset associated with the ticker.
         /// </summary>
+        /// <value>The type of the asset associated with the ticker.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TypeEnum
         {
@@ -72,16 +73,17 @@ namespace FactSet.SDK.StreetAccountNews.Model
 
 
         /// <summary>
-        /// Gets or Sets Type
+        /// The type of the asset associated with the ticker.
         /// </summary>
+        /// <value>The type of the asset associated with the ticker.</value>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public TypeEnum? Type { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateOrEditViewTickers" /> class.
         /// </summary>
-        /// <param name="name">name.</param>
-        /// <param name="value">value.</param>
-        /// <param name="type">type.</param>
+        /// <param name="name">name of the ticker.</param>
+        /// <param name="value">The ticker symbol.</param>
+        /// <param name="type">The type of the asset associated with the ticker..</param>
         public CreateOrEditViewTickers(string name = default(string), string value = default(string), TypeEnum? type = default(TypeEnum?))
         {
             this.Name = name;
@@ -90,14 +92,16 @@ namespace FactSet.SDK.StreetAccountNews.Model
         }
 
         /// <summary>
-        /// Gets or Sets Name
+        /// name of the ticker
         /// </summary>
+        /// <value>name of the ticker</value>
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets Value
+        /// The ticker symbol
         /// </summary>
+        /// <value>The ticker symbol</value>
         [DataMember(Name = "value", EmitDefaultValue = false)]
         public string Value { get; set; }
 

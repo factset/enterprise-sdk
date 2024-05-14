@@ -31,8 +31,9 @@ import com.factset.sdk.StreetAccountNews.JSON;
 
 
 /**
- * ViewsObject
+ * Elements of views object.
  */
+@ApiModel(description = "Elements of views object.")
 @JsonPropertyOrder({
   ViewsObject.JSON_PROPERTY_NAME,
   ViewsObject.JSON_PROPERTY_TICKERS,

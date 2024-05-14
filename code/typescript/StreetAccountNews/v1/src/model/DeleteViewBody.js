@@ -21,6 +21,7 @@ import DeleteViewBodyData from './DeleteViewBodyData';
 class DeleteViewBody {
     /**
      * Constructs a new <code>DeleteViewBody</code>.
+     * Elements of delete view body object.
      * @alias module:model/DeleteViewBody
      */
     constructor() { 

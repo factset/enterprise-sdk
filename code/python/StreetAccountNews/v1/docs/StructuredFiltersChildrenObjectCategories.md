@@ -1,5 +1,6 @@
 # StructuredFiltersChildrenObjectCategories
 
+Elements of structured filters children categories object.
 
 ## Properties
 Name | Type | Description | Notes

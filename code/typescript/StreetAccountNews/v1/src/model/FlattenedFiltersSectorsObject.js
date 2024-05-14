@@ -20,7 +20,7 @@ import ApiClient from '../ApiClient';
 class FlattenedFiltersSectorsObject {
     /**
      * Constructs a new <code>FlattenedFiltersSectorsObject</code>.
-     * (Note: the value array will always have just one value.)
+     * Elements of flattened filters sectors object.  &#39;(Note: the value array will always have just one value.)&#39; 
      * @alias module:model/FlattenedFiltersSectorsObject
      */
     constructor() { 

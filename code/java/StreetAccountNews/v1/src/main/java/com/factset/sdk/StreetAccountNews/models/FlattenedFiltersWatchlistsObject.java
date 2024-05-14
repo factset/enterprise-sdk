@@ -30,8 +30,9 @@ import com.factset.sdk.StreetAccountNews.JSON;
 
 
 /**
- * FlattenedFiltersWatchlistsObject
+ * Elements of flattened filters watchlists object.
  */
+@ApiModel(description = "Elements of flattened filters watchlists object.")
 @JsonPropertyOrder({
   FlattenedFiltersWatchlistsObject.JSON_PROPERTY_NAME,
   FlattenedFiltersWatchlistsObject.JSON_PROPERTY_TYPE,

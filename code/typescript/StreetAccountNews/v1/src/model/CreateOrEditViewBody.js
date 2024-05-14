@@ -21,6 +21,7 @@ import CreateOrEditViewBodyData from './CreateOrEditViewBodyData';
 class CreateOrEditViewBody {
     /**
      * Constructs a new <code>CreateOrEditViewBody</code>.
+     * Elements of create or edit view body object.
      * @alias module:model/CreateOrEditViewBody
      */
     constructor() { 

@@ -1,4 +1,5 @@
 # FactSet.SDK.StreetAccountNews.Model.HeadlinesRequestDataSearchTime
+Elements of search time.
 
 ## Properties
 

@@ -2,6 +2,7 @@
 
 # QuickAlertsBody
 
+Elements of quick alerts body object.
 
 ## Properties
 

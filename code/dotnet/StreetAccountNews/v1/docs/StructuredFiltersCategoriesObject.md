@@ -1,4 +1,5 @@
 # FactSet.SDK.StreetAccountNews.Model.StructuredFiltersCategoriesObject
+Elements of structured filters categories.
 
 ## Properties
 

@@ -2,7 +2,7 @@
 
 # HeadlinesResponse
 
-Properties in results objects are based on return values
+Properties in results objects are based on return values.
 
 ## Properties
 

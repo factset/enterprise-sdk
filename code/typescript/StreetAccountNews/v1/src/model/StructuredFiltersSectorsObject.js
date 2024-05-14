@@ -21,6 +21,7 @@ import StructuredFiltersChildrenObjectSectors from './StructuredFiltersChildrenO
 class StructuredFiltersSectorsObject {
     /**
      * Constructs a new <code>StructuredFiltersSectorsObject</code>.
+     * Elements of structured filters sectors object.
      * @alias module:model/StructuredFiltersSectorsObject
      */
     constructor() { 

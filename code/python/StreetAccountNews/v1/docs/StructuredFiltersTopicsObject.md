@@ -1,5 +1,6 @@
 # StructuredFiltersTopicsObject
 
+Elements of structured filters topics object.
 
 ## Properties
 Name | Type | Description | Notes

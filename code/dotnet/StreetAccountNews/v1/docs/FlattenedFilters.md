@@ -1,5 +1,5 @@
 # FactSet.SDK.StreetAccountNews.Model.FlattenedFilters
-Flattened Filters Object
+Flattened Filters Object.
 
 ## Properties
 

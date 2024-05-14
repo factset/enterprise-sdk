@@ -1,5 +1,6 @@
 # SearchResponseArrayObject
 
+Elements of search response array object.
 
 ## Properties
 Name | Type | Description | Notes

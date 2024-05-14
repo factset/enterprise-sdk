@@ -5,7 +5,7 @@
     <artifactId>streetaccountnews</artifactId>
     <packaging>jar</packaging>
     <name>streetaccountnews</name>
-    <version>0.40.0</version>
+    <version>0.40.1</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>StreetAccount News client library for Java</description>
     <scm>

@@ -30,8 +30,9 @@ import com.factset.sdk.StreetAccountNews.JSON;
 
 
 /**
- * HeadlinesResponseMetaPagination
+ * Pagination information for the search result. 
  */
+@ApiModel(description = "Pagination information for the search result. ")
 @JsonPropertyOrder({
   HeadlinesResponseMetaPagination.JSON_PROPERTY_TOTAL,
   HeadlinesResponseMetaPagination.JSON_PROPERTY_IS_ESTIMATED_TOTAL
@@ -56,11 +57,11 @@ public class HeadlinesResponseMetaPagination implements Serializable {
   }
 
    /**
-   * Get total
+   * The total number of items available in the search. result. 
    * @return total
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "50", value = "")
+  @ApiModelProperty(example = "50", value = "The total number of items available in the search. result. ")
   @JsonProperty(JSON_PROPERTY_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -82,11 +83,11 @@ public class HeadlinesResponseMetaPagination implements Serializable {
   }
 
    /**
-   * Get isEstimatedTotal
+   * Indicates whether the total count provided is an estimation. 
    * @return isEstimatedTotal
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
+  @ApiModelProperty(example = "false", value = "Indicates whether the total count provided is an estimation. ")
   @JsonProperty(JSON_PROPERTY_IS_ESTIMATED_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -21,6 +21,7 @@ import StructuredFiltersChildrenObjectRegions from './StructuredFiltersChildrenO
 class StructuredFiltersRegionsObject {
     /**
      * Constructs a new <code>StructuredFiltersRegionsObject</code>.
+     * Elements of structured filters regions object.
      * @alias module:model/StructuredFiltersRegionsObject
      */
     constructor() { 

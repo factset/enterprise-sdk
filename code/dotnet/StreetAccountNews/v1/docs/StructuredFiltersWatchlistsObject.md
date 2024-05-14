@@ -1,4 +1,5 @@
 # FactSet.SDK.StreetAccountNews.Model.StructuredFiltersWatchlistsObject
+Elements of structured filters watchlists object.
 
 ## Properties
 

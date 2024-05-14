@@ -31,8 +31,9 @@ import com.factset.sdk.StreetAccountNews.JSON;
 
 
 /**
- * QuickAlertsBody
+ * Elements of quick alerts body object.
  */
+@ApiModel(description = "Elements of quick alerts body object.")
 @JsonPropertyOrder({
   QuickAlertsBody.JSON_PROPERTY_DATA
 })

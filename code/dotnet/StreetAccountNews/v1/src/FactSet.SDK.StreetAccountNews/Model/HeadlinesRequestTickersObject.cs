@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.StreetAccountNews.Client.OpenAPIDateCon
 namespace FactSet.SDK.StreetAccountNews.Model
 {
     /// <summary>
-    /// HeadlinesRequestTickersObject
+    /// Elements of headlines request tickers.
     /// </summary>
     [DataContract(Name = "HeadlinesRequestTickersObject")]
     public partial class HeadlinesRequestTickersObject : IEquatable<HeadlinesRequestTickersObject>, IValidatableObject

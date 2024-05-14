@@ -31,8 +31,9 @@ import com.factset.sdk.StreetAccountNews.JSON;
 
 
 /**
- * CreateOrEditViewBody
+ * Elements of create or edit view body object.
  */
+@ApiModel(description = "Elements of create or edit view body object.")
 @JsonPropertyOrder({
   CreateOrEditViewBody.JSON_PROPERTY_DATA
 })

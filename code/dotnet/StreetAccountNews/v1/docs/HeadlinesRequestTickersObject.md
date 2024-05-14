@@ -1,4 +1,5 @@
 # FactSet.SDK.StreetAccountNews.Model.HeadlinesRequestTickersObject
+Elements of headlines request tickers.
 
 ## Properties
 

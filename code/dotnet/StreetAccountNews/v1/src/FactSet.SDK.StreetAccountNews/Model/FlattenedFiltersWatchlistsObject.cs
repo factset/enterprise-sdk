@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.StreetAccountNews.Client.OpenAPIDateCon
 namespace FactSet.SDK.StreetAccountNews.Model
 {
     /// <summary>
-    /// FlattenedFiltersWatchlistsObject
+    /// Elements of flattened filters watchlists object.
     /// </summary>
     [DataContract(Name = "flattenedFiltersWatchlistsObject")]
     public partial class FlattenedFiltersWatchlistsObject : IEquatable<FlattenedFiltersWatchlistsObject>, IValidatableObject

@@ -1,5 +1,6 @@
 # FlattenedFiltersWatchlistsObject
 
+Elements of flattened filters watchlists object.
 
 ## Properties
 Name | Type | Description | Notes

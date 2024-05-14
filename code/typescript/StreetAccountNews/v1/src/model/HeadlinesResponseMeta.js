@@ -21,6 +21,7 @@ import HeadlinesResponseMetaPagination from './HeadlinesResponseMetaPagination';
 class HeadlinesResponseMeta {
     /**
      * Constructs a new <code>HeadlinesResponseMeta</code>.
+     * Elements of meta object.
      * @alias module:model/HeadlinesResponseMeta
      */
     constructor() { 

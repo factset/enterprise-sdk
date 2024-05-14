@@ -31,8 +31,9 @@ import com.factset.sdk.StreetAccountNews.JSON;
 
 
 /**
- * SearchResponseArrayObject
+ * Elements of search response array object.
  */
+@ApiModel(description = "Elements of search response array object.")
 @JsonPropertyOrder({
   SearchResponseArrayObject.JSON_PROPERTY_STORY_TIME,
   SearchResponseArrayObject.JSON_PROPERTY_HEADLINES,

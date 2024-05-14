@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.StreetAccountNews.Client.OpenAPIDateCon
 namespace FactSet.SDK.StreetAccountNews.Model
 {
     /// <summary>
-    /// StructuredFiltersChildrenObjectCategories
+    /// Elements of structured filters children categories object.
     /// </summary>
     [DataContract(Name = "structuredFiltersChildrenObjectCategories")]
     public partial class StructuredFiltersChildrenObjectCategories : IEquatable<StructuredFiltersChildrenObjectCategories>, IValidatableObject

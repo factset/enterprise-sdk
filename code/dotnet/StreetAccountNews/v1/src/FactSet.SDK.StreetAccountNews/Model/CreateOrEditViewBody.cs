@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.StreetAccountNews.Client.OpenAPIDateCon
 namespace FactSet.SDK.StreetAccountNews.Model
 {
     /// <summary>
-    /// CreateOrEditViewBody
+    /// Elements of create or edit view body object.
     /// </summary>
     [DataContract(Name = "CreateOrEditViewBody")]
     public partial class CreateOrEditViewBody : IEquatable<CreateOrEditViewBody>, IValidatableObject

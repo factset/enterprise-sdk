@@ -30,8 +30,9 @@ import com.factset.sdk.StreetAccountNews.JSON;
 
 
 /**
- * StructuredFiltersWatchlistsObject
+ * Elements of structured filters watchlists object.
  */
+@ApiModel(description = "Elements of structured filters watchlists object.")
 @JsonPropertyOrder({
   StructuredFiltersWatchlistsObject.JSON_PROPERTY_NAME,
   StructuredFiltersWatchlistsObject.JSON_PROPERTY_TYPE,

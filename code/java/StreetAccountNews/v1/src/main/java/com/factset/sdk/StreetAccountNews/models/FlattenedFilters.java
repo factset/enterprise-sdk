@@ -35,9 +35,9 @@ import com.factset.sdk.StreetAccountNews.JSON;
 
 
 /**
- * Flattened Filters Object
+ * Flattened Filters Object.
  */
-@ApiModel(description = "Flattened Filters Object")
+@ApiModel(description = "Flattened Filters Object.")
 @JsonPropertyOrder({
   FlattenedFilters.JSON_PROPERTY_CATEGORIES,
   FlattenedFilters.JSON_PROPERTY_TOPICS,

@@ -2,13 +2,14 @@
 
 # HeadlinesResponseMetaPagination
 
+Pagination information for the search result. 
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**total** | **Integer** |  |  [optional]
-**isEstimatedTotal** | **Boolean** |  |  [optional]
+**total** | **Integer** | The total number of items available in the search. result.  |  [optional]
+**isEstimatedTotal** | **Boolean** | Indicates whether the total count provided is an estimation.  |  [optional]
 
 
 ## Implemented Interfaces

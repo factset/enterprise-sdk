@@ -30,8 +30,9 @@ import com.factset.sdk.StreetAccountNews.JSON;
 
 
 /**
- * HeadlinesRequestTickersObject
+ * Elements of headlines request tickers.
  */
+@ApiModel(description = "Elements of headlines request tickers.")
 @JsonPropertyOrder({
   HeadlinesRequestTickersObject.JSON_PROPERTY_VALUE,
   HeadlinesRequestTickersObject.JSON_PROPERTY_TYPE

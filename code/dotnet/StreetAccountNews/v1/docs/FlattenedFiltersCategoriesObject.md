@@ -1,5 +1,5 @@
 # FactSet.SDK.StreetAccountNews.Model.FlattenedFiltersCategoriesObject
- '(Note: the value array will always have just one value.)' 
+Elements of flattened filters categories object.  '(Note: the value array will always have just one value.)' 
 
 ## Properties
 

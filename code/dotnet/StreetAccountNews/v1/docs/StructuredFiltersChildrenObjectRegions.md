@@ -1,4 +1,5 @@
 # FactSet.SDK.StreetAccountNews.Model.StructuredFiltersChildrenObjectRegions
+Elements of structured filters regions children object.
 
 ## Properties
 

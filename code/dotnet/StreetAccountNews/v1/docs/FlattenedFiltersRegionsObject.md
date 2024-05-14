@@ -1,5 +1,5 @@
 # FactSet.SDK.StreetAccountNews.Model.FlattenedFiltersRegionsObject
-(Note: the value array will always have just one value.)
+Elements of flattened filters regions object.  '(Note: the value array will always have just one value.)' 
 
 ## Properties
 

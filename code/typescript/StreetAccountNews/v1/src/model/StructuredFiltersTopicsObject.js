@@ -21,6 +21,7 @@ import StructuredFiltersChildrenObjectTopics from './StructuredFiltersChildrenOb
 class StructuredFiltersTopicsObject {
     /**
      * Constructs a new <code>StructuredFiltersTopicsObject</code>.
+     * Elements of structured filters topics object.
      * @alias module:model/StructuredFiltersTopicsObject
      */
     constructor() { 

@@ -2,6 +2,7 @@
 
 # HeadlinesRequestByViewMeta
 
+Elements of meta object.
 
 ## Properties
 

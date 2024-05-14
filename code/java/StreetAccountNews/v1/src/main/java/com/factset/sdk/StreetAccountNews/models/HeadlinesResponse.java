@@ -32,9 +32,9 @@ import com.factset.sdk.StreetAccountNews.JSON;
 
 
 /**
- * Properties in results objects are based on return values
+ * Properties in results objects are based on return values.
  */
-@ApiModel(description = "Properties in results objects are based on return values")
+@ApiModel(description = "Properties in results objects are based on return values.")
 @JsonPropertyOrder({
   HeadlinesResponse.JSON_PROPERTY_DATA,
   HeadlinesResponse.JSON_PROPERTY_META

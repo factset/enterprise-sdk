@@ -31,8 +31,9 @@ import com.factset.sdk.StreetAccountNews.JSON;
 
 
 /**
- * DeleteViewBody
+ * Elements of delete view body object.
  */
+@ApiModel(description = "Elements of delete view body object.")
 @JsonPropertyOrder({
   DeleteViewBody.JSON_PROPERTY_DATA
 })

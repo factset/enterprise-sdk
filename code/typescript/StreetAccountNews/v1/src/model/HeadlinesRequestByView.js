@@ -22,6 +22,7 @@ import HeadlinesRequestByViewMeta from './HeadlinesRequestByViewMeta';
 class HeadlinesRequestByView {
     /**
      * Constructs a new <code>HeadlinesRequestByView</code>.
+     * Elements of headlines request by view.
      * @alias module:model/HeadlinesRequestByView
      */
     constructor() { 

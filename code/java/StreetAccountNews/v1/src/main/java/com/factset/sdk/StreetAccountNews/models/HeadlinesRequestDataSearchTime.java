@@ -31,8 +31,9 @@ import com.factset.sdk.StreetAccountNews.JSON;
 
 
 /**
- * HeadlinesRequestDataSearchTime
+ * Elements of search time.
  */
+@ApiModel(description = "Elements of search time.")
 @JsonPropertyOrder({
   HeadlinesRequestDataSearchTime.JSON_PROPERTY_START,
   HeadlinesRequestDataSearchTime.JSON_PROPERTY_END

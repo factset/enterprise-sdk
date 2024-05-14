@@ -21,6 +21,7 @@ import ErrorObject from './ErrorObject';
 class Error {
     /**
      * Constructs a new <code>Error</code>.
+     * Object representing an error response.
      * @alias module:model/Error
      */
     constructor() { 
@@ -58,6 +59,7 @@ class Error {
 }
 
 /**
+ * An array of error objects.
  * @member {Array.<module:model/ErrorObject>} errors
  */
 Error.prototype['errors'] = undefined;

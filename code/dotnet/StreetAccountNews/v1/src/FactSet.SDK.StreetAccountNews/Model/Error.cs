@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.StreetAccountNews.Client.OpenAPIDateCon
 namespace FactSet.SDK.StreetAccountNews.Model
 {
     /// <summary>
-    /// Error
+    /// Object representing an error response.
     /// </summary>
     [DataContract(Name = "Error")]
     public partial class Error : IEquatable<Error>, IValidatableObject
@@ -35,15 +35,16 @@ namespace FactSet.SDK.StreetAccountNews.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Error" /> class.
         /// </summary>
-        /// <param name="errors">errors.</param>
+        /// <param name="errors">An array of error objects..</param>
         public Error(List<ErrorObject> errors = default(List<ErrorObject>))
         {
             this.Errors = errors;
         }
 
         /// <summary>
-        /// Gets or Sets Errors
+        /// An array of error objects.
         /// </summary>
+        /// <value>An array of error objects.</value>
         [DataMember(Name = "errors", EmitDefaultValue = false)]
         public List<ErrorObject> Errors { get; set; }
 

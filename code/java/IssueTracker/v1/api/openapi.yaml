@@ -9,7 +9,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Issue Tracker API
-  version: 1.0.0
+  version: 1.1.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/issue-tracker-api
@@ -38,6 +38,7 @@ paths:
                       why we are creating issue.</p>
                     productId: "13273"
                     categoryId: "20589"
+                    isCritical: false
             schema:
               $ref: '#/components/schemas/issueRequest'
       responses:
@@ -79,7 +80,7 @@ paths:
         Id.
       operationId: getIssue
       parameters:
-      - description: '  ID of Issue Tracker issue'
+      - description: ID of Issue Tracker issue
         explode: false
         in: path
         name: id
@@ -95,8 +96,10 @@ paths:
                 Example 1:
                   value:
                     data:
-                      id: 28d38193-3454-4e45-9825-71br87e69fe3
+                      id: 5c318d1c-61da-4d32-91ef-4ea65e53a551
                       subject: This is sample subject of issue tracker issue
+                      isCritical: false
+                      internalId: 81195668
                       comments:
                       - id: 39d38193-2829-4e45-9825-61br87e59fe1
                         content: Here we can provide a complete description of why
@@ -126,6 +129,45 @@ paths:
       tags:
       - Issue
       x-accepts: application/json
+    patch:
+      description: Update subject and severity of issue
+      operationId: patchIssue
+      parameters:
+      - description: ID of Issue Tracker issue
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Example:
+                value:
+                  data:
+                    subject: replace subject of ticket
+                    isCritical: false
+            schema:
+              $ref: '#/components/schemas/updateIssueRequest'
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "500":
+          description: Internal Server Error
+      summary: Update severity and subject of existing issue
+      tags:
+      - Issue
+      x-contentType: application/json
+      x-accepts: application/json
   /issues/{id}/comments:
     post:
       description: 'Reply to the existing matched issue '
@@ -153,11 +195,10 @@ paths:
         "201":
           content:
             application/json:
-              examples:
-                Example 1:
-                  value:
-                    data:
-                      id: 28d38693-3454-4e45-9825-71br87e69fe3
+              example:
+                value:
+                  data:
+                    id: 28d38693-3454-4e45-9825-71br87e69fe3
               schema:
                 $ref: '#/components/schemas/idResponse'
           description: Created
@@ -191,67 +232,34 @@ components:
         data:
           $ref: '#/components/schemas/commentRequest_data'
       type: object
-      x-examples: {}
     issue:
       example:
         data:
+          id: 28d38193-3454-4e45-9825-71br87e69fe3
+          subject: This is sample subject of issue tracker issue
+          isCritical: false
           comments:
-          - createdAt: 2000-01-23T04:56:07.000+00:00
-            author: author
-            id: id
-            content: content
-          - createdAt: 2000-01-23T04:56:07.000+00:00
-            author: author
-            id: id
-            content: content
-          subject: subject
-          id: id
+          - id: 39d38193-2829-4e45-9825-61br87e59fe1
+            content: Here we can provide a complete description of why we are creating
+              the issue.
+            createdAt: 2023-09-13T11:09:01.7274055Z
+            author: James
       properties:
         data:
           $ref: '#/components/schemas/issue_data'
       type: object
-      x-examples:
-        Example 1:
-          data:
-            id: string
-            subject: string
-            status: 0
-            comments:
-            - id: string
-              content: string
-              createdAt: string
-              author: string
-              read: true
-              isAuthorFactSetEmployee: true
-            factSetProducts:
-            - string
-            answeredProductQuestions:
-              productId: string
-              question: string
-              questionId: 0
-              answers:
-              - string
-              originalAnswers:
-              - string
-            ccClients:
-            - name: string
-              emailAddress: string
-              searchDisplay: string
-              serialNumber: string
-              factSetId: string
-              clientGroupEmailId: string
     issueRequest:
       properties:
         data:
           $ref: '#/components/schemas/issueRequest_data'
       type: object
-      x-examples: {}
     comment:
       example:
-        createdAt: 2000-01-23T04:56:07.000+00:00
-        author: author
-        id: id
-        content: content
+        id: 39d38193-2829-4e45-9825-61br87e59fe1
+        content: Here we can provide a complete description of why we are creating
+          the issue.
+        createdAt: 2023-09-13T11:09:01.7274055Z
+        author: Sreenu Narra
       properties:
         id:
           description: generated comment id
@@ -267,27 +275,14 @@ components:
           description: author of the comment.
           type: string
       type: object
-      x-examples:
-        Example 1:
-          id: 39d38193-2829-4e45-9825-61br87e59fe1
-          content: Here we can provide a complete description of why we are creating
-            the issue.
-          createdAt: 2023-09-13T11:09:01.7274055Z
-          author: Sreenu Narra
     idResponse:
       example:
         data:
-          id: id
+          id: 28d38693-3454-4e45-9825-71br87e69fe3
       properties:
         data:
           $ref: '#/components/schemas/idResponse_data'
       type: object
-      x-examples:
-        Example 1:
-          data:
-            id: 28d38693-3454-4e45-9825-71br87e69fe3
-      x-stoplight:
-        id: 640bbb6a27cde
     errorResponse:
       properties:
         errors:
@@ -295,10 +290,11 @@ components:
             $ref: '#/components/schemas/error'
           type: array
       type: object
-      x-examples: {}
-      x-stoplight:
-        id: 64ebd7841d11a
     error:
+      example:
+        id: "500"
+        title: Internal Ierver Error
+        code: Internal Ierver Error
       properties:
         id:
           type: string
@@ -307,11 +303,16 @@ components:
         title:
           type: string
       type: object
-      x-examples:
-        Example 1:
-          id: Error ID
-          title: Error title
-          code: Error code
+    updateIssueRequest:
+      description: Request object for update severity or subject of Issue
+      example:
+        data:
+          subject: This is update subject of issue
+          isCritical: false
+      properties:
+        data:
+          $ref: '#/components/schemas/updateIssueRequest_data'
+      type: object
     commentRequest_data:
       properties:
         content:
@@ -319,18 +320,6 @@ components:
           type: string
       type: object
     issue_data:
-      example:
-        comments:
-        - createdAt: 2000-01-23T04:56:07.000+00:00
-          author: author
-          id: id
-          content: content
-        - createdAt: 2000-01-23T04:56:07.000+00:00
-          author: author
-          id: id
-          content: content
-        subject: subject
-        id: id
       properties:
         id:
           description: generated issue id for Issue Tracker
@@ -343,6 +332,12 @@ components:
           items:
             $ref: '#/components/schemas/comment'
           type: array
+        isCritical:
+          type: boolean
+        internalId:
+          type: integer
+          x-stoplight:
+            id: q9u31yahmb6ww
       type: object
     issueRequest_data:
       properties:
@@ -359,20 +354,30 @@ components:
         categoryId:
           description: 'category of Factset Product. '
           type: string
+        isCritical:
+          description: severity of issue tracker ticket is critical or not
+          type: boolean
       required:
       - description
       - productId
       - subject
       type: object
     idResponse_data:
-      example:
-        id: id
       properties:
         id:
           description: The generated ID for either an issue or a comment varies depending
             on the endpoint. Specifically, for the Issues endpoint, it will return
             'issueid,' and for the comments endpoint, it will return 'commentid.'
           type: string
+      type: object
+    updateIssueRequest_data:
+      properties:
+        subject:
+          description: subject of ticket
+          type: string
+        isCritical:
+          description: severity of issue
+          type: boolean
       type: object
   securitySchemes:
     FactSetOAuth2:

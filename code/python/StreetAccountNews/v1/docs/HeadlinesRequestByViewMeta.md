@@ -1,5 +1,6 @@
 # HeadlinesRequestByViewMeta
 
+Elements of meta object.
 
 ## Properties
 Name | Type | Description | Notes

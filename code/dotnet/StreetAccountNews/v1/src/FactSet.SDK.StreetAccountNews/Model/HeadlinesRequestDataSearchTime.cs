@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.StreetAccountNews.Client.OpenAPIDateCon
 namespace FactSet.SDK.StreetAccountNews.Model
 {
     /// <summary>
-    /// HeadlinesRequestDataSearchTime
+    /// Elements of search time.
     /// </summary>
     [DataContract(Name = "HeadlinesRequest_data_searchTime")]
     public partial class HeadlinesRequestDataSearchTime : IEquatable<HeadlinesRequestDataSearchTime>, IValidatableObject

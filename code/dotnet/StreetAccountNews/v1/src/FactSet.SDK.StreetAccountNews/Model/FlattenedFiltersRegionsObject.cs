@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.StreetAccountNews.Client.OpenAPIDateCon
 namespace FactSet.SDK.StreetAccountNews.Model
 {
     /// <summary>
-    /// (Note: the value array will always have just one value.)
+    /// Elements of flattened filters regions object.  &#39;(Note: the value array will always have just one value.)&#39; 
     /// </summary>
     [DataContract(Name = "flattenedFiltersRegionsObject")]
     public partial class FlattenedFiltersRegionsObject : IEquatable<FlattenedFiltersRegionsObject>, IValidatableObject

@@ -1,5 +1,6 @@
 # StructuredFiltersCategoriesObject
 
+Elements of structured filters categories.
 
 ## Properties
 Name | Type | Description | Notes

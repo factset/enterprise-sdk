@@ -25,7 +25,7 @@ import FlattenedFiltersWatchlistsObject from './FlattenedFiltersWatchlistsObject
 class FlattenedFilters {
     /**
      * Constructs a new <code>FlattenedFilters</code>.
-     * Flattened Filters Object
+     * Flattened Filters Object.
      * @alias module:model/FlattenedFilters
      */
     constructor() { 

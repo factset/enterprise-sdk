@@ -1,5 +1,6 @@
 # StructuredFiltersChildrenObjectRegions
 
+Elements of structured filters regions children object.
 
 ## Properties
 Name | Type | Description | Notes

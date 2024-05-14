@@ -30,8 +30,9 @@ import com.factset.sdk.StreetAccountNews.JSON;
 
 
 /**
- * StructuredFiltersChildrenObjectCategories
+ * Elements of structured filters children categories object.
  */
+@ApiModel(description = "Elements of structured filters children categories object.")
 @JsonPropertyOrder({
   StructuredFiltersChildrenObjectCategories.JSON_PROPERTY_NAME,
   StructuredFiltersChildrenObjectCategories.JSON_PROPERTY_VALUE

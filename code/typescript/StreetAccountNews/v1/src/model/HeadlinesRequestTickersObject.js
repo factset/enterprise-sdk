@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class HeadlinesRequestTickersObject {
     /**
      * Constructs a new <code>HeadlinesRequestTickersObject</code>.
+     * Elements of headlines request tickers.
      * @alias module:model/HeadlinesRequestTickersObject
      */
     constructor() { 

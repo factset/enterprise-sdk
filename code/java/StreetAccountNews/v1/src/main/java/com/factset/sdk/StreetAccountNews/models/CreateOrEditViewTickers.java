@@ -30,8 +30,9 @@ import com.factset.sdk.StreetAccountNews.JSON;
 
 
 /**
- * CreateOrEditViewTickers
+ * Elements of create or edit view tickers object.
  */
+@ApiModel(description = "Elements of create or edit view tickers object.")
 @JsonPropertyOrder({
   CreateOrEditViewTickers.JSON_PROPERTY_NAME,
   CreateOrEditViewTickers.JSON_PROPERTY_VALUE,
@@ -49,7 +50,7 @@ public class CreateOrEditViewTickers implements Serializable {
   private String value;
 
   /**
-   * Gets or Sets type
+   * The type of the asset associated with the ticker.
    */
   public enum TypeEnum {
     INDEX("Index"),
@@ -101,11 +102,11 @@ public class CreateOrEditViewTickers implements Serializable {
   }
 
    /**
-   * Get name
+   * name of the ticker
    * @return name
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "Russell 1000", value = "")
+  @ApiModelProperty(example = "Russell 1000", value = "name of the ticker")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -127,11 +128,11 @@ public class CreateOrEditViewTickers implements Serializable {
   }
 
    /**
-   * Get value
+   * The ticker symbol
    * @return value
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "R.1000", value = "")
+  @ApiModelProperty(example = "R.1000", value = "The ticker symbol")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -153,11 +154,11 @@ public class CreateOrEditViewTickers implements Serializable {
   }
 
    /**
-   * Get type
+   * The type of the asset associated with the ticker.
    * @return type
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "Index", value = "")
+  @ApiModelProperty(example = "Index", value = "The type of the asset associated with the ticker.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

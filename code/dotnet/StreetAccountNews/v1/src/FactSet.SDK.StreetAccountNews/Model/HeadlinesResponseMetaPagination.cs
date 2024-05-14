@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.StreetAccountNews.Client.OpenAPIDateCon
 namespace FactSet.SDK.StreetAccountNews.Model
 {
     /// <summary>
-    /// HeadlinesResponseMetaPagination
+    /// Pagination information for the search result. 
     /// </summary>
     [DataContract(Name = "HeadlinesResponse_meta_pagination")]
     public partial class HeadlinesResponseMetaPagination : IEquatable<HeadlinesResponseMetaPagination>, IValidatableObject
@@ -35,8 +35,8 @@ namespace FactSet.SDK.StreetAccountNews.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="HeadlinesResponseMetaPagination" /> class.
         /// </summary>
-        /// <param name="total">total.</param>
-        /// <param name="isEstimatedTotal">isEstimatedTotal.</param>
+        /// <param name="total">The total number of items available in the search. result. .</param>
+        /// <param name="isEstimatedTotal">Indicates whether the total count provided is an estimation. .</param>
         public HeadlinesResponseMetaPagination(int total = default(int), bool isEstimatedTotal = default(bool))
         {
             this.Total = total;
@@ -44,14 +44,16 @@ namespace FactSet.SDK.StreetAccountNews.Model
         }
 
         /// <summary>
-        /// Gets or Sets Total
+        /// The total number of items available in the search. result. 
         /// </summary>
+        /// <value>The total number of items available in the search. result. </value>
         [DataMember(Name = "total", EmitDefaultValue = false)]
         public int Total { get; set; }
 
         /// <summary>
-        /// Gets or Sets IsEstimatedTotal
+        /// Indicates whether the total count provided is an estimation. 
         /// </summary>
+        /// <value>Indicates whether the total count provided is an estimation. </value>
         [DataMember(Name = "isEstimatedTotal", EmitDefaultValue = true)]
         public bool IsEstimatedTotal { get; set; }
 

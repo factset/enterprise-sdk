@@ -2,6 +2,7 @@
 
 # StructuredFiltersWatchlistsObject
 
+Elements of structured filters watchlists object.
 
 ## Properties
 

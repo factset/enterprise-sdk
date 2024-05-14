@@ -2,6 +2,7 @@
 
 # ViewsObject
 
+Elements of views object.
 
 ## Properties
 

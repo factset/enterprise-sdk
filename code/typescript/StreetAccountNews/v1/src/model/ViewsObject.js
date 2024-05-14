@@ -21,6 +21,7 @@ import CreateOrEditViewTickers from './CreateOrEditViewTickers';
 class ViewsObject {
     /**
      * Constructs a new <code>ViewsObject</code>.
+     * Elements of views object.
      * @alias module:model/ViewsObject
      */
     constructor() { 

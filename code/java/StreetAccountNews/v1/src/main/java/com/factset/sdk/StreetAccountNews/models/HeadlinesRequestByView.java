@@ -32,8 +32,9 @@ import com.factset.sdk.StreetAccountNews.JSON;
 
 
 /**
- * HeadlinesRequestByView
+ * Elements of headlines request by view.
  */
+@ApiModel(description = "Elements of headlines request by view.")
 @JsonPropertyOrder({
   HeadlinesRequestByView.JSON_PROPERTY_DATA,
   HeadlinesRequestByView.JSON_PROPERTY_META

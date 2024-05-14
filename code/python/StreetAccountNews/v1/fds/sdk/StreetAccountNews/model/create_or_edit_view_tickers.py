@@ -146,9 +146,9 @@ class CreateOrEditViewTickers(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): [optional]  # noqa: E501
-            value (str): [optional]  # noqa: E501
-            type (str): [optional]  # noqa: E501
+            name (str): name of the ticker. [optional]  # noqa: E501
+            value (str): The ticker symbol. [optional]  # noqa: E501
+            type (str): The type of the asset associated with the ticker.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -230,9 +230,9 @@ class CreateOrEditViewTickers(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): [optional]  # noqa: E501
-            value (str): [optional]  # noqa: E501
-            type (str): [optional]  # noqa: E501
+            name (str): name of the ticker. [optional]  # noqa: E501
+            value (str): The ticker symbol. [optional]  # noqa: E501
+            type (str): The type of the asset associated with the ticker.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -2,6 +2,7 @@
 
 # HeadlinesRequestMeta
 
+Elements of meta object.
 
 ## Properties
 

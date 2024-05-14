@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class SearchResponseArrayObject {
     /**
      * Constructs a new <code>SearchResponseArrayObject</code>.
+     * Elements of search response array object.
      * @alias module:model/SearchResponseArrayObject
      */
     constructor() { 

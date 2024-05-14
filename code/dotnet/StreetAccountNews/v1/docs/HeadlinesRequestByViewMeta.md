@@ -1,4 +1,5 @@
 # FactSet.SDK.StreetAccountNews.Model.HeadlinesRequestByViewMeta
+Elements of meta object.
 
 ## Properties
 

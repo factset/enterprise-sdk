@@ -31,8 +31,9 @@ import com.factset.sdk.StreetAccountNews.JSON;
 
 
 /**
- * StructuredFiltersTopicsObject
+ * Elements of structured filters topics object.
  */
+@ApiModel(description = "Elements of structured filters topics object.")
 @JsonPropertyOrder({
   StructuredFiltersTopicsObject.JSON_PROPERTY_NAME,
   StructuredFiltersTopicsObject.JSON_PROPERTY_VALUE,

@@ -1,5 +1,6 @@
 # HeadlinesRequestDataSearchTime
 
+Elements of search time.
 
 ## Properties
 Name | Type | Description | Notes

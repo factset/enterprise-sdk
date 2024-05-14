@@ -137,8 +137,8 @@ class HeadlinesResponseMetaPagination(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            total (int): [optional]  # noqa: E501
-            is_estimated_total (bool): [optional]  # noqa: E501
+            total (int): The total number of items available in the search. result. . [optional]  # noqa: E501
+            is_estimated_total (bool): Indicates whether the total count provided is an estimation. . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -220,8 +220,8 @@ class HeadlinesResponseMetaPagination(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            total (int): [optional]  # noqa: E501
-            is_estimated_total (bool): [optional]  # noqa: E501
+            total (int): The total number of items available in the search. result. . [optional]  # noqa: E501
+            is_estimated_total (bool): Indicates whether the total count provided is an estimation. . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

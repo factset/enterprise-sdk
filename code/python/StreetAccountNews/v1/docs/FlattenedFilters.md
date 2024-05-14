@@ -1,6 +1,6 @@
 # FlattenedFilters
 
-Flattened Filters Object
+Flattened Filters Object.
 
 ## Properties
 Name | Type | Description | Notes

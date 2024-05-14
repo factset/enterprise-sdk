@@ -21,6 +21,7 @@ import QuickAlertsBodyData from './QuickAlertsBodyData';
 class QuickAlertsResponse {
     /**
      * Constructs a new <code>QuickAlertsResponse</code>.
+     * Elements of quick alerts response object.
      * @alias module:model/QuickAlertsResponse
      */
     constructor() { 

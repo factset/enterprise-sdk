@@ -2,6 +2,7 @@
 
 # StructuredFiltersCategoriesObject
 
+Elements of structured filters categories.
 
 ## Properties
 

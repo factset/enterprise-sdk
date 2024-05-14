@@ -30,9 +30,9 @@ import com.factset.sdk.StreetAccountNews.JSON;
 
 
 /**
- *   &#39;(Note: the value array will always have just one value.)&#39; 
+ * Elements of flattened filters topics object.  &#39;(Note: the value array will always have just one value.)&#39; 
  */
-@ApiModel(description = "  '(Note: the value array will always have just one value.)' ")
+@ApiModel(description = "Elements of flattened filters topics object.  '(Note: the value array will always have just one value.)' ")
 @JsonPropertyOrder({
   FlattenedFiltersTopicsObject.JSON_PROPERTY_NAME,
   FlattenedFiltersTopicsObject.JSON_PROPERTY_VALUE

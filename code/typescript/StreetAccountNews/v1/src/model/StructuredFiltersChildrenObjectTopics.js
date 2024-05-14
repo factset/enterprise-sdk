@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class StructuredFiltersChildrenObjectTopics {
     /**
      * Constructs a new <code>StructuredFiltersChildrenObjectTopics</code>.
+     * Elements of structured filters children topics object.
      * @alias module:model/StructuredFiltersChildrenObjectTopics
      */
     constructor() { 

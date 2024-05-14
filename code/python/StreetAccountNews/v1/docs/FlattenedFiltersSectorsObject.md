@@ -1,6 +1,6 @@
 # FlattenedFiltersSectorsObject
 
-(Note: the value array will always have just one value.)
+Elements of flattened filters sectors object.  '(Note: the value array will always have just one value.)' 
 
 ## Properties
 Name | Type | Description | Notes

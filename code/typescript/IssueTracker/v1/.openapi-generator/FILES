@@ -16,6 +16,8 @@ docs/IssueApi.md
 docs/IssueData.md
 docs/IssueRequest.md
 docs/IssueRequestData.md
+docs/UpdateIssueRequest.md
+docs/UpdateIssueRequestData.md
 git_push.sh
 mocha.opts
 package.json
@@ -33,3 +35,5 @@ src/model/Issue.js
 src/model/IssueData.js
 src/model/IssueRequest.js
 src/model/IssueRequestData.js
+src/model/UpdateIssueRequest.js
+src/model/UpdateIssueRequestData.js

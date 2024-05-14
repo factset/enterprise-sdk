@@ -2,6 +2,7 @@
 
 # SearchResponseArrayObject
 
+Elements of search response array object.
 
 ## Properties
 

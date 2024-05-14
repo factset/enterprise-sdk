@@ -1,4 +1,5 @@
 # FactSet.SDK.StreetAccountNews.Model.DeleteViewBody
+Elements of delete view body object.
 
 ## Properties
 

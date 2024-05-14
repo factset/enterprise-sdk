@@ -1,5 +1,6 @@
 # StructuredFiltersChildrenObjectSectors
 
+Elements of structured filters sectors children object.
 
 ## Properties
 Name | Type | Description | Notes

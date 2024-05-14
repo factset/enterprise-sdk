@@ -2,6 +2,7 @@
 
 # HeadlinesRequestByView
 
+Elements of headlines request by view.
 
 ## Properties
 

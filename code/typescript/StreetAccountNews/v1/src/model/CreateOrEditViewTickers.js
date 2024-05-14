@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class CreateOrEditViewTickers {
     /**
      * Constructs a new <code>CreateOrEditViewTickers</code>.
+     * Elements of create or edit view tickers object.
      * @alias module:model/CreateOrEditViewTickers
      */
     constructor() { 
@@ -63,16 +64,19 @@ class CreateOrEditViewTickers {
 }
 
 /**
+ * name of the ticker
  * @member {String} name
  */
 CreateOrEditViewTickers.prototype['name'] = undefined;
 
 /**
+ * The ticker symbol
  * @member {String} value
  */
 CreateOrEditViewTickers.prototype['value'] = undefined;
 
 /**
+ * The type of the asset associated with the ticker.
  * @member {module:model/CreateOrEditViewTickers.TypeEnum} type
  */
 CreateOrEditViewTickers.prototype['type'] = undefined;

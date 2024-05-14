@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class StructuredFiltersWatchlistsObject {
     /**
      * Constructs a new <code>StructuredFiltersWatchlistsObject</code>.
+     * Elements of structured filters watchlists object.
      * @alias module:model/StructuredFiltersWatchlistsObject
      */
     constructor() { 

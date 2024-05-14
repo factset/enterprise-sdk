@@ -2,7 +2,7 @@
 
 # FlattenedFilters
 
-Flattened Filters Object
+Flattened Filters Object.
 
 ## Properties
 

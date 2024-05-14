@@ -2,6 +2,7 @@
 
 # StructuredFiltersChildrenObjectRegions
 
+Elements of structured filters regions children object.
 
 ## Properties
 

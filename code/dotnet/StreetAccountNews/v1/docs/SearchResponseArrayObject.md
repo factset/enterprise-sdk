@@ -1,4 +1,5 @@
 # FactSet.SDK.StreetAccountNews.Model.SearchResponseArrayObject
+Elements of search response array object.
 
 ## Properties
 

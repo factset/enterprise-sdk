@@ -31,8 +31,9 @@ import com.factset.sdk.StreetAccountNews.JSON;
 
 
 /**
- * HeadlinesRequestMeta
+ * Elements of meta object.
  */
+@ApiModel(description = "Elements of meta object.")
 @JsonPropertyOrder({
   HeadlinesRequestMeta.JSON_PROPERTY_PAGINATION,
   HeadlinesRequestMeta.JSON_PROPERTY_ATTRIBUTES

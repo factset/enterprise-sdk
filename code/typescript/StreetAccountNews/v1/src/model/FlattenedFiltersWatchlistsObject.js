@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class FlattenedFiltersWatchlistsObject {
     /**
      * Constructs a new <code>FlattenedFiltersWatchlistsObject</code>.
+     * Elements of flattened filters watchlists object.
      * @alias module:model/FlattenedFiltersWatchlistsObject
      */
     constructor() { 

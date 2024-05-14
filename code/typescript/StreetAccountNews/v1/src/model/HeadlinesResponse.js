@@ -22,7 +22,7 @@ import SearchResponseArrayObject from './SearchResponseArrayObject';
 class HeadlinesResponse {
     /**
      * Constructs a new <code>HeadlinesResponse</code>.
-     * Properties in results objects are based on return values
+     * Properties in results objects are based on return values.
      * @alias module:model/HeadlinesResponse
      */
     constructor() { 

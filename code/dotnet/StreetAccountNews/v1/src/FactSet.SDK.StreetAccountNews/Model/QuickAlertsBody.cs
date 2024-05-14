@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.StreetAccountNews.Client.OpenAPIDateCon
 namespace FactSet.SDK.StreetAccountNews.Model
 {
     /// <summary>
-    /// QuickAlertsBody
+    /// Elements of quick alerts body object.
     /// </summary>
     [DataContract(Name = "QuickAlertsBody")]
     public partial class QuickAlertsBody : IEquatable<QuickAlertsBody>, IValidatableObject

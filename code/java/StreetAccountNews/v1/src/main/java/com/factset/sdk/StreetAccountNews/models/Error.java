@@ -31,8 +31,9 @@ import com.factset.sdk.StreetAccountNews.JSON;
 
 
 /**
- * Error
+ * Object representing an error response.
  */
+@ApiModel(description = "Object representing an error response.")
 @JsonPropertyOrder({
   Error.JSON_PROPERTY_ERRORS
 })
@@ -61,11 +62,11 @@ public class Error implements Serializable {
   }
 
    /**
-   * Get errors
+   * An array of error objects.
    * @return errors
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "An array of error objects.")
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

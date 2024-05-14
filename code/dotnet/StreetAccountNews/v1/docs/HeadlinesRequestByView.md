@@ -1,4 +1,5 @@
 # FactSet.SDK.StreetAccountNews.Model.HeadlinesRequestByView
+Elements of headlines request by view.
 
 ## Properties
 

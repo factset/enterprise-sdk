@@ -21,6 +21,7 @@ import HeadlinesRequestMetaPagination from './HeadlinesRequestMetaPagination';
 class HeadlinesRequestMeta {
     /**
      * Constructs a new <code>HeadlinesRequestMeta</code>.
+     * Elements of meta object.
      * @alias module:model/HeadlinesRequestMeta
      */
     constructor() { 

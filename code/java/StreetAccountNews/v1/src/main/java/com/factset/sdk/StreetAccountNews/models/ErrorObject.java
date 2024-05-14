@@ -30,8 +30,9 @@ import com.factset.sdk.StreetAccountNews.JSON;
 
 
 /**
- * ErrorObject
+ * An object representing an error.
  */
+@ApiModel(description = "An object representing an error.")
 @JsonPropertyOrder({
   ErrorObject.JSON_PROPERTY_ID,
   ErrorObject.JSON_PROPERTY_TITLE,
@@ -60,11 +61,11 @@ public class ErrorObject implements Serializable {
   }
 
    /**
-   * Get id
+   * The unique identifier for the error.
    * @return id
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The unique identifier for the error.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -86,11 +87,11 @@ public class ErrorObject implements Serializable {
   }
 
    /**
-   * Get title
+   * A title or summary of the error.
    * @return title
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A title or summary of the error.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -112,11 +113,11 @@ public class ErrorObject implements Serializable {
   }
 
    /**
-   * Get code
+   * The error code associated with the error.
    * @return code
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The error code associated with the error.")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

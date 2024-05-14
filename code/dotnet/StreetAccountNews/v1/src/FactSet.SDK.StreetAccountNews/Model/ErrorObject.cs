@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.StreetAccountNews.Client.OpenAPIDateCon
 namespace FactSet.SDK.StreetAccountNews.Model
 {
     /// <summary>
-    /// ErrorObject
+    /// An object representing an error.
     /// </summary>
     [DataContract(Name = "errorObject")]
     public partial class ErrorObject : IEquatable<ErrorObject>, IValidatableObject
@@ -35,9 +35,9 @@ namespace FactSet.SDK.StreetAccountNews.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ErrorObject" /> class.
         /// </summary>
-        /// <param name="id">id.</param>
-        /// <param name="title">title.</param>
-        /// <param name="code">code.</param>
+        /// <param name="id">The unique identifier for the error..</param>
+        /// <param name="title">A title or summary of the error..</param>
+        /// <param name="code">The error code associated with the error..</param>
         public ErrorObject(string id = default(string), string title = default(string), string code = default(string))
         {
             this.Id = id;
@@ -46,20 +46,23 @@ namespace FactSet.SDK.StreetAccountNews.Model
         }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// The unique identifier for the error.
         /// </summary>
+        /// <value>The unique identifier for the error.</value>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Title
+        /// A title or summary of the error.
         /// </summary>
+        /// <value>A title or summary of the error.</value>
         [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 
         /// <summary>
-        /// Gets or Sets Code
+        /// The error code associated with the error.
         /// </summary>
+        /// <value>The error code associated with the error.</value>
         [DataMember(Name = "code", EmitDefaultValue = false)]
         public string Code { get; set; }
 
