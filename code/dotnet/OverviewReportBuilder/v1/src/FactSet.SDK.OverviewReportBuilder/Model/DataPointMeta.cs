@@ -119,9 +119,9 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
             {
                 var hasAdditionalProperties = !(typeof(DataPointMetaAnyOf).GetProperty("AdditionalProperties") is null);
                 newDataPointMeta = new DataPointMeta(JsonConvert.DeserializeObject<DataPointMetaAnyOf>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? DataPointMeta.AdditionalPropertiesSerializerSettings : DataPointMeta.SerializerSettings
-                )); 
+                ));
                 // deserialization is considered successful at this point if no exception has been thrown.
                 return newDataPointMeta;
             }
@@ -212,7 +212,7 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
         {
             if(reader.TokenType != JsonToken.Null)
             {
-                return DataPointMeta.FromJson(JObject.Load(reader).ToString(Formatting.None));
+                return DataPointMeta.FromJson(JToken.Load(reader).ToString(Formatting.None));
             }
             return null;
         }

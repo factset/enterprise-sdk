@@ -219,9 +219,9 @@ namespace FactSet.SDK.FactSetGlobalPrices.Model
             {
                 var hasAdditionalProperties = !(typeof(Price).GetProperty("AdditionalProperties") is null);
                 newBatchResult = new BatchResult(JsonConvert.DeserializeObject<Price>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? BatchResult.AdditionalPropertiesSerializerSettings : BatchResult.SerializerSettings
-                )); 
+                ));
                 // deserialization is considered successful at this point if no exception has been thrown.
                 return newBatchResult;
             }
@@ -235,9 +235,9 @@ namespace FactSet.SDK.FactSetGlobalPrices.Model
             {
                 var hasAdditionalProperties = !(typeof(Returns).GetProperty("AdditionalProperties") is null);
                 newBatchResult = new BatchResult(JsonConvert.DeserializeObject<Returns>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? BatchResult.AdditionalPropertiesSerializerSettings : BatchResult.SerializerSettings
-                )); 
+                ));
                 // deserialization is considered successful at this point if no exception has been thrown.
                 return newBatchResult;
             }
@@ -251,9 +251,9 @@ namespace FactSet.SDK.FactSetGlobalPrices.Model
             {
                 var hasAdditionalProperties = !(typeof(CorporateAction).GetProperty("AdditionalProperties") is null);
                 newBatchResult = new BatchResult(JsonConvert.DeserializeObject<CorporateAction>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? BatchResult.AdditionalPropertiesSerializerSettings : BatchResult.SerializerSettings
-                )); 
+                ));
                 // deserialization is considered successful at this point if no exception has been thrown.
                 return newBatchResult;
             }
@@ -267,9 +267,9 @@ namespace FactSet.SDK.FactSetGlobalPrices.Model
             {
                 var hasAdditionalProperties = !(typeof(AnnualizedDividendsObject).GetProperty("AdditionalProperties") is null);
                 newBatchResult = new BatchResult(JsonConvert.DeserializeObject<AnnualizedDividendsObject>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? BatchResult.AdditionalPropertiesSerializerSettings : BatchResult.SerializerSettings
-                )); 
+                ));
                 // deserialization is considered successful at this point if no exception has been thrown.
                 return newBatchResult;
             }
@@ -283,9 +283,9 @@ namespace FactSet.SDK.FactSetGlobalPrices.Model
             {
                 var hasAdditionalProperties = !(typeof(SharesOutstandingResponseObject).GetProperty("AdditionalProperties") is null);
                 newBatchResult = new BatchResult(JsonConvert.DeserializeObject<SharesOutstandingResponseObject>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? BatchResult.AdditionalPropertiesSerializerSettings : BatchResult.SerializerSettings
-                )); 
+                ));
                 // deserialization is considered successful at this point if no exception has been thrown.
                 return newBatchResult;
             }
@@ -376,7 +376,7 @@ namespace FactSet.SDK.FactSetGlobalPrices.Model
         {
             if(reader.TokenType != JsonToken.Null)
             {
-                return BatchResult.FromJson(JObject.Load(reader).ToString(Formatting.None));
+                return BatchResult.FromJson(JToken.Load(reader).ToString(Formatting.None));
             }
             return null;
         }

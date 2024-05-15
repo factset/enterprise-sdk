@@ -143,9 +143,9 @@ namespace FactSet.SDK.Formula.Model
             {
                 var hasAdditionalProperties = !(typeof(TimeSeriesResultObjectNonflattened).GetProperty("AdditionalProperties") is null);
                 newTimeSeriesResponseObjectItems = new TimeSeriesResponseObjectItems(JsonConvert.DeserializeObject<TimeSeriesResultObjectNonflattened>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? TimeSeriesResponseObjectItems.AdditionalPropertiesSerializerSettings : TimeSeriesResponseObjectItems.SerializerSettings
-                )); 
+                ));
                 // deserialization is considered successful at this point if no exception has been thrown.
                 return newTimeSeriesResponseObjectItems;
             }
@@ -159,9 +159,9 @@ namespace FactSet.SDK.Formula.Model
             {
                 var hasAdditionalProperties = !(typeof(TimeSeriesResultObjectFlattened).GetProperty("AdditionalProperties") is null);
                 newTimeSeriesResponseObjectItems = new TimeSeriesResponseObjectItems(JsonConvert.DeserializeObject<TimeSeriesResultObjectFlattened>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? TimeSeriesResponseObjectItems.AdditionalPropertiesSerializerSettings : TimeSeriesResponseObjectItems.SerializerSettings
-                )); 
+                ));
                 // deserialization is considered successful at this point if no exception has been thrown.
                 return newTimeSeriesResponseObjectItems;
             }
@@ -252,7 +252,7 @@ namespace FactSet.SDK.Formula.Model
         {
             if(reader.TokenType != JsonToken.Null)
             {
-                return TimeSeriesResponseObjectItems.FromJson(JObject.Load(reader).ToString(Formatting.None));
+                return TimeSeriesResponseObjectItems.FromJson(JToken.Load(reader).ToString(Formatting.None));
             }
             return null;
         }

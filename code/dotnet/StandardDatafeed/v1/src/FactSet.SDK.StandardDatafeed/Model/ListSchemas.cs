@@ -41,7 +41,7 @@ namespace FactSet.SDK.StandardDatafeed.Model
         {
             this.IsNullable = false;
             this.SchemaType= "anyOf";
-            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+            this.ActualInstance = actualInstance;
         }
 
         /// <summary>
@@ -144,9 +144,9 @@ namespace FactSet.SDK.StandardDatafeed.Model
             {
                 var hasAdditionalProperties = !(typeof(Dictionary<string, List<string>>).GetProperty("AdditionalProperties") is null);
                 newListSchemas = new ListSchemas(JsonConvert.DeserializeObject<Dictionary<string, List<string>>>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? ListSchemas.AdditionalPropertiesSerializerSettings : ListSchemas.SerializerSettings
-                )); 
+                ));
                 // deserialization is considered successful at this point if no exception has been thrown.
                 return newListSchemas;
             }
@@ -160,9 +160,9 @@ namespace FactSet.SDK.StandardDatafeed.Model
             {
                 var hasAdditionalProperties = !(typeof(SchemaDetails).GetProperty("AdditionalProperties") is null);
                 newListSchemas = new ListSchemas(JsonConvert.DeserializeObject<SchemaDetails>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? ListSchemas.AdditionalPropertiesSerializerSettings : ListSchemas.SerializerSettings
-                )); 
+                ));
                 // deserialization is considered successful at this point if no exception has been thrown.
                 return newListSchemas;
             }
@@ -253,7 +253,7 @@ namespace FactSet.SDK.StandardDatafeed.Model
         {
             if(reader.TokenType != JsonToken.Null)
             {
-                return ListSchemas.FromJson(JObject.Load(reader).ToString(Formatting.None));
+                return ListSchemas.FromJson(JToken.Load(reader).ToString(Formatting.None));
             }
             return null;
         }
