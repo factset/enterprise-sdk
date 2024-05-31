@@ -17,7 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.EventsandTranscripts.models.NrtCallsMeta;
+import com.factset.sdk.EventsandTranscripts.models.IndexedObject;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -35,8 +35,7 @@ import com.factset.sdk.EventsandTranscripts.JSON;
  */
 @ApiModel(description = "Indexed transcript metadata of active calls happening at that moment are returned.")
 @JsonPropertyOrder({
-  IndexedNrt.JSON_PROPERTY_DATA,
-  IndexedNrt.JSON_PROPERTY_META
+  IndexedNrt.JSON_PROPERTY_DATA
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -44,20 +43,17 @@ public class IndexedNrt implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private java.util.List<Object> data = null;
-
-  public static final String JSON_PROPERTY_META = "meta";
-  private NrtCallsMeta meta;
+  private java.util.List<IndexedObject> data = null;
 
   public IndexedNrt() { 
   }
 
-  public IndexedNrt data(java.util.List<Object> data) {
+  public IndexedNrt data(java.util.List<IndexedObject> data) {
     this.data = data;
     return this;
   }
 
-  public IndexedNrt addDataItem(Object dataItem) {
+  public IndexedNrt addDataItem(IndexedObject dataItem) {
     if (this.data == null) {
       this.data = new java.util.ArrayList<>();
     }
@@ -74,41 +70,15 @@ public class IndexedNrt implements Serializable {
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public java.util.List<Object> getData() {
+  public java.util.List<IndexedObject> getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setData(java.util.List<Object> data) {
+  public void setData(java.util.List<IndexedObject> data) {
     this.data = data;
-  }
-
-
-  public IndexedNrt meta(NrtCallsMeta meta) {
-    this.meta = meta;
-    return this;
-  }
-
-   /**
-   * Get meta
-   * @return meta
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_META)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public NrtCallsMeta getMeta() {
-    return meta;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_META)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMeta(NrtCallsMeta meta) {
-    this.meta = meta;
   }
 
 
@@ -124,13 +94,12 @@ public class IndexedNrt implements Serializable {
       return false;
     }
     IndexedNrt indexedNrt = (IndexedNrt) o;
-    return Objects.equals(this.data, indexedNrt.data) &&
-        Objects.equals(this.meta, indexedNrt.meta);
+    return Objects.equals(this.data, indexedNrt.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, meta);
+    return Objects.hash(data);
   }
 
   @Override
@@ -138,7 +107,6 @@ public class IndexedNrt implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class IndexedNrt {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("}");
     return sb.toString();
   }

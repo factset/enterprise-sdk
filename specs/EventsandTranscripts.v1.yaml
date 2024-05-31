@@ -138,12 +138,13 @@ paths:
                 Audio recordings and metadata of 2020:
                   value:
                     data:
-                      year: 2021
-                      trimmed: true
-                      fileName: 2021_trimmed.tar.gz
-                      fileSize: 191173623046875
-                      url: >-
-                        https://fdss3-cts-data-delivery-prod-1-us-east-1.s3.amazonaws.com/audiofiles/A512D0F2-4549-EC11-8124-8CDCD4AF21E4.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIASXWF7GTDZZHNXO4D%2F20211119%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211119T143756Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEB4aCXVzLWVhc3QtMSJHMEUCIAZPE65Cyr2GFwHLDFiDWEj3aUW66s6HuKk3vMz7hWR1AiEAiLS3ce5AC1hsDkZWdf9WklbnGoXCD6JMNsYKZLSZtKoqmAII1%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgwxODgzMjAwMDMyNzEiDIEOfxabmh%2FtadnmnirsAToraA%2BQJ8Hmg2YS03b7IpkX6W6FJDjnDJ9M6sCLN7Q0mUT60Jc1OV%2BzuJ5IbCKhZhDV24mKPSPkyYs4Eh1%2Bp5E2YeclzHqSn44zB5g9UkVHP1bCkFCxv12pqhdIJ5NX4xBIPhWfXDQyIFQm%2BstD1FL3AqugJb19s0o79N032dOX1H3wvfqfkP4av9wKYRFhc2yO7qHMLUHmYnL2IAcnGRq5ukvO2%2FIrmGVYTFGr4wAWMDQFZRX6%2FiYvC7V3f3smsoy2jrJ8UDDn599%2BH32Nh%2FKfTO8yYSnt1ky%2FFJb%2FmheEF9PWnf%2FZxuG6o9ajMInX3owGOpoBFurBn4Hwi3d1xuSsXNVMEuSj7vWPV6dc8tSynf8yH7wRVtVyfz%2BnWH4EYPh0l2qeHuGhzAeQtLVfJNApnSVfEeyaGo1DOpieFST9bxhQIBG8ZloD%2FlojRhJT5AEwcRTryXAXWb%2FeuLKcH9izcUGx80wBcc6L8I6YFFFwwqyA4mhhYYMDAL3o3p0QE1Q4s99PDYPR0YCH7UzThg%3D%3D&X-Amz-Signature=4b8ae68420f7cc87da7c7a797f683e85528b6a96add83ce19ba3ffac0359a938
+                      - year: 2021
+                        trimmed: true
+                        fileName: 2021_trimmed.tar.gz
+                        fileSize: 191173623046875
+                        fileCount: 68974
+                        url: >-
+                          https://fdss3-cts-data-delivery-prod-1-us-east-1.s3.amazonaws.com/audiofiles/A512D0F2-4549-EC11-8124-8CDCD4AF21E4.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIASXWF7GTDZZHNXO4D%2F20211119%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211119T143756Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEB4aCXVzLWVhc3QtMSJHMEUCIAZPE65Cyr2GFwHLDFiDWEj3aUW66s6HuKk3vMz7hWR1AiEAiLS3ce5AC1hsDkZWdf9WklbnGoXCD6JMNsYKZLSZtKoqmAII1%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgwxODgzMjAwMDMyNzEiDIEOfxabmh%2FtadnmnirsAToraA%2BQJ8Hmg2YS03b7IpkX6W6FJDjnDJ9M6sCLN7Q0mUT60Jc1OV%2BzuJ5IbCKhZhDV24mKPSPkyYs4Eh1%2Bp5E2YeclzHqSn44zB5g9UkVHP1bCkFCxv12pqhdIJ5NX4xBIPhWfXDQyIFQm%2BstD1FL3AqugJb19s0o79N032dOX1H3wvfqfkP4av9wKYRFhc2yO7qHMLUHmYnL2IAcnGRq5ukvO2%2FIrmGVYTFGr4wAWMDQFZRX6%2FiYvC7V3f3smsoy2jrJ8UDDn599%2BH32Nh%2FKfTO8yYSnt1ky%2FFJb%2FmheEF9PWnf%2FZxuG6o9ajMInX3owGOpoBFurBn4Hwi3d1xuSsXNVMEuSj7vWPV6dc8tSynf8yH7wRVtVyfz%2BnWH4EYPh0l2qeHuGhzAeQtLVfJNApnSVfEeyaGo1DOpieFST9bxhQIBG8ZloD%2FlojRhJT5AEwcRTryXAXWb%2FeuLKcH9izcUGx80wBcc6L8I6YFFFwwqyA4mhhYYMDAL3o3p0QE1Q4s99PDYPR0YCH7UzThg%3D%3D&X-Amz-Signature=4b8ae68420f7cc87da7c7a797f683e85528b6a96add83ce19ba3ffac0359a938
         '400':
           description: >-
             Bad Request. This can occur for several reasons. Please review the
@@ -695,24 +696,24 @@ paths:
                 example-1:
                   value:
                     data:
-                      reportId: 2666621
-                      fileName: 835A1FD9-3CE1-EC11-8128-8CDCD4AF21E4.mp3
-                      url: >-
-                        https://fdss3-cts-data-delivery-prod-1-us-east-1.s3.amazonaws.com/audiofiles/A512D0F2-4549-EC11-8124-8CDCD4AF21E4.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIASXWF7GTDZZHNXO4D%2F20211119%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211119T143756Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEB4aCXVzLWVhc3QtMSJHMEUCIAZPE65Cyr2GFwHLDFiDWEj3aUW66s6HuKk3vMz7hWR1AiEAiLS3ce5AC1hsDkZWdf9WklbnGoXCD6JMNsYKZLSZtKoqmAII1%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgwxODgzMjAwMDMyNzEiDIEOfxabmh%2FtadnmnirsAToraA%2BQJ8Hmg2YS03b7IpkX6W6FJDjnDJ9M6sCLN7Q0mUT60Jc1OV%2BzuJ5IbCKhZhDV24mKPSPkyYs4Eh1%2Bp5E2YeclzHqSn44zB5g9UkVHP1bCkFCxv12pqhdIJ5NX4xBIPhWfXDQyIFQm%2BstD1FL3AqugJb19s0o79N032dOX1H3wvfqfkP4av9wKYRFhc2yO7qHMLUHmYnL2IAcnGRq5ukvO2%2FIrmGVYTFGr4wAWMDQFZRX6%2FiYvC7V3f3smsoy2jrJ8UDDn599%2BH32Nh%2FKfTO8yYSnt1ky%2FFJb%2FmheEF9PWnf%2FZxuG6o9ajMInX3owGOpoBFurBn4Hwi3d1xuSsXNVMEuSj7vWPV6dc8tSynf8yH7wRVtVyfz%2BnWH4EYPh0l2qeHuGhzAeQtLVfJNApnSVfEeyaGo1DOpieFST9bxhQIBG8ZloD%2FlojRhJT5AEwcRTryXAXWb%2FeuLKcH9izcUGx80wBcc6L8I6YFFFwwqyA4mhhYYMDAL3o3p0QE1Q4s99PDYPR0YCH7UzThg%3D%3D&X-Amz-Signature=4b8ae68420f7cc87da7c7a797f683e85528b6a96add83ce19ba3ffac0359a938
-                      fileSize: 20090671
-                      audioSourceId: 3256781
-                      ticker: SPWH-US
-                      entityId: 0CT2ZZ-E
-                      sourceCode: Webcast
-                      trimmed: false
-                      durationSecs: 5022
-                      startOffsetSeconds: 1717
-                      endOffsetSeconds: 4379
-                      startTime: null
-                      endTime: null
-                      uploadTime: '2022-05-31T23:57:01'
-                      sampleRate: null
-                      bitrate: null
+                      - reportId: 2666621
+                        fileName: 835A1FD9-3CE1-EC11-8128-8CDCD4AF21E4.mp3
+                        url: >-
+                          https://fdss3-cts-data-delivery-prod-1-us-east-1.s3.amazonaws.com/audiofiles/A512D0F2-4549-EC11-8124-8CDCD4AF21E4.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIASXWF7GTDZZHNXO4D%2F20211119%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211119T143756Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEB4aCXVzLWVhc3QtMSJHMEUCIAZPE65Cyr2GFwHLDFiDWEj3aUW66s6HuKk3vMz7hWR1AiEAiLS3ce5AC1hsDkZWdf9WklbnGoXCD6JMNsYKZLSZtKoqmAII1%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgwxODgzMjAwMDMyNzEiDIEOfxabmh%2FtadnmnirsAToraA%2BQJ8Hmg2YS03b7IpkX6W6FJDjnDJ9M6sCLN7Q0mUT60Jc1OV%2BzuJ5IbCKhZhDV24mKPSPkyYs4Eh1%2Bp5E2YeclzHqSn44zB5g9UkVHP1bCkFCxv12pqhdIJ5NX4xBIPhWfXDQyIFQm%2BstD1FL3AqugJb19s0o79N032dOX1H3wvfqfkP4av9wKYRFhc2yO7qHMLUHmYnL2IAcnGRq5ukvO2%2FIrmGVYTFGr4wAWMDQFZRX6%2FiYvC7V3f3smsoy2jrJ8UDDn599%2BH32Nh%2FKfTO8yYSnt1ky%2FFJb%2FmheEF9PWnf%2FZxuG6o9ajMInX3owGOpoBFurBn4Hwi3d1xuSsXNVMEuSj7vWPV6dc8tSynf8yH7wRVtVyfz%2BnWH4EYPh0l2qeHuGhzAeQtLVfJNApnSVfEeyaGo1DOpieFST9bxhQIBG8ZloD%2FlojRhJT5AEwcRTryXAXWb%2FeuLKcH9izcUGx80wBcc6L8I6YFFFwwqyA4mhhYYMDAL3o3p0QE1Q4s99PDYPR0YCH7UzThg%3D%3D&X-Amz-Signature=4b8ae68420f7cc87da7c7a797f683e85528b6a96add83ce19ba3ffac0359a938
+                        fileSize: 20090671
+                        audioSourceId: 3256781
+                        ticker: SPWH-US
+                        entityId: 0CT2ZZ-E
+                        sourceCode: Webcast
+                        trimmed: false
+                        durationSecs: 5022
+                        startOffsetSeconds: 1717
+                        endOffsetSeconds: 4379
+                        startTime: null
+                        endTime: null
+                        uploadTime: '2022-05-31T23:57:01'
+                        sampleRate: null
+                        bitrate: null
         '400':
           description: >-
             Bad Request. This can occur for several reasons. Please review the
@@ -791,24 +792,24 @@ paths:
                 example-1:
                   value:
                     data:
-                      reportId: 2666621
-                      fileName: 835A1FD9-3CE1-EC11-8128-8CDCD4AF21E4.mp3
-                      url: >-
-                        https://fdss3-cts-data-delivery-prod-1-us-east-1.s3.amazonaws.com/audiofiles/A512D0F2-4549-EC11-8124-8CDCD4AF21E4.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIASXWF7GTDZZHNXO4D%2F20211119%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211119T143756Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEB4aCXVzLWVhc3QtMSJHMEUCIAZPE65Cyr2GFwHLDFiDWEj3aUW66s6HuKk3vMz7hWR1AiEAiLS3ce5AC1hsDkZWdf9WklbnGoXCD6JMNsYKZLSZtKoqmAII1%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgwxODgzMjAwMDMyNzEiDIEOfxabmh%2FtadnmnirsAToraA%2BQJ8Hmg2YS03b7IpkX6W6FJDjnDJ9M6sCLN7Q0mUT60Jc1OV%2BzuJ5IbCKhZhDV24mKPSPkyYs4Eh1%2Bp5E2YeclzHqSn44zB5g9UkVHP1bCkFCxv12pqhdIJ5NX4xBIPhWfXDQyIFQm%2BstD1FL3AqugJb19s0o79N032dOX1H3wvfqfkP4av9wKYRFhc2yO7qHMLUHmYnL2IAcnGRq5ukvO2%2FIrmGVYTFGr4wAWMDQFZRX6%2FiYvC7V3f3smsoy2jrJ8UDDn599%2BH32Nh%2FKfTO8yYSnt1ky%2FFJb%2FmheEF9PWnf%2FZxuG6o9ajMInX3owGOpoBFurBn4Hwi3d1xuSsXNVMEuSj7vWPV6dc8tSynf8yH7wRVtVyfz%2BnWH4EYPh0l2qeHuGhzAeQtLVfJNApnSVfEeyaGo1DOpieFST9bxhQIBG8ZloD%2FlojRhJT5AEwcRTryXAXWb%2FeuLKcH9izcUGx80wBcc6L8I6YFFFwwqyA4mhhYYMDAL3o3p0QE1Q4s99PDYPR0YCH7UzThg%3D%3D&X-Amz-Signature=4b8ae68420f7cc87da7c7a797f683e85528b6a96add83ce19ba3ffac0359a938
-                      fileSize: 20090671
-                      audioSourceId: 3256781
-                      ticker: SPWH-US
-                      entityId: 0CT2ZZ-E
-                      sourceCode: Webcast
-                      trimmed: false
-                      durationSecs: 5022
-                      startOffsetSeconds: 1717
-                      endOffsetSeconds: 4379
-                      startTime: null
-                      endTime: null
-                      uploadTime: '2022-05-31T23:57:01'
-                      sampleRate: null
-                      bitrate: null
+                      - reportId: 2666621
+                        fileName: 835A1FD9-3CE1-EC11-8128-8CDCD4AF21E4.mp3
+                        url: >-
+                          https://fdss3-cts-data-delivery-prod-1-us-east-1.s3.amazonaws.com/audiofiles/A512D0F2-4549-EC11-8124-8CDCD4AF21E4.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIASXWF7GTDZZHNXO4D%2F20211119%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211119T143756Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEB4aCXVzLWVhc3QtMSJHMEUCIAZPE65Cyr2GFwHLDFiDWEj3aUW66s6HuKk3vMz7hWR1AiEAiLS3ce5AC1hsDkZWdf9WklbnGoXCD6JMNsYKZLSZtKoqmAII1%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgwxODgzMjAwMDMyNzEiDIEOfxabmh%2FtadnmnirsAToraA%2BQJ8Hmg2YS03b7IpkX6W6FJDjnDJ9M6sCLN7Q0mUT60Jc1OV%2BzuJ5IbCKhZhDV24mKPSPkyYs4Eh1%2Bp5E2YeclzHqSn44zB5g9UkVHP1bCkFCxv12pqhdIJ5NX4xBIPhWfXDQyIFQm%2BstD1FL3AqugJb19s0o79N032dOX1H3wvfqfkP4av9wKYRFhc2yO7qHMLUHmYnL2IAcnGRq5ukvO2%2FIrmGVYTFGr4wAWMDQFZRX6%2FiYvC7V3f3smsoy2jrJ8UDDn599%2BH32Nh%2FKfTO8yYSnt1ky%2FFJb%2FmheEF9PWnf%2FZxuG6o9ajMInX3owGOpoBFurBn4Hwi3d1xuSsXNVMEuSj7vWPV6dc8tSynf8yH7wRVtVyfz%2BnWH4EYPh0l2qeHuGhzAeQtLVfJNApnSVfEeyaGo1DOpieFST9bxhQIBG8ZloD%2FlojRhJT5AEwcRTryXAXWb%2FeuLKcH9izcUGx80wBcc6L8I6YFFFwwqyA4mhhYYMDAL3o3p0QE1Q4s99PDYPR0YCH7UzThg%3D%3D&X-Amz-Signature=4b8ae68420f7cc87da7c7a797f683e85528b6a96add83ce19ba3ffac0359a938
+                        fileSize: 20090671
+                        audioSourceId: 3256781
+                        ticker: SPWH-US
+                        entityId: 0CT2ZZ-E
+                        sourceCode: Webcast
+                        trimmed: false
+                        durationSecs: 5022
+                        startOffsetSeconds: 1717
+                        endOffsetSeconds: 4379
+                        startTime: null
+                        endTime: null
+                        uploadTime: '2022-05-31T23:57:01'
+                        sampleRate: null
+                        bitrate: null
         '400':
           description: >-
             Bad Request. This can occur for several reasons. Please review the
@@ -1736,10 +1737,6 @@ paths:
                                 improved significantly as the economy improved 
                               endTime: 811.6999999999999
                               startTime: 801.65
-                    meta:
-                      pagination:
-                        total: 191
-                        isEstimatedTotal: false
         '400':
           description: Bad Request
           content:
@@ -2875,7 +2872,9 @@ components:
       type: object
       properties:
         data:
-          $ref: '#/components/schemas/EventsAudioIdsObject'
+          type: array
+          items:
+            $ref: '#/components/schemas/EventsAudioIdsObject'
     EventsAudioIdsObject:
       type: object
       properties:
@@ -3001,128 +3000,130 @@ components:
       type: object
       properties:
         data:
-          type: object
-          properties:
-            reportId:
-              type: integer
-              description: >-
-                The unique ID of the audio file for an event. The same ID is
-                used for the transcript of the same event.
+          type: array
+          items:
+            $ref: '#/components/schemas/EventsAudioDailyObjectOne'
+    EventsAudioDailyObjectOne:
+      type: object
+      properties:
+        reportId:
+          type: integer
+          description: >-
+            The unique ID of the audio file for an event. The same ID is used
+            for the transcript of the same event.
 
-                This report ID can also be used to map to the Event details in
-                SDF tables.
-            fileName:
-              type: string
-              description: The filename of the audio file.
-            url:
-              type: string
-              description: >-
-                A pre-signed URL that allows downloading the audio file,
-                expiring after 24 hours.
-            fileSize:
-              type: number
-              description: Size of the Audio file, in bytes.
-            audioSourceId:
-              type: integer
-              nullable: true
-              description: >-
-                Unique ID for an Internal recording specific to reportID. For
-                example, ReportID X would have multiple recordings from
-                different source (Phone or Webcast or Vendor or Replay). One
-                ReportID can have multiple AudioSourceIDs.
+            This report ID can also be used to map to the Event details in SDF
+            tables.
+        fileName:
+          type: string
+          description: The filename of the audio file.
+        url:
+          type: string
+          description: >-
+            A pre-signed URL that allows downloading the audio file, expiring
+            after 24 hours.
+        fileSize:
+          type: number
+          description: Size of the Audio file, in bytes.
+        audioSourceId:
+          type: integer
+          nullable: true
+          description: >-
+            Unique ID for an Internal recording specific to reportID. For
+            example, ReportID X would have multiple recordings from different
+            source (Phone or Webcast or Vendor or Replay). One ReportID can have
+            multiple AudioSourceIDs.
 
 
-                The audioSourceId identifier is available for audio calls since
-                November 29, 2022.
+            The audioSourceId identifier is available for audio calls since
+            November 29, 2022.
 
-                Only un-trimmed audio files contain an audioSourceId value. All
-                the vendor and trimmed audio files will have an audioSourceId
-                value of null.
-            ticker:
-              type: string
-              nullable: true
-              description: Ticker-region identifier for the company hosting the event.
-            entityId:
-              type: string
-              description: >-
-                FactSet entity level identifier for the company hosting the
-                event.
-            sourceCode:
-              type: string
-              enum:
-                - Webcast
-                - Vendor
-                - WebcastReplay
-                - Flash
-                - Replay
-                - Phone
-              description: >-
-                This parameter filters the results based on Source of the Audio
-                file. Below are the descriptions for each Source Code -
+            Only un-trimmed audio files contain an audioSourceId value. All the
+            vendor and trimmed audio files will have an audioSourceId value of
+            null.
+        ticker:
+          type: string
+          nullable: true
+          description: Ticker-region identifier for the company hosting the event.
+        entityId:
+          type: string
+          description: FactSet entity level identifier for the company hosting the event.
+        sourceCode:
+          type: string
+          enum:
+            - Webcast
+            - Vendor
+            - WebcastReplay
+            - Flash
+            - Replay
+            - Phone
+          description: >-
+            This parameter filters the results based on Source of the Audio
+            file. Below are the descriptions for each Source Code -
 
-                * Phone = Originated from phone call
+            * Phone = Originated from phone call
 
-                * Webcast = Originated from a webcast
+            * Webcast = Originated from a webcast
 
-                * Vendor = Received from vendor
+            * Vendor = Received from vendor
 
-                * WebcastReplay = Replay of a webcast
+            * WebcastReplay = Replay of a webcast
 
-                * Flash = Identical to webcast; can merge with "Webcast" in the
-                future
+            * Flash = Identical to webcast; can merge with "Webcast" in the
+            future
 
-                * Replay = Phone replay
-              example: Webcast
-            trimmed:
-              type: boolean
-              description: >
+            * Replay = Phone replay
+          example: Webcast
+        trimmed:
+          type: boolean
+          description: >
 
-                The trimmed attribute indicates whether the audio is the trimmed
-                version. If `sourceCode` is set to vendor, this attribute will
-                always be true.
-                  
-            durationSecs:
-              type: number
-              nullable: true
-              description: >-
-                Total duration of the recording in seconds based on
-                startOffsetSeconds to endOffsetSeconds.
-            startOffsetSeconds:
-              type: number
-              nullable: true
-              description: >-
-                The delta in seconds between start of audio file to when FactSet
-                marks the beginning of the call.
-            endOffsetSeconds:
-              type: number
-              nullable: true
-              description: >-
-                The delta in seconds between startTime to when FactSet marks the
-                end of the call.
-            startTime:
-              type: string
-              nullable: true
-              description: The official timestamp when FactSet begins the recording.
-            endTime:
-              type: string
-              nullable: true
-              description: The official timestamp when FactSet ends the recording.
-            uploadTime:
-              type: string
-              nullable: true
-              description: >-
-                The official timestamp when FactSet publishes the audio file
-                externally.
-            sampleRate:
-              type: number
-              nullable: true
-              description: The number of samples of audio carried per second in Kbps.
-            bitrate:
-              type: number
-              nullable: true
-              description: >-
-                The total number of bits of information stored per second of
-                sound in Kbps.
+            The trimmed attribute indicates whether the audio is the trimmed
+            version. If `sourceCode` is set to vendor, this attribute will
+            always be true.
+              
+        durationSecs:
+          type: number
+          nullable: true
+          description: >-
+            Total duration of the recording in seconds based on
+            startOffsetSeconds to endOffsetSeconds.
+        startOffsetSeconds:
+          type: number
+          nullable: true
+          description: >-
+            The delta in seconds between start of audio file to when FactSet
+            marks the beginning of the call.
+        endOffsetSeconds:
+          type: number
+          nullable: true
+          description: >-
+            The delta in seconds between startTime to when FactSet marks the end
+            of the call.
+        startTime:
+          type: string
+          nullable: true
+          description: The official timestamp when FactSet begins the recording.
+        endTime:
+          type: string
+          nullable: true
+          description: The official timestamp when FactSet ends the recording.
+        uploadTime:
+          type: string
+          nullable: true
+          description: >-
+            The official timestamp when FactSet publishes the audio file
+            externally.
+        sampleRate:
+          type: number
+          nullable: true
+          description: The number of samples of audio carried per second in Kbps.
+        bitrate:
+          type: number
+          nullable: true
+          description: >-
+            The total number of bits of information stored per second of sound
+            in Kbps.
     EventsAudioDaily:
       type: object
       properties:
@@ -3273,36 +3274,43 @@ components:
       type: object
       properties:
         data:
-          type: object
-          properties:
-            year:
-              type: integer
-              description: >-
-                The year corresponding to the file containing historical audio
-                recordings that can be downloaded via presigned URL.
-            trimmed:
-              type: boolean
-              description: >-
-                True  it signifies that the pre-signed URL for downloading
-                includes trimmed historical audio recordings along with their
-                metadata for a specific year.
+          type: array
+          items:
+            $ref: '#/components/schemas/ListFileObject'
+    ListFileObject:
+      type: object
+      properties:
+        year:
+          type: integer
+          description: >-
+            The year corresponding to the file containing historical audio
+            recordings that can be downloaded via presigned URL.
+        trimmed:
+          type: boolean
+          description: >-
+            True  it signifies that the pre-signed URL for downloading includes
+            trimmed historical audio recordings along with their metadata for a
+            specific year.
 
 
-                False  it signifies that the pre-signed URL for downloading
-                contains the untrimmed historical audio recordings along with
-                their relevant metadata for a specific year.
-            fileName:
-              type: string
-              description: The name of the file.
-            fileSize:
-              type: integer
-              description: The size of the file, in bytes.
-            url:
-              type: string
-              description: >-
-                A pre-signed URL for downloading historical audio recordings and
-                related metadata of a specific year. The URL provided in the
-                response will expire after 3 hours.
+            False  it signifies that the pre-signed URL for downloading contains
+            the untrimmed historical audio recordings along with their relevant
+            metadata for a specific year.
+        fileName:
+          type: string
+          description: The name of the file.
+        fileSize:
+          type: integer
+          description: The size of the file, in bytes.
+        fileCount:
+          type: integer
+          description: The count of the files.
+        url:
+          type: string
+          description: >-
+            A pre-signed URL for downloading historical audio recordings and
+            related metadata of a specific year. The URL provided in the
+            response will expire after 3 hours.
     Error:
       type: object
       description: specifies the error message fields in the response
@@ -3334,117 +3342,101 @@ components:
         data:
           type: array
           items:
+            $ref: '#/components/schemas/IndexedObject'
+    IndexedObject:
+      type: object
+      properties:
+        snippetEndTimestamp:
+          type: string
+          format: date-time
+          description: >-
+            The snippet end time is calculated based off the endTime in the
+            snippetData section and the recordingStartTime from the calls
+            endpoint.
+        snippetSequence:
+          type: integer
+          description: >-
+            The sequence number of the snippet from the start of the current
+            call.
+        audioSourceId:
+          type: integer
+          description: >-
+            The Unique ID for an Internal recording specific to reportID. For
+            example, ReportID X would have multiple recordings from a different
+            source (dial-in or webcast). One ReportID can have multiple
+            audioSourceIDs.
+        transcriptData:
+          type: array
+          items:
             properties:
-              reportId:
-                type: integer
-                description: The unique ID for an event.
-              snippetEndTimestamp:
-                type: string
-                format: date-time
-                description: >-
-                  The snippet end time is calculated based off the endTime in
-                  the snippetData section and the recordingStartTime from the
-                  calls endpoint.
-              snippetSequence:
-                type: integer
-                description: >-
-                  The sequence number of the snippet from the start of the
-                  current call.
-              audioSourceId:
-                type: integer
-                description: >-
-                  The Unique ID for an Internal recording specific to reportID.
-                  For example, ReportID X would have multiple recordings from a
-                  different source (dial-in or webcast). One ReportID can have
-                  multiple audioSourceIDs.
-              transcriptData:
+              indexedData:
                 type: array
                 items:
                   properties:
-                    indexedData:
+                    index:
                       type: array
                       items:
                         properties:
-                          index:
-                            type: array
-                            items:
-                              properties:
-                                confidence:
-                                  type: number
-                                  description: >-
-                                    Represents the confidence with which the
-                                    speech to text recognition engine predicts.
-                                    1 represents 100% confidence about the
-                                    content.
-                                content:
-                                  type: string
-                                  description: It denotes the spoken content.
-                                language:
-                                  type: string
-                                  description: >-
-                                    It denotes the spoken language. Its always
-                                    english.
-                          endTime:
+                          confidence:
                             type: number
                             description: >-
-                              The number of seconds into the call, when the
-                              content ends.
-                          startTime:
-                            type: number
-                            description: >-
-                              The number of seconds into the call, when the
-                              content begins.
-                          type:
+                              Represents the confidence with which the speech to
+                              text recognition engine predicts. 1 represents
+                              100% confidence about the content.
+                          content:
                             type: string
-                            enum:
-                              - Punctuation
-                              - Word
-                              - SpeakerChange
-                            description: |-
-                              It denotes the type of content.
-                              Values- Punctuation, Word, SpeakerChange
-                          isEndOfSentence:
-                            type: boolean
+                            description: It denotes the spoken content.
+                          language:
+                            type: string
                             description: >-
+                              It denotes the spoken language. Its always
+                              english.
+                    endTime:
+                      type: number
+                      description: >-
+                        The number of seconds into the call, when the content
+                        ends.
+                    startTime:
+                      type: number
+                      description: >-
+                        The number of seconds into the call, when the content
+                        begins.
+                    type:
+                      type: string
+                      enum:
+                        - Punctuation
+                        - Word
+                        - SpeakerChange
+                      description: |-
+                        It denotes the type of content.
+                        Values- Punctuation, Word, SpeakerChange
+                    isEndOfSentence:
+                      type: boolean
+                      description: >-
 
-                              This parameter indicates if the current content
-                              signifies the end of a sentence. It returns true
-                              when the type is punctuation and the content is a
-                              period '.'. It does not return true if a sentence
-                              ends with a question mark or an exclamation mark.
+                        This parameter indicates if the current content
+                        signifies the end of a sentence. It returns true when
+                        the type is punctuation and the content is a period '.'.
+                        It does not return true if a sentence ends with a
+                        question mark or an exclamation mark.
 
-                                                              
-                    snippetData:
-                      type: object
-                      properties:
-                        transcript:
-                          type: string
-                          description: The actual transcript snippet.
-                        endTime:
-                          type: number
-                          description: >-
-                            The number of seconds into the call,when the
-                            transcript snippet ended.
-                        startTime:
-                          type: number
-                          description: >-
-                            The number of seconds into the call,when the
-                            transcript snippet started.
-        meta:
-          type: object
-          properties:
-            pagination:
-              type: object
-              properties:
-                total:
-                  type: integer
-                  description: Total number for results returned for a specific query.
-                isEstimatedTotal:
-                  type: boolean
-                  description: >-
-                    This field acts as a flag for the exact count of results and
-                    is defaulted to false as the API should always return the
-                    exact count of results.
+                                                        
+              snippetData:
+                type: object
+                properties:
+                  transcript:
+                    type: string
+                    description: The actual transcript snippet.
+                  endTime:
+                    type: number
+                    description: >-
+                      The number of seconds into the call,when the transcript
+                      snippet ended.
+                  startTime:
+                    type: number
+                    description: >-
+                      The number of seconds into the call,when the transcript
+                      snippet started.
     CompanyEventRequest:
       type: object
       properties:

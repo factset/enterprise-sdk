@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**EventsAudioDailyFileNameData**](EventsAudioDailyFileNameData.md) |  |  [optional]
+**data** | [**java.util.List&lt;EventsAudioDailyObjectOne&gt;**](EventsAudioDailyObjectOne.md) |  |  [optional]
 
 
 ## Implemented Interfaces

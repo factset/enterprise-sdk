@@ -14,17 +14,17 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The EventsAudioDailyFileNameData model module.
- * @module model/EventsAudioDailyFileNameData
+ * The EventsAudioDailyObjectOne model module.
+ * @module model/EventsAudioDailyObjectOne
  */
-class EventsAudioDailyFileNameData {
+class EventsAudioDailyObjectOne {
     /**
-     * Constructs a new <code>EventsAudioDailyFileNameData</code>.
-     * @alias module:model/EventsAudioDailyFileNameData
+     * Constructs a new <code>EventsAudioDailyObjectOne</code>.
+     * @alias module:model/EventsAudioDailyObjectOne
      */
     constructor() { 
         
-        EventsAudioDailyFileNameData.initialize(this);
+        EventsAudioDailyObjectOne.initialize(this);
     }
 
     /**
@@ -36,15 +36,15 @@ class EventsAudioDailyFileNameData {
     }
 
     /**
-     * Constructs a <code>EventsAudioDailyFileNameData</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>EventsAudioDailyObjectOne</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/EventsAudioDailyFileNameData} obj Optional instance to populate.
-     * @return {module:model/EventsAudioDailyFileNameData} The populated <code>EventsAudioDailyFileNameData</code> instance.
+     * @param {module:model/EventsAudioDailyObjectOne} obj Optional instance to populate.
+     * @return {module:model/EventsAudioDailyObjectOne} The populated <code>EventsAudioDailyObjectOne</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new EventsAudioDailyFileNameData();
+            obj = obj || new EventsAudioDailyObjectOne();
 
             if (data.hasOwnProperty('reportId')) {
                 obj['reportId'] = ApiClient.convertToType(data['reportId'], 'Number');
@@ -108,103 +108,103 @@ class EventsAudioDailyFileNameData {
  * The unique ID of the audio file for an event. The same ID is used for the transcript of the same event. This report ID can also be used to map to the Event details in SDF tables.
  * @member {Number} reportId
  */
-EventsAudioDailyFileNameData.prototype['reportId'] = undefined;
+EventsAudioDailyObjectOne.prototype['reportId'] = undefined;
 
 /**
  * The filename of the audio file.
  * @member {String} fileName
  */
-EventsAudioDailyFileNameData.prototype['fileName'] = undefined;
+EventsAudioDailyObjectOne.prototype['fileName'] = undefined;
 
 /**
  * A pre-signed URL that allows downloading the audio file, expiring after 24 hours.
  * @member {String} url
  */
-EventsAudioDailyFileNameData.prototype['url'] = undefined;
+EventsAudioDailyObjectOne.prototype['url'] = undefined;
 
 /**
  * Size of the Audio file, in bytes.
  * @member {Number} fileSize
  */
-EventsAudioDailyFileNameData.prototype['fileSize'] = undefined;
+EventsAudioDailyObjectOne.prototype['fileSize'] = undefined;
 
 /**
  * Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (Phone or Webcast or Vendor or Replay). One ReportID can have multiple AudioSourceIDs.  The audioSourceId identifier is available for audio calls since November 29, 2022. Only un-trimmed audio files contain an audioSourceId value. All the vendor and trimmed audio files will have an audioSourceId value of null.
  * @member {Number} audioSourceId
  */
-EventsAudioDailyFileNameData.prototype['audioSourceId'] = undefined;
+EventsAudioDailyObjectOne.prototype['audioSourceId'] = undefined;
 
 /**
  * Ticker-region identifier for the company hosting the event.
  * @member {String} ticker
  */
-EventsAudioDailyFileNameData.prototype['ticker'] = undefined;
+EventsAudioDailyObjectOne.prototype['ticker'] = undefined;
 
 /**
  * FactSet entity level identifier for the company hosting the event.
  * @member {String} entityId
  */
-EventsAudioDailyFileNameData.prototype['entityId'] = undefined;
+EventsAudioDailyObjectOne.prototype['entityId'] = undefined;
 
 /**
  * This parameter filters the results based on Source of the Audio file. Below are the descriptions for each Source Code - * Phone = Originated from phone call * Webcast = Originated from a webcast * Vendor = Received from vendor * WebcastReplay = Replay of a webcast * Flash = Identical to webcast; can merge with \"Webcast\" in the future * Replay = Phone replay
- * @member {module:model/EventsAudioDailyFileNameData.SourceCodeEnum} sourceCode
+ * @member {module:model/EventsAudioDailyObjectOne.SourceCodeEnum} sourceCode
  */
-EventsAudioDailyFileNameData.prototype['sourceCode'] = undefined;
+EventsAudioDailyObjectOne.prototype['sourceCode'] = undefined;
 
 /**
  *  The trimmed attribute indicates whether the audio is the trimmed version. If `sourceCode` is set to vendor, this attribute will always be true.    
  * @member {Boolean} trimmed
  */
-EventsAudioDailyFileNameData.prototype['trimmed'] = undefined;
+EventsAudioDailyObjectOne.prototype['trimmed'] = undefined;
 
 /**
  * Total duration of the recording in seconds based on startOffsetSeconds to endOffsetSeconds.
  * @member {Number} durationSecs
  */
-EventsAudioDailyFileNameData.prototype['durationSecs'] = undefined;
+EventsAudioDailyObjectOne.prototype['durationSecs'] = undefined;
 
 /**
  * The delta in seconds between start of audio file to when FactSet marks the beginning of the call.
  * @member {Number} startOffsetSeconds
  */
-EventsAudioDailyFileNameData.prototype['startOffsetSeconds'] = undefined;
+EventsAudioDailyObjectOne.prototype['startOffsetSeconds'] = undefined;
 
 /**
  * The delta in seconds between startTime to when FactSet marks the end of the call.
  * @member {Number} endOffsetSeconds
  */
-EventsAudioDailyFileNameData.prototype['endOffsetSeconds'] = undefined;
+EventsAudioDailyObjectOne.prototype['endOffsetSeconds'] = undefined;
 
 /**
  * The official timestamp when FactSet begins the recording.
  * @member {String} startTime
  */
-EventsAudioDailyFileNameData.prototype['startTime'] = undefined;
+EventsAudioDailyObjectOne.prototype['startTime'] = undefined;
 
 /**
  * The official timestamp when FactSet ends the recording.
  * @member {String} endTime
  */
-EventsAudioDailyFileNameData.prototype['endTime'] = undefined;
+EventsAudioDailyObjectOne.prototype['endTime'] = undefined;
 
 /**
  * The official timestamp when FactSet publishes the audio file externally.
  * @member {String} uploadTime
  */
-EventsAudioDailyFileNameData.prototype['uploadTime'] = undefined;
+EventsAudioDailyObjectOne.prototype['uploadTime'] = undefined;
 
 /**
  * The number of samples of audio carried per second in Kbps.
  * @member {Number} sampleRate
  */
-EventsAudioDailyFileNameData.prototype['sampleRate'] = undefined;
+EventsAudioDailyObjectOne.prototype['sampleRate'] = undefined;
 
 /**
  * The total number of bits of information stored per second of sound in Kbps.
  * @member {Number} bitrate
  */
-EventsAudioDailyFileNameData.prototype['bitrate'] = undefined;
+EventsAudioDailyObjectOne.prototype['bitrate'] = undefined;
 
 
 
@@ -215,7 +215,7 @@ EventsAudioDailyFileNameData.prototype['bitrate'] = undefined;
  * @enum {String}
  * @readonly
  */
-EventsAudioDailyFileNameData['SourceCodeEnum'] = {
+EventsAudioDailyObjectOne['SourceCodeEnum'] = {
 
     /**
      * value: "Webcast"
@@ -256,5 +256,5 @@ EventsAudioDailyFileNameData['SourceCodeEnum'] = {
 
 
 
-export default EventsAudioDailyFileNameData;
+export default EventsAudioDailyObjectOne;
 

@@ -36,7 +36,7 @@ namespace FactSet.SDK.EventsandTranscripts.Model
         /// Initializes a new instance of the <see cref="EventsAudioDailyFileName" /> class.
         /// </summary>
         /// <param name="data">data.</param>
-        public EventsAudioDailyFileName(EventsAudioDailyFileNameData data = default(EventsAudioDailyFileNameData))
+        public EventsAudioDailyFileName(List<EventsAudioDailyObjectOne> data = default(List<EventsAudioDailyObjectOne>))
         {
             this.Data = data;
         }
@@ -45,7 +45,7 @@ namespace FactSet.SDK.EventsandTranscripts.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name = "data", EmitDefaultValue = false)]
-        public EventsAudioDailyFileNameData Data { get; set; }
+        public List<EventsAudioDailyObjectOne> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -93,8 +93,9 @@ namespace FactSet.SDK.EventsandTranscripts.Model
             return 
                 (
                     this.Data == input.Data ||
-                    (this.Data != null &&
-                    this.Data.Equals(input.Data))
+                    this.Data != null &&
+                    input.Data != null &&
+                    this.Data.SequenceEqual(input.Data)
                 );
         }
 

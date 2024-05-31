@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | **[Object]** |  | [optional] 
-**meta** | [**NrtCallsMeta**](NrtCallsMeta.md) |  | [optional] 
+**data** | [**[IndexedObject]**](IndexedObject.md) |  | [optional] 
 
 

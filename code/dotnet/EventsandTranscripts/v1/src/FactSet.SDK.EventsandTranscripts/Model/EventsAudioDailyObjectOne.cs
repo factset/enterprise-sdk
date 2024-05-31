@@ -27,10 +27,10 @@ using OpenAPIDateConverter = FactSet.SDK.EventsandTranscripts.Client.OpenAPIDate
 namespace FactSet.SDK.EventsandTranscripts.Model
 {
     /// <summary>
-    /// EventsAudioDailyFileNameData
+    /// EventsAudioDailyObjectOne
     /// </summary>
-    [DataContract(Name = "EventsAudioDailyFileName_data")]
-    public partial class EventsAudioDailyFileNameData : IEquatable<EventsAudioDailyFileNameData>, IValidatableObject
+    [DataContract(Name = "EventsAudioDailyObjectOne")]
+    public partial class EventsAudioDailyObjectOne : IEquatable<EventsAudioDailyObjectOne>, IValidatableObject
     {
         /// <summary>
         /// This parameter filters the results based on Source of the Audio file. Below are the descriptions for each Source Code - * Phone &#x3D; Originated from phone call * Webcast &#x3D; Originated from a webcast * Vendor &#x3D; Received from vendor * WebcastReplay &#x3D; Replay of a webcast * Flash &#x3D; Identical to webcast; can merge with \&quot;Webcast\&quot; in the future * Replay &#x3D; Phone replay
@@ -85,7 +85,7 @@ namespace FactSet.SDK.EventsandTranscripts.Model
         [DataMember(Name = "sourceCode", EmitDefaultValue = false)]
         public SourceCodeEnum? SourceCode { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="EventsAudioDailyFileNameData" /> class.
+        /// Initializes a new instance of the <see cref="EventsAudioDailyObjectOne" /> class.
         /// </summary>
         /// <param name="reportId">The unique ID of the audio file for an event. The same ID is used for the transcript of the same event. This report ID can also be used to map to the Event details in SDF tables..</param>
         /// <param name="fileName">The filename of the audio file..</param>
@@ -104,7 +104,7 @@ namespace FactSet.SDK.EventsandTranscripts.Model
         /// <param name="uploadTime">The official timestamp when FactSet publishes the audio file externally..</param>
         /// <param name="sampleRate">The number of samples of audio carried per second in Kbps..</param>
         /// <param name="bitrate">The total number of bits of information stored per second of sound in Kbps..</param>
-        public EventsAudioDailyFileNameData(int reportId = default(int), string fileName = default(string), string url = default(string), decimal fileSize = default(decimal), int? audioSourceId = default(int?), string ticker = default(string), string entityId = default(string), SourceCodeEnum? sourceCode = default(SourceCodeEnum?), bool trimmed = default(bool), decimal? durationSecs = default(decimal?), decimal? startOffsetSeconds = default(decimal?), decimal? endOffsetSeconds = default(decimal?), string startTime = default(string), string endTime = default(string), string uploadTime = default(string), decimal? sampleRate = default(decimal?), decimal? bitrate = default(decimal?))
+        public EventsAudioDailyObjectOne(int reportId = default(int), string fileName = default(string), string url = default(string), decimal fileSize = default(decimal), int? audioSourceId = default(int?), string ticker = default(string), string entityId = default(string), SourceCodeEnum? sourceCode = default(SourceCodeEnum?), bool trimmed = default(bool), decimal? durationSecs = default(decimal?), decimal? startOffsetSeconds = default(decimal?), decimal? endOffsetSeconds = default(decimal?), string startTime = default(string), string endTime = default(string), string uploadTime = default(string), decimal? sampleRate = default(decimal?), decimal? bitrate = default(decimal?))
         {
             this.ReportId = reportId;
             this.FileName = fileName;
@@ -244,7 +244,7 @@ namespace FactSet.SDK.EventsandTranscripts.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class EventsAudioDailyFileNameData {\n");
+            sb.Append("class EventsAudioDailyObjectOne {\n");
             sb.Append("  ReportId: ").Append(ReportId).Append("\n");
             sb.Append("  FileName: ").Append(FileName).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
@@ -282,15 +282,15 @@ namespace FactSet.SDK.EventsandTranscripts.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as EventsAudioDailyFileNameData);
+            return this.Equals(input as EventsAudioDailyObjectOne);
         }
 
         /// <summary>
-        /// Returns true if EventsAudioDailyFileNameData instances are equal
+        /// Returns true if EventsAudioDailyObjectOne instances are equal
         /// </summary>
-        /// <param name="input">Instance of EventsAudioDailyFileNameData to be compared</param>
+        /// <param name="input">Instance of EventsAudioDailyObjectOne to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(EventsAudioDailyFileNameData input)
+        public bool Equals(EventsAudioDailyObjectOne input)
         {
             if (input == null)
             {

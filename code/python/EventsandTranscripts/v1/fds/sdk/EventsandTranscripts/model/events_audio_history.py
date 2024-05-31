@@ -31,8 +31,8 @@ from fds.sdk.EventsandTranscripts.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.EventsandTranscripts.model.events_audio_history_data import EventsAudioHistoryData
-    globals()['EventsAudioHistoryData'] = EventsAudioHistoryData
+    from fds.sdk.EventsandTranscripts.model.list_file_object import ListFileObject
+    globals()['ListFileObject'] = ListFileObject
 
 
 class EventsAudioHistory(ModelNormal):
@@ -88,7 +88,7 @@ class EventsAudioHistory(ModelNormal):
         """
         lazy_import()
         return {
-            'data': (EventsAudioHistoryData,),  # noqa: E501
+            'data': ([ListFileObject],),  # noqa: E501
         }
 
     @cached_property
@@ -141,7 +141,7 @@ class EventsAudioHistory(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data (EventsAudioHistoryData): [optional]  # noqa: E501
+            data ([ListFileObject]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,7 +223,7 @@ class EventsAudioHistory(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data (EventsAudioHistoryData): [optional]  # noqa: E501
+            data ([ListFileObject]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**EventsAudioHistoryData**](EventsAudioHistoryData.md) |  | [optional] 
+**data** | [**[ListFileObject]**](ListFileObject.md) |  | [optional] 
 
 

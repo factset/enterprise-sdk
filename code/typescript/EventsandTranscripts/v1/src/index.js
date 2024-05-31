@@ -22,15 +22,16 @@ import Error from './model/Error';
 import ErrorExample from './model/ErrorExample';
 import EventsAudioDaily from './model/EventsAudioDaily';
 import EventsAudioDailyFileName from './model/EventsAudioDailyFileName';
-import EventsAudioDailyFileNameData from './model/EventsAudioDailyFileNameData';
 import EventsAudioDailyIds from './model/EventsAudioDailyIds';
 import EventsAudioDailyMeta from './model/EventsAudioDailyMeta';
 import EventsAudioDailyMetaPagination from './model/EventsAudioDailyMetaPagination';
 import EventsAudioDailyObject from './model/EventsAudioDailyObject';
+import EventsAudioDailyObjectOne from './model/EventsAudioDailyObjectOne';
 import EventsAudioHistory from './model/EventsAudioHistory';
-import EventsAudioHistoryData from './model/EventsAudioHistoryData';
 import EventsAudioIdsObject from './model/EventsAudioIdsObject';
 import IndexedNrt from './model/IndexedNrt';
+import IndexedObject from './model/IndexedObject';
+import ListFileObject from './model/ListFileObject';
 import NrtCalls from './model/NrtCalls';
 import NrtCallsMeta from './model/NrtCallsMeta';
 import NrtCallsMetaPagination from './model/NrtCallsMetaPagination';
@@ -156,12 +157,6 @@ export {
     EventsAudioDailyFileName,
 
     /**
-     * The EventsAudioDailyFileNameData model constructor.
-     * @property {module:model/EventsAudioDailyFileNameData}
-     */
-    EventsAudioDailyFileNameData,
-
-    /**
      * The EventsAudioDailyIds model constructor.
      * @property {module:model/EventsAudioDailyIds}
      */
@@ -186,16 +181,16 @@ export {
     EventsAudioDailyObject,
 
     /**
+     * The EventsAudioDailyObjectOne model constructor.
+     * @property {module:model/EventsAudioDailyObjectOne}
+     */
+    EventsAudioDailyObjectOne,
+
+    /**
      * The EventsAudioHistory model constructor.
      * @property {module:model/EventsAudioHistory}
      */
     EventsAudioHistory,
-
-    /**
-     * The EventsAudioHistoryData model constructor.
-     * @property {module:model/EventsAudioHistoryData}
-     */
-    EventsAudioHistoryData,
 
     /**
      * The EventsAudioIdsObject model constructor.
@@ -208,6 +203,18 @@ export {
      * @property {module:model/IndexedNrt}
      */
     IndexedNrt,
+
+    /**
+     * The IndexedObject model constructor.
+     * @property {module:model/IndexedObject}
+     */
+    IndexedObject,
+
+    /**
+     * The ListFileObject model constructor.
+     * @property {module:model/ListFileObject}
+     */
+    ListFileObject,
 
     /**
      * The NrtCalls model constructor.

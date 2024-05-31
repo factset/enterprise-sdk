@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import NrtCallsMeta from './NrtCallsMeta';
+import IndexedObject from './IndexedObject';
 
 /**
  * The IndexedNrt model module.
@@ -49,10 +49,7 @@ class IndexedNrt {
             obj = obj || new IndexedNrt();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [Object]);
-            }
-            if (data.hasOwnProperty('meta')) {
-                obj['meta'] = NrtCallsMeta.constructFromObject(data['meta']);
+                obj['data'] = ApiClient.convertToType(data['data'], [IndexedObject]);
             }
         }
         return obj;
@@ -62,14 +59,9 @@ class IndexedNrt {
 }
 
 /**
- * @member {Array.<Object>} data
+ * @member {Array.<module:model/IndexedObject>} data
  */
 IndexedNrt.prototype['data'] = undefined;
-
-/**
- * @member {module:model/NrtCallsMeta} meta
- */
-IndexedNrt.prototype['meta'] = undefined;
 
 
 

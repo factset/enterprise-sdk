@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import EventsAudioDailyFileNameData from './EventsAudioDailyFileNameData';
+import EventsAudioDailyObjectOne from './EventsAudioDailyObjectOne';
 
 /**
  * The EventsAudioDailyFileName model module.
@@ -48,7 +48,7 @@ class EventsAudioDailyFileName {
             obj = obj || new EventsAudioDailyFileName();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = EventsAudioDailyFileNameData.constructFromObject(data['data']);
+                obj['data'] = ApiClient.convertToType(data['data'], [EventsAudioDailyObjectOne]);
             }
         }
         return obj;
@@ -58,7 +58,7 @@ class EventsAudioDailyFileName {
 }
 
 /**
- * @member {module:model/EventsAudioDailyFileNameData} data
+ * @member {Array.<module:model/EventsAudioDailyObjectOne>} data
  */
 EventsAudioDailyFileName.prototype['data'] = undefined;
 

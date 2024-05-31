@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**EventsAudioHistoryData**](EventsAudioHistoryData.md) |  |  [optional]
+**data** | [**java.util.List&lt;ListFileObject&gt;**](ListFileObject.md) |  |  [optional]
 
 
 ## Implemented Interfaces

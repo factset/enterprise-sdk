@@ -36,24 +36,16 @@ namespace FactSet.SDK.EventsandTranscripts.Model
         /// Initializes a new instance of the <see cref="IndexedNrt" /> class.
         /// </summary>
         /// <param name="data">data.</param>
-        /// <param name="meta">meta.</param>
-        public IndexedNrt(List<Object> data = default(List<Object>), NrtCallsMeta meta = default(NrtCallsMeta))
+        public IndexedNrt(List<IndexedObject> data = default(List<IndexedObject>))
         {
             this.Data = data;
-            this.Meta = meta;
         }
 
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name = "data", EmitDefaultValue = false)]
-        public List<Object> Data { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Meta
-        /// </summary>
-        [DataMember(Name = "meta", EmitDefaultValue = false)]
-        public NrtCallsMeta Meta { get; set; }
+        public List<IndexedObject> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -64,7 +56,6 @@ namespace FactSet.SDK.EventsandTranscripts.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class IndexedNrt {\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
-            sb.Append("  Meta: ").Append(Meta).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -105,11 +96,6 @@ namespace FactSet.SDK.EventsandTranscripts.Model
                     this.Data != null &&
                     input.Data != null &&
                     this.Data.SequenceEqual(input.Data)
-                ) && 
-                (
-                    this.Meta == input.Meta ||
-                    (this.Meta != null &&
-                    this.Meta.Equals(input.Meta))
                 );
         }
 
@@ -125,10 +111,6 @@ namespace FactSet.SDK.EventsandTranscripts.Model
                 if (this.Data != null)
                 {
                     hashCode = (hashCode * 59) + this.Data.GetHashCode();
-                }
-                if (this.Meta != null)
-                {
-                    hashCode = (hashCode * 59) + this.Meta.GetHashCode();
                 }
                 return hashCode;
             }

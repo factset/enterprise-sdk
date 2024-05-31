@@ -48,7 +48,7 @@ class EventsAudioDailyIds {
             obj = obj || new EventsAudioDailyIds();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = EventsAudioIdsObject.constructFromObject(data['data']);
+                obj['data'] = ApiClient.convertToType(data['data'], [EventsAudioIdsObject]);
             }
         }
         return obj;
@@ -58,7 +58,7 @@ class EventsAudioDailyIds {
 }
 
 /**
- * @member {module:model/EventsAudioIdsObject} data
+ * @member {Array.<module:model/EventsAudioIdsObject>} data
  */
 EventsAudioDailyIds.prototype['data'] = undefined;
 

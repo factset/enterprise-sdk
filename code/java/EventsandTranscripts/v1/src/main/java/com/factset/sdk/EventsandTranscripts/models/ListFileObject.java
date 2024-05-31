@@ -30,18 +30,19 @@ import com.factset.sdk.EventsandTranscripts.JSON;
 
 
 /**
- * EventsAudioHistoryData
+ * ListFileObject
  */
 @JsonPropertyOrder({
-  EventsAudioHistoryData.JSON_PROPERTY_YEAR,
-  EventsAudioHistoryData.JSON_PROPERTY_TRIMMED,
-  EventsAudioHistoryData.JSON_PROPERTY_FILE_NAME,
-  EventsAudioHistoryData.JSON_PROPERTY_FILE_SIZE,
-  EventsAudioHistoryData.JSON_PROPERTY_URL
+  ListFileObject.JSON_PROPERTY_YEAR,
+  ListFileObject.JSON_PROPERTY_TRIMMED,
+  ListFileObject.JSON_PROPERTY_FILE_NAME,
+  ListFileObject.JSON_PROPERTY_FILE_SIZE,
+  ListFileObject.JSON_PROPERTY_FILE_COUNT,
+  ListFileObject.JSON_PROPERTY_URL
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class EventsAudioHistoryData implements Serializable {
+public class ListFileObject implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_YEAR = "year";
@@ -56,13 +57,16 @@ public class EventsAudioHistoryData implements Serializable {
   public static final String JSON_PROPERTY_FILE_SIZE = "fileSize";
   private Integer fileSize;
 
+  public static final String JSON_PROPERTY_FILE_COUNT = "fileCount";
+  private Integer fileCount;
+
   public static final String JSON_PROPERTY_URL = "url";
   private String url;
 
-  public EventsAudioHistoryData() { 
+  public ListFileObject() { 
   }
 
-  public EventsAudioHistoryData year(Integer year) {
+  public ListFileObject year(Integer year) {
     this.year = year;
     return this;
   }
@@ -88,7 +92,7 @@ public class EventsAudioHistoryData implements Serializable {
   }
 
 
-  public EventsAudioHistoryData trimmed(Boolean trimmed) {
+  public ListFileObject trimmed(Boolean trimmed) {
     this.trimmed = trimmed;
     return this;
   }
@@ -114,7 +118,7 @@ public class EventsAudioHistoryData implements Serializable {
   }
 
 
-  public EventsAudioHistoryData fileName(String fileName) {
+  public ListFileObject fileName(String fileName) {
     this.fileName = fileName;
     return this;
   }
@@ -140,7 +144,7 @@ public class EventsAudioHistoryData implements Serializable {
   }
 
 
-  public EventsAudioHistoryData fileSize(Integer fileSize) {
+  public ListFileObject fileSize(Integer fileSize) {
     this.fileSize = fileSize;
     return this;
   }
@@ -166,7 +170,33 @@ public class EventsAudioHistoryData implements Serializable {
   }
 
 
-  public EventsAudioHistoryData url(String url) {
+  public ListFileObject fileCount(Integer fileCount) {
+    this.fileCount = fileCount;
+    return this;
+  }
+
+   /**
+   * The count of the files.
+   * @return fileCount
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "The count of the files.")
+  @JsonProperty(JSON_PROPERTY_FILE_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getFileCount() {
+    return fileCount;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FILE_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFileCount(Integer fileCount) {
+    this.fileCount = fileCount;
+  }
+
+
+  public ListFileObject url(String url) {
     this.url = url;
     return this;
   }
@@ -193,7 +223,7 @@ public class EventsAudioHistoryData implements Serializable {
 
 
   /**
-   * Return true if this EventsAudioHistory_data object is equal to o.
+   * Return true if this ListFileObject object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -203,27 +233,29 @@ public class EventsAudioHistoryData implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    EventsAudioHistoryData eventsAudioHistoryData = (EventsAudioHistoryData) o;
-    return Objects.equals(this.year, eventsAudioHistoryData.year) &&
-        Objects.equals(this.trimmed, eventsAudioHistoryData.trimmed) &&
-        Objects.equals(this.fileName, eventsAudioHistoryData.fileName) &&
-        Objects.equals(this.fileSize, eventsAudioHistoryData.fileSize) &&
-        Objects.equals(this.url, eventsAudioHistoryData.url);
+    ListFileObject listFileObject = (ListFileObject) o;
+    return Objects.equals(this.year, listFileObject.year) &&
+        Objects.equals(this.trimmed, listFileObject.trimmed) &&
+        Objects.equals(this.fileName, listFileObject.fileName) &&
+        Objects.equals(this.fileSize, listFileObject.fileSize) &&
+        Objects.equals(this.fileCount, listFileObject.fileCount) &&
+        Objects.equals(this.url, listFileObject.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(year, trimmed, fileName, fileSize, url);
+    return Objects.hash(year, trimmed, fileName, fileSize, fileCount, url);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class EventsAudioHistoryData {\n");
+    sb.append("class ListFileObject {\n");
     sb.append("    year: ").append(toIndentedString(year)).append("\n");
     sb.append("    trimmed: ").append(toIndentedString(trimmed)).append("\n");
     sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
     sb.append("    fileSize: ").append(toIndentedString(fileSize)).append("\n");
+    sb.append("    fileCount: ").append(toIndentedString(fileCount)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
     return sb.toString();

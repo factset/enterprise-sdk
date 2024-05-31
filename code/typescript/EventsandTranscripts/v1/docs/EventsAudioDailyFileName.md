@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**EventsAudioDailyFileNameData**](EventsAudioDailyFileNameData.md) |  | [optional] 
+**data** | [**[EventsAudioDailyObjectOne]**](EventsAudioDailyObjectOne.md) |  | [optional] 
 
 

@@ -1,4 +1,4 @@
-# FactSet.SDK.EventsandTranscripts.Model.EventsAudioDailyFileNameData
+# FactSet.SDK.EventsandTranscripts.Model.EventsAudioDailyObjectOne
 
 ## Properties
 

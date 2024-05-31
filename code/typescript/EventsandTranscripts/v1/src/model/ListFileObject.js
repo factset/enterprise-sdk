@@ -14,17 +14,17 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The EventsAudioHistoryData model module.
- * @module model/EventsAudioHistoryData
+ * The ListFileObject model module.
+ * @module model/ListFileObject
  */
-class EventsAudioHistoryData {
+class ListFileObject {
     /**
-     * Constructs a new <code>EventsAudioHistoryData</code>.
-     * @alias module:model/EventsAudioHistoryData
+     * Constructs a new <code>ListFileObject</code>.
+     * @alias module:model/ListFileObject
      */
     constructor() { 
         
-        EventsAudioHistoryData.initialize(this);
+        ListFileObject.initialize(this);
     }
 
     /**
@@ -36,15 +36,15 @@ class EventsAudioHistoryData {
     }
 
     /**
-     * Constructs a <code>EventsAudioHistoryData</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>ListFileObject</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/EventsAudioHistoryData} obj Optional instance to populate.
-     * @return {module:model/EventsAudioHistoryData} The populated <code>EventsAudioHistoryData</code> instance.
+     * @param {module:model/ListFileObject} obj Optional instance to populate.
+     * @return {module:model/ListFileObject} The populated <code>ListFileObject</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new EventsAudioHistoryData();
+            obj = obj || new ListFileObject();
 
             if (data.hasOwnProperty('year')) {
                 obj['year'] = ApiClient.convertToType(data['year'], 'Number');
@@ -57,6 +57,9 @@ class EventsAudioHistoryData {
             }
             if (data.hasOwnProperty('fileSize')) {
                 obj['fileSize'] = ApiClient.convertToType(data['fileSize'], 'Number');
+            }
+            if (data.hasOwnProperty('fileCount')) {
+                obj['fileCount'] = ApiClient.convertToType(data['fileCount'], 'Number');
             }
             if (data.hasOwnProperty('url')) {
                 obj['url'] = ApiClient.convertToType(data['url'], 'String');
@@ -72,36 +75,42 @@ class EventsAudioHistoryData {
  * The year corresponding to the file containing historical audio recordings that can be downloaded via presigned URL.
  * @member {Number} year
  */
-EventsAudioHistoryData.prototype['year'] = undefined;
+ListFileObject.prototype['year'] = undefined;
 
 /**
  * True  it signifies that the pre-signed URL for downloading includes trimmed historical audio recordings along with their metadata for a specific year.  False  it signifies that the pre-signed URL for downloading contains the untrimmed historical audio recordings along with their relevant metadata for a specific year.
  * @member {Boolean} trimmed
  */
-EventsAudioHistoryData.prototype['trimmed'] = undefined;
+ListFileObject.prototype['trimmed'] = undefined;
 
 /**
  * The name of the file.
  * @member {String} fileName
  */
-EventsAudioHistoryData.prototype['fileName'] = undefined;
+ListFileObject.prototype['fileName'] = undefined;
 
 /**
  * The size of the file, in bytes.
  * @member {Number} fileSize
  */
-EventsAudioHistoryData.prototype['fileSize'] = undefined;
+ListFileObject.prototype['fileSize'] = undefined;
+
+/**
+ * The count of the files.
+ * @member {Number} fileCount
+ */
+ListFileObject.prototype['fileCount'] = undefined;
 
 /**
  * A pre-signed URL for downloading historical audio recordings and related metadata of a specific year. The URL provided in the response will expire after 3 hours.
  * @member {String} url
  */
-EventsAudioHistoryData.prototype['url'] = undefined;
+ListFileObject.prototype['url'] = undefined;
 
 
 
 
 
 
-export default EventsAudioHistoryData;
+export default ListFileObject;
 

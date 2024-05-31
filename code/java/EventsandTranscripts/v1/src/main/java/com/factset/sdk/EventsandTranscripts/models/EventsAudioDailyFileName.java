@@ -17,7 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.EventsandTranscripts.models.EventsAudioDailyFileNameData;
+import com.factset.sdk.EventsandTranscripts.models.EventsAudioDailyObjectOne;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -42,13 +42,21 @@ public class EventsAudioDailyFileName implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private EventsAudioDailyFileNameData data;
+  private java.util.List<EventsAudioDailyObjectOne> data = null;
 
   public EventsAudioDailyFileName() { 
   }
 
-  public EventsAudioDailyFileName data(EventsAudioDailyFileNameData data) {
+  public EventsAudioDailyFileName data(java.util.List<EventsAudioDailyObjectOne> data) {
     this.data = data;
+    return this;
+  }
+
+  public EventsAudioDailyFileName addDataItem(EventsAudioDailyObjectOne dataItem) {
+    if (this.data == null) {
+      this.data = new java.util.ArrayList<>();
+    }
+    this.data.add(dataItem);
     return this;
   }
 
@@ -61,14 +69,14 @@ public class EventsAudioDailyFileName implements Serializable {
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public EventsAudioDailyFileNameData getData() {
+  public java.util.List<EventsAudioDailyObjectOne> getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setData(EventsAudioDailyFileNameData data) {
+  public void setData(java.util.List<EventsAudioDailyObjectOne> data) {
     this.data = data;
   }
 

@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**EventsAudioIdsObject**](EventsAudioIdsObject.md) |  |  [optional]
+**data** | [**java.util.List&lt;EventsAudioIdsObject&gt;**](EventsAudioIdsObject.md) |  |  [optional]
 
 
 ## Implemented Interfaces

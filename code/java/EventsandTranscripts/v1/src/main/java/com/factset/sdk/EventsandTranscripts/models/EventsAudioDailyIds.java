@@ -42,13 +42,21 @@ public class EventsAudioDailyIds implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private EventsAudioIdsObject data;
+  private java.util.List<EventsAudioIdsObject> data = null;
 
   public EventsAudioDailyIds() { 
   }
 
-  public EventsAudioDailyIds data(EventsAudioIdsObject data) {
+  public EventsAudioDailyIds data(java.util.List<EventsAudioIdsObject> data) {
     this.data = data;
+    return this;
+  }
+
+  public EventsAudioDailyIds addDataItem(EventsAudioIdsObject dataItem) {
+    if (this.data == null) {
+      this.data = new java.util.ArrayList<>();
+    }
+    this.data.add(dataItem);
     return this;
   }
 
@@ -61,14 +69,14 @@ public class EventsAudioDailyIds implements Serializable {
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public EventsAudioIdsObject getData() {
+  public java.util.List<EventsAudioIdsObject> getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setData(EventsAudioIdsObject data) {
+  public void setData(java.util.List<EventsAudioIdsObject> data) {
     this.data = data;
   }
 

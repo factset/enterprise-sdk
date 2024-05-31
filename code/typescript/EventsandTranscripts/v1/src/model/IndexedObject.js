@@ -12,20 +12,19 @@
  */
 
 import ApiClient from '../ApiClient';
-import ListFileObject from './ListFileObject';
 
 /**
- * The EventsAudioHistory model module.
- * @module model/EventsAudioHistory
+ * The IndexedObject model module.
+ * @module model/IndexedObject
  */
-class EventsAudioHistory {
+class IndexedObject {
     /**
-     * Constructs a new <code>EventsAudioHistory</code>.
-     * @alias module:model/EventsAudioHistory
+     * Constructs a new <code>IndexedObject</code>.
+     * @alias module:model/IndexedObject
      */
     constructor() { 
         
-        EventsAudioHistory.initialize(this);
+        IndexedObject.initialize(this);
     }
 
     /**
@@ -37,18 +36,27 @@ class EventsAudioHistory {
     }
 
     /**
-     * Constructs a <code>EventsAudioHistory</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>IndexedObject</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/EventsAudioHistory} obj Optional instance to populate.
-     * @return {module:model/EventsAudioHistory} The populated <code>EventsAudioHistory</code> instance.
+     * @param {module:model/IndexedObject} obj Optional instance to populate.
+     * @return {module:model/IndexedObject} The populated <code>IndexedObject</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new EventsAudioHistory();
+            obj = obj || new IndexedObject();
 
-            if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [ListFileObject]);
+            if (data.hasOwnProperty('snippetEndTimestamp')) {
+                obj['snippetEndTimestamp'] = ApiClient.convertToType(data['snippetEndTimestamp'], 'Date');
+            }
+            if (data.hasOwnProperty('snippetSequence')) {
+                obj['snippetSequence'] = ApiClient.convertToType(data['snippetSequence'], 'Number');
+            }
+            if (data.hasOwnProperty('audioSourceId')) {
+                obj['audioSourceId'] = ApiClient.convertToType(data['audioSourceId'], 'Number');
+            }
+            if (data.hasOwnProperty('transcriptData')) {
+                obj['transcriptData'] = ApiClient.convertToType(data['transcriptData'], [Object]);
             }
         }
         return obj;
@@ -58,14 +66,32 @@ class EventsAudioHistory {
 }
 
 /**
- * @member {Array.<module:model/ListFileObject>} data
+ * The snippet end time is calculated based off the endTime in the snippetData section and the recordingStartTime from the calls endpoint.
+ * @member {Date} snippetEndTimestamp
  */
-EventsAudioHistory.prototype['data'] = undefined;
+IndexedObject.prototype['snippetEndTimestamp'] = undefined;
+
+/**
+ * The sequence number of the snippet from the start of the current call.
+ * @member {Number} snippetSequence
+ */
+IndexedObject.prototype['snippetSequence'] = undefined;
+
+/**
+ * The Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from a different source (dial-in or webcast). One ReportID can have multiple audioSourceIDs.
+ * @member {Number} audioSourceId
+ */
+IndexedObject.prototype['audioSourceId'] = undefined;
+
+/**
+ * @member {Array.<Object>} transcriptData
+ */
+IndexedObject.prototype['transcriptData'] = undefined;
 
 
 
 
 
 
-export default EventsAudioHistory;
+export default IndexedObject;
 

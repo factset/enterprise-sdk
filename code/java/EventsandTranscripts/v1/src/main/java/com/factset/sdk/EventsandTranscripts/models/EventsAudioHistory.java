@@ -17,7 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.EventsandTranscripts.models.EventsAudioHistoryData;
+import com.factset.sdk.EventsandTranscripts.models.ListFileObject;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -42,13 +42,21 @@ public class EventsAudioHistory implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private EventsAudioHistoryData data;
+  private java.util.List<ListFileObject> data = null;
 
   public EventsAudioHistory() { 
   }
 
-  public EventsAudioHistory data(EventsAudioHistoryData data) {
+  public EventsAudioHistory data(java.util.List<ListFileObject> data) {
     this.data = data;
+    return this;
+  }
+
+  public EventsAudioHistory addDataItem(ListFileObject dataItem) {
+    if (this.data == null) {
+      this.data = new java.util.ArrayList<>();
+    }
+    this.data.add(dataItem);
     return this;
   }
 
@@ -61,14 +69,14 @@ public class EventsAudioHistory implements Serializable {
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public EventsAudioHistoryData getData() {
+  public java.util.List<ListFileObject> getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setData(EventsAudioHistoryData data) {
+  public void setData(java.util.List<ListFileObject> data) {
     this.data = data;
   }
 

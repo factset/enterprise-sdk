@@ -27,25 +27,27 @@ using OpenAPIDateConverter = FactSet.SDK.EventsandTranscripts.Client.OpenAPIDate
 namespace FactSet.SDK.EventsandTranscripts.Model
 {
     /// <summary>
-    /// EventsAudioHistoryData
+    /// ListFileObject
     /// </summary>
-    [DataContract(Name = "EventsAudioHistory_data")]
-    public partial class EventsAudioHistoryData : IEquatable<EventsAudioHistoryData>, IValidatableObject
+    [DataContract(Name = "ListFileObject")]
+    public partial class ListFileObject : IEquatable<ListFileObject>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="EventsAudioHistoryData" /> class.
+        /// Initializes a new instance of the <see cref="ListFileObject" /> class.
         /// </summary>
         /// <param name="year">The year corresponding to the file containing historical audio recordings that can be downloaded via presigned URL..</param>
         /// <param name="trimmed">True  it signifies that the pre-signed URL for downloading includes trimmed historical audio recordings along with their metadata for a specific year.  False  it signifies that the pre-signed URL for downloading contains the untrimmed historical audio recordings along with their relevant metadata for a specific year..</param>
         /// <param name="fileName">The name of the file..</param>
         /// <param name="fileSize">The size of the file, in bytes..</param>
+        /// <param name="fileCount">The count of the files..</param>
         /// <param name="url">A pre-signed URL for downloading historical audio recordings and related metadata of a specific year. The URL provided in the response will expire after 3 hours..</param>
-        public EventsAudioHistoryData(int year = default(int), bool trimmed = default(bool), string fileName = default(string), int fileSize = default(int), string url = default(string))
+        public ListFileObject(int year = default(int), bool trimmed = default(bool), string fileName = default(string), int fileSize = default(int), int fileCount = default(int), string url = default(string))
         {
             this.Year = year;
             this.Trimmed = trimmed;
             this.FileName = fileName;
             this.FileSize = fileSize;
+            this.FileCount = fileCount;
             this.Url = url;
         }
 
@@ -78,6 +80,13 @@ namespace FactSet.SDK.EventsandTranscripts.Model
         public int FileSize { get; set; }
 
         /// <summary>
+        /// The count of the files.
+        /// </summary>
+        /// <value>The count of the files.</value>
+        [DataMember(Name = "fileCount", EmitDefaultValue = false)]
+        public int FileCount { get; set; }
+
+        /// <summary>
         /// A pre-signed URL for downloading historical audio recordings and related metadata of a specific year. The URL provided in the response will expire after 3 hours.
         /// </summary>
         /// <value>A pre-signed URL for downloading historical audio recordings and related metadata of a specific year. The URL provided in the response will expire after 3 hours.</value>
@@ -91,11 +100,12 @@ namespace FactSet.SDK.EventsandTranscripts.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class EventsAudioHistoryData {\n");
+            sb.Append("class ListFileObject {\n");
             sb.Append("  Year: ").Append(Year).Append("\n");
             sb.Append("  Trimmed: ").Append(Trimmed).Append("\n");
             sb.Append("  FileName: ").Append(FileName).Append("\n");
             sb.Append("  FileSize: ").Append(FileSize).Append("\n");
+            sb.Append("  FileCount: ").Append(FileCount).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -117,15 +127,15 @@ namespace FactSet.SDK.EventsandTranscripts.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as EventsAudioHistoryData);
+            return this.Equals(input as ListFileObject);
         }
 
         /// <summary>
-        /// Returns true if EventsAudioHistoryData instances are equal
+        /// Returns true if ListFileObject instances are equal
         /// </summary>
-        /// <param name="input">Instance of EventsAudioHistoryData to be compared</param>
+        /// <param name="input">Instance of ListFileObject to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(EventsAudioHistoryData input)
+        public bool Equals(ListFileObject input)
         {
             if (input == null)
             {
@@ -150,6 +160,10 @@ namespace FactSet.SDK.EventsandTranscripts.Model
                     this.FileSize.Equals(input.FileSize)
                 ) && 
                 (
+                    this.FileCount == input.FileCount ||
+                    this.FileCount.Equals(input.FileCount)
+                ) && 
+                (
                     this.Url == input.Url ||
                     (this.Url != null &&
                     this.Url.Equals(input.Url))
@@ -172,6 +186,7 @@ namespace FactSet.SDK.EventsandTranscripts.Model
                     hashCode = (hashCode * 59) + this.FileName.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.FileSize.GetHashCode();
+                hashCode = (hashCode * 59) + this.FileCount.GetHashCode();
                 if (this.Url != null)
                 {
                     hashCode = (hashCode * 59) + this.Url.GetHashCode();

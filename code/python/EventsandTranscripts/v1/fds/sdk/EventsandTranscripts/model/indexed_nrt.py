@@ -31,8 +31,8 @@ from fds.sdk.EventsandTranscripts.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.EventsandTranscripts.model.nrt_calls_meta import NrtCallsMeta
-    globals()['NrtCallsMeta'] = NrtCallsMeta
+    from fds.sdk.EventsandTranscripts.model.indexed_object import IndexedObject
+    globals()['IndexedObject'] = IndexedObject
 
 
 class IndexedNrt(ModelNormal):
@@ -88,8 +88,7 @@ class IndexedNrt(ModelNormal):
         """
         lazy_import()
         return {
-            'data': ([bool, date, datetime, dict, float, int, list, str, none_type],),  # noqa: E501
-            'meta': (NrtCallsMeta,),  # noqa: E501
+            'data': ([IndexedObject],),  # noqa: E501
         }
 
     @cached_property
@@ -99,7 +98,6 @@ class IndexedNrt(ModelNormal):
 
     attribute_map = {
         'data': 'data',  # noqa: E501
-        'meta': 'meta',  # noqa: E501
     }
 
     read_only_vars = {
@@ -143,8 +141,7 @@ class IndexedNrt(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([bool, date, datetime, dict, float, int, list, str, none_type]): [optional]  # noqa: E501
-            meta (NrtCallsMeta): [optional]  # noqa: E501
+            data ([IndexedObject]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -226,8 +223,7 @@ class IndexedNrt(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([bool, date, datetime, dict, float, int, list, str, none_type]): [optional]  # noqa: E501
-            meta (NrtCallsMeta): [optional]  # noqa: E501
+            data ([IndexedObject]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

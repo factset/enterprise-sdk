@@ -35,30 +35,30 @@ import com.factset.sdk.EventsandTranscripts.JSON;
 
 
 /**
- * EventsAudioDailyFileNameData
+ * EventsAudioDailyObjectOne
  */
 @JsonPropertyOrder({
-  EventsAudioDailyFileNameData.JSON_PROPERTY_REPORT_ID,
-  EventsAudioDailyFileNameData.JSON_PROPERTY_FILE_NAME,
-  EventsAudioDailyFileNameData.JSON_PROPERTY_URL,
-  EventsAudioDailyFileNameData.JSON_PROPERTY_FILE_SIZE,
-  EventsAudioDailyFileNameData.JSON_PROPERTY_AUDIO_SOURCE_ID,
-  EventsAudioDailyFileNameData.JSON_PROPERTY_TICKER,
-  EventsAudioDailyFileNameData.JSON_PROPERTY_ENTITY_ID,
-  EventsAudioDailyFileNameData.JSON_PROPERTY_SOURCE_CODE,
-  EventsAudioDailyFileNameData.JSON_PROPERTY_TRIMMED,
-  EventsAudioDailyFileNameData.JSON_PROPERTY_DURATION_SECS,
-  EventsAudioDailyFileNameData.JSON_PROPERTY_START_OFFSET_SECONDS,
-  EventsAudioDailyFileNameData.JSON_PROPERTY_END_OFFSET_SECONDS,
-  EventsAudioDailyFileNameData.JSON_PROPERTY_START_TIME,
-  EventsAudioDailyFileNameData.JSON_PROPERTY_END_TIME,
-  EventsAudioDailyFileNameData.JSON_PROPERTY_UPLOAD_TIME,
-  EventsAudioDailyFileNameData.JSON_PROPERTY_SAMPLE_RATE,
-  EventsAudioDailyFileNameData.JSON_PROPERTY_BITRATE
+  EventsAudioDailyObjectOne.JSON_PROPERTY_REPORT_ID,
+  EventsAudioDailyObjectOne.JSON_PROPERTY_FILE_NAME,
+  EventsAudioDailyObjectOne.JSON_PROPERTY_URL,
+  EventsAudioDailyObjectOne.JSON_PROPERTY_FILE_SIZE,
+  EventsAudioDailyObjectOne.JSON_PROPERTY_AUDIO_SOURCE_ID,
+  EventsAudioDailyObjectOne.JSON_PROPERTY_TICKER,
+  EventsAudioDailyObjectOne.JSON_PROPERTY_ENTITY_ID,
+  EventsAudioDailyObjectOne.JSON_PROPERTY_SOURCE_CODE,
+  EventsAudioDailyObjectOne.JSON_PROPERTY_TRIMMED,
+  EventsAudioDailyObjectOne.JSON_PROPERTY_DURATION_SECS,
+  EventsAudioDailyObjectOne.JSON_PROPERTY_START_OFFSET_SECONDS,
+  EventsAudioDailyObjectOne.JSON_PROPERTY_END_OFFSET_SECONDS,
+  EventsAudioDailyObjectOne.JSON_PROPERTY_START_TIME,
+  EventsAudioDailyObjectOne.JSON_PROPERTY_END_TIME,
+  EventsAudioDailyObjectOne.JSON_PROPERTY_UPLOAD_TIME,
+  EventsAudioDailyObjectOne.JSON_PROPERTY_SAMPLE_RATE,
+  EventsAudioDailyObjectOne.JSON_PROPERTY_BITRATE
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class EventsAudioDailyFileNameData implements Serializable {
+public class EventsAudioDailyObjectOne implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_REPORT_ID = "reportId";
@@ -155,10 +155,10 @@ public class EventsAudioDailyFileNameData implements Serializable {
   public static final String JSON_PROPERTY_BITRATE = "bitrate";
   private JsonNullable<BigDecimal> bitrate = JsonNullable.<BigDecimal>undefined();
 
-  public EventsAudioDailyFileNameData() { 
+  public EventsAudioDailyObjectOne() { 
   }
 
-  public EventsAudioDailyFileNameData reportId(Integer reportId) {
+  public EventsAudioDailyObjectOne reportId(Integer reportId) {
     this.reportId = reportId;
     return this;
   }
@@ -184,7 +184,7 @@ public class EventsAudioDailyFileNameData implements Serializable {
   }
 
 
-  public EventsAudioDailyFileNameData fileName(String fileName) {
+  public EventsAudioDailyObjectOne fileName(String fileName) {
     this.fileName = fileName;
     return this;
   }
@@ -210,7 +210,7 @@ public class EventsAudioDailyFileNameData implements Serializable {
   }
 
 
-  public EventsAudioDailyFileNameData url(String url) {
+  public EventsAudioDailyObjectOne url(String url) {
     this.url = url;
     return this;
   }
@@ -236,7 +236,7 @@ public class EventsAudioDailyFileNameData implements Serializable {
   }
 
 
-  public EventsAudioDailyFileNameData fileSize(BigDecimal fileSize) {
+  public EventsAudioDailyObjectOne fileSize(BigDecimal fileSize) {
     this.fileSize = fileSize;
     return this;
   }
@@ -262,7 +262,7 @@ public class EventsAudioDailyFileNameData implements Serializable {
   }
 
 
-  public EventsAudioDailyFileNameData audioSourceId(Integer audioSourceId) {
+  public EventsAudioDailyObjectOne audioSourceId(Integer audioSourceId) {
     this.audioSourceId = JsonNullable.<Integer>of(audioSourceId);
     return this;
   }
@@ -296,7 +296,7 @@ public class EventsAudioDailyFileNameData implements Serializable {
   }
 
 
-  public EventsAudioDailyFileNameData ticker(String ticker) {
+  public EventsAudioDailyObjectOne ticker(String ticker) {
     this.ticker = JsonNullable.<String>of(ticker);
     return this;
   }
@@ -330,7 +330,7 @@ public class EventsAudioDailyFileNameData implements Serializable {
   }
 
 
-  public EventsAudioDailyFileNameData entityId(String entityId) {
+  public EventsAudioDailyObjectOne entityId(String entityId) {
     this.entityId = entityId;
     return this;
   }
@@ -356,7 +356,7 @@ public class EventsAudioDailyFileNameData implements Serializable {
   }
 
 
-  public EventsAudioDailyFileNameData sourceCode(SourceCodeEnum sourceCode) {
+  public EventsAudioDailyObjectOne sourceCode(SourceCodeEnum sourceCode) {
     this.sourceCode = sourceCode;
     return this;
   }
@@ -382,7 +382,7 @@ public class EventsAudioDailyFileNameData implements Serializable {
   }
 
 
-  public EventsAudioDailyFileNameData trimmed(Boolean trimmed) {
+  public EventsAudioDailyObjectOne trimmed(Boolean trimmed) {
     this.trimmed = trimmed;
     return this;
   }
@@ -408,7 +408,7 @@ public class EventsAudioDailyFileNameData implements Serializable {
   }
 
 
-  public EventsAudioDailyFileNameData durationSecs(BigDecimal durationSecs) {
+  public EventsAudioDailyObjectOne durationSecs(BigDecimal durationSecs) {
     this.durationSecs = JsonNullable.<BigDecimal>of(durationSecs);
     return this;
   }
@@ -442,7 +442,7 @@ public class EventsAudioDailyFileNameData implements Serializable {
   }
 
 
-  public EventsAudioDailyFileNameData startOffsetSeconds(BigDecimal startOffsetSeconds) {
+  public EventsAudioDailyObjectOne startOffsetSeconds(BigDecimal startOffsetSeconds) {
     this.startOffsetSeconds = JsonNullable.<BigDecimal>of(startOffsetSeconds);
     return this;
   }
@@ -476,7 +476,7 @@ public class EventsAudioDailyFileNameData implements Serializable {
   }
 
 
-  public EventsAudioDailyFileNameData endOffsetSeconds(BigDecimal endOffsetSeconds) {
+  public EventsAudioDailyObjectOne endOffsetSeconds(BigDecimal endOffsetSeconds) {
     this.endOffsetSeconds = JsonNullable.<BigDecimal>of(endOffsetSeconds);
     return this;
   }
@@ -510,7 +510,7 @@ public class EventsAudioDailyFileNameData implements Serializable {
   }
 
 
-  public EventsAudioDailyFileNameData startTime(String startTime) {
+  public EventsAudioDailyObjectOne startTime(String startTime) {
     this.startTime = JsonNullable.<String>of(startTime);
     return this;
   }
@@ -544,7 +544,7 @@ public class EventsAudioDailyFileNameData implements Serializable {
   }
 
 
-  public EventsAudioDailyFileNameData endTime(String endTime) {
+  public EventsAudioDailyObjectOne endTime(String endTime) {
     this.endTime = JsonNullable.<String>of(endTime);
     return this;
   }
@@ -578,7 +578,7 @@ public class EventsAudioDailyFileNameData implements Serializable {
   }
 
 
-  public EventsAudioDailyFileNameData uploadTime(String uploadTime) {
+  public EventsAudioDailyObjectOne uploadTime(String uploadTime) {
     this.uploadTime = JsonNullable.<String>of(uploadTime);
     return this;
   }
@@ -612,7 +612,7 @@ public class EventsAudioDailyFileNameData implements Serializable {
   }
 
 
-  public EventsAudioDailyFileNameData sampleRate(BigDecimal sampleRate) {
+  public EventsAudioDailyObjectOne sampleRate(BigDecimal sampleRate) {
     this.sampleRate = JsonNullable.<BigDecimal>of(sampleRate);
     return this;
   }
@@ -646,7 +646,7 @@ public class EventsAudioDailyFileNameData implements Serializable {
   }
 
 
-  public EventsAudioDailyFileNameData bitrate(BigDecimal bitrate) {
+  public EventsAudioDailyObjectOne bitrate(BigDecimal bitrate) {
     this.bitrate = JsonNullable.<BigDecimal>of(bitrate);
     return this;
   }
@@ -681,7 +681,7 @@ public class EventsAudioDailyFileNameData implements Serializable {
 
 
   /**
-   * Return true if this EventsAudioDailyFileName_data object is equal to o.
+   * Return true if this EventsAudioDailyObjectOne object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -691,24 +691,24 @@ public class EventsAudioDailyFileNameData implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    EventsAudioDailyFileNameData eventsAudioDailyFileNameData = (EventsAudioDailyFileNameData) o;
-    return Objects.equals(this.reportId, eventsAudioDailyFileNameData.reportId) &&
-        Objects.equals(this.fileName, eventsAudioDailyFileNameData.fileName) &&
-        Objects.equals(this.url, eventsAudioDailyFileNameData.url) &&
-        Objects.equals(this.fileSize, eventsAudioDailyFileNameData.fileSize) &&
-        equalsNullable(this.audioSourceId, eventsAudioDailyFileNameData.audioSourceId) &&
-        equalsNullable(this.ticker, eventsAudioDailyFileNameData.ticker) &&
-        Objects.equals(this.entityId, eventsAudioDailyFileNameData.entityId) &&
-        Objects.equals(this.sourceCode, eventsAudioDailyFileNameData.sourceCode) &&
-        Objects.equals(this.trimmed, eventsAudioDailyFileNameData.trimmed) &&
-        equalsNullable(this.durationSecs, eventsAudioDailyFileNameData.durationSecs) &&
-        equalsNullable(this.startOffsetSeconds, eventsAudioDailyFileNameData.startOffsetSeconds) &&
-        equalsNullable(this.endOffsetSeconds, eventsAudioDailyFileNameData.endOffsetSeconds) &&
-        equalsNullable(this.startTime, eventsAudioDailyFileNameData.startTime) &&
-        equalsNullable(this.endTime, eventsAudioDailyFileNameData.endTime) &&
-        equalsNullable(this.uploadTime, eventsAudioDailyFileNameData.uploadTime) &&
-        equalsNullable(this.sampleRate, eventsAudioDailyFileNameData.sampleRate) &&
-        equalsNullable(this.bitrate, eventsAudioDailyFileNameData.bitrate);
+    EventsAudioDailyObjectOne eventsAudioDailyObjectOne = (EventsAudioDailyObjectOne) o;
+    return Objects.equals(this.reportId, eventsAudioDailyObjectOne.reportId) &&
+        Objects.equals(this.fileName, eventsAudioDailyObjectOne.fileName) &&
+        Objects.equals(this.url, eventsAudioDailyObjectOne.url) &&
+        Objects.equals(this.fileSize, eventsAudioDailyObjectOne.fileSize) &&
+        equalsNullable(this.audioSourceId, eventsAudioDailyObjectOne.audioSourceId) &&
+        equalsNullable(this.ticker, eventsAudioDailyObjectOne.ticker) &&
+        Objects.equals(this.entityId, eventsAudioDailyObjectOne.entityId) &&
+        Objects.equals(this.sourceCode, eventsAudioDailyObjectOne.sourceCode) &&
+        Objects.equals(this.trimmed, eventsAudioDailyObjectOne.trimmed) &&
+        equalsNullable(this.durationSecs, eventsAudioDailyObjectOne.durationSecs) &&
+        equalsNullable(this.startOffsetSeconds, eventsAudioDailyObjectOne.startOffsetSeconds) &&
+        equalsNullable(this.endOffsetSeconds, eventsAudioDailyObjectOne.endOffsetSeconds) &&
+        equalsNullable(this.startTime, eventsAudioDailyObjectOne.startTime) &&
+        equalsNullable(this.endTime, eventsAudioDailyObjectOne.endTime) &&
+        equalsNullable(this.uploadTime, eventsAudioDailyObjectOne.uploadTime) &&
+        equalsNullable(this.sampleRate, eventsAudioDailyObjectOne.sampleRate) &&
+        equalsNullable(this.bitrate, eventsAudioDailyObjectOne.bitrate);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -730,7 +730,7 @@ public class EventsAudioDailyFileNameData implements Serializable {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class EventsAudioDailyFileNameData {\n");
+    sb.append("class EventsAudioDailyObjectOne {\n");
     sb.append("    reportId: ").append(toIndentedString(reportId)).append("\n");
     sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
