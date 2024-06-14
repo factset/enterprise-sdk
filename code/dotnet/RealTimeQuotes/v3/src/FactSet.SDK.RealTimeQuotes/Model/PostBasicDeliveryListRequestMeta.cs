@@ -59,13 +59,13 @@ namespace FactSet.SDK.RealTimeQuotes.Model
         /// </summary>
         /// <value>Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed.</value>
         [DataMember(Name = "sort", EmitDefaultValue = false)]
-        public List<SortEnum> Sort { get; set; }
+        public HashSet<SortEnum> Sort { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="PostBasicDeliveryListRequestMeta" /> class.
         /// </summary>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set..</param>
         /// <param name="sort">Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed..</param>
-        public PostBasicDeliveryListRequestMeta(List<string> attributes = default(List<string>), List<SortEnum> sort = default(List<SortEnum>))
+        public PostBasicDeliveryListRequestMeta(HashSet<string> attributes = default(HashSet<string>), HashSet<SortEnum> sort = default(HashSet<SortEnum>))
         {
             this.Attributes = attributes;
             this.Sort = sort;
@@ -76,7 +76,7 @@ namespace FactSet.SDK.RealTimeQuotes.Model
         /// </summary>
         /// <value>Limit the attributes returned in the response to the specified set.</value>
         [DataMember(Name = "attributes", EmitDefaultValue = false)]
-        public List<string> Attributes { get; set; }
+        public HashSet<string> Attributes { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

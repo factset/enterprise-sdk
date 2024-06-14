@@ -36,7 +36,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// </summary>
         /// <param name="data">List of class geographies..</param>
         /// <param name="meta">meta.</param>
-        public InlineResponse20019(List<InlineResponse20019Data> data = default(List<InlineResponse20019Data>), InlineResponse200Meta meta = default(InlineResponse200Meta))
+        public InlineResponse20019(HashSet<InlineResponse20019Data> data = default(HashSet<InlineResponse20019Data>), InlineResponse200Meta meta = default(InlineResponse200Meta))
         {
             this.Data = data;
             this.Meta = meta;
@@ -47,7 +47,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// </summary>
         /// <value>List of class geographies.</value>
         [DataMember(Name = "data", EmitDefaultValue = false)]
-        public List<InlineResponse20019Data> Data { get; set; }
+        public HashSet<InlineResponse20019Data> Data { get; set; }
 
         /// <summary>
         /// Gets or Sets Meta

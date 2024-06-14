@@ -38,7 +38,7 @@ namespace FactSet.SDK.RealTimeNews.Model
         /// <param name="attributes">Limit the attributes returned in the response to the specified set..</param>
         /// <param name="subscription">subscription.</param>
         /// <param name="pagination">pagination.</param>
-        public PostNewsArticleListRequestMeta(List<string> attributes = default(List<string>), PostNewsArticleListRequestMetaSubscription subscription = default(PostNewsArticleListRequestMetaSubscription), PostNewsArticleListRequestMetaPagination pagination = default(PostNewsArticleListRequestMetaPagination))
+        public PostNewsArticleListRequestMeta(HashSet<string> attributes = default(HashSet<string>), PostNewsArticleListRequestMetaSubscription subscription = default(PostNewsArticleListRequestMetaSubscription), PostNewsArticleListRequestMetaPagination pagination = default(PostNewsArticleListRequestMetaPagination))
         {
             this.Attributes = attributes;
             this.Subscription = subscription;
@@ -50,7 +50,7 @@ namespace FactSet.SDK.RealTimeNews.Model
         /// </summary>
         /// <value>Limit the attributes returned in the response to the specified set.</value>
         [DataMember(Name = "attributes", EmitDefaultValue = false)]
-        public List<string> Attributes { get; set; }
+        public HashSet<string> Attributes { get; set; }
 
         /// <summary>
         /// Gets or Sets Subscription

@@ -36,7 +36,7 @@ namespace FactSet.SDK.RealTimeQuotes.Model
         /// Initializes a new instance of the <see cref="PostInstrumentBackgroundTextTypeListRequestDataFilter" /> class.
         /// </summary>
         /// <param name="ids">Identifiers of background text types..</param>
-        public PostInstrumentBackgroundTextTypeListRequestDataFilter(List<decimal> ids = default(List<decimal>))
+        public PostInstrumentBackgroundTextTypeListRequestDataFilter(HashSet<decimal> ids = default(HashSet<decimal>))
         {
             this.Ids = ids;
         }
@@ -46,7 +46,7 @@ namespace FactSet.SDK.RealTimeQuotes.Model
         /// </summary>
         /// <value>Identifiers of background text types.</value>
         [DataMember(Name = "ids", EmitDefaultValue = false)]
-        public List<decimal> Ids { get; set; }
+        public HashSet<decimal> Ids { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

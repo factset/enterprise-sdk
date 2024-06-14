@@ -37,7 +37,7 @@ namespace FactSet.SDK.RealTimeTimeSeries.Model
         /// </summary>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set..</param>
         /// <param name="pagination">pagination.</param>
-        public PostVendorChartIQTimeSeriesEodListRequestMeta(List<string> attributes = default(List<string>), PostVendorChartIQTimeSeriesEodListRequestMetaPagination pagination = default(PostVendorChartIQTimeSeriesEodListRequestMetaPagination))
+        public PostVendorChartIQTimeSeriesEodListRequestMeta(HashSet<string> attributes = default(HashSet<string>), PostVendorChartIQTimeSeriesEodListRequestMetaPagination pagination = default(PostVendorChartIQTimeSeriesEodListRequestMetaPagination))
         {
             this.Attributes = attributes;
             this.Pagination = pagination;
@@ -48,7 +48,7 @@ namespace FactSet.SDK.RealTimeTimeSeries.Model
         /// </summary>
         /// <value>Limit the attributes returned in the response to the specified set.</value>
         [DataMember(Name = "attributes", EmitDefaultValue = false)]
-        public List<string> Attributes { get; set; }
+        public HashSet<string> Attributes { get; set; }
 
         /// <summary>
         /// Gets or Sets Pagination

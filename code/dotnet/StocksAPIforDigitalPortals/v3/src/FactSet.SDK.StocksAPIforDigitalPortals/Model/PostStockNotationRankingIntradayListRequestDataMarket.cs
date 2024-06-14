@@ -36,7 +36,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="ids">List of market identifiers where a stock may be traded. The list restricts the request to only those markets..</param>
         /// <param name="priority">priority.</param>
-        public PostStockNotationRankingIntradayListRequestDataMarket(List<decimal> ids = default(List<decimal>), PostStockNotationRankingIntradayListRequestDataMarketPriority priority = default(PostStockNotationRankingIntradayListRequestDataMarketPriority))
+        public PostStockNotationRankingIntradayListRequestDataMarket(HashSet<decimal> ids = default(HashSet<decimal>), PostStockNotationRankingIntradayListRequestDataMarketPriority priority = default(PostStockNotationRankingIntradayListRequestDataMarketPriority))
         {
             this.Ids = ids;
             this.Priority = priority;
@@ -47,7 +47,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// </summary>
         /// <value>List of market identifiers where a stock may be traded. The list restricts the request to only those markets.</value>
         [DataMember(Name = "ids", EmitDefaultValue = false)]
-        public List<decimal> Ids { get; set; }
+        public HashSet<decimal> Ids { get; set; }
 
         /// <summary>
         /// Gets or Sets Priority

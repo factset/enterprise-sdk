@@ -35,7 +35,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// Initializes a new instance of the <see cref="PostStockNotationScreenerSearchRequestDataComplianceFrance" /> class.
         /// </summary>
         /// <param name="or">List of conditions representing a combination of compliance properties joined by a logical OR operator..</param>
-        public PostStockNotationScreenerSearchRequestDataComplianceFrance(List<PostStockNotationScreenerSearchRequestDataComplianceFranceOr> or = default(List<PostStockNotationScreenerSearchRequestDataComplianceFranceOr>))
+        public PostStockNotationScreenerSearchRequestDataComplianceFrance(HashSet<PostStockNotationScreenerSearchRequestDataComplianceFranceOr> or = default(HashSet<PostStockNotationScreenerSearchRequestDataComplianceFranceOr>))
         {
             this.Or = or;
         }
@@ -45,7 +45,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// </summary>
         /// <value>List of conditions representing a combination of compliance properties joined by a logical OR operator.</value>
         [DataMember(Name = "or", EmitDefaultValue = false)]
-        public List<PostStockNotationScreenerSearchRequestDataComplianceFranceOr> Or { get; set; }
+        public HashSet<PostStockNotationScreenerSearchRequestDataComplianceFranceOr> Or { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

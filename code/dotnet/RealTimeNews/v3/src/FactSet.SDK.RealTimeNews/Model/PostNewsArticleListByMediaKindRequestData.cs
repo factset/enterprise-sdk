@@ -42,7 +42,7 @@ namespace FactSet.SDK.RealTimeNews.Model
         /// </summary>
         /// <param name="ids">List of media kind identifiers. See endpoint &#x60;/basic/media/kind/list&#x60; for valid values. (required).</param>
         /// <param name="filter">filter.</param>
-        public PostNewsArticleListByMediaKindRequestData(List<decimal> ids,PostNewsArticleListRequestDataFilter filter = default(PostNewsArticleListRequestDataFilter))
+        public PostNewsArticleListByMediaKindRequestData(HashSet<decimal> ids,PostNewsArticleListRequestDataFilter filter = default(PostNewsArticleListRequestDataFilter))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {
@@ -57,7 +57,7 @@ namespace FactSet.SDK.RealTimeNews.Model
         /// </summary>
         /// <value>List of media kind identifiers. See endpoint &#x60;/basic/media/kind/list&#x60; for valid values.</value>
         [DataMember(Name = "ids", IsRequired = true, EmitDefaultValue = false)]
-        public List<decimal> Ids { get; set; }
+        public HashSet<decimal> Ids { get; set; }
 
         /// <summary>
         /// Gets or Sets Filter

@@ -36,7 +36,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set..</param>
         /// <param name="language">ISO 639-1 code of the language..</param>
-        public PostCompanyKeyItemsCurrentGetByInstrumentRequestMeta(List<string> attributes = default(List<string>), string language = default(string))
+        public PostCompanyKeyItemsCurrentGetByInstrumentRequestMeta(HashSet<string> attributes = default(HashSet<string>), string language = default(string))
         {
             this.Attributes = attributes;
             this.Language = language;
@@ -47,7 +47,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// </summary>
         /// <value>Limit the attributes returned in the response to the specified set.</value>
         [DataMember(Name = "attributes", EmitDefaultValue = false)]
-        public List<string> Attributes { get; set; }
+        public HashSet<string> Attributes { get; set; }
 
         /// <summary>
         /// ISO 639-1 code of the language.

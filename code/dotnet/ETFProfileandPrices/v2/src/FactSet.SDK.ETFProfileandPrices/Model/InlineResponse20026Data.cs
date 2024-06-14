@@ -36,7 +36,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// </summary>
         /// <param name="asOfDate">As of date of the premium discount summary data..</param>
         /// <param name="summary">Summary of premium/discout/neutral data..</param>
-        public InlineResponse20026Data(DateTime asOfDate = default(DateTime), List<InlineResponse20026DataSummary> summary = default(List<InlineResponse20026DataSummary>))
+        public InlineResponse20026Data(DateTime asOfDate = default(DateTime), HashSet<InlineResponse20026DataSummary> summary = default(HashSet<InlineResponse20026DataSummary>))
         {
             this.AsOfDate = asOfDate;
             this.Summary = summary;
@@ -55,7 +55,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// </summary>
         /// <value>Summary of premium/discout/neutral data.</value>
         [DataMember(Name = "summary", EmitDefaultValue = false)]
-        public List<InlineResponse20026DataSummary> Summary { get; set; }
+        public HashSet<InlineResponse20026DataSummary> Summary { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

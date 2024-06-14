@@ -36,7 +36,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// </summary>
         /// <param name="reportDate">Reporting date for the allocations..</param>
         /// <param name="classifications">List of allocations classified by a holding&#39;s total market capitalization (e.g. small caps, large caps)..</param>
-        public InlineResponse2007Data(DateTime reportDate = default(DateTime), List<InlineResponse2007DataClassifications> classifications = default(List<InlineResponse2007DataClassifications>))
+        public InlineResponse2007Data(DateTime reportDate = default(DateTime), HashSet<InlineResponse2007DataClassifications> classifications = default(HashSet<InlineResponse2007DataClassifications>))
         {
             this.ReportDate = reportDate;
             this.Classifications = classifications;
@@ -55,7 +55,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// </summary>
         /// <value>List of allocations classified by a holding&#39;s total market capitalization (e.g. small caps, large caps).</value>
         [DataMember(Name = "classifications", EmitDefaultValue = false)]
-        public List<InlineResponse2007DataClassifications> Classifications { get; set; }
+        public HashSet<InlineResponse2007DataClassifications> Classifications { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

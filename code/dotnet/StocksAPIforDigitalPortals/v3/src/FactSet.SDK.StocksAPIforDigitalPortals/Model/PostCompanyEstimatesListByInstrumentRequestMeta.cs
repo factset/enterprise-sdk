@@ -35,7 +35,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// Initializes a new instance of the <see cref="PostCompanyEstimatesListByInstrumentRequestMeta" /> class.
         /// </summary>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set..</param>
-        public PostCompanyEstimatesListByInstrumentRequestMeta(List<string> attributes = default(List<string>))
+        public PostCompanyEstimatesListByInstrumentRequestMeta(HashSet<string> attributes = default(HashSet<string>))
         {
             this.Attributes = attributes;
         }
@@ -45,7 +45,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// </summary>
         /// <value>Limit the attributes returned in the response to the specified set.</value>
         [DataMember(Name = "attributes", EmitDefaultValue = false)]
-        public List<string> Attributes { get; set; }
+        public HashSet<string> Attributes { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

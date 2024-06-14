@@ -36,7 +36,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// </summary>
         /// <param name="reportDate">Reporting date for the allocations..</param>
         /// <param name="countries">List of allocations by country..</param>
-        public InlineResponse2002Data(DateTime reportDate = default(DateTime), List<InlineResponse2002DataCountries> countries = default(List<InlineResponse2002DataCountries>))
+        public InlineResponse2002Data(DateTime reportDate = default(DateTime), HashSet<InlineResponse2002DataCountries> countries = default(HashSet<InlineResponse2002DataCountries>))
         {
             this.ReportDate = reportDate;
             this.Countries = countries;
@@ -55,7 +55,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// </summary>
         /// <value>List of allocations by country.</value>
         [DataMember(Name = "countries", EmitDefaultValue = false)]
-        public List<InlineResponse2002DataCountries> Countries { get; set; }
+        public HashSet<InlineResponse2002DataCountries> Countries { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

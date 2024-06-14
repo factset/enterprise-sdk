@@ -35,7 +35,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// Initializes a new instance of the <see cref="PostStockNotationScreenerSearchRequestDataValidationMarketSelectionRestrict" /> class.
         /// </summary>
         /// <param name="ids">Set of market identifiers..</param>
-        public PostStockNotationScreenerSearchRequestDataValidationMarketSelectionRestrict(List<decimal> ids = default(List<decimal>))
+        public PostStockNotationScreenerSearchRequestDataValidationMarketSelectionRestrict(HashSet<decimal> ids = default(HashSet<decimal>))
         {
             this.Ids = ids;
         }
@@ -45,7 +45,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// </summary>
         /// <value>Set of market identifiers.</value>
         [DataMember(Name = "ids", EmitDefaultValue = false)]
-        public List<decimal> Ids { get; set; }
+        public HashSet<decimal> Ids { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

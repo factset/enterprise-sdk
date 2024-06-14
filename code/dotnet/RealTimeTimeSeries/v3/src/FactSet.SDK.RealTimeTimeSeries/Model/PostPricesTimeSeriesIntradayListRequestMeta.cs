@@ -37,7 +37,7 @@ namespace FactSet.SDK.RealTimeTimeSeries.Model
         /// </summary>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set..</param>
         /// <param name="pagination">pagination.</param>
-        public PostPricesTimeSeriesIntradayListRequestMeta(List<string> attributes = default(List<string>), PostPricesTimeSeriesIntradayListRequestMetaPagination pagination = default(PostPricesTimeSeriesIntradayListRequestMetaPagination))
+        public PostPricesTimeSeriesIntradayListRequestMeta(HashSet<string> attributes = default(HashSet<string>), PostPricesTimeSeriesIntradayListRequestMetaPagination pagination = default(PostPricesTimeSeriesIntradayListRequestMetaPagination))
         {
             this.Attributes = attributes;
             this.Pagination = pagination;
@@ -48,7 +48,7 @@ namespace FactSet.SDK.RealTimeTimeSeries.Model
         /// </summary>
         /// <value>Limit the attributes returned in the response to the specified set.</value>
         [DataMember(Name = "attributes", EmitDefaultValue = false)]
-        public List<string> Attributes { get; set; }
+        public HashSet<string> Attributes { get; set; }
 
         /// <summary>
         /// Gets or Sets Pagination

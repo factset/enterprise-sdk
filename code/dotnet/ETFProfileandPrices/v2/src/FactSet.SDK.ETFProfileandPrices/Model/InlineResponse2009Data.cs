@@ -36,7 +36,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// </summary>
         /// <param name="reportDate">Reporting date for the allocations..</param>
         /// <param name="sectors">List of allocations by sector..</param>
-        public InlineResponse2009Data(DateTime reportDate = default(DateTime), List<InlineResponse2009DataSectors> sectors = default(List<InlineResponse2009DataSectors>))
+        public InlineResponse2009Data(DateTime reportDate = default(DateTime), HashSet<InlineResponse2009DataSectors> sectors = default(HashSet<InlineResponse2009DataSectors>))
         {
             this.ReportDate = reportDate;
             this.Sectors = sectors;
@@ -55,7 +55,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// </summary>
         /// <value>List of allocations by sector.</value>
         [DataMember(Name = "sectors", EmitDefaultValue = false)]
-        public List<InlineResponse2009DataSectors> Sectors { get; set; }
+        public HashSet<InlineResponse2009DataSectors> Sectors { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

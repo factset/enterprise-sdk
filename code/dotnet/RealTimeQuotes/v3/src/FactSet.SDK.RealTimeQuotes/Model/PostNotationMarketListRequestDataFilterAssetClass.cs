@@ -36,7 +36,7 @@ namespace FactSet.SDK.RealTimeQuotes.Model
         /// Initializes a new instance of the <see cref="PostNotationMarketListRequestDataFilterAssetClass" /> class.
         /// </summary>
         /// <param name="ids">Set of asset class identifiers. See endpoint &#x60;/basic/assetClass/list&#x60; for valid values..</param>
-        public PostNotationMarketListRequestDataFilterAssetClass(List<decimal> ids = default(List<decimal>))
+        public PostNotationMarketListRequestDataFilterAssetClass(HashSet<decimal> ids = default(HashSet<decimal>))
         {
             this.Ids = ids;
         }
@@ -46,7 +46,7 @@ namespace FactSet.SDK.RealTimeQuotes.Model
         /// </summary>
         /// <value>Set of asset class identifiers. See endpoint &#x60;/basic/assetClass/list&#x60; for valid values.</value>
         [DataMember(Name = "ids", EmitDefaultValue = false)]
-        public List<decimal> Ids { get; set; }
+        public HashSet<decimal> Ids { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -35,7 +35,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// Initializes a new instance of the <see cref="PostStockNotationRankingIntradayListRequestDataIndustryClassification" /> class.
         /// </summary>
         /// <param name="ids">List of category identifiers. See endpoint &#x60;/category/listBySystem&#x60; for category system 48 for valid values..</param>
-        public PostStockNotationRankingIntradayListRequestDataIndustryClassification(List<decimal> ids = default(List<decimal>))
+        public PostStockNotationRankingIntradayListRequestDataIndustryClassification(HashSet<decimal> ids = default(HashSet<decimal>))
         {
             this.Ids = ids;
         }
@@ -45,7 +45,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// </summary>
         /// <value>List of category identifiers. See endpoint &#x60;/category/listBySystem&#x60; for category system 48 for valid values.</value>
         [DataMember(Name = "ids", EmitDefaultValue = false)]
-        public List<decimal> Ids { get; set; }
+        public HashSet<decimal> Ids { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

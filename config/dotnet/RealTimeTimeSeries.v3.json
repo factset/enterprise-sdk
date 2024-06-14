@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.RealTimeTimeSeries",
-  "packageVersion": "0.11.1",
+  "packageVersion": "0.12.0",
   "packageGuid": "{552f748f-c2de-516c-acaa-1e173c27d550}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/RealTimeTimeSeries/v3",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/RealTimeTimeSeries/0.11.1",
+  "httpUserAgent": "fds-sdk/dotnet/RealTimeTimeSeries/0.12.0",
   "files": {
     "LICENSE": {}
   },

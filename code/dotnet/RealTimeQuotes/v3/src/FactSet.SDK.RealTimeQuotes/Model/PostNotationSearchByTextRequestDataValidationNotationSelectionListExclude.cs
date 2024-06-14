@@ -36,7 +36,7 @@ namespace FactSet.SDK.RealTimeQuotes.Model
         /// Initializes a new instance of the <see cref="PostNotationSearchByTextRequestDataValidationNotationSelectionListExclude" /> class.
         /// </summary>
         /// <param name="ids">Set of identifiers of exclusion lists..</param>
-        public PostNotationSearchByTextRequestDataValidationNotationSelectionListExclude(List<decimal> ids = default(List<decimal>))
+        public PostNotationSearchByTextRequestDataValidationNotationSelectionListExclude(HashSet<decimal> ids = default(HashSet<decimal>))
         {
             this.Ids = ids;
         }
@@ -46,7 +46,7 @@ namespace FactSet.SDK.RealTimeQuotes.Model
         /// </summary>
         /// <value>Set of identifiers of exclusion lists.</value>
         [DataMember(Name = "ids", EmitDefaultValue = false)]
-        public List<decimal> Ids { get; set; }
+        public HashSet<decimal> Ids { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

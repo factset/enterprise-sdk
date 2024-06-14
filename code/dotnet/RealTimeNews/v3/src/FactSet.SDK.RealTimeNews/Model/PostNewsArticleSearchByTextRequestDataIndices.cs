@@ -36,7 +36,7 @@ namespace FactSet.SDK.RealTimeNews.Model
         /// Initializes a new instance of the <see cref="PostNewsArticleSearchByTextRequestDataIndices" /> class.
         /// </summary>
         /// <param name="ids">Identifiers of the index notations..</param>
-        public PostNewsArticleSearchByTextRequestDataIndices(List<string> ids = default(List<string>))
+        public PostNewsArticleSearchByTextRequestDataIndices(HashSet<string> ids = default(HashSet<string>))
         {
             this.Ids = ids;
         }
@@ -46,7 +46,7 @@ namespace FactSet.SDK.RealTimeNews.Model
         /// </summary>
         /// <value>Identifiers of the index notations.</value>
         [DataMember(Name = "ids", EmitDefaultValue = false)]
-        public List<string> Ids { get; set; }
+        public HashSet<string> Ids { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

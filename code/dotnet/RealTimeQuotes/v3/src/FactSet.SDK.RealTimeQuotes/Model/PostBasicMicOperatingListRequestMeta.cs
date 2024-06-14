@@ -71,14 +71,14 @@ namespace FactSet.SDK.RealTimeQuotes.Model
         /// </summary>
         /// <value>Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed.</value>
         [DataMember(Name = "sort", EmitDefaultValue = false)]
-        public List<SortEnum> Sort { get; set; }
+        public HashSet<SortEnum> Sort { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="PostBasicMicOperatingListRequestMeta" /> class.
         /// </summary>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set..</param>
         /// <param name="sort">Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed..</param>
         /// <param name="pagination">pagination.</param>
-        public PostBasicMicOperatingListRequestMeta(List<string> attributes = default(List<string>), List<SortEnum> sort = default(List<SortEnum>), PostBasicMarketListRequestMetaPagination pagination = default(PostBasicMarketListRequestMetaPagination))
+        public PostBasicMicOperatingListRequestMeta(HashSet<string> attributes = default(HashSet<string>), HashSet<SortEnum> sort = default(HashSet<SortEnum>), PostBasicMarketListRequestMetaPagination pagination = default(PostBasicMarketListRequestMetaPagination))
         {
             this.Attributes = attributes;
             this.Sort = sort;
@@ -90,7 +90,7 @@ namespace FactSet.SDK.RealTimeQuotes.Model
         /// </summary>
         /// <value>Limit the attributes returned in the response to the specified set.</value>
         [DataMember(Name = "attributes", EmitDefaultValue = false)]
-        public List<string> Attributes { get; set; }
+        public HashSet<string> Attributes { get; set; }
 
         /// <summary>
         /// Gets or Sets Pagination

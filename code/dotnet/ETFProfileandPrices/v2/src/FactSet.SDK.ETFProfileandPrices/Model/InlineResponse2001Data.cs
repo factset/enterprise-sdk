@@ -36,7 +36,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// </summary>
         /// <param name="reportDate">Reporting date for the allocations..</param>
         /// <param name="assets">List of allocations by asset class..</param>
-        public InlineResponse2001Data(DateTime reportDate = default(DateTime), List<InlineResponse2001DataAssets> assets = default(List<InlineResponse2001DataAssets>))
+        public InlineResponse2001Data(DateTime reportDate = default(DateTime), HashSet<InlineResponse2001DataAssets> assets = default(HashSet<InlineResponse2001DataAssets>))
         {
             this.ReportDate = reportDate;
             this.Assets = assets;
@@ -55,7 +55,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// </summary>
         /// <value>List of allocations by asset class.</value>
         [DataMember(Name = "assets", EmitDefaultValue = false)]
-        public List<InlineResponse2001DataAssets> Assets { get; set; }
+        public HashSet<InlineResponse2001DataAssets> Assets { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

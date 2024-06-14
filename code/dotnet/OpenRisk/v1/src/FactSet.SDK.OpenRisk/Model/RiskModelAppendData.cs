@@ -42,7 +42,7 @@ namespace FactSet.SDK.OpenRisk.Model
         /// </summary>
         /// <param name="data">List of all rows of the append data. (required).</param>
         /// <param name="fields">List of fields in append data. Must contain &#39;SYMBOL&#39;. Index location will be used in &#39;data&#39; elements as keys. The entire set of factor IDs and specific risk are not required. If any inputs of exposures or specific risk are missing, 0 will be inserted for those field. (required).</param>
-        public RiskModelAppendData(List<Dictionary<string, RiskModelAppendDataValue>> data, List<string> fields)
+        public RiskModelAppendData(List<Dictionary<string, RiskModelAppendDataValue>> data, HashSet<string> fields)
         {
             // to ensure "data" is required (not null)
             if (data == null) {
@@ -68,7 +68,7 @@ namespace FactSet.SDK.OpenRisk.Model
         /// </summary>
         /// <value>List of fields in append data. Must contain &#39;SYMBOL&#39;. Index location will be used in &#39;data&#39; elements as keys. The entire set of factor IDs and specific risk are not required. If any inputs of exposures or specific risk are missing, 0 will be inserted for those field.</value>
         [DataMember(Name = "fields", IsRequired = true, EmitDefaultValue = false)]
-        public List<string> Fields { get; set; }
+        public HashSet<string> Fields { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -36,7 +36,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// </summary>
         /// <param name="data">List of strategy segments..</param>
         /// <param name="meta">meta.</param>
-        public InlineResponse20030(List<InlineResponse20030Data> data = default(List<InlineResponse20030Data>), InlineResponse2001Meta meta = default(InlineResponse2001Meta))
+        public InlineResponse20030(HashSet<InlineResponse20030Data> data = default(HashSet<InlineResponse20030Data>), InlineResponse2001Meta meta = default(InlineResponse2001Meta))
         {
             this.Data = data;
             this.Meta = meta;
@@ -47,7 +47,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// </summary>
         /// <value>List of strategy segments.</value>
         [DataMember(Name = "data", EmitDefaultValue = false)]
-        public List<InlineResponse20030Data> Data { get; set; }
+        public HashSet<InlineResponse20030Data> Data { get; set; }
 
         /// <summary>
         /// Gets or Sets Meta

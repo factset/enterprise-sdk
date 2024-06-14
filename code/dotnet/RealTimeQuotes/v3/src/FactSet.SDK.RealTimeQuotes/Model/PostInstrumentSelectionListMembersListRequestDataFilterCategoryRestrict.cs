@@ -36,7 +36,7 @@ namespace FactSet.SDK.RealTimeQuotes.Model
         /// Initializes a new instance of the <see cref="PostInstrumentSelectionListMembersListRequestDataFilterCategoryRestrict" /> class.
         /// </summary>
         /// <param name="ids">Set of category identifiers..</param>
-        public PostInstrumentSelectionListMembersListRequestDataFilterCategoryRestrict(List<decimal> ids = default(List<decimal>))
+        public PostInstrumentSelectionListMembersListRequestDataFilterCategoryRestrict(HashSet<decimal> ids = default(HashSet<decimal>))
         {
             this.Ids = ids;
         }
@@ -46,7 +46,7 @@ namespace FactSet.SDK.RealTimeQuotes.Model
         /// </summary>
         /// <value>Set of category identifiers.</value>
         [DataMember(Name = "ids", EmitDefaultValue = false)]
-        public List<decimal> Ids { get; set; }
+        public HashSet<decimal> Ids { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

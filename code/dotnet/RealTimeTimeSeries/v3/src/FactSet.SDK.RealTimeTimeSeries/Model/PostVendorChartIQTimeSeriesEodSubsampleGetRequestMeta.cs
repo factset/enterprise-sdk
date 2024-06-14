@@ -36,7 +36,7 @@ namespace FactSet.SDK.RealTimeTimeSeries.Model
         /// Initializes a new instance of the <see cref="PostVendorChartIQTimeSeriesEodSubsampleGetRequestMeta" /> class.
         /// </summary>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set..</param>
-        public PostVendorChartIQTimeSeriesEodSubsampleGetRequestMeta(List<string> attributes = default(List<string>))
+        public PostVendorChartIQTimeSeriesEodSubsampleGetRequestMeta(HashSet<string> attributes = default(HashSet<string>))
         {
             this.Attributes = attributes;
         }
@@ -46,7 +46,7 @@ namespace FactSet.SDK.RealTimeTimeSeries.Model
         /// </summary>
         /// <value>Limit the attributes returned in the response to the specified set.</value>
         [DataMember(Name = "attributes", EmitDefaultValue = false)]
-        public List<string> Attributes { get; set; }
+        public HashSet<string> Attributes { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

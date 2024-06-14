@@ -36,7 +36,7 @@ namespace FactSet.SDK.RealTimeQuotes.Model
         /// Initializes a new instance of the <see cref="PostInstrumentRatingGradeListRequestDataFilterRatingSystem" /> class.
         /// </summary>
         /// <param name="ids">List of rating system identifiers. See endpoint &#x60;/rating/system/list&#x60; for valid values..</param>
-        public PostInstrumentRatingGradeListRequestDataFilterRatingSystem(List<decimal> ids = default(List<decimal>))
+        public PostInstrumentRatingGradeListRequestDataFilterRatingSystem(HashSet<decimal> ids = default(HashSet<decimal>))
         {
             this.Ids = ids;
         }
@@ -46,7 +46,7 @@ namespace FactSet.SDK.RealTimeQuotes.Model
         /// </summary>
         /// <value>List of rating system identifiers. See endpoint &#x60;/rating/system/list&#x60; for valid values.</value>
         [DataMember(Name = "ids", EmitDefaultValue = false)]
-        public List<decimal> Ids { get; set; }
+        public HashSet<decimal> Ids { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

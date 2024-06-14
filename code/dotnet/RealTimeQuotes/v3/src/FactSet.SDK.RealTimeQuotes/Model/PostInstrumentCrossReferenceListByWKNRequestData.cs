@@ -41,7 +41,7 @@ namespace FactSet.SDK.RealTimeQuotes.Model
         /// Initializes a new instance of the <see cref="PostInstrumentCrossReferenceListByWKNRequestData" /> class.
         /// </summary>
         /// <param name="wkns">List of source WKNs to be translated. (required).</param>
-        public PostInstrumentCrossReferenceListByWKNRequestData(List<string> wkns)
+        public PostInstrumentCrossReferenceListByWKNRequestData(HashSet<string> wkns)
         {
             // to ensure "wkns" is required (not null)
             if (wkns == null) {
@@ -55,7 +55,7 @@ namespace FactSet.SDK.RealTimeQuotes.Model
         /// </summary>
         /// <value>List of source WKNs to be translated.</value>
         [DataMember(Name = "wkns", IsRequired = true, EmitDefaultValue = false)]
-        public List<string> Wkns { get; set; }
+        public HashSet<string> Wkns { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

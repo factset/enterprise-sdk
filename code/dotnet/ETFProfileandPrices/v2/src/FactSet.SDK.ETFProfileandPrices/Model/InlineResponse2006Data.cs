@@ -36,7 +36,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// </summary>
         /// <param name="reportDate">Reporting date for the allocations..</param>
         /// <param name="industries">List of allocations by industry..</param>
-        public InlineResponse2006Data(DateTime reportDate = default(DateTime), List<InlineResponse2006DataIndustries> industries = default(List<InlineResponse2006DataIndustries>))
+        public InlineResponse2006Data(DateTime reportDate = default(DateTime), HashSet<InlineResponse2006DataIndustries> industries = default(HashSet<InlineResponse2006DataIndustries>))
         {
             this.ReportDate = reportDate;
             this.Industries = industries;
@@ -55,7 +55,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// </summary>
         /// <value>List of allocations by industry.</value>
         [DataMember(Name = "industries", EmitDefaultValue = false)]
-        public List<InlineResponse2006DataIndustries> Industries { get; set; }
+        public HashSet<InlineResponse2006DataIndustries> Industries { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

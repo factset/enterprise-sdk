@@ -36,7 +36,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// </summary>
         /// <param name="reportDate">Reporting date for the allocations..</param>
         /// <param name="exchanges">List of allocations by exchange..</param>
-        public InlineResponse2005Data(DateTime reportDate = default(DateTime), List<InlineResponse2005DataExchanges> exchanges = default(List<InlineResponse2005DataExchanges>))
+        public InlineResponse2005Data(DateTime reportDate = default(DateTime), HashSet<InlineResponse2005DataExchanges> exchanges = default(HashSet<InlineResponse2005DataExchanges>))
         {
             this.ReportDate = reportDate;
             this.Exchanges = exchanges;
@@ -55,7 +55,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// </summary>
         /// <value>List of allocations by exchange.</value>
         [DataMember(Name = "exchanges", EmitDefaultValue = false)]
-        public List<InlineResponse2005DataExchanges> Exchanges { get; set; }
+        public HashSet<InlineResponse2005DataExchanges> Exchanges { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

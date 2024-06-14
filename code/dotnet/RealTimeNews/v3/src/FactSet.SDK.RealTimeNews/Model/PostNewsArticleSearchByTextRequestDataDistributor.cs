@@ -36,7 +36,7 @@ namespace FactSet.SDK.RealTimeNews.Model
         /// Initializes a new instance of the <see cref="PostNewsArticleSearchByTextRequestDataDistributor" /> class.
         /// </summary>
         /// <param name="ids">Identifiers of the distributors..</param>
-        public PostNewsArticleSearchByTextRequestDataDistributor(List<decimal> ids = default(List<decimal>))
+        public PostNewsArticleSearchByTextRequestDataDistributor(HashSet<decimal> ids = default(HashSet<decimal>))
         {
             this.Ids = ids;
         }
@@ -46,7 +46,7 @@ namespace FactSet.SDK.RealTimeNews.Model
         /// </summary>
         /// <value>Identifiers of the distributors.</value>
         [DataMember(Name = "ids", EmitDefaultValue = false)]
-        public List<decimal> Ids { get; set; }
+        public HashSet<decimal> Ids { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

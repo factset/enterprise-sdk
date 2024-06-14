@@ -36,7 +36,7 @@ namespace FactSet.SDK.RealTimeQuotes.Model
         /// Initializes a new instance of the <see cref="PostInstrumentBenchmarkListRequestDataFilter" /> class.
         /// </summary>
         /// <param name="types">Set of benchmark types. See endpoint &#x60;/basic/benchmark/type/list&#x60; for valid values..</param>
-        public PostInstrumentBenchmarkListRequestDataFilter(List<decimal> types = default(List<decimal>))
+        public PostInstrumentBenchmarkListRequestDataFilter(HashSet<decimal> types = default(HashSet<decimal>))
         {
             this.Types = types;
         }
@@ -46,7 +46,7 @@ namespace FactSet.SDK.RealTimeQuotes.Model
         /// </summary>
         /// <value>Set of benchmark types. See endpoint &#x60;/basic/benchmark/type/list&#x60; for valid values.</value>
         [DataMember(Name = "types", EmitDefaultValue = false)]
-        public List<decimal> Types { get; set; }
+        public HashSet<decimal> Types { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

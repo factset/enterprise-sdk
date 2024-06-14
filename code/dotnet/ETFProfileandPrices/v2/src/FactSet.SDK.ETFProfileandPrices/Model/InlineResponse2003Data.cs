@@ -36,7 +36,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// </summary>
         /// <param name="reportDate">Reporting date for the allocations..</param>
         /// <param name="currencies">List of allocations by currency..</param>
-        public InlineResponse2003Data(DateTime reportDate = default(DateTime), List<InlineResponse2003DataCurrencies> currencies = default(List<InlineResponse2003DataCurrencies>))
+        public InlineResponse2003Data(DateTime reportDate = default(DateTime), HashSet<InlineResponse2003DataCurrencies> currencies = default(HashSet<InlineResponse2003DataCurrencies>))
         {
             this.ReportDate = reportDate;
             this.Currencies = currencies;
@@ -55,7 +55,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// </summary>
         /// <value>List of allocations by currency.</value>
         [DataMember(Name = "currencies", EmitDefaultValue = false)]
-        public List<InlineResponse2003DataCurrencies> Currencies { get; set; }
+        public HashSet<InlineResponse2003DataCurrencies> Currencies { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -35,7 +35,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// Initializes a new instance of the <see cref="PostStockNotationRankingIntradayListRequestDataInstrumentRestrictionList" /> class.
         /// </summary>
         /// <param name="ids">List of identifiers of restriction lists..</param>
-        public PostStockNotationRankingIntradayListRequestDataInstrumentRestrictionList(List<decimal> ids = default(List<decimal>))
+        public PostStockNotationRankingIntradayListRequestDataInstrumentRestrictionList(HashSet<decimal> ids = default(HashSet<decimal>))
         {
             this.Ids = ids;
         }
@@ -45,7 +45,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// </summary>
         /// <value>List of identifiers of restriction lists.</value>
         [DataMember(Name = "ids", EmitDefaultValue = false)]
-        public List<decimal> Ids { get; set; }
+        public HashSet<decimal> Ids { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -1,5 +1,42 @@
 # Breaking Changes
 
+
+## 2024-06-13 Dotnet: HashSet instead of a List when `uniqueItems: true`
+
+Schema of `type: array` which has `uniqueItems: true` now generates a HashSet to reflect that property.
+
+```yaml
+# OpenAPI Spec Example
+components:
+  schemas:
+    MySchema:
+      type: array
+      uniqueItems: true
+      items:
+        type: string
+```
+
+Generated property with the old code:
+
+```cs
+List<string> MySchema
+```
+
+Generated property with the new code:
+
+```cs
+HashSet<string> MySchema
+```
+
+Affected SDKs:
+* [ETFProfileandPrices](./code/dotnet/ETFProfileandPrices/v2)
+* [OpenRisk](./code/dotnet/OpenRisk/v1)
+* [RealTimeNews](./code/dotnet/RealTimeNews/v3)
+* [RealTimePriceAlerting](./code/dotnet/RealTimePriceAlerting/v3)
+* [RealTimeQuotes](./code/dotnet/RealTimeQuotes/v3)
+* [RealTimeTimeSeries](./code/dotnet/RealTimeTimeSeries/v3)
+* [StocksAPIforDigitalPortals](./code/dotnet/StocksAPIforDigitalPortals/v3)
+
 ## 2024-04-17 Java: Update from Jersey 2.35 to 3.0
 
 * Library Update: The Jersey library version has been updated from 2.35 to 3.0.

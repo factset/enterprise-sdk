@@ -36,7 +36,7 @@ namespace FactSet.SDK.RealTimeQuotes.Model
         /// Initializes a new instance of the <see cref="PostInstrumentNotationListRequestDataFilterValueUnitOrder" /> class.
         /// </summary>
         /// <param name="ids">List of value unit identifiers..</param>
-        public PostInstrumentNotationListRequestDataFilterValueUnitOrder(List<decimal> ids = default(List<decimal>))
+        public PostInstrumentNotationListRequestDataFilterValueUnitOrder(HashSet<decimal> ids = default(HashSet<decimal>))
         {
             this.Ids = ids;
         }
@@ -46,7 +46,7 @@ namespace FactSet.SDK.RealTimeQuotes.Model
         /// </summary>
         /// <value>List of value unit identifiers.</value>
         [DataMember(Name = "ids", EmitDefaultValue = false)]
-        public List<decimal> Ids { get; set; }
+        public HashSet<decimal> Ids { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

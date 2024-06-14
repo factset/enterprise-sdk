@@ -88,7 +88,7 @@ namespace FactSet.SDK.RealTimeNews.Model
         /// </summary>
         /// <param name="values">Set of identifiers to resolve. (required).</param>
         /// <param name="type">Type of the identifier. (required).</param>
-        public PostNewsArticleListByIndexRequestDataIdentifier(List<string> values, TypeEnum type)
+        public PostNewsArticleListByIndexRequestDataIdentifier(HashSet<string> values, TypeEnum type)
         {
             // to ensure "values" is required (not null)
             if (values == null) {
@@ -103,7 +103,7 @@ namespace FactSet.SDK.RealTimeNews.Model
         /// </summary>
         /// <value>Set of identifiers to resolve.</value>
         [DataMember(Name = "values", IsRequired = true, EmitDefaultValue = false)]
-        public List<string> Values { get; set; }
+        public HashSet<string> Values { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

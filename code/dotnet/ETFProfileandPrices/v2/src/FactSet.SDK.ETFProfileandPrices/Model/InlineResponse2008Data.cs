@@ -36,7 +36,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// </summary>
         /// <param name="reportDate">Reporting date for the allocations..</param>
         /// <param name="regions">List of allocations by region..</param>
-        public InlineResponse2008Data(DateTime reportDate = default(DateTime), List<InlineResponse2008DataRegions> regions = default(List<InlineResponse2008DataRegions>))
+        public InlineResponse2008Data(DateTime reportDate = default(DateTime), HashSet<InlineResponse2008DataRegions> regions = default(HashSet<InlineResponse2008DataRegions>))
         {
             this.ReportDate = reportDate;
             this.Regions = regions;
@@ -55,7 +55,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// </summary>
         /// <value>List of allocations by region.</value>
         [DataMember(Name = "regions", EmitDefaultValue = false)]
-        public List<InlineResponse2008DataRegions> Regions { get; set; }
+        public HashSet<InlineResponse2008DataRegions> Regions { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

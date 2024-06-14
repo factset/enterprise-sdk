@@ -35,7 +35,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// Initializes a new instance of the <see cref="PostStockNotationScreenerSearchRequestDataComplianceFranceOr" /> class.
         /// </summary>
         /// <param name="and">List of combinations of compliance properties joined by a logical AND operator..</param>
-        public PostStockNotationScreenerSearchRequestDataComplianceFranceOr(List<PostStockNotationScreenerSearchRequestDataComplianceFranceAnd> and = default(List<PostStockNotationScreenerSearchRequestDataComplianceFranceAnd>))
+        public PostStockNotationScreenerSearchRequestDataComplianceFranceOr(HashSet<PostStockNotationScreenerSearchRequestDataComplianceFranceAnd> and = default(HashSet<PostStockNotationScreenerSearchRequestDataComplianceFranceAnd>))
         {
             this.And = and;
         }
@@ -45,7 +45,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// </summary>
         /// <value>List of combinations of compliance properties joined by a logical AND operator.</value>
         [DataMember(Name = "and", EmitDefaultValue = false)]
-        public List<PostStockNotationScreenerSearchRequestDataComplianceFranceAnd> And { get; set; }
+        public HashSet<PostStockNotationScreenerSearchRequestDataComplianceFranceAnd> And { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

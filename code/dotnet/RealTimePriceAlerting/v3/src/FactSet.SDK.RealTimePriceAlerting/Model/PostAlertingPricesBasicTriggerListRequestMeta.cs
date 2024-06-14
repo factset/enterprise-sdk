@@ -37,7 +37,7 @@ namespace FactSet.SDK.RealTimePriceAlerting.Model
         /// </summary>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set..</param>
         /// <param name="pagination">pagination.</param>
-        public PostAlertingPricesBasicTriggerListRequestMeta(List<string> attributes = default(List<string>), PostAlertingPricesBasicTriggerListRequestMetaPagination pagination = default(PostAlertingPricesBasicTriggerListRequestMetaPagination))
+        public PostAlertingPricesBasicTriggerListRequestMeta(HashSet<string> attributes = default(HashSet<string>), PostAlertingPricesBasicTriggerListRequestMetaPagination pagination = default(PostAlertingPricesBasicTriggerListRequestMetaPagination))
         {
             this.Attributes = attributes;
             this.Pagination = pagination;
@@ -48,7 +48,7 @@ namespace FactSet.SDK.RealTimePriceAlerting.Model
         /// </summary>
         /// <value>Limit the attributes returned in the response to the specified set.</value>
         [DataMember(Name = "attributes", EmitDefaultValue = false)]
-        public List<string> Attributes { get; set; }
+        public HashSet<string> Attributes { get; set; }
 
         /// <summary>
         /// Gets or Sets Pagination

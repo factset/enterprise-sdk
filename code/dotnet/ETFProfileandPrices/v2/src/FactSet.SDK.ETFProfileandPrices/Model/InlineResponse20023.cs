@@ -36,7 +36,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// </summary>
         /// <param name="data">Growth of TenK data..</param>
         /// <param name="meta">meta.</param>
-        public InlineResponse20023(List<InlineResponse20023Data> data = default(List<InlineResponse20023Data>), InlineResponse2001Meta meta = default(InlineResponse2001Meta))
+        public InlineResponse20023(HashSet<InlineResponse20023Data> data = default(HashSet<InlineResponse20023Data>), InlineResponse2001Meta meta = default(InlineResponse2001Meta))
         {
             this.Data = data;
             this.Meta = meta;
@@ -47,7 +47,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// </summary>
         /// <value>Growth of TenK data.</value>
         [DataMember(Name = "data", EmitDefaultValue = false)]
-        public List<InlineResponse20023Data> Data { get; set; }
+        public HashSet<InlineResponse20023Data> Data { get; set; }
 
         /// <summary>
         /// Gets or Sets Meta

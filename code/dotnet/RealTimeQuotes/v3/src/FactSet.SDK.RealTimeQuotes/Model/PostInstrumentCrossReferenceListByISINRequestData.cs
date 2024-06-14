@@ -41,7 +41,7 @@ namespace FactSet.SDK.RealTimeQuotes.Model
         /// Initializes a new instance of the <see cref="PostInstrumentCrossReferenceListByISINRequestData" /> class.
         /// </summary>
         /// <param name="isins">List of source ISINs to be translated. (required).</param>
-        public PostInstrumentCrossReferenceListByISINRequestData(List<string> isins)
+        public PostInstrumentCrossReferenceListByISINRequestData(HashSet<string> isins)
         {
             // to ensure "isins" is required (not null)
             if (isins == null) {
@@ -55,7 +55,7 @@ namespace FactSet.SDK.RealTimeQuotes.Model
         /// </summary>
         /// <value>List of source ISINs to be translated.</value>
         [DataMember(Name = "isins", IsRequired = true, EmitDefaultValue = false)]
-        public List<string> Isins { get; set; }
+        public HashSet<string> Isins { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -106,7 +106,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// </summary>
         /// <value>Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 5 (possibly prefixed) attribute name(s) is allowed.</value>
         [DataMember(Name = "sort", EmitDefaultValue = false)]
-        public List<SortEnum> Sort { get; set; }
+        public HashSet<SortEnum> Sort { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="PostStockNotationRankingIntradayListRequestMeta" /> class.
         /// </summary>
@@ -114,7 +114,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <param name="language">ISO 639-1 code of the language..</param>
         /// <param name="sort">Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 5 (possibly prefixed) attribute name(s) is allowed..</param>
         /// <param name="pagination">pagination.</param>
-        public PostStockNotationRankingIntradayListRequestMeta(List<string> attributes = default(List<string>), string language = default(string), List<SortEnum> sort = default(List<SortEnum>), PostStockNotationRankingIntradayListRequestMetaPagination pagination = default(PostStockNotationRankingIntradayListRequestMetaPagination))
+        public PostStockNotationRankingIntradayListRequestMeta(HashSet<string> attributes = default(HashSet<string>), string language = default(string), HashSet<SortEnum> sort = default(HashSet<SortEnum>), PostStockNotationRankingIntradayListRequestMetaPagination pagination = default(PostStockNotationRankingIntradayListRequestMetaPagination))
         {
             this.Attributes = attributes;
             this.Language = language;
@@ -127,7 +127,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// </summary>
         /// <value>Limit the attributes returned in the response to the specified set.</value>
         [DataMember(Name = "attributes", EmitDefaultValue = false)]
-        public List<string> Attributes { get; set; }
+        public HashSet<string> Attributes { get; set; }
 
         /// <summary>
         /// ISO 639-1 code of the language.

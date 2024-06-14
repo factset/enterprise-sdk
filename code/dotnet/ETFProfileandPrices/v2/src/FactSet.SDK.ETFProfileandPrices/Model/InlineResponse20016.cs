@@ -36,7 +36,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// </summary>
         /// <param name="data">List of ETP class broad categories..</param>
         /// <param name="meta">meta.</param>
-        public InlineResponse20016(List<InlineResponse20016Data> data = default(List<InlineResponse20016Data>), InlineResponse200Meta meta = default(InlineResponse200Meta))
+        public InlineResponse20016(HashSet<InlineResponse20016Data> data = default(HashSet<InlineResponse20016Data>), InlineResponse200Meta meta = default(InlineResponse200Meta))
         {
             this.Data = data;
             this.Meta = meta;
@@ -47,7 +47,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// </summary>
         /// <value>List of ETP class broad categories.</value>
         [DataMember(Name = "data", EmitDefaultValue = false)]
-        public List<InlineResponse20016Data> Data { get; set; }
+        public HashSet<InlineResponse20016Data> Data { get; set; }
 
         /// <summary>
         /// Gets or Sets Meta
