@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.OpenRisk.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.OpenRisk.Model
 {
     /// <summary>
-    /// This output representation is for compressed sparse row matrix.
+    /// Output representation for compressed sparse row matrix.
     /// </summary>
     [DataContract(Name = "StatResultValueSparseMatrix")]
     public partial class StatResultValueSparseMatrix : IEquatable<StatResultValueSparseMatrix>, IValidatableObject
@@ -35,11 +35,11 @@ namespace FactSet.SDK.OpenRisk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StatResultValueSparseMatrix" /> class.
         /// </summary>
-        /// <param name="rows">rows.</param>
-        /// <param name="columns">columns.</param>
-        /// <param name="indexPointer">indexPointer.</param>
-        /// <param name="indices">indices.</param>
-        /// <param name="value">value.</param>
+        /// <param name="rows">Number of rows in the matrix.</param>
+        /// <param name="columns">Number of columns in the matrix.</param>
+        /// <param name="indexPointer">Array of 0-based index pointers for the compressed sparse row representation.</param>
+        /// <param name="indices">Array of 0-based indices for the compressed sparse row representation.</param>
+        /// <param name="value">Array of floating point values.</param>
         public StatResultValueSparseMatrix(int rows = default(int), int columns = default(int), List<int> indexPointer = default(List<int>), List<int> indices = default(List<int>), List<double?> value = default(List<double?>))
         {
             this.Rows = rows;
@@ -50,32 +50,37 @@ namespace FactSet.SDK.OpenRisk.Model
         }
 
         /// <summary>
-        /// Gets or Sets Rows
+        /// Number of rows in the matrix
         /// </summary>
+        /// <value>Number of rows in the matrix</value>
         [DataMember(Name = "rows", EmitDefaultValue = false)]
         public int Rows { get; set; }
 
         /// <summary>
-        /// Gets or Sets Columns
+        /// Number of columns in the matrix
         /// </summary>
+        /// <value>Number of columns in the matrix</value>
         [DataMember(Name = "columns", EmitDefaultValue = false)]
         public int Columns { get; set; }
 
         /// <summary>
-        /// Gets or Sets IndexPointer
+        /// Array of 0-based index pointers for the compressed sparse row representation
         /// </summary>
+        /// <value>Array of 0-based index pointers for the compressed sparse row representation</value>
         [DataMember(Name = "indexPointer", EmitDefaultValue = false)]
         public List<int> IndexPointer { get; set; }
 
         /// <summary>
-        /// Gets or Sets Indices
+        /// Array of 0-based indices for the compressed sparse row representation
         /// </summary>
+        /// <value>Array of 0-based indices for the compressed sparse row representation</value>
         [DataMember(Name = "indices", EmitDefaultValue = false)]
         public List<int> Indices { get; set; }
 
         /// <summary>
-        /// Gets or Sets Value
+        /// Array of floating point values
         /// </summary>
+        /// <value>Array of floating point values</value>
         [DataMember(Name = "value", EmitDefaultValue = false)]
         public List<double?> Value { get; set; }
 

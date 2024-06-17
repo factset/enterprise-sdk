@@ -20,8 +20,10 @@ security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
 tags:
-- name: About
-- name: Operations
+- description: Informational resources for using the API
+  name: About
+- description: Primary API interactions
+  name: Operations
 paths:
   /linear/{version}/riskmodels:
     get:
@@ -133,7 +135,7 @@ paths:
       x-accepts: application/json
   /linear/{version}/riskmodels/{modelCode}:
     get:
-      description: Get the meta data of the risk model for the corresponding modelCode.
+      description: Get the metadata of the risk model for the corresponding modelCode.
         modelCode can be obtained via '/linear/{version}/riskmodels/' route.
       operationId: riskModelMetadata
       parameters:
@@ -327,7 +329,7 @@ paths:
                   vendor: FactSet
               schema:
                 $ref: '#/components/schemas/inline_response_200_1'
-          description: Returns the meta data of risk model.
+          description: Returns the metadata of risk model.
           headers:
             api-supported-versions:
               $ref: '#/components/headers/ApiSupportedVersions'
@@ -423,12 +425,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SupportedStats'
-          description: 'All base risk statistic names and their respective support
-            and/or requirement for certain name-settings statistics options (such
-            as: correlated specific risk, covariance isolation method, etc.), available
-            levels, and security group calculation methodology. When ''securityGroupMethod''
-            is ''statSpecific'', please refer to statistics documentation service
-            for more information.'
+          description: All base risk statistic names with details on their available
+            options and calculation methodologies.
           headers:
             api-supported-versions:
               $ref: '#/components/headers/ApiSupportedVersions'
@@ -470,6 +468,23 @@ paths:
           headers:
             Retry-After:
               $ref: '#/components/headers/RetryAfter'
+            RateLimit-Limit:
+              $ref: '#/components/headers/RateLimitLimit'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/RateLimitRemaining'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimitReset'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal server error occurred
+          headers:
+            api-supported-versions:
+              $ref: '#/components/headers/ApiSupportedVersions'
+            api-version:
+              $ref: '#/components/headers/ApiVersion'
             RateLimit-Limit:
               $ref: '#/components/headers/RateLimitLimit'
             RateLimit-Remaining:
@@ -553,6 +568,23 @@ paths:
               $ref: '#/components/headers/RateLimitRemaining'
             RateLimit-Reset:
               $ref: '#/components/headers/RateLimitReset'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal server error occurred
+          headers:
+            api-supported-versions:
+              $ref: '#/components/headers/ApiSupportedVersions'
+            api-version:
+              $ref: '#/components/headers/ApiVersion'
+            RateLimit-Limit:
+              $ref: '#/components/headers/RateLimitLimit'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/RateLimitRemaining'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimitReset'
       summary: Get available risk statistics names
       tags:
       - About
@@ -604,7 +636,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/inline_response_403'
-          description: Full access to the service is not authorized
+          description: Service is unavailable or in a state of degraded health
           headers:
             api-supported-versions:
               $ref: '#/components/headers/ApiSupportedVersions'
@@ -635,6 +667,23 @@ paths:
           headers:
             Retry-After:
               $ref: '#/components/headers/RetryAfter'
+            RateLimit-Limit:
+              $ref: '#/components/headers/RateLimitLimit'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/RateLimitRemaining'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimitReset'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: Service is unavailable or in a state of degraded health
+          headers:
+            api-supported-versions:
+              $ref: '#/components/headers/ApiSupportedVersions'
+            api-version:
+              $ref: '#/components/headers/ApiVersion'
             RateLimit-Limit:
               $ref: '#/components/headers/RateLimitLimit'
             RateLimit-Remaining:
@@ -1255,7 +1304,7 @@ paths:
                 underlyingIds:
                   CFD_B10RZP: B10RZP
             schema:
-              $ref: '#/components/schemas/GenerateIDMappingRequestBody'
+              $ref: '#/components/schemas/GenerateIdMappingRequestBody'
         required: true
       responses:
         "200":
@@ -1326,6 +1375,13 @@ paths:
               $ref: '#/components/headers/RateLimitRemaining'
             RateLimit-Reset:
               $ref: '#/components/headers/RateLimitReset'
+        "401":
+          content:
+            text/plain:
+              schema:
+                minLength: 1
+                type: string
+          description: Missing or invalid authentication
         "403":
           content:
             application/json:
@@ -1824,12 +1880,12 @@ components:
             $ref: '#/components/schemas/inline_response_200_4'
       description: Provides a mapping to security indices in the risk model or the
         reason for exclusion
-    HealthFailAuthorization:
+    HealthFail:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/inline_response_403'
-      description: Full access to the service is not authorized
+      description: Service is unavailable or in a state of degraded health
       headers:
         api-supported-versions:
           $ref: '#/components/headers/ApiSupportedVersions'
@@ -1925,11 +1981,8 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/SupportedStats'
-      description: 'All base risk statistic names and their respective support and/or
-        requirement for certain name-settings statistics options (such as: correlated
-        specific risk, covariance isolation method, etc.), available levels, and security
-        group calculation methodology. When ''securityGroupMethod'' is ''statSpecific'',
-        please refer to statistics documentation service for more information.'
+      description: All base risk statistic names with details on their available options
+        and calculation methodologies.
       headers:
         api-supported-versions:
           $ref: '#/components/headers/ApiSupportedVersions'
@@ -2147,7 +2200,7 @@ components:
               vendor: FactSet
           schema:
             $ref: '#/components/schemas/inline_response_200_1'
-      description: Returns the meta data of risk model.
+      description: Returns the metadata of risk model.
       headers:
         api-supported-versions:
           $ref: '#/components/headers/ApiSupportedVersions'
@@ -2183,25 +2236,31 @@ components:
       example:
         covarianceTimesTwo: false
         correlatedSpecificRisk: false
-        horizon: 2.3021358869347655
-        rapUnsys: 7.386281948385884
-        confidenceLevel: 9.301444243932576
+        horizon: 9.301444243932576
+        rapUnsys: 1.0246457001441578
+        confidenceLevel: 0.20271230230023218
         useAbsoluteWeightsForLotExpansion: true
         covarianceTimesTwoTerm: false
         sparse: false
-        daysPerYear: 7.061401241503109
-        lamda: 3.616076749251911
-        specificToFactorRatio: 2.027123023002322
-        rapSys: 4.145608029883936
+        daysPerYear: 3.616076749251911
+        lamda: 4.145608029883936
+        specificToFactorRatio: 7.386281948385884
+        rapSys: 1.2315135367772556
       properties:
         useAbsoluteWeightsForLotExpansion:
           default: true
+          description: When this is set to true, use absolute value weights for multi-lot
+            expansion, otherwise use the actual value weights.
           type: boolean
         covarianceTimesTwo:
           default: false
+          description: When this is set to true, calculate covariance multiplied by
+            two.
           type: boolean
         covarianceTimesTwoTerm:
           default: false
+          description: When this is set to true, calculate covariance multiplied by
+            two term (Cov*2 term).
           type: boolean
         correlatedSpecificRisk:
           default: false
@@ -2219,18 +2278,31 @@ components:
             Portfolio level.
           type: boolean
         horizon:
+          description: Horizon (in days) to use in Value at Risk (VaR) stat calculations.
           type: number
         daysPerYear:
+          description: Number of days per year (e.g. 250 or 365) to use in Value at
+            Risk (VaR) stat calculations.
           type: number
         confidenceLevel:
+          description: Confidence level to use in Value at Risk (VaR) stat calculations.
+          exclusiveMaximum: true
+          exclusiveMinimum: true
+          maximum: 1
+          minimum: 0
           type: number
         lamda:
+          description: Lamda value to use in Implied Alpha Lamda stat calculations.
           type: number
         specificToFactorRatio:
+          description: Specific risk to factor risk ratio value to use in Implied
+            Alpha stat calculations.
           type: number
         rapSys:
+          description: Systematic RAP value to use in Implied Alpha RAP stat calculations.
           type: number
         rapUnsys:
+          description: Unsystematic RAP value to use in Implied Alpha RAP stat calculations.
           type: number
       type: object
     Stat:
@@ -2239,19 +2311,20 @@ components:
         settings:
           covarianceTimesTwo: false
           correlatedSpecificRisk: false
-          horizon: 2.3021358869347655
-          rapUnsys: 7.386281948385884
-          confidenceLevel: 9.301444243932576
+          horizon: 9.301444243932576
+          rapUnsys: 1.0246457001441578
+          confidenceLevel: 0.20271230230023218
           useAbsoluteWeightsForLotExpansion: true
           covarianceTimesTwoTerm: false
           sparse: false
-          daysPerYear: 7.061401241503109
-          lamda: 3.616076749251911
-          specificToFactorRatio: 2.027123023002322
-          rapSys: 4.145608029883936
+          daysPerYear: 3.616076749251911
+          lamda: 4.145608029883936
+          specificToFactorRatio: 7.386281948385884
+          rapSys: 1.2315135367772556
         name: name
       properties:
         name:
+          description: Name of the stat
           minLength: 1
           type: string
         level:
@@ -2277,12 +2350,14 @@ components:
         but need to be denominated in the single same currency ISO.
       properties:
         ids:
+          description: Security identifiers
           items:
             minLength: 1
             type: string
           minItems: 0
           type: array
         marketValues:
+          description: Security market values
           items:
             format: double
             type: number
@@ -2297,12 +2372,15 @@ components:
         Multi-layer security groupings are also suppoted.
       properties:
         name:
+          description: Optional name of the group
           minLength: 1
           type: string
         indices:
           description: List of 0-based indices into the containing holding's security
             IDs array
           items:
+            format: int32
+            minimum: 0
             type: integer
           minItems: 1
           type: array
@@ -2326,6 +2404,8 @@ components:
         single same currency ISO.
       type: object
     Holdings:
+      description: All security holdings which can include a 'portfolio', a 'benchmark',
+        and a total 'market' portfolio.
       example: {}
       properties:
         portfolio:
@@ -2348,6 +2428,7 @@ components:
       - id
       type: object
     FactorGroupNodes:
+      description: Either an individual factor or a grouping.
       oneOf:
       - $ref: '#/components/schemas/FactorGroup'
       - $ref: '#/components/schemas/RiskModelFactor'
@@ -2392,7 +2473,7 @@ components:
       example: 2019-01-26
       format: date
       type: string
-    Date:
+    InputDate:
       description: Date of risk model and holdings data to fetch and use. For the
         use of Relative Date argument, refer to [OA:1964](https://my.apps.factset.com/oa/pages/1964#rel).
         Ignored only for composite asset definitions provided as inputs via 'compositeAssets'
@@ -2417,12 +2498,13 @@ components:
         FDS: EQ_EQ_COMMON
         CFDTOIBM: OTH_CFD
       type: object
-    CurrencyISOCode:
+    CurrencyIsoCode:
       description: ISO-4217 currency code for risk model and holdings data to fetch
         and use. Ignored only for composite asset definitions provided as inputs via
         'compositeAssets' field.
       example: EUR
-      minLength: 1
+      maxLength: 3
+      minLength: 3
       type: string
     CalendarCode:
       description: Calendar code for risk model and holdings data to fetch and use.
@@ -2518,6 +2600,7 @@ components:
           minItems: 1
           type: array
         type:
+          description: Filter type
           enum:
           - Whitelist
           - Blacklist
@@ -2527,7 +2610,7 @@ components:
       - list
       - type
       type: object
-    UnderlyingIDs:
+    UnderlyingIds:
       additionalProperties:
         minLength: 1
         type: string
@@ -2547,7 +2630,7 @@ components:
         equity futures, and index futures). This single-boolean schema field will
         have no effect without valid ''assetTypes'' input in the request also.'
       type: boolean
-    RemoveCurrencyRiskIDs:
+    RemoveCurrencyRiskIds:
       additionalProperties:
         type: boolean
       description: 'Security IDs from which the contribution of currency to risk should
@@ -2567,13 +2650,24 @@ components:
         are specified in the request.
       oneOf:
       - $ref: '#/components/schemas/RemoveCurrencyRiskBoolean'
-      - $ref: '#/components/schemas/RemoveCurrencyRiskIDs'
+      - $ref: '#/components/schemas/RemoveCurrencyRiskIds'
     RiskModelAppendDataValue:
       description: Value for field at respective integer key index
       oneOf:
       - minLength: 1
         type: string
       - type: number
+    RiskModelAppendDataRow:
+      additionalProperties:
+        $ref: '#/components/schemas/RiskModelAppendDataValue'
+      description: Contains field, value pairs. The field must be the integer index
+        position of the field in 'fields', but must be as a string. The value will
+        be the data for that field. Values for a single field must have the same data
+        type.
+      example:
+        "1": SYMBOL_2
+        "2": 7.2
+      type: object
     RiskModelAppendData:
       description: '**(since 1.17.0)** Inline append data. This field can be used
         mainly for two purpose: 1) to supplement the risk model coverage when assets
@@ -2601,16 +2695,7 @@ components:
           - "1": SYMBOL_2
             "2": 7.2
           items:
-            additionalProperties:
-              $ref: '#/components/schemas/RiskModelAppendDataValue'
-            description: Contains field, value pairs. The field must be the integer
-              index position of the field in 'fields', but must be as a string. The
-              value will be the data for that field. Values for a single field must
-              have the same data type.
-            example:
-              "1": SYMBOL_2
-              "2": 7.2
-            type: object
+            $ref: '#/components/schemas/RiskModelAppendDataRow'
           minItems: 1
           type: array
         fields:
@@ -2658,6 +2743,7 @@ components:
             model is monthly or monthly factor returns are being used, this should
             be 12. If the risk model is daily, select desired integer such as 365
             or 252.'
+          format: int32
           maximum: 365
           minimum: 1
           type: integer
@@ -2678,27 +2764,36 @@ components:
         dimension of the results arrays and the `labels.security.ids` array.
       example:
         market:
-        - 1
-        - 1
+        - 0
+        - 0
         portfolio:
         - 0
         - 0
         benchmark:
-        - 6
-        - 6
+        - 0
+        - 0
       properties:
         portfolio:
+          description: Index mapping corresponding to the input 'portfolio' holdings
           items:
+            format: int32
+            minimum: 0
             type: integer
           minItems: 1
           type: array
         benchmark:
+          description: Index mapping corresponding to the input 'benchmark' holdings
           items:
+            format: int32
+            minimum: 0
             type: integer
           minItems: 1
           type: array
         market:
+          description: Index mapping corresponding to the input 'market' holdings
           items:
+            format: int32
+            minimum: 0
             type: integer
           minItems: 1
           type: array
@@ -2712,27 +2807,36 @@ components:
         less than 0 indicate result index not originating from corresponding holding.
       example:
         market:
-        - 2
-        - 2
+        - 0
+        - 0
         portfolio:
-        - 5
-        - 5
+        - 0
+        - 0
         benchmark:
-        - 5
-        - 5
+        - 0
+        - 0
       properties:
         portfolio:
+          description: Index mapping corresponding to the input 'portfolio' holdings
           items:
+            format: int32
+            minimum: -1
             type: integer
           minItems: 1
           type: array
         benchmark:
+          description: Index mapping corresponding to the input 'benchmark' holdings
           items:
+            format: int32
+            minimum: -1
             type: integer
           minItems: 1
           type: array
         market:
+          description: Index mapping corresponding to the input 'market' holdings
           items:
+            format: int32
+            minimum: -1
             type: integer
           minItems: 1
           type: array
@@ -2744,7 +2848,7 @@ components:
         relevant group calculation-level
       example:
         name: name
-        index: 7
+        index: 0
         groups:
         - null
         - null
@@ -2752,6 +2856,8 @@ components:
         index:
           description: 0-based index into the results array dimension for the corresponding
             calculation-levels
+          format: int32
+          minimum: 0
           type: integer
         name:
           description: Name that was provided for this group
@@ -2774,30 +2880,30 @@ components:
         security:
           indicesResultToInput:
             market:
-            - 2
-            - 2
+            - 0
+            - 0
             portfolio:
-            - 5
-            - 5
+            - 0
+            - 0
             benchmark:
-            - 5
-            - 5
+            - 0
+            - 0
           ids:
           - ids
           - ids
           indicesInputToResult:
             market:
-            - 1
-            - 1
+            - 0
+            - 0
             portfolio:
             - 0
             - 0
             benchmark:
-            - 6
-            - 6
+            - 0
+            - 0
         securityGroup:
           name: name
-          index: 7
+          index: 0
           groups:
           - null
           - null
@@ -2810,7 +2916,7 @@ components:
           - ids
         factorGroup:
           name: name
-          index: 7
+          index: 0
           groups:
           - null
           - null
@@ -2833,27 +2939,27 @@ components:
         security:
           indicesResultToInput:
             market:
-            - 2
-            - 2
+            - 0
+            - 0
             portfolio:
-            - 5
-            - 5
+            - 0
+            - 0
             benchmark:
-            - 5
-            - 5
+            - 0
+            - 0
           ids:
           - ids
           - ids
           indicesInputToResult:
             market:
-            - 1
-            - 1
+            - 0
+            - 0
             portfolio:
             - 0
             - 0
             benchmark:
-            - 6
-            - 6
+            - 0
+            - 0
       properties:
         security:
           $ref: '#/components/schemas/SecurityOnlyLabels_security'
@@ -2861,10 +2967,12 @@ components:
       - security
       type: object
     StatResultValueScalar:
+      description: Scalar floating point value
       format: double
       nullable: true
       type: number
     StatResultValueVector:
+      description: Array of floating point values
       items:
         format: double
         nullable: true
@@ -2872,22 +2980,27 @@ components:
       minItems: 1
       type: array
     StatResultValueDenseMatrix:
+      description: Array of arrays of floating point values
       items:
         $ref: '#/components/schemas/StatResultValueVector'
       minItems: 1
       type: array
     StatResultValueSparseMatrix:
-      description: This output representation is for compressed sparse row matrix.
+      description: Output representation for compressed sparse row matrix.
       properties:
         rows:
+          description: Number of rows in the matrix
           format: int32
           minimum: 1
           type: integer
         columns:
+          description: Number of columns in the matrix
           format: int32
           minimum: 1
           type: integer
         indexPointer:
+          description: Array of 0-based index pointers for the compressed sparse row
+            representation
           items:
             format: int32
             minimum: 0
@@ -2895,6 +3008,7 @@ components:
           minItems: 2
           type: array
         indices:
+          description: Array of 0-based indices for the compressed sparse row representation
           items:
             format: int32
             minimum: 0
@@ -2902,6 +3016,7 @@ components:
           minItems: 1
           type: array
         value:
+          description: Array of floating point values
           items:
             format: double
             nullable: true
@@ -2918,26 +3033,50 @@ components:
       - $ref: '#/components/schemas/StatResultValueVector'
       - $ref: '#/components/schemas/StatResultValueDenseMatrix'
       - $ref: '#/components/schemas/StatResultValueSparseMatrix'
+    StatResult:
+      description: Risk statistic calculation result
+      example:
+        settings:
+          covarianceTimesTwo: false
+          correlatedSpecificRisk: false
+          horizon: 9.301444243932576
+          rapUnsys: 1.0246457001441578
+          confidenceLevel: 0.20271230230023218
+          useAbsoluteWeightsForLotExpansion: true
+          covarianceTimesTwoTerm: false
+          sparse: false
+          daysPerYear: 3.616076749251911
+          lamda: 4.145608029883936
+          specificToFactorRatio: 7.386281948385884
+          rapSys: 1.2315135367772556
+        stat: stat
+        error:
+          code: code
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          detail: detail
+          title: title
+      properties:
+        stat:
+          description: Name of the stat
+          minLength: 1
+          type: string
+        level:
+          $ref: '#/components/schemas/StatCalculationLevel'
+        settings:
+          $ref: '#/components/schemas/StatCalculationSettings'
+        value:
+          $ref: '#/components/schemas/StatResultValue'
+        error:
+          $ref: '#/components/schemas/ErrorItem'
+      required:
+      - level
+      - stat
+      type: object
     StatsResults:
       description: Calculation results aligned to the input list of requested risk
         statistics
       items:
-        properties:
-          stat:
-            minLength: 1
-            type: string
-          level:
-            $ref: '#/components/schemas/StatCalculationLevel'
-          settings:
-            $ref: '#/components/schemas/StatCalculationSettings'
-          value:
-            $ref: '#/components/schemas/StatResultValue'
-          error:
-            $ref: '#/components/schemas/ErrorItem'
-        required:
-        - level
-        - stat
-        type: object
+        $ref: '#/components/schemas/StatResult'
       maxItems: 1000
       minItems: 1
       type: array
@@ -3094,10 +3233,15 @@ components:
     ErrorItem:
       description: Error information for a particular occurrence of a problem with
         human-readable details describing the cause
+      example:
+        code: code
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        detail: detail
+        title: title
       properties:
         id:
           description: UUID for the particular occurrence of the problem
-          minLength: 1
+          format: uuid
           type: string
         code:
           description: Error code for the problem type.
@@ -3123,6 +3267,7 @@ components:
         expected in the response body.
       properties:
         errors:
+          description: Errors encountered while processing the request
           items:
             $ref: '#/components/schemas/ErrorItem'
           minItems: 1
@@ -3135,11 +3280,11 @@ components:
       example:
         warnings:
         - code: requestBodyExtraData
-          id: id
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           detail: 'Extra Factors: [*EF2, *EF1, *EF3]'
           title: Factor grouping contains extra factor(s).
         - code: requestBodyExtraData
-          id: id
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           detail: 'Extra Factors: [*EF2, *EF1, *EF3]'
           title: Factor grouping contains extra factor(s).
         resolvedDates:
@@ -3150,30 +3295,30 @@ components:
           security:
             indicesResultToInput:
               market:
-              - 2
-              - 2
+              - 0
+              - 0
               portfolio:
-              - 5
-              - 5
+              - 0
+              - 0
               benchmark:
-              - 5
-              - 5
+              - 0
+              - 0
             ids:
             - ids
             - ids
             indicesInputToResult:
               market:
-              - 1
-              - 1
+              - 0
+              - 0
               portfolio:
               - 0
               - 0
               benchmark:
-              - 6
-              - 6
+              - 0
+              - 0
           securityGroup:
             name: name
-            index: 7
+            index: 0
             groups:
             - null
             - null
@@ -3186,7 +3331,7 @@ components:
             - ids
           factorGroup:
             name: name
-            index: 7
+            index: 0
             groups:
             - null
             - null
@@ -3196,6 +3341,7 @@ components:
         resolvedDates:
           $ref: '#/components/schemas/ResolvedDates'
         warnings:
+          description: Warnings encountered while processing the request
           items:
             $ref: '#/components/schemas/WarningItem'
           minItems: 1
@@ -3208,11 +3354,11 @@ components:
       example:
         warnings:
         - code: requestBodyExtraData
-          id: id
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           detail: 'Extra Factors: [*EF2, *EF1, *EF3]'
           title: Factor grouping contains extra factor(s).
         - code: requestBodyExtraData
-          id: id
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           detail: 'Extra Factors: [*EF2, *EF1, *EF3]'
           title: Factor grouping contains extra factor(s).
         resolvedDates:
@@ -3223,33 +3369,34 @@ components:
           security:
             indicesResultToInput:
               market:
-              - 2
-              - 2
+              - 0
+              - 0
               portfolio:
-              - 5
-              - 5
+              - 0
+              - 0
               benchmark:
-              - 5
-              - 5
+              - 0
+              - 0
             ids:
             - ids
             - ids
             indicesInputToResult:
               market:
-              - 1
-              - 1
+              - 0
+              - 0
               portfolio:
               - 0
               - 0
               benchmark:
-              - 6
-              - 6
+              - 0
+              - 0
       properties:
         labels:
           $ref: '#/components/schemas/SecurityOnlyLabels'
         resolvedDates:
           $ref: '#/components/schemas/ResolvedDates'
         warnings:
+          description: Warnings encountered while processing the request
           items:
             $ref: '#/components/schemas/WarningItem'
           minItems: 1
@@ -3258,7 +3405,185 @@ components:
       - labels
       - resolvedDates
       type: object
+    RiskModelSummary:
+      description: Summary element in the list of available risk models
+      example:
+        code: FDS:GLOBAL_EQUITY_M_V1
+        vendor: vendor
+        available: true
+        name: name
+        category: category
+      properties:
+        available:
+          description: Indicates the model is available for use, if true
+          type: boolean
+        category:
+          description: Model category
+          minLength: 1
+          type: string
+        code:
+          description: Model code
+          example: FDS:GLOBAL_EQUITY_M_V1
+          minLength: 1
+          type: string
+        name:
+          description: Model name
+          minLength: 1
+          type: string
+        vendor:
+          description: Model vendor
+          minLength: 1
+          type: string
+      required:
+      - available
+      - category
+      - code
+      - name
+      - vendor
+      type: object
+    RiskModelFactorDetails:
+      description: Details about a factor in a risk model
+      example:
+        definedAs: PercentChg
+        name: name
+        id: id
+      properties:
+        definedAs:
+          description: Defintion of factor returns. `PercentChg` - Factor returns
+            defined as percent change, which should be geometrically linked to calculate
+            cumulative factor returns. `1stDiff` - Factor returns defined as level
+            change. Cumulative returns should be defined as the sum of returns.
+          enum:
+          - PercentChg
+          - 1stDiff
+          minLength: 1
+          type: string
+        id:
+          description: Factor id
+          minLength: 1
+          type: string
+        name:
+          description: Factor name
+          minLength: 1
+          type: string
+      required:
+      - definedAs
+      - id
+      - name
+      type: object
+    RiskModelAppendFieldType:
+      description: Risk model append field column ID and data type
+      example:
+        id: id
+        type: String
+      properties:
+        id:
+          description: Field ID
+          minLength: 1
+          type: string
+        type:
+          description: The type of data which must be provided
+          enum:
+          - String
+          - Double
+          - Integer
+          minLength: 1
+          type: string
+      required:
+      - id
+      - type
+      type: object
+    SupportedStatDetails:
+      description: 'Details on support and/or requirement for certain name-settings
+        statistics options (such as: correlated specific risk, covariance isolation
+        method, etc.), derived stats, available levels, security group calculation
+        methodology, and multi-lot security allocation. When ''securityGroupMethod''
+        is ''statSpecific'', please refer to the risk statistics documentation service
+        or inquire for more information.'
+      example:
+        covarianceTimesTwo: true
+        correlatedSpecificRisk: true
+        requiresCorrelatedSpecificRisk: true
+        securityGroupMethod:
+          name: WeightedAverage
+          weights: BenchmarkWeights
+          weighting: ActualValue
+          sqrt: false
+        requiresCovarianceTimesTwo: true
+        securityLotAllocation: PortfolioWeights
+        derived:
+        - derived
+        - derived
+        levels:
+          FactorSecurityGroup: true
+          FactorSecurity: true
+          FactorGroup: true
+          Portfolio: true
+          Factor: true
+          FactorGroupSecurity: true
+          SecuritySecurity: true
+          FactorGroupSecurityGroup: true
+          FactorFactor: true
+          Security: true
+          SecurityGroup: true
+      properties:
+        correlatedSpecificRisk:
+          description: Indicates support for correlated specific risk (CSR) calculation
+            setting if true, and false if the setting is prohibited.
+          type: boolean
+        covarianceTimesTwo:
+          description: Indicates support for covariance times two (Cov*2) calculation
+            setting if true, and false if the setting is prohibited.
+          type: boolean
+        requiresCorrelatedSpecificRisk:
+          description: Indicates correlated specific risk (CSR) calculation setting
+            is mandatory for the stat, if true.
+          type: boolean
+        requiresCovarianceTimesTwo:
+          description: Indicates covariance times two (Cov*2) calculation setting
+            is mandatory for the stat, if true.
+          type: boolean
+        derived:
+          description: A list of the base stat and all possible derived stats which
+            are currently supported by the service.
+          items:
+            minLength: 1
+            type: string
+          minItems: 1
+          type: array
+        levels:
+          $ref: '#/components/schemas/SupportedStatDetails_levels'
+        securityGroupMethod:
+          $ref: '#/components/schemas/SupportedStatDetails_securityGroupMethod'
+        securityLotAllocation:
+          description: Indicates the weights according to which securities with multiple
+            lots have their risk statistic values allocated. 'FillAll' indicates the
+            computed statistic value of a particular security is allocated to each
+            of its lots equally. This is common for risk statistics such as marginal
+            statistics or beta. If security group calculations are available, these
+            weights will be used along with 'weighting' method specified in 'securityGroupMethod'.
+            For example, if this is 'ActiveWeights' and 'weighting' is 'AbsoluteValue',
+            a net position value is allocated to multiple lots based off of absolute
+            active weights distribution.
+          enum:
+          - PortfolioWeights
+          - BenchmarkWeights
+          - ActiveWeights
+          - MarketWeights
+          - FillAll
+          minLength: 1
+          type: string
+      required:
+      - correlatedSpecificRisk
+      - covarianceTimesTwo
+      - derived
+      - levels
+      - requiresCorrelatedSpecificRisk
+      - requiresCovarianceTimesTwo
+      type: object
     SupportedStats:
+      description: Contains all available base risk statistics. In the event 'data'
+        property is empty, no stats are available at all.
       example:
         data:
           key:
@@ -3290,22 +3615,22 @@ components:
       properties:
         data:
           additionalProperties:
-            $ref: '#/components/schemas/SupportedStats_data'
-          description: Contains all available risk statistics. In the event 'data'
-            property is empty, no stats are available at all.
+            $ref: '#/components/schemas/SupportedStatDetails'
+          description: All available base risk statistics
           type: object
       required:
       - data
       type: object
     SupportedStatsNamesOnly:
+      description: Contains the names of all available risk statistics. In the event
+        'data' field is empty, no stats are available at all.
       example:
         data:
         - data
         - data
       properties:
         data:
-          description: Contains the names of all available risk statistics. In the
-            event 'data' field is empty, no stats are available at all.
+          description: Names of all available risk statistics
           items:
             minLength: 1
             type: string
@@ -3319,13 +3644,13 @@ components:
         problem with human-readable details describing the cause
       example:
         code: requestBodyExtraData
-        id: id
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         detail: 'Extra Factors: [*EF2, *EF1, *EF3]'
         title: Factor grouping contains extra factor(s).
       properties:
         id:
           description: UUID for the particular occurrence of the non-failure problem
-          minLength: 1
+          format: uuid
           type: string
         code:
           description: Warning code for the non-failure problem type
@@ -3350,11 +3675,13 @@ components:
       - title
       type: object
     Warnings:
+      description: Warnings encountered while processing the request
       items:
         $ref: '#/components/schemas/WarningItem'
       minItems: 1
       type: array
     CalculateFromHoldingsRequestData:
+      description: Input data for requests to calculate from holdings
       example:
         additionalCalcInputs:
           calculationPeriodsPerYear: 206
@@ -3396,72 +3723,72 @@ components:
         - settings:
             covarianceTimesTwo: false
             correlatedSpecificRisk: false
-            horizon: 2.3021358869347655
-            rapUnsys: 7.386281948385884
-            confidenceLevel: 9.301444243932576
+            horizon: 9.301444243932576
+            rapUnsys: 1.0246457001441578
+            confidenceLevel: 0.20271230230023218
             useAbsoluteWeightsForLotExpansion: true
             covarianceTimesTwoTerm: false
             sparse: false
-            daysPerYear: 7.061401241503109
-            lamda: 3.616076749251911
-            specificToFactorRatio: 2.027123023002322
-            rapSys: 4.145608029883936
+            daysPerYear: 3.616076749251911
+            lamda: 4.145608029883936
+            specificToFactorRatio: 7.386281948385884
+            rapSys: 1.2315135367772556
           name: name
         - settings:
             covarianceTimesTwo: false
             correlatedSpecificRisk: false
-            horizon: 2.3021358869347655
-            rapUnsys: 7.386281948385884
-            confidenceLevel: 9.301444243932576
+            horizon: 9.301444243932576
+            rapUnsys: 1.0246457001441578
+            confidenceLevel: 0.20271230230023218
             useAbsoluteWeightsForLotExpansion: true
             covarianceTimesTwoTerm: false
             sparse: false
-            daysPerYear: 7.061401241503109
-            lamda: 3.616076749251911
-            specificToFactorRatio: 2.027123023002322
-            rapSys: 4.145608029883936
+            daysPerYear: 3.616076749251911
+            lamda: 4.145608029883936
+            specificToFactorRatio: 7.386281948385884
+            rapSys: 1.2315135367772556
           name: name
         - settings:
             covarianceTimesTwo: false
             correlatedSpecificRisk: false
-            horizon: 2.3021358869347655
-            rapUnsys: 7.386281948385884
-            confidenceLevel: 9.301444243932576
+            horizon: 9.301444243932576
+            rapUnsys: 1.0246457001441578
+            confidenceLevel: 0.20271230230023218
             useAbsoluteWeightsForLotExpansion: true
             covarianceTimesTwoTerm: false
             sparse: false
-            daysPerYear: 7.061401241503109
-            lamda: 3.616076749251911
-            specificToFactorRatio: 2.027123023002322
-            rapSys: 4.145608029883936
+            daysPerYear: 3.616076749251911
+            lamda: 4.145608029883936
+            specificToFactorRatio: 7.386281948385884
+            rapSys: 1.2315135367772556
           name: name
         - settings:
             covarianceTimesTwo: false
             correlatedSpecificRisk: false
-            horizon: 2.3021358869347655
-            rapUnsys: 7.386281948385884
-            confidenceLevel: 9.301444243932576
+            horizon: 9.301444243932576
+            rapUnsys: 1.0246457001441578
+            confidenceLevel: 0.20271230230023218
             useAbsoluteWeightsForLotExpansion: true
             covarianceTimesTwoTerm: false
             sparse: false
-            daysPerYear: 7.061401241503109
-            lamda: 3.616076749251911
-            specificToFactorRatio: 2.027123023002322
-            rapSys: 4.145608029883936
+            daysPerYear: 3.616076749251911
+            lamda: 4.145608029883936
+            specificToFactorRatio: 7.386281948385884
+            rapSys: 1.2315135367772556
           name: name
         - settings:
             covarianceTimesTwo: false
             correlatedSpecificRisk: false
-            horizon: 2.3021358869347655
-            rapUnsys: 7.386281948385884
-            confidenceLevel: 9.301444243932576
+            horizon: 9.301444243932576
+            rapUnsys: 1.0246457001441578
+            confidenceLevel: 0.20271230230023218
             useAbsoluteWeightsForLotExpansion: true
             covarianceTimesTwoTerm: false
             sparse: false
-            daysPerYear: 7.061401241503109
-            lamda: 3.616076749251911
-            specificToFactorRatio: 2.027123023002322
-            rapSys: 4.145608029883936
+            daysPerYear: 3.616076749251911
+            lamda: 4.145608029883936
+            specificToFactorRatio: 7.386281948385884
+            rapSys: 1.2315135367772556
           name: name
         compositeAssets:
           CA1_to_IBM_and_CA2:
@@ -3547,10 +3874,11 @@ components:
             fetch and use. Ignored only for composite asset definitions provided as
             inputs via 'compositeAssets' field.
           example: EUR
-          minLength: 1
+          maxLength: 3
+          minLength: 3
           type: string
         date:
-          $ref: '#/components/schemas/Date'
+          $ref: '#/components/schemas/InputDate'
         factorGrouping:
           $ref: '#/components/schemas/FactorGroup'
         factorsVisible:
@@ -3599,6 +3927,7 @@ components:
       - stats
       type: object
     CalculateFromHoldingsRequestBody:
+      description: Body for requests to calculate from holdings
       example:
         data:
           additionalCalcInputs:
@@ -3641,72 +3970,72 @@ components:
           - settings:
               covarianceTimesTwo: false
               correlatedSpecificRisk: false
-              horizon: 2.3021358869347655
-              rapUnsys: 7.386281948385884
-              confidenceLevel: 9.301444243932576
+              horizon: 9.301444243932576
+              rapUnsys: 1.0246457001441578
+              confidenceLevel: 0.20271230230023218
               useAbsoluteWeightsForLotExpansion: true
               covarianceTimesTwoTerm: false
               sparse: false
-              daysPerYear: 7.061401241503109
-              lamda: 3.616076749251911
-              specificToFactorRatio: 2.027123023002322
-              rapSys: 4.145608029883936
+              daysPerYear: 3.616076749251911
+              lamda: 4.145608029883936
+              specificToFactorRatio: 7.386281948385884
+              rapSys: 1.2315135367772556
             name: name
           - settings:
               covarianceTimesTwo: false
               correlatedSpecificRisk: false
-              horizon: 2.3021358869347655
-              rapUnsys: 7.386281948385884
-              confidenceLevel: 9.301444243932576
+              horizon: 9.301444243932576
+              rapUnsys: 1.0246457001441578
+              confidenceLevel: 0.20271230230023218
               useAbsoluteWeightsForLotExpansion: true
               covarianceTimesTwoTerm: false
               sparse: false
-              daysPerYear: 7.061401241503109
-              lamda: 3.616076749251911
-              specificToFactorRatio: 2.027123023002322
-              rapSys: 4.145608029883936
+              daysPerYear: 3.616076749251911
+              lamda: 4.145608029883936
+              specificToFactorRatio: 7.386281948385884
+              rapSys: 1.2315135367772556
             name: name
           - settings:
               covarianceTimesTwo: false
               correlatedSpecificRisk: false
-              horizon: 2.3021358869347655
-              rapUnsys: 7.386281948385884
-              confidenceLevel: 9.301444243932576
+              horizon: 9.301444243932576
+              rapUnsys: 1.0246457001441578
+              confidenceLevel: 0.20271230230023218
               useAbsoluteWeightsForLotExpansion: true
               covarianceTimesTwoTerm: false
               sparse: false
-              daysPerYear: 7.061401241503109
-              lamda: 3.616076749251911
-              specificToFactorRatio: 2.027123023002322
-              rapSys: 4.145608029883936
+              daysPerYear: 3.616076749251911
+              lamda: 4.145608029883936
+              specificToFactorRatio: 7.386281948385884
+              rapSys: 1.2315135367772556
             name: name
           - settings:
               covarianceTimesTwo: false
               correlatedSpecificRisk: false
-              horizon: 2.3021358869347655
-              rapUnsys: 7.386281948385884
-              confidenceLevel: 9.301444243932576
+              horizon: 9.301444243932576
+              rapUnsys: 1.0246457001441578
+              confidenceLevel: 0.20271230230023218
               useAbsoluteWeightsForLotExpansion: true
               covarianceTimesTwoTerm: false
               sparse: false
-              daysPerYear: 7.061401241503109
-              lamda: 3.616076749251911
-              specificToFactorRatio: 2.027123023002322
-              rapSys: 4.145608029883936
+              daysPerYear: 3.616076749251911
+              lamda: 4.145608029883936
+              specificToFactorRatio: 7.386281948385884
+              rapSys: 1.2315135367772556
             name: name
           - settings:
               covarianceTimesTwo: false
               correlatedSpecificRisk: false
-              horizon: 2.3021358869347655
-              rapUnsys: 7.386281948385884
-              confidenceLevel: 9.301444243932576
+              horizon: 9.301444243932576
+              rapUnsys: 1.0246457001441578
+              confidenceLevel: 0.20271230230023218
               useAbsoluteWeightsForLotExpansion: true
               covarianceTimesTwoTerm: false
               sparse: false
-              daysPerYear: 7.061401241503109
-              lamda: 3.616076749251911
-              specificToFactorRatio: 2.027123023002322
-              rapSys: 4.145608029883936
+              daysPerYear: 3.616076749251911
+              lamda: 4.145608029883936
+              specificToFactorRatio: 7.386281948385884
+              rapSys: 1.2315135367772556
             name: name
           compositeAssets:
             CA1_to_IBM_and_CA2:
@@ -3734,7 +4063,8 @@ components:
       required:
       - data
       type: object
-    GenerateIDMappingRequestData:
+    GenerateIdMappingRequestData:
+      description: Input data for requests to generate ID mapping
       example:
         calendar: FJH
         underlyingIds:
@@ -3837,10 +4167,11 @@ components:
             fetch and use. Ignored only for composite asset definitions provided as
             inputs via 'compositeAssets' field.
           example: EUR
-          minLength: 1
+          maxLength: 3
+          minLength: 3
           type: string
         date:
-          $ref: '#/components/schemas/Date'
+          $ref: '#/components/schemas/InputDate'
         holdings:
           $ref: '#/components/schemas/Holdings'
         indexMapping:
@@ -3872,7 +4203,8 @@ components:
       - holdings
       - riskModel
       type: object
-    GenerateIDMappingRequestBody:
+    GenerateIdMappingRequestBody:
+      description: Body for requests to generate ID mapping
       example:
         data:
           calendar: FJH
@@ -3916,44 +4248,9 @@ components:
             ssrDateIs: ExposureDate
       properties:
         data:
-          $ref: '#/components/schemas/GenerateIDMappingRequestData'
+          $ref: '#/components/schemas/GenerateIdMappingRequestData'
       required:
       - data
-      type: object
-    inline_response_200_data:
-      example:
-        code: FDS:GLOBAL_EQUITY_M_V1
-        vendor: vendor
-        available: true
-        name: name
-        category: category
-      properties:
-        available:
-          description: If the model is available for use
-          type: boolean
-        category:
-          description: Model category
-          minLength: 1
-          type: string
-        code:
-          description: Model code
-          example: FDS:GLOBAL_EQUITY_M_V1
-          minLength: 1
-          type: string
-        name:
-          description: Model name
-          minLength: 1
-          type: string
-        vendor:
-          description: Model vendor
-          minLength: 1
-          type: string
-      required:
-      - available
-      - category
-      - code
-      - name
-      - vendor
       type: object
     inline_response_200:
       example:
@@ -3970,64 +4267,16 @@ components:
           category: category
       properties:
         data:
+          description: Available risk models
           items:
-            $ref: '#/components/schemas/inline_response_200_data'
+            $ref: '#/components/schemas/RiskModelSummary'
           minItems: 1
           type: array
       required:
       - data
       type: object
-    inline_response_200_1_data_factors:
-      example:
-        definedAs: PercentChg
-        name: name
-        id: id
-      properties:
-        definedAs:
-          description: Defintion of factor returns. `PercentChg` - Factor returns
-            defined as percent change, which should be geometrically linked to calculate
-            cumulative factor returns `1stDiff` - Factor returns defined as level
-            change. Cumulative returns should be defined as the sum of returns.
-          enum:
-          - PercentChg
-          - 1stDiff
-          minLength: 1
-          type: string
-        id:
-          description: Factor id
-          minLength: 1
-          type: string
-        name:
-          description: Factor name
-          minLength: 1
-          type: string
-      required:
-      - definedAs
-      - id
-      - name
-      type: object
-    inline_response_200_1_data_riskModelAppendFormat:
-      example:
-        id: id
-        type: String
-      properties:
-        id:
-          description: Field id
-          minLength: 1
-          type: string
-        type:
-          description: The type of data which must be provided
-          enum:
-          - String
-          - Double
-          - Integer
-          minLength: 1
-          type: string
-      required:
-      - id
-      - type
-      type: object
     inline_response_200_1_data:
+      description: Risk model metadata
       example:
         latestDate: 2019-01-26T00:00:00.000+0000
         code: FDS:GLOBAL_EQUITY_M_V1
@@ -4063,7 +4312,7 @@ components:
         currencies:
           description: Currencies that can be used with the model
           items:
-            $ref: '#/components/schemas/CurrencyISOCode'
+            $ref: '#/components/schemas/CurrencyIsoCode'
           minItems: 1
           type: array
         currency:
@@ -4071,17 +4320,18 @@ components:
             fetch and use. Ignored only for composite asset definitions provided as
             inputs via 'compositeAssets' field.
           example: EUR
-          minLength: 1
+          maxLength: 3
+          minLength: 3
           type: string
         factors:
           description: Factors of the model
           items:
-            $ref: '#/components/schemas/inline_response_200_1_data_factors'
+            $ref: '#/components/schemas/RiskModelFactorDetails'
           minItems: 1
           type: array
         factorIdToIsoCurrency:
           additionalProperties:
-            $ref: '#/components/schemas/CurrencyISOCode'
+            $ref: '#/components/schemas/CurrencyIsoCode'
           description: Map of currency factor IDs to ISO currency code.
           type: object
         firstDate:
@@ -4106,11 +4356,12 @@ components:
           description: List of fields which are supported by the risk model for appending
             additional asset data
           items:
-            $ref: '#/components/schemas/inline_response_200_1_data_riskModelAppendFormat'
+            $ref: '#/components/schemas/RiskModelAppendFieldType'
           minItems: 1
           type: array
         universeCount:
           description: Total universe count of the model
+          format: int32
           type: integer
         vendor:
           description: Model vendor
@@ -4170,6 +4421,7 @@ components:
         status: pass
       properties:
         status:
+          description: Pass status
           enum:
           - pass
           example: pass
@@ -4189,6 +4441,7 @@ components:
       description: Response from the health check route in the event of a 'fail' status
       properties:
         status:
+          description: Fail status
           enum:
           - fail
           example: fail
@@ -4213,6 +4466,7 @@ components:
       description: Response from the health check route in the event of a 'fail' status
       properties:
         status:
+          description: Fail status
           enum:
           - fail
           example: fail
@@ -4230,19 +4484,109 @@ components:
     inline_response_200_3:
       example:
         data:
-        - '{}'
-        - '{}'
-        - '{}'
-        - '{}'
-        - '{}'
+        - settings:
+            covarianceTimesTwo: false
+            correlatedSpecificRisk: false
+            horizon: 9.301444243932576
+            rapUnsys: 1.0246457001441578
+            confidenceLevel: 0.20271230230023218
+            useAbsoluteWeightsForLotExpansion: true
+            covarianceTimesTwoTerm: false
+            sparse: false
+            daysPerYear: 3.616076749251911
+            lamda: 4.145608029883936
+            specificToFactorRatio: 7.386281948385884
+            rapSys: 1.2315135367772556
+          stat: stat
+          error:
+            code: code
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            detail: detail
+            title: title
+        - settings:
+            covarianceTimesTwo: false
+            correlatedSpecificRisk: false
+            horizon: 9.301444243932576
+            rapUnsys: 1.0246457001441578
+            confidenceLevel: 0.20271230230023218
+            useAbsoluteWeightsForLotExpansion: true
+            covarianceTimesTwoTerm: false
+            sparse: false
+            daysPerYear: 3.616076749251911
+            lamda: 4.145608029883936
+            specificToFactorRatio: 7.386281948385884
+            rapSys: 1.2315135367772556
+          stat: stat
+          error:
+            code: code
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            detail: detail
+            title: title
+        - settings:
+            covarianceTimesTwo: false
+            correlatedSpecificRisk: false
+            horizon: 9.301444243932576
+            rapUnsys: 1.0246457001441578
+            confidenceLevel: 0.20271230230023218
+            useAbsoluteWeightsForLotExpansion: true
+            covarianceTimesTwoTerm: false
+            sparse: false
+            daysPerYear: 3.616076749251911
+            lamda: 4.145608029883936
+            specificToFactorRatio: 7.386281948385884
+            rapSys: 1.2315135367772556
+          stat: stat
+          error:
+            code: code
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            detail: detail
+            title: title
+        - settings:
+            covarianceTimesTwo: false
+            correlatedSpecificRisk: false
+            horizon: 9.301444243932576
+            rapUnsys: 1.0246457001441578
+            confidenceLevel: 0.20271230230023218
+            useAbsoluteWeightsForLotExpansion: true
+            covarianceTimesTwoTerm: false
+            sparse: false
+            daysPerYear: 3.616076749251911
+            lamda: 4.145608029883936
+            specificToFactorRatio: 7.386281948385884
+            rapSys: 1.2315135367772556
+          stat: stat
+          error:
+            code: code
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            detail: detail
+            title: title
+        - settings:
+            covarianceTimesTwo: false
+            correlatedSpecificRisk: false
+            horizon: 9.301444243932576
+            rapUnsys: 1.0246457001441578
+            confidenceLevel: 0.20271230230023218
+            useAbsoluteWeightsForLotExpansion: true
+            covarianceTimesTwoTerm: false
+            sparse: false
+            daysPerYear: 3.616076749251911
+            lamda: 4.145608029883936
+            specificToFactorRatio: 7.386281948385884
+            rapSys: 1.2315135367772556
+          stat: stat
+          error:
+            code: code
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            detail: detail
+            title: title
         meta:
           warnings:
           - code: requestBodyExtraData
-            id: id
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             detail: 'Extra Factors: [*EF2, *EF1, *EF3]'
             title: Factor grouping contains extra factor(s).
           - code: requestBodyExtraData
-            id: id
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             detail: 'Extra Factors: [*EF2, *EF1, *EF3]'
             title: Factor grouping contains extra factor(s).
           resolvedDates:
@@ -4253,30 +4597,30 @@ components:
             security:
               indicesResultToInput:
                 market:
-                - 2
-                - 2
+                - 0
+                - 0
                 portfolio:
-                - 5
-                - 5
+                - 0
+                - 0
                 benchmark:
-                - 5
-                - 5
+                - 0
+                - 0
               ids:
               - ids
               - ids
               indicesInputToResult:
                 market:
-                - 1
-                - 1
+                - 0
+                - 0
                 portfolio:
                 - 0
                 - 0
                 benchmark:
-                - 6
-                - 6
+                - 0
+                - 0
             securityGroup:
               name: name
-              index: 7
+              index: 0
               groups:
               - null
               - null
@@ -4289,7 +4633,7 @@ components:
               - ids
             factorGroup:
               name: name
-              index: 7
+              index: 0
               groups:
               - null
               - null
@@ -4300,22 +4644,7 @@ components:
           description: Calculation results aligned to the input list of requested
             risk statistics
           items:
-            properties:
-              stat:
-                minLength: 1
-                type: string
-              level:
-                $ref: '#/components/schemas/StatCalculationLevel'
-              settings:
-                $ref: '#/components/schemas/StatCalculationSettings'
-              value:
-                $ref: '#/components/schemas/StatResultValue'
-              error:
-                $ref: '#/components/schemas/ErrorItem'
-            required:
-            - level
-            - stat
-            type: object
+            $ref: '#/components/schemas/StatResult'
           maxItems: 1000
           minItems: 1
           type: array
@@ -4331,11 +4660,11 @@ components:
         meta:
           warnings:
           - code: requestBodyExtraData
-            id: id
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             detail: 'Extra Factors: [*EF2, *EF1, *EF3]'
             title: Factor grouping contains extra factor(s).
           - code: requestBodyExtraData
-            id: id
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             detail: 'Extra Factors: [*EF2, *EF1, *EF3]'
             title: Factor grouping contains extra factor(s).
           resolvedDates:
@@ -4346,31 +4675,32 @@ components:
             security:
               indicesResultToInput:
                 market:
-                - 2
-                - 2
+                - 0
+                - 0
                 portfolio:
-                - 5
-                - 5
+                - 0
+                - 0
                 benchmark:
-                - 5
-                - 5
+                - 0
+                - 0
               ids:
               - ids
               - ids
               indicesInputToResult:
                 market:
-                - 1
-                - 1
+                - 0
+                - 0
                 portfolio:
                 - 0
                 - 0
                 benchmark:
-                - 6
-                - 6
+                - 0
+                - 0
       properties:
         meta:
           $ref: '#/components/schemas/SecurityOnlySuccessResponseMeta'
         data:
+          description: Security risk mappings
           items:
             $ref: '#/components/schemas/RiskMappingEntry'
           minItems: 1
@@ -4430,6 +4760,7 @@ components:
             horizon will match that of the factor returns. For example, if a risk
             model has daily factor returns, select desired integer such as 365 or
             252.
+          format: int32
           maximum: 365
           minimum: 1
           type: integer
@@ -4444,27 +4775,27 @@ components:
       example:
         indicesResultToInput:
           market:
-          - 2
-          - 2
+          - 0
+          - 0
           portfolio:
-          - 5
-          - 5
+          - 0
+          - 0
           benchmark:
-          - 5
-          - 5
+          - 0
+          - 0
         ids:
         - ids
         - ids
         indicesInputToResult:
           market:
-          - 1
-          - 1
+          - 0
+          - 0
           portfolio:
           - 0
           - 0
           benchmark:
-          - 6
-          - 6
+          - 0
+          - 0
       properties:
         ids:
           description: Security IDs aligned to the calculated output. Often this will
@@ -4492,12 +4823,14 @@ components:
         - ids
       properties:
         ids:
+          description: Risk model factor identifiers
           items:
             minLength: 1
             type: string
           minItems: 1
           type: array
         names:
+          description: Risk model factor names
           items:
             minLength: 1
             type: string
@@ -4512,27 +4845,27 @@ components:
       example:
         indicesResultToInput:
           market:
-          - 2
-          - 2
+          - 0
+          - 0
           portfolio:
-          - 5
-          - 5
+          - 0
+          - 0
           benchmark:
-          - 5
-          - 5
+          - 0
+          - 0
         ids:
         - ids
         - ids
         indicesInputToResult:
           market:
-          - 1
-          - 1
+          - 0
+          - 0
           portfolio:
           - 0
           - 0
           benchmark:
-          - 6
-          - 6
+          - 0
+          - 0
       properties:
         ids:
           description: Security IDs aligned to the calculated output. Often this will
@@ -4550,6 +4883,7 @@ components:
       - ids
       type: object
     RiskExclusionInfo_exclusionInfo:
+      description: Information regarding a security's exclusion
       properties:
         code:
           description: Exclusion reason
@@ -4571,7 +4905,7 @@ components:
       - code
       - details
       type: object
-    SupportedStats_levels:
+    SupportedStatDetails_levels:
       description: Indicates whether each level is supported by the base stat and
         all derived stats
       example:
@@ -4588,26 +4922,48 @@ components:
         SecurityGroup: true
       properties:
         Portfolio:
+          description: True indicates calculation support for this level, otherwise
+            calculation is not supported.
           type: boolean
         Security:
+          description: True indicates calculation support for this level, otherwise
+            calculation is not supported.
           type: boolean
         SecurityGroup:
+          description: True indicates calculation support for this level, otherwise
+            calculation is not supported.
           type: boolean
         SecuritySecurity:
+          description: True indicates calculation support for this level, otherwise
+            calculation is not supported.
           type: boolean
         Factor:
+          description: True indicates calculation support for this level, otherwise
+            calculation is not supported.
           type: boolean
         FactorGroup:
+          description: True indicates calculation support for this level, otherwise
+            calculation is not supported.
           type: boolean
         FactorFactor:
+          description: True indicates calculation support for this level, otherwise
+            calculation is not supported.
           type: boolean
         FactorSecurity:
+          description: True indicates calculation support for this level, otherwise
+            calculation is not supported.
           type: boolean
         FactorGroupSecurity:
+          description: True indicates calculation support for this level, otherwise
+            calculation is not supported.
           type: boolean
         FactorSecurityGroup:
+          description: True indicates calculation support for this level, otherwise
+            calculation is not supported.
           type: boolean
         FactorGroupSecurityGroup:
+          description: True indicates calculation support for this level, otherwise
+            calculation is not supported.
           type: boolean
       required:
       - Factor
@@ -4622,7 +4978,7 @@ components:
       - SecurityGroup
       - SecuritySecurity
       type: object
-    SupportedStats_securityGroupMethod:
+    SupportedStatDetails_securityGroupMethod:
       description: If present, describes the calculations specified in common by all
         of the 'derived' stats across all supported 'levels' containing 'SecurityGroup'
         in the name. If not present, security group calculations are not available
@@ -4687,80 +5043,6 @@ components:
       required:
       - name
       - sqrt
-      type: object
-    SupportedStats_data:
-      example:
-        covarianceTimesTwo: true
-        correlatedSpecificRisk: true
-        requiresCorrelatedSpecificRisk: true
-        securityGroupMethod:
-          name: WeightedAverage
-          weights: BenchmarkWeights
-          weighting: ActualValue
-          sqrt: false
-        requiresCovarianceTimesTwo: true
-        securityLotAllocation: PortfolioWeights
-        derived:
-        - derived
-        - derived
-        levels:
-          FactorSecurityGroup: true
-          FactorSecurity: true
-          FactorGroup: true
-          Portfolio: true
-          Factor: true
-          FactorGroupSecurity: true
-          SecuritySecurity: true
-          FactorGroupSecurityGroup: true
-          FactorFactor: true
-          Security: true
-          SecurityGroup: true
-      properties:
-        correlatedSpecificRisk:
-          type: boolean
-        covarianceTimesTwo:
-          type: boolean
-        requiresCorrelatedSpecificRisk:
-          type: boolean
-        requiresCovarianceTimesTwo:
-          type: boolean
-        derived:
-          description: A list of the base stat and all possible derived stats which
-            are currently supported by the service.
-          items:
-            minLength: 1
-            type: string
-          minItems: 1
-          type: array
-        levels:
-          $ref: '#/components/schemas/SupportedStats_levels'
-        securityGroupMethod:
-          $ref: '#/components/schemas/SupportedStats_securityGroupMethod'
-        securityLotAllocation:
-          description: Indicates the weights according to which securities with multiple
-            lots have their risk statistic values allocated. 'FillAll' indicates the
-            computed statistic value of a particular security is allocated to each
-            of its lots equally. This is common for risk statistics such as marginal
-            statistics or beta. If security group calculations are available, these
-            weights will be used along with 'weighting' method specified in 'securityGroupMethod'.
-            For example, if this is 'ActiveWeights' and 'weighting' is 'AbsoluteValue',
-            a net position value is allocated to multiple lots based off of absolute
-            active weights distribution.
-          enum:
-          - PortfolioWeights
-          - BenchmarkWeights
-          - ActiveWeights
-          - MarketWeights
-          - FillAll
-          minLength: 1
-          type: string
-      required:
-      - correlatedSpecificRisk
-      - covarianceTimesTwo
-      - derived
-      - levels
-      - requiresCorrelatedSpecificRisk
-      - requiresCovarianceTimesTwo
       type: object
   securitySchemes:
     FactSetOAuth2:

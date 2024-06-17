@@ -113,8 +113,8 @@ class IDsAndMarketValues(ModelNormal):
         """IDsAndMarketValues - a model defined in OpenAPI
 
         Args:
-            ids ([str]):
-            market_values ([float]):
+            ids ([str]): Security identifiers
+            market_values ([float]): Security market values
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -200,8 +200,8 @@ class IDsAndMarketValues(ModelNormal):
         """IDsAndMarketValues - a model defined in OpenAPI
 
         Args:
-            ids ([str]):
-            market_values ([float]):
+            ids ([str]): Security identifiers
+            market_values ([float]): Security market values
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

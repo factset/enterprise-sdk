@@ -8,8 +8,8 @@ Labels relevant to calculation-levels with 'Factor' in the name
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ids** | **java.util.List&lt;String&gt;** |  | 
-**names** | **java.util.List&lt;String&gt;** |  | 
+**ids** | **java.util.List&lt;String&gt;** | Risk model factor identifiers | 
+**names** | **java.util.List&lt;String&gt;** | Risk model factor names | 
 
 
 ## Implemented Interfaces

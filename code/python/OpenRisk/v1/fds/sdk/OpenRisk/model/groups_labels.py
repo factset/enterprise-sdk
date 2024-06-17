@@ -59,6 +59,9 @@ class GroupsLabels(ModelNormal):
     }
 
     validations = {
+        ('index',): {
+            'inclusive_minimum': 0,
+        },
         ('name',): {
             'min_length': 1,
         },

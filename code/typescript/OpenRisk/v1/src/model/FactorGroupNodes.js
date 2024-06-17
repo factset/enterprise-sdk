@@ -22,6 +22,7 @@ import RiskModelFactor from './RiskModelFactor';
 class FactorGroupNodes {
     /**
      * Constructs a new <code>FactorGroupNodes</code>.
+     * Either an individual factor or a grouping.
      * @alias module:model/FactorGroupNodes
      * @implements module:model/FactorGroup
      * @implements module:model/RiskModelFactor

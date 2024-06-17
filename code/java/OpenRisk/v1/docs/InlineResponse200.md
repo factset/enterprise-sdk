@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**java.util.List&lt;InlineResponse200Data&gt;**](InlineResponse200Data.md) |  | 
+**data** | [**java.util.List&lt;RiskModelSummary&gt;**](RiskModelSummary.md) | Available risk models | 
 
 
 ## Implemented Interfaces

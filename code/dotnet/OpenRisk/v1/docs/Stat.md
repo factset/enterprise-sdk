@@ -5,7 +5,7 @@ Risk statistic name and calculation level plus optional stat settings
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | 
+**Name** | **string** | Name of the stat | 
 **Level** | **StatCalculationLevel** |  | 
 **Settings** | [**StatCalculationSettings**](StatCalculationSettings.md) |  | [optional] 
 

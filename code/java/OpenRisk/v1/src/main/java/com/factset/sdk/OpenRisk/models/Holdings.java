@@ -31,8 +31,9 @@ import com.factset.sdk.OpenRisk.JSON;
 
 
 /**
- * Holdings
+ * All security holdings which can include a &#39;portfolio&#39;, a &#39;benchmark&#39;, and a total &#39;market&#39; portfolio.
  */
+@ApiModel(description = "All security holdings which can include a 'portfolio', a 'benchmark', and a total 'market' portfolio.")
 @JsonPropertyOrder({
   Holdings.JSON_PROPERTY_PORTFOLIO,
   Holdings.JSON_PROPERTY_BENCHMARK,

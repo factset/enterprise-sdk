@@ -1,5 +1,6 @@
 # FactorGroupNodes
 
+Either an individual factor or a grouping.
 
 ## Properties
 Name | Type | Description | Notes

@@ -40,8 +40,8 @@ namespace FactSet.SDK.OpenRisk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LabelsFactor" /> class.
         /// </summary>
-        /// <param name="ids">ids (required).</param>
-        /// <param name="names">names (required).</param>
+        /// <param name="ids">Risk model factor identifiers (required).</param>
+        /// <param name="names">Risk model factor names (required).</param>
         public LabelsFactor(List<string> ids, List<string> names)
         {
             // to ensure "ids" is required (not null)
@@ -57,14 +57,16 @@ namespace FactSet.SDK.OpenRisk.Model
         }
 
         /// <summary>
-        /// Gets or Sets Ids
+        /// Risk model factor identifiers
         /// </summary>
+        /// <value>Risk model factor identifiers</value>
         [DataMember(Name = "ids", IsRequired = true, EmitDefaultValue = false)]
         public List<string> Ids { get; set; }
 
         /// <summary>
-        /// Gets or Sets Names
+        /// Risk model factor names
         /// </summary>
+        /// <value>Risk model factor names</value>
         [DataMember(Name = "names", IsRequired = true, EmitDefaultValue = false)]
         public List<string> Names { get; set; }
 

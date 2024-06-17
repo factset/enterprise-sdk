@@ -64,6 +64,7 @@ class SecurityGroup {
 }
 
 /**
+ * Optional name of the group
  * @member {String} name
  */
 SecurityGroup.prototype['name'] = undefined;

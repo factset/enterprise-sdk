@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.OpenRisk.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.OpenRisk.Model
 {
     /// <summary>
-    /// RiskExclusionInfoExclusionInfo
+    /// Information regarding a security&#39;s exclusion
     /// </summary>
     [DataContract(Name = "RiskExclusionInfo_exclusionInfo")]
     public partial class RiskExclusionInfoExclusionInfo : IEquatable<RiskExclusionInfoExclusionInfo>, IValidatableObject

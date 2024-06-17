@@ -45,7 +45,7 @@ public class ErrorItem implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  private java.util.UUID id;
 
   public static final String JSON_PROPERTY_CODE = "code";
   private String code;
@@ -61,7 +61,7 @@ public class ErrorItem implements Serializable {
 
   @JsonCreator
   public ErrorItem(
-    @JsonProperty(value=JSON_PROPERTY_ID, required=true) String id, 
+    @JsonProperty(value=JSON_PROPERTY_ID, required=true) java.util.UUID id, 
     @JsonProperty(value=JSON_PROPERTY_CODE, required=true) String code, 
     @JsonProperty(value=JSON_PROPERTY_TITLE, required=true) String title
   ) {
@@ -71,7 +71,7 @@ public class ErrorItem implements Serializable {
     this.title = title;
   }
 
-  public ErrorItem id(String id) {
+  public ErrorItem id(java.util.UUID id) {
     this.id = id;
     return this;
   }
@@ -85,14 +85,14 @@ public class ErrorItem implements Serializable {
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getId() {
+  public java.util.UUID getId() {
     return id;
   }
 
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(String id) {
+  public void setId(java.util.UUID id) {
     this.id = id;
   }
 

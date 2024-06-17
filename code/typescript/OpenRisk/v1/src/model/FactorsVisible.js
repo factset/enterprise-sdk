@@ -23,7 +23,7 @@ class FactorsVisible {
      * Hide risk model factors in the response results; does not affect calculated data values
      * @alias module:model/FactorsVisible
      * @param list {Array.<String>} List of risk model factor IDs
-     * @param type {module:model/FactorsVisible.TypeEnum} 
+     * @param type {module:model/FactorsVisible.TypeEnum} Filter type
      */
     constructor(list, type) { 
         
@@ -71,6 +71,7 @@ class FactorsVisible {
 FactorsVisible.prototype['list'] = undefined;
 
 /**
+ * Filter type
  * @member {module:model/FactorsVisible.TypeEnum} type
  */
 FactorsVisible.prototype['type'] = undefined;

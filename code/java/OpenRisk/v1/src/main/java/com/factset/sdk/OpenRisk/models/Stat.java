@@ -73,11 +73,11 @@ public class Stat implements Serializable {
   }
 
    /**
-   * Get name
+   * Name of the stat
    * @return name
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Name of the stat")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

@@ -15,7 +15,7 @@
 import ApiClient from "../ApiClient";
 import CalculateFromHoldingsRequestBody from '../model/CalculateFromHoldingsRequestBody';
 import ErrorResponse from '../model/ErrorResponse';
-import GenerateIDMappingRequestBody from '../model/GenerateIDMappingRequestBody';
+import GenerateIdMappingRequestBody from '../model/GenerateIdMappingRequestBody';
 import InlineResponse2003 from '../model/InlineResponse2003';
 import InlineResponse2004 from '../model/InlineResponse2004';
 
@@ -99,18 +99,18 @@ export default class OperationsApi {
      * Generate risk model ID mapping
      * Resolve all input holdings IDs against a risk model for coverage and provide a mapping to security indices in the model or the reason for exclusion
      * @param {String} version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
-     * @param {module:model/GenerateIDMappingRequestBody} generateIDMappingRequestBody 
+     * @param {module:model/GenerateIdMappingRequestBody} generateIdMappingRequestBody 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2004} and HTTP response
      */
-    generateIdMappingWithHttpInfo(version, generateIDMappingRequestBody) {
-      let postBody = generateIDMappingRequestBody;
+    generateIdMappingWithHttpInfo(version, generateIdMappingRequestBody) {
+      let postBody = generateIdMappingRequestBody;
       // verify the required parameter 'version' is set
       if (version === undefined || version === null) {
         throw new Error("Missing the required parameter 'version' when calling generateIdMapping");
       }
-      // verify the required parameter 'generateIDMappingRequestBody' is set
-      if (generateIDMappingRequestBody === undefined || generateIDMappingRequestBody === null) {
-        throw new Error("Missing the required parameter 'generateIDMappingRequestBody' when calling generateIdMapping");
+      // verify the required parameter 'generateIdMappingRequestBody' is set
+      if (generateIdMappingRequestBody === undefined || generateIdMappingRequestBody === null) {
+        throw new Error("Missing the required parameter 'generateIdMappingRequestBody' when calling generateIdMapping");
       }
 
       let pathParams = {
@@ -125,7 +125,7 @@ export default class OperationsApi {
 
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
+      let accepts = ['application/json', 'text/plain'];
 
 
       let returnType = InlineResponse2004;
@@ -141,11 +141,11 @@ export default class OperationsApi {
      * Generate risk model ID mapping
      * Resolve all input holdings IDs against a risk model for coverage and provide a mapping to security indices in the model or the reason for exclusion
      * @param {String} version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
-     * @param {module:model/GenerateIDMappingRequestBody} generateIDMappingRequestBody 
+     * @param {module:model/GenerateIdMappingRequestBody} generateIdMappingRequestBody 
      * @return { Promise.< module:model/InlineResponse2004 > } a Promise, with data of type {@link module:model/InlineResponse2004 }
      */
-    generateIdMapping(version, generateIDMappingRequestBody) {
-      return this.generateIdMappingWithHttpInfo(version, generateIDMappingRequestBody)
+    generateIdMapping(version, generateIdMappingRequestBody) {
+      return this.generateIdMappingWithHttpInfo(version, generateIdMappingRequestBody)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

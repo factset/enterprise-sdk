@@ -134,11 +134,11 @@ public class SecurityOnlySuccessResponseMeta implements Serializable {
   }
 
    /**
-   * Get warnings
+   * Warnings encountered while processing the request
    * @return warnings
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Warnings encountered while processing the request")
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

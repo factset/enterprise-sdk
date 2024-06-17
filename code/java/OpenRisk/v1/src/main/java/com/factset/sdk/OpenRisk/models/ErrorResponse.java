@@ -67,11 +67,11 @@ public class ErrorResponse implements Serializable {
   }
 
    /**
-   * Get errors
+   * Errors encountered while processing the request
    * @return errors
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Errors encountered while processing the request")
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

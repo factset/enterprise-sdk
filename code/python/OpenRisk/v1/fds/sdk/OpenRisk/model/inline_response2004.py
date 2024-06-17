@@ -119,7 +119,7 @@ class InlineResponse2004(ModelNormal):
 
         Args:
             meta (SecurityOnlySuccessResponseMeta):
-            data ([RiskMappingEntry]):
+            data ([RiskMappingEntry]): Security risk mappings
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -206,7 +206,7 @@ class InlineResponse2004(ModelNormal):
 
         Args:
             meta (SecurityOnlySuccessResponseMeta):
-            data ([RiskMappingEntry]):
+            data ([RiskMappingEntry]): Security risk mappings
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

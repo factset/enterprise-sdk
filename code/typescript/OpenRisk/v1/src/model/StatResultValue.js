@@ -79,26 +79,31 @@ class StatResultValue {
 }
 
 /**
+ * Number of rows in the matrix
  * @member {Number} rows
  */
 StatResultValue.prototype['rows'] = undefined;
 
 /**
+ * Number of columns in the matrix
  * @member {Number} columns
  */
 StatResultValue.prototype['columns'] = undefined;
 
 /**
+ * Array of 0-based index pointers for the compressed sparse row representation
  * @member {Array.<Number>} indexPointer
  */
 StatResultValue.prototype['indexPointer'] = undefined;
 
 /**
+ * Array of 0-based indices for the compressed sparse row representation
  * @member {Array.<Number>} indices
  */
 StatResultValue.prototype['indices'] = undefined;
 
 /**
+ * Array of floating point values
  * @member {Array.<Number>} value
  */
 StatResultValue.prototype['value'] = undefined;
@@ -106,22 +111,27 @@ StatResultValue.prototype['value'] = undefined;
 
 // Implement StatResultValueSparseMatrix interface:
 /**
+ * Number of rows in the matrix
  * @member {Number} rows
  */
 StatResultValueSparseMatrix.prototype['rows'] = undefined;
 /**
+ * Number of columns in the matrix
  * @member {Number} columns
  */
 StatResultValueSparseMatrix.prototype['columns'] = undefined;
 /**
+ * Array of 0-based index pointers for the compressed sparse row representation
  * @member {Array.<Number>} indexPointer
  */
 StatResultValueSparseMatrix.prototype['indexPointer'] = undefined;
 /**
+ * Array of 0-based indices for the compressed sparse row representation
  * @member {Array.<Number>} indices
  */
 StatResultValueSparseMatrix.prototype['indices'] = undefined;
 /**
+ * Array of floating point values
  * @member {Array.<Number>} value
  */
 StatResultValueSparseMatrix.prototype['value'] = undefined;

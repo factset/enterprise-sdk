@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **list** | **[String]** | List of risk model factor IDs | 
-**type** | **String** |  | 
+**type** | **String** | Filter type | 
 
 
 

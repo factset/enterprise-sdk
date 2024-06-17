@@ -21,6 +21,7 @@ import CalculateFromHoldingsRequestData from './CalculateFromHoldingsRequestData
 class CalculateFromHoldingsRequestBody {
     /**
      * Constructs a new <code>CalculateFromHoldingsRequestBody</code>.
+     * Body for requests to calculate from holdings
      * @alias module:model/CalculateFromHoldingsRequestBody
      * @param data {module:model/CalculateFromHoldingsRequestData} 
      */

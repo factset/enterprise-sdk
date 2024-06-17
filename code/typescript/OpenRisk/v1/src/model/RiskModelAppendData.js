@@ -53,7 +53,7 @@ class RiskModelAppendData {
             obj = obj || new RiskModelAppendData();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [{'String': RiskModelAppendDataValue}]);
+                obj['data'] = ApiClient.convertToType(data['data'], [Object]);
             }
             if (data.hasOwnProperty('fields')) {
                 obj['fields'] = ApiClient.convertToType(data['fields'], ['String']);

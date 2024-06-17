@@ -22,7 +22,7 @@ class InputToResultSecurityIndexMapping {
      * Constructs a new <code>InputToResultSecurityIndexMapping</code>.
      * For each input holding from the request, a list of indices aligned to the input holding&#39;s IDs. These 0-based index values key into the security dimension of the results arrays and the &#x60;labels.security.ids&#x60; array.
      * @alias module:model/InputToResultSecurityIndexMapping
-     * @param portfolio {Array.<Number>} 
+     * @param portfolio {Array.<Number>} Index mapping corresponding to the input 'portfolio' holdings
      */
     constructor(portfolio) { 
         
@@ -66,16 +66,19 @@ class InputToResultSecurityIndexMapping {
 }
 
 /**
+ * Index mapping corresponding to the input 'portfolio' holdings
  * @member {Array.<Number>} portfolio
  */
 InputToResultSecurityIndexMapping.prototype['portfolio'] = undefined;
 
 /**
+ * Index mapping corresponding to the input 'benchmark' holdings
  * @member {Array.<Number>} benchmark
  */
 InputToResultSecurityIndexMapping.prototype['benchmark'] = undefined;
 
 /**
+ * Index mapping corresponding to the input 'market' holdings
  * @member {Array.<Number>} market
  */
 InputToResultSecurityIndexMapping.prototype['market'] = undefined;

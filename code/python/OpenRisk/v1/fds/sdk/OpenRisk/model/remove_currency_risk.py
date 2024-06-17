@@ -31,8 +31,8 @@ from fds.sdk.OpenRisk.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.OpenRisk.model.remove_currency_risk_ids import RemoveCurrencyRiskIDs
-    globals()['RemoveCurrencyRiskIDs'] = RemoveCurrencyRiskIDs
+    from fds.sdk.OpenRisk.model.remove_currency_risk_ids import RemoveCurrencyRiskIds
+    globals()['RemoveCurrencyRiskIds'] = RemoveCurrencyRiskIds
 
 
 class RemoveCurrencyRisk(ModelComposed):
@@ -303,7 +303,7 @@ class RemoveCurrencyRisk(ModelComposed):
           'allOf': [
           ],
           'oneOf': [
-              RemoveCurrencyRiskIDs,
+              RemoveCurrencyRiskIds,
               bool,
           ],
         }

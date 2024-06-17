@@ -2,6 +2,8 @@
 
 # FactorGroupNodes
 
+Either an individual factor or a grouping.
+
 ## oneOf schemas
 * [FactorGroup](FactorGroup.md)
 * [RiskModelFactor](RiskModelFactor.md)

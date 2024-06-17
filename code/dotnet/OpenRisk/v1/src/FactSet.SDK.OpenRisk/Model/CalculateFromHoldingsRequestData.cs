@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.OpenRisk.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.OpenRisk.Model
 {
     /// <summary>
-    /// CalculateFromHoldingsRequestData
+    /// Input data for requests to calculate from holdings
     /// </summary>
     [DataContract(Name = "CalculateFromHoldingsRequestData")]
     public partial class CalculateFromHoldingsRequestData : IEquatable<CalculateFromHoldingsRequestData>, IValidatableObject
@@ -70,7 +70,7 @@ namespace FactSet.SDK.OpenRisk.Model
         /// <param name="riskModelAppendData">riskModelAppendData.</param>
         /// <param name="stats">List of risk stats and settings to calculate (required).</param>
         /// <param name="underlyingIds">A map of security IDs to their underlying IDs. When &#39;assetTypes&#39; input is in a request, underlying IDs provided via this input are only respected for the following standard asset type keys (all other underlying IDs will be discarded): refer to [OA:22019](https://my.apps.factset.com/oa/pages/22019) for compatible asset type keys and more details..</param>
-        public CalculateFromHoldingsRequestData(Date date, Holdings holdings, string riskModel, List<Stat> stats,AdditionalCalculationInputs additionalCalcInputs = default(AdditionalCalculationInputs), bool allowForcedRisklessAssets = false, Dictionary<string, string> assetTypes = default(Dictionary<string, string>), string calendar = default(string), Dictionary<string, IDsAndMarketValues> compositeAssets = default(Dictionary<string, IDsAndMarketValues>), string currency = default(string), FactorGroup factorGrouping = default(FactorGroup), FactorsVisible factorsVisible = default(FactorsVisible), SecurityIndexMapping indexMapping = default(SecurityIndexMapping), LaggingDates laggingDates = default(LaggingDates), RemoveCurrencyRisk removeCurrencyRisk = default(RemoveCurrencyRisk), RequiresFactorReturns requiresFactorReturns = default(RequiresFactorReturns), RiskModelAppendData riskModelAppendData = default(RiskModelAppendData), Dictionary<string, string> underlyingIds = default(Dictionary<string, string>))
+        public CalculateFromHoldingsRequestData(InputDate date, Holdings holdings, string riskModel, List<Stat> stats,AdditionalCalculationInputs additionalCalcInputs = default(AdditionalCalculationInputs), bool allowForcedRisklessAssets = false, Dictionary<string, string> assetTypes = default(Dictionary<string, string>), string calendar = default(string), Dictionary<string, IDsAndMarketValues> compositeAssets = default(Dictionary<string, IDsAndMarketValues>), string currency = default(string), FactorGroup factorGrouping = default(FactorGroup), FactorsVisible factorsVisible = default(FactorsVisible), SecurityIndexMapping indexMapping = default(SecurityIndexMapping), LaggingDates laggingDates = default(LaggingDates), RemoveCurrencyRisk removeCurrencyRisk = default(RemoveCurrencyRisk), RequiresFactorReturns requiresFactorReturns = default(RequiresFactorReturns), RiskModelAppendData riskModelAppendData = default(RiskModelAppendData), Dictionary<string, string> underlyingIds = default(Dictionary<string, string>))
         {
             // to ensure "date" is required (not null)
             if (date == null) {
@@ -153,7 +153,7 @@ namespace FactSet.SDK.OpenRisk.Model
         /// Gets or Sets Date
         /// </summary>
         [DataMember(Name = "date", IsRequired = true, EmitDefaultValue = false)]
-        public Date Date { get; set; }
+        public InputDate Date { get; set; }
 
         /// <summary>
         /// Gets or Sets FactorGrouping
@@ -455,10 +455,16 @@ namespace FactSet.SDK.OpenRisk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Calendar, length must be greater than 1.", new [] { "Calendar" });
             }
 
-            // Currency (string) minLength
-            if (this.Currency != null && this.Currency.Length < 1)
+            // Currency (string) maxLength
+            if (this.Currency != null && this.Currency.Length > 3)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be greater than 1.", new [] { "Currency" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be less than 3.", new [] { "Currency" });
+            }
+
+            // Currency (string) minLength
+            if (this.Currency != null && this.Currency.Length < 3)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be greater than 3.", new [] { "Currency" });
             }
 
             // RiskModel (string) minLength

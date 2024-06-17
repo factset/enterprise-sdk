@@ -17,8 +17,8 @@ import FactorGroup from './FactorGroup';
 import FactorsVisible from './FactorsVisible';
 import Holdings from './Holdings';
 import IDsAndMarketValues from './IDsAndMarketValues';
+import InputDate from './InputDate';
 import LaggingDates from './LaggingDates';
-import ModelDate from './ModelDate';
 import RemoveCurrencyRisk from './RemoveCurrencyRisk';
 import RequiresFactorReturns from './RequiresFactorReturns';
 import RiskModelAppendData from './RiskModelAppendData';
@@ -32,8 +32,9 @@ import Stat from './Stat';
 class CalculateFromHoldingsRequestData {
     /**
      * Constructs a new <code>CalculateFromHoldingsRequestData</code>.
+     * Input data for requests to calculate from holdings
      * @alias module:model/CalculateFromHoldingsRequestData
-     * @param date {module:model/ModelDate} 
+     * @param date {module:model/InputDate} 
      * @param holdings {module:model/Holdings} 
      * @param riskModel {String} Model code
      * @param stats {Array.<module:model/Stat>} List of risk stats and settings to calculate
@@ -85,7 +86,7 @@ class CalculateFromHoldingsRequestData {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
             if (data.hasOwnProperty('date')) {
-                obj['date'] = ModelDate.constructFromObject(data['date']);
+                obj['date'] = InputDate.constructFromObject(data['date']);
             }
             if (data.hasOwnProperty('factorGrouping')) {
                 obj['factorGrouping'] = FactorGroup.constructFromObject(data['factorGrouping']);
@@ -164,7 +165,7 @@ CalculateFromHoldingsRequestData.prototype['compositeAssets'] = undefined;
 CalculateFromHoldingsRequestData.prototype['currency'] = undefined;
 
 /**
- * @member {module:model/ModelDate} date
+ * @member {module:model/InputDate} date
  */
 CalculateFromHoldingsRequestData.prototype['date'] = undefined;
 

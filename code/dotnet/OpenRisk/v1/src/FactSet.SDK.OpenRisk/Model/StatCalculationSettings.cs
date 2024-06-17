@@ -35,18 +35,18 @@ namespace FactSet.SDK.OpenRisk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StatCalculationSettings" /> class.
         /// </summary>
-        /// <param name="useAbsoluteWeightsForLotExpansion">useAbsoluteWeightsForLotExpansion (default to true).</param>
-        /// <param name="covarianceTimesTwo">covarianceTimesTwo (default to false).</param>
-        /// <param name="covarianceTimesTwoTerm">covarianceTimesTwoTerm (default to false).</param>
+        /// <param name="useAbsoluteWeightsForLotExpansion">When this is set to true, use absolute value weights for multi-lot expansion, otherwise use the actual value weights. (default to true).</param>
+        /// <param name="covarianceTimesTwo">When this is set to true, calculate covariance multiplied by two. (default to false).</param>
+        /// <param name="covarianceTimesTwoTerm">When this is set to true, calculate covariance multiplied by two term (Cov*2 term). (default to false).</param>
         /// <param name="correlatedSpecificRisk">When this is set to true, specific risk correlation adjustment will be applied to security level as well as portfolio level. An example case where stock specific correlation is supplied by risk models is the case between parent equity and ADR. (default to false).</param>
         /// <param name="sparse">When this is set to true, the matrix and vector output is in compressed sparse row matrix format. Vector is considered as a matrix with one row for compressed sparse row matrix output. This only applies for matrix and vector output, not for single data points e.g. stats at Portfolio level. (default to false).</param>
-        /// <param name="horizon">horizon.</param>
-        /// <param name="daysPerYear">daysPerYear.</param>
-        /// <param name="confidenceLevel">confidenceLevel.</param>
-        /// <param name="lamda">lamda.</param>
-        /// <param name="specificToFactorRatio">specificToFactorRatio.</param>
-        /// <param name="rapSys">rapSys.</param>
-        /// <param name="rapUnsys">rapUnsys.</param>
+        /// <param name="horizon">Horizon (in days) to use in Value at Risk (VaR) stat calculations..</param>
+        /// <param name="daysPerYear">Number of days per year (e.g. 250 or 365) to use in Value at Risk (VaR) stat calculations..</param>
+        /// <param name="confidenceLevel">Confidence level to use in Value at Risk (VaR) stat calculations..</param>
+        /// <param name="lamda">Lamda value to use in Implied Alpha Lamda stat calculations..</param>
+        /// <param name="specificToFactorRatio">Specific risk to factor risk ratio value to use in Implied Alpha stat calculations..</param>
+        /// <param name="rapSys">Systematic RAP value to use in Implied Alpha RAP stat calculations..</param>
+        /// <param name="rapUnsys">Unsystematic RAP value to use in Implied Alpha RAP stat calculations..</param>
         public StatCalculationSettings(bool useAbsoluteWeightsForLotExpansion = true, bool covarianceTimesTwo = false, bool covarianceTimesTwoTerm = false, bool correlatedSpecificRisk = false, bool sparse = false, decimal horizon = default(decimal), decimal daysPerYear = default(decimal), decimal confidenceLevel = default(decimal), decimal lamda = default(decimal), decimal specificToFactorRatio = default(decimal), decimal rapSys = default(decimal), decimal rapUnsys = default(decimal))
         {
             this.UseAbsoluteWeightsForLotExpansion = useAbsoluteWeightsForLotExpansion;
@@ -64,20 +64,23 @@ namespace FactSet.SDK.OpenRisk.Model
         }
 
         /// <summary>
-        /// Gets or Sets UseAbsoluteWeightsForLotExpansion
+        /// When this is set to true, use absolute value weights for multi-lot expansion, otherwise use the actual value weights.
         /// </summary>
+        /// <value>When this is set to true, use absolute value weights for multi-lot expansion, otherwise use the actual value weights.</value>
         [DataMember(Name = "useAbsoluteWeightsForLotExpansion", EmitDefaultValue = true)]
         public bool UseAbsoluteWeightsForLotExpansion { get; set; }
 
         /// <summary>
-        /// Gets or Sets CovarianceTimesTwo
+        /// When this is set to true, calculate covariance multiplied by two.
         /// </summary>
+        /// <value>When this is set to true, calculate covariance multiplied by two.</value>
         [DataMember(Name = "covarianceTimesTwo", EmitDefaultValue = true)]
         public bool CovarianceTimesTwo { get; set; }
 
         /// <summary>
-        /// Gets or Sets CovarianceTimesTwoTerm
+        /// When this is set to true, calculate covariance multiplied by two term (Cov*2 term).
         /// </summary>
+        /// <value>When this is set to true, calculate covariance multiplied by two term (Cov*2 term).</value>
         [DataMember(Name = "covarianceTimesTwoTerm", EmitDefaultValue = true)]
         public bool CovarianceTimesTwoTerm { get; set; }
 
@@ -96,44 +99,51 @@ namespace FactSet.SDK.OpenRisk.Model
         public bool Sparse { get; set; }
 
         /// <summary>
-        /// Gets or Sets Horizon
+        /// Horizon (in days) to use in Value at Risk (VaR) stat calculations.
         /// </summary>
+        /// <value>Horizon (in days) to use in Value at Risk (VaR) stat calculations.</value>
         [DataMember(Name = "horizon", EmitDefaultValue = false)]
         public decimal Horizon { get; set; }
 
         /// <summary>
-        /// Gets or Sets DaysPerYear
+        /// Number of days per year (e.g. 250 or 365) to use in Value at Risk (VaR) stat calculations.
         /// </summary>
+        /// <value>Number of days per year (e.g. 250 or 365) to use in Value at Risk (VaR) stat calculations.</value>
         [DataMember(Name = "daysPerYear", EmitDefaultValue = false)]
         public decimal DaysPerYear { get; set; }
 
         /// <summary>
-        /// Gets or Sets ConfidenceLevel
+        /// Confidence level to use in Value at Risk (VaR) stat calculations.
         /// </summary>
+        /// <value>Confidence level to use in Value at Risk (VaR) stat calculations.</value>
         [DataMember(Name = "confidenceLevel", EmitDefaultValue = false)]
         public decimal ConfidenceLevel { get; set; }
 
         /// <summary>
-        /// Gets or Sets Lamda
+        /// Lamda value to use in Implied Alpha Lamda stat calculations.
         /// </summary>
+        /// <value>Lamda value to use in Implied Alpha Lamda stat calculations.</value>
         [DataMember(Name = "lamda", EmitDefaultValue = false)]
         public decimal Lamda { get; set; }
 
         /// <summary>
-        /// Gets or Sets SpecificToFactorRatio
+        /// Specific risk to factor risk ratio value to use in Implied Alpha stat calculations.
         /// </summary>
+        /// <value>Specific risk to factor risk ratio value to use in Implied Alpha stat calculations.</value>
         [DataMember(Name = "specificToFactorRatio", EmitDefaultValue = false)]
         public decimal SpecificToFactorRatio { get; set; }
 
         /// <summary>
-        /// Gets or Sets RapSys
+        /// Systematic RAP value to use in Implied Alpha RAP stat calculations.
         /// </summary>
+        /// <value>Systematic RAP value to use in Implied Alpha RAP stat calculations.</value>
         [DataMember(Name = "rapSys", EmitDefaultValue = false)]
         public decimal RapSys { get; set; }
 
         /// <summary>
-        /// Gets or Sets RapUnsys
+        /// Unsystematic RAP value to use in Implied Alpha RAP stat calculations.
         /// </summary>
+        /// <value>Unsystematic RAP value to use in Implied Alpha RAP stat calculations.</value>
         [DataMember(Name = "rapUnsys", EmitDefaultValue = false)]
         public decimal RapUnsys { get; set; }
 
@@ -274,6 +284,18 @@ namespace FactSet.SDK.OpenRisk.Model
         /// <returns>Validation Result</returns>
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
+            // ConfidenceLevel (decimal) maximum
+            if (this.ConfidenceLevel > (decimal)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ConfidenceLevel, must be a value less than or equal to 1.", new [] { "ConfidenceLevel" });
+            }
+
+            // ConfidenceLevel (decimal) minimum
+            if (this.ConfidenceLevel < (decimal)0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ConfidenceLevel, must be a value greater than or equal to 0.", new [] { "ConfidenceLevel" });
+            }
+
             yield break;
         }
     }

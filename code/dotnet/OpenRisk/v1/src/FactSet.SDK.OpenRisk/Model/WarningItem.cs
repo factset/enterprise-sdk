@@ -44,12 +44,8 @@ namespace FactSet.SDK.OpenRisk.Model
         /// <param name="code">Warning code for the non-failure problem type (required).</param>
         /// <param name="title">Human-readable summary of the non-failure problem tied to the warning code and not specific to the particular occurrence of the problem (required).</param>
         /// <param name="detail">Human-readable explanation of the non-failure problem specific to the particular occurrence.</param>
-        public WarningItem(string id, string code, string title,string detail = default(string))
+        public WarningItem(Guid id, string code, string title,string detail = default(string))
         {
-            // to ensure "id" is required (not null)
-            if (id == null) {
-                throw new ArgumentNullException("id is a required property for WarningItem and cannot be null");
-            }
             this.Id = id;
             // to ensure "code" is required (not null)
             if (code == null) {
@@ -69,7 +65,7 @@ namespace FactSet.SDK.OpenRisk.Model
         /// </summary>
         /// <value>UUID for the particular occurrence of the non-failure problem</value>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = false)]
-        public string Id { get; set; }
+        public Guid Id { get; set; }
 
         /// <summary>
         /// Warning code for the non-failure problem type
@@ -197,12 +193,6 @@ namespace FactSet.SDK.OpenRisk.Model
         /// <returns>Validation Result</returns>
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
-            // Id (string) minLength
-            if (this.Id != null && this.Id.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be greater than 1.", new [] { "Id" });
-            }
-
             // Code (string) minLength
             if (this.Code != null && this.Code.Length < 1)
             {

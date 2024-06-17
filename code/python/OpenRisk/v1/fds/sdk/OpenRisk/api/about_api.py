@@ -54,7 +54,7 @@ class AboutApi(object):
         self.health_status_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse2002,), 401: (str,), 403: (InlineResponse403,), 404: (InlineResponse404,),  },
+                  { 200: (InlineResponse2002,), 401: (str,), 403: (InlineResponse403,), 404: (InlineResponse404,), 500: (InlineResponse403,),  },
                   None
                 ),
                 'auth': [
@@ -255,7 +255,7 @@ class AboutApi(object):
         self.stats_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (SupportedStats,), 401: (str,), 404: (ErrorResponse,),  },
+                  { 200: (SupportedStats,), 401: (str,), 404: (ErrorResponse,), 500: (ErrorResponse,),  },
                   None
                 ),
                 'auth': [
@@ -320,7 +320,7 @@ class AboutApi(object):
         self.stats_names_only_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (SupportedStatsNamesOnly,), 401: (str,), 404: (ErrorResponse,),  },
+                  { 200: (SupportedStatsNamesOnly,), 401: (str,), 404: (ErrorResponse,), 500: (ErrorResponse,),  },
                   None
                 ),
                 'auth': [
@@ -786,7 +786,7 @@ class AboutApi(object):
     ) -> InlineResponse2001:
         """Get risk model details  # noqa: E501
 
-        Get the meta data of the risk model for the corresponding modelCode. modelCode can be obtained via '/linear/{version}/riskmodels/' route.  # noqa: E501
+        Get the metadata of the risk model for the corresponding modelCode. modelCode can be obtained via '/linear/{version}/riskmodels/' route.  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
@@ -837,7 +837,7 @@ class AboutApi(object):
     ) -> typing.Tuple[InlineResponse2001, int, typing.MutableMapping]:
         """Get risk model details  # noqa: E501
 
-        Get the meta data of the risk model for the corresponding modelCode. modelCode can be obtained via '/linear/{version}/riskmodels/' route.  # noqa: E501
+        Get the metadata of the risk model for the corresponding modelCode. modelCode can be obtained via '/linear/{version}/riskmodels/' route.  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
@@ -892,7 +892,7 @@ class AboutApi(object):
     ) -> "ApplyResult[InlineResponse2001]":
         """Get risk model details  # noqa: E501
 
-        Get the meta data of the risk model for the corresponding modelCode. modelCode can be obtained via '/linear/{version}/riskmodels/' route.  # noqa: E501
+        Get the metadata of the risk model for the corresponding modelCode. modelCode can be obtained via '/linear/{version}/riskmodels/' route.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
@@ -942,7 +942,7 @@ class AboutApi(object):
     ) -> "ApplyResult[typing.Tuple[InlineResponse2001, int, typing.MutableMapping]]":
         """Get risk model details  # noqa: E501
 
-        Get the meta data of the risk model for the corresponding modelCode. modelCode can be obtained via '/linear/{version}/riskmodels/' route.  # noqa: E501
+        Get the metadata of the risk model for the corresponding modelCode. modelCode can be obtained via '/linear/{version}/riskmodels/' route.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:

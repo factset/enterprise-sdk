@@ -124,11 +124,11 @@ public class Holding implements Serializable {
   }
 
    /**
-   * Get ids
+   * Security identifiers
    * @return ids
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Security identifiers")
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -155,11 +155,11 @@ public class Holding implements Serializable {
   }
 
    /**
-   * Get marketValues
+   * Security market values
    * @return marketValues
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Security market values")
   @JsonProperty(JSON_PROPERTY_MARKET_VALUES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

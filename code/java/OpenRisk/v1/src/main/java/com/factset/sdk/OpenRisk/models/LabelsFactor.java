@@ -72,11 +72,11 @@ public class LabelsFactor implements Serializable {
   }
 
    /**
-   * Get ids
+   * Risk model factor identifiers
    * @return ids
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Risk model factor identifiers")
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -103,11 +103,11 @@ public class LabelsFactor implements Serializable {
   }
 
    /**
-   * Get names
+   * Risk model factor names
    * @return names
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Risk model factor names")
   @JsonProperty(JSON_PROPERTY_NAMES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

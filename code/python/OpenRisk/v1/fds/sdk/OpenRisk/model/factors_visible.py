@@ -118,7 +118,7 @@ class FactorsVisible(ModelNormal):
 
         Args:
             list ([str]): List of risk model factor IDs
-            type (str):
+            type (str): Filter type
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -205,7 +205,7 @@ class FactorsVisible(ModelNormal):
 
         Args:
             list ([str]): List of risk model factor IDs
-            type (str):
+            type (str): Filter type
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

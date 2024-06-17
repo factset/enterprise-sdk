@@ -16,10 +16,12 @@
   },
   "tags": [
     {
-      "name": "About"
+      "name": "About",
+      "description": "Informational resources for using the API"
     },
     {
-      "name": "Operations"
+      "name": "Operations",
+      "description": "Primary API interactions"
     }
   ],
   "servers": [
@@ -63,7 +65,7 @@
     "/linear/{version}/riskmodels/{modelCode}": {
       "get": {
         "summary": "Get risk model details",
-        "description": "Get the meta data of the risk model for the corresponding modelCode. modelCode can be obtained via '/linear/{version}/riskmodels/' route.",
+        "description": "Get the metadata of the risk model for the corresponding modelCode. modelCode can be obtained via '/linear/{version}/riskmodels/' route.",
         "operationId": "riskModelMetadata",
         "tags": [
           "About"
@@ -120,6 +122,9 @@
           },
           "429": {
             "$ref": "#/components/responses/RateLimitReached"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerErrorJsonOnly"
           }
         }
       }
@@ -149,6 +154,9 @@
           },
           "429": {
             "$ref": "#/components/responses/RateLimitReached"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerErrorJsonOnly"
           }
         }
       }
@@ -174,13 +182,16 @@
             "$ref": "#/components/responses/MissingOrInvalidAuthentication"
           },
           "403": {
-            "$ref": "#/components/responses/HealthFailAuthorization"
+            "$ref": "#/components/responses/HealthFail"
           },
           "404": {
             "$ref": "#/components/responses/HealthFailVersionNotFound"
           },
           "429": {
             "$ref": "#/components/responses/RateLimitReached"
+          },
+          "500": {
+            "$ref": "#/components/responses/HealthFail"
           }
         }
       }
@@ -504,7 +515,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/GenerateIDMappingRequestBody"
+                "$ref": "#/components/schemas/GenerateIdMappingRequestBody"
               },
               "example": {
                 "data": {
@@ -637,6 +648,9 @@
           "400": {
             "$ref": "#/components/responses/BadRequestOrDataUnavailable"
           },
+          "401": {
+            "$ref": "#/components/responses/MissingOrInvalidAuthentication"
+          },
           "403": {
             "$ref": "#/components/responses/AccessForbidden"
           },
@@ -678,14 +692,17 @@
         "type": "object",
         "properties": {
           "useAbsoluteWeightsForLotExpansion": {
+            "description": "When this is set to true, use absolute value weights for multi-lot expansion, otherwise use the actual value weights.",
             "type": "boolean",
             "default": true
           },
           "covarianceTimesTwo": {
+            "description": "When this is set to true, calculate covariance multiplied by two.",
             "type": "boolean",
             "default": false
           },
           "covarianceTimesTwoTerm": {
+            "description": "When this is set to true, calculate covariance multiplied by two term (Cov*2 term).",
             "type": "boolean",
             "default": false
           },
@@ -700,24 +717,35 @@
             "default": false
           },
           "horizon": {
+            "description": "Horizon (in days) to use in Value at Risk (VaR) stat calculations.",
             "type": "number"
           },
           "daysPerYear": {
+            "description": "Number of days per year (e.g. 250 or 365) to use in Value at Risk (VaR) stat calculations.",
             "type": "number"
           },
           "confidenceLevel": {
-            "type": "number"
+            "description": "Confidence level to use in Value at Risk (VaR) stat calculations.",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "lamda": {
+            "description": "Lamda value to use in Implied Alpha Lamda stat calculations.",
             "type": "number"
           },
           "specificToFactorRatio": {
+            "description": "Specific risk to factor risk ratio value to use in Implied Alpha stat calculations.",
             "type": "number"
           },
           "rapSys": {
+            "description": "Systematic RAP value to use in Implied Alpha RAP stat calculations.",
             "type": "number"
           },
           "rapUnsys": {
+            "description": "Unsystematic RAP value to use in Implied Alpha RAP stat calculations.",
             "type": "number"
           }
         }
@@ -731,6 +759,7 @@
         ],
         "properties": {
           "name": {
+            "description": "Name of the stat",
             "type": "string",
             "minLength": 1
           },
@@ -760,6 +789,7 @@
         ],
         "properties": {
           "ids": {
+            "description": "Security identifiers",
             "type": "array",
             "minItems": 0,
             "items": {
@@ -768,6 +798,7 @@
             }
           },
           "marketValues": {
+            "description": "Security market values",
             "type": "array",
             "minItems": 0,
             "items": {
@@ -782,6 +813,7 @@
         "type": "object",
         "properties": {
           "name": {
+            "description": "Optional name of the group",
             "type": "string",
             "minLength": 1
           },
@@ -790,7 +822,9 @@
             "type": "array",
             "minItems": 1,
             "items": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int32",
+              "minimum": 0
             }
           },
           "groups": {
@@ -832,6 +866,7 @@
         ]
       },
       "Holdings": {
+        "description": "All security holdings which can include a 'portfolio', a 'benchmark', and a total 'market' portfolio.",
         "type": "object",
         "required": [
           "portfolio"
@@ -863,6 +898,7 @@
         }
       },
       "FactorGroupNodes": {
+        "description": "Either an individual factor or a grouping.",
         "oneOf": [
           {
             "$ref": "#/components/schemas/FactorGroup"
@@ -912,7 +948,7 @@
         "format": "date",
         "example": "2019-01-26"
       },
-      "Date": {
+      "InputDate": {
         "description": "Date of risk model and holdings data to fetch and use. For the use of Relative Date argument, refer to [OA:1964](https://my.apps.factset.com/oa/pages/1964#rel). Ignored only for composite asset definitions provided as inputs via 'compositeAssets' field.",
         "oneOf": [
           {
@@ -935,10 +971,11 @@
           "minLength": 1
         }
       },
-      "CurrencyISOCode": {
+      "CurrencyIsoCode": {
         "description": "ISO-4217 currency code for risk model and holdings data to fetch and use. Ignored only for composite asset definitions provided as inputs via 'compositeAssets' field.",
         "type": "string",
-        "minLength": 1,
+        "minLength": 3,
+        "maxLength": 3,
         "example": "EUR"
       },
       "CalendarCode": {
@@ -1046,6 +1083,7 @@
             }
           },
           "type": {
+            "description": "Filter type",
             "type": "string",
             "minLength": 1,
             "enum": [
@@ -1055,7 +1093,7 @@
           }
         }
       },
-      "UnderlyingIDs": {
+      "UnderlyingIds": {
         "description": "A map of security IDs to their underlying IDs. When 'assetTypes' input is in a request, underlying IDs provided via this input are only respected for the following standard asset type keys (all other underlying IDs will be discarded): refer to [OA:22019](https://my.apps.factset.com/oa/pages/22019) for compatible asset type keys and more details.",
         "type": "object",
         "additionalProperties": {
@@ -1072,7 +1110,7 @@
         "type": "boolean",
         "default": true
       },
-      "RemoveCurrencyRiskIDs": {
+      "RemoveCurrencyRiskIds": {
         "description": "Security IDs from which the contribution of currency to risk should be removed or not. Typical use includes asset types such as Contract for Difference (CFD), equity futures, and index futures. This will override the automatic currency removal based on assetTypes when provided. If this input type is provided, all assets that do not have explicit specification will have currency risk, because the default value is false. ",
         "type": "object",
         "additionalProperties": {
@@ -1090,7 +1128,7 @@
             "$ref": "#/components/schemas/RemoveCurrencyRiskBoolean"
           },
           {
-            "$ref": "#/components/schemas/RemoveCurrencyRiskIDs"
+            "$ref": "#/components/schemas/RemoveCurrencyRiskIds"
           }
         ]
       },
@@ -1106,6 +1144,17 @@
           }
         ]
       },
+      "RiskModelAppendDataRow": {
+        "description": "Contains field, value pairs. The field must be the integer index position of the field in 'fields', but must be as a string. The value will be the data for that field. Values for a single field must have the same data type.",
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/RiskModelAppendDataValue"
+        },
+        "example": {
+          "1": "SYMBOL_2",
+          "2": 7.2
+        }
+      },
       "RiskModelAppendData": {
         "description": "**(since 1.17.0)** Inline append data. This field can be used mainly for two purpose: 1) to supplement the risk model coverage when assets are not natively covered by a model, and 2) to intentionally override asset exposures and/or specific risk whenever there is misaligned view of an asset's risk profile between a model and a user.",
         "type": "object",
@@ -1119,15 +1168,7 @@
             "type": "array",
             "minItems": 1,
             "items": {
-              "description": "Contains field, value pairs. The field must be the integer index position of the field in 'fields', but must be as a string. The value will be the data for that field. Values for a single field must have the same data type.",
-              "type": "object",
-              "additionalProperties": {
-                "$ref": "#/components/schemas/RiskModelAppendDataValue"
-              },
-              "example": {
-                "1": "SYMBOL_2",
-                "2": 7.2
-              }
+              "$ref": "#/components/schemas/RiskModelAppendDataRow"
             },
             "example": [
               {
@@ -1192,6 +1233,7 @@
               "riskPremiumPeriodsPerYear": {
                 "description": "Deannualization factor on the Market Risk Premium which can be any user-defined positive integer number. This number will be used to deannualize Market Risk Premium so that the expected market return horizon will match that of the factor returns. For example, if a risk model has daily factor returns, select desired integer such as 365 or 252.",
                 "type": "integer",
+                "format": "int32",
                 "minimum": 1,
                 "maximum": 365
               }
@@ -1200,6 +1242,7 @@
           "calculationPeriodsPerYear": {
             "description": "Deannualization factor for certain RBPA risk statistics which should match that of desired calculation frequency. Examples: If the risk model is monthly or monthly factor returns are being used, this should be 12. If the risk model is daily, select desired integer such as 365 or 252.",
             "type": "integer",
+            "format": "int32",
             "minimum": 1,
             "maximum": 365
           }
@@ -1222,24 +1265,33 @@
         ],
         "properties": {
           "portfolio": {
+            "description": "Index mapping corresponding to the input 'portfolio' holdings",
             "type": "array",
             "minItems": 1,
             "items": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int32",
+              "minimum": 0
             }
           },
           "benchmark": {
+            "description": "Index mapping corresponding to the input 'benchmark' holdings",
             "type": "array",
             "minItems": 1,
             "items": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int32",
+              "minimum": 0
             }
           },
           "market": {
+            "description": "Index mapping corresponding to the input 'market' holdings",
             "type": "array",
             "minItems": 1,
             "items": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int32",
+              "minimum": 0
             }
           }
         }
@@ -1252,24 +1304,33 @@
         ],
         "properties": {
           "portfolio": {
+            "description": "Index mapping corresponding to the input 'portfolio' holdings",
             "type": "array",
             "minItems": 1,
             "items": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int32",
+              "minimum": -1
             }
           },
           "benchmark": {
+            "description": "Index mapping corresponding to the input 'benchmark' holdings",
             "type": "array",
             "minItems": 1,
             "items": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int32",
+              "minimum": -1
             }
           },
           "market": {
+            "description": "Index mapping corresponding to the input 'market' holdings",
             "type": "array",
             "minItems": 1,
             "items": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int32",
+              "minimum": -1
             }
           }
         }
@@ -1280,7 +1341,9 @@
         "properties": {
           "index": {
             "description": "0-based index into the results array dimension for the corresponding calculation-levels",
-            "type": "integer"
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0
           },
           "name": {
             "description": "Name that was provided for this group",
@@ -1335,6 +1398,7 @@
             ],
             "properties": {
               "ids": {
+                "description": "Risk model factor identifiers",
                 "type": "array",
                 "minItems": 1,
                 "items": {
@@ -1343,6 +1407,7 @@
                 }
               },
               "names": {
+                "description": "Risk model factor names",
                 "type": "array",
                 "minItems": 1,
                 "items": {
@@ -1394,11 +1459,13 @@
         }
       },
       "StatResultValueScalar": {
+        "description": "Scalar floating point value",
         "type": "number",
         "format": "double",
         "nullable": true
       },
       "StatResultValueVector": {
+        "description": "Array of floating point values",
         "type": "array",
         "minItems": 1,
         "items": {
@@ -1408,6 +1475,7 @@
         }
       },
       "StatResultValueDenseMatrix": {
+        "description": "Array of arrays of floating point values",
         "type": "array",
         "minItems": 1,
         "items": {
@@ -1415,20 +1483,23 @@
         }
       },
       "StatResultValueSparseMatrix": {
-        "description": "This output representation is for compressed sparse row matrix.",
+        "description": "Output representation for compressed sparse row matrix.",
         "type": "object",
         "properties": {
           "rows": {
+            "description": "Number of rows in the matrix",
             "type": "integer",
             "format": "int32",
             "minimum": 1
           },
           "columns": {
+            "description": "Number of columns in the matrix",
             "type": "integer",
             "format": "int32",
             "minimum": 1
           },
           "indexPointer": {
+            "description": "Array of 0-based index pointers for the compressed sparse row representation",
             "type": "array",
             "minItems": 2,
             "items": {
@@ -1438,6 +1509,7 @@
             }
           },
           "indices": {
+            "description": "Array of 0-based indices for the compressed sparse row representation",
             "type": "array",
             "minItems": 1,
             "items": {
@@ -1468,35 +1540,40 @@
           }
         ]
       },
+      "StatResult": {
+        "description": "Risk statistic calculation result",
+        "type": "object",
+        "required": [
+          "stat",
+          "level"
+        ],
+        "properties": {
+          "stat": {
+            "description": "Name of the stat",
+            "type": "string",
+            "minLength": 1
+          },
+          "level": {
+            "$ref": "#/components/schemas/StatCalculationLevel"
+          },
+          "settings": {
+            "$ref": "#/components/schemas/StatCalculationSettings"
+          },
+          "value": {
+            "$ref": "#/components/schemas/StatResultValue"
+          },
+          "error": {
+            "$ref": "#/components/schemas/ErrorItem"
+          }
+        }
+      },
       "StatsResults": {
         "description": "Calculation results aligned to the input list of requested risk statistics",
         "type": "array",
         "minItems": 1,
         "maxItems": 1000,
         "items": {
-          "type": "object",
-          "required": [
-            "stat",
-            "level"
-          ],
-          "properties": {
-            "stat": {
-              "type": "string",
-              "minLength": 1
-            },
-            "level": {
-              "$ref": "#/components/schemas/StatCalculationLevel"
-            },
-            "settings": {
-              "$ref": "#/components/schemas/StatCalculationSettings"
-            },
-            "value": {
-              "$ref": "#/components/schemas/StatResultValue"
-            },
-            "error": {
-              "$ref": "#/components/schemas/ErrorItem"
-            }
-          }
+          "$ref": "#/components/schemas/StatResult"
         }
       },
       "ResolvedDates": {
@@ -1631,6 +1708,7 @@
             "example": false
           },
           "exclusionInfo": {
+            "description": "Information regarding a security's exclusion",
             "type": "object",
             "required": [
               "code",
@@ -1692,7 +1770,7 @@
           "id": {
             "description": "UUID for the particular occurrence of the problem",
             "type": "string",
-            "minLength": 1
+            "format": "uuid"
           },
           "code": {
             "description": "Error code for the problem type.",
@@ -1719,6 +1797,7 @@
         ],
         "properties": {
           "errors": {
+            "description": "Errors encountered while processing the request",
             "type": "array",
             "minItems": 1,
             "items": {
@@ -1764,176 +1843,287 @@
           }
         }
       },
+      "RiskModelSummary": {
+        "description": "Summary element in the list of available risk models",
+        "type": "object",
+        "required": [
+          "available",
+          "category",
+          "code",
+          "name",
+          "vendor"
+        ],
+        "properties": {
+          "available": {
+            "type": "boolean",
+            "description": "Indicates the model is available for use, if true"
+          },
+          "category": {
+            "description": "Model category",
+            "type": "string",
+            "minLength": 1
+          },
+          "code": {
+            "$ref": "#/components/schemas/RiskModelCode"
+          },
+          "name": {
+            "description": "Model name",
+            "type": "string",
+            "minLength": 1
+          },
+          "vendor": {
+            "description": "Model vendor",
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "RiskModelFactorDetails": {
+        "description": "Details about a factor in a risk model",
+        "type": "object",
+        "required": [
+          "definedAs",
+          "id",
+          "name"
+        ],
+        "properties": {
+          "definedAs": {
+            "description": "Defintion of factor returns. `PercentChg` - Factor returns defined as percent change, which should be geometrically linked to calculate cumulative factor returns. `1stDiff` - Factor returns defined as level change. Cumulative returns should be defined as the sum of returns.",
+            "type": "string",
+            "minLength": 1,
+            "enum": [
+              "PercentChg",
+              "1stDiff"
+            ]
+          },
+          "id": {
+            "description": "Factor id",
+            "type": "string",
+            "minLength": 1
+          },
+          "name": {
+            "description": "Factor name",
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "RiskModelAppendFieldType": {
+        "description": "Risk model append field column ID and data type",
+        "type": "object",
+        "required": [
+          "id",
+          "type"
+        ],
+        "properties": {
+          "id": {
+            "description": "Field ID",
+            "type": "string",
+            "minLength": 1
+          },
+          "type": {
+            "description": "The type of data which must be provided",
+            "type": "string",
+            "minLength": 1,
+            "enum": [
+              "String",
+              "Double",
+              "Integer"
+            ]
+          }
+        }
+      },
+      "SupportedStatDetails": {
+        "description": "Details on support and/or requirement for certain name-settings statistics options (such as: correlated specific risk, covariance isolation method, etc.), derived stats, available levels, security group calculation methodology, and multi-lot security allocation. When 'securityGroupMethod' is 'statSpecific', please refer to the risk statistics documentation service or inquire for more information.",
+        "type": "object",
+        "required": [
+          "correlatedSpecificRisk",
+          "covarianceTimesTwo",
+          "requiresCorrelatedSpecificRisk",
+          "requiresCovarianceTimesTwo",
+          "derived",
+          "levels"
+        ],
+        "properties": {
+          "correlatedSpecificRisk": {
+            "description": "Indicates support for correlated specific risk (CSR) calculation setting if true, and false if the setting is prohibited.",
+            "type": "boolean"
+          },
+          "covarianceTimesTwo": {
+            "description": "Indicates support for covariance times two (Cov*2) calculation setting if true, and false if the setting is prohibited.",
+            "type": "boolean"
+          },
+          "requiresCorrelatedSpecificRisk": {
+            "description": "Indicates correlated specific risk (CSR) calculation setting is mandatory for the stat, if true.",
+            "type": "boolean"
+          },
+          "requiresCovarianceTimesTwo": {
+            "description": "Indicates covariance times two (Cov*2) calculation setting is mandatory for the stat, if true.",
+            "type": "boolean"
+          },
+          "derived": {
+            "description": "A list of the base stat and all possible derived stats which are currently supported by the service.",
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "levels": {
+            "description": "Indicates whether each level is supported by the base stat and all derived stats",
+            "type": "object",
+            "required": [
+              "Portfolio",
+              "Security",
+              "SecurityGroup",
+              "SecuritySecurity",
+              "Factor",
+              "FactorGroup",
+              "FactorFactor",
+              "FactorSecurity",
+              "FactorGroupSecurity",
+              "FactorSecurityGroup",
+              "FactorGroupSecurityGroup"
+            ],
+            "properties": {
+              "Portfolio": {
+                "description": "True indicates calculation support for this level, otherwise calculation is not supported.",
+                "type": "boolean"
+              },
+              "Security": {
+                "description": "True indicates calculation support for this level, otherwise calculation is not supported.",
+                "type": "boolean"
+              },
+              "SecurityGroup": {
+                "description": "True indicates calculation support for this level, otherwise calculation is not supported.",
+                "type": "boolean"
+              },
+              "SecuritySecurity": {
+                "description": "True indicates calculation support for this level, otherwise calculation is not supported.",
+                "type": "boolean"
+              },
+              "Factor": {
+                "description": "True indicates calculation support for this level, otherwise calculation is not supported.",
+                "type": "boolean"
+              },
+              "FactorGroup": {
+                "description": "True indicates calculation support for this level, otherwise calculation is not supported.",
+                "type": "boolean"
+              },
+              "FactorFactor": {
+                "description": "True indicates calculation support for this level, otherwise calculation is not supported.",
+                "type": "boolean"
+              },
+              "FactorSecurity": {
+                "description": "True indicates calculation support for this level, otherwise calculation is not supported.",
+                "type": "boolean"
+              },
+              "FactorGroupSecurity": {
+                "description": "True indicates calculation support for this level, otherwise calculation is not supported.",
+                "type": "boolean"
+              },
+              "FactorSecurityGroup": {
+                "description": "True indicates calculation support for this level, otherwise calculation is not supported.",
+                "type": "boolean"
+              },
+              "FactorGroupSecurityGroup": {
+                "description": "True indicates calculation support for this level, otherwise calculation is not supported.",
+                "type": "boolean"
+              }
+            }
+          },
+          "securityGroupMethod": {
+            "description": "If present, describes the calculations specified in common by all of the 'derived' stats across all supported 'levels' containing 'SecurityGroup' in the name. If not present, security group calculations are not available for these stats.",
+            "type": "object",
+            "required": [
+              "name",
+              "sqrt"
+            ],
+            "properties": {
+              "name": {
+                "description": "Indicates the algorithm used to compute each security group's value from the  risk statistic values of its member securities. 'Sum' takes the sum of all members' values. The weighted average methods indicate 'weights' and 'weighting'. 'WeightedAverage' weights each group's members' statistic values and takes their average. 'WeightedNormalizedAverage' normalizes the corresponding weights belonging within each group, weights each group's members' statistic values, then takes the average. 'WeightedNormalizedAverageFill' normalizes the corresponding weights belonging within each group or applies equal weighting for groups with zero net weight, weights each group's members' statistic values, then takes the average. 'StatSpecific' indicates unique calculations for the supported security group levels (inquire for more information).",
+                "type": "string",
+                "minLength": 1,
+                "enum": [
+                  "StatSpecific",
+                  "Sum",
+                  "WeightedAverage",
+                  "WeightedNormalizedAverage",
+                  "WeightedNormalizedAverageFill"
+                ]
+              },
+              "weights": {
+                "description": "Indicates the weights stat used to weight the security groups, applicable to weighted average group methods only.",
+                "type": "string",
+                "minLength": 1,
+                "enum": [
+                  "PortfolioWeights",
+                  "BenchmarkWeights",
+                  "ActiveWeights",
+                  "MarketWeights"
+                ]
+              },
+              "weighting": {
+                "description": "Indicates the weighting method used when allocating a net-weight position of risk statistics to multiple lots. This is relevant when a portfolio contains multiple lots with different signs such as long/short. For example, the case where a net-weight position is a positive risk contributor and a portfolio contains long and short positions. If this is 'AbsoluteValue', both long/short positions will have positive risk contribution, while 'ActualValue' assigns positive risk contribution to a long position and negative risk contribution to a short position. Applicable to weighted average group methods only.",
+                "type": "string",
+                "minLength": 1,
+                "enum": [
+                  "AbsoluteValue",
+                  "ActualValue"
+                ]
+              },
+              "sqrt": {
+                "description": "Indicates whether the square root of each security group's value is taken (or not) as the final step of the calculation after the indicated algorithm to produce the result.",
+                "type": "boolean"
+              }
+            },
+            "example": {
+              "name": "WeightedAverage",
+              "weights": "BenchmarkWeights",
+              "weighting": "ActualValue",
+              "sqrt": false
+            }
+          },
+          "securityLotAllocation": {
+            "description": "Indicates the weights according to which securities with multiple lots have their risk statistic values allocated. 'FillAll' indicates the computed statistic value of a particular security is allocated to each of its lots equally. This is common for risk statistics such as marginal statistics or beta. If security group calculations are available, these weights will be used along with 'weighting' method specified in 'securityGroupMethod'. For example, if this is 'ActiveWeights' and 'weighting' is 'AbsoluteValue', a net position value is allocated to multiple lots based off of absolute active weights distribution.",
+            "type": "string",
+            "minLength": 1,
+            "enum": [
+              "PortfolioWeights",
+              "BenchmarkWeights",
+              "ActiveWeights",
+              "MarketWeights",
+              "FillAll"
+            ]
+          }
+        }
+      },
       "SupportedStats": {
+        "description": "Contains all available base risk statistics. In the event 'data' property is empty, no stats are available at all.",
         "type": "object",
         "required": [
           "data"
         ],
         "properties": {
           "data": {
-            "description": "Contains all available risk statistics. In the event 'data' property is empty, no stats are available at all.",
+            "description": "All available base risk statistics",
             "type": "object",
             "additionalProperties": {
-              "type": "object",
-              "required": [
-                "correlatedSpecificRisk",
-                "covarianceTimesTwo",
-                "requiresCorrelatedSpecificRisk",
-                "requiresCovarianceTimesTwo",
-                "derived",
-                "levels"
-              ],
-              "properties": {
-                "correlatedSpecificRisk": {
-                  "type": "boolean"
-                },
-                "covarianceTimesTwo": {
-                  "type": "boolean"
-                },
-                "requiresCorrelatedSpecificRisk": {
-                  "type": "boolean"
-                },
-                "requiresCovarianceTimesTwo": {
-                  "type": "boolean"
-                },
-                "derived": {
-                  "description": "A list of the base stat and all possible derived stats which are currently supported by the service.",
-                  "type": "array",
-                  "minItems": 1,
-                  "items": {
-                    "type": "string",
-                    "minLength": 1
-                  }
-                },
-                "levels": {
-                  "description": "Indicates whether each level is supported by the base stat and all derived stats",
-                  "type": "object",
-                  "required": [
-                    "Portfolio",
-                    "Security",
-                    "SecurityGroup",
-                    "SecuritySecurity",
-                    "Factor",
-                    "FactorGroup",
-                    "FactorFactor",
-                    "FactorSecurity",
-                    "FactorGroupSecurity",
-                    "FactorSecurityGroup",
-                    "FactorGroupSecurityGroup"
-                  ],
-                  "properties": {
-                    "Portfolio": {
-                      "type": "boolean"
-                    },
-                    "Security": {
-                      "type": "boolean"
-                    },
-                    "SecurityGroup": {
-                      "type": "boolean"
-                    },
-                    "SecuritySecurity": {
-                      "type": "boolean"
-                    },
-                    "Factor": {
-                      "type": "boolean"
-                    },
-                    "FactorGroup": {
-                      "type": "boolean"
-                    },
-                    "FactorFactor": {
-                      "type": "boolean"
-                    },
-                    "FactorSecurity": {
-                      "type": "boolean"
-                    },
-                    "FactorGroupSecurity": {
-                      "type": "boolean"
-                    },
-                    "FactorSecurityGroup": {
-                      "type": "boolean"
-                    },
-                    "FactorGroupSecurityGroup": {
-                      "type": "boolean"
-                    }
-                  }
-                },
-                "securityGroupMethod": {
-                  "description": "If present, describes the calculations specified in common by all of the 'derived' stats across all supported 'levels' containing 'SecurityGroup' in the name. If not present, security group calculations are not available for these stats.",
-                  "type": "object",
-                  "required": [
-                    "name",
-                    "sqrt"
-                  ],
-                  "properties": {
-                    "name": {
-                      "description": "Indicates the algorithm used to compute each security group's value from the  risk statistic values of its member securities. 'Sum' takes the sum of all members' values. The weighted average methods indicate 'weights' and 'weighting'. 'WeightedAverage' weights each group's members' statistic values and takes their average. 'WeightedNormalizedAverage' normalizes the corresponding weights belonging within each group, weights each group's members' statistic values, then takes the average. 'WeightedNormalizedAverageFill' normalizes the corresponding weights belonging within each group or applies equal weighting for groups with zero net weight, weights each group's members' statistic values, then takes the average. 'StatSpecific' indicates unique calculations for the supported security group levels (inquire for more information).",
-                      "type": "string",
-                      "minLength": 1,
-                      "enum": [
-                        "StatSpecific",
-                        "Sum",
-                        "WeightedAverage",
-                        "WeightedNormalizedAverage",
-                        "WeightedNormalizedAverageFill"
-                      ]
-                    },
-                    "weights": {
-                      "description": "Indicates the weights stat used to weight the security groups, applicable to weighted average group methods only.",
-                      "type": "string",
-                      "minLength": 1,
-                      "enum": [
-                        "PortfolioWeights",
-                        "BenchmarkWeights",
-                        "ActiveWeights",
-                        "MarketWeights"
-                      ]
-                    },
-                    "weighting": {
-                      "description": "Indicates the weighting method used when allocating a net-weight position of risk statistics to multiple lots. This is relevant when a portfolio contains multiple lots with different signs such as long/short. For example, the case where a net-weight position is a positive risk contributor and a portfolio contains long and short positions. If this is 'AbsoluteValue', both long/short positions will have positive risk contribution, while 'ActualValue' assigns positive risk contribution to a long position and negative risk contribution to a short position. Applicable to weighted average group methods only.",
-                      "type": "string",
-                      "minLength": 1,
-                      "enum": [
-                        "AbsoluteValue",
-                        "ActualValue"
-                      ]
-                    },
-                    "sqrt": {
-                      "description": "Indicates whether the square root of each security group's value is taken (or not) as the final step of the calculation after the indicated algorithm to produce the result.",
-                      "type": "boolean"
-                    }
-                  },
-                  "example": {
-                    "name": "WeightedAverage",
-                    "weights": "BenchmarkWeights",
-                    "weighting": "ActualValue",
-                    "sqrt": false
-                  }
-                },
-                "securityLotAllocation": {
-                  "description": "Indicates the weights according to which securities with multiple lots have their risk statistic values allocated. 'FillAll' indicates the computed statistic value of a particular security is allocated to each of its lots equally. This is common for risk statistics such as marginal statistics or beta. If security group calculations are available, these weights will be used along with 'weighting' method specified in 'securityGroupMethod'. For example, if this is 'ActiveWeights' and 'weighting' is 'AbsoluteValue', a net position value is allocated to multiple lots based off of absolute active weights distribution.",
-                  "type": "string",
-                  "minLength": 1,
-                  "enum": [
-                    "PortfolioWeights",
-                    "BenchmarkWeights",
-                    "ActiveWeights",
-                    "MarketWeights",
-                    "FillAll"
-                  ]
-                }
-              }
+              "$ref": "#/components/schemas/SupportedStatDetails"
             }
           }
         }
       },
       "SupportedStatsNamesOnly": {
+        "description": "Contains the names of all available risk statistics. In the event 'data' field is empty, no stats are available at all.",
         "type": "object",
         "required": [
           "data"
         ],
         "properties": {
           "data": {
-            "description": "Contains the names of all available risk statistics. In the event 'data' field is empty, no stats are available at all.",
+            "description": "Names of all available risk statistics",
             "type": "array",
             "minItems": 0,
             "items": {
@@ -1955,7 +2145,7 @@
           "id": {
             "description": "UUID for the particular occurrence of the non-failure problem",
             "type": "string",
-            "minLength": 1
+            "format": "uuid"
           },
           "code": {
             "description": "Warning code for the non-failure problem type",
@@ -1978,6 +2168,7 @@
         }
       },
       "Warnings": {
+        "description": "Warnings encountered while processing the request",
         "type": "array",
         "minItems": 1,
         "items": {
@@ -1985,6 +2176,7 @@
         }
       },
       "CalculateFromHoldingsRequestData": {
+        "description": "Input data for requests to calculate from holdings",
         "type": "object",
         "required": [
           "riskModel",
@@ -2009,10 +2201,10 @@
             "$ref": "#/components/schemas/CompositeAssetDefinitions"
           },
           "currency": {
-            "$ref": "#/components/schemas/CurrencyISOCode"
+            "$ref": "#/components/schemas/CurrencyIsoCode"
           },
           "date": {
-            "$ref": "#/components/schemas/Date"
+            "$ref": "#/components/schemas/InputDate"
           },
           "factorGrouping": {
             "$ref": "#/components/schemas/FactorGroup"
@@ -2045,11 +2237,12 @@
             "$ref": "#/components/schemas/Stats"
           },
           "underlyingIds": {
-            "$ref": "#/components/schemas/UnderlyingIDs"
+            "$ref": "#/components/schemas/UnderlyingIds"
           }
         }
       },
       "CalculateFromHoldingsRequestBody": {
+        "description": "Body for requests to calculate from holdings",
         "type": "object",
         "required": [
           "data"
@@ -2060,7 +2253,8 @@
           }
         }
       },
-      "GenerateIDMappingRequestData": {
+      "GenerateIdMappingRequestData": {
+        "description": "Input data for requests to generate ID mapping",
         "type": "object",
         "required": [
           "riskModel",
@@ -2081,10 +2275,10 @@
             "$ref": "#/components/schemas/CompositeAssetDefinitions"
           },
           "currency": {
-            "$ref": "#/components/schemas/CurrencyISOCode"
+            "$ref": "#/components/schemas/CurrencyIsoCode"
           },
           "date": {
-            "$ref": "#/components/schemas/Date"
+            "$ref": "#/components/schemas/InputDate"
           },
           "holdings": {
             "$ref": "#/components/schemas/Holdings"
@@ -2102,18 +2296,19 @@
             "$ref": "#/components/schemas/RiskModelAppendData"
           },
           "underlyingIds": {
-            "$ref": "#/components/schemas/UnderlyingIDs"
+            "$ref": "#/components/schemas/UnderlyingIds"
           }
         }
       },
-      "GenerateIDMappingRequestBody": {
+      "GenerateIdMappingRequestBody": {
+        "description": "Body for requests to generate ID mapping",
         "type": "object",
         "required": [
           "data"
         ],
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/GenerateIDMappingRequestData"
+            "$ref": "#/components/schemas/GenerateIdMappingRequestData"
           }
         }
       }
@@ -2577,6 +2772,7 @@
                   "$ref": "#/components/schemas/SecurityOnlySuccessResponseMeta"
                 },
                 "data": {
+                  "description": "Security risk mappings",
                   "type": "array",
                   "minItems": 1,
                   "items": {
@@ -2656,8 +2852,8 @@
           }
         }
       },
-      "HealthFailAuthorization": {
-        "description": "Full access to the service is not authorized",
+      "HealthFail": {
+        "description": "Service is unavailable or in a state of degraded health",
         "content": {
           "application/json": {
             "schema": {
@@ -2670,6 +2866,7 @@
               ],
               "properties": {
                 "status": {
+                  "description": "Fail status",
                   "type": "string",
                   "minLength": 4,
                   "maxLength": 4,
@@ -2724,6 +2921,7 @@
               ],
               "properties": {
                 "status": {
+                  "description": "Fail status",
                   "type": "string",
                   "minLength": 4,
                   "maxLength": 4,
@@ -2766,6 +2964,7 @@
               ],
               "properties": {
                 "status": {
+                  "description": "Pass status",
                   "type": "string",
                   "minLength": 4,
                   "maxLength": 4,
@@ -2840,41 +3039,11 @@
               ],
               "properties": {
                 "data": {
+                  "description": "Available risk models",
                   "type": "array",
                   "minItems": 1,
                   "items": {
-                    "type": "object",
-                    "required": [
-                      "available",
-                      "category",
-                      "code",
-                      "name",
-                      "vendor"
-                    ],
-                    "properties": {
-                      "available": {
-                        "type": "boolean",
-                        "description": "If the model is available for use"
-                      },
-                      "category": {
-                        "description": "Model category",
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "code": {
-                        "$ref": "#/components/schemas/RiskModelCode"
-                      },
-                      "name": {
-                        "description": "Model name",
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "vendor": {
-                        "description": "Model vendor",
-                        "type": "string",
-                        "minLength": 1
-                      }
-                    }
+                    "$ref": "#/components/schemas/RiskModelSummary"
                   }
                 }
               }
@@ -2918,7 +3087,7 @@
         }
       },
       "ListRiskStatisticsDetails": {
-        "description": "All base risk statistic names and their respective support and/or requirement for certain name-settings statistics options (such as: correlated specific risk, covariance isolation method, etc.), available levels, and security group calculation methodology. When 'securityGroupMethod' is 'statSpecific', please refer to statistics documentation service for more information.",
+        "description": "All base risk statistic names with details on their available options and calculation methodologies.",
         "content": {
           "application/json": {
             "schema": {
@@ -3000,7 +3169,7 @@
         }
       },
       "RiskModelDetailsSuccess": {
-        "description": "Returns the meta data of risk model.",
+        "description": "Returns the metadata of risk model.",
         "content": {
           "application/json": {
             "schema": {
@@ -3010,6 +3179,7 @@
               ],
               "properties": {
                 "data": {
+                  "description": "Risk model metadata",
                   "type": "object",
                   "required": [
                     "code",
@@ -3033,51 +3203,25 @@
                       "type": "array",
                       "minItems": 1,
                       "items": {
-                        "$ref": "#/components/schemas/CurrencyISOCode"
+                        "$ref": "#/components/schemas/CurrencyIsoCode"
                       }
                     },
                     "currency": {
-                      "$ref": "#/components/schemas/CurrencyISOCode"
+                      "$ref": "#/components/schemas/CurrencyIsoCode"
                     },
                     "factors": {
                       "description": "Factors of the model",
                       "type": "array",
                       "minItems": 1,
                       "items": {
-                        "type": "object",
-                        "required": [
-                          "definedAs",
-                          "id",
-                          "name"
-                        ],
-                        "properties": {
-                          "definedAs": {
-                            "description": "Defintion of factor returns. `PercentChg` - Factor returns defined as percent change, which should be geometrically linked to calculate cumulative factor returns `1stDiff` - Factor returns defined as level change. Cumulative returns should be defined as the sum of returns.",
-                            "type": "string",
-                            "minLength": 1,
-                            "enum": [
-                              "PercentChg",
-                              "1stDiff"
-                            ]
-                          },
-                          "id": {
-                            "description": "Factor id",
-                            "type": "string",
-                            "minLength": 1
-                          },
-                          "name": {
-                            "description": "Factor name",
-                            "type": "string",
-                            "minLength": 1
-                          }
-                        }
+                        "$ref": "#/components/schemas/RiskModelFactorDetails"
                       }
                     },
                     "factorIdToIsoCurrency": {
                       "description": "Map of currency factor IDs to ISO currency code.",
                       "type": "object",
                       "additionalProperties": {
-                        "$ref": "#/components/schemas/CurrencyISOCode"
+                        "$ref": "#/components/schemas/CurrencyIsoCode"
                       }
                     },
                     "firstDate": {
@@ -3101,33 +3245,13 @@
                       "type": "array",
                       "minItems": 1,
                       "items": {
-                        "type": "object",
-                        "required": [
-                          "id",
-                          "type"
-                        ],
-                        "properties": {
-                          "id": {
-                            "description": "Field id",
-                            "type": "string",
-                            "minLength": 1
-                          },
-                          "type": {
-                            "description": "The type of data which must be provided",
-                            "type": "string",
-                            "minLength": 1,
-                            "enum": [
-                              "String",
-                              "Double",
-                              "Integer"
-                            ]
-                          }
-                        }
+                        "$ref": "#/components/schemas/RiskModelAppendFieldType"
                       }
                     },
                     "universeCount": {
                       "description": "Total universe count of the model",
-                      "type": "integer"
+                      "type": "integer",
+                      "format": "int32"
                     },
                     "vendor": {
                       "description": "Model vendor",

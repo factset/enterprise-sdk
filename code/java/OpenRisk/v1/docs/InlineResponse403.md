@@ -8,7 +8,7 @@ Response from the health check route in the event of a 'fail' status
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**StatusEnum**](#StatusEnum) |  | 
+**status** | [**StatusEnum**](#StatusEnum) | Fail status | 
 **version** | **String** | Full requested semantic version string | 
 **output** | **String** | Raw error output describing the failure(s) | 
 

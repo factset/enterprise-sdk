@@ -120,7 +120,7 @@ class InlineResponse2002(ModelNormal):
             version (str): Full requested semantic version string
 
         Keyword Args:
-            status (str): defaults to "pass", must be one of ["pass", ]  # noqa: E501
+            status (str): Pass status. defaults to "pass", must be one of ["pass", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -208,7 +208,7 @@ class InlineResponse2002(ModelNormal):
             version (str): Full requested semantic version string
 
         Keyword Args:
-            status (str): defaults to "pass", must be one of ["pass", ]  # noqa: E501
+            status (str): Pass status. defaults to "pass", must be one of ["pass", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

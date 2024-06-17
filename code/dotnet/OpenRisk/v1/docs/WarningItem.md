@@ -5,7 +5,7 @@ Warning information for a particular occurrence of a non-failure problem with hu
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | UUID for the particular occurrence of the non-failure problem | 
+**Id** | **Guid** | UUID for the particular occurrence of the non-failure problem | 
 **Code** | **string** | Warning code for the non-failure problem type | 
 **Title** | **string** | Human-readable summary of the non-failure problem tied to the warning code and not specific to the particular occurrence of the problem | 
 **Detail** | **string** | Human-readable explanation of the non-failure problem specific to the particular occurrence | [optional] 

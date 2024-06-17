@@ -5,8 +5,8 @@ Security IDs and market values plus optional security grouping; the arrays must 
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Ids** | **List&lt;string&gt;** |  | 
-**MarketValues** | **List&lt;double&gt;** |  | 
+**Ids** | **List&lt;string&gt;** | Security identifiers | 
+**MarketValues** | **List&lt;double&gt;** | Security market values | 
 **Grouping** | [**SecurityGroup**](SecurityGroup.md) |  | [optional] 
 **UncoveredAssets** | **string** | Uncovered asset weight handling. Default values: &#39;portfolio&#39; -&gt; ExcludeToGlobalCash, &#39;benchmark&#39; -&gt; Normalize, &#39;market&#39; -&gt; Normalize. See also [OA:21737](https://my.apps.factset.com/oa/pages/21737#group_normal_mix) | [optional] 
 

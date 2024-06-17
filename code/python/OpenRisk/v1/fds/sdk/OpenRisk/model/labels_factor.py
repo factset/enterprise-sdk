@@ -113,8 +113,8 @@ class LabelsFactor(ModelNormal):
         """LabelsFactor - a model defined in OpenAPI
 
         Args:
-            ids ([str]):
-            names ([str]):
+            ids ([str]): Risk model factor identifiers
+            names ([str]): Risk model factor names
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -200,8 +200,8 @@ class LabelsFactor(ModelNormal):
         """LabelsFactor - a model defined in OpenAPI
 
         Args:
-            ids ([str]):
-            names ([str]):
+            ids ([str]): Risk model factor identifiers
+            names ([str]): Risk model factor names
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

@@ -2,6 +2,7 @@
 
 # RiskExclusionInfoExclusionInfo
 
+Information regarding a security's exclusion
 
 ## Properties
 

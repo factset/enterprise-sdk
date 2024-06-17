@@ -108,7 +108,7 @@ class SupportedStatsNamesOnly(ModelNormal):
         """SupportedStatsNamesOnly - a model defined in OpenAPI
 
         Args:
-            data ([str]): Contains the names of all available risk statistics. In the event 'data' field is empty, no stats are available at all.
+            data ([str]): Names of all available risk statistics
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -193,7 +193,7 @@ class SupportedStatsNamesOnly(ModelNormal):
         """SupportedStatsNamesOnly - a model defined in OpenAPI
 
         Args:
-            data ([str]): Contains the names of all available risk statistics. In the event 'data' field is empty, no stats are available at all.
+            data ([str]): Names of all available risk statistics
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

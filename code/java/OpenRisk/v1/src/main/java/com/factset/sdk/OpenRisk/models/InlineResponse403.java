@@ -44,7 +44,7 @@ public class InlineResponse403 implements Serializable {
   private static final long serialVersionUID = 1L;
 
   /**
-   * Gets or Sets status
+   * Fail status
    */
   public enum StatusEnum {
     FAIL("fail");
@@ -106,11 +106,11 @@ public class InlineResponse403 implements Serializable {
   }
 
    /**
-   * Get status
+   * Fail status
    * @return status
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(example = "fail", required = true, value = "")
+  @ApiModelProperty(example = "fail", required = true, value = "Fail status")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

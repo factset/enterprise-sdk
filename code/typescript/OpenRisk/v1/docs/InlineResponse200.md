@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**[InlineResponse200Data]**](InlineResponse200Data.md) |  | 
+**data** | [**[RiskModelSummary]**](RiskModelSummary.md) | Available risk models | 
 
 

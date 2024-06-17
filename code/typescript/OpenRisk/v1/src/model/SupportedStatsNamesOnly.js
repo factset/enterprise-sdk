@@ -20,8 +20,9 @@ import ApiClient from '../ApiClient';
 class SupportedStatsNamesOnly {
     /**
      * Constructs a new <code>SupportedStatsNamesOnly</code>.
+     * Contains the names of all available risk statistics. In the event &#39;data&#39; field is empty, no stats are available at all.
      * @alias module:model/SupportedStatsNamesOnly
-     * @param data {Array.<String>} Contains the names of all available risk statistics. In the event 'data' field is empty, no stats are available at all.
+     * @param data {Array.<String>} Names of all available risk statistics
      */
     constructor(data) { 
         
@@ -59,7 +60,7 @@ class SupportedStatsNamesOnly {
 }
 
 /**
- * Contains the names of all available risk statistics. In the event 'data' field is empty, no stats are available at all.
+ * Names of all available risk statistics
  * @member {Array.<String>} data
  */
 SupportedStatsNamesOnly.prototype['data'] = undefined;

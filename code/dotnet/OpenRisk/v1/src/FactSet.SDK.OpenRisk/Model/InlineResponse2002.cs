@@ -33,8 +33,9 @@ namespace FactSet.SDK.OpenRisk.Model
     public partial class InlineResponse2002 : IEquatable<InlineResponse2002>, IValidatableObject
     {
         /// <summary>
-        /// Defines Status
+        /// Pass status
         /// </summary>
+        /// <value>Pass status</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StatusEnum
         {
@@ -48,8 +49,9 @@ namespace FactSet.SDK.OpenRisk.Model
 
 
         /// <summary>
-        /// Gets or Sets Status
+        /// Pass status
         /// </summary>
+        /// <value>Pass status</value>
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = false)]
         public StatusEnum Status { get; set; }
         /// <summary>
@@ -60,7 +62,7 @@ namespace FactSet.SDK.OpenRisk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2002" /> class.
         /// </summary>
-        /// <param name="status">status (required).</param>
+        /// <param name="status">Pass status (required).</param>
         /// <param name="version">Full requested semantic version string (required).</param>
         public InlineResponse2002(StatusEnum status, string version)
         {

@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 
 <a name="generateidmapping"></a>
 # **GenerateIdMapping**
-> InlineResponse2004 GenerateIdMapping (string version, GenerateIDMappingRequestBody generateIDMappingRequestBody)
+> InlineResponse2004 GenerateIdMapping (string version, GenerateIdMappingRequestBody generateIdMappingRequestBody)
 
 Generate risk model ID mapping
 
@@ -168,12 +168,12 @@ namespace Example
             var apiInstance = new OperationsApi(config);
 
             var version = "v1";  // string | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
-            var generateIDMappingRequestBody = new GenerateIDMappingRequestBody(); // GenerateIDMappingRequestBody | 
+            var generateIdMappingRequestBody = new GenerateIdMappingRequestBody(); // GenerateIdMappingRequestBody | 
 
             try
             {
                 // Generate risk model ID mapping
-                InlineResponse2004 result = apiInstance.GenerateIdMapping(version, generateIDMappingRequestBody);
+                InlineResponse2004 result = apiInstance.GenerateIdMapping(version, generateIdMappingRequestBody);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -192,7 +192,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **version** | **string**| Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. | 
- **generateIDMappingRequestBody** | [**GenerateIDMappingRequestBody**](GenerateIDMappingRequestBody.md)|  | 
+ **generateIdMappingRequestBody** | [**GenerateIdMappingRequestBody**](GenerateIdMappingRequestBody.md)|  | 
 
 ### Return type
 [**InlineResponse2004**](InlineResponse2004.md)
@@ -204,7 +204,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, text/plain
 
 
 ### HTTP response details
@@ -212,6 +212,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | Provides a mapping to security indices in the risk model or the reason for exclusion |  -  |
 | **400** | Request was malformed or the requested data is not available |  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
+| **401** | Missing or invalid authentication |  -  |
 | **403** | Access forbidden for the requested data |  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
 | **404** | Endpoint not found |  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
 | **429** | Rate limit reached. Wait until the time specified in header &#39;Retry-After&#39; has elapsed before making further requests. |  * Retry-After -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |

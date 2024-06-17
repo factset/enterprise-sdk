@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **meta** | [**SecurityOnlySuccessResponseMeta**](SecurityOnlySuccessResponseMeta.md) |  | 
-**data** | [**[RiskMappingEntry]**](RiskMappingEntry.md) |  | 
+**data** | [**[RiskMappingEntry]**](RiskMappingEntry.md) | Security risk mappings | 
 
 

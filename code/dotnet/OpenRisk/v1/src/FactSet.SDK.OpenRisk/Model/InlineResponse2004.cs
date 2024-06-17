@@ -41,7 +41,7 @@ namespace FactSet.SDK.OpenRisk.Model
         /// Initializes a new instance of the <see cref="InlineResponse2004" /> class.
         /// </summary>
         /// <param name="meta">meta (required).</param>
-        /// <param name="data">data (required).</param>
+        /// <param name="data">Security risk mappings (required).</param>
         public InlineResponse2004(SecurityOnlySuccessResponseMeta meta, List<RiskMappingEntry> data)
         {
             // to ensure "meta" is required (not null)
@@ -63,8 +63,9 @@ namespace FactSet.SDK.OpenRisk.Model
         public SecurityOnlySuccessResponseMeta Meta { get; set; }
 
         /// <summary>
-        /// Gets or Sets Data
+        /// Security risk mappings
         /// </summary>
+        /// <value>Security risk mappings</value>
         [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = false)]
         public List<RiskMappingEntry> Data { get; set; }
 

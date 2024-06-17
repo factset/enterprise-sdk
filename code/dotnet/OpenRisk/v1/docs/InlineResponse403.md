@@ -5,7 +5,7 @@ Response from the health check route in the event of a 'fail' status
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | **string** |  | 
+**Status** | **string** | Fail status | 
 **_Version** | **string** | Full requested semantic version string | 
 **Output** | **string** | Raw error output describing the failure(s) | 
 

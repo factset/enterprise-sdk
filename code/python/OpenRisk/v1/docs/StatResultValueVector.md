@@ -1,10 +1,11 @@
 # StatResultValueVector
 
+Array of floating point values
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**value** | **[float, none_type]** |  | 
+**value** | **[float, none_type]** | Array of floating point values | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

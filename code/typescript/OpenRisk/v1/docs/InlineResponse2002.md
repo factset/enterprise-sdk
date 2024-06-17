@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | **String** |  | 
+**status** | **String** | Pass status | 
 **version** | **String** | Full requested semantic version string | 
 
 

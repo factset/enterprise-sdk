@@ -17,7 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.OpenRisk.models.SupportedStatsData;
+import com.factset.sdk.OpenRisk.models.SupportedStatDetails;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -31,8 +31,9 @@ import com.factset.sdk.OpenRisk.JSON;
 
 
 /**
- * SupportedStats
+ * Contains all available base risk statistics. In the event &#39;data&#39; property is empty, no stats are available at all.
  */
+@ApiModel(description = "Contains all available base risk statistics. In the event 'data' property is empty, no stats are available at all.")
 @JsonPropertyOrder({
   SupportedStats.JSON_PROPERTY_DATA
 })
@@ -42,46 +43,46 @@ public class SupportedStats implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private java.util.Map<String, SupportedStatsData> data = new java.util.HashMap<>();
+  private java.util.Map<String, SupportedStatDetails> data = new java.util.HashMap<>();
 
   public SupportedStats() { 
   }
 
   @JsonCreator
   public SupportedStats(
-    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) java.util.Map<String, SupportedStatsData> data
+    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) java.util.Map<String, SupportedStatDetails> data
   ) {
     this();
     this.data = data;
   }
 
-  public SupportedStats data(java.util.Map<String, SupportedStatsData> data) {
+  public SupportedStats data(java.util.Map<String, SupportedStatDetails> data) {
     this.data = data;
     return this;
   }
 
-  public SupportedStats putDataItem(String key, SupportedStatsData dataItem) {
+  public SupportedStats putDataItem(String key, SupportedStatDetails dataItem) {
     this.data.put(key, dataItem);
     return this;
   }
 
    /**
-   * Contains all available risk statistics. In the event &#39;data&#39; property is empty, no stats are available at all.
+   * All available base risk statistics
    * @return data
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Contains all available risk statistics. In the event 'data' property is empty, no stats are available at all.")
+  @ApiModelProperty(required = true, value = "All available base risk statistics")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public java.util.Map<String, SupportedStatsData> getData() {
+  public java.util.Map<String, SupportedStatDetails> getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setData(java.util.Map<String, SupportedStatsData> data) {
+  public void setData(java.util.Map<String, SupportedStatDetails> data) {
     this.data = data;
   }
 

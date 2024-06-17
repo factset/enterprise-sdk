@@ -22,7 +22,7 @@ class InlineResponse2002 {
      * Constructs a new <code>InlineResponse2002</code>.
      * Response from the health check route in the event of a &#39;pass&#39; status
      * @alias module:model/InlineResponse2002
-     * @param status {module:model/InlineResponse2002.StatusEnum} 
+     * @param status {module:model/InlineResponse2002.StatusEnum} Pass status
      * @param version {String} Full requested semantic version string
      */
     constructor(status, version) { 
@@ -65,6 +65,7 @@ class InlineResponse2002 {
 }
 
 /**
+ * Pass status
  * @member {module:model/InlineResponse2002.StatusEnum} status
  */
 InlineResponse2002.prototype['status'] = undefined;

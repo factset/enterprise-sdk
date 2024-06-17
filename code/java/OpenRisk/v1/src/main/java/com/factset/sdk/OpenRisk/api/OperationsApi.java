@@ -13,7 +13,7 @@ import java.util.Objects;
 
 import com.factset.sdk.OpenRisk.models.CalculateFromHoldingsRequestBody;
 import com.factset.sdk.OpenRisk.models.ErrorResponse;
-import com.factset.sdk.OpenRisk.models.GenerateIDMappingRequestBody;
+import com.factset.sdk.OpenRisk.models.GenerateIdMappingRequestBody;
 import com.factset.sdk.OpenRisk.models.InlineResponse2003;
 import com.factset.sdk.OpenRisk.models.InlineResponse2004;
 
@@ -44,6 +44,7 @@ public class OperationsApi {
   static {
     generateIdMappingResponseTypeMap.put(200, new GenericType<InlineResponse2004>(){});
     generateIdMappingResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    generateIdMappingResponseTypeMap.put(401, new GenericType<String>(){});
     generateIdMappingResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
     generateIdMappingResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
     generateIdMappingResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
@@ -167,7 +168,7 @@ public class OperationsApi {
    * Generate risk model ID mapping
    * Resolve all input holdings IDs against a risk model for coverage and provide a mapping to security indices in the model or the reason for exclusion
    * @param version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. (required)
-   * @param generateIDMappingRequestBody  (required)
+   * @param generateIdMappingRequestBody  (required)
    * @return InlineResponse2004
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -175,21 +176,22 @@ public class OperationsApi {
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Provides a mapping to security indices in the risk model or the reason for exclusion </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Request was malformed or the requested data is not available </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 401 </td><td> Missing or invalid authentication </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Access forbidden for the requested data </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 404 </td><td> Endpoint not found </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 429 </td><td> Rate limit reached. Wait until the time specified in header &#39;Retry-After&#39; has elapsed before making further requests. </td><td>  * Retry-After -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 500 </td><td> Internal server error occurred </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public InlineResponse2004 generateIdMapping(String version, GenerateIDMappingRequestBody generateIDMappingRequestBody) throws ApiException {
-    return generateIdMappingWithHttpInfo(version, generateIDMappingRequestBody).getData();
+  public InlineResponse2004 generateIdMapping(String version, GenerateIdMappingRequestBody generateIdMappingRequestBody) throws ApiException {
+    return generateIdMappingWithHttpInfo(version, generateIdMappingRequestBody).getData();
   }
 
   /**
    * Generate risk model ID mapping
    * Resolve all input holdings IDs against a risk model for coverage and provide a mapping to security indices in the model or the reason for exclusion
    * @param version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. (required)
-   * @param generateIDMappingRequestBody  (required)
+   * @param generateIdMappingRequestBody  (required)
    * @return ApiResponse&lt;InlineResponse2004&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -197,23 +199,24 @@ public class OperationsApi {
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Provides a mapping to security indices in the risk model or the reason for exclusion </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Request was malformed or the requested data is not available </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 401 </td><td> Missing or invalid authentication </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Access forbidden for the requested data </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 404 </td><td> Endpoint not found </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 429 </td><td> Rate limit reached. Wait until the time specified in header &#39;Retry-After&#39; has elapsed before making further requests. </td><td>  * Retry-After -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 500 </td><td> Internal server error occurred </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2004> generateIdMappingWithHttpInfo(String version, GenerateIDMappingRequestBody generateIDMappingRequestBody) throws ApiException {
-    Object localVarPostBody = generateIDMappingRequestBody;
+  public ApiResponse<InlineResponse2004> generateIdMappingWithHttpInfo(String version, GenerateIdMappingRequestBody generateIdMappingRequestBody) throws ApiException {
+    Object localVarPostBody = generateIdMappingRequestBody;
     
     // verify the required parameter 'version' is set
     if (version == null) {
       throw new ApiException(400, "Missing the required parameter 'version' when calling generateIdMapping");
     }
     
-    // verify the required parameter 'generateIDMappingRequestBody' is set
-    if (generateIDMappingRequestBody == null) {
-      throw new ApiException(400, "Missing the required parameter 'generateIDMappingRequestBody' when calling generateIdMapping");
+    // verify the required parameter 'generateIdMappingRequestBody' is set
+    if (generateIdMappingRequestBody == null) {
+      throw new ApiException(400, "Missing the required parameter 'generateIdMappingRequestBody' when calling generateIdMapping");
     }
     
     // create path and map variables
@@ -231,7 +234,7 @@ public class OperationsApi {
     
     
     final String[] localVarAccepts = {
-      "application/json"
+      "application/json", "text/plain"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 

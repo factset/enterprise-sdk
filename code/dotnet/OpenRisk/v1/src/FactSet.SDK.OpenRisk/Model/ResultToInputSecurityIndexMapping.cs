@@ -40,9 +40,9 @@ namespace FactSet.SDK.OpenRisk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ResultToInputSecurityIndexMapping" /> class.
         /// </summary>
-        /// <param name="portfolio">portfolio (required).</param>
-        /// <param name="benchmark">benchmark.</param>
-        /// <param name="market">market.</param>
+        /// <param name="portfolio">Index mapping corresponding to the input &#39;portfolio&#39; holdings (required).</param>
+        /// <param name="benchmark">Index mapping corresponding to the input &#39;benchmark&#39; holdings.</param>
+        /// <param name="market">Index mapping corresponding to the input &#39;market&#39; holdings.</param>
         public ResultToInputSecurityIndexMapping(List<int> portfolio,List<int> benchmark = default(List<int>), List<int> market = default(List<int>))
         {
             // to ensure "portfolio" is required (not null)
@@ -55,20 +55,23 @@ namespace FactSet.SDK.OpenRisk.Model
         }
 
         /// <summary>
-        /// Gets or Sets Portfolio
+        /// Index mapping corresponding to the input &#39;portfolio&#39; holdings
         /// </summary>
+        /// <value>Index mapping corresponding to the input &#39;portfolio&#39; holdings</value>
         [DataMember(Name = "portfolio", IsRequired = true, EmitDefaultValue = false)]
         public List<int> Portfolio { get; set; }
 
         /// <summary>
-        /// Gets or Sets Benchmark
+        /// Index mapping corresponding to the input &#39;benchmark&#39; holdings
         /// </summary>
+        /// <value>Index mapping corresponding to the input &#39;benchmark&#39; holdings</value>
         [DataMember(Name = "benchmark", EmitDefaultValue = false)]
         public List<int> Benchmark { get; set; }
 
         /// <summary>
-        /// Gets or Sets Market
+        /// Index mapping corresponding to the input &#39;market&#39; holdings
         /// </summary>
+        /// <value>Index mapping corresponding to the input &#39;market&#39; holdings</value>
         [DataMember(Name = "market", EmitDefaultValue = false)]
         public List<int> Market { get; set; }
 

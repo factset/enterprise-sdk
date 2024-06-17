@@ -22,7 +22,7 @@ class InlineResponse403 {
      * Constructs a new <code>InlineResponse403</code>.
      * Response from the health check route in the event of a &#39;fail&#39; status
      * @alias module:model/InlineResponse403
-     * @param status {module:model/InlineResponse403.StatusEnum} 
+     * @param status {module:model/InlineResponse403.StatusEnum} Fail status
      * @param version {String} Full requested semantic version string
      * @param output {String} Raw error output describing the failure(s)
      */
@@ -70,6 +70,7 @@ class InlineResponse403 {
 }
 
 /**
+ * Fail status
  * @member {module:model/InlineResponse403.StatusEnum} status
  */
 InlineResponse403.prototype['status'] = undefined;

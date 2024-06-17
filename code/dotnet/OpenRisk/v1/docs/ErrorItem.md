@@ -5,7 +5,7 @@ Error information for a particular occurrence of a problem with human-readable d
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | UUID for the particular occurrence of the problem | 
+**Id** | **Guid** | UUID for the particular occurrence of the problem | 
 **Code** | **string** | Error code for the problem type. | 
 **Title** | **string** | Human-readable summary of the problem tied to the error code and not specific to the particular occurrence of the problem | 
 **Detail** | **string** | Human-readable explanation of the problem specific to the particular occurrence | [optional] 

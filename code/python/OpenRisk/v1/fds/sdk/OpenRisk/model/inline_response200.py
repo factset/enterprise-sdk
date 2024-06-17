@@ -31,8 +31,8 @@ from fds.sdk.OpenRisk.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.OpenRisk.model.inline_response200_data import InlineResponse200Data
-    globals()['InlineResponse200Data'] = InlineResponse200Data
+    from fds.sdk.OpenRisk.model.risk_model_summary import RiskModelSummary
+    globals()['RiskModelSummary'] = RiskModelSummary
 
 
 class InlineResponse200(ModelNormal):
@@ -91,7 +91,7 @@ class InlineResponse200(ModelNormal):
         """
         lazy_import()
         return {
-            'data': ([InlineResponse200Data],),  # noqa: E501
+            'data': ([RiskModelSummary],),  # noqa: E501
         }
 
     @cached_property
@@ -114,7 +114,7 @@ class InlineResponse200(ModelNormal):
         """InlineResponse200 - a model defined in OpenAPI
 
         Args:
-            data ([InlineResponse200Data]):
+            data ([RiskModelSummary]): Available risk models
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -199,7 +199,7 @@ class InlineResponse200(ModelNormal):
         """InlineResponse200 - a model defined in OpenAPI
 
         Args:
-            data ([InlineResponse200Data]):
+            data ([RiskModelSummary]): Available risk models
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

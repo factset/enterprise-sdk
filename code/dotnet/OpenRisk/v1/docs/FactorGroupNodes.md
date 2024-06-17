@@ -1,4 +1,5 @@
 # FactSet.SDK.OpenRisk.Model.FactorGroupNodes
+Either an individual factor or a grouping.
 
 ## Properties
 

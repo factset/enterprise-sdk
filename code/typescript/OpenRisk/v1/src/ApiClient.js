@@ -62,7 +62,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'fds-sdk/javascript/OpenRisk/1.3.0'
+            'User-Agent': 'fds-sdk/javascript/OpenRisk/2.0.0'
         };
 
         /**

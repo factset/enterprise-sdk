@@ -1,4 +1,5 @@
 # FactSet.SDK.OpenRisk.Model.CalculateFromHoldingsRequestData
+Input data for requests to calculate from holdings
 
 ## Properties
 
@@ -10,7 +11,7 @@ Name | Type | Description | Notes
 **Calendar** | **string** | Calendar code for risk model and holdings data to fetch and use. Ignored only for composite asset definitions provided as inputs via &#39;compositeAssets&#39; field. See also [OA:2012](https://my.apps.factset.com/oa/pages/2012#calendar) for global codes, \&quot;FIVEDAY\&quot; or \&quot;SEVENDAY\&quot; calendars and see [OA:16610](https://my.apps.factset.com/oa/pages/16610#country) for country codes (cf. &#39;Calendar Code&#39; column). | [optional] 
 **CompositeAssets** | [**Dictionary&lt;string, IDsAndMarketValues&gt;**](IDsAndMarketValues.md) | IDs to be defined as composite assets with their constituents&#39; IDs and market values. The typical use case is for risk look-through of ETF or Funds&#39; constituents. When defining composite assets and creating portfolios which hold them, the IDs provided must be an exact match. | [optional] 
 **Currency** | **string** | ISO-4217 currency code for risk model and holdings data to fetch and use. Ignored only for composite asset definitions provided as inputs via &#39;compositeAssets&#39; field. | [optional] 
-**Date** | [**Date**](Date.md) |  | 
+**Date** | [**InputDate**](InputDate.md) |  | 
 **FactorGrouping** | [**FactorGroup**](FactorGroup.md) |  | [optional] 
 **FactorsVisible** | [**FactorsVisible**](FactorsVisible.md) |  | [optional] 
 **Holdings** | [**Holdings**](Holdings.md) |  | 

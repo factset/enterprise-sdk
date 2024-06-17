@@ -1,4 +1,5 @@
 # FactSet.SDK.OpenRisk.Model.CalculateFromHoldingsRequestBody
+Body for requests to calculate from holdings
 
 ## Properties
 

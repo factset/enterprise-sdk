@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ids** | **[String]** |  | 
-**marketValues** | **[Number]** |  | 
+**ids** | **[String]** | Security identifiers | 
+**marketValues** | **[Number]** | Security market values | 
 **grouping** | [**SecurityGroup**](SecurityGroup.md) |  | [optional] 
 **uncoveredAssets** | **String** | Uncovered asset weight handling. Default values: &#39;portfolio&#39; -&gt; ExcludeToGlobalCash, &#39;benchmark&#39; -&gt; Normalize, &#39;market&#39; -&gt; Normalize. See also [OA:21737](https://my.apps.factset.com/oa/pages/21737#group_normal_mix) | [optional] 
 

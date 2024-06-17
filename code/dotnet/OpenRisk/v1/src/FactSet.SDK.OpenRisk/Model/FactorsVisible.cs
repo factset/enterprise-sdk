@@ -33,8 +33,9 @@ namespace FactSet.SDK.OpenRisk.Model
     public partial class FactorsVisible : IEquatable<FactorsVisible>, IValidatableObject
     {
         /// <summary>
-        /// Defines Type
+        /// Filter type
         /// </summary>
+        /// <value>Filter type</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TypeEnum
         {
@@ -54,8 +55,9 @@ namespace FactSet.SDK.OpenRisk.Model
 
 
         /// <summary>
-        /// Gets or Sets Type
+        /// Filter type
         /// </summary>
+        /// <value>Filter type</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = false)]
         public TypeEnum Type { get; set; }
         /// <summary>
@@ -67,7 +69,7 @@ namespace FactSet.SDK.OpenRisk.Model
         /// Initializes a new instance of the <see cref="FactorsVisible" /> class.
         /// </summary>
         /// <param name="list">List of risk model factor IDs (required).</param>
-        /// <param name="type">type (required).</param>
+        /// <param name="type">Filter type (required).</param>
         public FactorsVisible(List<string> list, TypeEnum type)
         {
             // to ensure "list" is required (not null)

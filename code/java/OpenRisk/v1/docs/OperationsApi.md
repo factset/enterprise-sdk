@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 ## generateIdMapping
 
-> InlineResponse2004 generateIdMapping(version, generateIDMappingRequestBody)
+> InlineResponse2004 generateIdMapping(version, generateIdMappingRequestBody)
 
 Generate risk model ID mapping
 
@@ -158,9 +158,9 @@ public class Example {
 
         OperationsApi apiInstance = new OperationsApi(defaultClient);
         String version = "v1"; // String | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
-        GenerateIDMappingRequestBody generateIDMappingRequestBody = new GenerateIDMappingRequestBody(); // GenerateIDMappingRequestBody | 
+        GenerateIdMappingRequestBody generateIdMappingRequestBody = new GenerateIdMappingRequestBody(); // GenerateIdMappingRequestBody | 
         try {
-            InlineResponse2004 result = apiInstance.generateIdMapping(version, generateIDMappingRequestBody);
+            InlineResponse2004 result = apiInstance.generateIdMapping(version, generateIdMappingRequestBody);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -180,7 +180,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **version** | **String**| Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. |
- **generateIDMappingRequestBody** | [**GenerateIDMappingRequestBody**](GenerateIDMappingRequestBody.md)|  |
+ **generateIdMappingRequestBody** | [**GenerateIdMappingRequestBody**](GenerateIdMappingRequestBody.md)|  |
 
 ### Return type
 
@@ -193,13 +193,14 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
+- **Accept**: application/json, text/plain
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Provides a mapping to security indices in the risk model or the reason for exclusion |  -  |
 | **400** | Request was malformed or the requested data is not available |  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
+| **401** | Missing or invalid authentication |  -  |
 | **403** | Access forbidden for the requested data |  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
 | **404** | Endpoint not found |  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
 | **429** | Rate limit reached. Wait until the time specified in header &#39;Retry-After&#39; has elapsed before making further requests. |  * Retry-After -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |

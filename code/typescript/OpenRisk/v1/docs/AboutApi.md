@@ -176,7 +176,7 @@ Name | Type | Description  | Notes
 
 Get risk model details
 
-Get the meta data of the risk model for the corresponding modelCode. modelCode can be obtained via &#39;/linear/{version}/riskmodels/&#39; route.
+Get the metadata of the risk model for the corresponding modelCode. modelCode can be obtained via &#39;/linear/{version}/riskmodels/&#39; route.
 
 ### Example
 

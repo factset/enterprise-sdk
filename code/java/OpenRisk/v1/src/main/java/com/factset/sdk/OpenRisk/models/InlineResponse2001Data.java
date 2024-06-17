@@ -17,8 +17,8 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.OpenRisk.models.InlineResponse2001DataFactors;
-import com.factset.sdk.OpenRisk.models.InlineResponse2001DataRiskModelAppendFormat;
+import com.factset.sdk.OpenRisk.models.RiskModelAppendFieldType;
+import com.factset.sdk.OpenRisk.models.RiskModelFactorDetails;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -33,8 +33,9 @@ import com.factset.sdk.OpenRisk.JSON;
 
 
 /**
- * InlineResponse2001Data
+ * Risk model metadata
  */
+@ApiModel(description = "Risk model metadata")
 @JsonPropertyOrder({
   InlineResponse2001Data.JSON_PROPERTY_CODE,
   InlineResponse2001Data.JSON_PROPERTY_CURRENCIES,
@@ -64,7 +65,7 @@ public class InlineResponse2001Data implements Serializable {
   private String currency;
 
   public static final String JSON_PROPERTY_FACTORS = "factors";
-  private java.util.List<InlineResponse2001DataFactors> factors = new java.util.ArrayList<>();
+  private java.util.List<RiskModelFactorDetails> factors = new java.util.ArrayList<>();
 
   public static final String JSON_PROPERTY_FACTOR_ID_TO_ISO_CURRENCY = "factorIdToIsoCurrency";
   private java.util.Map<String, String> factorIdToIsoCurrency = new java.util.HashMap<>();
@@ -82,7 +83,7 @@ public class InlineResponse2001Data implements Serializable {
   private String name;
 
   public static final String JSON_PROPERTY_RISK_MODEL_APPEND_FORMAT = "riskModelAppendFormat";
-  private java.util.List<InlineResponse2001DataRiskModelAppendFormat> riskModelAppendFormat = null;
+  private java.util.List<RiskModelAppendFieldType> riskModelAppendFormat = null;
 
   public static final String JSON_PROPERTY_UNIVERSE_COUNT = "universeCount";
   private Integer universeCount;
@@ -98,7 +99,7 @@ public class InlineResponse2001Data implements Serializable {
     @JsonProperty(value=JSON_PROPERTY_CODE, required=true) String code, 
     @JsonProperty(value=JSON_PROPERTY_CURRENCIES, required=true) java.util.List<String> currencies, 
     @JsonProperty(value=JSON_PROPERTY_CURRENCY, required=true) String currency, 
-    @JsonProperty(value=JSON_PROPERTY_FACTORS, required=true) java.util.List<InlineResponse2001DataFactors> factors, 
+    @JsonProperty(value=JSON_PROPERTY_FACTORS, required=true) java.util.List<RiskModelFactorDetails> factors, 
     @JsonProperty(value=JSON_PROPERTY_FACTOR_ID_TO_ISO_CURRENCY, required=true) java.util.Map<String, String> factorIdToIsoCurrency, 
     @JsonProperty(value=JSON_PROPERTY_FIRST_DATE, required=true) LocalDate firstDate, 
     @JsonProperty(value=JSON_PROPERTY_FREQUENCY, required=true) String frequency, 
@@ -204,12 +205,12 @@ public class InlineResponse2001Data implements Serializable {
   }
 
 
-  public InlineResponse2001Data factors(java.util.List<InlineResponse2001DataFactors> factors) {
+  public InlineResponse2001Data factors(java.util.List<RiskModelFactorDetails> factors) {
     this.factors = factors;
     return this;
   }
 
-  public InlineResponse2001Data addFactorsItem(InlineResponse2001DataFactors factorsItem) {
+  public InlineResponse2001Data addFactorsItem(RiskModelFactorDetails factorsItem) {
     this.factors.add(factorsItem);
     return this;
   }
@@ -223,14 +224,14 @@ public class InlineResponse2001Data implements Serializable {
   @JsonProperty(JSON_PROPERTY_FACTORS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public java.util.List<InlineResponse2001DataFactors> getFactors() {
+  public java.util.List<RiskModelFactorDetails> getFactors() {
     return factors;
   }
 
 
   @JsonProperty(JSON_PROPERTY_FACTORS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFactors(java.util.List<InlineResponse2001DataFactors> factors) {
+  public void setFactors(java.util.List<RiskModelFactorDetails> factors) {
     this.factors = factors;
   }
 
@@ -370,12 +371,12 @@ public class InlineResponse2001Data implements Serializable {
   }
 
 
-  public InlineResponse2001Data riskModelAppendFormat(java.util.List<InlineResponse2001DataRiskModelAppendFormat> riskModelAppendFormat) {
+  public InlineResponse2001Data riskModelAppendFormat(java.util.List<RiskModelAppendFieldType> riskModelAppendFormat) {
     this.riskModelAppendFormat = riskModelAppendFormat;
     return this;
   }
 
-  public InlineResponse2001Data addRiskModelAppendFormatItem(InlineResponse2001DataRiskModelAppendFormat riskModelAppendFormatItem) {
+  public InlineResponse2001Data addRiskModelAppendFormatItem(RiskModelAppendFieldType riskModelAppendFormatItem) {
     if (this.riskModelAppendFormat == null) {
       this.riskModelAppendFormat = new java.util.ArrayList<>();
     }
@@ -392,14 +393,14 @@ public class InlineResponse2001Data implements Serializable {
   @JsonProperty(JSON_PROPERTY_RISK_MODEL_APPEND_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public java.util.List<InlineResponse2001DataRiskModelAppendFormat> getRiskModelAppendFormat() {
+  public java.util.List<RiskModelAppendFieldType> getRiskModelAppendFormat() {
     return riskModelAppendFormat;
   }
 
 
   @JsonProperty(JSON_PROPERTY_RISK_MODEL_APPEND_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRiskModelAppendFormat(java.util.List<InlineResponse2001DataRiskModelAppendFormat> riskModelAppendFormat) {
+  public void setRiskModelAppendFormat(java.util.List<RiskModelAppendFieldType> riskModelAppendFormat) {
     this.riskModelAppendFormat = riskModelAppendFormat;
   }
 

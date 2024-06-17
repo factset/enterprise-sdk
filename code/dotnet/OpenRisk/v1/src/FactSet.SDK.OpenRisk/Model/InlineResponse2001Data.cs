@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.OpenRisk.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.OpenRisk.Model
 {
     /// <summary>
-    /// InlineResponse2001Data
+    /// Risk model metadata
     /// </summary>
     [DataContract(Name = "inline_response_200_1_data")]
     public partial class InlineResponse2001Data : IEquatable<InlineResponse2001Data>, IValidatableObject
@@ -52,7 +52,7 @@ namespace FactSet.SDK.OpenRisk.Model
         /// <param name="riskModelAppendFormat">List of fields which are supported by the risk model for appending additional asset data.</param>
         /// <param name="universeCount">Total universe count of the model (required).</param>
         /// <param name="vendor">Model vendor (required).</param>
-        public InlineResponse2001Data(string code, List<string> currencies, string currency, List<InlineResponse2001DataFactors> factors, Dictionary<string, string> factorIdToIsoCurrency, DateTime firstDate, string frequency, DateTime latestDate, string name, int universeCount, string vendor,List<InlineResponse2001DataRiskModelAppendFormat> riskModelAppendFormat = default(List<InlineResponse2001DataRiskModelAppendFormat>))
+        public InlineResponse2001Data(string code, List<string> currencies, string currency, List<RiskModelFactorDetails> factors, Dictionary<string, string> factorIdToIsoCurrency, DateTime firstDate, string frequency, DateTime latestDate, string name, int universeCount, string vendor,List<RiskModelAppendFieldType> riskModelAppendFormat = default(List<RiskModelAppendFieldType>))
         {
             // to ensure "code" is required (not null)
             if (code == null) {
@@ -126,7 +126,7 @@ namespace FactSet.SDK.OpenRisk.Model
         /// </summary>
         /// <value>Factors of the model</value>
         [DataMember(Name = "factors", IsRequired = true, EmitDefaultValue = false)]
-        public List<InlineResponse2001DataFactors> Factors { get; set; }
+        public List<RiskModelFactorDetails> Factors { get; set; }
 
         /// <summary>
         /// Map of currency factor IDs to ISO currency code.
@@ -170,7 +170,7 @@ namespace FactSet.SDK.OpenRisk.Model
         /// </summary>
         /// <value>List of fields which are supported by the risk model for appending additional asset data</value>
         [DataMember(Name = "riskModelAppendFormat", EmitDefaultValue = false)]
-        public List<InlineResponse2001DataRiskModelAppendFormat> RiskModelAppendFormat { get; set; }
+        public List<RiskModelAppendFieldType> RiskModelAppendFormat { get; set; }
 
         /// <summary>
         /// Total universe count of the model
@@ -377,10 +377,16 @@ namespace FactSet.SDK.OpenRisk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, length must be greater than 1.", new [] { "Code" });
             }
 
-            // Currency (string) minLength
-            if (this.Currency != null && this.Currency.Length < 1)
+            // Currency (string) maxLength
+            if (this.Currency != null && this.Currency.Length > 3)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be greater than 1.", new [] { "Currency" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be less than 3.", new [] { "Currency" });
+            }
+
+            // Currency (string) minLength
+            if (this.Currency != null && this.Currency.Length < 3)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be greater than 3.", new [] { "Currency" });
             }
 
             // Frequency (string) minLength

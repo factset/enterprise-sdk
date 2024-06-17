@@ -5,8 +5,8 @@ Security IDs and market values; the arrays must have the same number of items. P
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Ids** | **List&lt;string&gt;** |  | 
-**MarketValues** | **List&lt;double&gt;** |  | 
+**Ids** | **List&lt;string&gt;** | Security identifiers | 
+**MarketValues** | **List&lt;double&gt;** | Security market values | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

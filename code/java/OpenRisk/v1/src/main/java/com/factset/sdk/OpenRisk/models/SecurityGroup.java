@@ -61,11 +61,11 @@ public class SecurityGroup implements Serializable {
   }
 
    /**
-   * Get name
+   * Optional name of the group
    * @return name
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Optional name of the group")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

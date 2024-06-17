@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.OpenRisk.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.OpenRisk.Model
 {
     /// <summary>
-    /// CalculateFromHoldingsRequestBody
+    /// Body for requests to calculate from holdings
     /// </summary>
     [DataContract(Name = "CalculateFromHoldingsRequestBody")]
     public partial class CalculateFromHoldingsRequestBody : IEquatable<CalculateFromHoldingsRequestBody>, IValidatableObject

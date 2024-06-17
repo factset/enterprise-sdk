@@ -12,10 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import ErrorItem from './ErrorItem';
-import StatCalculationLevel from './StatCalculationLevel';
-import StatCalculationSettings from './StatCalculationSettings';
-import StatResultValue from './StatResultValue';
+import StatResult from './StatResult';
 import SuccessResponseMeta from './SuccessResponseMeta';
 
 /**
@@ -27,7 +24,7 @@ class InlineResponse2003 {
      * Constructs a new <code>InlineResponse2003</code>.
      * @alias module:model/InlineResponse2003
      * @param meta {module:model/SuccessResponseMeta} 
-     * @param data {Array.<Object>} Calculation results aligned to the input list of requested risk statistics
+     * @param data {Array.<module:model/StatResult>} Calculation results aligned to the input list of requested risk statistics
      */
     constructor(meta, data) { 
         
@@ -59,7 +56,7 @@ class InlineResponse2003 {
                 obj['meta'] = SuccessResponseMeta.constructFromObject(data['meta']);
             }
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [Object]);
+                obj['data'] = ApiClient.convertToType(data['data'], [StatResult]);
             }
         }
         return obj;
@@ -75,7 +72,7 @@ InlineResponse2003.prototype['meta'] = undefined;
 
 /**
  * Calculation results aligned to the input list of requested risk statistics
- * @member {Array.<Object>} data
+ * @member {Array.<module:model/StatResult>} data
  */
 InlineResponse2003.prototype['data'] = undefined;
 

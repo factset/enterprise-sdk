@@ -31,8 +31,9 @@ import com.factset.sdk.OpenRisk.JSON;
 
 
 /**
- * CalculateFromHoldingsRequestBody
+ * Body for requests to calculate from holdings
  */
+@ApiModel(description = "Body for requests to calculate from holdings")
 @JsonPropertyOrder({
   CalculateFromHoldingsRequestBody.JSON_PROPERTY_DATA
 })

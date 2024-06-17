@@ -62,6 +62,7 @@ public class GroupsLabels implements Serializable {
 
    /**
    * 0-based index into the results array dimension for the corresponding calculation-levels
+   * minimum: 0
    * @return index
   **/
   @jakarta.annotation.Nullable

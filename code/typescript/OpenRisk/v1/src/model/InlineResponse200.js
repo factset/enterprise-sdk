@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse200Data from './InlineResponse200Data';
+import RiskModelSummary from './RiskModelSummary';
 
 /**
  * The InlineResponse200 model module.
@@ -22,7 +22,7 @@ class InlineResponse200 {
     /**
      * Constructs a new <code>InlineResponse200</code>.
      * @alias module:model/InlineResponse200
-     * @param data {Array.<module:model/InlineResponse200Data>} 
+     * @param data {Array.<module:model/RiskModelSummary>} Available risk models
      */
     constructor(data) { 
         
@@ -50,7 +50,7 @@ class InlineResponse200 {
             obj = obj || new InlineResponse200();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [InlineResponse200Data]);
+                obj['data'] = ApiClient.convertToType(data['data'], [RiskModelSummary]);
             }
         }
         return obj;
@@ -60,7 +60,8 @@ class InlineResponse200 {
 }
 
 /**
- * @member {Array.<module:model/InlineResponse200Data>} data
+ * Available risk models
+ * @member {Array.<module:model/RiskModelSummary>} data
  */
 InlineResponse200.prototype['data'] = undefined;
 

@@ -40,7 +40,7 @@ namespace FactSet.SDK.OpenRisk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ErrorResponse" /> class.
         /// </summary>
-        /// <param name="errors">errors (required).</param>
+        /// <param name="errors">Errors encountered while processing the request (required).</param>
         public ErrorResponse(List<ErrorItem> errors)
         {
             // to ensure "errors" is required (not null)
@@ -51,8 +51,9 @@ namespace FactSet.SDK.OpenRisk.Model
         }
 
         /// <summary>
-        /// Gets or Sets Errors
+        /// Errors encountered while processing the request
         /// </summary>
+        /// <value>Errors encountered while processing the request</value>
         [DataMember(Name = "errors", IsRequired = true, EmitDefaultValue = false)]
         public List<ErrorItem> Errors { get; set; }
 

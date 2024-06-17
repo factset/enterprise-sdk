@@ -30,8 +30,9 @@ import com.factset.sdk.OpenRisk.JSON;
 
 
 /**
- * RiskExclusionInfoExclusionInfo
+ * Information regarding a security&#39;s exclusion
  */
+@ApiModel(description = "Information regarding a security's exclusion")
 @JsonPropertyOrder({
   RiskExclusionInfoExclusionInfo.JSON_PROPERTY_CODE,
   RiskExclusionInfoExclusionInfo.JSON_PROPERTY_DETAILS

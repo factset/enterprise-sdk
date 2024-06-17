@@ -35,7 +35,7 @@ namespace FactSet.SDK.OpenRisk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SecurityGroup" /> class.
         /// </summary>
-        /// <param name="name">name.</param>
+        /// <param name="name">Optional name of the group.</param>
         /// <param name="indices">List of 0-based indices into the containing holding&#39;s security IDs array.</param>
         /// <param name="groups">Recursively defined elements; base case array (i.e., lowest security group) contains objects with &#39;indices&#39; only and not &#39;groups&#39;.</param>
         public SecurityGroup(string name = default(string), List<int> indices = default(List<int>), List<SecurityGroup> groups = default(List<SecurityGroup>))
@@ -46,8 +46,9 @@ namespace FactSet.SDK.OpenRisk.Model
         }
 
         /// <summary>
-        /// Gets or Sets Name
+        /// Optional name of the group
         /// </summary>
+        /// <value>Optional name of the group</value>
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 

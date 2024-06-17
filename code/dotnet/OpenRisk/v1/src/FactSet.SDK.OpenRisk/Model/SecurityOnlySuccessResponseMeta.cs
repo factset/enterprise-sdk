@@ -42,7 +42,7 @@ namespace FactSet.SDK.OpenRisk.Model
         /// </summary>
         /// <param name="labels">labels (required).</param>
         /// <param name="resolvedDates">resolvedDates (required).</param>
-        /// <param name="warnings">warnings.</param>
+        /// <param name="warnings">Warnings encountered while processing the request.</param>
         public SecurityOnlySuccessResponseMeta(SecurityOnlyLabels labels, ResolvedDates resolvedDates,List<WarningItem> warnings = default(List<WarningItem>))
         {
             // to ensure "labels" is required (not null)
@@ -71,8 +71,9 @@ namespace FactSet.SDK.OpenRisk.Model
         public ResolvedDates ResolvedDates { get; set; }
 
         /// <summary>
-        /// Gets or Sets Warnings
+        /// Warnings encountered while processing the request
         /// </summary>
+        /// <value>Warnings encountered while processing the request</value>
         [DataMember(Name = "warnings", EmitDefaultValue = false)]
         public List<WarningItem> Warnings { get; set; }
 

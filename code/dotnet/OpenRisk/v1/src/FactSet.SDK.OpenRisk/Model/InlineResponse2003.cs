@@ -42,7 +42,7 @@ namespace FactSet.SDK.OpenRisk.Model
         /// </summary>
         /// <param name="meta">meta (required).</param>
         /// <param name="data">Calculation results aligned to the input list of requested risk statistics (required).</param>
-        public InlineResponse2003(SuccessResponseMeta meta, List<Object> data)
+        public InlineResponse2003(SuccessResponseMeta meta, List<StatResult> data)
         {
             // to ensure "meta" is required (not null)
             if (meta == null) {
@@ -67,7 +67,7 @@ namespace FactSet.SDK.OpenRisk.Model
         /// </summary>
         /// <value>Calculation results aligned to the input list of requested risk statistics</value>
         [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = false)]
-        public List<Object> Data { get; set; }
+        public List<StatResult> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

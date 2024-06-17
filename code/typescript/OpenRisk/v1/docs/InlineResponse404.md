@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | **String** |  | 
+**status** | **String** | Fail status | 
 **output** | **String** | Raw error output describing the failure(s) | 
 
 

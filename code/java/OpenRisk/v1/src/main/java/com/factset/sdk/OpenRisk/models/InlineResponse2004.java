@@ -99,11 +99,11 @@ public class InlineResponse2004 implements Serializable {
   }
 
    /**
-   * Get data
+   * Security risk mappings
    * @return data
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Security risk mappings")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

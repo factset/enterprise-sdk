@@ -9,7 +9,7 @@ Hide risk model factors in the response results; does not affect calculated data
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **_list** | **java.util.List&lt;String&gt;** | List of risk model factor IDs | 
-**type** | [**TypeEnum**](#TypeEnum) |  | 
+**type** | [**TypeEnum**](#TypeEnum) | Filter type | 
 
 
 

@@ -12,8 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse2001DataFactors from './InlineResponse2001DataFactors';
-import InlineResponse2001DataRiskModelAppendFormat from './InlineResponse2001DataRiskModelAppendFormat';
+import RiskModelAppendFieldType from './RiskModelAppendFieldType';
+import RiskModelFactorDetails from './RiskModelFactorDetails';
 
 /**
  * The InlineResponse2001Data model module.
@@ -22,11 +22,12 @@ import InlineResponse2001DataRiskModelAppendFormat from './InlineResponse2001Dat
 class InlineResponse2001Data {
     /**
      * Constructs a new <code>InlineResponse2001Data</code>.
+     * Risk model metadata
      * @alias module:model/InlineResponse2001Data
      * @param code {String} Model code
      * @param currencies {Array.<String>} Currencies that can be used with the model
      * @param currency {String} ISO-4217 currency code for risk model and holdings data to fetch and use. Ignored only for composite asset definitions provided as inputs via 'compositeAssets' field.
-     * @param factors {Array.<module:model/InlineResponse2001DataFactors>} Factors of the model
+     * @param factors {Array.<module:model/RiskModelFactorDetails>} Factors of the model
      * @param factorIdToIsoCurrency {Object.<String, String>} Map of currency factor IDs to ISO currency code.
      * @param firstDate {Date} **(since 1.12.0)**  Date format YYYY-MM-DD.
      * @param frequency {String} Frequency of the model
@@ -80,7 +81,7 @@ class InlineResponse2001Data {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
             if (data.hasOwnProperty('factors')) {
-                obj['factors'] = ApiClient.convertToType(data['factors'], [InlineResponse2001DataFactors]);
+                obj['factors'] = ApiClient.convertToType(data['factors'], [RiskModelFactorDetails]);
             }
             if (data.hasOwnProperty('factorIdToIsoCurrency')) {
                 obj['factorIdToIsoCurrency'] = ApiClient.convertToType(data['factorIdToIsoCurrency'], {'String': 'String'});
@@ -98,7 +99,7 @@ class InlineResponse2001Data {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
             if (data.hasOwnProperty('riskModelAppendFormat')) {
-                obj['riskModelAppendFormat'] = ApiClient.convertToType(data['riskModelAppendFormat'], [InlineResponse2001DataRiskModelAppendFormat]);
+                obj['riskModelAppendFormat'] = ApiClient.convertToType(data['riskModelAppendFormat'], [RiskModelAppendFieldType]);
             }
             if (data.hasOwnProperty('universeCount')) {
                 obj['universeCount'] = ApiClient.convertToType(data['universeCount'], 'Number');
@@ -133,7 +134,7 @@ InlineResponse2001Data.prototype['currency'] = undefined;
 
 /**
  * Factors of the model
- * @member {Array.<module:model/InlineResponse2001DataFactors>} factors
+ * @member {Array.<module:model/RiskModelFactorDetails>} factors
  */
 InlineResponse2001Data.prototype['factors'] = undefined;
 
@@ -169,7 +170,7 @@ InlineResponse2001Data.prototype['name'] = undefined;
 
 /**
  * List of fields which are supported by the risk model for appending additional asset data
- * @member {Array.<module:model/InlineResponse2001DataRiskModelAppendFormat>} riskModelAppendFormat
+ * @member {Array.<module:model/RiskModelAppendFieldType>} riskModelAppendFormat
  */
 InlineResponse2001Data.prototype['riskModelAppendFormat'] = undefined;
 

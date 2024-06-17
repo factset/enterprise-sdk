@@ -22,7 +22,7 @@ class InlineResponse404 {
      * Constructs a new <code>InlineResponse404</code>.
      * Response from the health check route in the event of a &#39;fail&#39; status
      * @alias module:model/InlineResponse404
-     * @param status {module:model/InlineResponse404.StatusEnum} 
+     * @param status {module:model/InlineResponse404.StatusEnum} Fail status
      * @param output {String} Raw error output describing the failure(s)
      */
     constructor(status, output) { 
@@ -65,6 +65,7 @@ class InlineResponse404 {
 }
 
 /**
+ * Fail status
  * @member {module:model/InlineResponse404.StatusEnum} status
  */
 InlineResponse404.prototype['status'] = undefined;

@@ -46,7 +46,7 @@ public class FactorsVisible implements Serializable {
   private java.util.List<String> _list = new java.util.ArrayList<>();
 
   /**
-   * Gets or Sets type
+   * Filter type
    */
   public enum TypeEnum {
     WHITELIST("Whitelist"),
@@ -133,11 +133,11 @@ public class FactorsVisible implements Serializable {
   }
 
    /**
-   * Get type
+   * Filter type
    * @return type
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Filter type")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

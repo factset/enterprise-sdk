@@ -88,8 +88,8 @@ with fds.sdk.OpenRisk.ApiClient(configuration) as api_client:
                     ],
                 ),
             ),
-            currency=CurrencyISOCode("EUR"),
-            date=Date(None),
+            currency=CurrencyIsoCode("EUR"),
+            date=InputDate(None),
             factor_grouping=FactorGroup(
                 name="name_example",
                 nodes=[
@@ -117,7 +117,11 @@ with fds.sdk.OpenRisk.ApiClient(configuration) as api_client:
             requires_factor_returns=RequiresFactorReturns("Daily"),
             risk_model=RiskModelCode("FDS:GLOBAL_EQUITY_M_V1"),
             risk_model_append_data=RiskModelAppendData(
-                data=[{"0":2.5,"1":"SYMBOL_1","2":23.1},{"1":"SYMBOL_2","2":7.2}],
+                data=[
+                    RiskModelAppendDataRow(
+                        key=RiskModelAppendDataValue(None),
+                    ),
+                ],
                 fields=["FACTOR_1","SYMBOL","STDERR"],
             ),
             stats=Stats([
@@ -132,7 +136,7 @@ with fds.sdk.OpenRisk.ApiClient(configuration) as api_client:
                         sparse=False,
                         horizon=3.14,
                         days_per_year=3.14,
-                        confidence_level=3.14,
+                        confidence_level=0,
                         lamda=3.14,
                         specific_to_factor_ratio=3.14,
                         rap_sys=3.14,
@@ -140,7 +144,7 @@ with fds.sdk.OpenRisk.ApiClient(configuration) as api_client:
                     ),
                 ),
             ]),
-            underlying_ids=UnderlyingIDs(
+            underlying_ids=UnderlyingIds(
                 key="key_example",
             ),
         ),
@@ -246,8 +250,8 @@ with fds.sdk.OpenRisk.ApiClient(configuration) as api_client:
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     version = "v1" # str | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
-    generate_id_mapping_request_body = GenerateIDMappingRequestBody(
-        data=GenerateIDMappingRequestData(
+    generate_id_mapping_request_body = GenerateIdMappingRequestBody(
+        data=GenerateIdMappingRequestData(
             allow_forced_riskless_assets=False,
             asset_types=AssetTypes(
                 key="key_example",
@@ -263,8 +267,8 @@ with fds.sdk.OpenRisk.ApiClient(configuration) as api_client:
                     ],
                 ),
             ),
-            currency=CurrencyISOCode("EUR"),
-            date=Date(None),
+            currency=CurrencyIsoCode("EUR"),
+            date=InputDate(None),
             holdings=Holdings(
                 portfolio=Holding(),
                 benchmark=Holding(),
@@ -278,14 +282,18 @@ with fds.sdk.OpenRisk.ApiClient(configuration) as api_client:
             ),
             risk_model=RiskModelCode("FDS:GLOBAL_EQUITY_M_V1"),
             risk_model_append_data=RiskModelAppendData(
-                data=[{"0":2.5,"1":"SYMBOL_1","2":23.1},{"1":"SYMBOL_2","2":7.2}],
+                data=[
+                    RiskModelAppendDataRow(
+                        key=RiskModelAppendDataValue(None),
+                    ),
+                ],
                 fields=["FACTOR_1","SYMBOL","STDERR"],
             ),
-            underlying_ids=UnderlyingIDs(
+            underlying_ids=UnderlyingIds(
                 key="key_example",
             ),
         ),
-    ) # GenerateIDMappingRequestBody | 
+    ) # GenerateIdMappingRequestBody | 
 
     try:
         # Generate risk model ID mapping
@@ -304,7 +312,7 @@ with fds.sdk.OpenRisk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **version** | **str**| Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. |
- **generate_id_mapping_request_body** | [**GenerateIDMappingRequestBody**](GenerateIDMappingRequestBody.md)|  |
+ **generate_id_mapping_request_body** | [**GenerateIdMappingRequestBody**](GenerateIdMappingRequestBody.md)|  |
 
 ### Return type
 
@@ -317,7 +325,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, text/plain
 
 
 ### HTTP response details
@@ -326,6 +334,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Provides a mapping to security indices in the risk model or the reason for exclusion |  -  |
 **400** | Request was malformed or the requested data is not available |  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
+**401** | Missing or invalid authentication |  -  |
 **403** | Access forbidden for the requested data |  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
 **404** | Endpoint not found |  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
 **429** | Rate limit reached. Wait until the time specified in header &#39;Retry-After&#39; has elapsed before making further requests. |  * Retry-After -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |

@@ -35,11 +35,11 @@ def lazy_import():
     from fds.sdk.OpenRisk.model.asset_types import AssetTypes
     from fds.sdk.OpenRisk.model.calendar_code import CalendarCode
     from fds.sdk.OpenRisk.model.composite_asset_definitions import CompositeAssetDefinitions
-    from fds.sdk.OpenRisk.model.currency_iso_code import CurrencyISOCode
-    from fds.sdk.OpenRisk.model.date import Date
+    from fds.sdk.OpenRisk.model.currency_iso_code import CurrencyIsoCode
     from fds.sdk.OpenRisk.model.factor_group import FactorGroup
     from fds.sdk.OpenRisk.model.factors_visible import FactorsVisible
     from fds.sdk.OpenRisk.model.holdings import Holdings
+    from fds.sdk.OpenRisk.model.input_date import InputDate
     from fds.sdk.OpenRisk.model.lagging_dates import LaggingDates
     from fds.sdk.OpenRisk.model.remove_currency_risk import RemoveCurrencyRisk
     from fds.sdk.OpenRisk.model.requires_factor_returns import RequiresFactorReturns
@@ -47,16 +47,16 @@ def lazy_import():
     from fds.sdk.OpenRisk.model.risk_model_code import RiskModelCode
     from fds.sdk.OpenRisk.model.security_index_mapping import SecurityIndexMapping
     from fds.sdk.OpenRisk.model.stats import Stats
-    from fds.sdk.OpenRisk.model.underlying_ids import UnderlyingIDs
+    from fds.sdk.OpenRisk.model.underlying_ids import UnderlyingIds
     globals()['AdditionalCalculationInputs'] = AdditionalCalculationInputs
     globals()['AssetTypes'] = AssetTypes
     globals()['CalendarCode'] = CalendarCode
     globals()['CompositeAssetDefinitions'] = CompositeAssetDefinitions
-    globals()['CurrencyISOCode'] = CurrencyISOCode
-    globals()['Date'] = Date
+    globals()['CurrencyIsoCode'] = CurrencyIsoCode
     globals()['FactorGroup'] = FactorGroup
     globals()['FactorsVisible'] = FactorsVisible
     globals()['Holdings'] = Holdings
+    globals()['InputDate'] = InputDate
     globals()['LaggingDates'] = LaggingDates
     globals()['RemoveCurrencyRisk'] = RemoveCurrencyRisk
     globals()['RequiresFactorReturns'] = RequiresFactorReturns
@@ -64,7 +64,7 @@ def lazy_import():
     globals()['RiskModelCode'] = RiskModelCode
     globals()['SecurityIndexMapping'] = SecurityIndexMapping
     globals()['Stats'] = Stats
-    globals()['UnderlyingIDs'] = UnderlyingIDs
+    globals()['UnderlyingIds'] = UnderlyingIds
 
 
 class CalculateFromHoldingsRequestData(ModelNormal):
@@ -120,7 +120,7 @@ class CalculateFromHoldingsRequestData(ModelNormal):
         """
         lazy_import()
         return {
-            'date': (Date,),  # noqa: E501
+            'date': (InputDate,),  # noqa: E501
             'holdings': (Holdings,),  # noqa: E501
             'risk_model': (RiskModelCode,),  # noqa: E501
             'stats': (Stats,),  # noqa: E501
@@ -129,7 +129,7 @@ class CalculateFromHoldingsRequestData(ModelNormal):
             'asset_types': (AssetTypes,),  # noqa: E501
             'calendar': (CalendarCode,),  # noqa: E501
             'composite_assets': (CompositeAssetDefinitions,),  # noqa: E501
-            'currency': (CurrencyISOCode,),  # noqa: E501
+            'currency': (CurrencyIsoCode,),  # noqa: E501
             'factor_grouping': (FactorGroup,),  # noqa: E501
             'factors_visible': (FactorsVisible,),  # noqa: E501
             'index_mapping': (SecurityIndexMapping,),  # noqa: E501
@@ -137,7 +137,7 @@ class CalculateFromHoldingsRequestData(ModelNormal):
             'remove_currency_risk': (RemoveCurrencyRisk,),  # noqa: E501
             'requires_factor_returns': (RequiresFactorReturns,),  # noqa: E501
             'risk_model_append_data': (RiskModelAppendData,),  # noqa: E501
-            'underlying_ids': (UnderlyingIDs,),  # noqa: E501
+            'underlying_ids': (UnderlyingIds,),  # noqa: E501
         }
 
     @cached_property
@@ -177,7 +177,7 @@ class CalculateFromHoldingsRequestData(ModelNormal):
         """CalculateFromHoldingsRequestData - a model defined in OpenAPI
 
         Args:
-            date (Date):
+            date (InputDate):
             holdings (Holdings):
             risk_model (RiskModelCode):
             stats (Stats):
@@ -218,7 +218,7 @@ class CalculateFromHoldingsRequestData(ModelNormal):
             asset_types (AssetTypes): [optional]  # noqa: E501
             calendar (CalendarCode): [optional]  # noqa: E501
             composite_assets (CompositeAssetDefinitions): [optional]  # noqa: E501
-            currency (CurrencyISOCode): [optional]  # noqa: E501
+            currency (CurrencyIsoCode): [optional]  # noqa: E501
             factor_grouping (FactorGroup): [optional]  # noqa: E501
             factors_visible (FactorsVisible): [optional]  # noqa: E501
             index_mapping (SecurityIndexMapping): [optional]  # noqa: E501
@@ -226,7 +226,7 @@ class CalculateFromHoldingsRequestData(ModelNormal):
             remove_currency_risk (RemoveCurrencyRisk): [optional]  # noqa: E501
             requires_factor_returns (RequiresFactorReturns): [optional]  # noqa: E501
             risk_model_append_data (RiskModelAppendData): [optional]  # noqa: E501
-            underlying_ids (UnderlyingIDs): [optional]  # noqa: E501
+            underlying_ids (UnderlyingIds): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -282,7 +282,7 @@ class CalculateFromHoldingsRequestData(ModelNormal):
         """CalculateFromHoldingsRequestData - a model defined in OpenAPI
 
         Args:
-            date (Date):
+            date (InputDate):
             holdings (Holdings):
             risk_model (RiskModelCode):
             stats (Stats):
@@ -323,7 +323,7 @@ class CalculateFromHoldingsRequestData(ModelNormal):
             asset_types (AssetTypes): [optional]  # noqa: E501
             calendar (CalendarCode): [optional]  # noqa: E501
             composite_assets (CompositeAssetDefinitions): [optional]  # noqa: E501
-            currency (CurrencyISOCode): [optional]  # noqa: E501
+            currency (CurrencyIsoCode): [optional]  # noqa: E501
             factor_grouping (FactorGroup): [optional]  # noqa: E501
             factors_visible (FactorsVisible): [optional]  # noqa: E501
             index_mapping (SecurityIndexMapping): [optional]  # noqa: E501
@@ -331,7 +331,7 @@ class CalculateFromHoldingsRequestData(ModelNormal):
             remove_currency_risk (RemoveCurrencyRisk): [optional]  # noqa: E501
             requires_factor_returns (RequiresFactorReturns): [optional]  # noqa: E501
             risk_model_append_data (RiskModelAppendData): [optional]  # noqa: E501
-            underlying_ids (UnderlyingIDs): [optional]  # noqa: E501
+            underlying_ids (UnderlyingIds): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

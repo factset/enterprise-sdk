@@ -145,7 +145,7 @@ export default class AboutApi {
 
     /**
      * Get risk model details
-     * Get the meta data of the risk model for the corresponding modelCode. modelCode can be obtained via '/linear/{version}/riskmodels/' route.
+     * Get the metadata of the risk model for the corresponding modelCode. modelCode can be obtained via '/linear/{version}/riskmodels/' route.
      * @param {String} version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
      * @param {String} modelCode Model code
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2001} and HTTP response
@@ -188,7 +188,7 @@ export default class AboutApi {
 
     /**
      * Get risk model details
-     * Get the meta data of the risk model for the corresponding modelCode. modelCode can be obtained via '/linear/{version}/riskmodels/' route.
+     * Get the metadata of the risk model for the corresponding modelCode. modelCode can be obtained via '/linear/{version}/riskmodels/' route.
      * @param {String} version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
      * @param {String} modelCode Model code
      * @return { Promise.< module:model/InlineResponse2001 > } a Promise, with data of type {@link module:model/InlineResponse2001 }

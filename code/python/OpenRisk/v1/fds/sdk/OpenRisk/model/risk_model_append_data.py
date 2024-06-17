@@ -31,8 +31,8 @@ from fds.sdk.OpenRisk.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.OpenRisk.model.risk_model_append_data_value import RiskModelAppendDataValue
-    globals()['RiskModelAppendDataValue'] = RiskModelAppendDataValue
+    from fds.sdk.OpenRisk.model.risk_model_append_data_row import RiskModelAppendDataRow
+    globals()['RiskModelAppendDataRow'] = RiskModelAppendDataRow
 
 
 class RiskModelAppendData(ModelNormal):
@@ -94,7 +94,7 @@ class RiskModelAppendData(ModelNormal):
         """
         lazy_import()
         return {
-            'data': ([{str: (RiskModelAppendDataValue,)}],),  # noqa: E501
+            'data': ([RiskModelAppendDataRow],),  # noqa: E501
             'fields': ([str],),  # noqa: E501
         }
 
@@ -119,7 +119,7 @@ class RiskModelAppendData(ModelNormal):
         """RiskModelAppendData - a model defined in OpenAPI
 
         Args:
-            data ([{str: (RiskModelAppendDataValue,)}]): List of all rows of the append data.
+            data ([RiskModelAppendDataRow]): List of all rows of the append data.
             fields ([str]): List of fields in append data. Must contain 'SYMBOL'. Index location will be used in 'data' elements as keys. The entire set of factor IDs and specific risk are not required. If any inputs of exposures or specific risk are missing, 0 will be inserted for those field.
 
         Keyword Args:
@@ -206,7 +206,7 @@ class RiskModelAppendData(ModelNormal):
         """RiskModelAppendData - a model defined in OpenAPI
 
         Args:
-            data ([{str: (RiskModelAppendDataValue,)}]): List of all rows of the append data.
+            data ([RiskModelAppendDataRow]): List of all rows of the append data.
             fields ([str]): List of fields in append data. Must contain 'SYMBOL'. Index location will be used in 'data' elements as keys. The entire set of factor IDs and specific risk are not required. If any inputs of exposures or specific risk are missing, 0 will be inserted for those field.
 
         Keyword Args:

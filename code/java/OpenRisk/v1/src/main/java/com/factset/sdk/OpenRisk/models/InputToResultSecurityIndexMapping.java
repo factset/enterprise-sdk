@@ -74,11 +74,11 @@ public class InputToResultSecurityIndexMapping implements Serializable {
   }
 
    /**
-   * Get portfolio
+   * Index mapping corresponding to the input &#39;portfolio&#39; holdings
    * @return portfolio
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Index mapping corresponding to the input 'portfolio' holdings")
   @JsonProperty(JSON_PROPERTY_PORTFOLIO)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -108,11 +108,11 @@ public class InputToResultSecurityIndexMapping implements Serializable {
   }
 
    /**
-   * Get benchmark
+   * Index mapping corresponding to the input &#39;benchmark&#39; holdings
    * @return benchmark
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Index mapping corresponding to the input 'benchmark' holdings")
   @JsonProperty(JSON_PROPERTY_BENCHMARK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -142,11 +142,11 @@ public class InputToResultSecurityIndexMapping implements Serializable {
   }
 
    /**
-   * Get market
+   * Index mapping corresponding to the input &#39;market&#39; holdings
    * @return market
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Index mapping corresponding to the input 'market' holdings")
   @JsonProperty(JSON_PROPERTY_MARKET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

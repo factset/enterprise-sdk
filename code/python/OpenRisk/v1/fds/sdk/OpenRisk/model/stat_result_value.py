@@ -151,10 +151,10 @@ class StatResultValue(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            rows (int): [optional]  # noqa: E501
-            columns (int): [optional]  # noqa: E501
-            index_pointer ([int]): [optional]  # noqa: E501
-            indices ([int]): [optional]  # noqa: E501
+            rows (int): Number of rows in the matrix. [optional]  # noqa: E501
+            columns (int): Number of columns in the matrix. [optional]  # noqa: E501
+            index_pointer ([int]): Array of 0-based index pointers for the compressed sparse row representation. [optional]  # noqa: E501
+            indices ([int]): Array of 0-based indices for the compressed sparse row representation. [optional]  # noqa: E501
             value (StatResultValueVector): [optional]  # noqa: E501
         """
 
@@ -255,10 +255,10 @@ class StatResultValue(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            rows (int): [optional]  # noqa: E501
-            columns (int): [optional]  # noqa: E501
-            index_pointer ([int]): [optional]  # noqa: E501
-            indices ([int]): [optional]  # noqa: E501
+            rows (int): Number of rows in the matrix. [optional]  # noqa: E501
+            columns (int): Number of columns in the matrix. [optional]  # noqa: E501
+            index_pointer ([int]): Array of 0-based index pointers for the compressed sparse row representation. [optional]  # noqa: E501
+            indices ([int]): Array of 0-based indices for the compressed sparse row representation. [optional]  # noqa: E501
             value (StatResultValueVector): [optional]  # noqa: E501
         """
 

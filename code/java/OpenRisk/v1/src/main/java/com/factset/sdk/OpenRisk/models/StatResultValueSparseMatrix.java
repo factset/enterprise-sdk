@@ -30,9 +30,9 @@ import com.factset.sdk.OpenRisk.JSON;
 
 
 /**
- * This output representation is for compressed sparse row matrix.
+ * Output representation for compressed sparse row matrix.
  */
-@ApiModel(description = "This output representation is for compressed sparse row matrix.")
+@ApiModel(description = "Output representation for compressed sparse row matrix.")
 @JsonPropertyOrder({
   StatResultValueSparseMatrix.JSON_PROPERTY_ROWS,
   StatResultValueSparseMatrix.JSON_PROPERTY_COLUMNS,
@@ -69,12 +69,12 @@ public class StatResultValueSparseMatrix implements Serializable {
   }
 
    /**
-   * Get rows
+   * Number of rows in the matrix
    * minimum: 1
    * @return rows
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Number of rows in the matrix")
   @JsonProperty(JSON_PROPERTY_ROWS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -96,12 +96,12 @@ public class StatResultValueSparseMatrix implements Serializable {
   }
 
    /**
-   * Get columns
+   * Number of columns in the matrix
    * minimum: 1
    * @return columns
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Number of columns in the matrix")
   @JsonProperty(JSON_PROPERTY_COLUMNS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -131,11 +131,11 @@ public class StatResultValueSparseMatrix implements Serializable {
   }
 
    /**
-   * Get indexPointer
+   * Array of 0-based index pointers for the compressed sparse row representation
    * @return indexPointer
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Array of 0-based index pointers for the compressed sparse row representation")
   @JsonProperty(JSON_PROPERTY_INDEX_POINTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -165,11 +165,11 @@ public class StatResultValueSparseMatrix implements Serializable {
   }
 
    /**
-   * Get indices
+   * Array of 0-based indices for the compressed sparse row representation
    * @return indices
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Array of 0-based indices for the compressed sparse row representation")
   @JsonProperty(JSON_PROPERTY_INDICES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -199,11 +199,11 @@ public class StatResultValueSparseMatrix implements Serializable {
   }
 
    /**
-   * Get value
+   * Array of floating point values
    * @return value
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Array of floating point values")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

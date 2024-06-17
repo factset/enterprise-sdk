@@ -24,7 +24,7 @@ class Stat {
      * Constructs a new <code>Stat</code>.
      * Risk statistic name and calculation level plus optional stat settings
      * @alias module:model/Stat
-     * @param name {String} 
+     * @param name {String} Name of the stat
      * @param level {module:model/StatCalculationLevel} 
      */
     constructor(name, level) { 
@@ -70,6 +70,7 @@ class Stat {
 }
 
 /**
+ * Name of the stat
  * @member {String} name
  */
 Stat.prototype['name'] = undefined;

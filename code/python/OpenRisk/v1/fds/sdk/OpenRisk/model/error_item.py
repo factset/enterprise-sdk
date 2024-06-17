@@ -59,9 +59,6 @@ class ErrorItem(ModelNormal):
     }
 
     validations = {
-        ('id',): {
-            'min_length': 1,
-        },
         ('code',): {
             'min_length': 1,
         },

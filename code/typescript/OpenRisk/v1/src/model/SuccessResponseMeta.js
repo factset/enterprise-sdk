@@ -79,6 +79,7 @@ SuccessResponseMeta.prototype['labels'] = undefined;
 SuccessResponseMeta.prototype['resolvedDates'] = undefined;
 
 /**
+ * Warnings encountered while processing the request
  * @member {Array.<module:model/WarningItem>} warnings
  */
 SuccessResponseMeta.prototype['warnings'] = undefined;

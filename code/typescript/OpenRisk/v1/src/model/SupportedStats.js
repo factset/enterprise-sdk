@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import SupportedStatsData from './SupportedStatsData';
+import SupportedStatDetails from './SupportedStatDetails';
 
 /**
  * The SupportedStats model module.
@@ -21,8 +21,9 @@ import SupportedStatsData from './SupportedStatsData';
 class SupportedStats {
     /**
      * Constructs a new <code>SupportedStats</code>.
+     * Contains all available base risk statistics. In the event &#39;data&#39; property is empty, no stats are available at all.
      * @alias module:model/SupportedStats
-     * @param data {Object.<String, module:model/SupportedStatsData>} Contains all available risk statistics. In the event 'data' property is empty, no stats are available at all.
+     * @param data {Object.<String, module:model/SupportedStatDetails>} All available base risk statistics
      */
     constructor(data) { 
         
@@ -50,7 +51,7 @@ class SupportedStats {
             obj = obj || new SupportedStats();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], {'String': SupportedStatsData});
+                obj['data'] = ApiClient.convertToType(data['data'], {'String': SupportedStatDetails});
             }
         }
         return obj;
@@ -60,8 +61,8 @@ class SupportedStats {
 }
 
 /**
- * Contains all available risk statistics. In the event 'data' property is empty, no stats are available at all.
- * @member {Object.<String, module:model/SupportedStatsData>} data
+ * All available base risk statistics
+ * @member {Object.<String, module:model/SupportedStatDetails>} data
  */
 SupportedStats.prototype['data'] = undefined;
 

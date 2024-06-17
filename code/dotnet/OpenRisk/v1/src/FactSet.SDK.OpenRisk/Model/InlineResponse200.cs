@@ -40,8 +40,8 @@ namespace FactSet.SDK.OpenRisk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse200" /> class.
         /// </summary>
-        /// <param name="data">data (required).</param>
-        public InlineResponse200(List<InlineResponse200Data> data)
+        /// <param name="data">Available risk models (required).</param>
+        public InlineResponse200(List<RiskModelSummary> data)
         {
             // to ensure "data" is required (not null)
             if (data == null) {
@@ -51,10 +51,11 @@ namespace FactSet.SDK.OpenRisk.Model
         }
 
         /// <summary>
-        /// Gets or Sets Data
+        /// Available risk models
         /// </summary>
+        /// <value>Available risk models</value>
         [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = false)]
-        public List<InlineResponse200Data> Data { get; set; }
+        public List<RiskModelSummary> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -39,6 +39,7 @@ public class AboutApi {
     healthStatusResponseTypeMap.put(401, new GenericType<String>(){});
     healthStatusResponseTypeMap.put(403, new GenericType<InlineResponse403>(){});
     healthStatusResponseTypeMap.put(404, new GenericType<InlineResponse404>(){});
+    healthStatusResponseTypeMap.put(500, new GenericType<InlineResponse403>(){});
   }
 
   private static final Map<Integer, GenericType> listRiskModelsResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -62,6 +63,7 @@ public class AboutApi {
     statsResponseTypeMap.put(200, new GenericType<SupportedStats>(){});
     statsResponseTypeMap.put(401, new GenericType<String>(){});
     statsResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
+    statsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
   private static final Map<Integer, GenericType> statsNamesOnlyResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -69,6 +71,7 @@ public class AboutApi {
     statsNamesOnlyResponseTypeMap.put(200, new GenericType<SupportedStatsNamesOnly>(){});
     statsNamesOnlyResponseTypeMap.put(401, new GenericType<String>(){});
     statsNamesOnlyResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
+    statsNamesOnlyResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
   
@@ -103,9 +106,10 @@ public class AboutApi {
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Service is operational and healthy </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 401 </td><td> Missing or invalid authentication </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Full access to the service is not authorized </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 403 </td><td> Service is unavailable or in a state of degraded health </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 404 </td><td> API version not found </td><td>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 429 </td><td> Rate limit reached. Wait until the time specified in header &#39;Retry-After&#39; has elapsed before making further requests. </td><td>  * Retry-After -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 500 </td><td> Service is unavailable or in a state of degraded health </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
   public InlineResponse2002 healthStatus(String version) throws ApiException {
@@ -123,9 +127,10 @@ public class AboutApi {
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Service is operational and healthy </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 401 </td><td> Missing or invalid authentication </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Full access to the service is not authorized </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 403 </td><td> Service is unavailable or in a state of degraded health </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 404 </td><td> API version not found </td><td>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 429 </td><td> Rate limit reached. Wait until the time specified in header &#39;Retry-After&#39; has elapsed before making further requests. </td><td>  * Retry-After -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 500 </td><td> Service is unavailable or in a state of degraded health </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
   public ApiResponse<InlineResponse2002> healthStatusWithHttpInfo(String version) throws ApiException {
@@ -258,7 +263,7 @@ public class AboutApi {
   }
   /**
    * Get risk model details
-   * Get the meta data of the risk model for the corresponding modelCode. modelCode can be obtained via &#39;/linear/{version}/riskmodels/&#39; route.
+   * Get the metadata of the risk model for the corresponding modelCode. modelCode can be obtained via &#39;/linear/{version}/riskmodels/&#39; route.
    * @param version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. (required)
    * @param modelCode Model code (required)
    * @return InlineResponse2001
@@ -266,7 +271,7 @@ public class AboutApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Returns the meta data of risk model. </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 200 </td><td> Returns the metadata of risk model. </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 401 </td><td> Missing or invalid authentication </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Endpoint not found </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 429 </td><td> Rate limit reached. Wait until the time specified in header &#39;Retry-After&#39; has elapsed before making further requests. </td><td>  * Retry-After -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
@@ -279,7 +284,7 @@ public class AboutApi {
 
   /**
    * Get risk model details
-   * Get the meta data of the risk model for the corresponding modelCode. modelCode can be obtained via &#39;/linear/{version}/riskmodels/&#39; route.
+   * Get the metadata of the risk model for the corresponding modelCode. modelCode can be obtained via &#39;/linear/{version}/riskmodels/&#39; route.
    * @param version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. (required)
    * @param modelCode Model code (required)
    * @return ApiResponse&lt;InlineResponse2001&gt;
@@ -287,7 +292,7 @@ public class AboutApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Returns the meta data of risk model. </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 200 </td><td> Returns the metadata of risk model. </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 401 </td><td> Missing or invalid authentication </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Endpoint not found </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 429 </td><td> Rate limit reached. Wait until the time specified in header &#39;Retry-After&#39; has elapsed before making further requests. </td><td>  * Retry-After -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
@@ -355,10 +360,11 @@ public class AboutApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> All base risk statistic names and their respective support and/or requirement for certain name-settings statistics options (such as: correlated specific risk, covariance isolation method, etc.), available levels, and security group calculation methodology. When &#39;securityGroupMethod&#39; is &#39;statSpecific&#39;, please refer to statistics documentation service for more information. </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 200 </td><td> All base risk statistic names with details on their available options and calculation methodologies. </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 401 </td><td> Missing or invalid authentication </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Endpoint not found </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 429 </td><td> Rate limit reached. Wait until the time specified in header &#39;Retry-After&#39; has elapsed before making further requests. </td><td>  * Retry-After -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 500 </td><td> Internal server error occurred </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
   public SupportedStats stats(String version) throws ApiException {
@@ -374,10 +380,11 @@ public class AboutApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> All base risk statistic names and their respective support and/or requirement for certain name-settings statistics options (such as: correlated specific risk, covariance isolation method, etc.), available levels, and security group calculation methodology. When &#39;securityGroupMethod&#39; is &#39;statSpecific&#39;, please refer to statistics documentation service for more information. </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 200 </td><td> All base risk statistic names with details on their available options and calculation methodologies. </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 401 </td><td> Missing or invalid authentication </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Endpoint not found </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 429 </td><td> Rate limit reached. Wait until the time specified in header &#39;Retry-After&#39; has elapsed before making further requests. </td><td>  * Retry-After -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 500 </td><td> Internal server error occurred </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
   public ApiResponse<SupportedStats> statsWithHttpInfo(String version) throws ApiException {
@@ -439,6 +446,7 @@ public class AboutApi {
        <tr><td> 401 </td><td> Missing or invalid authentication </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Endpoint not found </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 429 </td><td> Rate limit reached. Wait until the time specified in header &#39;Retry-After&#39; has elapsed before making further requests. </td><td>  * Retry-After -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 500 </td><td> Internal server error occurred </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
   public SupportedStatsNamesOnly statsNamesOnly(String version) throws ApiException {
@@ -458,6 +466,7 @@ public class AboutApi {
        <tr><td> 401 </td><td> Missing or invalid authentication </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Endpoint not found </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 429 </td><td> Rate limit reached. Wait until the time specified in header &#39;Retry-After&#39; has elapsed before making further requests. </td><td>  * Retry-After -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 500 </td><td> Internal server error occurred </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
   public ApiResponse<SupportedStatsNamesOnly> statsNamesOnlyWithHttpInfo(String version) throws ApiException {

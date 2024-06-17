@@ -17,7 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.OpenRisk.models.InlineResponse200Data;
+import com.factset.sdk.OpenRisk.models.RiskModelSummary;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -42,46 +42,46 @@ public class InlineResponse200 implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private java.util.List<InlineResponse200Data> data = new java.util.ArrayList<>();
+  private java.util.List<RiskModelSummary> data = new java.util.ArrayList<>();
 
   public InlineResponse200() { 
   }
 
   @JsonCreator
   public InlineResponse200(
-    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) java.util.List<InlineResponse200Data> data
+    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) java.util.List<RiskModelSummary> data
   ) {
     this();
     this.data = data;
   }
 
-  public InlineResponse200 data(java.util.List<InlineResponse200Data> data) {
+  public InlineResponse200 data(java.util.List<RiskModelSummary> data) {
     this.data = data;
     return this;
   }
 
-  public InlineResponse200 addDataItem(InlineResponse200Data dataItem) {
+  public InlineResponse200 addDataItem(RiskModelSummary dataItem) {
     this.data.add(dataItem);
     return this;
   }
 
    /**
-   * Get data
+   * Available risk models
    * @return data
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Available risk models")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public java.util.List<InlineResponse200Data> getData() {
+  public java.util.List<RiskModelSummary> getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setData(java.util.List<InlineResponse200Data> data) {
+  public void setData(java.util.List<RiskModelSummary> data) {
     this.data = data;
   }
 

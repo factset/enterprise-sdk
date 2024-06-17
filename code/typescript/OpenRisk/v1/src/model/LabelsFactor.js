@@ -22,8 +22,8 @@ class LabelsFactor {
      * Constructs a new <code>LabelsFactor</code>.
      * Labels relevant to calculation-levels with &#39;Factor&#39; in the name
      * @alias module:model/LabelsFactor
-     * @param ids {Array.<String>} 
-     * @param names {Array.<String>} 
+     * @param ids {Array.<String>} Risk model factor identifiers
+     * @param names {Array.<String>} Risk model factor names
      */
     constructor(ids, names) { 
         
@@ -65,11 +65,13 @@ class LabelsFactor {
 }
 
 /**
+ * Risk model factor identifiers
  * @member {Array.<String>} ids
  */
 LabelsFactor.prototype['ids'] = undefined;
 
 /**
+ * Risk model factor names
  * @member {Array.<String>} names
  */
 LabelsFactor.prototype['names'] = undefined;

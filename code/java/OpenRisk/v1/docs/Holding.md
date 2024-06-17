@@ -8,8 +8,8 @@ Security IDs and market values plus optional security grouping; the arrays must 
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ids** | **java.util.List&lt;String&gt;** |  | 
-**marketValues** | **java.util.List&lt;Double&gt;** |  | 
+**ids** | **java.util.List&lt;String&gt;** | Security identifiers | 
+**marketValues** | **java.util.List&lt;Double&gt;** | Security market values | 
 **grouping** | [**SecurityGroup**](SecurityGroup.md) |  |  [optional]
 **uncoveredAssets** | [**UncoveredAssetsEnum**](#UncoveredAssetsEnum) | Uncovered asset weight handling. Default values: &#39;portfolio&#39; -&gt; ExcludeToGlobalCash, &#39;benchmark&#39; -&gt; Normalize, &#39;market&#39; -&gt; Normalize. See also [OA:21737](https://my.apps.factset.com/oa/pages/21737#group_normal_mix) |  [optional]
 

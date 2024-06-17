@@ -59,9 +59,9 @@ namespace FactSet.SDK.OpenRisk.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
-        /// <param name="generateIDMappingRequestBody"></param>
+        /// <param name="generateIdMappingRequestBody"></param>
         /// <returns>InlineResponse2004</returns>
-        InlineResponse2004 GenerateIdMapping(string version, GenerateIDMappingRequestBody generateIDMappingRequestBody);
+        InlineResponse2004 GenerateIdMapping(string version, GenerateIdMappingRequestBody generateIdMappingRequestBody);
 
         /// <summary>
         /// Generate risk model ID mapping
@@ -71,9 +71,9 @@ namespace FactSet.SDK.OpenRisk.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
-        /// <param name="generateIDMappingRequestBody"></param>
+        /// <param name="generateIdMappingRequestBody"></param>
         /// <returns>ApiResponse of InlineResponse2004</returns>
-        ApiResponse<InlineResponse2004> GenerateIdMappingWithHttpInfo(string version, GenerateIDMappingRequestBody generateIDMappingRequestBody);
+        ApiResponse<InlineResponse2004> GenerateIdMappingWithHttpInfo(string version, GenerateIdMappingRequestBody generateIdMappingRequestBody);
         #endregion Synchronous Operations
     }
 
@@ -116,10 +116,10 @@ namespace FactSet.SDK.OpenRisk.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
-        /// <param name="generateIDMappingRequestBody"></param>
+        /// <param name="generateIdMappingRequestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2004</returns>
-        System.Threading.Tasks.Task<InlineResponse2004> GenerateIdMappingAsync(string version, GenerateIDMappingRequestBody generateIDMappingRequestBody, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineResponse2004> GenerateIdMappingAsync(string version, GenerateIdMappingRequestBody generateIdMappingRequestBody, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Generate risk model ID mapping
@@ -129,10 +129,10 @@ namespace FactSet.SDK.OpenRisk.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
-        /// <param name="generateIDMappingRequestBody"></param>
+        /// <param name="generateIdMappingRequestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GenerateIdMappingWithHttpInfoAsync(string version, GenerateIDMappingRequestBody generateIDMappingRequestBody, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GenerateIdMappingWithHttpInfoAsync(string version, GenerateIdMappingRequestBody generateIdMappingRequestBody, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -167,6 +167,7 @@ namespace FactSet.SDK.OpenRisk.Api
         {
             { (HttpStatusCode)200, typeof(InlineResponse2004) },
             { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(string) },
             { (HttpStatusCode)403, typeof(ErrorResponse) },
             { (HttpStatusCode)404, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
@@ -485,11 +486,11 @@ namespace FactSet.SDK.OpenRisk.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
-        /// <param name="generateIDMappingRequestBody"></param>
+        /// <param name="generateIdMappingRequestBody"></param>
         /// <returns>InlineResponse2004</returns>
-        public InlineResponse2004 GenerateIdMapping(string version, GenerateIDMappingRequestBody generateIDMappingRequestBody)
+        public InlineResponse2004 GenerateIdMapping(string version, GenerateIdMappingRequestBody generateIdMappingRequestBody)
         {
-            var localVarResponse = GenerateIdMappingWithHttpInfo(version, generateIDMappingRequestBody);
+            var localVarResponse = GenerateIdMappingWithHttpInfo(version, generateIdMappingRequestBody);
             return localVarResponse.Data;
         }
 
@@ -498,9 +499,9 @@ namespace FactSet.SDK.OpenRisk.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
-        /// <param name="generateIDMappingRequestBody"></param>
+        /// <param name="generateIdMappingRequestBody"></param>
         /// <returns>ApiResponse of InlineResponse2004</returns>
-        public ApiResponse<InlineResponse2004> GenerateIdMappingWithHttpInfo(string version, GenerateIDMappingRequestBody generateIDMappingRequestBody)
+        public ApiResponse<InlineResponse2004> GenerateIdMappingWithHttpInfo(string version, GenerateIdMappingRequestBody generateIdMappingRequestBody)
         {
             // verify the required parameter 'version' is set
             if (version == null)
@@ -508,10 +509,10 @@ namespace FactSet.SDK.OpenRisk.Api
                 throw new FactSet.SDK.OpenRisk.Client.ApiException(400, "Missing required parameter 'version' when calling OperationsApi->GenerateIdMapping");
             }
 
-            // verify the required parameter 'generateIDMappingRequestBody' is set
-            if (generateIDMappingRequestBody == null)
+            // verify the required parameter 'generateIdMappingRequestBody' is set
+            if (generateIdMappingRequestBody == null)
             {
-                throw new FactSet.SDK.OpenRisk.Client.ApiException(400, "Missing required parameter 'generateIDMappingRequestBody' when calling OperationsApi->GenerateIdMapping");
+                throw new FactSet.SDK.OpenRisk.Client.ApiException(400, "Missing required parameter 'generateIdMappingRequestBody' when calling OperationsApi->GenerateIdMapping");
             }
 
             FactSet.SDK.OpenRisk.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OpenRisk.Client.RequestOptions();
@@ -522,7 +523,8 @@ namespace FactSet.SDK.OpenRisk.Api
 
             // to determine the Accept header
             string[] _accepts = new string[] {
-                "application/json"
+                "application/json",
+                "text/plain"
             };
 
             var localVarContentType = FactSet.SDK.OpenRisk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -538,7 +540,7 @@ namespace FactSet.SDK.OpenRisk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("version", FactSet.SDK.OpenRisk.Client.ClientUtils.ParameterToString(version)); // path parameter
-            localVarRequestOptions.Data = generateIDMappingRequestBody;
+            localVarRequestOptions.Data = generateIdMappingRequestBody;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -581,12 +583,12 @@ namespace FactSet.SDK.OpenRisk.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
-        /// <param name="generateIDMappingRequestBody"></param>
+        /// <param name="generateIdMappingRequestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2004</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2004>GenerateIdMappingAsync(string version, GenerateIDMappingRequestBody generateIDMappingRequestBody, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2004>GenerateIdMappingAsync(string version, GenerateIdMappingRequestBody generateIdMappingRequestBody, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await GenerateIdMappingWithHttpInfoAsync(version, generateIDMappingRequestBody, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GenerateIdMappingWithHttpInfoAsync(version, generateIdMappingRequestBody, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -595,11 +597,11 @@ namespace FactSet.SDK.OpenRisk.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
-        /// <param name="generateIDMappingRequestBody"></param>
+        /// <param name="generateIdMappingRequestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GenerateIdMappingWithHttpInfoAsync(string version, GenerateIDMappingRequestBody generateIDMappingRequestBody, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GenerateIdMappingWithHttpInfoAsync(string version, GenerateIdMappingRequestBody generateIdMappingRequestBody, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'version' is set
             if (version == null)
@@ -607,10 +609,10 @@ namespace FactSet.SDK.OpenRisk.Api
                 throw new FactSet.SDK.OpenRisk.Client.ApiException(400, "Missing required parameter 'version' when calling OperationsApi->GenerateIdMapping");
             }
 
-            // verify the required parameter 'generateIDMappingRequestBody' is set
-            if (generateIDMappingRequestBody == null)
+            // verify the required parameter 'generateIdMappingRequestBody' is set
+            if (generateIdMappingRequestBody == null)
             {
-                throw new FactSet.SDK.OpenRisk.Client.ApiException(400, "Missing required parameter 'generateIDMappingRequestBody' when calling OperationsApi->GenerateIdMapping");
+                throw new FactSet.SDK.OpenRisk.Client.ApiException(400, "Missing required parameter 'generateIdMappingRequestBody' when calling OperationsApi->GenerateIdMapping");
             }
 
 
@@ -622,7 +624,8 @@ namespace FactSet.SDK.OpenRisk.Api
 
             // to determine the Accept header
             string[] _accepts = new string[] {
-                "application/json"
+                "application/json",
+                "text/plain"
             };
 
             var localVarContentType = FactSet.SDK.OpenRisk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -638,7 +641,7 @@ namespace FactSet.SDK.OpenRisk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("version", FactSet.SDK.OpenRisk.Client.ClientUtils.ParameterToString(version)); // path parameter
-            localVarRequestOptions.Data = generateIDMappingRequestBody;
+            localVarRequestOptions.Data = generateIdMappingRequestBody;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required

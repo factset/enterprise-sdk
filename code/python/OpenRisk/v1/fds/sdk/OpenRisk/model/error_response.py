@@ -114,7 +114,7 @@ class ErrorResponse(ModelNormal):
         """ErrorResponse - a model defined in OpenAPI
 
         Args:
-            errors ([ErrorItem]):
+            errors ([ErrorItem]): Errors encountered while processing the request
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -199,7 +199,7 @@ class ErrorResponse(ModelNormal):
         """ErrorResponse - a model defined in OpenAPI
 
         Args:
-            errors ([ErrorItem]):
+            errors ([ErrorItem]): Errors encountered while processing the request
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

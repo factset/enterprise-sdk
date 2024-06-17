@@ -27,7 +27,7 @@ from fds.sdk.OpenRisk.model_utils import (  # noqa: F401
 from fds.sdk.OpenRisk.exceptions import ApiException
 from fds.sdk.OpenRisk.model.calculate_from_holdings_request_body import CalculateFromHoldingsRequestBody
 from fds.sdk.OpenRisk.model.error_response import ErrorResponse
-from fds.sdk.OpenRisk.model.generate_id_mapping_request_body import GenerateIDMappingRequestBody
+from fds.sdk.OpenRisk.model.generate_id_mapping_request_body import GenerateIdMappingRequestBody
 from fds.sdk.OpenRisk.model.inline_response2003 import InlineResponse2003
 from fds.sdk.OpenRisk.model.inline_response2004 import InlineResponse2004
 
@@ -122,7 +122,7 @@ class OperationsApi(object):
         self.generate_id_mapping_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse2004,), 400: (ErrorResponse,), 403: (ErrorResponse,), 404: (ErrorResponse,), 500: (ErrorResponse,),  },
+                  { 200: (InlineResponse2004,), 400: (ErrorResponse,), 401: (str,), 403: (ErrorResponse,), 404: (ErrorResponse,), 500: (ErrorResponse,),  },
                   None
                 ),
                 'auth': [
@@ -167,7 +167,7 @@ class OperationsApi(object):
                     'version':
                         (str,),
                     'generate_id_mapping_request_body':
-                        (GenerateIDMappingRequestBody,),
+                        (GenerateIdMappingRequestBody,),
                 },
                 'attribute_map': {
                     'version': 'version',
@@ -181,7 +181,8 @@ class OperationsApi(object):
             },
             headers_map={
                 'accept': [
-                    'application/json'
+                    'application/json',
+                    'text/plain'
                 ],
                 'content_type': [
                     'application/json'
@@ -424,7 +425,7 @@ class OperationsApi(object):
 
         Args:
             version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
-            generate_id_mapping_request_body (GenerateIDMappingRequestBody):
+            generate_id_mapping_request_body (GenerateIdMappingRequestBody):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -475,7 +476,7 @@ class OperationsApi(object):
 
         Args:
             version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
-            generate_id_mapping_request_body (GenerateIDMappingRequestBody):
+            generate_id_mapping_request_body (GenerateIdMappingRequestBody):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -530,7 +531,7 @@ class OperationsApi(object):
 
         Args:
             version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
-            generate_id_mapping_request_body (GenerateIDMappingRequestBody):
+            generate_id_mapping_request_body (GenerateIdMappingRequestBody):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -580,7 +581,7 @@ class OperationsApi(object):
 
         Args:
             version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
-            generate_id_mapping_request_body (GenerateIDMappingRequestBody):
+            generate_id_mapping_request_body (GenerateIdMappingRequestBody):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object

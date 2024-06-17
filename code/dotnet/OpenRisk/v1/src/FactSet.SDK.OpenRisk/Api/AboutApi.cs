@@ -74,7 +74,7 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Get risk model details
         /// </summary>
         /// <remarks>
-        /// Get the meta data of the risk model for the corresponding modelCode. modelCode can be obtained via &#39;/linear/{version}/riskmodels/&#39; route.
+        /// Get the metadata of the risk model for the corresponding modelCode. modelCode can be obtained via &#39;/linear/{version}/riskmodels/&#39; route.
         /// </remarks>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
@@ -86,7 +86,7 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Get risk model details
         /// </summary>
         /// <remarks>
-        /// Get the meta data of the risk model for the corresponding modelCode. modelCode can be obtained via &#39;/linear/{version}/riskmodels/&#39; route.
+        /// Get the metadata of the risk model for the corresponding modelCode. modelCode can be obtained via &#39;/linear/{version}/riskmodels/&#39; route.
         /// </remarks>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
@@ -194,7 +194,7 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Get risk model details
         /// </summary>
         /// <remarks>
-        /// Get the meta data of the risk model for the corresponding modelCode. modelCode can be obtained via &#39;/linear/{version}/riskmodels/&#39; route.
+        /// Get the metadata of the risk model for the corresponding modelCode. modelCode can be obtained via &#39;/linear/{version}/riskmodels/&#39; route.
         /// </remarks>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
@@ -207,7 +207,7 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Get risk model details
         /// </summary>
         /// <remarks>
-        /// Get the meta data of the risk model for the corresponding modelCode. modelCode can be obtained via &#39;/linear/{version}/riskmodels/&#39; route.
+        /// Get the metadata of the risk model for the corresponding modelCode. modelCode can be obtained via &#39;/linear/{version}/riskmodels/&#39; route.
         /// </remarks>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
@@ -287,6 +287,7 @@ namespace FactSet.SDK.OpenRisk.Api
             { (HttpStatusCode)401, typeof(string) },
             { (HttpStatusCode)403, typeof(InlineResponse403) },
             { (HttpStatusCode)404, typeof(InlineResponse404) },
+            { (HttpStatusCode)500, typeof(InlineResponse403) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> ListRiskModelsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
@@ -310,6 +311,7 @@ namespace FactSet.SDK.OpenRisk.Api
             { (HttpStatusCode)200, typeof(SupportedStats) },
             { (HttpStatusCode)401, typeof(string) },
             { (HttpStatusCode)404, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> StatsNamesOnlyResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
@@ -317,6 +319,7 @@ namespace FactSet.SDK.OpenRisk.Api
             { (HttpStatusCode)200, typeof(SupportedStatsNamesOnly) },
             { (HttpStatusCode)401, typeof(string) },
             { (HttpStatusCode)404, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
 
         # endregion Response Type Disctionaries
@@ -787,7 +790,7 @@ namespace FactSet.SDK.OpenRisk.Api
         }
 
         /// <summary>
-        /// Get risk model details Get the meta data of the risk model for the corresponding modelCode. modelCode can be obtained via &#39;/linear/{version}/riskmodels/&#39; route.
+        /// Get risk model details Get the metadata of the risk model for the corresponding modelCode. modelCode can be obtained via &#39;/linear/{version}/riskmodels/&#39; route.
         /// </summary>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
@@ -800,7 +803,7 @@ namespace FactSet.SDK.OpenRisk.Api
         }
 
         /// <summary>
-        /// Get risk model details Get the meta data of the risk model for the corresponding modelCode. modelCode can be obtained via &#39;/linear/{version}/riskmodels/&#39; route.
+        /// Get risk model details Get the metadata of the risk model for the corresponding modelCode. modelCode can be obtained via &#39;/linear/{version}/riskmodels/&#39; route.
         /// </summary>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
@@ -883,7 +886,7 @@ namespace FactSet.SDK.OpenRisk.Api
         }
 
         /// <summary>
-        /// Get risk model details Get the meta data of the risk model for the corresponding modelCode. modelCode can be obtained via &#39;/linear/{version}/riskmodels/&#39; route.
+        /// Get risk model details Get the metadata of the risk model for the corresponding modelCode. modelCode can be obtained via &#39;/linear/{version}/riskmodels/&#39; route.
         /// </summary>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
@@ -897,7 +900,7 @@ namespace FactSet.SDK.OpenRisk.Api
         }
 
         /// <summary>
-        /// Get risk model details Get the meta data of the risk model for the corresponding modelCode. modelCode can be obtained via &#39;/linear/{version}/riskmodels/&#39; route.
+        /// Get risk model details Get the metadata of the risk model for the corresponding modelCode. modelCode can be obtained via &#39;/linear/{version}/riskmodels/&#39; route.
         /// </summary>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>

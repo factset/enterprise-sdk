@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.OpenRisk.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.OpenRisk.Model
 {
     /// <summary>
-    /// SupportedStats
+    /// Contains all available base risk statistics. In the event &#39;data&#39; property is empty, no stats are available at all.
     /// </summary>
     [DataContract(Name = "SupportedStats")]
     public partial class SupportedStats : IEquatable<SupportedStats>, IValidatableObject
@@ -40,8 +40,8 @@ namespace FactSet.SDK.OpenRisk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SupportedStats" /> class.
         /// </summary>
-        /// <param name="data">Contains all available risk statistics. In the event &#39;data&#39; property is empty, no stats are available at all. (required).</param>
-        public SupportedStats(Dictionary<string, SupportedStatsData> data)
+        /// <param name="data">All available base risk statistics (required).</param>
+        public SupportedStats(Dictionary<string, SupportedStatDetails> data)
         {
             // to ensure "data" is required (not null)
             if (data == null) {
@@ -51,11 +51,11 @@ namespace FactSet.SDK.OpenRisk.Model
         }
 
         /// <summary>
-        /// Contains all available risk statistics. In the event &#39;data&#39; property is empty, no stats are available at all.
+        /// All available base risk statistics
         /// </summary>
-        /// <value>Contains all available risk statistics. In the event &#39;data&#39; property is empty, no stats are available at all.</value>
+        /// <value>All available base risk statistics</value>
         [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = false)]
-        public Dictionary<string, SupportedStatsData> Data { get; set; }
+        public Dictionary<string, SupportedStatDetails> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

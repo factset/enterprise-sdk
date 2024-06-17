@@ -81,6 +81,7 @@ SecurityOnlySuccessResponseMeta.prototype['labels'] = undefined;
 SecurityOnlySuccessResponseMeta.prototype['resolvedDates'] = undefined;
 
 /**
+ * Warnings encountered while processing the request
  * @member {Array.<module:model/WarningItem>} warnings
  */
 SecurityOnlySuccessResponseMeta.prototype['warnings'] = undefined;

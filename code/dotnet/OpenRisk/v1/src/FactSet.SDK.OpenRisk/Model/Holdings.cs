@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.OpenRisk.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.OpenRisk.Model
 {
     /// <summary>
-    /// Holdings
+    /// All security holdings which can include a &#39;portfolio&#39;, a &#39;benchmark&#39;, and a total &#39;market&#39; portfolio.
     /// </summary>
     [DataContract(Name = "Holdings")]
     public partial class Holdings : IEquatable<Holdings>, IValidatableObject

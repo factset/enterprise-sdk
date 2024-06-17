@@ -5,10 +5,10 @@ Floating point double(s) in a dimension corresponding to the calculation-level. 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**rows** | **int** |  | [optional] 
-**columns** | **int** |  | [optional] 
-**index_pointer** | **[int]** |  | [optional] 
-**indices** | **[int]** |  | [optional] 
+**rows** | **int** | Number of rows in the matrix | [optional] 
+**columns** | **int** | Number of columns in the matrix | [optional] 
+**index_pointer** | **[int]** | Array of 0-based index pointers for the compressed sparse row representation | [optional] 
+**indices** | **[int]** | Array of 0-based indices for the compressed sparse row representation | [optional] 
 **value** | [**StatResultValueVector**](StatResultValueVector.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

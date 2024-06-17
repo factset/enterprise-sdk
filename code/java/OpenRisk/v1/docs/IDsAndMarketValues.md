@@ -8,8 +8,8 @@ Security IDs and market values; the arrays must have the same number of items. P
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ids** | **java.util.List&lt;String&gt;** |  | 
-**marketValues** | **java.util.List&lt;Double&gt;** |  | 
+**ids** | **java.util.List&lt;String&gt;** | Security identifiers | 
+**marketValues** | **java.util.List&lt;Double&gt;** | Security market values | 
 
 
 ## Implemented Interfaces

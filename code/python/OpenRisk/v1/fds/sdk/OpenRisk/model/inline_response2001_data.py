@@ -31,14 +31,14 @@ from fds.sdk.OpenRisk.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.OpenRisk.model.currency_iso_code import CurrencyISOCode
-    from fds.sdk.OpenRisk.model.inline_response2001_data_factors import InlineResponse2001DataFactors
-    from fds.sdk.OpenRisk.model.inline_response2001_data_risk_model_append_format import InlineResponse2001DataRiskModelAppendFormat
+    from fds.sdk.OpenRisk.model.currency_iso_code import CurrencyIsoCode
+    from fds.sdk.OpenRisk.model.risk_model_append_field_type import RiskModelAppendFieldType
     from fds.sdk.OpenRisk.model.risk_model_code import RiskModelCode
-    globals()['CurrencyISOCode'] = CurrencyISOCode
-    globals()['InlineResponse2001DataFactors'] = InlineResponse2001DataFactors
-    globals()['InlineResponse2001DataRiskModelAppendFormat'] = InlineResponse2001DataRiskModelAppendFormat
+    from fds.sdk.OpenRisk.model.risk_model_factor_details import RiskModelFactorDetails
+    globals()['CurrencyIsoCode'] = CurrencyIsoCode
+    globals()['RiskModelAppendFieldType'] = RiskModelAppendFieldType
     globals()['RiskModelCode'] = RiskModelCode
+    globals()['RiskModelFactorDetails'] = RiskModelFactorDetails
 
 
 class InlineResponse2001Data(ModelNormal):
@@ -113,17 +113,17 @@ class InlineResponse2001Data(ModelNormal):
         lazy_import()
         return {
             'code': (RiskModelCode,),  # noqa: E501
-            'currencies': ([CurrencyISOCode],),  # noqa: E501
-            'currency': (CurrencyISOCode,),  # noqa: E501
-            'factors': ([InlineResponse2001DataFactors],),  # noqa: E501
-            'factor_id_to_iso_currency': ({str: (CurrencyISOCode,)},),  # noqa: E501
+            'currencies': ([CurrencyIsoCode],),  # noqa: E501
+            'currency': (CurrencyIsoCode,),  # noqa: E501
+            'factors': ([RiskModelFactorDetails],),  # noqa: E501
+            'factor_id_to_iso_currency': ({str: (CurrencyIsoCode,)},),  # noqa: E501
             'first_date': (date,),  # noqa: E501
             'frequency': (str,),  # noqa: E501
             'latest_date': (date,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'universe_count': (int,),  # noqa: E501
             'vendor': (str,),  # noqa: E501
-            'risk_model_append_format': ([InlineResponse2001DataRiskModelAppendFormat],),  # noqa: E501
+            'risk_model_append_format': ([RiskModelAppendFieldType],),  # noqa: E501
         }
 
     @cached_property
@@ -158,10 +158,10 @@ class InlineResponse2001Data(ModelNormal):
 
         Args:
             code (RiskModelCode):
-            currencies ([CurrencyISOCode]): Currencies that can be used with the model
-            currency (CurrencyISOCode):
-            factors ([InlineResponse2001DataFactors]): Factors of the model
-            factor_id_to_iso_currency ({str: (CurrencyISOCode,)}): Map of currency factor IDs to ISO currency code.
+            currencies ([CurrencyIsoCode]): Currencies that can be used with the model
+            currency (CurrencyIsoCode):
+            factors ([RiskModelFactorDetails]): Factors of the model
+            factor_id_to_iso_currency ({str: (CurrencyIsoCode,)}): Map of currency factor IDs to ISO currency code.
             first_date (date): **(since 1.12.0)**  Date format YYYY-MM-DD.
             frequency (str): Frequency of the model
             latest_date (date): **(since 1.12.0)**  Date format YYYY-MM-DD.
@@ -200,7 +200,7 @@ class InlineResponse2001Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            risk_model_append_format ([InlineResponse2001DataRiskModelAppendFormat]): List of fields which are supported by the risk model for appending additional asset data. [optional]  # noqa: E501
+            risk_model_append_format ([RiskModelAppendFieldType]): List of fields which are supported by the risk model for appending additional asset data. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -264,10 +264,10 @@ class InlineResponse2001Data(ModelNormal):
 
         Args:
             code (RiskModelCode):
-            currencies ([CurrencyISOCode]): Currencies that can be used with the model
-            currency (CurrencyISOCode):
-            factors ([InlineResponse2001DataFactors]): Factors of the model
-            factor_id_to_iso_currency ({str: (CurrencyISOCode,)}): Map of currency factor IDs to ISO currency code.
+            currencies ([CurrencyIsoCode]): Currencies that can be used with the model
+            currency (CurrencyIsoCode):
+            factors ([RiskModelFactorDetails]): Factors of the model
+            factor_id_to_iso_currency ({str: (CurrencyIsoCode,)}): Map of currency factor IDs to ISO currency code.
             first_date (date): **(since 1.12.0)**  Date format YYYY-MM-DD.
             frequency (str): Frequency of the model
             latest_date (date): **(since 1.12.0)**  Date format YYYY-MM-DD.
@@ -306,7 +306,7 @@ class InlineResponse2001Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            risk_model_append_format ([InlineResponse2001DataRiskModelAppendFormat]): List of fields which are supported by the risk model for appending additional asset data. [optional]  # noqa: E501
+            risk_model_append_format ([RiskModelAppendFieldType]): List of fields which are supported by the risk model for appending additional asset data. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

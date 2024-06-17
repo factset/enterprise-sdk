@@ -17,10 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.OpenRisk.models.ErrorItem;
-import com.factset.sdk.OpenRisk.models.StatCalculationLevel;
-import com.factset.sdk.OpenRisk.models.StatCalculationSettings;
-import com.factset.sdk.OpenRisk.models.StatResultValue;
+import com.factset.sdk.OpenRisk.models.StatResult;
 import com.factset.sdk.OpenRisk.models.SuccessResponseMeta;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -50,7 +47,7 @@ public class InlineResponse2003 implements Serializable {
   private SuccessResponseMeta meta;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private java.util.List<Object> data = new java.util.ArrayList<>();
+  private java.util.List<StatResult> data = new java.util.ArrayList<>();
 
   public InlineResponse2003() { 
   }
@@ -58,7 +55,7 @@ public class InlineResponse2003 implements Serializable {
   @JsonCreator
   public InlineResponse2003(
     @JsonProperty(value=JSON_PROPERTY_META, required=true) SuccessResponseMeta meta, 
-    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) java.util.List<Object> data
+    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) java.util.List<StatResult> data
   ) {
     this();
     this.meta = meta;
@@ -91,12 +88,12 @@ public class InlineResponse2003 implements Serializable {
   }
 
 
-  public InlineResponse2003 data(java.util.List<Object> data) {
+  public InlineResponse2003 data(java.util.List<StatResult> data) {
     this.data = data;
     return this;
   }
 
-  public InlineResponse2003 addDataItem(Object dataItem) {
+  public InlineResponse2003 addDataItem(StatResult dataItem) {
     this.data.add(dataItem);
     return this;
   }
@@ -110,14 +107,14 @@ public class InlineResponse2003 implements Serializable {
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public java.util.List<Object> getData() {
+  public java.util.List<StatResult> getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setData(java.util.List<Object> data) {
+  public void setData(java.util.List<StatResult> data) {
     this.data = data;
   }
 

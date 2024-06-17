@@ -31,8 +31,8 @@ from fds.sdk.OpenRisk.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.OpenRisk.model.supported_stats_data import SupportedStatsData
-    globals()['SupportedStatsData'] = SupportedStatsData
+    from fds.sdk.OpenRisk.model.supported_stat_details import SupportedStatDetails
+    globals()['SupportedStatDetails'] = SupportedStatDetails
 
 
 class SupportedStats(ModelNormal):
@@ -88,7 +88,7 @@ class SupportedStats(ModelNormal):
         """
         lazy_import()
         return {
-            'data': ({str: (SupportedStatsData,)},),  # noqa: E501
+            'data': ({str: (SupportedStatDetails,)},),  # noqa: E501
         }
 
     @cached_property
@@ -111,7 +111,7 @@ class SupportedStats(ModelNormal):
         """SupportedStats - a model defined in OpenAPI
 
         Args:
-            data ({str: (SupportedStatsData,)}): Contains all available risk statistics. In the event 'data' property is empty, no stats are available at all.
+            data ({str: (SupportedStatDetails,)}): All available base risk statistics
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -196,7 +196,7 @@ class SupportedStats(ModelNormal):
         """SupportedStats - a model defined in OpenAPI
 
         Args:
-            data ({str: (SupportedStatsData,)}): Contains all available risk statistics. In the event 'data' property is empty, no stats are available at all.
+            data ({str: (SupportedStatDetails,)}): All available base risk statistics
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

@@ -28,7 +28,7 @@ using System.Reflection;
 namespace FactSet.SDK.OpenRisk.Model
 {
     /// <summary>
-    /// FactorGroupNodes
+    /// Either an individual factor or a grouping.
     /// </summary>
     [JsonConverter(typeof(FactorGroupNodesJsonConverter))]
     [DataContract(Name = "FactorGroupNodes")]

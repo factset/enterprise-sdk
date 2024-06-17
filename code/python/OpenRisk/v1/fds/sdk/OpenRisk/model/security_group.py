@@ -148,7 +148,7 @@ class SecurityGroup(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): [optional]  # noqa: E501
+            name (str): Optional name of the group. [optional]  # noqa: E501
             indices ([int]): List of 0-based indices into the containing holding's security IDs array. [optional]  # noqa: E501
             groups ([SecurityGroup]): Recursively defined elements; base case array (i.e., lowest security group) contains objects with 'indices' only and not 'groups'. [optional]  # noqa: E501
         """
@@ -232,7 +232,7 @@ class SecurityGroup(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): [optional]  # noqa: E501
+            name (str): Optional name of the group. [optional]  # noqa: E501
             indices ([int]): List of 0-based indices into the containing holding's security IDs array. [optional]  # noqa: E501
             groups ([SecurityGroup]): Recursively defined elements; base case array (i.e., lowest security group) contains objects with 'indices' only and not 'groups'. [optional]  # noqa: E501
         """

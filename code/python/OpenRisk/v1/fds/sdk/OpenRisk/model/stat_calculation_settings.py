@@ -59,6 +59,10 @@ class StatCalculationSettings(ModelNormal):
     }
 
     validations = {
+        ('confidence_level',): {
+            'exclusive_maximum''inclusive_maximum': 1,
+            'exclusive_minimum''inclusive_minimum': 0,
+        },
     }
 
     @cached_property
@@ -157,18 +161,18 @@ class StatCalculationSettings(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            use_absolute_weights_for_lot_expansion (bool): [optional] if omitted the server will use the default value of True  # noqa: E501
-            covariance_times_two (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
-            covariance_times_two_term (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
+            use_absolute_weights_for_lot_expansion (bool): When this is set to true, use absolute value weights for multi-lot expansion, otherwise use the actual value weights.. [optional] if omitted the server will use the default value of True  # noqa: E501
+            covariance_times_two (bool): When this is set to true, calculate covariance multiplied by two.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            covariance_times_two_term (bool): When this is set to true, calculate covariance multiplied by two term (Cov*2 term).. [optional] if omitted the server will use the default value of False  # noqa: E501
             correlated_specific_risk (bool): When this is set to true, specific risk correlation adjustment will be applied to security level as well as portfolio level. An example case where stock specific correlation is supplied by risk models is the case between parent equity and ADR.. [optional] if omitted the server will use the default value of False  # noqa: E501
             sparse (bool): When this is set to true, the matrix and vector output is in compressed sparse row matrix format. Vector is considered as a matrix with one row for compressed sparse row matrix output. This only applies for matrix and vector output, not for single data points e.g. stats at Portfolio level.. [optional] if omitted the server will use the default value of False  # noqa: E501
-            horizon (float): [optional]  # noqa: E501
-            days_per_year (float): [optional]  # noqa: E501
-            confidence_level (float): [optional]  # noqa: E501
-            lamda (float): [optional]  # noqa: E501
-            specific_to_factor_ratio (float): [optional]  # noqa: E501
-            rap_sys (float): [optional]  # noqa: E501
-            rap_unsys (float): [optional]  # noqa: E501
+            horizon (float): Horizon (in days) to use in Value at Risk (VaR) stat calculations.. [optional]  # noqa: E501
+            days_per_year (float): Number of days per year (e.g. 250 or 365) to use in Value at Risk (VaR) stat calculations.. [optional]  # noqa: E501
+            confidence_level (float): Confidence level to use in Value at Risk (VaR) stat calculations.. [optional]  # noqa: E501
+            lamda (float): Lamda value to use in Implied Alpha Lamda stat calculations.. [optional]  # noqa: E501
+            specific_to_factor_ratio (float): Specific risk to factor risk ratio value to use in Implied Alpha stat calculations.. [optional]  # noqa: E501
+            rap_sys (float): Systematic RAP value to use in Implied Alpha RAP stat calculations.. [optional]  # noqa: E501
+            rap_unsys (float): Unsystematic RAP value to use in Implied Alpha RAP stat calculations.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -250,18 +254,18 @@ class StatCalculationSettings(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            use_absolute_weights_for_lot_expansion (bool): [optional] if omitted the server will use the default value of True  # noqa: E501
-            covariance_times_two (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
-            covariance_times_two_term (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
+            use_absolute_weights_for_lot_expansion (bool): When this is set to true, use absolute value weights for multi-lot expansion, otherwise use the actual value weights.. [optional] if omitted the server will use the default value of True  # noqa: E501
+            covariance_times_two (bool): When this is set to true, calculate covariance multiplied by two.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            covariance_times_two_term (bool): When this is set to true, calculate covariance multiplied by two term (Cov*2 term).. [optional] if omitted the server will use the default value of False  # noqa: E501
             correlated_specific_risk (bool): When this is set to true, specific risk correlation adjustment will be applied to security level as well as portfolio level. An example case where stock specific correlation is supplied by risk models is the case between parent equity and ADR.. [optional] if omitted the server will use the default value of False  # noqa: E501
             sparse (bool): When this is set to true, the matrix and vector output is in compressed sparse row matrix format. Vector is considered as a matrix with one row for compressed sparse row matrix output. This only applies for matrix and vector output, not for single data points e.g. stats at Portfolio level.. [optional] if omitted the server will use the default value of False  # noqa: E501
-            horizon (float): [optional]  # noqa: E501
-            days_per_year (float): [optional]  # noqa: E501
-            confidence_level (float): [optional]  # noqa: E501
-            lamda (float): [optional]  # noqa: E501
-            specific_to_factor_ratio (float): [optional]  # noqa: E501
-            rap_sys (float): [optional]  # noqa: E501
-            rap_unsys (float): [optional]  # noqa: E501
+            horizon (float): Horizon (in days) to use in Value at Risk (VaR) stat calculations.. [optional]  # noqa: E501
+            days_per_year (float): Number of days per year (e.g. 250 or 365) to use in Value at Risk (VaR) stat calculations.. [optional]  # noqa: E501
+            confidence_level (float): Confidence level to use in Value at Risk (VaR) stat calculations.. [optional]  # noqa: E501
+            lamda (float): Lamda value to use in Implied Alpha Lamda stat calculations.. [optional]  # noqa: E501
+            specific_to_factor_ratio (float): Specific risk to factor risk ratio value to use in Implied Alpha stat calculations.. [optional]  # noqa: E501
+            rap_sys (float): Systematic RAP value to use in Implied Alpha RAP stat calculations.. [optional]  # noqa: E501
+            rap_unsys (float): Unsystematic RAP value to use in Implied Alpha RAP stat calculations.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

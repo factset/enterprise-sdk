@@ -33,7 +33,7 @@ namespace FactSet.SDK.OpenRisk.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "2.0.0";
+        public const string Version = "3.0.0";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -105,7 +105,7 @@ namespace FactSet.SDK.OpenRisk.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "fds-sdk/dotnet/OpenRisk/2.0.0";
+            UserAgent = "fds-sdk/dotnet/OpenRisk/3.0.0";
             BasePath = "https://api.factset.com/analytics/openrisk";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -461,7 +461,7 @@ namespace FactSet.SDK.OpenRisk.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 1.24.0\n";
-            report += "    SDK Package Version: 2.0.0\n";
+            report += "    SDK Package Version: 3.0.0\n";
 
             return report;
         }

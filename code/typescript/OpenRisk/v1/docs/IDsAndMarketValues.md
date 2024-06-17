@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ids** | **[String]** |  | 
-**marketValues** | **[Number]** |  | 
+**ids** | **[String]** | Security identifiers | 
+**marketValues** | **[Number]** | Security market values | 
 
 

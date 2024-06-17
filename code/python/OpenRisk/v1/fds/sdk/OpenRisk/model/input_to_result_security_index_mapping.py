@@ -118,7 +118,7 @@ class InputToResultSecurityIndexMapping(ModelNormal):
         """InputToResultSecurityIndexMapping - a model defined in OpenAPI
 
         Args:
-            portfolio ([int]):
+            portfolio ([int]): Index mapping corresponding to the input 'portfolio' holdings
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -151,8 +151,8 @@ class InputToResultSecurityIndexMapping(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            benchmark ([int]): [optional]  # noqa: E501
-            market ([int]): [optional]  # noqa: E501
+            benchmark ([int]): Index mapping corresponding to the input 'benchmark' holdings. [optional]  # noqa: E501
+            market ([int]): Index mapping corresponding to the input 'market' holdings. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -205,7 +205,7 @@ class InputToResultSecurityIndexMapping(ModelNormal):
         """InputToResultSecurityIndexMapping - a model defined in OpenAPI
 
         Args:
-            portfolio ([int]):
+            portfolio ([int]): Index mapping corresponding to the input 'portfolio' holdings
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -238,8 +238,8 @@ class InputToResultSecurityIndexMapping(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            benchmark ([int]): [optional]  # noqa: E501
-            market ([int]): [optional]  # noqa: E501
+            benchmark ([int]): Index mapping corresponding to the input 'benchmark' holdings. [optional]  # noqa: E501
+            market ([int]): Index mapping corresponding to the input 'market' holdings. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

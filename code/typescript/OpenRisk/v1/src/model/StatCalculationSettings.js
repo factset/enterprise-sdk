@@ -91,18 +91,21 @@ class StatCalculationSettings {
 }
 
 /**
+ * When this is set to true, use absolute value weights for multi-lot expansion, otherwise use the actual value weights.
  * @member {Boolean} useAbsoluteWeightsForLotExpansion
  * @default true
  */
 StatCalculationSettings.prototype['useAbsoluteWeightsForLotExpansion'] = true;
 
 /**
+ * When this is set to true, calculate covariance multiplied by two.
  * @member {Boolean} covarianceTimesTwo
  * @default false
  */
 StatCalculationSettings.prototype['covarianceTimesTwo'] = false;
 
 /**
+ * When this is set to true, calculate covariance multiplied by two term (Cov*2 term).
  * @member {Boolean} covarianceTimesTwoTerm
  * @default false
  */
@@ -123,36 +126,43 @@ StatCalculationSettings.prototype['correlatedSpecificRisk'] = false;
 StatCalculationSettings.prototype['sparse'] = false;
 
 /**
+ * Horizon (in days) to use in Value at Risk (VaR) stat calculations.
  * @member {Number} horizon
  */
 StatCalculationSettings.prototype['horizon'] = undefined;
 
 /**
+ * Number of days per year (e.g. 250 or 365) to use in Value at Risk (VaR) stat calculations.
  * @member {Number} daysPerYear
  */
 StatCalculationSettings.prototype['daysPerYear'] = undefined;
 
 /**
+ * Confidence level to use in Value at Risk (VaR) stat calculations.
  * @member {Number} confidenceLevel
  */
 StatCalculationSettings.prototype['confidenceLevel'] = undefined;
 
 /**
+ * Lamda value to use in Implied Alpha Lamda stat calculations.
  * @member {Number} lamda
  */
 StatCalculationSettings.prototype['lamda'] = undefined;
 
 /**
+ * Specific risk to factor risk ratio value to use in Implied Alpha stat calculations.
  * @member {Number} specificToFactorRatio
  */
 StatCalculationSettings.prototype['specificToFactorRatio'] = undefined;
 
 /**
+ * Systematic RAP value to use in Implied Alpha RAP stat calculations.
  * @member {Number} rapSys
  */
 StatCalculationSettings.prototype['rapSys'] = undefined;
 
 /**
+ * Unsystematic RAP value to use in Implied Alpha RAP stat calculations.
  * @member {Number} rapUnsys
  */
 StatCalculationSettings.prototype['rapUnsys'] = undefined;

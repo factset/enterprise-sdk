@@ -23,8 +23,8 @@ import ExposureDateFormatConvention from './model/ExposureDateFormatConvention';
 import FactorGroup from './model/FactorGroup';
 import FactorGroupNodes from './model/FactorGroupNodes';
 import FactorsVisible from './model/FactorsVisible';
-import GenerateIDMappingRequestBody from './model/GenerateIDMappingRequestBody';
-import GenerateIDMappingRequestData from './model/GenerateIDMappingRequestData';
+import GenerateIdMappingRequestBody from './model/GenerateIdMappingRequestBody';
+import GenerateIdMappingRequestData from './model/GenerateIdMappingRequestData';
 import GroupsLabels from './model/GroupsLabels';
 import Holding from './model/Holding';
 import HoldingAllOf from './model/HoldingAllOf';
@@ -33,21 +33,18 @@ import IDsAndMarketValues from './model/IDsAndMarketValues';
 import InlineResponse200 from './model/InlineResponse200';
 import InlineResponse2001 from './model/InlineResponse2001';
 import InlineResponse2001Data from './model/InlineResponse2001Data';
-import InlineResponse2001DataFactors from './model/InlineResponse2001DataFactors';
-import InlineResponse2001DataRiskModelAppendFormat from './model/InlineResponse2001DataRiskModelAppendFormat';
 import InlineResponse2002 from './model/InlineResponse2002';
 import InlineResponse2003 from './model/InlineResponse2003';
 import InlineResponse2004 from './model/InlineResponse2004';
-import InlineResponse200Data from './model/InlineResponse200Data';
 import InlineResponse403 from './model/InlineResponse403';
 import InlineResponse404 from './model/InlineResponse404';
+import InputDate from './model/InputDate';
 import InputToResultSecurityIndexMapping from './model/InputToResultSecurityIndexMapping';
 import Labels from './model/Labels';
 import LabelsFactor from './model/LabelsFactor';
 import LabelsSecurity from './model/LabelsSecurity';
 import LaggingDates from './model/LaggingDates';
 import MappedSecurityInfo from './model/MappedSecurityInfo';
-import ModelDate from './model/ModelDate';
 import RemoveCurrencyRisk from './model/RemoveCurrencyRisk';
 import RequiresFactorReturns from './model/RequiresFactorReturns';
 import ResolvedDates from './model/ResolvedDates';
@@ -57,7 +54,10 @@ import RiskExclusionInfoExclusionInfo from './model/RiskExclusionInfoExclusionIn
 import RiskMappingEntry from './model/RiskMappingEntry';
 import RiskModelAppendData from './model/RiskModelAppendData';
 import RiskModelAppendDataValue from './model/RiskModelAppendDataValue';
+import RiskModelAppendFieldType from './model/RiskModelAppendFieldType';
 import RiskModelFactor from './model/RiskModelFactor';
+import RiskModelFactorDetails from './model/RiskModelFactorDetails';
+import RiskModelSummary from './model/RiskModelSummary';
 import SecurityGroup from './model/SecurityGroup';
 import SecurityIndexMapping from './model/SecurityIndexMapping';
 import SecurityOnlyLabels from './model/SecurityOnlyLabels';
@@ -66,14 +66,15 @@ import SecurityOnlySuccessResponseMeta from './model/SecurityOnlySuccessResponse
 import Stat from './model/Stat';
 import StatCalculationLevel from './model/StatCalculationLevel';
 import StatCalculationSettings from './model/StatCalculationSettings';
+import StatResult from './model/StatResult';
 import StatResultValue from './model/StatResultValue';
 import StatResultValueSparseMatrix from './model/StatResultValueSparseMatrix';
 import SuccessResponseMeta from './model/SuccessResponseMeta';
+import SupportedStatDetails from './model/SupportedStatDetails';
+import SupportedStatDetailsLevels from './model/SupportedStatDetailsLevels';
+import SupportedStatDetailsSecurityGroupMethod from './model/SupportedStatDetailsSecurityGroupMethod';
 import SupportedStats from './model/SupportedStats';
-import SupportedStatsData from './model/SupportedStatsData';
-import SupportedStatsLevels from './model/SupportedStatsLevels';
 import SupportedStatsNamesOnly from './model/SupportedStatsNamesOnly';
-import SupportedStatsSecurityGroupMethod from './model/SupportedStatsSecurityGroupMethod';
 import WarningItem from './model/WarningItem';
 
 import AboutApi from './api/AboutApi';
@@ -184,16 +185,16 @@ export {
     FactorsVisible,
 
     /**
-     * The GenerateIDMappingRequestBody model constructor.
-     * @property {module:model/GenerateIDMappingRequestBody}
+     * The GenerateIdMappingRequestBody model constructor.
+     * @property {module:model/GenerateIdMappingRequestBody}
      */
-    GenerateIDMappingRequestBody,
+    GenerateIdMappingRequestBody,
 
     /**
-     * The GenerateIDMappingRequestData model constructor.
-     * @property {module:model/GenerateIDMappingRequestData}
+     * The GenerateIdMappingRequestData model constructor.
+     * @property {module:model/GenerateIdMappingRequestData}
      */
-    GenerateIDMappingRequestData,
+    GenerateIdMappingRequestData,
 
     /**
      * The GroupsLabels model constructor.
@@ -244,18 +245,6 @@ export {
     InlineResponse2001Data,
 
     /**
-     * The InlineResponse2001DataFactors model constructor.
-     * @property {module:model/InlineResponse2001DataFactors}
-     */
-    InlineResponse2001DataFactors,
-
-    /**
-     * The InlineResponse2001DataRiskModelAppendFormat model constructor.
-     * @property {module:model/InlineResponse2001DataRiskModelAppendFormat}
-     */
-    InlineResponse2001DataRiskModelAppendFormat,
-
-    /**
      * The InlineResponse2002 model constructor.
      * @property {module:model/InlineResponse2002}
      */
@@ -274,12 +263,6 @@ export {
     InlineResponse2004,
 
     /**
-     * The InlineResponse200Data model constructor.
-     * @property {module:model/InlineResponse200Data}
-     */
-    InlineResponse200Data,
-
-    /**
      * The InlineResponse403 model constructor.
      * @property {module:model/InlineResponse403}
      */
@@ -290,6 +273,12 @@ export {
      * @property {module:model/InlineResponse404}
      */
     InlineResponse404,
+
+    /**
+     * The InputDate model constructor.
+     * @property {module:model/InputDate}
+     */
+    InputDate,
 
     /**
      * The InputToResultSecurityIndexMapping model constructor.
@@ -326,12 +315,6 @@ export {
      * @property {module:model/MappedSecurityInfo}
      */
     MappedSecurityInfo,
-
-    /**
-     * The ModelDate model constructor.
-     * @property {module:model/ModelDate}
-     */
-    ModelDate,
 
     /**
      * The RemoveCurrencyRisk model constructor.
@@ -388,10 +371,28 @@ export {
     RiskModelAppendDataValue,
 
     /**
+     * The RiskModelAppendFieldType model constructor.
+     * @property {module:model/RiskModelAppendFieldType}
+     */
+    RiskModelAppendFieldType,
+
+    /**
      * The RiskModelFactor model constructor.
      * @property {module:model/RiskModelFactor}
      */
     RiskModelFactor,
+
+    /**
+     * The RiskModelFactorDetails model constructor.
+     * @property {module:model/RiskModelFactorDetails}
+     */
+    RiskModelFactorDetails,
+
+    /**
+     * The RiskModelSummary model constructor.
+     * @property {module:model/RiskModelSummary}
+     */
+    RiskModelSummary,
 
     /**
      * The SecurityGroup model constructor.
@@ -442,6 +443,12 @@ export {
     StatCalculationSettings,
 
     /**
+     * The StatResult model constructor.
+     * @property {module:model/StatResult}
+     */
+    StatResult,
+
+    /**
      * The StatResultValue model constructor.
      * @property {module:model/StatResultValue}
      */
@@ -460,34 +467,34 @@ export {
     SuccessResponseMeta,
 
     /**
+     * The SupportedStatDetails model constructor.
+     * @property {module:model/SupportedStatDetails}
+     */
+    SupportedStatDetails,
+
+    /**
+     * The SupportedStatDetailsLevels model constructor.
+     * @property {module:model/SupportedStatDetailsLevels}
+     */
+    SupportedStatDetailsLevels,
+
+    /**
+     * The SupportedStatDetailsSecurityGroupMethod model constructor.
+     * @property {module:model/SupportedStatDetailsSecurityGroupMethod}
+     */
+    SupportedStatDetailsSecurityGroupMethod,
+
+    /**
      * The SupportedStats model constructor.
      * @property {module:model/SupportedStats}
      */
     SupportedStats,
 
     /**
-     * The SupportedStatsData model constructor.
-     * @property {module:model/SupportedStatsData}
-     */
-    SupportedStatsData,
-
-    /**
-     * The SupportedStatsLevels model constructor.
-     * @property {module:model/SupportedStatsLevels}
-     */
-    SupportedStatsLevels,
-
-    /**
      * The SupportedStatsNamesOnly model constructor.
      * @property {module:model/SupportedStatsNamesOnly}
      */
     SupportedStatsNamesOnly,
-
-    /**
-     * The SupportedStatsSecurityGroupMethod model constructor.
-     * @property {module:model/SupportedStatsSecurityGroupMethod}
-     */
-    SupportedStatsSecurityGroupMethod,
 
     /**
      * The WarningItem model constructor.

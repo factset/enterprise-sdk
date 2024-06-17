@@ -21,6 +21,7 @@ import Holding from './Holding';
 class Holdings {
     /**
      * Constructs a new <code>Holdings</code>.
+     * All security holdings which can include a &#39;portfolio&#39;, a &#39;benchmark&#39;, and a total &#39;market&#39; portfolio.
      * @alias module:model/Holdings
      * @param portfolio {module:model/Holding} 
      */

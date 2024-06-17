@@ -120,7 +120,7 @@ class Stat(ModelNormal):
         """Stat - a model defined in OpenAPI
 
         Args:
-            name (str):
+            name (str): Name of the stat
             level (StatCalculationLevel):
 
         Keyword Args:
@@ -208,7 +208,7 @@ class Stat(ModelNormal):
         """Stat - a model defined in OpenAPI
 
         Args:
-            name (str):
+            name (str): Name of the stat
             level (StatCalculationLevel):
 
         Keyword Args:

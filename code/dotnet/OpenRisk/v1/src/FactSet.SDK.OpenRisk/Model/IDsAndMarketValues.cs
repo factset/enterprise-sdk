@@ -40,8 +40,8 @@ namespace FactSet.SDK.OpenRisk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IDsAndMarketValues" /> class.
         /// </summary>
-        /// <param name="ids">ids (required).</param>
-        /// <param name="marketValues">marketValues (required).</param>
+        /// <param name="ids">Security identifiers (required).</param>
+        /// <param name="marketValues">Security market values (required).</param>
         public IDsAndMarketValues(List<string> ids, List<double> marketValues)
         {
             // to ensure "ids" is required (not null)
@@ -57,14 +57,16 @@ namespace FactSet.SDK.OpenRisk.Model
         }
 
         /// <summary>
-        /// Gets or Sets Ids
+        /// Security identifiers
         /// </summary>
+        /// <value>Security identifiers</value>
         [DataMember(Name = "ids", IsRequired = true, EmitDefaultValue = false)]
         public List<string> Ids { get; set; }
 
         /// <summary>
-        /// Gets or Sets MarketValues
+        /// Security market values
         /// </summary>
+        /// <value>Security market values</value>
         [DataMember(Name = "marketValues", IsRequired = true, EmitDefaultValue = false)]
         public List<double> MarketValues { get; set; }
 

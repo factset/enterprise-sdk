@@ -30,8 +30,9 @@ import com.factset.sdk.OpenRisk.JSON;
 
 
 /**
- * SupportedStatsNamesOnly
+ * Contains the names of all available risk statistics. In the event &#39;data&#39; field is empty, no stats are available at all.
  */
+@ApiModel(description = "Contains the names of all available risk statistics. In the event 'data' field is empty, no stats are available at all.")
 @JsonPropertyOrder({
   SupportedStatsNamesOnly.JSON_PROPERTY_DATA
 })
@@ -65,11 +66,11 @@ public class SupportedStatsNamesOnly implements Serializable {
   }
 
    /**
-   * Contains the names of all available risk statistics. In the event &#39;data&#39; field is empty, no stats are available at all.
+   * Names of all available risk statistics
    * @return data
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Contains the names of all available risk statistics. In the event 'data' field is empty, no stats are available at all.")
+  @ApiModelProperty(required = true, value = "Names of all available risk statistics")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

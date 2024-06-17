@@ -27,8 +27,8 @@ class Holding {
      * @alias module:model/Holding
      * @implements module:model/IDsAndMarketValues
      * @implements module:model/HoldingAllOf
-     * @param ids {Array.<String>} 
-     * @param marketValues {Array.<Number>} 
+     * @param ids {Array.<String>} Security identifiers
+     * @param marketValues {Array.<Number>} Security market values
      */
     constructor(ids, marketValues) { 
         IDsAndMarketValues.initialize(this, ids, marketValues);HoldingAllOf.initialize(this);
@@ -78,11 +78,13 @@ class Holding {
 }
 
 /**
+ * Security identifiers
  * @member {Array.<String>} ids
  */
 Holding.prototype['ids'] = undefined;
 
 /**
+ * Security market values
  * @member {Array.<Number>} marketValues
  */
 Holding.prototype['marketValues'] = undefined;
@@ -101,10 +103,12 @@ Holding.prototype['uncoveredAssets'] = undefined;
 
 // Implement IDsAndMarketValues interface:
 /**
+ * Security identifiers
  * @member {Array.<String>} ids
  */
 IDsAndMarketValues.prototype['ids'] = undefined;
 /**
+ * Security market values
  * @member {Array.<Number>} marketValues
  */
 IDsAndMarketValues.prototype['marketValues'] = undefined;

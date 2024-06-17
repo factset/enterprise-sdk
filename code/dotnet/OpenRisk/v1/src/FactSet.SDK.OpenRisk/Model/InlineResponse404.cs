@@ -33,8 +33,9 @@ namespace FactSet.SDK.OpenRisk.Model
     public partial class InlineResponse404 : IEquatable<InlineResponse404>, IValidatableObject
     {
         /// <summary>
-        /// Defines Status
+        /// Fail status
         /// </summary>
+        /// <value>Fail status</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StatusEnum
         {
@@ -48,8 +49,9 @@ namespace FactSet.SDK.OpenRisk.Model
 
 
         /// <summary>
-        /// Gets or Sets Status
+        /// Fail status
         /// </summary>
+        /// <value>Fail status</value>
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = false)]
         public StatusEnum Status { get; set; }
         /// <summary>
@@ -60,7 +62,7 @@ namespace FactSet.SDK.OpenRisk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse404" /> class.
         /// </summary>
-        /// <param name="status">status (required).</param>
+        /// <param name="status">Fail status (required).</param>
         /// <param name="output">Raw error output describing the failure(s) (required).</param>
         public InlineResponse404(StatusEnum status, string output)
         {

@@ -98,11 +98,11 @@ public class StatCalculationSettings implements Serializable {
   }
 
    /**
-   * Get useAbsoluteWeightsForLotExpansion
+   * When this is set to true, use absolute value weights for multi-lot expansion, otherwise use the actual value weights.
    * @return useAbsoluteWeightsForLotExpansion
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "When this is set to true, use absolute value weights for multi-lot expansion, otherwise use the actual value weights.")
   @JsonProperty(JSON_PROPERTY_USE_ABSOLUTE_WEIGHTS_FOR_LOT_EXPANSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -124,11 +124,11 @@ public class StatCalculationSettings implements Serializable {
   }
 
    /**
-   * Get covarianceTimesTwo
+   * When this is set to true, calculate covariance multiplied by two.
    * @return covarianceTimesTwo
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "When this is set to true, calculate covariance multiplied by two.")
   @JsonProperty(JSON_PROPERTY_COVARIANCE_TIMES_TWO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -150,11 +150,11 @@ public class StatCalculationSettings implements Serializable {
   }
 
    /**
-   * Get covarianceTimesTwoTerm
+   * When this is set to true, calculate covariance multiplied by two term (Cov*2 term).
    * @return covarianceTimesTwoTerm
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "When this is set to true, calculate covariance multiplied by two term (Cov*2 term).")
   @JsonProperty(JSON_PROPERTY_COVARIANCE_TIMES_TWO_TERM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -228,11 +228,11 @@ public class StatCalculationSettings implements Serializable {
   }
 
    /**
-   * Get horizon
+   * Horizon (in days) to use in Value at Risk (VaR) stat calculations.
    * @return horizon
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Horizon (in days) to use in Value at Risk (VaR) stat calculations.")
   @JsonProperty(JSON_PROPERTY_HORIZON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -254,11 +254,11 @@ public class StatCalculationSettings implements Serializable {
   }
 
    /**
-   * Get daysPerYear
+   * Number of days per year (e.g. 250 or 365) to use in Value at Risk (VaR) stat calculations.
    * @return daysPerYear
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Number of days per year (e.g. 250 or 365) to use in Value at Risk (VaR) stat calculations.")
   @JsonProperty(JSON_PROPERTY_DAYS_PER_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -280,11 +280,13 @@ public class StatCalculationSettings implements Serializable {
   }
 
    /**
-   * Get confidenceLevel
+   * Confidence level to use in Value at Risk (VaR) stat calculations.
+   * minimum: 0
+   * maximum: 1
    * @return confidenceLevel
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Confidence level to use in Value at Risk (VaR) stat calculations.")
   @JsonProperty(JSON_PROPERTY_CONFIDENCE_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -306,11 +308,11 @@ public class StatCalculationSettings implements Serializable {
   }
 
    /**
-   * Get lamda
+   * Lamda value to use in Implied Alpha Lamda stat calculations.
    * @return lamda
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Lamda value to use in Implied Alpha Lamda stat calculations.")
   @JsonProperty(JSON_PROPERTY_LAMDA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -332,11 +334,11 @@ public class StatCalculationSettings implements Serializable {
   }
 
    /**
-   * Get specificToFactorRatio
+   * Specific risk to factor risk ratio value to use in Implied Alpha stat calculations.
    * @return specificToFactorRatio
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Specific risk to factor risk ratio value to use in Implied Alpha stat calculations.")
   @JsonProperty(JSON_PROPERTY_SPECIFIC_TO_FACTOR_RATIO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -358,11 +360,11 @@ public class StatCalculationSettings implements Serializable {
   }
 
    /**
-   * Get rapSys
+   * Systematic RAP value to use in Implied Alpha RAP stat calculations.
    * @return rapSys
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Systematic RAP value to use in Implied Alpha RAP stat calculations.")
   @JsonProperty(JSON_PROPERTY_RAP_SYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -384,11 +386,11 @@ public class StatCalculationSettings implements Serializable {
   }
 
    /**
-   * Get rapUnsys
+   * Unsystematic RAP value to use in Implied Alpha RAP stat calculations.
    * @return rapUnsys
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Unsystematic RAP value to use in Implied Alpha RAP stat calculations.")
   @JsonProperty(JSON_PROPERTY_RAP_UNSYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

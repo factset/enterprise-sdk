@@ -23,7 +23,7 @@ class ErrorResponse {
      * Constructs a new <code>ErrorResponse</code>.
      * Response schema for HTTP error responses. Data should never be expected in the response body.
      * @alias module:model/ErrorResponse
-     * @param errors {Array.<module:model/ErrorItem>} 
+     * @param errors {Array.<module:model/ErrorItem>} Errors encountered while processing the request
      */
     constructor(errors) { 
         
@@ -61,6 +61,7 @@ class ErrorResponse {
 }
 
 /**
+ * Errors encountered while processing the request
  * @member {Array.<module:model/ErrorItem>} errors
  */
 ErrorResponse.prototype['errors'] = undefined;

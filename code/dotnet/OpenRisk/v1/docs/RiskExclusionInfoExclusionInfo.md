@@ -1,4 +1,5 @@
 # FactSet.SDK.OpenRisk.Model.RiskExclusionInfoExclusionInfo
+Information regarding a security's exclusion
 
 ## Properties
 

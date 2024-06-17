@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class RiskExclusionInfoExclusionInfo {
     /**
      * Constructs a new <code>RiskExclusionInfoExclusionInfo</code>.
+     * Information regarding a security&#39;s exclusion
      * @alias module:model/RiskExclusionInfoExclusionInfo
      * @param code {module:model/RiskExclusionInfoExclusionInfo.CodeEnum} Exclusion reason
      * @param details {String} Exclusion reason details if available

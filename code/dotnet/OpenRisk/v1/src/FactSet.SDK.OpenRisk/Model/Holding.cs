@@ -86,8 +86,8 @@ namespace FactSet.SDK.OpenRisk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Holding" /> class.
         /// </summary>
-        /// <param name="ids">ids (required).</param>
-        /// <param name="marketValues">marketValues (required).</param>
+        /// <param name="ids">Security identifiers (required).</param>
+        /// <param name="marketValues">Security market values (required).</param>
         /// <param name="grouping">grouping.</param>
         /// <param name="uncoveredAssets">Uncovered asset weight handling. Default values: &#39;portfolio&#39; -&gt; ExcludeToGlobalCash, &#39;benchmark&#39; -&gt; Normalize, &#39;market&#39; -&gt; Normalize. See also [OA:21737](https://my.apps.factset.com/oa/pages/21737#group_normal_mix).</param>
         public Holding(List<string> ids, List<double> marketValues,SecurityGroup grouping = default(SecurityGroup), UncoveredAssetsEnum? uncoveredAssets = default(UncoveredAssetsEnum?))
@@ -107,14 +107,16 @@ namespace FactSet.SDK.OpenRisk.Model
         }
 
         /// <summary>
-        /// Gets or Sets Ids
+        /// Security identifiers
         /// </summary>
+        /// <value>Security identifiers</value>
         [DataMember(Name = "ids", IsRequired = true, EmitDefaultValue = false)]
         public List<string> Ids { get; set; }
 
         /// <summary>
-        /// Gets or Sets MarketValues
+        /// Security market values
         /// </summary>
+        /// <value>Security market values</value>
         [DataMember(Name = "marketValues", IsRequired = true, EmitDefaultValue = false)]
         public List<double> MarketValues { get; set; }
 

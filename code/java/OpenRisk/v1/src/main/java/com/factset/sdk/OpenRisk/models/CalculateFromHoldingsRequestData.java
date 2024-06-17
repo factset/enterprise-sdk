@@ -18,11 +18,11 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.factset.sdk.OpenRisk.models.AdditionalCalculationInputs;
-import com.factset.sdk.OpenRisk.models.Date;
 import com.factset.sdk.OpenRisk.models.FactorGroup;
 import com.factset.sdk.OpenRisk.models.FactorsVisible;
 import com.factset.sdk.OpenRisk.models.Holdings;
 import com.factset.sdk.OpenRisk.models.IDsAndMarketValues;
+import com.factset.sdk.OpenRisk.models.InputDate;
 import com.factset.sdk.OpenRisk.models.LaggingDates;
 import com.factset.sdk.OpenRisk.models.RemoveCurrencyRisk;
 import com.factset.sdk.OpenRisk.models.RequiresFactorReturns;
@@ -42,8 +42,9 @@ import com.factset.sdk.OpenRisk.JSON;
 
 
 /**
- * CalculateFromHoldingsRequestData
+ * Input data for requests to calculate from holdings
  */
+@ApiModel(description = "Input data for requests to calculate from holdings")
 @JsonPropertyOrder({
   CalculateFromHoldingsRequestData.JSON_PROPERTY_ADDITIONAL_CALC_INPUTS,
   CalculateFromHoldingsRequestData.JSON_PROPERTY_ALLOW_FORCED_RISKLESS_ASSETS,
@@ -88,7 +89,7 @@ public class CalculateFromHoldingsRequestData implements Serializable {
   private String currency;
 
   public static final String JSON_PROPERTY_DATE = "date";
-  private Date date;
+  private InputDate date;
 
   public static final String JSON_PROPERTY_FACTOR_GROUPING = "factorGrouping";
   private FactorGroup factorGrouping;
@@ -128,7 +129,7 @@ public class CalculateFromHoldingsRequestData implements Serializable {
 
   @JsonCreator
   public CalculateFromHoldingsRequestData(
-    @JsonProperty(value=JSON_PROPERTY_DATE, required=true) Date date, 
+    @JsonProperty(value=JSON_PROPERTY_DATE, required=true) InputDate date, 
     @JsonProperty(value=JSON_PROPERTY_HOLDINGS, required=true) Holdings holdings, 
     @JsonProperty(value=JSON_PROPERTY_RISK_MODEL, required=true) String riskModel, 
     @JsonProperty(value=JSON_PROPERTY_STATS, required=true) java.util.List<Stat> stats
@@ -312,7 +313,7 @@ public class CalculateFromHoldingsRequestData implements Serializable {
   }
 
 
-  public CalculateFromHoldingsRequestData date(Date date) {
+  public CalculateFromHoldingsRequestData date(InputDate date) {
     this.date = date;
     return this;
   }
@@ -326,14 +327,14 @@ public class CalculateFromHoldingsRequestData implements Serializable {
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public Date getDate() {
+  public InputDate getDate() {
     return date;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDate(Date date) {
+  public void setDate(InputDate date) {
     this.date = date;
   }
 

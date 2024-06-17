@@ -43,7 +43,7 @@ public class InlineResponse2002 implements Serializable {
   private static final long serialVersionUID = 1L;
 
   /**
-   * Gets or Sets status
+   * Pass status
    */
   public enum StatusEnum {
     PASS("pass");
@@ -100,11 +100,11 @@ public class InlineResponse2002 implements Serializable {
   }
 
    /**
-   * Get status
+   * Pass status
    * @return status
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(example = "pass", required = true, value = "")
+  @ApiModelProperty(example = "pass", required = true, value = "Pass status")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

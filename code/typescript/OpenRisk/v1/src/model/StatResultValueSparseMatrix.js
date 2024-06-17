@@ -20,7 +20,7 @@ import ApiClient from '../ApiClient';
 class StatResultValueSparseMatrix {
     /**
      * Constructs a new <code>StatResultValueSparseMatrix</code>.
-     * This output representation is for compressed sparse row matrix.
+     * Output representation for compressed sparse row matrix.
      * @alias module:model/StatResultValueSparseMatrix
      */
     constructor() { 
@@ -70,26 +70,31 @@ class StatResultValueSparseMatrix {
 }
 
 /**
+ * Number of rows in the matrix
  * @member {Number} rows
  */
 StatResultValueSparseMatrix.prototype['rows'] = undefined;
 
 /**
+ * Number of columns in the matrix
  * @member {Number} columns
  */
 StatResultValueSparseMatrix.prototype['columns'] = undefined;
 
 /**
+ * Array of 0-based index pointers for the compressed sparse row representation
  * @member {Array.<Number>} indexPointer
  */
 StatResultValueSparseMatrix.prototype['indexPointer'] = undefined;
 
 /**
+ * Array of 0-based indices for the compressed sparse row representation
  * @member {Array.<Number>} indices
  */
 StatResultValueSparseMatrix.prototype['indices'] = undefined;
 
 /**
+ * Array of floating point values
  * @member {Array.<Number>} value
  */
 StatResultValueSparseMatrix.prototype['value'] = undefined;

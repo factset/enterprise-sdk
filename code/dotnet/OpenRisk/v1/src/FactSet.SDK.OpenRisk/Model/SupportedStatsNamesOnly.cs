@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.OpenRisk.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.OpenRisk.Model
 {
     /// <summary>
-    /// SupportedStatsNamesOnly
+    /// Contains the names of all available risk statistics. In the event &#39;data&#39; field is empty, no stats are available at all.
     /// </summary>
     [DataContract(Name = "SupportedStatsNamesOnly")]
     public partial class SupportedStatsNamesOnly : IEquatable<SupportedStatsNamesOnly>, IValidatableObject
@@ -40,7 +40,7 @@ namespace FactSet.SDK.OpenRisk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SupportedStatsNamesOnly" /> class.
         /// </summary>
-        /// <param name="data">Contains the names of all available risk statistics. In the event &#39;data&#39; field is empty, no stats are available at all. (required).</param>
+        /// <param name="data">Names of all available risk statistics (required).</param>
         public SupportedStatsNamesOnly(List<string> data)
         {
             // to ensure "data" is required (not null)
@@ -51,9 +51,9 @@ namespace FactSet.SDK.OpenRisk.Model
         }
 
         /// <summary>
-        /// Contains the names of all available risk statistics. In the event &#39;data&#39; field is empty, no stats are available at all.
+        /// Names of all available risk statistics
         /// </summary>
-        /// <value>Contains the names of all available risk statistics. In the event &#39;data&#39; field is empty, no stats are available at all.</value>
+        /// <value>Names of all available risk statistics</value>
         [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = false)]
         public List<string> Data { get; set; }
 

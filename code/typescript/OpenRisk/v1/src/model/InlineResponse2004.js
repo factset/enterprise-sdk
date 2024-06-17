@@ -24,7 +24,7 @@ class InlineResponse2004 {
      * Constructs a new <code>InlineResponse2004</code>.
      * @alias module:model/InlineResponse2004
      * @param meta {module:model/SecurityOnlySuccessResponseMeta} 
-     * @param data {Array.<module:model/RiskMappingEntry>} 
+     * @param data {Array.<module:model/RiskMappingEntry>} Security risk mappings
      */
     constructor(meta, data) { 
         
@@ -71,6 +71,7 @@ class InlineResponse2004 {
 InlineResponse2004.prototype['meta'] = undefined;
 
 /**
+ * Security risk mappings
  * @member {Array.<module:model/RiskMappingEntry>} data
  */
 InlineResponse2004.prototype['data'] = undefined;

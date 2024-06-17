@@ -46,7 +46,7 @@ namespace FactSet.SDK.OpenRisk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Stat" /> class.
         /// </summary>
-        /// <param name="name">name (required).</param>
+        /// <param name="name">Name of the stat (required).</param>
         /// <param name="level">level (required).</param>
         /// <param name="settings">settings.</param>
         public Stat(string name, StatCalculationLevel level,StatCalculationSettings settings = default(StatCalculationSettings))
@@ -61,8 +61,9 @@ namespace FactSet.SDK.OpenRisk.Model
         }
 
         /// <summary>
-        /// Gets or Sets Name
+        /// Name of the stat
         /// </summary>
+        /// <value>Name of the stat</value>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
         public string Name { get; set; }
 
