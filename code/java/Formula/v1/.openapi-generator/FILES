@@ -6,6 +6,7 @@ README.md
 api/openapi.yaml
 build.gradle
 build.sbt
+docs/BatchData.md
 docs/BatchDataRequest.md
 docs/BatchDataRequestData.md
 docs/BatchDataResponse.md
@@ -21,8 +22,8 @@ docs/CrossSectionalResultObjectFlattened.md
 docs/CrossSectionalResultObjectFlattenedAddl.md
 docs/CrossSectionalResultObjectNonflattened.md
 docs/CrossSectionalResultObjectNonflattenedResultAttribute.md
-docs/CrossSectionalResultObjectNonflattenedWarnings.md
 docs/ErrorDetail.md
+docs/ErrorObject.md
 docs/TimeSeriesApi.md
 docs/TimeSeriesRequest.md
 docs/TimeSeriesRequestData.md
@@ -38,6 +39,7 @@ docs/TimeSeriesResultObjectNonflattenedScalar.md
 docs/TimeSeriesResultObjectNonflattenedTimeseriesObject.md
 docs/TimeSeriesScalarValue.md
 docs/TimeSeriesTimeseriesObject.md
+docs/WarningsObject.md
 git_push.sh
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
@@ -69,6 +71,7 @@ src/main/java/com/factset/sdk/Formula/auth/HttpBearerAuth.java
 src/main/java/com/factset/sdk/Formula/auth/OAuth.java
 src/main/java/com/factset/sdk/Formula/auth/OAuthFlow.java
 src/main/java/com/factset/sdk/Formula/models/AbstractOpenApiSchema.java
+src/main/java/com/factset/sdk/Formula/models/BatchData.java
 src/main/java/com/factset/sdk/Formula/models/BatchDataRequest.java
 src/main/java/com/factset/sdk/Formula/models/BatchDataRequestData.java
 src/main/java/com/factset/sdk/Formula/models/BatchDataResponse.java
@@ -82,8 +85,8 @@ src/main/java/com/factset/sdk/Formula/models/CrossSectionalResultObjectFlattened
 src/main/java/com/factset/sdk/Formula/models/CrossSectionalResultObjectFlattenedAddl.java
 src/main/java/com/factset/sdk/Formula/models/CrossSectionalResultObjectNonflattened.java
 src/main/java/com/factset/sdk/Formula/models/CrossSectionalResultObjectNonflattenedResultAttribute.java
-src/main/java/com/factset/sdk/Formula/models/CrossSectionalResultObjectNonflattenedWarnings.java
 src/main/java/com/factset/sdk/Formula/models/ErrorDetail.java
+src/main/java/com/factset/sdk/Formula/models/ErrorObject.java
 src/main/java/com/factset/sdk/Formula/models/TimeSeriesRequest.java
 src/main/java/com/factset/sdk/Formula/models/TimeSeriesRequestData.java
 src/main/java/com/factset/sdk/Formula/models/TimeSeriesResponse.java
@@ -98,3 +101,4 @@ src/main/java/com/factset/sdk/Formula/models/TimeSeriesResultObjectNonflattenedS
 src/main/java/com/factset/sdk/Formula/models/TimeSeriesResultObjectNonflattenedTimeseriesObject.java
 src/main/java/com/factset/sdk/Formula/models/TimeSeriesScalarValue.java
 src/main/java/com/factset/sdk/Formula/models/TimeSeriesTimeseriesObject.java
+src/main/java/com/factset/sdk/Formula/models/WarningsObject.java

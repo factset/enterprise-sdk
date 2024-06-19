@@ -1,5 +1,9 @@
 openapi: 3.0.0
 info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
   description: |2
 
     **FactSet Formula API**
@@ -29,23 +33,33 @@ info:
     **How to Programmatically Download API Specification File**
 
     You can download the FactSet Formula API Specification File in .yaml. using the "Download Spec" button to the right of the version number. This specification can then be used for Codegen to create your own SDKs.
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
   title: FactSet Formula API
-  version: 1.7.1
+  version: 1.8.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/formula-api
 servers:
 - description: Production
-  url: https://api.factset.com/formula-api
+  url: https://api.factset.com/formula-api/v1
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
+tags:
+- name: Time-Series
+- name: Cross-Sectional
+- name: Batch Processing
 paths:
-  /v1/time-series:
+  /time-series:
     get:
       description: |
         The `/time-series` endpoint is closely aligned with FactSet’s powerful data retrieval language **FactSet Query Language (FQL)** which is optimized for time-series analysis. FQL can also perform sophisticated statistical, mathematical, logical, and other complex operations on the data.
 
           This endpoint has a unique **TIMESERIES** data object that pairs the requested data with FactSet provided dates. This helps reduce the need for additional data requests and reduces the work required by users.
 
-        The `/time-series` endpoint supports Long Running asynchronous requests up to **20 minutes** via the `batch` parameter. *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or "Report Issue" above and our support teams can assist.*
+        The `/time-series` endpoint supports Long Running asynchronous requests up to **30 minutes** via the `batch` parameter. *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or "Report Issue" above and our support teams can assist.*
       operationId: getTimeSeriesData
       parameters:
       - description: |
@@ -69,7 +83,7 @@ paths:
         required: false
         schema:
           items:
-            example: '["FDS-US","IBM-US"]'
+            example: FDS-US
             type: string
           type: array
         style: form
@@ -202,7 +216,7 @@ paths:
         required: true
         schema:
           items:
-            example: '["P_PRICE(0,-2,D)","FG_COMPANY_NAME"]'
+            example: P_PRICE(0,-2,D)
             type: string
           type: array
         style: form
@@ -261,7 +275,7 @@ paths:
         examples:
           noNames:
             summary: '---'
-            value: ""
+            value: []
           singleItem:
             summary: Single Data Item
             value:
@@ -299,7 +313,7 @@ paths:
           type: string
         style: form
       - description: |
-          Specify **N** for the `dates` parameter to suppress the **dates** of the response. The default value for the `dates` parameter is **Y**.
+          Specify **N** for the `dates` parameter to suppress the **dates** of the response. The default value for the `dates` parameter is **Y**. Setting the parameter to **Y** will only return dates if the formula has a date value associated with it.
 
           In the non-flattened response model, setting dates to **N** will remove the "dates" array from the TIMESERIES objectType, meaning that the results will be returned as an ARRAY objectType.
 
@@ -316,7 +330,7 @@ paths:
           type: string
         style: form
       - description: |
-          Enables the ability to asynchronously "batch" the request,  supporting a long-running request up to **20 minutes**. Upon requesting batch=Y, the service will respond back with an HTTP Status Code of 202.
+          Enables the ability to asynchronously "batch" the request,  supporting a long-running request up to **30 minutes**. Upon requesting batch=Y, the service will respond back with an HTTP Status Code of 202.
 
           Individual users are allowed 5 concurrent Batch Requests, while Production users are allowed 10 concurrent Batch Requests.
           *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or "Report Issue" above and our support teams can assist.*
@@ -537,8 +551,29 @@ paths:
                 $ref: '#/components/schemas/error_detail'
           description: Request Timeout. This error may be returned if it takes more
             than 29 seconds for the request to process or if a batch request takes
-            more than 20 minutes to process for the time-series endpoint and 10 minutes
-            to process for the cross-sectional endpoint.
+            more than 30 minutes to process.
+          headers:
+            api-version:
+              $ref: '#/components/headers/api-version'
+            api-supported-versions:
+              $ref: '#/components/headers/api-supported-versions'
+            api-deprecated-versions:
+              $ref: '#/components/headers/api-deprecated-versions'
+            chain-id:
+              $ref: '#/components/headers/chain-id'
+        "413":
+          content:
+            application/json:
+              example:
+                id: 64EA0B1B0B592002
+                code: ContentTooLarge
+                title: The request is too large. Please reduce the payload size or
+                  leverage batching to ensure successful processing.
+                timeStamp: 2019-11-01 11:09:41.918
+              schema:
+                $ref: '#/components/schemas/error_detail'
+          description: Content Too Large. This error may be returned if the request
+            payload size is too large to be processed in the alloted amount of time.
           headers:
             api-version:
               $ref: '#/components/headers/api-version'
@@ -572,14 +607,13 @@ paths:
         "429":
           content:
             application/json:
+              example:
+                id: 5EFCCA8940CAEB6E
+                code: toomanyrequests
+                title: Rate limit is exceeded
+                timeStamp: 2019-11-01 11:09:41.918
               schema:
-                description: |
-                  Error returned if any of the user's rate limits have been reached.
-                properties:
-                  message:
-                    example: API rate limit exceeded
-                    type: string
-                title: Rate Limit Error Object
+                $ref: '#/components/schemas/error_detail'
           description: Rate Limits Exceeded
           headers:
             api-version:
@@ -675,7 +709,7 @@ paths:
 
           This endpoint has a unique **TIMESERIES** data object that pairs the requested data with FactSet provided dates. This helps reduce the need for additional data requests and reduces the work required by users.
 
-        The `/time-series` endpoint supports Long Running asynchronous requests up to **20 minutes** via the `batch` parameter. *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or "Report Issue" above and our support teams can assist.*
+        The `/time-series` endpoint supports Long Running asynchronous requests up to **30 minutes** via the `batch` parameter. *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or "Report Issue" above and our support teams can assist.*
       operationId: getTimeSeriesDataForList
       requestBody:
         $ref: '#/components/requestBodies/time-series-postBody'
@@ -883,8 +917,29 @@ paths:
                 $ref: '#/components/schemas/error_detail'
           description: Request Timeout. This error may be returned if it takes more
             than 29 seconds for the request to process or if a batch request takes
-            more than 20 minutes to process for the time-series endpoint and 10 minutes
-            to process for the cross-sectional endpoint.
+            more than 30 minutes to process.
+          headers:
+            api-version:
+              $ref: '#/components/headers/api-version'
+            api-supported-versions:
+              $ref: '#/components/headers/api-supported-versions'
+            api-deprecated-versions:
+              $ref: '#/components/headers/api-deprecated-versions'
+            chain-id:
+              $ref: '#/components/headers/chain-id'
+        "413":
+          content:
+            application/json:
+              example:
+                id: 64EA0B1B0B592002
+                code: ContentTooLarge
+                title: The request is too large. Please reduce the payload size or
+                  leverage batching to ensure successful processing.
+                timeStamp: 2019-11-01 11:09:41.918
+              schema:
+                $ref: '#/components/schemas/error_detail'
+          description: Content Too Large. This error may be returned if the request
+            payload size is too large to be processed in the alloted amount of time.
           headers:
             api-version:
               $ref: '#/components/headers/api-version'
@@ -918,14 +973,13 @@ paths:
         "429":
           content:
             application/json:
+              example:
+                id: 5EFCCA8940CAEB6E
+                code: toomanyrequests
+                title: Rate limit is exceeded
+                timeStamp: 2019-11-01 11:09:41.918
               schema:
-                description: |
-                  Error returned if any of the user's rate limits have been reached.
-                properties:
-                  message:
-                    example: API rate limit exceeded
-                    type: string
-                title: Rate Limit Error Object
+                $ref: '#/components/schemas/error_detail'
           description: Rate Limits Exceeded
           headers:
             api-version:
@@ -1016,13 +1070,13 @@ paths:
       x-factset-different-success-responses: true
       x-contentType: application/json
       x-accepts: application/json
-  /v1/cross-sectional:
+  /cross-sectional:
     get:
       description: "The `/cross-sectional` endpoint is closely aligned with FactSet’\
         s powerful data retrieval **Screening language** which is optimized for analysis\
         \ of data items at single point in time for different entities and is extremely\
         \ efficient for large universes.\n\n\nThe `/cross-sectional` endpoint supports\
-        \ Long Running asynchronous requests up to **10 minutes** via the `batch`\
+        \ Long Running asynchronous requests up to **30 minutes** via the `batch`\
         \ parameter. *This feature is available to Individual Users subscribed to\
         \ the Performance Package and Performance Package Plus Performance Tiers and\
         \ all Production Users. If you are unsure which Performance Tier you are subscribed\
@@ -1070,7 +1124,7 @@ paths:
         required: false
         schema:
           items:
-            example: '["FDS-US","IBM-US"]'
+            example: FDS-US
             type: string
           type: array
         style: form
@@ -1264,7 +1318,7 @@ paths:
         examples:
           noNames:
             summary: '---'
-            value: ""
+            value: []
           singleItem:
             summary: Single Data Item
             value:
@@ -1302,7 +1356,7 @@ paths:
           type: string
         style: form
       - description: |
-          Enables the ability to asynchronously "batch" the request,  supporting a long-running request up to **20 minutes**. Upon requesting batch=Y, the service will respond back with an HTTP Status Code of 202.
+          Enables the ability to asynchronously "batch" the request,  supporting a long-running request up to **30 minutes**. Upon requesting batch=Y, the service will respond back with an HTTP Status Code of 202.
 
           Individual users are allowed 5 concurrent Batch Requests, while Production users are allowed 10 concurrent Batch Requests.
           *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or "Report Issue" above and our support teams can assist.*
@@ -1599,8 +1653,29 @@ paths:
                 $ref: '#/components/schemas/error_detail'
           description: Request Timeout. This error may be returned if it takes more
             than 29 seconds for the request to process or if a batch request takes
-            more than 20 minutes to process for the time-series endpoint and 10 minutes
-            to process for the cross-sectional endpoint.
+            more than 30 minutes to process.
+          headers:
+            api-version:
+              $ref: '#/components/headers/api-version'
+            api-supported-versions:
+              $ref: '#/components/headers/api-supported-versions'
+            api-deprecated-versions:
+              $ref: '#/components/headers/api-deprecated-versions'
+            chain-id:
+              $ref: '#/components/headers/chain-id'
+        "413":
+          content:
+            application/json:
+              example:
+                id: 64EA0B1B0B592002
+                code: ContentTooLarge
+                title: The request is too large. Please reduce the payload size or
+                  leverage batching to ensure successful processing.
+                timeStamp: 2019-11-01 11:09:41.918
+              schema:
+                $ref: '#/components/schemas/error_detail'
+          description: Content Too Large. This error may be returned if the request
+            payload size is too large to be processed in the alloted amount of time.
           headers:
             api-version:
               $ref: '#/components/headers/api-version'
@@ -1634,14 +1709,13 @@ paths:
         "429":
           content:
             application/json:
+              example:
+                id: 5EFCCA8940CAEB6E
+                code: toomanyrequests
+                title: Rate limit is exceeded
+                timeStamp: 2019-11-01 11:09:41.918
               schema:
-                description: |
-                  Error returned if any of the user's rate limits have been reached.
-                properties:
-                  message:
-                    example: API rate limit exceeded
-                    type: string
-                title: Rate Limit Error Object
+                $ref: '#/components/schemas/error_detail'
           description: Rate Limits Exceeded
           headers:
             api-version:
@@ -1736,7 +1810,7 @@ paths:
         s powerful data retrieval **Screening language** which is optimized for analysis\
         \ of data items at single point in time for different entities and is extremely\
         \ efficient for large universes.\n\n\nThe `/cross-sectional` endpoint supports\
-        \ Long Running asynchronous requests up to **10 minutes** via the `batch`\
+        \ Long Running asynchronous requests up to **30 minutes** via the `batch`\
         \ parameter. *This feature is available to Individual Users subscribed to\
         \ the Performance Package and Performance Package Plus Performance Tiers and\
         \ all Production Users. If you are unsure which Performance Tier you are subscribed\
@@ -1974,8 +2048,29 @@ paths:
                 $ref: '#/components/schemas/error_detail'
           description: Request Timeout. This error may be returned if it takes more
             than 29 seconds for the request to process or if a batch request takes
-            more than 20 minutes to process for the time-series endpoint and 10 minutes
-            to process for the cross-sectional endpoint.
+            more than 30 minutes to process.
+          headers:
+            api-version:
+              $ref: '#/components/headers/api-version'
+            api-supported-versions:
+              $ref: '#/components/headers/api-supported-versions'
+            api-deprecated-versions:
+              $ref: '#/components/headers/api-deprecated-versions'
+            chain-id:
+              $ref: '#/components/headers/chain-id'
+        "413":
+          content:
+            application/json:
+              example:
+                id: 64EA0B1B0B592002
+                code: ContentTooLarge
+                title: The request is too large. Please reduce the payload size or
+                  leverage batching to ensure successful processing.
+                timeStamp: 2019-11-01 11:09:41.918
+              schema:
+                $ref: '#/components/schemas/error_detail'
+          description: Content Too Large. This error may be returned if the request
+            payload size is too large to be processed in the alloted amount of time.
           headers:
             api-version:
               $ref: '#/components/headers/api-version'
@@ -2009,14 +2104,13 @@ paths:
         "429":
           content:
             application/json:
+              example:
+                id: 5EFCCA8940CAEB6E
+                code: toomanyrequests
+                title: Rate limit is exceeded
+                timeStamp: 2019-11-01 11:09:41.918
               schema:
-                description: |
-                  Error returned if any of the user's rate limits have been reached.
-                properties:
-                  message:
-                    example: API rate limit exceeded
-                    type: string
-                title: Rate Limit Error Object
+                $ref: '#/components/schemas/error_detail'
           description: Rate Limits Exceeded
           headers:
             api-version:
@@ -2107,13 +2201,13 @@ paths:
       x-factset-different-success-responses: true
       x-contentType: application/json
       x-accepts: application/json
-  /v1/batch-status:
+  /batch-status:
     get:
       deprecated: false
       description: |
         Return the status for the underlying batch request that is specified by the id.
 
-          The Formula API supports Long Running asynchronous requests up to **20 minutes** via the `batch` parameter in the `/time-series` endpoint and up to **10 minutes** in the `/cross-sectional` endpoint.
+          The Formula API supports Long Running asynchronous requests up to **30 minutes** via the `batch` parameter for both the `/time-series` and `/cross-sectional` endpoint.
 
           *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or "Report Issue" above and our support teams can assist.*
       operationId: getBatchStatus
@@ -2194,7 +2288,7 @@ paths:
       description: |
         Return the status for the underlying batch request that is specified by the id.
 
-          The Formula API supports Long Running asynchronous requests up to **20 minutes** via the `batch` parameter in the `/time-series` endpoint and up to **10 minutes** in the `/cross-sectional` endpoint.
+          The Formula API supports Long Running asynchronous requests up to **30 minutes** via the `batch` parameter for both the `/time-series` and `/cross-sectional` endpoint.
 
           *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or "Report Issue" above and our support teams can assist.*
       operationId: getBatchStatusWithPost
@@ -2262,13 +2356,13 @@ paths:
       - Batch Processing
       x-contentType: application/json
       x-accepts: application/json
-  /v1/batch-result:
+  /batch-result:
     get:
       deprecated: false
       description: |
         Returns the response data for the underlying batch request that is specified by the id.
 
-          The Formula API supports Long Running asynchronous requests up to **20 minutes** via the `batch` parameter in the `/time-series` endpoint and up to **10 minutes** in the `/cross-sectional` endpoint.
+          The Formula API supports Long Running asynchronous requests up to **30 minutes** via the `batch` parameter for both the `/time-series` and `/cross-sectional` endpoint.
 
           *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or "Report Issue" above and our support teams can assist.*
       operationId: getBatchData
@@ -2338,7 +2432,7 @@ paths:
       description: |
         Returns the response data for the underlying batch request that is specified by the id.
 
-          The Formula API supports Long Running asynchronous requests up to **20 minutes** via the `batch` parameter in the `/time-series` endpoint and up to **10 minutes** in the `/cross-sectional` endpoint.
+          The Formula API supports Long Running asynchronous requests up to **30 minutes** via the `batch` parameter for both the `/time-series` and `/cross-sectional` endpoint.
 
           *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or "Report Issue" above and our support teams can assist.*
       operationId: getBatchDataWithPost
@@ -2413,6 +2507,7 @@ components:
             - 2020-07-09
           dataType: DOUBLE
           objectType: TIMESERIES
+        meta: {}
     time-series-singleId-singleItem-fsymId:
       description: |
         `time-series` Request for Single Price Record for IBM and the fsymId for IBM
@@ -2430,6 +2525,7 @@ components:
             - 2020-07-09
           dataType: DOUBLE
           objectType: TIMESERIES
+        meta: {}
     time-series-multipleId-multipleItem:
       description: |
         `time-series` Request for last 3 days of Price, the Company Name, the last 2 years of Business Segment Data and Business Segment Labels for IBM, AAPL, and MSFT using a SEVENDAY trading calendar
@@ -2473,20 +2569,20 @@ components:
           formula: FF_SEGMENT_RPT_DATA(ANN_R,0,-1AY,,,"SALES",,BUS,"SEG")
           requestId: IBM
           result:
-          - - 20191231
-            - 20181231
-          - - 27361
-            - 29146
-          - - 23200
-            - 22209
-          - - 16634
-            - 16595
-          - - 7604
-            - 8034
-          - - 1400
-            - 1590
-          - - 948
-            - 2017
+          - 20191231
+          - 20181231
+          - 27361
+          - 29146
+          - 23200
+          - 22209
+          - 16634
+          - 16595
+          - 7604
+          - 8034
+          - 1400
+          - 1590
+          - 948
+          - 2017
           dataType: DOUBLE
           objectType: MATRIX
         - error: 0
@@ -2525,18 +2621,18 @@ components:
           formula: FF_SEGMENT_RPT_DATA(ANN_R,0,-1AY,,,"SALES",,BUS,"SEG")
           requestId: AAPL
           result:
-          - - 20200930
-            - 20190930
-          - - 137781
-            - 142381
-          - - 53768
-            - 46291
-          - - 30620
-            - 24482
-          - - 28622
-            - 25740
-          - - 23724
-            - 21280
+          - 20200930
+          - 20190930
+          - 137781
+          - 142381
+          - 53768
+          - 46291
+          - 30620
+          - 24482
+          - 28622
+          - 25740
+          - 23724
+          - 21280
           dataType: DOUBLE
           objectType: MATRIX
         - error: 0
@@ -2573,16 +2669,17 @@ components:
           formula: FF_SEGMENT_RPT_DATA(ANN_R,0,-1AY,,,"SALES",,BUS,"SEG")
           requestId: MSFT
           result:
-          - - 20200630
-            - 20190630
-          - - 48366
-            - 38985
-          - - 48251
-            - 45698
-          - - 46398
-            - 41160
+          - 20200630
+          - 20190630
+          - 48366
+          - 38985
+          - 48251
+          - 45698
+          - 46398
+          - 41160
           dataType: DOUBLE
           objectType: MATRIX
+        meta: {}
     time-series-multipleId-multipleItem-flatten:
       description: |
         `time-series` Request for Flattened Response Model for the last 3 days of Price Open, Price Close, and the Company Name for IBM, AAPL, and MSFT
@@ -2694,6 +2791,7 @@ components:
           result: POSITIVE
           dataType: STRING
           objectType: SCALAR
+        meta: {}
     time-series-smallUniv-singleItem:
       description: '`time-series` Request for the last 4 quarters of sales for each
         S&P 500 constituent with a price less than 10 USD'
@@ -2844,6 +2942,7 @@ components:
             - 2019-09-30
           dataType: DOUBLE
           objectType: TIMESERIES
+        meta: {}
     time-series-debtUniv-multipleItem:
       description: |
         `time-series` Request for the issuer name and amount out for all debt instruments for the Starbucks Corporation
@@ -3099,7 +3198,7 @@ components:
         - error: 0
           formula: FI_AMOUNT_OUT(AMT,0)
           requestId: FDS01U70
-          result: null
+          result: 0
           dataType: DOUBLE
           objectType: SCALAR
         - error: 0
@@ -3111,7 +3210,7 @@ components:
         - error: 0
           formula: FI_AMOUNT_OUT(AMT,0)
           requestId: FDS02JIW
-          result: null
+          result: 0
           dataType: DOUBLE
           objectType: SCALAR
         - error: 0
@@ -3123,7 +3222,7 @@ components:
         - error: 0
           formula: FI_AMOUNT_OUT(AMT,0)
           requestId: FDS0F9W5
-          result: null
+          result: 0
           dataType: DOUBLE
           objectType: SCALAR
         - error: 0
@@ -3135,7 +3234,7 @@ components:
         - error: 0
           formula: FI_AMOUNT_OUT(AMT,0)
           requestId: FDS0QANF
-          result: null
+          result: 0
           dataType: DOUBLE
           objectType: SCALAR
         - error: 0
@@ -3147,7 +3246,7 @@ components:
         - error: 0
           formula: FI_AMOUNT_OUT(AMT,0)
           requestId: FDS1B17O
-          result: null
+          result: 0
           dataType: DOUBLE
           objectType: SCALAR
         - error: 0
@@ -3159,7 +3258,7 @@ components:
         - error: 0
           formula: FI_AMOUNT_OUT(AMT,0)
           requestId: FDSA82FD
-          result: null
+          result: 0
           dataType: DOUBLE
           objectType: SCALAR
         - error: 0
@@ -3171,7 +3270,7 @@ components:
         - error: 0
           formula: FI_AMOUNT_OUT(AMT,0)
           requestId: FDSB0FB5
-          result: null
+          result: 0
           dataType: DOUBLE
           objectType: SCALAR
         - error: 0
@@ -3255,7 +3354,7 @@ components:
         - error: 0
           formula: FI_AMOUNT_OUT(AMT,0)
           requestId: FDS0QARA
-          result: null
+          result: 0
           dataType: DOUBLE
           objectType: SCALAR
         - error: 0
@@ -3267,9 +3366,10 @@ components:
         - error: 0
           formula: FI_AMOUNT_OUT(AMT,0)
           requestId: FDS0VUVD
-          result: null
+          result: 0
           dataType: DOUBLE
           objectType: SCALAR
+        meta: {}
     cross-sectional-singleId-singleItem:
       description: |
         `cross-sectional` Request for Single Price Record for IBM
@@ -3286,6 +3386,7 @@ components:
           - 120.77
           dataType: DOUBLE
           error: 0
+        meta: {}
     cross-sectional-singleId-singleItem-fsymId:
       description: |
         `cross-sectional` Request for Single Price Record for IBM and the fsymId for IBM
@@ -3307,6 +3408,7 @@ components:
           - SJY281-R
           dataType: STRING
           error: 0
+        meta: {}
     cross-sectional-multipleId-multipleItem:
       description: |
         `cross-sectional` Request for last fiscal year's sales, the name of the company, the price for the last completed trading day, and last fiscal year's total assets for the requested 7 identifiers
@@ -3368,6 +3470,7 @@ components:
           - 34309
           dataType: DOUBLE
           error: 0
+        meta: {}
     cross-sectional-multipleId-multipleItem-flatten:
       description: |
         `cross-sectional` Request for last fiscal year's sales, the name of the company, the price for the last completed trading day, and last fiscal year's total assets for the requested 7 identifiers
@@ -3459,6 +3562,7 @@ components:
           - HIGHER
           dataType: STRING
           error: 0
+        meta: {}
     cross-sectional-multipleFixedIncomeId-multipleItem:
       description: |
         `cross-sectional` Request for the name of the issuer and the amount outstanding for the requested 2 fixed income identifiers
@@ -3483,6 +3587,7 @@ components:
           - 212
           dataType: DOUBLE
           error: 0
+        meta: {}
     cross-sectional-smallUniv-singleItem:
       description: |
         `cross-sectional` Request for the company name for each S&P 500 constituent with a price less than 10 USD
@@ -3514,6 +3619,7 @@ components:
           - TechnipFMC Plc
           dataType: STRING
           error: 0
+        meta: {}
     cross-sectional-debtUniv-multipleItem:
       description: |
         `cross-sectional` Request for the issuer name and amount out for all debt instruments for the Starbucks Corporation
@@ -3521,7 +3627,6 @@ components:
       value:
         data:
         - dataItemName: requestId
-          dataType: STRING
           result:
           - 855244AD
           - 855244AG
@@ -3558,10 +3663,10 @@ components:
           - 855244AL
           - FDS0QARA
           - FDS0VUVD
+          dataType: STRING
           universe: EQUITY(P_SYMBOL)="SBUX-US"
           error: 0
-        - error: 0
-          dataItemName: FI_NAME(ISSR)
+        - dataItemName: FI_NAME(ISSR)
           result:
           - Starbucks Corporation
           - Starbucks Corporation
@@ -3599,8 +3704,8 @@ components:
           - Starbucks Corporation
           - Starbucks Corporation
           dataType: STRING
-        - error: 0
-          dataItemName: FI_AMOUNT_OUT(AMT,0,USD)
+          error: 0
+        - dataItemName: FI_AMOUNT_OUT(AMT,0,USD)
           result:
           - 750
           - 500
@@ -3638,6 +3743,8 @@ components:
           - null
           - null
           dataType: DOUBLE
+          error: 0
+        meta: {}
     cross-sectional-ICSF-singleItem-nonflatten:
       description: |
         `Iterated Cross-Sectional Functionality` Request for the monthly price of Netflix Inc. for the year of 2022.
@@ -3674,7 +3781,7 @@ components:
           - 291.88
           - 305.53
           - 294.88
-          dataType: FLOAT
+          dataType: DOUBLE
           error: 0
         - dataItemName: PROPER_NAME
           result:
@@ -3706,7 +3813,7 @@ components:
           - 2022-10-31
           - 2022-11-30
           - 2022-12-30
-          dataType: string
+          dataType: STRING
           error: 0
         meta: {}
     cross-sectional-ICSF-multipleItem-Flatten:
@@ -3817,7 +3924,7 @@ components:
     BatchStatusFailedResponseTimeout:
       description: Batch Status Failed Response - Timeout. The example response shows
         the result of checking the status of a batch request that took longer than
-        20 minutes to calculate and timed out.
+        30 minutes to calculate and timed out.
       value:
         data:
           id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
@@ -3833,8 +3940,8 @@ components:
         data:
           id: 0a0452e2-3937-441d-b376-f2733a938587
           status: FAILED
-          startTime: 2023-09-15T00:07:46.501947
-          endTime: 2023-09-15T00:08:53.936218
+          startTime: 2023-09-15T00:07:46.501947Z
+          endTime: 2023-09-15T00:08:53.936218Z
           error: The request size is too large. Try again with a smaller request.
     BatchStatusFailedResponseOther:
       description: Batch Status Failed Response - Other. The example response shows
@@ -3844,8 +3951,8 @@ components:
         data:
           id: 43839790-a64e-452a-b8f0-fc26117bd9f4
           status: FAILED
-          startTime: 2023-09-20T13:37:13.653411
-          endTime: 2023-09-20T13:38:25.841134
+          startTime: 2023-09-20T13:37:13.653411Z
+          endTime: 2023-09-20T13:38:25.841134Z
           error: Something went wrong. Contact FactSet for support.
   headers:
     api-version:
@@ -3935,7 +4042,7 @@ components:
       required: false
       schema:
         items:
-          example: '["FDS-US","IBM-US"]'
+          example: FDS-US
           type: string
         type: array
       style: form
@@ -4093,7 +4200,7 @@ components:
       required: true
       schema:
         items:
-          example: '["P_PRICE(0,-2,D)","FG_COMPANY_NAME"]'
+          example: P_PRICE(0,-2,D)
           type: string
         type: array
       style: form
@@ -4260,7 +4367,7 @@ components:
       examples:
         noNames:
           summary: '---'
-          value: ""
+          value: []
         singleItem:
           summary: Single Data Item
           value:
@@ -4292,7 +4399,7 @@ components:
       examples:
         noNames:
           summary: '---'
-          value: ""
+          value: []
         singleItem:
           summary: Single Data Item
           value:
@@ -4348,7 +4455,7 @@ components:
       style: form
     dates_time_series:
       description: |
-        Specify **N** for the `dates` parameter to suppress the **dates** of the response. The default value for the `dates` parameter is **Y**.
+        Specify **N** for the `dates` parameter to suppress the **dates** of the response. The default value for the `dates` parameter is **Y**. Setting the parameter to **Y** will only return dates if the formula has a date value associated with it.
 
         In the non-flattened response model, setting dates to **N** will remove the "dates" array from the TIMESERIES objectType, meaning that the results will be returned as an ARRAY objectType.
 
@@ -4366,7 +4473,7 @@ components:
       style: form
     batch:
       description: |
-        Enables the ability to asynchronously "batch" the request,  supporting a long-running request up to **20 minutes**. Upon requesting batch=Y, the service will respond back with an HTTP Status Code of 202.
+        Enables the ability to asynchronously "batch" the request,  supporting a long-running request up to **30 minutes**. Upon requesting batch=Y, the service will respond back with an HTTP Status Code of 202.
 
         Individual users are allowed 5 concurrent Batch Requests, while Production users are allowed 10 concurrent Batch Requests.
         *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or "Report Issue" above and our support teams can assist.*
@@ -4696,7 +4803,8 @@ components:
               summary: Single ID and Multiple Dates using ICSF with flatten = N
               value:
                 data:
-                  ids: NFLX-USA
+                  ids:
+                  - NFLX-USA
                   formulas:
                   - PROPER_NAME
                   - P_PRICE(0)
@@ -4921,8 +5029,29 @@ components:
             $ref: '#/components/schemas/error_detail'
       description: Request Timeout. This error may be returned if it takes more than
         29 seconds for the request to process or if a batch request takes more than
-        20 minutes to process for the time-series endpoint and 10 minutes to process
-        for the cross-sectional endpoint.
+        30 minutes to process.
+      headers:
+        api-version:
+          $ref: '#/components/headers/api-version'
+        api-supported-versions:
+          $ref: '#/components/headers/api-supported-versions'
+        api-deprecated-versions:
+          $ref: '#/components/headers/api-deprecated-versions'
+        chain-id:
+          $ref: '#/components/headers/chain-id'
+    "413":
+      content:
+        application/json:
+          example:
+            id: 64EA0B1B0B592002
+            code: ContentTooLarge
+            title: The request is too large. Please reduce the payload size or leverage
+              batching to ensure successful processing.
+            timeStamp: 2019-11-01 11:09:41.918
+          schema:
+            $ref: '#/components/schemas/error_detail'
+      description: Content Too Large. This error may be returned if the request payload
+        size is too large to be processed in the alloted amount of time.
       headers:
         api-version:
           $ref: '#/components/headers/api-version'
@@ -4956,14 +5085,13 @@ components:
     "429":
       content:
         application/json:
+          example:
+            id: 5EFCCA8940CAEB6E
+            code: toomanyrequests
+            title: Rate limit is exceeded
+            timeStamp: 2019-11-01 11:09:41.918
           schema:
-            description: |
-              Error returned if any of the user's rate limits have been reached.
-            properties:
-              message:
-                example: API rate limit exceeded
-                type: string
-            title: Rate Limit Error Object
+            $ref: '#/components/schemas/error_detail'
       description: Rate Limits Exceeded
       headers:
         api-version:
@@ -5067,12 +5195,15 @@ components:
         data:
         - null
         - null
+        meta: '{}'
       properties:
         data:
           description: Array of Time-Series `Response Objects`
           items:
             $ref: '#/components/schemas/time_series_response_object_items'
           type: array
+        meta:
+          type: object
       title: Time-Series Response
       type: object
     time_series_result_object_nonflattened:
@@ -5455,27 +5586,32 @@ components:
         data:
         - null
         - null
+        meta: '{}'
       properties:
         data:
           description: Array of Cross-Sectional `Response Objects`
           items:
             $ref: '#/components/schemas/cross_sectional_response_object_items'
           type: array
+        meta:
+          type: object
       title: Cross-Sectional Response
       type: object
     cross_sectional_result_object_nonflattened_result_attribute:
       description: An array containing the values for the data item
+      example:
+      - IBM
+      - FDS
+      - AAPL
+      - MSFT
       oneOf:
       - description: Array of strings
-        example: '["IBM","FDS","GE","GOOG","AAPL","MSFT","TSLA"]'
         nullable: true
         type: string
       - description: Array of doubles
         format: double
-        nullable: true
         type: number
       - description: Array of integers
-        nullable: true
         type: integer
       title: Result Attribute in Cross-Sectional Non-Flattened Response Object
     cross_sectional_result_object_nonflattened:
@@ -5526,7 +5662,7 @@ components:
           description: Screening formula warnings. This attribute is only displayed
             if warnings are generated in the execution of the Screening formula.
           items:
-            $ref: '#/components/schemas/cross_sectional_result_object_nonflattened_warnings'
+            $ref: '#/components/schemas/warningsObject'
           type: array
       required:
       - dataItemName
@@ -5534,6 +5670,17 @@ components:
       - error
       - result
       title: Cross-Sectional Non-Flattened Response Object
+      type: object
+    warningsObject:
+      properties:
+        description:
+          description: Human readable message explaining the warning
+          nullable: true
+          type: string
+        effect:
+          description: Human readable message explaining the effect on the `result`
+          nullable: true
+          type: string
       type: object
     cross_sectional_result_object_flattened_addl:
       description: |
@@ -5575,6 +5722,17 @@ components:
       description: |
         `Error Object` is the response returned for an unsuccessful request.
       properties:
+        meta:
+          type: object
+        errors:
+          description: An array containing errors
+          items:
+            $ref: '#/components/schemas/errorObject'
+          type: array
+      title: Error Object
+      type: object
+    errorObject:
+      properties:
         id:
           description: Unique identifier for the request. Also known as the chain
             id.
@@ -5597,7 +5755,6 @@ components:
           format: date-time
           nullable: true
           type: string
-      title: Error Object
       type: object
     BatchDataRequest:
       example:
@@ -5665,17 +5822,20 @@ components:
       type: object
     BatchDataResponse:
       example:
-        data: '{}'
+        data:
+        - null
+        - null
       properties:
         data:
-          description: |
-            The schema for the batched result is determined by the endpoint you used with the _batch_ parameter.
-            Please see the schema for that endpoint for the definition.
-          title: Batch Data
-          type: object
+          items:
+            $ref: '#/components/schemas/BatchData'
+          type: array
       title: Batch Data Response
       type: object
     BatchData:
+      anyOf:
+      - $ref: '#/components/schemas/cross_sectional_response_object_items'
+      - $ref: '#/components/schemas/time_series_response_object_items'
       description: |
         The schema for the batched result is determined by the endpoint you used with the _batch_ parameter.
         Please see the schema for that endpoint for the definition.
@@ -5817,7 +5977,7 @@ components:
         batch:
           default: "N"
           description: |
-            Enables the ability to asynchronously "batch" the request, supporting a long-running request up to **20 minutes**. Upon requesting "batch": "Y", the service will respond back with an HTTP Status Code of 202.
+            Enables the ability to asynchronously "batch" the request, supporting a long-running request up to **30 minutes**. Upon requesting "batch": "Y", the service will respond back with an HTTP Status Code of 202.
 
             Individual users are allowed 5 concurrent Batch Requests, while Production users are allowed 10 concurrent Batch Requests.
 
@@ -5961,7 +6121,7 @@ components:
         batch:
           default: "N"
           description: |
-            Enables the ability to asynchronously "batch" the request, supporting a long-running request up to 10 minutes. Upon requesting "batch": "Y", the service will respond back with an HTTP Status Code of 202.
+            Enables the ability to asynchronously "batch" the request, supporting a long-running request up to 30 minutes. Upon requesting "batch": "Y", the service will respond back with an HTTP Status Code of 202.
 
             Individual users are allowed 5 concurrent Batch Requests, while Production users are allowed 10 concurrent Batch Requests.
 
@@ -6004,17 +6164,6 @@ components:
           type: string
       required:
       - formulas
-      type: object
-    cross_sectional_result_object_nonflattened_warnings:
-      properties:
-        description:
-          description: Human readable message explaining the warning
-          nullable: true
-          type: string
-        effect:
-          description: Human readable message explaining the effect on the `result`
-          nullable: true
-          type: string
       type: object
     BatchDataRequest_data:
       example:

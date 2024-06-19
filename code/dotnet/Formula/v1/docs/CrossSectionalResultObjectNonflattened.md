@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **DataType** | **string** | Data type of the data item | 
 **Error** | **int** | Data item error indicator.  * Zero – success  * Non-zero – failure  | 
 **ErrorMessage** | **string** | If error is non-zero, errorMessage will display the Screening formula error. | [optional] 
-**Warnings** | [**List&lt;CrossSectionalResultObjectNonflattenedWarnings&gt;**](CrossSectionalResultObjectNonflattenedWarnings.md) | Screening formula warnings. This attribute is only displayed if warnings are generated in the execution of the Screening formula. | [optional] 
+**Warnings** | [**List&lt;WarningsObject&gt;**](WarningsObject.md) | Screening formula warnings. This attribute is only displayed if warnings are generated in the execution of the Screening formula. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

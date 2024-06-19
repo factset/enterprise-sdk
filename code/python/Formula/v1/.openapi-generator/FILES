@@ -4,6 +4,7 @@
 .travis.yml
 LICENSE
 README.md
+docs/BatchData.md
 docs/BatchDataRequest.md
 docs/BatchDataRequestData.md
 docs/BatchDataResponse.md
@@ -19,8 +20,8 @@ docs/CrossSectionalResultObjectFlattened.md
 docs/CrossSectionalResultObjectFlattenedAddl.md
 docs/CrossSectionalResultObjectNonflattened.md
 docs/CrossSectionalResultObjectNonflattenedResultAttribute.md
-docs/CrossSectionalResultObjectNonflattenedWarnings.md
 docs/ErrorDetail.md
+docs/ErrorObject.md
 docs/TimeSeriesApi.md
 docs/TimeSeriesRequest.md
 docs/TimeSeriesRequestData.md
@@ -36,6 +37,7 @@ docs/TimeSeriesResultObjectNonflattenedScalar.md
 docs/TimeSeriesResultObjectNonflattenedTimeseriesObject.md
 docs/TimeSeriesScalarValue.md
 docs/TimeSeriesTimeseriesObject.md
+docs/WarningsObject.md
 fds/__init__.py
 fds/sdk/Formula/__init__.py
 fds/sdk/Formula/api/__init__.py
@@ -47,6 +49,7 @@ fds/sdk/Formula/apis/__init__.py
 fds/sdk/Formula/configuration.py
 fds/sdk/Formula/exceptions.py
 fds/sdk/Formula/model/__init__.py
+fds/sdk/Formula/model/batch_data.py
 fds/sdk/Formula/model/batch_data_request.py
 fds/sdk/Formula/model/batch_data_request_data.py
 fds/sdk/Formula/model/batch_data_response.py
@@ -60,8 +63,8 @@ fds/sdk/Formula/model/cross_sectional_result_object_flattened.py
 fds/sdk/Formula/model/cross_sectional_result_object_flattened_addl.py
 fds/sdk/Formula/model/cross_sectional_result_object_nonflattened.py
 fds/sdk/Formula/model/cross_sectional_result_object_nonflattened_result_attribute.py
-fds/sdk/Formula/model/cross_sectional_result_object_nonflattened_warnings.py
 fds/sdk/Formula/model/error_detail.py
+fds/sdk/Formula/model/error_object.py
 fds/sdk/Formula/model/time_series_request.py
 fds/sdk/Formula/model/time_series_request_data.py
 fds/sdk/Formula/model/time_series_response.py
@@ -76,6 +79,7 @@ fds/sdk/Formula/model/time_series_result_object_nonflattened_scalar.py
 fds/sdk/Formula/model/time_series_result_object_nonflattened_timeseries_object.py
 fds/sdk/Formula/model/time_series_scalar_value.py
 fds/sdk/Formula/model/time_series_timeseries_object.py
+fds/sdk/Formula/model/warnings_object.py
 fds/sdk/Formula/model_utils.py
 fds/sdk/Formula/models/__init__.py
 fds/sdk/Formula/rest.py

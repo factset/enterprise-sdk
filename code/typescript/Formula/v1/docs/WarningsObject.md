@@ -1,4 +1,4 @@
-# formula.CrossSectionalResultObjectNonflattenedWarnings
+# formula.WarningsObject
 
 ## Properties
 

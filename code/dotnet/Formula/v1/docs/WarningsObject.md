@@ -1,4 +1,4 @@
-# FactSet.SDK.Formula.Model.CrossSectionalResultObjectNonflattenedWarnings
+# FactSet.SDK.Formula.Model.WarningsObject
 
 ## Properties
 

@@ -4,6 +4,7 @@
 .travis.yml
 LICENSE
 README.md
+docs/BatchData.md
 docs/BatchDataRequest.md
 docs/BatchDataRequestData.md
 docs/BatchDataResponse.md
@@ -19,8 +20,8 @@ docs/CrossSectionalResultObjectFlattened.md
 docs/CrossSectionalResultObjectFlattenedAddl.md
 docs/CrossSectionalResultObjectNonflattened.md
 docs/CrossSectionalResultObjectNonflattenedResultAttribute.md
-docs/CrossSectionalResultObjectNonflattenedWarnings.md
 docs/ErrorDetail.md
+docs/ErrorObject.md
 docs/TimeSeriesApi.md
 docs/TimeSeriesRequest.md
 docs/TimeSeriesRequestData.md
@@ -36,6 +37,7 @@ docs/TimeSeriesResultObjectNonflattenedScalar.md
 docs/TimeSeriesResultObjectNonflattenedTimeseriesObject.md
 docs/TimeSeriesScalarValue.md
 docs/TimeSeriesTimeseriesObject.md
+docs/WarningsObject.md
 git_push.sh
 mocha.opts
 package.json
@@ -44,6 +46,7 @@ src/api/BatchProcessingApi.js
 src/api/CrossSectionalApi.js
 src/api/TimeSeriesApi.js
 src/index.js
+src/model/BatchData.js
 src/model/BatchDataRequest.js
 src/model/BatchDataRequestData.js
 src/model/BatchDataResponse.js
@@ -57,8 +60,8 @@ src/model/CrossSectionalResultObjectFlattened.js
 src/model/CrossSectionalResultObjectFlattenedAddl.js
 src/model/CrossSectionalResultObjectNonflattened.js
 src/model/CrossSectionalResultObjectNonflattenedResultAttribute.js
-src/model/CrossSectionalResultObjectNonflattenedWarnings.js
 src/model/ErrorDetail.js
+src/model/ErrorObject.js
 src/model/TimeSeriesRequest.js
 src/model/TimeSeriesRequestData.js
 src/model/TimeSeriesResponse.js
@@ -73,3 +76,4 @@ src/model/TimeSeriesResultObjectNonflattenedScalar.js
 src/model/TimeSeriesResultObjectNonflattenedTimeseriesObject.js
 src/model/TimeSeriesScalarValue.js
 src/model/TimeSeriesTimeseriesObject.js
+src/model/WarningsObject.js

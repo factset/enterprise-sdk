@@ -1,6 +1,6 @@
 
 
-# CrossSectionalResultObjectNonflattenedWarnings
+# WarningsObject
 
 
 ## Properties

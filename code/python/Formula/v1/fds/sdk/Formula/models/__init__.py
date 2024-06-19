@@ -9,6 +9,7 @@
 # import sys
 # sys.setrecursionlimit(n)
 
+from fds.sdk.Formula.model.batch_data import BatchData
 from fds.sdk.Formula.model.batch_data_request import BatchDataRequest
 from fds.sdk.Formula.model.batch_data_request_data import BatchDataRequestData
 from fds.sdk.Formula.model.batch_data_response import BatchDataResponse
@@ -22,8 +23,8 @@ from fds.sdk.Formula.model.cross_sectional_result_object_flattened import CrossS
 from fds.sdk.Formula.model.cross_sectional_result_object_flattened_addl import CrossSectionalResultObjectFlattenedAddl
 from fds.sdk.Formula.model.cross_sectional_result_object_nonflattened import CrossSectionalResultObjectNonflattened
 from fds.sdk.Formula.model.cross_sectional_result_object_nonflattened_result_attribute import CrossSectionalResultObjectNonflattenedResultAttribute
-from fds.sdk.Formula.model.cross_sectional_result_object_nonflattened_warnings import CrossSectionalResultObjectNonflattenedWarnings
 from fds.sdk.Formula.model.error_detail import ErrorDetail
+from fds.sdk.Formula.model.error_object import ErrorObject
 from fds.sdk.Formula.model.time_series_request import TimeSeriesRequest
 from fds.sdk.Formula.model.time_series_request_data import TimeSeriesRequestData
 from fds.sdk.Formula.model.time_series_response import TimeSeriesResponse
@@ -38,3 +39,4 @@ from fds.sdk.Formula.model.time_series_result_object_nonflattened_scalar import 
 from fds.sdk.Formula.model.time_series_result_object_nonflattened_timeseries_object import TimeSeriesResultObjectNonflattenedTimeseriesObject
 from fds.sdk.Formula.model.time_series_scalar_value import TimeSeriesScalarValue
 from fds.sdk.Formula.model.time_series_timeseries_object import TimeSeriesTimeseriesObject
+from fds.sdk.Formula.model.warnings_object import WarningsObject

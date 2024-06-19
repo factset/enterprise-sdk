@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **dataType** | [**DataTypeEnum**](#DataTypeEnum) | Data type of the data item | 
 **error** | **Integer** | Data item error indicator.  * Zero – success  * Non-zero – failure  | 
 **errorMessage** | **String** | If error is non-zero, errorMessage will display the Screening formula error. |  [optional]
-**warnings** | [**java.util.List&lt;CrossSectionalResultObjectNonflattenedWarnings&gt;**](CrossSectionalResultObjectNonflattenedWarnings.md) | Screening formula warnings. This attribute is only displayed if warnings are generated in the execution of the Screening formula. |  [optional]
+**warnings** | [**java.util.List&lt;WarningsObject&gt;**](WarningsObject.md) | Screening formula warnings. This attribute is only displayed if warnings are generated in the execution of the Screening formula. |  [optional]
 
 
 
