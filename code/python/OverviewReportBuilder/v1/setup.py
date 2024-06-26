@@ -16,7 +16,7 @@ def read(filename):
   return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 NAME = "fds.sdk.OverviewReportBuilder"
-VERSION = "1.1.9"
+VERSION = "1.1.10"
 # To install the library, run the following
 #
 # python setup.py install

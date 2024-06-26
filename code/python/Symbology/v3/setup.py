@@ -16,7 +16,7 @@ def read(filename):
   return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 NAME = "fds.sdk.Symbology"
-VERSION = "3.0.3"
+VERSION = "3.0.5"
 # To install the library, run the following
 #
 # python setup.py install

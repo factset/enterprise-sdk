@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "0.24.5"
+__version__ = "0.24.6"
 
 # import ApiClient
 from fds.sdk.FactSetConcordance.api_client import ApiClient

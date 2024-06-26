@@ -115,7 +115,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'fds-sdk/python/Vault/1.0.4'
+        self.user_agent = 'fds-sdk/python/Vault/1.0.6'
 
     def __enter__(self):
         return self

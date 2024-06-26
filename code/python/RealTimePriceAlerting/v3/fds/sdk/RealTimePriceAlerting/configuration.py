@@ -430,7 +430,7 @@ conf = fds.sdk.RealTimePriceAlerting.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 3.0.0\n"\
-               "SDK Package Version: 0.11.4".\
+               "SDK Package Version: 0.11.5".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):

@@ -1,14 +1,14 @@
 {
   "packageName": "fds.sdk.QuantEngine",
   "projectName": "fds.sdk.QuantEngine",
-  "packageVersion": "1.0.4",
+  "packageVersion": "1.0.5",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache License, Version 2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "packageDescription": "Quant Engine client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/QuantEngine/v3",
-  "httpUserAgent": "fds-sdk/python/QuantEngine/1.0.4",
+  "httpUserAgent": "fds-sdk/python/QuantEngine/1.0.5",
   "files": {
     "LICENSE": {}
   }

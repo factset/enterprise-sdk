@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "0.12.4"
+__version__ = "0.12.5"
 
 # import ApiClient
 from fds.sdk.RealTimeQuotes.api_client import ApiClient

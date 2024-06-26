@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "0.31.2"
+__version__ = "0.31.3"
 
 # import ApiClient
 from fds.sdk.OFDB.api_client import ApiClient

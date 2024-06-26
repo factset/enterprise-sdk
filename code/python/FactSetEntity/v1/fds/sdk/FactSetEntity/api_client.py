@@ -115,7 +115,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'fds-sdk/python/FactSetEntity/1.1.5'
+        self.user_agent = 'fds-sdk/python/FactSetEntity/1.1.6'
 
     def __enter__(self):
         return self

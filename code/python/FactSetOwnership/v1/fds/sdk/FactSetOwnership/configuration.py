@@ -430,7 +430,7 @@ conf = fds.sdk.FactSetOwnership.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 1.1.0\n"\
-               "SDK Package Version: 1.0.11".\
+               "SDK Package Version: 1.0.12".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):

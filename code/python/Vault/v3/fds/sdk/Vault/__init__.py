@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "1.0.4"
+__version__ = "1.0.6"
 
 # import ApiClient
 from fds.sdk.Vault.api_client import ApiClient

@@ -16,7 +16,7 @@ def read(filename):
   return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 NAME = "fds.sdk.NaturalLanguageProcessing"
-VERSION = "0.23.4"
+VERSION = "0.23.5"
 # To install the library, run the following
 #
 # python setup.py install

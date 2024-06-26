@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "0.22.4"
+__version__ = "0.22.5"
 
 # import ApiClient
 from fds.sdk.AnalyticsDatastore.api_client import ApiClient

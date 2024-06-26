@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "1.1.5"
+__version__ = "1.1.6"
 
 # import ApiClient
 from fds.sdk.FactSetEstimates.api_client import ApiClient

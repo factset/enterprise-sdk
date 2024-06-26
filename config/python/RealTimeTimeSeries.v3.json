@@ -1,14 +1,14 @@
 {
   "packageName": "fds.sdk.RealTimeTimeSeries",
   "projectName": "fds.sdk.RealTimeTimeSeries",
-  "packageVersion": "0.11.4",
+  "packageVersion": "0.11.5",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache License, Version 2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "packageDescription": "Real-Time Time Series client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/RealTimeTimeSeries/v3",
-  "httpUserAgent": "fds-sdk/python/RealTimeTimeSeries/0.11.4",
+  "httpUserAgent": "fds-sdk/python/RealTimeTimeSeries/0.11.5",
   "files": {
     "LICENSE": {}
   }

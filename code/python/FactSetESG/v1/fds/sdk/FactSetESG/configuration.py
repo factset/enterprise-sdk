@@ -430,7 +430,7 @@ conf = fds.sdk.FactSetESG.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 1.7.0\n"\
-               "SDK Package Version: 1.3.2".\
+               "SDK Package Version: 1.3.3".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):

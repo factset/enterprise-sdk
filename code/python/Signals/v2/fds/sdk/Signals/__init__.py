@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "0.22.11"
+__version__ = "0.22.12"
 
 # import ApiClient
 from fds.sdk.Signals.api_client import ApiClient

@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "0.11.4"
+__version__ = "0.11.5"
 
 # import ApiClient
 from fds.sdk.RealTimePriceAlerting.api_client import ApiClient

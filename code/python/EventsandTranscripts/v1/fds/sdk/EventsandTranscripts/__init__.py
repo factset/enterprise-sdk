@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "0.21.1"
+__version__ = "0.21.2"
 
 # import ApiClient
 from fds.sdk.EventsandTranscripts.api_client import ApiClient

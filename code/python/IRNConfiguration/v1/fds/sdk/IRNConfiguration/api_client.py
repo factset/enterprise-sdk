@@ -114,7 +114,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'fds-sdk/python/IRNConfiguration/1.0.11'
+        self.user_agent = 'fds-sdk/python/IRNConfiguration/1.0.12'
 
     def __enter__(self):
         return self

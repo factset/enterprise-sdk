@@ -1,14 +1,14 @@
 {
   "packageName": "fds.sdk.FactSetETF",
   "projectName": "fds.sdk.FactSetETF",
-  "packageVersion": "1.0.10",
+  "packageVersion": "1.0.11",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache License, Version 2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "packageDescription": "FactSet ETF client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/FactSetETF/v1",
-  "httpUserAgent": "fds-sdk/python/FactSetETF/1.0.10",
+  "httpUserAgent": "fds-sdk/python/FactSetETF/1.0.11",
   "files": {
     "LICENSE": {}
   }
