@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "0.20.5"
+__version__ = "0.20.6"
 
 # import ApiClient
 from fds.sdk.StreetAccountNews.api_client import ApiClient

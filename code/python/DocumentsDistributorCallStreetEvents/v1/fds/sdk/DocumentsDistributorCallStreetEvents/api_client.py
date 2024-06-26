@@ -37,7 +37,8 @@ from fds.sdk.DocumentsDistributorCallStreetEvents.model_utils import (
     file_type,
     model_to_dict,
     none_type,
-    validate_and_convert_types
+    validate_and_convert_types,
+    get_full_classname
 )
 
 ResponseType = Tuple[Any]
@@ -97,6 +98,14 @@ class ApiClient(object):
                  cookie=None, pool_threads=1):
         if configuration is None:
             configuration = Configuration.get_default_copy()
+        else:
+            if not isinstance(configuration, Configuration):
+                input_config_class_name = get_full_classname(type(configuration))
+                expected_config_class_name = get_full_classname(Configuration)
+                raise ApiTypeError(
+                    f"Configuration must be an instance of {expected_config_class_name} but got {input_config_class_name}"
+                )
+
         self.configuration = configuration
         self.pool_threads = pool_threads
 
@@ -106,7 +115,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'fds-sdk/python/DocumentsDistributorCallStreetEvents/0.21.16'
+        self.user_agent = 'fds-sdk/python/DocumentsDistributorCallStreetEvents/0.21.17'
 
     def __enter__(self):
         return self

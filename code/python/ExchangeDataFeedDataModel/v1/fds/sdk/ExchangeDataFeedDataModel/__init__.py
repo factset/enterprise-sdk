@@ -10,7 +10,7 @@
 """
 
 
-__version__ = "0.20.9"
+__version__ = "0.20.10"
 
 # import ApiClient
 from fds.sdk.ExchangeDataFeedDataModel.api_client import ApiClient

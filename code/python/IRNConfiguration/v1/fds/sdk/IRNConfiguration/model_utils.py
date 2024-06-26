@@ -1753,7 +1753,7 @@ def type_error_message(var_value=None, var_name=None, valid_classes=None,
             var_name,
             key_or_value,
             valid_classes_phrase,
-            type(var_value).__name__,
+            get_full_classname(type(var_value)),
         )
     )
     return msg
@@ -1764,10 +1764,20 @@ def get_valid_classes_phrase(input_classes):
     """
     all_classes = list(input_classes)
     all_classes = sorted(all_classes, key=lambda cls: cls.__name__)
-    all_class_names = [cls.__name__ for cls in all_classes]
+    all_class_names = [get_full_classname(cls) for cls in all_classes]
     if len(all_class_names) == 1:
         return 'is {0}'.format(all_class_names[0])
     return "is one of [{0}]".format(", ".join(all_class_names))
+
+
+def get_full_classname(cls):
+    """Returns the fully qualified class name of the class."""
+
+    module = cls.__module__
+    name = cls.__qualname__
+    if module is not None and module != "__builtin__":
+        name = module + "." + name
+    return name
 
 
 def get_allof_instances(self, model_args, constant_args):

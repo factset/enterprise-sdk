@@ -1,14 +1,14 @@
 {
   "packageName": "fds.sdk.OverviewReportBuilder",
   "projectName": "fds.sdk.OverviewReportBuilder",
-  "packageVersion": "1.1.8",
+  "packageVersion": "1.1.9",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache License, Version 2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "packageDescription": "Overview Report Builder client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/OverviewReportBuilder/v1",
-  "httpUserAgent": "fds-sdk/python/OverviewReportBuilder/1.1.8",
+  "httpUserAgent": "fds-sdk/python/OverviewReportBuilder/1.1.9",
   "files": {
     "LICENSE": {}
   }

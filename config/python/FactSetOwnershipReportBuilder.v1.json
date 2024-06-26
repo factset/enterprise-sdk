@@ -1,14 +1,14 @@
 {
   "packageName": "fds.sdk.FactSetOwnershipReportBuilder",
   "projectName": "fds.sdk.FactSetOwnershipReportBuilder",
-  "packageVersion": "1.1.1",
+  "packageVersion": "1.1.2",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache License, Version 2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "packageDescription": "FactSet Ownership Report Builder client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/FactSetOwnershipReportBuilder/v1",
-  "httpUserAgent": "fds-sdk/python/FactSetOwnershipReportBuilder/1.1.1",
+  "httpUserAgent": "fds-sdk/python/FactSetOwnershipReportBuilder/1.1.2",
   "files": {
     "LICENSE": {}
   }

@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "0.11.3"
+__version__ = "0.11.4"
 
 # import ApiClient
 from fds.sdk.RealTimeNews.api_client import ApiClient

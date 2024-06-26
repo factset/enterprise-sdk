@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "0.40.3"
+__version__ = "0.40.4"
 
 # import ApiClient
 from fds.sdk.StandardDatafeed.api_client import ApiClient

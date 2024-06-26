@@ -429,7 +429,7 @@ conf = fds.sdk.IDLookup.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 1.0.0\n"\
-               "SDK Package Version: 0.22.2".\
+               "SDK Package Version: 0.22.3".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):
