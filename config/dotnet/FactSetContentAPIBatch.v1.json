@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.FactSetContentAPIBatch",
-  "packageVersion": "0.21.9",
+  "packageVersion": "0.21.10",
   "packageGuid": "{117aa47c-a011-567c-8c01-28fc492cbdd0}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/FactSetContentAPIBatch/v1",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/FactSetContentAPIBatch/0.21.9",
+  "httpUserAgent": "fds-sdk/dotnet/FactSetContentAPIBatch/0.21.10",
   "files": {
     "LICENSE": {}
   },

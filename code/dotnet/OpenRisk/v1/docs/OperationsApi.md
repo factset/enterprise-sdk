@@ -1,17 +1,17 @@
 # FactSet.SDK.OpenRisk.Api.OperationsApi
 
-All URIs are relative to *https://api.factset.com/analytics/openrisk*
+All URIs are relative to *https://api.factset.com/analytics/openrisk/linear/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CalculateFromHoldings**](OperationsApi.md#calculatefromholdings) | **POST** /linear/{version}/calculate/from-holdings | Calculate risk statistics
-[**GenerateIdMapping**](OperationsApi.md#generateidmapping) | **POST** /linear/{version}/generate/id-mapping | Generate risk model ID mapping
+[**CalculateFromHoldings**](OperationsApi.md#calculatefromholdings) | **POST** /calculate/from-holdings | Calculate risk statistics
+[**GenerateIdMapping**](OperationsApi.md#generateidmapping) | **POST** /generate/id-mapping | Generate risk model ID mapping
 
 
 
 <a name="calculatefromholdings"></a>
 # **CalculateFromHoldings**
-> InlineResponse2003 CalculateFromHoldings (string version, CalculateFromHoldingsRequestBody calculateFromHoldingsRequestBody)
+> InlineResponse2003 CalculateFromHoldings (CalculateFromHoldingsRequestBody calculateFromHoldingsRequestBody)
 
 Calculate risk statistics
 
@@ -61,13 +61,12 @@ namespace Example
 
             var apiInstance = new OperationsApi(config);
 
-            var version = "v1";  // string | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
             var calculateFromHoldingsRequestBody = new CalculateFromHoldingsRequestBody(); // CalculateFromHoldingsRequestBody | 
 
             try
             {
                 // Calculate risk statistics
-                InlineResponse2003 result = apiInstance.CalculateFromHoldings(version, calculateFromHoldingsRequestBody);
+                InlineResponse2003 result = apiInstance.CalculateFromHoldings(calculateFromHoldingsRequestBody);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -85,7 +84,6 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **version** | **string**| Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. | 
  **calculateFromHoldingsRequestBody** | [**CalculateFromHoldingsRequestBody**](CalculateFromHoldingsRequestBody.md)|  | 
 
 ### Return type
@@ -117,7 +115,7 @@ Name | Type | Description  | Notes
 
 <a name="generateidmapping"></a>
 # **GenerateIdMapping**
-> InlineResponse2004 GenerateIdMapping (string version, GenerateIdMappingRequestBody generateIdMappingRequestBody)
+> InlineResponse2004 GenerateIdMapping (GenerateIdMappingRequestBody generateIdMappingRequestBody)
 
 Generate risk model ID mapping
 
@@ -167,13 +165,12 @@ namespace Example
 
             var apiInstance = new OperationsApi(config);
 
-            var version = "v1";  // string | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
             var generateIdMappingRequestBody = new GenerateIdMappingRequestBody(); // GenerateIdMappingRequestBody | 
 
             try
             {
                 // Generate risk model ID mapping
-                InlineResponse2004 result = apiInstance.GenerateIdMapping(version, generateIdMappingRequestBody);
+                InlineResponse2004 result = apiInstance.GenerateIdMapping(generateIdMappingRequestBody);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -191,7 +188,6 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **version** | **string**| Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. | 
  **generateIdMappingRequestBody** | [**GenerateIdMappingRequestBody**](GenerateIdMappingRequestBody.md)|  | 
 
 ### Return type

@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.ForeignExchangeRate",
-  "packageVersion": "1.0.8",
+  "packageVersion": "1.0.9",
   "packageGuid": "{6503a425-a1f2-5317-b4dc-5b5f17960ebe}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/ForeignExchangeRate/v1",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/ForeignExchangeRate/1.0.8",
+  "httpUserAgent": "fds-sdk/dotnet/ForeignExchangeRate/1.0.9",
   "files": {
     "LICENSE": {}
   },

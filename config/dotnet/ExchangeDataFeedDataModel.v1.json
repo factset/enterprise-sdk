@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.ExchangeDataFeedDataModel",
-  "packageVersion": "0.20.8",
+  "packageVersion": "0.20.9",
   "packageGuid": "{37963d75-ed01-5aef-be4f-ba59898bff35}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/ExchangeDataFeedDataModel/v1",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/ExchangeDataFeedDataModel/0.20.8",
+  "httpUserAgent": "fds-sdk/dotnet/ExchangeDataFeedDataModel/0.20.9",
   "files": {
     "LICENSE": {}
   },

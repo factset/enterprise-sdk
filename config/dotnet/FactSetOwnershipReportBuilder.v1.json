@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.FactSetOwnershipReportBuilder",
-  "packageVersion": "2.0.0",
+  "packageVersion": "2.0.1",
   "packageGuid": "{531cf72c-9702-5491-86ef-16d91a2056b7}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/FactSetOwnershipReportBuilder/v1",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/FactSetOwnershipReportBuilder/2.0.0",
+  "httpUserAgent": "fds-sdk/dotnet/FactSetOwnershipReportBuilder/2.0.1",
   "files": {
     "LICENSE": {}
   },

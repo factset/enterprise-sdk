@@ -61,47 +61,32 @@ class AboutApi(object):
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
-                'endpoint_path': '/linear/{version}/health',
+                'endpoint_path': '/health',
                 'operation_id': 'health_status',
                 'http_method': 'GET',
                 'servers': None,
             },
             params_map={
                 'all': [
-                    'version',
                 ],
-                'required': [
-                    'version',
-                ],
+                'required': [],
                 'nullable': [
                 ],
                 'enum': [
                 ],
                 'validation': [
-                    'version',
                 ]
             },
             root_map={
                 'validations': {
-                    ('version',): {
-
-                        'min_length': 1,
-                        'regex': {
-                            'pattern': r'^(?:v?(?:(?:[0-9]+|[Xx*])(?:\.(?:[0-9]+|[Xx*])){0,2}))$',  # noqa: E501
-                        },
-                    },
                 },
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'version':
-                        (str,),
                 },
                 'attribute_map': {
-                    'version': 'version',
                 },
                 'location_map': {
-                    'version': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -126,47 +111,32 @@ class AboutApi(object):
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
-                'endpoint_path': '/linear/{version}/riskmodels',
+                'endpoint_path': '/riskmodels',
                 'operation_id': 'list_risk_models',
                 'http_method': 'GET',
                 'servers': None,
             },
             params_map={
                 'all': [
-                    'version',
                 ],
-                'required': [
-                    'version',
-                ],
+                'required': [],
                 'nullable': [
                 ],
                 'enum': [
                 ],
                 'validation': [
-                    'version',
                 ]
             },
             root_map={
                 'validations': {
-                    ('version',): {
-
-                        'min_length': 1,
-                        'regex': {
-                            'pattern': r'^(?:v?(?:(?:[0-9]+|[Xx*])(?:\.(?:[0-9]+|[Xx*])){0,2}))$',  # noqa: E501
-                        },
-                    },
                 },
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'version':
-                        (str,),
                 },
                 'attribute_map': {
-                    'version': 'version',
                 },
                 'location_map': {
-                    'version': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -191,18 +161,16 @@ class AboutApi(object):
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
-                'endpoint_path': '/linear/{version}/riskmodels/{modelCode}',
+                'endpoint_path': '/riskmodels/{modelCode}',
                 'operation_id': 'risk_model_metadata',
                 'http_method': 'GET',
                 'servers': None,
             },
             params_map={
                 'all': [
-                    'version',
                     'model_code',
                 ],
                 'required': [
-                    'version',
                     'model_code',
                 ],
                 'nullable': [
@@ -210,33 +178,21 @@ class AboutApi(object):
                 'enum': [
                 ],
                 'validation': [
-                    'version',
                 ]
             },
             root_map={
                 'validations': {
-                    ('version',): {
-
-                        'min_length': 1,
-                        'regex': {
-                            'pattern': r'^(?:v?(?:(?:[0-9]+|[Xx*])(?:\.(?:[0-9]+|[Xx*])){0,2}))$',  # noqa: E501
-                        },
-                    },
                 },
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'version':
-                        (str,),
                     'model_code':
                         (RiskModelCode,),
                 },
                 'attribute_map': {
-                    'version': 'version',
                     'model_code': 'modelCode',
                 },
                 'location_map': {
-                    'version': 'path',
                     'model_code': 'path',
                 },
                 'collection_format_map': {
@@ -262,47 +218,32 @@ class AboutApi(object):
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
-                'endpoint_path': '/linear/{version}/stats',
+                'endpoint_path': '/stats',
                 'operation_id': 'stats',
                 'http_method': 'GET',
                 'servers': None,
             },
             params_map={
                 'all': [
-                    'version',
                 ],
-                'required': [
-                    'version',
-                ],
+                'required': [],
                 'nullable': [
                 ],
                 'enum': [
                 ],
                 'validation': [
-                    'version',
                 ]
             },
             root_map={
                 'validations': {
-                    ('version',): {
-
-                        'min_length': 1,
-                        'regex': {
-                            'pattern': r'^(?:v?(?:(?:[0-9]+|[Xx*])(?:\.(?:[0-9]+|[Xx*])){0,2}))$',  # noqa: E501
-                        },
-                    },
                 },
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'version':
-                        (str,),
                 },
                 'attribute_map': {
-                    'version': 'version',
                 },
                 'location_map': {
-                    'version': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -327,47 +268,32 @@ class AboutApi(object):
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
-                'endpoint_path': '/linear/{version}/stats-names-only',
+                'endpoint_path': '/stats-names-only',
                 'operation_id': 'stats_names_only',
                 'http_method': 'GET',
                 'servers': None,
             },
             params_map={
                 'all': [
-                    'version',
                 ],
-                'required': [
-                    'version',
-                ],
+                'required': [],
                 'nullable': [
                 ],
                 'enum': [
                 ],
                 'validation': [
-                    'version',
                 ]
             },
             root_map={
                 'validations': {
-                    ('version',): {
-
-                        'min_length': 1,
-                        'regex': {
-                            'pattern': r'^(?:v?(?:(?:[0-9]+|[Xx*])(?:\.(?:[0-9]+|[Xx*])){0,2}))$',  # noqa: E501
-                        },
-                    },
                 },
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'version':
-                        (str,),
                 },
                 'attribute_map': {
-                    'version': 'version',
                 },
                 'location_map': {
-                    'version': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -398,7 +324,6 @@ class AboutApi(object):
 
     def health_status(
         self,
-        version,
         **kwargs
     ) -> InlineResponse2002:
         """Get health of service  # noqa: E501
@@ -406,8 +331,6 @@ class AboutApi(object):
         Health status of the service  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
-        Args:
-            version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -439,13 +362,10 @@ class AboutApi(object):
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['version'] = \
-            version
         return self.health_status_endpoint.call_with_http_info(**kwargs)
 
     def health_status_with_http_info(
         self,
-        version,
         **kwargs
     ) -> typing.Tuple[InlineResponse2002, int, typing.MutableMapping]:
         """Get health of service  # noqa: E501
@@ -453,8 +373,6 @@ class AboutApi(object):
         Health status of the service  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
-        Args:
-            version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -490,13 +408,10 @@ class AboutApi(object):
                 Dictionary of the response headers
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['version'] = \
-            version
         return self.health_status_endpoint.call_with_http_info(**kwargs)
 
     def health_status_async(
         self,
-        version,
         **kwargs
     ) -> "ApplyResult[InlineResponse2002]":
         """Get health of service  # noqa: E501
@@ -504,8 +419,6 @@ class AboutApi(object):
         Health status of the service  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
-        Args:
-            version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -536,13 +449,10 @@ class AboutApi(object):
             ApplyResult[InlineResponse2002]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['version'] = \
-            version
         return self.health_status_endpoint.call_with_http_info(**kwargs)
 
     def health_status_with_http_info_async(
         self,
-        version,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[InlineResponse2002, int, typing.MutableMapping]]":
         """Get health of service  # noqa: E501
@@ -550,8 +460,6 @@ class AboutApi(object):
         Health status of the service  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
-        Args:
-            version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -582,14 +490,11 @@ class AboutApi(object):
             ApplyResult[(InlineResponse2002, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['version'] = \
-            version
         return self.health_status_endpoint.call_with_http_info(**kwargs)
 
 
     def list_risk_models(
         self,
-        version,
         **kwargs
     ) -> InlineResponse200:
         """Get available risk models  # noqa: E501
@@ -597,8 +502,6 @@ class AboutApi(object):
         Get the list of available risk models, including their respective model codes required for use with other routes.  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
-        Args:
-            version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -630,13 +533,10 @@ class AboutApi(object):
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['version'] = \
-            version
         return self.list_risk_models_endpoint.call_with_http_info(**kwargs)
 
     def list_risk_models_with_http_info(
         self,
-        version,
         **kwargs
     ) -> typing.Tuple[InlineResponse200, int, typing.MutableMapping]:
         """Get available risk models  # noqa: E501
@@ -644,8 +544,6 @@ class AboutApi(object):
         Get the list of available risk models, including their respective model codes required for use with other routes.  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
-        Args:
-            version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -681,13 +579,10 @@ class AboutApi(object):
                 Dictionary of the response headers
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['version'] = \
-            version
         return self.list_risk_models_endpoint.call_with_http_info(**kwargs)
 
     def list_risk_models_async(
         self,
-        version,
         **kwargs
     ) -> "ApplyResult[InlineResponse200]":
         """Get available risk models  # noqa: E501
@@ -695,8 +590,6 @@ class AboutApi(object):
         Get the list of available risk models, including their respective model codes required for use with other routes.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
-        Args:
-            version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -727,13 +620,10 @@ class AboutApi(object):
             ApplyResult[InlineResponse200]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['version'] = \
-            version
         return self.list_risk_models_endpoint.call_with_http_info(**kwargs)
 
     def list_risk_models_with_http_info_async(
         self,
-        version,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[InlineResponse200, int, typing.MutableMapping]]":
         """Get available risk models  # noqa: E501
@@ -741,8 +631,6 @@ class AboutApi(object):
         Get the list of available risk models, including their respective model codes required for use with other routes.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
-        Args:
-            version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -773,14 +661,11 @@ class AboutApi(object):
             ApplyResult[(InlineResponse200, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['version'] = \
-            version
         return self.list_risk_models_endpoint.call_with_http_info(**kwargs)
 
 
     def risk_model_metadata(
         self,
-        version,
         model_code,
         **kwargs
     ) -> InlineResponse2001:
@@ -790,7 +675,6 @@ class AboutApi(object):
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
-            version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
             model_code (RiskModelCode): Model code
 
         Keyword Args:
@@ -823,15 +707,12 @@ class AboutApi(object):
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['version'] = \
-            version
         kwargs['model_code'] = \
             model_code
         return self.risk_model_metadata_endpoint.call_with_http_info(**kwargs)
 
     def risk_model_metadata_with_http_info(
         self,
-        version,
         model_code,
         **kwargs
     ) -> typing.Tuple[InlineResponse2001, int, typing.MutableMapping]:
@@ -841,7 +722,6 @@ class AboutApi(object):
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
-            version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
             model_code (RiskModelCode): Model code
 
         Keyword Args:
@@ -878,15 +758,12 @@ class AboutApi(object):
                 Dictionary of the response headers
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['version'] = \
-            version
         kwargs['model_code'] = \
             model_code
         return self.risk_model_metadata_endpoint.call_with_http_info(**kwargs)
 
     def risk_model_metadata_async(
         self,
-        version,
         model_code,
         **kwargs
     ) -> "ApplyResult[InlineResponse2001]":
@@ -896,7 +773,6 @@ class AboutApi(object):
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
-            version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
             model_code (RiskModelCode): Model code
 
         Keyword Args:
@@ -928,15 +804,12 @@ class AboutApi(object):
             ApplyResult[InlineResponse2001]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['version'] = \
-            version
         kwargs['model_code'] = \
             model_code
         return self.risk_model_metadata_endpoint.call_with_http_info(**kwargs)
 
     def risk_model_metadata_with_http_info_async(
         self,
-        version,
         model_code,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[InlineResponse2001, int, typing.MutableMapping]]":
@@ -946,7 +819,6 @@ class AboutApi(object):
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
-            version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
             model_code (RiskModelCode): Model code
 
         Keyword Args:
@@ -978,8 +850,6 @@ class AboutApi(object):
             ApplyResult[(InlineResponse2001, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['version'] = \
-            version
         kwargs['model_code'] = \
             model_code
         return self.risk_model_metadata_endpoint.call_with_http_info(**kwargs)
@@ -987,7 +857,6 @@ class AboutApi(object):
 
     def stats(
         self,
-        version,
         **kwargs
     ) -> SupportedStats:
         """Get available risk statistics details  # noqa: E501
@@ -995,8 +864,6 @@ class AboutApi(object):
         All base risk statistic names and their respective support and/or requirement for certain name-settings statistics options (such as: correlated specific risk, covariance isolation method, etc.), available levels, and security group calculation methodology. When 'securityGroupMethod' is 'statSpecific', please refer to statistics documentation service for more information.  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
-        Args:
-            version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1028,13 +895,10 @@ class AboutApi(object):
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['version'] = \
-            version
         return self.stats_endpoint.call_with_http_info(**kwargs)
 
     def stats_with_http_info(
         self,
-        version,
         **kwargs
     ) -> typing.Tuple[SupportedStats, int, typing.MutableMapping]:
         """Get available risk statistics details  # noqa: E501
@@ -1042,8 +906,6 @@ class AboutApi(object):
         All base risk statistic names and their respective support and/or requirement for certain name-settings statistics options (such as: correlated specific risk, covariance isolation method, etc.), available levels, and security group calculation methodology. When 'securityGroupMethod' is 'statSpecific', please refer to statistics documentation service for more information.  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
-        Args:
-            version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1079,13 +941,10 @@ class AboutApi(object):
                 Dictionary of the response headers
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['version'] = \
-            version
         return self.stats_endpoint.call_with_http_info(**kwargs)
 
     def stats_async(
         self,
-        version,
         **kwargs
     ) -> "ApplyResult[SupportedStats]":
         """Get available risk statistics details  # noqa: E501
@@ -1093,8 +952,6 @@ class AboutApi(object):
         All base risk statistic names and their respective support and/or requirement for certain name-settings statistics options (such as: correlated specific risk, covariance isolation method, etc.), available levels, and security group calculation methodology. When 'securityGroupMethod' is 'statSpecific', please refer to statistics documentation service for more information.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
-        Args:
-            version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1125,13 +982,10 @@ class AboutApi(object):
             ApplyResult[SupportedStats]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['version'] = \
-            version
         return self.stats_endpoint.call_with_http_info(**kwargs)
 
     def stats_with_http_info_async(
         self,
-        version,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[SupportedStats, int, typing.MutableMapping]]":
         """Get available risk statistics details  # noqa: E501
@@ -1139,8 +993,6 @@ class AboutApi(object):
         All base risk statistic names and their respective support and/or requirement for certain name-settings statistics options (such as: correlated specific risk, covariance isolation method, etc.), available levels, and security group calculation methodology. When 'securityGroupMethod' is 'statSpecific', please refer to statistics documentation service for more information.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
-        Args:
-            version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1171,14 +1023,11 @@ class AboutApi(object):
             ApplyResult[(SupportedStats, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['version'] = \
-            version
         return self.stats_endpoint.call_with_http_info(**kwargs)
 
 
     def stats_names_only(
         self,
-        version,
         **kwargs
     ) -> SupportedStatsNamesOnly:
         """Get available risk statistics names  # noqa: E501
@@ -1186,8 +1035,6 @@ class AboutApi(object):
         All available risk statistic names including statistics names containing risk statistics options such as CSR (correlated specific risk)  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
-        Args:
-            version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1219,13 +1066,10 @@ class AboutApi(object):
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['version'] = \
-            version
         return self.stats_names_only_endpoint.call_with_http_info(**kwargs)
 
     def stats_names_only_with_http_info(
         self,
-        version,
         **kwargs
     ) -> typing.Tuple[SupportedStatsNamesOnly, int, typing.MutableMapping]:
         """Get available risk statistics names  # noqa: E501
@@ -1233,8 +1077,6 @@ class AboutApi(object):
         All available risk statistic names including statistics names containing risk statistics options such as CSR (correlated specific risk)  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
-        Args:
-            version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1270,13 +1112,10 @@ class AboutApi(object):
                 Dictionary of the response headers
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['version'] = \
-            version
         return self.stats_names_only_endpoint.call_with_http_info(**kwargs)
 
     def stats_names_only_async(
         self,
-        version,
         **kwargs
     ) -> "ApplyResult[SupportedStatsNamesOnly]":
         """Get available risk statistics names  # noqa: E501
@@ -1284,8 +1123,6 @@ class AboutApi(object):
         All available risk statistic names including statistics names containing risk statistics options such as CSR (correlated specific risk)  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
-        Args:
-            version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1316,13 +1153,10 @@ class AboutApi(object):
             ApplyResult[SupportedStatsNamesOnly]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['version'] = \
-            version
         return self.stats_names_only_endpoint.call_with_http_info(**kwargs)
 
     def stats_names_only_with_http_info_async(
         self,
-        version,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[SupportedStatsNamesOnly, int, typing.MutableMapping]]":
         """Get available risk statistics names  # noqa: E501
@@ -1330,8 +1164,6 @@ class AboutApi(object):
         All available risk statistic names including statistics names containing risk statistics options such as CSR (correlated specific risk)  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
-        Args:
-            version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1362,8 +1194,6 @@ class AboutApi(object):
             ApplyResult[(SupportedStatsNamesOnly, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['version'] = \
-            version
         return self.stats_names_only_endpoint.call_with_http_info(**kwargs)
 
 

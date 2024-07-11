@@ -33,7 +33,7 @@ namespace FactSet.SDK.FactSetGeoRev.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.0.8";
+        public const string Version = "1.0.9";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -85,6 +85,7 @@ namespace FactSet.SDK.FactSetGeoRev.Client
         private IDictionary<string, string> _apiKeyPrefix;
 
         private string _dateTimeFormat = ISO8601_DATETIME_FORMAT;
+        private string _dateFormat = "yyyy-MM-dd";
         private string _tempFolderPath = Path.GetTempPath();
 
         /// <summary>
@@ -105,7 +106,7 @@ namespace FactSet.SDK.FactSetGeoRev.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "fds-sdk/dotnet/FactSetGeoRev/1.0.8";
+            UserAgent = "fds-sdk/dotnet/FactSetGeoRev/1.0.9";
             BasePath = "https://api.factset.com/content";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -301,6 +302,28 @@ namespace FactSet.SDK.FactSetGeoRev.Client
         }
 
         /// <summary>
+        /// Gets or sets the date format used when serializing in the ApiClient
+        /// By default, it's set to "yyyy-MM-dd" for date-only format
+        /// No validation is done to ensure that the string you're providing is valid
+        /// </summary>
+        /// <value>The DateFormat string</value>
+        public virtual string DateFormat
+        {
+            get { return _dateFormat; }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    // Never allow a blank or null string, go back to the default
+                    _dateFormat = "yyyy-MM-dd";
+                    return;
+                }
+
+                _dateFormat = value;
+            }
+        }
+
+        /// <summary>
         /// Gets or sets the date time format used when serializing in the ApiClient
         /// By default, it's set to ISO 8601 - "o", for others see:
         /// https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx
@@ -461,7 +484,7 @@ namespace FactSet.SDK.FactSetGeoRev.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 1.0.1\n";
-            report += "    SDK Package Version: 1.0.8\n";
+            report += "    SDK Package Version: 1.0.9\n";
 
             return report;
         }

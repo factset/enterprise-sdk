@@ -301,8 +301,8 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPIEntireExchange.Api
             }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ExchangeDataFeedSnapshotAPIEntireExchange.Client.ClientUtils.ParameterToMultiMap("", "product", product));
-            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ExchangeDataFeedSnapshotAPIEntireExchange.Client.ClientUtils.ParameterToMultiMap("", "start_date", startDate));
-            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ExchangeDataFeedSnapshotAPIEntireExchange.Client.ClientUtils.ParameterToMultiMap("", "end_date", endDate));
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ExchangeDataFeedSnapshotAPIEntireExchange.Client.ClientUtils.ParameterToMultiMap("", "start_date", new DateOnlyParameter(startDate)));
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ExchangeDataFeedSnapshotAPIEntireExchange.Client.ClientUtils.ParameterToMultiMap("", "end_date", new DateOnlyParameter(endDate)));
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ExchangeDataFeedSnapshotAPIEntireExchange.Client.ClientUtils.ParameterToMultiMap("", "start_time", startTime));
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ExchangeDataFeedSnapshotAPIEntireExchange.Client.ClientUtils.ParameterToMultiMap("", "end_time", endTime));
             if (access != null)
@@ -415,8 +415,8 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPIEntireExchange.Api
             }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ExchangeDataFeedSnapshotAPIEntireExchange.Client.ClientUtils.ParameterToMultiMap("", "product", product));
-            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ExchangeDataFeedSnapshotAPIEntireExchange.Client.ClientUtils.ParameterToMultiMap("", "start_date", startDate));
-            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ExchangeDataFeedSnapshotAPIEntireExchange.Client.ClientUtils.ParameterToMultiMap("", "end_date", endDate));
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ExchangeDataFeedSnapshotAPIEntireExchange.Client.ClientUtils.ParameterToMultiMap("", "start_date", new DateOnlyParameter(startDate)));
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ExchangeDataFeedSnapshotAPIEntireExchange.Client.ClientUtils.ParameterToMultiMap("", "end_date", new DateOnlyParameter(endDate)));
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ExchangeDataFeedSnapshotAPIEntireExchange.Client.ClientUtils.ParameterToMultiMap("", "start_time", startTime));
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ExchangeDataFeedSnapshotAPIEntireExchange.Client.ClientUtils.ParameterToMultiMap("", "end_time", endTime));
             if (access != null)

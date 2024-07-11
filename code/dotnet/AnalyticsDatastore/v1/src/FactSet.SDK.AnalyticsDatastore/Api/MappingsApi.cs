@@ -519,7 +519,7 @@ namespace FactSet.SDK.AnalyticsDatastore.Api
             localVarRequestOptions.PathParameters.Add("tileId", FactSet.SDK.AnalyticsDatastore.Client.ClientUtils.ParameterToString(tileId)); // path parameter
             localVarRequestOptions.PathParameters.Add("accountId", FactSet.SDK.AnalyticsDatastore.Client.ClientUtils.ParameterToString(accountId)); // path parameter
             localVarRequestOptions.PathParameters.Add("configId", FactSet.SDK.AnalyticsDatastore.Client.ClientUtils.ParameterToString(configId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("date", FactSet.SDK.AnalyticsDatastore.Client.ClientUtils.ParameterToString(date)); // path parameter
+            localVarRequestOptions.PathParameters.Add("date", FactSet.SDK.AnalyticsDatastore.Client.ClientUtils.ParameterToString(new DateOnlyParameter(date))); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -655,7 +655,7 @@ namespace FactSet.SDK.AnalyticsDatastore.Api
             localVarRequestOptions.PathParameters.Add("tileId", FactSet.SDK.AnalyticsDatastore.Client.ClientUtils.ParameterToString(tileId)); // path parameter
             localVarRequestOptions.PathParameters.Add("accountId", FactSet.SDK.AnalyticsDatastore.Client.ClientUtils.ParameterToString(accountId)); // path parameter
             localVarRequestOptions.PathParameters.Add("configId", FactSet.SDK.AnalyticsDatastore.Client.ClientUtils.ParameterToString(configId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("date", FactSet.SDK.AnalyticsDatastore.Client.ClientUtils.ParameterToString(date)); // path parameter
+            localVarRequestOptions.PathParameters.Add("date", FactSet.SDK.AnalyticsDatastore.Client.ClientUtils.ParameterToString(new DateOnlyParameter(date))); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -752,7 +752,7 @@ namespace FactSet.SDK.AnalyticsDatastore.Api
 
             localVarRequestOptions.PathParameters.Add("document", FactSet.SDK.AnalyticsDatastore.Client.ClientUtils.ParameterToString(document)); // path parameter
             localVarRequestOptions.PathParameters.Add("accountId", FactSet.SDK.AnalyticsDatastore.Client.ClientUtils.ParameterToString(accountId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("date", FactSet.SDK.AnalyticsDatastore.Client.ClientUtils.ParameterToString(date)); // path parameter
+            localVarRequestOptions.PathParameters.Add("date", FactSet.SDK.AnalyticsDatastore.Client.ClientUtils.ParameterToString(new DateOnlyParameter(date))); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -852,7 +852,7 @@ namespace FactSet.SDK.AnalyticsDatastore.Api
 
             localVarRequestOptions.PathParameters.Add("document", FactSet.SDK.AnalyticsDatastore.Client.ClientUtils.ParameterToString(document)); // path parameter
             localVarRequestOptions.PathParameters.Add("accountId", FactSet.SDK.AnalyticsDatastore.Client.ClientUtils.ParameterToString(accountId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("date", FactSet.SDK.AnalyticsDatastore.Client.ClientUtils.ParameterToString(date)); // path parameter
+            localVarRequestOptions.PathParameters.Add("date", FactSet.SDK.AnalyticsDatastore.Client.ClientUtils.ParameterToString(new DateOnlyParameter(date))); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -976,7 +976,7 @@ namespace FactSet.SDK.AnalyticsDatastore.Api
             localVarRequestOptions.PathParameters.Add("reportId", FactSet.SDK.AnalyticsDatastore.Client.ClientUtils.ParameterToString(reportId)); // path parameter
             localVarRequestOptions.PathParameters.Add("tileId", FactSet.SDK.AnalyticsDatastore.Client.ClientUtils.ParameterToString(tileId)); // path parameter
             localVarRequestOptions.PathParameters.Add("accountId", FactSet.SDK.AnalyticsDatastore.Client.ClientUtils.ParameterToString(accountId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("date", FactSet.SDK.AnalyticsDatastore.Client.ClientUtils.ParameterToString(date)); // path parameter
+            localVarRequestOptions.PathParameters.Add("date", FactSet.SDK.AnalyticsDatastore.Client.ClientUtils.ParameterToString(new DateOnlyParameter(date))); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -1103,7 +1103,7 @@ namespace FactSet.SDK.AnalyticsDatastore.Api
             localVarRequestOptions.PathParameters.Add("reportId", FactSet.SDK.AnalyticsDatastore.Client.ClientUtils.ParameterToString(reportId)); // path parameter
             localVarRequestOptions.PathParameters.Add("tileId", FactSet.SDK.AnalyticsDatastore.Client.ClientUtils.ParameterToString(tileId)); // path parameter
             localVarRequestOptions.PathParameters.Add("accountId", FactSet.SDK.AnalyticsDatastore.Client.ClientUtils.ParameterToString(accountId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("date", FactSet.SDK.AnalyticsDatastore.Client.ClientUtils.ParameterToString(date)); // path parameter
+            localVarRequestOptions.PathParameters.Add("date", FactSet.SDK.AnalyticsDatastore.Client.ClientUtils.ParameterToString(new DateOnlyParameter(date))); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required

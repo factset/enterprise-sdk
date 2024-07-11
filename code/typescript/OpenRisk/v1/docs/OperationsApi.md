@@ -1,17 +1,17 @@
 # openrisk.OperationsApi
 
-All URIs are relative to *https://api.factset.com/analytics/openrisk*
+All URIs are relative to *https://api.factset.com/analytics/openrisk/linear/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**calculateFromHoldings**](OperationsApi.md#calculateFromHoldings) | **POST** /linear/{version}/calculate/from-holdings | Calculate risk statistics
-[**generateIdMapping**](OperationsApi.md#generateIdMapping) | **POST** /linear/{version}/generate/id-mapping | Generate risk model ID mapping
+[**calculateFromHoldings**](OperationsApi.md#calculateFromHoldings) | **POST** /calculate/from-holdings | Calculate risk statistics
+[**generateIdMapping**](OperationsApi.md#generateIdMapping) | **POST** /generate/id-mapping | Generate risk model ID mapping
 
 
 
 ## calculateFromHoldings
 
-> InlineResponse2003 calculateFromHoldings(version, calculateFromHoldingsRequestBody)
+> InlineResponse2003 calculateFromHoldings(calculateFromHoldingsRequestBody)
 
 Calculate risk statistics
 
@@ -50,11 +50,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new OperationsApi();
-const version = v1; // String | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
 const calculateFromHoldingsRequestBody = {"data":{"stats":[{"name":"ActiveVarianceToRisk","level":"Portfolio"},{"name":"ActiveVarianceToRisk","level":"SecurityGroup"},{"name":"PortfolioWeights","level":"Security"},{"name":"BenchmarkWeights","level":"Security"},{"name":"ActiveWeights","level":"Security"},{"name":"ActiveFactorVarianceToRisk","level":"Security","settings":{"correlatedSpecificRisk":true}},{"name":"ActiveFactorVarianceToRiskCSR","level":"Security"},{"name":"ActiveFactorRisk","level":"FactorGroup","settings":{"covarianceTimesTwo":true}},{"name":"PortfolioReturnAtRiskPercentWithContribution","level":"Portfolio","settings":{"confidenceLevel":0.95,"daysPerYear":250,"horizon":1}},{"name":"RawResidualRisk","level":"Security"},{"name":"RawSecurityFactorRisk","level":"Security"},{"name":"RawFactorExposure","level":"FactorSecurity"},{"name":"RawFactorExposure","level":"FactorSecurity","settings":{"sparse":true}},{"name":"PortfolioExposure","level":"Factor","settings":{"sparse":true}}],"holdings":{"portfolio":{"ids":["IBM","FDS","CA_ETF","CASH_GBP_CFD","CFD_B10RZP"],"marketValues":[60,30,30,-30,30],"grouping":{"groups":[{"name":"USD","groups":[{"name":"Direct Assets","indices":[0,1]},{"name":"Composite Assets","indices":[2]}]},{"name":"GBP","indices":[4]},{"name":"Offset Cash","indices":[3]}]}},"benchmark":{"ids":["B10RZP","IBM","MSFT"],"marketValues":[30,40,30],"grouping":{"groups":[{"name":"GBP","indices":[0]},{"name":"USD","groups":[{"name":"Direct Assets","indices":[1,2]}]}]}}},"underlyingIds":{"CFD_B10RZP":"B10RZP"},"compositeAssets":{"CA_ETF":{"ids":["FDS","IBM"],"marketValues":[10,90]}},"assetTypes":{"CFD_B10RZP":"OTH_CFD"},"factorGrouping":{"name":"This factor grouping is incomplete; it omits factors for the sake of brevity and is not recomended for actual use.","nodes":[{"name":"Market","nodes":[{"id":"GLOBAL_MARKET"}]},{"name":"Style","nodes":[{"name":"Market Factors","nodes":[{"id":"BETA"},{"id":"LIQUIDITY"},{"id":"MOMENTUM"},{"id":"SIZE"},{"id":"VOLATILITY"}]},{"name":"Fundamental Factors","nodes":[{"id":"BOOK_TO_PRICE"},{"id":"DIVIDEND_YIELD"},{"id":"EARNINGS_YIELD"},{"id":"GROWTH"},{"id":"LEVERAGE"}]}]}]},"factorsVisible":{"list":["FX_GBP","FX_USD"],"type":"Whitelist"},"allowForcedRisklessAssets":true,"currency":"USD","riskModel":"FDS:GLOBAL_EQUITY_M_V1","date":"2021-05-31","calendar":"FIVEDAY"}}; // CalculateFromHoldingsRequestBody | 
 
 // Call api endpoint
-apiInstance.calculateFromHoldings(version, calculateFromHoldingsRequestBody).then(
+apiInstance.calculateFromHoldings(calculateFromHoldingsRequestBody).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -73,7 +72,6 @@ apiInstance.calculateFromHoldings(version, calculateFromHoldingsRequestBody).the
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **version** | **String**| Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. | 
  **calculateFromHoldingsRequestBody** | [**CalculateFromHoldingsRequestBody**](CalculateFromHoldingsRequestBody.md)|  | 
 
 ### Return type
@@ -92,7 +90,7 @@ Name | Type | Description  | Notes
 
 ## generateIdMapping
 
-> InlineResponse2004 generateIdMapping(version, generateIdMappingRequestBody)
+> InlineResponse2004 generateIdMapping(generateIdMappingRequestBody)
 
 Generate risk model ID mapping
 
@@ -131,11 +129,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new OperationsApi();
-const version = v1; // String | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
 const generateIdMappingRequestBody = {"data":{"holdings":{"portfolio":{"grouping":{"groups":[{"name":"USD","groups":[{"name":"Direct Assets","indices":[0,1]},{"name":"Composite Assets","indices":[2]}]},{"name":"GBP","indices":[4]},{"name":"Offset Cash","indices":[3]}]},"ids":["IBM","FDS","CA_ETF","CASH_GBP_CFD","CFD_B10RZP"],"marketValues":[60,30,30,-30,30]},"benchmark":{"grouping":{"groups":[{"name":"GBP","indices":[0]},{"name":"USD","groups":[{"name":"Direct Assets","indices":[1,2]}]},{"name":"Other - Uncovered Assets","indices":[3]}]},"ids":["B10RZP","IBM","MSFT","FAKE_UNCOVERED_ASSET"],"marketValues":[30,30,30,10]}},"allowForcedRisklessAssets":true,"assetTypes":{"CFD_B10RZP":"OTH_CFD"},"calendar":"FIVEDAY","compositeAssets":{"CA_ETF":{"ids":["FDS","IBM"],"marketValues":[10,90]}},"currency":"USD","date":"2021-05-31","riskModel":"FDS:GLOBAL_EQUITY_M_V1","underlyingIds":{"CFD_B10RZP":"B10RZP"}}}; // GenerateIdMappingRequestBody | 
 
 // Call api endpoint
-apiInstance.generateIdMapping(version, generateIdMappingRequestBody).then(
+apiInstance.generateIdMapping(generateIdMappingRequestBody).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -154,7 +151,6 @@ apiInstance.generateIdMapping(version, generateIdMappingRequestBody).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **version** | **String**| Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. | 
  **generateIdMappingRequestBody** | [**GenerateIdMappingRequestBody**](GenerateIdMappingRequestBody.md)|  | 
 
 ### Return type

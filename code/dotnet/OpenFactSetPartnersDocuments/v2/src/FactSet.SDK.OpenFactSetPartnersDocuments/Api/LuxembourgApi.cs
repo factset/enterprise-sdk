@@ -309,7 +309,7 @@ namespace FactSet.SDK.OpenFactSetPartnersDocuments.Api
             }
             if (preissuancePubDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.OpenFactSetPartnersDocuments.Client.ClientUtils.ParameterToMultiMap("", "preissuancePubDate", preissuancePubDate));
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.OpenFactSetPartnersDocuments.Client.ClientUtils.ParameterToMultiMap("", "preissuancePubDate", new DateOnlyParameter(preissuancePubDate.Value)));
             }
             if (type != null)
             {
@@ -426,7 +426,7 @@ namespace FactSet.SDK.OpenFactSetPartnersDocuments.Api
             }
             if (preissuancePubDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.OpenFactSetPartnersDocuments.Client.ClientUtils.ParameterToMultiMap("", "preissuancePubDate", preissuancePubDate));
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.OpenFactSetPartnersDocuments.Client.ClientUtils.ParameterToMultiMap("", "preissuancePubDate", new DateOnlyParameter(preissuancePubDate.Value)));
             }
             if (type != null)
             {

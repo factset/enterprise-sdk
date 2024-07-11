@@ -536,7 +536,7 @@ namespace FactSet.SDK.Symbology.Api
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Symbology.Client.ClientUtils.ParameterToMultiMap("csv", "outputSymbolTypes", outputSymbolTypes));
             if (asOfDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Symbology.Client.ClientUtils.ParameterToMultiMap("", "asOfDate", asOfDate));
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Symbology.Client.ClientUtils.ParameterToMultiMap("", "asOfDate", new DateOnlyParameter(asOfDate.Value)));
             }
 
             // authentication (FactSetApiKey) required
@@ -650,7 +650,7 @@ namespace FactSet.SDK.Symbology.Api
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Symbology.Client.ClientUtils.ParameterToMultiMap("csv", "outputSymbolTypes", outputSymbolTypes));
             if (asOfDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Symbology.Client.ClientUtils.ParameterToMultiMap("", "asOfDate", asOfDate));
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Symbology.Client.ClientUtils.ParameterToMultiMap("", "asOfDate", new DateOnlyParameter(asOfDate.Value)));
             }
 
             // authentication (FactSetApiKey) required

@@ -74,7 +74,6 @@ public class OperationsApi {
   /**
    * Calculate risk statistics
    * Calculate predicted risk statistics for provided holdings using risk model data. Asset symbols and market values/weights are required.
-   * @param version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. (required)
    * @param calculateFromHoldingsRequestBody  (required)
    * @return InlineResponse2003
    * @throws ApiException if fails to make API call
@@ -90,14 +89,13 @@ public class OperationsApi {
        <tr><td> 500 </td><td> Internal server error occurred </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public InlineResponse2003 calculateFromHoldings(String version, CalculateFromHoldingsRequestBody calculateFromHoldingsRequestBody) throws ApiException {
-    return calculateFromHoldingsWithHttpInfo(version, calculateFromHoldingsRequestBody).getData();
+  public InlineResponse2003 calculateFromHoldings(CalculateFromHoldingsRequestBody calculateFromHoldingsRequestBody) throws ApiException {
+    return calculateFromHoldingsWithHttpInfo(calculateFromHoldingsRequestBody).getData();
   }
 
   /**
    * Calculate risk statistics
    * Calculate predicted risk statistics for provided holdings using risk model data. Asset symbols and market values/weights are required.
-   * @param version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. (required)
    * @param calculateFromHoldingsRequestBody  (required)
    * @return ApiResponse&lt;InlineResponse2003&gt;
    * @throws ApiException if fails to make API call
@@ -113,13 +111,8 @@ public class OperationsApi {
        <tr><td> 500 </td><td> Internal server error occurred </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2003> calculateFromHoldingsWithHttpInfo(String version, CalculateFromHoldingsRequestBody calculateFromHoldingsRequestBody) throws ApiException {
+  public ApiResponse<InlineResponse2003> calculateFromHoldingsWithHttpInfo(CalculateFromHoldingsRequestBody calculateFromHoldingsRequestBody) throws ApiException {
     Object localVarPostBody = calculateFromHoldingsRequestBody;
-    
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      throw new ApiException(400, "Missing the required parameter 'version' when calling calculateFromHoldings");
-    }
     
     // verify the required parameter 'calculateFromHoldingsRequestBody' is set
     if (calculateFromHoldingsRequestBody == null) {
@@ -127,8 +120,7 @@ public class OperationsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/linear/{version}/calculate/from-holdings"
-      .replaceAll("\\{" + "version" + "\\}", apiClient.escapeString(version.toString()));
+    String localVarPath = "/calculate/from-holdings";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -167,7 +159,6 @@ public class OperationsApi {
   /**
    * Generate risk model ID mapping
    * Resolve all input holdings IDs against a risk model for coverage and provide a mapping to security indices in the model or the reason for exclusion
-   * @param version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. (required)
    * @param generateIdMappingRequestBody  (required)
    * @return InlineResponse2004
    * @throws ApiException if fails to make API call
@@ -183,14 +174,13 @@ public class OperationsApi {
        <tr><td> 500 </td><td> Internal server error occurred </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public InlineResponse2004 generateIdMapping(String version, GenerateIdMappingRequestBody generateIdMappingRequestBody) throws ApiException {
-    return generateIdMappingWithHttpInfo(version, generateIdMappingRequestBody).getData();
+  public InlineResponse2004 generateIdMapping(GenerateIdMappingRequestBody generateIdMappingRequestBody) throws ApiException {
+    return generateIdMappingWithHttpInfo(generateIdMappingRequestBody).getData();
   }
 
   /**
    * Generate risk model ID mapping
    * Resolve all input holdings IDs against a risk model for coverage and provide a mapping to security indices in the model or the reason for exclusion
-   * @param version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. (required)
    * @param generateIdMappingRequestBody  (required)
    * @return ApiResponse&lt;InlineResponse2004&gt;
    * @throws ApiException if fails to make API call
@@ -206,13 +196,8 @@ public class OperationsApi {
        <tr><td> 500 </td><td> Internal server error occurred </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2004> generateIdMappingWithHttpInfo(String version, GenerateIdMappingRequestBody generateIdMappingRequestBody) throws ApiException {
+  public ApiResponse<InlineResponse2004> generateIdMappingWithHttpInfo(GenerateIdMappingRequestBody generateIdMappingRequestBody) throws ApiException {
     Object localVarPostBody = generateIdMappingRequestBody;
-    
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      throw new ApiException(400, "Missing the required parameter 'version' when calling generateIdMapping");
-    }
     
     // verify the required parameter 'generateIdMappingRequestBody' is set
     if (generateIdMappingRequestBody == null) {
@@ -220,8 +205,7 @@ public class OperationsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/linear/{version}/generate/id-mapping"
-      .replaceAll("\\{" + "version" + "\\}", apiClient.escapeString(version.toString()));
+    String localVarPath = "/generate/id-mapping";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();

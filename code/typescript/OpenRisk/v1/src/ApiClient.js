@@ -32,11 +32,11 @@ class ApiClient {
      * Overrides the default value set in spec file if present
      * @param {String} basePath
      */
-    constructor(basePath = 'https://api.factset.com/analytics/openrisk') {
+    constructor(basePath = 'https://api.factset.com/analytics/openrisk/linear/v1') {
         /**
          * The base URL against which to resolve every API call's (relative) path.
          * @type {String}
-         * @default https://api.factset.com/analytics/openrisk
+         * @default https://api.factset.com/analytics/openrisk/linear/v1
          */
         this.basePath = basePath.replace(/\/+$/, '');
 
@@ -62,7 +62,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'fds-sdk/javascript/OpenRisk/2.0.0'
+            'User-Agent': 'fds-sdk/javascript/OpenRisk/3.0.0'
         };
 
         /**
@@ -614,7 +614,7 @@ class ApiClient {
     hostSettings() {
         return [
             {
-              'url': "https://api.factset.com/analytics/openrisk",
+              'url': "https://api.factset.com/analytics/openrisk/linear/v1",
               'description': "No description provided",
             }
       ];

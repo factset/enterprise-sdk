@@ -32,7 +32,7 @@ namespace FactSet.SDK.ChartGenerationService.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "0.21.9";
+        public const string Version = "0.21.10";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -84,6 +84,7 @@ namespace FactSet.SDK.ChartGenerationService.Client
         private IDictionary<string, string> _apiKeyPrefix;
 
         private string _dateTimeFormat = ISO8601_DATETIME_FORMAT;
+        private string _dateFormat = "yyyy-MM-dd";
         private string _tempFolderPath = Path.GetTempPath();
 
         /// <summary>
@@ -104,7 +105,7 @@ namespace FactSet.SDK.ChartGenerationService.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "fds-sdk/dotnet/ChartGenerationService/0.21.9";
+            UserAgent = "fds-sdk/dotnet/ChartGenerationService/0.21.10";
             BasePath = "https://api-sandbox.factset.com/charting";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -306,6 +307,28 @@ namespace FactSet.SDK.ChartGenerationService.Client
         }
 
         /// <summary>
+        /// Gets or sets the date format used when serializing in the ApiClient
+        /// By default, it's set to "yyyy-MM-dd" for date-only format
+        /// No validation is done to ensure that the string you're providing is valid
+        /// </summary>
+        /// <value>The DateFormat string</value>
+        public virtual string DateFormat
+        {
+            get { return _dateFormat; }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    // Never allow a blank or null string, go back to the default
+                    _dateFormat = "yyyy-MM-dd";
+                    return;
+                }
+
+                _dateFormat = value;
+            }
+        }
+
+        /// <summary>
         /// Gets or sets the date time format used when serializing in the ApiClient
         /// By default, it's set to ISO 8601 - "o", for others see:
         /// https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx
@@ -466,7 +489,7 @@ namespace FactSet.SDK.ChartGenerationService.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 1.0.0\n";
-            report += "    SDK Package Version: 0.21.9\n";
+            report += "    SDK Package Version: 0.21.10\n";
 
             return report;
         }

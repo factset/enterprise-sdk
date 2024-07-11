@@ -44,18 +44,12 @@ export default class AboutApi {
     /**
      * Get health of service
      * Health status of the service
-     * @param {String} version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2002} and HTTP response
      */
-    healthStatusWithHttpInfo(version) {
+    healthStatusWithHttpInfo() {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling healthStatus");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
       };
@@ -72,7 +66,7 @@ export default class AboutApi {
       let returnType = InlineResponse2002;
 
       return this.apiClient.callApi(
-        '/linear/{version}/health', 'GET',
+        '/health', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -81,11 +75,10 @@ export default class AboutApi {
     /**
      * Get health of service
      * Health status of the service
-     * @param {String} version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
      * @return { Promise.< module:model/InlineResponse2002 > } a Promise, with data of type {@link module:model/InlineResponse2002 }
      */
-    healthStatus(version) {
-      return this.healthStatusWithHttpInfo(version)
+    healthStatus() {
+      return this.healthStatusWithHttpInfo()
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -95,18 +88,12 @@ export default class AboutApi {
     /**
      * Get available risk models
      * Get the list of available risk models, including their respective model codes required for use with other routes.
-     * @param {String} version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse200} and HTTP response
      */
-    listRiskModelsWithHttpInfo(version) {
+    listRiskModelsWithHttpInfo() {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling listRiskModels");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
       };
@@ -123,7 +110,7 @@ export default class AboutApi {
       let returnType = InlineResponse200;
 
       return this.apiClient.callApi(
-        '/linear/{version}/riskmodels', 'GET',
+        '/riskmodels', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -132,11 +119,10 @@ export default class AboutApi {
     /**
      * Get available risk models
      * Get the list of available risk models, including their respective model codes required for use with other routes.
-     * @param {String} version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
      * @return { Promise.< module:model/InlineResponse200 > } a Promise, with data of type {@link module:model/InlineResponse200 }
      */
-    listRiskModels(version) {
-      return this.listRiskModelsWithHttpInfo(version)
+    listRiskModels() {
+      return this.listRiskModelsWithHttpInfo()
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -146,23 +132,17 @@ export default class AboutApi {
     /**
      * Get risk model details
      * Get the metadata of the risk model for the corresponding modelCode. modelCode can be obtained via '/linear/{version}/riskmodels/' route.
-     * @param {String} version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
      * @param {String} modelCode Model code
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2001} and HTTP response
      */
-    riskModelMetadataWithHttpInfo(version, modelCode) {
+    riskModelMetadataWithHttpInfo(modelCode) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling riskModelMetadata");
-      }
       // verify the required parameter 'modelCode' is set
       if (modelCode === undefined || modelCode === null) {
         throw new Error("Missing the required parameter 'modelCode' when calling riskModelMetadata");
       }
 
       let pathParams = {
-        'version': version,
         'modelCode': modelCode
       };
       let queryParams = {
@@ -180,7 +160,7 @@ export default class AboutApi {
       let returnType = InlineResponse2001;
 
       return this.apiClient.callApi(
-        '/linear/{version}/riskmodels/{modelCode}', 'GET',
+        '/riskmodels/{modelCode}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -189,12 +169,11 @@ export default class AboutApi {
     /**
      * Get risk model details
      * Get the metadata of the risk model for the corresponding modelCode. modelCode can be obtained via '/linear/{version}/riskmodels/' route.
-     * @param {String} version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
      * @param {String} modelCode Model code
      * @return { Promise.< module:model/InlineResponse2001 > } a Promise, with data of type {@link module:model/InlineResponse2001 }
      */
-    riskModelMetadata(version, modelCode) {
-      return this.riskModelMetadataWithHttpInfo(version, modelCode)
+    riskModelMetadata(modelCode) {
+      return this.riskModelMetadataWithHttpInfo(modelCode)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -204,18 +183,12 @@ export default class AboutApi {
     /**
      * Get available risk statistics details
      * All base risk statistic names and their respective support and/or requirement for certain name-settings statistics options (such as: correlated specific risk, covariance isolation method, etc.), available levels, and security group calculation methodology. When 'securityGroupMethod' is 'statSpecific', please refer to statistics documentation service for more information.
-     * @param {String} version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SupportedStats} and HTTP response
      */
-    statsWithHttpInfo(version) {
+    statsWithHttpInfo() {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling stats");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
       };
@@ -232,7 +205,7 @@ export default class AboutApi {
       let returnType = SupportedStats;
 
       return this.apiClient.callApi(
-        '/linear/{version}/stats', 'GET',
+        '/stats', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -241,11 +214,10 @@ export default class AboutApi {
     /**
      * Get available risk statistics details
      * All base risk statistic names and their respective support and/or requirement for certain name-settings statistics options (such as: correlated specific risk, covariance isolation method, etc.), available levels, and security group calculation methodology. When 'securityGroupMethod' is 'statSpecific', please refer to statistics documentation service for more information.
-     * @param {String} version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
      * @return { Promise.< module:model/SupportedStats > } a Promise, with data of type {@link module:model/SupportedStats }
      */
-    stats(version) {
-      return this.statsWithHttpInfo(version)
+    stats() {
+      return this.statsWithHttpInfo()
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -255,18 +227,12 @@ export default class AboutApi {
     /**
      * Get available risk statistics names
      * All available risk statistic names including statistics names containing risk statistics options such as CSR (correlated specific risk)
-     * @param {String} version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SupportedStatsNamesOnly} and HTTP response
      */
-    statsNamesOnlyWithHttpInfo(version) {
+    statsNamesOnlyWithHttpInfo() {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling statsNamesOnly");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
       };
@@ -283,7 +249,7 @@ export default class AboutApi {
       let returnType = SupportedStatsNamesOnly;
 
       return this.apiClient.callApi(
-        '/linear/{version}/stats-names-only', 'GET',
+        '/stats-names-only', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -292,11 +258,10 @@ export default class AboutApi {
     /**
      * Get available risk statistics names
      * All available risk statistic names including statistics names containing risk statistics options such as CSR (correlated specific risk)
-     * @param {String} version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
      * @return { Promise.< module:model/SupportedStatsNamesOnly > } a Promise, with data of type {@link module:model/SupportedStatsNamesOnly }
      */
-    statsNamesOnly(version) {
-      return this.statsNamesOnlyWithHttpInfo(version)
+    statsNamesOnly() {
+      return this.statsNamesOnlyWithHttpInfo()
         .then(function(response_and_data) {
           return response_and_data.data;
         });

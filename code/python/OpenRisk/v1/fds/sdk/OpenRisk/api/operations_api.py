@@ -57,18 +57,16 @@ class OperationsApi(object):
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
-                'endpoint_path': '/linear/{version}/calculate/from-holdings',
+                'endpoint_path': '/calculate/from-holdings',
                 'operation_id': 'calculate_from_holdings',
                 'http_method': 'POST',
                 'servers': None,
             },
             params_map={
                 'all': [
-                    'version',
                     'calculate_from_holdings_request_body',
                 ],
                 'required': [
-                    'version',
                     'calculate_from_holdings_request_body',
                 ],
                 'nullable': [
@@ -76,32 +74,20 @@ class OperationsApi(object):
                 'enum': [
                 ],
                 'validation': [
-                    'version',
                 ]
             },
             root_map={
                 'validations': {
-                    ('version',): {
-
-                        'min_length': 1,
-                        'regex': {
-                            'pattern': r'^(?:v?(?:(?:[0-9]+|[Xx*])(?:\.(?:[0-9]+|[Xx*])){0,2}))$',  # noqa: E501
-                        },
-                    },
                 },
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'version':
-                        (str,),
                     'calculate_from_holdings_request_body':
                         (CalculateFromHoldingsRequestBody,),
                 },
                 'attribute_map': {
-                    'version': 'version',
                 },
                 'location_map': {
-                    'version': 'path',
                     'calculate_from_holdings_request_body': 'body',
                 },
                 'collection_format_map': {
@@ -129,18 +115,16 @@ class OperationsApi(object):
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
-                'endpoint_path': '/linear/{version}/generate/id-mapping',
+                'endpoint_path': '/generate/id-mapping',
                 'operation_id': 'generate_id_mapping',
                 'http_method': 'POST',
                 'servers': None,
             },
             params_map={
                 'all': [
-                    'version',
                     'generate_id_mapping_request_body',
                 ],
                 'required': [
-                    'version',
                     'generate_id_mapping_request_body',
                 ],
                 'nullable': [
@@ -148,32 +132,20 @@ class OperationsApi(object):
                 'enum': [
                 ],
                 'validation': [
-                    'version',
                 ]
             },
             root_map={
                 'validations': {
-                    ('version',): {
-
-                        'min_length': 1,
-                        'regex': {
-                            'pattern': r'^(?:v?(?:(?:[0-9]+|[Xx*])(?:\.(?:[0-9]+|[Xx*])){0,2}))$',  # noqa: E501
-                        },
-                    },
                 },
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'version':
-                        (str,),
                     'generate_id_mapping_request_body':
                         (GenerateIdMappingRequestBody,),
                 },
                 'attribute_map': {
-                    'version': 'version',
                 },
                 'location_map': {
-                    'version': 'path',
                     'generate_id_mapping_request_body': 'body',
                 },
                 'collection_format_map': {
@@ -207,7 +179,6 @@ class OperationsApi(object):
 
     def calculate_from_holdings(
         self,
-        version,
         calculate_from_holdings_request_body,
         **kwargs
     ) -> InlineResponse2003:
@@ -217,7 +188,6 @@ class OperationsApi(object):
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
-            version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
             calculate_from_holdings_request_body (CalculateFromHoldingsRequestBody):
 
         Keyword Args:
@@ -250,15 +220,12 @@ class OperationsApi(object):
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['version'] = \
-            version
         kwargs['calculate_from_holdings_request_body'] = \
             calculate_from_holdings_request_body
         return self.calculate_from_holdings_endpoint.call_with_http_info(**kwargs)
 
     def calculate_from_holdings_with_http_info(
         self,
-        version,
         calculate_from_holdings_request_body,
         **kwargs
     ) -> typing.Tuple[InlineResponse2003, int, typing.MutableMapping]:
@@ -268,7 +235,6 @@ class OperationsApi(object):
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
-            version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
             calculate_from_holdings_request_body (CalculateFromHoldingsRequestBody):
 
         Keyword Args:
@@ -305,15 +271,12 @@ class OperationsApi(object):
                 Dictionary of the response headers
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['version'] = \
-            version
         kwargs['calculate_from_holdings_request_body'] = \
             calculate_from_holdings_request_body
         return self.calculate_from_holdings_endpoint.call_with_http_info(**kwargs)
 
     def calculate_from_holdings_async(
         self,
-        version,
         calculate_from_holdings_request_body,
         **kwargs
     ) -> "ApplyResult[InlineResponse2003]":
@@ -323,7 +286,6 @@ class OperationsApi(object):
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
-            version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
             calculate_from_holdings_request_body (CalculateFromHoldingsRequestBody):
 
         Keyword Args:
@@ -355,15 +317,12 @@ class OperationsApi(object):
             ApplyResult[InlineResponse2003]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['version'] = \
-            version
         kwargs['calculate_from_holdings_request_body'] = \
             calculate_from_holdings_request_body
         return self.calculate_from_holdings_endpoint.call_with_http_info(**kwargs)
 
     def calculate_from_holdings_with_http_info_async(
         self,
-        version,
         calculate_from_holdings_request_body,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[InlineResponse2003, int, typing.MutableMapping]]":
@@ -373,7 +332,6 @@ class OperationsApi(object):
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
-            version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
             calculate_from_holdings_request_body (CalculateFromHoldingsRequestBody):
 
         Keyword Args:
@@ -405,8 +363,6 @@ class OperationsApi(object):
             ApplyResult[(InlineResponse2003, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['version'] = \
-            version
         kwargs['calculate_from_holdings_request_body'] = \
             calculate_from_holdings_request_body
         return self.calculate_from_holdings_endpoint.call_with_http_info(**kwargs)
@@ -414,7 +370,6 @@ class OperationsApi(object):
 
     def generate_id_mapping(
         self,
-        version,
         generate_id_mapping_request_body,
         **kwargs
     ) -> InlineResponse2004:
@@ -424,7 +379,6 @@ class OperationsApi(object):
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
-            version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
             generate_id_mapping_request_body (GenerateIdMappingRequestBody):
 
         Keyword Args:
@@ -457,15 +411,12 @@ class OperationsApi(object):
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['version'] = \
-            version
         kwargs['generate_id_mapping_request_body'] = \
             generate_id_mapping_request_body
         return self.generate_id_mapping_endpoint.call_with_http_info(**kwargs)
 
     def generate_id_mapping_with_http_info(
         self,
-        version,
         generate_id_mapping_request_body,
         **kwargs
     ) -> typing.Tuple[InlineResponse2004, int, typing.MutableMapping]:
@@ -475,7 +426,6 @@ class OperationsApi(object):
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
-            version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
             generate_id_mapping_request_body (GenerateIdMappingRequestBody):
 
         Keyword Args:
@@ -512,15 +462,12 @@ class OperationsApi(object):
                 Dictionary of the response headers
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['version'] = \
-            version
         kwargs['generate_id_mapping_request_body'] = \
             generate_id_mapping_request_body
         return self.generate_id_mapping_endpoint.call_with_http_info(**kwargs)
 
     def generate_id_mapping_async(
         self,
-        version,
         generate_id_mapping_request_body,
         **kwargs
     ) -> "ApplyResult[InlineResponse2004]":
@@ -530,7 +477,6 @@ class OperationsApi(object):
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
-            version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
             generate_id_mapping_request_body (GenerateIdMappingRequestBody):
 
         Keyword Args:
@@ -562,15 +508,12 @@ class OperationsApi(object):
             ApplyResult[InlineResponse2004]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['version'] = \
-            version
         kwargs['generate_id_mapping_request_body'] = \
             generate_id_mapping_request_body
         return self.generate_id_mapping_endpoint.call_with_http_info(**kwargs)
 
     def generate_id_mapping_with_http_info_async(
         self,
-        version,
         generate_id_mapping_request_body,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[InlineResponse2004, int, typing.MutableMapping]]":
@@ -580,7 +523,6 @@ class OperationsApi(object):
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
-            version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
             generate_id_mapping_request_body (GenerateIdMappingRequestBody):
 
         Keyword Args:
@@ -612,8 +554,6 @@ class OperationsApi(object):
             ApplyResult[(InlineResponse2004, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['version'] = \
-            version
         kwargs['generate_id_mapping_request_body'] = \
             generate_id_mapping_request_body
         return self.generate_id_mapping_endpoint.call_with_http_info(**kwargs)

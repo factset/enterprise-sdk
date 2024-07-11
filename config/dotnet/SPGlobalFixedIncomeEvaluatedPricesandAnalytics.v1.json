@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.SPGlobalFixedIncomeEvaluatedPricesandAnalytics",
-  "packageVersion": "0.1.9",
+  "packageVersion": "0.1.10",
   "packageGuid": "{7eb0d500-7914-5706-9311-b06c38500a30}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/SPGlobalFixedIncomeEvaluatedPricesandAnalytics/v1",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/SPGlobalFixedIncomeEvaluatedPricesandAnalytics/0.1.9",
+  "httpUserAgent": "fds-sdk/dotnet/SPGlobalFixedIncomeEvaluatedPricesandAnalytics/0.1.10",
   "files": {
     "LICENSE": {}
   },

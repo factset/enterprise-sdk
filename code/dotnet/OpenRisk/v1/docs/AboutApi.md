@@ -1,20 +1,20 @@
 # FactSet.SDK.OpenRisk.Api.AboutApi
 
-All URIs are relative to *https://api.factset.com/analytics/openrisk*
+All URIs are relative to *https://api.factset.com/analytics/openrisk/linear/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**HealthStatus**](AboutApi.md#healthstatus) | **GET** /linear/{version}/health | Get health of service
-[**ListRiskModels**](AboutApi.md#listriskmodels) | **GET** /linear/{version}/riskmodels | Get available risk models
-[**RiskModelMetadata**](AboutApi.md#riskmodelmetadata) | **GET** /linear/{version}/riskmodels/{modelCode} | Get risk model details
-[**Stats**](AboutApi.md#stats) | **GET** /linear/{version}/stats | Get available risk statistics details
-[**StatsNamesOnly**](AboutApi.md#statsnamesonly) | **GET** /linear/{version}/stats-names-only | Get available risk statistics names
+[**HealthStatus**](AboutApi.md#healthstatus) | **GET** /health | Get health of service
+[**ListRiskModels**](AboutApi.md#listriskmodels) | **GET** /riskmodels | Get available risk models
+[**RiskModelMetadata**](AboutApi.md#riskmodelmetadata) | **GET** /riskmodels/{modelCode} | Get risk model details
+[**Stats**](AboutApi.md#stats) | **GET** /stats | Get available risk statistics details
+[**StatsNamesOnly**](AboutApi.md#statsnamesonly) | **GET** /stats-names-only | Get available risk statistics names
 
 
 
 <a name="healthstatus"></a>
 # **HealthStatus**
-> InlineResponse2002 HealthStatus (string version)
+> InlineResponse2002 HealthStatus ()
 
 Get health of service
 
@@ -64,12 +64,11 @@ namespace Example
 
             var apiInstance = new AboutApi(config);
 
-            var version = "v1";  // string | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
 
             try
             {
                 // Get health of service
-                InlineResponse2002 result = apiInstance.HealthStatus(version);
+                InlineResponse2002 result = apiInstance.HealthStatus();
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -84,10 +83,7 @@ namespace Example
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **version** | **string**| Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. | 
+This endpoint does not need any parameter.
 
 ### Return type
 [**InlineResponse2002**](InlineResponse2002.md)
@@ -117,7 +113,7 @@ Name | Type | Description  | Notes
 
 <a name="listriskmodels"></a>
 # **ListRiskModels**
-> InlineResponse200 ListRiskModels (string version)
+> InlineResponse200 ListRiskModels ()
 
 Get available risk models
 
@@ -167,12 +163,11 @@ namespace Example
 
             var apiInstance = new AboutApi(config);
 
-            var version = "v1";  // string | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
 
             try
             {
                 // Get available risk models
-                InlineResponse200 result = apiInstance.ListRiskModels(version);
+                InlineResponse200 result = apiInstance.ListRiskModels();
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -187,10 +182,7 @@ namespace Example
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **version** | **string**| Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. | 
+This endpoint does not need any parameter.
 
 ### Return type
 [**InlineResponse200**](InlineResponse200.md)
@@ -219,7 +211,7 @@ Name | Type | Description  | Notes
 
 <a name="riskmodelmetadata"></a>
 # **RiskModelMetadata**
-> InlineResponse2001 RiskModelMetadata (string version, string modelCode)
+> InlineResponse2001 RiskModelMetadata (string modelCode)
 
 Get risk model details
 
@@ -269,13 +261,12 @@ namespace Example
 
             var apiInstance = new AboutApi(config);
 
-            var version = "v1";  // string | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
             var modelCode = "modelCode_example";  // string | Model code
 
             try
             {
                 // Get risk model details
-                InlineResponse2001 result = apiInstance.RiskModelMetadata(version, modelCode);
+                InlineResponse2001 result = apiInstance.RiskModelMetadata(modelCode);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -293,7 +284,6 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **version** | **string**| Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. | 
  **modelCode** | **string**| Model code | 
 
 ### Return type
@@ -323,7 +313,7 @@ Name | Type | Description  | Notes
 
 <a name="stats"></a>
 # **Stats**
-> SupportedStats Stats (string version)
+> SupportedStats Stats ()
 
 Get available risk statistics details
 
@@ -373,12 +363,11 @@ namespace Example
 
             var apiInstance = new AboutApi(config);
 
-            var version = "v1";  // string | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
 
             try
             {
                 // Get available risk statistics details
-                SupportedStats result = apiInstance.Stats(version);
+                SupportedStats result = apiInstance.Stats();
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -393,10 +382,7 @@ namespace Example
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **version** | **string**| Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. | 
+This endpoint does not need any parameter.
 
 ### Return type
 [**SupportedStats**](SupportedStats.md)
@@ -425,7 +411,7 @@ Name | Type | Description  | Notes
 
 <a name="statsnamesonly"></a>
 # **StatsNamesOnly**
-> SupportedStatsNamesOnly StatsNamesOnly (string version)
+> SupportedStatsNamesOnly StatsNamesOnly ()
 
 Get available risk statistics names
 
@@ -475,12 +461,11 @@ namespace Example
 
             var apiInstance = new AboutApi(config);
 
-            var version = "v1";  // string | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
 
             try
             {
                 // Get available risk statistics names
-                SupportedStatsNamesOnly result = apiInstance.StatsNamesOnly(version);
+                SupportedStatsNamesOnly result = apiInstance.StatsNamesOnly();
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -495,10 +480,7 @@ namespace Example
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **version** | **string**| Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. | 
+This endpoint does not need any parameter.
 
 ### Return type
 [**SupportedStatsNamesOnly**](SupportedStatsNamesOnly.md)

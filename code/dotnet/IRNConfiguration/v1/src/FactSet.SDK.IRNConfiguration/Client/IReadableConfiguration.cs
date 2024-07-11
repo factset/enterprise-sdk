@@ -52,6 +52,12 @@ namespace FactSet.SDK.IRNConfiguration.Client
         string BasePath { get; }
 
         /// <summary>
+        /// Gets the date format.
+        /// </summary>
+        /// <value>Date format.</value>
+        string DateFormat { get; }
+
+        /// <summary>
         /// Gets the date time format.
         /// </summary>
         /// <value>Date time format.</value>

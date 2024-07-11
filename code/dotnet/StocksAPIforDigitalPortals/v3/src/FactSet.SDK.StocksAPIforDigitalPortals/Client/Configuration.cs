@@ -32,7 +32,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "0.11.0";
+        public const string Version = "0.11.1";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -84,6 +84,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Client
         private IDictionary<string, string> _apiKeyPrefix;
 
         private string _dateTimeFormat = ISO8601_DATETIME_FORMAT;
+        private string _dateFormat = "yyyy-MM-dd";
         private string _tempFolderPath = Path.GetTempPath();
 
         /// <summary>
@@ -104,7 +105,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "fds-sdk/dotnet/StocksAPIforDigitalPortals/0.11.0";
+            UserAgent = "fds-sdk/dotnet/StocksAPIforDigitalPortals/0.11.1";
             BasePath = "https://api.factset.com/wealth/v1";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -300,6 +301,28 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Client
         }
 
         /// <summary>
+        /// Gets or sets the date format used when serializing in the ApiClient
+        /// By default, it's set to "yyyy-MM-dd" for date-only format
+        /// No validation is done to ensure that the string you're providing is valid
+        /// </summary>
+        /// <value>The DateFormat string</value>
+        public virtual string DateFormat
+        {
+            get { return _dateFormat; }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    // Never allow a blank or null string, go back to the default
+                    _dateFormat = "yyyy-MM-dd";
+                    return;
+                }
+
+                _dateFormat = value;
+            }
+        }
+
+        /// <summary>
         /// Gets or sets the date time format used when serializing in the ApiClient
         /// By default, it's set to ISO 8601 - "o", for others see:
         /// https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx
@@ -460,7 +483,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 2\n";
-            report += "    SDK Package Version: 0.11.0\n";
+            report += "    SDK Package Version: 0.11.1\n";
 
             return report;
         }

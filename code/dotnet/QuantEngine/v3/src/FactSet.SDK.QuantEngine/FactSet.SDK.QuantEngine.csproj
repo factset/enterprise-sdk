@@ -13,7 +13,7 @@
     <Description>Quant Engine client library for .NET</Description>
     <Copyright></Copyright>
     <RootNamespace>FactSet.SDK.QuantEngine</RootNamespace>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\FactSet.SDK.QuantEngine.xml</DocumentationFile>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/factset/enterprise-sdk.git</RepositoryUrl>

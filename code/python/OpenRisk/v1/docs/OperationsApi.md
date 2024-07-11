@@ -1,16 +1,16 @@
 # fds.sdk.OpenRisk.OperationsApi
 
-All URIs are relative to *https://api.factset.com/analytics/openrisk*
+All URIs are relative to *https://api.factset.com/analytics/openrisk/linear/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**calculate_from_holdings**](OperationsApi.md#calculate_from_holdings) | **POST** /linear/{version}/calculate/from-holdings | Calculate risk statistics
-[**generate_id_mapping**](OperationsApi.md#generate_id_mapping) | **POST** /linear/{version}/generate/id-mapping | Generate risk model ID mapping
+[**calculate_from_holdings**](OperationsApi.md#calculate_from_holdings) | **POST** /calculate/from-holdings | Calculate risk statistics
+[**generate_id_mapping**](OperationsApi.md#generate_id_mapping) | **POST** /generate/id-mapping | Generate risk model ID mapping
 
 
 
 # **calculate_from_holdings**
-> InlineResponse2003 calculate_from_holdings(version, calculate_from_holdings_request_body)
+> InlineResponse2003 calculate_from_holdings(calculate_from_holdings_request_body)
 
 Calculate risk statistics
 
@@ -61,7 +61,6 @@ with fds.sdk.OpenRisk.ApiClient(configuration) as api_client:
     api_instance = operations_api.OperationsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    version = "v1" # str | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
     calculate_from_holdings_request_body = CalculateFromHoldingsRequestBody(
         data=CalculateFromHoldingsRequestData(
             additional_calc_inputs=AdditionalCalculationInputs(
@@ -153,7 +152,7 @@ with fds.sdk.OpenRisk.ApiClient(configuration) as api_client:
     try:
         # Calculate risk statistics
         # example passing only required values which don't have defaults set
-        api_response = api_instance.calculate_from_holdings(version, calculate_from_holdings_request_body)
+        api_response = api_instance.calculate_from_holdings(calculate_from_holdings_request_body)
 
         pprint(api_response)
 
@@ -166,7 +165,6 @@ with fds.sdk.OpenRisk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **version** | **str**| Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. |
  **calculate_from_holdings_request_body** | [**CalculateFromHoldingsRequestBody**](CalculateFromHoldingsRequestBody.md)|  |
 
 ### Return type
@@ -198,7 +196,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **generate_id_mapping**
-> InlineResponse2004 generate_id_mapping(version, generate_id_mapping_request_body)
+> InlineResponse2004 generate_id_mapping(generate_id_mapping_request_body)
 
 Generate risk model ID mapping
 
@@ -249,7 +247,6 @@ with fds.sdk.OpenRisk.ApiClient(configuration) as api_client:
     api_instance = operations_api.OperationsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    version = "v1" # str | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
     generate_id_mapping_request_body = GenerateIdMappingRequestBody(
         data=GenerateIdMappingRequestData(
             allow_forced_riskless_assets=False,
@@ -298,7 +295,7 @@ with fds.sdk.OpenRisk.ApiClient(configuration) as api_client:
     try:
         # Generate risk model ID mapping
         # example passing only required values which don't have defaults set
-        api_response = api_instance.generate_id_mapping(version, generate_id_mapping_request_body)
+        api_response = api_instance.generate_id_mapping(generate_id_mapping_request_body)
 
         pprint(api_response)
 
@@ -311,7 +308,6 @@ with fds.sdk.OpenRisk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **version** | **str**| Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. |
  **generate_id_mapping_request_body** | [**GenerateIdMappingRequestBody**](GenerateIdMappingRequestBody.md)|  |
 
 ### Return type

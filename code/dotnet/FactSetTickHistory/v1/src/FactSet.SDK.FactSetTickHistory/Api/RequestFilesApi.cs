@@ -317,8 +317,8 @@ namespace FactSet.SDK.FactSetTickHistory.Api
             {
                 localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetTickHistory.Client.ClientUtils.ParameterToMultiMap("", "fields", fields));
             }
-            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetTickHistory.Client.ClientUtils.ParameterToMultiMap("", "start_date", startDate));
-            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetTickHistory.Client.ClientUtils.ParameterToMultiMap("", "end_date", endDate));
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetTickHistory.Client.ClientUtils.ParameterToMultiMap("", "start_date", new DateOnlyParameter(startDate)));
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetTickHistory.Client.ClientUtils.ParameterToMultiMap("", "end_date", new DateOnlyParameter(endDate)));
             if (startTime != null)
             {
                 localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetTickHistory.Client.ClientUtils.ParameterToMultiMap("", "start_time", startTime));
@@ -446,8 +446,8 @@ namespace FactSet.SDK.FactSetTickHistory.Api
             {
                 localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetTickHistory.Client.ClientUtils.ParameterToMultiMap("", "fields", fields));
             }
-            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetTickHistory.Client.ClientUtils.ParameterToMultiMap("", "start_date", startDate));
-            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetTickHistory.Client.ClientUtils.ParameterToMultiMap("", "end_date", endDate));
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetTickHistory.Client.ClientUtils.ParameterToMultiMap("", "start_date", new DateOnlyParameter(startDate)));
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetTickHistory.Client.ClientUtils.ParameterToMultiMap("", "end_date", new DateOnlyParameter(endDate)));
             if (startTime != null)
             {
                 localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetTickHistory.Client.ClientUtils.ParameterToMultiMap("", "start_time", startTime));

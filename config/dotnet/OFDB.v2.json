@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.OFDB",
-  "packageVersion": "0.31.0",
+  "packageVersion": "0.31.1",
   "packageGuid": "{0ef69d62-55a8-520d-95e3-9e5c05960eac}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/OFDB/v2",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/OFDB/0.31.0",
+  "httpUserAgent": "fds-sdk/dotnet/OFDB/0.31.1",
   "files": {
     "LICENSE": {}
   },

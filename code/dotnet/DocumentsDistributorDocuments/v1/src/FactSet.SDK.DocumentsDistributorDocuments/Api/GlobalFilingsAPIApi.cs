@@ -276,8 +276,8 @@ namespace FactSet.SDK.DocumentsDistributorDocuments.Api
             }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.DocumentsDistributorDocuments.Client.ClientUtils.ParameterToMultiMap("", "dataset", dataset));
-            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.DocumentsDistributorDocuments.Client.ClientUtils.ParameterToMultiMap("", "startDate", startDate));
-            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.DocumentsDistributorDocuments.Client.ClientUtils.ParameterToMultiMap("", "endDate", endDate));
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.DocumentsDistributorDocuments.Client.ClientUtils.ParameterToMultiMap("", "startDate", new DateOnlyParameter(startDate)));
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.DocumentsDistributorDocuments.Client.ClientUtils.ParameterToMultiMap("", "endDate", new DateOnlyParameter(endDate)));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -372,8 +372,8 @@ namespace FactSet.SDK.DocumentsDistributorDocuments.Api
             }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.DocumentsDistributorDocuments.Client.ClientUtils.ParameterToMultiMap("", "dataset", dataset));
-            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.DocumentsDistributorDocuments.Client.ClientUtils.ParameterToMultiMap("", "startDate", startDate));
-            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.DocumentsDistributorDocuments.Client.ClientUtils.ParameterToMultiMap("", "endDate", endDate));
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.DocumentsDistributorDocuments.Client.ClientUtils.ParameterToMultiMap("", "startDate", new DateOnlyParameter(startDate)));
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.DocumentsDistributorDocuments.Client.ClientUtils.ParameterToMultiMap("", "endDate", new DateOnlyParameter(endDate)));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required

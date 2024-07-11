@@ -13,7 +13,7 @@
     <Description>ETF Profile and Prices client library for .NET</Description>
     <Copyright></Copyright>
     <RootNamespace>FactSet.SDK.ETFProfileandPrices</RootNamespace>
-    <Version>0.11.0</Version>
+    <Version>0.11.1</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\FactSet.SDK.ETFProfileandPrices.xml</DocumentationFile>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/factset/enterprise-sdk.git</RepositoryUrl>

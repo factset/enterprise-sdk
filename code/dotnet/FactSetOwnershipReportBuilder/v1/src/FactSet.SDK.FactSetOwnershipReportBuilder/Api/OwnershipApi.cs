@@ -389,7 +389,7 @@ namespace FactSet.SDK.FactSetOwnershipReportBuilder.Api
             }
             if (date != null)
             {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetOwnershipReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "date", date));
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetOwnershipReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "date", new DateOnlyParameter(date.Value)));
             }
 
             // authentication (FactSetApiKey) required
@@ -509,7 +509,7 @@ namespace FactSet.SDK.FactSetOwnershipReportBuilder.Api
             }
             if (date != null)
             {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetOwnershipReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "date", date));
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetOwnershipReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "date", new DateOnlyParameter(date.Value)));
             }
 
             // authentication (FactSetApiKey) required
@@ -626,7 +626,7 @@ namespace FactSet.SDK.FactSetOwnershipReportBuilder.Api
             }
             if (date != null)
             {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetOwnershipReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "date", date));
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetOwnershipReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "date", new DateOnlyParameter(date.Value)));
             }
 
             // authentication (FactSetApiKey) required
@@ -746,7 +746,7 @@ namespace FactSet.SDK.FactSetOwnershipReportBuilder.Api
             }
             if (date != null)
             {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetOwnershipReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "date", date));
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetOwnershipReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "date", new DateOnlyParameter(date.Value)));
             }
 
             // authentication (FactSetApiKey) required

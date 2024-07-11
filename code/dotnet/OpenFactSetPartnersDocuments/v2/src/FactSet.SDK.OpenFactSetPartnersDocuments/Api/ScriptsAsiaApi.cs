@@ -349,11 +349,11 @@ namespace FactSet.SDK.OpenFactSetPartnersDocuments.Api
             }
             if (startDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.OpenFactSetPartnersDocuments.Client.ClientUtils.ParameterToMultiMap("", "startDate", startDate));
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.OpenFactSetPartnersDocuments.Client.ClientUtils.ParameterToMultiMap("", "startDate", new DateOnlyParameter(startDate.Value)));
             }
             if (endDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.OpenFactSetPartnersDocuments.Client.ClientUtils.ParameterToMultiMap("", "endDate", endDate));
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.OpenFactSetPartnersDocuments.Client.ClientUtils.ParameterToMultiMap("", "endDate", new DateOnlyParameter(endDate.Value)));
             }
             if (companyName != null)
             {
@@ -502,11 +502,11 @@ namespace FactSet.SDK.OpenFactSetPartnersDocuments.Api
             }
             if (startDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.OpenFactSetPartnersDocuments.Client.ClientUtils.ParameterToMultiMap("", "startDate", startDate));
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.OpenFactSetPartnersDocuments.Client.ClientUtils.ParameterToMultiMap("", "startDate", new DateOnlyParameter(startDate.Value)));
             }
             if (endDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.OpenFactSetPartnersDocuments.Client.ClientUtils.ParameterToMultiMap("", "endDate", endDate));
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.OpenFactSetPartnersDocuments.Client.ClientUtils.ParameterToMultiMap("", "endDate", new DateOnlyParameter(endDate.Value)));
             }
             if (companyName != null)
             {

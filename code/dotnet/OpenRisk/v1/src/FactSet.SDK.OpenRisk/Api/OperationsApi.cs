@@ -35,10 +35,9 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Calculate predicted risk statistics for provided holdings using risk model data. Asset symbols and market values/weights are required.
         /// </remarks>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <param name="calculateFromHoldingsRequestBody"></param>
         /// <returns>InlineResponse2003</returns>
-        InlineResponse2003 CalculateFromHoldings(string version, CalculateFromHoldingsRequestBody calculateFromHoldingsRequestBody);
+        InlineResponse2003 CalculateFromHoldings(CalculateFromHoldingsRequestBody calculateFromHoldingsRequestBody);
 
         /// <summary>
         /// Calculate risk statistics
@@ -47,10 +46,9 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Calculate predicted risk statistics for provided holdings using risk model data. Asset symbols and market values/weights are required.
         /// </remarks>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <param name="calculateFromHoldingsRequestBody"></param>
         /// <returns>ApiResponse of InlineResponse2003</returns>
-        ApiResponse<InlineResponse2003> CalculateFromHoldingsWithHttpInfo(string version, CalculateFromHoldingsRequestBody calculateFromHoldingsRequestBody);
+        ApiResponse<InlineResponse2003> CalculateFromHoldingsWithHttpInfo(CalculateFromHoldingsRequestBody calculateFromHoldingsRequestBody);
         /// <summary>
         /// Generate risk model ID mapping
         /// </summary>
@@ -58,10 +56,9 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Resolve all input holdings IDs against a risk model for coverage and provide a mapping to security indices in the model or the reason for exclusion
         /// </remarks>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <param name="generateIdMappingRequestBody"></param>
         /// <returns>InlineResponse2004</returns>
-        InlineResponse2004 GenerateIdMapping(string version, GenerateIdMappingRequestBody generateIdMappingRequestBody);
+        InlineResponse2004 GenerateIdMapping(GenerateIdMappingRequestBody generateIdMappingRequestBody);
 
         /// <summary>
         /// Generate risk model ID mapping
@@ -70,10 +67,9 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Resolve all input holdings IDs against a risk model for coverage and provide a mapping to security indices in the model or the reason for exclusion
         /// </remarks>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <param name="generateIdMappingRequestBody"></param>
         /// <returns>ApiResponse of InlineResponse2004</returns>
-        ApiResponse<InlineResponse2004> GenerateIdMappingWithHttpInfo(string version, GenerateIdMappingRequestBody generateIdMappingRequestBody);
+        ApiResponse<InlineResponse2004> GenerateIdMappingWithHttpInfo(GenerateIdMappingRequestBody generateIdMappingRequestBody);
         #endregion Synchronous Operations
     }
 
@@ -90,11 +86,10 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Calculate predicted risk statistics for provided holdings using risk model data. Asset symbols and market values/weights are required.
         /// </remarks>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <param name="calculateFromHoldingsRequestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2003</returns>
-        System.Threading.Tasks.Task<InlineResponse2003> CalculateFromHoldingsAsync(string version, CalculateFromHoldingsRequestBody calculateFromHoldingsRequestBody, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineResponse2003> CalculateFromHoldingsAsync(CalculateFromHoldingsRequestBody calculateFromHoldingsRequestBody, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Calculate risk statistics
@@ -103,11 +98,10 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Calculate predicted risk statistics for provided holdings using risk model data. Asset symbols and market values/weights are required.
         /// </remarks>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <param name="calculateFromHoldingsRequestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> CalculateFromHoldingsWithHttpInfoAsync(string version, CalculateFromHoldingsRequestBody calculateFromHoldingsRequestBody, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> CalculateFromHoldingsWithHttpInfoAsync(CalculateFromHoldingsRequestBody calculateFromHoldingsRequestBody, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Generate risk model ID mapping
         /// </summary>
@@ -115,11 +109,10 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Resolve all input holdings IDs against a risk model for coverage and provide a mapping to security indices in the model or the reason for exclusion
         /// </remarks>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <param name="generateIdMappingRequestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2004</returns>
-        System.Threading.Tasks.Task<InlineResponse2004> GenerateIdMappingAsync(string version, GenerateIdMappingRequestBody generateIdMappingRequestBody, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineResponse2004> GenerateIdMappingAsync(GenerateIdMappingRequestBody generateIdMappingRequestBody, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Generate risk model ID mapping
@@ -128,11 +121,10 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Resolve all input holdings IDs against a risk model for coverage and provide a mapping to security indices in the model or the reason for exclusion
         /// </remarks>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <param name="generateIdMappingRequestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GenerateIdMappingWithHttpInfoAsync(string version, GenerateIdMappingRequestBody generateIdMappingRequestBody, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GenerateIdMappingWithHttpInfoAsync(GenerateIdMappingRequestBody generateIdMappingRequestBody, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -286,12 +278,11 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Calculate risk statistics Calculate predicted risk statistics for provided holdings using risk model data. Asset symbols and market values/weights are required.
         /// </summary>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <param name="calculateFromHoldingsRequestBody"></param>
         /// <returns>InlineResponse2003</returns>
-        public InlineResponse2003 CalculateFromHoldings(string version, CalculateFromHoldingsRequestBody calculateFromHoldingsRequestBody)
+        public InlineResponse2003 CalculateFromHoldings(CalculateFromHoldingsRequestBody calculateFromHoldingsRequestBody)
         {
-            var localVarResponse = CalculateFromHoldingsWithHttpInfo(version, calculateFromHoldingsRequestBody);
+            var localVarResponse = CalculateFromHoldingsWithHttpInfo(calculateFromHoldingsRequestBody);
             return localVarResponse.Data;
         }
 
@@ -299,17 +290,10 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Calculate risk statistics Calculate predicted risk statistics for provided holdings using risk model data. Asset symbols and market values/weights are required.
         /// </summary>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <param name="calculateFromHoldingsRequestBody"></param>
         /// <returns>ApiResponse of InlineResponse2003</returns>
-        public ApiResponse<InlineResponse2003> CalculateFromHoldingsWithHttpInfo(string version, CalculateFromHoldingsRequestBody calculateFromHoldingsRequestBody)
+        public ApiResponse<InlineResponse2003> CalculateFromHoldingsWithHttpInfo(CalculateFromHoldingsRequestBody calculateFromHoldingsRequestBody)
         {
-            // verify the required parameter 'version' is set
-            if (version == null)
-            {
-                throw new FactSet.SDK.OpenRisk.Client.ApiException(400, "Missing required parameter 'version' when calling OperationsApi->CalculateFromHoldings");
-            }
-
             // verify the required parameter 'calculateFromHoldingsRequestBody' is set
             if (calculateFromHoldingsRequestBody == null)
             {
@@ -340,7 +324,6 @@ namespace FactSet.SDK.OpenRisk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("version", FactSet.SDK.OpenRisk.Client.ClientUtils.ParameterToString(version)); // path parameter
             localVarRequestOptions.Data = calculateFromHoldingsRequestBody;
 
             // authentication (FactSetApiKey) required
@@ -367,7 +350,7 @@ namespace FactSet.SDK.OpenRisk.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<
-            InlineResponse2003>("/linear/{version}/calculate/from-holdings", localVarRequestOptions, this.Configuration);
+            InlineResponse2003>("/calculate/from-holdings", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CalculateFromHoldings", localVarResponse);
@@ -383,13 +366,12 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Calculate risk statistics Calculate predicted risk statistics for provided holdings using risk model data. Asset symbols and market values/weights are required.
         /// </summary>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <param name="calculateFromHoldingsRequestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2003</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2003>CalculateFromHoldingsAsync(string version, CalculateFromHoldingsRequestBody calculateFromHoldingsRequestBody, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2003>CalculateFromHoldingsAsync(CalculateFromHoldingsRequestBody calculateFromHoldingsRequestBody, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await CalculateFromHoldingsWithHttpInfoAsync(version, calculateFromHoldingsRequestBody, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await CalculateFromHoldingsWithHttpInfoAsync(calculateFromHoldingsRequestBody, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -397,19 +379,12 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Calculate risk statistics Calculate predicted risk statistics for provided holdings using risk model data. Asset symbols and market values/weights are required.
         /// </summary>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <param name="calculateFromHoldingsRequestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> CalculateFromHoldingsWithHttpInfoAsync(string version, CalculateFromHoldingsRequestBody calculateFromHoldingsRequestBody, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> CalculateFromHoldingsWithHttpInfoAsync(CalculateFromHoldingsRequestBody calculateFromHoldingsRequestBody, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'version' is set
-            if (version == null)
-            {
-                throw new FactSet.SDK.OpenRisk.Client.ApiException(400, "Missing required parameter 'version' when calling OperationsApi->CalculateFromHoldings");
-            }
-
             // verify the required parameter 'calculateFromHoldingsRequestBody' is set
             if (calculateFromHoldingsRequestBody == null)
             {
@@ -441,7 +416,6 @@ namespace FactSet.SDK.OpenRisk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("version", FactSet.SDK.OpenRisk.Client.ClientUtils.ParameterToString(version)); // path parameter
             localVarRequestOptions.Data = calculateFromHoldingsRequestBody;
 
             // authentication (FactSetApiKey) required
@@ -467,7 +441,7 @@ namespace FactSet.SDK.OpenRisk.Api
             localVarRequestOptions.ResponseTypeDictionary = CalculateFromHoldingsResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2003>("/linear/{version}/calculate/from-holdings", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2003>("/calculate/from-holdings", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -485,12 +459,11 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Generate risk model ID mapping Resolve all input holdings IDs against a risk model for coverage and provide a mapping to security indices in the model or the reason for exclusion
         /// </summary>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <param name="generateIdMappingRequestBody"></param>
         /// <returns>InlineResponse2004</returns>
-        public InlineResponse2004 GenerateIdMapping(string version, GenerateIdMappingRequestBody generateIdMappingRequestBody)
+        public InlineResponse2004 GenerateIdMapping(GenerateIdMappingRequestBody generateIdMappingRequestBody)
         {
-            var localVarResponse = GenerateIdMappingWithHttpInfo(version, generateIdMappingRequestBody);
+            var localVarResponse = GenerateIdMappingWithHttpInfo(generateIdMappingRequestBody);
             return localVarResponse.Data;
         }
 
@@ -498,17 +471,10 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Generate risk model ID mapping Resolve all input holdings IDs against a risk model for coverage and provide a mapping to security indices in the model or the reason for exclusion
         /// </summary>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <param name="generateIdMappingRequestBody"></param>
         /// <returns>ApiResponse of InlineResponse2004</returns>
-        public ApiResponse<InlineResponse2004> GenerateIdMappingWithHttpInfo(string version, GenerateIdMappingRequestBody generateIdMappingRequestBody)
+        public ApiResponse<InlineResponse2004> GenerateIdMappingWithHttpInfo(GenerateIdMappingRequestBody generateIdMappingRequestBody)
         {
-            // verify the required parameter 'version' is set
-            if (version == null)
-            {
-                throw new FactSet.SDK.OpenRisk.Client.ApiException(400, "Missing required parameter 'version' when calling OperationsApi->GenerateIdMapping");
-            }
-
             // verify the required parameter 'generateIdMappingRequestBody' is set
             if (generateIdMappingRequestBody == null)
             {
@@ -539,7 +505,6 @@ namespace FactSet.SDK.OpenRisk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("version", FactSet.SDK.OpenRisk.Client.ClientUtils.ParameterToString(version)); // path parameter
             localVarRequestOptions.Data = generateIdMappingRequestBody;
 
             // authentication (FactSetApiKey) required
@@ -566,7 +531,7 @@ namespace FactSet.SDK.OpenRisk.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<
-            InlineResponse2004>("/linear/{version}/generate/id-mapping", localVarRequestOptions, this.Configuration);
+            InlineResponse2004>("/generate/id-mapping", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GenerateIdMapping", localVarResponse);
@@ -582,13 +547,12 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Generate risk model ID mapping Resolve all input holdings IDs against a risk model for coverage and provide a mapping to security indices in the model or the reason for exclusion
         /// </summary>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <param name="generateIdMappingRequestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2004</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2004>GenerateIdMappingAsync(string version, GenerateIdMappingRequestBody generateIdMappingRequestBody, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2004>GenerateIdMappingAsync(GenerateIdMappingRequestBody generateIdMappingRequestBody, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await GenerateIdMappingWithHttpInfoAsync(version, generateIdMappingRequestBody, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GenerateIdMappingWithHttpInfoAsync(generateIdMappingRequestBody, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -596,19 +560,12 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Generate risk model ID mapping Resolve all input holdings IDs against a risk model for coverage and provide a mapping to security indices in the model or the reason for exclusion
         /// </summary>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <param name="generateIdMappingRequestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GenerateIdMappingWithHttpInfoAsync(string version, GenerateIdMappingRequestBody generateIdMappingRequestBody, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GenerateIdMappingWithHttpInfoAsync(GenerateIdMappingRequestBody generateIdMappingRequestBody, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'version' is set
-            if (version == null)
-            {
-                throw new FactSet.SDK.OpenRisk.Client.ApiException(400, "Missing required parameter 'version' when calling OperationsApi->GenerateIdMapping");
-            }
-
             // verify the required parameter 'generateIdMappingRequestBody' is set
             if (generateIdMappingRequestBody == null)
             {
@@ -640,7 +597,6 @@ namespace FactSet.SDK.OpenRisk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("version", FactSet.SDK.OpenRisk.Client.ClientUtils.ParameterToString(version)); // path parameter
             localVarRequestOptions.Data = generateIdMappingRequestBody;
 
             // authentication (FactSetApiKey) required
@@ -666,7 +622,7 @@ namespace FactSet.SDK.OpenRisk.Api
             localVarRequestOptions.ResponseTypeDictionary = GenerateIdMappingResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2004>("/linear/{version}/generate/id-mapping", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2004>("/generate/id-mapping", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

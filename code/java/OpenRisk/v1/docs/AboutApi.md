@@ -1,20 +1,20 @@
 # AboutApi
 
-All URIs are relative to *https://api.factset.com/analytics/openrisk*
+All URIs are relative to *https://api.factset.com/analytics/openrisk/linear/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**healthStatus**](AboutApi.md#healthStatus) | **GET** /linear/{version}/health | Get health of service
-[**listRiskModels**](AboutApi.md#listRiskModels) | **GET** /linear/{version}/riskmodels | Get available risk models
-[**riskModelMetadata**](AboutApi.md#riskModelMetadata) | **GET** /linear/{version}/riskmodels/{modelCode} | Get risk model details
-[**stats**](AboutApi.md#stats) | **GET** /linear/{version}/stats | Get available risk statistics details
-[**statsNamesOnly**](AboutApi.md#statsNamesOnly) | **GET** /linear/{version}/stats-names-only | Get available risk statistics names
+[**healthStatus**](AboutApi.md#healthStatus) | **GET** /health | Get health of service
+[**listRiskModels**](AboutApi.md#listRiskModels) | **GET** /riskmodels | Get available risk models
+[**riskModelMetadata**](AboutApi.md#riskModelMetadata) | **GET** /riskmodels/{modelCode} | Get risk model details
+[**stats**](AboutApi.md#stats) | **GET** /stats | Get available risk statistics details
+[**statsNamesOnly**](AboutApi.md#statsNamesOnly) | **GET** /stats-names-only | Get available risk statistics names
 
 
 
 ## healthStatus
 
-> InlineResponse2002 healthStatus(version)
+> InlineResponse2002 healthStatus()
 
 Get health of service
 
@@ -61,9 +61,8 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         AboutApi apiInstance = new AboutApi(defaultClient);
-        String version = "v1"; // String | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
         try {
-            InlineResponse2002 result = apiInstance.healthStatus(version);
+            InlineResponse2002 result = apiInstance.healthStatus();
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -79,10 +78,7 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **version** | **String**| Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -110,7 +106,7 @@ Name | Type | Description  | Notes
 
 ## listRiskModels
 
-> InlineResponse200 listRiskModels(version)
+> InlineResponse200 listRiskModels()
 
 Get available risk models
 
@@ -157,9 +153,8 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         AboutApi apiInstance = new AboutApi(defaultClient);
-        String version = "v1"; // String | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
         try {
-            InlineResponse200 result = apiInstance.listRiskModels(version);
+            InlineResponse200 result = apiInstance.listRiskModels();
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -175,10 +170,7 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **version** | **String**| Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -205,7 +197,7 @@ Name | Type | Description  | Notes
 
 ## riskModelMetadata
 
-> InlineResponse2001 riskModelMetadata(version, modelCode)
+> InlineResponse2001 riskModelMetadata(modelCode)
 
 Get risk model details
 
@@ -252,10 +244,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         AboutApi apiInstance = new AboutApi(defaultClient);
-        String version = "v1"; // String | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
         String modelCode = "modelCode_example"; // String | Model code
         try {
-            InlineResponse2001 result = apiInstance.riskModelMetadata(version, modelCode);
+            InlineResponse2001 result = apiInstance.riskModelMetadata(modelCode);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -274,7 +265,6 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **version** | **String**| Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. |
  **modelCode** | **String**| Model code |
 
 ### Return type
@@ -302,7 +292,7 @@ Name | Type | Description  | Notes
 
 ## stats
 
-> SupportedStats stats(version)
+> SupportedStats stats()
 
 Get available risk statistics details
 
@@ -349,9 +339,8 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         AboutApi apiInstance = new AboutApi(defaultClient);
-        String version = "v1"; // String | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
         try {
-            SupportedStats result = apiInstance.stats(version);
+            SupportedStats result = apiInstance.stats();
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -367,10 +356,7 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **version** | **String**| Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -397,7 +383,7 @@ Name | Type | Description  | Notes
 
 ## statsNamesOnly
 
-> SupportedStatsNamesOnly statsNamesOnly(version)
+> SupportedStatsNamesOnly statsNamesOnly()
 
 Get available risk statistics names
 
@@ -444,9 +430,8 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         AboutApi apiInstance = new AboutApi(defaultClient);
-        String version = "v1"; // String | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
         try {
-            SupportedStatsNamesOnly result = apiInstance.statsNamesOnly(version);
+            SupportedStatsNamesOnly result = apiInstance.statsNamesOnly();
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -462,10 +447,7 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **version** | **String**| Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. |
+This endpoint does not need any parameter.
 
 ### Return type
 

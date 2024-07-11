@@ -837,8 +837,8 @@ namespace FactSet.SDK.DocumentsDistributorDocuments.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.DocumentsDistributorDocuments.Client.ClientUtils.ParameterToMultiMap("", "startDate", startDate));
-            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.DocumentsDistributorDocuments.Client.ClientUtils.ParameterToMultiMap("", "endDate", endDate));
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.DocumentsDistributorDocuments.Client.ClientUtils.ParameterToMultiMap("", "startDate", new DateOnlyParameter(startDate)));
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.DocumentsDistributorDocuments.Client.ClientUtils.ParameterToMultiMap("", "endDate", new DateOnlyParameter(endDate)));
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.DocumentsDistributorDocuments.Client.ClientUtils.ParameterToMultiMap("", "source", source));
 
             // authentication (FactSetApiKey) required
@@ -933,8 +933,8 @@ namespace FactSet.SDK.DocumentsDistributorDocuments.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.DocumentsDistributorDocuments.Client.ClientUtils.ParameterToMultiMap("", "startDate", startDate));
-            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.DocumentsDistributorDocuments.Client.ClientUtils.ParameterToMultiMap("", "endDate", endDate));
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.DocumentsDistributorDocuments.Client.ClientUtils.ParameterToMultiMap("", "startDate", new DateOnlyParameter(startDate)));
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.DocumentsDistributorDocuments.Client.ClientUtils.ParameterToMultiMap("", "endDate", new DateOnlyParameter(endDate)));
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.DocumentsDistributorDocuments.Client.ClientUtils.ParameterToMultiMap("", "source", source));
 
             // authentication (FactSetApiKey) required

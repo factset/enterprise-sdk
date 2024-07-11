@@ -1,20 +1,20 @@
 # openrisk.AboutApi
 
-All URIs are relative to *https://api.factset.com/analytics/openrisk*
+All URIs are relative to *https://api.factset.com/analytics/openrisk/linear/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**healthStatus**](AboutApi.md#healthStatus) | **GET** /linear/{version}/health | Get health of service
-[**listRiskModels**](AboutApi.md#listRiskModels) | **GET** /linear/{version}/riskmodels | Get available risk models
-[**riskModelMetadata**](AboutApi.md#riskModelMetadata) | **GET** /linear/{version}/riskmodels/{modelCode} | Get risk model details
-[**stats**](AboutApi.md#stats) | **GET** /linear/{version}/stats | Get available risk statistics details
-[**statsNamesOnly**](AboutApi.md#statsNamesOnly) | **GET** /linear/{version}/stats-names-only | Get available risk statistics names
+[**healthStatus**](AboutApi.md#healthStatus) | **GET** /health | Get health of service
+[**listRiskModels**](AboutApi.md#listRiskModels) | **GET** /riskmodels | Get available risk models
+[**riskModelMetadata**](AboutApi.md#riskModelMetadata) | **GET** /riskmodels/{modelCode} | Get risk model details
+[**stats**](AboutApi.md#stats) | **GET** /stats | Get available risk statistics details
+[**statsNamesOnly**](AboutApi.md#statsNamesOnly) | **GET** /stats-names-only | Get available risk statistics names
 
 
 
 ## healthStatus
 
-> InlineResponse2002 healthStatus(version)
+> InlineResponse2002 healthStatus()
 
 Get health of service
 
@@ -53,10 +53,9 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new AboutApi();
-const version = v1; // String | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
 
 // Call api endpoint
-apiInstance.healthStatus(version).then(
+apiInstance.healthStatus().then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -72,10 +71,7 @@ apiInstance.healthStatus(version).then(
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **version** | **String**| Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. | 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -93,7 +89,7 @@ Name | Type | Description  | Notes
 
 ## listRiskModels
 
-> InlineResponse200 listRiskModels(version)
+> InlineResponse200 listRiskModels()
 
 Get available risk models
 
@@ -132,10 +128,9 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new AboutApi();
-const version = v1; // String | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
 
 // Call api endpoint
-apiInstance.listRiskModels(version).then(
+apiInstance.listRiskModels().then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -151,10 +146,7 @@ apiInstance.listRiskModels(version).then(
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **version** | **String**| Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. | 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -172,7 +164,7 @@ Name | Type | Description  | Notes
 
 ## riskModelMetadata
 
-> InlineResponse2001 riskModelMetadata(version, modelCode)
+> InlineResponse2001 riskModelMetadata(modelCode)
 
 Get risk model details
 
@@ -211,11 +203,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new AboutApi();
-const version = v1; // String | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
 const modelCode = "modelCode_example"; // String | Model code
 
 // Call api endpoint
-apiInstance.riskModelMetadata(version, modelCode).then(
+apiInstance.riskModelMetadata(modelCode).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -234,7 +225,6 @@ apiInstance.riskModelMetadata(version, modelCode).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **version** | **String**| Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. | 
  **modelCode** | **String**| Model code | 
 
 ### Return type
@@ -253,7 +243,7 @@ Name | Type | Description  | Notes
 
 ## stats
 
-> SupportedStats stats(version)
+> SupportedStats stats()
 
 Get available risk statistics details
 
@@ -292,10 +282,9 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new AboutApi();
-const version = v1; // String | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
 
 // Call api endpoint
-apiInstance.stats(version).then(
+apiInstance.stats().then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -311,10 +300,7 @@ apiInstance.stats(version).then(
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **version** | **String**| Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. | 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -332,7 +318,7 @@ Name | Type | Description  | Notes
 
 ## statsNamesOnly
 
-> SupportedStatsNamesOnly statsNamesOnly(version)
+> SupportedStatsNamesOnly statsNamesOnly()
 
 Get available risk statistics names
 
@@ -371,10 +357,9 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new AboutApi();
-const version = v1; // String | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
 
 // Call api endpoint
-apiInstance.statsNamesOnly(version).then(
+apiInstance.statsNamesOnly().then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -390,10 +375,7 @@ apiInstance.statsNamesOnly(version).then(
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **version** | **String**| Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. | 
+This endpoint does not need any parameter.
 
 ### Return type
 

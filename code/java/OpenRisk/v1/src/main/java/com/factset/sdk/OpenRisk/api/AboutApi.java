@@ -98,7 +98,6 @@ public class AboutApi {
   /**
    * Get health of service
    * Health status of the service
-   * @param version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. (required)
    * @return InlineResponse2002
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -112,14 +111,13 @@ public class AboutApi {
        <tr><td> 500 </td><td> Service is unavailable or in a state of degraded health </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public InlineResponse2002 healthStatus(String version) throws ApiException {
-    return healthStatusWithHttpInfo(version).getData();
+  public InlineResponse2002 healthStatus() throws ApiException {
+    return healthStatusWithHttpInfo().getData();
   }
 
   /**
    * Get health of service
    * Health status of the service
-   * @param version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. (required)
    * @return ApiResponse&lt;InlineResponse2002&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -133,17 +131,11 @@ public class AboutApi {
        <tr><td> 500 </td><td> Service is unavailable or in a state of degraded health </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2002> healthStatusWithHttpInfo(String version) throws ApiException {
+  public ApiResponse<InlineResponse2002> healthStatusWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      throw new ApiException(400, "Missing the required parameter 'version' when calling healthStatus");
-    }
-    
     // create path and map variables
-    String localVarPath = "/linear/{version}/health"
-      .replaceAll("\\{" + "version" + "\\}", apiClient.escapeString(version.toString()));
+    String localVarPath = "/health";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -182,7 +174,6 @@ public class AboutApi {
   /**
    * Get available risk models
    * Get the list of available risk models, including their respective model codes required for use with other routes.
-   * @param version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. (required)
    * @return InlineResponse200
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -195,14 +186,13 @@ public class AboutApi {
        <tr><td> 500 </td><td> Internal server error occurred </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public InlineResponse200 listRiskModels(String version) throws ApiException {
-    return listRiskModelsWithHttpInfo(version).getData();
+  public InlineResponse200 listRiskModels() throws ApiException {
+    return listRiskModelsWithHttpInfo().getData();
   }
 
   /**
    * Get available risk models
    * Get the list of available risk models, including their respective model codes required for use with other routes.
-   * @param version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. (required)
    * @return ApiResponse&lt;InlineResponse200&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -215,17 +205,11 @@ public class AboutApi {
        <tr><td> 500 </td><td> Internal server error occurred </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse200> listRiskModelsWithHttpInfo(String version) throws ApiException {
+  public ApiResponse<InlineResponse200> listRiskModelsWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      throw new ApiException(400, "Missing the required parameter 'version' when calling listRiskModels");
-    }
-    
     // create path and map variables
-    String localVarPath = "/linear/{version}/riskmodels"
-      .replaceAll("\\{" + "version" + "\\}", apiClient.escapeString(version.toString()));
+    String localVarPath = "/riskmodels";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -264,7 +248,6 @@ public class AboutApi {
   /**
    * Get risk model details
    * Get the metadata of the risk model for the corresponding modelCode. modelCode can be obtained via &#39;/linear/{version}/riskmodels/&#39; route.
-   * @param version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. (required)
    * @param modelCode Model code (required)
    * @return InlineResponse2001
    * @throws ApiException if fails to make API call
@@ -278,14 +261,13 @@ public class AboutApi {
        <tr><td> 500 </td><td> Internal server error occurred </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public InlineResponse2001 riskModelMetadata(String version, String modelCode) throws ApiException {
-    return riskModelMetadataWithHttpInfo(version, modelCode).getData();
+  public InlineResponse2001 riskModelMetadata(String modelCode) throws ApiException {
+    return riskModelMetadataWithHttpInfo(modelCode).getData();
   }
 
   /**
    * Get risk model details
    * Get the metadata of the risk model for the corresponding modelCode. modelCode can be obtained via &#39;/linear/{version}/riskmodels/&#39; route.
-   * @param version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. (required)
    * @param modelCode Model code (required)
    * @return ApiResponse&lt;InlineResponse2001&gt;
    * @throws ApiException if fails to make API call
@@ -299,13 +281,8 @@ public class AboutApi {
        <tr><td> 500 </td><td> Internal server error occurred </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2001> riskModelMetadataWithHttpInfo(String version, String modelCode) throws ApiException {
+  public ApiResponse<InlineResponse2001> riskModelMetadataWithHttpInfo(String modelCode) throws ApiException {
     Object localVarPostBody = null;
-    
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      throw new ApiException(400, "Missing the required parameter 'version' when calling riskModelMetadata");
-    }
     
     // verify the required parameter 'modelCode' is set
     if (modelCode == null) {
@@ -313,8 +290,7 @@ public class AboutApi {
     }
     
     // create path and map variables
-    String localVarPath = "/linear/{version}/riskmodels/{modelCode}"
-      .replaceAll("\\{" + "version" + "\\}", apiClient.escapeString(version.toString()))
+    String localVarPath = "/riskmodels/{modelCode}"
       .replaceAll("\\{" + "modelCode" + "\\}", apiClient.escapeString(modelCode.toString()));
 
     // query params
@@ -354,7 +330,6 @@ public class AboutApi {
   /**
    * Get available risk statistics details
    * All base risk statistic names and their respective support and/or requirement for certain name-settings statistics options (such as: correlated specific risk, covariance isolation method, etc.), available levels, and security group calculation methodology. When &#39;securityGroupMethod&#39; is &#39;statSpecific&#39;, please refer to statistics documentation service for more information.
-   * @param version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. (required)
    * @return SupportedStats
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -367,14 +342,13 @@ public class AboutApi {
        <tr><td> 500 </td><td> Internal server error occurred </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public SupportedStats stats(String version) throws ApiException {
-    return statsWithHttpInfo(version).getData();
+  public SupportedStats stats() throws ApiException {
+    return statsWithHttpInfo().getData();
   }
 
   /**
    * Get available risk statistics details
    * All base risk statistic names and their respective support and/or requirement for certain name-settings statistics options (such as: correlated specific risk, covariance isolation method, etc.), available levels, and security group calculation methodology. When &#39;securityGroupMethod&#39; is &#39;statSpecific&#39;, please refer to statistics documentation service for more information.
-   * @param version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. (required)
    * @return ApiResponse&lt;SupportedStats&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -387,17 +361,11 @@ public class AboutApi {
        <tr><td> 500 </td><td> Internal server error occurred </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<SupportedStats> statsWithHttpInfo(String version) throws ApiException {
+  public ApiResponse<SupportedStats> statsWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      throw new ApiException(400, "Missing the required parameter 'version' when calling stats");
-    }
-    
     // create path and map variables
-    String localVarPath = "/linear/{version}/stats"
-      .replaceAll("\\{" + "version" + "\\}", apiClient.escapeString(version.toString()));
+    String localVarPath = "/stats";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -436,7 +404,6 @@ public class AboutApi {
   /**
    * Get available risk statistics names
    * All available risk statistic names including statistics names containing risk statistics options such as CSR (correlated specific risk)
-   * @param version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. (required)
    * @return SupportedStatsNamesOnly
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -449,14 +416,13 @@ public class AboutApi {
        <tr><td> 500 </td><td> Internal server error occurred </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public SupportedStatsNamesOnly statsNamesOnly(String version) throws ApiException {
-    return statsNamesOnlyWithHttpInfo(version).getData();
+  public SupportedStatsNamesOnly statsNamesOnly() throws ApiException {
+    return statsNamesOnlyWithHttpInfo().getData();
   }
 
   /**
    * Get available risk statistics names
    * All available risk statistic names including statistics names containing risk statistics options such as CSR (correlated specific risk)
-   * @param version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. (required)
    * @return ApiResponse&lt;SupportedStatsNamesOnly&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -469,17 +435,11 @@ public class AboutApi {
        <tr><td> 500 </td><td> Internal server error occurred </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<SupportedStatsNamesOnly> statsNamesOnlyWithHttpInfo(String version) throws ApiException {
+  public ApiResponse<SupportedStatsNamesOnly> statsNamesOnlyWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      throw new ApiException(400, "Missing the required parameter 'version' when calling statsNamesOnly");
-    }
-    
     // create path and map variables
-    String localVarPath = "/linear/{version}/stats-names-only"
-      .replaceAll("\\{" + "version" + "\\}", apiClient.escapeString(version.toString()));
+    String localVarPath = "/stats-names-only";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();

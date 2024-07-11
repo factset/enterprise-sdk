@@ -1,17 +1,17 @@
 # OperationsApi
 
-All URIs are relative to *https://api.factset.com/analytics/openrisk*
+All URIs are relative to *https://api.factset.com/analytics/openrisk/linear/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**calculateFromHoldings**](OperationsApi.md#calculateFromHoldings) | **POST** /linear/{version}/calculate/from-holdings | Calculate risk statistics
-[**generateIdMapping**](OperationsApi.md#generateIdMapping) | **POST** /linear/{version}/generate/id-mapping | Generate risk model ID mapping
+[**calculateFromHoldings**](OperationsApi.md#calculateFromHoldings) | **POST** /calculate/from-holdings | Calculate risk statistics
+[**generateIdMapping**](OperationsApi.md#generateIdMapping) | **POST** /generate/id-mapping | Generate risk model ID mapping
 
 
 
 ## calculateFromHoldings
 
-> InlineResponse2003 calculateFromHoldings(version, calculateFromHoldingsRequestBody)
+> InlineResponse2003 calculateFromHoldings(calculateFromHoldingsRequestBody)
 
 Calculate risk statistics
 
@@ -58,10 +58,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         OperationsApi apiInstance = new OperationsApi(defaultClient);
-        String version = "v1"; // String | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
         CalculateFromHoldingsRequestBody calculateFromHoldingsRequestBody = new CalculateFromHoldingsRequestBody(); // CalculateFromHoldingsRequestBody | 
         try {
-            InlineResponse2003 result = apiInstance.calculateFromHoldings(version, calculateFromHoldingsRequestBody);
+            InlineResponse2003 result = apiInstance.calculateFromHoldings(calculateFromHoldingsRequestBody);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -80,7 +79,6 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **version** | **String**| Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. |
  **calculateFromHoldingsRequestBody** | [**CalculateFromHoldingsRequestBody**](CalculateFromHoldingsRequestBody.md)|  |
 
 ### Return type
@@ -110,7 +108,7 @@ Name | Type | Description  | Notes
 
 ## generateIdMapping
 
-> InlineResponse2004 generateIdMapping(version, generateIdMappingRequestBody)
+> InlineResponse2004 generateIdMapping(generateIdMappingRequestBody)
 
 Generate risk model ID mapping
 
@@ -157,10 +155,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         OperationsApi apiInstance = new OperationsApi(defaultClient);
-        String version = "v1"; // String | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
         GenerateIdMappingRequestBody generateIdMappingRequestBody = new GenerateIdMappingRequestBody(); // GenerateIdMappingRequestBody | 
         try {
-            InlineResponse2004 result = apiInstance.generateIdMapping(version, generateIdMappingRequestBody);
+            InlineResponse2004 result = apiInstance.generateIdMapping(generateIdMappingRequestBody);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -179,7 +176,6 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **version** | **String**| Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. |
  **generateIdMappingRequestBody** | [**GenerateIdMappingRequestBody**](GenerateIdMappingRequestBody.md)|  |
 
 ### Return type

@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.FactSetPortfolioOptimizer",
-  "packageVersion": "0.8.12",
+  "packageVersion": "0.8.13",
   "packageGuid": "{8fad641c-76ce-534c-9a02-2e41aa80d776}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/FactSetPortfolioOptimizer/v1",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/FactSetPortfolioOptimizer/0.8.12",
+  "httpUserAgent": "fds-sdk/dotnet/FactSetPortfolioOptimizer/0.8.13",
   "files": {
     "LICENSE": {}
   },

@@ -41,23 +41,17 @@ export default class OperationsApi {
     /**
      * Calculate risk statistics
      * Calculate predicted risk statistics for provided holdings using risk model data. Asset symbols and market values/weights are required.
-     * @param {String} version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
      * @param {module:model/CalculateFromHoldingsRequestBody} calculateFromHoldingsRequestBody 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2003} and HTTP response
      */
-    calculateFromHoldingsWithHttpInfo(version, calculateFromHoldingsRequestBody) {
+    calculateFromHoldingsWithHttpInfo(calculateFromHoldingsRequestBody) {
       let postBody = calculateFromHoldingsRequestBody;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling calculateFromHoldings");
-      }
       // verify the required parameter 'calculateFromHoldingsRequestBody' is set
       if (calculateFromHoldingsRequestBody === undefined || calculateFromHoldingsRequestBody === null) {
         throw new Error("Missing the required parameter 'calculateFromHoldingsRequestBody' when calling calculateFromHoldings");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
       };
@@ -74,7 +68,7 @@ export default class OperationsApi {
       let returnType = InlineResponse2003;
 
       return this.apiClient.callApi(
-        '/linear/{version}/calculate/from-holdings', 'POST',
+        '/calculate/from-holdings', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -83,12 +77,11 @@ export default class OperationsApi {
     /**
      * Calculate risk statistics
      * Calculate predicted risk statistics for provided holdings using risk model data. Asset symbols and market values/weights are required.
-     * @param {String} version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
      * @param {module:model/CalculateFromHoldingsRequestBody} calculateFromHoldingsRequestBody 
      * @return { Promise.< module:model/InlineResponse2003 > } a Promise, with data of type {@link module:model/InlineResponse2003 }
      */
-    calculateFromHoldings(version, calculateFromHoldingsRequestBody) {
-      return this.calculateFromHoldingsWithHttpInfo(version, calculateFromHoldingsRequestBody)
+    calculateFromHoldings(calculateFromHoldingsRequestBody) {
+      return this.calculateFromHoldingsWithHttpInfo(calculateFromHoldingsRequestBody)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -98,23 +91,17 @@ export default class OperationsApi {
     /**
      * Generate risk model ID mapping
      * Resolve all input holdings IDs against a risk model for coverage and provide a mapping to security indices in the model or the reason for exclusion
-     * @param {String} version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
      * @param {module:model/GenerateIdMappingRequestBody} generateIdMappingRequestBody 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2004} and HTTP response
      */
-    generateIdMappingWithHttpInfo(version, generateIdMappingRequestBody) {
+    generateIdMappingWithHttpInfo(generateIdMappingRequestBody) {
       let postBody = generateIdMappingRequestBody;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling generateIdMapping");
-      }
       // verify the required parameter 'generateIdMappingRequestBody' is set
       if (generateIdMappingRequestBody === undefined || generateIdMappingRequestBody === null) {
         throw new Error("Missing the required parameter 'generateIdMappingRequestBody' when calling generateIdMapping");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
       };
@@ -131,7 +118,7 @@ export default class OperationsApi {
       let returnType = InlineResponse2004;
 
       return this.apiClient.callApi(
-        '/linear/{version}/generate/id-mapping', 'POST',
+        '/generate/id-mapping', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -140,12 +127,11 @@ export default class OperationsApi {
     /**
      * Generate risk model ID mapping
      * Resolve all input holdings IDs against a risk model for coverage and provide a mapping to security indices in the model or the reason for exclusion
-     * @param {String} version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
      * @param {module:model/GenerateIdMappingRequestBody} generateIdMappingRequestBody 
      * @return { Promise.< module:model/InlineResponse2004 > } a Promise, with data of type {@link module:model/InlineResponse2004 }
      */
-    generateIdMapping(version, generateIdMappingRequestBody) {
-      return this.generateIdMappingWithHttpInfo(version, generateIdMappingRequestBody)
+    generateIdMapping(generateIdMappingRequestBody) {
+      return this.generateIdMappingWithHttpInfo(generateIdMappingRequestBody)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

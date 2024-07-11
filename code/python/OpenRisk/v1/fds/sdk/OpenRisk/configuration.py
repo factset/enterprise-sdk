@@ -120,7 +120,7 @@ conf = fds.sdk.OpenRisk.Configuration(
                  ):
         """Constructor
         """
-        self._base_path = "https://api.factset.com/analytics/openrisk" if host is None else host
+        self._base_path = "https://api.factset.com/analytics/openrisk/linear/v1" if host is None else host
         """Default Base url
         """
         self.server_index = 0 if server_index is None and host is None else server_index
@@ -430,7 +430,7 @@ conf = fds.sdk.OpenRisk.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 1.24.0\n"\
-               "SDK Package Version: 2.0.2".\
+               "SDK Package Version: 3.0.0".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):
@@ -440,7 +440,7 @@ conf = fds.sdk.OpenRisk.Configuration(
         """
         return [
             {
-                'url': "https://api.factset.com/analytics/openrisk",
+                'url': "https://api.factset.com/analytics/openrisk/linear/v1",
                 'description': "No description provided",
             }
         ]

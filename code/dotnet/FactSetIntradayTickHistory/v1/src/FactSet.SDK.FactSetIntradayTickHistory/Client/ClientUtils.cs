@@ -20,6 +20,25 @@ using System.Text.RegularExpressions;
 namespace FactSet.SDK.FactSetIntradayTickHistory.Client
 {
     /// <summary>
+    /// A parameter that can be passed to an API operation that expects a date-only value.
+    /// </summary>
+    public class DateOnlyParameter
+    {
+        /// <summary>
+        /// The value of the date parameter.
+        /// </summary>
+        public DateTime Value { get; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DateOnlyParameter"/> class.
+        /// </summary>
+        public DateOnlyParameter(DateTime value)
+        {
+            Value = value;
+        }
+    }
+
+    /// <summary>
     /// Utility functions providing some benefit to API client consumers.
     /// </summary>
     public static class ClientUtils
@@ -87,6 +106,11 @@ namespace FactSet.SDK.FactSetIntradayTickHistory.Client
         /// <returns>Formatted string.</returns>
         public static string ParameterToString(object obj, IReadableConfiguration configuration = null)
         {
+            if (obj is DateOnlyParameter dateOnlyParameter)
+                // Return a formatted date string - Can be customized with Configuration.DateFormat
+                // Defaults to an "yyyy-MM-dd" format
+                // For example: 2009-06-15
+                return dateOnlyParameter.Value.ToString((configuration ?? GlobalConfiguration.Instance).DateFormat);
             if (obj is DateTime dateTime)
                 // Return a formatted date string - Can be customized with Configuration.DateTimeFormat
                 // Defaults to an ISO 8601, using the known as a Round-trip date/time pattern ("o")

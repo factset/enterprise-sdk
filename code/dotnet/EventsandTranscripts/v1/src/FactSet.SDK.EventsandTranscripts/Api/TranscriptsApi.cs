@@ -980,11 +980,11 @@ namespace FactSet.SDK.EventsandTranscripts.Api
 
             if (startDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.EventsandTranscripts.Client.ClientUtils.ParameterToMultiMap("", "startDate", startDate));
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.EventsandTranscripts.Client.ClientUtils.ParameterToMultiMap("", "startDate", new DateOnlyParameter(startDate.Value)));
             }
             if (endDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.EventsandTranscripts.Client.ClientUtils.ParameterToMultiMap("", "endDate", endDate));
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.EventsandTranscripts.Client.ClientUtils.ParameterToMultiMap("", "endDate", new DateOnlyParameter(endDate.Value)));
             }
             if (startDateRelative != null)
             {
@@ -1109,11 +1109,11 @@ namespace FactSet.SDK.EventsandTranscripts.Api
 
             if (startDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.EventsandTranscripts.Client.ClientUtils.ParameterToMultiMap("", "startDate", startDate));
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.EventsandTranscripts.Client.ClientUtils.ParameterToMultiMap("", "startDate", new DateOnlyParameter(startDate.Value)));
             }
             if (endDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.EventsandTranscripts.Client.ClientUtils.ParameterToMultiMap("", "endDate", endDate));
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.EventsandTranscripts.Client.ClientUtils.ParameterToMultiMap("", "endDate", new DateOnlyParameter(endDate.Value)));
             }
             if (startDateRelative != null)
             {

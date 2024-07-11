@@ -35,9 +35,8 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Health status of the service
         /// </remarks>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <returns>InlineResponse2002</returns>
-        InlineResponse2002 HealthStatus(string version);
+        InlineResponse2002 HealthStatus();
 
         /// <summary>
         /// Get health of service
@@ -46,9 +45,8 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Health status of the service
         /// </remarks>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <returns>ApiResponse of InlineResponse2002</returns>
-        ApiResponse<InlineResponse2002> HealthStatusWithHttpInfo(string version);
+        ApiResponse<InlineResponse2002> HealthStatusWithHttpInfo();
         /// <summary>
         /// Get available risk models
         /// </summary>
@@ -56,9 +54,8 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Get the list of available risk models, including their respective model codes required for use with other routes.
         /// </remarks>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <returns>InlineResponse200</returns>
-        InlineResponse200 ListRiskModels(string version);
+        InlineResponse200 ListRiskModels();
 
         /// <summary>
         /// Get available risk models
@@ -67,9 +64,8 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Get the list of available risk models, including their respective model codes required for use with other routes.
         /// </remarks>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <returns>ApiResponse of InlineResponse200</returns>
-        ApiResponse<InlineResponse200> ListRiskModelsWithHttpInfo(string version);
+        ApiResponse<InlineResponse200> ListRiskModelsWithHttpInfo();
         /// <summary>
         /// Get risk model details
         /// </summary>
@@ -77,10 +73,9 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Get the metadata of the risk model for the corresponding modelCode. modelCode can be obtained via &#39;/linear/{version}/riskmodels/&#39; route.
         /// </remarks>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <param name="modelCode">Model code</param>
         /// <returns>InlineResponse2001</returns>
-        InlineResponse2001 RiskModelMetadata(string version, string modelCode);
+        InlineResponse2001 RiskModelMetadata(string modelCode);
 
         /// <summary>
         /// Get risk model details
@@ -89,10 +84,9 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Get the metadata of the risk model for the corresponding modelCode. modelCode can be obtained via &#39;/linear/{version}/riskmodels/&#39; route.
         /// </remarks>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <param name="modelCode">Model code</param>
         /// <returns>ApiResponse of InlineResponse2001</returns>
-        ApiResponse<InlineResponse2001> RiskModelMetadataWithHttpInfo(string version, string modelCode);
+        ApiResponse<InlineResponse2001> RiskModelMetadataWithHttpInfo(string modelCode);
         /// <summary>
         /// Get available risk statistics details
         /// </summary>
@@ -100,9 +94,8 @@ namespace FactSet.SDK.OpenRisk.Api
         /// All base risk statistic names and their respective support and/or requirement for certain name-settings statistics options (such as: correlated specific risk, covariance isolation method, etc.), available levels, and security group calculation methodology. When &#39;securityGroupMethod&#39; is &#39;statSpecific&#39;, please refer to statistics documentation service for more information.
         /// </remarks>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <returns>SupportedStats</returns>
-        SupportedStats Stats(string version);
+        SupportedStats Stats();
 
         /// <summary>
         /// Get available risk statistics details
@@ -111,9 +104,8 @@ namespace FactSet.SDK.OpenRisk.Api
         /// All base risk statistic names and their respective support and/or requirement for certain name-settings statistics options (such as: correlated specific risk, covariance isolation method, etc.), available levels, and security group calculation methodology. When &#39;securityGroupMethod&#39; is &#39;statSpecific&#39;, please refer to statistics documentation service for more information.
         /// </remarks>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <returns>ApiResponse of SupportedStats</returns>
-        ApiResponse<SupportedStats> StatsWithHttpInfo(string version);
+        ApiResponse<SupportedStats> StatsWithHttpInfo();
         /// <summary>
         /// Get available risk statistics names
         /// </summary>
@@ -121,9 +113,8 @@ namespace FactSet.SDK.OpenRisk.Api
         /// All available risk statistic names including statistics names containing risk statistics options such as CSR (correlated specific risk)
         /// </remarks>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <returns>SupportedStatsNamesOnly</returns>
-        SupportedStatsNamesOnly StatsNamesOnly(string version);
+        SupportedStatsNamesOnly StatsNamesOnly();
 
         /// <summary>
         /// Get available risk statistics names
@@ -132,9 +123,8 @@ namespace FactSet.SDK.OpenRisk.Api
         /// All available risk statistic names including statistics names containing risk statistics options such as CSR (correlated specific risk)
         /// </remarks>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <returns>ApiResponse of SupportedStatsNamesOnly</returns>
-        ApiResponse<SupportedStatsNamesOnly> StatsNamesOnlyWithHttpInfo(string version);
+        ApiResponse<SupportedStatsNamesOnly> StatsNamesOnlyWithHttpInfo();
         #endregion Synchronous Operations
     }
 
@@ -151,10 +141,9 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Health status of the service
         /// </remarks>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2002</returns>
-        System.Threading.Tasks.Task<InlineResponse2002> HealthStatusAsync(string version, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineResponse2002> HealthStatusAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get health of service
@@ -163,10 +152,9 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Health status of the service
         /// </remarks>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> HealthStatusWithHttpInfoAsync(string version, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> HealthStatusWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get available risk models
         /// </summary>
@@ -174,10 +162,9 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Get the list of available risk models, including their respective model codes required for use with other routes.
         /// </remarks>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse200</returns>
-        System.Threading.Tasks.Task<InlineResponse200> ListRiskModelsAsync(string version, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineResponse200> ListRiskModelsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get available risk models
@@ -186,10 +173,9 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Get the list of available risk models, including their respective model codes required for use with other routes.
         /// </remarks>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> ListRiskModelsWithHttpInfoAsync(string version, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> ListRiskModelsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get risk model details
         /// </summary>
@@ -197,11 +183,10 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Get the metadata of the risk model for the corresponding modelCode. modelCode can be obtained via &#39;/linear/{version}/riskmodels/&#39; route.
         /// </remarks>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <param name="modelCode">Model code</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2001</returns>
-        System.Threading.Tasks.Task<InlineResponse2001> RiskModelMetadataAsync(string version, string modelCode, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineResponse2001> RiskModelMetadataAsync(string modelCode, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get risk model details
@@ -210,11 +195,10 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Get the metadata of the risk model for the corresponding modelCode. modelCode can be obtained via &#39;/linear/{version}/riskmodels/&#39; route.
         /// </remarks>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <param name="modelCode">Model code</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> RiskModelMetadataWithHttpInfoAsync(string version, string modelCode, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> RiskModelMetadataWithHttpInfoAsync(string modelCode, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get available risk statistics details
         /// </summary>
@@ -222,10 +206,9 @@ namespace FactSet.SDK.OpenRisk.Api
         /// All base risk statistic names and their respective support and/or requirement for certain name-settings statistics options (such as: correlated specific risk, covariance isolation method, etc.), available levels, and security group calculation methodology. When &#39;securityGroupMethod&#39; is &#39;statSpecific&#39;, please refer to statistics documentation service for more information.
         /// </remarks>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SupportedStats</returns>
-        System.Threading.Tasks.Task<SupportedStats> StatsAsync(string version, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SupportedStats> StatsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get available risk statistics details
@@ -234,10 +217,9 @@ namespace FactSet.SDK.OpenRisk.Api
         /// All base risk statistic names and their respective support and/or requirement for certain name-settings statistics options (such as: correlated specific risk, covariance isolation method, etc.), available levels, and security group calculation methodology. When &#39;securityGroupMethod&#39; is &#39;statSpecific&#39;, please refer to statistics documentation service for more information.
         /// </remarks>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SupportedStats)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SupportedStats>> StatsWithHttpInfoAsync(string version, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SupportedStats>> StatsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get available risk statistics names
         /// </summary>
@@ -245,10 +227,9 @@ namespace FactSet.SDK.OpenRisk.Api
         /// All available risk statistic names including statistics names containing risk statistics options such as CSR (correlated specific risk)
         /// </remarks>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SupportedStatsNamesOnly</returns>
-        System.Threading.Tasks.Task<SupportedStatsNamesOnly> StatsNamesOnlyAsync(string version, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SupportedStatsNamesOnly> StatsNamesOnlyAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get available risk statistics names
@@ -257,10 +238,9 @@ namespace FactSet.SDK.OpenRisk.Api
         /// All available risk statistic names including statistics names containing risk statistics options such as CSR (correlated specific risk)
         /// </remarks>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SupportedStatsNamesOnly)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SupportedStatsNamesOnly>> StatsNamesOnlyWithHttpInfoAsync(string version, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SupportedStatsNamesOnly>> StatsNamesOnlyWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -435,11 +415,10 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Get health of service Health status of the service
         /// </summary>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <returns>InlineResponse2002</returns>
-        public InlineResponse2002 HealthStatus(string version)
+        public InlineResponse2002 HealthStatus()
         {
-            var localVarResponse = HealthStatusWithHttpInfo(version);
+            var localVarResponse = HealthStatusWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -447,16 +426,9 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Get health of service Health status of the service
         /// </summary>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <returns>ApiResponse of InlineResponse2002</returns>
-        public ApiResponse<InlineResponse2002> HealthStatusWithHttpInfo(string version)
+        public ApiResponse<InlineResponse2002> HealthStatusWithHttpInfo()
         {
-            // verify the required parameter 'version' is set
-            if (version == null)
-            {
-                throw new FactSet.SDK.OpenRisk.Client.ApiException(400, "Missing required parameter 'version' when calling AboutApi->HealthStatus");
-            }
-
             FactSet.SDK.OpenRisk.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OpenRisk.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -480,7 +452,6 @@ namespace FactSet.SDK.OpenRisk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("version", FactSet.SDK.OpenRisk.Client.ClientUtils.ParameterToString(version)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -506,7 +477,7 @@ namespace FactSet.SDK.OpenRisk.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse2002>("/linear/{version}/health", localVarRequestOptions, this.Configuration);
+            InlineResponse2002>("/health", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("HealthStatus", localVarResponse);
@@ -522,12 +493,11 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Get health of service Health status of the service
         /// </summary>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2002</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2002>HealthStatusAsync(string version, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2002>HealthStatusAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await HealthStatusWithHttpInfoAsync(version, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await HealthStatusWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -535,18 +505,11 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Get health of service Health status of the service
         /// </summary>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> HealthStatusWithHttpInfoAsync(string version, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> HealthStatusWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'version' is set
-            if (version == null)
-            {
-                throw new FactSet.SDK.OpenRisk.Client.ApiException(400, "Missing required parameter 'version' when calling AboutApi->HealthStatus");
-            }
-
 
             FactSet.SDK.OpenRisk.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OpenRisk.Client.RequestOptions();
 
@@ -571,7 +534,6 @@ namespace FactSet.SDK.OpenRisk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("version", FactSet.SDK.OpenRisk.Client.ClientUtils.ParameterToString(version)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -596,7 +558,7 @@ namespace FactSet.SDK.OpenRisk.Api
             localVarRequestOptions.ResponseTypeDictionary = HealthStatusResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2002>("/linear/{version}/health", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2002>("/health", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -614,11 +576,10 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Get available risk models Get the list of available risk models, including their respective model codes required for use with other routes.
         /// </summary>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <returns>InlineResponse200</returns>
-        public InlineResponse200 ListRiskModels(string version)
+        public InlineResponse200 ListRiskModels()
         {
-            var localVarResponse = ListRiskModelsWithHttpInfo(version);
+            var localVarResponse = ListRiskModelsWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -626,16 +587,9 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Get available risk models Get the list of available risk models, including their respective model codes required for use with other routes.
         /// </summary>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <returns>ApiResponse of InlineResponse200</returns>
-        public ApiResponse<InlineResponse200> ListRiskModelsWithHttpInfo(string version)
+        public ApiResponse<InlineResponse200> ListRiskModelsWithHttpInfo()
         {
-            // verify the required parameter 'version' is set
-            if (version == null)
-            {
-                throw new FactSet.SDK.OpenRisk.Client.ApiException(400, "Missing required parameter 'version' when calling AboutApi->ListRiskModels");
-            }
-
             FactSet.SDK.OpenRisk.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OpenRisk.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -659,7 +613,6 @@ namespace FactSet.SDK.OpenRisk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("version", FactSet.SDK.OpenRisk.Client.ClientUtils.ParameterToString(version)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -685,7 +638,7 @@ namespace FactSet.SDK.OpenRisk.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse200>("/linear/{version}/riskmodels", localVarRequestOptions, this.Configuration);
+            InlineResponse200>("/riskmodels", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListRiskModels", localVarResponse);
@@ -701,12 +654,11 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Get available risk models Get the list of available risk models, including their respective model codes required for use with other routes.
         /// </summary>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse200</returns>
-        public async System.Threading.Tasks.Task<InlineResponse200>ListRiskModelsAsync(string version, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse200>ListRiskModelsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await ListRiskModelsWithHttpInfoAsync(version, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await ListRiskModelsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -714,18 +666,11 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Get available risk models Get the list of available risk models, including their respective model codes required for use with other routes.
         /// </summary>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse200)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> ListRiskModelsWithHttpInfoAsync(string version, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> ListRiskModelsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'version' is set
-            if (version == null)
-            {
-                throw new FactSet.SDK.OpenRisk.Client.ApiException(400, "Missing required parameter 'version' when calling AboutApi->ListRiskModels");
-            }
-
 
             FactSet.SDK.OpenRisk.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OpenRisk.Client.RequestOptions();
 
@@ -750,7 +695,6 @@ namespace FactSet.SDK.OpenRisk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("version", FactSet.SDK.OpenRisk.Client.ClientUtils.ParameterToString(version)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -775,7 +719,7 @@ namespace FactSet.SDK.OpenRisk.Api
             localVarRequestOptions.ResponseTypeDictionary = ListRiskModelsResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse200>("/linear/{version}/riskmodels", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse200>("/riskmodels", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -793,12 +737,11 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Get risk model details Get the metadata of the risk model for the corresponding modelCode. modelCode can be obtained via &#39;/linear/{version}/riskmodels/&#39; route.
         /// </summary>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <param name="modelCode">Model code</param>
         /// <returns>InlineResponse2001</returns>
-        public InlineResponse2001 RiskModelMetadata(string version, string modelCode)
+        public InlineResponse2001 RiskModelMetadata(string modelCode)
         {
-            var localVarResponse = RiskModelMetadataWithHttpInfo(version, modelCode);
+            var localVarResponse = RiskModelMetadataWithHttpInfo(modelCode);
             return localVarResponse.Data;
         }
 
@@ -806,17 +749,10 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Get risk model details Get the metadata of the risk model for the corresponding modelCode. modelCode can be obtained via &#39;/linear/{version}/riskmodels/&#39; route.
         /// </summary>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <param name="modelCode">Model code</param>
         /// <returns>ApiResponse of InlineResponse2001</returns>
-        public ApiResponse<InlineResponse2001> RiskModelMetadataWithHttpInfo(string version, string modelCode)
+        public ApiResponse<InlineResponse2001> RiskModelMetadataWithHttpInfo(string modelCode)
         {
-            // verify the required parameter 'version' is set
-            if (version == null)
-            {
-                throw new FactSet.SDK.OpenRisk.Client.ApiException(400, "Missing required parameter 'version' when calling AboutApi->RiskModelMetadata");
-            }
-
             // verify the required parameter 'modelCode' is set
             if (modelCode == null)
             {
@@ -846,7 +782,6 @@ namespace FactSet.SDK.OpenRisk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("version", FactSet.SDK.OpenRisk.Client.ClientUtils.ParameterToString(version)); // path parameter
             localVarRequestOptions.PathParameters.Add("modelCode", FactSet.SDK.OpenRisk.Client.ClientUtils.ParameterToString(modelCode)); // path parameter
 
             // authentication (FactSetApiKey) required
@@ -873,7 +808,7 @@ namespace FactSet.SDK.OpenRisk.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse2001>("/linear/{version}/riskmodels/{modelCode}", localVarRequestOptions, this.Configuration);
+            InlineResponse2001>("/riskmodels/{modelCode}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("RiskModelMetadata", localVarResponse);
@@ -889,13 +824,12 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Get risk model details Get the metadata of the risk model for the corresponding modelCode. modelCode can be obtained via &#39;/linear/{version}/riskmodels/&#39; route.
         /// </summary>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <param name="modelCode">Model code</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2001</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2001>RiskModelMetadataAsync(string version, string modelCode, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2001>RiskModelMetadataAsync(string modelCode, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await RiskModelMetadataWithHttpInfoAsync(version, modelCode, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await RiskModelMetadataWithHttpInfoAsync(modelCode, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -903,19 +837,12 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Get risk model details Get the metadata of the risk model for the corresponding modelCode. modelCode can be obtained via &#39;/linear/{version}/riskmodels/&#39; route.
         /// </summary>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <param name="modelCode">Model code</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> RiskModelMetadataWithHttpInfoAsync(string version, string modelCode, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> RiskModelMetadataWithHttpInfoAsync(string modelCode, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'version' is set
-            if (version == null)
-            {
-                throw new FactSet.SDK.OpenRisk.Client.ApiException(400, "Missing required parameter 'version' when calling AboutApi->RiskModelMetadata");
-            }
-
             // verify the required parameter 'modelCode' is set
             if (modelCode == null)
             {
@@ -946,7 +873,6 @@ namespace FactSet.SDK.OpenRisk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("version", FactSet.SDK.OpenRisk.Client.ClientUtils.ParameterToString(version)); // path parameter
             localVarRequestOptions.PathParameters.Add("modelCode", FactSet.SDK.OpenRisk.Client.ClientUtils.ParameterToString(modelCode)); // path parameter
 
             // authentication (FactSetApiKey) required
@@ -972,7 +898,7 @@ namespace FactSet.SDK.OpenRisk.Api
             localVarRequestOptions.ResponseTypeDictionary = RiskModelMetadataResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2001>("/linear/{version}/riskmodels/{modelCode}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2001>("/riskmodels/{modelCode}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -990,11 +916,10 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Get available risk statistics details All base risk statistic names and their respective support and/or requirement for certain name-settings statistics options (such as: correlated specific risk, covariance isolation method, etc.), available levels, and security group calculation methodology. When &#39;securityGroupMethod&#39; is &#39;statSpecific&#39;, please refer to statistics documentation service for more information.
         /// </summary>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <returns>SupportedStats</returns>
-        public SupportedStats Stats(string version)
+        public SupportedStats Stats()
         {
-            var localVarResponse = StatsWithHttpInfo(version);
+            var localVarResponse = StatsWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -1002,16 +927,9 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Get available risk statistics details All base risk statistic names and their respective support and/or requirement for certain name-settings statistics options (such as: correlated specific risk, covariance isolation method, etc.), available levels, and security group calculation methodology. When &#39;securityGroupMethod&#39; is &#39;statSpecific&#39;, please refer to statistics documentation service for more information.
         /// </summary>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <returns>ApiResponse of SupportedStats</returns>
-        public ApiResponse<SupportedStats> StatsWithHttpInfo(string version)
+        public ApiResponse<SupportedStats> StatsWithHttpInfo()
         {
-            // verify the required parameter 'version' is set
-            if (version == null)
-            {
-                throw new FactSet.SDK.OpenRisk.Client.ApiException(400, "Missing required parameter 'version' when calling AboutApi->Stats");
-            }
-
             FactSet.SDK.OpenRisk.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OpenRisk.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -1035,7 +953,6 @@ namespace FactSet.SDK.OpenRisk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("version", FactSet.SDK.OpenRisk.Client.ClientUtils.ParameterToString(version)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -1061,7 +978,7 @@ namespace FactSet.SDK.OpenRisk.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            SupportedStats>("/linear/{version}/stats", localVarRequestOptions, this.Configuration);
+            SupportedStats>("/stats", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("Stats", localVarResponse);
@@ -1077,12 +994,11 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Get available risk statistics details All base risk statistic names and their respective support and/or requirement for certain name-settings statistics options (such as: correlated specific risk, covariance isolation method, etc.), available levels, and security group calculation methodology. When &#39;securityGroupMethod&#39; is &#39;statSpecific&#39;, please refer to statistics documentation service for more information.
         /// </summary>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SupportedStats</returns>
-        public async System.Threading.Tasks.Task<SupportedStats>StatsAsync(string version, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SupportedStats>StatsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await StatsWithHttpInfoAsync(version, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await StatsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1090,18 +1006,11 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Get available risk statistics details All base risk statistic names and their respective support and/or requirement for certain name-settings statistics options (such as: correlated specific risk, covariance isolation method, etc.), available levels, and security group calculation methodology. When &#39;securityGroupMethod&#39; is &#39;statSpecific&#39;, please refer to statistics documentation service for more information.
         /// </summary>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SupportedStats)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<SupportedStats>> StatsWithHttpInfoAsync(string version, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<SupportedStats>> StatsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'version' is set
-            if (version == null)
-            {
-                throw new FactSet.SDK.OpenRisk.Client.ApiException(400, "Missing required parameter 'version' when calling AboutApi->Stats");
-            }
-
 
             FactSet.SDK.OpenRisk.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OpenRisk.Client.RequestOptions();
 
@@ -1126,7 +1035,6 @@ namespace FactSet.SDK.OpenRisk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("version", FactSet.SDK.OpenRisk.Client.ClientUtils.ParameterToString(version)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -1151,7 +1059,7 @@ namespace FactSet.SDK.OpenRisk.Api
             localVarRequestOptions.ResponseTypeDictionary = StatsResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<SupportedStats>("/linear/{version}/stats", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<SupportedStats>("/stats", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1169,11 +1077,10 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Get available risk statistics names All available risk statistic names including statistics names containing risk statistics options such as CSR (correlated specific risk)
         /// </summary>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <returns>SupportedStatsNamesOnly</returns>
-        public SupportedStatsNamesOnly StatsNamesOnly(string version)
+        public SupportedStatsNamesOnly StatsNamesOnly()
         {
-            var localVarResponse = StatsNamesOnlyWithHttpInfo(version);
+            var localVarResponse = StatsNamesOnlyWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -1181,16 +1088,9 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Get available risk statistics names All available risk statistic names including statistics names containing risk statistics options such as CSR (correlated specific risk)
         /// </summary>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <returns>ApiResponse of SupportedStatsNamesOnly</returns>
-        public ApiResponse<SupportedStatsNamesOnly> StatsNamesOnlyWithHttpInfo(string version)
+        public ApiResponse<SupportedStatsNamesOnly> StatsNamesOnlyWithHttpInfo()
         {
-            // verify the required parameter 'version' is set
-            if (version == null)
-            {
-                throw new FactSet.SDK.OpenRisk.Client.ApiException(400, "Missing required parameter 'version' when calling AboutApi->StatsNamesOnly");
-            }
-
             FactSet.SDK.OpenRisk.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OpenRisk.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -1214,7 +1114,6 @@ namespace FactSet.SDK.OpenRisk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("version", FactSet.SDK.OpenRisk.Client.ClientUtils.ParameterToString(version)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -1240,7 +1139,7 @@ namespace FactSet.SDK.OpenRisk.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            SupportedStatsNamesOnly>("/linear/{version}/stats-names-only", localVarRequestOptions, this.Configuration);
+            SupportedStatsNamesOnly>("/stats-names-only", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("StatsNamesOnly", localVarResponse);
@@ -1256,12 +1155,11 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Get available risk statistics names All available risk statistic names including statistics names containing risk statistics options such as CSR (correlated specific risk)
         /// </summary>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SupportedStatsNamesOnly</returns>
-        public async System.Threading.Tasks.Task<SupportedStatsNamesOnly>StatsNamesOnlyAsync(string version, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SupportedStatsNamesOnly>StatsNamesOnlyAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await StatsNamesOnlyWithHttpInfoAsync(version, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await StatsNamesOnlyWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1269,18 +1167,11 @@ namespace FactSet.SDK.OpenRisk.Api
         /// Get available risk statistics names All available risk statistic names including statistics names containing risk statistics options such as CSR (correlated specific risk)
         /// </summary>
         /// <exception cref="FactSet.SDK.OpenRisk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version">Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SupportedStatsNamesOnly)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<SupportedStatsNamesOnly>> StatsNamesOnlyWithHttpInfoAsync(string version, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<SupportedStatsNamesOnly>> StatsNamesOnlyWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'version' is set
-            if (version == null)
-            {
-                throw new FactSet.SDK.OpenRisk.Client.ApiException(400, "Missing required parameter 'version' when calling AboutApi->StatsNamesOnly");
-            }
-
 
             FactSet.SDK.OpenRisk.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OpenRisk.Client.RequestOptions();
 
@@ -1305,7 +1196,6 @@ namespace FactSet.SDK.OpenRisk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("version", FactSet.SDK.OpenRisk.Client.ClientUtils.ParameterToString(version)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -1330,7 +1220,7 @@ namespace FactSet.SDK.OpenRisk.Api
             localVarRequestOptions.ResponseTypeDictionary = StatsNamesOnlyResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<SupportedStatsNamesOnly>("/linear/{version}/stats-names-only", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<SupportedStatsNamesOnly>("/stats-names-only", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

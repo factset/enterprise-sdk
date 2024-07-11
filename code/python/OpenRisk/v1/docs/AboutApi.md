@@ -1,19 +1,19 @@
 # fds.sdk.OpenRisk.AboutApi
 
-All URIs are relative to *https://api.factset.com/analytics/openrisk*
+All URIs are relative to *https://api.factset.com/analytics/openrisk/linear/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**health_status**](AboutApi.md#health_status) | **GET** /linear/{version}/health | Get health of service
-[**list_risk_models**](AboutApi.md#list_risk_models) | **GET** /linear/{version}/riskmodels | Get available risk models
-[**risk_model_metadata**](AboutApi.md#risk_model_metadata) | **GET** /linear/{version}/riskmodels/{modelCode} | Get risk model details
-[**stats**](AboutApi.md#stats) | **GET** /linear/{version}/stats | Get available risk statistics details
-[**stats_names_only**](AboutApi.md#stats_names_only) | **GET** /linear/{version}/stats-names-only | Get available risk statistics names
+[**health_status**](AboutApi.md#health_status) | **GET** /health | Get health of service
+[**list_risk_models**](AboutApi.md#list_risk_models) | **GET** /riskmodels | Get available risk models
+[**risk_model_metadata**](AboutApi.md#risk_model_metadata) | **GET** /riskmodels/{modelCode} | Get risk model details
+[**stats**](AboutApi.md#stats) | **GET** /stats | Get available risk statistics details
+[**stats_names_only**](AboutApi.md#stats_names_only) | **GET** /stats-names-only | Get available risk statistics names
 
 
 
 # **health_status**
-> InlineResponse2002 health_status(version)
+> InlineResponse2002 health_status()
 
 Get health of service
 
@@ -64,12 +64,11 @@ with fds.sdk.OpenRisk.ApiClient(configuration) as api_client:
     api_instance = about_api.AboutApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    version = "v1" # str | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
 
     try:
         # Get health of service
-        # example passing only required values which don't have defaults set
-        api_response = api_instance.health_status(version)
+        # example, this endpoint has no required or optional parameters
+        api_response = api_instance.health_status()
 
         pprint(api_response)
 
@@ -79,10 +78,7 @@ with fds.sdk.OpenRisk.ApiClient(configuration) as api_client:
 
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **version** | **str**| Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -112,7 +108,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_risk_models**
-> InlineResponse200 list_risk_models(version)
+> InlineResponse200 list_risk_models()
 
 Get available risk models
 
@@ -163,12 +159,11 @@ with fds.sdk.OpenRisk.ApiClient(configuration) as api_client:
     api_instance = about_api.AboutApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    version = "v1" # str | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
 
     try:
         # Get available risk models
-        # example passing only required values which don't have defaults set
-        api_response = api_instance.list_risk_models(version)
+        # example, this endpoint has no required or optional parameters
+        api_response = api_instance.list_risk_models()
 
         pprint(api_response)
 
@@ -178,10 +173,7 @@ with fds.sdk.OpenRisk.ApiClient(configuration) as api_client:
 
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **version** | **str**| Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -210,7 +202,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **risk_model_metadata**
-> InlineResponse2001 risk_model_metadata(version, model_code)
+> InlineResponse2001 risk_model_metadata(model_code)
 
 Get risk model details
 
@@ -261,13 +253,12 @@ with fds.sdk.OpenRisk.ApiClient(configuration) as api_client:
     api_instance = about_api.AboutApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    version = "v1" # str | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
     model_code = RiskModelCode("FDS:GLOBAL_EQUITY_M_V1") # RiskModelCode | Model code
 
     try:
         # Get risk model details
         # example passing only required values which don't have defaults set
-        api_response = api_instance.risk_model_metadata(version, model_code)
+        api_response = api_instance.risk_model_metadata(model_code)
 
         pprint(api_response)
 
@@ -280,7 +271,6 @@ with fds.sdk.OpenRisk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **version** | **str**| Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. |
  **model_code** | **RiskModelCode**| Model code |
 
 ### Return type
@@ -310,7 +300,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **stats**
-> SupportedStats stats(version)
+> SupportedStats stats()
 
 Get available risk statistics details
 
@@ -361,12 +351,11 @@ with fds.sdk.OpenRisk.ApiClient(configuration) as api_client:
     api_instance = about_api.AboutApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    version = "v1" # str | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
 
     try:
         # Get available risk statistics details
-        # example passing only required values which don't have defaults set
-        api_response = api_instance.stats(version)
+        # example, this endpoint has no required or optional parameters
+        api_response = api_instance.stats()
 
         pprint(api_response)
 
@@ -376,10 +365,7 @@ with fds.sdk.OpenRisk.ApiClient(configuration) as api_client:
 
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **version** | **str**| Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -408,7 +394,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **stats_names_only**
-> SupportedStatsNamesOnly stats_names_only(version)
+> SupportedStatsNamesOnly stats_names_only()
 
 Get available risk statistics names
 
@@ -459,12 +445,11 @@ with fds.sdk.OpenRisk.ApiClient(configuration) as api_client:
     api_instance = about_api.AboutApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    version = "v1" # str | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
 
     try:
         # Get available risk statistics names
-        # example passing only required values which don't have defaults set
-        api_response = api_instance.stats_names_only(version)
+        # example, this endpoint has no required or optional parameters
+        api_response = api_instance.stats_names_only()
 
         pprint(api_response)
 
@@ -474,10 +459,7 @@ with fds.sdk.OpenRisk.ApiClient(configuration) as api_client:
 
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **version** | **str**| Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. |
+This endpoint does not need any parameter.
 
 ### Return type
 
