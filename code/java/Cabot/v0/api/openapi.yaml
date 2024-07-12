@@ -1,0 +1,1074 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
+  description: Cabot Models API
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  title: Cabot Models API
+  version: 0.1.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/cabot
+servers:
+- description: Production server
+  url: https://api.factset.com/analytics/cabot/v0
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- description: to derive various portfolio analysis
+  name: Cabot Models API
+paths:
+  /models/skills:
+    get:
+      description: Cabot main path for Skills API.
+      operationId: getSkillsModelAnalytic
+      parameters:
+      - description: The account path of the portfolio you want to retrieve the data
+          for.
+        explode: true
+        in: query
+        name: accountPath
+        required: true
+        schema:
+          $ref: '#/components/schemas/AccountPath'
+        style: form
+      - description: The path of the benchmark you want to retrieve the data for.<br
+          /><br />
+        explode: true
+        in: query
+        name: benchmarkPath
+        required: true
+        schema:
+          $ref: '#/components/schemas/BenchmarkPath'
+        style: form
+      - description: For which period you want to retrieve the data.<br />There are
+          four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br
+          /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING,
+          3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING, (Trailing Periods (If
+          available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br
+          />You can only get the data for one period per request.<br /><br />
+        explode: true
+        in: query
+        name: period
+        required: true
+        schema:
+          $ref: '#/components/schemas/Period'
+        style: form
+      - description: The attribute represents the different factors.<br />You can
+          choose which of them (if any) you want to see analytics for.<br /><br />If
+          provided, the API response will contain both "LOW" and "HIGH" values for
+          it.<br /><br />
+        explode: true
+        in: query
+        name: attribute
+        required: false
+        schema:
+          $ref: '#/components/schemas/Attributes'
+        style: form
+      - description: Sector represents the sector based on the company's industry
+          breakdown.<br />You can choose which of them (if any) you want to see analytics
+          for.<br /><br />
+        example: energy
+        explode: true
+        in: query
+        name: sector
+        required: false
+        schema:
+          $ref: '#/components/schemas/Sectors'
+        style: form
+      - description: Region of domicile represents the region based on the company's
+          primary listing.<br />You can choose which of them (if any) you want to
+          see analytics for.<br /><br />
+        example: northAmerica
+        explode: true
+        in: query
+        name: region
+        required: false
+        schema:
+          $ref: '#/components/schemas/Regions'
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                No attribute was provided in the request:
+                  value:
+                    data:
+                      skillValues:
+                        buy: 1.48
+                        sell: -0.58
+                        sizing: 0.15
+                      attribute: null
+                An attribute was provided in the request:
+                  value:
+                    data:
+                      lowSkillValues:
+                        buy: 0.03
+                        sell: 0.24
+                        sizing: 0.37
+                      highSkillValues:
+                        buy: 2.06
+                        sell: -0.88
+                        sizing: 0.75
+                      attribute: QFL_DEBT_ASSETS
+              schema:
+                $ref: '#/components/schemas/SkillsResponseRoot'
+          description: Successful response.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Bad request, invalid query parameters.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Missing or invalid authentication.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+        "403":
+          description: User is forbidden with current credentials.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Path not found
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "415":
+          description: Missing/Invalid Content-Type header. Header needs to be set
+            to application/json.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "429":
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            Retry-After:
+              description: Time to wait in seconds before making a new request as
+                the rate limit has reached.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          description: Server error.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+        "503":
+          description: Request timed out. Retry the request in some time
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+      summary: Cabot main path for Skills API
+      tags:
+      - Cabot Models API
+      x-accepts: application/json
+  /models/sell-timing:
+    get:
+      description: Cabot main path for Sell Timing API
+      operationId: getSellTimingModelAnalytic
+      parameters:
+      - description: The account path of the portfolio you want to retrieve the data
+          for.<br /><br />
+        explode: true
+        in: query
+        name: accountPath
+        required: true
+        schema:
+          $ref: '#/components/schemas/AccountPath'
+        style: form
+      - description: The path of the benchmark you want to retrieve the data for.<br
+          /><br />
+        explode: true
+        in: query
+        name: benchmarkPath
+        required: true
+        schema:
+          $ref: '#/components/schemas/BenchmarkPath'
+        style: form
+      - description: For which period you want to retrieve the data.<br />There are
+          four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br
+          /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING,
+          3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING, (Trailing Periods (If
+          available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br
+          />You can only get the data for one period per request.<br /><br />
+        example: 2015-2017
+        explode: true
+        in: query
+        name: period
+        required: true
+        schema:
+          $ref: '#/components/schemas/Period'
+        style: form
+      - description: The attribute represents the different factors.<br />You can
+          choose which of them (if any) you want to see analytics for.<br /><br />If
+          provided, the API response will contain both "LOW" and "HIGH" values for
+          it.<br /><br />
+        example: QFL_EY
+        explode: true
+        in: query
+        name: attribute
+        required: false
+        schema:
+          $ref: '#/components/schemas/Attributes'
+        style: form
+      - description: Sector represents the sector based on the company's industry
+          breakdown.<br />You can choose which of them (if any) you want to see analytics
+          for.<br /><br />
+        example: energy
+        explode: true
+        in: query
+        name: sector
+        required: false
+        schema:
+          $ref: '#/components/schemas/Sectors'
+        style: form
+      - description: Region of domicile represents the region based on the company's
+          primary listing.<br />You can choose which of them (if any) you want to
+          see analytics for.<br /><br />
+        example: northAmerica
+        explode: true
+        in: query
+        name: region
+        required: false
+        schema:
+          $ref: '#/components/schemas/Regions'
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                No attribute was provided in the request:
+                  value:
+                    data:
+                      sellTimingValues:
+                        youngerWinner: 1.48
+                        youngerLoser: -0.58
+                        olderWinner: 0.15
+                        olderLoser: 2
+                      attribute: null
+                Attribute was provided in the request:
+                  value:
+                    data:
+                      highSellTimingValues:
+                        youngerWinner: 1.48
+                        youngerLoser: -0.58
+                        olderWinner: 0.15
+                        olderLoser: 2
+                      lowSellTimingValues:
+                        youngerWinner: 1.48
+                        youngerLoser: -0.58
+                        olderWinner: 0.15
+                        olderLoser: 2
+                      attribute: QFL_SALES_GR_1Y
+              schema:
+                $ref: '#/components/schemas/SellTimingResponseRoot'
+          description: Successful response.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Bad request, invalid query parameters.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Missing or invalid authentication.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+        "403":
+          description: User is forbidden with current credentials.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Path not found
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "415":
+          description: Missing/Invalid Content-Type header. Header needs to be set
+            to application/json.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "429":
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            Retry-After:
+              description: Time to wait in seconds before making a new request as
+                the rate limit has reached.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          description: Server error.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+        "503":
+          description: Request timed out. Retry the request in some time
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+      summary: Cabot main path for Sell Timing API
+      tags:
+      - Cabot Models API
+      x-accepts: application/json
+components:
+  schemas:
+    SkillsResponseRoot:
+      example:
+        data:
+          highSkillValues:
+            sizing: 1.4658129805029452
+            buy: 0.8008281904610115
+            sell: 6.027456183070403
+          lowSkillValues:
+            sizing: 1.4658129805029452
+            buy: 0.8008281904610115
+            sell: 6.027456183070403
+          skillValues:
+            sizing: 1.4658129805029452
+            buy: 0.8008281904610115
+            sell: 6.027456183070403
+          attribute: attribute
+      properties:
+        data:
+          $ref: '#/components/schemas/SkillsResponseOptions'
+      type: object
+    SkillsResponseOptions:
+      example:
+        highSkillValues:
+          sizing: 1.4658129805029452
+          buy: 0.8008281904610115
+          sell: 6.027456183070403
+        lowSkillValues:
+          sizing: 1.4658129805029452
+          buy: 0.8008281904610115
+          sell: 6.027456183070403
+        skillValues:
+          sizing: 1.4658129805029452
+          buy: 0.8008281904610115
+          sell: 6.027456183070403
+        attribute: attribute
+      properties:
+        highSkillValues:
+          $ref: '#/components/schemas/SkillsModelAnalytics'
+        lowSkillValues:
+          $ref: '#/components/schemas/SkillsModelAnalytics'
+        skillValues:
+          $ref: '#/components/schemas/SkillsModelAnalytics'
+        attribute:
+          nullable: true
+          type: string
+      type: object
+    SellTimingResponseRoot:
+      example:
+        data:
+          highSellTimingValues:
+            olderLoser: 5.962133916683182
+            youngerWinner: 0.8008281904610115
+            youngerLoser: 6.027456183070403
+            olderWinner: 1.4658129805029452
+          sellTimingValues:
+            olderLoser: 5.962133916683182
+            youngerWinner: 0.8008281904610115
+            youngerLoser: 6.027456183070403
+            olderWinner: 1.4658129805029452
+          lowSellTimingValues:
+            olderLoser: 5.962133916683182
+            youngerWinner: 0.8008281904610115
+            youngerLoser: 6.027456183070403
+            olderWinner: 1.4658129805029452
+          attribute: attribute
+      properties:
+        data:
+          $ref: '#/components/schemas/SellTimingResponseOptions'
+      type: object
+    SellTimingResponseOptions:
+      example:
+        highSellTimingValues:
+          olderLoser: 5.962133916683182
+          youngerWinner: 0.8008281904610115
+          youngerLoser: 6.027456183070403
+          olderWinner: 1.4658129805029452
+        sellTimingValues:
+          olderLoser: 5.962133916683182
+          youngerWinner: 0.8008281904610115
+          youngerLoser: 6.027456183070403
+          olderWinner: 1.4658129805029452
+        lowSellTimingValues:
+          olderLoser: 5.962133916683182
+          youngerWinner: 0.8008281904610115
+          youngerLoser: 6.027456183070403
+          olderWinner: 1.4658129805029452
+        attribute: attribute
+      properties:
+        highSellTimingValues:
+          $ref: '#/components/schemas/SellTimingModelAnalytics'
+        lowSellTimingValues:
+          $ref: '#/components/schemas/SellTimingModelAnalytics'
+        sellTimingValues:
+          $ref: '#/components/schemas/SellTimingModelAnalytics'
+        attribute:
+          nullable: true
+          type: string
+      type: object
+    SkillsModelAnalytics:
+      example:
+        sizing: 1.4658129805029452
+        buy: 0.8008281904610115
+        sell: 6.027456183070403
+      properties:
+        buy:
+          description: This measures effectiveness in name selection.
+          type: number
+        sell:
+          description: This quantifies the effectiveness of the sell discipline (final
+            sells). It considers the impact from selling younger positions (i.e.,
+            too quickly, too slowly, done well) and from selling older positions (i.e.,
+            too quickly, too slowly, done well).
+          type: number
+        sizing:
+          description: This quantifies the benefit of active sizing decisions including
+            initial position build up and subsequent trims and adds.
+          type: number
+      type: object
+    SellTimingModelAnalytics:
+      example:
+        olderLoser: 5.962133916683182
+        youngerWinner: 0.8008281904610115
+        youngerLoser: 6.027456183070403
+        olderWinner: 1.4658129805029452
+      properties:
+        youngerWinner:
+          description: Benefit of harvesting younger, winning positions.
+          type: number
+        youngerLoser:
+          description: Benefit of harvesting younger, losing positions.
+          type: number
+        olderWinner:
+          description: Benefit of harvesting older, winning positions
+          type: number
+        olderLoser:
+          description: Benefit of harvesting older, losing positions.
+          type: number
+      type: object
+    AccountPath:
+      description: The account path of the portfolio you want to retrieve the data
+        for.
+      example: Client:/Folder1/Cabot.ACCT
+      type: string
+    BenchmarkPath:
+      description: The path of the benchmark you want to retrieve the data for.
+      example: BENCH:SP50
+      type: string
+    Period:
+      description: For which period you want to retrieve the data.
+      type: string
+    Regions:
+      description: All currently available regions.
+      enum:
+      - africa
+      - centralAsia
+      - easternEurope
+      - middleEast
+      - northAmerica
+      - pacificRim
+      - southAmerica
+      - westernEurope
+      type: string
+    Sectors:
+      description: All currently available sectors.
+      enum:
+      - energy
+      - materials
+      - industrials
+      - consumerDiscretionary
+      - consumerStaples
+      - healthCare
+      - financials
+      - informationTechnology
+      - communicationServices
+      - utilities
+      - realEstate
+      - equityDiversified
+      - equityHealthCare
+      - equitySelfStorage
+      - equityIndustrial
+      - equityOffice
+      - equityResidential
+      - equityRetail
+      - equityLodgingAndResorts
+      - equitySpecialty
+      - equityTimberReits
+      - equityInfrastructureReits
+      - equityDataCenters
+      - mortageHomeFinancing
+      - mortageCommercialFinancing
+      type: string
+    Attributes:
+      description: 'All currently available attributes.<br/><br/>QFL_EY : EPS for
+        the most recent 12-month period/Share price<br/>QFL_PEG : Price to Earnings/Growth
+        rate<br/>QFL_OCFY : Operating cash flow (FF_OPER_CF)/Market value<br/>QFL_BP
+        : Price/book value per share ratio<br/>QFL_SP : Sales to Price (SP) Net sales/Market
+        value<br/>QFL_OCF_EARNINGS_VAR : Differences of earnings per share in both
+        positive and negative directions<br/>QFL_DY : Indicated annual dividend/Latest
+        close price<br/>QFL_NET_MGN : Net profit/Net sales * 100<br/>QFL_OPER_MGN
+        : Operating Income/Net Sales * 100<br/>QFL_ROE : Net income/Total shareholders''
+        equity<br/>QFL_CFROE : Net cash provided by/used in operating activities /Total
+        shareholders'' equity<br/>QFL_EPS_GR_5Y : Compounded annual growth rate (CAGR)
+        of EPS over the previous 5 financial years<br/>QFL_OCF_GR_5Y : Compounded
+        annual growth rate (CAGR) of CFO over the previous 5 financial years<br/>QFL_SALES_GR_5Y
+        : Compounded annual growth rate (CAGR) of Revenue over the previous 5 financial
+        years<br/>QFL_DPS_GR_5Y : Compounded annual growth rate (CAGR) of Dividend
+        over the previous 5 financial years<br/>QFL_EPS_GR_1Y : 1Y EPS Growth,Growth
+        rate of EPS over the previous financial years<br/>QFL_OCF_GR_1Y : Growth rate
+        of CFO over the previous financial years<br/>QFL_SALES_GR_1Y : Growth rate
+        of Revenue over the previous financial years<br/>QFL_LT_DEBT_EQUITY : Long-term
+        debt/Shareholders'' Equity<br/>QFL_DEBT_ASSETS : Long-term debt/total assets<br/>QFL_EBITDAEV
+        : Represents unreported fiscal year (F1) Enterprise Value to EBITDA<br/>QFL_REVEV
+        : Represents Enterprise Value to Revenue<br/>QFL_ROIC : Net Income/Two fiscal
+        period average of Total Invested Capital * 100<br/>QFL_CFROIC : Net cash provided
+        by/used in operating activities divided by the sum of the company''s total
+        shareholders'' equity and its long-term liabilities<br/>'
+      enum:
+      - QFL_EY
+      - QFL_PEG
+      - QFL_OCFY
+      - QFL_BP
+      - QFL_SP
+      - QFL_OCF_EARNINGS_VAR
+      - QFL_DY
+      - QFL_NET_MGN
+      - QFL_OPER_MGN
+      - QFL_ROE
+      - QFL_CFROE
+      - QFL_EPS_GR_5Y
+      - QFL_OCF_GR_5Y
+      - QFL_SALES_GR_5Y
+      - QFL_DPS_GR_5Y
+      - QFL_EPS_GR_1Y
+      - QFL_OCF_GR_1Y
+      - QFL_SALES_GR_1Y
+      - QFL_LT_DEBT_EQUITY
+      - QFL_DEBT_ASSETS
+      - QFL_EBITDAEV
+      - QFL_REVEV
+      - QFL_ROIC
+      - QFL_CFROIC
+      example: QFL_EY
+      type: string
+    ErrorSource:
+      properties:
+        pointer:
+          nullable: true
+          type: string
+        parameter:
+          nullable: true
+          type: string
+      type: object
+    Error:
+      properties:
+        id:
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        detail:
+          nullable: true
+          type: string
+        source:
+          $ref: '#/components/schemas/ErrorSource'
+      type: object
+    ClientErrorResponse:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/Error'
+          nullable: true
+          type: array
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

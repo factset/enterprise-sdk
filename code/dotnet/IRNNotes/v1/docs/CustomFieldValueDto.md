@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Value** | **string** |  | [optional] 
 **Options** | **List&lt;string&gt;** |  | [optional] 
 **ContactValues** | **List&lt;Guid&gt;** |  | [optional] 
+**UserTeamValues** | [**UserTeamLookupDto**](UserTeamLookupDto.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

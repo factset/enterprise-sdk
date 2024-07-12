@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "0.23.3"
+__version__ = "0.23.4"
 
 # import ApiClient
 from fds.sdk.PortfolioReportingBatcher.api_client import ApiClient

@@ -1,6 +1,6 @@
 /*
  * FactSet Prices API
- * Gain access to comprehensive global coverage for Equities & Fixed Income. Perform quick analytics by controlling the date ranges, currencies, and rolling periods, or simply request Open, High, Low, and Close prices. Easily connect pricing data with other core company data or alternative content sets using FactSet's hub and spoke symbology. <p>Equity and Fund Security types include Common Stock, ADR, GDR, Preferred, Closed-ended Fund, Exchange Traded Fund, Unit, Open-ended Fund, Exchange Traded Fund UVI, Exchange Traded Fund NAV, Preferred Equity, Non-Voting Depositary Receipt/Certificate, Alien/Foreign, Structured Product, and Temporary Instruments. Reference over 180,000+ active and inactive securities.</p><p>Fixed Income Security Types include Corporate Bonds, Treasury and Agency bonds, Government Bonds, and Municipals.</p> 
+ * Gain access to comprehensive global coverage for Equities & Fixed Income. Perform quick analytics by controlling the date ranges, currencies, and rolling periods, or simply request Open, High, Low, and Close prices. Easily connect pricing data with other core company data or alternative content sets using FactSet's hub and spoke symbology. <p>Equity and Fund Security types include Common Stock, ADR, GDR, Preferred, Closed-ended Fund, Exchange Traded Fund, Unit, Open-ended Fund, Exchange Traded Fund UVI, Exchange Traded Fund NAV, Preferred Equity, Non-Voting Depositary Receipt/Certificate, Alien/Foreign, Structured Product, and Temporary Instruments. Reference over 180,000+ active and inactive securities.</p><p>Fixed Income Security Types include Corporate Bonds, Treasury and Agency bonds, Government Bonds, and Municipals.</p><p><b>Rate limit is set to 25 requests per second</b>.</p> 
  *
  * The version of the OpenAPI document: 1.3.0
  * Contact: api@factset.com
@@ -25,6 +25,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.FactSetPrices.JSON;
@@ -52,7 +56,7 @@ public class BatchStatus implements Serializable {
   private OffsetDateTime startTime;
 
   public static final String JSON_PROPERTY_END_TIME = "endTime";
-  private OffsetDateTime endTime;
+  private JsonNullable<OffsetDateTime> endTime = JsonNullable.<OffsetDateTime>undefined();
 
   /**
    * Gets or Sets status
@@ -155,7 +159,7 @@ public class BatchStatus implements Serializable {
 
 
   public BatchStatus endTime(OffsetDateTime endTime) {
-    this.endTime = endTime;
+    this.endTime = JsonNullable.<OffsetDateTime>of(endTime);
     return this;
   }
 
@@ -165,18 +169,26 @@ public class BatchStatus implements Serializable {
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Time when the batch request is ended. This is in Eastern Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.")
-  @JsonProperty(JSON_PROPERTY_END_TIME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public OffsetDateTime getEndTime() {
-    return endTime;
+        return endTime.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_END_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEndTime(OffsetDateTime endTime) {
+
+  public JsonNullable<OffsetDateTime> getEndTime_JsonNullable() {
+    return endTime;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_END_TIME)
+  public void setEndTime_JsonNullable(JsonNullable<OffsetDateTime> endTime) {
     this.endTime = endTime;
+  }
+
+  public void setEndTime(OffsetDateTime endTime) {
+    this.endTime = JsonNullable.<OffsetDateTime>of(endTime);
   }
 
 
@@ -246,14 +258,25 @@ public class BatchStatus implements Serializable {
     BatchStatus batchStatus = (BatchStatus) o;
     return Objects.equals(this.id, batchStatus.id) &&
         Objects.equals(this.startTime, batchStatus.startTime) &&
-        Objects.equals(this.endTime, batchStatus.endTime) &&
+        equalsNullable(this.endTime, batchStatus.endTime) &&
         Objects.equals(this.status, batchStatus.status) &&
         Objects.equals(this.error, batchStatus.error);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
-    return Objects.hash(id, startTime, endTime, status, error);
+    return Objects.hash(id, startTime, hashCodeNullable(endTime), status, error);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

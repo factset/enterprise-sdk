@@ -1,5 +1,5 @@
 # FactSet.SDK.FactSetTrading.Model.ReplaceChildOrder
-EMS Replace Child Orders
+Replace Child Order
 
 ## Properties
 

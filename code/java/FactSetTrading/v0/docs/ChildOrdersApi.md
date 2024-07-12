@@ -4,19 +4,19 @@ All URIs are relative to *https://api.factset.com/trading/ems/v0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cancelChildOrder**](ChildOrdersApi.md#cancelChildOrder) | **POST** /child-orders/cancel | Cancel Child Orders
-[**createChildOrder**](ChildOrdersApi.md#createChildOrder) | **POST** /child-orders/create | Create Child Orders
-[**replaceChildOrder**](ChildOrdersApi.md#replaceChildOrder) | **POST** /child-orders/replace | Replace the Child Orders on EMS system.
+[**cancelChildOrder**](ChildOrdersApi.md#cancelChildOrder) | **POST** /child-orders/cancel | Cancel Child Orders on Trading system
+[**createChildOrder**](ChildOrdersApi.md#createChildOrder) | **POST** /child-orders/create | Create Child Orders on Trading system.
+[**replaceChildOrder**](ChildOrdersApi.md#replaceChildOrder) | **POST** /child-orders/replace | Replace the Child Orders on Trading system.
 
 
 
 ## cancelChildOrder
 
-> EMSChildOrdersResponseRoot cancelChildOrder(emSCancelChildOrdersRoot)
+> ChildOrdersResponseRoot cancelChildOrder(cancelChildOrdersRoot)
 
-Cancel Child Orders
+Cancel Child Orders on Trading system
 
-This endpoint is to cancel a specific child order.
+This endpoint is used to cancel a specific child order on Trading system.
 
 ### Example
 
@@ -59,9 +59,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         ChildOrdersApi apiInstance = new ChildOrdersApi(defaultClient);
-        EMSCancelChildOrdersRoot emSCancelChildOrdersRoot = new EMSCancelChildOrdersRoot(); // EMSCancelChildOrdersRoot | 
+        CancelChildOrdersRoot cancelChildOrdersRoot = new CancelChildOrdersRoot(); // CancelChildOrdersRoot | 
         try {
-            EMSChildOrdersResponseRoot result = apiInstance.cancelChildOrder(emSCancelChildOrdersRoot);
+            ChildOrdersResponseRoot result = apiInstance.cancelChildOrder(cancelChildOrdersRoot);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -80,11 +80,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **emSCancelChildOrdersRoot** | [**EMSCancelChildOrdersRoot**](EMSCancelChildOrdersRoot.md)|  | [optional]
+ **cancelChildOrdersRoot** | [**CancelChildOrdersRoot**](CancelChildOrdersRoot.md)|  | [optional]
 
 ### Return type
 
-[**EMSChildOrdersResponseRoot**](EMSChildOrdersResponseRoot.md)
+[**ChildOrdersResponseRoot**](ChildOrdersResponseRoot.md)
 
 ### Authorization
 
@@ -110,11 +110,11 @@ Name | Type | Description  | Notes
 
 ## createChildOrder
 
-> EMSCreateChildOrdersResponseRoot createChildOrder(emSChildOrdersRoot)
+> CreateChildOrdersResponseRoot createChildOrder(childOrdersRoot)
 
-Create Child Orders
+Create Child Orders on Trading system.
 
-This endpoint is used to create child orders.
+This endpoint is used to create child orders on Trading system.
 
 ### Example
 
@@ -157,9 +157,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         ChildOrdersApi apiInstance = new ChildOrdersApi(defaultClient);
-        EMSChildOrdersRoot emSChildOrdersRoot = new EMSChildOrdersRoot(); // EMSChildOrdersRoot | 
+        ChildOrdersRoot childOrdersRoot = new ChildOrdersRoot(); // ChildOrdersRoot | 
         try {
-            EMSCreateChildOrdersResponseRoot result = apiInstance.createChildOrder(emSChildOrdersRoot);
+            CreateChildOrdersResponseRoot result = apiInstance.createChildOrder(childOrdersRoot);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -178,11 +178,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **emSChildOrdersRoot** | [**EMSChildOrdersRoot**](EMSChildOrdersRoot.md)|  | [optional]
+ **childOrdersRoot** | [**ChildOrdersRoot**](ChildOrdersRoot.md)|  | [optional]
 
 ### Return type
 
-[**EMSCreateChildOrdersResponseRoot**](EMSCreateChildOrdersResponseRoot.md)
+[**CreateChildOrdersResponseRoot**](CreateChildOrdersResponseRoot.md)
 
 ### Authorization
 
@@ -208,11 +208,11 @@ Name | Type | Description  | Notes
 
 ## replaceChildOrder
 
-> EMSChildOrdersResponseRoot replaceChildOrder(emSReplaceChildOrdersRoot)
+> ChildOrdersResponseRoot replaceChildOrder(replaceChildOrdersRoot)
 
-Replace the Child Orders on EMS system.
+Replace the Child Orders on Trading system.
 
-This endpoint takes the child order to be replaced on the EMS system.
+This endpoint takes the child order to be replaced on the Trading system.
 
 ### Example
 
@@ -255,9 +255,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         ChildOrdersApi apiInstance = new ChildOrdersApi(defaultClient);
-        EMSReplaceChildOrdersRoot emSReplaceChildOrdersRoot = new EMSReplaceChildOrdersRoot(); // EMSReplaceChildOrdersRoot | 
+        ReplaceChildOrdersRoot replaceChildOrdersRoot = new ReplaceChildOrdersRoot(); // ReplaceChildOrdersRoot | 
         try {
-            EMSChildOrdersResponseRoot result = apiInstance.replaceChildOrder(emSReplaceChildOrdersRoot);
+            ChildOrdersResponseRoot result = apiInstance.replaceChildOrder(replaceChildOrdersRoot);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -276,11 +276,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **emSReplaceChildOrdersRoot** | [**EMSReplaceChildOrdersRoot**](EMSReplaceChildOrdersRoot.md)|  | [optional]
+ **replaceChildOrdersRoot** | [**ReplaceChildOrdersRoot**](ReplaceChildOrdersRoot.md)|  | [optional]
 
 ### Return type
 
-[**EMSChildOrdersResponseRoot**](EMSChildOrdersResponseRoot.md)
+[**ChildOrdersResponseRoot**](ChildOrdersResponseRoot.md)
 
 ### Authorization
 

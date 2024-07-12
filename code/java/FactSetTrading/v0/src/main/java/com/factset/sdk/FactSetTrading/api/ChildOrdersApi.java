@@ -11,12 +11,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import com.factset.sdk.FactSetTrading.models.CancelChildOrdersRoot;
+import com.factset.sdk.FactSetTrading.models.ChildOrdersResponseRoot;
+import com.factset.sdk.FactSetTrading.models.ChildOrdersRoot;
 import com.factset.sdk.FactSetTrading.models.ClientErrorResponse;
-import com.factset.sdk.FactSetTrading.models.EMSCancelChildOrdersRoot;
-import com.factset.sdk.FactSetTrading.models.EMSChildOrdersResponseRoot;
-import com.factset.sdk.FactSetTrading.models.EMSChildOrdersRoot;
-import com.factset.sdk.FactSetTrading.models.EMSCreateChildOrdersResponseRoot;
-import com.factset.sdk.FactSetTrading.models.EMSReplaceChildOrdersRoot;
+import com.factset.sdk.FactSetTrading.models.CreateChildOrdersResponseRoot;
+import com.factset.sdk.FactSetTrading.models.ReplaceChildOrdersRoot;
 
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -33,19 +33,19 @@ public class ChildOrdersApi {
   
   private static final Map<Integer, GenericType> cancelChildOrderResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    cancelChildOrderResponseTypeMap.put(200, new GenericType<EMSChildOrdersResponseRoot>(){});
+    cancelChildOrderResponseTypeMap.put(200, new GenericType<ChildOrdersResponseRoot>(){});
     cancelChildOrderResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
   }
 
   private static final Map<Integer, GenericType> createChildOrderResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    createChildOrderResponseTypeMap.put(200, new GenericType<EMSCreateChildOrdersResponseRoot>(){});
+    createChildOrderResponseTypeMap.put(200, new GenericType<CreateChildOrdersResponseRoot>(){});
     createChildOrderResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
   }
 
   private static final Map<Integer, GenericType> replaceChildOrderResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    replaceChildOrderResponseTypeMap.put(200, new GenericType<EMSChildOrdersResponseRoot>(){});
+    replaceChildOrderResponseTypeMap.put(200, new GenericType<ChildOrdersResponseRoot>(){});
     replaceChildOrderResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
   }
 
@@ -71,10 +71,10 @@ public class ChildOrdersApi {
   }
 
   /**
-   * Cancel Child Orders
-   * This endpoint is to cancel a specific child order.
-   * @param emSCancelChildOrdersRoot  (optional)
-   * @return EMSChildOrdersResponseRoot
+   * Cancel Child Orders on Trading system
+   * This endpoint is used to cancel a specific child order on Trading system.
+   * @param cancelChildOrdersRoot  (optional)
+   * @return ChildOrdersResponseRoot
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -89,15 +89,15 @@ public class ChildOrdersApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in sometime. </td><td>  -  </td></tr>
      </table>
    */
-  public EMSChildOrdersResponseRoot cancelChildOrder(EMSCancelChildOrdersRoot emSCancelChildOrdersRoot) throws ApiException {
-    return cancelChildOrderWithHttpInfo(emSCancelChildOrdersRoot).getData();
+  public ChildOrdersResponseRoot cancelChildOrder(CancelChildOrdersRoot cancelChildOrdersRoot) throws ApiException {
+    return cancelChildOrderWithHttpInfo(cancelChildOrdersRoot).getData();
   }
 
   /**
-   * Cancel Child Orders
-   * This endpoint is to cancel a specific child order.
-   * @param emSCancelChildOrdersRoot  (optional)
-   * @return ApiResponse&lt;EMSChildOrdersResponseRoot&gt;
+   * Cancel Child Orders on Trading system
+   * This endpoint is used to cancel a specific child order on Trading system.
+   * @param cancelChildOrdersRoot  (optional)
+   * @return ApiResponse&lt;ChildOrdersResponseRoot&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -112,8 +112,8 @@ public class ChildOrdersApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in sometime. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<EMSChildOrdersResponseRoot> cancelChildOrderWithHttpInfo(EMSCancelChildOrdersRoot emSCancelChildOrdersRoot) throws ApiException {
-    Object localVarPostBody = emSCancelChildOrdersRoot;
+  public ApiResponse<ChildOrdersResponseRoot> cancelChildOrderWithHttpInfo(CancelChildOrdersRoot cancelChildOrdersRoot) throws ApiException {
+    Object localVarPostBody = cancelChildOrdersRoot;
     
     // create path and map variables
     String localVarPath = "/child-orders/cancel";
@@ -143,7 +143,7 @@ public class ChildOrdersApi {
 
     ApiResponse<
         
-        EMSChildOrdersResponseRoot
+        ChildOrdersResponseRoot
       
     > apiResponse = apiClient.invokeAPI("ChildOrdersApi.cancelChildOrder", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -153,10 +153,10 @@ public class ChildOrdersApi {
 
   }
   /**
-   * Create Child Orders
-   * This endpoint is used to create child orders.
-   * @param emSChildOrdersRoot  (optional)
-   * @return EMSCreateChildOrdersResponseRoot
+   * Create Child Orders on Trading system.
+   * This endpoint is used to create child orders on Trading system.
+   * @param childOrdersRoot  (optional)
+   * @return CreateChildOrdersResponseRoot
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -171,15 +171,15 @@ public class ChildOrdersApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in sometime. </td><td>  -  </td></tr>
      </table>
    */
-  public EMSCreateChildOrdersResponseRoot createChildOrder(EMSChildOrdersRoot emSChildOrdersRoot) throws ApiException {
-    return createChildOrderWithHttpInfo(emSChildOrdersRoot).getData();
+  public CreateChildOrdersResponseRoot createChildOrder(ChildOrdersRoot childOrdersRoot) throws ApiException {
+    return createChildOrderWithHttpInfo(childOrdersRoot).getData();
   }
 
   /**
-   * Create Child Orders
-   * This endpoint is used to create child orders.
-   * @param emSChildOrdersRoot  (optional)
-   * @return ApiResponse&lt;EMSCreateChildOrdersResponseRoot&gt;
+   * Create Child Orders on Trading system.
+   * This endpoint is used to create child orders on Trading system.
+   * @param childOrdersRoot  (optional)
+   * @return ApiResponse&lt;CreateChildOrdersResponseRoot&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -194,8 +194,8 @@ public class ChildOrdersApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in sometime. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<EMSCreateChildOrdersResponseRoot> createChildOrderWithHttpInfo(EMSChildOrdersRoot emSChildOrdersRoot) throws ApiException {
-    Object localVarPostBody = emSChildOrdersRoot;
+  public ApiResponse<CreateChildOrdersResponseRoot> createChildOrderWithHttpInfo(ChildOrdersRoot childOrdersRoot) throws ApiException {
+    Object localVarPostBody = childOrdersRoot;
     
     // create path and map variables
     String localVarPath = "/child-orders/create";
@@ -225,7 +225,7 @@ public class ChildOrdersApi {
 
     ApiResponse<
         
-        EMSCreateChildOrdersResponseRoot
+        CreateChildOrdersResponseRoot
       
     > apiResponse = apiClient.invokeAPI("ChildOrdersApi.createChildOrder", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -235,10 +235,10 @@ public class ChildOrdersApi {
 
   }
   /**
-   * Replace the Child Orders on EMS system.
-   * This endpoint takes the child order to be replaced on the EMS system.
-   * @param emSReplaceChildOrdersRoot  (optional)
-   * @return EMSChildOrdersResponseRoot
+   * Replace the Child Orders on Trading system.
+   * This endpoint takes the child order to be replaced on the Trading system.
+   * @param replaceChildOrdersRoot  (optional)
+   * @return ChildOrdersResponseRoot
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -253,15 +253,15 @@ public class ChildOrdersApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in sometime. </td><td>  -  </td></tr>
      </table>
    */
-  public EMSChildOrdersResponseRoot replaceChildOrder(EMSReplaceChildOrdersRoot emSReplaceChildOrdersRoot) throws ApiException {
-    return replaceChildOrderWithHttpInfo(emSReplaceChildOrdersRoot).getData();
+  public ChildOrdersResponseRoot replaceChildOrder(ReplaceChildOrdersRoot replaceChildOrdersRoot) throws ApiException {
+    return replaceChildOrderWithHttpInfo(replaceChildOrdersRoot).getData();
   }
 
   /**
-   * Replace the Child Orders on EMS system.
-   * This endpoint takes the child order to be replaced on the EMS system.
-   * @param emSReplaceChildOrdersRoot  (optional)
-   * @return ApiResponse&lt;EMSChildOrdersResponseRoot&gt;
+   * Replace the Child Orders on Trading system.
+   * This endpoint takes the child order to be replaced on the Trading system.
+   * @param replaceChildOrdersRoot  (optional)
+   * @return ApiResponse&lt;ChildOrdersResponseRoot&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -276,8 +276,8 @@ public class ChildOrdersApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in sometime. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<EMSChildOrdersResponseRoot> replaceChildOrderWithHttpInfo(EMSReplaceChildOrdersRoot emSReplaceChildOrdersRoot) throws ApiException {
-    Object localVarPostBody = emSReplaceChildOrdersRoot;
+  public ApiResponse<ChildOrdersResponseRoot> replaceChildOrderWithHttpInfo(ReplaceChildOrdersRoot replaceChildOrdersRoot) throws ApiException {
+    Object localVarPostBody = replaceChildOrdersRoot;
     
     // create path and map variables
     String localVarPath = "/child-orders/replace";
@@ -307,7 +307,7 @@ public class ChildOrdersApi {
 
     ApiResponse<
         
-        EMSChildOrdersResponseRoot
+        ChildOrdersResponseRoot
       
     > apiResponse = apiClient.invokeAPI("ChildOrdersApi.replaceChildOrder", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,

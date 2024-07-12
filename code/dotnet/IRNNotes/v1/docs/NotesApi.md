@@ -1,14 +1,14 @@
 # FactSet.SDK.IRNNotes.Api.NotesApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateNote**](NotesApi.md#createnote) | **POST** /v1/notes | Create a note
-[**DeleteNote**](NotesApi.md#deletenote) | **DELETE** /v1/notes/{noteId} | Delete a Note
-[**GetNote**](NotesApi.md#getnote) | **GET** /v1/notes/{noteId} | Get details of a note
-[**GetNotes**](NotesApi.md#getnotes) | **GET** /v1/notes | Get all the notes in the specified date range filtered on the given identifiers
-[**UpdateNote**](NotesApi.md#updatenote) | **PUT** /v1/notes/{noteId} | Update a note
+[**CreateNote**](NotesApi.md#createnote) | **POST** /notes | Create a note
+[**DeleteNote**](NotesApi.md#deletenote) | **DELETE** /notes/{noteId} | Delete a Note
+[**GetNote**](NotesApi.md#getnote) | **GET** /notes/{noteId} | Get details of a note
+[**GetNotes**](NotesApi.md#getnotes) | **GET** /notes | Get all the notes in the specified date range filtered on the given identifiers
+[**UpdateNote**](NotesApi.md#updatenote) | **PUT** /notes/{noteId} | Updates a note by replacing existing note with new data
 
 
 
@@ -436,7 +436,7 @@ Name | Type | Description  | Notes
 # **UpdateNote**
 > void UpdateNote (Guid noteId, UpdateNoteDto updateNoteDto = null)
 
-Update a note
+Updates a note by replacing existing note with new data
 
 ### Example
 
@@ -483,11 +483,11 @@ namespace Example
             var apiInstance = new NotesApi(config);
 
             var noteId = "noteId_example";  // Guid | Note Id
-            var updateNoteDto = new UpdateNoteDto(); // UpdateNoteDto | Note details to update (optional) 
+            var updateNoteDto = new UpdateNoteDto(); // UpdateNoteDto | The new data for the note (optional) 
 
             try
             {
-                // Update a note
+                // Updates a note by replacing existing note with new data
                 apiInstance.UpdateNote(noteId, updateNoteDto);
             }
             catch (ApiException  e)
@@ -506,7 +506,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **noteId** | **Guid**| Note Id | 
- **updateNoteDto** | [**UpdateNoteDto**](UpdateNoteDto.md)| Note details to update | [optional] 
+ **updateNoteDto** | [**UpdateNoteDto**](UpdateNoteDto.md)| The new data for the note | [optional] 
 
 ### Return type
 void (empty response body)

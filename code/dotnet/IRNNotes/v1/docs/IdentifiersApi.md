@@ -1,10 +1,10 @@
 # FactSet.SDK.IRNNotes.Api.IdentifiersApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetIdentifiers**](IdentifiersApi.md#getidentifiers) | **GET** /v1/identifiers | Get all the identifier details for given identifiers
+[**GetIdentifiers**](IdentifiersApi.md#getidentifiers) | **GET** /identifiers | Get all the identifier details for given identifiers
 
 
 

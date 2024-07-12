@@ -112,7 +112,7 @@ public class EventsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/events";
+    String localVarPath = "/events";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -192,7 +192,7 @@ public class EventsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/notes/{noteId}/events"
+    String localVarPath = "/notes/{noteId}/events"
       .replaceAll("\\{" + "noteId" + "\\}", apiClient.escapeString(noteId.toString()));
 
     // query params
@@ -277,7 +277,7 @@ public class EventsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/notes/{noteId}/events/{recordEventId}"
+    String localVarPath = "/notes/{noteId}/events/{recordEventId}"
       .replaceAll("\\{" + "noteId" + "\\}", apiClient.escapeString(noteId.toString()))
       .replaceAll("\\{" + "recordEventId" + "\\}", apiClient.escapeString(recordEventId.toString()));
 

@@ -55,7 +55,7 @@ public class ListFileObject implements Serializable {
   private String fileName;
 
   public static final String JSON_PROPERTY_FILE_SIZE = "fileSize";
-  private Integer fileSize;
+  private Long fileSize;
 
   public static final String JSON_PROPERTY_FILE_COUNT = "fileCount";
   private Integer fileCount;
@@ -144,7 +144,7 @@ public class ListFileObject implements Serializable {
   }
 
 
-  public ListFileObject fileSize(Integer fileSize) {
+  public ListFileObject fileSize(Long fileSize) {
     this.fileSize = fileSize;
     return this;
   }
@@ -158,14 +158,14 @@ public class ListFileObject implements Serializable {
   @JsonProperty(JSON_PROPERTY_FILE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Integer getFileSize() {
+  public Long getFileSize() {
     return fileSize;
   }
 
 
   @JsonProperty(JSON_PROPERTY_FILE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFileSize(Integer fileSize) {
+  public void setFileSize(Long fileSize) {
     this.fileSize = fileSize;
   }
 

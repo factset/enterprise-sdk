@@ -1,12 +1,12 @@
 # fds.sdk.IRNNotes.EventsApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_all_events**](EventsApi.md#get_all_events) | **GET** /v1/events | Get all the record events in the specified date range filtered on the given types
-[**get_events**](EventsApi.md#get_events) | **GET** /v1/notes/{noteId}/events | Get all the record events that belong to a note
-[**get_record_event**](EventsApi.md#get_record_event) | **GET** /v1/notes/{noteId}/events/{recordEventId} | Get details of a record event of a note
+[**get_all_events**](EventsApi.md#get_all_events) | **GET** /events | Get all the record events in the specified date range filtered on the given types
+[**get_events**](EventsApi.md#get_events) | **GET** /notes/{noteId}/events | Get all the record events that belong to a note
+[**get_record_event**](EventsApi.md#get_record_event) | **GET** /notes/{noteId}/events/{recordEventId} | Get details of a record event of a note
 
 
 

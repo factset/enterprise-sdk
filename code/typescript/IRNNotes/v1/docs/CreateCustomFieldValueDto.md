@@ -14,5 +14,6 @@ Name | Type | Description | Notes
 **contactLookupValues** | **[String]** |  | [optional] 
 **optionValue** | **String** |  | [optional] 
 **optionValues** | **[String]** |  | [optional] 
+**userTeamLookupValues** | [**UserTeamLookupDto**](UserTeamLookupDto.md) |  | [optional] 
 
 

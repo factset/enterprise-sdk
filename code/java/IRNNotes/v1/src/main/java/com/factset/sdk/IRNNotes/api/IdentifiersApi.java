@@ -87,7 +87,7 @@ public class IdentifiersApi {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/v1/identifiers";
+    String localVarPath = "/identifiers";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();

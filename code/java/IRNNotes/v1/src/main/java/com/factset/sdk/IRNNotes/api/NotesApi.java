@@ -118,7 +118,7 @@ public class NotesApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/notes";
+    String localVarPath = "/notes";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -200,7 +200,7 @@ if (xIRNContributorSerial != null)
     }
     
     // create path and map variables
-    String localVarPath = "/v1/notes/{noteId}"
+    String localVarPath = "/notes/{noteId}"
       .replaceAll("\\{" + "noteId" + "\\}", apiClient.escapeString(noteId.toString()));
 
     // query params
@@ -276,7 +276,7 @@ if (xIRNContributorSerial != null)
     }
     
     // create path and map variables
-    String localVarPath = "/v1/notes/{noteId}"
+    String localVarPath = "/notes/{noteId}"
       .replaceAll("\\{" + "noteId" + "\\}", apiClient.escapeString(noteId.toString()));
 
     // query params
@@ -373,7 +373,7 @@ if (xIRNContributorSerial != null)
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/v1/notes";
+    String localVarPath = "/notes";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -425,10 +425,10 @@ if (xIRNContributorSerial != null)
 
   }
   /**
-   * Update a note
+   * Updates a note by replacing existing note with new data
    * 
    * @param noteId Note Id (required)
-   * @param updateNoteDto Note details to update (optional)
+   * @param updateNoteDto The new data for the note (optional)
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -443,10 +443,10 @@ if (xIRNContributorSerial != null)
   }
 
   /**
-   * Update a note
+   * Updates a note by replacing existing note with new data
    * 
    * @param noteId Note Id (required)
-   * @param updateNoteDto Note details to update (optional)
+   * @param updateNoteDto The new data for the note (optional)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -466,7 +466,7 @@ if (xIRNContributorSerial != null)
     }
     
     // create path and map variables
-    String localVarPath = "/v1/notes/{noteId}"
+    String localVarPath = "/notes/{noteId}"
       .replaceAll("\\{" + "noteId" + "\\}", apiClient.escapeString(noteId.toString()));
 
     // query params

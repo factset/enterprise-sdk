@@ -1,0 +1,913 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
+  description: Allow clients to upload scenario files through APIs.
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  title: Asset Cash Flow Projections API
+  version: 0.1.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/asset-cash-flow-projections-api
+servers:
+- url: https://api.factset.com/analytics/asset-cash-flow-projections/v0
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- name: Scenarios
+paths:
+  /scenarios/upload:
+    post:
+      description: This endpoint is used for uploading asset cash flow scenarios
+      operationId: uploadScenarios
+      requestBody:
+        content:
+          application/json:
+            examples:
+              example-1:
+                value:
+                  data:
+                    fileName: my_scenarios.csv
+                    asOfDate: 2024-03-01
+                    overwrite: false
+                    replaceSpecialCharacters: false
+              example-2:
+                value:
+                  data:
+                    fileName: my_scenarios.scn
+                    asOfDate: 2024-03-05
+                    overwrite: true
+                    replaceSpecialCharacters: true
+            schema:
+              $ref: '#/components/schemas/ClientScenariosUpload'
+        description: Request body
+      responses:
+        "202":
+          content:
+            application/json:
+              examples:
+                example-1:
+                  value:
+                    data:
+                      uploadId: string
+                      fileName: my_scenarios.csv
+                      signedUrl: abc.com
+                      expirationTime: 2024-03-05T14:17:08.471Z
+              schema:
+                $ref: '#/components/schemas/ClientUploadResponse'
+          description: Expected response, returns the Signed URL along with errors
+            if any.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          content:
+            application/json:
+              examples:
+                example-1:
+                  value:
+                    errors:
+                    - id: string
+                      code: Bad Request
+                      title: Failed to process the request
+                      detail: Invalid request body.
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Bad Request.Please check schema and make sure the file doesn't
+            have special characters
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Missing or invalid authentication.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          description: User is forbidden with current credentials
+          headers:
+            "X-DataDirect-Request-Key\t":
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Not Found - invalid inputs
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "409":
+          content:
+            application/json:
+              examples:
+                example-1:
+                  value:
+                    errors:
+                    - id: string
+                      code: Conflict
+                      title: Failed to process the request
+                      detail: Duplicate file names exist.
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Conflict
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            "X-FactSet-Api-Request-Key\t":
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            "X-FactSet-Api-RateLimit-Reset\t":
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Retry-After:
+              description: Time to wait in seconds before making a new request as
+                the rate limit has reached.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "503":
+          description: Request timed out. Retry the request in sometime.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                type: string
+              style: simple
+      summary: Upload actuarial scenarios
+      tags:
+      - Scenarios
+      x-contentType: application/json
+      x-accepts: application/json
+  /scenarios/{uploadId}/status:
+    get:
+      description: This endpoint is used for getting the status of a file
+      operationId: getUploadStatus
+      parameters:
+      - description: Check the status for a particular file
+        explode: false
+        in: path
+        name: uploadId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "201":
+          content:
+            application/json:
+              examples:
+                example-1:
+                  value:
+                    data:
+                      uploadId: 9629ef2697f29b3197ef330851d8ce4b
+                      fileName: factset_123022_base_30y_eur_irs.csv
+                      asOfDate: 2024-03-19
+                      type: FactSet
+                      acfpStatus: good
+                      status: created
+                      uploadDateTime: 2024-03-19T08:06:08.395Z
+                      numberOfScenarios: 10
+              schema:
+                $ref: '#/components/schemas/UploadStatusResponse'
+          description: File uploaded successfully.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "202":
+          content:
+            application/json:
+              examples:
+                example-1:
+                  value:
+                    data:
+                      uploadId: 9629ef2697f29b3197ef330851d8ce4b
+                      fileName: factset_123022_base_30y_eur_irs.csv
+                      asOfDate: 2024-03-19
+                      type: FactSet
+                      acfpStatus: pending
+                      status: queued
+                      uploadDateTime: 2024-03-19T08:06:08.395Z
+                      numberOfScenarios: 10
+                example-2:
+                  value:
+                    data:
+                      uploadId: 9629ef2697f29b3197ef330851d8ce4b
+                      fileName: factset_123022_base_30y_eur_irs.scn
+                      asOfDate: 2024-03-19
+                      type: FactSet
+                      acfpStatus: validating
+                      status: executing
+                      uploadDateTime: 2024-03-19T08:06:08.395Z
+                      numberOfScenarios: 10
+              schema:
+                $ref: '#/components/schemas/UploadStatusResponse'
+          description: File upload is in progress.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          content:
+            application/json:
+              examples:
+                example-1:
+                  value:
+                    errors:
+                    - id: string
+                      code: Bad Request
+                      title: Failed to process the request
+                      detail: Date does not fit the required date string format
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Returns file's status along with errors.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Missing or invalid authentication.
+          headers:
+            "X-DataDirect-Request-Key\t":
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            "X-FactSet-Api-Request-Key\t":
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          description: User is forbidden with current credentials
+          headers:
+            "X-DataDirect-Request-Key\t":
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            "X-FactSet-Api-Request-Key\t":
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            "X-FactSet-Api-RateLimit-Limit\t":
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Not Found - uploadId does not exist
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            "X-DataDirect-Request-Key\t":
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Retry-After:
+              description: Time to wait in seconds before making a new request as
+                the rate limit has reached.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+          headers:
+            "X-DataDirect-Request-Key\t":
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            "X-FactSet-Api-Request-Key\t":
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "503":
+          description: Request timed out. Retry the request in sometime.
+          headers:
+            "X-DataDirect-Request-Key\t":
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            "X-FactSet-Api-Request-Key\t":
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                type: string
+              style: simple
+      summary: Get scenarios upload status
+      tags:
+      - Scenarios
+      x-accepts: application/json
+components:
+  schemas:
+    ClientScenariosUpload:
+      additionalProperties: false
+      description: Details required for uploading scenario files wrapped in a data
+        object
+      example:
+        data:
+          fileName: fileName
+          asOfDate: 2000-01-23
+          overwrite: false
+          replaceSpecialCharacters: false
+      properties:
+        data:
+          $ref: '#/components/schemas/ClientScenariosUploadParameters'
+      type: object
+    ClientScenariosUploadParameters:
+      additionalProperties: false
+      description: Details required for uploading scenario files
+      example:
+        fileName: fileName
+        asOfDate: 2000-01-23
+        overwrite: false
+        replaceSpecialCharacters: false
+      properties:
+        fileName:
+          description: Scenario file name including file extension.
+          maxLength: 41
+          pattern: ^.*\.(csv|scn|fac|rts|CSV|SCN|FAC|RTS)$
+          type: string
+        asOfDate:
+          description: Scenario As of Date ( Please select a Date not later than Previous
+            Close Date)
+          format: date
+          type: string
+        overwrite:
+          default: false
+          description: Flag to indicate if existing file needs to be overwritten.
+            Please expect a 409 if the file already exists and the overwrite is not
+            set to true.
+          type: boolean
+        replaceSpecialCharacters:
+          default: false
+          description: |-
+            Flag to indicate if the special characters in the fileName can be replaced with underscore. Please expect a 400 if their exists some special characters in the filename and this parameter is not set to true.
+            - `SpecialCharacters`: .^%~$!#{} ()'`+,:/
+          type: boolean
+      required:
+      - asOfDate
+      - fileName
+      type: object
+    ClientUploadResponse:
+      description: Gives details to upload the file wrapped in a data object
+      example:
+        data:
+          fileName: fileName
+          uploadId: uploadId
+          expirationTime: 2000-01-23T04:56:07.000+00:00
+          signedUrl: signedUrl
+      properties:
+        data:
+          $ref: '#/components/schemas/ClientUploadResponseParameters'
+      type: object
+    ClientUploadResponseParameters:
+      description: Client upload status response parameters
+      example:
+        fileName: fileName
+        uploadId: uploadId
+        expirationTime: 2000-01-23T04:56:07.000+00:00
+        signedUrl: signedUrl
+      properties:
+        uploadId:
+          description: Unique Identifier for the file
+          type: string
+        fileName:
+          description: Actuarial Scenario file name
+          type: string
+        signedUrl:
+          description: Signed url to upload the scenarios file
+          type: string
+        expirationTime:
+          description: The signed URL remains valid for a duration of 4 hours and
+            is usable until it becomes invalid or outdated.
+          format: date-time
+          type: string
+      type: object
+    UploadStatusResponse:
+      description: Validation status of the uploaded file
+      example:
+        data:
+          acfpStatus: pending
+          fileName: fileName
+          uploadId: uploadId
+          numberOfScenarios: 0.8008281904610115
+          asOfDate: 2000-01-23
+          type: Tillinghast Actuarial Software (TAS)
+          uploadDateTime: 2000-01-23T04:56:07.000+00:00
+          status: queued
+      properties:
+        data:
+          $ref: '#/components/schemas/UploadStatusResponseParameters'
+      type: object
+    UploadStatusResponseParameters:
+      description: Uploaded status response parameters
+      example:
+        acfpStatus: pending
+        fileName: fileName
+        uploadId: uploadId
+        numberOfScenarios: 0.8008281904610115
+        asOfDate: 2000-01-23
+        type: Tillinghast Actuarial Software (TAS)
+        uploadDateTime: 2000-01-23T04:56:07.000+00:00
+        status: queued
+      properties:
+        uploadId:
+          description: Unique Identifier for the file
+          type: string
+        fileName:
+          description: Actuarial Scenario file name
+          type: string
+        asOfDate:
+          description: Scenario As of Date
+          format: date
+          type: string
+        type:
+          description: Actuarial Scenario File Type
+          enum:
+          - Tillinghast Actuarial Software (TAS)
+          - Milliman's MG-ALFA (ALFA)
+          - Sungard iWorks Prophet
+          - FactSet
+          type: string
+        acfpStatus:
+          description: "The ACFP status of the uploaded file, can be one of the following:\n\
+            - `pending`: File validation is pending.\n- `validating`:File is being\
+            \ validated.\n- `error`: File failed validation. \n- `replicating`: File\
+            \ is being copied.\n- `good`: File is successfully validated.\n- `preparing`:\
+            \ File is being parsed. \n- `uninitiated`: File upload is not initiated."
+          enum:
+          - pending
+          - validating
+          - error
+          - replicating
+          - good
+          - preparing
+          - uninitiated
+          type: string
+        status:
+          description: 'The status of the uploaded file, can be one of the following:'
+          enum:
+          - queued
+          - executing
+          - created
+          type: string
+        uploadDateTime:
+          description: The time stamp when the file is uploaded
+          format: date-time
+          type: string
+        numberOfScenarios:
+          description: Number of scenarios that are within a scenario file
+          type: number
+      type: object
+    Errors:
+      properties:
+        code:
+          nullable: true
+          type: string
+        detail:
+          nullable: true
+          type: string
+        id:
+          nullable: true
+          type: string
+        source:
+          $ref: '#/components/schemas/ErrorSource'
+        title:
+          nullable: true
+          type: string
+      title: Errors
+      type: object
+    ErrorSource:
+      properties:
+        pointer:
+          nullable: true
+          type: string
+        parameter:
+          nullable: true
+          type: string
+      title: ErrorSource
+      type: object
+    ClientErrorResponse:
+      description: The response schema for reporting errors
+      properties:
+        errors:
+          description: List of errors
+          items:
+            $ref: '#/components/schemas/Errors'
+          type: array
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

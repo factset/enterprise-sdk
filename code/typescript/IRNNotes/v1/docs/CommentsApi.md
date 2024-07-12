@@ -1,17 +1,17 @@
 # irnnotes.CommentsApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createComment**](CommentsApi.md#createComment) | **POST** /v1/notes/{noteId}/comments | Create a comment to a Note
-[**createCommentAttachment**](CommentsApi.md#createCommentAttachment) | **POST** /v1/notes/{noteId}/comments/{commentId}/attachments | Create a comment attachment to a Note
-[**deleteComment**](CommentsApi.md#deleteComment) | **DELETE** /v1/notes/{noteId}/comments/{commentId} | Delete a Comment from a Note
-[**downloadCommentAttachmentForComment**](CommentsApi.md#downloadCommentAttachmentForComment) | **GET** /v1/notes/{noteId}/comments/{commentId}/attachments/{attachmentId}/download | Download single attachment detail of a comment belonging to a note
-[**getComment**](CommentsApi.md#getComment) | **GET** /v1/notes/{noteId}/comments/{commentId} | Get details of a comment belonging to a note
-[**getCommentAttachments**](CommentsApi.md#getCommentAttachments) | **GET** /v1/notes/{noteId}/comments/{commentId}/attachments | Get attachments summary of a comment belonging to a note
-[**getComments**](CommentsApi.md#getComments) | **GET** /v1/notes/{noteId}/comments | Get all comments for a note
-[**patchComment**](CommentsApi.md#patchComment) | **PATCH** /v1/notes/{noteId}/comments/{commentId} | Edit a comment for a note
+[**createComment**](CommentsApi.md#createComment) | **POST** /notes/{noteId}/comments | Create a comment to a Note
+[**createCommentAttachment**](CommentsApi.md#createCommentAttachment) | **POST** /notes/{noteId}/comments/{commentId}/attachments | Create a comment attachment to a Note
+[**deleteComment**](CommentsApi.md#deleteComment) | **DELETE** /notes/{noteId}/comments/{commentId} | Delete a Comment from a Note
+[**downloadCommentAttachmentForComment**](CommentsApi.md#downloadCommentAttachmentForComment) | **GET** /notes/{noteId}/comments/{commentId}/attachments/{attachmentId}/download | Download single attachment detail of a comment belonging to a note
+[**getComment**](CommentsApi.md#getComment) | **GET** /notes/{noteId}/comments/{commentId} | Get details of a comment belonging to a note
+[**getCommentAttachments**](CommentsApi.md#getCommentAttachments) | **GET** /notes/{noteId}/comments/{commentId}/attachments | Get attachments summary of a comment belonging to a note
+[**getComments**](CommentsApi.md#getComments) | **GET** /notes/{noteId}/comments | Get all comments for a note
+[**patchComment**](CommentsApi.md#patchComment) | **PATCH** /notes/{noteId}/comments/{commentId} | Edit a comment for a note
 
 
 

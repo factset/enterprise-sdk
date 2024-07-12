@@ -4,19 +4,19 @@ All URIs are relative to *https://api.factset.com/trading/ems/v0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cancelChildOrder**](ChildOrdersApi.md#cancelChildOrder) | **POST** /child-orders/cancel | Cancel Child Orders
-[**createChildOrder**](ChildOrdersApi.md#createChildOrder) | **POST** /child-orders/create | Create Child Orders
-[**replaceChildOrder**](ChildOrdersApi.md#replaceChildOrder) | **POST** /child-orders/replace | Replace the Child Orders on EMS system.
+[**cancelChildOrder**](ChildOrdersApi.md#cancelChildOrder) | **POST** /child-orders/cancel | Cancel Child Orders on Trading system
+[**createChildOrder**](ChildOrdersApi.md#createChildOrder) | **POST** /child-orders/create | Create Child Orders on Trading system.
+[**replaceChildOrder**](ChildOrdersApi.md#replaceChildOrder) | **POST** /child-orders/replace | Replace the Child Orders on Trading system.
 
 
 
 ## cancelChildOrder
 
-> EMSChildOrdersResponseRoot cancelChildOrder(opts)
+> ChildOrdersResponseRoot cancelChildOrder(opts)
 
-Cancel Child Orders
+Cancel Child Orders on Trading system
 
-This endpoint is to cancel a specific child order.
+This endpoint is used to cancel a specific child order on Trading system.
 
 ### Example
 
@@ -52,7 +52,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new ChildOrdersApi();
 const opts = {
-  'eMSCancelChildOrdersRoot': new factsettrading.EMSCancelChildOrdersRoot() // EMSCancelChildOrdersRoot | 
+  'cancelChildOrdersRoot': new factsettrading.CancelChildOrdersRoot() // CancelChildOrdersRoot | 
 };
 
 // Call api endpoint
@@ -75,11 +75,11 @@ apiInstance.cancelChildOrder(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **eMSCancelChildOrdersRoot** | [**EMSCancelChildOrdersRoot**](EMSCancelChildOrdersRoot.md)|  | [optional] 
+ **cancelChildOrdersRoot** | [**CancelChildOrdersRoot**](CancelChildOrdersRoot.md)|  | [optional] 
 
 ### Return type
 
-[**EMSChildOrdersResponseRoot**](EMSChildOrdersResponseRoot.md)
+[**ChildOrdersResponseRoot**](ChildOrdersResponseRoot.md)
 
 ### Authorization
 
@@ -93,11 +93,11 @@ Name | Type | Description  | Notes
 
 ## createChildOrder
 
-> EMSCreateChildOrdersResponseRoot createChildOrder(opts)
+> CreateChildOrdersResponseRoot createChildOrder(opts)
 
-Create Child Orders
+Create Child Orders on Trading system.
 
-This endpoint is used to create child orders.
+This endpoint is used to create child orders on Trading system.
 
 ### Example
 
@@ -133,7 +133,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new ChildOrdersApi();
 const opts = {
-  'eMSChildOrdersRoot': new factsettrading.EMSChildOrdersRoot() // EMSChildOrdersRoot | 
+  'childOrdersRoot': {"data":{"childOrders":[{"parentId":{"basketId":"FACTSET_OMS-100823_12345","symbol":"FDS-USA"},"orderType":"market","destination":"PAPER","orderQuantity":250.01,"text":"Routing 10 orders to PAPER destination"},{"parentId":{"basketId":"FACTSET_OMS-100823_12346","symbol":"AMZN-USA"},"orderType":"market","destination":"PAPER","orderQuantity":421.01,"text":"Routing 5 orders to PAPER destination"}]}} // ChildOrdersRoot | 
 };
 
 // Call api endpoint
@@ -156,11 +156,11 @@ apiInstance.createChildOrder(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **eMSChildOrdersRoot** | [**EMSChildOrdersRoot**](EMSChildOrdersRoot.md)|  | [optional] 
+ **childOrdersRoot** | [**ChildOrdersRoot**](ChildOrdersRoot.md)|  | [optional] 
 
 ### Return type
 
-[**EMSCreateChildOrdersResponseRoot**](EMSCreateChildOrdersResponseRoot.md)
+[**CreateChildOrdersResponseRoot**](CreateChildOrdersResponseRoot.md)
 
 ### Authorization
 
@@ -174,11 +174,11 @@ Name | Type | Description  | Notes
 
 ## replaceChildOrder
 
-> EMSChildOrdersResponseRoot replaceChildOrder(opts)
+> ChildOrdersResponseRoot replaceChildOrder(opts)
 
-Replace the Child Orders on EMS system.
+Replace the Child Orders on Trading system.
 
-This endpoint takes the child order to be replaced on the EMS system.
+This endpoint takes the child order to be replaced on the Trading system.
 
 ### Example
 
@@ -214,7 +214,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new ChildOrdersApi();
 const opts = {
-  'eMSReplaceChildOrdersRoot': new factsettrading.EMSReplaceChildOrdersRoot() // EMSReplaceChildOrdersRoot | 
+  'replaceChildOrdersRoot': new factsettrading.ReplaceChildOrdersRoot() // ReplaceChildOrdersRoot | 
 };
 
 // Call api endpoint
@@ -237,11 +237,11 @@ apiInstance.replaceChildOrder(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **eMSReplaceChildOrdersRoot** | [**EMSReplaceChildOrdersRoot**](EMSReplaceChildOrdersRoot.md)|  | [optional] 
+ **replaceChildOrdersRoot** | [**ReplaceChildOrdersRoot**](ReplaceChildOrdersRoot.md)|  | [optional] 
 
 ### Return type
 
-[**EMSChildOrdersResponseRoot**](EMSChildOrdersResponseRoot.md)
+[**ChildOrdersResponseRoot**](ChildOrdersResponseRoot.md)
 
 ### Authorization
 

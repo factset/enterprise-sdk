@@ -1,14 +1,14 @@
 # NotesApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createNote**](NotesApi.md#createNote) | **POST** /v1/notes | Create a note
-[**deleteNote**](NotesApi.md#deleteNote) | **DELETE** /v1/notes/{noteId} | Delete a Note
-[**getNote**](NotesApi.md#getNote) | **GET** /v1/notes/{noteId} | Get details of a note
-[**getNotes**](NotesApi.md#getNotes) | **GET** /v1/notes | Get all the notes in the specified date range filtered on the given identifiers
-[**updateNote**](NotesApi.md#updateNote) | **PUT** /v1/notes/{noteId} | Update a note
+[**createNote**](NotesApi.md#createNote) | **POST** /notes | Create a note
+[**deleteNote**](NotesApi.md#deleteNote) | **DELETE** /notes/{noteId} | Delete a Note
+[**getNote**](NotesApi.md#getNote) | **GET** /notes/{noteId} | Get details of a note
+[**getNotes**](NotesApi.md#getNotes) | **GET** /notes | Get all the notes in the specified date range filtered on the given identifiers
+[**updateNote**](NotesApi.md#updateNote) | **PUT** /notes/{noteId} | Updates a note by replacing existing note with new data
 
 
 
@@ -408,7 +408,7 @@ Name | Type | Description  | Notes
 
 > updateNote(noteId, updateNoteDto)
 
-Update a note
+Updates a note by replacing existing note with new data
 
 ### Example
 
@@ -452,7 +452,7 @@ public class Example {
 
         NotesApi apiInstance = new NotesApi(defaultClient);
         java.util.UUID noteId = new java.util.UUID(); // java.util.UUID | Note Id
-        UpdateNoteDto updateNoteDto = new UpdateNoteDto(); // UpdateNoteDto | Note details to update
+        UpdateNoteDto updateNoteDto = new UpdateNoteDto(); // UpdateNoteDto | The new data for the note
         try {
             apiInstance.updateNote(noteId, updateNoteDto);
 
@@ -473,7 +473,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **noteId** | **java.util.UUID**| Note Id |
- **updateNoteDto** | [**UpdateNoteDto**](UpdateNoteDto.md)| Note details to update | [optional]
+ **updateNoteDto** | [**UpdateNoteDto**](UpdateNoteDto.md)| The new data for the note | [optional]
 
 ### Return type
 

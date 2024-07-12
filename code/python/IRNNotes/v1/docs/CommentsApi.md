@@ -1,17 +1,17 @@
 # fds.sdk.IRNNotes.CommentsApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_comment**](CommentsApi.md#create_comment) | **POST** /v1/notes/{noteId}/comments | Create a comment to a Note
-[**create_comment_attachment**](CommentsApi.md#create_comment_attachment) | **POST** /v1/notes/{noteId}/comments/{commentId}/attachments | Create a comment attachment to a Note
-[**delete_comment**](CommentsApi.md#delete_comment) | **DELETE** /v1/notes/{noteId}/comments/{commentId} | Delete a Comment from a Note
-[**download_comment_attachment_for_comment**](CommentsApi.md#download_comment_attachment_for_comment) | **GET** /v1/notes/{noteId}/comments/{commentId}/attachments/{attachmentId}/download | Download single attachment detail of a comment belonging to a note
-[**get_comment**](CommentsApi.md#get_comment) | **GET** /v1/notes/{noteId}/comments/{commentId} | Get details of a comment belonging to a note
-[**get_comment_attachments**](CommentsApi.md#get_comment_attachments) | **GET** /v1/notes/{noteId}/comments/{commentId}/attachments | Get attachments summary of a comment belonging to a note
-[**get_comments**](CommentsApi.md#get_comments) | **GET** /v1/notes/{noteId}/comments | Get all comments for a note
-[**patch_comment**](CommentsApi.md#patch_comment) | **PATCH** /v1/notes/{noteId}/comments/{commentId} | Edit a comment for a note
+[**create_comment**](CommentsApi.md#create_comment) | **POST** /notes/{noteId}/comments | Create a comment to a Note
+[**create_comment_attachment**](CommentsApi.md#create_comment_attachment) | **POST** /notes/{noteId}/comments/{commentId}/attachments | Create a comment attachment to a Note
+[**delete_comment**](CommentsApi.md#delete_comment) | **DELETE** /notes/{noteId}/comments/{commentId} | Delete a Comment from a Note
+[**download_comment_attachment_for_comment**](CommentsApi.md#download_comment_attachment_for_comment) | **GET** /notes/{noteId}/comments/{commentId}/attachments/{attachmentId}/download | Download single attachment detail of a comment belonging to a note
+[**get_comment**](CommentsApi.md#get_comment) | **GET** /notes/{noteId}/comments/{commentId} | Get details of a comment belonging to a note
+[**get_comment_attachments**](CommentsApi.md#get_comment_attachments) | **GET** /notes/{noteId}/comments/{commentId}/attachments | Get attachments summary of a comment belonging to a note
+[**get_comments**](CommentsApi.md#get_comments) | **GET** /notes/{noteId}/comments | Get all comments for a note
+[**patch_comment**](CommentsApi.md#patch_comment) | **PATCH** /notes/{noteId}/comments/{commentId} | Edit a comment for a note
 
 
 
@@ -70,6 +70,7 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
         author_id="author_id_example",
         parent_comment_id="parent_comment_id_example",
         body="body_example",
+        attachments_count=1,
     ) # CreateCommentDto |  (optional)
 
     try:

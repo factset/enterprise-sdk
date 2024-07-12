@@ -116,7 +116,7 @@ public class AttachmentsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/notes/{noteId}/attachments"
+    String localVarPath = "/notes/{noteId}/attachments"
       .replaceAll("\\{" + "noteId" + "\\}", apiClient.escapeString(noteId.toString()));
 
     // query params
@@ -204,7 +204,7 @@ public class AttachmentsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/notes/{noteId}/attachments/{attachmentId}/download"
+    String localVarPath = "/notes/{noteId}/attachments/{attachmentId}/download"
       .replaceAll("\\{" + "noteId" + "\\}", apiClient.escapeString(noteId.toString()))
       .replaceAll("\\{" + "attachmentId" + "\\}", apiClient.escapeString(attachmentId.toString()));
 
@@ -281,7 +281,7 @@ public class AttachmentsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/notes/{noteId}/attachments"
+    String localVarPath = "/notes/{noteId}/attachments"
       .replaceAll("\\{" + "noteId" + "\\}", apiClient.escapeString(noteId.toString()));
 
     // query params
@@ -367,7 +367,7 @@ public class AttachmentsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/notes/{noteId}/attachments/{attachmentId}"
+    String localVarPath = "/notes/{noteId}/attachments/{attachmentId}"
       .replaceAll("\\{" + "noteId" + "\\}", apiClient.escapeString(noteId.toString()))
       .replaceAll("\\{" + "attachmentId" + "\\}", apiClient.escapeString(attachmentId.toString()));
 

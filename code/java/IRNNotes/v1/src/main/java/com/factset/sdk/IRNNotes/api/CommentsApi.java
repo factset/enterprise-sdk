@@ -147,7 +147,7 @@ public class CommentsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/notes/{noteId}/comments"
+    String localVarPath = "/notes/{noteId}/comments"
       .replaceAll("\\{" + "noteId" + "\\}", apiClient.escapeString(noteId.toString()));
 
     // query params
@@ -243,7 +243,7 @@ public class CommentsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/notes/{noteId}/comments/{commentId}/attachments"
+    String localVarPath = "/notes/{noteId}/comments/{commentId}/attachments"
       .replaceAll("\\{" + "noteId" + "\\}", apiClient.escapeString(noteId.toString()))
       .replaceAll("\\{" + "commentId" + "\\}", apiClient.escapeString(commentId.toString()));
 
@@ -332,7 +332,7 @@ public class CommentsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/notes/{noteId}/comments/{commentId}"
+    String localVarPath = "/notes/{noteId}/comments/{commentId}"
       .replaceAll("\\{" + "noteId" + "\\}", apiClient.escapeString(noteId.toString()))
       .replaceAll("\\{" + "commentId" + "\\}", apiClient.escapeString(commentId.toString()));
 
@@ -424,7 +424,7 @@ public class CommentsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/notes/{noteId}/comments/{commentId}/attachments/{attachmentId}/download"
+    String localVarPath = "/notes/{noteId}/comments/{commentId}/attachments/{attachmentId}/download"
       .replaceAll("\\{" + "noteId" + "\\}", apiClient.escapeString(noteId.toString()))
       .replaceAll("\\{" + "commentId" + "\\}", apiClient.escapeString(commentId.toString()))
       .replaceAll("\\{" + "attachmentId" + "\\}", apiClient.escapeString(attachmentId.toString()));
@@ -511,7 +511,7 @@ public class CommentsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/notes/{noteId}/comments/{commentId}"
+    String localVarPath = "/notes/{noteId}/comments/{commentId}"
       .replaceAll("\\{" + "noteId" + "\\}", apiClient.escapeString(noteId.toString()))
       .replaceAll("\\{" + "commentId" + "\\}", apiClient.escapeString(commentId.toString()));
 
@@ -599,7 +599,7 @@ public class CommentsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/notes/{noteId}/comments/{commentId}/attachments"
+    String localVarPath = "/notes/{noteId}/comments/{commentId}/attachments"
       .replaceAll("\\{" + "noteId" + "\\}", apiClient.escapeString(noteId.toString()))
       .replaceAll("\\{" + "commentId" + "\\}", apiClient.escapeString(commentId.toString()));
 
@@ -680,7 +680,7 @@ public class CommentsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/notes/{noteId}/comments"
+    String localVarPath = "/notes/{noteId}/comments"
       .replaceAll("\\{" + "noteId" + "\\}", apiClient.escapeString(noteId.toString()));
 
     // query params
@@ -768,7 +768,7 @@ public class CommentsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/notes/{noteId}/comments/{commentId}"
+    String localVarPath = "/notes/{noteId}/comments/{commentId}"
       .replaceAll("\\{" + "noteId" + "\\}", apiClient.escapeString(noteId.toString()))
       .replaceAll("\\{" + "commentId" + "\\}", apiClient.escapeString(commentId.toString()));
 

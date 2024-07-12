@@ -1,13 +1,13 @@
 # AttachmentsApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createAttachment**](AttachmentsApi.md#createAttachment) | **POST** /v1/notes/{noteId}/attachments | Create an attachment for an existing note
-[**downloadAttachment**](AttachmentsApi.md#downloadAttachment) | **GET** /v1/notes/{noteId}/attachments/{attachmentId}/download | Download an attachment from a Note
-[**getAttachments**](AttachmentsApi.md#getAttachments) | **GET** /v1/notes/{noteId}/attachments | Get all the attachments belonging to a note
-[**softDeleteNoteAttachment**](AttachmentsApi.md#softDeleteNoteAttachment) | **DELETE** /v1/notes/{noteId}/attachments/{attachmentId} | Delete attachment from note
+[**createAttachment**](AttachmentsApi.md#createAttachment) | **POST** /notes/{noteId}/attachments | Create an attachment for an existing note
+[**downloadAttachment**](AttachmentsApi.md#downloadAttachment) | **GET** /notes/{noteId}/attachments/{attachmentId}/download | Download an attachment from a Note
+[**getAttachments**](AttachmentsApi.md#getAttachments) | **GET** /notes/{noteId}/attachments | Get all the attachments belonging to a note
+[**softDeleteNoteAttachment**](AttachmentsApi.md#softDeleteNoteAttachment) | **DELETE** /notes/{noteId}/attachments/{attachmentId} | Delete attachment from note
 
 
 

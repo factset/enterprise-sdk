@@ -1,6 +1,13 @@
 openapi: 3.0.1
 info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
   description: Allows users to extract, create, update and configure IRN data.
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
   title: IRN API v1
   version: "1"
 externalDocs:
@@ -8,9 +15,9 @@ externalDocs:
   url: https://developer.factset.com/api-catalog/irn-notes-api#apiDocumentation
 servers:
 - description: Production Server
-  url: https://api.factset.com/research/irn
-- description: Sandbox
-  url: https://api-sandbox.factset.com/research/irn
+  url: https://api.factset.com/research/irn/v1
+- description: Sandbox Server
+  url: https://api-sandbox.factset.com/research/irn/v1
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
@@ -21,7 +28,7 @@ tags:
 - name: Identifiers
 - name: Notes
 paths:
-  /v1/events:
+  /events:
     get:
       operationId: GetAllEvents
       parameters:
@@ -77,7 +84,7 @@ paths:
       tags:
       - Events
       x-accepts: application/json
-  /v1/identifiers:
+  /identifiers:
     get:
       operationId: GetIdentifiers
       parameters:
@@ -108,7 +115,7 @@ paths:
       tags:
       - Identifiers
       x-accepts: application/json
-  /v1/notes:
+  /notes:
     get:
       operationId: GetNotes
       parameters:
@@ -320,7 +327,7 @@ paths:
       - Notes
       x-contentType: application/json-patch+json
       x-accepts: application/json
-  /v1/notes/{noteId}:
+  /notes/{noteId}:
     delete:
       operationId: DeleteNote
       parameters:
@@ -418,7 +425,7 @@ paths:
           application/*+json:
             schema:
               $ref: '#/components/schemas/UpdateNoteDto'
-        description: Note details to update
+        description: The new data for the note
       responses:
         "200":
           description: Success
@@ -434,12 +441,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
           description: Not Found
-      summary: Update a note
+      summary: Updates a note by replacing existing note with new data
       tags:
       - Notes
       x-contentType: application/json-patch+json
       x-accepts: application/json
-  /v1/notes/{noteId}/attachments:
+  /notes/{noteId}/attachments:
     get:
       operationId: GetAttachments
       parameters:
@@ -524,7 +531,7 @@ paths:
       - Attachments
       x-contentType: multipart/form-data
       x-accepts: application/json
-  /v1/notes/{noteId}/attachments/{attachmentId}/download:
+  /notes/{noteId}/attachments/{attachmentId}/download:
     get:
       operationId: DownloadAttachment
       parameters:
@@ -569,7 +576,7 @@ paths:
       tags:
       - Attachments
       x-accepts: application/json
-  /v1/notes/{noteId}/comments:
+  /notes/{noteId}/comments:
     get:
       operationId: GetComments
       parameters:
@@ -669,7 +676,7 @@ paths:
       - Comments
       x-contentType: application/json-patch+json
       x-accepts: application/json
-  /v1/notes/{noteId}/comments/{commentId}:
+  /notes/{noteId}/comments/{commentId}:
     delete:
       operationId: DeleteComment
       parameters:
@@ -825,7 +832,7 @@ paths:
       - Comments
       x-contentType: application/json-patch+json
       x-accepts: application/json
-  /v1/notes/{noteId}/comments/{commentId}/attachments:
+  /notes/{noteId}/comments/{commentId}/attachments:
     get:
       operationId: GetCommentAttachments
       parameters:
@@ -939,7 +946,7 @@ paths:
       - Comments
       x-contentType: multipart/form-data
       x-accepts: application/json
-  /v1/notes/{noteId}/comments/{commentId}/attachments/{attachmentId}/download:
+  /notes/{noteId}/comments/{commentId}/attachments/{attachmentId}/download:
     get:
       operationId: DownloadCommentAttachmentForComment
       parameters:
@@ -992,7 +999,7 @@ paths:
       tags:
       - Comments
       x-accepts: application/json
-  /v1/notes/{noteId}/events:
+  /notes/{noteId}/events:
     get:
       operationId: GetEvents
       parameters:
@@ -1030,7 +1037,7 @@ paths:
       tags:
       - Events
       x-accepts: application/json
-  /v1/notes/{noteId}/events/{recordEventId}:
+  /notes/{noteId}/events/{recordEventId}:
     get:
       operationId: GetRecordEvent
       parameters:
@@ -1075,7 +1082,7 @@ paths:
       tags:
       - Events
       x-accepts: application/json
-  /v1/notes/{noteId}/attachments/{attachmentId}:
+  /notes/{noteId}/attachments/{attachmentId}:
     delete:
       operationId: SoftDeleteNoteAttachment
       parameters:
@@ -1135,6 +1142,15 @@ components:
           schema:
             $ref: '#/components/schemas/inline_object'
   schemas:
+    AttachmentStatus:
+      enum:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      format: int32
+      type: integer
     AttachmentSummaryDto:
       additionalProperties: false
       example:
@@ -1156,6 +1172,8 @@ components:
           format: int64
           nullable: true
           type: integer
+        status:
+          $ref: '#/components/schemas/AttachmentStatus'
       type: object
     CommentDto:
       additionalProperties: false
@@ -1250,6 +1268,7 @@ components:
     CreateCommentDto:
       additionalProperties: false
       example:
+        attachmentsCount: 0
         parentCommentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         authorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         body: body
@@ -1264,6 +1283,9 @@ components:
         body:
           nullable: true
           type: string
+        attachmentsCount:
+          format: int32
+          type: integer
       type: object
     CreateCustomFieldValueDto:
       additionalProperties: false
@@ -1286,8 +1308,16 @@ components:
         optionValues:
         - optionValues
         - optionValues
+        userTeamLookupValues:
+          userIds:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          teamIds:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
         code:
+          minLength: 1
           type: string
         integerValue:
           format: int32
@@ -1323,6 +1353,8 @@ components:
             type: string
           nullable: true
           type: array
+        userTeamLookupValues:
+          $ref: '#/components/schemas/UserTeamLookupDto'
       required:
       - code
       type: object
@@ -1366,6 +1398,13 @@ components:
           optionValues:
           - optionValues
           - optionValues
+          userTeamLookupValues:
+            userIds:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            teamIds:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - dateValue: dateValue
           code: code
           textValue: textValue
@@ -1380,6 +1419,13 @@ components:
           optionValues:
           - optionValues
           - optionValues
+          userTeamLookupValues:
+            userIds:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            teamIds:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         relatedRecords:
           meetingIds:
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -1400,6 +1446,7 @@ components:
           nullable: true
           type: string
         date:
+          minLength: 1
           type: string
         subjectId:
           format: uuid
@@ -1456,6 +1503,13 @@ components:
         options:
         - options
         - options
+        userTeamValues:
+          userIds:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          teamIds:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         contactValues:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -1478,6 +1532,8 @@ components:
             type: string
           nullable: true
           type: array
+        userTeamValues:
+          $ref: '#/components/schemas/UserTeamLookupDto'
       type: object
     EventSnippetDto:
       additionalProperties: false
@@ -1530,6 +1586,13 @@ components:
           options:
           - options
           - options
+          userTeamValues:
+            userIds:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            teamIds:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           contactValues:
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -1538,6 +1601,13 @@ components:
           options:
           - options
           - options
+          userTeamValues:
+            userIds:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            teamIds:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           contactValues:
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -1700,6 +1770,13 @@ components:
           options:
           - options
           - options
+          userTeamValues:
+            userIds:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            teamIds:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           contactValues:
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -1708,6 +1785,13 @@ components:
           options:
           - options
           - options
+          userTeamValues:
+            userIds:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            teamIds:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           contactValues:
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -1969,6 +2053,13 @@ components:
           optionValues:
           - optionValues
           - optionValues
+          userTeamLookupValues:
+            userIds:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            teamIds:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - dateValue: dateValue
           code: code
           textValue: textValue
@@ -1983,6 +2074,13 @@ components:
           optionValues:
           - optionValues
           - optionValues
+          userTeamLookupValues:
+            userIds:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            teamIds:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         noteDate: noteDate
         relatedRecords:
           meetingIds:
@@ -2067,6 +2165,29 @@ components:
       required:
       - serialNumber
       - username
+      type: object
+    UserTeamLookupDto:
+      additionalProperties: false
+      example:
+        userIds:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        teamIds:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        userIds:
+          items:
+            format: uuid
+            type: string
+          nullable: true
+          type: array
+        teamIds:
+          items:
+            format: uuid
+            type: string
+          nullable: true
+          type: array
       type: object
     inline_object:
       properties:

@@ -1,14 +1,14 @@
 # fds.sdk.IRNNotes.NotesApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_note**](NotesApi.md#create_note) | **POST** /v1/notes | Create a note
-[**delete_note**](NotesApi.md#delete_note) | **DELETE** /v1/notes/{noteId} | Delete a Note
-[**get_note**](NotesApi.md#get_note) | **GET** /v1/notes/{noteId} | Get details of a note
-[**get_notes**](NotesApi.md#get_notes) | **GET** /v1/notes | Get all the notes in the specified date range filtered on the given identifiers
-[**update_note**](NotesApi.md#update_note) | **PUT** /v1/notes/{noteId} | Update a note
+[**create_note**](NotesApi.md#create_note) | **POST** /notes | Create a note
+[**delete_note**](NotesApi.md#delete_note) | **DELETE** /notes/{noteId} | Delete a Note
+[**get_note**](NotesApi.md#get_note) | **GET** /notes/{noteId} | Get details of a note
+[**get_notes**](NotesApi.md#get_notes) | **GET** /notes | Get all the notes in the specified date range filtered on the given identifiers
+[**update_note**](NotesApi.md#update_note) | **PUT** /notes/{noteId} | Updates a note by replacing existing note with new data
 
 
 
@@ -108,6 +108,14 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
                 option_values=[
                     "option_values_example",
                 ],
+                user_team_lookup_values=UserTeamLookupDto(
+                    user_ids=[
+                        "user_ids_example",
+                    ],
+                    team_ids=[
+                        "team_ids_example",
+                    ],
+                ),
             ),
         ],
         is_personal=False,
@@ -482,7 +490,7 @@ Name | Type | Description  | Notes
 # **update_note**
 > update_note(note_id)
 
-Update a note
+Updates a note by replacing existing note with new data
 
 ### Example
 
@@ -575,14 +583,22 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
                 option_values=[
                     "option_values_example",
                 ],
+                user_team_lookup_values=UserTeamLookupDto(
+                    user_ids=[
+                        "user_ids_example",
+                    ],
+                    team_ids=[
+                        "team_ids_example",
+                    ],
+                ),
             ),
         ],
         is_personal=True,
         identifier="identifier_example",
-    ) # UpdateNoteDto | Note details to update (optional)
+    ) # UpdateNoteDto | The new data for the note (optional)
 
     try:
-        # Update a note
+        # Updates a note by replacing existing note with new data
         # example passing only required values which don't have defaults set
         # and optional values
         api_instance.update_note(note_id, update_note_dto=update_note_dto)
@@ -598,7 +614,7 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **note_id** | **str**| Note Id |
- **update_note_dto** | [**UpdateNoteDto**](UpdateNoteDto.md)| Note details to update | [optional]
+ **update_note_dto** | [**UpdateNoteDto**](UpdateNoteDto.md)| The new data for the note | [optional]
 
 ### Return type
 

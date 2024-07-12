@@ -107,10 +107,10 @@ class Frequency(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): Used for ADF job types only. Will determine the frequency between the start and end dates.. if omitted defaults to "daily", must be one of ["daily", "monthly", "weekly", ]  # noqa: E501
+            args[0] (str): Used for ADF and Vault job types only. Will determine the frequency between the start and end dates. Please note that 'weekly' frequency is not available for Vault Job type.. if omitted defaults to "daily", must be one of ["daily", "monthly", "weekly", ]  # noqa: E501
 
         Keyword Args:
-            value (str): Used for ADF job types only. Will determine the frequency between the start and end dates.. if omitted defaults to "daily", must be one of ["daily", "monthly", "weekly", ]  # noqa: E501
+            value (str): Used for ADF and Vault job types only. Will determine the frequency between the start and end dates. Please note that 'weekly' frequency is not available for Vault Job type.. if omitted defaults to "daily", must be one of ["daily", "monthly", "weekly", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -193,10 +193,10 @@ class Frequency(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): Used for ADF job types only. Will determine the frequency between the start and end dates.. if omitted defaults to "daily", must be one of ["daily", "monthly", "weekly", ]  # noqa: E501
+            args[0] (str): Used for ADF and Vault job types only. Will determine the frequency between the start and end dates. Please note that 'weekly' frequency is not available for Vault Job type.. if omitted defaults to "daily", must be one of ["daily", "monthly", "weekly", ]  # noqa: E501
 
         Keyword Args:
-            value (str): Used for ADF job types only. Will determine the frequency between the start and end dates.. if omitted defaults to "daily", must be one of ["daily", "monthly", "weekly", ]  # noqa: E501
+            value (str): Used for ADF and Vault job types only. Will determine the frequency between the start and end dates. Please note that 'weekly' frequency is not available for Vault Job type.. if omitted defaults to "daily", must be one of ["daily", "monthly", "weekly", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

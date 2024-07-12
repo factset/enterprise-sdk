@@ -1,7 +1,7 @@
 /*
  * FactSet Prices API
  *
- * Gain access to comprehensive global coverage for Equities & Fixed Income. Perform quick analytics by controlling the date ranges, currencies, and rolling periods, or simply request Open, High, Low, and Close prices. Easily connect pricing data with other core company data or alternative content sets using FactSet's hub and spoke symbology. <p>Equity and Fund Security types include Common Stock, ADR, GDR, Preferred, Closed-ended Fund, Exchange Traded Fund, Unit, Open-ended Fund, Exchange Traded Fund UVI, Exchange Traded Fund NAV, Preferred Equity, Non-Voting Depositary Receipt/Certificate, Alien/Foreign, Structured Product, and Temporary Instruments. Reference over 180,000+ active and inactive securities.</p><p>Fixed Income Security Types include Corporate Bonds, Treasury and Agency bonds, Government Bonds, and Municipals.</p> 
+ * Gain access to comprehensive global coverage for Equities & Fixed Income. Perform quick analytics by controlling the date ranges, currencies, and rolling periods, or simply request Open, High, Low, and Close prices. Easily connect pricing data with other core company data or alternative content sets using FactSet's hub and spoke symbology. <p>Equity and Fund Security types include Common Stock, ADR, GDR, Preferred, Closed-ended Fund, Exchange Traded Fund, Unit, Open-ended Fund, Exchange Traded Fund UVI, Exchange Traded Fund NAV, Preferred Equity, Non-Voting Depositary Receipt/Certificate, Alien/Foreign, Structured Product, and Temporary Instruments. Reference over 180,000+ active and inactive securities.</p><p>Fixed Income Security Types include Corporate Bonds, Treasury and Agency bonds, Government Bonds, and Municipals.</p><p><b>Rate limit is set to 25 requests per second</b>.</p> 
  *
  * The version of the OpenAPI document: 1.3.0
  * Contact: api@factset.com
@@ -78,7 +78,7 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// <param name="endTime">Time when the batch request is ended. This is in Eastern Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601..</param>
         /// <param name="status">status.</param>
         /// <param name="error">Error message..</param>
-        public BatchStatus(Guid id = default(Guid), DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), StatusEnum? status = default(StatusEnum?), string error = default(string))
+        public BatchStatus(Guid id = default(Guid), DateTime startTime = default(DateTime), DateTime? endTime = default(DateTime?), StatusEnum? status = default(StatusEnum?), string error = default(string))
         {
             this.Id = id;
             this.StartTime = startTime;
@@ -105,8 +105,8 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// Time when the batch request is ended. This is in Eastern Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.
         /// </summary>
         /// <value>Time when the batch request is ended. This is in Eastern Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.</value>
-        [DataMember(Name = "endTime", EmitDefaultValue = false)]
-        public DateTime EndTime { get; set; }
+        [DataMember(Name = "endTime", EmitDefaultValue = true)]
+        public DateTime? EndTime { get; set; }
 
         /// <summary>
         /// Error message.

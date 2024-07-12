@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "EMS API",
+    "title": "Trading API",
     "description": "Allow clients to trade orders.",
     "contact": {
       "name": "FactSet Research Systems",
@@ -12,7 +12,7 @@
       "name": "Apache License, Version 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0"
     },
-    "version": "0.3.0"
+    "version": "0.5.0"
   },
   "servers": [
     {
@@ -25,26 +25,26 @@
     }
   ],
   "paths": {
-    "/orders/create": {
+    "/inbound-orders/create": {
       "post": {
         "tags": [
-          "Orders"
+          "InboundOrders"
         ],
-        "summary": "Send orders to EMS for execution.",
-        "description": "This endpoint takes the list of orders and place them on EMS for execution.",
+        "summary": "Send inbound orders to Trading system for execution.",
+        "description": "This endpoint takes the list of inbound orders and place them on Trading system for execution.",
         "operationId": "create",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/EMSOrdersRoot"
+                "$ref": "#/components/schemas/InboundOrdersRoot"
               },
               "examples": {
                 "Multiple Orders": {
                   "value": {
                     "data": {
                       "investorId": "MyOrganization",
-                      "orders": [
+                      "inboundOrders": [
                         {
                           "clientOrderId": "OR0000001",
                           "instrument": {
@@ -52,10 +52,9 @@
                           },
                           "side": "buy",
                           "orderType": "market",
-                          "orderQuantity": 1000,
-                          "price": 450,
+                          "orderQuantity": 1000.01,
+                          "price": 450.01,
                           "currency": "USD",
-                          "settlementType": "regular",
                           "handlingInstructions": "autoOrderPublic"
                         },
                         {
@@ -65,10 +64,9 @@
                           },
                           "side": "sell",
                           "orderType": "limit",
-                          "orderQuantity": 1000,
-                          "price": 450,
+                          "orderQuantity": 1000.01,
+                          "price": 450.01,
                           "currency": "USD",
-                          "settlementType": "regular",
                           "handlingInstructions": "autoOrderPublic"
                         },
                         {
@@ -78,10 +76,9 @@
                           },
                           "side": "buy",
                           "orderType": "marketOnClose",
-                          "orderQuantity": 1000,
-                          "price": 450,
+                          "orderQuantity": 1000.01,
+                          "price": 450.01,
                           "currency": "USD",
-                          "settlementType": "regular",
                           "handlingInstructions": "autoOrderPublic"
                         }
                       ]
@@ -93,17 +90,16 @@
                   "value": {
                     "data": {
                       "investorId": "MyOrganization",
-                      "orders": [
+                      "inboundOrders": [
                         {
                           "instrument": {
                             "symbol": "GOOGL"
                           },
                           "side": "buy",
                           "orderType": "market",
-                          "orderQuantity": 1000,
-                          "price": 450,
-                          "currency": "USD",
-                          "settlementType": "regular"
+                          "orderQuantity": 1000.01,
+                          "price": 450.01,
+                          "currency": "USD"
                         }
                       ]
                     }
@@ -113,7 +109,7 @@
                   "value": {
                     "data": {
                       "investorId": "MyOrganization",
-                      "orders": [
+                      "inboundOrders": [
                         {
                           "clientOrderId": "OR0000004",
                           "instrument": {
@@ -121,14 +117,14 @@
                           },
                           "side": "buy",
                           "orderType": "market",
-                          "orderQuantity": 1000,
-                          "price": 450,
-                          "stopPrice": 500,
-                          "strikePrice": 60,
+                          "orderQuantity": 1000.01,
+                          "price": 450.01,
+                          "stopPrice": 500.01,
+                          "strikePrice": 60.01,
                           "currency": "USD",
                           "isCovered": false,
-                          "maxShow": 30,
-                          "maxFloor": 20,
+                          "maxShow": 30.01,
+                          "maxFloor": 20.01,
                           "settlementType": "regular",
                           "settlementDate": "20211024",
                           "handlingInstructions": "autoOrderPublic",
@@ -146,7 +142,7 @@
                   "value": {
                     "data": {
                       "investorId": "MyOrganization",
-                      "orders": [
+                      "inboundOrders": [
                         {
                           "instrument": {
                             "symbol": "GOOGL",
@@ -155,10 +151,9 @@
                           },
                           "side": "buy",
                           "orderType": "market",
-                          "orderQuantity": 1000,
-                          "price": 450,
+                          "orderQuantity": 1000.01,
+                          "price": 450.01,
                           "currency": "USD",
-                          "settlementType": "regular",
                           "handlingInstructions": "autoOrderPublic",
                           "account": "ACCT1"
                         }
@@ -176,7 +171,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EMSOrdersResponseRoot"
+                  "$ref": "#/components/schemas/InboundOrdersResponseRoot"
                 },
                 "example": {
                   "data": {
@@ -185,13 +180,13 @@
                         "symbol": "GOOGL",
                         "side": "buy",
                         "orderType": "market",
-                        "orderQuantity": 2500
+                        "orderQuantity": 2500.01
                       },
                       "OR123456790": {
                         "symbol": "MSFT",
                         "side": "buy",
                         "orderType": "market",
-                        "orderQuantity": 200
+                        "orderQuantity": 200.01
                       }
                     },
                     "rejected": {
@@ -199,7 +194,7 @@
                         "symbol": "TSLA",
                         "side": "buy",
                         "orderType": "market",
-                        "orderQuantity": 500
+                        "orderQuantity": 500.01
                       }
                     }
                   }
@@ -238,19 +233,19 @@
         }
       }
     },
-    "/orders/replace": {
+    "/inbound-orders/replace": {
       "post": {
         "tags": [
-          "Orders"
+          "InboundOrders"
         ],
-        "summary": "Replace the orders on EMS system.",
-        "description": "This endpoint takes the list of orders to be replaced on the EMS system.",
+        "summary": "Replace the inbound orders on Trading system.",
+        "description": "This endpoint takes the list of orders to be replaced on the Trading system.",
         "operationId": "replace",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/EMSReplaceOrdersRoot"
+                "$ref": "#/components/schemas/ReplaceInboundOrdersRoot"
               }
             }
           }
@@ -261,7 +256,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EMSOrdersResponseRoot"
+                  "$ref": "#/components/schemas/InboundOrdersResponseRoot"
                 },
                 "example": {
                   "data": {
@@ -270,13 +265,13 @@
                         "symbol": "GOOGL",
                         "side": "buy",
                         "orderType": "market",
-                        "orderQuantity": 2500
+                        "orderQuantity": 2500.01
                       },
                       "OR123456790": {
                         "symbol": "MSFT",
                         "side": "buy",
                         "orderType": "market",
-                        "orderQuantity": 200
+                        "orderQuantity": 200.01
                       }
                     },
                     "rejected": {
@@ -284,7 +279,7 @@
                         "symbol": "TSLA",
                         "side": "buy",
                         "orderType": "market",
-                        "orderQuantity": 500
+                        "orderQuantity": 500.01
                       }
                     }
                   }
@@ -323,19 +318,19 @@
         }
       }
     },
-    "/orders/cancel": {
+    "/inbound-orders/cancel": {
       "post": {
         "tags": [
-          "Orders"
+          "InboundOrders"
         ],
-        "summary": "Cancel the orders on EMS system.",
-        "description": "This endpoint takes the list of orders to be cancelled on the EMS system.",
+        "summary": "Cancel the inbound orders on Trading system.",
+        "description": "This endpoint takes the list of inbound orders to be cancelled on the Trading system.",
         "operationId": "cancel",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/EMSCancelOrdersRoot"
+                "$ref": "#/components/schemas/CancelInboundOrdersRoot"
               }
             }
           }
@@ -346,7 +341,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EMSOrdersResponseRoot"
+                  "$ref": "#/components/schemas/InboundOrdersResponseRoot"
                 },
                 "example": {
                   "data": {
@@ -355,13 +350,13 @@
                         "symbol": "GOOGL",
                         "side": "buy",
                         "orderType": "market",
-                        "orderQuantity": 2500
+                        "orderQuantity": 2500.01
                       },
                       "OR123456790": {
                         "symbol": "MSFT",
                         "side": "buy",
                         "orderType": "market",
-                        "orderQuantity": 200
+                        "orderQuantity": 200.01
                       }
                     },
                     "rejected": {
@@ -369,7 +364,7 @@
                         "symbol": "TSLA",
                         "side": "buy",
                         "orderType": "market",
-                        "orderQuantity": 500
+                        "orderQuantity": 500.01
                       }
                     }
                   }
@@ -413,14 +408,97 @@
         "tags": [
           "ChildOrders"
         ],
-        "summary": "Create Child Orders",
-        "description": "This endpoint is used to create child orders.",
+        "summary": "Create Child Orders on Trading system.",
+        "description": "This endpoint is used to create child orders on Trading system.",
         "operationId": "createChildOrder",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/EMSChildOrdersRoot"
+                "$ref": "#/components/schemas/ChildOrdersRoot"
+              },
+              "examples": {
+                "Multiple Orders": {
+                  "value": {
+                    "data": {
+                      "childOrders": [
+                        {
+                          "parentId": {
+                            "basketId": "FACTSET_OMS-100823_12345",
+                            "symbol": "FDS-USA"
+                          },
+                          "orderType": "market",
+                          "destination": "PAPER",
+                          "orderQuantity": 250.01,
+                          "text": "Routing 10 orders to PAPER destination"
+                        },
+                        {
+                          "parentId": {
+                            "basketId": "FACTSET_OMS-100823_12346",
+                            "symbol": "AMZN-USA"
+                          },
+                          "orderType": "market",
+                          "destination": "PAPER",
+                          "orderQuantity": 421.01,
+                          "text": "Routing 5 orders to PAPER destination"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "Single Order (Minimum Fields)": {
+                  "summary": "Very basic single order with only required fields.",
+                  "value": {
+                    "data": {
+                      "childOrders": [
+                        {
+                          "parentId": {
+                            "basketId": "FACTSET_OMS-100823_12345",
+                            "symbol": "FDS-USA"
+                          },
+                          "orderType": "market",
+                          "destination": "PAPER",
+                          "orderQuantity": 250.01,
+                          "text": "Routing 10 orders to PAPER destination"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "Single Order": {
+                  "value": {
+                    "data": {
+                      "childOrders": [
+                        {
+                          "parentId": {
+                            "symbol": "FDS-USA",
+                            "basketId": "FACTSET_OMS-100823_12345"
+                          },
+                          "side": "buy",
+                          "orderType": "market",
+                          "orderQuantity": 250.01,
+                          "price": 450.01,
+                          "timeInForce": {
+                            "tif": "day",
+                            "expireDate": "20230823",
+                            "expireTime": "20230823-12:20:25"
+                          },
+                          "handlingInstructions": "autoOrderPublic",
+                          "exDestination": "America Stock Exchange",
+                          "destination": "PAPER",
+                          "stopPrice": 250.01,
+                          "maxFloor": 100.01,
+                          "minQuantity": 120.01,
+                          "settlementType": "regular",
+                          "settlementDate": "20230823",
+                          "executionInstructions": "notHeld",
+                          "locateRequired": false,
+                          "text": "routing 10 orders to PAPER destination"
+                        }
+                      ]
+                    }
+                  }
+                }
               }
             }
           }
@@ -431,7 +509,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EMSCreateChildOrdersResponseRoot"
+                  "$ref": "#/components/schemas/CreateChildOrdersResponseRoot"
                 },
                 "example": {
                   "data": {
@@ -443,11 +521,10 @@
                       }
                     },
                     "rejected": {
-                      "3280015": {
-                        "message": "Ticket does not exist for ticketid: null",
-                        "basketId": "FACTSET_OMS-100823_12345",
-                        "ticketId": "RKPW.3280015",
-                        "symbol": "FDS-USA"
+                      "3280017": {
+                        "message": "Basket is not present for given basket id: FACTSET_OMS-100823_12346",
+                        "basketId": "FACTSET_OMS-100823_12346",
+                        "symbol": "AMZN-USA"
                       }
                     }
                   }
@@ -491,14 +568,14 @@
         "tags": [
           "ChildOrders"
         ],
-        "summary": "Replace the Child Orders on EMS system.",
-        "description": "This endpoint takes the child order to be replaced on the EMS system.",
+        "summary": "Replace the Child Orders on Trading system.",
+        "description": "This endpoint takes the child order to be replaced on the Trading system.",
         "operationId": "replaceChildOrder",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/EMSReplaceChildOrdersRoot"
+                "$ref": "#/components/schemas/ReplaceChildOrdersRoot"
               }
             }
           }
@@ -509,7 +586,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EMSChildOrdersResponseRoot"
+                  "$ref": "#/components/schemas/ChildOrdersResponseRoot"
                 },
                 "example": {
                   "data": {
@@ -567,14 +644,14 @@
         "tags": [
           "ChildOrders"
         ],
-        "summary": "Cancel Child Orders",
-        "description": "This endpoint is to cancel a specific child order.",
+        "summary": "Cancel Child Orders on Trading system",
+        "description": "This endpoint is used to cancel a specific child order on Trading system.",
         "operationId": "cancelChildOrder",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/EMSCancelChildOrdersRoot"
+                "$ref": "#/components/schemas/CancelChildOrdersRoot"
               }
             }
           }
@@ -585,7 +662,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EMSChildOrdersResponseRoot"
+                  "$ref": "#/components/schemas/ChildOrdersResponseRoot"
                 },
                 "example": {
                   "data": {
@@ -637,6 +714,132 @@
           }
         }
       }
+    },
+    "/parent-orders/update": {
+      "put": {
+        "summary": "Update Parent Orders",
+        "tags": [
+          "ParentOrders"
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ParentOrdersUpdateResponseRoot"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "parentId": {
+                        "basketId": "valid basket id",
+                        "symbol": "AMZN US"
+                      },
+                      "status": "success"
+                    },
+                    {
+                      "parentId": {
+                        "basketId": "valid basket id",
+                        "symbol": "GOOGL"
+                      },
+                      "status": "failed",
+                      "reason": "reason for failure"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid parameters provided.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication."
+          },
+          "403": {
+            "description": "User is forbidden with current credentials."
+          },
+          "415": {
+            "description": "Missing/Invalid Content-Type header. Header needs to be set to application/json."
+          },
+          "429": {
+            "description": "Rate limit reached. Wait before sending further requests."
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting."
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime."
+          }
+        },
+        "operationId": "updateParentOrder",
+        "description": "This endpoint allows the user to update parent orders which are already present in Trading system.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParentOrdersUpdateRoot"
+              },
+              "examples": {
+                "Single Order": {
+                  "value": {
+                    "data": {
+                      "parentOrders": [
+                        {
+                          "parentId": {
+                            "symbol": "AMZN US",
+                            "basketId": "valid basket id"
+                          },
+                          "userGroup": "API",
+                          "userDefinedFields": {
+                            "currency": "INR"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "Multiple Orders": {
+                  "value": {
+                    "data": {
+                      "parentOrders": [
+                        {
+                          "parentId": {
+                            "symbol": "AMZN US",
+                            "basketId": "valid basket id"
+                          },
+                          "userGroup": "API",
+                          "userDefinedFields": {
+                            "currency": "INR"
+                          }
+                        },
+                        {
+                          "parentId": {
+                            "symbol": "GOOGL",
+                            "basketId": "valid basket id"
+                          },
+                          "userGroup": "API",
+                          "userDefinedFields": {
+                            "maxPrice": "300.010"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -655,7 +858,7 @@
         },
         "description": "Client Error Response"
       },
-      "EMSCancelChildOrder": {
+      "CancelChildOrder": {
         "required": [
           "ticketId"
         ],
@@ -673,34 +876,34 @@
             "example": "mistyped order quantity to be routed"
           }
         },
-        "description": "EMS Cancel Child Order"
+        "description": "Cancel Child Order"
       },
-      "EMSCancelChildOrders": {
+      "CancelChildOrders": {
         "required": [
           "childOrders"
         ],
         "type": "object",
         "properties": {
           "childOrders": {
-            "maxItems": 1,
+            "maxItems": 1000,
             "minItems": 1,
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/EMSCancelChildOrder"
+              "$ref": "#/components/schemas/CancelChildOrder"
             }
           }
         },
-        "description": "EMS Cancel Child Orders"
+        "description": "Cancel Child Orders"
       },
-      "EMSCancelChildOrdersRoot": {
+      "CancelChildOrdersRoot": {
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/EMSCancelChildOrders"
+            "$ref": "#/components/schemas/CancelChildOrders"
           }
         }
       },
-      "EMSCancelOrder": {
+      "CancelInboundOrder": {
         "required": [
           "originalClientOrderId"
         ],
@@ -716,9 +919,12 @@
             "nullable": true
           }
         },
-        "description": "EMS Cancel Order"
+        "description": "Cancel Inbound Order"
       },
-      "EMSCancelOrders": {
+      "CancelInboundOrders": {
+        "required": [
+          "inboundOrders"
+        ],
         "type": "object",
         "properties": {
           "investorId": {
@@ -727,26 +933,27 @@
             "nullable": true,
             "example": "DEMO-12345"
           },
-          "orders": {
+          "inboundOrders": {
             "type": "array",
+            "maxItems": 1000,
+            "minItems": 1,
             "items": {
-              "$ref": "#/components/schemas/EMSCancelOrder"
+              "$ref": "#/components/schemas/CancelInboundOrder"
             },
-            "description": "List of orders to cancel",
-            "nullable": true
+            "description": "List of inbound orders to cancel"
           }
         },
-        "description": "EMS Cancel Orders"
+        "description": "Cancel Inbound Orders"
       },
-      "EMSCancelOrdersRoot": {
+      "CancelInboundOrdersRoot": {
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/EMSCancelOrders"
+            "$ref": "#/components/schemas/CancelInboundOrders"
           }
         }
       },
-      "EMSChildOrder": {
+      "ChildOrder": {
         "required": [
           "destination",
           "orderQuantity",
@@ -790,14 +997,14 @@
             "type": "number",
             "description": "Number of shares/Quantity to be routed. Must be less than or equal to the orderQuantity of the parent order.",
             "format": "double",
-            "example": 250
+            "example": 250.01
           },
           "price": {
             "type": "number",
             "description": "Order price per share.",
             "format": "double",
             "nullable": true,
-            "example": 450
+            "example": 450.01
           },
           "timeInForce": {
             "$ref": "#/components/schemas/TimeInForce"
@@ -830,21 +1037,21 @@
             "description": "Stop-loss price to buy/sell stock at market.",
             "format": "double",
             "nullable": true,
-            "example": 250
+            "example": 250.01
           },
           "maxFloor": {
             "type": "number",
             "description": "Maximum number of shares within an order to be shown on the exchange floor at any given time.",
             "format": "double",
             "nullable": true,
-            "example": 100
+            "example": 100.01
           },
           "minQuantity": {
             "type": "number",
             "description": "Minimum quantity of an order to be executed.",
             "format": "double",
             "nullable": true,
-            "example": 120
+            "example": 120.01
           },
           "settlementType": {
             "enum": [
@@ -952,9 +1159,9 @@
             "nullable": true
           }
         },
-        "description": "EMS Child Orders"
+        "description": "Child Order"
       },
-      "EMSChildOrderInfo": {
+      "ChildOrderInfo": {
         "type": "object",
         "properties": {
           "ticketId": {
@@ -970,9 +1177,9 @@
             "example": "FDS-USA"
           }
         },
-        "description": "EMS Child Order Info"
+        "description": "Child Order Info"
       },
-      "EMSChildOrderRejectedInfo": {
+      "ChildOrderRejectInfo": {
         "type": "object",
         "properties": {
           "message": {
@@ -994,31 +1201,31 @@
             "example": "FDS-USA"
           }
         },
-        "description": "EMS Child Order Rejected Info"
+        "description": "Child Order Rejected Info"
       },
-      "EMSChildOrders": {
+      "ChildOrders": {
         "required": [
           "childOrders"
         ],
         "type": "object",
         "properties": {
           "childOrders": {
-            "maxItems": 1,
+            "maxItems": 1000,
             "minItems": 1,
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/EMSChildOrder"
+              "$ref": "#/components/schemas/ChildOrder"
             }
           }
         }
       },
-      "EMSChildOrdersResponse": {
+      "ChildOrdersResponse": {
         "type": "object",
         "properties": {
           "accepted": {
             "type": "object",
             "additionalProperties": {
-              "$ref": "#/components/schemas/EMSChildOrderInfo"
+              "$ref": "#/components/schemas/ChildOrderInfo"
             },
             "description": "Accepted Orders. Key is the clientOrderId of the request.",
             "nullable": true
@@ -1026,35 +1233,35 @@
           "rejected": {
             "type": "object",
             "additionalProperties": {
-              "$ref": "#/components/schemas/EMSChildOrderRejectedInfo"
+              "$ref": "#/components/schemas/ChildOrderRejectInfo"
             },
             "description": "Rejected Orders. Key is the clientOrderId of the request.",
             "nullable": true
           }
         },
-        "description": "EMS Child Orders Response"
+        "description": "Child Orders Response"
       },
-      "EMSChildOrdersResponseRoot": {
+      "ChildOrdersResponseRoot": {
         "required": [
           "data"
         ],
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/EMSChildOrdersResponse"
+            "$ref": "#/components/schemas/ChildOrdersResponse"
           }
         },
-        "description": "EMS Response"
+        "description": "Trading Response"
       },
-      "EMSChildOrdersRoot": {
+      "ChildOrdersRoot": {
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/EMSChildOrders"
+            "$ref": "#/components/schemas/ChildOrders"
           }
         }
       },
-      "EMSCreateChildOrderInfo": {
+      "CreateChildOrderInfo": {
         "type": "object",
         "properties": {
           "basketId": {
@@ -1077,7 +1284,7 @@
           }
         }
       },
-      "EMSCreateChildOrderRejectedInfo": {
+      "CreateChildOrderRejectInfo": {
         "type": "object",
         "properties": {
           "message": {
@@ -1106,13 +1313,13 @@
           }
         }
       },
-      "EMSCreateChildOrdersResponse": {
+      "CreateChildOrdersResponse": {
         "type": "object",
         "properties": {
           "accepted": {
             "type": "object",
             "additionalProperties": {
-              "$ref": "#/components/schemas/EMSCreateChildOrderInfo"
+              "$ref": "#/components/schemas/CreateChildOrderInfo"
             },
             "description": "Accepted Orders. Key is the clientOrderId of the request.",
             "nullable": true
@@ -1120,26 +1327,26 @@
           "rejected": {
             "type": "object",
             "additionalProperties": {
-              "$ref": "#/components/schemas/EMSCreateChildOrderRejectedInfo"
+              "$ref": "#/components/schemas/CreateChildOrderRejectInfo"
             },
             "description": "Rejected Orders. Key is the clientOrderId of the request.",
             "nullable": true
           }
         }
       },
-      "EMSCreateChildOrdersResponseRoot": {
+      "CreateChildOrdersResponseRoot": {
         "required": [
           "data"
         ],
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/EMSCreateChildOrdersResponse"
+            "$ref": "#/components/schemas/CreateChildOrdersResponse"
           }
         },
-        "description": "EMS Response"
+        "description": "Trading Response"
       },
-      "EMSOrder": {
+      "InboundOrder": {
         "required": [
           "instrument",
           "orderType",
@@ -1185,28 +1392,28 @@
             "type": "number",
             "description": "Number of shares/Quantity.",
             "format": "double",
-            "example": 350
+            "example": 350.01
           },
           "price": {
             "type": "number",
             "description": "Order price per share",
             "format": "double",
             "nullable": true,
-            "example": 800
+            "example": 800.01
           },
           "stopPrice": {
             "type": "number",
             "description": "Stop-loss price to buy/sell stock at market.",
             "format": "double",
             "nullable": true,
-            "example": 800
+            "example": 800.01
           },
           "strikePrice": {
             "type": "number",
             "description": "Strike Price for an Option.",
             "format": "double",
             "nullable": true,
-            "example": 400
+            "example": 400.01
           },
           "currency": {
             "type": "string",
@@ -1225,21 +1432,21 @@
             "description": "Maximum number of shares within an order to be shown to other customers.",
             "format": "double",
             "nullable": true,
-            "example": 100
+            "example": 100.01
           },
           "maxFloor": {
             "type": "number",
             "description": "Maximum number of shares within an order to be shown on the exchange floor at any given time.",
             "format": "double",
             "nullable": true,
-            "example": 100
+            "example": 100.01
           },
           "prevClosePrice": {
             "type": "number",
             "description": "Previous closing price of security.",
             "format": "double",
             "nullable": true,
-            "example": 100
+            "example": 100.01
           },
           "settlementType": {
             "enum": [
@@ -1366,9 +1573,9 @@
             "nullable": true
           }
         },
-        "description": "EMS Order"
+        "description": "Inbound Order"
       },
-      "EMSOrderMetadata": {
+      "InboundOrderMetadata": {
         "type": "object",
         "properties": {
           "symbol": {
@@ -1427,11 +1634,11 @@
             "nullable": true
           }
         },
-        "description": "EMS Order Metadata"
+        "description": "Inbound Order Metadata"
       },
-      "EMSOrders": {
+      "InboundOrders": {
         "required": [
-          "orders"
+          "inboundOrders"
         ],
         "type": "object",
         "properties": {
@@ -1441,23 +1648,25 @@
             "nullable": true,
             "example": "DEMO-12345"
           },
-          "orders": {
+          "inboundOrders": {
             "type": "array",
+            "maxItems": 1000,
+            "minItems": 1,
             "items": {
-              "$ref": "#/components/schemas/EMSOrder"
+              "$ref": "#/components/schemas/InboundOrder"
             },
-            "description": "List of orders"
+            "description": "List of inbound orders"
           }
         },
-        "description": "EMS Orders"
+        "description": "Inbound Orders"
       },
-      "EMSOrdersResponse": {
+      "InboundOrdersResponse": {
         "type": "object",
         "properties": {
           "accepted": {
             "type": "object",
             "additionalProperties": {
-              "$ref": "#/components/schemas/EMSOrderMetadata"
+              "$ref": "#/components/schemas/InboundOrderMetadata"
             },
             "description": "Accepted Orders",
             "nullable": true
@@ -1465,42 +1674,42 @@
           "rejected": {
             "type": "object",
             "additionalProperties": {
-              "$ref": "#/components/schemas/EMSOrderMetadata"
+              "$ref": "#/components/schemas/InboundOrderMetadata"
             },
             "description": "Rejected Orders",
             "nullable": true
           }
         },
-        "description": "EMS Orders Response"
+        "description": "Inbound Orders Response"
       },
-      "EMSOrdersResponseRoot": {
+      "InboundOrdersResponseRoot": {
         "required": [
           "data"
         ],
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/EMSOrdersResponse"
+            "$ref": "#/components/schemas/InboundOrdersResponse"
           }
         },
-        "description": "EMS Response"
+        "description": "Trading Response"
       },
-      "EMSOrdersRoot": {
+      "InboundOrdersRoot": {
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/EMSOrders"
+            "$ref": "#/components/schemas/InboundOrders"
           }
         }
       },
-      "EMSReplaceChildOrders": {
+      "ReplaceChildOrders": {
         "required": [
           "childOrders"
         ],
         "type": "object",
         "properties": {
           "childOrders": {
-            "maxItems": 1,
+            "maxItems": 1000,
             "minItems": 1,
             "type": "array",
             "items": {
@@ -1509,17 +1718,17 @@
           }
         }
       },
-      "EMSReplaceChildOrdersRoot": {
+      "ReplaceChildOrdersRoot": {
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/EMSReplaceChildOrders"
+            "$ref": "#/components/schemas/ReplaceChildOrders"
           }
         }
       },
-      "EMSReplaceOrder": {
+      "ReplaceInboundOrder": {
         "required": [
-          "order",
+          "inboundOrder",
           "originalClientOrderId"
         ],
         "type": "object",
@@ -1528,13 +1737,16 @@
             "type": "string",
             "description": "Unique identifier of the original order, generated in Create."
           },
-          "order": {
-            "$ref": "#/components/schemas/EMSOrder"
+          "inboundOrder": {
+            "$ref": "#/components/schemas/InboundOrder"
           }
         },
-        "description": "EMS Replace Order"
+        "description": "Replace Inbound Order"
       },
-      "EMSReplaceOrders": {
+      "ReplaceInboundOrders": {
+        "required": [
+          "inboundOrders"
+        ],
         "type": "object",
         "properties": {
           "investorId": {
@@ -1543,22 +1755,23 @@
             "nullable": true,
             "example": "DEMO-12345"
           },
-          "orders": {
+          "inboundOrders": {
             "type": "array",
+            "maxItems": 1000,
+            "minItems": 1,
             "items": {
-              "$ref": "#/components/schemas/EMSReplaceOrder"
+              "$ref": "#/components/schemas/ReplaceInboundOrder"
             },
-            "description": "List of orders to replace",
-            "nullable": true
+            "description": "List of inbound orders to replace"
           }
         },
-        "description": "EMS Replace Orders"
+        "description": "Replace Inbound Orders"
       },
-      "EMSReplaceOrdersRoot": {
+      "ReplaceInboundOrdersRoot": {
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/EMSReplaceOrders"
+            "$ref": "#/components/schemas/ReplaceInboundOrders"
           }
         }
       },
@@ -1691,6 +1904,24 @@
         },
         "description": "Unique identifier to identify the parent order."
       },
+      "ResponseParentId": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "Ticker symbol",
+            "nullable": true,
+            "example": "FDS-USA"
+          },
+          "basketId": {
+            "type": "string",
+            "description": "Unique identifier assigned to basket order. Can be fetched from the WebSocket Order Update API.",
+            "nullable": true,
+            "example": "FACTSET_OMS-100823_12345"
+          }
+        },
+        "description": "Unique identifier to identify the parent order."
+      },
       "ReplaceChildOrder": {
         "required": [
           "ticketId"
@@ -1722,14 +1953,14 @@
             "description": "Number of shares/Quantity to be routed. Must be less than or equal to the orderQuantity of the parent order.",
             "format": "double",
             "nullable": true,
-            "example": 100
+            "example": 100.01
           },
           "price": {
             "type": "number",
             "description": "Order price per share.",
             "format": "double",
             "nullable": true,
-            "example": 450
+            "example": 450.01
           },
           "timeInForce": {
             "$ref": "#/components/schemas/TimeInForce"
@@ -1750,21 +1981,21 @@
             "description": "Stop-loss price to buy/sell stock at market.",
             "format": "double",
             "nullable": true,
-            "example": 120
+            "example": 120.01
           },
           "maxFloor": {
             "type": "number",
             "description": "Maximum number of shares within an order to be shown on the exchange floor at any given time.",
             "format": "double",
             "nullable": true,
-            "example": 200
+            "example": 200.01
           },
           "minQuantity": {
             "type": "number",
             "description": "Minimum quantity of an order to be executed.",
             "format": "double",
             "nullable": true,
-            "example": 120
+            "example": 120.01
           },
           "settlementType": {
             "enum": [
@@ -1867,7 +2098,7 @@
             "nullable": true
           }
         },
-        "description": "EMS Replace Child Orders"
+        "description": "Replace Child Order"
       },
       "TimeInForce": {
         "type": "object",
@@ -1884,7 +2115,8 @@
               "atc"
             ],
             "type": "string",
-            "description": "Time in force: if goodTillDate, then Expire Time or Expire Date is a required field"
+            "description": "Time in force: if goodTillDate, then Expire Time or Expire Date is a required field",
+            "nullable": true
           },
           "expireDate": {
             "type": "string",
@@ -1900,6 +2132,93 @@
           }
         },
         "description": "Time in Force"
+      },
+      "ParentOrder": {
+        "type": "object",
+        "description": "Parent Order",
+        "required": [
+          "parentId"
+        ],
+        "properties": {
+          "parentId": {
+            "$ref": "#/components/schemas/ParentId"
+          },
+          "userGroup": {
+            "type": "string",
+            "description": "User groups",
+            "nullable": true
+          },
+          "userDefinedFields": {
+            "type": "object",
+            "description": "User defined fields.",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        }
+      },
+      "ParentOrdersUpdate": {
+        "required": [
+          "parentOrders"
+        ],
+        "type": "object",
+        "properties": {
+          "parentOrders": {
+            "type": "array",
+            "maxItems": 1000,
+            "minItems": 1,
+            "items": {
+              "$ref": "#/components/schemas/ParentOrder"
+            },
+            "description": "Parent Orders Update"
+          }
+        }
+      },
+      "ParentOrdersUpdateRoot": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ParentOrdersUpdate"
+          }
+        }
+      },
+      "ParentOrdersUpdateResponse": {
+        "type": "object",
+        "description": "Parent Orders Update Response",
+        "properties": {
+          "parentId": {
+            "$ref": "#/components/schemas/ResponseParentId"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "success",
+              "failed"
+            ],
+            "description": "Order status."
+          },
+          "reason": {
+            "type": "string",
+            "description": "Reason for failure.",
+            "nullable": true
+          }
+        }
+      },
+      "ParentOrdersUpdateResponseRoot": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "description": "Parent Orders Update Response Root",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParentOrdersUpdateResponse"
+            }
+          }
+        }
       }
     },
     "securitySchemes": {
@@ -1928,12 +2247,16 @@
   ],
   "tags": [
     {
-      "name": "Orders",
+      "name": "InboundOrders",
       "description": "These endpoints relate to Order Entry."
     },
     {
       "name": "ChildOrders",
       "description": "These endpoints relate to Order Routing."
+    },
+    {
+      "name": "ParentOrders",
+      "description": "This endpoint relates to Parent Order Edit."
     }
   ],
   "externalDocs": {

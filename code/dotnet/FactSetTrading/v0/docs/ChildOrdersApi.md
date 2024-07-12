@@ -4,19 +4,19 @@ All URIs are relative to *https://api.factset.com/trading/ems/v0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CancelChildOrder**](ChildOrdersApi.md#cancelchildorder) | **POST** /child-orders/cancel | Cancel Child Orders
-[**CreateChildOrder**](ChildOrdersApi.md#createchildorder) | **POST** /child-orders/create | Create Child Orders
-[**ReplaceChildOrder**](ChildOrdersApi.md#replacechildorder) | **POST** /child-orders/replace | Replace the Child Orders on EMS system.
+[**CancelChildOrder**](ChildOrdersApi.md#cancelchildorder) | **POST** /child-orders/cancel | Cancel Child Orders on Trading system
+[**CreateChildOrder**](ChildOrdersApi.md#createchildorder) | **POST** /child-orders/create | Create Child Orders on Trading system.
+[**ReplaceChildOrder**](ChildOrdersApi.md#replacechildorder) | **POST** /child-orders/replace | Replace the Child Orders on Trading system.
 
 
 
 <a name="cancelchildorder"></a>
 # **CancelChildOrder**
-> EMSChildOrdersResponseRoot CancelChildOrder (EMSCancelChildOrdersRoot eMSCancelChildOrdersRoot = null)
+> ChildOrdersResponseRoot CancelChildOrder (CancelChildOrdersRoot cancelChildOrdersRoot = null)
 
-Cancel Child Orders
+Cancel Child Orders on Trading system
 
-This endpoint is to cancel a specific child order.
+This endpoint is used to cancel a specific child order on Trading system.
 
 ### Example
 
@@ -62,12 +62,12 @@ namespace Example
 
             var apiInstance = new ChildOrdersApi(config);
 
-            var eMSCancelChildOrdersRoot = new EMSCancelChildOrdersRoot(); // EMSCancelChildOrdersRoot |  (optional) 
+            var cancelChildOrdersRoot = new CancelChildOrdersRoot(); // CancelChildOrdersRoot |  (optional) 
 
             try
             {
-                // Cancel Child Orders
-                EMSChildOrdersResponseRoot result = apiInstance.CancelChildOrder(eMSCancelChildOrdersRoot);
+                // Cancel Child Orders on Trading system
+                ChildOrdersResponseRoot result = apiInstance.CancelChildOrder(cancelChildOrdersRoot);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -85,10 +85,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **eMSCancelChildOrdersRoot** | [**EMSCancelChildOrdersRoot**](EMSCancelChildOrdersRoot.md)|  | [optional] 
+ **cancelChildOrdersRoot** | [**CancelChildOrdersRoot**](CancelChildOrdersRoot.md)|  | [optional] 
 
 ### Return type
-[**EMSChildOrdersResponseRoot**](EMSChildOrdersResponseRoot.md)
+[**ChildOrdersResponseRoot**](ChildOrdersResponseRoot.md)
 
 ### Authorization
 
@@ -117,11 +117,11 @@ Name | Type | Description  | Notes
 
 <a name="createchildorder"></a>
 # **CreateChildOrder**
-> EMSCreateChildOrdersResponseRoot CreateChildOrder (EMSChildOrdersRoot eMSChildOrdersRoot = null)
+> CreateChildOrdersResponseRoot CreateChildOrder (ChildOrdersRoot childOrdersRoot = null)
 
-Create Child Orders
+Create Child Orders on Trading system.
 
-This endpoint is used to create child orders.
+This endpoint is used to create child orders on Trading system.
 
 ### Example
 
@@ -167,12 +167,12 @@ namespace Example
 
             var apiInstance = new ChildOrdersApi(config);
 
-            var eMSChildOrdersRoot = new EMSChildOrdersRoot(); // EMSChildOrdersRoot |  (optional) 
+            var childOrdersRoot = new ChildOrdersRoot(); // ChildOrdersRoot |  (optional) 
 
             try
             {
-                // Create Child Orders
-                EMSCreateChildOrdersResponseRoot result = apiInstance.CreateChildOrder(eMSChildOrdersRoot);
+                // Create Child Orders on Trading system.
+                CreateChildOrdersResponseRoot result = apiInstance.CreateChildOrder(childOrdersRoot);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -190,10 +190,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **eMSChildOrdersRoot** | [**EMSChildOrdersRoot**](EMSChildOrdersRoot.md)|  | [optional] 
+ **childOrdersRoot** | [**ChildOrdersRoot**](ChildOrdersRoot.md)|  | [optional] 
 
 ### Return type
-[**EMSCreateChildOrdersResponseRoot**](EMSCreateChildOrdersResponseRoot.md)
+[**CreateChildOrdersResponseRoot**](CreateChildOrdersResponseRoot.md)
 
 ### Authorization
 
@@ -222,11 +222,11 @@ Name | Type | Description  | Notes
 
 <a name="replacechildorder"></a>
 # **ReplaceChildOrder**
-> EMSChildOrdersResponseRoot ReplaceChildOrder (EMSReplaceChildOrdersRoot eMSReplaceChildOrdersRoot = null)
+> ChildOrdersResponseRoot ReplaceChildOrder (ReplaceChildOrdersRoot replaceChildOrdersRoot = null)
 
-Replace the Child Orders on EMS system.
+Replace the Child Orders on Trading system.
 
-This endpoint takes the child order to be replaced on the EMS system.
+This endpoint takes the child order to be replaced on the Trading system.
 
 ### Example
 
@@ -272,12 +272,12 @@ namespace Example
 
             var apiInstance = new ChildOrdersApi(config);
 
-            var eMSReplaceChildOrdersRoot = new EMSReplaceChildOrdersRoot(); // EMSReplaceChildOrdersRoot |  (optional) 
+            var replaceChildOrdersRoot = new ReplaceChildOrdersRoot(); // ReplaceChildOrdersRoot |  (optional) 
 
             try
             {
-                // Replace the Child Orders on EMS system.
-                EMSChildOrdersResponseRoot result = apiInstance.ReplaceChildOrder(eMSReplaceChildOrdersRoot);
+                // Replace the Child Orders on Trading system.
+                ChildOrdersResponseRoot result = apiInstance.ReplaceChildOrder(replaceChildOrdersRoot);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -295,10 +295,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **eMSReplaceChildOrdersRoot** | [**EMSReplaceChildOrdersRoot**](EMSReplaceChildOrdersRoot.md)|  | [optional] 
+ **replaceChildOrdersRoot** | [**ReplaceChildOrdersRoot**](ReplaceChildOrdersRoot.md)|  | [optional] 
 
 ### Return type
-[**EMSChildOrdersResponseRoot**](EMSChildOrdersResponseRoot.md)
+[**ChildOrdersResponseRoot**](ChildOrdersResponseRoot.md)
 
 ### Authorization
 

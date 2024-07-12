@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **contact_lookup_values** | **[str], none_type** |  | [optional] 
 **option_value** | **str, none_type** |  | [optional] 
 **option_values** | **[str], none_type** |  | [optional] 
+**user_team_lookup_values** | [**UserTeamLookupDto**](UserTeamLookupDto.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

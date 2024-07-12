@@ -8,5 +8,6 @@ Name | Type | Description | Notes
 **fileName** | **String** |  | [optional] 
 **mimeType** | **String** |  | [optional] 
 **size** | **Number** |  | [optional] 
+**status** | [**AttachmentStatus**](AttachmentStatus.md) |  | [optional] 
 
 

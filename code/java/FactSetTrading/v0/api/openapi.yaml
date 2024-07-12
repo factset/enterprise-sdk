@@ -8,8 +8,8 @@ info:
   license:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
-  title: EMS API
-  version: 0.3.0
+  title: Trading API
+  version: 0.5.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/factset-trading-api
@@ -23,14 +23,16 @@ security:
 - FactSetOAuth2: []
 tags:
 - description: These endpoints relate to Order Entry.
-  name: Orders
+  name: InboundOrders
 - description: These endpoints relate to Order Routing.
   name: ChildOrders
+- description: This endpoint relates to Parent Order Edit.
+  name: ParentOrders
 paths:
-  /orders/create:
+  /inbound-orders/create:
     post:
-      description: This endpoint takes the list of orders and place them on EMS for
-        execution.
+      description: This endpoint takes the list of inbound orders and place them on
+        Trading system for execution.
       operationId: create
       requestBody:
         content:
@@ -40,69 +42,65 @@ paths:
                 value:
                   data:
                     investorId: MyOrganization
-                    orders:
+                    inboundOrders:
                     - clientOrderId: OR0000001
                       instrument:
                         symbol: GOOGL
                       side: buy
                       orderType: market
-                      orderQuantity: 1000
-                      price: 450
+                      orderQuantity: 1000.01
+                      price: 450.01
                       currency: USD
-                      settlementType: regular
                       handlingInstructions: autoOrderPublic
                     - clientOrderId: OR0000002
                       instrument:
                         symbol: MSFT
                       side: sell
                       orderType: limit
-                      orderQuantity: 1000
-                      price: 450
+                      orderQuantity: 1000.01
+                      price: 450.01
                       currency: USD
-                      settlementType: regular
                       handlingInstructions: autoOrderPublic
                     - clientOrderId: OR0000003
                       instrument:
                         symbol: TSLA
                       side: buy
                       orderType: marketOnClose
-                      orderQuantity: 1000
-                      price: 450
+                      orderQuantity: 1000.01
+                      price: 450.01
                       currency: USD
-                      settlementType: regular
                       handlingInstructions: autoOrderPublic
               Single Order (Minimum Fields):
                 summary: Very basic single order with only required fields.
                 value:
                   data:
                     investorId: MyOrganization
-                    orders:
+                    inboundOrders:
                     - instrument:
                         symbol: GOOGL
                       side: buy
                       orderType: market
-                      orderQuantity: 1000
-                      price: 450
+                      orderQuantity: 1000.01
+                      price: 450.01
                       currency: USD
-                      settlementType: regular
               Single Order:
                 value:
                   data:
                     investorId: MyOrganization
-                    orders:
+                    inboundOrders:
                     - clientOrderId: OR0000004
                       instrument:
                         symbol: GOOGL
                       side: buy
                       orderType: market
-                      orderQuantity: 1000
-                      price: 450
-                      stopPrice: 500
-                      strikePrice: 60
+                      orderQuantity: 1000.01
+                      price: 450.01
+                      stopPrice: 500.01
+                      strikePrice: 60.01
                       currency: USD
                       isCovered: false
-                      maxShow: 30
-                      maxFloor: 20
+                      maxShow: 30.01
+                      maxFloor: 20.01
                       settlementType: regular
                       settlementDate: "20211024"
                       handlingInstructions: autoOrderPublic
@@ -114,21 +112,20 @@ paths:
                 value:
                   data:
                     investorId: MyOrganization
-                    orders:
+                    inboundOrders:
                     - instrument:
                         symbol: GOOGL
                         putOrCall: call
                         underlyingSecurityType: Equity
                       side: buy
                       orderType: market
-                      orderQuantity: 1000
-                      price: 450
+                      orderQuantity: 1000.01
+                      price: 450.01
                       currency: USD
-                      settlementType: regular
                       handlingInstructions: autoOrderPublic
                       account: ACCT1
             schema:
-              $ref: '#/components/schemas/EMSOrdersRoot'
+              $ref: '#/components/schemas/InboundOrdersRoot'
       responses:
         "200":
           content:
@@ -140,20 +137,20 @@ paths:
                       symbol: GOOGL
                       side: buy
                       orderType: market
-                      orderQuantity: 2500
+                      orderQuantity: 2500.01
                     OR123456790:
                       symbol: MSFT
                       side: buy
                       orderType: market
-                      orderQuantity: 200
+                      orderQuantity: 200.01
                   rejected:
                     OR123456791:
                       symbol: TSLA
                       side: buy
                       orderType: market
-                      orderQuantity: 500
+                      orderQuantity: 500.01
               schema:
-                $ref: '#/components/schemas/EMSOrdersResponseRoot'
+                $ref: '#/components/schemas/InboundOrdersResponseRoot'
           description: Expected response, returns the list of orders.
         "400":
           content:
@@ -175,21 +172,21 @@ paths:
             in troubleshooting.
         "503":
           description: Request timed out. Retry the request in sometime.
-      summary: Send orders to EMS for execution.
+      summary: Send inbound orders to Trading system for execution.
       tags:
-      - Orders
+      - InboundOrders
       x-contentType: application/json
       x-accepts: application/json
-  /orders/replace:
+  /inbound-orders/replace:
     post:
-      description: This endpoint takes the list of orders to be replaced on the EMS
+      description: This endpoint takes the list of orders to be replaced on the Trading
         system.
       operationId: replace
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/EMSReplaceOrdersRoot'
+              $ref: '#/components/schemas/ReplaceInboundOrdersRoot'
       responses:
         "200":
           content:
@@ -201,20 +198,20 @@ paths:
                       symbol: GOOGL
                       side: buy
                       orderType: market
-                      orderQuantity: 2500
+                      orderQuantity: 2500.01
                     OR123456790:
                       symbol: MSFT
                       side: buy
                       orderType: market
-                      orderQuantity: 200
+                      orderQuantity: 200.01
                   rejected:
                     OR123456791:
                       symbol: TSLA
                       side: buy
                       orderType: market
-                      orderQuantity: 500
+                      orderQuantity: 500.01
               schema:
-                $ref: '#/components/schemas/EMSOrdersResponseRoot'
+                $ref: '#/components/schemas/InboundOrdersResponseRoot'
           description: Expected response, returns the list of order ids.
         "400":
           content:
@@ -236,21 +233,21 @@ paths:
             in troubleshooting.
         "503":
           description: Request timed out. Retry the request in sometime.
-      summary: Replace the orders on EMS system.
+      summary: Replace the inbound orders on Trading system.
       tags:
-      - Orders
+      - InboundOrders
       x-contentType: application/json
       x-accepts: application/json
-  /orders/cancel:
+  /inbound-orders/cancel:
     post:
-      description: This endpoint takes the list of orders to be cancelled on the EMS
-        system.
+      description: This endpoint takes the list of inbound orders to be cancelled
+        on the Trading system.
       operationId: cancel
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/EMSCancelOrdersRoot'
+              $ref: '#/components/schemas/CancelInboundOrdersRoot'
       responses:
         "200":
           content:
@@ -262,20 +259,20 @@ paths:
                       symbol: GOOGL
                       side: buy
                       orderType: market
-                      orderQuantity: 2500
+                      orderQuantity: 2500.01
                     OR123456790:
                       symbol: MSFT
                       side: buy
                       orderType: market
-                      orderQuantity: 200
+                      orderQuantity: 200.01
                   rejected:
                     OR123456791:
                       symbol: TSLA
                       side: buy
                       orderType: market
-                      orderQuantity: 500
+                      orderQuantity: 500.01
               schema:
-                $ref: '#/components/schemas/EMSOrdersResponseRoot'
+                $ref: '#/components/schemas/InboundOrdersResponseRoot'
           description: Expected response, returns the list of order ids.
         "400":
           content:
@@ -297,20 +294,77 @@ paths:
             in troubleshooting.
         "503":
           description: Request timed out. Retry the request in sometime.
-      summary: Cancel the orders on EMS system.
+      summary: Cancel the inbound orders on Trading system.
       tags:
-      - Orders
+      - InboundOrders
       x-contentType: application/json
       x-accepts: application/json
   /child-orders/create:
     post:
-      description: This endpoint is used to create child orders.
+      description: This endpoint is used to create child orders on Trading system.
       operationId: createChildOrder
       requestBody:
         content:
           application/json:
+            examples:
+              Multiple Orders:
+                value:
+                  data:
+                    childOrders:
+                    - parentId:
+                        basketId: FACTSET_OMS-100823_12345
+                        symbol: FDS-USA
+                      orderType: market
+                      destination: PAPER
+                      orderQuantity: 250.01
+                      text: Routing 10 orders to PAPER destination
+                    - parentId:
+                        basketId: FACTSET_OMS-100823_12346
+                        symbol: AMZN-USA
+                      orderType: market
+                      destination: PAPER
+                      orderQuantity: 421.01
+                      text: Routing 5 orders to PAPER destination
+              Single Order (Minimum Fields):
+                summary: Very basic single order with only required fields.
+                value:
+                  data:
+                    childOrders:
+                    - parentId:
+                        basketId: FACTSET_OMS-100823_12345
+                        symbol: FDS-USA
+                      orderType: market
+                      destination: PAPER
+                      orderQuantity: 250.01
+                      text: Routing 10 orders to PAPER destination
+              Single Order:
+                value:
+                  data:
+                    childOrders:
+                    - parentId:
+                        symbol: FDS-USA
+                        basketId: FACTSET_OMS-100823_12345
+                      side: buy
+                      orderType: market
+                      orderQuantity: 250.01
+                      price: 450.01
+                      timeInForce:
+                        tif: day
+                        expireDate: "20230823"
+                        expireTime: 20230823-12:20:25
+                      handlingInstructions: autoOrderPublic
+                      exDestination: America Stock Exchange
+                      destination: PAPER
+                      stopPrice: 250.01
+                      maxFloor: 100.01
+                      minQuantity: 120.01
+                      settlementType: regular
+                      settlementDate: "20230823"
+                      executionInstructions: notHeld
+                      locateRequired: false
+                      text: routing 10 orders to PAPER destination
             schema:
-              $ref: '#/components/schemas/EMSChildOrdersRoot'
+              $ref: '#/components/schemas/ChildOrdersRoot'
       responses:
         "200":
           content:
@@ -323,13 +377,12 @@ paths:
                       ticketId: RKPW.3280015
                       symbol: FDS-USA
                   rejected:
-                    "3280015":
-                      message: 'Ticket does not exist for ticketid: null'
-                      basketId: FACTSET_OMS-100823_12345
-                      ticketId: RKPW.3280015
-                      symbol: FDS-USA
+                    "3280017":
+                      message: 'Basket is not present for given basket id: FACTSET_OMS-100823_12346'
+                      basketId: FACTSET_OMS-100823_12346
+                      symbol: AMZN-USA
               schema:
-                $ref: '#/components/schemas/EMSCreateChildOrdersResponseRoot'
+                $ref: '#/components/schemas/CreateChildOrdersResponseRoot'
           description: Expected response.
         "400":
           content:
@@ -351,20 +404,21 @@ paths:
             in troubleshooting.
         "503":
           description: Request timed out. Retry the request in sometime.
-      summary: Create Child Orders
+      summary: Create Child Orders on Trading system.
       tags:
       - ChildOrders
       x-contentType: application/json
       x-accepts: application/json
   /child-orders/replace:
     post:
-      description: This endpoint takes the child order to be replaced on the EMS system.
+      description: This endpoint takes the child order to be replaced on the Trading
+        system.
       operationId: replaceChildOrder
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/EMSReplaceChildOrdersRoot'
+              $ref: '#/components/schemas/ReplaceChildOrdersRoot'
       responses:
         "200":
           content:
@@ -381,7 +435,7 @@ paths:
                       ticketId: RKPW.3280015
                       symbol: FDS-USA
               schema:
-                $ref: '#/components/schemas/EMSChildOrdersResponseRoot'
+                $ref: '#/components/schemas/ChildOrdersResponseRoot'
           description: Expected response.
         "400":
           content:
@@ -403,20 +457,21 @@ paths:
             in troubleshooting.
         "503":
           description: Request timed out. Retry the request in sometime.
-      summary: Replace the Child Orders on EMS system.
+      summary: Replace the Child Orders on Trading system.
       tags:
       - ChildOrders
       x-contentType: application/json
       x-accepts: application/json
   /child-orders/cancel:
     post:
-      description: This endpoint is to cancel a specific child order.
+      description: This endpoint is used to cancel a specific child order on Trading
+        system.
       operationId: cancelChildOrder
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/EMSCancelChildOrdersRoot'
+              $ref: '#/components/schemas/CancelChildOrdersRoot'
       responses:
         "200":
           content:
@@ -433,7 +488,7 @@ paths:
                       ticketId: RKPW.3280015
                       symbol: FDS-USA
               schema:
-                $ref: '#/components/schemas/EMSChildOrdersResponseRoot'
+                $ref: '#/components/schemas/ChildOrdersResponseRoot'
           description: Expected response.
         "400":
           content:
@@ -455,9 +510,89 @@ paths:
             in troubleshooting.
         "503":
           description: Request timed out. Retry the request in sometime.
-      summary: Cancel Child Orders
+      summary: Cancel Child Orders on Trading system
       tags:
       - ChildOrders
+      x-contentType: application/json
+      x-accepts: application/json
+  /parent-orders/update:
+    put:
+      description: This endpoint allows the user to update parent orders which are
+        already present in Trading system.
+      operationId: updateParentOrder
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Single Order:
+                value:
+                  data:
+                    parentOrders:
+                    - parentId:
+                        symbol: AMZN US
+                        basketId: valid basket id
+                      userGroup: API
+                      userDefinedFields:
+                        currency: INR
+              Multiple Orders:
+                value:
+                  data:
+                    parentOrders:
+                    - parentId:
+                        symbol: AMZN US
+                        basketId: valid basket id
+                      userGroup: API
+                      userDefinedFields:
+                        currency: INR
+                    - parentId:
+                        symbol: GOOGL
+                        basketId: valid basket id
+                      userGroup: API
+                      userDefinedFields:
+                        maxPrice: "300.010"
+            schema:
+              $ref: '#/components/schemas/ParentOrdersUpdateRoot'
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                data:
+                - parentId:
+                    basketId: valid basket id
+                    symbol: AMZN US
+                  status: success
+                - parentId:
+                    basketId: valid basket id
+                    symbol: GOOGL
+                  status: failed
+                  reason: reason for failure
+              schema:
+                $ref: '#/components/schemas/ParentOrdersUpdateResponseRoot'
+          description: Expected response.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Invalid parameters provided.
+        "401":
+          description: Missing or invalid authentication.
+        "403":
+          description: User is forbidden with current credentials.
+        "415":
+          description: Missing/Invalid Content-Type header. Header needs to be set
+            to application/json.
+        "429":
+          description: Rate limit reached. Wait before sending further requests.
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+        "503":
+          description: Request timed out. Retry the request in sometime.
+      summary: Update Parent Orders
+      tags:
+      - ParentOrders
       x-contentType: application/json
       x-accepts: application/json
 components:
@@ -472,8 +607,8 @@ components:
           nullable: true
           type: array
       type: object
-    EMSCancelChildOrder:
-      description: EMS Cancel Child Order
+    CancelChildOrder:
+      description: Cancel Child Order
       example:
         reason: mistyped order quantity to be routed
         ticketId: RKPW.3280015
@@ -490,34 +625,50 @@ components:
       required:
       - ticketId
       type: object
-    EMSCancelChildOrders:
-      description: EMS Cancel Child Orders
+    CancelChildOrders:
+      description: Cancel Child Orders
       example:
         childOrders:
+        - reason: mistyped order quantity to be routed
+          ticketId: RKPW.3280015
+        - reason: mistyped order quantity to be routed
+          ticketId: RKPW.3280015
+        - reason: mistyped order quantity to be routed
+          ticketId: RKPW.3280015
+        - reason: mistyped order quantity to be routed
+          ticketId: RKPW.3280015
         - reason: mistyped order quantity to be routed
           ticketId: RKPW.3280015
       properties:
         childOrders:
           items:
-            $ref: '#/components/schemas/EMSCancelChildOrder'
-          maxItems: 1
+            $ref: '#/components/schemas/CancelChildOrder'
+          maxItems: 1000
           minItems: 1
           type: array
       required:
       - childOrders
       type: object
-    EMSCancelChildOrdersRoot:
+    CancelChildOrdersRoot:
       example:
         data:
           childOrders:
           - reason: mistyped order quantity to be routed
             ticketId: RKPW.3280015
+          - reason: mistyped order quantity to be routed
+            ticketId: RKPW.3280015
+          - reason: mistyped order quantity to be routed
+            ticketId: RKPW.3280015
+          - reason: mistyped order quantity to be routed
+            ticketId: RKPW.3280015
+          - reason: mistyped order quantity to be routed
+            ticketId: RKPW.3280015
       properties:
         data:
-          $ref: '#/components/schemas/EMSCancelChildOrders'
+          $ref: '#/components/schemas/CancelChildOrders'
       type: object
-    EMSCancelOrder:
-      description: EMS Cancel Order
+    CancelInboundOrder:
+      description: Cancel Inbound Order
       example:
         originalClientOrderId: originalClientOrderId
         inboundDestination: inboundDestination
@@ -534,11 +685,17 @@ components:
       required:
       - originalClientOrderId
       type: object
-    EMSCancelOrders:
-      description: EMS Cancel Orders
+    CancelInboundOrders:
+      description: Cancel Inbound Orders
       example:
         investorId: DEMO-12345
-        orders:
+        inboundOrders:
+        - originalClientOrderId: originalClientOrderId
+          inboundDestination: inboundDestination
+        - originalClientOrderId: originalClientOrderId
+          inboundDestination: inboundDestination
+        - originalClientOrderId: originalClientOrderId
+          inboundDestination: inboundDestination
         - originalClientOrderId: originalClientOrderId
           inboundDestination: inboundDestination
         - originalClientOrderId: originalClientOrderId
@@ -549,46 +706,55 @@ components:
           example: DEMO-12345
           nullable: true
           type: string
-        orders:
-          description: List of orders to cancel
+        inboundOrders:
+          description: List of inbound orders to cancel
           items:
-            $ref: '#/components/schemas/EMSCancelOrder'
-          nullable: true
+            $ref: '#/components/schemas/CancelInboundOrder'
+          maxItems: 1000
+          minItems: 1
           type: array
+      required:
+      - inboundOrders
       type: object
-    EMSCancelOrdersRoot:
+    CancelInboundOrdersRoot:
       example:
         data:
           investorId: DEMO-12345
-          orders:
+          inboundOrders:
+          - originalClientOrderId: originalClientOrderId
+            inboundDestination: inboundDestination
+          - originalClientOrderId: originalClientOrderId
+            inboundDestination: inboundDestination
+          - originalClientOrderId: originalClientOrderId
+            inboundDestination: inboundDestination
           - originalClientOrderId: originalClientOrderId
             inboundDestination: inboundDestination
           - originalClientOrderId: originalClientOrderId
             inboundDestination: inboundDestination
       properties:
         data:
-          $ref: '#/components/schemas/EMSCancelOrders'
+          $ref: '#/components/schemas/CancelInboundOrders'
       type: object
-    EMSChildOrder:
-      description: EMS Child Orders
+    ChildOrder:
+      description: Child Order
       example:
         settlementType: regular
         orderType: market
         side: buy
         executionInstructions: notHeld
-        maxFloor: 100
+        maxFloor: 100.01
         profile: profile
         destination: PAPER
         settlementDate: "20230823"
         parentId:
           symbol: FDS-USA
           basketId: FACTSET_OMS-100823_12345
-        orderQuantity: 250
+        orderQuantity: 250.01
         userDefinedFields:
           key: userDefinedFields
-        stopPrice: 250
-        minQuantity: 120
-        price: 450
+        stopPrice: 250.01
+        minQuantity: 120.01
+        price: 450.01
         text: routing 10 orders to PAPER destination
         exDestination: America Stock Exchange
         timeInForce:
@@ -628,13 +794,13 @@ components:
         orderQuantity:
           description: Number of shares/Quantity to be routed. Must be less than or
             equal to the orderQuantity of the parent order.
-          example: 250
+          example: 250.01
           format: double
           minimum: 0
           type: number
         price:
           description: Order price per share.
-          example: 450
+          example: 450.01
           format: double
           nullable: true
           type: number
@@ -663,20 +829,20 @@ components:
           type: string
         stopPrice:
           description: Stop-loss price to buy/sell stock at market.
-          example: 250
+          example: 250.01
           format: double
           nullable: true
           type: number
         maxFloor:
           description: Maximum number of shares within an order to be shown on the
             exchange floor at any given time.
-          example: 100
+          example: 100.01
           format: double
           nullable: true
           type: number
         minQuantity:
           description: Minimum quantity of an order to be executed.
-          example: 120
+          example: 120.01
           format: double
           nullable: true
           type: number
@@ -782,8 +948,8 @@ components:
       - orderType
       - parentId
       type: object
-    EMSChildOrderInfo:
-      description: EMS Child Order Info
+    ChildOrderInfo:
+      description: Child Order Info
       example:
         symbol: FDS-USA
         ticketId: RKPW.3280015
@@ -799,8 +965,8 @@ components:
           nullable: true
           type: string
       type: object
-    EMSChildOrderRejectedInfo:
-      description: EMS Child Order Rejected Info
+    ChildOrderRejectInfo:
+      description: Child Order Rejected Info
       example:
         symbol: FDS-USA
         message: 'Ticket does not exist for ticketid: null'
@@ -822,26 +988,126 @@ components:
           nullable: true
           type: string
       type: object
-    EMSChildOrders:
+    ChildOrders:
       example:
         childOrders:
         - settlementType: regular
           orderType: market
           side: buy
           executionInstructions: notHeld
-          maxFloor: 100
+          maxFloor: 100.01
           profile: profile
           destination: PAPER
           settlementDate: "20230823"
           parentId:
             symbol: FDS-USA
             basketId: FACTSET_OMS-100823_12345
-          orderQuantity: 250
+          orderQuantity: 250.01
           userDefinedFields:
             key: userDefinedFields
-          stopPrice: 250
-          minQuantity: 120
-          price: 450
+          stopPrice: 250.01
+          minQuantity: 120.01
+          price: 450.01
+          text: routing 10 orders to PAPER destination
+          exDestination: America Stock Exchange
+          timeInForce:
+            tif: day
+            expireTime: 20230823-12:20:25
+            expireDate: "20230823"
+          handlingInstructions: autoOrderPublic
+          locateRequired: false
+        - settlementType: regular
+          orderType: market
+          side: buy
+          executionInstructions: notHeld
+          maxFloor: 100.01
+          profile: profile
+          destination: PAPER
+          settlementDate: "20230823"
+          parentId:
+            symbol: FDS-USA
+            basketId: FACTSET_OMS-100823_12345
+          orderQuantity: 250.01
+          userDefinedFields:
+            key: userDefinedFields
+          stopPrice: 250.01
+          minQuantity: 120.01
+          price: 450.01
+          text: routing 10 orders to PAPER destination
+          exDestination: America Stock Exchange
+          timeInForce:
+            tif: day
+            expireTime: 20230823-12:20:25
+            expireDate: "20230823"
+          handlingInstructions: autoOrderPublic
+          locateRequired: false
+        - settlementType: regular
+          orderType: market
+          side: buy
+          executionInstructions: notHeld
+          maxFloor: 100.01
+          profile: profile
+          destination: PAPER
+          settlementDate: "20230823"
+          parentId:
+            symbol: FDS-USA
+            basketId: FACTSET_OMS-100823_12345
+          orderQuantity: 250.01
+          userDefinedFields:
+            key: userDefinedFields
+          stopPrice: 250.01
+          minQuantity: 120.01
+          price: 450.01
+          text: routing 10 orders to PAPER destination
+          exDestination: America Stock Exchange
+          timeInForce:
+            tif: day
+            expireTime: 20230823-12:20:25
+            expireDate: "20230823"
+          handlingInstructions: autoOrderPublic
+          locateRequired: false
+        - settlementType: regular
+          orderType: market
+          side: buy
+          executionInstructions: notHeld
+          maxFloor: 100.01
+          profile: profile
+          destination: PAPER
+          settlementDate: "20230823"
+          parentId:
+            symbol: FDS-USA
+            basketId: FACTSET_OMS-100823_12345
+          orderQuantity: 250.01
+          userDefinedFields:
+            key: userDefinedFields
+          stopPrice: 250.01
+          minQuantity: 120.01
+          price: 450.01
+          text: routing 10 orders to PAPER destination
+          exDestination: America Stock Exchange
+          timeInForce:
+            tif: day
+            expireTime: 20230823-12:20:25
+            expireDate: "20230823"
+          handlingInstructions: autoOrderPublic
+          locateRequired: false
+        - settlementType: regular
+          orderType: market
+          side: buy
+          executionInstructions: notHeld
+          maxFloor: 100.01
+          profile: profile
+          destination: PAPER
+          settlementDate: "20230823"
+          parentId:
+            symbol: FDS-USA
+            basketId: FACTSET_OMS-100823_12345
+          orderQuantity: 250.01
+          userDefinedFields:
+            key: userDefinedFields
+          stopPrice: 250.01
+          minQuantity: 120.01
+          price: 450.01
           text: routing 10 orders to PAPER destination
           exDestination: America Stock Exchange
           timeInForce:
@@ -853,15 +1119,15 @@ components:
       properties:
         childOrders:
           items:
-            $ref: '#/components/schemas/EMSChildOrder'
-          maxItems: 1
+            $ref: '#/components/schemas/ChildOrder'
+          maxItems: 1000
           minItems: 1
           type: array
       required:
       - childOrders
       type: object
-    EMSChildOrdersResponse:
-      description: EMS Child Orders Response
+    ChildOrdersResponse:
+      description: Child Orders Response
       example:
         rejected:
           key:
@@ -875,19 +1141,19 @@ components:
       properties:
         accepted:
           additionalProperties:
-            $ref: '#/components/schemas/EMSChildOrderInfo'
+            $ref: '#/components/schemas/ChildOrderInfo'
           description: Accepted Orders. Key is the clientOrderId of the request.
           nullable: true
           type: object
         rejected:
           additionalProperties:
-            $ref: '#/components/schemas/EMSChildOrderRejectedInfo'
+            $ref: '#/components/schemas/ChildOrderRejectInfo'
           description: Rejected Orders. Key is the clientOrderId of the request.
           nullable: true
           type: object
       type: object
-    EMSChildOrdersResponseRoot:
-      description: EMS Response
+    ChildOrdersResponseRoot:
+      description: Trading Response
       example:
         data:
           rejected:
@@ -901,11 +1167,11 @@ components:
               ticketId: RKPW.3280015
       properties:
         data:
-          $ref: '#/components/schemas/EMSChildOrdersResponse'
+          $ref: '#/components/schemas/ChildOrdersResponse'
       required:
       - data
       type: object
-    EMSChildOrdersRoot:
+    ChildOrdersRoot:
       example:
         data:
           childOrders:
@@ -913,19 +1179,119 @@ components:
             orderType: market
             side: buy
             executionInstructions: notHeld
-            maxFloor: 100
+            maxFloor: 100.01
             profile: profile
             destination: PAPER
             settlementDate: "20230823"
             parentId:
               symbol: FDS-USA
               basketId: FACTSET_OMS-100823_12345
-            orderQuantity: 250
+            orderQuantity: 250.01
             userDefinedFields:
               key: userDefinedFields
-            stopPrice: 250
-            minQuantity: 120
-            price: 450
+            stopPrice: 250.01
+            minQuantity: 120.01
+            price: 450.01
+            text: routing 10 orders to PAPER destination
+            exDestination: America Stock Exchange
+            timeInForce:
+              tif: day
+              expireTime: 20230823-12:20:25
+              expireDate: "20230823"
+            handlingInstructions: autoOrderPublic
+            locateRequired: false
+          - settlementType: regular
+            orderType: market
+            side: buy
+            executionInstructions: notHeld
+            maxFloor: 100.01
+            profile: profile
+            destination: PAPER
+            settlementDate: "20230823"
+            parentId:
+              symbol: FDS-USA
+              basketId: FACTSET_OMS-100823_12345
+            orderQuantity: 250.01
+            userDefinedFields:
+              key: userDefinedFields
+            stopPrice: 250.01
+            minQuantity: 120.01
+            price: 450.01
+            text: routing 10 orders to PAPER destination
+            exDestination: America Stock Exchange
+            timeInForce:
+              tif: day
+              expireTime: 20230823-12:20:25
+              expireDate: "20230823"
+            handlingInstructions: autoOrderPublic
+            locateRequired: false
+          - settlementType: regular
+            orderType: market
+            side: buy
+            executionInstructions: notHeld
+            maxFloor: 100.01
+            profile: profile
+            destination: PAPER
+            settlementDate: "20230823"
+            parentId:
+              symbol: FDS-USA
+              basketId: FACTSET_OMS-100823_12345
+            orderQuantity: 250.01
+            userDefinedFields:
+              key: userDefinedFields
+            stopPrice: 250.01
+            minQuantity: 120.01
+            price: 450.01
+            text: routing 10 orders to PAPER destination
+            exDestination: America Stock Exchange
+            timeInForce:
+              tif: day
+              expireTime: 20230823-12:20:25
+              expireDate: "20230823"
+            handlingInstructions: autoOrderPublic
+            locateRequired: false
+          - settlementType: regular
+            orderType: market
+            side: buy
+            executionInstructions: notHeld
+            maxFloor: 100.01
+            profile: profile
+            destination: PAPER
+            settlementDate: "20230823"
+            parentId:
+              symbol: FDS-USA
+              basketId: FACTSET_OMS-100823_12345
+            orderQuantity: 250.01
+            userDefinedFields:
+              key: userDefinedFields
+            stopPrice: 250.01
+            minQuantity: 120.01
+            price: 450.01
+            text: routing 10 orders to PAPER destination
+            exDestination: America Stock Exchange
+            timeInForce:
+              tif: day
+              expireTime: 20230823-12:20:25
+              expireDate: "20230823"
+            handlingInstructions: autoOrderPublic
+            locateRequired: false
+          - settlementType: regular
+            orderType: market
+            side: buy
+            executionInstructions: notHeld
+            maxFloor: 100.01
+            profile: profile
+            destination: PAPER
+            settlementDate: "20230823"
+            parentId:
+              symbol: FDS-USA
+              basketId: FACTSET_OMS-100823_12345
+            orderQuantity: 250.01
+            userDefinedFields:
+              key: userDefinedFields
+            stopPrice: 250.01
+            minQuantity: 120.01
+            price: 450.01
             text: routing 10 orders to PAPER destination
             exDestination: America Stock Exchange
             timeInForce:
@@ -936,9 +1302,9 @@ components:
             locateRequired: false
       properties:
         data:
-          $ref: '#/components/schemas/EMSChildOrders'
+          $ref: '#/components/schemas/ChildOrders'
       type: object
-    EMSCreateChildOrderInfo:
+    CreateChildOrderInfo:
       example:
         basketId: FACTSET_OMS-100823_12345
         symbol: FDS-USA
@@ -960,7 +1326,7 @@ components:
           nullable: true
           type: string
       type: object
-    EMSCreateChildOrderRejectedInfo:
+    CreateChildOrderRejectInfo:
       example:
         basketId: FACTSET_OMS-100823_12345
         symbol: FDS-USA
@@ -988,7 +1354,7 @@ components:
           nullable: true
           type: string
       type: object
-    EMSCreateChildOrdersResponse:
+    CreateChildOrdersResponse:
       example:
         rejected:
           key:
@@ -1004,19 +1370,19 @@ components:
       properties:
         accepted:
           additionalProperties:
-            $ref: '#/components/schemas/EMSCreateChildOrderInfo'
+            $ref: '#/components/schemas/CreateChildOrderInfo'
           description: Accepted Orders. Key is the clientOrderId of the request.
           nullable: true
           type: object
         rejected:
           additionalProperties:
-            $ref: '#/components/schemas/EMSCreateChildOrderRejectedInfo'
+            $ref: '#/components/schemas/CreateChildOrderRejectInfo'
           description: Rejected Orders. Key is the clientOrderId of the request.
           nullable: true
           type: object
       type: object
-    EMSCreateChildOrdersResponseRoot:
-      description: EMS Response
+    CreateChildOrdersResponseRoot:
+      description: Trading Response
       example:
         data:
           rejected:
@@ -1032,12 +1398,12 @@ components:
               ticketId: RKPW.3280015
       properties:
         data:
-          $ref: '#/components/schemas/EMSCreateChildOrdersResponse'
+          $ref: '#/components/schemas/CreateChildOrdersResponse'
       required:
       - data
       type: object
-    EMSOrder:
-      description: EMS Order
+    InboundOrder:
+      description: Inbound Order
       example:
         settlementType: regular
         orderType: market
@@ -1045,7 +1411,7 @@ components:
         executionInstructions: notHeld
         effectiveTime: 20210622-12:15:30
         clientOrderId: "12322123"
-        maxFloor: 100
+        maxFloor: 100.01
         instrument:
           symbol: TATAMOTORS
           putOrCall: put
@@ -1058,19 +1424,19 @@ components:
           cfiCode: cfiCode
           issuer: issuer
         settlementDate: "20210622"
-        orderQuantity: 350
-        maxShow: 100
+        orderQuantity: 350.01
+        maxShow: 100.01
         userDefinedFields:
           key: userDefinedFields
-        stopPrice: 800
-        price: 800
+        stopPrice: 800.01
+        price: 800.01
         currency: USD
-        prevClosePrice: 100
+        prevClosePrice: 100.01
         timeInForce:
           tif: day
           expireTime: 20230823-12:20:25
           expireDate: "20230823"
-        strikePrice: 400
+        strikePrice: 400.01
         isCovered: false
         handlingInstructions: autoOrderPublic
         account: Test.ACCT
@@ -1106,25 +1472,25 @@ components:
           type: string
         orderQuantity:
           description: Number of shares/Quantity.
-          example: 350
+          example: 350.01
           format: double
           minimum: 0
           type: number
         price:
           description: Order price per share
-          example: 800
+          example: 800.01
           format: double
           nullable: true
           type: number
         stopPrice:
           description: Stop-loss price to buy/sell stock at market.
-          example: 800
+          example: 800.01
           format: double
           nullable: true
           type: number
         strikePrice:
           description: Strike Price for an Option.
-          example: 400
+          example: 400.01
           format: double
           nullable: true
           type: number
@@ -1143,20 +1509,20 @@ components:
         maxShow:
           description: Maximum number of shares within an order to be shown to other
             customers.
-          example: 100
+          example: 100.01
           format: double
           nullable: true
           type: number
         maxFloor:
           description: Maximum number of shares within an order to be shown on the
             exchange floor at any given time.
-          example: 100
+          example: 100.01
           format: double
           nullable: true
           type: number
         prevClosePrice:
           description: Previous closing price of security.
-          example: 100
+          example: 100.01
           format: double
           nullable: true
           type: number
@@ -1278,8 +1644,8 @@ components:
       - orderType
       - side
       type: object
-    EMSOrderMetadata:
-      description: EMS Order Metadata
+    InboundOrderMetadata:
+      description: Inbound Order Metadata
       example:
         symbol: symbol
         orderType: market
@@ -1336,18 +1702,18 @@ components:
           nullable: true
           type: string
       type: object
-    EMSOrders:
-      description: EMS Orders
+    InboundOrders:
+      description: Inbound Orders
       example:
         investorId: DEMO-12345
-        orders:
+        inboundOrders:
         - settlementType: regular
           orderType: market
           side: buy
           executionInstructions: notHeld
           effectiveTime: 20210622-12:15:30
           clientOrderId: "12322123"
-          maxFloor: 100
+          maxFloor: 100.01
           instrument:
             symbol: TATAMOTORS
             putOrCall: put
@@ -1360,19 +1726,19 @@ components:
             cfiCode: cfiCode
             issuer: issuer
           settlementDate: "20210622"
-          orderQuantity: 350
-          maxShow: 100
+          orderQuantity: 350.01
+          maxShow: 100.01
           userDefinedFields:
             key: userDefinedFields
-          stopPrice: 800
-          price: 800
+          stopPrice: 800.01
+          price: 800.01
           currency: USD
-          prevClosePrice: 100
+          prevClosePrice: 100.01
           timeInForce:
             tif: day
             expireTime: 20230823-12:20:25
             expireDate: "20230823"
-          strikePrice: 400
+          strikePrice: 400.01
           isCovered: false
           handlingInstructions: autoOrderPublic
           account: Test.ACCT
@@ -1384,7 +1750,7 @@ components:
           executionInstructions: notHeld
           effectiveTime: 20210622-12:15:30
           clientOrderId: "12322123"
-          maxFloor: 100
+          maxFloor: 100.01
           instrument:
             symbol: TATAMOTORS
             putOrCall: put
@@ -1397,19 +1763,130 @@ components:
             cfiCode: cfiCode
             issuer: issuer
           settlementDate: "20210622"
-          orderQuantity: 350
-          maxShow: 100
+          orderQuantity: 350.01
+          maxShow: 100.01
           userDefinedFields:
             key: userDefinedFields
-          stopPrice: 800
-          price: 800
+          stopPrice: 800.01
+          price: 800.01
           currency: USD
-          prevClosePrice: 100
+          prevClosePrice: 100.01
           timeInForce:
             tif: day
             expireTime: 20230823-12:20:25
             expireDate: "20230823"
-          strikePrice: 400
+          strikePrice: 400.01
+          isCovered: false
+          handlingInstructions: autoOrderPublic
+          account: Test.ACCT
+          inboundDestination: inboundDestination
+          locateRequired: false
+        - settlementType: regular
+          orderType: market
+          side: buy
+          executionInstructions: notHeld
+          effectiveTime: 20210622-12:15:30
+          clientOrderId: "12322123"
+          maxFloor: 100.01
+          instrument:
+            symbol: TATAMOTORS
+            putOrCall: put
+            underlyingSecurityType: underlyingSecurityType
+            securityType: securityType
+            maturityMonthYear: maturityMonthYear
+            maturityDay: maturityDay
+            securityExchange: securityExchange
+            securityDescription: securityDescription
+            cfiCode: cfiCode
+            issuer: issuer
+          settlementDate: "20210622"
+          orderQuantity: 350.01
+          maxShow: 100.01
+          userDefinedFields:
+            key: userDefinedFields
+          stopPrice: 800.01
+          price: 800.01
+          currency: USD
+          prevClosePrice: 100.01
+          timeInForce:
+            tif: day
+            expireTime: 20230823-12:20:25
+            expireDate: "20230823"
+          strikePrice: 400.01
+          isCovered: false
+          handlingInstructions: autoOrderPublic
+          account: Test.ACCT
+          inboundDestination: inboundDestination
+          locateRequired: false
+        - settlementType: regular
+          orderType: market
+          side: buy
+          executionInstructions: notHeld
+          effectiveTime: 20210622-12:15:30
+          clientOrderId: "12322123"
+          maxFloor: 100.01
+          instrument:
+            symbol: TATAMOTORS
+            putOrCall: put
+            underlyingSecurityType: underlyingSecurityType
+            securityType: securityType
+            maturityMonthYear: maturityMonthYear
+            maturityDay: maturityDay
+            securityExchange: securityExchange
+            securityDescription: securityDescription
+            cfiCode: cfiCode
+            issuer: issuer
+          settlementDate: "20210622"
+          orderQuantity: 350.01
+          maxShow: 100.01
+          userDefinedFields:
+            key: userDefinedFields
+          stopPrice: 800.01
+          price: 800.01
+          currency: USD
+          prevClosePrice: 100.01
+          timeInForce:
+            tif: day
+            expireTime: 20230823-12:20:25
+            expireDate: "20230823"
+          strikePrice: 400.01
+          isCovered: false
+          handlingInstructions: autoOrderPublic
+          account: Test.ACCT
+          inboundDestination: inboundDestination
+          locateRequired: false
+        - settlementType: regular
+          orderType: market
+          side: buy
+          executionInstructions: notHeld
+          effectiveTime: 20210622-12:15:30
+          clientOrderId: "12322123"
+          maxFloor: 100.01
+          instrument:
+            symbol: TATAMOTORS
+            putOrCall: put
+            underlyingSecurityType: underlyingSecurityType
+            securityType: securityType
+            maturityMonthYear: maturityMonthYear
+            maturityDay: maturityDay
+            securityExchange: securityExchange
+            securityDescription: securityDescription
+            cfiCode: cfiCode
+            issuer: issuer
+          settlementDate: "20210622"
+          orderQuantity: 350.01
+          maxShow: 100.01
+          userDefinedFields:
+            key: userDefinedFields
+          stopPrice: 800.01
+          price: 800.01
+          currency: USD
+          prevClosePrice: 100.01
+          timeInForce:
+            tif: day
+            expireTime: 20230823-12:20:25
+            expireDate: "20230823"
+          strikePrice: 400.01
           isCovered: false
           handlingInstructions: autoOrderPublic
           account: Test.ACCT
@@ -1421,16 +1898,18 @@ components:
           example: DEMO-12345
           nullable: true
           type: string
-        orders:
-          description: List of orders
+        inboundOrders:
+          description: List of inbound orders
           items:
-            $ref: '#/components/schemas/EMSOrder'
+            $ref: '#/components/schemas/InboundOrder'
+          maxItems: 1000
+          minItems: 1
           type: array
       required:
-      - orders
+      - inboundOrders
       type: object
-    EMSOrdersResponse:
-      description: EMS Orders Response
+    InboundOrdersResponse:
+      description: Inbound Orders Response
       example:
         rejected:
           key:
@@ -1455,19 +1934,19 @@ components:
       properties:
         accepted:
           additionalProperties:
-            $ref: '#/components/schemas/EMSOrderMetadata'
+            $ref: '#/components/schemas/InboundOrderMetadata'
           description: Accepted Orders
           nullable: true
           type: object
         rejected:
           additionalProperties:
-            $ref: '#/components/schemas/EMSOrderMetadata'
+            $ref: '#/components/schemas/InboundOrderMetadata'
           description: Rejected Orders
           nullable: true
           type: object
       type: object
-    EMSOrdersResponseRoot:
-      description: EMS Response
+    InboundOrdersResponseRoot:
+      description: Trading Response
       example:
         data:
           rejected:
@@ -1492,22 +1971,22 @@ components:
               info: info
       properties:
         data:
-          $ref: '#/components/schemas/EMSOrdersResponse'
+          $ref: '#/components/schemas/InboundOrdersResponse'
       required:
       - data
       type: object
-    EMSOrdersRoot:
+    InboundOrdersRoot:
       example:
         data:
           investorId: DEMO-12345
-          orders:
+          inboundOrders:
           - settlementType: regular
             orderType: market
             side: buy
             executionInstructions: notHeld
             effectiveTime: 20210622-12:15:30
             clientOrderId: "12322123"
-            maxFloor: 100
+            maxFloor: 100.01
             instrument:
               symbol: TATAMOTORS
               putOrCall: put
@@ -1520,19 +1999,19 @@ components:
               cfiCode: cfiCode
               issuer: issuer
             settlementDate: "20210622"
-            orderQuantity: 350
-            maxShow: 100
+            orderQuantity: 350.01
+            maxShow: 100.01
             userDefinedFields:
               key: userDefinedFields
-            stopPrice: 800
-            price: 800
+            stopPrice: 800.01
+            price: 800.01
             currency: USD
-            prevClosePrice: 100
+            prevClosePrice: 100.01
             timeInForce:
               tif: day
               expireTime: 20230823-12:20:25
               expireDate: "20230823"
-            strikePrice: 400
+            strikePrice: 400.01
             isCovered: false
             handlingInstructions: autoOrderPublic
             account: Test.ACCT
@@ -1544,7 +2023,7 @@ components:
             executionInstructions: notHeld
             effectiveTime: 20210622-12:15:30
             clientOrderId: "12322123"
-            maxFloor: 100
+            maxFloor: 100.01
             instrument:
               symbol: TATAMOTORS
               putOrCall: put
@@ -1557,19 +2036,130 @@ components:
               cfiCode: cfiCode
               issuer: issuer
             settlementDate: "20210622"
-            orderQuantity: 350
-            maxShow: 100
+            orderQuantity: 350.01
+            maxShow: 100.01
             userDefinedFields:
               key: userDefinedFields
-            stopPrice: 800
-            price: 800
+            stopPrice: 800.01
+            price: 800.01
             currency: USD
-            prevClosePrice: 100
+            prevClosePrice: 100.01
             timeInForce:
               tif: day
               expireTime: 20230823-12:20:25
               expireDate: "20230823"
-            strikePrice: 400
+            strikePrice: 400.01
+            isCovered: false
+            handlingInstructions: autoOrderPublic
+            account: Test.ACCT
+            inboundDestination: inboundDestination
+            locateRequired: false
+          - settlementType: regular
+            orderType: market
+            side: buy
+            executionInstructions: notHeld
+            effectiveTime: 20210622-12:15:30
+            clientOrderId: "12322123"
+            maxFloor: 100.01
+            instrument:
+              symbol: TATAMOTORS
+              putOrCall: put
+              underlyingSecurityType: underlyingSecurityType
+              securityType: securityType
+              maturityMonthYear: maturityMonthYear
+              maturityDay: maturityDay
+              securityExchange: securityExchange
+              securityDescription: securityDescription
+              cfiCode: cfiCode
+              issuer: issuer
+            settlementDate: "20210622"
+            orderQuantity: 350.01
+            maxShow: 100.01
+            userDefinedFields:
+              key: userDefinedFields
+            stopPrice: 800.01
+            price: 800.01
+            currency: USD
+            prevClosePrice: 100.01
+            timeInForce:
+              tif: day
+              expireTime: 20230823-12:20:25
+              expireDate: "20230823"
+            strikePrice: 400.01
+            isCovered: false
+            handlingInstructions: autoOrderPublic
+            account: Test.ACCT
+            inboundDestination: inboundDestination
+            locateRequired: false
+          - settlementType: regular
+            orderType: market
+            side: buy
+            executionInstructions: notHeld
+            effectiveTime: 20210622-12:15:30
+            clientOrderId: "12322123"
+            maxFloor: 100.01
+            instrument:
+              symbol: TATAMOTORS
+              putOrCall: put
+              underlyingSecurityType: underlyingSecurityType
+              securityType: securityType
+              maturityMonthYear: maturityMonthYear
+              maturityDay: maturityDay
+              securityExchange: securityExchange
+              securityDescription: securityDescription
+              cfiCode: cfiCode
+              issuer: issuer
+            settlementDate: "20210622"
+            orderQuantity: 350.01
+            maxShow: 100.01
+            userDefinedFields:
+              key: userDefinedFields
+            stopPrice: 800.01
+            price: 800.01
+            currency: USD
+            prevClosePrice: 100.01
+            timeInForce:
+              tif: day
+              expireTime: 20230823-12:20:25
+              expireDate: "20230823"
+            strikePrice: 400.01
+            isCovered: false
+            handlingInstructions: autoOrderPublic
+            account: Test.ACCT
+            inboundDestination: inboundDestination
+            locateRequired: false
+          - settlementType: regular
+            orderType: market
+            side: buy
+            executionInstructions: notHeld
+            effectiveTime: 20210622-12:15:30
+            clientOrderId: "12322123"
+            maxFloor: 100.01
+            instrument:
+              symbol: TATAMOTORS
+              putOrCall: put
+              underlyingSecurityType: underlyingSecurityType
+              securityType: securityType
+              maturityMonthYear: maturityMonthYear
+              maturityDay: maturityDay
+              securityExchange: securityExchange
+              securityDescription: securityDescription
+              cfiCode: cfiCode
+              issuer: issuer
+            settlementDate: "20210622"
+            orderQuantity: 350.01
+            maxShow: 100.01
+            userDefinedFields:
+              key: userDefinedFields
+            stopPrice: 800.01
+            price: 800.01
+            currency: USD
+            prevClosePrice: 100.01
+            timeInForce:
+              tif: day
+              expireTime: 20230823-12:20:25
+              expireDate: "20230823"
+            strikePrice: 400.01
             isCovered: false
             handlingInstructions: autoOrderPublic
             account: Test.ACCT
@@ -1577,22 +2167,98 @@ components:
             locateRequired: false
       properties:
         data:
-          $ref: '#/components/schemas/EMSOrders'
+          $ref: '#/components/schemas/InboundOrders'
       type: object
-    EMSReplaceChildOrders:
+    ReplaceChildOrders:
       example:
         childOrders:
         - settlementType: regular
           orderType: market
           executionInstructions: notHeld
-          maxFloor: 200
+          maxFloor: 200.01
           settlementDate: "20230823"
-          orderQuantity: 100
+          orderQuantity: 100.01
           userDefinedFields:
             key: userDefinedFields
-          stopPrice: 120
-          minQuantity: 120
-          price: 450
+          stopPrice: 120.01
+          minQuantity: 120.01
+          price: 450.01
+          text: Replacing price to 300 for 50 orders
+          timeInForce:
+            tif: day
+            expireTime: 20230823-12:20:25
+            expireDate: "20230823"
+          ticketId: RKPW.3280015
+          handlingInstructions: autoOrderPublic
+          locateRequired: false
+        - settlementType: regular
+          orderType: market
+          executionInstructions: notHeld
+          maxFloor: 200.01
+          settlementDate: "20230823"
+          orderQuantity: 100.01
+          userDefinedFields:
+            key: userDefinedFields
+          stopPrice: 120.01
+          minQuantity: 120.01
+          price: 450.01
+          text: Replacing price to 300 for 50 orders
+          timeInForce:
+            tif: day
+            expireTime: 20230823-12:20:25
+            expireDate: "20230823"
+          ticketId: RKPW.3280015
+          handlingInstructions: autoOrderPublic
+          locateRequired: false
+        - settlementType: regular
+          orderType: market
+          executionInstructions: notHeld
+          maxFloor: 200.01
+          settlementDate: "20230823"
+          orderQuantity: 100.01
+          userDefinedFields:
+            key: userDefinedFields
+          stopPrice: 120.01
+          minQuantity: 120.01
+          price: 450.01
+          text: Replacing price to 300 for 50 orders
+          timeInForce:
+            tif: day
+            expireTime: 20230823-12:20:25
+            expireDate: "20230823"
+          ticketId: RKPW.3280015
+          handlingInstructions: autoOrderPublic
+          locateRequired: false
+        - settlementType: regular
+          orderType: market
+          executionInstructions: notHeld
+          maxFloor: 200.01
+          settlementDate: "20230823"
+          orderQuantity: 100.01
+          userDefinedFields:
+            key: userDefinedFields
+          stopPrice: 120.01
+          minQuantity: 120.01
+          price: 450.01
+          text: Replacing price to 300 for 50 orders
+          timeInForce:
+            tif: day
+            expireTime: 20230823-12:20:25
+            expireDate: "20230823"
+          ticketId: RKPW.3280015
+          handlingInstructions: autoOrderPublic
+          locateRequired: false
+        - settlementType: regular
+          orderType: market
+          executionInstructions: notHeld
+          maxFloor: 200.01
+          settlementDate: "20230823"
+          orderQuantity: 100.01
+          userDefinedFields:
+            key: userDefinedFields
+          stopPrice: 120.01
+          minQuantity: 120.01
+          price: 450.01
           text: Replacing price to 300 for 50 orders
           timeInForce:
             tif: day
@@ -1605,27 +2271,103 @@ components:
         childOrders:
           items:
             $ref: '#/components/schemas/ReplaceChildOrder'
-          maxItems: 1
+          maxItems: 1000
           minItems: 1
           type: array
       required:
       - childOrders
       type: object
-    EMSReplaceChildOrdersRoot:
+    ReplaceChildOrdersRoot:
       example:
         data:
           childOrders:
           - settlementType: regular
             orderType: market
             executionInstructions: notHeld
-            maxFloor: 200
+            maxFloor: 200.01
             settlementDate: "20230823"
-            orderQuantity: 100
+            orderQuantity: 100.01
             userDefinedFields:
               key: userDefinedFields
-            stopPrice: 120
-            minQuantity: 120
-            price: 450
+            stopPrice: 120.01
+            minQuantity: 120.01
+            price: 450.01
+            text: Replacing price to 300 for 50 orders
+            timeInForce:
+              tif: day
+              expireTime: 20230823-12:20:25
+              expireDate: "20230823"
+            ticketId: RKPW.3280015
+            handlingInstructions: autoOrderPublic
+            locateRequired: false
+          - settlementType: regular
+            orderType: market
+            executionInstructions: notHeld
+            maxFloor: 200.01
+            settlementDate: "20230823"
+            orderQuantity: 100.01
+            userDefinedFields:
+              key: userDefinedFields
+            stopPrice: 120.01
+            minQuantity: 120.01
+            price: 450.01
+            text: Replacing price to 300 for 50 orders
+            timeInForce:
+              tif: day
+              expireTime: 20230823-12:20:25
+              expireDate: "20230823"
+            ticketId: RKPW.3280015
+            handlingInstructions: autoOrderPublic
+            locateRequired: false
+          - settlementType: regular
+            orderType: market
+            executionInstructions: notHeld
+            maxFloor: 200.01
+            settlementDate: "20230823"
+            orderQuantity: 100.01
+            userDefinedFields:
+              key: userDefinedFields
+            stopPrice: 120.01
+            minQuantity: 120.01
+            price: 450.01
+            text: Replacing price to 300 for 50 orders
+            timeInForce:
+              tif: day
+              expireTime: 20230823-12:20:25
+              expireDate: "20230823"
+            ticketId: RKPW.3280015
+            handlingInstructions: autoOrderPublic
+            locateRequired: false
+          - settlementType: regular
+            orderType: market
+            executionInstructions: notHeld
+            maxFloor: 200.01
+            settlementDate: "20230823"
+            orderQuantity: 100.01
+            userDefinedFields:
+              key: userDefinedFields
+            stopPrice: 120.01
+            minQuantity: 120.01
+            price: 450.01
+            text: Replacing price to 300 for 50 orders
+            timeInForce:
+              tif: day
+              expireTime: 20230823-12:20:25
+              expireDate: "20230823"
+            ticketId: RKPW.3280015
+            handlingInstructions: autoOrderPublic
+            locateRequired: false
+          - settlementType: regular
+            orderType: market
+            executionInstructions: notHeld
+            maxFloor: 200.01
+            settlementDate: "20230823"
+            orderQuantity: 100.01
+            userDefinedFields:
+              key: userDefinedFields
+            stopPrice: 120.01
+            minQuantity: 120.01
+            price: 450.01
             text: Replacing price to 300 for 50 orders
             timeInForce:
               tif: day
@@ -1636,20 +2378,19 @@ components:
             locateRequired: false
       properties:
         data:
-          $ref: '#/components/schemas/EMSReplaceChildOrders'
+          $ref: '#/components/schemas/ReplaceChildOrders'
       type: object
-    EMSReplaceOrder:
-      description: EMS Replace Order
+    ReplaceInboundOrder:
+      description: Replace Inbound Order
       example:
-        originalClientOrderId: originalClientOrderId
-        order:
+        inboundOrder:
           settlementType: regular
           orderType: market
           side: buy
           executionInstructions: notHeld
           effectiveTime: 20210622-12:15:30
           clientOrderId: "12322123"
-          maxFloor: 100
+          maxFloor: 100.01
           instrument:
             symbol: TATAMOTORS
             putOrCall: put
@@ -1662,48 +2403,48 @@ components:
             cfiCode: cfiCode
             issuer: issuer
           settlementDate: "20210622"
-          orderQuantity: 350
-          maxShow: 100
+          orderQuantity: 350.01
+          maxShow: 100.01
           userDefinedFields:
             key: userDefinedFields
-          stopPrice: 800
-          price: 800
+          stopPrice: 800.01
+          price: 800.01
           currency: USD
-          prevClosePrice: 100
+          prevClosePrice: 100.01
           timeInForce:
             tif: day
             expireTime: 20230823-12:20:25
             expireDate: "20230823"
-          strikePrice: 400
+          strikePrice: 400.01
           isCovered: false
           handlingInstructions: autoOrderPublic
           account: Test.ACCT
           inboundDestination: inboundDestination
           locateRequired: false
+        originalClientOrderId: originalClientOrderId
       properties:
         originalClientOrderId:
           description: Unique identifier of the original order, generated in Create.
           type: string
-        order:
-          $ref: '#/components/schemas/EMSOrder'
+        inboundOrder:
+          $ref: '#/components/schemas/InboundOrder'
       required:
-      - order
+      - inboundOrder
       - originalClientOrderId
       type: object
-    EMSReplaceOrders:
-      description: EMS Replace Orders
+    ReplaceInboundOrders:
+      description: Replace Inbound Orders
       example:
         investorId: DEMO-12345
-        orders:
-        - originalClientOrderId: originalClientOrderId
-          order:
+        inboundOrders:
+        - inboundOrder:
             settlementType: regular
             orderType: market
             side: buy
             executionInstructions: notHeld
             effectiveTime: 20210622-12:15:30
             clientOrderId: "12322123"
-            maxFloor: 100
+            maxFloor: 100.01
             instrument:
               symbol: TATAMOTORS
               putOrCall: put
@@ -1716,33 +2457,33 @@ components:
               cfiCode: cfiCode
               issuer: issuer
             settlementDate: "20210622"
-            orderQuantity: 350
-            maxShow: 100
+            orderQuantity: 350.01
+            maxShow: 100.01
             userDefinedFields:
               key: userDefinedFields
-            stopPrice: 800
-            price: 800
+            stopPrice: 800.01
+            price: 800.01
             currency: USD
-            prevClosePrice: 100
+            prevClosePrice: 100.01
             timeInForce:
               tif: day
               expireTime: 20230823-12:20:25
               expireDate: "20230823"
-            strikePrice: 400
+            strikePrice: 400.01
             isCovered: false
             handlingInstructions: autoOrderPublic
             account: Test.ACCT
             inboundDestination: inboundDestination
             locateRequired: false
-        - originalClientOrderId: originalClientOrderId
-          order:
+          originalClientOrderId: originalClientOrderId
+        - inboundOrder:
             settlementType: regular
             orderType: market
             side: buy
             executionInstructions: notHeld
             effectiveTime: 20210622-12:15:30
             clientOrderId: "12322123"
-            maxFloor: 100
+            maxFloor: 100.01
             instrument:
               symbol: TATAMOTORS
               putOrCall: put
@@ -1755,51 +2496,171 @@ components:
               cfiCode: cfiCode
               issuer: issuer
             settlementDate: "20210622"
-            orderQuantity: 350
-            maxShow: 100
+            orderQuantity: 350.01
+            maxShow: 100.01
             userDefinedFields:
               key: userDefinedFields
-            stopPrice: 800
-            price: 800
+            stopPrice: 800.01
+            price: 800.01
             currency: USD
-            prevClosePrice: 100
+            prevClosePrice: 100.01
             timeInForce:
               tif: day
               expireTime: 20230823-12:20:25
               expireDate: "20230823"
-            strikePrice: 400
+            strikePrice: 400.01
             isCovered: false
             handlingInstructions: autoOrderPublic
             account: Test.ACCT
             inboundDestination: inboundDestination
             locateRequired: false
+          originalClientOrderId: originalClientOrderId
+        - inboundOrder:
+            settlementType: regular
+            orderType: market
+            side: buy
+            executionInstructions: notHeld
+            effectiveTime: 20210622-12:15:30
+            clientOrderId: "12322123"
+            maxFloor: 100.01
+            instrument:
+              symbol: TATAMOTORS
+              putOrCall: put
+              underlyingSecurityType: underlyingSecurityType
+              securityType: securityType
+              maturityMonthYear: maturityMonthYear
+              maturityDay: maturityDay
+              securityExchange: securityExchange
+              securityDescription: securityDescription
+              cfiCode: cfiCode
+              issuer: issuer
+            settlementDate: "20210622"
+            orderQuantity: 350.01
+            maxShow: 100.01
+            userDefinedFields:
+              key: userDefinedFields
+            stopPrice: 800.01
+            price: 800.01
+            currency: USD
+            prevClosePrice: 100.01
+            timeInForce:
+              tif: day
+              expireTime: 20230823-12:20:25
+              expireDate: "20230823"
+            strikePrice: 400.01
+            isCovered: false
+            handlingInstructions: autoOrderPublic
+            account: Test.ACCT
+            inboundDestination: inboundDestination
+            locateRequired: false
+          originalClientOrderId: originalClientOrderId
+        - inboundOrder:
+            settlementType: regular
+            orderType: market
+            side: buy
+            executionInstructions: notHeld
+            effectiveTime: 20210622-12:15:30
+            clientOrderId: "12322123"
+            maxFloor: 100.01
+            instrument:
+              symbol: TATAMOTORS
+              putOrCall: put
+              underlyingSecurityType: underlyingSecurityType
+              securityType: securityType
+              maturityMonthYear: maturityMonthYear
+              maturityDay: maturityDay
+              securityExchange: securityExchange
+              securityDescription: securityDescription
+              cfiCode: cfiCode
+              issuer: issuer
+            settlementDate: "20210622"
+            orderQuantity: 350.01
+            maxShow: 100.01
+            userDefinedFields:
+              key: userDefinedFields
+            stopPrice: 800.01
+            price: 800.01
+            currency: USD
+            prevClosePrice: 100.01
+            timeInForce:
+              tif: day
+              expireTime: 20230823-12:20:25
+              expireDate: "20230823"
+            strikePrice: 400.01
+            isCovered: false
+            handlingInstructions: autoOrderPublic
+            account: Test.ACCT
+            inboundDestination: inboundDestination
+            locateRequired: false
+          originalClientOrderId: originalClientOrderId
+        - inboundOrder:
+            settlementType: regular
+            orderType: market
+            side: buy
+            executionInstructions: notHeld
+            effectiveTime: 20210622-12:15:30
+            clientOrderId: "12322123"
+            maxFloor: 100.01
+            instrument:
+              symbol: TATAMOTORS
+              putOrCall: put
+              underlyingSecurityType: underlyingSecurityType
+              securityType: securityType
+              maturityMonthYear: maturityMonthYear
+              maturityDay: maturityDay
+              securityExchange: securityExchange
+              securityDescription: securityDescription
+              cfiCode: cfiCode
+              issuer: issuer
+            settlementDate: "20210622"
+            orderQuantity: 350.01
+            maxShow: 100.01
+            userDefinedFields:
+              key: userDefinedFields
+            stopPrice: 800.01
+            price: 800.01
+            currency: USD
+            prevClosePrice: 100.01
+            timeInForce:
+              tif: day
+              expireTime: 20230823-12:20:25
+              expireDate: "20230823"
+            strikePrice: 400.01
+            isCovered: false
+            handlingInstructions: autoOrderPublic
+            account: Test.ACCT
+            inboundDestination: inboundDestination
+            locateRequired: false
+          originalClientOrderId: originalClientOrderId
       properties:
         investorId:
           description: Investor Id
           example: DEMO-12345
           nullable: true
           type: string
-        orders:
-          description: List of orders to replace
+        inboundOrders:
+          description: List of inbound orders to replace
           items:
-            $ref: '#/components/schemas/EMSReplaceOrder'
-          nullable: true
+            $ref: '#/components/schemas/ReplaceInboundOrder'
+          maxItems: 1000
+          minItems: 1
           type: array
+      required:
+      - inboundOrders
       type: object
-    EMSReplaceOrdersRoot:
+    ReplaceInboundOrdersRoot:
       example:
         data:
           investorId: DEMO-12345
-          orders:
-          - originalClientOrderId: originalClientOrderId
-            order:
+          inboundOrders:
+          - inboundOrder:
               settlementType: regular
               orderType: market
               side: buy
               executionInstructions: notHeld
               effectiveTime: 20210622-12:15:30
               clientOrderId: "12322123"
-              maxFloor: 100
+              maxFloor: 100.01
               instrument:
                 symbol: TATAMOTORS
                 putOrCall: put
@@ -1812,33 +2673,33 @@ components:
                 cfiCode: cfiCode
                 issuer: issuer
               settlementDate: "20210622"
-              orderQuantity: 350
-              maxShow: 100
+              orderQuantity: 350.01
+              maxShow: 100.01
               userDefinedFields:
                 key: userDefinedFields
-              stopPrice: 800
-              price: 800
+              stopPrice: 800.01
+              price: 800.01
               currency: USD
-              prevClosePrice: 100
+              prevClosePrice: 100.01
               timeInForce:
                 tif: day
                 expireTime: 20230823-12:20:25
                 expireDate: "20230823"
-              strikePrice: 400
+              strikePrice: 400.01
               isCovered: false
               handlingInstructions: autoOrderPublic
               account: Test.ACCT
               inboundDestination: inboundDestination
               locateRequired: false
-          - originalClientOrderId: originalClientOrderId
-            order:
+            originalClientOrderId: originalClientOrderId
+          - inboundOrder:
               settlementType: regular
               orderType: market
               side: buy
               executionInstructions: notHeld
               effectiveTime: 20210622-12:15:30
               clientOrderId: "12322123"
-              maxFloor: 100
+              maxFloor: 100.01
               instrument:
                 symbol: TATAMOTORS
                 putOrCall: put
@@ -1851,27 +2712,145 @@ components:
                 cfiCode: cfiCode
                 issuer: issuer
               settlementDate: "20210622"
-              orderQuantity: 350
-              maxShow: 100
+              orderQuantity: 350.01
+              maxShow: 100.01
               userDefinedFields:
                 key: userDefinedFields
-              stopPrice: 800
-              price: 800
+              stopPrice: 800.01
+              price: 800.01
               currency: USD
-              prevClosePrice: 100
+              prevClosePrice: 100.01
               timeInForce:
                 tif: day
                 expireTime: 20230823-12:20:25
                 expireDate: "20230823"
-              strikePrice: 400
+              strikePrice: 400.01
               isCovered: false
               handlingInstructions: autoOrderPublic
               account: Test.ACCT
               inboundDestination: inboundDestination
               locateRequired: false
+            originalClientOrderId: originalClientOrderId
+          - inboundOrder:
+              settlementType: regular
+              orderType: market
+              side: buy
+              executionInstructions: notHeld
+              effectiveTime: 20210622-12:15:30
+              clientOrderId: "12322123"
+              maxFloor: 100.01
+              instrument:
+                symbol: TATAMOTORS
+                putOrCall: put
+                underlyingSecurityType: underlyingSecurityType
+                securityType: securityType
+                maturityMonthYear: maturityMonthYear
+                maturityDay: maturityDay
+                securityExchange: securityExchange
+                securityDescription: securityDescription
+                cfiCode: cfiCode
+                issuer: issuer
+              settlementDate: "20210622"
+              orderQuantity: 350.01
+              maxShow: 100.01
+              userDefinedFields:
+                key: userDefinedFields
+              stopPrice: 800.01
+              price: 800.01
+              currency: USD
+              prevClosePrice: 100.01
+              timeInForce:
+                tif: day
+                expireTime: 20230823-12:20:25
+                expireDate: "20230823"
+              strikePrice: 400.01
+              isCovered: false
+              handlingInstructions: autoOrderPublic
+              account: Test.ACCT
+              inboundDestination: inboundDestination
+              locateRequired: false
+            originalClientOrderId: originalClientOrderId
+          - inboundOrder:
+              settlementType: regular
+              orderType: market
+              side: buy
+              executionInstructions: notHeld
+              effectiveTime: 20210622-12:15:30
+              clientOrderId: "12322123"
+              maxFloor: 100.01
+              instrument:
+                symbol: TATAMOTORS
+                putOrCall: put
+                underlyingSecurityType: underlyingSecurityType
+                securityType: securityType
+                maturityMonthYear: maturityMonthYear
+                maturityDay: maturityDay
+                securityExchange: securityExchange
+                securityDescription: securityDescription
+                cfiCode: cfiCode
+                issuer: issuer
+              settlementDate: "20210622"
+              orderQuantity: 350.01
+              maxShow: 100.01
+              userDefinedFields:
+                key: userDefinedFields
+              stopPrice: 800.01
+              price: 800.01
+              currency: USD
+              prevClosePrice: 100.01
+              timeInForce:
+                tif: day
+                expireTime: 20230823-12:20:25
+                expireDate: "20230823"
+              strikePrice: 400.01
+              isCovered: false
+              handlingInstructions: autoOrderPublic
+              account: Test.ACCT
+              inboundDestination: inboundDestination
+              locateRequired: false
+            originalClientOrderId: originalClientOrderId
+          - inboundOrder:
+              settlementType: regular
+              orderType: market
+              side: buy
+              executionInstructions: notHeld
+              effectiveTime: 20210622-12:15:30
+              clientOrderId: "12322123"
+              maxFloor: 100.01
+              instrument:
+                symbol: TATAMOTORS
+                putOrCall: put
+                underlyingSecurityType: underlyingSecurityType
+                securityType: securityType
+                maturityMonthYear: maturityMonthYear
+                maturityDay: maturityDay
+                securityExchange: securityExchange
+                securityDescription: securityDescription
+                cfiCode: cfiCode
+                issuer: issuer
+              settlementDate: "20210622"
+              orderQuantity: 350.01
+              maxShow: 100.01
+              userDefinedFields:
+                key: userDefinedFields
+              stopPrice: 800.01
+              price: 800.01
+              currency: USD
+              prevClosePrice: 100.01
+              timeInForce:
+                tif: day
+                expireTime: 20230823-12:20:25
+                expireDate: "20230823"
+              strikePrice: 400.01
+              isCovered: false
+              handlingInstructions: autoOrderPublic
+              account: Test.ACCT
+              inboundDestination: inboundDestination
+              locateRequired: false
+            originalClientOrderId: originalClientOrderId
       properties:
         data:
-          $ref: '#/components/schemas/EMSReplaceOrders'
+          $ref: '#/components/schemas/ReplaceInboundOrders'
       type: object
     Error:
       description: Error
@@ -1989,20 +2968,38 @@ components:
       - basketId
       - symbol
       type: object
+    ResponseParentId:
+      description: Unique identifier to identify the parent order.
+      example:
+        symbol: FDS-USA
+        basketId: FACTSET_OMS-100823_12345
+      properties:
+        symbol:
+          description: Ticker symbol
+          example: FDS-USA
+          nullable: true
+          type: string
+        basketId:
+          description: Unique identifier assigned to basket order. Can be fetched
+            from the WebSocket Order Update API.
+          example: FACTSET_OMS-100823_12345
+          nullable: true
+          type: string
+      type: object
     ReplaceChildOrder:
-      description: EMS Replace Child Orders
+      description: Replace Child Order
       example:
         settlementType: regular
         orderType: market
         executionInstructions: notHeld
-        maxFloor: 200
+        maxFloor: 200.01
         settlementDate: "20230823"
-        orderQuantity: 100
+        orderQuantity: 100.01
         userDefinedFields:
           key: userDefinedFields
-        stopPrice: 120
-        minQuantity: 120
-        price: 450
+        stopPrice: 120.01
+        minQuantity: 120.01
+        price: 450.01
         text: Replacing price to 300 for 50 orders
         timeInForce:
           tif: day
@@ -2031,14 +3028,14 @@ components:
         orderQuantity:
           description: Number of shares/Quantity to be routed. Must be less than or
             equal to the orderQuantity of the parent order.
-          example: 100
+          example: 100.01
           format: double
           minimum: 0
           nullable: true
           type: number
         price:
           description: Order price per share.
-          example: 450
+          example: 450.01
           format: double
           nullable: true
           type: number
@@ -2055,20 +3052,20 @@ components:
           type: string
         stopPrice:
           description: Stop-loss price to buy/sell stock at market.
-          example: 120
+          example: 120.01
           format: double
           nullable: true
           type: number
         maxFloor:
           description: Maximum number of shares within an order to be shown on the
             exchange floor at any given time.
-          example: 200
+          example: 200.01
           format: double
           nullable: true
           type: number
         minQuantity:
           description: Minimum quantity of an order to be executed.
-          example: 120
+          example: 120.01
           format: double
           nullable: true
           type: number
@@ -2186,6 +3183,7 @@ components:
           - goodTillCrossing
           - goodTillDate
           - atc
+          nullable: true
           type: string
         expireDate:
           description: Expire date in YYYYMMDD format expressed in UTC
@@ -2197,6 +3195,157 @@ components:
           example: 20230823-12:20:25
           nullable: true
           type: string
+      type: object
+    ParentOrder:
+      description: Parent Order
+      example:
+        userGroup: userGroup
+        parentId:
+          symbol: FDS-USA
+          basketId: FACTSET_OMS-100823_12345
+        userDefinedFields:
+          key: userDefinedFields
+      properties:
+        parentId:
+          $ref: '#/components/schemas/ParentId'
+        userGroup:
+          description: User groups
+          nullable: true
+          type: string
+        userDefinedFields:
+          additionalProperties:
+            type: string
+          description: User defined fields.
+          nullable: true
+          type: object
+      required:
+      - parentId
+      type: object
+    ParentOrdersUpdate:
+      example:
+        parentOrders:
+        - userGroup: userGroup
+          parentId:
+            symbol: FDS-USA
+            basketId: FACTSET_OMS-100823_12345
+          userDefinedFields:
+            key: userDefinedFields
+        - userGroup: userGroup
+          parentId:
+            symbol: FDS-USA
+            basketId: FACTSET_OMS-100823_12345
+          userDefinedFields:
+            key: userDefinedFields
+        - userGroup: userGroup
+          parentId:
+            symbol: FDS-USA
+            basketId: FACTSET_OMS-100823_12345
+          userDefinedFields:
+            key: userDefinedFields
+        - userGroup: userGroup
+          parentId:
+            symbol: FDS-USA
+            basketId: FACTSET_OMS-100823_12345
+          userDefinedFields:
+            key: userDefinedFields
+        - userGroup: userGroup
+          parentId:
+            symbol: FDS-USA
+            basketId: FACTSET_OMS-100823_12345
+          userDefinedFields:
+            key: userDefinedFields
+      properties:
+        parentOrders:
+          description: Parent Orders Update
+          items:
+            $ref: '#/components/schemas/ParentOrder'
+          maxItems: 1000
+          minItems: 1
+          type: array
+      required:
+      - parentOrders
+      type: object
+    ParentOrdersUpdateRoot:
+      example:
+        data:
+          parentOrders:
+          - userGroup: userGroup
+            parentId:
+              symbol: FDS-USA
+              basketId: FACTSET_OMS-100823_12345
+            userDefinedFields:
+              key: userDefinedFields
+          - userGroup: userGroup
+            parentId:
+              symbol: FDS-USA
+              basketId: FACTSET_OMS-100823_12345
+            userDefinedFields:
+              key: userDefinedFields
+          - userGroup: userGroup
+            parentId:
+              symbol: FDS-USA
+              basketId: FACTSET_OMS-100823_12345
+            userDefinedFields:
+              key: userDefinedFields
+          - userGroup: userGroup
+            parentId:
+              symbol: FDS-USA
+              basketId: FACTSET_OMS-100823_12345
+            userDefinedFields:
+              key: userDefinedFields
+          - userGroup: userGroup
+            parentId:
+              symbol: FDS-USA
+              basketId: FACTSET_OMS-100823_12345
+            userDefinedFields:
+              key: userDefinedFields
+      properties:
+        data:
+          $ref: '#/components/schemas/ParentOrdersUpdate'
+      type: object
+    ParentOrdersUpdateResponse:
+      description: Parent Orders Update Response
+      example:
+        reason: reason
+        parentId:
+          symbol: FDS-USA
+          basketId: FACTSET_OMS-100823_12345
+        status: success
+      properties:
+        parentId:
+          $ref: '#/components/schemas/ResponseParentId'
+        status:
+          description: Order status.
+          enum:
+          - success
+          - failed
+          type: string
+        reason:
+          description: Reason for failure.
+          nullable: true
+          type: string
+      type: object
+    ParentOrdersUpdateResponseRoot:
+      description: Parent Orders Update Response Root
+      example:
+        data:
+        - reason: reason
+          parentId:
+            symbol: FDS-USA
+            basketId: FACTSET_OMS-100823_12345
+          status: success
+        - reason: reason
+          parentId:
+            symbol: FDS-USA
+            basketId: FACTSET_OMS-100823_12345
+          status: success
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/ParentOrdersUpdateResponse'
+          type: array
+      required:
+      - data
       type: object
   securitySchemes:
     FactSetOAuth2:

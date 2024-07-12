@@ -7,5 +7,6 @@ Name | Type | Description | Notes
 **authorId** | **String** |  | [optional] 
 **parentCommentId** | **String** |  | [optional] 
 **body** | **String** |  | [optional] 
+**attachmentsCount** | **Number** |  | [optional] 
 
 

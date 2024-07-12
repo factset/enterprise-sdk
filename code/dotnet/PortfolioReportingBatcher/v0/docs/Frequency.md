@@ -1,5 +1,5 @@
 # FactSet.SDK.PortfolioReportingBatcher.Model.Frequency
-Used for ADF job types only. Will determine the frequency between the start and end dates.
+Used for ADF and Vault job types only. Will determine the frequency between the start and end dates. Please note that 'weekly' frequency is not available for Vault Job type.
 
 ## Properties
 

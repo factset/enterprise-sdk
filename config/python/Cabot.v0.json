@@ -1,0 +1,15 @@
+{
+  "packageName": "fds.sdk.Cabot",
+  "projectName": "fds.sdk.Cabot",
+  "packageVersion": "0.10.0",
+  "packageAuthor": "FactSet Research Systems",
+  "packageLicense": "Apache License, Version 2.0",
+  "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+  "packageDescription": "Cabot client library for Python",
+  "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/Cabot/v0",
+  "httpUserAgent": "fds-sdk/python/Cabot/0.10.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

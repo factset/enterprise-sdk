@@ -4,6 +4,7 @@
 .travis.yml
 LICENSE
 README.md
+docs/AttachmentStatus.md
 docs/AttachmentSummaryDto.md
 docs/AttachmentsApi.md
 docs/CommentDto.md
@@ -31,6 +32,7 @@ docs/RelatedRecordsDto.md
 docs/SubcommentSummaryDto.md
 docs/UpdateNoteDto.md
 docs/UserSerialDto.md
+docs/UserTeamLookupDto.md
 git_push.sh
 mocha.opts
 package.json
@@ -41,6 +43,7 @@ src/api/EventsApi.js
 src/api/IdentifiersApi.js
 src/api/NotesApi.js
 src/index.js
+src/model/AttachmentStatus.js
 src/model/AttachmentSummaryDto.js
 src/model/CommentDto.js
 src/model/CommentSummaryDto.js
@@ -63,3 +66,4 @@ src/model/RelatedRecordsDto.js
 src/model/SubcommentSummaryDto.js
 src/model/UpdateNoteDto.js
 src/model/UserSerialDto.js
+src/model/UserTeamLookupDto.js

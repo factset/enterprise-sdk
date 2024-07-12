@@ -1,14 +1,14 @@
 # irnnotes.NotesApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createNote**](NotesApi.md#createNote) | **POST** /v1/notes | Create a note
-[**deleteNote**](NotesApi.md#deleteNote) | **DELETE** /v1/notes/{noteId} | Delete a Note
-[**getNote**](NotesApi.md#getNote) | **GET** /v1/notes/{noteId} | Get details of a note
-[**getNotes**](NotesApi.md#getNotes) | **GET** /v1/notes | Get all the notes in the specified date range filtered on the given identifiers
-[**updateNote**](NotesApi.md#updateNote) | **PUT** /v1/notes/{noteId} | Update a note
+[**createNote**](NotesApi.md#createNote) | **POST** /notes | Create a note
+[**deleteNote**](NotesApi.md#deleteNote) | **DELETE** /notes/{noteId} | Delete a Note
+[**getNote**](NotesApi.md#getNote) | **GET** /notes/{noteId} | Get details of a note
+[**getNotes**](NotesApi.md#getNotes) | **GET** /notes | Get all the notes in the specified date range filtered on the given identifiers
+[**updateNote**](NotesApi.md#updateNote) | **PUT** /notes/{noteId} | Updates a note by replacing existing note with new data
 
 
 
@@ -356,7 +356,7 @@ Name | Type | Description  | Notes
 
 > updateNote(noteId, opts)
 
-Update a note
+Updates a note by replacing existing note with new data
 
 ### Example
 
@@ -393,7 +393,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 const apiInstance = new NotesApi();
 const noteId = "noteId_example"; // String | Note Id
 const opts = {
-  'updateNoteDto': new irnnotes.UpdateNoteDto() // UpdateNoteDto | Note details to update
+  'updateNoteDto': new irnnotes.UpdateNoteDto() // UpdateNoteDto | The new data for the note
 };
 
 // Call api endpoint
@@ -415,7 +415,7 @@ apiInstance.updateNote(noteId, opts).then(
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **noteId** | **String**| Note Id | 
- **updateNoteDto** | [**UpdateNoteDto**](UpdateNoteDto.md)| Note details to update | [optional] 
+ **updateNoteDto** | [**UpdateNoteDto**](UpdateNoteDto.md)| The new data for the note | [optional] 
 
 ### Return type
 

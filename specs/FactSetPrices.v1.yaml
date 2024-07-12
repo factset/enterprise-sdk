@@ -17,7 +17,8 @@ info:
     Receipt/Certificate, Alien/Foreign, Structured Product, and Temporary
     Instruments. Reference over 180,000+ active and inactive
     securities.</p><p>Fixed Income Security Types include Corporate Bonds,
-    Treasury and Agency bonds, Government Bonds, and Municipals.</p>
+    Treasury and Agency bonds, Government Bonds, and Municipals.</p><p><b>Rate
+    limit is set to 25 requests per second</b>.</p>
 servers:
   - url: https://api.factset.com/content
     description: Production
@@ -3368,6 +3369,7 @@ components:
             Time when the batch request is ended. This is in Eastern Time Zone.
             The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS],
             following ISO 8601.
+          nullable: true
         status:
           type: string
           enum:

@@ -4315,6 +4315,7 @@ components:
           type: string
         fileSize:
           description: The size of the file, in bytes.
+          format: int64
           type: integer
         fileCount:
           description: The count of the files.

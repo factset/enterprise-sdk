@@ -4,6 +4,7 @@
 .travis.yml
 LICENSE
 README.md
+docs/AttachmentStatus.md
 docs/AttachmentSummaryDto.md
 docs/AttachmentsApi.md
 docs/CommentDto.md
@@ -31,6 +32,7 @@ docs/RelatedRecordsDto.md
 docs/SubcommentSummaryDto.md
 docs/UpdateNoteDto.md
 docs/UserSerialDto.md
+docs/UserTeamLookupDto.md
 fds/__init__.py
 fds/sdk/IRNNotes/__init__.py
 fds/sdk/IRNNotes/api/__init__.py
@@ -44,6 +46,7 @@ fds/sdk/IRNNotes/apis/__init__.py
 fds/sdk/IRNNotes/configuration.py
 fds/sdk/IRNNotes/exceptions.py
 fds/sdk/IRNNotes/model/__init__.py
+fds/sdk/IRNNotes/model/attachment_status.py
 fds/sdk/IRNNotes/model/attachment_summary_dto.py
 fds/sdk/IRNNotes/model/comment_dto.py
 fds/sdk/IRNNotes/model/comment_summary_dto.py
@@ -66,6 +69,7 @@ fds/sdk/IRNNotes/model/related_records_dto.py
 fds/sdk/IRNNotes/model/subcomment_summary_dto.py
 fds/sdk/IRNNotes/model/update_note_dto.py
 fds/sdk/IRNNotes/model/user_serial_dto.py
+fds/sdk/IRNNotes/model/user_team_lookup_dto.py
 fds/sdk/IRNNotes/model_utils.py
 fds/sdk/IRNNotes/models/__init__.py
 fds/sdk/IRNNotes/rest.py

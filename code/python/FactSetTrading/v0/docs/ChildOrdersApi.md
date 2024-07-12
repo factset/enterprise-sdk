@@ -4,18 +4,18 @@ All URIs are relative to *https://api.factset.com/trading/ems/v0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cancel_child_order**](ChildOrdersApi.md#cancel_child_order) | **POST** /child-orders/cancel | Cancel Child Orders
-[**create_child_order**](ChildOrdersApi.md#create_child_order) | **POST** /child-orders/create | Create Child Orders
-[**replace_child_order**](ChildOrdersApi.md#replace_child_order) | **POST** /child-orders/replace | Replace the Child Orders on EMS system.
+[**cancel_child_order**](ChildOrdersApi.md#cancel_child_order) | **POST** /child-orders/cancel | Cancel Child Orders on Trading system
+[**create_child_order**](ChildOrdersApi.md#create_child_order) | **POST** /child-orders/create | Create Child Orders on Trading system.
+[**replace_child_order**](ChildOrdersApi.md#replace_child_order) | **POST** /child-orders/replace | Replace the Child Orders on Trading system.
 
 
 
 # **cancel_child_order**
-> EMSChildOrdersResponseRoot cancel_child_order()
+> ChildOrdersResponseRoot cancel_child_order()
 
-Cancel Child Orders
+Cancel Child Orders on Trading system
 
-This endpoint is to cancel a specific child order.
+This endpoint is used to cancel a specific child order on Trading system.
 
 ### Example
 
@@ -62,22 +62,22 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
     api_instance = child_orders_api.ChildOrdersApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    ems_cancel_child_orders_root = EMSCancelChildOrdersRoot(
-        data=EMSCancelChildOrders(
+    cancel_child_orders_root = CancelChildOrdersRoot(
+        data=CancelChildOrders(
             child_orders=[
-                EMSCancelChildOrder(
+                CancelChildOrder(
                     ticket_id="RKPW.3280015",
                     reason="mistyped order quantity to be routed",
                 ),
             ],
         ),
-    ) # EMSCancelChildOrdersRoot |  (optional)
+    ) # CancelChildOrdersRoot |  (optional)
 
     try:
-        # Cancel Child Orders
+        # Cancel Child Orders on Trading system
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.cancel_child_order(ems_cancel_child_orders_root=ems_cancel_child_orders_root)
+        api_response = api_instance.cancel_child_order(cancel_child_orders_root=cancel_child_orders_root)
 
         pprint(api_response)
 
@@ -90,11 +90,11 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ems_cancel_child_orders_root** | [**EMSCancelChildOrdersRoot**](EMSCancelChildOrdersRoot.md)|  | [optional]
+ **cancel_child_orders_root** | [**CancelChildOrdersRoot**](CancelChildOrdersRoot.md)|  | [optional]
 
 ### Return type
 
-[**EMSChildOrdersResponseRoot**](EMSChildOrdersResponseRoot.md)
+[**ChildOrdersResponseRoot**](ChildOrdersResponseRoot.md)
 
 ### Authorization
 
@@ -122,11 +122,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_child_order**
-> EMSCreateChildOrdersResponseRoot create_child_order()
+> CreateChildOrdersResponseRoot create_child_order()
 
-Create Child Orders
+Create Child Orders on Trading system.
 
-This endpoint is used to create child orders.
+This endpoint is used to create child orders on Trading system.
 
 ### Example
 
@@ -173,18 +173,18 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
     api_instance = child_orders_api.ChildOrdersApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    ems_child_orders_root = EMSChildOrdersRoot(
-        data=EMSChildOrders(
+    child_orders_root = ChildOrdersRoot(
+        data=ChildOrders(
             child_orders=[
-                EMSChildOrder(
+                ChildOrder(
                     parent_id=ParentId(
                         symbol="FDS-USA",
                         basket_id="FACTSET_OMS-100823_12345",
                     ),
                     side="buy",
                     order_type="market",
-                    order_quantity=250,
-                    price=450,
+                    order_quantity=250.01,
+                    price=450.01,
                     time_in_force=TimeInForce(
                         tif="day",
                         expire_date="20230823",
@@ -193,9 +193,9 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
                     handling_instructions="autoOrderPublic",
                     ex_destination="America Stock Exchange",
                     destination="PAPER",
-                    stop_price=250,
-                    max_floor=100,
-                    min_quantity=120,
+                    stop_price=250.01,
+                    max_floor=100.01,
+                    min_quantity=120.01,
                     settlement_type="regular",
                     settlement_date="20230823",
                     execution_instructions="notHeld",
@@ -208,13 +208,13 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
                 ),
             ],
         ),
-    ) # EMSChildOrdersRoot |  (optional)
+    ) # ChildOrdersRoot |  (optional)
 
     try:
-        # Create Child Orders
+        # Create Child Orders on Trading system.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.create_child_order(ems_child_orders_root=ems_child_orders_root)
+        api_response = api_instance.create_child_order(child_orders_root=child_orders_root)
 
         pprint(api_response)
 
@@ -227,11 +227,11 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ems_child_orders_root** | [**EMSChildOrdersRoot**](EMSChildOrdersRoot.md)|  | [optional]
+ **child_orders_root** | [**ChildOrdersRoot**](ChildOrdersRoot.md)|  | [optional]
 
 ### Return type
 
-[**EMSCreateChildOrdersResponseRoot**](EMSCreateChildOrdersResponseRoot.md)
+[**CreateChildOrdersResponseRoot**](CreateChildOrdersResponseRoot.md)
 
 ### Authorization
 
@@ -259,11 +259,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **replace_child_order**
-> EMSChildOrdersResponseRoot replace_child_order()
+> ChildOrdersResponseRoot replace_child_order()
 
-Replace the Child Orders on EMS system.
+Replace the Child Orders on Trading system.
 
-This endpoint takes the child order to be replaced on the EMS system.
+This endpoint takes the child order to be replaced on the Trading system.
 
 ### Example
 
@@ -310,23 +310,23 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
     api_instance = child_orders_api.ChildOrdersApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    ems_replace_child_orders_root = EMSReplaceChildOrdersRoot(
-        data=EMSReplaceChildOrders(
+    replace_child_orders_root = ReplaceChildOrdersRoot(
+        data=ReplaceChildOrders(
             child_orders=[
                 ReplaceChildOrder(
                     ticket_id="RKPW.3280015",
                     order_type="market",
-                    order_quantity=100,
-                    price=450,
+                    order_quantity=100.01,
+                    price=450.01,
                     time_in_force=TimeInForce(
                         tif="day",
                         expire_date="20230823",
                         expire_time="20230823-12:20:25",
                     ),
                     handling_instructions="autoOrderPublic",
-                    stop_price=120,
-                    max_floor=200,
-                    min_quantity=120,
+                    stop_price=120.01,
+                    max_floor=200.01,
+                    min_quantity=120.01,
                     settlement_type="regular",
                     settlement_date="20230823",
                     execution_instructions="notHeld",
@@ -338,13 +338,13 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
                 ),
             ],
         ),
-    ) # EMSReplaceChildOrdersRoot |  (optional)
+    ) # ReplaceChildOrdersRoot |  (optional)
 
     try:
-        # Replace the Child Orders on EMS system.
+        # Replace the Child Orders on Trading system.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.replace_child_order(ems_replace_child_orders_root=ems_replace_child_orders_root)
+        api_response = api_instance.replace_child_order(replace_child_orders_root=replace_child_orders_root)
 
         pprint(api_response)
 
@@ -357,11 +357,11 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ems_replace_child_orders_root** | [**EMSReplaceChildOrdersRoot**](EMSReplaceChildOrdersRoot.md)|  | [optional]
+ **replace_child_orders_root** | [**ReplaceChildOrdersRoot**](ReplaceChildOrdersRoot.md)|  | [optional]
 
 ### Return type
 
-[**EMSChildOrdersResponseRoot**](EMSChildOrdersResponseRoot.md)
+[**ChildOrdersResponseRoot**](ChildOrdersResponseRoot.md)
 
 ### Authorization
 

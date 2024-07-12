@@ -1,0 +1,1466 @@
+openapi: 3.0.0
+info:
+  title: ID Lookup API
+  description: >-
+    The ID Lookup API is a fuzzy search service that allows users to resolve
+    symbols but are unable to find them elsewhere. The ID Lookup API allows
+    users to search for entities in a wide variety of ways including, but not
+    limited to, tickers, CUSIPs, URLs, a company’s brands, names and
+    descriptions. The API does not require a complete query and will return
+    different lists of results with each additional character, which enables
+    users to iterate and adjust queries to return the desired results. Each
+    search query returns a list of suggestions that can include every entity
+    type offered by the API based on a matching and ranking algorithm.
+
+
+
+    The API response returns multiple different symbols that map to both
+    internal FactSet identifiers like security or entity IDs as well as external
+    identifiers like exchange tickers, Morningstar symbols and ISINs. This gives
+    users flexibility in mapping identifiers across the FactSet universe.
+  version: 2.0.0
+  contact:
+    name: FactSet Research Systems
+    email: api@factset.com
+    url: https://developer.factset.com/contact
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+  - url: https://api.factset.com/idsearch/v2
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
+paths:
+  /lookup:
+    post:
+      tags:
+        - FactSet ID Lookup
+      summary: >-
+        Search functionality to return tickers, company names, and unique
+        identifiers for FactSet data.
+      description: >
+        This functionality enables users to input search queries, such as
+        company names or keywords, and receive results containing matching
+        entities along with their associated tickers and unique identifiers. 
+
+
+        Essentially, it provides a streamlined means of locating specific data
+        points within the FactSet database, facilitating the efficient retrieval
+        of essential information related to companies or financial instruments.
+
+
+        The dataset names provided in the table below can be used in the request
+        body.
+
+
+        | Dataset Name                | Dataset Description                 | ID
+        Type           | ID Example   |
+
+        |-----------------------------|-------------------------------------|-------------------|--------------|
+
+        | *`bankLoans`*               | Bank Loans                          |
+        symbol            | LX056750     |
+
+        | *`commodities`*             | Commodities                         |
+        symbol            | DUBAIM-FDS   |
+
+        | *`cepBonds`*                | Continuous Evaluated Pricing        |
+        tickerExchange    | N3ZWW5.FI-CEP|
+
+        | *`countries`*               | Countries                           |
+        symbol            | CC_MA        |
+
+        | *`deals`*                   | Deals                               |
+        symbol            | 4161715      |
+
+        | *`economicReports`*             | Economic Reports                   
+        | symbol            | USKEY-ECON   |
+
+        | *`economicSeries`*          | Economic Series                     |
+        symbol            | EUZ.GDPR     |
+
+        | *`equities`*                | Equities                            |
+        tickerRegion      | AAPL-US      |
+
+        | *`equitiesRealTime`*        | Equities RealTime                   |
+        tickerExchange    | M-BKK        |
+
+        | *`etfs`*                    | ETFs                                |
+        tickerRegion      | ACWI-US      |
+
+        | *`etfsRealTime`*            | ETFs RealTime                       |
+        symbol            | JPNA
+
+        | *`exchangeRatesRealTime`*   | Exchange Rates RealTime             |
+        symbol            | AUDUSD-FX1   |
+
+        | *`bonds`*                   | Fixed Income                        |
+        symbol            | XS2027359756 |
+
+        | *`forex`*                   | Foreign Exchange                    |
+        symbol            | USDARS       |
+
+        | *`futures`*                 | Futures (continuous)                |
+        symbol            | AP00-SFE     |
+
+        | *`indices`*                 | Indices                             |
+        symbol            | 186745       |
+
+        | *`indicesRealTime`*         | Indices RealTime                    |
+        symbol            | BB3MUS.A-PSE |
+
+        | *`industries`*              | Industries                          |
+        symbol            | FI1225R1     |
+
+        | *`markitLoans`*             | Markit Loans                        |
+        symbol            | LX111044-USA |
+
+        | *`mutualFunds`*             | Mutual Funds                        |
+        tickerRegion      | AMECX-US     |
+
+        | *`mutualFundsRealTime`*     | Mutual Funds RealTime               |
+        symbol            | 015414       |
+
+        | *`ownershipHolders`*        | Ownership Holders                   |
+        symbol            | F5102330     |
+
+        | *`people`*                  | People                              |
+        entityId          | 065SLB-E     |
+
+        | *`privateCompanies`*        | Private Companies                   |
+        entityId          | 0CBD2D-E     |
+
+        | *`pevcFirms`*               | Private Equity/Venture Capital Firms|
+        entityId          | 000BKX-E     |
+
+        | *`pevcFunds`*               | Private Equity/Venture Capital Funds|
+        entityId          | 0WCD0X-E     |
+
+        | *`regions`*                 | Region                              |
+        symbol            | RG_AMER      |
+
+        | *`yields`*                  | Yields                              |
+        symbol            | TRYAU10Y-FDS |
+
+        | *`options`*                 | options                             |
+        tickerExchange           | A#P1924C100000-USA|
+      operationId: search
+      requestBody:
+        description: Request body to lookup any FactSet identifiers.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/lookupRequest'
+            examples:
+              ID search Basic Example (equities):
+                $ref: '#/components/examples/lookupBasicRequestEquities'
+              ID search Basic Example (bonds):
+                $ref: '#/components/examples/lookupBasicRequestBonds'
+              ID search Basic Example (private companies):
+                $ref: '#/components/examples/lookupBasicRequestPrivateCompanies'
+              ID search Example using Filters:
+                $ref: '#/components/examples/lookupFiltersRequest'
+              Sample query using OR logic:
+                $ref: '#/components/examples/lookupOrLogicRequest'
+              Sample query using both OR & AND:
+                $ref: '#/components/examples/lookupOrAndLogicRequest'
+        required: true
+      responses:
+        '200':
+          description: A list of securities
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/lookupResponse'
+              examples:
+                ID search Basic Response (equities):
+                  $ref: '#/components/examples/lookupBasicResponseEquities'
+                ID search Basic Response (bonds):
+                  $ref: '#/components/examples/lookupBasicResponseBonds'
+                ID search Basic Response (private companies):
+                  $ref: '#/components/examples/lookupBasicResponsePrivateCompanies'
+                ID search Basic Example (bank Loans):
+                  $ref: '#/components/examples/lookupBasicResponsebankLoans'
+                ID search Basic Example (commodities):
+                  $ref: '#/components/examples/lookupBasicResponseCommodities'
+                ID search Basic Example (CER bonds):
+                  $ref: '#/components/examples/lookupBasicResponseCep'
+                ID search Basic Example (countries):
+                  $ref: '#/components/examples/lookupBasicResponseCountries'
+                ID search Basic Example (deals):
+                  $ref: '#/components/examples/lookupBasicResponseDeals'
+                ID search Basic Example (economic reports):
+                  $ref: '#/components/examples/lookupBasicResponseEconomicReports'
+                ID search Basic Example (economic series):
+                  $ref: '#/components/examples/lookupBasicResponseEconomicSeries'
+                ID search Basic Example (Equities realtime):
+                  $ref: '#/components/examples/lookupBasicResponseEquitiesRealTime'
+                ID search Basic Example (etfs):
+                  $ref: '#/components/examples/lookupBasicResponseEtfs'
+                ID search Basic Example (etfs realtime):
+                  $ref: '#/components/examples/lookupBasicResponseEtfsRealTime'
+                ID search Basic Example (exchangeRates realtime):
+                  $ref: >-
+                    #/components/examples/lookupBasicResponsExchangeRatesRealTime
+                ID search Basic Example (forex):
+                  $ref: '#/components/examples/lookupBasicResponsForex'
+                ID search Basic Example (futures):
+                  $ref: '#/components/examples/lookupBasicResponsFutures'
+                ID search Basic Example (indices):
+                  $ref: '#/components/examples/lookupBasicResponsindices'
+                ID search Basic Example (indices realtime):
+                  $ref: '#/components/examples/lookupBasicResponsIndicesRealTime'
+                ID search Basic Example (industries):
+                  $ref: '#/components/examples/lookupBasicResponsIndustries'
+                ID search Basic Example (markit loans):
+                  $ref: '#/components/examples/lookupBasicResponsMarkitLoans'
+                ID search Basic Example (mutual funds):
+                  $ref: '#/components/examples/lookupBasicResponsemutualFunds'
+                ID search Basic Example (mutualfunds realtime):
+                  $ref: '#/components/examples/lookupBasicResponsemutualFundsRealTime'
+                ID search Basic Example (ownership holders):
+                  $ref: '#/components/examples/lookupBasicResponsownershipHolders'
+                ID search Basic Example (people):
+                  $ref: '#/components/examples/lookupBasicResponspeople'
+                ID search Basic Example (pevc firms):
+                  $ref: '#/components/examples/lookupBasicResponspevcFirms'
+                ID search Basic Example (pevc funds):
+                  $ref: '#/components/examples/lookupBasicResponspevcFunds'
+                ID search Basic Example (regions):
+                  $ref: '#/components/examples/lookupBasicResponsregions'
+                ID search Basic Example (yeilds):
+                  $ref: '#/components/examples/lookupBasicResponsYields'
+                ID search Basic Example (options):
+                  $ref: '#/components/examples/lookupBasicResponsOptions'
+                ID search Response using filters:
+                  $ref: '#/components/examples/lookupFiltersResponse'
+                Sample response using OR logic:
+                  $ref: '#/components/examples/lookupOrLogicResponse'
+                Sample response using both OR & AND:
+                  $ref: '#/components/examples/lookupOrAndLogicResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+  /metadata/fields/list-by-dataset:
+    get:
+      tags:
+        - FactSet ID Lookup
+      summary: >-
+        Helper endpoint offering a list of supported fields and values to filter
+        a requested dataset.
+      description: >
+        By querying this helper endpoint, users can retrieve a comprehensive
+        list of supported fields, each associated with its permissible values.
+        This functionality enhances the usability of the API by empowering users
+        to construct precise queries tailored to their requirements when
+        accessing the requested dataset.
+      operationId: helper
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/helperEndpoint'
+              examples:
+                Helper Endpoint Basic Example:
+                  $ref: '#/components/examples/helperBasic'
+                Helper Endpoint Example 2:
+                  $ref: '#/components/examples/helperBasic2'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+      parameters:
+        - $ref: '#/components/parameters/dataset'
+components:
+  securitySchemes:
+    FactSetOAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+          scopes: {}
+    FactSetApiKey:
+      type: http
+      scheme: basic
+  parameters:
+    dataset:
+      in: query
+      name: dataset
+      description: Type of dataset.
+      required: true
+      schema:
+        type: string
+        enum:
+          - equities
+          - bankLoans
+          - commodities
+          - cepBonds
+          - countries
+          - deals
+          - economicReports
+          - economicSeries
+          - equitiesRealTime
+          - etfs
+          - etfsRealTime
+          - exchangeRatesRealTime
+          - bonds
+          - forex
+          - futures
+          - indices
+          - indicesRealTime
+          - industries
+          - markitLoans
+          - mutualFunds
+          - mutualFundsRealTime
+          - ownershipHolders
+          - people
+          - privateCompanies
+          - pevcFirms
+          - pevcFunds
+          - regions
+          - yields
+          - options
+  schemas:
+    helperEndpoint:
+      title: Helper Endpoint
+      description: Helper Endpoint
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          $ref: '#/components/schemas/helperObject'
+    helperObject:
+      title: Helper Object
+      type: object
+      description: Helper Object
+      properties:
+        description:
+          nullable: true
+          type: string
+          description: Description of the dataset.
+        dataset:
+          nullable: true
+          type: string
+          description: Name of the dataset.
+        fields:
+          type: array
+          description: Fields Object
+          items:
+            $ref: '#/components/schemas/fieldsObject'
+    fieldsObject:
+      type: object
+      properties:
+        field:
+          type: string
+          description: Name of the field.
+          nullable: true
+        values:
+          type: array
+          description: Field Values Object
+          items:
+            $ref: '#/components/schemas/valuesObject'
+    valuesObject:
+      type: object
+      properties:
+        value:
+          nullable: true
+          type: string
+          description: Field Value
+        description:
+          nullable: true
+          type: string
+          description: Description of the value.
+    lookupRequest:
+      title: Lookup Request
+      description: Lookup Request Object
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          $ref: '#/components/schemas/lookupObject'
+        meta:
+          description: Meta Object
+          type: object
+          properties:
+            limitPerDataset:
+              type: integer
+              description: >-
+                Number of results to be returned by the search. The API returns
+                only 5 results per dataset if the user specifies
+                `limitPerDataset=5`.
+              default: 10
+              maximum: 25
+    lookupObject:
+      title: Lookup Object
+      type: object
+      description: Lookup Object
+      required:
+        - searchText
+        - datasets
+      properties:
+        searchText:
+          title: Search term
+          type: string
+          description: The string or keyword being searched on.
+          example: US'
+        datasets:
+          $ref: '#/components/schemas/datasets'
+    datasets:
+      title: Datasets
+      type: array
+      minItems: 1
+      items:
+        $ref: '#/components/schemas/filterObjects'
+    filterObjects:
+      title: Dataset Objects
+      type: object
+      required:
+        - dataset
+      description: Response object for a lookup request
+      properties:
+        dataset:
+          type: string
+          description: Type of dataset.
+          enum:
+            - equities
+            - bankLoans
+            - commodities
+            - cepBonds
+            - countries
+            - deals
+            - economicReports
+            - economicSeries
+            - equitiesRealTime
+            - exchangeRatesRealTime
+            - etfs
+            - etfsRealTime
+            - bonds
+            - forex
+            - futures
+            - indices
+            - indicesRealTime
+            - industries
+            - markitLoans
+            - mutualFunds
+            - mutualFundsRealTime
+            - ownershipHolders
+            - people
+            - privateCompanies
+            - pevcFirms
+            - pevcFunds
+            - regions
+            - yields
+            - options
+        filters:
+          $ref: '#/components/schemas/filters'
+    filters:
+      title: Filters
+      type: object
+      description: >
+
+
+        Filters object helps narrow down the search results by including and/or
+        excluding parameters. Filters are specific, depending on the dataset.
+
+         Please refer to `/metadata/fields/list-by-dataset` for the complete list of supported fields and values to filter the requested dataset.
+         If no filters are provided, all data will be returned.
+
+          * include - restricts results to those matching the provided fields and values
+          * exclude - returns all results except those matching the provided fields and values.
+
+         Possible cases:
+
+          * No filters object (default): No filter will be applied to the results.
+
+
+          * Include and exclude objects used together: Results are based on the combination of different fields used in both objects.
+
+
+          * The same field cannot be used in both include and exclude. If that happens, an HTTP 400 response is returned.
+
+          * If a specified field does not exist in the dataset, an HTTP 400 response is returned.
+      properties:
+        include:
+          $ref: '#/components/schemas/includeObject'
+        exclude:
+          $ref: '#/components/schemas/excludeObject'
+    includeObject:
+      title: Include Object
+      type: object
+      additionalProperties:
+        description: >
+          Name of the field with the respective values to filter on.
+
+
+           Each dataset has its own set of fields (i.e., `equityType`, `isPrimary`, `region`, etc.).
+
+
+
+          Values you wish to filter on should be listed in an array. The values
+          within this list are tied by an OR operation. Example:- `["US", "GB"]`
+          would include documents whose region values are either the United
+          States or Great Britain.
+           
+        type: array
+        items:
+          type: string
+    excludeObject:
+      title: Exclude Object
+      type: object
+      additionalProperties:
+        description: >
+          Name of the field with the respective values to filter on. 
+
+
+            Each dataset has its own set of fields (i.e. `equityType`, `isPrimary`, `region`, etc).
+
+
+
+          Values you wish to filter on should be listed in an array. The values
+          within this list are tied by an OR operation. Example:- `["US", "GB"]`
+          would exclude documents whose region values are either the United
+          States or Great Britain.
+           
+        type: array
+        items:
+          type: string
+    lookupResponse:
+      title: Lookup Response
+      type: object
+      required:
+        - data
+      description: Response object for a lookup request
+      properties:
+        data:
+          type: array
+          description: Array of Lookup details for the query
+          items:
+            $ref: '#/components/schemas/responseDetails'
+        meta:
+          description: Meta Object
+          type: object
+          properties:
+            resultCount:
+              type: object
+              description: >-
+                It details the number of response objects belonging to each
+                dataset.
+              properties:
+                equities:
+                  type: integer
+                  example: 1
+                  description: Number of equities.
+                equitiesRealTime:
+                  type: integer
+                  example: 1
+                  description: Number number of real-time equities.
+                bankLoans:
+                  type: integer
+                  example: 1
+                  description: Number of bank loans.
+                commodities:
+                  type: integer
+                  example: 1
+                  description: Number of commodities.
+                cepBonds:
+                  type: integer
+                  example: 1
+                  description: Number of continuous evaluated pricing bonds.
+                countries:
+                  type: integer
+                  example: 1
+                  description: Number of countries.
+                deals:
+                  type: integer
+                  example: 1
+                  description: Number of deals.
+                economicReports:
+                  type: integer
+                  example: 1
+                  description: Number of economic reports.
+                economicSeries:
+                  type: integer
+                  example: 1
+                  description: Number of economic series.
+                etfs:
+                  type: integer
+                  example: 1
+                  description: Number of ETFs.
+                etfsRealTime:
+                  type: integer
+                  example: 1
+                  description: Number of real-time ETFs.
+                exchangeRatesRealTime:
+                  type: integer
+                  example: 1
+                  description: Number of real-time exchange rates.
+                bonds:
+                  type: integer
+                  example: 1
+                  description: Number of bonds
+                forex:
+                  type: integer
+                  example: 1
+                  description: Number of foreign exchanges.
+                futures:
+                  type: integer
+                  example: 1
+                  description: Number of futures.
+                indices:
+                  type: integer
+                  example: 1
+                  description: Number of indices.
+                indicesRealTime:
+                  type: integer
+                  example: 1
+                  description: Number of real-time indices.
+                industries:
+                  type: integer
+                  example: 1
+                  description: Number of industries.
+                markitLoans:
+                  type: integer
+                  example: 1
+                  description: Number of markit loans.
+                mutualFunds:
+                  type: integer
+                  example: 1
+                  description: Number of mutual funds.
+                mutualFundsRealTime:
+                  type: integer
+                  example: 1
+                  description: Number of real-time mutual funds.
+                ownershipHolders:
+                  type: integer
+                  example: 1
+                  description: Number of ownership holders.
+                people:
+                  type: integer
+                  example: 1
+                  description: Number of people.
+                privateCompanies:
+                  type: integer
+                  example: 1
+                  description: Number of private companies.
+                pevcFirms:
+                  type: integer
+                  example: 1
+                  description: Number of private equity/venture capital firms.
+                pevcFunds:
+                  type: integer
+                  example: 1
+                  description: Number of private equity/venture capital funds.
+                regions:
+                  type: integer
+                  example: 1
+                  description: Number of regions.
+                yields:
+                  type: integer
+                  example: 1
+                  description: Number of yields.
+    responseDetails:
+      title: Response Details
+      description: Response Details Object
+      type: object
+      required:
+        - dataset
+        - name
+      properties:
+        dataset:
+          type: string
+          description: Type of dataset.
+          example: equities
+        id:
+          type: string
+          description: Identifier of a market security pertaining to the dataset .
+          example: FDS-US
+        idType:
+          type: string
+          description: >
+            Type of the identifier.
+
+            * `symbol`: The value in symbol is associated with the name of the
+            related dataset. It is the only value that should be passed back to
+            any FactSet services to retrieve data. Example: M-US.
+
+
+
+            * `tickerRegion`: FactSet region ticker symbol. For details on
+            Global Region Codes, visit [Online Assistant Page
+            #13258](https://oa.apps.factset.com/pages/13258). Example: MKSXX-US.
+
+
+
+            * `tickerExchange`: FactSet exchange ticker symbol. For definitions
+            of Exchange Codes, visit [Online Assistant Page
+            #12544](https://oa.apps.factset.com/pages/12544). Example:
+            N3ZWW5.FI-CEP.
+
+
+
+
+            * `entityId`: FactSet Entity Identifier (-E). For more information
+            on Entity Ids, visit [FactSet Permanent Security
+            Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881).
+            Example: 000F9X-E.
+          enum:
+            - symbol
+            - entityId
+            - tickerRegion
+            - tickerExchange
+        name:
+          type: string
+          description: Name of the related dataset.
+          example: Factset Research Systems Inc
+        entityId:
+          type: string
+          example: 000F9X-E
+          description: >
+            FactSet Entity Identifier (-E). For more information on Entity Ids,
+            visit [FactSet Permanent Security
+            Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881).
+        underlying:
+          type: object
+          description: Underlying data object
+          properties:
+            tickerRegion:
+              type: string
+              description: >-
+                FactSet region ticker symbol. For details on Global Region
+                Codes, visit [Online Assistant Page
+                #13258](https://oa.apps.factset.com/pages/13258)
+              example: 8316-JP
+        fsymRegionalId:
+          type: string
+          description: >-
+            FactSet Regional Security Identifier. Six alpha-numeric characters,
+            excluding vowels, with an -R suffix (XXXXXX-R). Identifies the
+            security's best regional security data series per currency. For
+            equities, all primary listings per region and currency are allocated
+            a regional-level permanent identifier. The regional-level permanent
+            identifier will be available once a SEDOL representing the
+            region/currency has been allocated and the identifiers are on
+            FactSet. [FactSet Permanent Security
+            Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881).
+          example: LHRR0T-R
+        fsymListingId:
+          type: string
+          description: >-
+            FactSet Listing Security Identifier. Six alpha-numeric characters,
+            vowels excluded, with an -L suffix (XXXXXX-L). The listing-level
+            permanent identifier will be available prior to the end of trading
+            on the first day of trading.
+          example: NSXGVV-L
+        fsymUnderlyingId:
+          type: string
+          description: FactSet Underlying Id
+          example: A
+    errorResponse:
+      type: object
+      title: Error Response
+      description: Error Response Object
+      properties:
+        errors:
+          type: array
+          description: An array containing errors
+          items:
+            $ref: '#/components/schemas/errorExample'
+    errorExample:
+      type: object
+      description: Specifies the fields in the error message
+      properties:
+        code:
+          description: It specifies the unique code
+          type: string
+        title:
+          description: ' Specifies the error message'
+          type: string
+        detail:
+          description: ' Specific to occurance of the error'
+          type: string
+        id:
+          description: Specifies the id
+          type: string
+  responses:
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - Parameter error:
+              $ref: '#/components/examples/badRequest'
+    '401':
+      description: Authentication Issue
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - Authentication:
+              $ref: '#/components/examples/unAuthenticated'
+    '403':
+      description: Authorization Issue
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - Authorization:
+              $ref: '#/components/examples/forbidden'
+    '429':
+      description: Limit Exceeded
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - Limit Exceeded:
+              $ref: '#/components/examples/limitExceeded'
+    '500':
+      description: Internal Server Error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Internal Server Error - General Exception:
+              $ref: '#/components/examples/generalException'
+  examples:
+    helperBasic2:
+      summary: Basic Example 2
+      description: Basic example for helper endpoint.
+      value:
+        data:
+          description: Bank Loans Dataset
+          dataset: bankLoans
+          fields:
+            - field: null
+              values:
+                - value: null
+                  description: null
+    helperBasic:
+      summary: Basic Example 1
+      description: Basic example for helper endpoint.
+      value:
+        data:
+          description: Equities Dataset
+          dataset: equities
+          fields:
+            - field: equityType
+              values:
+                - value: EQ_Primary
+                  description: Primary Market
+                - value: EQ_PREF
+                  description: Preferred Equities
+                - value: EQ_RIGHTS
+                  description: Rights
+                - value: EQ_WARR
+                  description: Warrants
+                - value: EQ_DEPOS
+                  description: Depository Receipts
+                - value: EQ_DR_ADR
+                  description: ADR
+                - value: EQ_DR_GDR
+                  description: GDR
+                - value: EQ_DR_NVDR
+                  description: NVDR
+                - value: EQ_DR_ODR
+                  description: Other DR
+            - field: isPrimary
+              values:
+                - value: '0'
+                  description: 'false'
+                - value: '1'
+                  description: 'true'
+            - field: region
+              values:
+                - value: AF
+                  description: Afghanistan
+                - value: AW
+                  description: Aruba
+                - value: IN
+                  description: India
+                - value: LB
+                  description: Lebanon
+    lookupBasicRequestEquities:
+      summary: Equities Dataset
+      description: ID search basic example for dataset as equities
+      value:
+        data:
+          searchText: A
+          datasets:
+            - dataset: equities
+        meta:
+          limitPerDataset: 2
+    lookupBasicRequestBonds:
+      summary: Bonds Dataset
+      description: ID search basic example for dataset as bonds
+      value:
+        data:
+          searchText: Bank
+          datasets:
+            - dataset: bonds
+        meta:
+          limitPerDataset: 2
+    lookupBasicRequestPrivateCompanies:
+      summary: Private Companies Dataset
+      description: ID search basic example for dataset as privateCompanies
+      value:
+        data:
+          searchText: group
+          datasets:
+            - dataset: privateCompanies
+        meta:
+          limitPerDataset: 2
+    lookupFiltersRequest:
+      summary: Filters
+      description: >-
+        In this example, the query is looking for bonds that have US in its
+        name. We are also setting a filter to return bonds that have a 2021,
+        2022 maturity years.
+      value:
+        data:
+          searchText: us
+          datasets:
+            - dataset: bonds
+              filters:
+                include:
+                  maturityYear:
+                    - '2021'
+                    - '2022'
+                exclude: {}
+        meta:
+          limitPerDataset: 1
+    lookupOrLogicRequest:
+      summary: OR Logic
+      description: >-
+        The OR logic is set by setting multiple values within the same block,
+        separated by a comma. In this example, the query is searching for
+        equities OR private companies that has the word air in its name. We are
+        not setting any filters for this query.
+      value:
+        data:
+          searchText: air
+          datasets:
+            - dataset: privateCompanies
+            - dataset: equities
+        meta:
+          limitPerDataset: 1
+    lookupOrAndLogicRequest:
+      summary: OR & AND Logic
+      description: >-
+        In this example, the query is searching for equities that has the word
+        group in its name. We are only interested in Global Depositary Receipts
+        (GDR) that are in Great Britain or Germany.
+      value:
+        data:
+          searchText: group
+          datasets:
+            - dataset: equities
+              filters:
+                include:
+                  equityType:
+                    - EQ_DR_GDR
+                  region:
+                    - GB
+                    - DE
+                exclude: {}
+        meta:
+          limitPerDataset: 2
+    lookupBasicResponseEquities:
+      summary: Equities Dataset
+      description: ID search basic example for dataset as equities
+      value:
+        data:
+          - dataset: equities
+            id: A-US
+            idType: tickerRegion
+            name: Agilent Technologies,Inc.
+            entityId: 002LV5-E
+          - dataset: equities
+            id: AAPL-US
+            idType: tickerRegion
+            name: Apple Inc.
+            entityId: 000C7F-E
+        meta:
+          resultCount:
+            equities: 2
+    lookupBasicResponsebankLoans:
+      summary: Bank Loans Dataset
+      description: ID search basic example for dataset as bank Loans
+      value:
+        data:
+          - dataset: bankLoans
+            id: LX115263
+            idType: symbol
+            name: Blackrock Inc Revolver/Standard 22-Aug-2012
+        meta:
+          resultCount:
+            bankLoans: 1
+    lookupBasicResponseCommodities:
+      summary: Commodities Dataset
+      description: ID search basic example for dataset as commodities
+      value:
+        data:
+          - dataset: commodities
+            id: A-FDS
+            idType: symbol
+            name: No.1 Soybeans Near Term (DCE CNY/mt)
+        meta:
+          resultCount:
+            commodities: 1
+    lookupBasicResponseCep:
+      summary: Cep Bonds Dataset
+      description: ID search basic example for dataset as cepBonds
+      value:
+        data:
+          - dataset: cepBonds
+            id: BRGNZ1.FI-CEP
+            idType: tickerExchange
+            name: Electricite de France, Societe Anonyme 6.875% 12-DEC-2022
+        meta:
+          resultCount:
+            cepBonds: 1
+    lookupBasicResponseCountries:
+      summary: Countries Dataset
+      description: ID search basic example for dataset as countries
+      value:
+        data:
+          - dataset: countries
+            id: CC_AU
+            idType: symbol
+            name: Australia
+        meta:
+          resultCount:
+            countries: 1
+    lookupBasicResponseDeals:
+      summary: Deals Dataset
+      description: ID search basic example for dataset as deals
+      value:
+        data:
+          - dataset: deals
+            id: '4199447'
+            idType: symbol
+            name: Brightstar Capital Partners LP offers to acquire PlayAGS, Inc.
+        meta:
+          resultCount:
+            deals: 1
+    lookupBasicResponseEconomicReports:
+      summary: Economic Reports Dataset
+      description: ID search basic example for dataset as economicReports
+      value:
+        data:
+          - dataset: economicReports
+            id: USKEY-ECON
+            idType: symbol
+            name: US Key Indicators
+        meta:
+          resultCount:
+            economicReports: 1
+    lookupBasicResponseEconomicSeries:
+      summary: Economic Series Dataset
+      description: ID search basic example for dataset as economicSeries
+      value:
+        data:
+          - dataset: economicSeries
+            id: US.GDPR
+            idType: symbol
+            name: >-
+              Real GDP, At Chained Prices, 2017 Prices, SAAR, Bil USD - United
+              States
+        meta:
+          resultCount:
+            economicSeries: 1
+    lookupBasicResponseEquitiesRealTime:
+      summary: Equities RealTime Dataset
+      description: ID search basic example for dataset as equitiesRealTime
+      value:
+        data:
+          - dataset: equitiesRealTime
+            id: A-USA
+            idType: tickerExchange
+            name: Agilent Technologies, Inc.
+        meta:
+          resultCount:
+            equitiesRealTime: 1
+    lookupBasicResponseEtfs:
+      summary: Etfs Dataset
+      description: ID search basic example for dataset as etfs
+      value:
+        data:
+          - dataset: etfs
+            id: AGG-US
+            idType: tickerRegion
+            name: iShares Core U.S. Aggregate Bond ETF
+            fsymRegionalId: BDNKQF-R
+            fsymListingId: J64VR1-L
+        meta:
+          resultCount:
+            etfs: 1
+    lookupBasicResponseEtfsRealTime:
+      summary: Etfs RealTime Dataset
+      description: ID search basic example for dataset as etfsRealTime
+      value:
+        data:
+          - dataset: etfsRealTime
+            id: JPNA
+            idType: symbol
+            name: UBS (Lux) Fund Solutions - MSCI Japan UCITS ETF (JPY) A-acc
+            fsymListingId: J64VR1-L
+        meta:
+          resultCount:
+            etfsRealTime: 1
+    lookupBasicResponsExchangeRatesRealTime:
+      summary: ExchangeRates RealTime Dataset
+      description: ID search basic example for dataset as exchangeRatesRealTime
+      value:
+        data:
+          - dataset: exchangeRatesRealTime
+            id: EURUSD-FX1
+            idType: symbol
+            name: U.S. Dollar per Euro
+        meta:
+          resultCount:
+            exchangeRatesRealTime: 1
+    lookupBasicResponsForex:
+      summary: Forex Dataset
+      description: ID search basic example for dataset as forex
+      value:
+        data:
+          - dataset: forex
+            id: AUDUSD
+            idType: symbol
+            name: U.S. Dollar per Australian Dollar
+        meta:
+          resultCount:
+            forex: 1
+    lookupBasicResponsFutures:
+      summary: Futures Dataset
+      description: ID search basic example for dataset as futures
+      value:
+        data:
+          - dataset: futures
+            id: MTFC00-USA
+            idType: symbol
+            name: Coal (API2) CIF ARA (ARGUS-McCloskey) (NYM $/t) Continuous
+        meta:
+          resultCount:
+            futures: 1
+    lookupBasicResponsindices:
+      summary: Indices Dataset
+      description: ID search basic example for dataset as indices
+      value:
+        data:
+          - dataset: indices
+            id: '186745'
+            idType: symbol
+            name: S&P ASX 200
+        meta:
+          resultCount:
+            indices: 1
+    lookupBasicResponsIndicesRealTime:
+      summary: Indices RealTime Dataset
+      description: ID search basic example for dataset as indicesRealTime
+      value:
+        data:
+          - dataset: indicesRealTime
+            id: BB3MUS.A-PSE
+            idType: symbol
+            name: JPM BetaBuilders US Treasury Bond 0-3 month UCITS ETF - USD (acc)
+        meta:
+          resultCount:
+            indicesRealTime: 1
+    lookupBasicResponsIndustries:
+      summary: Industries Dataset
+      description: ID search basic example for dataset as industries
+      value:
+        data:
+          - dataset: industries
+            id: FI1115R1
+            idType: symbol
+            name: World / Aluminum -IND
+        meta:
+          resultCount:
+            industries: 1
+    lookupBasicResponsMarkitLoans:
+      summary: Markit Loans Dataset
+      description: ID search basic example for dataset as markitLoans
+      value:
+        data:
+          - dataset: markitLoans
+            id: LX111044-USA
+            idType: symbol
+            name: Vinnolit 6/07 (EUR) TLA2 16-Apr-2014
+        meta:
+          resultCount:
+            markitLoans: 1
+    lookupBasicResponsemutualFunds:
+      summary: Mutual Funds Dataset
+      description: ID search basic example for dataset as mutualFunds
+      value:
+        data:
+          - dataset: mutualFunds
+            id: AAIZX-US
+            idType: tickerRegion
+            name: Alger AI Enablers & Adopters Fund Class Z
+            fsymRegionalId: TFV9WG-R
+            fsymListingId: FJ3CV6-L
+        meta:
+          resultCount:
+            mutualFunds: 1
+    lookupBasicResponsemutualFundsRealTime:
+      summary: Mutual Funds RealTime Dataset
+      description: ID search basic example for dataset as mutualFundsRealTime
+      value:
+        data:
+          - dataset: mutualFundsRealTime
+            id: '015414'
+            idType: symbol
+            name: Hwabao WP Baolong Bond Securities Investment Fund Units A
+            fsymListingId: HGHRN4-L
+        meta:
+          resultCount:
+            mutualFundsRealTime: 1
+    lookupBasicResponsownershipHolders:
+      summary: Ownership Holders Dataset
+      description: ID search basic example for dataset as ownershipHolders
+      value:
+        data:
+          - dataset: ownershipHolders
+            id: F5102330
+            idType: symbol
+            name: SSgA Funds Management, Inc.
+        meta:
+          resultCount:
+            ownershipHolders: 1
+    lookupBasicResponspeople:
+      summary: People Dataset
+      description: ID search basic example for dataset as people
+      value:
+        data:
+          - dataset: people
+            id: 05G8LM-E
+            idType: entityId
+            name: Ann Mather
+        meta:
+          resultCount:
+            people: 1
+    lookupBasicResponspevcFirms:
+      summary: Pevc Firms Dataset
+      description: ID search basic example for dataset as pevcFirms
+      value:
+        data:
+          - dataset: pevcFirms
+            id: 000BKX-E
+            idType: entityId
+            name: Advent International Corp.
+        meta:
+          resultCount:
+            pevcFirms: 1
+    lookupBasicResponspevcFunds:
+      summary: Pevc Funds Dataset
+      description: ID search basic example for dataset as pevcFunds
+      value:
+        data:
+          - dataset: pevcFunds
+            id: 0WCMPV-E
+            idType: entityId
+            name: Alchemy Special Opportunities Fund V LP.
+        meta:
+          resultCount:
+            pevcFunds: 1
+    lookupBasicResponsregions:
+      summary: Regions Dataset
+      description: ID search basic example for dataset as regions
+      value:
+        data:
+          - dataset: regions
+            id: RG_AMER
+            idType: symbol
+            name: Americas.
+        meta:
+          resultCount:
+            regions: 1
+    lookupBasicResponsYields:
+      summary: Yields Dataset
+      description: ID search basic example for dataset as yields
+      value:
+        data:
+          - dataset: yields
+            id: TRYAU10Y-FDS
+            idType: symbol
+            name: Australia Benchmark Bond - 10 Year
+        meta:
+          resultCount:
+            yields: 1
+    lookupBasicResponsOptions:
+      summary: Options Dataset
+      description: ID search basic example for dataset as options
+      value:
+        data:
+          - dataset: options
+            id: A#P1924C100000-USA
+            idType: tickerExchange
+            name: Agilent Technologies, Inc. Put 04/19/2024 100.00
+            fsymUnderlyingId: A
+        meta:
+          resultCount:
+            options: 1
+    lookupBasicResponseBonds:
+      summary: Bonds Dataset
+      description: ID search basic example for dataset as bonds
+      value:
+        data:
+          - dataset: bonds
+            id: XS2027359756
+            idType: symbol
+            name: Vietnam Prosperity Joint-Stock Commercial Bank 6.25% 17-JUL-2022
+            underlying:
+              tickerRegion: 055550-KR
+          - dataset: bonds
+            id: XS2058731717
+            idType: symbol
+            name: Shinhan Bank Co., Ltd. 0.25% 16-OCT-2024
+            underlying:
+              tickerRegion: 8316-JP
+        meta:
+          resultCount:
+            bonds: 2
+    lookupBasicResponsePrivateCompanies:
+      summary: Private Companies Dataset
+      description: ID search basic example for dataset as privateCompanies
+      value:
+        data:
+          - dataset: privateCompanies
+            id: 0DRWHW-E
+            idType: entityId
+            name: BEWiSynbra Group AB
+          - dataset: privateCompanies
+            id: 0DD45D-E
+            idType: entityId
+            name: Shawbrook Group Plc
+        meta:
+          resultCount:
+            privateCompanies: 2
+    lookupFiltersResponse:
+      summary: Filters
+      description: Sample response using a filter
+      value:
+        data:
+          - dataset: bonds
+            id: XS2027359756
+            idType: symbol
+            name: Vietnam Prosperity Joint-Stock Commercial Bank 6.25% 17-JUL-2022
+            underlying:
+              tickerRegion: FDS-US
+        meta:
+          resultCount:
+            bonds: 1
+    lookupOrLogicResponse:
+      summary: OR Logic
+      description: Sample response using OR logic
+      value:
+        data:
+          - dataset: equities
+            id: AIR-US
+            idType: tickerRegion
+            name: AAR CORP
+            entityId: 000BFS-E
+          - dataset: privateCompanies
+            name: Air Products GmbH
+            id: 05MR9R-E
+            idType: entityId
+        meta:
+          resultCount:
+            equities: 1
+            privateCompanies: 1
+    lookupOrAndLogicResponse:
+      summary: OR & AND Logic
+      description: Sample response using both OR & AND logic
+      value:
+        data:
+          - dataset: equities
+            id: CPIC-GB
+            idType: tickerRegion
+            name: China pacific Insurance (Group) co.,Ltd.Sponsored GDR Class A RegS
+            entityId: 06BF43-E
+          - dataset: equities
+            id: PJP-DE
+            idType: tickerRegion
+            name: XS Retail Group N.V. Sponsored GDR RegS
+            entityId: 06L75Z-E
+        meta:
+          resultCount:
+            equities: 2
+    badRequest:
+      summary: Bad Request
+      value:
+        errors:
+          - id: '123456789'
+            code: badRequest
+            detail: Invalid dataset (optons) specified in datasets.
+            title: parameterError:[bond] is not a valid parameter(s)
+    unAuthenticated:
+      summary: Not Authenticated
+      value:
+        errors:
+          - id: '123456789'
+            code: notAuthenticated
+            detail: User Authentication Failed
+            title: >-
+              There were either no, invalid, or expired credentials present in
+              the request.
+    forbidden:
+      summary: Not Authorized
+      value:
+        errors:
+          - id: '123456789'
+            code: notAuthorized
+            detail: User Authorization Failed.
+            title: The given credentials are not entitled for the requested data.
+    limitExceeded:
+      summary: Limit Exceeded
+      value:
+        errors:
+          - id: '123456789'
+            code: quantityLimitsExceeded
+            detail: limit exceeded
+            title: >-
+              The application or user has exceeded the permitted request
+              quantities.
+    generalException:
+      summary: Internal Server Error
+      value:
+        errors:
+          - id: '123456789'
+            code: genericServerError
+            detail: >-
+              The server encountered an error writing the JSON response. Please
+              `Report Issue` to FactSet.
+            title: An unexpected error happened.
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/id-lookup-api
+tags:
+  - name: FactSet ID Lookup
+    description: FactSet ID Lookup

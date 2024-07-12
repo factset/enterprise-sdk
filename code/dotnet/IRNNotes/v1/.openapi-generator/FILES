@@ -4,6 +4,7 @@ FactSet.SDK.IRNNotes.sln
 LICENSE
 README.md
 appveyor.yml
+docs/AttachmentStatus.md
 docs/AttachmentSummaryDto.md
 docs/AttachmentsApi.md
 docs/CommentDto.md
@@ -31,6 +32,7 @@ docs/RelatedRecordsDto.md
 docs/SubcommentSummaryDto.md
 docs/UpdateNoteDto.md
 docs/UserSerialDto.md
+docs/UserTeamLookupDto.md
 git_push.sh
 src/FactSet.SDK.IRNNotes/Api/AttachmentsApi.cs
 src/FactSet.SDK.IRNNotes/Api/CommentsApi.cs
@@ -55,6 +57,7 @@ src/FactSet.SDK.IRNNotes/Client/RequestOptions.cs
 src/FactSet.SDK.IRNNotes/Client/RetryConfiguration.cs
 src/FactSet.SDK.IRNNotes/FactSet.SDK.IRNNotes.csproj
 src/FactSet.SDK.IRNNotes/Model/AbstractOpenAPISchema.cs
+src/FactSet.SDK.IRNNotes/Model/AttachmentStatus.cs
 src/FactSet.SDK.IRNNotes/Model/AttachmentSummaryDto.cs
 src/FactSet.SDK.IRNNotes/Model/CommentDto.cs
 src/FactSet.SDK.IRNNotes/Model/CommentSummaryDto.cs
@@ -77,3 +80,4 @@ src/FactSet.SDK.IRNNotes/Model/RelatedRecordsDto.cs
 src/FactSet.SDK.IRNNotes/Model/SubcommentSummaryDto.cs
 src/FactSet.SDK.IRNNotes/Model/UpdateNoteDto.cs
 src/FactSet.SDK.IRNNotes/Model/UserSerialDto.cs
+src/FactSet.SDK.IRNNotes/Model/UserTeamLookupDto.cs

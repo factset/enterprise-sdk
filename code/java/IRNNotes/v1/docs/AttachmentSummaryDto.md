@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **fileName** | **String** |  |  [optional]
 **mimeType** | **String** |  |  [optional]
 **size** | **Long** |  |  [optional]
+**status** | **AttachmentStatus** |  |  [optional]
 
 
 ## Implemented Interfaces

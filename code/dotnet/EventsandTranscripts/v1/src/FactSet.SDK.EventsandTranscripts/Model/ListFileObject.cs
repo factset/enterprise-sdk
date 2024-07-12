@@ -41,7 +41,7 @@ namespace FactSet.SDK.EventsandTranscripts.Model
         /// <param name="fileSize">The size of the file, in bytes..</param>
         /// <param name="fileCount">The count of the files..</param>
         /// <param name="url">A pre-signed URL for downloading historical audio recordings and related metadata of a specific year. The URL provided in the response will expire after 3 hours..</param>
-        public ListFileObject(int year = default(int), bool trimmed = default(bool), string fileName = default(string), int fileSize = default(int), int fileCount = default(int), string url = default(string))
+        public ListFileObject(int year = default(int), bool trimmed = default(bool), string fileName = default(string), long fileSize = default(long), int fileCount = default(int), string url = default(string))
         {
             this.Year = year;
             this.Trimmed = trimmed;
@@ -77,7 +77,7 @@ namespace FactSet.SDK.EventsandTranscripts.Model
         /// </summary>
         /// <value>The size of the file, in bytes.</value>
         [DataMember(Name = "fileSize", EmitDefaultValue = false)]
-        public int FileSize { get; set; }
+        public long FileSize { get; set; }
 
         /// <summary>
         /// The count of the files.

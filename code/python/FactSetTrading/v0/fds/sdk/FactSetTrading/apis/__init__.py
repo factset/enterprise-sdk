@@ -15,4 +15,5 @@
 
 # Import APIs into API package:
 from fds.sdk.FactSetTrading.api.child_orders_api import ChildOrdersApi
-from fds.sdk.FactSetTrading.api.orders_api import OrdersApi
+from fds.sdk.FactSetTrading.api.inbound_orders_api import InboundOrdersApi
+from fds.sdk.FactSetTrading.api.parent_orders_api import ParentOrdersApi

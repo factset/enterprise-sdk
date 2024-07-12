@@ -3,24 +3,29 @@
   "info": {
     "title": "IRN API v1",
     "description": "Allows users to extract, create, update and configure IRN data.",
+    "contact": {
+      "name": "FactSet Research Systems",
+      "url": "https://developer.factset.com/contact",
+      "email": "api@factset.com"
+    },
+    "license": {
+      "name": "Apache License, Version 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
+    },
     "version": "1"
-  },
-  "externalDocs": {
-    "description": "API Documentation",
-    "url": "https://developer.factset.com/api-catalog/irn-notes-api#apiDocumentation"
   },
   "servers": [
     {
-      "url": "https://api.factset.com/research/irn",
+      "url": "https://api.factset.com/research/irn/v1",
       "description": "Production Server"
     },
     {
-      "url": "https://api-sandbox.factset.com/research/irn",
-      "description": "Sandbox"
+      "url": "https://api-sandbox.factset.com/research/irn/v1",
+      "description": "Sandbox Server"
     }
   ],
   "paths": {
-    "/v1/events": {
+    "/events": {
       "get": {
         "tags": [
           "Events"
@@ -93,7 +98,7 @@
         }
       }
     },
-    "/v1/identifiers": {
+    "/identifiers": {
       "get": {
         "tags": [
           "Identifiers"
@@ -137,7 +142,7 @@
         }
       }
     },
-    "/v1/notes": {
+    "/notes": {
       "get": {
         "tags": [
           "Notes"
@@ -386,7 +391,7 @@
         }
       }
     },
-    "/v1/notes/{noteId}": {
+    "/notes/{noteId}": {
       "get": {
         "tags": [
           "Notes"
@@ -442,7 +447,7 @@
         "tags": [
           "Notes"
         ],
-        "summary": "Update a note",
+        "summary": "Updates a note by replacing existing note with new data",
         "operationId": "UpdateNote",
         "parameters": [
           {
@@ -457,7 +462,7 @@
           }
         ],
         "requestBody": {
-          "description": "Note details to update",
+          "description": "The new data for the note",
           "content": {
             "application/json-patch+json": {
               "schema": {
@@ -561,7 +566,7 @@
         }
       }
     },
-    "/v1/notes/{noteId}/attachments": {
+    "/notes/{noteId}/attachments": {
       "get": {
         "tags": [
           "Attachments"
@@ -685,7 +690,7 @@
         }
       }
     },
-    "/v1/notes/{noteId}/attachments/{attachmentId}/download": {
+    "/notes/{noteId}/attachments/{attachmentId}/download": {
       "get": {
         "tags": [
           "Attachments"
@@ -749,7 +754,7 @@
         }
       }
     },
-    "/v1/notes/{noteId}/comments": {
+    "/notes/{noteId}/comments": {
       "get": {
         "tags": [
           "Comments"
@@ -901,7 +906,7 @@
         }
       }
     },
-    "/v1/notes/{noteId}/comments/{commentId}": {
+    "/notes/{noteId}/comments/{commentId}": {
       "get": {
         "tags": [
           "Comments"
@@ -1125,7 +1130,7 @@
         }
       }
     },
-    "/v1/notes/{noteId}/comments/{commentId}/attachments": {
+    "/notes/{noteId}/comments/{commentId}/attachments": {
       "get": {
         "tags": [
           "Comments"
@@ -1289,7 +1294,7 @@
         }
       }
     },
-    "/v1/notes/{noteId}/comments/{commentId}/attachments/{attachmentId}/download": {
+    "/notes/{noteId}/comments/{commentId}/attachments/{attachmentId}/download": {
       "get": {
         "tags": [
           "Comments"
@@ -1362,7 +1367,7 @@
         }
       }
     },
-    "/v1/notes/{noteId}/events": {
+    "/notes/{noteId}/events": {
       "get": {
         "tags": [
           "Events"
@@ -1418,7 +1423,7 @@
         }
       }
     },
-    "/v1/notes/{noteId}/events/{recordEventId}": {
+    "/notes/{noteId}/events/{recordEventId}": {
       "get": {
         "tags": [
           "Events"
@@ -1481,7 +1486,7 @@
         }
       }
     },
-    "/v1/notes/{noteId}/attachments/{attachmentId}": {
+    "/notes/{noteId}/attachments/{attachmentId}": {
       "delete": {
         "tags": [
           "Attachments"
@@ -1550,6 +1555,17 @@
   },
   "components": {
     "schemas": {
+      "AttachmentStatus": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
       "AttachmentSummaryDto": {
         "type": "object",
         "properties": {
@@ -1569,6 +1585,9 @@
             "type": "integer",
             "format": "int64",
             "nullable": true
+          },
+          "status": {
+            "$ref": "#/components/schemas/AttachmentStatus"
           }
         },
         "additionalProperties": false
@@ -1664,6 +1683,10 @@
           "body": {
             "type": "string",
             "nullable": true
+          },
+          "attachmentsCount": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -1675,6 +1698,7 @@
         "type": "object",
         "properties": {
           "code": {
+            "minLength": 1,
             "type": "string"
           },
           "integerValue": {
@@ -1721,6 +1745,9 @@
               "type": "string"
             },
             "nullable": true
+          },
+          "userTeamLookupValues": {
+            "$ref": "#/components/schemas/UserTeamLookupDto"
           }
         },
         "additionalProperties": false,
@@ -1747,6 +1774,7 @@
             "nullable": true
           },
           "date": {
+            "minLength": 1,
             "type": "string"
           },
           "subjectId": {
@@ -1835,6 +1863,9 @@
               "format": "uuid"
             },
             "nullable": true
+          },
+          "userTeamValues": {
+            "$ref": "#/components/schemas/UserTeamLookupDto"
           }
         },
         "additionalProperties": false
@@ -2347,6 +2378,28 @@
           }
         },
         "additionalProperties": false
+      },
+      "UserTeamLookupDto": {
+        "type": "object",
+        "properties": {
+          "userIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "nullable": true
+          },
+          "teamIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       }
     },
     "securitySchemes": {
@@ -2389,5 +2442,9 @@
     {
       "name": "Notes"
     }
-  ]
+  ],
+  "externalDocs": {
+    "description": "API Documentation",
+    "url": "https://developer.factset.com/api-catalog/irn-notes-api#apiDocumentation"
+  }
 }
