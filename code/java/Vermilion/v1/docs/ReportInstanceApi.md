@@ -62,8 +62,8 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         ReportInstanceApi apiInstance = new ReportInstanceApi(defaultClient);
-        String tenant = "XXXXXXXXXX"; // String | The code of the tenancy
-        String reportInstanceId = "123456789"; // String | The id of the report instance
+        String tenant = "TENANT"; // String | The code of the tenancy
+        String reportInstanceId = "123456"; // String | The id of the report instance
         try {
             apiInstance.cancelReportGeneration(tenant, reportInstanceId);
 
@@ -173,8 +173,8 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         ReportInstanceApi apiInstance = new ReportInstanceApi(defaultClient);
-        String tenant = "XXXXXXXXXX"; // String | The code of the tenancy
-        String reportInstanceId = "123456789"; // String | Used to validate that report file name belongs to the report instance passed
+        String tenant = "TENANT"; // String | The code of the tenancy
+        String reportInstanceId = "123456"; // String | Used to validate that report file name belongs to the report instance passed
         String reportFileName = "xyz.pdf"; // String | The report file name that has to be retrieved. report file name. E.g: xyz.pdf
         try {
             File result = apiInstance.downloadReportFile(tenant, reportInstanceId, reportFileName);
@@ -272,8 +272,8 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         ReportInstanceApi apiInstance = new ReportInstanceApi(defaultClient);
-        String tenant = "XXXXXXXXXX"; // String | The code of the tenancy
-        String reportDefinitionCode = "XXXXXXXXXX"; // String | Acts as a filter for the retrieval process. Filters the report instances that match the report definition code
+        String tenant = "TENANT"; // String | The code of the tenancy
+        String reportDefinitionCode = "RPCODE"; // String | Acts as a filter for the retrieval process. Filters the report instances that match the report definition code
         String entityCodes = "SYSTEM_LANG"; // String | A series of query parameters used to filter the report instances by entity code. E.g: entityCode=DATE&entityCode=SYSTEM_LANG
         String entityKeys = "en-gb"; // String | A series of query parameters used to filter the report instances by entity keys. E.g: entityKey=en-gb
         String sectionFilter = "testFilter"; // String | Acts as a filter for the retrieval process. Filters the report instances that match the section filter
@@ -308,8 +308,8 @@ Name | Type | Description  | Notes
  **sectionFilter** | **String**| Acts as a filter for the retrieval process. Filters the report instances that match the section filter | [optional]
  **outputFormat** | **String**| Acts as a filter for the retrieval process. Filters the report instances that match the output format | [optional]
  **sort** | **List&lt;String&gt;**| The column to sort on. Append - to sort in descending order. If parameter is not given, sorting will be based on the report instance id in descending order | [optional]
- **paginationLimit** | **Integer**| Non-negative maximum number of entries to return | [optional]
- **paginationOffset** | **Integer**| Non-negative number of entries to skip | [optional]
+ **paginationLimit** | **Integer**| Non-negative maximum number of entries to return | [optional] [default to 25]
+ **paginationOffset** | **Integer**| Non-negative number of entries to skip | [optional] [default to 0]
 
 ### Return type
 
@@ -382,8 +382,8 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         ReportInstanceApi apiInstance = new ReportInstanceApi(defaultClient);
-        String tenant = "XXXXXXXXXX"; // String | The code of the tenancy
-        String reportInstanceId = "123456789"; // String | Used to validate that report file name belongs to the report instance passed
+        String tenant = "TENANT"; // String | The code of the tenancy
+        String reportInstanceId = "123456"; // String | Used to validate that report file name belongs to the report instance passed
         String errorsOnly = "true"; // String | If the parameter is set to true the endpoint should return just errors and warnings E.g: errorsOnly=true
         java.util.List<String> sort = Arrays.asList(); // java.util.List<String> | The column to sort on. Can add - to sort
         Integer paginationLimit = 25; // Integer | Non-negative maximum number of entries to return
@@ -412,8 +412,8 @@ Name | Type | Description  | Notes
  **reportInstanceId** | **String**| Used to validate that report file name belongs to the report instance passed |
  **errorsOnly** | **String**| If the parameter is set to true the endpoint should return just errors and warnings E.g: errorsOnly&#x3D;true | [optional]
  **sort** | **List&lt;String&gt;**| The column to sort on. Can add - to sort | [optional]
- **paginationLimit** | **Integer**| Non-negative maximum number of entries to return | [optional]
- **paginationOffset** | **Integer**| Non-negative number of entries to skip | [optional]
+ **paginationLimit** | **Integer**| Non-negative maximum number of entries to return | [optional] [default to 25]
+ **paginationOffset** | **Integer**| Non-negative number of entries to skip | [optional] [default to 0]
 
 ### Return type
 
@@ -487,8 +487,8 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         ReportInstanceApi apiInstance = new ReportInstanceApi(defaultClient);
-        String reportInstanceId = "1256789"; // String | The ID of the report instance
-        String tenant = "XXXXXXXXXX"; // String | The code of the tenancy
+        String reportInstanceId = "123456"; // String | The ID of the report instance
+        String tenant = "TENANT"; // String | The code of the tenancy
         try {
             ReportInstanceData result = apiInstance.getReportInstanceById(reportInstanceId, tenant);
             System.out.println(result);

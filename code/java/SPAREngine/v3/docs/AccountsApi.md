@@ -157,7 +157,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         AccountsApi apiInstance = new AccountsApi(defaultClient);
-        String accountPath = "accountPath_example"; // String | URL encoded account path
+        String accountPath = "Client:SPAR_Return_Type.ACCT"; // String | URL encoded account path
         try {
             SPARAccountsRoot result = apiInstance.getSPARReturnsType(accountPath);
             System.out.println(result);

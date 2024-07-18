@@ -63,7 +63,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         SparCalculationsApi apiInstance = new SparCalculationsApi(defaultClient);
-        String id = "id_example"; // String | from url, provided from the location header in the Create and Run SPAR calculation endpoint
+        String id = "917cc544adbe46f99a33dc4179f3983f"; // String | from url, provided from the location header in the Create and Run SPAR calculation endpoint
         try {
             apiInstance.cancelCalculationById(id);
 
@@ -258,7 +258,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         SparCalculationsApi apiInstance = new SparCalculationsApi(defaultClient);
-        String id = "id_example"; // String | from url, provided from the location header in the Create and Run SPAR calculation endpoint
+        String id = "917cc544adbe46f99a33dc4179f3983d"; // String | from url, provided from the location header in the Create and Run SPAR calculation endpoint
         try {
             SPARCalculationParametersRoot result = apiInstance.getCalculationParameters(id);
             System.out.println(result);
@@ -356,7 +356,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         SparCalculationsApi apiInstance = new SparCalculationsApi(defaultClient);
-        String id = "id_example"; // String | from url, provided from the location header in the Create and Run SPAR calculation endpoint
+        String id = "917cc544adbe46f99a33dc4179f3983f"; // String | from url, provided from the location header in the Create and Run SPAR calculation endpoint
         try {
             CalculationStatusRoot result = apiInstance.getCalculationStatusById(id);
             System.out.println(result);
@@ -455,8 +455,8 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         SparCalculationsApi apiInstance = new SparCalculationsApi(defaultClient);
-        String id = "id_example"; // String | from url, provided from the location header in the Get SPAR calculation status by id endpoint
-        String unitId = "unitId_example"; // String | from url, provided from the location header in the Get SPAR calculation status by id endpoint
+        String id = "917cc544adbe46f99a33dc4179f3983f"; // String | from url, provided from the location header in the Get SPAR calculation status by id endpoint
+        String unitId = "1"; // String | from url, provided from the location header in the Get SPAR calculation status by id endpoint
         try {
             ObjectRoot result = apiInstance.getCalculationUnitResultById(id, unitId);
             System.out.println(result);
@@ -560,7 +560,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         SparCalculationsApi apiInstance = new SparCalculationsApi(defaultClient);
-        Integer xFactSetApiLongRunningDeadline = 56; // Integer | Long running deadline in seconds when only one unit is passed in the POST body.
+        Integer xFactSetApiLongRunningDeadline = 10; // Integer | Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation.
         String cacheControl = "cacheControl_example"; // String | Standard HTTP header.  Accepts max-stale.
         SPARCalculationParametersRoot spARCalculationParametersRoot = new SPARCalculationParametersRoot(); // SPARCalculationParametersRoot | Calculation Parameters
         try {
@@ -594,7 +594,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xFactSetApiLongRunningDeadline** | **Integer**| Long running deadline in seconds when only one unit is passed in the POST body. | [optional]
+ **xFactSetApiLongRunningDeadline** | **Integer**| Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. | [optional]
  **cacheControl** | **String**| Standard HTTP header.  Accepts max-stale. | [optional]
  **spARCalculationParametersRoot** | [**SPARCalculationParametersRoot**](SPARCalculationParametersRoot.md)| Calculation Parameters | [optional]
 
@@ -682,8 +682,8 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         SparCalculationsApi apiInstance = new SparCalculationsApi(defaultClient);
-        String id = "id_example"; // String | from url, provided from the location header in the Create and Run SPAR calculation endpoint
-        Integer xFactSetApiLongRunningDeadline = 56; // Integer | Long running deadline in seconds when only one unit is passed in the PUT body.
+        String id = "e257350ec6cd46ee8a42db79a4ae84d0"; // String | from url, provided from the location header in the Create and Run SPAR calculation endpoint
+        Integer xFactSetApiLongRunningDeadline = 10; // Integer | Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation.
         String cacheControl = "cacheControl_example"; // String | Standard HTTP header.  Accepts max-stale.
         SPARCalculationParametersRoot spARCalculationParametersRoot = new SPARCalculationParametersRoot(); // SPARCalculationParametersRoot | Calculation Parameters
         try {
@@ -718,7 +718,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| from url, provided from the location header in the Create and Run SPAR calculation endpoint |
- **xFactSetApiLongRunningDeadline** | **Integer**| Long running deadline in seconds when only one unit is passed in the PUT body. | [optional]
+ **xFactSetApiLongRunningDeadline** | **Integer**| Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. | [optional]
  **cacheControl** | **String**| Standard HTTP header.  Accepts max-stale. | [optional]
  **spARCalculationParametersRoot** | [**SPARCalculationParametersRoot**](SPARCalculationParametersRoot.md)| Calculation Parameters | [optional]
 

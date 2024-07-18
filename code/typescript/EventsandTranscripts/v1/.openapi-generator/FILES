@@ -41,6 +41,7 @@ docs/ResponseTime.md
 docs/ResponseTimeObject.md
 docs/TranscriptObject.md
 docs/TranscriptObjectOne.md
+docs/TranscriptObjectTimes.md
 docs/Transcripts.md
 docs/TranscriptsApi.md
 docs/TranscriptsMeta.md
@@ -48,6 +49,7 @@ docs/TranscriptsMetaPagination.md
 docs/TranscriptsOne.md
 docs/TranscriptsOneMeta.md
 docs/TranscriptsOneMetaPagination.md
+docs/TranscriptsTimes.md
 git_push.sh
 mocha.opts
 package.json
@@ -91,9 +93,11 @@ src/model/ResponseTime.js
 src/model/ResponseTimeObject.js
 src/model/TranscriptObject.js
 src/model/TranscriptObjectOne.js
+src/model/TranscriptObjectTimes.js
 src/model/Transcripts.js
 src/model/TranscriptsMeta.js
 src/model/TranscriptsMetaPagination.js
 src/model/TranscriptsOne.js
 src/model/TranscriptsOneMeta.js
 src/model/TranscriptsOneMetaPagination.js
+src/model/TranscriptsTimes.js

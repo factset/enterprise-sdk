@@ -296,8 +296,8 @@ class DatasourceApi(object):
 
         Keyword Args:
             sort ([str]): The column to sort on. Append - to sort in descending order. If parameter is not given, no sorting will be done. [optional]
-            pagination_limit (int): Non-negative maximum number of entries to return. Default is 25. [optional]
-            pagination_offset (int): Non-negative number of entries to skip. Default is 0. [optional]
+            pagination_limit (int): Non-negative maximum number of entries to return. Default is 25. [optional] if omitted the server will use the default value of 25
+            pagination_offset (int): Non-negative number of entries to skip. Default is 0. [optional] if omitted the server will use the default value of 0
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -346,8 +346,8 @@ class DatasourceApi(object):
 
         Keyword Args:
             sort ([str]): The column to sort on. Append - to sort in descending order. If parameter is not given, no sorting will be done. [optional]
-            pagination_limit (int): Non-negative maximum number of entries to return. Default is 25. [optional]
-            pagination_offset (int): Non-negative number of entries to skip. Default is 0. [optional]
+            pagination_limit (int): Non-negative maximum number of entries to return. Default is 25. [optional] if omitted the server will use the default value of 25
+            pagination_offset (int): Non-negative number of entries to skip. Default is 0. [optional] if omitted the server will use the default value of 0
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -400,8 +400,8 @@ class DatasourceApi(object):
 
         Keyword Args:
             sort ([str]): The column to sort on. Append - to sort in descending order. If parameter is not given, no sorting will be done. [optional]
-            pagination_limit (int): Non-negative maximum number of entries to return. Default is 25. [optional]
-            pagination_offset (int): Non-negative number of entries to skip. Default is 0. [optional]
+            pagination_limit (int): Non-negative maximum number of entries to return. Default is 25. [optional] if omitted the server will use the default value of 25
+            pagination_offset (int): Non-negative number of entries to skip. Default is 0. [optional] if omitted the server will use the default value of 0
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -449,8 +449,8 @@ class DatasourceApi(object):
 
         Keyword Args:
             sort ([str]): The column to sort on. Append - to sort in descending order. If parameter is not given, no sorting will be done. [optional]
-            pagination_limit (int): Non-negative maximum number of entries to return. Default is 25. [optional]
-            pagination_offset (int): Non-negative number of entries to skip. Default is 0. [optional]
+            pagination_limit (int): Non-negative maximum number of entries to return. Default is 25. [optional] if omitted the server will use the default value of 25
+            pagination_offset (int): Non-negative number of entries to skip. Default is 0. [optional] if omitted the server will use the default value of 0
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -709,8 +709,8 @@ class DatasourceApi(object):
         Keyword Args:
             entity_codes (str): A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes=ACCOUNT&entityCodes=FUNDS. [optional]
             entity_keys (str): A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys=1&entityKeys=Test2. [optional]
-            pagination_limit (int): Non-negative maximum number of entries to return. Default is 25. [optional]
-            pagination_offset (int): Non-negative number of entries to skip. Default is 0. [optional]
+            pagination_limit (int): Non-negative maximum number of entries to return. Default is 25. [optional] if omitted the server will use the default value of 25
+            pagination_offset (int): Non-negative number of entries to skip. Default is 0. [optional] if omitted the server will use the default value of 0
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -764,8 +764,8 @@ class DatasourceApi(object):
         Keyword Args:
             entity_codes (str): A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes=ACCOUNT&entityCodes=FUNDS. [optional]
             entity_keys (str): A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys=1&entityKeys=Test2. [optional]
-            pagination_limit (int): Non-negative maximum number of entries to return. Default is 25. [optional]
-            pagination_offset (int): Non-negative number of entries to skip. Default is 0. [optional]
+            pagination_limit (int): Non-negative maximum number of entries to return. Default is 25. [optional] if omitted the server will use the default value of 25
+            pagination_offset (int): Non-negative number of entries to skip. Default is 0. [optional] if omitted the server will use the default value of 0
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -823,8 +823,8 @@ class DatasourceApi(object):
         Keyword Args:
             entity_codes (str): A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes=ACCOUNT&entityCodes=FUNDS. [optional]
             entity_keys (str): A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys=1&entityKeys=Test2. [optional]
-            pagination_limit (int): Non-negative maximum number of entries to return. Default is 25. [optional]
-            pagination_offset (int): Non-negative number of entries to skip. Default is 0. [optional]
+            pagination_limit (int): Non-negative maximum number of entries to return. Default is 25. [optional] if omitted the server will use the default value of 25
+            pagination_offset (int): Non-negative number of entries to skip. Default is 0. [optional] if omitted the server will use the default value of 0
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -877,8 +877,8 @@ class DatasourceApi(object):
         Keyword Args:
             entity_codes (str): A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes=ACCOUNT&entityCodes=FUNDS. [optional]
             entity_keys (str): A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys=1&entityKeys=Test2. [optional]
-            pagination_limit (int): Non-negative maximum number of entries to return. Default is 25. [optional]
-            pagination_offset (int): Non-negative number of entries to skip. Default is 0. [optional]
+            pagination_limit (int): Non-negative maximum number of entries to return. Default is 25. [optional] if omitted the server will use the default value of 25
+            pagination_offset (int): Non-negative number of entries to skip. Default is 0. [optional] if omitted the server will use the default value of 0
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility

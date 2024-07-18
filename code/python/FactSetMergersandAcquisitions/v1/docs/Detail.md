@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **close_date** | **date, none_type** | Date the deal was closed. | [optional] 
 **cancel_date** | **date, none_type** | Date the deal was cancelled. | [optional] 
 **deal_type** | **str** | Type of deal. | [optional] 
-**source_funds** | **[str], none_type** | Method by which the acquirer was to finance the cash portion of the consideration offered in transaction (e.g., cash, bank debt, issuance of notes/bonds, etc.). For example, VF Corp financed its $2.2 bil all cash offer for The Timberland Company by issuing $900 mil in term notes and funding the balance through a combination of cash on hand and commercial paper. | [optional] 
+**source_funds** | **[str, none_type], none_type** | Method by which the acquirer was to finance the cash portion of the consideration offered in transaction (e.g., cash, bank debt, issuance of notes/bonds, etc.). For example, VF Corp financed its $2.2 bil all cash offer for The Timberland Company by issuing $900 mil in term notes and funding the balance through a combination of cash on hand and commercial paper. | [optional] 
 **deal_value** | [**DealValue**](DealValue.md) |  | [optional] 
 **purpose** | **str, none_type** | Transaction purpose code or description. | [optional] 
 **ev_sales** | **float, none_type** | Ratio: Enterprise value/sales. | [optional] 
@@ -38,7 +38,7 @@ Name | Type | Description | Notes
 **buyer_post_merger_own** | **float, none_type** | Post Merger Ownership % - Acquirer: The pro forma percentage of ownership to be held by acquirer shareholders in the newly merged company. This data item is designed to reflect the expected ownership of the newly merged company at the time the transaction was announced. This data item will not be populated for Going Private transactions as they are not applicable since the acquirer in a going private transaction is not publicly traded. | [optional] 
 **attitude** | **str, none_type** | The way the target&#39;s board of directors viewed the acquirer&#39;s proposal to enter into the transaction - Friendly, Hostile, Neutral. | [optional] 
 **deal_summary** | **str, none_type** | Summary of the deal. | [optional] 
-**deal_characteristics** | **[str], none_type** | The secondary deal type(s). | [optional] 
+**deal_characteristics** | **[str, none_type], none_type** | The secondary deal type(s). | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -41,6 +41,7 @@ docs/ResponseTime.md
 docs/ResponseTimeObject.md
 docs/TranscriptObject.md
 docs/TranscriptObjectOne.md
+docs/TranscriptObjectTimes.md
 docs/Transcripts.md
 docs/TranscriptsApi.md
 docs/TranscriptsMeta.md
@@ -48,6 +49,7 @@ docs/TranscriptsMetaPagination.md
 docs/TranscriptsOne.md
 docs/TranscriptsOneMeta.md
 docs/TranscriptsOneMetaPagination.md
+docs/TranscriptsTimes.md
 fds/__init__.py
 fds/sdk/EventsandTranscripts/__init__.py
 fds/sdk/EventsandTranscripts/api/__init__.py
@@ -94,12 +96,14 @@ fds/sdk/EventsandTranscripts/model/response_time.py
 fds/sdk/EventsandTranscripts/model/response_time_object.py
 fds/sdk/EventsandTranscripts/model/transcript_object.py
 fds/sdk/EventsandTranscripts/model/transcript_object_one.py
+fds/sdk/EventsandTranscripts/model/transcript_object_times.py
 fds/sdk/EventsandTranscripts/model/transcripts.py
 fds/sdk/EventsandTranscripts/model/transcripts_meta.py
 fds/sdk/EventsandTranscripts/model/transcripts_meta_pagination.py
 fds/sdk/EventsandTranscripts/model/transcripts_one.py
 fds/sdk/EventsandTranscripts/model/transcripts_one_meta.py
 fds/sdk/EventsandTranscripts/model/transcripts_one_meta_pagination.py
+fds/sdk/EventsandTranscripts/model/transcripts_times.py
 fds/sdk/EventsandTranscripts/model_utils.py
 fds/sdk/EventsandTranscripts/models/__init__.py
 fds/sdk/EventsandTranscripts/rest.py

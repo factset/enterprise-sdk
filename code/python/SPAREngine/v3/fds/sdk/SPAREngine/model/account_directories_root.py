@@ -89,7 +89,7 @@ class AccountDirectoriesRoot(ModelNormal):
         lazy_import()
         return {
             'data': (AccountDirectories,),  # noqa: E501
-            'meta': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'meta': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -146,7 +146,7 @@ class AccountDirectoriesRoot(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            meta (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            meta ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -232,7 +232,7 @@ class AccountDirectoriesRoot(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            meta (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            meta ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

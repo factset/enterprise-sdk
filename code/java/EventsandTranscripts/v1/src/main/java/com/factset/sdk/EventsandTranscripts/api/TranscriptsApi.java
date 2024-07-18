@@ -13,10 +13,12 @@ import java.util.Objects;
 
 import com.factset.sdk.EventsandTranscripts.models.Error;
 import java.time.LocalDate;
+import java.time.OffsetDateTime;
 import com.factset.sdk.EventsandTranscripts.models.ResponseCategories;
 import com.factset.sdk.EventsandTranscripts.models.ResponseTime;
 import com.factset.sdk.EventsandTranscripts.models.Transcripts;
 import com.factset.sdk.EventsandTranscripts.models.TranscriptsOne;
+import com.factset.sdk.EventsandTranscripts.models.TranscriptsTimes;
 
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -74,6 +76,15 @@ public class TranscriptsApi {
     getTranscriptsIdsResponseTypeMap.put(401, new GenericType<Error>(){});
     getTranscriptsIdsResponseTypeMap.put(403, new GenericType<Error>(){});
     getTranscriptsIdsResponseTypeMap.put(500, new GenericType<Error>(){});
+  }
+
+  private static final Map<Integer, GenericType> getTranscriptsTimeResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getTranscriptsTimeResponseTypeMap.put(200, new GenericType<TranscriptsTimes>(){});
+    getTranscriptsTimeResponseTypeMap.put(400, new GenericType<Error>(){});
+    getTranscriptsTimeResponseTypeMap.put(401, new GenericType<Error>(){});
+    getTranscriptsTimeResponseTypeMap.put(403, new GenericType<Error>(){});
+    getTranscriptsTimeResponseTypeMap.put(500, new GenericType<Error>(){});
   }
 
   private static final Map<Integer, GenericType> getcategoriesResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -544,6 +555,95 @@ public class TranscriptsApi {
     > apiResponse = apiClient.invokeAPI("TranscriptsApi.getTranscriptsIds", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, getTranscriptsIdsResponseTypeMap, false);
+
+    return apiResponse;
+
+  }
+  /**
+   * Returns the transcript documents in XML format and related metadata within FactSet coverage based on specific time.
+   * Returns the transcripts documents within FactSet coverage along with other response fields.   All transcripts originate from Factset Callstreet Transcripts. 
+   * @param startDateTime  **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.**    (optional)
+   * @param endDateTime The date to which data is required (optional)
+   * @param sort Enables sorting data in ascending or descending chronological order based on eventDate.  (optional, default to [\&quot;-storyDateTime\&quot;])
+   * @param paginationLimit Number of results to return per page. (optional, default to 25)
+   * @param paginationOffset Page number of the results to return. (optional, default to 0)
+   * @return TranscriptsTimes
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> The latest transcripts based on the provided date ranges. </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+   */
+  public TranscriptsTimes getTranscriptsTime(OffsetDateTime startDateTime, OffsetDateTime endDateTime, java.util.List<String> sort, Integer paginationLimit, Integer paginationOffset) throws ApiException {
+    return getTranscriptsTimeWithHttpInfo(startDateTime, endDateTime, sort, paginationLimit, paginationOffset).getData();
+  }
+
+  /**
+   * Returns the transcript documents in XML format and related metadata within FactSet coverage based on specific time.
+   * Returns the transcripts documents within FactSet coverage along with other response fields.   All transcripts originate from Factset Callstreet Transcripts. 
+   * @param startDateTime  **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.**    (optional)
+   * @param endDateTime The date to which data is required (optional)
+   * @param sort Enables sorting data in ascending or descending chronological order based on eventDate.  (optional, default to [\&quot;-storyDateTime\&quot;])
+   * @param paginationLimit Number of results to return per page. (optional, default to 25)
+   * @param paginationOffset Page number of the results to return. (optional, default to 0)
+   * @return ApiResponse&lt;TranscriptsTimes&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> The latest transcripts based on the provided date ranges. </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<TranscriptsTimes> getTranscriptsTimeWithHttpInfo(OffsetDateTime startDateTime, OffsetDateTime endDateTime, java.util.List<String> sort, Integer paginationLimit, Integer paginationOffset) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/transcripts/times";
+
+    // query params
+    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
+    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "startDateTime", startDateTime));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "endDateTime", endDateTime));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "_sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "_paginationLimit", paginationLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "_paginationOffset", paginationOffset));
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
+
+
+    ApiResponse<
+        
+        TranscriptsTimes
+      
+    > apiResponse = apiClient.invokeAPI("TranscriptsApi.getTranscriptsTime", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, getTranscriptsTimeResponseTypeMap, false);
 
     return apiResponse;
 

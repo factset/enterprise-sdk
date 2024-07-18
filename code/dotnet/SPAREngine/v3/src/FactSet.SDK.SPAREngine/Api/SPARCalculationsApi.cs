@@ -142,7 +142,7 @@ namespace FactSet.SDK.SPAREngine.Api
         /// This endpoint runs the SPAR calculation specified in the POST body parameters.  It can take one or more units as input.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the SPAR template.
         /// </remarks>
         /// <exception cref="FactSet.SDK.SPAREngine.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the POST body. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="sPARCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <returns>SPARCalculationsApi.PostAndCalculateResponseWrapper</returns>
@@ -155,7 +155,7 @@ namespace FactSet.SDK.SPAREngine.Api
         /// This endpoint runs the SPAR calculation specified in the POST body parameters.  It can take one or more units as input.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the SPAR template.
         /// </remarks>
         /// <exception cref="FactSet.SDK.SPAREngine.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the POST body. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="sPARCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <returns>ApiResponse of SPARCalculationsApi.PostAndCalculateResponseWrapper</returns>
@@ -168,7 +168,7 @@ namespace FactSet.SDK.SPAREngine.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.SPAREngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run SPAR calculation endpoint</param>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the PUT body. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="sPARCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <returns>SPARCalculationsApi.PutAndCalculateResponseWrapper</returns>
@@ -182,7 +182,7 @@ namespace FactSet.SDK.SPAREngine.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.SPAREngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run SPAR calculation endpoint</param>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the PUT body. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="sPARCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <returns>ApiResponse of SPARCalculationsApi.PutAndCalculateResponseWrapper</returns>
@@ -320,7 +320,7 @@ namespace FactSet.SDK.SPAREngine.Api
         /// This endpoint runs the SPAR calculation specified in the POST body parameters.  It can take one or more units as input.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the SPAR template.
         /// </remarks>
         /// <exception cref="FactSet.SDK.SPAREngine.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the POST body. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="sPARCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -334,7 +334,7 @@ namespace FactSet.SDK.SPAREngine.Api
         /// This endpoint runs the SPAR calculation specified in the POST body parameters.  It can take one or more units as input.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the SPAR template.
         /// </remarks>
         /// <exception cref="FactSet.SDK.SPAREngine.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the POST body. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="sPARCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -348,7 +348,7 @@ namespace FactSet.SDK.SPAREngine.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.SPAREngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run SPAR calculation endpoint</param>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the PUT body. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="sPARCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -363,7 +363,7 @@ namespace FactSet.SDK.SPAREngine.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.SPAREngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run SPAR calculation endpoint</param>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the PUT body. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="sPARCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1685,7 +1685,7 @@ namespace FactSet.SDK.SPAREngine.Api
         /// Create and Run SPAR calculation This endpoint runs the SPAR calculation specified in the POST body parameters.  It can take one or more units as input.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the SPAR template.
         /// </summary>
         /// <exception cref="FactSet.SDK.SPAREngine.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the POST body. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="sPARCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <returns>SPARCalculationsApi.PostAndCalculateResponseWrapper</returns>
@@ -1699,7 +1699,7 @@ namespace FactSet.SDK.SPAREngine.Api
         /// Create and Run SPAR calculation This endpoint runs the SPAR calculation specified in the POST body parameters.  It can take one or more units as input.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the SPAR template.
         /// </summary>
         /// <exception cref="FactSet.SDK.SPAREngine.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the POST body. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="sPARCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <returns>ApiResponse of CalculationStatusRoot</returns>
@@ -1780,7 +1780,7 @@ namespace FactSet.SDK.SPAREngine.Api
         /// Create and Run SPAR calculation This endpoint runs the SPAR calculation specified in the POST body parameters.  It can take one or more units as input.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the SPAR template.
         /// </summary>
         /// <exception cref="FactSet.SDK.SPAREngine.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the POST body. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="sPARCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1795,7 +1795,7 @@ namespace FactSet.SDK.SPAREngine.Api
         /// Create and Run SPAR calculation This endpoint runs the SPAR calculation specified in the POST body parameters.  It can take one or more units as input.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the SPAR template.
         /// </summary>
         /// <exception cref="FactSet.SDK.SPAREngine.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the POST body. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="sPARCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1881,7 +1881,7 @@ namespace FactSet.SDK.SPAREngine.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.SPAREngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run SPAR calculation endpoint</param>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the PUT body. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="sPARCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <returns>SPARCalculationsApi.PutAndCalculateResponseWrapper</returns>
@@ -1896,7 +1896,7 @@ namespace FactSet.SDK.SPAREngine.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.SPAREngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run SPAR calculation endpoint</param>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the PUT body. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="sPARCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <returns>ApiResponse of CalculationStatusRoot</returns>
@@ -1985,7 +1985,7 @@ namespace FactSet.SDK.SPAREngine.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.SPAREngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run SPAR calculation endpoint</param>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the PUT body. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="sPARCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2001,7 +2001,7 @@ namespace FactSet.SDK.SPAREngine.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.SPAREngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run SPAR calculation endpoint</param>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the PUT body. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="sPARCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

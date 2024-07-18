@@ -61,10 +61,10 @@ namespace Example
 
             var apiInstance = new ReportApi(config);
 
-            var tenant = "XXXXXXXXXX";  // string | The code of the tenancy
+            var tenant = "TENANT";  // string | The code of the tenancy
             var sort = new List<string>(); // List<string> | The column to sort on. Can add - to sort (optional) 
-            var paginationLimit = 25;  // int? | Non-negative maximum number of entries to return (optional) 
-            var paginationOffset = 0;  // int? | Non-negative number of entries to skip (optional) 
+            var paginationLimit = 25;  // int? | Non-negative maximum number of entries to return (optional)  (default to 25)
+            var paginationOffset = 0;  // int? | Non-negative number of entries to skip (optional)  (default to 0)
 
             try
             {
@@ -89,8 +89,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenant** | **string**| The code of the tenancy | 
  **sort** | [**List&lt;string&gt;**](string.md)| The column to sort on. Can add - to sort | [optional] 
- **paginationLimit** | **int?**| Non-negative maximum number of entries to return | [optional] 
- **paginationOffset** | **int?**| Non-negative number of entries to skip | [optional] 
+ **paginationLimit** | **int?**| Non-negative maximum number of entries to return | [optional] [default to 25]
+ **paginationOffset** | **int?**| Non-negative number of entries to skip | [optional] [default to 0]
 
 ### Return type
 [**ReportDefinitionList**](ReportDefinitionList.md)
@@ -169,8 +169,8 @@ namespace Example
 
             var apiInstance = new ReportApi(config);
 
-            var tenant = "XXXXXXXXXX";  // string | The code of the tenancy
-            var reportDefinitionCode = "XXXXXXXXXX";  // string | The code of the report definition
+            var tenant = "TENANT";  // string | The code of the tenancy
+            var reportDefinitionCode = "RPCODE";  // string | The code of the report definition
 
             try
             {

@@ -43,9 +43,11 @@ from fds.sdk.EventsandTranscripts.model.response_time import ResponseTime
 from fds.sdk.EventsandTranscripts.model.response_time_object import ResponseTimeObject
 from fds.sdk.EventsandTranscripts.model.transcript_object import TranscriptObject
 from fds.sdk.EventsandTranscripts.model.transcript_object_one import TranscriptObjectOne
+from fds.sdk.EventsandTranscripts.model.transcript_object_times import TranscriptObjectTimes
 from fds.sdk.EventsandTranscripts.model.transcripts import Transcripts
 from fds.sdk.EventsandTranscripts.model.transcripts_meta import TranscriptsMeta
 from fds.sdk.EventsandTranscripts.model.transcripts_meta_pagination import TranscriptsMetaPagination
 from fds.sdk.EventsandTranscripts.model.transcripts_one import TranscriptsOne
 from fds.sdk.EventsandTranscripts.model.transcripts_one_meta import TranscriptsOneMeta
 from fds.sdk.EventsandTranscripts.model.transcripts_one_meta_pagination import TranscriptsOneMetaPagination
+from fds.sdk.EventsandTranscripts.model.transcripts_times import TranscriptsTimes

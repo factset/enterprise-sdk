@@ -1,15 +1,15 @@
 # FactSet.SDK.FixedIncomeCalculation.Api.FICalculationsApi
 
-All URIs are relative to *https://api.factset.com*
+All URIs are relative to *https://api.factset.com/analytics/engines/fi/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CancelCalculationById**](FICalculationsApi.md#cancelcalculationbyid) | **DELETE** /analytics/engines/fi/v3/calculations/{id} | Cancel FI calculation by id
-[**GetCalculationParameters**](FICalculationsApi.md#getcalculationparameters) | **GET** /analytics/engines/fi/v3/calculations/{id} | Get FI calculation parameters by id
-[**GetCalculationResult**](FICalculationsApi.md#getcalculationresult) | **GET** /analytics/engines/fi/v3/calculations/{id}/result | Get FI calculation result by id
-[**GetCalculationStatusById**](FICalculationsApi.md#getcalculationstatusbyid) | **GET** /analytics/engines/fi/v3/calculations/{id}/status | Get FI calculation status by id
-[**PostAndCalculate**](FICalculationsApi.md#postandcalculate) | **POST** /analytics/engines/fi/v3/calculations | Create and Run FI calculation
-[**PutAndCalculate**](FICalculationsApi.md#putandcalculate) | **PUT** /analytics/engines/fi/v3/calculations/{id} | Create or Update FI calculation and run it.
+[**CancelCalculationById**](FICalculationsApi.md#cancelcalculationbyid) | **DELETE** /calculations/{id} | Cancel FI calculation by id
+[**GetCalculationParameters**](FICalculationsApi.md#getcalculationparameters) | **GET** /calculations/{id} | Get FI calculation parameters by id
+[**GetCalculationResult**](FICalculationsApi.md#getcalculationresult) | **GET** /calculations/{id}/result | Get FI calculation result by id
+[**GetCalculationStatusById**](FICalculationsApi.md#getcalculationstatusbyid) | **GET** /calculations/{id}/status | Get FI calculation status by id
+[**PostAndCalculate**](FICalculationsApi.md#postandcalculate) | **POST** /calculations | Create and Run FI calculation
+[**PutAndCalculate**](FICalculationsApi.md#putandcalculate) | **PUT** /calculations/{id} | Create or Update FI calculation and run it.
 
 
 

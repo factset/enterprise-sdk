@@ -298,8 +298,8 @@ public class ReportInstanceApi {
    * @param sectionFilter Acts as a filter for the retrieval process. Filters the report instances that match the section filter (optional)
    * @param outputFormat Acts as a filter for the retrieval process. Filters the report instances that match the output format (optional)
    * @param sort The column to sort on. Append - to sort in descending order. If parameter is not given, sorting will be based on the report instance id in descending order (optional)
-   * @param paginationLimit Non-negative maximum number of entries to return (optional)
-   * @param paginationOffset Non-negative number of entries to skip (optional)
+   * @param paginationLimit Non-negative maximum number of entries to return (optional, default to 25)
+   * @param paginationOffset Non-negative number of entries to skip (optional, default to 0)
    * @return ReportInstanceList
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -325,8 +325,8 @@ public class ReportInstanceApi {
    * @param sectionFilter Acts as a filter for the retrieval process. Filters the report instances that match the section filter (optional)
    * @param outputFormat Acts as a filter for the retrieval process. Filters the report instances that match the output format (optional)
    * @param sort The column to sort on. Append - to sort in descending order. If parameter is not given, sorting will be based on the report instance id in descending order (optional)
-   * @param paginationLimit Non-negative maximum number of entries to return (optional)
-   * @param paginationOffset Non-negative number of entries to skip (optional)
+   * @param paginationLimit Non-negative maximum number of entries to return (optional, default to 25)
+   * @param paginationOffset Non-negative number of entries to skip (optional, default to 0)
    * @return ApiResponse&lt;ReportInstanceList&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -399,8 +399,8 @@ public class ReportInstanceApi {
    * @param reportInstanceId Used to validate that report file name belongs to the report instance passed (required)
    * @param errorsOnly If the parameter is set to true the endpoint should return just errors and warnings E.g: errorsOnly&#x3D;true (optional)
    * @param sort The column to sort on. Can add - to sort (optional)
-   * @param paginationLimit Non-negative maximum number of entries to return (optional)
-   * @param paginationOffset Non-negative number of entries to skip (optional)
+   * @param paginationLimit Non-negative maximum number of entries to return (optional, default to 25)
+   * @param paginationOffset Non-negative number of entries to skip (optional, default to 0)
    * @return ReportInstanceLogList
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -424,8 +424,8 @@ public class ReportInstanceApi {
    * @param reportInstanceId Used to validate that report file name belongs to the report instance passed (required)
    * @param errorsOnly If the parameter is set to true the endpoint should return just errors and warnings E.g: errorsOnly&#x3D;true (optional)
    * @param sort The column to sort on. Can add - to sort (optional)
-   * @param paginationLimit Non-negative maximum number of entries to return (optional)
-   * @param paginationOffset Non-negative number of entries to skip (optional)
+   * @param paginationLimit Non-negative maximum number of entries to return (optional, default to 25)
+   * @param paginationOffset Non-negative number of entries to skip (optional, default to 0)
    * @return ApiResponse&lt;ReportInstanceLogList&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details

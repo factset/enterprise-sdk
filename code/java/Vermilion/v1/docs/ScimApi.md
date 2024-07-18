@@ -255,7 +255,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         ScimApi apiInstance = new ScimApi(defaultClient);
-        String groupId = "scimgroup1"; // String | The ID of the group
+        String groupId = "123456"; // String | The ID of the group
         try {
             apiInstance.deleteGroupById(groupId);
 
@@ -347,7 +347,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         ScimApi apiInstance = new ScimApi(defaultClient);
-        String userId = "scimuser1"; // String | The ID of the user
+        String userId = "123456"; // String | The ID of the user
         try {
             apiInstance.deleteUserById(userId);
 
@@ -439,8 +439,8 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         ScimApi apiInstance = new ScimApi(defaultClient);
-        Integer count = 25; // Integer | Non-negative maximum number of entries to return
-        Integer startIndex = 1; // Integer | The 1-based index of the first query result
+        Integer count = 10; // Integer | Non-negative maximum number of entries to return
+        Integer startIndex = 5; // Integer | The 1-based index of the first query result
         try {
             ScimGroupListResponse result = apiInstance.getAllGroups(count, startIndex);
             System.out.println(result);
@@ -533,8 +533,8 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         ScimApi apiInstance = new ScimApi(defaultClient);
-        Integer count = 25; // Integer | Non-negative maximum number of entries to return
-        Integer startIndex = 1; // Integer | The 1-based index of the first query result
+        Integer count = 10; // Integer | Non-negative maximum number of entries to return
+        Integer startIndex = 5; // Integer | The 1-based index of the first query result
         try {
             ScimUserListResponse result = apiInstance.getAllUsers(count, startIndex);
             System.out.println(result);
@@ -627,7 +627,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         ScimApi apiInstance = new ScimApi(defaultClient);
-        String groupId = "scimgroup1"; // String | The ID of the role
+        String groupId = "123456"; // String | The ID of the role
         try {
             ScimGroup result = apiInstance.getGroupById(groupId);
             System.out.println(result);
@@ -720,7 +720,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         ScimApi apiInstance = new ScimApi(defaultClient);
-        String userId = "scimuser1"; // String | The ID of the user
+        String userId = "123456"; // String | The ID of the user
         try {
             ScimUser result = apiInstance.getUserById(userId);
             System.out.println(result);
@@ -813,7 +813,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         ScimApi apiInstance = new ScimApi(defaultClient);
-        String groupId = "scimgroup1"; // String | The ID of the role
+        String groupId = "123456"; // String | The ID of the role
         ScimGroupPatchRequestBody scimGroupPatchRequestBody = new ScimGroupPatchRequestBody(); // ScimGroupPatchRequestBody | 
         try {
             ScimGroup result = apiInstance.patchGroupById(groupId, scimGroupPatchRequestBody);
@@ -906,7 +906,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         ScimApi apiInstance = new ScimApi(defaultClient);
-        String userId = "scimuser1"; // String | The ID of the user
+        String userId = "123456"; // String | The ID of the user
         ScimUserPatchRequestBody scimUserPatchRequestBody = new ScimUserPatchRequestBody(); // ScimUserPatchRequestBody | 
         try {
             ScimUser result = apiInstance.patchUserById(userId, scimUserPatchRequestBody);
@@ -1001,7 +1001,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         ScimApi apiInstance = new ScimApi(defaultClient);
-        String groupId = "scimgroup1"; // String | The ID of the group
+        String groupId = "123456"; // String | The ID of the group
         ScimGroup scimGroup = new ScimGroup(); // ScimGroup | 
         try {
             ScimGroup result = apiInstance.updateGroupById(groupId, scimGroup);
@@ -1096,7 +1096,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         ScimApi apiInstance = new ScimApi(defaultClient);
-        String userId = "scimuser1"; // String | The ID of the user
+        String userId = "123456"; // String | The ID of the user
         ScimUser scimUser = new ScimUser(); // ScimUser | 
         try {
             ScimUser result = apiInstance.updateUserById(userId, scimUser);

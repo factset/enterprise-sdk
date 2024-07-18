@@ -82,8 +82,8 @@ public class DatasourceApi {
    * List all datasources the user has permission to see
    * @param tenant The code of the tenancy (required)
    * @param sort The column to sort on. Append - to sort in descending order. If parameter is not given, no sorting will be done (optional)
-   * @param paginationLimit Non-negative maximum number of entries to return. Default is 25 (optional)
-   * @param paginationOffset Non-negative number of entries to skip. Default is 0 (optional)
+   * @param paginationLimit Non-negative maximum number of entries to return. Default is 25 (optional, default to 25)
+   * @param paginationOffset Non-negative number of entries to skip. Default is 0 (optional, default to 0)
    * @return DataSourceList
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -104,8 +104,8 @@ public class DatasourceApi {
    * List all datasources the user has permission to see
    * @param tenant The code of the tenancy (required)
    * @param sort The column to sort on. Append - to sort in descending order. If parameter is not given, no sorting will be done (optional)
-   * @param paginationLimit Non-negative maximum number of entries to return. Default is 25 (optional)
-   * @param paginationOffset Non-negative number of entries to skip. Default is 0 (optional)
+   * @param paginationLimit Non-negative maximum number of entries to return. Default is 25 (optional, default to 25)
+   * @param paginationOffset Non-negative number of entries to skip. Default is 0 (optional, default to 0)
    * @return ApiResponse&lt;DataSourceList&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -263,8 +263,8 @@ public class DatasourceApi {
    * @param dataSourceCode The code of the datasource (required)
    * @param entityCodes A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes&#x3D;ACCOUNT&amp;entityCodes&#x3D;FUNDS (optional)
    * @param entityKeys A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys&#x3D;1&amp;entityKeys&#x3D;Test2 (optional)
-   * @param paginationLimit Non-negative maximum number of entries to return. Default is 25 (optional)
-   * @param paginationOffset Non-negative number of entries to skip. Default is 0 (optional)
+   * @param paginationLimit Non-negative maximum number of entries to return. Default is 25 (optional, default to 25)
+   * @param paginationOffset Non-negative number of entries to skip. Default is 0 (optional, default to 0)
    * @return DataSourceDataInstance
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -289,8 +289,8 @@ public class DatasourceApi {
    * @param dataSourceCode The code of the datasource (required)
    * @param entityCodes A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes&#x3D;ACCOUNT&amp;entityCodes&#x3D;FUNDS (optional)
    * @param entityKeys A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys&#x3D;1&amp;entityKeys&#x3D;Test2 (optional)
-   * @param paginationLimit Non-negative maximum number of entries to return. Default is 25 (optional)
-   * @param paginationOffset Non-negative number of entries to skip. Default is 0 (optional)
+   * @param paginationLimit Non-negative maximum number of entries to return. Default is 25 (optional, default to 25)
+   * @param paginationOffset Non-negative number of entries to skip. Default is 0 (optional, default to 0)
    * @return ApiResponse&lt;DataSourceDataInstance&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details

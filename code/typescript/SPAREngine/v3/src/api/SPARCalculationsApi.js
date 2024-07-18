@@ -303,7 +303,7 @@ export default class SPARCalculationsApi {
      * Create and Run SPAR calculation
      * This endpoint runs the SPAR calculation specified in the POST body parameters.  It can take one or more units as input.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the SPAR template.
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.xFactSetApiLongRunningDeadline Long running deadline in seconds when only one unit is passed in the POST body.
+     * @param {Number} opts.xFactSetApiLongRunningDeadline Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation.
      * @param {String} opts.cacheControl Standard HTTP header.  Accepts max-stale.
      * @param {module:model/SPARCalculationParametersRoot} opts.sPARCalculationParametersRoot Calculation Parameters
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/CalculationStatusRoot} and HTTP response
@@ -340,7 +340,7 @@ export default class SPARCalculationsApi {
      * Create and Run SPAR calculation
      * This endpoint runs the SPAR calculation specified in the POST body parameters.  It can take one or more units as input.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the SPAR template.
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.xFactSetApiLongRunningDeadline Long running deadline in seconds when only one unit is passed in the POST body.
+     * @param {Number} opts.xFactSetApiLongRunningDeadline Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation.
      * @param {String} opts.cacheControl Standard HTTP header.  Accepts max-stale.
      * @param {module:model/SPARCalculationParametersRoot} opts.sPARCalculationParametersRoot Calculation Parameters
      * @return { Promise.< PostAndCalculateResponseWrapper > } a Promise, with data of type {@link PostAndCalculateResponseWrapper }
@@ -358,7 +358,7 @@ export default class SPARCalculationsApi {
      * This endpoint updates and run the SPAR calculation specified in the PUT body parameters. This also allows creating new SPAR calculations with custom ids.  It can take one or more units as input.    Remarks:    * Any settings in PUT body will act as a one-time override over the settings saved in the SPAR template.
      * @param {String} id from url, provided from the location header in the Create and Run SPAR calculation endpoint
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.xFactSetApiLongRunningDeadline Long running deadline in seconds when only one unit is passed in the PUT body.
+     * @param {Number} opts.xFactSetApiLongRunningDeadline Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation.
      * @param {String} opts.cacheControl Standard HTTP header.  Accepts max-stale.
      * @param {module:model/SPARCalculationParametersRoot} opts.sPARCalculationParametersRoot Calculation Parameters
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/CalculationStatusRoot} and HTTP response
@@ -401,7 +401,7 @@ export default class SPARCalculationsApi {
      * This endpoint updates and run the SPAR calculation specified in the PUT body parameters. This also allows creating new SPAR calculations with custom ids.  It can take one or more units as input.    Remarks:    * Any settings in PUT body will act as a one-time override over the settings saved in the SPAR template.
      * @param {String} id from url, provided from the location header in the Create and Run SPAR calculation endpoint
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.xFactSetApiLongRunningDeadline Long running deadline in seconds when only one unit is passed in the PUT body.
+     * @param {Number} opts.xFactSetApiLongRunningDeadline Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation.
      * @param {String} opts.cacheControl Standard HTTP header.  Accepts max-stale.
      * @param {module:model/SPARCalculationParametersRoot} opts.sPARCalculationParametersRoot Calculation Parameters
      * @return { Promise.< PutAndCalculateResponseWrapper > } a Promise, with data of type {@link PutAndCalculateResponseWrapper }

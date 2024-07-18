@@ -1,10 +1,10 @@
 # DiscountCurvesApi
 
-All URIs are relative to *https://api.factset.com*
+All URIs are relative to *https://api.factset.com/analytics/engines/fi/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getAllFIDiscountCurves**](DiscountCurvesApi.md#getAllFIDiscountCurves) | **GET** /analytics/engines/fi/v3/discount-curves | Get Discount Curves
+[**getAllFIDiscountCurves**](DiscountCurvesApi.md#getAllFIDiscountCurves) | **GET** /discount-curves | Get Discount Curves
 
 
 

@@ -71,7 +71,7 @@ public class FiCalculationsApi {
 
   
  /**
-   * Wrapper to support POST /analytics/engines/fi/v3/calculations returning different types
+   * Wrapper to support POST /calculations returning different types
    * per status code.
    *
    * <p>
@@ -153,7 +153,7 @@ public class FiCalculationsApi {
 
 
  /**
-   * Wrapper to support PUT /analytics/engines/fi/v3/calculations/{id} returning different types
+   * Wrapper to support PUT /calculations/{id} returning different types
    * per status code.
    *
    * <p>
@@ -302,7 +302,7 @@ public class FiCalculationsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/analytics/engines/fi/v3/calculations/{id}"
+    String localVarPath = "/calculations/{id}"
       .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
     // query params
@@ -386,7 +386,7 @@ public class FiCalculationsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/analytics/engines/fi/v3/calculations/{id}"
+    String localVarPath = "/calculations/{id}"
       .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
     // query params
@@ -472,7 +472,7 @@ public class FiCalculationsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/analytics/engines/fi/v3/calculations/{id}/result"
+    String localVarPath = "/calculations/{id}/result"
       .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
     // query params
@@ -560,7 +560,7 @@ public class FiCalculationsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/analytics/engines/fi/v3/calculations/{id}/status"
+    String localVarPath = "/calculations/{id}/status"
       .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
     // query params
@@ -651,7 +651,7 @@ public class FiCalculationsApi {
     Object localVarPostBody = fiCalculationParametersRoot;
     
     // create path and map variables
-    String localVarPath = "/analytics/engines/fi/v3/calculations";
+    String localVarPath = "/calculations";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -761,7 +761,7 @@ if (cacheControl != null)
     }
     
     // create path and map variables
-    String localVarPath = "/analytics/engines/fi/v3/calculations/{id}"
+    String localVarPath = "/calculations/{id}"
       .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
     // query params

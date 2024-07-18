@@ -23,7 +23,7 @@ class CalculationsSummaryRoot {
     /**
      * Constructs a new <code>CalculationsSummaryRoot</code>.
      * @alias module:model/CalculationsSummaryRoot
-     * @param data {module:model/CalculationsSummary} 
+     * @param data {Object.<String, module:model/CalculationsSummary>} 
      */
     constructor(data) { 
         
@@ -51,7 +51,7 @@ class CalculationsSummaryRoot {
             obj = obj || new CalculationsSummaryRoot();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = CalculationsSummary.constructFromObject(data['data']);
+                obj['data'] = ApiClient.convertToType(data['data'], {'String': CalculationsSummary});
             }
             if (data.hasOwnProperty('meta')) {
                 obj['meta'] = PaginationMeta.constructFromObject(data['meta']);
@@ -64,7 +64,7 @@ class CalculationsSummaryRoot {
 }
 
 /**
- * @member {module:model/CalculationsSummary} data
+ * @member {Object.<String, module:model/CalculationsSummary>} data
  */
 CalculationsSummaryRoot.prototype['data'] = undefined;
 

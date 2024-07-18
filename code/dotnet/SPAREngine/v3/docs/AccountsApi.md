@@ -167,7 +167,7 @@ namespace Example
 
             var apiInstance = new AccountsApi(config);
 
-            var accountPath = "accountPath_example";  // string | URL encoded account path
+            var accountPath = "Client:SPAR_Return_Type.ACCT";  // string | URL encoded account path
 
             try
             {

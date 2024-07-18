@@ -50,43 +50,43 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new EntityMatchApi();
-const name = FactSet; // String | Name of Entity to match.
+const name = Tesla; // String | Name of Entity to match.
 const opts = {
   'country': US, // String | ISO2 country code corresponding to the entity name that is used when evaluating candidates for a match. For a list of ISO2 Country codes, visit [OA 8754](https://my.apps.factset.com/oa/pages/8754).
-  'state': CT, // String | Two-character state code corresponding to the entity name that is used when evaluating candidates for a match. Currently, only US state codes are supported.
-  'url': "url_example", // String | URL corresponding to the entity name that is used when evaluating candidates for a match.
+  'state': TX, // String | Two-character state code corresponding to the entity name that is used when evaluating candidates for a match. Currently, only US state codes are supported.
+  'url': www.tesla.com, // String | URL corresponding to the entity name that is used when evaluating candidates for a match.
   'includeEntityType': ["PUB"], // [String] | Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Only candidates with an entity type specified will be considered for the final match result. Multiple types can be entered separated by commas.   |Entity Type Code|Entity Type Description|Entity Type Code|Entity Type Description|   |---|---|---|---|   |ABS|Asset-Backed||MED|Broadcast Call Sign|   |BAS|Business Association (JP)||MUC|Mutual Fd-Closed End|   |CAC|Consolidated Accounting||MUE|Mutual Fd-ETF|   |CMD|Commodity||MUT|Mutual Fd-Open End|   |COL|College/University||NPO|Non-Profit Organization|   |CUR|Currency||OPD|Operating Division|   |ESP|Emp Stk Ownership Plan||OTH|Other|   |EXT|Extinct||PEF|Pension Fund|   |FAF|Family of Fds (VC/Pvt EQ)||PRO|Real Property|   |FND|Foundation/Endowment||PUB|Public Company|   |FNS|Financing Subsidiary/SPE||PVF|Private Eq Fd/Alt Invt|   |FRX|ForEx||PVT|Private Company|   |GOV|Government||SOV|Sovereign Wealth Fund|   |HED|Hedge Fund||SUB|Subsidiary|   |HOL|Holding Company||TRU|Trust/Trustee|   |IDX|Index||UMB|Umbrella Fund|   |VEN|Venture Capital Fund||JVT|Joint Venture| 
   'excludeEntityType': ["EXT"], // [String] | Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Candidates with an entity type specified will *not* be considered for the final match result. Multiple types can be entered separated by commas.   |Entity Type Code|Entity Type Description|Entity Type Code|Entity Type Description|   |---|---|---|---| |ABS|Asset-Backed||MED|Broadcast Call Sign| |BAS|Business Association (JP)||MUC|Mutual Fd-Closed End| |CAC|Consolidated Accounting||MUE|Mutual Fd-ETF| |CMD|Commodity||MUT|Mutual Fd-Open End| |COL|College/University||NPO|Non-Profit Organization| |CUR|Currency||OPD|Operating Division| |ESP|Emp Stk Ownership Plan||OTH|Other| |EXT|Extinct||PEF|Pension Fund| |FAF|Family of Fds (VC/Pvt EQ)||PRO|Real Property| |FND|Foundation/Endowment||PUB|Public Company| |FNS|Financing Subsidiary/SPE||PVF|Private Eq Fd/Alt Invt| |FRX|ForEx||PVT|Private Company| |GOV|Government||SOV|Sovereign Wealth Fund| |HED|Hedge Fund||SUB|Subsidiary| |HOL|Holding Company||TRU|Trust/Trustee| |IDX|Index||UMB|Umbrella Fund| |VEN|Venture Capital Fund||JVT|Joint Venture| 
   'includeEntitySubType': ["PR"], // [String] | Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Only candidates with an entity subtype specified will be considered for the final match result. Multiple types can be entered separated by commas.   |Entity Subtype Code|Entity Subtype Description|Entity Subtype Code|Entity Subtype Description|   |---|---|---|---|   |AR|Arbitrage|IC|Investment Company|   |BM|Bank Investment Division|IN|Insurance Company|   |BR|Broker|MF|Mutual Fund Manager|   |CP|Corporate|ML|Master Ltd Part|   |CU|Custodial|MM|Market Maker|   |FF|Fund of Funds Manager|PB|Private Banking/Wealth Mgmt|   |FH|Fund of Hedge Funds Manager|PF|Pension Fund Manager|   |FO|Foundation/Endowment Manager|PP|Real Estate Manager|   |FS|Fund Distributor|RE|Research Firm|   |FU|Fund|SB|Subsidiary Branch|   |FY|Family Office|ST|Stock Borrowing/Lending|   |GV|Govt (Fed/Local/Agency)|SV|Sovereign Wealth Manager|   |HF|Hedge Fund Manager|VC|Venture Capital/Pvt Equity|   |IA|Investment Adviser|   |IB|Investment Banking| 
   'excludeEntitySubType': ["HF"], // [String] | Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Candidates with an entity subtype specified will not be considered for the final match result. Multiple types can be entered separated by commas. |Entity Subtype Code|Entity Subtype Description|Entity Subtype Code|Entity Subtype Description| |---|---|---|---| |AR|Arbitrage|IC|Investment Company| |BM|Bank Investment Division|IN|Insurance Company| |BR|Broker|MF|Mutual Fund Manager| |CP|Corporate|ML|Master Ltd Part| |CU|Custodial|MM|Market Maker| |FF|Fund of Funds Manager|PB|Private Banking/Wealth Mgmt| |FH|Fund of Hedge Funds Manager|PF|Pension Fund Manager| |FO|Foundation/Endowment Manager|PP|Real Estate Manager| |FS|Fund Distributor|RE|Research Firm| |FU|Fund|SB|Subsidiary Branch| |FY|Family Office|ST|Stock Borrowing/Lending| |GV|Govt (Fed/Local/Agency)|SV|Sovereign Wealth Manager| |HF|Hedge Fund Manager|VC|Venture Capital/Pvt Equity| |IA|Investment Adviser| |IB|Investment Banking| 
   'includeParent': false, // Boolean | Flag to include parent entities in the list of candidates. This parameter does not influence the match result.
-  'bbgFigi': BBG009S39JY5, // String | Input identifiers for the Bloomberg Listing/Regional/Security ID symbol type.
-  'bbgTicker': BloombergId, // String | Input identifiers for the Bloomberg Listing and Regional Ticker symbol Type.
-  'bic': BICCode, // String | Input identifiers for the BICCode - Bank Indentification Code symbol Type.
-  'cik': CIK, // String | Input identifiers for the CIK - Edgar Central Index Keys symbol type.
+  'bbgFigi': BBG000N9P426, // String | Input identifiers for the Bloomberg Listing/Regional/Security ID symbol type.
+  'bbgTicker': TSLA UW, // String | Input identifiers for the Bloomberg Listing and Regional Ticker symbol Type.
+  'bic': TSLAUS66, // String | Input identifiers for the BICCode - Bank Indentification Code symbol Type.
+  'cik': 1318605, // String | Input identifiers for the CIK - Edgar Central Index Keys symbol type.
   'crd': CRD, // String | Input identifiers for the CRD - Central Registration Depository symbol type.
-  'cusip': CUSIP, // String | Input identifiers for the CUSIP symbol type.
+  'cusip': 88160R101, // String | Input identifiers for the CUSIP symbol type.
   'duns': Dun&Bradstreet, // String | Input identifiers for the DUNS - Dun & Bradstreet Data Universal Numbering System symbol type.
-  'ein': EmployerIdentificationNumber, // String | Input identifiers for the EIN - Employer Identification Number symbol type.
-  'factsetId': FactSetIdentifier, // String | Input identifiers for the type FactSet Identifier - FactSet -E,-S,-R, -L Permanent Identifier symbol type.
+  'ein': 912197729, // String | Input identifiers for the EIN - Employer Identification Number symbol type.
+  'factsetId': 006XY7-E, // String | Input identifiers for the type FactSet Identifier - FactSet -E,-S,-R, -L Permanent Identifier symbol type.
   'fitch': FitchCreditRating, // String | Input identifiers for the Fitch - Fitch Ratings symbol type.
   'gvkey': GVKey, // String | Input identifiers for the type GVKEY - Compustat Global Company Key symbol type.
   'gvkeyIid': GVKeyIssueIdentifier, // String | Input identifiers for the type GVKEY+IID - Compustat Global Company Key and Issue Identifier symbol type.
-  'isin': ISIN, // String | Input identifiers for the ISIN - International Securities Identification Number symbol type.
+  'isin': US88160R1014, // String | Input identifiers for the ISIN - International Securities Identification Number symbol type.
   'jcn': JCN, // String | Input identifiers for the type JCN - Japanese Corporate Number symbol type.
-  'lei': LegalEntityIdentifier, // String | Input identifiers for the LEI - Legal Entity Identifier symbol type
+  'lei': 54930043XZGB27CTOV49, // String | Input identifiers for the LEI - Legal Entity Identifier symbol type
   'lxid': LXID, // String | Input identifiers for the type LXID - Markit Syndicated Loan Identifier symbol type.
-  'md': MoodysIssuer, // String | Input identifiers for the Moody's Ratings Identifier type.
+  'md': 823642219, // String | Input identifiers for the Moody's Ratings Identifier type.
   'redCode': RedCode, // String | Input identifiers for the type Red Code - Markit Reference Entity Identifier symbol type.
   'rssd': FederalReserveRSSDIdentifier, // String | Input identifiers for the RSSD - Federal Reserve RSSD symbol typ.
-  'sedol': SEDOL, // String | Input identifiers for the SEDOL symbol type.
-  'spr': SPRating, // String | Input identifiers for the Price Ticker symbol type.
+  'sedol': B616C79, // String | Input identifiers for the SEDOL symbol type.
+  'spr': 562703, // String | Input identifiers for the Price Ticker symbol type.
   'ticker': PriceTicker, // String | Input identifiers for the Price Ticker symbol type.
-  'tickerExchange': TickerExch, // String | Input identifiers for the TickerExchange.
-  'tickerRegion': TickerRegion, // String | Input identifiers for the TickerRegion.
+  'tickerExchange': TSLA-NAS, // String | Input identifiers for the TickerExchange.
+  'tickerRegion': TSLA-US, // String | Input identifiers for the TickerRegion.
   'ukch': UKCompanyHouse, // String | Input identifiers for the UKCH - UK Company House symbol type.
   'valoren': VALOR, // String | Input identifiers for the Valoren (\"Valor\") symbol type.
-  'wkn': WKN // String | Input identifiers for the WKN - German Securities symbol type.
+  'wkn': A1CX3T // String | Input identifiers for the WKN - German Securities symbol type.
 };
 
 // Call api endpoint

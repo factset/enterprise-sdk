@@ -66,7 +66,7 @@ namespace Example
 
             var apiInstance = new SPARCalculationsApi(config);
 
-            var id = "id_example";  // string | from url, provided from the location header in the Create and Run SPAR calculation endpoint
+            var id = "917cc544adbe46f99a33dc4179f3983f";  // string | from url, provided from the location header in the Create and Run SPAR calculation endpoint
 
             try
             {
@@ -275,7 +275,7 @@ namespace Example
 
             var apiInstance = new SPARCalculationsApi(config);
 
-            var id = "id_example";  // string | from url, provided from the location header in the Create and Run SPAR calculation endpoint
+            var id = "917cc544adbe46f99a33dc4179f3983d";  // string | from url, provided from the location header in the Create and Run SPAR calculation endpoint
 
             try
             {
@@ -379,7 +379,7 @@ namespace Example
 
             var apiInstance = new SPARCalculationsApi(config);
 
-            var id = "id_example";  // string | from url, provided from the location header in the Create and Run SPAR calculation endpoint
+            var id = "917cc544adbe46f99a33dc4179f3983f";  // string | from url, provided from the location header in the Create and Run SPAR calculation endpoint
 
             try
             {
@@ -484,8 +484,8 @@ namespace Example
 
             var apiInstance = new SPARCalculationsApi(config);
 
-            var id = "id_example";  // string | from url, provided from the location header in the Get SPAR calculation status by id endpoint
-            var unitId = "unitId_example";  // string | from url, provided from the location header in the Get SPAR calculation status by id endpoint
+            var id = "917cc544adbe46f99a33dc4179f3983f";  // string | from url, provided from the location header in the Get SPAR calculation status by id endpoint
+            var unitId = "1";  // string | from url, provided from the location header in the Get SPAR calculation status by id endpoint
 
             try
             {
@@ -591,7 +591,7 @@ namespace Example
 
             var apiInstance = new SPARCalculationsApi(config);
 
-            var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds when only one unit is passed in the POST body. (optional) 
+            var xFactSetApiLongRunningDeadline = 10;  // int? | Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional) 
             var cacheControl = "cacheControl_example";  // string | Standard HTTP header.  Accepts max-stale. (optional) 
             var sPARCalculationParametersRoot = new SPARCalculationParametersRoot(); // SPARCalculationParametersRoot | Calculation Parameters (optional) 
 
@@ -632,7 +632,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xFactSetApiLongRunningDeadline** | **int?**| Long running deadline in seconds when only one unit is passed in the POST body. | [optional] 
+ **xFactSetApiLongRunningDeadline** | **int?**| Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. | [optional] 
  **cacheControl** | **string**| Standard HTTP header.  Accepts max-stale. | [optional] 
  **sPARCalculationParametersRoot** | [**SPARCalculationParametersRoot**](SPARCalculationParametersRoot.md)| Calculation Parameters | [optional] 
 
@@ -720,8 +720,8 @@ namespace Example
 
             var apiInstance = new SPARCalculationsApi(config);
 
-            var id = "id_example";  // string | from url, provided from the location header in the Create and Run SPAR calculation endpoint
-            var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds when only one unit is passed in the PUT body. (optional) 
+            var id = "e257350ec6cd46ee8a42db79a4ae84d0";  // string | from url, provided from the location header in the Create and Run SPAR calculation endpoint
+            var xFactSetApiLongRunningDeadline = 10;  // int? | Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional) 
             var cacheControl = "cacheControl_example";  // string | Standard HTTP header.  Accepts max-stale. (optional) 
             var sPARCalculationParametersRoot = new SPARCalculationParametersRoot(); // SPARCalculationParametersRoot | Calculation Parameters (optional) 
 
@@ -763,7 +763,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| from url, provided from the location header in the Create and Run SPAR calculation endpoint | 
- **xFactSetApiLongRunningDeadline** | **int?**| Long running deadline in seconds when only one unit is passed in the PUT body. | [optional] 
+ **xFactSetApiLongRunningDeadline** | **int?**| Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. | [optional] 
  **cacheControl** | **string**| Standard HTTP header.  Accepts max-stale. | [optional] 
  **sPARCalculationParametersRoot** | [**SPARCalculationParametersRoot**](SPARCalculationParametersRoot.md)| Calculation Parameters | [optional] 
 

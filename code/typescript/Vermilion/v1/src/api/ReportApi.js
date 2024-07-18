@@ -42,8 +42,8 @@ export default class ReportApi {
      * @param {String} tenant The code of the tenancy
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.sort The column to sort on. Can add - to sort
-     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return
-     * @param {Number} opts.paginationOffset Non-negative number of entries to skip
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return (default to 25)
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip (default to 0)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ReportDefinitionList} and HTTP response
      */
     getAllReportDefinitionsWithHttpInfo(tenant, opts) {
@@ -87,8 +87,8 @@ export default class ReportApi {
      * @param {String} tenant The code of the tenancy
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.sort The column to sort on. Can add - to sort
-     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return
-     * @param {Number} opts.paginationOffset Non-negative number of entries to skip
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return (default to 25)
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip (default to 0)
      * @return { Promise.< module:model/ReportDefinitionList > } a Promise, with data of type {@link module:model/ReportDefinitionList }
      */
     getAllReportDefinitions(tenant, opts) {

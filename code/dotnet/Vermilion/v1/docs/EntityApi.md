@@ -60,12 +60,12 @@ namespace Example
 
             var apiInstance = new EntityApi(config);
 
-            var tenant = "XXXXXXXXXX";  // string | The code of the tenancy
-            var entityCode = "XXXXXXXXXX";  // string | The code of the entity
+            var tenant = "TENANT";  // string | The code of the tenancy
+            var entityCode = "ENTCODE";  // string | The code of the entity
             var sort = new List<string>(); // List<string> | The entity field to sort on. Can only be sorted on entity key, description or secondary key fields. Append \"-\" to sort in descending order. If no parameter given, it will be sorted by key field in ascending order by default (optional) 
-            var paginationLimit = 25;  // int? | Non-negative maximum number of entries to return. Default is 25 (optional) 
-            var paginationOffset = 0;  // int? | Non-negative number of entries to skip. Default is 0 (optional) 
-            var showAll = 1;  // int? | Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false) (optional) 
+            var paginationLimit = 25;  // int? | Non-negative maximum number of entries to return. Default is 25 (optional)  (default to 25)
+            var paginationOffset = 0;  // int? | Non-negative number of entries to skip. Default is 0 (optional)  (default to 0)
+            var showAll = 0;  // int? | Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false). Otherwise, show all field values in a JSON array named \"fieldsWithValues\", with each array value being a string in the format of \"**<FIELD_NAME> : <FIELD_VALUE>**\". Both key and description field values will be included in this JSON array too. (optional)  (default to 0)
 
             try
             {
@@ -91,9 +91,9 @@ Name | Type | Description  | Notes
  **tenant** | **string**| The code of the tenancy | 
  **entityCode** | **string**| The code of the entity | 
  **sort** | [**List&lt;string&gt;**](string.md)| The entity field to sort on. Can only be sorted on entity key, description or secondary key fields. Append \&quot;-\&quot; to sort in descending order. If no parameter given, it will be sorted by key field in ascending order by default | [optional] 
- **paginationLimit** | **int?**| Non-negative maximum number of entries to return. Default is 25 | [optional] 
- **paginationOffset** | **int?**| Non-negative number of entries to skip. Default is 0 | [optional] 
- **showAll** | **int?**| Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false) | [optional] 
+ **paginationLimit** | **int?**| Non-negative maximum number of entries to return. Default is 25 | [optional] [default to 25]
+ **paginationOffset** | **int?**| Non-negative number of entries to skip. Default is 0 | [optional] [default to 0]
+ **showAll** | **int?**| Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false). Otherwise, show all field values in a JSON array named \&quot;fieldsWithValues\&quot;, with each array value being a string in the format of \&quot;**&lt;FIELD_NAME&gt; : &lt;FIELD_VALUE&gt;**\&quot;. Both key and description field values will be included in this JSON array too. | [optional] [default to 0]
 
 ### Return type
 [**EntityFieldValueDTO**](EntityFieldValueDTO.md)

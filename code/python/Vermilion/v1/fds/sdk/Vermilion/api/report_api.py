@@ -213,8 +213,8 @@ class ReportApi(object):
 
         Keyword Args:
             sort ([str]): The column to sort on. Can add - to sort. [optional]
-            pagination_limit (int): Non-negative maximum number of entries to return. [optional]
-            pagination_offset (int): Non-negative number of entries to skip. [optional]
+            pagination_limit (int): Non-negative maximum number of entries to return. [optional] if omitted the server will use the default value of 25
+            pagination_offset (int): Non-negative number of entries to skip. [optional] if omitted the server will use the default value of 0
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -263,8 +263,8 @@ class ReportApi(object):
 
         Keyword Args:
             sort ([str]): The column to sort on. Can add - to sort. [optional]
-            pagination_limit (int): Non-negative maximum number of entries to return. [optional]
-            pagination_offset (int): Non-negative number of entries to skip. [optional]
+            pagination_limit (int): Non-negative maximum number of entries to return. [optional] if omitted the server will use the default value of 25
+            pagination_offset (int): Non-negative number of entries to skip. [optional] if omitted the server will use the default value of 0
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -317,8 +317,8 @@ class ReportApi(object):
 
         Keyword Args:
             sort ([str]): The column to sort on. Can add - to sort. [optional]
-            pagination_limit (int): Non-negative maximum number of entries to return. [optional]
-            pagination_offset (int): Non-negative number of entries to skip. [optional]
+            pagination_limit (int): Non-negative maximum number of entries to return. [optional] if omitted the server will use the default value of 25
+            pagination_offset (int): Non-negative number of entries to skip. [optional] if omitted the server will use the default value of 0
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -366,8 +366,8 @@ class ReportApi(object):
 
         Keyword Args:
             sort ([str]): The column to sort on. Can add - to sort. [optional]
-            pagination_limit (int): Non-negative maximum number of entries to return. [optional]
-            pagination_offset (int): Non-negative number of entries to skip. [optional]
+            pagination_limit (int): Non-negative maximum number of entries to return. [optional] if omitted the server will use the default value of 25
+            pagination_offset (int): Non-negative number of entries to skip. [optional] if omitted the server will use the default value of 0
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility

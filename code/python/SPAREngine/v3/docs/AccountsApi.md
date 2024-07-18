@@ -163,7 +163,7 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
     api_instance = accounts_api.AccountsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    account_path = "accountPath_example" # str | URL encoded account path
+    account_path = "Client:SPAR_Return_Type.ACCT" # str | URL encoded account path
 
     try:
         # Get SPAR account returns type details

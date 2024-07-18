@@ -42,9 +42,9 @@ export default class EntityApi {
      * @param {String} entityCode The code of the entity
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.sort The entity field to sort on. Can only be sorted on entity key, description or secondary key fields. Append \"-\" to sort in descending order. If no parameter given, it will be sorted by key field in ascending order by default
-     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. Default is 25
-     * @param {Number} opts.paginationOffset Non-negative number of entries to skip. Default is 0
-     * @param {Number} opts.showAll Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false)
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. Default is 25 (default to 25)
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip. Default is 0 (default to 0)
+     * @param {Number} opts.showAll Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false). Otherwise, show all field values in a JSON array named \"fieldsWithValues\", with each array value being a string in the format of \"**<FIELD_NAME> : <FIELD_VALUE>**\". Both key and description field values will be included in this JSON array too. (default to 0)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/EntityFieldValueDTO} and HTTP response
      */
     getEntityValuesByCodeWithHttpInfo(tenant, entityCode, opts) {
@@ -95,9 +95,9 @@ export default class EntityApi {
      * @param {String} entityCode The code of the entity
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.sort The entity field to sort on. Can only be sorted on entity key, description or secondary key fields. Append \"-\" to sort in descending order. If no parameter given, it will be sorted by key field in ascending order by default
-     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. Default is 25
-     * @param {Number} opts.paginationOffset Non-negative number of entries to skip. Default is 0
-     * @param {Number} opts.showAll Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false)
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. Default is 25 (default to 25)
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip. Default is 0 (default to 0)
+     * @param {Number} opts.showAll Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false). Otherwise, show all field values in a JSON array named \"fieldsWithValues\", with each array value being a string in the format of \"**<FIELD_NAME> : <FIELD_VALUE>**\". Both key and description field values will be included in this JSON array too. (default to 0)
      * @return { Promise.< module:model/EntityFieldValueDTO > } a Promise, with data of type {@link module:model/EntityFieldValueDTO }
      */
     getEntityValuesByCode(tenant, entityCode, opts) {

@@ -43,6 +43,7 @@ docs/ResponseTime.md
 docs/ResponseTimeObject.md
 docs/TranscriptObject.md
 docs/TranscriptObjectOne.md
+docs/TranscriptObjectTimes.md
 docs/Transcripts.md
 docs/TranscriptsApi.md
 docs/TranscriptsMeta.md
@@ -50,6 +51,7 @@ docs/TranscriptsMetaPagination.md
 docs/TranscriptsOne.md
 docs/TranscriptsOneMeta.md
 docs/TranscriptsOneMetaPagination.md
+docs/TranscriptsTimes.md
 git_push.sh
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
@@ -116,9 +118,11 @@ src/main/java/com/factset/sdk/EventsandTranscripts/models/ResponseTime.java
 src/main/java/com/factset/sdk/EventsandTranscripts/models/ResponseTimeObject.java
 src/main/java/com/factset/sdk/EventsandTranscripts/models/TranscriptObject.java
 src/main/java/com/factset/sdk/EventsandTranscripts/models/TranscriptObjectOne.java
+src/main/java/com/factset/sdk/EventsandTranscripts/models/TranscriptObjectTimes.java
 src/main/java/com/factset/sdk/EventsandTranscripts/models/Transcripts.java
 src/main/java/com/factset/sdk/EventsandTranscripts/models/TranscriptsMeta.java
 src/main/java/com/factset/sdk/EventsandTranscripts/models/TranscriptsMetaPagination.java
 src/main/java/com/factset/sdk/EventsandTranscripts/models/TranscriptsOne.java
 src/main/java/com/factset/sdk/EventsandTranscripts/models/TranscriptsOneMeta.java
 src/main/java/com/factset/sdk/EventsandTranscripts/models/TranscriptsOneMetaPagination.java
+src/main/java/com/factset/sdk/EventsandTranscripts/models/TranscriptsTimes.java

@@ -66,7 +66,7 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
     api_instance = spar_calculations_api.SPARCalculationsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    id = "id_example" # str | from url, provided from the location header in the Create and Run SPAR calculation endpoint
+    id = "917cc544adbe46f99a33dc4179f3983f" # str | from url, provided from the location header in the Create and Run SPAR calculation endpoint
 
     try:
         # Cancel SPAR calculation
@@ -268,7 +268,7 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
     api_instance = spar_calculations_api.SPARCalculationsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    id = "id_example" # str | from url, provided from the location header in the Create and Run SPAR calculation endpoint
+    id = "917cc544adbe46f99a33dc4179f3983d" # str | from url, provided from the location header in the Create and Run SPAR calculation endpoint
 
     try:
         # Get SPAR calculation parameters by id
@@ -368,7 +368,7 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
     api_instance = spar_calculations_api.SPARCalculationsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    id = "id_example" # str | from url, provided from the location header in the Create and Run SPAR calculation endpoint
+    id = "917cc544adbe46f99a33dc4179f3983f" # str | from url, provided from the location header in the Create and Run SPAR calculation endpoint
 
     try:
         # Get SPAR calculation status by id
@@ -469,8 +469,8 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
     api_instance = spar_calculations_api.SPARCalculationsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    id = "id_example" # str | from url, provided from the location header in the Get SPAR calculation status by id endpoint
-    unit_id = "unitId_example" # str | from url, provided from the location header in the Get SPAR calculation status by id endpoint
+    id = "917cc544adbe46f99a33dc4179f3983f" # str | from url, provided from the location header in the Get SPAR calculation status by id endpoint
+    unit_id = "1" # str | from url, provided from the location header in the Get SPAR calculation status by id endpoint
 
     try:
         # Get SPAR calculation result by id
@@ -571,7 +571,7 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
     api_instance = spar_calculations_api.SPARCalculationsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    x_fact_set_api_long_running_deadline = 1 # int | Long running deadline in seconds when only one unit is passed in the POST body. (optional)
+    x_fact_set_api_long_running_deadline = 10 # int | Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)
     cache_control = "Cache-Control_example" # str | Standard HTTP header.  Accepts max-stale. (optional)
     spar_calculation_parameters_root = SPARCalculationParametersRoot(
         data={
@@ -631,7 +631,7 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_fact_set_api_long_running_deadline** | **int**| Long running deadline in seconds when only one unit is passed in the POST body. | [optional]
+ **x_fact_set_api_long_running_deadline** | **int**| Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. | [optional]
  **cache_control** | **str**| Standard HTTP header.  Accepts max-stale. | [optional]
  **spar_calculation_parameters_root** | [**SPARCalculationParametersRoot**](SPARCalculationParametersRoot.md)| Calculation Parameters | [optional]
 
@@ -723,8 +723,8 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
     api_instance = spar_calculations_api.SPARCalculationsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    id = "id_example" # str | from url, provided from the location header in the Create and Run SPAR calculation endpoint
-    x_fact_set_api_long_running_deadline = 1 # int | Long running deadline in seconds when only one unit is passed in the PUT body. (optional)
+    id = "e257350ec6cd46ee8a42db79a4ae84d0" # str | from url, provided from the location header in the Create and Run SPAR calculation endpoint
+    x_fact_set_api_long_running_deadline = 10 # int | Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)
     cache_control = "Cache-Control_example" # str | Standard HTTP header.  Accepts max-stale. (optional)
     spar_calculation_parameters_root = SPARCalculationParametersRoot(
         data={
@@ -785,7 +785,7 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| from url, provided from the location header in the Create and Run SPAR calculation endpoint |
- **x_fact_set_api_long_running_deadline** | **int**| Long running deadline in seconds when only one unit is passed in the PUT body. | [optional]
+ **x_fact_set_api_long_running_deadline** | **int**| Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. | [optional]
  **cache_control** | **str**| Standard HTTP header.  Accepts max-stale. | [optional]
  **spar_calculation_parameters_root** | [**SPARCalculationParametersRoot**](SPARCalculationParametersRoot.md)| Calculation Parameters | [optional]
 

@@ -50,10 +50,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new ReportApi();
-const tenant = XXXXXXXXXX; // String | The code of the tenancy
+const tenant = TENANT; // String | The code of the tenancy
 const opts = {
   'sort': ["name"], // [String] | The column to sort on. Can add - to sort
-  'paginationLimit': 25, // Number | Non-negative maximum number of entries to return
+  'paginationLimit': 10, // Number | Non-negative maximum number of entries to return
   'paginationOffset': 0 // Number | Non-negative number of entries to skip
 };
 
@@ -79,8 +79,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenant** | **String**| The code of the tenancy | 
  **sort** | [**[String]**](String.md)| The column to sort on. Can add - to sort | [optional] 
- **paginationLimit** | **Number**| Non-negative maximum number of entries to return | [optional] 
- **paginationOffset** | **Number**| Non-negative number of entries to skip | [optional] 
+ **paginationLimit** | **Number**| Non-negative maximum number of entries to return | [optional] [default to 25]
+ **paginationOffset** | **Number**| Non-negative number of entries to skip | [optional] [default to 0]
 
 ### Return type
 
@@ -137,8 +137,8 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new ReportApi();
-const tenant = XXXXXXXXXX; // String | The code of the tenancy
-const reportDefinitionCode = XXXXXXXXXX; // String | The code of the report definition
+const tenant = TENANT; // String | The code of the tenancy
+const reportDefinitionCode = RPCODE; // String | The code of the report definition
 
 // Call api endpoint
 apiInstance.getReportDefinitionByCode(tenant, reportDefinitionCode).then(

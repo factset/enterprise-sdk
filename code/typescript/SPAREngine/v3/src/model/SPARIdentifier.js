@@ -72,13 +72,13 @@ class SPARIdentifier {
 SPARIdentifier.prototype['id'] = undefined;
 
 /**
- * Benchmark return type.
+ * Account or benchmark return type.
  * @member {String} returntype
  */
 SPARIdentifier.prototype['returntype'] = undefined;
 
 /**
- * Benchmark prefix.
+ * Account or benchmark prefix.
  * @member {String} prefix
  */
 SPARIdentifier.prototype['prefix'] = undefined;

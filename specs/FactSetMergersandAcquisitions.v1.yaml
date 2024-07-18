@@ -306,6 +306,7 @@ components:
         Six alpha-numeric characters, excluding vowels, with an -E suffix
         (XXXXXX-E).
       example: 000N1N-E
+      nullable: true
     DealValue:
       title: Deal Value Object
       description: Deal Value Object
@@ -488,6 +489,7 @@ components:
               - Preferred Stock
               - Stock
               - Warrant / Options
+            nullable: true
           example:
             - Cash
             - Debt
@@ -764,6 +766,7 @@ components:
               - Private Warrant Option
               - Source of Funding Not Disclosed
               - 'Stock Issuance: Pref & Com (Public)'
+            nullable: true
           example:
             - Bank Loan
           nullable: true
@@ -955,6 +958,7 @@ components:
               - Bidder Controlling Shareholder
               - Property Transaction
               - Power Plant Purchase
+            nullable: true
           nullable: true
     Ids:
       type: array

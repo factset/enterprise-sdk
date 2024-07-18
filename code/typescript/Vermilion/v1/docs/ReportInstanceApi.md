@@ -54,8 +54,8 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new ReportInstanceApi();
-const tenant = XXXXXXXXXX; // String | The code of the tenancy
-const reportInstanceId = 123456789; // String | The id of the report instance
+const tenant = TENANT; // String | The code of the tenancy
+const reportInstanceId = 123456; // String | The id of the report instance
 
 // Call api endpoint
 apiInstance.cancelReportGeneration(tenant, reportInstanceId).then(
@@ -133,8 +133,8 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new ReportInstanceApi();
-const tenant = XXXXXXXXXX; // String | The code of the tenancy
-const reportInstanceId = 123456789; // String | Used to validate that report file name belongs to the report instance passed
+const tenant = TENANT; // String | The code of the tenancy
+const reportInstanceId = 123456; // String | Used to validate that report file name belongs to the report instance passed
 const reportFileName = xyz.pdf; // String | The report file name that has to be retrieved. report file name. E.g: xyz.pdf
 
 // Call api endpoint
@@ -216,15 +216,15 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new ReportInstanceApi();
-const tenant = XXXXXXXXXX; // String | The code of the tenancy
+const tenant = TENANT; // String | The code of the tenancy
 const opts = {
-  'reportDefinitionCode': XXXXXXXXXX, // String | Acts as a filter for the retrieval process. Filters the report instances that match the report definition code
+  'reportDefinitionCode': RPCODE, // String | Acts as a filter for the retrieval process. Filters the report instances that match the report definition code
   'entityCodes': SYSTEM_LANG, // String | A series of query parameters used to filter the report instances by entity code. E.g: entityCode=DATE&entityCode=SYSTEM_LANG
   'entityKeys': en-gb, // String | A series of query parameters used to filter the report instances by entity keys. E.g: entityKey=en-gb
   'sectionFilter': testFilter, // String | Acts as a filter for the retrieval process. Filters the report instances that match the section filter
   'outputFormat': pdf, // String | Acts as a filter for the retrieval process. Filters the report instances that match the output format
   'sort': ["reportInstanceId"], // [String] | The column to sort on. Append - to sort in descending order. If parameter is not given, sorting will be based on the report instance id in descending order
-  'paginationLimit': 25, // Number | Non-negative maximum number of entries to return
+  'paginationLimit': 10, // Number | Non-negative maximum number of entries to return
   'paginationOffset': 0 // Number | Non-negative number of entries to skip
 };
 
@@ -255,8 +255,8 @@ Name | Type | Description  | Notes
  **sectionFilter** | **String**| Acts as a filter for the retrieval process. Filters the report instances that match the section filter | [optional] 
  **outputFormat** | **String**| Acts as a filter for the retrieval process. Filters the report instances that match the output format | [optional] 
  **sort** | [**[String]**](String.md)| The column to sort on. Append - to sort in descending order. If parameter is not given, sorting will be based on the report instance id in descending order | [optional] 
- **paginationLimit** | **Number**| Non-negative maximum number of entries to return | [optional] 
- **paginationOffset** | **Number**| Non-negative number of entries to skip | [optional] 
+ **paginationLimit** | **Number**| Non-negative maximum number of entries to return | [optional] [default to 25]
+ **paginationOffset** | **Number**| Non-negative number of entries to skip | [optional] [default to 0]
 
 ### Return type
 
@@ -313,12 +313,12 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new ReportInstanceApi();
-const tenant = XXXXXXXXXX; // String | The code of the tenancy
-const reportInstanceId = 123456789; // String | Used to validate that report file name belongs to the report instance passed
+const tenant = TENANT; // String | The code of the tenancy
+const reportInstanceId = 123456; // String | Used to validate that report file name belongs to the report instance passed
 const opts = {
   'errorsOnly': true, // String | If the parameter is set to true the endpoint should return just errors and warnings E.g: errorsOnly=true
   'sort': ["sequenceNumber"], // [String] | The column to sort on. Can add - to sort
-  'paginationLimit': 25, // Number | Non-negative maximum number of entries to return
+  'paginationLimit': 10, // Number | Non-negative maximum number of entries to return
   'paginationOffset': 0 // Number | Non-negative number of entries to skip
 };
 
@@ -346,8 +346,8 @@ Name | Type | Description  | Notes
  **reportInstanceId** | **String**| Used to validate that report file name belongs to the report instance passed | 
  **errorsOnly** | **String**| If the parameter is set to true the endpoint should return just errors and warnings E.g: errorsOnly&#x3D;true | [optional] 
  **sort** | [**[String]**](String.md)| The column to sort on. Can add - to sort | [optional] 
- **paginationLimit** | **Number**| Non-negative maximum number of entries to return | [optional] 
- **paginationOffset** | **Number**| Non-negative number of entries to skip | [optional] 
+ **paginationLimit** | **Number**| Non-negative maximum number of entries to return | [optional] [default to 25]
+ **paginationOffset** | **Number**| Non-negative number of entries to skip | [optional] [default to 0]
 
 ### Return type
 
@@ -404,8 +404,8 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new ReportInstanceApi();
-const reportInstanceId = 1256789; // String | The ID of the report instance
-const tenant = XXXXXXXXXX; // String | The code of the tenancy
+const reportInstanceId = 123456; // String | The ID of the report instance
+const tenant = TENANT; // String | The code of the tenancy
 
 // Call api endpoint
 apiInstance.getReportInstanceById(reportInstanceId, tenant).then(
@@ -485,7 +485,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new ReportInstanceApi();
-const reportGenerationRequestBody = {"vrs":{"1":{"report":"MONTHLY_REPORT","tenancy":"CLIENT_REPORTING","outputFormat":"PDF","sectionFilter":"Section One","priority":"2","startDate":"15 December 2023 00:00:00","entitySelection":{"ACCOUNT":{"key":"Account name"},"PORTFOLIO":{"key":"Test fund"},"DATE":{"key":"2020-01-01 00:00:00"}}}}}; // ReportGenerationRequestBody | 
+const reportGenerationRequestBody = {"vrs":{"1":{"report":"MONTHLY_REPORT","tenancy":"CLIENT_REPORTING","outputFormat":"PDF","sectionFilter":"Section One","priority":"2","startDate":"15 December 2023 00:00:00","entitySelection":{"ACCOUNT":{"key":"Account name"},"PORTFOLIO":{"key":"Test fund"},"DATE":{"key":"01 January 2020 00:00:00"}}}}}; // ReportGenerationRequestBody | 
 
 // Call api endpoint
 apiInstance.startReportGeneration(reportGenerationRequestBody).then(

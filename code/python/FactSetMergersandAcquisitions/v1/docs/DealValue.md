@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **premium1_day** | **float, none_type** | The percentage difference between the price per share offered by the acquirer and the target&#39;s closing stock price 1 trading day prior to the announcement date. This data is only available if the target is a public company and the price/share is disclosed. | [optional] 
 **premium5_day** | **float, none_type** | The percentage difference between the price per share offered by the acquirer and the target&#39;s closing stock price 5 trading days prior to the announcement date. This data is only available if the target is a public company and the price/share is disclosed. | [optional] 
 **premium30_day** | **float, none_type** | The percentage difference between the price per share offered by the acquirer and the target&#39;s closing stock price 30 trading days prior to the announcement date. This data is only available if the target is a public company and the price/share is disclosed. | [optional] 
-**payment_method** | **[str], none_type** | Payment method/structure used in the transaction, including cash, stock, combination, or debt. | [optional] 
+**payment_method** | **[str, none_type], none_type** | Payment method/structure used in the transaction, including cash, stock, combination, or debt. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

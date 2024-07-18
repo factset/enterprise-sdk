@@ -100,7 +100,7 @@ public class DiscountCurvesApi {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/analytics/engines/fi/v3/discount-curves";
+    String localVarPath = "/discount-curves";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();

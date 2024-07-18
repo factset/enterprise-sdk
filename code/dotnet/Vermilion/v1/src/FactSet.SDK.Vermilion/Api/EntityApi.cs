@@ -38,9 +38,9 @@ namespace FactSet.SDK.Vermilion.Api
         /// <param name="tenant">The code of the tenancy</param>
         /// <param name="entityCode">The code of the entity</param>
         /// <param name="sort">The entity field to sort on. Can only be sorted on entity key, description or secondary key fields. Append \&quot;-\&quot; to sort in descending order. If no parameter given, it will be sorted by key field in ascending order by default (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional)</param>
-        /// <param name="showAll">Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false) (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional, default to 0)</param>
+        /// <param name="showAll">Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false). Otherwise, show all field values in a JSON array named \&quot;fieldsWithValues\&quot;, with each array value being a string in the format of \&quot;**&lt;FIELD_NAME&gt; : &lt;FIELD_VALUE&gt;**\&quot;. Both key and description field values will be included in this JSON array too. (optional, default to 0)</param>
         /// <returns>EntityFieldValueDTO</returns>
         EntityFieldValueDTO GetEntityValuesByCode(string tenant, string entityCode, List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), int? showAll = default(int?));
 
@@ -54,9 +54,9 @@ namespace FactSet.SDK.Vermilion.Api
         /// <param name="tenant">The code of the tenancy</param>
         /// <param name="entityCode">The code of the entity</param>
         /// <param name="sort">The entity field to sort on. Can only be sorted on entity key, description or secondary key fields. Append \&quot;-\&quot; to sort in descending order. If no parameter given, it will be sorted by key field in ascending order by default (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional)</param>
-        /// <param name="showAll">Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false) (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional, default to 0)</param>
+        /// <param name="showAll">Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false). Otherwise, show all field values in a JSON array named \&quot;fieldsWithValues\&quot;, with each array value being a string in the format of \&quot;**&lt;FIELD_NAME&gt; : &lt;FIELD_VALUE&gt;**\&quot;. Both key and description field values will be included in this JSON array too. (optional, default to 0)</param>
         /// <returns>ApiResponse of EntityFieldValueDTO</returns>
         ApiResponse<EntityFieldValueDTO> GetEntityValuesByCodeWithHttpInfo(string tenant, string entityCode, List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), int? showAll = default(int?));
         #endregion Synchronous Operations
@@ -78,9 +78,9 @@ namespace FactSet.SDK.Vermilion.Api
         /// <param name="tenant">The code of the tenancy</param>
         /// <param name="entityCode">The code of the entity</param>
         /// <param name="sort">The entity field to sort on. Can only be sorted on entity key, description or secondary key fields. Append \&quot;-\&quot; to sort in descending order. If no parameter given, it will be sorted by key field in ascending order by default (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional)</param>
-        /// <param name="showAll">Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false) (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional, default to 0)</param>
+        /// <param name="showAll">Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false). Otherwise, show all field values in a JSON array named \&quot;fieldsWithValues\&quot;, with each array value being a string in the format of \&quot;**&lt;FIELD_NAME&gt; : &lt;FIELD_VALUE&gt;**\&quot;. Both key and description field values will be included in this JSON array too. (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EntityFieldValueDTO</returns>
         System.Threading.Tasks.Task<EntityFieldValueDTO> GetEntityValuesByCodeAsync(string tenant, string entityCode, List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), int? showAll = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -95,9 +95,9 @@ namespace FactSet.SDK.Vermilion.Api
         /// <param name="tenant">The code of the tenancy</param>
         /// <param name="entityCode">The code of the entity</param>
         /// <param name="sort">The entity field to sort on. Can only be sorted on entity key, description or secondary key fields. Append \&quot;-\&quot; to sort in descending order. If no parameter given, it will be sorted by key field in ascending order by default (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional)</param>
-        /// <param name="showAll">Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false) (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional, default to 0)</param>
+        /// <param name="showAll">Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false). Otherwise, show all field values in a JSON array named \&quot;fieldsWithValues\&quot;, with each array value being a string in the format of \&quot;**&lt;FIELD_NAME&gt; : &lt;FIELD_VALUE&gt;**\&quot;. Both key and description field values will be included in this JSON array too. (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EntityFieldValueDTO)</returns>
         System.Threading.Tasks.Task<ApiResponse<EntityFieldValueDTO>> GetEntityValuesByCodeWithHttpInfoAsync(string tenant, string entityCode, List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), int? showAll = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -247,9 +247,9 @@ namespace FactSet.SDK.Vermilion.Api
         /// <param name="tenant">The code of the tenancy</param>
         /// <param name="entityCode">The code of the entity</param>
         /// <param name="sort">The entity field to sort on. Can only be sorted on entity key, description or secondary key fields. Append \&quot;-\&quot; to sort in descending order. If no parameter given, it will be sorted by key field in ascending order by default (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional)</param>
-        /// <param name="showAll">Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false) (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional, default to 0)</param>
+        /// <param name="showAll">Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false). Otherwise, show all field values in a JSON array named \&quot;fieldsWithValues\&quot;, with each array value being a string in the format of \&quot;**&lt;FIELD_NAME&gt; : &lt;FIELD_VALUE&gt;**\&quot;. Both key and description field values will be included in this JSON array too. (optional, default to 0)</param>
         /// <returns>EntityFieldValueDTO</returns>
         public EntityFieldValueDTO GetEntityValuesByCode(string tenant, string entityCode, List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), int? showAll = default(int?))
         {
@@ -264,9 +264,9 @@ namespace FactSet.SDK.Vermilion.Api
         /// <param name="tenant">The code of the tenancy</param>
         /// <param name="entityCode">The code of the entity</param>
         /// <param name="sort">The entity field to sort on. Can only be sorted on entity key, description or secondary key fields. Append \&quot;-\&quot; to sort in descending order. If no parameter given, it will be sorted by key field in ascending order by default (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional)</param>
-        /// <param name="showAll">Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false) (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional, default to 0)</param>
+        /// <param name="showAll">Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false). Otherwise, show all field values in a JSON array named \&quot;fieldsWithValues\&quot;, with each array value being a string in the format of \&quot;**&lt;FIELD_NAME&gt; : &lt;FIELD_VALUE&gt;**\&quot;. Both key and description field values will be included in this JSON array too. (optional, default to 0)</param>
         /// <returns>ApiResponse of EntityFieldValueDTO</returns>
         public ApiResponse<EntityFieldValueDTO> GetEntityValuesByCodeWithHttpInfo(string tenant, string entityCode, List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), int? showAll = default(int?))
         {
@@ -366,9 +366,9 @@ namespace FactSet.SDK.Vermilion.Api
         /// <param name="tenant">The code of the tenancy</param>
         /// <param name="entityCode">The code of the entity</param>
         /// <param name="sort">The entity field to sort on. Can only be sorted on entity key, description or secondary key fields. Append \&quot;-\&quot; to sort in descending order. If no parameter given, it will be sorted by key field in ascending order by default (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional)</param>
-        /// <param name="showAll">Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false) (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional, default to 0)</param>
+        /// <param name="showAll">Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false). Otherwise, show all field values in a JSON array named \&quot;fieldsWithValues\&quot;, with each array value being a string in the format of \&quot;**&lt;FIELD_NAME&gt; : &lt;FIELD_VALUE&gt;**\&quot;. Both key and description field values will be included in this JSON array too. (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EntityFieldValueDTO</returns>
         public async System.Threading.Tasks.Task<EntityFieldValueDTO>GetEntityValuesByCodeAsync(string tenant, string entityCode, List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), int? showAll = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -384,9 +384,9 @@ namespace FactSet.SDK.Vermilion.Api
         /// <param name="tenant">The code of the tenancy</param>
         /// <param name="entityCode">The code of the entity</param>
         /// <param name="sort">The entity field to sort on. Can only be sorted on entity key, description or secondary key fields. Append \&quot;-\&quot; to sort in descending order. If no parameter given, it will be sorted by key field in ascending order by default (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional)</param>
-        /// <param name="showAll">Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false) (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional, default to 0)</param>
+        /// <param name="showAll">Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false). Otherwise, show all field values in a JSON array named \&quot;fieldsWithValues\&quot;, with each array value being a string in the format of \&quot;**&lt;FIELD_NAME&gt; : &lt;FIELD_VALUE&gt;**\&quot;. Both key and description field values will be included in this JSON array too. (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EntityFieldValueDTO)</returns>
 

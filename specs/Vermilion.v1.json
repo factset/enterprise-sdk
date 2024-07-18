@@ -64,11 +64,7 @@
               "type": "string"
             },
             "required": true,
-            "examples": {
-              "tenant": {
-                "value": "XXXXXXXXXX"
-              }
-            }
+            "example": "TENANT"
           },
           {
             "in": "query",
@@ -134,28 +130,20 @@
             "name": "_paginationLimit",
             "description": "Non-negative maximum number of entries to return. Default is 25",
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "default": 25
             },
-            "examples": {
-              "_paginationLimit": {
-                "value": 25,
-                "description": "Non-negative maximum number of entries to return"
-              }
-            }
+            "example": 10
           },
           {
             "in": "query",
             "name": "_paginationOffset",
             "description": "Non-negative number of entries to skip. Default is 0",
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "default": 0
             },
-            "examples": {
-              "_paginationOffset": {
-                "value": 0,
-                "description": "Non-negative number of entries to skip"
-              }
-            }
+            "example": 0
           }
         ],
         "responses": {
@@ -165,6 +153,38 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/DataSourceList"
+                },
+                "example": {
+                  "meta": {
+                    "pagination": {
+                      "total": 10,
+                      "isEstimatedTotal": false
+                    },
+                    "sort": [
+                      "name"
+                    ]
+                  },
+                  "data": [
+                    {
+                      "dataSourceId": 123456,
+                      "name": "Metadata DS",
+                      "code": "METADATADS",
+                      "dsType": "AUTOMATIC",
+                      "entities": [
+                        {
+                          "entityId": 234,
+                          "name": "Date",
+                          "code": "SYSTEM_DATE"
+                        }
+                      ],
+                      "outputRecordSet": "Meta Data RS",
+                      "releaseTag": "Build123",
+                      "defaultDataSourceName": "Default DS",
+                      "dataPreview": "Component123",
+                      "lastUpdatedBy": "user123",
+                      "lastUpdated": 1715665983563
+                    }
+                  ]
                 }
               }
             }
@@ -246,11 +266,7 @@
               "type": "string"
             },
             "required": true,
-            "examples": {
-              "tenant": {
-                "value": "XXXXXXXXXX"
-              }
-            }
+            "example": "TENANT"
           },
           {
             "in": "path",
@@ -260,11 +276,7 @@
               "type": "string"
             },
             "required": true,
-            "examples": {
-              "dataSourceCode": {
-                "value": "XXXXXXXXXX"
-              }
-            }
+            "example": "DSCODE"
           }
         ],
         "responses": {
@@ -274,6 +286,27 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/DataSourceData"
+                },
+                "example": {
+                  "data": {
+                    "dataSourceId": 123456,
+                    "name": "Metadata DS",
+                    "code": "METADATADS",
+                    "dsType": "AUTOMATIC",
+                    "entities": [
+                      {
+                        "entityId": 234,
+                        "name": "Date",
+                        "code": "SYSTEM_DATE"
+                      }
+                    ],
+                    "outputRecordSet": "Meta Data RS",
+                    "releaseTag": "Build123",
+                    "defaultDataSourceName": "Default DS",
+                    "dataPreview": "Component123",
+                    "lastUpdatedBy": "user123",
+                    "lastUpdated": 1715665983563
+                  }
                 }
               }
             }
@@ -374,11 +407,7 @@
               "type": "string"
             },
             "required": true,
-            "examples": {
-              "tenant": {
-                "value": "XXXXXXXXXX"
-              }
-            }
+            "example": "TENANT"
           },
           {
             "in": "path",
@@ -388,11 +417,7 @@
               "type": "string"
             },
             "required": true,
-            "examples": {
-              "dataSourceCode": {
-                "value": "XXXXXXXXXX"
-              }
-            }
+            "example": "DSCODE"
           },
           {
             "in": "query",
@@ -401,11 +426,7 @@
             "schema": {
               "type": "string"
             },
-            "examples": {
-              "entityCodes": {
-                "value": "FUNDS"
-              }
-            }
+            "example": "FUNDS"
           },
           {
             "in": "query",
@@ -414,39 +435,27 @@
             "schema": {
               "type": "string"
             },
-            "examples": {
-              "entityKeys": {
-                "value": "Test2"
-              }
-            }
+            "example": "Test2"
           },
           {
             "in": "query",
             "name": "_paginationLimit",
             "description": "Non-negative maximum number of entries to return. Default is 25",
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "default": 25
             },
-            "examples": {
-              "_paginationLimit": {
-                "value": 25,
-                "description": "Non-negative maximum number of entries to return"
-              }
-            }
+            "example": 10
           },
           {
             "in": "query",
             "name": "_paginationOffset",
             "description": "Non-negative number of entries to skip. Default is 0",
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "default": 0
             },
-            "examples": {
-              "_paginationOffset": {
-                "value": 0,
-                "description": "Non-negative number of entries to skip"
-              }
-            }
+            "example": 0
           }
         ],
         "responses": {
@@ -456,6 +465,35 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/DataSourceDataInstance"
+                },
+                "example": {
+                  "data": {
+                    "fields": [
+                      {
+                        "fieldType": "TEXT",
+                        "id": 4567,
+                        "hide": "false",
+                        "name": "Pet"
+                      }
+                    ],
+                    "dstInstance": {
+                      "dstInstanceId": 123456,
+                      "dstInstanceType": "AUTOMATIC",
+                      "rows": [
+                        {
+                          "rowId": 123,
+                          "order": 1,
+                          "fields": [
+                            {
+                              "fieldId": 4567,
+                              "fieldType": "TEXT",
+                              "fieldValue": "Dog"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -575,11 +613,7 @@
               "type": "string"
             },
             "required": true,
-            "examples": {
-              "tenant": {
-                "value": "XXXXXXXXXX"
-              }
-            }
+            "example": "TENANT"
           },
           {
             "in": "path",
@@ -589,11 +623,7 @@
               "type": "string"
             },
             "required": true,
-            "examples": {
-              "entityCode": {
-                "value": "XXXXXXXXXX"
-              }
-            }
+            "example": "ENTCODE"
           },
           {
             "in": "query",
@@ -635,42 +665,30 @@
             "name": "_paginationLimit",
             "description": "Non-negative maximum number of entries to return. Default is 25",
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "default": 25
             },
-            "examples": {
-              "_paginationLimit": {
-                "value": 25,
-                "description": "Non-negative maximum number of entries to return"
-              }
-            }
+            "example": 10
           },
           {
             "in": "query",
             "name": "_paginationOffset",
             "description": "Non-negative number of entries to skip. Default is 0",
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "default": 0
             },
-            "examples": {
-              "_paginationOffset": {
-                "value": 0,
-                "description": "Non-negative number of entries to skip"
-              }
-            }
+            "example": 0
           },
           {
             "in": "query",
             "name": "showAll",
-            "description": "Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false)",
+            "description": "Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false). Otherwise, show all field values in a JSON array named \"fieldsWithValues\", with each array value being a string in the format of \"**<FIELD_NAME> : <FIELD_VALUE>**\". Both key and description field values will be included in this JSON array too.",
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "default": 0
             },
-            "examples": {
-              "showAll": {
-                "value": 1,
-                "description": "Show all field values in a JSON array named \"fieldsWithValues\", with each array value being a string in the format of \"**<FIELD_NAME> : <FIELD_VALUE>**\". Both key and description field values will be included in this JSON array too."
-              }
-            }
+            "example": 1
           }
         ],
         "responses": {
@@ -680,6 +698,28 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/EntityFieldValueDTO"
+                },
+                "example": {
+                  "meta": {
+                    "pagination": {
+                      "total": 10,
+                      "isEstimatedTotal": false
+                    },
+                    "sort": [
+                      "entityKey"
+                    ]
+                  },
+                  "data": [
+                    {
+                      "entityRowId": 27706,
+                      "keyValue": "en-gb",
+                      "descriptionValue": "English (GB)",
+                      "fieldsWithValues": [
+                        "language_code : en-gb",
+                        "language_desc : English (GB)"
+                      ]
+                    }
+                  ]
                 }
               }
             }
@@ -799,11 +839,7 @@
               "type": "string"
             },
             "required": true,
-            "examples": {
-              "tenant": {
-                "value": "XXXXXXXXXX"
-              }
-            }
+            "example": "TENANT"
           },
           {
             "in": "query",
@@ -863,28 +899,20 @@
             "name": "_paginationLimit",
             "description": "Non-negative maximum number of entries to return",
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "default": 25
             },
-            "examples": {
-              "_paginationLimit": {
-                "value": 25,
-                "description": "Non-negative maximum number of entries to return"
-              }
-            }
+            "example": 10
           },
           {
             "in": "query",
             "name": "_paginationOffset",
             "description": "Non-negative number of entries to skip",
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "default": 0
             },
-            "examples": {
-              "_paginationOffset": {
-                "value": 0,
-                "description": "Non-negative maximum number of entries to return"
-              }
-            }
+            "example": 0
           }
         ],
         "responses": {
@@ -894,6 +922,28 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ReportDefinitionList"
+                },
+                "example": {
+                  "meta": {
+                    "pagination": {
+                      "total": 10,
+                      "isEstimatedTotal": false
+                    }
+                  },
+                  "data": [
+                    {
+                      "name": "Test Report",
+                      "code": "TEST_REPORT",
+                      "releaseTag": "rel1.1",
+                      "entities": [
+                        {
+                          "entityId": 234,
+                          "name": "Date",
+                          "code": "SYSTEM_DATE"
+                        }
+                      ]
+                    }
+                  ]
                 }
               }
             }
@@ -994,11 +1044,7 @@
               "type": "string"
             },
             "required": true,
-            "examples": {
-              "tenant": {
-                "value": "XXXXXXXXXX"
-              }
-            }
+            "example": "TENANT"
           },
           {
             "in": "path",
@@ -1008,11 +1054,7 @@
             "schema": {
               "type": "string"
             },
-            "examples": {
-              "reportDefinitionCode": {
-                "value": "XXXXXXXXXX"
-              }
-            }
+            "example": "RPCODE"
           }
         ],
         "responses": {
@@ -1022,6 +1064,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ReportDefinitionData"
+                },
+                "example": {
+                  "data": {
+                    "name": "Test Report",
+                    "code": "TEST_REPORT",
+                    "releaseTag": "rel1.1",
+                    "entities": [
+                      {
+                        "entityId": 234,
+                        "name": "Date",
+                        "code": "SYSTEM_DATE"
+                      }
+                    ]
+                  }
                 }
               }
             }
@@ -1156,7 +1212,7 @@
                         "key": "Test fund"
                       },
                       "DATE": {
-                        "key": "2020-01-01 00:00:00"
+                        "key": "01 January 2020 00:00:00"
                       }
                     }
                   }
@@ -1172,6 +1228,11 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ReportInstanceDataResponse"
+                },
+                "example": {
+                  "data": {
+                    "reportInstanceId": 123456
+                  }
                 }
               }
             },
@@ -1315,11 +1376,7 @@
               "type": "string"
             },
             "required": true,
-            "examples": {
-              "tenant": {
-                "value": "XXXXXXXXXX"
-              }
-            }
+            "example": "TENANT"
           },
           {
             "in": "path",
@@ -1329,11 +1386,7 @@
             "schema": {
               "type": "string"
             },
-            "examples": {
-              "reportInstanceId": {
-                "value": "123456789"
-              }
-            }
+            "example": "123456"
           }
         ],
         "responses": {
@@ -1453,11 +1506,7 @@
               "type": "string"
             },
             "required": true,
-            "examples": {
-              "reportInstanceId": {
-                "value": "1256789"
-              }
-            }
+            "example": "123456"
           },
           {
             "in": "path",
@@ -1467,11 +1516,7 @@
               "type": "string"
             },
             "required": true,
-            "examples": {
-              "tenant": {
-                "value": "XXXXXXXXXX"
-              }
-            }
+            "example": "TENANT"
           }
         ],
         "responses": {
@@ -1481,6 +1526,29 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ReportInstanceData"
+                },
+                "example": {
+                  "data": {
+                    "reportInstanceId": 123456,
+                    "reportDefinitionId": 12021,
+                    "reportDefinitionName": "Sample Report Name",
+                    "reportName": "rep_929_67715_1709130994429.pdf",
+                    "userFriendlyReportName": "Sample Report.pdf",
+                    "extension": "pdf",
+                    "reportRevision": {
+                      "reportStatus": "COMPLETED",
+                      "startDate": "1709130994000",
+                      "finishDate": "1709113002873",
+                      "signOffStatus": "PENDING",
+                      "signOffNotes": "",
+                      "reportReasonCd": "",
+                      "description": "Sample report",
+                      "languageCode": "en-gb",
+                      "outputFormat": "pdf",
+                      "percentageComplete": 100
+                    },
+                    "name": "Sample Report.pdf"
+                  }
                 }
               }
             },
@@ -1608,11 +1676,7 @@
               "type": "string"
             },
             "required": true,
-            "examples": {
-              "tenant": {
-                "value": "XXXXXXXXXX"
-              }
-            }
+            "example": "TENANT"
           },
           {
             "in": "query",
@@ -1621,11 +1685,7 @@
             "schema": {
               "type": "string"
             },
-            "examples": {
-              "reportDefinitionCode": {
-                "value": "XXXXXXXXXX"
-              }
-            }
+            "example": "RPCODE"
           },
           {
             "in": "query",
@@ -1634,11 +1694,7 @@
             "schema": {
               "type": "string"
             },
-            "examples": {
-              "entityCodes": {
-                "value": "SYSTEM_LANG"
-              }
-            }
+            "example": "SYSTEM_LANG"
           },
           {
             "in": "query",
@@ -1647,11 +1703,7 @@
             "schema": {
               "type": "string"
             },
-            "examples": {
-              "entityKeys": {
-                "value": "en-gb"
-              }
-            }
+            "example": "en-gb"
           },
           {
             "in": "query",
@@ -1660,11 +1712,7 @@
             "schema": {
               "type": "string"
             },
-            "examples": {
-              "sectionFilter": {
-                "value": "testFilter"
-              }
-            }
+            "example": "testFilter"
           },
           {
             "in": "query",
@@ -1673,11 +1721,7 @@
             "schema": {
               "type": "string"
             },
-            "examples": {
-              "outputFormat": {
-                "value": "pdf"
-              }
-            }
+            "example": "pdf"
           },
           {
             "in": "query",
@@ -1737,28 +1781,20 @@
             "name": "_paginationLimit",
             "description": "Non-negative maximum number of entries to return",
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "default": 25
             },
-            "examples": {
-              "_paginationLimit": {
-                "value": 25,
-                "description": "Non-negative maximum number of entries to return"
-              }
-            }
+            "example": 10
           },
           {
             "in": "query",
             "name": "_paginationOffset",
             "description": "Non-negative number of entries to skip",
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "default": 0
             },
-            "examples": {
-              "_paginationOffset": {
-                "value": 0,
-                "description": "Non-negative maximum number of entries to return"
-              }
-            }
+            "example": 0
           }
         ],
         "responses": {
@@ -1768,6 +1804,37 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ReportInstanceList"
+                },
+                "example": {
+                  "meta": {
+                    "pagination": {
+                      "total": 10,
+                      "isEstimatedTotal": false
+                    }
+                  },
+                  "data": [
+                    {
+                      "reportInstanceId": 123456,
+                      "reportDefinitionId": 12021,
+                      "reportDefinitionName": "Sample Report Name",
+                      "reportName": "rep_929_67715_1709130994429.pdf",
+                      "userFriendlyReportName": "Sample Report.pdf",
+                      "extension": "pdf",
+                      "reportRevision": {
+                        "reportStatus": "COMPLETED",
+                        "startDate": "1709130994000",
+                        "finishDate": "1709113002873",
+                        "signOffStatus": "PENDING",
+                        "signOffNotes": "",
+                        "reportReasonCd": "",
+                        "description": "Sample report",
+                        "languageCode": "en-gb",
+                        "outputFormat": "pdf",
+                        "percentageComplete": 100
+                      },
+                      "name": "Sample Report.pdf"
+                    }
+                  ]
                 }
               }
             }
@@ -1849,11 +1916,7 @@
               "type": "string"
             },
             "required": true,
-            "examples": {
-              "tenant": {
-                "value": "XXXXXXXXXX"
-              }
-            }
+            "example": "TENANT"
           },
           {
             "in": "path",
@@ -1863,11 +1926,7 @@
               "type": "string"
             },
             "required": true,
-            "examples": {
-              "reportInstanceId": {
-                "value": "123456789"
-              }
-            }
+            "example": "123456"
           },
           {
             "in": "path",
@@ -1877,11 +1936,7 @@
               "type": "string"
             },
             "required": true,
-            "examples": {
-              "reportFileName": {
-                "value": "xyz.pdf"
-              }
-            }
+            "example": "xyz.pdf"
           }
         ],
         "responses": {
@@ -2046,11 +2101,7 @@
               "type": "string"
             },
             "required": true,
-            "examples": {
-              "tenant": {
-                "value": "XXXXXXXXXX"
-              }
-            }
+            "example": "TENANT"
           },
           {
             "in": "path",
@@ -2060,11 +2111,7 @@
               "type": "string"
             },
             "required": true,
-            "examples": {
-              "reportInstanceId": {
-                "value": "123456789"
-              }
-            }
+            "example": "123456"
           },
           {
             "in": "query",
@@ -2073,11 +2120,7 @@
             "schema": {
               "type": "string"
             },
-            "examples": {
-              "errorsOnly": {
-                "value": "true"
-              }
-            }
+            "example": "true"
           },
           {
             "in": "query",
@@ -2125,28 +2168,20 @@
             "name": "_paginationLimit",
             "description": "Non-negative maximum number of entries to return",
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "default": 25
             },
-            "examples": {
-              "_paginationLimit": {
-                "value": 25,
-                "description": "Non-negative maximum number of entries to return"
-              }
-            }
+            "example": 10
           },
           {
             "in": "query",
             "name": "_paginationOffset",
             "description": "Non-negative number of entries to skip",
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "default": 0
             },
-            "examples": {
-              "_paginationOffset": {
-                "value": 0,
-                "description": "Non-negative maximum number of entries to return"
-              }
-            }
+            "example": 0
           }
         ],
         "responses": {
@@ -2156,6 +2191,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ReportInstanceLogList"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "sequenceNumber": 9464295,
+                      "message": "Get Data Completed",
+                      "type": "LOG",
+                      "updateDate": "1709176498527"
+                    }
+                  ]
                 }
               }
             }
@@ -2255,12 +2300,7 @@
             "schema": {
               "type": "integer"
             },
-            "examples": {
-              "count": {
-                "value": 25,
-                "description": "Non-negative maximum number of entries to return"
-              }
-            }
+            "example": 10
           },
           {
             "in": "query",
@@ -2269,12 +2309,7 @@
             "schema": {
               "type": "integer"
             },
-            "examples": {
-              "startIndex": {
-                "value": 1,
-                "description": "The 1-based index of the first query result"
-              }
-            }
+            "example": 5
           }
         ],
         "responses": {
@@ -2284,6 +2319,69 @@
               "application/scim+json": {
                 "schema": {
                   "$ref": "#/components/schemas/ScimUserListResponse"
+                },
+                "example": {
+                  "totalResults": 10,
+                  "itemsPerPage": 10,
+                  "startIndex": 5,
+                  "Resources": [
+                    {
+                      "schemas": [
+                        "urn:scim:schemas:extension:FactSet:VRS:1.0:User"
+                      ],
+                      "id": "123456",
+                      "userName": "TestUser",
+                      "name": {
+                        "formatted": "Test User"
+                      },
+                      "userType": "0",
+                      "active": true,
+                      "authenticatedUserName": "TestUser",
+                      "tenant": "TENANT",
+                      "phoneNumbers": [
+                        {
+                          "value": "9876543210",
+                          "type": "work",
+                          "primary": true
+                        }
+                      ],
+                      "emails": [
+                        {
+                          "value": "dummy@ex.com",
+                          "type": "work",
+                          "primary": true
+                        }
+                      ],
+                      "photos": [
+                        {
+                          "value": "Photopath",
+                          "type": "work",
+                          "primary": true
+                        }
+                      ],
+                      "tenancies": [
+                        {
+                          "value": "TENANT"
+                        }
+                      ],
+                      "groups": [
+                        {
+                          "value": "218",
+                          "$ref": "https://api.factset.com/vrsapi/scim/v2/Groups/218",
+                          "type": "Group",
+                          "display": "API Group"
+                        }
+                      ],
+                      "domainCode": "TESTDOMAIN",
+                      "isAdministrator": false,
+                      "meta": {
+                        "resourceType": "VRSUser",
+                        "created": "2024-03-13T08:01:32.297Z",
+                        "lastModified": "2024-03-15T09:48:21.375Z",
+                        "location": "https://api.factset.com/vrsapi/scim/v2/Users/123456"
+                      }
+                    }
+                  ]
                 }
               }
             }
@@ -2356,6 +2454,55 @@
               "application/scim+json": {
                 "schema": {
                   "$ref": "#/components/schemas/CreatedScimUserJSONResponse"
+                },
+                "example": {
+                  "schemas": [
+                    "urn:scim:schemas:extension:FactSet:VRS:1.0:User"
+                  ],
+                  "id": "218",
+                  "userName": "vrstestuser",
+                  "name": {
+                    "formatted": "Vrstest User"
+                  },
+                  "userType": "0",
+                  "preferredLanguage": "en-gb",
+                  "active": true,
+                  "authenticatedUserName": "vrstestuser",
+                  "tenant": "XXXXXXXXXX",
+                  "phoneNumbers": [
+                    {
+                      "value": "1234567890",
+                      "type": "work",
+                      "primary": true
+                    }
+                  ],
+                  "emails": [
+                    {
+                      "value": "xyz@email.com",
+                      "type": "work",
+                      "primary": true
+                    }
+                  ],
+                  "tenancies": [
+                    {
+                      "value": "XXXXXXXXXX"
+                    }
+                  ],
+                  "photos": [
+                    {
+                      "value": "Photopath",
+                      "type": "work",
+                      "primary": true
+                    }
+                  ],
+                  "domainCode": "XXXXXXXXXX",
+                  "isAdministrator": false,
+                  "meta": {
+                    "resourceType": "VRSUser",
+                    "created": "2024-03-13T08:01:32.297Z",
+                    "lastModified": "2024-03-13T08:01:32.297Z",
+                    "location": "https://api.factset.com/vrsapi/scim/v2/Users/218"
+                  }
                 }
               }
             },
@@ -2439,11 +2586,7 @@
               "type": "string"
             },
             "required": true,
-            "examples": {
-              "userId": {
-                "value": "scimuser1"
-              }
-            }
+            "example": "123456"
           }
         ],
         "responses": {
@@ -2453,6 +2596,62 @@
               "application/scim+json": {
                 "schema": {
                   "$ref": "#/components/schemas/ScimUser"
+                },
+                "example": {
+                  "schemas": [
+                    "urn:scim:schemas:extension:FactSet:VRS:1.0:User"
+                  ],
+                  "id": "123456",
+                  "userName": "TestUser",
+                  "name": {
+                    "formatted": "Test User"
+                  },
+                  "userType": "0",
+                  "active": true,
+                  "authenticatedUserName": "TestUser",
+                  "tenant": "TENANT",
+                  "phoneNumbers": [
+                    {
+                      "value": "9876543210",
+                      "type": "work",
+                      "primary": true
+                    }
+                  ],
+                  "emails": [
+                    {
+                      "value": "dummy@ex.com",
+                      "type": "work",
+                      "primary": true
+                    }
+                  ],
+                  "photos": [
+                    {
+                      "value": "Photopath",
+                      "type": "work",
+                      "primary": true
+                    }
+                  ],
+                  "tenancies": [
+                    {
+                      "value": "TENANT"
+                    }
+                  ],
+                  "groups": [
+                    {
+                      "value": "218",
+                      "$ref": "https://api.factset.com/vrsapi/scim/v2/Groups/218",
+                      "type": "Group",
+                      "display": "API Group"
+                    }
+                  ],
+                  "domainCode": "TESTDOMAIN",
+                  "isAdministrator": false,
+                  "meta": {
+                    "resourceType": "VRSUser",
+                    "created": "2024-03-13T08:01:32.297Z",
+                    "lastModified": "2024-03-15T09:48:21.375Z",
+                    "location": "https://api.factset.com/vrsapi/scim/v2/Users/123456"
+                  }
                 }
               }
             },
@@ -2517,11 +2716,7 @@
               "type": "string"
             },
             "required": true,
-            "examples": {
-              "userId": {
-                "value": "scimuser1"
-              }
-            }
+            "example": "123456"
           }
         ],
         "responses": {
@@ -2580,11 +2775,7 @@
               "type": "string"
             },
             "required": true,
-            "examples": {
-              "userId": {
-                "value": "scimuser1"
-              }
-            }
+            "example": "123456"
           }
         ],
         "requestBody": {
@@ -2602,7 +2793,7 @@
                   {
                     "op": "replace",
                     "path": "name.formatted",
-                    "value": "vrstestuser1"
+                    "value": "Vrs Test User"
                   }
                 ]
               }
@@ -2616,6 +2807,62 @@
               "application/scim+json": {
                 "schema": {
                   "$ref": "#/components/schemas/ScimUser"
+                },
+                "example": {
+                  "schemas": [
+                    "urn:scim:schemas:extension:FactSet:VRS:1.0:User"
+                  ],
+                  "id": "123456",
+                  "userName": "TestUser",
+                  "name": {
+                    "formatted": "Vrs Test User"
+                  },
+                  "userType": "0",
+                  "active": true,
+                  "authenticatedUserName": "TestUser",
+                  "tenant": "TENANT",
+                  "phoneNumbers": [
+                    {
+                      "value": "9876543210",
+                      "type": "work",
+                      "primary": true
+                    }
+                  ],
+                  "emails": [
+                    {
+                      "value": "dummy@ex.com",
+                      "type": "work",
+                      "primary": true
+                    }
+                  ],
+                  "photos": [
+                    {
+                      "value": "Photopath",
+                      "type": "work",
+                      "primary": true
+                    }
+                  ],
+                  "tenancies": [
+                    {
+                      "value": "TENANT"
+                    }
+                  ],
+                  "groups": [
+                    {
+                      "value": "218",
+                      "$ref": "https://api.factset.com/vrsapi/scim/v2/Groups/218",
+                      "type": "Group",
+                      "display": "API Group"
+                    }
+                  ],
+                  "domainCode": "TESTDOMAIN",
+                  "isAdministrator": false,
+                  "meta": {
+                    "resourceType": "VRSUser",
+                    "created": "2024-03-13T08:01:32.297Z",
+                    "lastModified": "2024-03-15T09:48:21.375Z",
+                    "location": "https://api.factset.com/vrsapi/scim/v2/Users/123456"
+                  }
                 }
               }
             },
@@ -2680,11 +2927,7 @@
               "type": "string"
             },
             "required": true,
-            "examples": {
-              "userId": {
-                "value": "scimuser1"
-              }
-            }
+            "example": "123456"
           }
         ],
         "requestBody": {
@@ -2729,6 +2972,62 @@
               "application/scim+json": {
                 "schema": {
                   "$ref": "#/components/schemas/ScimUser"
+                },
+                "example": {
+                  "schemas": [
+                    "urn:scim:schemas:extension:FactSet:VRS:1.0:User"
+                  ],
+                  "id": "123456",
+                  "userName": "vrstestuser",
+                  "name": {
+                    "formatted": "Vrstest User"
+                  },
+                  "userType": "0",
+                  "active": true,
+                  "authenticatedUserName": "vrstestuser",
+                  "tenant": "XXXXXXXXXX",
+                  "phoneNumbers": [
+                    {
+                      "value": "1234567890",
+                      "type": "work",
+                      "primary": true
+                    }
+                  ],
+                  "emails": [
+                    {
+                      "value": "xyz@email.com",
+                      "type": "work",
+                      "primary": true
+                    }
+                  ],
+                  "photos": [
+                    {
+                      "value": "Photopath",
+                      "type": "work",
+                      "primary": true
+                    }
+                  ],
+                  "tenancies": [
+                    {
+                      "value": "XXXXXXXXXX"
+                    }
+                  ],
+                  "groups": [
+                    {
+                      "value": "218",
+                      "$ref": "https://api.factset.com/vrsapi/scim/v2/Groups/218",
+                      "type": "Group",
+                      "display": "API Group"
+                    }
+                  ],
+                  "domainCode": "XXXXXXXXXX",
+                  "isAdministrator": false,
+                  "meta": {
+                    "resourceType": "VRSUser",
+                    "created": "2024-03-13T08:01:32.297Z",
+                    "lastModified": "2024-03-15T09:48:21.375Z",
+                    "location": "https://api.factset.com/vrsapi/scim/v2/Users/123456"
+                  }
                 }
               }
             },
@@ -2794,12 +3093,7 @@
             "schema": {
               "type": "integer"
             },
-            "examples": {
-              "count": {
-                "value": 25,
-                "description": "Non-negative maximum number of entries to return"
-              }
-            }
+            "example": 10
           },
           {
             "in": "query",
@@ -2808,12 +3102,7 @@
             "schema": {
               "type": "integer"
             },
-            "examples": {
-              "startIndex": {
-                "value": 1,
-                "description": "The 1-based index of the first query result"
-              }
-            }
+            "example": 5
           }
         ],
         "responses": {
@@ -2823,6 +3112,29 @@
               "application/scim+json": {
                 "schema": {
                   "$ref": "#/components/schemas/ScimGroupListResponse"
+                },
+                "example": {
+                  "totalResults": 10,
+                  "itemsPerPage": 10,
+                  "startIndex": 5,
+                  "Resources": [
+                    {
+                      "schemas": [
+                        "urn:scim:schemas:extension:FactSet:VRS:1.0:Group"
+                      ],
+                      "id": "123456",
+                      "displayName": "API Group",
+                      "members": [
+                        {
+                          "value": "45678",
+                          "$ref": "https://api.factset.com/vrsapi/scim/v2/Users/45678",
+                          "type": "User"
+                        }
+                      ],
+                      "tenant": "TENANT",
+                      "domainCode": "TESTDOMAIN"
+                    }
+                  ]
                 }
               }
             }
@@ -2864,9 +3176,9 @@
                 "displayName": "vrstestgroup",
                 "members": [
                   {
-                    "value": "scimuser1",
+                    "value": "218",
                     "type": "user",
-                    "$ref": "VRSAPI/scim/v2/Users/1"
+                    "$ref": "VRSAPI/scim/v2/Users/218"
                   }
                 ],
                 "tenant": "XXXXXXXXXX",
@@ -2882,6 +3194,28 @@
               "application/scim+json": {
                 "schema": {
                   "$ref": "#/components/schemas/ScimGroup"
+                },
+                "example": {
+                  "schemas": [
+                    "urn:scim:schemas:extension:FactSet:VRS:1.0:Group"
+                  ],
+                  "id": "123456",
+                  "displayName": "vrstestgroup",
+                  "members": [
+                    {
+                      "value": "218",
+                      "$ref": "https://api.factset.com/vrsapi/scim/v2/Users/218",
+                      "type": "User"
+                    }
+                  ],
+                  "tenant": "XXXXXXXXXX",
+                  "domainCode": "XXXXXXXXXX",
+                  "meta": {
+                    "resourceType": "VRSGroup",
+                    "created": "2024-03-13T08:01:32.297Z",
+                    "lastModified": "2024-03-15T09:48:21.375Z",
+                    "location": "https://api.factset.com/vrsapi/scim/v2/Groups/123456"
+                  }
                 }
               }
             },
@@ -2948,11 +3282,7 @@
               "type": "string"
             },
             "required": true,
-            "examples": {
-              "groupId": {
-                "value": "scimgroup1"
-              }
-            }
+            "example": "123456"
           }
         ],
         "responses": {
@@ -2962,6 +3292,28 @@
               "application/scim+json": {
                 "schema": {
                   "$ref": "#/components/schemas/ScimGroup"
+                },
+                "example": {
+                  "schemas": [
+                    "urn:scim:schemas:extension:FactSet:VRS:1.0:Group"
+                  ],
+                  "id": "123456",
+                  "displayName": "API Group",
+                  "members": [
+                    {
+                      "value": "218",
+                      "$ref": "https://api.factset.com/vrsapi/scim/v2/Users/218",
+                      "type": "User"
+                    }
+                  ],
+                  "tenant": "TENANT",
+                  "domainCode": "TESTDOMAIN",
+                  "meta": {
+                    "resourceType": "VRSGroup",
+                    "created": "2024-03-13T08:01:32.297Z",
+                    "lastModified": "2024-03-15T09:48:21.375Z",
+                    "location": "https://api.factset.com/vrsapi/scim/v2/Groups/123456"
+                  }
                 }
               }
             },
@@ -3026,11 +3378,7 @@
               "type": "string"
             },
             "required": true,
-            "examples": {
-              "groupId": {
-                "value": "scimgroup1"
-              }
-            }
+            "example": "123456"
           }
         ],
         "responses": {
@@ -3089,11 +3437,7 @@
               "type": "string"
             },
             "required": true,
-            "examples": {
-              "groupId": {
-                "value": "scimgroup1"
-              }
-            }
+            "example": "123456"
           }
         ],
         "requestBody": {
@@ -3113,8 +3457,8 @@
                     "path": "members",
                     "value": {
                       "display": "Test user",
-                      "$ref": "VRSAPI/scim/v2/Users/1",
-                      "value": "1"
+                      "$ref": "VRSAPI/scim/v2/Users/45678",
+                      "value": "45678"
                     }
                   }
                 ]
@@ -3129,6 +3473,28 @@
               "application/scim+json": {
                 "schema": {
                   "$ref": "#/components/schemas/ScimGroup"
+                },
+                "example": {
+                  "schemas": [
+                    "urn:scim:schemas:extension:FactSet:VRS:1.0:Group"
+                  ],
+                  "id": "123456",
+                  "displayName": "API Group",
+                  "members": [
+                    {
+                      "value": "45678",
+                      "$ref": "https://api.factset.com/vrsapi/scim/v2/Users/45678",
+                      "type": "User"
+                    }
+                  ],
+                  "tenant": "TENANT",
+                  "domainCode": "TESTDOMAIN",
+                  "meta": {
+                    "resourceType": "VRSGroup",
+                    "created": "2024-03-13T08:01:32.297Z",
+                    "lastModified": "2024-03-15T09:48:21.375Z",
+                    "location": "https://api.factset.com/vrsapi/scim/v2/Groups/123456"
+                  }
                 }
               }
             }
@@ -3151,11 +3517,7 @@
               "type": "string"
             },
             "required": true,
-            "examples": {
-              "groupId": {
-                "value": "scimgroup1"
-              }
-            }
+            "example": "123456"
           }
         ],
         "requestBody": {
@@ -3169,9 +3531,9 @@
                 "displayName": "vrstestgroup",
                 "members": [
                   {
-                    "value": "scimuser1",
+                    "value": "45678",
                     "type": "user",
-                    "$ref": "VRSAPI/scim/v2/Users/1"
+                    "$ref": "VRSAPI/scim/v2/Users/45678"
                   }
                 ],
                 "tenant": "XXXXXXXXXX",
@@ -3187,6 +3549,28 @@
               "application/scim+json": {
                 "schema": {
                   "$ref": "#/components/schemas/ScimGroup"
+                },
+                "example": {
+                  "schemas": [
+                    "urn:scim:schemas:extension:FactSet:VRS:1.0:Group"
+                  ],
+                  "id": "123456",
+                  "displayName": "vrstestgroup",
+                  "members": [
+                    {
+                      "value": "45678",
+                      "$ref": "https://api.factset.com/vrsapi/scim/v2/Users/45678",
+                      "type": "User"
+                    }
+                  ],
+                  "tenant": "XXXXXXXXXX",
+                  "domainCode": "XXXXXXXXXX",
+                  "meta": {
+                    "resourceType": "VRSGroup",
+                    "created": "2024-03-13T08:01:32.297Z",
+                    "lastModified": "2024-03-15T09:48:21.375Z",
+                    "location": "https://api.factset.com/vrsapi/scim/v2/Groups/123456"
+                  }
                 }
               }
             },
@@ -3251,6 +3635,13 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/VersionResponseBody"
+                },
+                "example": {
+                  "data": {
+                    "vrsVersion": "21.58",
+                    "wrsVersion": "20.2.42",
+                    "dbServer": "Microsoft SQL Server 2016"
+                  }
                 }
               }
             }

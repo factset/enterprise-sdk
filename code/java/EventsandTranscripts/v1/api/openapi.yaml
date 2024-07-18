@@ -27,7 +27,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: EVENTS AND TRANSCRIPTS API
-  version: 1.0.0
+  version: 1.1.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/documents-distributor-callstreet-events
@@ -2147,6 +2147,155 @@ paths:
       tags:
       - Transcripts
       x-accepts: application/json
+  /transcripts/times:
+    get:
+      description: "Returns the transcripts documents within FactSet coverage along\
+        \ with other\nresponse fields. \n\nAll transcripts originate from Factset\
+        \ Callstreet Transcripts.\n"
+      operationId: getTranscriptsTime
+      parameters:
+      - description: "\n**The API supports data from 1999 onwards. Ensure that the\
+          \ provided Date falls within this range for accurate results.**  \n"
+        example: 2020-10-01T00:00:00Z
+        explode: true
+        in: query
+        name: startDateTime
+        required: false
+        schema:
+          format: date-time
+          type: string
+        style: form
+      - description: The date to which data is required
+        example: 2020-10-26T10:00:00Z
+        explode: true
+        in: query
+        name: endDateTime
+        required: false
+        schema:
+          format: date-time
+          type: string
+        style: form
+      - description: |
+          Enables sorting data in ascending or descending chronological order based on eventDate.
+        explode: false
+        in: query
+        name: _sort
+        required: false
+        schema:
+          default:
+          - -storyDateTime
+          items:
+            enum:
+            - storyDateTime
+            - -storyDateTime
+            - uploadDateTime
+            - -uploadDateTime
+            type: string
+          maxItems: 4
+          type: array
+        style: form
+      - description: Number of results to return per page.
+        example: 20
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          default: 25
+          format: int32
+          type: integer
+        style: form
+      - description: Page number of the results to return.
+        example: 0
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Sample Response:
+                  value:
+                    data:
+                    - versionId: "7063634"
+                      primaryIds:
+                      - XPRO-US
+                      allIds:
+                      - XPRO-US
+                      reportId: "2958054"
+                      eventId: "1202983246"
+                      eventDate: 2024-01-04
+                      transcriptType: Corrected
+                      headline: 'CORRECTED TRANSCRIPT: Expro Group Holdings NV(XPRO-US),  Goldman
+                        Sachs Energy, CleanTech & Utilities Conference, 4-January-2024
+                        1:40 PM ET'''
+                      storyDateTime: 2023-03-07T19:40:26Z
+                      uploadDateTime: 2024-01-08T04:19:24Z
+                      eventType: ConferencePresentation
+                      categories:
+                      - CN:US,DT:CONF,DT:EVTS,DT:EV_ME,DT:FILNS_TS_TR,IN:OIL,LN:EN,RN:AM,RN:NA,SB:EVTS,SB:EV_ME
+                      transcriptsLink: https://api.factset.com/v1/transcripts?report=story&key=U2FsdGVkX18b15tR%2bV9L1xvjo6Vnz7C7PhIbUvoMrgF%2f43aEWomYlhVruC6G6874fEX
+                    meta:
+                      pagination:
+                        isEstimatedTotal: false
+              schema:
+                $ref: '#/components/schemas/TranscriptsTimes'
+          description: The latest transcripts based on the provided date ranges.
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad request
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the Report Issue in the top right corner of
+            this Developer Portal specification card and choose Connectivity 401 or
+            403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/403Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "500":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/500Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      summary: Returns the transcript documents in XML format and related metadata
+        within FactSet coverage based on specific time.
+      tags:
+      - Transcripts
+      x-accepts: application/json
   /transcripts/search:
     get:
       description: "Returns the transcripts documents within FactSet coverage along\
@@ -2938,6 +3087,29 @@ components:
         format: int32
         type: integer
       style: form
+    startDateTime:
+      description: "\n**The API supports data from 1999 onwards. Ensure that the provided\
+        \ Date falls within this range for accurate results.**  \n"
+      example: 2020-10-01T00:00:00Z
+      explode: true
+      in: query
+      name: startDateTime
+      required: false
+      schema:
+        format: date-time
+        type: string
+      style: form
+    endDateTime:
+      description: The date to which data is required
+      example: 2020-10-26T10:00:00Z
+      explode: true
+      in: query
+      name: endDateTime
+      required: false
+      schema:
+        format: date-time
+        type: string
+      style: form
     eventType:
       description: |-
         Specifies the type of event you want to retrieve.
@@ -3033,6 +3205,26 @@ components:
           - -storyDateTime
           type: string
         maxItems: 2
+        type: array
+      style: form
+    _sort1:
+      description: |
+        Enables sorting data in ascending or descending chronological order based on eventDate.
+      explode: false
+      in: query
+      name: _sort
+      required: false
+      schema:
+        default:
+        - -storyDateTime
+        items:
+          enum:
+          - storyDateTime
+          - -storyDateTime
+          - uploadDateTime
+          - -uploadDateTime
+          type: string
+        maxItems: 4
         type: array
       style: form
     categories:
@@ -3953,6 +4145,149 @@ components:
             sound in Kbps.
           nullable: true
           type: number
+      type: object
+    TranscriptsTimes:
+      description: Response containing transcripts.
+      example:
+        data:
+        - eventId: eventId
+          reportId: reportId
+          eventType: Earnings
+          uploadDateTime: 2000-01-23T04:56:07.000+00:00
+          transcriptType: Raw
+          transcriptsLink: transcriptsLink
+          versionId: versionId
+          primaryIds:
+          - primaryIds
+          - primaryIds
+          storyDateTime: 2000-01-23T04:56:07.000+00:00
+          categories:
+          - categories
+          - categories
+          allIds:
+          - allIds
+          - allIds
+          headline: headline
+          eventDate: 2000-01-23
+        - eventId: eventId
+          reportId: reportId
+          eventType: Earnings
+          uploadDateTime: 2000-01-23T04:56:07.000+00:00
+          transcriptType: Raw
+          transcriptsLink: transcriptsLink
+          versionId: versionId
+          primaryIds:
+          - primaryIds
+          - primaryIds
+          storyDateTime: 2000-01-23T04:56:07.000+00:00
+          categories:
+          - categories
+          - categories
+          allIds:
+          - allIds
+          - allIds
+          headline: headline
+          eventDate: 2000-01-23
+        meta:
+          pagination:
+            total: 0
+            isEstimatedTotal: true
+      properties:
+        data:
+          description: Collection of data elements.
+          items:
+            $ref: '#/components/schemas/TranscriptObjectTimes'
+          type: array
+        meta:
+          $ref: '#/components/schemas/Transcripts_meta'
+      type: object
+    TranscriptObjectTimes:
+      example:
+        eventId: eventId
+        reportId: reportId
+        eventType: Earnings
+        uploadDateTime: 2000-01-23T04:56:07.000+00:00
+        transcriptType: Raw
+        transcriptsLink: transcriptsLink
+        versionId: versionId
+        primaryIds:
+        - primaryIds
+        - primaryIds
+        storyDateTime: 2000-01-23T04:56:07.000+00:00
+        categories:
+        - categories
+        - categories
+        allIds:
+        - allIds
+        - allIds
+        headline: headline
+        eventDate: 2000-01-23
+      properties:
+        versionId:
+          description: Used to distinguish the corrected reports. As such, one `reportId`
+            can have many `versionIds`.
+          type: string
+        primaryIds:
+          description: Refers to the main companies a particular document pertains
+            to.
+          items:
+            type: string
+          type: array
+        allIds:
+          description: 'Refers to all companies mentioned in the document. '
+          items:
+            type: string
+          type: array
+        reportId:
+          description: This is a unique identifier for a specific transcript (audio
+            or video) returned.
+          type: string
+        eventId:
+          description: ID of the conference call.
+          type: string
+        eventDate:
+          description: The date when the event took place. Formatted as 'YYYY-MM-DD'.
+          format: date
+          type: string
+        transcriptType:
+          description: "Specifies the type of transcript. \n"
+          enum:
+          - Raw
+          - Corrected
+          type: string
+        headline:
+          description: Headline of the story.
+          type: string
+        storyDateTime:
+          description: Refers to either the date and time of the story, which is in
+            UTC
+          format: date-time
+          type: string
+        uploadDateTime:
+          description: It is the time when transcript is created, which is in UTC.
+          format: date-time
+          type: string
+        eventType:
+          description: |
+            Specifies the type of event. Choose from the available options.
+          enum:
+          - Earnings
+          - Guidance
+          - AnalystsShareholdersMeeting
+          - ConferencePresentation
+          - SalesRevenue
+          - SpecialSituation
+          type: string
+        categories:
+          description: Categories are country, industry, and subject codes. This is
+            a comma-separated list.
+          items:
+            type: string
+          type: array
+        transcriptsLink:
+          description: This is a link for downloading the document with an expiration
+            duration of 24 hours.
+          type: string
       type: object
     EventsAudioDailyFileName:
       example:

@@ -58,7 +58,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         ReportApi apiInstance = new ReportApi(defaultClient);
-        String tenant = "XXXXXXXXXX"; // String | The code of the tenancy
+        String tenant = "TENANT"; // String | The code of the tenancy
         java.util.List<String> sort = Arrays.asList(); // java.util.List<String> | The column to sort on. Can add - to sort
         Integer paginationLimit = 25; // Integer | Non-negative maximum number of entries to return
         Integer paginationOffset = 0; // Integer | Non-negative number of entries to skip
@@ -84,8 +84,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenant** | **String**| The code of the tenancy |
  **sort** | **List&lt;String&gt;**| The column to sort on. Can add - to sort | [optional]
- **paginationLimit** | **Integer**| Non-negative maximum number of entries to return | [optional]
- **paginationOffset** | **Integer**| Non-negative number of entries to skip | [optional]
+ **paginationLimit** | **Integer**| Non-negative maximum number of entries to return | [optional] [default to 25]
+ **paginationOffset** | **Integer**| Non-negative number of entries to skip | [optional] [default to 0]
 
 ### Return type
 
@@ -159,8 +159,8 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         ReportApi apiInstance = new ReportApi(defaultClient);
-        String tenant = "XXXXXXXXXX"; // String | The code of the tenancy
-        String reportDefinitionCode = "XXXXXXXXXX"; // String | The code of the report definition
+        String tenant = "TENANT"; // String | The code of the tenancy
+        String reportDefinitionCode = "RPCODE"; // String | The code of the report definition
         try {
             ReportDefinitionData result = apiInstance.getReportDefinitionByCode(tenant, reportDefinitionCode);
             System.out.println(result);

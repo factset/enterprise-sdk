@@ -42,7 +42,7 @@ namespace FactSet.SDK.SPAREngine.Model
         /// </summary>
         /// <param name="data">data (required).</param>
         /// <param name="meta">meta.</param>
-        public CalculationsSummaryRoot(CalculationsSummary data,PaginationMeta meta = default(PaginationMeta))
+        public CalculationsSummaryRoot(Dictionary<string, CalculationsSummary> data,PaginationMeta meta = default(PaginationMeta))
         {
             // to ensure "data" is required (not null)
             if (data == null) {
@@ -56,7 +56,7 @@ namespace FactSet.SDK.SPAREngine.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = false)]
-        public CalculationsSummary Data { get; set; }
+        public Dictionary<string, CalculationsSummary> Data { get; set; }
 
         /// <summary>
         /// Gets or Sets Meta
@@ -111,8 +111,9 @@ namespace FactSet.SDK.SPAREngine.Model
             return 
                 (
                     this.Data == input.Data ||
-                    (this.Data != null &&
-                    this.Data.Equals(input.Data))
+                    this.Data != null &&
+                    input.Data != null &&
+                    this.Data.SequenceEqual(input.Data)
                 ) && 
                 (
                     this.Meta == input.Meta ||

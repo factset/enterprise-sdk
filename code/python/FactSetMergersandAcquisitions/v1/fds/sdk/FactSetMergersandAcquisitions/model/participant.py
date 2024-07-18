@@ -85,7 +85,7 @@ class Participant(ModelNormal):
             'fsym_id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'industry': (str, none_type,),  # noqa: E501
-            'ultimate_parent_id': (str,),  # noqa: E501
+            'ultimate_parent_id': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -146,7 +146,7 @@ class Participant(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             name (str): Entity name of the participant.. [optional]  # noqa: E501
             industry (str, none_type): Industry of the participant based on the FactSet Industry Classification system.. [optional]  # noqa: E501
-            ultimate_parent_id (str): FactSet Permanent Identifier of the ultimate parent of the participant. Six alpha-numeric characters, excluding vowels, with an -E suffix (XXXXXX-E).. [optional]  # noqa: E501
+            ultimate_parent_id (str, none_type): FactSet Permanent Identifier of the ultimate parent of the participant. Six alpha-numeric characters, excluding vowels, with an -E suffix (XXXXXX-E).. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -234,7 +234,7 @@ class Participant(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             name (str): Entity name of the participant.. [optional]  # noqa: E501
             industry (str, none_type): Industry of the participant based on the FactSet Industry Classification system.. [optional]  # noqa: E501
-            ultimate_parent_id (str): FactSet Permanent Identifier of the ultimate parent of the participant. Six alpha-numeric characters, excluding vowels, with an -E suffix (XXXXXX-E).. [optional]  # noqa: E501
+            ultimate_parent_id (str, none_type): FactSet Permanent Identifier of the ultimate parent of the participant. Six alpha-numeric characters, excluding vowels, with an -E suffix (XXXXXX-E).. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

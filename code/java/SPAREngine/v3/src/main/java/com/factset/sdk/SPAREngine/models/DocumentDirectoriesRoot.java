@@ -50,7 +50,7 @@ public class DocumentDirectoriesRoot implements Serializable {
   private DocumentDirectories data;
 
   public static final String JSON_PROPERTY_META = "meta";
-  private JsonNullable<Object> meta = JsonNullable.<Object>of(null);
+  private JsonNullable<Object> meta = JsonNullable.<Object>undefined();
 
   public DocumentDirectoriesRoot() { 
   }

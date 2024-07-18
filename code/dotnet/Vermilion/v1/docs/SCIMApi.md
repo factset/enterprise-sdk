@@ -272,7 +272,7 @@ namespace Example
 
             var apiInstance = new SCIMApi(config);
 
-            var groupId = "scimgroup1";  // string | The ID of the group
+            var groupId = "123456";  // string | The ID of the group
 
             try
             {
@@ -371,7 +371,7 @@ namespace Example
 
             var apiInstance = new SCIMApi(config);
 
-            var userId = "scimuser1";  // string | The ID of the user
+            var userId = "123456";  // string | The ID of the user
 
             try
             {
@@ -470,8 +470,8 @@ namespace Example
 
             var apiInstance = new SCIMApi(config);
 
-            var count = 25;  // int? | Non-negative maximum number of entries to return (optional) 
-            var startIndex = 1;  // int? | The 1-based index of the first query result (optional) 
+            var count = 10;  // int? | Non-negative maximum number of entries to return (optional) 
+            var startIndex = 5;  // int? | The 1-based index of the first query result (optional) 
 
             try
             {
@@ -571,8 +571,8 @@ namespace Example
 
             var apiInstance = new SCIMApi(config);
 
-            var count = 25;  // int? | Non-negative maximum number of entries to return (optional) 
-            var startIndex = 1;  // int? | The 1-based index of the first query result (optional) 
+            var count = 10;  // int? | Non-negative maximum number of entries to return (optional) 
+            var startIndex = 5;  // int? | The 1-based index of the first query result (optional) 
 
             try
             {
@@ -672,7 +672,7 @@ namespace Example
 
             var apiInstance = new SCIMApi(config);
 
-            var groupId = "scimgroup1";  // string | The ID of the role
+            var groupId = "123456";  // string | The ID of the role
 
             try
             {
@@ -772,7 +772,7 @@ namespace Example
 
             var apiInstance = new SCIMApi(config);
 
-            var userId = "scimuser1";  // string | The ID of the user
+            var userId = "123456";  // string | The ID of the user
 
             try
             {
@@ -872,7 +872,7 @@ namespace Example
 
             var apiInstance = new SCIMApi(config);
 
-            var groupId = "scimgroup1";  // string | The ID of the role
+            var groupId = "123456";  // string | The ID of the role
             var scimGroupPatchRequestBody = new ScimGroupPatchRequestBody(); // ScimGroupPatchRequestBody | 
 
             try
@@ -972,7 +972,7 @@ namespace Example
 
             var apiInstance = new SCIMApi(config);
 
-            var userId = "scimuser1";  // string | The ID of the user
+            var userId = "123456";  // string | The ID of the user
             var scimUserPatchRequestBody = new ScimUserPatchRequestBody(); // ScimUserPatchRequestBody | 
 
             try
@@ -1074,7 +1074,7 @@ namespace Example
 
             var apiInstance = new SCIMApi(config);
 
-            var groupId = "scimgroup1";  // string | The ID of the group
+            var groupId = "123456";  // string | The ID of the group
             var scimGroup = new ScimGroup(); // ScimGroup | 
 
             try
@@ -1176,7 +1176,7 @@ namespace Example
 
             var apiInstance = new SCIMApi(config);
 
-            var userId = "scimuser1";  // string | The ID of the user
+            var userId = "123456";  // string | The ID of the user
             var scimUser = new ScimUser(); // ScimUser | 
 
             try

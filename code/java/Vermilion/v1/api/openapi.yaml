@@ -32,9 +32,7 @@ paths:
       operationId: getAllDataSources
       parameters:
       - description: The code of the tenancy
-        examples:
-          tenant:
-            value: XXXXXXXXXX
+        example: TENANT
         explode: false
         in: path
         name: tenant
@@ -85,33 +83,51 @@ paths:
         style: form
       - description: Non-negative maximum number of entries to return. Default is
           25
-        examples:
-          _paginationLimit:
-            description: Non-negative maximum number of entries to return
-            value: 25
+        example: 10
         explode: true
         in: query
         name: _paginationLimit
         required: false
         schema:
+          default: 25
           type: integer
         style: form
       - description: Non-negative number of entries to skip. Default is 0
-        examples:
-          _paginationOffset:
-            description: Non-negative number of entries to skip
-            value: 0
+        example: 0
         explode: true
         in: query
         name: _paginationOffset
         required: false
         schema:
+          default: 0
           type: integer
         style: form
       responses:
         "200":
           content:
             application/json:
+              example:
+                meta:
+                  pagination:
+                    total: 10
+                    isEstimatedTotal: false
+                  sort:
+                  - name
+                data:
+                - dataSourceId: 123456
+                  name: Metadata DS
+                  code: METADATADS
+                  dsType: AUTOMATIC
+                  entities:
+                  - entityId: 234
+                    name: Date
+                    code: SYSTEM_DATE
+                  outputRecordSet: Meta Data RS
+                  releaseTag: Build123
+                  defaultDataSourceName: Default DS
+                  dataPreview: Component123
+                  lastUpdatedBy: user123
+                  lastUpdated: 1715665983563
               schema:
                 $ref: '#/components/schemas/DataSourceList'
           description: Successful operation
@@ -158,9 +174,7 @@ paths:
       operationId: getDataSourceByCode
       parameters:
       - description: The code of the tenancy
-        examples:
-          tenant:
-            value: XXXXXXXXXX
+        example: TENANT
         explode: false
         in: path
         name: tenant
@@ -169,9 +183,7 @@ paths:
           type: string
         style: simple
       - description: The code of the datasource
-        examples:
-          dataSourceCode:
-            value: XXXXXXXXXX
+        example: DSCODE
         explode: false
         in: path
         name: dataSourceCode
@@ -183,6 +195,22 @@ paths:
         "200":
           content:
             application/json:
+              example:
+                data:
+                  dataSourceId: 123456
+                  name: Metadata DS
+                  code: METADATADS
+                  dsType: AUTOMATIC
+                  entities:
+                  - entityId: 234
+                    name: Date
+                    code: SYSTEM_DATE
+                  outputRecordSet: Meta Data RS
+                  releaseTag: Build123
+                  defaultDataSourceName: Default DS
+                  dataPreview: Component123
+                  lastUpdatedBy: user123
+                  lastUpdated: 1715665983563
               schema:
                 $ref: '#/components/schemas/DataSourceData'
           description: Successful operation
@@ -241,9 +269,7 @@ paths:
       operationId: getDataSourceData
       parameters:
       - description: The code of the tenancy
-        examples:
-          tenant:
-            value: XXXXXXXXXX
+        example: TENANT
         explode: false
         in: path
         name: tenant
@@ -252,9 +278,7 @@ paths:
           type: string
         style: simple
       - description: The code of the datasource
-        examples:
-          dataSourceCode:
-            value: XXXXXXXXXX
+        example: DSCODE
         explode: false
         in: path
         name: dataSourceCode
@@ -264,9 +288,7 @@ paths:
         style: simple
       - description: 'A series of query parameter used to filter the data for a datasource.
           This represents the entities for the datasource. E.g.: entityCodes=ACCOUNT&entityCodes=FUNDS'
-        examples:
-          entityCodes:
-            value: FUNDS
+        example: FUNDS
         explode: true
         in: query
         name: entityCodes
@@ -276,9 +298,7 @@ paths:
         style: form
       - description: 'A series of query parameter used to filter the data for a datasource.
           This is the entity key value for an entity selection. E.g.: entityKeys=1&entityKeys=Test2'
-        examples:
-          entityKeys:
-            value: Test2
+        example: Test2
         explode: true
         in: query
         name: entityKeys
@@ -288,33 +308,46 @@ paths:
         style: form
       - description: Non-negative maximum number of entries to return. Default is
           25
-        examples:
-          _paginationLimit:
-            description: Non-negative maximum number of entries to return
-            value: 25
+        example: 10
         explode: true
         in: query
         name: _paginationLimit
         required: false
         schema:
+          default: 25
           type: integer
         style: form
       - description: Non-negative number of entries to skip. Default is 0
-        examples:
-          _paginationOffset:
-            description: Non-negative number of entries to skip
-            value: 0
+        example: 0
         explode: true
         in: query
         name: _paginationOffset
         required: false
         schema:
+          default: 0
           type: integer
         style: form
       responses:
         "200":
           content:
             application/json:
+              example:
+                data:
+                  fields:
+                  - fieldType: TEXT
+                    id: 4567
+                    hide: "false"
+                    name: Pet
+                  dstInstance:
+                    dstInstanceId: 123456
+                    dstInstanceType: AUTOMATIC
+                    rows:
+                    - rowId: 123
+                      order: 1
+                      fields:
+                      - fieldId: 4567
+                        fieldType: TEXT
+                        fieldValue: Dog
               schema:
                 $ref: '#/components/schemas/DataSourceDataInstance'
           description: Successful operation - returns data for the datasource
@@ -384,9 +417,7 @@ paths:
       operationId: getEntityValuesByCode
       parameters:
       - description: The code of the tenancy
-        examples:
-          tenant:
-            value: XXXXXXXXXX
+        example: TENANT
         explode: false
         in: path
         name: tenant
@@ -395,9 +426,7 @@ paths:
           type: string
         style: simple
       - description: The code of the entity
-        examples:
-          entityCode:
-            value: XXXXXXXXXX
+        example: ENTCODE
         explode: false
         in: path
         name: entityCode
@@ -434,49 +463,57 @@ paths:
         style: form
       - description: Non-negative maximum number of entries to return. Default is
           25
-        examples:
-          _paginationLimit:
-            description: Non-negative maximum number of entries to return
-            value: 25
+        example: 10
         explode: true
         in: query
         name: _paginationLimit
         required: false
         schema:
+          default: 25
           type: integer
         style: form
       - description: Non-negative number of entries to skip. Default is 0
-        examples:
-          _paginationOffset:
-            description: Non-negative number of entries to skip
-            value: 0
+        example: 0
         explode: true
         in: query
         name: _paginationOffset
         required: false
         schema:
+          default: 0
           type: integer
         style: form
-      - description: Whether to show all field values for each entity row. Value should
-          either be 1 or 0. Default is 0 (false)
-        examples:
-          showAll:
-            description: 'Show all field values in a JSON array named "fieldsWithValues",
-              with each array value being a string in the format of "**<FIELD_NAME>
-              : <FIELD_VALUE>**". Both key and description field values will be included
-              in this JSON array too.'
-            value: 1
+      - description: 'Whether to show all field values for each entity row. Value
+          should either be 1 or 0. Default is 0 (false). Otherwise, show all field
+          values in a JSON array named "fieldsWithValues", with each array value being
+          a string in the format of "**<FIELD_NAME> : <FIELD_VALUE>**". Both key and
+          description field values will be included in this JSON array too.'
+        example: 1
         explode: true
         in: query
         name: showAll
         required: false
         schema:
+          default: 0
           type: integer
         style: form
       responses:
         "200":
           content:
             application/json:
+              example:
+                meta:
+                  pagination:
+                    total: 10
+                    isEstimatedTotal: false
+                  sort:
+                  - entityKey
+                data:
+                - entityRowId: 27706
+                  keyValue: en-gb
+                  descriptionValue: English (GB)
+                  fieldsWithValues:
+                  - 'language_code : en-gb'
+                  - 'language_desc : English (GB)'
               schema:
                 $ref: '#/components/schemas/EntityFieldValueDTO'
           description: Successful operation
@@ -546,9 +583,7 @@ paths:
       operationId: getAllReportDefinitions
       parameters:
       - description: The code of the tenancy
-        examples:
-          tenant:
-            value: XXXXXXXXXX
+        example: TENANT
         explode: false
         in: path
         name: tenant
@@ -593,33 +628,42 @@ paths:
           type: array
         style: form
       - description: Non-negative maximum number of entries to return
-        examples:
-          _paginationLimit:
-            description: Non-negative maximum number of entries to return
-            value: 25
+        example: 10
         explode: true
         in: query
         name: _paginationLimit
         required: false
         schema:
+          default: 25
           type: integer
         style: form
       - description: Non-negative number of entries to skip
-        examples:
-          _paginationOffset:
-            description: Non-negative maximum number of entries to return
-            value: 0
+        example: 0
         explode: true
         in: query
         name: _paginationOffset
         required: false
         schema:
+          default: 0
           type: integer
         style: form
       responses:
         "200":
           content:
             application/json:
+              example:
+                meta:
+                  pagination:
+                    total: 10
+                    isEstimatedTotal: false
+                data:
+                - name: Test Report
+                  code: TEST_REPORT
+                  releaseTag: rel1.1
+                  entities:
+                  - entityId: 234
+                    name: Date
+                    code: SYSTEM_DATE
               schema:
                 $ref: '#/components/schemas/ReportDefinitionList'
           description: Successful operation
@@ -678,9 +722,7 @@ paths:
       operationId: getReportDefinitionByCode
       parameters:
       - description: The code of the tenancy
-        examples:
-          tenant:
-            value: XXXXXXXXXX
+        example: TENANT
         explode: false
         in: path
         name: tenant
@@ -689,9 +731,7 @@ paths:
           type: string
         style: simple
       - description: The code of the report definition
-        examples:
-          reportDefinitionCode:
-            value: XXXXXXXXXX
+        example: RPCODE
         explode: false
         in: path
         name: reportDefinitionCode
@@ -703,6 +743,15 @@ paths:
         "200":
           content:
             application/json:
+              example:
+                data:
+                  name: Test Report
+                  code: TEST_REPORT
+                  releaseTag: rel1.1
+                  entities:
+                  - entityId: 234
+                    name: Date
+                    code: SYSTEM_DATE
               schema:
                 $ref: '#/components/schemas/ReportDefinitionData'
           description: Successful operation
@@ -789,7 +838,7 @@ paths:
                     PORTFOLIO:
                       key: Test fund
                     DATE:
-                      key: 2020-01-01 00:00:00
+                      key: 01 January 2020 00:00:00
             schema:
               $ref: '#/components/schemas/ReportGenerationRequestBody'
         required: true
@@ -797,6 +846,9 @@ paths:
         "202":
           content:
             application/json:
+              example:
+                data:
+                  reportInstanceId: 123456
               schema:
                 $ref: '#/components/schemas/ReportInstanceDataResponse'
           description: Report generation request succeeded and report generation is
@@ -893,9 +945,7 @@ paths:
       operationId: cancelReportGeneration
       parameters:
       - description: The code of the tenancy
-        examples:
-          tenant:
-            value: XXXXXXXXXX
+        example: TENANT
         explode: false
         in: path
         name: tenant
@@ -904,9 +954,7 @@ paths:
           type: string
         style: simple
       - description: The id of the report instance
-        examples:
-          reportInstanceId:
-            value: "123456789"
+        example: "123456"
         explode: false
         in: path
         name: reportInstanceId
@@ -981,9 +1029,7 @@ paths:
       operationId: getReportInstanceById
       parameters:
       - description: The ID of the report instance
-        examples:
-          reportInstanceId:
-            value: "1256789"
+        example: "123456"
         explode: false
         in: path
         name: reportInstanceId
@@ -992,9 +1038,7 @@ paths:
           type: string
         style: simple
       - description: The code of the tenancy
-        examples:
-          tenant:
-            value: XXXXXXXXXX
+        example: TENANT
         explode: false
         in: path
         name: tenant
@@ -1006,6 +1050,26 @@ paths:
         "200":
           content:
             application/json:
+              example:
+                data:
+                  reportInstanceId: 123456
+                  reportDefinitionId: 12021
+                  reportDefinitionName: Sample Report Name
+                  reportName: rep_929_67715_1709130994429.pdf
+                  userFriendlyReportName: Sample Report.pdf
+                  extension: pdf
+                  reportRevision:
+                    reportStatus: COMPLETED
+                    startDate: "1709130994000"
+                    finishDate: "1709113002873"
+                    signOffStatus: PENDING
+                    signOffNotes: ""
+                    reportReasonCd: ""
+                    description: Sample report
+                    languageCode: en-gb
+                    outputFormat: pdf
+                    percentageComplete: 100
+                  name: Sample Report.pdf
               schema:
                 $ref: '#/components/schemas/ReportInstanceData'
           description: Successful operation
@@ -1085,9 +1149,7 @@ paths:
       operationId: getAllReportInstances
       parameters:
       - description: The code of the tenancy
-        examples:
-          tenant:
-            value: XXXXXXXXXX
+        example: TENANT
         explode: false
         in: path
         name: tenant
@@ -1097,9 +1159,7 @@ paths:
         style: simple
       - description: Acts as a filter for the retrieval process. Filters the report
           instances that match the report definition code
-        examples:
-          reportDefinitionCode:
-            value: XXXXXXXXXX
+        example: RPCODE
         explode: true
         in: query
         name: reportDefinitionCode
@@ -1109,9 +1169,7 @@ paths:
         style: form
       - description: 'A series of query parameters used to filter the report instances
           by entity code. E.g: entityCode=DATE&entityCode=SYSTEM_LANG'
-        examples:
-          entityCodes:
-            value: SYSTEM_LANG
+        example: SYSTEM_LANG
         explode: true
         in: query
         name: entityCodes
@@ -1121,9 +1179,7 @@ paths:
         style: form
       - description: 'A series of query parameters used to filter the report instances
           by entity keys. E.g: entityKey=en-gb'
-        examples:
-          entityKeys:
-            value: en-gb
+        example: en-gb
         explode: true
         in: query
         name: entityKeys
@@ -1133,9 +1189,7 @@ paths:
         style: form
       - description: Acts as a filter for the retrieval process. Filters the report
           instances that match the section filter
-        examples:
-          sectionFilter:
-            value: testFilter
+        example: testFilter
         explode: true
         in: query
         name: sectionFilter
@@ -1145,9 +1199,7 @@ paths:
         style: form
       - description: Acts as a filter for the retrieval process. Filters the report
           instances that match the output format
-        examples:
-          outputFormat:
-            value: pdf
+        example: pdf
         explode: true
         in: query
         name: outputFormat
@@ -1194,33 +1246,53 @@ paths:
           type: array
         style: form
       - description: Non-negative maximum number of entries to return
-        examples:
-          _paginationLimit:
-            description: Non-negative maximum number of entries to return
-            value: 25
+        example: 10
         explode: true
         in: query
         name: _paginationLimit
         required: false
         schema:
+          default: 25
           type: integer
         style: form
       - description: Non-negative number of entries to skip
-        examples:
-          _paginationOffset:
-            description: Non-negative maximum number of entries to return
-            value: 0
+        example: 0
         explode: true
         in: query
         name: _paginationOffset
         required: false
         schema:
+          default: 0
           type: integer
         style: form
       responses:
         "200":
           content:
             application/json:
+              example:
+                meta:
+                  pagination:
+                    total: 10
+                    isEstimatedTotal: false
+                data:
+                - reportInstanceId: 123456
+                  reportDefinitionId: 12021
+                  reportDefinitionName: Sample Report Name
+                  reportName: rep_929_67715_1709130994429.pdf
+                  userFriendlyReportName: Sample Report.pdf
+                  extension: pdf
+                  reportRevision:
+                    reportStatus: COMPLETED
+                    startDate: "1709130994000"
+                    finishDate: "1709113002873"
+                    signOffStatus: PENDING
+                    signOffNotes: ""
+                    reportReasonCd: ""
+                    description: Sample report
+                    languageCode: en-gb
+                    outputFormat: pdf
+                    percentageComplete: 100
+                  name: Sample Report.pdf
               schema:
                 $ref: '#/components/schemas/ReportInstanceList'
           description: Successful operation
@@ -1282,9 +1354,7 @@ paths:
       operationId: downloadReportFile
       parameters:
       - description: The code of the tenancy
-        examples:
-          tenant:
-            value: XXXXXXXXXX
+        example: TENANT
         explode: false
         in: path
         name: tenant
@@ -1294,9 +1364,7 @@ paths:
         style: simple
       - description: Used to validate that report file name belongs to the report
           instance passed
-        examples:
-          reportInstanceId:
-            value: "123456789"
+        example: "123456"
         explode: false
         in: path
         name: reportInstanceId
@@ -1306,9 +1374,7 @@ paths:
         style: simple
       - description: 'The report file name that has to be retrieved. report file name.
           E.g: xyz.pdf'
-        examples:
-          reportFileName:
-            value: xyz.pdf
+        example: xyz.pdf
         explode: false
         in: path
         name: reportFileName
@@ -1414,9 +1480,7 @@ paths:
       operationId: getReportGenerationLogs
       parameters:
       - description: The code of the tenancy
-        examples:
-          tenant:
-            value: XXXXXXXXXX
+        example: TENANT
         explode: false
         in: path
         name: tenant
@@ -1426,9 +1490,7 @@ paths:
         style: simple
       - description: Used to validate that report file name belongs to the report
           instance passed
-        examples:
-          reportInstanceId:
-            value: "123456789"
+        example: "123456"
         explode: false
         in: path
         name: reportInstanceId
@@ -1438,9 +1500,7 @@ paths:
         style: simple
       - description: 'If the parameter is set to true the endpoint should return just
           errors and warnings E.g: errorsOnly=true'
-        examples:
-          errorsOnly:
-            value: "true"
+        example: "true"
         explode: true
         in: query
         name: errorsOnly
@@ -1477,33 +1537,35 @@ paths:
           type: array
         style: form
       - description: Non-negative maximum number of entries to return
-        examples:
-          _paginationLimit:
-            description: Non-negative maximum number of entries to return
-            value: 25
+        example: 10
         explode: true
         in: query
         name: _paginationLimit
         required: false
         schema:
+          default: 25
           type: integer
         style: form
       - description: Non-negative number of entries to skip
-        examples:
-          _paginationOffset:
-            description: Non-negative maximum number of entries to return
-            value: 0
+        example: 0
         explode: true
         in: query
         name: _paginationOffset
         required: false
         schema:
+          default: 0
           type: integer
         style: form
       responses:
         "200":
           content:
             application/json:
+              example:
+                data:
+                - sequenceNumber: 9464295
+                  message: Get Data Completed
+                  type: LOG
+                  updateDate: "1709176498527"
               schema:
                 $ref: '#/components/schemas/ReportInstanceLogList'
           description: Successful operation
@@ -1563,10 +1625,7 @@ paths:
       operationId: getAllUsers
       parameters:
       - description: Non-negative maximum number of entries to return
-        examples:
-          count:
-            description: Non-negative maximum number of entries to return
-            value: 25
+        example: 10
         explode: true
         in: query
         name: count
@@ -1575,10 +1634,7 @@ paths:
           type: integer
         style: form
       - description: The 1-based index of the first query result
-        examples:
-          startIndex:
-            description: The 1-based index of the first query result
-            value: 1
+        example: 5
         explode: true
         in: query
         name: startIndex
@@ -1590,6 +1646,47 @@ paths:
         "200":
           content:
             application/scim+json:
+              example:
+                totalResults: 10
+                itemsPerPage: 10
+                startIndex: 5
+                Resources:
+                - schemas:
+                  - urn:scim:schemas:extension:FactSet:VRS:1.0:User
+                  id: "123456"
+                  userName: TestUser
+                  name:
+                    formatted: Test User
+                  userType: "0"
+                  active: true
+                  authenticatedUserName: TestUser
+                  tenant: TENANT
+                  phoneNumbers:
+                  - value: "9876543210"
+                    type: work
+                    primary: true
+                  emails:
+                  - value: dummy@ex.com
+                    type: work
+                    primary: true
+                  photos:
+                  - value: Photopath
+                    type: work
+                    primary: true
+                  tenancies:
+                  - value: TENANT
+                  groups:
+                  - value: "218"
+                    $ref: https://api.factset.com/vrsapi/scim/v2/Groups/218
+                    type: Group
+                    display: API Group
+                  domainCode: TESTDOMAIN
+                  isAdministrator: false
+                  meta:
+                    resourceType: VRSUser
+                    created: 2024-03-13T08:01:32.297Z
+                    lastModified: 2024-03-15T09:48:21.375Z
+                    location: https://api.factset.com/vrsapi/scim/v2/Users/123456
               schema:
                 $ref: '#/components/schemas/ScimUserListResponse'
           description: Successful operation
@@ -1638,6 +1735,39 @@ paths:
         "201":
           content:
             application/scim+json:
+              example:
+                schemas:
+                - urn:scim:schemas:extension:FactSet:VRS:1.0:User
+                id: "218"
+                userName: vrstestuser
+                name:
+                  formatted: Vrstest User
+                userType: "0"
+                preferredLanguage: en-gb
+                active: true
+                authenticatedUserName: vrstestuser
+                tenant: XXXXXXXXXX
+                phoneNumbers:
+                - value: "1234567890"
+                  type: work
+                  primary: true
+                emails:
+                - value: xyz@email.com
+                  type: work
+                  primary: true
+                tenancies:
+                - value: XXXXXXXXXX
+                photos:
+                - value: Photopath
+                  type: work
+                  primary: true
+                domainCode: XXXXXXXXXX
+                isAdministrator: false
+                meta:
+                  resourceType: VRSUser
+                  created: 2024-03-13T08:01:32.297Z
+                  lastModified: 2024-03-13T08:01:32.297Z
+                  location: https://api.factset.com/vrsapi/scim/v2/Users/218
               schema:
                 $ref: '#/components/schemas/CreatedScimUserJSONResponse'
           description: Created
@@ -1694,9 +1824,7 @@ paths:
       operationId: deleteUserById
       parameters:
       - description: The ID of the user
-        examples:
-          userId:
-            value: scimuser1
+        example: "123456"
         explode: false
         in: path
         name: userId
@@ -1738,9 +1866,7 @@ paths:
       operationId: getUserById
       parameters:
       - description: The ID of the user
-        examples:
-          userId:
-            value: scimuser1
+        example: "123456"
         explode: false
         in: path
         name: userId
@@ -1752,6 +1878,43 @@ paths:
         "200":
           content:
             application/scim+json:
+              example:
+                schemas:
+                - urn:scim:schemas:extension:FactSet:VRS:1.0:User
+                id: "123456"
+                userName: TestUser
+                name:
+                  formatted: Test User
+                userType: "0"
+                active: true
+                authenticatedUserName: TestUser
+                tenant: TENANT
+                phoneNumbers:
+                - value: "9876543210"
+                  type: work
+                  primary: true
+                emails:
+                - value: dummy@ex.com
+                  type: work
+                  primary: true
+                photos:
+                - value: Photopath
+                  type: work
+                  primary: true
+                tenancies:
+                - value: TENANT
+                groups:
+                - value: "218"
+                  $ref: https://api.factset.com/vrsapi/scim/v2/Groups/218
+                  type: Group
+                  display: API Group
+                domainCode: TESTDOMAIN
+                isAdministrator: false
+                meta:
+                  resourceType: VRSUser
+                  created: 2024-03-13T08:01:32.297Z
+                  lastModified: 2024-03-15T09:48:21.375Z
+                  location: https://api.factset.com/vrsapi/scim/v2/Users/123456
               schema:
                 $ref: '#/components/schemas/ScimUser'
           description: Successful operation
@@ -1793,9 +1956,7 @@ paths:
       operationId: patchUserById
       parameters:
       - description: The ID of the user
-        examples:
-          userId:
-            value: scimuser1
+        example: "123456"
         explode: false
         in: path
         name: userId
@@ -1812,7 +1973,7 @@ paths:
               Operations:
               - op: replace
                 path: name.formatted
-                value: vrstestuser1
+                value: Vrs Test User
             schema:
               $ref: '#/components/schemas/ScimUserPatchRequestBody'
         required: true
@@ -1820,6 +1981,43 @@ paths:
         "200":
           content:
             application/scim+json:
+              example:
+                schemas:
+                - urn:scim:schemas:extension:FactSet:VRS:1.0:User
+                id: "123456"
+                userName: TestUser
+                name:
+                  formatted: Vrs Test User
+                userType: "0"
+                active: true
+                authenticatedUserName: TestUser
+                tenant: TENANT
+                phoneNumbers:
+                - value: "9876543210"
+                  type: work
+                  primary: true
+                emails:
+                - value: dummy@ex.com
+                  type: work
+                  primary: true
+                photos:
+                - value: Photopath
+                  type: work
+                  primary: true
+                tenancies:
+                - value: TENANT
+                groups:
+                - value: "218"
+                  $ref: https://api.factset.com/vrsapi/scim/v2/Groups/218
+                  type: Group
+                  display: API Group
+                domainCode: TESTDOMAIN
+                isAdministrator: false
+                meta:
+                  resourceType: VRSUser
+                  created: 2024-03-13T08:01:32.297Z
+                  lastModified: 2024-03-15T09:48:21.375Z
+                  location: https://api.factset.com/vrsapi/scim/v2/Users/123456
               schema:
                 $ref: '#/components/schemas/ScimUser'
           description: Successfully updated user
@@ -1862,9 +2060,7 @@ paths:
       operationId: updateUserById
       parameters:
       - description: The ID of the user
-        examples:
-          userId:
-            value: scimuser1
+        example: "123456"
         explode: false
         in: path
         name: userId
@@ -1899,6 +2095,43 @@ paths:
         "200":
           content:
             application/scim+json:
+              example:
+                schemas:
+                - urn:scim:schemas:extension:FactSet:VRS:1.0:User
+                id: "123456"
+                userName: vrstestuser
+                name:
+                  formatted: Vrstest User
+                userType: "0"
+                active: true
+                authenticatedUserName: vrstestuser
+                tenant: XXXXXXXXXX
+                phoneNumbers:
+                - value: "1234567890"
+                  type: work
+                  primary: true
+                emails:
+                - value: xyz@email.com
+                  type: work
+                  primary: true
+                photos:
+                - value: Photopath
+                  type: work
+                  primary: true
+                tenancies:
+                - value: XXXXXXXXXX
+                groups:
+                - value: "218"
+                  $ref: https://api.factset.com/vrsapi/scim/v2/Groups/218
+                  type: Group
+                  display: API Group
+                domainCode: XXXXXXXXXX
+                isAdministrator: false
+                meta:
+                  resourceType: VRSUser
+                  created: 2024-03-13T08:01:32.297Z
+                  lastModified: 2024-03-15T09:48:21.375Z
+                  location: https://api.factset.com/vrsapi/scim/v2/Users/123456
               schema:
                 $ref: '#/components/schemas/ScimUser'
           description: Successfully updated user
@@ -1942,10 +2175,7 @@ paths:
       operationId: getAllGroups
       parameters:
       - description: Non-negative maximum number of entries to return
-        examples:
-          count:
-            description: Non-negative maximum number of entries to return
-            value: 25
+        example: 10
         explode: true
         in: query
         name: count
@@ -1954,10 +2184,7 @@ paths:
           type: integer
         style: form
       - description: The 1-based index of the first query result
-        examples:
-          startIndex:
-            description: The 1-based index of the first query result
-            value: 1
+        example: 5
         explode: true
         in: query
         name: startIndex
@@ -1969,6 +2196,21 @@ paths:
         "200":
           content:
             application/scim+json:
+              example:
+                totalResults: 10
+                itemsPerPage: 10
+                startIndex: 5
+                Resources:
+                - schemas:
+                  - urn:scim:schemas:extension:FactSet:VRS:1.0:Group
+                  id: "123456"
+                  displayName: API Group
+                  members:
+                  - value: "45678"
+                    $ref: https://api.factset.com/vrsapi/scim/v2/Users/45678
+                    type: User
+                  tenant: TENANT
+                  domainCode: TESTDOMAIN
               schema:
                 $ref: '#/components/schemas/ScimGroupListResponse'
           description: Successful operation
@@ -1996,9 +2238,9 @@ paths:
             example:
               displayName: vrstestgroup
               members:
-              - value: scimuser1
+              - value: "218"
                 type: user
-                $ref: VRSAPI/scim/v2/Users/1
+                $ref: VRSAPI/scim/v2/Users/218
               tenant: XXXXXXXXXX
               domainCode: XXXXXXXXXX
             schema:
@@ -2008,6 +2250,22 @@ paths:
         "201":
           content:
             application/scim+json:
+              example:
+                schemas:
+                - urn:scim:schemas:extension:FactSet:VRS:1.0:Group
+                id: "123456"
+                displayName: vrstestgroup
+                members:
+                - value: "218"
+                  $ref: https://api.factset.com/vrsapi/scim/v2/Users/218
+                  type: User
+                tenant: XXXXXXXXXX
+                domainCode: XXXXXXXXXX
+                meta:
+                  resourceType: VRSGroup
+                  created: 2024-03-13T08:01:32.297Z
+                  lastModified: 2024-03-15T09:48:21.375Z
+                  location: https://api.factset.com/vrsapi/scim/v2/Groups/123456
               schema:
                 $ref: '#/components/schemas/ScimGroup'
           description: Created
@@ -2051,9 +2309,7 @@ paths:
       operationId: deleteGroupById
       parameters:
       - description: The ID of the group
-        examples:
-          groupId:
-            value: scimgroup1
+        example: "123456"
         explode: false
         in: path
         name: groupId
@@ -2095,9 +2351,7 @@ paths:
       operationId: getGroupById
       parameters:
       - description: The ID of the role
-        examples:
-          groupId:
-            value: scimgroup1
+        example: "123456"
         explode: false
         in: path
         name: groupId
@@ -2109,6 +2363,22 @@ paths:
         "200":
           content:
             application/scim+json:
+              example:
+                schemas:
+                - urn:scim:schemas:extension:FactSet:VRS:1.0:Group
+                id: "123456"
+                displayName: API Group
+                members:
+                - value: "218"
+                  $ref: https://api.factset.com/vrsapi/scim/v2/Users/218
+                  type: User
+                tenant: TENANT
+                domainCode: TESTDOMAIN
+                meta:
+                  resourceType: VRSGroup
+                  created: 2024-03-13T08:01:32.297Z
+                  lastModified: 2024-03-15T09:48:21.375Z
+                  location: https://api.factset.com/vrsapi/scim/v2/Groups/123456
               schema:
                 $ref: '#/components/schemas/ScimGroup'
           description: Successful operation
@@ -2150,9 +2420,7 @@ paths:
       operationId: patchGroupById
       parameters:
       - description: The ID of the role
-        examples:
-          groupId:
-            value: scimgroup1
+        example: "123456"
         explode: false
         in: path
         name: groupId
@@ -2171,8 +2439,8 @@ paths:
                 path: members
                 value:
                   display: Test user
-                  $ref: VRSAPI/scim/v2/Users/1
-                  value: "1"
+                  $ref: VRSAPI/scim/v2/Users/45678
+                  value: "45678"
             schema:
               $ref: '#/components/schemas/ScimGroupPatchRequestBody'
         required: true
@@ -2180,6 +2448,22 @@ paths:
         "200":
           content:
             application/scim+json:
+              example:
+                schemas:
+                - urn:scim:schemas:extension:FactSet:VRS:1.0:Group
+                id: "123456"
+                displayName: API Group
+                members:
+                - value: "45678"
+                  $ref: https://api.factset.com/vrsapi/scim/v2/Users/45678
+                  type: User
+                tenant: TENANT
+                domainCode: TESTDOMAIN
+                meta:
+                  resourceType: VRSGroup
+                  created: 2024-03-13T08:01:32.297Z
+                  lastModified: 2024-03-15T09:48:21.375Z
+                  location: https://api.factset.com/vrsapi/scim/v2/Groups/123456
               schema:
                 $ref: '#/components/schemas/ScimGroup'
           description: Successfully added user to group
@@ -2193,9 +2477,7 @@ paths:
       operationId: updateGroupById
       parameters:
       - description: The ID of the group
-        examples:
-          groupId:
-            value: scimgroup1
+        example: "123456"
         explode: false
         in: path
         name: groupId
@@ -2209,9 +2491,9 @@ paths:
             example:
               displayName: vrstestgroup
               members:
-              - value: scimuser1
+              - value: "45678"
                 type: user
-                $ref: VRSAPI/scim/v2/Users/1
+                $ref: VRSAPI/scim/v2/Users/45678
               tenant: XXXXXXXXXX
               domainCode: XXXXXXXXXX
             schema:
@@ -2221,6 +2503,22 @@ paths:
         "200":
           content:
             application/scim+json:
+              example:
+                schemas:
+                - urn:scim:schemas:extension:FactSet:VRS:1.0:Group
+                id: "123456"
+                displayName: vrstestgroup
+                members:
+                - value: "45678"
+                  $ref: https://api.factset.com/vrsapi/scim/v2/Users/45678
+                  type: User
+                tenant: XXXXXXXXXX
+                domainCode: XXXXXXXXXX
+                meta:
+                  resourceType: VRSGroup
+                  created: 2024-03-13T08:01:32.297Z
+                  lastModified: 2024-03-15T09:48:21.375Z
+                  location: https://api.factset.com/vrsapi/scim/v2/Groups/123456
               schema:
                 $ref: '#/components/schemas/ScimGroup'
           description: Successfully updated group
@@ -2266,6 +2564,11 @@ paths:
         "200":
           content:
             application/json:
+              example:
+                data:
+                  vrsVersion: "21.58"
+                  wrsVersion: 20.2.42
+                  dbServer: Microsoft SQL Server 2016
               schema:
                 $ref: '#/components/schemas/VersionResponseBody'
           description: Successful operation

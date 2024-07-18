@@ -55,7 +55,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new SPARCalculationsApi();
-const id = "id_example"; // String | from url, provided from the location header in the Create and Run SPAR calculation endpoint
+const id = 917cc544adbe46f99a33dc4179f3983f; // String | from url, provided from the location header in the Create and Run SPAR calculation endpoint
 
 // Call api endpoint
 apiInstance.cancelCalculationById(id).then(
@@ -213,7 +213,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new SPARCalculationsApi();
-const id = "id_example"; // String | from url, provided from the location header in the Create and Run SPAR calculation endpoint
+const id = 917cc544adbe46f99a33dc4179f3983d; // String | from url, provided from the location header in the Create and Run SPAR calculation endpoint
 
 // Call api endpoint
 apiInstance.getCalculationParameters(id).then(
@@ -292,7 +292,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new SPARCalculationsApi();
-const id = "id_example"; // String | from url, provided from the location header in the Create and Run SPAR calculation endpoint
+const id = 917cc544adbe46f99a33dc4179f3983f; // String | from url, provided from the location header in the Create and Run SPAR calculation endpoint
 
 // Call api endpoint
 apiInstance.getCalculationStatusById(id).then(
@@ -371,8 +371,8 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new SPARCalculationsApi();
-const id = "id_example"; // String | from url, provided from the location header in the Get SPAR calculation status by id endpoint
-const unitId = "unitId_example"; // String | from url, provided from the location header in the Get SPAR calculation status by id endpoint
+const id = 917cc544adbe46f99a33dc4179f3983f; // String | from url, provided from the location header in the Get SPAR calculation status by id endpoint
+const unitId = 1; // String | from url, provided from the location header in the Get SPAR calculation status by id endpoint
 
 // Call api endpoint
 apiInstance.getCalculationUnitResultById(id, unitId).then(
@@ -453,9 +453,9 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new SPARCalculationsApi();
 const opts = {
-  'xFactSetApiLongRunningDeadline': 56, // Number | Long running deadline in seconds when only one unit is passed in the POST body.
+  'xFactSetApiLongRunningDeadline': 10, // Number | Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation.
   'cacheControl': "cacheControl_example", // String | Standard HTTP header.  Accepts max-stale.
-  'sPARCalculationParametersRoot': {"data":{"1":{"componentid":"067F5DE2E2A11F9AD734594AA8957E11B633438D0FADFCCE0F423ABEF2FC5F1D","accounts":[{"id":"R.1000","returntype":"GTR","prefix":"RUSSELL"}],"benchmark":{"id":"R.2000","returntype":"GTR","prefix":"RUSSELL"},"dates":{"startdate":"-2M","enddate":"0","frequency":"Monthly"}},"2":{"componentid":"E3238ADBD61A8D52D680131D813BACF68A10149881CC88FC1E2401247812FC02","accounts":[{"id":"R.1000","returntype":"GTR","prefix":"RUSSELL"},{"id":"R.2000","returntype":"GTR","prefix":"RUSSELL"}],"benchmark":{"id":"R.2000","returntype":"GTR","prefix":"RUSSELL"}}},"meta":{"stachContentorganization":"SimplifiedRow","format":"JsonStach"}} // SPARCalculationParametersRoot | Calculation Parameters
+  'sPARCalculationParametersRoot': {"data":{"1":{"componentid":"067F5DE2E2A11F9AD734594AA8957E11B633438D0FADFCCE0F423ABEF2FC5F1D","accounts":[{"id":"R.1000","returntype":"GTR","prefix":"RUSSELL"},{"id":"R.2000","returntype":"GTR","prefix":"RUSSELL"}],"benchmark":{"id":"R.2000","returntype":"GTR","prefix":"RUSSELL"},"dates":{"startdate":"-3M","enddate":"0","frequency":"Monthly"}}},"meta":{"stachContentOrganization":"SimplifiedRow","format":"JsonStach"}} // SPARCalculationParametersRoot | Calculation Parameters
 };
 
 // Call api endpoint
@@ -496,7 +496,7 @@ apiInstance.postAndCalculate(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xFactSetApiLongRunningDeadline** | **Number**| Long running deadline in seconds when only one unit is passed in the POST body. | [optional] 
+ **xFactSetApiLongRunningDeadline** | **Number**| Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. | [optional] 
  **cacheControl** | **String**| Standard HTTP header.  Accepts max-stale. | [optional] 
  **sPARCalculationParametersRoot** | [**SPARCalculationParametersRoot**](SPARCalculationParametersRoot.md)| Calculation Parameters | [optional] 
 
@@ -555,11 +555,11 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new SPARCalculationsApi();
-const id = "id_example"; // String | from url, provided from the location header in the Create and Run SPAR calculation endpoint
+const id = e257350ec6cd46ee8a42db79a4ae84d0; // String | from url, provided from the location header in the Create and Run SPAR calculation endpoint
 const opts = {
-  'xFactSetApiLongRunningDeadline': 56, // Number | Long running deadline in seconds when only one unit is passed in the PUT body.
+  'xFactSetApiLongRunningDeadline': 10, // Number | Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation.
   'cacheControl': "cacheControl_example", // String | Standard HTTP header.  Accepts max-stale.
-  'sPARCalculationParametersRoot': {"data":{"1":{"componentid":"067F5DE2E2A11F9AD734594AA8957E11B633438D0FADFCCE0F423ABEF2FC5F1D","accounts":[{"id":"R.1000","returntype":"GTR","prefix":"RUSSELL"}],"benchmark":{"id":"R.2000","returntype":"GTR","prefix":"RUSSELL"},"dates":{"startdate":"-4M","enddate":"0","frequency":"Monthly"}},"2":{"componentid":"E3238ADBD61A8D52D680131D813BACF68A10149881CC88FC1E2401247812FC02","accounts":[{"id":"R.1000","returntype":"GTR","prefix":"RUSSELL"},{"id":"R.2000","returntype":"GTR","prefix":"RUSSELL"}],"benchmark":{"id":"R.2000","returntype":"GTR","prefix":"RUSSELL"}}},"meta":{"stachContentorganization":"SimplifiedRow","format":"JsonStach"}} // SPARCalculationParametersRoot | Calculation Parameters
+  'sPARCalculationParametersRoot': {"data":{"1":{"componentid":"067F5DE2E2A11F9AD734594AA8957E11B633438D0FADFCCE0F423ABEF2FC5F1D","accounts":[{"id":"R.1000","returntype":"GTR","prefix":"RUSSELL"},{"id":"R.2000","returntype":"GTR","prefix":"RUSSELL"}],"benchmark":{"id":"R.2000","returntype":"GTR","prefix":"RUSSELL"},"dates":{"startdate":"-3M","enddate":"0","frequency":"Monthly"}}},"meta":{"stachContentOrganization":"SimplifiedRow","format":"JsonStach"}} // SPARCalculationParametersRoot | Calculation Parameters
 };
 
 // Call api endpoint
@@ -601,7 +601,7 @@ apiInstance.putAndCalculate(id, opts).then(
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| from url, provided from the location header in the Create and Run SPAR calculation endpoint | 
- **xFactSetApiLongRunningDeadline** | **Number**| Long running deadline in seconds when only one unit is passed in the PUT body. | [optional] 
+ **xFactSetApiLongRunningDeadline** | **Number**| Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. | [optional] 
  **cacheControl** | **String**| Standard HTTP header.  Accepts max-stale. | [optional] 
  **sPARCalculationParametersRoot** | [**SPARCalculationParametersRoot**](SPARCalculationParametersRoot.md)| Calculation Parameters | [optional] 
 

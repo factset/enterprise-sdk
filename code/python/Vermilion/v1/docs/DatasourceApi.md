@@ -62,10 +62,10 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     api_instance = datasource_api.DatasourceApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    tenant = "XXXXXXXXXX" # str | The code of the tenancy
+    tenant = "TENANT" # str | The code of the tenancy
     sort = ["name"] # [str] | The column to sort on. Append - to sort in descending order. If parameter is not given, no sorting will be done (optional)
-    pagination_limit = 25 # int | Non-negative maximum number of entries to return. Default is 25 (optional)
-    pagination_offset = 0 # int | Non-negative number of entries to skip. Default is 0 (optional)
+    pagination_limit = 10 # int | Non-negative maximum number of entries to return. Default is 25 (optional) if omitted the server will use the default value of 25
+    pagination_offset = 0 # int | Non-negative number of entries to skip. Default is 0 (optional) if omitted the server will use the default value of 0
 
     try:
         # Lists all datasources
@@ -86,8 +86,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenant** | **str**| The code of the tenancy |
  **sort** | **[str]**| The column to sort on. Append - to sort in descending order. If parameter is not given, no sorting will be done | [optional]
- **pagination_limit** | **int**| Non-negative maximum number of entries to return. Default is 25 | [optional]
- **pagination_offset** | **int**| Non-negative number of entries to skip. Default is 0 | [optional]
+ **pagination_limit** | **int**| Non-negative maximum number of entries to return. Default is 25 | [optional] if omitted the server will use the default value of 25
+ **pagination_offset** | **int**| Non-negative number of entries to skip. Default is 0 | [optional] if omitted the server will use the default value of 0
 
 ### Return type
 
@@ -166,8 +166,8 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     api_instance = datasource_api.DatasourceApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    tenant = "XXXXXXXXXX" # str | The code of the tenancy
-    data_source_code = "XXXXXXXXXX" # str | The code of the datasource
+    tenant = "TENANT" # str | The code of the tenancy
+    data_source_code = "DSCODE" # str | The code of the datasource
 
     try:
         # Gets a datasource
@@ -266,12 +266,12 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     api_instance = datasource_api.DatasourceApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    tenant = "XXXXXXXXXX" # str | The code of the tenancy
-    data_source_code = "XXXXXXXXXX" # str | The code of the datasource
+    tenant = "TENANT" # str | The code of the tenancy
+    data_source_code = "DSCODE" # str | The code of the datasource
     entity_codes = "FUNDS" # str | A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes=ACCOUNT&entityCodes=FUNDS (optional)
     entity_keys = "Test2" # str | A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys=1&entityKeys=Test2 (optional)
-    pagination_limit = 25 # int | Non-negative maximum number of entries to return. Default is 25 (optional)
-    pagination_offset = 0 # int | Non-negative number of entries to skip. Default is 0 (optional)
+    pagination_limit = 10 # int | Non-negative maximum number of entries to return. Default is 25 (optional) if omitted the server will use the default value of 25
+    pagination_offset = 0 # int | Non-negative number of entries to skip. Default is 0 (optional) if omitted the server will use the default value of 0
 
     try:
         # Gets the data for the datasource
@@ -294,8 +294,8 @@ Name | Type | Description  | Notes
  **data_source_code** | **str**| The code of the datasource |
  **entity_codes** | **str**| A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes&#x3D;ACCOUNT&amp;entityCodes&#x3D;FUNDS | [optional]
  **entity_keys** | **str**| A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys&#x3D;1&amp;entityKeys&#x3D;Test2 | [optional]
- **pagination_limit** | **int**| Non-negative maximum number of entries to return. Default is 25 | [optional]
- **pagination_offset** | **int**| Non-negative number of entries to skip. Default is 0 | [optional]
+ **pagination_limit** | **int**| Non-negative maximum number of entries to return. Default is 25 | [optional] if omitted the server will use the default value of 25
+ **pagination_offset** | **int**| Non-negative number of entries to skip. Default is 0 | [optional] if omitted the server will use the default value of 0
 
 ### Return type
 

@@ -1053,6 +1053,7 @@ components:
             participant. Six alpha-numeric characters, excluding vowels, with an -E
             suffix (XXXXXX-E).
           example: 000N1N-E
+          nullable: true
           type: string
       required:
       - fsymId
@@ -1103,6 +1104,7 @@ components:
       description: FactSet Permanent Identifier of the ultimate parent of the participant.
         Six alpha-numeric characters, excluding vowels, with an -E suffix (XXXXXX-E).
       example: 000N1N-E
+      nullable: true
       type: string
     DealValue:
       description: Deal Value Object
@@ -1283,6 +1285,7 @@ components:
             - Preferred Stock
             - Stock
             - Warrant / Options
+            nullable: true
             type: string
           nullable: true
           type: array
@@ -1862,6 +1865,7 @@ components:
             - Private Warrant Option
             - Source of Funding Not Disclosed
             - 'Stock Issuance: Pref & Com (Public)'
+            nullable: true
             type: string
           nullable: true
           type: array
@@ -2044,6 +2048,7 @@ components:
             - Bidder Controlling Shareholder
             - Property Transaction
             - Power Plant Purchase
+            nullable: true
             type: string
           nullable: true
           type: array

@@ -51,10 +51,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new DatasourceApi();
-const tenant = XXXXXXXXXX; // String | The code of the tenancy
+const tenant = TENANT; // String | The code of the tenancy
 const opts = {
   'sort': ["name"], // [String] | The column to sort on. Append - to sort in descending order. If parameter is not given, no sorting will be done
-  'paginationLimit': 25, // Number | Non-negative maximum number of entries to return. Default is 25
+  'paginationLimit': 10, // Number | Non-negative maximum number of entries to return. Default is 25
   'paginationOffset': 0 // Number | Non-negative number of entries to skip. Default is 0
 };
 
@@ -80,8 +80,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenant** | **String**| The code of the tenancy | 
  **sort** | [**[String]**](String.md)| The column to sort on. Append - to sort in descending order. If parameter is not given, no sorting will be done | [optional] 
- **paginationLimit** | **Number**| Non-negative maximum number of entries to return. Default is 25 | [optional] 
- **paginationOffset** | **Number**| Non-negative number of entries to skip. Default is 0 | [optional] 
+ **paginationLimit** | **Number**| Non-negative maximum number of entries to return. Default is 25 | [optional] [default to 25]
+ **paginationOffset** | **Number**| Non-negative number of entries to skip. Default is 0 | [optional] [default to 0]
 
 ### Return type
 
@@ -138,8 +138,8 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new DatasourceApi();
-const tenant = XXXXXXXXXX; // String | The code of the tenancy
-const dataSourceCode = XXXXXXXXXX; // String | The code of the datasource
+const tenant = TENANT; // String | The code of the tenancy
+const dataSourceCode = DSCODE; // String | The code of the datasource
 
 // Call api endpoint
 apiInstance.getDataSourceByCode(tenant, dataSourceCode).then(
@@ -219,12 +219,12 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new DatasourceApi();
-const tenant = XXXXXXXXXX; // String | The code of the tenancy
-const dataSourceCode = XXXXXXXXXX; // String | The code of the datasource
+const tenant = TENANT; // String | The code of the tenancy
+const dataSourceCode = DSCODE; // String | The code of the datasource
 const opts = {
   'entityCodes': FUNDS, // String | A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes=ACCOUNT&entityCodes=FUNDS
   'entityKeys': Test2, // String | A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys=1&entityKeys=Test2
-  'paginationLimit': 25, // Number | Non-negative maximum number of entries to return. Default is 25
+  'paginationLimit': 10, // Number | Non-negative maximum number of entries to return. Default is 25
   'paginationOffset': 0 // Number | Non-negative number of entries to skip. Default is 0
 };
 
@@ -252,8 +252,8 @@ Name | Type | Description  | Notes
  **dataSourceCode** | **String**| The code of the datasource | 
  **entityCodes** | **String**| A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes&#x3D;ACCOUNT&amp;entityCodes&#x3D;FUNDS | [optional] 
  **entityKeys** | **String**| A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys&#x3D;1&amp;entityKeys&#x3D;Test2 | [optional] 
- **paginationLimit** | **Number**| Non-negative maximum number of entries to return. Default is 25 | [optional] 
- **paginationOffset** | **Number**| Non-negative number of entries to skip. Default is 0 | [optional] 
+ **paginationLimit** | **Number**| Non-negative maximum number of entries to return. Default is 25 | [optional] [default to 25]
+ **paginationOffset** | **Number**| Non-negative number of entries to skip. Default is 0 | [optional] [default to 0]
 
 ### Return type
 

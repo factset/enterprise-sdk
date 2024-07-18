@@ -41,6 +41,7 @@ docs/ResponseTime.md
 docs/ResponseTimeObject.md
 docs/TranscriptObject.md
 docs/TranscriptObjectOne.md
+docs/TranscriptObjectTimes.md
 docs/Transcripts.md
 docs/TranscriptsApi.md
 docs/TranscriptsMeta.md
@@ -48,6 +49,7 @@ docs/TranscriptsMetaPagination.md
 docs/TranscriptsOne.md
 docs/TranscriptsOneMeta.md
 docs/TranscriptsOneMetaPagination.md
+docs/TranscriptsTimes.md
 git_push.sh
 src/FactSet.SDK.EventsandTranscripts/Api/CalendarEventsApi.cs
 src/FactSet.SDK.EventsandTranscripts/Api/EventsAudioApi.cs
@@ -105,9 +107,11 @@ src/FactSet.SDK.EventsandTranscripts/Model/ResponseTime.cs
 src/FactSet.SDK.EventsandTranscripts/Model/ResponseTimeObject.cs
 src/FactSet.SDK.EventsandTranscripts/Model/TranscriptObject.cs
 src/FactSet.SDK.EventsandTranscripts/Model/TranscriptObjectOne.cs
+src/FactSet.SDK.EventsandTranscripts/Model/TranscriptObjectTimes.cs
 src/FactSet.SDK.EventsandTranscripts/Model/Transcripts.cs
 src/FactSet.SDK.EventsandTranscripts/Model/TranscriptsMeta.cs
 src/FactSet.SDK.EventsandTranscripts/Model/TranscriptsMetaPagination.cs
 src/FactSet.SDK.EventsandTranscripts/Model/TranscriptsOne.cs
 src/FactSet.SDK.EventsandTranscripts/Model/TranscriptsOneMeta.cs
 src/FactSet.SDK.EventsandTranscripts/Model/TranscriptsOneMetaPagination.cs
+src/FactSet.SDK.EventsandTranscripts/Model/TranscriptsTimes.cs

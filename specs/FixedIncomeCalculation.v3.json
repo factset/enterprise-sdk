@@ -12,15 +12,15 @@
       "name": "Apache License, Version 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0"
     },
-    "version": "3.12.0"
+    "version": "3.13.0"
   },
   "servers": [
     {
-      "url": "https://api.factset.com"
+      "url": "https://api.factset.com/analytics/engines/fi/v3"
     }
   ],
   "paths": {
-    "/analytics/engines/fi/v3/discount-curves": {
+    "/discount-curves": {
       "get": {
         "tags": [
           "DiscountCurves"
@@ -285,7 +285,7 @@
         }
       }
     },
-    "/analytics/engines/fi/v3/calculations": {
+    "/calculations": {
       "post": {
         "tags": [
           "FICalculations"
@@ -844,7 +844,7 @@
         "x-factset-different-success-responses": true
       }
     },
-    "/analytics/engines/fi/v3/calculations/{id}": {
+    "/calculations/{id}": {
       "put": {
         "tags": [
           "FICalculations"
@@ -1832,7 +1832,7 @@
         }
       }
     },
-    "/analytics/engines/fi/v3/calculations/{id}/status": {
+    "/calculations/{id}/status": {
       "get": {
         "tags": [
           "FICalculations"
@@ -2148,7 +2148,7 @@
         }
       }
     },
-    "/analytics/engines/fi/v3/calculations/{id}/result": {
+    "/calculations/{id}/result": {
       "get": {
         "tags": [
           "FICalculations"
@@ -2799,13 +2799,47 @@
             "type": "number",
             "description": "Equity Price",
             "format": "double",
-            "nullable": true
+            "nullable": true,
+            "example": 10.29
           },
           "equityIndexVolatility": {
             "type": "number",
             "description": "Equity Index Volatility",
             "format": "double",
-            "nullable": true
+            "nullable": true,
+            "example": 23.3425948
+          },
+          "equityDividendYield": {
+            "type": "number",
+            "format": "float",
+            "description": "Equity Dividend Yield",
+            "nullable": true,
+            "example": 1.4
+          },
+          "volatilityCapMethod": {
+            "type": "string",
+            "description": "Volatility CapMethod",
+            "enum": [
+              "noCap",
+              "specifiedRate",
+              "multiplier"
+            ],
+            "nullable": true,
+            "example": "multiplier"
+          },
+          "volatilityCapMethodValue": {
+            "type": "number",
+            "description": "Volatility CapMethod Value - (Required only when volatilityCapMethod is specifiedRate or multiplier)",
+            "format": "float",
+            "nullable": true,
+            "example": 2.3
+          },
+          "equityExchangeRate": {
+            "type": "number",
+            "format": "float",
+            "description": "Equity Exchange Rate",
+            "nullable": true,
+            "example": 13.65
           }
         }
       },
@@ -2882,7 +2916,7 @@
             "type": "number",
             "description": "Face",
             "format": "double",
-            "default": 1,
+            "default": 1.1,
             "nullable": true
           },
           "faceType": {

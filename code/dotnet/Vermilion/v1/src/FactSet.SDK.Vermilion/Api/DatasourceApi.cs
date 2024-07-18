@@ -37,8 +37,8 @@ namespace FactSet.SDK.Vermilion.Api
         /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenant">The code of the tenancy</param>
         /// <param name="sort">The column to sort on. Append - to sort in descending order. If parameter is not given, no sorting will be done (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional, default to 0)</param>
         /// <returns>DataSourceList</returns>
         DataSourceList GetAllDataSources(string tenant, List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?));
 
@@ -51,8 +51,8 @@ namespace FactSet.SDK.Vermilion.Api
         /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenant">The code of the tenancy</param>
         /// <param name="sort">The column to sort on. Append - to sort in descending order. If parameter is not given, no sorting will be done (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional, default to 0)</param>
         /// <returns>ApiResponse of DataSourceList</returns>
         ApiResponse<DataSourceList> GetAllDataSourcesWithHttpInfo(string tenant, List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?));
         /// <summary>
@@ -89,8 +89,8 @@ namespace FactSet.SDK.Vermilion.Api
         /// <param name="dataSourceCode">The code of the datasource</param>
         /// <param name="entityCodes">A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes&#x3D;ACCOUNT&amp;entityCodes&#x3D;FUNDS (optional)</param>
         /// <param name="entityKeys">A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys&#x3D;1&amp;entityKeys&#x3D;Test2 (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional, default to 0)</param>
         /// <returns>DataSourceDataInstance</returns>
         DataSourceDataInstance GetDataSourceData(string tenant, string dataSourceCode, string entityCodes = default(string), string entityKeys = default(string), int? paginationLimit = default(int?), int? paginationOffset = default(int?));
 
@@ -105,8 +105,8 @@ namespace FactSet.SDK.Vermilion.Api
         /// <param name="dataSourceCode">The code of the datasource</param>
         /// <param name="entityCodes">A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes&#x3D;ACCOUNT&amp;entityCodes&#x3D;FUNDS (optional)</param>
         /// <param name="entityKeys">A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys&#x3D;1&amp;entityKeys&#x3D;Test2 (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional, default to 0)</param>
         /// <returns>ApiResponse of DataSourceDataInstance</returns>
         ApiResponse<DataSourceDataInstance> GetDataSourceDataWithHttpInfo(string tenant, string dataSourceCode, string entityCodes = default(string), string entityKeys = default(string), int? paginationLimit = default(int?), int? paginationOffset = default(int?));
         #endregion Synchronous Operations
@@ -127,8 +127,8 @@ namespace FactSet.SDK.Vermilion.Api
         /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenant">The code of the tenancy</param>
         /// <param name="sort">The column to sort on. Append - to sort in descending order. If parameter is not given, no sorting will be done (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DataSourceList</returns>
         System.Threading.Tasks.Task<DataSourceList> GetAllDataSourcesAsync(string tenant, List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -142,8 +142,8 @@ namespace FactSet.SDK.Vermilion.Api
         /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenant">The code of the tenancy</param>
         /// <param name="sort">The column to sort on. Append - to sort in descending order. If parameter is not given, no sorting will be done (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DataSourceList)</returns>
         System.Threading.Tasks.Task<ApiResponse<DataSourceList>> GetAllDataSourcesWithHttpInfoAsync(string tenant, List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -183,8 +183,8 @@ namespace FactSet.SDK.Vermilion.Api
         /// <param name="dataSourceCode">The code of the datasource</param>
         /// <param name="entityCodes">A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes&#x3D;ACCOUNT&amp;entityCodes&#x3D;FUNDS (optional)</param>
         /// <param name="entityKeys">A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys&#x3D;1&amp;entityKeys&#x3D;Test2 (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DataSourceDataInstance</returns>
         System.Threading.Tasks.Task<DataSourceDataInstance> GetDataSourceDataAsync(string tenant, string dataSourceCode, string entityCodes = default(string), string entityKeys = default(string), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -200,8 +200,8 @@ namespace FactSet.SDK.Vermilion.Api
         /// <param name="dataSourceCode">The code of the datasource</param>
         /// <param name="entityCodes">A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes&#x3D;ACCOUNT&amp;entityCodes&#x3D;FUNDS (optional)</param>
         /// <param name="entityKeys">A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys&#x3D;1&amp;entityKeys&#x3D;Test2 (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DataSourceDataInstance)</returns>
         System.Threading.Tasks.Task<ApiResponse<DataSourceDataInstance>> GetDataSourceDataWithHttpInfoAsync(string tenant, string dataSourceCode, string entityCodes = default(string), string entityKeys = default(string), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -367,8 +367,8 @@ namespace FactSet.SDK.Vermilion.Api
         /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenant">The code of the tenancy</param>
         /// <param name="sort">The column to sort on. Append - to sort in descending order. If parameter is not given, no sorting will be done (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional, default to 0)</param>
         /// <returns>DataSourceList</returns>
         public DataSourceList GetAllDataSources(string tenant, List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?))
         {
@@ -382,8 +382,8 @@ namespace FactSet.SDK.Vermilion.Api
         /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenant">The code of the tenancy</param>
         /// <param name="sort">The column to sort on. Append - to sort in descending order. If parameter is not given, no sorting will be done (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional, default to 0)</param>
         /// <returns>ApiResponse of DataSourceList</returns>
         public ApiResponse<DataSourceList> GetAllDataSourcesWithHttpInfo(string tenant, List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?))
         {
@@ -471,8 +471,8 @@ namespace FactSet.SDK.Vermilion.Api
         /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenant">The code of the tenancy</param>
         /// <param name="sort">The column to sort on. Append - to sort in descending order. If parameter is not given, no sorting will be done (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DataSourceList</returns>
         public async System.Threading.Tasks.Task<DataSourceList>GetAllDataSourcesAsync(string tenant, List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -487,8 +487,8 @@ namespace FactSet.SDK.Vermilion.Api
         /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenant">The code of the tenancy</param>
         /// <param name="sort">The column to sort on. Append - to sort in descending order. If parameter is not given, no sorting will be done (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DataSourceList)</returns>
 
@@ -777,8 +777,8 @@ namespace FactSet.SDK.Vermilion.Api
         /// <param name="dataSourceCode">The code of the datasource</param>
         /// <param name="entityCodes">A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes&#x3D;ACCOUNT&amp;entityCodes&#x3D;FUNDS (optional)</param>
         /// <param name="entityKeys">A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys&#x3D;1&amp;entityKeys&#x3D;Test2 (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional, default to 0)</param>
         /// <returns>DataSourceDataInstance</returns>
         public DataSourceDataInstance GetDataSourceData(string tenant, string dataSourceCode, string entityCodes = default(string), string entityKeys = default(string), int? paginationLimit = default(int?), int? paginationOffset = default(int?))
         {
@@ -794,8 +794,8 @@ namespace FactSet.SDK.Vermilion.Api
         /// <param name="dataSourceCode">The code of the datasource</param>
         /// <param name="entityCodes">A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes&#x3D;ACCOUNT&amp;entityCodes&#x3D;FUNDS (optional)</param>
         /// <param name="entityKeys">A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys&#x3D;1&amp;entityKeys&#x3D;Test2 (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional, default to 0)</param>
         /// <returns>ApiResponse of DataSourceDataInstance</returns>
         public ApiResponse<DataSourceDataInstance> GetDataSourceDataWithHttpInfo(string tenant, string dataSourceCode, string entityCodes = default(string), string entityKeys = default(string), int? paginationLimit = default(int?), int? paginationOffset = default(int?))
         {
@@ -896,8 +896,8 @@ namespace FactSet.SDK.Vermilion.Api
         /// <param name="dataSourceCode">The code of the datasource</param>
         /// <param name="entityCodes">A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes&#x3D;ACCOUNT&amp;entityCodes&#x3D;FUNDS (optional)</param>
         /// <param name="entityKeys">A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys&#x3D;1&amp;entityKeys&#x3D;Test2 (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DataSourceDataInstance</returns>
         public async System.Threading.Tasks.Task<DataSourceDataInstance>GetDataSourceDataAsync(string tenant, string dataSourceCode, string entityCodes = default(string), string entityKeys = default(string), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -914,8 +914,8 @@ namespace FactSet.SDK.Vermilion.Api
         /// <param name="dataSourceCode">The code of the datasource</param>
         /// <param name="entityCodes">A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes&#x3D;ACCOUNT&amp;entityCodes&#x3D;FUNDS (optional)</param>
         /// <param name="entityKeys">A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys&#x3D;1&amp;entityKeys&#x3D;Test2 (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. Default is 25 (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip. Default is 0 (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DataSourceDataInstance)</returns>
 

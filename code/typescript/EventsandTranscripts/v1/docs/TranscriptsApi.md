@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**getTranscriptsDates**](TranscriptsApi.md#getTranscriptsDates) | **GET** /transcripts/dates | Returns the transcript documents in XML format and related metadata within FactSet coverage based on specific date range and time zones.
 [**getTranscriptsEvents**](TranscriptsApi.md#getTranscriptsEvents) | **GET** /transcripts/events | Returns the transcript documents in XML format and related metadata within FactSet coverage based on eventIds and eventType.
 [**getTranscriptsIds**](TranscriptsApi.md#getTranscriptsIds) | **GET** /transcripts/ids | Returns the transcript documents in XML format and related metadata within FactSet coverage based on specific IDs.
+[**getTranscriptsTime**](TranscriptsApi.md#getTranscriptsTime) | **GET** /transcripts/times | Returns the transcript documents in XML format and related metadata within FactSet coverage based on specific time.
 [**getcategories**](TranscriptsApi.md#getcategories) | **GET** /reference/categories | Returns the categories.
 
 
@@ -441,6 +442,95 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TranscriptsOne**](TranscriptsOne.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getTranscriptsTime
+
+> TranscriptsTimes getTranscriptsTime(opts)
+
+Returns the transcript documents in XML format and related metadata within FactSet coverage based on specific time.
+
+Returns the transcripts documents within FactSet coverage along with other response fields.   All transcripts originate from Factset Callstreet Transcripts. 
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```javascript
+const { ApiClient, TranscriptsApi } = require('@factset/sdk-eventsandtranscripts');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+//
+// The confidential client instance should be reused in production environments.
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new TranscriptsApi();
+const opts = {
+  'startDateTime': 2020-10-01T00:00:00Z, // Date |  **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.**   
+  'endDateTime': 2020-10-26T10:00:00Z, // Date | The date to which data is required
+  'sort': ["null"], // [String] | Enables sorting data in ascending or descending chronological order based on eventDate. 
+  'paginationLimit': 20, // Number | Number of results to return per page.
+  'paginationOffset': 0 // Number | Page number of the results to return.
+};
+
+// Call api endpoint
+apiInstance.getTranscriptsTime(opts).then(
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startDateTime** | **Date**|  **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.**    | [optional] 
+ **endDateTime** | **Date**| The date to which data is required | [optional] 
+ **sort** | [**[String]**](String.md)| Enables sorting data in ascending or descending chronological order based on eventDate.  | [optional] 
+ **paginationLimit** | **Number**| Number of results to return per page. | [optional] [default to 25]
+ **paginationOffset** | **Number**| Page number of the results to return. | [optional] [default to 0]
+
+### Return type
+
+[**TranscriptsTimes**](TranscriptsTimes.md)
 
 ### Authorization
 

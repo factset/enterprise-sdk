@@ -322,7 +322,7 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     api_instance = scim_api.SCIMApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    group_id = "scimgroup1" # str | The ID of the group
+    group_id = "123456" # str | The ID of the group
 
     try:
         # Deletes a VRS role
@@ -417,7 +417,7 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     api_instance = scim_api.SCIMApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    user_id = "scimuser1" # str | The ID of the user
+    user_id = "123456" # str | The ID of the user
 
     try:
         # Deletes a VRS user
@@ -512,8 +512,8 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     api_instance = scim_api.SCIMApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    count = 25 # int | Non-negative maximum number of entries to return (optional)
-    start_index = 1 # int | The 1-based index of the first query result (optional)
+    count = 10 # int | Non-negative maximum number of entries to return (optional)
+    start_index = 5 # int | The 1-based index of the first query result (optional)
 
     try:
         # Retrieves a list of VRS role
@@ -610,8 +610,8 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     api_instance = scim_api.SCIMApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    count = 25 # int | Non-negative maximum number of entries to return (optional)
-    start_index = 1 # int | The 1-based index of the first query result (optional)
+    count = 10 # int | Non-negative maximum number of entries to return (optional)
+    start_index = 5 # int | The 1-based index of the first query result (optional)
 
     try:
         # Retrieves a list of VRS users
@@ -708,7 +708,7 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     api_instance = scim_api.SCIMApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    group_id = "scimgroup1" # str | The ID of the role
+    group_id = "123456" # str | The ID of the role
 
     try:
         # Retrieves a VRS role
@@ -804,7 +804,7 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     api_instance = scim_api.SCIMApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    user_id = "scimuser1" # str | The ID of the user
+    user_id = "123456" # str | The ID of the user
 
     try:
         # Retrieves a VRS User
@@ -900,7 +900,7 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     api_instance = scim_api.SCIMApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    group_id = "scimgroup1" # str | The ID of the role
+    group_id = "123456" # str | The ID of the role
     scim_group_patch_request_body = ScimGroupPatchRequestBody(
         schemas=[
             "schemas_example",
@@ -1011,7 +1011,7 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     api_instance = scim_api.SCIMApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    user_id = "scimuser1" # str | The ID of the user
+    user_id = "123456" # str | The ID of the user
     scim_user_patch_request_body = ScimUserPatchRequestBody(
         schemas=[
             "schemas_example",
@@ -1120,7 +1120,7 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     api_instance = scim_api.SCIMApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    group_id = "scimgroup1" # str | The ID of the group
+    group_id = "123456" # str | The ID of the group
     scim_group = ScimGroup(
         schemas=[
             "schemas_example",
@@ -1239,7 +1239,7 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     api_instance = scim_api.SCIMApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    user_id = "scimuser1" # str | The ID of the user
+    user_id = "123456" # str | The ID of the user
     scim_user = ScimUser(
         schemas=[
             "schemas_example",

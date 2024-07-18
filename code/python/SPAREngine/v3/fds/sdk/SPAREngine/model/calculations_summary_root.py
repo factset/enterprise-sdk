@@ -90,7 +90,7 @@ class CalculationsSummaryRoot(ModelNormal):
         """
         lazy_import()
         return {
-            'data': (CalculationsSummary,),  # noqa: E501
+            'data': ({str: (CalculationsSummary,)},),  # noqa: E501
             'meta': (PaginationMeta,),  # noqa: E501
         }
 
@@ -115,7 +115,7 @@ class CalculationsSummaryRoot(ModelNormal):
         """CalculationsSummaryRoot - a model defined in OpenAPI
 
         Args:
-            data (CalculationsSummary):
+            data ({str: (CalculationsSummary,)}):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -201,7 +201,7 @@ class CalculationsSummaryRoot(ModelNormal):
         """CalculationsSummaryRoot - a model defined in OpenAPI
 
         Args:
-            data (CalculationsSummary):
+            data ({str: (CalculationsSummary,)}):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

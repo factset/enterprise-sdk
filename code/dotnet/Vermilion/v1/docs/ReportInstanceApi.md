@@ -65,8 +65,8 @@ namespace Example
 
             var apiInstance = new ReportInstanceApi(config);
 
-            var tenant = "XXXXXXXXXX";  // string | The code of the tenancy
-            var reportInstanceId = "123456789";  // string | The id of the report instance
+            var tenant = "TENANT";  // string | The code of the tenancy
+            var reportInstanceId = "123456";  // string | The id of the report instance
 
             try
             {
@@ -169,8 +169,8 @@ namespace Example
 
             var apiInstance = new ReportInstanceApi(config);
 
-            var tenant = "XXXXXXXXXX";  // string | The code of the tenancy
-            var reportInstanceId = "123456789";  // string | Used to validate that report file name belongs to the report instance passed
+            var tenant = "TENANT";  // string | The code of the tenancy
+            var reportInstanceId = "123456";  // string | Used to validate that report file name belongs to the report instance passed
             var reportFileName = "xyz.pdf";  // string | The report file name that has to be retrieved. report file name. E.g: xyz.pdf
 
             try
@@ -275,15 +275,15 @@ namespace Example
 
             var apiInstance = new ReportInstanceApi(config);
 
-            var tenant = "XXXXXXXXXX";  // string | The code of the tenancy
-            var reportDefinitionCode = "XXXXXXXXXX";  // string | Acts as a filter for the retrieval process. Filters the report instances that match the report definition code (optional) 
+            var tenant = "TENANT";  // string | The code of the tenancy
+            var reportDefinitionCode = "RPCODE";  // string | Acts as a filter for the retrieval process. Filters the report instances that match the report definition code (optional) 
             var entityCodes = "SYSTEM_LANG";  // string | A series of query parameters used to filter the report instances by entity code. E.g: entityCode=DATE&entityCode=SYSTEM_LANG (optional) 
             var entityKeys = "en-gb";  // string | A series of query parameters used to filter the report instances by entity keys. E.g: entityKey=en-gb (optional) 
             var sectionFilter = "testFilter";  // string | Acts as a filter for the retrieval process. Filters the report instances that match the section filter (optional) 
             var outputFormat = "pdf";  // string | Acts as a filter for the retrieval process. Filters the report instances that match the output format (optional) 
             var sort = new List<string>(); // List<string> | The column to sort on. Append - to sort in descending order. If parameter is not given, sorting will be based on the report instance id in descending order (optional) 
-            var paginationLimit = 25;  // int? | Non-negative maximum number of entries to return (optional) 
-            var paginationOffset = 0;  // int? | Non-negative number of entries to skip (optional) 
+            var paginationLimit = 25;  // int? | Non-negative maximum number of entries to return (optional)  (default to 25)
+            var paginationOffset = 0;  // int? | Non-negative number of entries to skip (optional)  (default to 0)
 
             try
             {
@@ -313,8 +313,8 @@ Name | Type | Description  | Notes
  **sectionFilter** | **string**| Acts as a filter for the retrieval process. Filters the report instances that match the section filter | [optional] 
  **outputFormat** | **string**| Acts as a filter for the retrieval process. Filters the report instances that match the output format | [optional] 
  **sort** | [**List&lt;string&gt;**](string.md)| The column to sort on. Append - to sort in descending order. If parameter is not given, sorting will be based on the report instance id in descending order | [optional] 
- **paginationLimit** | **int?**| Non-negative maximum number of entries to return | [optional] 
- **paginationOffset** | **int?**| Non-negative number of entries to skip | [optional] 
+ **paginationLimit** | **int?**| Non-negative maximum number of entries to return | [optional] [default to 25]
+ **paginationOffset** | **int?**| Non-negative number of entries to skip | [optional] [default to 0]
 
 ### Return type
 [**ReportInstanceList**](ReportInstanceList.md)
@@ -392,12 +392,12 @@ namespace Example
 
             var apiInstance = new ReportInstanceApi(config);
 
-            var tenant = "XXXXXXXXXX";  // string | The code of the tenancy
-            var reportInstanceId = "123456789";  // string | Used to validate that report file name belongs to the report instance passed
+            var tenant = "TENANT";  // string | The code of the tenancy
+            var reportInstanceId = "123456";  // string | Used to validate that report file name belongs to the report instance passed
             var errorsOnly = "true";  // string | If the parameter is set to true the endpoint should return just errors and warnings E.g: errorsOnly=true (optional) 
             var sort = new List<string>(); // List<string> | The column to sort on. Can add - to sort (optional) 
-            var paginationLimit = 25;  // int? | Non-negative maximum number of entries to return (optional) 
-            var paginationOffset = 0;  // int? | Non-negative number of entries to skip (optional) 
+            var paginationLimit = 25;  // int? | Non-negative maximum number of entries to return (optional)  (default to 25)
+            var paginationOffset = 0;  // int? | Non-negative number of entries to skip (optional)  (default to 0)
 
             try
             {
@@ -424,8 +424,8 @@ Name | Type | Description  | Notes
  **reportInstanceId** | **string**| Used to validate that report file name belongs to the report instance passed | 
  **errorsOnly** | **string**| If the parameter is set to true the endpoint should return just errors and warnings E.g: errorsOnly&#x3D;true | [optional] 
  **sort** | [**List&lt;string&gt;**](string.md)| The column to sort on. Can add - to sort | [optional] 
- **paginationLimit** | **int?**| Non-negative maximum number of entries to return | [optional] 
- **paginationOffset** | **int?**| Non-negative number of entries to skip | [optional] 
+ **paginationLimit** | **int?**| Non-negative maximum number of entries to return | [optional] [default to 25]
+ **paginationOffset** | **int?**| Non-negative number of entries to skip | [optional] [default to 0]
 
 ### Return type
 [**ReportInstanceLogList**](ReportInstanceLogList.md)
@@ -504,8 +504,8 @@ namespace Example
 
             var apiInstance = new ReportInstanceApi(config);
 
-            var reportInstanceId = "1256789";  // string | The ID of the report instance
-            var tenant = "XXXXXXXXXX";  // string | The code of the tenancy
+            var reportInstanceId = "123456";  // string | The ID of the report instance
+            var tenant = "TENANT";  // string | The code of the tenancy
 
             try
             {

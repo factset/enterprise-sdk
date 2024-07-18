@@ -55,7 +55,7 @@ namespace FactSet.SDK.SPAREngine.Model
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
-        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = false)]
         public Object Data { get; set; }
 
         /// <summary>

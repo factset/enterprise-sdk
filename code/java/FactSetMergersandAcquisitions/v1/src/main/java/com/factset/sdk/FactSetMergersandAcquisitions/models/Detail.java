@@ -244,7 +244,7 @@ public class Detail implements Serializable {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return null;
     }
   }
 
@@ -501,7 +501,7 @@ public class Detail implements Serializable {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return null;
     }
   }
 

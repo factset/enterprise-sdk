@@ -50,7 +50,7 @@ public class ComponentSummaryRoot implements Serializable {
   private java.util.Map<String, ComponentSummary> data = new java.util.HashMap<>();
 
   public static final String JSON_PROPERTY_META = "meta";
-  private JsonNullable<Object> meta = JsonNullable.<Object>of(null);
+  private JsonNullable<Object> meta = JsonNullable.<Object>undefined();
 
   public ComponentSummaryRoot() { 
   }

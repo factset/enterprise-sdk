@@ -60,12 +60,12 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     api_instance = entity_api.EntityApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    tenant = "XXXXXXXXXX" # str | The code of the tenancy
-    entity_code = "XXXXXXXXXX" # str | The code of the entity
+    tenant = "TENANT" # str | The code of the tenancy
+    entity_code = "ENTCODE" # str | The code of the entity
     sort = ["entity key field"] # [str] | The entity field to sort on. Can only be sorted on entity key, description or secondary key fields. Append \"-\" to sort in descending order. If no parameter given, it will be sorted by key field in ascending order by default (optional)
-    pagination_limit = 25 # int | Non-negative maximum number of entries to return. Default is 25 (optional)
-    pagination_offset = 0 # int | Non-negative number of entries to skip. Default is 0 (optional)
-    show_all = 1 # int | Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false) (optional)
+    pagination_limit = 10 # int | Non-negative maximum number of entries to return. Default is 25 (optional) if omitted the server will use the default value of 25
+    pagination_offset = 0 # int | Non-negative number of entries to skip. Default is 0 (optional) if omitted the server will use the default value of 0
+    show_all = 1 # int | Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false). Otherwise, show all field values in a JSON array named \"fieldsWithValues\", with each array value being a string in the format of \"**<FIELD_NAME> : <FIELD_VALUE>**\". Both key and description field values will be included in this JSON array too. (optional) if omitted the server will use the default value of 0
 
     try:
         # Gets the entity values
@@ -87,9 +87,9 @@ Name | Type | Description  | Notes
  **tenant** | **str**| The code of the tenancy |
  **entity_code** | **str**| The code of the entity |
  **sort** | **[str]**| The entity field to sort on. Can only be sorted on entity key, description or secondary key fields. Append \&quot;-\&quot; to sort in descending order. If no parameter given, it will be sorted by key field in ascending order by default | [optional]
- **pagination_limit** | **int**| Non-negative maximum number of entries to return. Default is 25 | [optional]
- **pagination_offset** | **int**| Non-negative number of entries to skip. Default is 0 | [optional]
- **show_all** | **int**| Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false) | [optional]
+ **pagination_limit** | **int**| Non-negative maximum number of entries to return. Default is 25 | [optional] if omitted the server will use the default value of 25
+ **pagination_offset** | **int**| Non-negative number of entries to skip. Default is 0 | [optional] if omitted the server will use the default value of 0
+ **show_all** | **int**| Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false). Otherwise, show all field values in a JSON array named \&quot;fieldsWithValues\&quot;, with each array value being a string in the format of \&quot;**&lt;FIELD_NAME&gt; : &lt;FIELD_VALUE&gt;**\&quot;. Both key and description field values will be included in this JSON array too. | [optional] if omitted the server will use the default value of 0
 
 ### Return type
 

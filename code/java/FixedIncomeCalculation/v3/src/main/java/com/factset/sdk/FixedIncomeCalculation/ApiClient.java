@@ -73,13 +73,13 @@ import com.factset.sdk.FixedIncomeCalculation.auth.FactSetOAuth2ClientAuth;
 public class ApiClient extends JavaTimeFormatter {
   protected Map<String, String> defaultHeaderMap = new HashMap<String, String>();
   protected Map<String, String> defaultCookieMap = new HashMap<String, String>();
-  protected String basePath = "https://api.factset.com";
+  protected String basePath = "https://api.factset.com/analytics/engines/fi/v3";
   protected String userAgent;
   private static final Logger log = Logger.getLogger(ApiClient.class.getName());
 
   protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
     new ServerConfiguration(
-      "https://api.factset.com",
+      "https://api.factset.com/analytics/engines/fi/v3",
       "No description provided",
       new HashMap<String, ServerVariable>()
     )
@@ -123,7 +123,7 @@ public class ApiClient extends JavaTimeFormatter {
     this.dateFormat = new RFC3339DateFormat();
 
     // Set default User-Agent.
-    setUserAgent("fds-sdk/java/FixedIncomeCalculation/2.1.0");
+    setUserAgent("fds-sdk/java/FixedIncomeCalculation/2.2.0");
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<String, Authentication>();

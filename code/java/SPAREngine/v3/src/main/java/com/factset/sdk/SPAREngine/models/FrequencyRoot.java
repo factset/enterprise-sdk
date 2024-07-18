@@ -50,7 +50,7 @@ public class FrequencyRoot implements Serializable {
   private java.util.Map<String, Frequency> data = new java.util.HashMap<>();
 
   public static final String JSON_PROPERTY_META = "meta";
-  private JsonNullable<Object> meta = JsonNullable.<Object>of(null);
+  private JsonNullable<Object> meta = JsonNullable.<Object>undefined();
 
   public FrequencyRoot() { 
   }

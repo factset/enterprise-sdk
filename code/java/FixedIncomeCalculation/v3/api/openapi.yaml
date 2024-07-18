@@ -9,12 +9,12 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: FI API
-  version: 3.12.0
+  version: 3.13.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/fixed-income-calculation-api
 servers:
-- url: https://api.factset.com
+- url: https://api.factset.com/analytics/engines/fi/v3
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
@@ -22,7 +22,7 @@ tags:
 - name: DiscountCurves
 - name: FICalculations
 paths:
-  /analytics/engines/fi/v3/discount-curves:
+  /discount-curves:
     get:
       description: This endpoint lists all the discount curves that can be applied
         to a FI calculation.
@@ -281,7 +281,7 @@ paths:
       tags:
       - DiscountCurves
       x-accepts: application/json
-  /analytics/engines/fi/v3/calculations:
+  /calculations:
     post:
       description: This endpoint creates and runs a new FI calculation specified in
         the post body.
@@ -820,7 +820,7 @@ paths:
       x-factset-different-success-responses: true
       x-contentType: application/json
       x-accepts: application/json
-  /analytics/engines/fi/v3/calculations/{id}:
+  /calculations/{id}:
     delete:
       description: This is the endpoint to cancel a previously submitted calculation.
       operationId: cancelCalculationById
@@ -1774,7 +1774,7 @@ paths:
       x-factset-different-success-responses: true
       x-contentType: application/json
       x-accepts: application/json
-  /analytics/engines/fi/v3/calculations/{id}/status:
+  /calculations/{id}/status:
     get:
       description: "This is the endpoint to check on the progress of a previously\
         \ requested calculation.\r\nIf the calculation has finished computing, the\
@@ -2082,7 +2082,7 @@ paths:
       tags:
       - FICalculations
       x-accepts: application/json
-  /analytics/engines/fi/v3/calculations/{id}/result:
+  /calculations/{id}/result:
     get:
       description: "This is the endpoint to get the result of a previously requested\
         \ calculation.\r\nIf the calculation has finished computing, the body of the\
@@ -2703,17 +2703,51 @@ components:
       type: object
     FIConvertibleSettings:
       example:
-        equityPrice: 1.4894159098541704
-        equityIndexVolatility: 6.84685269835264
+        volatilityCapMethodValue: 2.3
+        equityPrice: 10.29
+        volatilityCapMethod: multiplier
+        equityExchangeRate: 13.65
+        equityDividendYield: 1.4
+        equityIndexVolatility: 23.3425948
       properties:
         equityPrice:
           description: Equity Price
+          example: 10.29
           format: double
           nullable: true
           type: number
         equityIndexVolatility:
           description: Equity Index Volatility
+          example: 23.3425948
           format: double
+          nullable: true
+          type: number
+        equityDividendYield:
+          description: Equity Dividend Yield
+          example: 1.4
+          format: float
+          nullable: true
+          type: number
+        volatilityCapMethod:
+          description: Volatility CapMethod
+          enum:
+          - noCap
+          - specifiedRate
+          - multiplier
+          example: multiplier
+          nullable: true
+          type: string
+        volatilityCapMethodValue:
+          description: Volatility CapMethod Value - (Required only when volatilityCapMethod
+            is specifiedRate or multiplier)
+          example: 2.3
+          format: float
+          nullable: true
+          type: number
+        equityExchangeRate:
+          description: Equity Exchange Rate
+          example: 13.65
+          format: float
           nullable: true
           type: number
       type: object
@@ -2723,10 +2757,14 @@ components:
         symbol: symbol
         matrixMultiplier: 1.4658129805029452
         discountCurve: discountCurve
-        calcFromValue: 7.457744773683766
+        calcFromValue: 1.4894159098541704
         convertible:
-          equityPrice: 1.4894159098541704
-          equityIndexVolatility: 6.84685269835264
+          volatilityCapMethodValue: 2.3
+          equityPrice: 10.29
+          volatilityCapMethod: multiplier
+          equityExchangeRate: 13.65
+          equityDividendYield: 1.4
+          equityIndexVolatility: 23.3425948
         bankLoans:
           ignoreSinkingFund: true
         faceType: Current
@@ -2765,7 +2803,7 @@ components:
             optionalRedemptionCallWhenUnits: Manual
             optionalRedemptionCallWhen: 2
             recoveryLag: 7
-        face: 1.1730742509559433
+        face: 6.84685269835264
         municipalBonds:
           useAnticipatedSinkSchedule: true
           ignoreSinkingFund: true
@@ -2829,7 +2867,7 @@ components:
           format: double
           type: number
         face:
-          default: 1
+          default: 1.1
           description: Face
           format: double
           nullable: true
@@ -2991,8 +3029,8 @@ components:
         bankLoans:
           ignoreSinkingFund: true
         partialDurationMonths:
-        - 4
-        - 4
+        - 7
+        - 7
         settlement: settlement
       properties:
         asOfDate:
@@ -3076,8 +3114,8 @@ components:
           bankLoans:
             ignoreSinkingFund: true
           partialDurationMonths:
-          - 4
-          - 4
+          - 7
+          - 7
           settlement: settlement
         calculations:
         - calculations
@@ -3087,10 +3125,14 @@ components:
           symbol: symbol
           matrixMultiplier: 1.4658129805029452
           discountCurve: discountCurve
-          calcFromValue: 7.457744773683766
+          calcFromValue: 1.4894159098541704
           convertible:
-            equityPrice: 1.4894159098541704
-            equityIndexVolatility: 6.84685269835264
+            volatilityCapMethodValue: 2.3
+            equityPrice: 10.29
+            volatilityCapMethod: multiplier
+            equityExchangeRate: 13.65
+            equityDividendYield: 1.4
+            equityIndexVolatility: 23.3425948
           bankLoans:
             ignoreSinkingFund: true
           faceType: Current
@@ -3129,7 +3171,7 @@ components:
               optionalRedemptionCallWhenUnits: Manual
               optionalRedemptionCallWhen: 2
               recoveryLag: 7
-          face: 1.1730742509559433
+          face: 6.84685269835264
           municipalBonds:
             useAnticipatedSinkSchedule: true
             ignoreSinkingFund: true
@@ -3144,10 +3186,14 @@ components:
           symbol: symbol
           matrixMultiplier: 1.4658129805029452
           discountCurve: discountCurve
-          calcFromValue: 7.457744773683766
+          calcFromValue: 1.4894159098541704
           convertible:
-            equityPrice: 1.4894159098541704
-            equityIndexVolatility: 6.84685269835264
+            volatilityCapMethodValue: 2.3
+            equityPrice: 10.29
+            volatilityCapMethod: multiplier
+            equityExchangeRate: 13.65
+            equityDividendYield: 1.4
+            equityIndexVolatility: 23.3425948
           bankLoans:
             ignoreSinkingFund: true
           faceType: Current
@@ -3186,7 +3232,7 @@ components:
               optionalRedemptionCallWhenUnits: Manual
               optionalRedemptionCallWhen: 2
               recoveryLag: 7
-          face: 1.1730742509559433
+          face: 6.84685269835264
           municipalBonds:
             useAnticipatedSinkSchedule: true
             ignoreSinkingFund: true
@@ -3298,8 +3344,8 @@ components:
             bankLoans:
               ignoreSinkingFund: true
             partialDurationMonths:
-            - 4
-            - 4
+            - 7
+            - 7
             settlement: settlement
           calculations:
           - calculations
@@ -3309,10 +3355,14 @@ components:
             symbol: symbol
             matrixMultiplier: 1.4658129805029452
             discountCurve: discountCurve
-            calcFromValue: 7.457744773683766
+            calcFromValue: 1.4894159098541704
             convertible:
-              equityPrice: 1.4894159098541704
-              equityIndexVolatility: 6.84685269835264
+              volatilityCapMethodValue: 2.3
+              equityPrice: 10.29
+              volatilityCapMethod: multiplier
+              equityExchangeRate: 13.65
+              equityDividendYield: 1.4
+              equityIndexVolatility: 23.3425948
             bankLoans:
               ignoreSinkingFund: true
             faceType: Current
@@ -3351,7 +3401,7 @@ components:
                 optionalRedemptionCallWhenUnits: Manual
                 optionalRedemptionCallWhen: 2
                 recoveryLag: 7
-            face: 1.1730742509559433
+            face: 6.84685269835264
             municipalBonds:
               useAnticipatedSinkSchedule: true
               ignoreSinkingFund: true
@@ -3366,10 +3416,14 @@ components:
             symbol: symbol
             matrixMultiplier: 1.4658129805029452
             discountCurve: discountCurve
-            calcFromValue: 7.457744773683766
+            calcFromValue: 1.4894159098541704
             convertible:
-              equityPrice: 1.4894159098541704
-              equityIndexVolatility: 6.84685269835264
+              volatilityCapMethodValue: 2.3
+              equityPrice: 10.29
+              volatilityCapMethod: multiplier
+              equityExchangeRate: 13.65
+              equityDividendYield: 1.4
+              equityIndexVolatility: 23.3425948
             bankLoans:
               ignoreSinkingFund: true
             faceType: Current
@@ -3408,7 +3462,7 @@ components:
                 optionalRedemptionCallWhenUnits: Manual
                 optionalRedemptionCallWhen: 2
                 recoveryLag: 7
-            face: 1.1730742509559433
+            face: 6.84685269835264
             municipalBonds:
               useAnticipatedSinkSchedule: true
               ignoreSinkingFund: true

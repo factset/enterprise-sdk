@@ -110,7 +110,7 @@ class DealValue(ModelNormal):
             'premium1_day': (float, none_type,),  # noqa: E501
             'premium5_day': (float, none_type,),  # noqa: E501
             'premium30_day': (float, none_type,),  # noqa: E501
-            'payment_method': ([str], none_type,),  # noqa: E501
+            'payment_method': ([str, none_type], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -195,7 +195,7 @@ class DealValue(ModelNormal):
             premium1_day (float, none_type): The percentage difference between the price per share offered by the acquirer and the target's closing stock price 1 trading day prior to the announcement date. This data is only available if the target is a public company and the price/share is disclosed.. [optional]  # noqa: E501
             premium5_day (float, none_type): The percentage difference between the price per share offered by the acquirer and the target's closing stock price 5 trading days prior to the announcement date. This data is only available if the target is a public company and the price/share is disclosed.. [optional]  # noqa: E501
             premium30_day (float, none_type): The percentage difference between the price per share offered by the acquirer and the target's closing stock price 30 trading days prior to the announcement date. This data is only available if the target is a public company and the price/share is disclosed.. [optional]  # noqa: E501
-            payment_method ([str], none_type): Payment method/structure used in the transaction, including cash, stock, combination, or debt.. [optional]  # noqa: E501
+            payment_method ([str, none_type], none_type): Payment method/structure used in the transaction, including cash, stock, combination, or debt.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -293,7 +293,7 @@ class DealValue(ModelNormal):
             premium1_day (float, none_type): The percentage difference between the price per share offered by the acquirer and the target's closing stock price 1 trading day prior to the announcement date. This data is only available if the target is a public company and the price/share is disclosed.. [optional]  # noqa: E501
             premium5_day (float, none_type): The percentage difference between the price per share offered by the acquirer and the target's closing stock price 5 trading days prior to the announcement date. This data is only available if the target is a public company and the price/share is disclosed.. [optional]  # noqa: E501
             premium30_day (float, none_type): The percentage difference between the price per share offered by the acquirer and the target's closing stock price 30 trading days prior to the announcement date. This data is only available if the target is a public company and the price/share is disclosed.. [optional]  # noqa: E501
-            payment_method ([str], none_type): Payment method/structure used in the transaction, including cash, stock, combination, or debt.. [optional]  # noqa: E501
+            payment_method ([str, none_type], none_type): Payment method/structure used in the transaction, including cash, stock, combination, or debt.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

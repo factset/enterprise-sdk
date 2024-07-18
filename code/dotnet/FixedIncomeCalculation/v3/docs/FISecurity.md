@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **Convertible** | [**FIConvertibleSettings**](FIConvertibleSettings.md) |  | [optional] 
 **CalcFromMethod** | **string** | Calculation Method.  Methods : Active Spread, Actual Spread, Actual Spread To Worst Call, OAS, Price, Yield, Yield To No Call, Act/Act Yield To No Call, Bond Equivalent Yield,  Yield To Worst Call, Discount Yield, Discount Margin, Implied Volatility, Bullet Spread, Bullet Spread To Worst Call, Pricing Matrix | [optional] 
 **CalcFromValue** | **double** | Calculation from value | 
-**Face** | **double?** | Face | [optional] [default to 1D]
+**Face** | **double?** | Face | [optional] [default to 1.1D]
 **FaceType** | **string** | Face type | [optional] [default to FaceTypeEnum.Current]
 **Symbol** | **string** | Symbol | 
 **DiscountCurve** | **string** | Discount curve | [optional] 

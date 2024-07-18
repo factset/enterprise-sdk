@@ -50,7 +50,7 @@ public class SPARAccountsRoot implements Serializable {
   private SPARAccounts data;
 
   public static final String JSON_PROPERTY_META = "meta";
-  private JsonNullable<Object> meta = JsonNullable.<Object>of(null);
+  private JsonNullable<Object> meta = JsonNullable.<Object>undefined();
 
   public SPARAccountsRoot() { 
   }

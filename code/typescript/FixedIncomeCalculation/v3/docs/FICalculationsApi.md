@@ -1,15 +1,15 @@
 # fixedincomecalculation.FICalculationsApi
 
-All URIs are relative to *https://api.factset.com*
+All URIs are relative to *https://api.factset.com/analytics/engines/fi/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cancelCalculationById**](FICalculationsApi.md#cancelCalculationById) | **DELETE** /analytics/engines/fi/v3/calculations/{id} | Cancel FI calculation by id
-[**getCalculationParameters**](FICalculationsApi.md#getCalculationParameters) | **GET** /analytics/engines/fi/v3/calculations/{id} | Get FI calculation parameters by id
-[**getCalculationResult**](FICalculationsApi.md#getCalculationResult) | **GET** /analytics/engines/fi/v3/calculations/{id}/result | Get FI calculation result by id
-[**getCalculationStatusById**](FICalculationsApi.md#getCalculationStatusById) | **GET** /analytics/engines/fi/v3/calculations/{id}/status | Get FI calculation status by id
-[**postAndCalculate**](FICalculationsApi.md#postAndCalculate) | **POST** /analytics/engines/fi/v3/calculations | Create and Run FI calculation
-[**putAndCalculate**](FICalculationsApi.md#putAndCalculate) | **PUT** /analytics/engines/fi/v3/calculations/{id} | Create or Update FI calculation and run it.
+[**cancelCalculationById**](FICalculationsApi.md#cancelCalculationById) | **DELETE** /calculations/{id} | Cancel FI calculation by id
+[**getCalculationParameters**](FICalculationsApi.md#getCalculationParameters) | **GET** /calculations/{id} | Get FI calculation parameters by id
+[**getCalculationResult**](FICalculationsApi.md#getCalculationResult) | **GET** /calculations/{id}/result | Get FI calculation result by id
+[**getCalculationStatusById**](FICalculationsApi.md#getCalculationStatusById) | **GET** /calculations/{id}/status | Get FI calculation status by id
+[**postAndCalculate**](FICalculationsApi.md#postAndCalculate) | **POST** /calculations | Create and Run FI calculation
+[**putAndCalculate**](FICalculationsApi.md#putAndCalculate) | **PUT** /calculations/{id} | Create or Update FI calculation and run it.
 
 
 

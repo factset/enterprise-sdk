@@ -1,15 +1,15 @@
 # fds.sdk.FixedIncomeCalculation.FICalculationsApi
 
-All URIs are relative to *https://api.factset.com*
+All URIs are relative to *https://api.factset.com/analytics/engines/fi/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cancel_calculation_by_id**](FICalculationsApi.md#cancel_calculation_by_id) | **DELETE** /analytics/engines/fi/v3/calculations/{id} | Cancel FI calculation by id
-[**get_calculation_parameters**](FICalculationsApi.md#get_calculation_parameters) | **GET** /analytics/engines/fi/v3/calculations/{id} | Get FI calculation parameters by id
-[**get_calculation_result**](FICalculationsApi.md#get_calculation_result) | **GET** /analytics/engines/fi/v3/calculations/{id}/result | Get FI calculation result by id
-[**get_calculation_status_by_id**](FICalculationsApi.md#get_calculation_status_by_id) | **GET** /analytics/engines/fi/v3/calculations/{id}/status | Get FI calculation status by id
-[**post_and_calculate**](FICalculationsApi.md#post_and_calculate) | **POST** /analytics/engines/fi/v3/calculations | Create and Run FI calculation
-[**put_and_calculate**](FICalculationsApi.md#put_and_calculate) | **PUT** /analytics/engines/fi/v3/calculations/{id} | Create or Update FI calculation and run it.
+[**cancel_calculation_by_id**](FICalculationsApi.md#cancel_calculation_by_id) | **DELETE** /calculations/{id} | Cancel FI calculation by id
+[**get_calculation_parameters**](FICalculationsApi.md#get_calculation_parameters) | **GET** /calculations/{id} | Get FI calculation parameters by id
+[**get_calculation_result**](FICalculationsApi.md#get_calculation_result) | **GET** /calculations/{id}/result | Get FI calculation result by id
+[**get_calculation_status_by_id**](FICalculationsApi.md#get_calculation_status_by_id) | **GET** /calculations/{id}/status | Get FI calculation status by id
+[**post_and_calculate**](FICalculationsApi.md#post_and_calculate) | **POST** /calculations | Create and Run FI calculation
+[**put_and_calculate**](FICalculationsApi.md#put_and_calculate) | **PUT** /calculations/{id} | Create or Update FI calculation and run it.
 
 
 
@@ -532,12 +532,16 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
                         pricing_method="Inputted Price",
                     ),
                     convertible=FIConvertibleSettings(
-                        equity_price=3.14,
-                        equity_index_volatility=3.14,
+                        equity_price=10.29,
+                        equity_index_volatility=23.3425948,
+                        equity_dividend_yield=1.4,
+                        volatility_cap_method="multiplier",
+                        volatility_cap_method_value=2.3,
+                        equity_exchange_rate=13.65,
                     ),
                     calc_from_method="calc_from_method_example",
                     calc_from_value=3.14,
-                    face=1,
+                    face=1.1,
                     face_type="Current",
                     symbol="symbol_example",
                     discount_curve="discount_curve_example",
@@ -785,12 +789,16 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
                         pricing_method="Inputted Price",
                     ),
                     convertible=FIConvertibleSettings(
-                        equity_price=3.14,
-                        equity_index_volatility=3.14,
+                        equity_price=10.29,
+                        equity_index_volatility=23.3425948,
+                        equity_dividend_yield=1.4,
+                        volatility_cap_method="multiplier",
+                        volatility_cap_method_value=2.3,
+                        equity_exchange_rate=13.65,
                     ),
                     calc_from_method="calc_from_method_example",
                     calc_from_value=3.14,
-                    face=1,
+                    face=1.1,
                     face_type="Current",
                     symbol="symbol_example",
                     discount_curve="discount_curve_example",

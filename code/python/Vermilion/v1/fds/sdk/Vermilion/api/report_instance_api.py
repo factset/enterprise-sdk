@@ -960,8 +960,8 @@ class ReportInstanceApi(object):
             section_filter (str): Acts as a filter for the retrieval process. Filters the report instances that match the section filter. [optional]
             output_format (str): Acts as a filter for the retrieval process. Filters the report instances that match the output format. [optional]
             sort ([str]): The column to sort on. Append - to sort in descending order. If parameter is not given, sorting will be based on the report instance id in descending order. [optional]
-            pagination_limit (int): Non-negative maximum number of entries to return. [optional]
-            pagination_offset (int): Non-negative number of entries to skip. [optional]
+            pagination_limit (int): Non-negative maximum number of entries to return. [optional] if omitted the server will use the default value of 25
+            pagination_offset (int): Non-negative number of entries to skip. [optional] if omitted the server will use the default value of 0
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -1015,8 +1015,8 @@ class ReportInstanceApi(object):
             section_filter (str): Acts as a filter for the retrieval process. Filters the report instances that match the section filter. [optional]
             output_format (str): Acts as a filter for the retrieval process. Filters the report instances that match the output format. [optional]
             sort ([str]): The column to sort on. Append - to sort in descending order. If parameter is not given, sorting will be based on the report instance id in descending order. [optional]
-            pagination_limit (int): Non-negative maximum number of entries to return. [optional]
-            pagination_offset (int): Non-negative number of entries to skip. [optional]
+            pagination_limit (int): Non-negative maximum number of entries to return. [optional] if omitted the server will use the default value of 25
+            pagination_offset (int): Non-negative number of entries to skip. [optional] if omitted the server will use the default value of 0
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -1074,8 +1074,8 @@ class ReportInstanceApi(object):
             section_filter (str): Acts as a filter for the retrieval process. Filters the report instances that match the section filter. [optional]
             output_format (str): Acts as a filter for the retrieval process. Filters the report instances that match the output format. [optional]
             sort ([str]): The column to sort on. Append - to sort in descending order. If parameter is not given, sorting will be based on the report instance id in descending order. [optional]
-            pagination_limit (int): Non-negative maximum number of entries to return. [optional]
-            pagination_offset (int): Non-negative number of entries to skip. [optional]
+            pagination_limit (int): Non-negative maximum number of entries to return. [optional] if omitted the server will use the default value of 25
+            pagination_offset (int): Non-negative number of entries to skip. [optional] if omitted the server will use the default value of 0
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -1128,8 +1128,8 @@ class ReportInstanceApi(object):
             section_filter (str): Acts as a filter for the retrieval process. Filters the report instances that match the section filter. [optional]
             output_format (str): Acts as a filter for the retrieval process. Filters the report instances that match the output format. [optional]
             sort ([str]): The column to sort on. Append - to sort in descending order. If parameter is not given, sorting will be based on the report instance id in descending order. [optional]
-            pagination_limit (int): Non-negative maximum number of entries to return. [optional]
-            pagination_offset (int): Non-negative number of entries to skip. [optional]
+            pagination_limit (int): Non-negative maximum number of entries to return. [optional] if omitted the server will use the default value of 25
+            pagination_offset (int): Non-negative number of entries to skip. [optional] if omitted the server will use the default value of 0
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -1181,8 +1181,8 @@ class ReportInstanceApi(object):
         Keyword Args:
             errors_only (str): If the parameter is set to true the endpoint should return just errors and warnings E.g: errorsOnly=true. [optional]
             sort ([str]): The column to sort on. Can add - to sort. [optional]
-            pagination_limit (int): Non-negative maximum number of entries to return. [optional]
-            pagination_offset (int): Non-negative number of entries to skip. [optional]
+            pagination_limit (int): Non-negative maximum number of entries to return. [optional] if omitted the server will use the default value of 25
+            pagination_offset (int): Non-negative number of entries to skip. [optional] if omitted the server will use the default value of 0
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -1236,8 +1236,8 @@ class ReportInstanceApi(object):
         Keyword Args:
             errors_only (str): If the parameter is set to true the endpoint should return just errors and warnings E.g: errorsOnly=true. [optional]
             sort ([str]): The column to sort on. Can add - to sort. [optional]
-            pagination_limit (int): Non-negative maximum number of entries to return. [optional]
-            pagination_offset (int): Non-negative number of entries to skip. [optional]
+            pagination_limit (int): Non-negative maximum number of entries to return. [optional] if omitted the server will use the default value of 25
+            pagination_offset (int): Non-negative number of entries to skip. [optional] if omitted the server will use the default value of 0
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -1295,8 +1295,8 @@ class ReportInstanceApi(object):
         Keyword Args:
             errors_only (str): If the parameter is set to true the endpoint should return just errors and warnings E.g: errorsOnly=true. [optional]
             sort ([str]): The column to sort on. Can add - to sort. [optional]
-            pagination_limit (int): Non-negative maximum number of entries to return. [optional]
-            pagination_offset (int): Non-negative number of entries to skip. [optional]
+            pagination_limit (int): Non-negative maximum number of entries to return. [optional] if omitted the server will use the default value of 25
+            pagination_offset (int): Non-negative number of entries to skip. [optional] if omitted the server will use the default value of 0
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -1349,8 +1349,8 @@ class ReportInstanceApi(object):
         Keyword Args:
             errors_only (str): If the parameter is set to true the endpoint should return just errors and warnings E.g: errorsOnly=true. [optional]
             sort ([str]): The column to sort on. Can add - to sort. [optional]
-            pagination_limit (int): Non-negative maximum number of entries to return. [optional]
-            pagination_offset (int): Non-negative number of entries to skip. [optional]
+            pagination_limit (int): Non-negative maximum number of entries to return. [optional] if omitted the server will use the default value of 25
+            pagination_offset (int): Non-negative number of entries to skip. [optional] if omitted the server will use the default value of 0
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility

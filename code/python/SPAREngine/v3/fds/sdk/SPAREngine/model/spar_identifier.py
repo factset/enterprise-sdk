@@ -142,8 +142,8 @@ class SPARIdentifier(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            returntype (str, none_type): Benchmark return type.. [optional]  # noqa: E501
-            prefix (str, none_type): Benchmark prefix.. [optional]  # noqa: E501
+            returntype (str, none_type): Account or benchmark return type.. [optional]  # noqa: E501
+            prefix (str, none_type): Account or benchmark prefix.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -229,8 +229,8 @@ class SPARIdentifier(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            returntype (str, none_type): Benchmark return type.. [optional]  # noqa: E501
-            prefix (str, none_type): Benchmark prefix.. [optional]  # noqa: E501
+            returntype (str, none_type): Account or benchmark return type.. [optional]  # noqa: E501
+            prefix (str, none_type): Account or benchmark prefix.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

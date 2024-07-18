@@ -173,8 +173,8 @@ export default class ReportInstanceApi {
      * @param {String} opts.sectionFilter Acts as a filter for the retrieval process. Filters the report instances that match the section filter
      * @param {String} opts.outputFormat Acts as a filter for the retrieval process. Filters the report instances that match the output format
      * @param {Array.<String>} opts.sort The column to sort on. Append - to sort in descending order. If parameter is not given, sorting will be based on the report instance id in descending order
-     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return
-     * @param {Number} opts.paginationOffset Non-negative number of entries to skip
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return (default to 25)
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip (default to 0)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ReportInstanceList} and HTTP response
      */
     getAllReportInstancesWithHttpInfo(tenant, opts) {
@@ -228,8 +228,8 @@ export default class ReportInstanceApi {
      * @param {String} opts.sectionFilter Acts as a filter for the retrieval process. Filters the report instances that match the section filter
      * @param {String} opts.outputFormat Acts as a filter for the retrieval process. Filters the report instances that match the output format
      * @param {Array.<String>} opts.sort The column to sort on. Append - to sort in descending order. If parameter is not given, sorting will be based on the report instance id in descending order
-     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return
-     * @param {Number} opts.paginationOffset Non-negative number of entries to skip
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return (default to 25)
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip (default to 0)
      * @return { Promise.< module:model/ReportInstanceList > } a Promise, with data of type {@link module:model/ReportInstanceList }
      */
     getAllReportInstances(tenant, opts) {
@@ -248,8 +248,8 @@ export default class ReportInstanceApi {
      * @param {Object} opts Optional parameters
      * @param {String} opts.errorsOnly If the parameter is set to true the endpoint should return just errors and warnings E.g: errorsOnly=true
      * @param {Array.<String>} opts.sort The column to sort on. Can add - to sort
-     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return
-     * @param {Number} opts.paginationOffset Non-negative number of entries to skip
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return (default to 25)
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip (default to 0)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ReportInstanceLogList} and HTTP response
      */
     getReportGenerationLogsWithHttpInfo(tenant, reportInstanceId, opts) {
@@ -301,8 +301,8 @@ export default class ReportInstanceApi {
      * @param {Object} opts Optional parameters
      * @param {String} opts.errorsOnly If the parameter is set to true the endpoint should return just errors and warnings E.g: errorsOnly=true
      * @param {Array.<String>} opts.sort The column to sort on. Can add - to sort
-     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return
-     * @param {Number} opts.paginationOffset Non-negative number of entries to skip
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return (default to 25)
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip (default to 0)
      * @return { Promise.< module:model/ReportInstanceLogList > } a Promise, with data of type {@link module:model/ReportInstanceLogList }
      */
     getReportGenerationLogs(tenant, reportInstanceId, opts) {

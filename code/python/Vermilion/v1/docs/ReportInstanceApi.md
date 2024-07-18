@@ -65,8 +65,8 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     api_instance = report_instance_api.ReportInstanceApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    tenant = "XXXXXXXXXX" # str | The code of the tenancy
-    report_instance_id = "123456789" # str | The id of the report instance
+    tenant = "TENANT" # str | The code of the tenancy
+    report_instance_id = "123456" # str | The id of the report instance
 
     try:
         # Cancels a report generation
@@ -165,8 +165,8 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     api_instance = report_instance_api.ReportInstanceApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    tenant = "XXXXXXXXXX" # str | The code of the tenancy
-    report_instance_id = "123456789" # str | Used to validate that report file name belongs to the report instance passed
+    tenant = "TENANT" # str | The code of the tenancy
+    report_instance_id = "123456" # str | Used to validate that report file name belongs to the report instance passed
     report_file_name = "xyz.pdf" # str | The report file name that has to be retrieved. report file name. E.g: xyz.pdf
 
     try:
@@ -267,15 +267,15 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     api_instance = report_instance_api.ReportInstanceApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    tenant = "XXXXXXXXXX" # str | The code of the tenancy
-    report_definition_code = "XXXXXXXXXX" # str | Acts as a filter for the retrieval process. Filters the report instances that match the report definition code (optional)
+    tenant = "TENANT" # str | The code of the tenancy
+    report_definition_code = "RPCODE" # str | Acts as a filter for the retrieval process. Filters the report instances that match the report definition code (optional)
     entity_codes = "SYSTEM_LANG" # str | A series of query parameters used to filter the report instances by entity code. E.g: entityCode=DATE&entityCode=SYSTEM_LANG (optional)
     entity_keys = "en-gb" # str | A series of query parameters used to filter the report instances by entity keys. E.g: entityKey=en-gb (optional)
     section_filter = "testFilter" # str | Acts as a filter for the retrieval process. Filters the report instances that match the section filter (optional)
     output_format = "pdf" # str | Acts as a filter for the retrieval process. Filters the report instances that match the output format (optional)
     sort = ["reportInstanceId"] # [str] | The column to sort on. Append - to sort in descending order. If parameter is not given, sorting will be based on the report instance id in descending order (optional)
-    pagination_limit = 25 # int | Non-negative maximum number of entries to return (optional)
-    pagination_offset = 0 # int | Non-negative number of entries to skip (optional)
+    pagination_limit = 10 # int | Non-negative maximum number of entries to return (optional) if omitted the server will use the default value of 25
+    pagination_offset = 0 # int | Non-negative number of entries to skip (optional) if omitted the server will use the default value of 0
 
     try:
         # Gets a list of report instances
@@ -301,8 +301,8 @@ Name | Type | Description  | Notes
  **section_filter** | **str**| Acts as a filter for the retrieval process. Filters the report instances that match the section filter | [optional]
  **output_format** | **str**| Acts as a filter for the retrieval process. Filters the report instances that match the output format | [optional]
  **sort** | **[str]**| The column to sort on. Append - to sort in descending order. If parameter is not given, sorting will be based on the report instance id in descending order | [optional]
- **pagination_limit** | **int**| Non-negative maximum number of entries to return | [optional]
- **pagination_offset** | **int**| Non-negative number of entries to skip | [optional]
+ **pagination_limit** | **int**| Non-negative maximum number of entries to return | [optional] if omitted the server will use the default value of 25
+ **pagination_offset** | **int**| Non-negative number of entries to skip | [optional] if omitted the server will use the default value of 0
 
 ### Return type
 
@@ -381,12 +381,12 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     api_instance = report_instance_api.ReportInstanceApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    tenant = "XXXXXXXXXX" # str | The code of the tenancy
-    report_instance_id = "123456789" # str | Used to validate that report file name belongs to the report instance passed
+    tenant = "TENANT" # str | The code of the tenancy
+    report_instance_id = "123456" # str | Used to validate that report file name belongs to the report instance passed
     errors_only = "true" # str | If the parameter is set to true the endpoint should return just errors and warnings E.g: errorsOnly=true (optional)
     sort = ["sequenceNumber"] # [str] | The column to sort on. Can add - to sort (optional)
-    pagination_limit = 25 # int | Non-negative maximum number of entries to return (optional)
-    pagination_offset = 0 # int | Non-negative number of entries to skip (optional)
+    pagination_limit = 10 # int | Non-negative maximum number of entries to return (optional) if omitted the server will use the default value of 25
+    pagination_offset = 0 # int | Non-negative number of entries to skip (optional) if omitted the server will use the default value of 0
 
     try:
         # Gets a list of logs for the report instance generation
@@ -409,8 +409,8 @@ Name | Type | Description  | Notes
  **report_instance_id** | **str**| Used to validate that report file name belongs to the report instance passed |
  **errors_only** | **str**| If the parameter is set to true the endpoint should return just errors and warnings E.g: errorsOnly&#x3D;true | [optional]
  **sort** | **[str]**| The column to sort on. Can add - to sort | [optional]
- **pagination_limit** | **int**| Non-negative maximum number of entries to return | [optional]
- **pagination_offset** | **int**| Non-negative number of entries to skip | [optional]
+ **pagination_limit** | **int**| Non-negative maximum number of entries to return | [optional] if omitted the server will use the default value of 25
+ **pagination_offset** | **int**| Non-negative number of entries to skip | [optional] if omitted the server will use the default value of 0
 
 ### Return type
 
@@ -490,8 +490,8 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     api_instance = report_instance_api.ReportInstanceApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    report_instance_id = "1256789" # str | The ID of the report instance
-    tenant = "XXXXXXXXXX" # str | The code of the tenancy
+    report_instance_id = "123456" # str | The ID of the report instance
+    tenant = "TENANT" # str | The code of the tenancy
 
     try:
         # Gets a report instance based on the ID

@@ -61,10 +61,10 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     api_instance = report_api.ReportApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    tenant = "XXXXXXXXXX" # str | The code of the tenancy
+    tenant = "TENANT" # str | The code of the tenancy
     sort = ["name"] # [str] | The column to sort on. Can add - to sort (optional)
-    pagination_limit = 25 # int | Non-negative maximum number of entries to return (optional)
-    pagination_offset = 0 # int | Non-negative number of entries to skip (optional)
+    pagination_limit = 10 # int | Non-negative maximum number of entries to return (optional) if omitted the server will use the default value of 25
+    pagination_offset = 0 # int | Non-negative number of entries to skip (optional) if omitted the server will use the default value of 0
 
     try:
         # Gets all report definitions
@@ -85,8 +85,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenant** | **str**| The code of the tenancy |
  **sort** | **[str]**| The column to sort on. Can add - to sort | [optional]
- **pagination_limit** | **int**| Non-negative maximum number of entries to return | [optional]
- **pagination_offset** | **int**| Non-negative number of entries to skip | [optional]
+ **pagination_limit** | **int**| Non-negative maximum number of entries to return | [optional] if omitted the server will use the default value of 25
+ **pagination_offset** | **int**| Non-negative number of entries to skip | [optional] if omitted the server will use the default value of 0
 
 ### Return type
 
@@ -166,8 +166,8 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     api_instance = report_api.ReportApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    tenant = "XXXXXXXXXX" # str | The code of the tenancy
-    report_definition_code = "XXXXXXXXXX" # str | The code of the report definition
+    tenant = "TENANT" # str | The code of the tenancy
+    report_definition_code = "RPCODE" # str | The code of the report definition
 
     try:
         # Gets a report definition

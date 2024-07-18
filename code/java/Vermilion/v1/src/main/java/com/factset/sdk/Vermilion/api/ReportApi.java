@@ -73,8 +73,8 @@ public class ReportApi {
    * Gets all report definitions the user has permissions for
    * @param tenant The code of the tenancy (required)
    * @param sort The column to sort on. Can add - to sort (optional)
-   * @param paginationLimit Non-negative maximum number of entries to return (optional)
-   * @param paginationOffset Non-negative number of entries to skip (optional)
+   * @param paginationLimit Non-negative maximum number of entries to return (optional, default to 25)
+   * @param paginationOffset Non-negative number of entries to skip (optional, default to 0)
    * @return ReportDefinitionList
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -96,8 +96,8 @@ public class ReportApi {
    * Gets all report definitions the user has permissions for
    * @param tenant The code of the tenancy (required)
    * @param sort The column to sort on. Can add - to sort (optional)
-   * @param paginationLimit Non-negative maximum number of entries to return (optional)
-   * @param paginationOffset Non-negative number of entries to skip (optional)
+   * @param paginationLimit Non-negative maximum number of entries to return (optional, default to 25)
+   * @param paginationOffset Non-negative number of entries to skip (optional, default to 0)
    * @return ApiResponse&lt;ReportDefinitionList&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details

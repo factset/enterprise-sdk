@@ -49,13 +49,13 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new EntityApi();
-const tenant = XXXXXXXXXX; // String | The code of the tenancy
-const entityCode = XXXXXXXXXX; // String | The code of the entity
+const tenant = TENANT; // String | The code of the tenancy
+const entityCode = ENTCODE; // String | The code of the entity
 const opts = {
   'sort': ["entity key field"], // [String] | The entity field to sort on. Can only be sorted on entity key, description or secondary key fields. Append \"-\" to sort in descending order. If no parameter given, it will be sorted by key field in ascending order by default
-  'paginationLimit': 25, // Number | Non-negative maximum number of entries to return. Default is 25
+  'paginationLimit': 10, // Number | Non-negative maximum number of entries to return. Default is 25
   'paginationOffset': 0, // Number | Non-negative number of entries to skip. Default is 0
-  'showAll': 1 // Number | Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false)
+  'showAll': 1 // Number | Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false). Otherwise, show all field values in a JSON array named \"fieldsWithValues\", with each array value being a string in the format of \"**<FIELD_NAME> : <FIELD_VALUE>**\". Both key and description field values will be included in this JSON array too.
 };
 
 // Call api endpoint
@@ -81,9 +81,9 @@ Name | Type | Description  | Notes
  **tenant** | **String**| The code of the tenancy | 
  **entityCode** | **String**| The code of the entity | 
  **sort** | [**[String]**](String.md)| The entity field to sort on. Can only be sorted on entity key, description or secondary key fields. Append \&quot;-\&quot; to sort in descending order. If no parameter given, it will be sorted by key field in ascending order by default | [optional] 
- **paginationLimit** | **Number**| Non-negative maximum number of entries to return. Default is 25 | [optional] 
- **paginationOffset** | **Number**| Non-negative number of entries to skip. Default is 0 | [optional] 
- **showAll** | **Number**| Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false) | [optional] 
+ **paginationLimit** | **Number**| Non-negative maximum number of entries to return. Default is 25 | [optional] [default to 25]
+ **paginationOffset** | **Number**| Non-negative number of entries to skip. Default is 0 | [optional] [default to 0]
+ **showAll** | **Number**| Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false). Otherwise, show all field values in a JSON array named \&quot;fieldsWithValues\&quot;, with each array value being a string in the format of \&quot;**&lt;FIELD_NAME&gt; : &lt;FIELD_VALUE&gt;**\&quot;. Both key and description field values will be included in this JSON array too. | [optional] [default to 0]
 
 ### Return type
 

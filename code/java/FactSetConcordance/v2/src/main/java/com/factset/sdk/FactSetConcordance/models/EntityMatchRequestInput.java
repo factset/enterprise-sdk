@@ -1,6 +1,6 @@
 /*
  * FactSet Concordance API
- *   The FactSet Concordance API enables Application Developers and Data Scientists to programmatically discover the FactSet Identifier for a specific Entity or Person based on attributes, such as name, URL, and location.FactSet Identifiers are mapped to industry-standard identifiers, as well as to a comprehensive set of reference data and unique content, to enhance the ability to quickly connect content sets.<p>     Using the submitted attributes, the FactSet Concordance API leverages FactSet’s extensive Entity Master, People, and Symbology databases to return potential candidate matches and a proposed match. The result is a concorded FactSet Identifier that can then be used as input throughout FactSet's expanding catalog of Content using our Content APIs or Standard DataFeeds.</p>    <b>There are two types of workflows supported in the API:</b>    <b>Entity & People Match:</b> The first workflow follows traditional API conventions in that a request is accepted and a response is returned synchronously enabling the concordance of up to 25 names in a single request. The response returns a list of 20 candidates as well as a proposed match.    <b>Entity & People Match - Bulk:</b> The second workflow allows you to input a large list of names within a .CSV file in a single request With this workflow, a task is created for uploading a set of queries. Once the task has completed, the client retrieves the concordance results through the /entity-decisions or /people-decisions endpoint. Note that in the Bulk workflow, only the matches for the records are returned. Candidates are not included.    Once the service has provided a list of concorded FactSet Identifiers, you can then use our Entity Mappings and People Mappings endpoints to further review the universe of mapped identifiers or modify existing records. </p>   
+ *   The FactSet Concordance API enables Application Developers and Data Scientists to programmatically discover the FactSet Identifier for a specific Entity or Person based on attributes, such as name, URL, and location.FactSet Identifiers are mapped to industry-standard identifiers, as well as to a comprehensive set of reference data and unique content, to enhance the ability to quickly connect content sets.<p>     Using the submitted attributes, the FactSet Concordance API leverages FactSet’s extensive Entity Master, People, and Symbology databases to return potential candidate matches and a proposed match. The result is a concorded FactSet Identifier that can then be used as input throughout FactSet's expanding catalog of Content using our Content APIs or Standard DataFeeds.</p>    <b>There are two types of workflows supported in the API:</b>    <b>Entity & People Match:</b> The first workflow follows traditional API conventions in that a request is accepted and a response is returned synchronously enabling the concordance of up to 25 names in a single request. The response returns a list of 20 candidates as well as a proposed match.    <b>Entity & People Match - Bulk:</b> The second workflow allows you to input a large list of names within a .CSV file in a single request With this workflow, a task is created for uploading a set of queries. Once the task has completed, the client retrieves the concordance results through the /entity-decisions or /people-decisions endpoint. Note that in the Bulk workflow, only the matches for the records are returned. Candidates are not included.    Once the service has provided a list of concorded FactSet Identifiers, you can then use our Entity Mappings and People Mappings endpoints to further review the universe of mapped identifiers or modify existing records. </p><p><b>Rate limit is set to 10 requests per second</b>.</p>    Methodology Guide link:   [https://open.factset.com/api/public/media/download/products/documents/8ca33e81-a7da-4d77-a8cf-2b3a2e868b3d](https://open.factset.com/api/public/media/download/products/documents/8ca33e81-a7da-4d77-a8cf-2b3a2e868b3d)    
  *
  * The version of the OpenAPI document: 2.8.0
  * Contact: api@factset.com
@@ -235,7 +235,7 @@ public class EntityMatchRequestInput implements Serializable {
    * @return name
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(example = "Amazon", required = true, value = "The Name of the entity to match.")
+  @ApiModelProperty(example = "Tesla", required = true, value = "The Name of the entity to match.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -313,7 +313,7 @@ public class EntityMatchRequestInput implements Serializable {
    * @return state
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "CT", value = "Two-character state code corresponding to the entity name that is used when evaluating candidates for a match. Currently, only US state codes are supported.Two character state or province code to filter on. ")
+  @ApiModelProperty(example = "TX", value = "Two-character state code corresponding to the entity name that is used when evaluating candidates for a match. Currently, only US state codes are supported.Two character state or province code to filter on. ")
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -339,7 +339,7 @@ public class EntityMatchRequestInput implements Serializable {
    * @return url
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "www.amazon.com", value = "URL corresponding to the entity name that is used when evaluating candidates for a match. ")
+  @ApiModelProperty(example = "www.tesla.com", value = "URL corresponding to the entity name that is used when evaluating candidates for a match. ")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -391,7 +391,7 @@ public class EntityMatchRequestInput implements Serializable {
    * @return bbgFigi
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "BBG009S39JY5", value = "Name for the type Bloomberg Listing/Regional/Security ID.")
+  @ApiModelProperty(example = "BBG000N9P426", value = "Name for the type Bloomberg Listing/Regional/Security ID.")
   @JsonProperty(JSON_PROPERTY_BBG_FIGI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -417,7 +417,7 @@ public class EntityMatchRequestInput implements Serializable {
    * @return bbgTicker
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "GOOGL UW", value = "Name for the type Bloomberg Listing and Regional Ticker.")
+  @ApiModelProperty(example = "TSLA UW", value = "Name for the type Bloomberg Listing and Regional Ticker.")
   @JsonProperty(JSON_PROPERTY_BBG_TICKER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -443,7 +443,7 @@ public class EntityMatchRequestInput implements Serializable {
    * @return bic
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ABXXHKH1", value = "Name for type BICCode, bank indentification code")
+  @ApiModelProperty(example = "TSLAUS66", value = "Name for type BICCode, bank indentification code")
   @JsonProperty(JSON_PROPERTY_BIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -469,7 +469,7 @@ public class EntityMatchRequestInput implements Serializable {
    * @return cik
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "100331", value = "Name for the type CIK, Edgar Central Index Keys")
+  @ApiModelProperty(example = "0001318605", value = "Name for the type CIK, Edgar Central Index Keys")
   @JsonProperty(JSON_PROPERTY_CIK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -495,7 +495,7 @@ public class EntityMatchRequestInput implements Serializable {
    * @return crd
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "149722", value = "Name for the type CRD, Central Registration Depository")
+  @ApiModelProperty(example = "", value = "Name for the type CRD, Central Registration Depository")
   @JsonProperty(JSON_PROPERTY_CRD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -521,7 +521,7 @@ public class EntityMatchRequestInput implements Serializable {
    * @return cusip
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "02079K305", value = "Name for the type CUSIP.")
+  @ApiModelProperty(example = "88160R101", value = "Name for the type CUSIP.")
   @JsonProperty(JSON_PROPERTY_CUSIP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -547,7 +547,7 @@ public class EntityMatchRequestInput implements Serializable {
    * @return duns
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "687741991", value = "Name for the type DUNS, Dun&Bradstreet.")
+  @ApiModelProperty(example = "", value = "Name for the type DUNS, Dun&Bradstreet.")
   @JsonProperty(JSON_PROPERTY_DUNS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -573,7 +573,7 @@ public class EntityMatchRequestInput implements Serializable {
    * @return ein
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "953540776", value = "Name for the type EmployerIdentificationNumber, EIN.")
+  @ApiModelProperty(example = "", value = "Name for the type EmployerIdentificationNumber, EIN.")
   @JsonProperty(JSON_PROPERTY_EIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -599,7 +599,7 @@ public class EntityMatchRequestInput implements Serializable {
    * @return factsetId
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "0013TZ-E", value = "Name for the type FactSet Identifier, FactSet -E,-S,-R, -L Permanent Identifier.")
+  @ApiModelProperty(example = "006XY7-E", value = "Name for the type FactSet Identifier, FactSet -E,-S,-R, -L Permanent Identifier.")
   @JsonProperty(JSON_PROPERTY_FACTSET_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -625,7 +625,7 @@ public class EntityMatchRequestInput implements Serializable {
    * @return fitch
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "47504", value = "Name for the type FitchCreditRating, Fitch Ratings Identifier.")
+  @ApiModelProperty(example = "", value = "Name for the type FitchCreditRating, Fitch Ratings Identifier.")
   @JsonProperty(JSON_PROPERTY_FITCH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -651,7 +651,7 @@ public class EntityMatchRequestInput implements Serializable {
    * @return gvkey
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "107481", value = "Name for the type GVKEY, Compustat Global Company Key.")
+  @ApiModelProperty(example = "", value = "Name for the type GVKEY, Compustat Global Company Key.")
   @JsonProperty(JSON_PROPERTY_GVKEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -677,7 +677,7 @@ public class EntityMatchRequestInput implements Serializable {
    * @return gvkeyIid
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "107481001", value = "Name for the type GVKEY+IID, Compustat Global Company Key and Issue Identifier.")
+  @ApiModelProperty(example = "", value = "Name for the type GVKEY+IID, Compustat Global Company Key and Issue Identifier.")
   @JsonProperty(JSON_PROPERTY_GVKEY_IID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -703,7 +703,7 @@ public class EntityMatchRequestInput implements Serializable {
    * @return isin
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "US02079K305", value = "Name for the type ISIN.")
+  @ApiModelProperty(example = "US88160R1014", value = "Name for the type ISIN.")
   @JsonProperty(JSON_PROPERTY_ISIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -729,7 +729,7 @@ public class EntityMatchRequestInput implements Serializable {
    * @return jcn
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "3120001077477", value = "Name for the type JCN , Japanese Corporate Number.")
+  @ApiModelProperty(example = "", value = "Name for the type JCN , Japanese Corporate Number.")
   @JsonProperty(JSON_PROPERTY_JCN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -755,7 +755,7 @@ public class EntityMatchRequestInput implements Serializable {
    * @return lei
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "549300A6K7JX8EX2QZ33", value = "Name for the type LegalEntityIdentifier, LEI.")
+  @ApiModelProperty(example = "54930043XZGB27CTOV49", value = "Name for the type LegalEntityIdentifier, LEI.")
   @JsonProperty(JSON_PROPERTY_LEI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -781,7 +781,7 @@ public class EntityMatchRequestInput implements Serializable {
    * @return lxid
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "LX113630", value = "Name for the type LXID, Markit Syndicated Loan Identifier.")
+  @ApiModelProperty(example = "", value = "Name for the type LXID, Markit Syndicated Loan Identifier.")
   @JsonProperty(JSON_PROPERTY_LXID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -807,7 +807,7 @@ public class EntityMatchRequestInput implements Serializable {
    * @return md
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "823736553", value = "Name for the type MoodysIssuer, Moody's Ratings Identifier.")
+  @ApiModelProperty(example = "823642219", value = "Name for the type MoodysIssuer, Moody's Ratings Identifier.")
   @JsonProperty(JSON_PROPERTY_MD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -833,7 +833,7 @@ public class EntityMatchRequestInput implements Serializable {
    * @return redCode
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "4C933G", value = "Name for the type RedCode, Markit Reference Entity Identifier.")
+  @ApiModelProperty(example = "", value = "Name for the type RedCode, Markit Reference Entity Identifier.")
   @JsonProperty(JSON_PROPERTY_RED_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -859,7 +859,7 @@ public class EntityMatchRequestInput implements Serializable {
    * @return rssd
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "1139297", value = "Name for the type FederalReserveRSSDIdentifier, RSSD.")
+  @ApiModelProperty(example = "", value = "Name for the type FederalReserveRSSDIdentifier, RSSD.")
   @JsonProperty(JSON_PROPERTY_RSSD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -885,7 +885,7 @@ public class EntityMatchRequestInput implements Serializable {
    * @return sedol
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "BYZ5YB6", value = "Name for the type SEDOL.")
+  @ApiModelProperty(example = "B616C79", value = "Name for the type SEDOL.")
   @JsonProperty(JSON_PROPERTY_SEDOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -911,7 +911,7 @@ public class EntityMatchRequestInput implements Serializable {
    * @return spr
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "301939", value = "Name for the type S&PRating, S&P Ratings Identifier.")
+  @ApiModelProperty(example = "562703", value = "Name for the type S&PRating, S&P Ratings Identifier.")
   @JsonProperty(JSON_PROPERTY_SPR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -963,7 +963,7 @@ public class EntityMatchRequestInput implements Serializable {
    * @return tickerExchange
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "GOOGL-NAS", value = "Name for the type TickerExch.")
+  @ApiModelProperty(example = "TSLA-NAS", value = "Name for the type TickerExch.")
   @JsonProperty(JSON_PROPERTY_TICKER_EXCHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -989,7 +989,7 @@ public class EntityMatchRequestInput implements Serializable {
    * @return tickerRegion
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "GOOGL-US", value = "Name for the type TickerRegion")
+  @ApiModelProperty(example = "TSLA-US", value = "Name for the type TickerRegion")
   @JsonProperty(JSON_PROPERTY_TICKER_REGION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -1041,7 +1041,7 @@ public class EntityMatchRequestInput implements Serializable {
    * @return valoren
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "685558", value = "Name for the type VALOR, Valoren (\"Valor\") Identification.")
+  @ApiModelProperty(example = "", value = "Name for the type VALOR, Valoren (\"Valor\") Identification.")
   @JsonProperty(JSON_PROPERTY_VALOREN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -1067,7 +1067,7 @@ public class EntityMatchRequestInput implements Serializable {
    * @return wkn
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "A0MU9T", value = "Name for the type WKN, German Securities Identification.")
+  @ApiModelProperty(example = "A1CX3T", value = "Name for the type WKN, German Securities Identification.")
   @JsonProperty(JSON_PROPERTY_WKN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -1101,7 +1101,7 @@ public class EntityMatchRequestInput implements Serializable {
    * @return additionalContext
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "{\"Address\":\"123 Main St\",\"Phone\":\"555-555-5555\",\"City\":\"New York\"}", value = "Any additional context information along with other input values that need to be saved for an entity during search.  To be used by Managed Service for any unmapped records.  This is applicable when saving the records with clientId and universeId specified. ")
+  @ApiModelProperty(example = "{\"Address\":\"1 Tesla Road\",\"Phone\":\"1-800 662 7232\",\"City\":\"Austin\"}", value = "Any additional context information along with other input values that need to be saved for an entity during search.  To be used by Managed Service for any unmapped records.  This is applicable when saving the records with clientId and universeId specified. ")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_CONTEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

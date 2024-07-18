@@ -90,8 +90,8 @@ namespace FactSet.SDK.Vermilion.Api
         /// <param name="sectionFilter">Acts as a filter for the retrieval process. Filters the report instances that match the section filter (optional)</param>
         /// <param name="outputFormat">Acts as a filter for the retrieval process. Filters the report instances that match the output format (optional)</param>
         /// <param name="sort">The column to sort on. Append - to sort in descending order. If parameter is not given, sorting will be based on the report instance id in descending order (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip (optional, default to 0)</param>
         /// <returns>ReportInstanceList</returns>
         ReportInstanceList GetAllReportInstances(string tenant, string reportDefinitionCode = default(string), string entityCodes = default(string), string entityKeys = default(string), string sectionFilter = default(string), string outputFormat = default(string), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?));
 
@@ -109,8 +109,8 @@ namespace FactSet.SDK.Vermilion.Api
         /// <param name="sectionFilter">Acts as a filter for the retrieval process. Filters the report instances that match the section filter (optional)</param>
         /// <param name="outputFormat">Acts as a filter for the retrieval process. Filters the report instances that match the output format (optional)</param>
         /// <param name="sort">The column to sort on. Append - to sort in descending order. If parameter is not given, sorting will be based on the report instance id in descending order (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip (optional, default to 0)</param>
         /// <returns>ApiResponse of ReportInstanceList</returns>
         ApiResponse<ReportInstanceList> GetAllReportInstancesWithHttpInfo(string tenant, string reportDefinitionCode = default(string), string entityCodes = default(string), string entityKeys = default(string), string sectionFilter = default(string), string outputFormat = default(string), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?));
         /// <summary>
@@ -124,8 +124,8 @@ namespace FactSet.SDK.Vermilion.Api
         /// <param name="reportInstanceId">Used to validate that report file name belongs to the report instance passed</param>
         /// <param name="errorsOnly">If the parameter is set to true the endpoint should return just errors and warnings E.g: errorsOnly&#x3D;true (optional)</param>
         /// <param name="sort">The column to sort on. Can add - to sort (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip (optional, default to 0)</param>
         /// <returns>ReportInstanceLogList</returns>
         ReportInstanceLogList GetReportGenerationLogs(string tenant, string reportInstanceId, string errorsOnly = default(string), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?));
 
@@ -140,8 +140,8 @@ namespace FactSet.SDK.Vermilion.Api
         /// <param name="reportInstanceId">Used to validate that report file name belongs to the report instance passed</param>
         /// <param name="errorsOnly">If the parameter is set to true the endpoint should return just errors and warnings E.g: errorsOnly&#x3D;true (optional)</param>
         /// <param name="sort">The column to sort on. Can add - to sort (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip (optional, default to 0)</param>
         /// <returns>ApiResponse of ReportInstanceLogList</returns>
         ApiResponse<ReportInstanceLogList> GetReportGenerationLogsWithHttpInfo(string tenant, string reportInstanceId, string errorsOnly = default(string), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?));
         /// <summary>
@@ -263,8 +263,8 @@ namespace FactSet.SDK.Vermilion.Api
         /// <param name="sectionFilter">Acts as a filter for the retrieval process. Filters the report instances that match the section filter (optional)</param>
         /// <param name="outputFormat">Acts as a filter for the retrieval process. Filters the report instances that match the output format (optional)</param>
         /// <param name="sort">The column to sort on. Append - to sort in descending order. If parameter is not given, sorting will be based on the report instance id in descending order (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ReportInstanceList</returns>
         System.Threading.Tasks.Task<ReportInstanceList> GetAllReportInstancesAsync(string tenant, string reportDefinitionCode = default(string), string entityCodes = default(string), string entityKeys = default(string), string sectionFilter = default(string), string outputFormat = default(string), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -283,8 +283,8 @@ namespace FactSet.SDK.Vermilion.Api
         /// <param name="sectionFilter">Acts as a filter for the retrieval process. Filters the report instances that match the section filter (optional)</param>
         /// <param name="outputFormat">Acts as a filter for the retrieval process. Filters the report instances that match the output format (optional)</param>
         /// <param name="sort">The column to sort on. Append - to sort in descending order. If parameter is not given, sorting will be based on the report instance id in descending order (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ReportInstanceList)</returns>
         System.Threading.Tasks.Task<ApiResponse<ReportInstanceList>> GetAllReportInstancesWithHttpInfoAsync(string tenant, string reportDefinitionCode = default(string), string entityCodes = default(string), string entityKeys = default(string), string sectionFilter = default(string), string outputFormat = default(string), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -299,8 +299,8 @@ namespace FactSet.SDK.Vermilion.Api
         /// <param name="reportInstanceId">Used to validate that report file name belongs to the report instance passed</param>
         /// <param name="errorsOnly">If the parameter is set to true the endpoint should return just errors and warnings E.g: errorsOnly&#x3D;true (optional)</param>
         /// <param name="sort">The column to sort on. Can add - to sort (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ReportInstanceLogList</returns>
         System.Threading.Tasks.Task<ReportInstanceLogList> GetReportGenerationLogsAsync(string tenant, string reportInstanceId, string errorsOnly = default(string), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -316,8 +316,8 @@ namespace FactSet.SDK.Vermilion.Api
         /// <param name="reportInstanceId">Used to validate that report file name belongs to the report instance passed</param>
         /// <param name="errorsOnly">If the parameter is set to true the endpoint should return just errors and warnings E.g: errorsOnly&#x3D;true (optional)</param>
         /// <param name="sort">The column to sort on. Can add - to sort (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ReportInstanceLogList)</returns>
         System.Threading.Tasks.Task<ApiResponse<ReportInstanceLogList>> GetReportGenerationLogsWithHttpInfoAsync(string tenant, string reportInstanceId, string errorsOnly = default(string), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -989,8 +989,8 @@ namespace FactSet.SDK.Vermilion.Api
         /// <param name="sectionFilter">Acts as a filter for the retrieval process. Filters the report instances that match the section filter (optional)</param>
         /// <param name="outputFormat">Acts as a filter for the retrieval process. Filters the report instances that match the output format (optional)</param>
         /// <param name="sort">The column to sort on. Append - to sort in descending order. If parameter is not given, sorting will be based on the report instance id in descending order (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip (optional, default to 0)</param>
         /// <returns>ReportInstanceList</returns>
         public ReportInstanceList GetAllReportInstances(string tenant, string reportDefinitionCode = default(string), string entityCodes = default(string), string entityKeys = default(string), string sectionFilter = default(string), string outputFormat = default(string), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?))
         {
@@ -1009,8 +1009,8 @@ namespace FactSet.SDK.Vermilion.Api
         /// <param name="sectionFilter">Acts as a filter for the retrieval process. Filters the report instances that match the section filter (optional)</param>
         /// <param name="outputFormat">Acts as a filter for the retrieval process. Filters the report instances that match the output format (optional)</param>
         /// <param name="sort">The column to sort on. Append - to sort in descending order. If parameter is not given, sorting will be based on the report instance id in descending order (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip (optional, default to 0)</param>
         /// <returns>ApiResponse of ReportInstanceList</returns>
         public ApiResponse<ReportInstanceList> GetAllReportInstancesWithHttpInfo(string tenant, string reportDefinitionCode = default(string), string entityCodes = default(string), string entityKeys = default(string), string sectionFilter = default(string), string outputFormat = default(string), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?))
         {
@@ -1123,8 +1123,8 @@ namespace FactSet.SDK.Vermilion.Api
         /// <param name="sectionFilter">Acts as a filter for the retrieval process. Filters the report instances that match the section filter (optional)</param>
         /// <param name="outputFormat">Acts as a filter for the retrieval process. Filters the report instances that match the output format (optional)</param>
         /// <param name="sort">The column to sort on. Append - to sort in descending order. If parameter is not given, sorting will be based on the report instance id in descending order (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ReportInstanceList</returns>
         public async System.Threading.Tasks.Task<ReportInstanceList>GetAllReportInstancesAsync(string tenant, string reportDefinitionCode = default(string), string entityCodes = default(string), string entityKeys = default(string), string sectionFilter = default(string), string outputFormat = default(string), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1144,8 +1144,8 @@ namespace FactSet.SDK.Vermilion.Api
         /// <param name="sectionFilter">Acts as a filter for the retrieval process. Filters the report instances that match the section filter (optional)</param>
         /// <param name="outputFormat">Acts as a filter for the retrieval process. Filters the report instances that match the output format (optional)</param>
         /// <param name="sort">The column to sort on. Append - to sort in descending order. If parameter is not given, sorting will be based on the report instance id in descending order (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ReportInstanceList)</returns>
 
@@ -1259,8 +1259,8 @@ namespace FactSet.SDK.Vermilion.Api
         /// <param name="reportInstanceId">Used to validate that report file name belongs to the report instance passed</param>
         /// <param name="errorsOnly">If the parameter is set to true the endpoint should return just errors and warnings E.g: errorsOnly&#x3D;true (optional)</param>
         /// <param name="sort">The column to sort on. Can add - to sort (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip (optional, default to 0)</param>
         /// <returns>ReportInstanceLogList</returns>
         public ReportInstanceLogList GetReportGenerationLogs(string tenant, string reportInstanceId, string errorsOnly = default(string), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?))
         {
@@ -1276,8 +1276,8 @@ namespace FactSet.SDK.Vermilion.Api
         /// <param name="reportInstanceId">Used to validate that report file name belongs to the report instance passed</param>
         /// <param name="errorsOnly">If the parameter is set to true the endpoint should return just errors and warnings E.g: errorsOnly&#x3D;true (optional)</param>
         /// <param name="sort">The column to sort on. Can add - to sort (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip (optional, default to 0)</param>
         /// <returns>ApiResponse of ReportInstanceLogList</returns>
         public ApiResponse<ReportInstanceLogList> GetReportGenerationLogsWithHttpInfo(string tenant, string reportInstanceId, string errorsOnly = default(string), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?))
         {
@@ -1378,8 +1378,8 @@ namespace FactSet.SDK.Vermilion.Api
         /// <param name="reportInstanceId">Used to validate that report file name belongs to the report instance passed</param>
         /// <param name="errorsOnly">If the parameter is set to true the endpoint should return just errors and warnings E.g: errorsOnly&#x3D;true (optional)</param>
         /// <param name="sort">The column to sort on. Can add - to sort (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ReportInstanceLogList</returns>
         public async System.Threading.Tasks.Task<ReportInstanceLogList>GetReportGenerationLogsAsync(string tenant, string reportInstanceId, string errorsOnly = default(string), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1396,8 +1396,8 @@ namespace FactSet.SDK.Vermilion.Api
         /// <param name="reportInstanceId">Used to validate that report file name belongs to the report instance passed</param>
         /// <param name="errorsOnly">If the parameter is set to true the endpoint should return just errors and warnings E.g: errorsOnly&#x3D;true (optional)</param>
         /// <param name="sort">The column to sort on. Can add - to sort (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ReportInstanceLogList)</returns>
 

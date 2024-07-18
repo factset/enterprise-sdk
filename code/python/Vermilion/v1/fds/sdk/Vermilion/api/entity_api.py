@@ -163,9 +163,9 @@ class EntityApi(object):
 
         Keyword Args:
             sort ([str]): The entity field to sort on. Can only be sorted on entity key, description or secondary key fields. Append \"-\" to sort in descending order. If no parameter given, it will be sorted by key field in ascending order by default. [optional]
-            pagination_limit (int): Non-negative maximum number of entries to return. Default is 25. [optional]
-            pagination_offset (int): Non-negative number of entries to skip. Default is 0. [optional]
-            show_all (int): Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false). [optional]
+            pagination_limit (int): Non-negative maximum number of entries to return. Default is 25. [optional] if omitted the server will use the default value of 25
+            pagination_offset (int): Non-negative number of entries to skip. Default is 0. [optional] if omitted the server will use the default value of 0
+            show_all (int): Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false). Otherwise, show all field values in a JSON array named \"fieldsWithValues\", with each array value being a string in the format of \"**<FIELD_NAME> : <FIELD_VALUE>**\". Both key and description field values will be included in this JSON array too.. [optional] if omitted the server will use the default value of 0
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -218,9 +218,9 @@ class EntityApi(object):
 
         Keyword Args:
             sort ([str]): The entity field to sort on. Can only be sorted on entity key, description or secondary key fields. Append \"-\" to sort in descending order. If no parameter given, it will be sorted by key field in ascending order by default. [optional]
-            pagination_limit (int): Non-negative maximum number of entries to return. Default is 25. [optional]
-            pagination_offset (int): Non-negative number of entries to skip. Default is 0. [optional]
-            show_all (int): Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false). [optional]
+            pagination_limit (int): Non-negative maximum number of entries to return. Default is 25. [optional] if omitted the server will use the default value of 25
+            pagination_offset (int): Non-negative number of entries to skip. Default is 0. [optional] if omitted the server will use the default value of 0
+            show_all (int): Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false). Otherwise, show all field values in a JSON array named \"fieldsWithValues\", with each array value being a string in the format of \"**<FIELD_NAME> : <FIELD_VALUE>**\". Both key and description field values will be included in this JSON array too.. [optional] if omitted the server will use the default value of 0
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -277,9 +277,9 @@ class EntityApi(object):
 
         Keyword Args:
             sort ([str]): The entity field to sort on. Can only be sorted on entity key, description or secondary key fields. Append \"-\" to sort in descending order. If no parameter given, it will be sorted by key field in ascending order by default. [optional]
-            pagination_limit (int): Non-negative maximum number of entries to return. Default is 25. [optional]
-            pagination_offset (int): Non-negative number of entries to skip. Default is 0. [optional]
-            show_all (int): Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false). [optional]
+            pagination_limit (int): Non-negative maximum number of entries to return. Default is 25. [optional] if omitted the server will use the default value of 25
+            pagination_offset (int): Non-negative number of entries to skip. Default is 0. [optional] if omitted the server will use the default value of 0
+            show_all (int): Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false). Otherwise, show all field values in a JSON array named \"fieldsWithValues\", with each array value being a string in the format of \"**<FIELD_NAME> : <FIELD_VALUE>**\". Both key and description field values will be included in this JSON array too.. [optional] if omitted the server will use the default value of 0
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -331,9 +331,9 @@ class EntityApi(object):
 
         Keyword Args:
             sort ([str]): The entity field to sort on. Can only be sorted on entity key, description or secondary key fields. Append \"-\" to sort in descending order. If no parameter given, it will be sorted by key field in ascending order by default. [optional]
-            pagination_limit (int): Non-negative maximum number of entries to return. Default is 25. [optional]
-            pagination_offset (int): Non-negative number of entries to skip. Default is 0. [optional]
-            show_all (int): Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false). [optional]
+            pagination_limit (int): Non-negative maximum number of entries to return. Default is 25. [optional] if omitted the server will use the default value of 25
+            pagination_offset (int): Non-negative number of entries to skip. Default is 0. [optional] if omitted the server will use the default value of 0
+            show_all (int): Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false). Otherwise, show all field values in a JSON array named \"fieldsWithValues\", with each array value being a string in the format of \"**<FIELD_NAME> : <FIELD_VALUE>**\". Both key and description field values will be included in this JSON array too.. [optional] if omitted the server will use the default value of 0
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility

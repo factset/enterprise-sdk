@@ -57,12 +57,12 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         EntityApi apiInstance = new EntityApi(defaultClient);
-        String tenant = "XXXXXXXXXX"; // String | The code of the tenancy
-        String entityCode = "XXXXXXXXXX"; // String | The code of the entity
+        String tenant = "TENANT"; // String | The code of the tenancy
+        String entityCode = "ENTCODE"; // String | The code of the entity
         java.util.List<String> sort = Arrays.asList(); // java.util.List<String> | The entity field to sort on. Can only be sorted on entity key, description or secondary key fields. Append \"-\" to sort in descending order. If no parameter given, it will be sorted by key field in ascending order by default
         Integer paginationLimit = 25; // Integer | Non-negative maximum number of entries to return. Default is 25
         Integer paginationOffset = 0; // Integer | Non-negative number of entries to skip. Default is 0
-        Integer showAll = 1; // Integer | Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false)
+        Integer showAll = 0; // Integer | Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false). Otherwise, show all field values in a JSON array named \"fieldsWithValues\", with each array value being a string in the format of \"**<FIELD_NAME> : <FIELD_VALUE>**\". Both key and description field values will be included in this JSON array too.
         try {
             EntityFieldValueDTO result = apiInstance.getEntityValuesByCode(tenant, entityCode, sort, paginationLimit, paginationOffset, showAll);
             System.out.println(result);
@@ -86,9 +86,9 @@ Name | Type | Description  | Notes
  **tenant** | **String**| The code of the tenancy |
  **entityCode** | **String**| The code of the entity |
  **sort** | **List&lt;String&gt;**| The entity field to sort on. Can only be sorted on entity key, description or secondary key fields. Append \&quot;-\&quot; to sort in descending order. If no parameter given, it will be sorted by key field in ascending order by default | [optional]
- **paginationLimit** | **Integer**| Non-negative maximum number of entries to return. Default is 25 | [optional]
- **paginationOffset** | **Integer**| Non-negative number of entries to skip. Default is 0 | [optional]
- **showAll** | **Integer**| Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false) | [optional]
+ **paginationLimit** | **Integer**| Non-negative maximum number of entries to return. Default is 25 | [optional] [default to 25]
+ **paginationOffset** | **Integer**| Non-negative number of entries to skip. Default is 0 | [optional] [default to 0]
+ **showAll** | **Integer**| Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false). Otherwise, show all field values in a JSON array named \&quot;fieldsWithValues\&quot;, with each array value being a string in the format of \&quot;**&lt;FIELD_NAME&gt; : &lt;FIELD_VALUE&gt;**\&quot;. Both key and description field values will be included in this JSON array too. | [optional] [default to 0]
 
 ### Return type
 

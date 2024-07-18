@@ -43,8 +43,8 @@ export default class DatasourceApi {
      * @param {String} tenant The code of the tenancy
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.sort The column to sort on. Append - to sort in descending order. If parameter is not given, no sorting will be done
-     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. Default is 25
-     * @param {Number} opts.paginationOffset Non-negative number of entries to skip. Default is 0
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. Default is 25 (default to 25)
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip. Default is 0 (default to 0)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DataSourceList} and HTTP response
      */
     getAllDataSourcesWithHttpInfo(tenant, opts) {
@@ -88,8 +88,8 @@ export default class DatasourceApi {
      * @param {String} tenant The code of the tenancy
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.sort The column to sort on. Append - to sort in descending order. If parameter is not given, no sorting will be done
-     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. Default is 25
-     * @param {Number} opts.paginationOffset Non-negative number of entries to skip. Default is 0
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. Default is 25 (default to 25)
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip. Default is 0 (default to 0)
      * @return { Promise.< module:model/DataSourceList > } a Promise, with data of type {@link module:model/DataSourceList }
      */
     getAllDataSources(tenant, opts) {
@@ -166,8 +166,8 @@ export default class DatasourceApi {
      * @param {Object} opts Optional parameters
      * @param {String} opts.entityCodes A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes=ACCOUNT&entityCodes=FUNDS
      * @param {String} opts.entityKeys A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys=1&entityKeys=Test2
-     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. Default is 25
-     * @param {Number} opts.paginationOffset Non-negative number of entries to skip. Default is 0
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. Default is 25 (default to 25)
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip. Default is 0 (default to 0)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DataSourceDataInstance} and HTTP response
      */
     getDataSourceDataWithHttpInfo(tenant, dataSourceCode, opts) {
@@ -219,8 +219,8 @@ export default class DatasourceApi {
      * @param {Object} opts Optional parameters
      * @param {String} opts.entityCodes A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes=ACCOUNT&entityCodes=FUNDS
      * @param {String} opts.entityKeys A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys=1&entityKeys=Test2
-     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. Default is 25
-     * @param {Number} opts.paginationOffset Non-negative number of entries to skip. Default is 0
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. Default is 25 (default to 25)
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip. Default is 0 (default to 0)
      * @return { Promise.< module:model/DataSourceDataInstance > } a Promise, with data of type {@link module:model/DataSourceDataInstance }
      */
     getDataSourceData(tenant, dataSourceCode, opts) {

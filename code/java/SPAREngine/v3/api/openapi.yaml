@@ -18,6 +18,14 @@ servers:
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
+tags:
+- name: Accounts
+- name: Benchmarks
+- name: Components
+- name: Currencies
+- name: Documents
+- name: Frequencies
+- name: SPARCalculations
 paths:
   /analytics/engines/spar/v3/accounts/{accountPath}/returns-type:
     get:
@@ -32,12 +40,22 @@ paths:
         required: true
         schema:
           description: URL encoded account path
+          example: Client:SPAR_Return_Type.ACCT
           type: string
         style: simple
       responses:
         "200":
           content:
             application/json:
+              examples:
+                "200 - Expected Response":
+                  value:
+                    data:
+                      returnsType:
+                      - name: Gross Returns
+                        id: GR
+                      - name: Net Returns
+                        id: NET
               schema:
                 $ref: '#/components/schemas/SPARAccountsRoot'
           description: Expected response, returns the list of return types for the
@@ -80,6 +98,16 @@ paths:
         "400":
           content:
             application/json:
+              examples:
+                "400 - Invalid Calculation parameters":
+                  value:
+                    errors:
+                    - id: 6638AF325EB9FB53
+                      code: BadRequest
+                      title: Failed to process request
+                      detail: 'Invalid filename: Client:SPAR_ACCOUNTS_RETURN_TYPE'
+                      source:
+                        parameter: accountPath
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Invalid account.
@@ -177,6 +205,13 @@ paths:
         "404":
           content:
             application/json:
+              examples:
+                "404 - Invalid Request Parameters":
+                  value:
+                    errors:
+                    - id: 6638ABB8C3FDA065
+                      code: Not found
+                      title: Failed to process request
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Account not found.
@@ -342,6 +377,15 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                "200 - Expected Response":
+                  value:
+                    data:
+                      accounts:
+                      - TEST.ACCT
+                      directories:
+                      - test1
+                      - test2
               schema:
                 $ref: '#/components/schemas/AccountDirectoriesRoot'
           description: Expected response, returns a list of accounts and directories
@@ -480,6 +524,14 @@ paths:
         "404":
           content:
             application/json:
+              examples:
+                "404 - Invalid Request Parameters":
+                  value:
+                    errors:
+                    - id: 6638BA58846CA31D
+                      code: NotFound
+                      title: Failed to process request
+                      detail: Path not found
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Path not found
@@ -644,6 +696,22 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                "200 - Expected Response":
+                  value:
+                    data:
+                      id: R.1000
+                      name: Russell 1000
+                      identifiers:
+                      - id: R.1000
+                        returntype: P
+                        prefix: RUSSELL_P
+                      - id: R.1000
+                        returntype: GTR
+                        prefix: RUSSELL
+                      - id: R.1000
+                        returntype: NTR
+                        prefix: RUSSELL_N
               schema:
                 $ref: '#/components/schemas/SPARBenchmarkRoot'
           description: Expected response, returns the list of prefix and return types
@@ -686,6 +754,16 @@ paths:
         "400":
           content:
             application/json:
+              examples:
+                "400 - Invalid Calculation parameters":
+                  value:
+                    errors:
+                    - id: 665713D675CFE07B
+                      code: BadRequest
+                      title: Failed to process request
+                      detail: Invalid benchmark identifier
+                      source:
+                        parameter: id
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Invalid benchmark identifier.
@@ -783,6 +861,13 @@ paths:
         "404":
           content:
             application/json:
+              examples:
+                "404 - Invalid Request Parameters":
+                  value:
+                    errors:
+                    - id: 6639E3D701245F02
+                      code: NotFound
+                      title: Failed to process request
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Benchmark identifier not found.
@@ -948,6 +1033,16 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                "200 - Expected Response":
+                  value:
+                    data:
+                      "067F5DE2E2A11F9AD734594AA8957E11B633438D0FADFCCE0F423ABEF2FC5F1D":
+                        name: Returns Table
+                        category: Raw Data / Returns
+                      E3238ADBD61A8D52D680131D813BACF68A10149881CC88FC1E2401247812FC02:
+                        name: Cumulative Returns Table
+                        category: Raw Data / Returns
               schema:
                 $ref: '#/components/schemas/ComponentSummaryRoot'
           description: Expected response, returns a list of SPAR components.
@@ -989,6 +1084,16 @@ paths:
         "400":
           content:
             application/json:
+              examples:
+                "400 - Invalid Calculation parameters":
+                  value:
+                    errors:
+                    - id: 665714ADEA2CF3E4
+                      code: BadRequest
+                      title: Failed to process request
+                      detail: Missing or invalid document name provided
+                      source:
+                        parameter: document
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Invalid query parameter provided or Invalid SPAR document name.
@@ -1086,6 +1191,14 @@ paths:
         "404":
           content:
             application/json:
+              examples:
+                "404 - Invalid Request Parameters":
+                  value:
+                    errors:
+                    - id: 6639F63FA9E4E47D
+                      code: NotFound
+                      title: Failed to process request
+                      detail: Document spar_document:/factset not found
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: SPAR Document not found.
@@ -1250,6 +1363,23 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                "200 - Expected Response":
+                  value:
+                    data:
+                      id: 067F5DE2E2A11F9AD734594AA8957E11B633438D0FADFCCE0F423ABEF2FC5F1D
+                      accounts:
+                      - id: R.1000
+                        returntype: GTR
+                        prefix: RUSSELL
+                      benchmarks:
+                        id: R.1000
+                        returntype: P
+                        prefix: RUSSELL_P
+                      currencyIsoCode: USD
+                      path: spar_documents:/factset default document;5;1X9e8MsWpZz
+                      name: 'Multi-Horizon: Annualized Return'
+                      category: Performance / Performance - Horizons
               schema:
                 $ref: '#/components/schemas/SPARComponentRoot'
           description: Expected response, returns the default settings of a SPAR component.
@@ -1291,6 +1421,14 @@ paths:
         "400":
           content:
             application/json:
+              examples:
+                "400 - Invalid Calculation parameters":
+                  value:
+                    errors:
+                    - id: 6639F851C3F252F6
+                      code: BadRequest
+                      title: Failed to process request
+                      detail: 'Invalid component identifier: 067F5DE2E2A1D0FADFCCE0F423ABEF2FC5F1D'
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Invalid SPAR component id.
@@ -1388,6 +1526,15 @@ paths:
         "404":
           content:
             application/json:
+              examples:
+                "404 - Invalid Request Parameters":
+                  value:
+                    errors:
+                    - id: 6639F93E59CA1EED
+                      code: NotFound
+                      title: Failed to process request
+                      detail: 'Component identifier: 026F941C86EDF715DB98F3E673A9BF9754FCF77DC831C51BDC366E8619E8D5E5
+                        fetch failed'
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Component not found.
@@ -1542,6 +1689,14 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                "200 - Expected Response":
+                  value:
+                    data:
+                      USD:
+                        name: ' U.S. Dollar'
+                      JPY:
+                        name: Japanese Yen
               schema:
                 $ref: '#/components/schemas/CurrencyRoot'
           description: Expected response, returns a list of currencies.
@@ -1763,6 +1918,15 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                "200 - Expected Response":
+                  value:
+                    data:
+                      documents:
+                      - ' SPAR3_QA_TEST_DOCUMENT '
+                      directories:
+                      - test1
+                      - test2
               schema:
                 $ref: '#/components/schemas/DocumentDirectoriesRoot'
           description: Expected response, returns a list of SPAR3 documents and directories
@@ -1901,6 +2065,14 @@ paths:
         "404":
           content:
             application/json:
+              examples:
+                "404 - Invalid Request Parameters":
+                  value:
+                    errors:
+                    - id: 6639FF245506F8EC
+                      code: NotFound
+                      title: Failed to process request
+                      detail: Path not found
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Path not found
@@ -2055,6 +2227,20 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                "200 - Expected Response":
+                  value:
+                    data:
+                      Annually:
+                        name: Annually
+                      Quarterly:
+                        name: Quarterly
+                      Monthly:
+                        name: Monthly
+                      Weekly:
+                        name: Weekly
+                      Daily:
+                        name: Daily
               schema:
                 $ref: '#/components/schemas/FrequencyRoot'
           description: Expected response, returns a list of SPAR frequencies.
@@ -2274,6 +2460,28 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                "200 - Expected Response":
+                  value:
+                    data:
+                      e157350ec6cd46ee8a42db79a4ae84d0:
+                        status: Executing
+                        units: 1
+                        requestTime: 2024-05-09T13:21:44.435835Z
+                        lastPollTime: 2024-05-09T13:21:44.435835Z
+                      "8bbc982c24814305a75847ca5ced44d8":
+                        status: Completed
+                        units: 1
+                        requestTime: 2024-05-09T13:18:26.578132Z
+                        lastPollTime: 2024-05-09T13:18:26.578132Z
+                    meta:
+                      pagination:
+                        pageNumber: 1
+                        pageSize: 20
+                        totalPages: 1
+                        totalCalculations: 2
+                        nextPage: null
+                        previousPage: null
               schema:
                 $ref: '#/components/schemas/CalculationsSummaryRoot'
           description: List of calculation requests.
@@ -2315,6 +2523,14 @@ paths:
         "400":
           content:
             application/json:
+              examples:
+                "400 - Invalid Calculation parameters":
+                  value:
+                    errors:
+                    - id: 663CD028CE13BE97
+                      code: BadRequest
+                      title: Failed to process request
+                      detail: Invalid page number
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Invalid page number.
@@ -2565,12 +2781,14 @@ paths:
       operationId: postAndCalculate
       parameters:
       - description: Long running deadline in seconds when only one unit is passed
-          in the POST body.
+          in the POST body. Example value is set to 10s. Please update it as per requirement
+          before triggering a calculation.
         explode: false
         in: header
         name: X-FactSet-Api-Long-Running-Deadline
         required: false
         schema:
+          example: 10
           type: integer
         style: simple
       - description: Standard HTTP header.  Accepts max-stale.
@@ -2584,38 +2802,76 @@ paths:
       requestBody:
         content:
           application/json:
-            example:
-              data:
-                "1":
-                  componentid: 067F5DE2E2A11F9AD734594AA8957E11B633438D0FADFCCE0F423ABEF2FC5F1D
-                  accounts:
-                  - id: R.1000
-                    returntype: GTR
-                    prefix: RUSSELL
-                  benchmark:
-                    id: R.2000
-                    returntype: GTR
-                    prefix: RUSSELL
-                  dates:
-                    startdate: -2M
-                    enddate: "0"
-                    frequency: Monthly
-                "2":
-                  componentid: E3238ADBD61A8D52D680131D813BACF68A10149881CC88FC1E2401247812FC02
-                  accounts:
-                  - id: R.1000
-                    returntype: GTR
-                    prefix: RUSSELL
-                  - id: R.2000
-                    returntype: GTR
-                    prefix: RUSSELL
-                  benchmark:
-                    id: R.2000
-                    returntype: GTR
-                    prefix: RUSSELL
-              meta:
-                stachContentorganization: SimplifiedRow
-                format: JsonStach
+            examples:
+              Single unit example:
+                description: This is a sample example for illustration purposes only.
+                  Client should use valid Request Body Parameters to get a successful
+                  response.
+                value:
+                  data:
+                    "1":
+                      componentid: 067F5DE2E2A11F9AD734594AA8957E11B633438D0FADFCCE0F423ABEF2FC5F1D
+                      accounts:
+                      - id: R.1000
+                        returntype: GTR
+                        prefix: RUSSELL
+                      - id: R.2000
+                        returntype: GTR
+                        prefix: RUSSELL
+                      benchmark:
+                        id: R.2000
+                        returntype: GTR
+                        prefix: RUSSELL
+                      dates:
+                        startdate: -3M
+                        enddate: "0"
+                        frequency: Monthly
+                  meta:
+                    stachContentOrganization: SimplifiedRow
+                    format: JsonStach
+              Multi unit example:
+                description: This is a sample example for illustration purposes only.
+                  Client should use valid Request Body Parameters to get a successful
+                  response.
+                value:
+                  data:
+                    "1":
+                      componentid: 067F5DE2E2A11F9AD734594AA8957E11B633438D0FADFCCE0F423ABEF2FC5F1D
+                      accounts:
+                      - id: R.1000
+                        returntype: GTR
+                        prefix: RUSSELL
+                      - id: R.2000
+                        returntype: GTR
+                        prefix: RUSSELL
+                      benchmark:
+                        id: R.2000
+                        returntype: GTR
+                        prefix: RUSSELL
+                      dates:
+                        startdate: -3M
+                        enddate: "0"
+                        frequency: Monthly
+                    "2":
+                      componentid: E3238ADBD61A8D52D680131D813BACF68A10149881CC88FC1E2401247812FC02
+                      accounts:
+                      - id: R.1000
+                        returntype: GTR
+                        prefix: RUSSELL
+                      - id: R.2000
+                        returntype: GTR
+                        prefix: RUSSELL
+                      benchmark:
+                        id: R.2000
+                        returntype: GTR
+                        prefix: RUSSELL
+                      dates:
+                        startdate: -2M
+                        enddate: "0"
+                        frequency: Monthly
+                  meta:
+                    stachContentOrganization: SimplifiedRow
+                    format: JsonStach
             schema:
               $ref: '#/components/schemas/SPARCalculationParametersRoot'
         description: Calculation Parameters
@@ -2623,6 +2879,21 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                "200 - Expected Response":
+                  value:
+                    data:
+                      calculationid: e919d6f7ec6e45659d3f67adf8f98499
+                      status: Completed
+                      units:
+                        "1":
+                          status: Failed
+                          errors:
+                          - id: e1dc56196e67429b90b3d1d0b5200f3d:1
+                            code: "400"
+                            title: ErrorMessage
+                            detail: Error getting calculation
+                          progress: "0"
               schema:
                 $ref: '#/components/schemas/CalculationStatusRoot'
             application/x-protobuf:
@@ -2668,6 +2939,13 @@ paths:
         "201":
           content:
             application/json:
+              examples:
+                "201 - Expected Response in SimplifiedRow Format":
+                  $ref: '#/components/examples/ExpectedResponseInSimplifiedRowFormat'
+                "201 - Expected Response in Column Organized Format":
+                  $ref: '#/components/examples/ExpectedResponseInColumnOrganizedFormat'
+                "201 - Expected Response in Row organized Format":
+                  $ref: '#/components/examples/ExpectedResponseInRowOrganizedFormat'
               schema:
                 $ref: '#/components/schemas/ObjectRoot'
             application/x-protobuf:
@@ -2714,6 +2992,16 @@ paths:
         "202":
           content:
             application/json:
+              examples:
+                "202 - Expected Response":
+                  value:
+                    data:
+                      calculationid: e257350ec6cd46ee8a42db79a4ae84d0
+                      status: Executing
+                      units:
+                        "1":
+                          status: Executing
+                          progress: "0"
               schema:
                 $ref: '#/components/schemas/CalculationStatusRoot'
             application/x-protobuf:
@@ -2765,6 +3053,18 @@ paths:
         "400":
           content:
             application/json:
+              examples:
+                "400 - Invalid Calculation parameters":
+                  value:
+                    errors:
+                    - id: 663CCE4FB43669D2
+                      code: BadRequest
+                      title: Failed to process request
+                      detail: '{"data.1.dates.startdate":["Unexpected character encountered
+                        while parsing number: y. Path ''data.1.dates.startdate'',
+                        line 23, position 26.","Unexpected character encountered while
+                        parsing value: y. Path ''data.1.dates.startdate'', line 23,
+                        position 26."]}'
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
             application/x-protobuf:
@@ -3048,6 +3348,7 @@ paths:
         schema:
           description: from url, provided from the location header in the Create and
             Run SPAR calculation endpoint
+          example: 917cc544adbe46f99a33dc4179f3983f
           type: string
         style: simple
       responses:
@@ -3188,6 +3489,14 @@ paths:
         "404":
           content:
             application/json:
+              examples:
+                "404 - Invalid Request Parameters":
+                  value:
+                    errors:
+                    - id: 663DC2590E71A5B6
+                      code: NotFound
+                      title: Failed to process request
+                      detail: Calculation not found
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: There was no request for the calculation identifier provided,
@@ -3284,12 +3593,56 @@ paths:
         schema:
           description: from url, provided from the location header in the Create and
             Run SPAR calculation endpoint
+          example: 917cc544adbe46f99a33dc4179f3983d
           type: string
         style: simple
       responses:
         "200":
           content:
             application/json:
+              examples:
+                "200 - Expected Response":
+                  value:
+                    data:
+                      "1":
+                        componentid: 067F5DE2E2A11F9AD734594AA8957E11B633438D0FADFCCE0F423ABEF2FC5F1D
+                        accounts:
+                        - id: R.1000
+                          returntype: GTR
+                          prefix: RUSSELL
+                        - id: R.2000
+                          returntype: GTR
+                          prefix: RUSSELL
+                        benchmark:
+                          id: R.2000
+                          returntype: GTR
+                          prefix: RUSSELL
+                        dates:
+                          startdate: -3M
+                          enddate: "0"
+                          frequency: Monthly
+                      "2":
+                        componentid: E3238ADBD61A8D52D680131D813BACF68A10149881CC88FC1E2401247812FC02
+                        accounts:
+                        - id: R.1000
+                          returntype: GTR
+                          prefix: RUSSELL
+                        - id: R.2000
+                          returntype: GTR
+                          prefix: RUSSELL
+                        benchmark:
+                          id: R.2000
+                          returntype: GTR
+                          prefix: RUSSELL
+                        dates:
+                          startdate: -2M
+                          enddate: "0"
+                          frequency: Monthly
+                    meta:
+                      contentorganization: None
+                      stachContentOrganization: SimplifiedRow
+                      contenttype: Json
+                      format: JsonStach
               schema:
                 $ref: '#/components/schemas/SPARCalculationParametersRoot'
           description: Expected response, returns the SPAR calculation parameters.
@@ -3453,6 +3806,14 @@ paths:
         "404":
           content:
             application/json:
+              examples:
+                "404 - Invalid Request Parameters":
+                  value:
+                    errors:
+                    - id: 663DB68F251C98EA
+                      code: NotFound
+                      title: Failed to process request
+                      detail: Calculation not found
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Calculation id not found
@@ -3551,15 +3912,18 @@ paths:
         schema:
           description: from url, provided from the location header in the Create and
             Run SPAR calculation endpoint
+          example: e257350ec6cd46ee8a42db79a4ae84d0
           type: string
         style: simple
       - description: Long running deadline in seconds when only one unit is passed
-          in the PUT body.
+          in the PUT body. Example value is set to 10s. Please update it as per requirement
+          before triggering a calculation.
         explode: false
         in: header
         name: X-FactSet-Api-Long-Running-Deadline
         required: false
         schema:
+          example: 10
           type: integer
         style: simple
       - description: Standard HTTP header.  Accepts max-stale.
@@ -3573,38 +3937,76 @@ paths:
       requestBody:
         content:
           application/json:
-            example:
-              data:
-                "1":
-                  componentid: 067F5DE2E2A11F9AD734594AA8957E11B633438D0FADFCCE0F423ABEF2FC5F1D
-                  accounts:
-                  - id: R.1000
-                    returntype: GTR
-                    prefix: RUSSELL
-                  benchmark:
-                    id: R.2000
-                    returntype: GTR
-                    prefix: RUSSELL
-                  dates:
-                    startdate: -4M
-                    enddate: "0"
-                    frequency: Monthly
-                "2":
-                  componentid: E3238ADBD61A8D52D680131D813BACF68A10149881CC88FC1E2401247812FC02
-                  accounts:
-                  - id: R.1000
-                    returntype: GTR
-                    prefix: RUSSELL
-                  - id: R.2000
-                    returntype: GTR
-                    prefix: RUSSELL
-                  benchmark:
-                    id: R.2000
-                    returntype: GTR
-                    prefix: RUSSELL
-              meta:
-                stachContentorganization: SimplifiedRow
-                format: JsonStach
+            examples:
+              Single unit example:
+                description: This is a sample example for illustration purposes only.
+                  Client should use valid Request Body Parameters to get a successful
+                  response.
+                value:
+                  data:
+                    "1":
+                      componentid: 067F5DE2E2A11F9AD734594AA8957E11B633438D0FADFCCE0F423ABEF2FC5F1D
+                      accounts:
+                      - id: R.1000
+                        returntype: GTR
+                        prefix: RUSSELL
+                      - id: R.2000
+                        returntype: GTR
+                        prefix: RUSSELL
+                      benchmark:
+                        id: R.2000
+                        returntype: GTR
+                        prefix: RUSSELL
+                      dates:
+                        startdate: -3M
+                        enddate: "0"
+                        frequency: Monthly
+                  meta:
+                    stachContentOrganization: SimplifiedRow
+                    format: JsonStach
+              Multi unit example:
+                description: This is a sample example for illustration purposes only.
+                  Client should use valid Request Body Parameters to get a successful
+                  response.
+                value:
+                  data:
+                    "1":
+                      componentid: 067F5DE2E2A11F9AD734594AA8957E11B633438D0FADFCCE0F423ABEF2FC5F1D
+                      accounts:
+                      - id: R.1000
+                        returntype: GTR
+                        prefix: RUSSELL
+                      - id: R.2000
+                        returntype: GTR
+                        prefix: RUSSELL
+                      benchmark:
+                        id: R.2000
+                        returntype: GTR
+                        prefix: RUSSELL
+                      dates:
+                        startdate: -3M
+                        enddate: "0"
+                        frequency: Monthly
+                    "2":
+                      componentid: E3238ADBD61A8D52D680131D813BACF68A10149881CC88FC1E2401247812FC02
+                      accounts:
+                      - id: R.1000
+                        returntype: GTR
+                        prefix: RUSSELL
+                      - id: R.2000
+                        returntype: GTR
+                        prefix: RUSSELL
+                      benchmark:
+                        id: R.2000
+                        returntype: GTR
+                        prefix: RUSSELL
+                      dates:
+                        startdate: -2M
+                        enddate: "0"
+                        frequency: Monthly
+                  meta:
+                    stachContentOrganization: SimplifiedRow
+                    format: JsonStach
             schema:
               $ref: '#/components/schemas/SPARCalculationParametersRoot'
         description: Calculation Parameters
@@ -3612,6 +4014,21 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                "200 - Expected Response":
+                  value:
+                    data:
+                      calculationid: e257350ec6cd46ee8a42db79a4ae84d0
+                      status: Completed
+                      units:
+                        "1":
+                          status: Failed
+                          errors:
+                          - id: 98fd8cf8950d45488b27aafd7465c0be:1
+                            code: "400"
+                            title: ErrorMessage
+                            detail: Error getting calculation
+                          progress: "0"
               schema:
                 $ref: '#/components/schemas/CalculationStatusRoot'
             application/x-protobuf:
@@ -3657,6 +4074,13 @@ paths:
         "201":
           content:
             application/json:
+              examples:
+                "201 - Expected Response in SimplifiedRow Format":
+                  $ref: '#/components/examples/ExpectedResponseInSimplifiedRowFormat'
+                "201 - Expected Response in Column Organized Format":
+                  $ref: '#/components/examples/ExpectedResponseInColumnOrganizedFormat'
+                "201 - Expected Response in Row organized Format":
+                  $ref: '#/components/examples/ExpectedResponseInRowOrganizedFormat'
               schema:
                 $ref: '#/components/schemas/ObjectRoot'
             application/x-protobuf:
@@ -3703,6 +4127,17 @@ paths:
         "202":
           content:
             application/json:
+              examples:
+                "202 - Expected Response":
+                  value:
+                    data:
+                      calculationid: 917cc544adbe46f99a33dc4179f3983f
+                      status: Queued
+                      units:
+                        "1":
+                          status: Executing
+                        "2":
+                          status: Queued
               schema:
                 $ref: '#/components/schemas/CalculationStatusRoot'
             application/x-protobuf:
@@ -3754,6 +4189,18 @@ paths:
         "400":
           content:
             application/json:
+              examples:
+                "400 - Invalid Calculation parameters":
+                  value:
+                    errors:
+                    - id: 663CD303E706D5B2
+                      code: BadRequest
+                      title: Failed to process request
+                      detail: '{"id":[],"data.1.dates.startdate":["Unexpected character
+                        encountered while parsing number: y. Path ''data.1.dates.startdate'',
+                        line 23, position 22.","Unexpected character encountered while
+                        parsing value: y. Path ''data.1.dates.startdate'', line 23,
+                        position 22."]}'
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
             application/x-protobuf:
@@ -3898,6 +4345,17 @@ paths:
         "409":
           content:
             application/json:
+              examples:
+                "409 - Duplicate Calculation ID exists":
+                  value:
+                    errors:
+                    - id: 663CDCCCA16D199F
+                      code: Conflict
+                      title: Failed to process request
+                      detail: Cannot create/update the calculation as the duplicate
+                        calculation id (e257350ec6cd46ee8a42db79a4ae84d0) exists
+                      source:
+                        pointer: /data
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
             application/x-protobuf:
@@ -4083,12 +4541,25 @@ paths:
         schema:
           description: from url, provided from the location header in the Create and
             Run SPAR calculation endpoint
+          example: 917cc544adbe46f99a33dc4179f3983f
           type: string
         style: simple
       responses:
         "200":
           content:
             application/json:
+              examples:
+                "200 - Expected Response":
+                  value:
+                    data:
+                      calculationid: 2204b35a7ddb4f00b7b322303c31dc66
+                      status: Completed
+                      units:
+                        "1":
+                          status: Success
+                          result: https://api.factset.com/analytics/engines/spar/v3/calculations/2204b35a7ddb4f00b7b322303c31dc66/units/1/result
+                          progress: "100"
+                          points: 2
               schema:
                 $ref: '#/components/schemas/CalculationStatusRoot'
           description: Expected response once calculation is completed.
@@ -4155,6 +4626,16 @@ paths:
         "202":
           content:
             application/json:
+              examples:
+                "202 - Expected Response":
+                  value:
+                    data:
+                      calculationid: 2204b35a7ddb4f00b7b322303c31dc66
+                      status: Executing
+                      units:
+                        "1":
+                          status: Executing
+                          progress: "0"
               schema:
                 $ref: '#/components/schemas/CalculationStatusRoot'
           description: Expected response returned if the calculation is not yet completed.
@@ -4309,6 +4790,14 @@ paths:
         "404":
           content:
             application/json:
+              examples:
+                "404 - Invalid Request Parameters":
+                  value:
+                    errors:
+                    - id: 663DC1B75F51BC8A
+                      code: NotFound
+                      title: Failed to process request
+                      detail: Calculation not found
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Calculation was already returned, provided id was not a requested
@@ -4407,6 +4896,7 @@ paths:
         schema:
           description: from url, provided from the location header in the Get SPAR
             calculation status by id endpoint
+          example: 917cc544adbe46f99a33dc4179f3983f
           type: string
         style: simple
       - description: from url, provided from the location header in the Get SPAR calculation
@@ -4418,12 +4908,79 @@ paths:
         schema:
           description: from url, provided from the location header in the Get SPAR
             calculation status by id endpoint
+          example: "1"
           type: string
         style: simple
       responses:
         "200":
           content:
             application/json:
+              examples:
+                "200 - Expected Response":
+                  value:
+                    data:
+                      tables:
+                        table_0:
+                          definition:
+                            columns:
+                            - id: col_0
+                              name: B5A7ADDE1AF5C87D7FD797B6245C2A39
+                              description: Dates
+                              type: string
+                              isDimension: true
+                            - id: col_1
+                              name: 9A3A02D463A587BD513E4E7CEC188078
+                              description: Return | Russell 1000 - Total Return
+                              type: real
+                            - id: col_2
+                              name: 1801A8A4BC13F7F932C59DA73F4E12ED
+                              description: Return | Russell 2000 - Total Return
+                              type: real
+                          data:
+                            rows:
+                            - values:
+                                col_0: 02/29/2024
+                                col_1: 5.40013537037081
+                                col_2: 5.65417084435906
+                            - values:
+                                col_0: 03/31/2024
+                                col_1: 3.20571788102013
+                                col_2: 3.57989222060544
+                            - values:
+                                col_0: 04/30/2024
+                                col_1: -4.25523174630278
+                                col_2: -7.03825914843899
+                            tableMetadata:
+                              Currency ISO Code:
+                                value:
+                                - USD
+                              Absolute Start Date:
+                                value:
+                                - 01/31/2024
+                              Absolute End Date:
+                                value:
+                                - 04/30/2024
+                              Frequency:
+                                value:
+                                - M
+                              Portfolios:
+                                value:
+                                - RUSSELL:R.1000
+                              Benchmark:
+                                value:
+                                - RUSSELL:R.2000
+                              Document Name:
+                                value:
+                                - Factset Default Document
+                              Calendar:
+                                value:
+                                - FIVEDAY
+                              Component Name:
+                                value:
+                                - Returns Table
+                              Accounts:
+                                value:
+                                - R.1000, R.2000
               schema:
                 $ref: '#/components/schemas/ObjectRoot'
             application/x-protobuf:
@@ -4594,6 +5151,13 @@ paths:
         "404":
           content:
             application/json:
+              examples:
+                "404 - Invalid Request Parameters":
+                  value:
+                    errors:
+                    - id: 663DC37E39370DC5
+                      code: NotFound
+                      title: Failed to process request
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
             application/x-protobuf:
@@ -4680,6 +5244,305 @@ paths:
       - SPARCalculations
       x-accepts: application/json
 components:
+  examples:
+    ExpectedResponseInSimplifiedRowFormat:
+      value:
+        data:
+          tables:
+            table_0:
+              definition:
+                columns:
+                - id: col_0
+                  name: B5A7ADDE1AF5C87D7FD797B6245C2A39
+                  description: Dates
+                  type: string
+                  isDimension: true
+                - id: col_1
+                  name: 9A3A02D463A587BD513E4E7CEC188078
+                  description: Return | Russell 1000 - Total Return
+                  type: real
+                - id: col_2
+                  name: 1801A8A4BC13F7F932C59DA73F4E12ED
+                  description: Return | Russell 2000 - Total Return
+                  type: real
+              data:
+                rows:
+                - values:
+                    col_0: 03/31/2024
+                    col_1: 3.20571788102013
+                    col_2: 3.57989222060544
+                - values:
+                    col_0: 04/30/2024
+                    col_1: -4.25523174630278
+                    col_2: -7.03825914843899
+                - values:
+                    col_0: 05/31/2024
+                    col_1: 4.70896522126854
+                    col_2: 5.01672254177821
+                tableMetadata:
+                  Currency ISO Code:
+                    value:
+                    - USD
+                  Absolute Start Date:
+                    value:
+                    - 02/29/2024
+                  Absolute End Date:
+                    value:
+                    - 05/31/2024
+                  Frequency:
+                    value:
+                    - M
+                  Portfolios:
+                    value:
+                    - RUSSELL:R.1000
+                  Benchmark:
+                    value:
+                    - RUSSELL:R.2000
+                  Document Name:
+                    value:
+                    - Factset Default Document
+                  Calendar:
+                    value:
+                    - FIVEDAY
+                  Component Name:
+                    value:
+                    - Returns Table
+                  Accounts:
+                    value:
+                    - R.1000, R.2000
+    ExpectedResponseInColumnOrganizedFormat:
+      value:
+        data:
+          primaryTableIds:
+          - a3ac64e6-0f07-4c94-98a3-c01997226de5
+          tables:
+            a3ac64e6-0f07-4c94-98a3-c01997226de5:
+              definition:
+                headerTableId: d22f38aa-6014-496f-aa41-8955c174fa02
+                columns:
+                - id: 93848867-7109-4165-a636-dfef251f5b04
+                  name: B5A7ADDE1AF5C87D7FD797B6245C2A39
+                  description: Dates
+                  type: string
+                  isDimension: true
+                  format:
+                    format: '{0:0.00;-0.00;--}'
+                - id: b85dbbf6-4bf1-4480-b37b-8babe7f6bc2e
+                  name: C800F9107FFC85ED9F2A681B12A4A509
+                  type: int32
+                  isDimension: true
+                  isHidden: true
+                - id: c2ca8ed1-9f32-4571-9e32-10a376a038f3
+                  name: 9A3A02D463A587BD513E4E7CEC188078
+                  description: Russell 1000 - Total Return
+                  type: real
+                  headerId: 58093960-cc66-4c26-a678-1799547460b4
+                  format:
+                    format: '{0:0.00;-0.00;--}'
+                - id: eed4b2eb-4a32-41ad-996f-3b04ea148f5c
+                  name: 1801A8A4BC13F7F932C59DA73F4E12ED
+                  description: Russell 2000 - Total Return
+                  type: real
+                  headerId: 90992601-3fac-4f81-8b4b-bfe06ce7e258
+                  format:
+                    format: '{0:0.00;-0.00;--}'
+              data:
+                rows:
+                - id: ca2e943f-b082-4e3b-ab1f-a7dee183a718
+                - id: c25b1566-b9c0-4bc2-b987-e5f3aab22c65
+                - id: b6e12e5c-2427-412e-83e9-c1815b1d50ee
+                columns:
+                  "93848867-7109-4165-a636-dfef251f5b04":
+                    values:
+                    - 03/31/2024
+                    - 04/30/2024
+                    - 05/31/2024
+                  b85dbbf6-4bf1-4480-b37b-8babe7f6bc2e:
+                    values:
+                    - 20240331
+                    - 20240430
+                    - 20240531
+                  c2ca8ed1-9f32-4571-9e32-10a376a038f3:
+                    values:
+                    - 3.20571788102013
+                    - -4.25523174630278
+                    - 4.70896522126854
+                  eed4b2eb-4a32-41ad-996f-3b04ea148f5c:
+                    values:
+                    - 3.57989222060544
+                    - -7.03825914843899
+                    - 5.01672254177821
+                metadata:
+                  items:
+                    Currency ISO Code:
+                      value:
+                      - USD
+                    Absolute Start Date:
+                      value:
+                      - 02/29/2024
+                    Absolute End Date:
+                      value:
+                      - 05/31/2024
+                    Frequency:
+                      value:
+                      - M
+                    Portfolios:
+                      value:
+                      - RUSSELL:R.1000
+                    Benchmark:
+                      value:
+                      - RUSSELL:R.2000
+                    Document Name:
+                      value:
+                      - Factset Default Document
+                    Calendar:
+                      value:
+                      - FIVEDAY
+                    Component Name:
+                      value:
+                      - Returns Table
+                    Accounts:
+                      value:
+                      - R.1000, R.2000
+                  locations:
+                    table:
+                    - Currency ISO Code
+                    - Absolute Start Date
+                    - Absolute End Date
+                    - Frequency
+                    - Portfolios
+                    - Benchmark
+                    - Document Name
+                    - Calendar
+                    - Component Name
+                    - Accounts
+            d22f38aa-6014-496f-aa41-8955c174fa02:
+              definition:
+                columns:
+                - id: 44b994c4-4773-4dbd-900c-181cf36a641d
+                  type: string
+                  isDimension: true
+                - id: 7315708b-d32f-43f3-b56e-c3685509049a
+                  type: string
+                  isDimension: true
+              data:
+                rows:
+                - id: 58093960-cc66-4c26-a678-1799547460b4
+                  format: {}
+                - id: 90992601-3fac-4f81-8b4b-bfe06ce7e258
+                  format: {}
+                columns:
+                  "44b994c4-4773-4dbd-900c-181cf36a641d":
+                    values:
+                    - Return
+                    - Return
+                  "7315708b-d32f-43f3-b56e-c3685509049a":
+                    values:
+                    - Russell 1000 - Total Return
+                    - Russell 2000 - Total Return
+    ExpectedResponseInRowOrganizedFormat:
+      value:
+        data:
+          tables:
+            "7ff93257-d281-4d4e-ae00-7f1b2b1cda71":
+              definition:
+                columns:
+                - id: 29e64380-0d8a-4976-b287-1b3a5b7e1b3b
+                  name: B5A7ADDE1AF5C87D7FD797B6245C2A39
+                  description: Dates
+                  type: string
+                  isDimension: true
+                  format:
+                    format: '{0:0.00;-0.00;--}'
+                - id: 74b3772d-3726-42b9-a30b-f7e120744cb8
+                  name: 9A3A02D463A587BD513E4E7CEC188078
+                  description: Russell 1000 - Total Return
+                  type: real
+                  headerId: a4248d1e-fdc7-496c-9247-dba77a6f1ee6
+                  format:
+                    format: '{0:0.00;-0.00;--}'
+                - id: 7555b8ae-21f6-4f43-8cec-399b1852f242
+                  name: 1801A8A4BC13F7F932C59DA73F4E12ED
+                  description: Russell 2000 - Total Return
+                  type: real
+                  headerId: d4e0f383-3239-49c0-af71-a73ca2125d92
+                  format:
+                    format: '{0:0.00;-0.00;--}'
+              headersDefinition:
+                columns:
+                - id: 736a2c79-c58f-4a58-b574-ecd1ae595ce9
+                  type: string
+                  isDimension: true
+                - id: 4b44e9e7-01b2-4c46-a528-bf6d906440c4
+                  type: string
+                  isDimension: true
+              data:
+                rows:
+                - rowType: Header
+                  cells:
+                  - Dates
+                  - Return
+                  headerCellDetails:
+                    "0":
+                      rowspan: 2
+                      source: PRIMARY
+                    "1":
+                      colspan: 2
+                      source: HEADERS
+                - rowType: Header
+                  cells:
+                  - Russell 1000 - Total Return
+                  - Russell 2000 - Total Return
+                  headerCellDetails:
+                    "0":
+                      source: HEADERS
+                      columnIndex: 1
+                    "1":
+                      source: HEADERS
+                      columnIndex: 1
+                - values:
+                    "29e64380-0d8a-4976-b287-1b3a5b7e1b3b": 03/31/2024
+                    "74b3772d-3726-42b9-a30b-f7e120744cb8": 3.20571788102013
+                    "7555b8ae-21f6-4f43-8cec-399b1852f242": 3.57989222060544
+                - values:
+                    "29e64380-0d8a-4976-b287-1b3a5b7e1b3b": 04/30/2024
+                    "74b3772d-3726-42b9-a30b-f7e120744cb8": -4.25523174630278
+                    "7555b8ae-21f6-4f43-8cec-399b1852f242": -7.03825914843899
+                - values:
+                    "29e64380-0d8a-4976-b287-1b3a5b7e1b3b": 05/31/2024
+                    "74b3772d-3726-42b9-a30b-f7e120744cb8": 4.70896522126854
+                    "7555b8ae-21f6-4f43-8cec-399b1852f242": 5.01672254177821
+                tableMetadata:
+                  Currency ISO Code:
+                    value:
+                    - USD
+                  Absolute Start Date:
+                    value:
+                    - 02/29/2024
+                  Absolute End Date:
+                    value:
+                    - 05/31/2024
+                  Frequency:
+                    value:
+                    - M
+                  Portfolios:
+                    value:
+                    - RUSSELL:R.1000
+                  Benchmark:
+                    value:
+                    - RUSSELL:R.2000
+                  Document Name:
+                    value:
+                    - Factset Default Document
+                  Calendar:
+                    value:
+                    - FIVEDAY
+                  Component Name:
+                    value:
+                    - Returns Table
+                  Accounts:
+                    value:
+                    - R.1000, R.2000
   schemas:
     ReturnType:
       example:
@@ -4716,12 +5579,13 @@ components:
             id: id
           - name: name
             id: id
-        meta: ""
+        meta: '{}'
       properties:
         data:
           $ref: '#/components/schemas/SPARAccounts'
         meta:
           nullable: true
+          type: object
       required:
       - data
       type: object
@@ -4801,12 +5665,13 @@ components:
           accounts:
           - accounts
           - accounts
-        meta: ""
+        meta: '{}'
       properties:
         data:
           $ref: '#/components/schemas/AccountDirectories'
         meta:
           nullable: true
+          type: object
       required:
       - data
       type: object
@@ -4821,11 +5686,11 @@ components:
           description: User's FactSet account OR benchmark id.
           type: string
         returntype:
-          description: Benchmark return type.
+          description: Account or benchmark return type.
           nullable: true
           type: string
         prefix:
-          description: Benchmark prefix.
+          description: Account or benchmark prefix.
           nullable: true
           type: string
       required:
@@ -4870,12 +5735,13 @@ components:
             id: id
           name: name
           id: id
-        meta: ""
+        meta: '{}'
       properties:
         data:
           $ref: '#/components/schemas/SPARBenchmark'
         meta:
           nullable: true
+          type: object
       required:
       - data
       type: object
@@ -4899,7 +5765,7 @@ components:
           key:
             name: name
             category: category
-        meta: ""
+        meta: '{}'
       properties:
         data:
           additionalProperties:
@@ -4907,6 +5773,7 @@ components:
           type: object
         meta:
           nullable: true
+          type: object
       required:
       - data
       type: object
@@ -4995,7 +5862,7 @@ components:
         data:
           key:
             name: name
-        meta: ""
+        meta: '{}'
       properties:
         data:
           additionalProperties:
@@ -5003,6 +5870,7 @@ components:
           type: object
         meta:
           nullable: true
+          type: object
       required:
       - data
       type: object
@@ -5037,12 +5905,13 @@ components:
           directories:
           - directories
           - directories
-        meta: ""
+        meta: '{}'
       properties:
         data:
           $ref: '#/components/schemas/DocumentDirectories'
         meta:
           nullable: true
+          type: object
       required:
       - data
       type: object
@@ -5060,7 +5929,7 @@ components:
         data:
           key:
             name: name
-        meta: ""
+        meta: '{}'
       properties:
         data:
           additionalProperties:
@@ -5068,6 +5937,7 @@ components:
           type: object
         meta:
           nullable: true
+          type: object
       required:
       - data
       type: object
@@ -5386,12 +6256,14 @@ components:
       type: object
     ObjectRoot:
       example:
-        data: ""
-        meta: ""
+        data: '{}'
+        meta: '{}'
       properties:
-        data: {}
+        data:
+          type: object
         meta:
           nullable: true
+          type: object
       required:
       - data
       type: object
@@ -5467,10 +6339,11 @@ components:
     CalculationsSummaryRoot:
       example:
         data:
-          requestTime: 2000-01-23T04:56:07.000+00:00
-          lastPollTime: 2000-01-23T04:56:07.000+00:00
-          units: 0
-          status: Queued
+          key:
+            requestTime: 2000-01-23T04:56:07.000+00:00
+            lastPollTime: 2000-01-23T04:56:07.000+00:00
+            units: 0
+            status: Queued
         meta:
           pagination:
             pageNumber: 6
@@ -5481,7 +6354,9 @@ components:
             totalCalculations: 5
       properties:
         data:
-          $ref: '#/components/schemas/CalculationsSummary'
+          additionalProperties:
+            $ref: '#/components/schemas/CalculationsSummary'
+          type: object
         meta:
           $ref: '#/components/schemas/PaginationMeta'
       required:

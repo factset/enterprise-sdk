@@ -81,7 +81,7 @@ namespace FactSet.SDK.FactSetMergersandAcquisitions.Model
         /// FactSet Permanent Identifier of the ultimate parent of the participant. Six alpha-numeric characters, excluding vowels, with an -E suffix (XXXXXX-E).
         /// </summary>
         /// <value>FactSet Permanent Identifier of the ultimate parent of the participant. Six alpha-numeric characters, excluding vowels, with an -E suffix (XXXXXX-E).</value>
-        [DataMember(Name = "ultimateParentId", EmitDefaultValue = false)]
+        [DataMember(Name = "ultimateParentId", EmitDefaultValue = true)]
         public string UltimateParentId { get; set; }
 
         /// <summary>

@@ -37,8 +37,8 @@ namespace FactSet.SDK.Vermilion.Api
         /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenant">The code of the tenancy</param>
         /// <param name="sort">The column to sort on. Can add - to sort (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip (optional, default to 0)</param>
         /// <returns>ReportDefinitionList</returns>
         ReportDefinitionList GetAllReportDefinitions(string tenant, List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?));
 
@@ -51,8 +51,8 @@ namespace FactSet.SDK.Vermilion.Api
         /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenant">The code of the tenancy</param>
         /// <param name="sort">The column to sort on. Can add - to sort (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip (optional, default to 0)</param>
         /// <returns>ApiResponse of ReportDefinitionList</returns>
         ApiResponse<ReportDefinitionList> GetAllReportDefinitionsWithHttpInfo(string tenant, List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?));
         /// <summary>
@@ -96,8 +96,8 @@ namespace FactSet.SDK.Vermilion.Api
         /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenant">The code of the tenancy</param>
         /// <param name="sort">The column to sort on. Can add - to sort (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ReportDefinitionList</returns>
         System.Threading.Tasks.Task<ReportDefinitionList> GetAllReportDefinitionsAsync(string tenant, List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -111,8 +111,8 @@ namespace FactSet.SDK.Vermilion.Api
         /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenant">The code of the tenancy</param>
         /// <param name="sort">The column to sort on. Can add - to sort (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ReportDefinitionList)</returns>
         System.Threading.Tasks.Task<ApiResponse<ReportDefinitionList>> GetAllReportDefinitionsWithHttpInfoAsync(string tenant, List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -295,8 +295,8 @@ namespace FactSet.SDK.Vermilion.Api
         /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenant">The code of the tenancy</param>
         /// <param name="sort">The column to sort on. Can add - to sort (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip (optional, default to 0)</param>
         /// <returns>ReportDefinitionList</returns>
         public ReportDefinitionList GetAllReportDefinitions(string tenant, List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?))
         {
@@ -310,8 +310,8 @@ namespace FactSet.SDK.Vermilion.Api
         /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenant">The code of the tenancy</param>
         /// <param name="sort">The column to sort on. Can add - to sort (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip (optional, default to 0)</param>
         /// <returns>ApiResponse of ReportDefinitionList</returns>
         public ApiResponse<ReportDefinitionList> GetAllReportDefinitionsWithHttpInfo(string tenant, List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?))
         {
@@ -399,8 +399,8 @@ namespace FactSet.SDK.Vermilion.Api
         /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenant">The code of the tenancy</param>
         /// <param name="sort">The column to sort on. Can add - to sort (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ReportDefinitionList</returns>
         public async System.Threading.Tasks.Task<ReportDefinitionList>GetAllReportDefinitionsAsync(string tenant, List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -415,8 +415,8 @@ namespace FactSet.SDK.Vermilion.Api
         /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenant">The code of the tenancy</param>
         /// <param name="sort">The column to sort on. Can add - to sort (optional)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ReportDefinitionList)</returns>
 

@@ -62,10 +62,10 @@ namespace Example
 
             var apiInstance = new DatasourceApi(config);
 
-            var tenant = "XXXXXXXXXX";  // string | The code of the tenancy
+            var tenant = "TENANT";  // string | The code of the tenancy
             var sort = new List<string>(); // List<string> | The column to sort on. Append - to sort in descending order. If parameter is not given, no sorting will be done (optional) 
-            var paginationLimit = 25;  // int? | Non-negative maximum number of entries to return. Default is 25 (optional) 
-            var paginationOffset = 0;  // int? | Non-negative number of entries to skip. Default is 0 (optional) 
+            var paginationLimit = 25;  // int? | Non-negative maximum number of entries to return. Default is 25 (optional)  (default to 25)
+            var paginationOffset = 0;  // int? | Non-negative number of entries to skip. Default is 0 (optional)  (default to 0)
 
             try
             {
@@ -90,8 +90,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenant** | **string**| The code of the tenancy | 
  **sort** | [**List&lt;string&gt;**](string.md)| The column to sort on. Append - to sort in descending order. If parameter is not given, no sorting will be done | [optional] 
- **paginationLimit** | **int?**| Non-negative maximum number of entries to return. Default is 25 | [optional] 
- **paginationOffset** | **int?**| Non-negative number of entries to skip. Default is 0 | [optional] 
+ **paginationLimit** | **int?**| Non-negative maximum number of entries to return. Default is 25 | [optional] [default to 25]
+ **paginationOffset** | **int?**| Non-negative number of entries to skip. Default is 0 | [optional] [default to 0]
 
 ### Return type
 [**DataSourceList**](DataSourceList.md)
@@ -169,8 +169,8 @@ namespace Example
 
             var apiInstance = new DatasourceApi(config);
 
-            var tenant = "XXXXXXXXXX";  // string | The code of the tenancy
-            var dataSourceCode = "XXXXXXXXXX";  // string | The code of the datasource
+            var tenant = "TENANT";  // string | The code of the tenancy
+            var dataSourceCode = "DSCODE";  // string | The code of the datasource
 
             try
             {
@@ -273,12 +273,12 @@ namespace Example
 
             var apiInstance = new DatasourceApi(config);
 
-            var tenant = "XXXXXXXXXX";  // string | The code of the tenancy
-            var dataSourceCode = "XXXXXXXXXX";  // string | The code of the datasource
+            var tenant = "TENANT";  // string | The code of the tenancy
+            var dataSourceCode = "DSCODE";  // string | The code of the datasource
             var entityCodes = "FUNDS";  // string | A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes=ACCOUNT&entityCodes=FUNDS (optional) 
             var entityKeys = "Test2";  // string | A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys=1&entityKeys=Test2 (optional) 
-            var paginationLimit = 25;  // int? | Non-negative maximum number of entries to return. Default is 25 (optional) 
-            var paginationOffset = 0;  // int? | Non-negative number of entries to skip. Default is 0 (optional) 
+            var paginationLimit = 25;  // int? | Non-negative maximum number of entries to return. Default is 25 (optional)  (default to 25)
+            var paginationOffset = 0;  // int? | Non-negative number of entries to skip. Default is 0 (optional)  (default to 0)
 
             try
             {
@@ -305,8 +305,8 @@ Name | Type | Description  | Notes
  **dataSourceCode** | **string**| The code of the datasource | 
  **entityCodes** | **string**| A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes&#x3D;ACCOUNT&amp;entityCodes&#x3D;FUNDS | [optional] 
  **entityKeys** | **string**| A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys&#x3D;1&amp;entityKeys&#x3D;Test2 | [optional] 
- **paginationLimit** | **int?**| Non-negative maximum number of entries to return. Default is 25 | [optional] 
- **paginationOffset** | **int?**| Non-negative number of entries to skip. Default is 0 | [optional] 
+ **paginationLimit** | **int?**| Non-negative maximum number of entries to return. Default is 25 | [optional] [default to 25]
+ **paginationOffset** | **int?**| Non-negative number of entries to skip. Default is 0 | [optional] [default to 0]
 
 ### Return type
 [**DataSourceDataInstance**](DataSourceDataInstance.md)

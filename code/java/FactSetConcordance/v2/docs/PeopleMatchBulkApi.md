@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 
 Create a People Concordance Task.
 
-The "Bulk" workflow allows the user to create a People Concordance Task. Uploading of a Comma-Separated List file (.csv / UTF-8 encoding) with a list of names and attributes and creation of a task id is mandatory to start the process.
+The "Bulk" workflow allows the user to create a People Concordance Task. Uploading of a Comma-Separated List file (.csv / UTF-8 encoding) with a list of names and attributes and creation of a task id is mandatory to start the process. [Concordance Sample People Template](https://my.apps.factset.com/oa/cms/oaAttachment/8bd62c75-8f78-48c0-a27d-9cd186c9a54a/27317)
    The taskId is then used for reference in the /people-task-status and /people-decisions endpoints to receive results once the task is successful.The /people-task-status endpoint is to check the status of the Tasks as per the ids.
     A universeId must be included in request. If you do not have a universe created, reference the /universe endpoint.The bulk workflow supports a two way approach for the user.
   **The user can use these parameters in the following ways.**

@@ -60,7 +60,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new SCIMApi();
-const scimGroup = {"displayName":"vrstestgroup","members":[{"value":"scimuser1","type":"user","$ref":"VRSAPI/scim/v2/Users/1"}],"tenant":"XXXXXXXXXX","domainCode":"XXXXXXXXXX"}; // ScimGroup | 
+const scimGroup = {"displayName":"vrstestgroup","members":[{"value":"218","type":"user","$ref":"VRSAPI/scim/v2/Users/218"}],"tenant":"XXXXXXXXXX","domainCode":"XXXXXXXXXX"}; // ScimGroup | 
 
 // Call api endpoint
 apiInstance.createGroup(scimGroup).then(
@@ -218,7 +218,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new SCIMApi();
-const groupId = scimgroup1; // String | The ID of the group
+const groupId = 123456; // String | The ID of the group
 
 // Call api endpoint
 apiInstance.deleteGroupById(groupId).then(
@@ -295,7 +295,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new SCIMApi();
-const userId = scimuser1; // String | The ID of the user
+const userId = 123456; // String | The ID of the user
 
 // Call api endpoint
 apiInstance.deleteUserById(userId).then(
@@ -373,8 +373,8 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new SCIMApi();
 const opts = {
-  'count': 25, // Number | Non-negative maximum number of entries to return
-  'startIndex': 1 // Number | The 1-based index of the first query result
+  'count': 10, // Number | Non-negative maximum number of entries to return
+  'startIndex': 5 // Number | The 1-based index of the first query result
 };
 
 // Call api endpoint
@@ -456,8 +456,8 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new SCIMApi();
 const opts = {
-  'count': 25, // Number | Non-negative maximum number of entries to return
-  'startIndex': 1 // Number | The 1-based index of the first query result
+  'count': 10, // Number | Non-negative maximum number of entries to return
+  'startIndex': 5 // Number | The 1-based index of the first query result
 };
 
 // Call api endpoint
@@ -538,7 +538,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new SCIMApi();
-const groupId = scimgroup1; // String | The ID of the role
+const groupId = 123456; // String | The ID of the role
 
 // Call api endpoint
 apiInstance.getGroupById(groupId).then(
@@ -617,7 +617,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new SCIMApi();
-const userId = scimuser1; // String | The ID of the user
+const userId = 123456; // String | The ID of the user
 
 // Call api endpoint
 apiInstance.getUserById(userId).then(
@@ -696,8 +696,8 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new SCIMApi();
-const groupId = scimgroup1; // String | The ID of the role
-const scimGroupPatchRequestBody = {"schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],"Operations":[{"op":"add","path":"members","value":{"display":"Test user","$ref":"VRSAPI/scim/v2/Users/1","value":"1"}}]}; // ScimGroupPatchRequestBody | 
+const groupId = 123456; // String | The ID of the role
+const scimGroupPatchRequestBody = {"schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],"Operations":[{"op":"add","path":"members","value":{"display":"Test user","$ref":"VRSAPI/scim/v2/Users/45678","value":"45678"}}]}; // ScimGroupPatchRequestBody | 
 
 // Call api endpoint
 apiInstance.patchGroupById(groupId, scimGroupPatchRequestBody).then(
@@ -777,8 +777,8 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new SCIMApi();
-const userId = scimuser1; // String | The ID of the user
-const scimUserPatchRequestBody = {"schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],"Operations":[{"op":"replace","path":"name.formatted","value":"vrstestuser1"}]}; // ScimUserPatchRequestBody | 
+const userId = 123456; // String | The ID of the user
+const scimUserPatchRequestBody = {"schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],"Operations":[{"op":"replace","path":"name.formatted","value":"Vrs Test User"}]}; // ScimUserPatchRequestBody | 
 
 // Call api endpoint
 apiInstance.patchUserById(userId, scimUserPatchRequestBody).then(
@@ -858,8 +858,8 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new SCIMApi();
-const groupId = scimgroup1; // String | The ID of the group
-const scimGroup = {"displayName":"vrstestgroup","members":[{"value":"scimuser1","type":"user","$ref":"VRSAPI/scim/v2/Users/1"}],"tenant":"XXXXXXXXXX","domainCode":"XXXXXXXXXX"}; // ScimGroup | 
+const groupId = 123456; // String | The ID of the group
+const scimGroup = {"displayName":"vrstestgroup","members":[{"value":"45678","type":"user","$ref":"VRSAPI/scim/v2/Users/45678"}],"tenant":"XXXXXXXXXX","domainCode":"XXXXXXXXXX"}; // ScimGroup | 
 
 // Call api endpoint
 apiInstance.updateGroupById(groupId, scimGroup).then(
@@ -939,7 +939,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new SCIMApi();
-const userId = scimuser1; // String | The ID of the user
+const userId = 123456; // String | The ID of the user
 const scimUser = {"userName":"vrstestuser","name":{"formatted":"Vrstest User"},"userType":"Employee","active":true,"authenticatedUserName":"vrstestuser","tenant":"XXXXXXXXXX","emails":[{"value":"xyz@email.com","type":"work","primary":true}],"phoneNumbers":[{"value":"1234567890","type":"work","primary":true}],"domainCode":"XXXXXXXXXX"}; // ScimUser | 
 
 // Call api endpoint

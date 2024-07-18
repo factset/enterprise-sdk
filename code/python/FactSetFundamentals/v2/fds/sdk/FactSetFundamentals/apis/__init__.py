@@ -15,6 +15,7 @@
 
 # Import APIs into API package:
 from fds.sdk.FactSetFundamentals.api.batch_processing_api import BatchProcessingApi
+from fds.sdk.FactSetFundamentals.api.company_reports_api import CompanyReportsApi
 from fds.sdk.FactSetFundamentals.api.fact_set_fundamentals_api import FactSetFundamentalsApi
 from fds.sdk.FactSetFundamentals.api.metrics_api import MetricsApi
 from fds.sdk.FactSetFundamentals.api.segments_api import SegmentsApi

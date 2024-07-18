@@ -58,7 +58,7 @@ public class Participant implements Serializable {
   private JsonNullable<String> industry = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ULTIMATE_PARENT_ID = "ultimateParentId";
-  private String ultimateParentId;
+  private JsonNullable<String> ultimateParentId = JsonNullable.<String>undefined();
 
   public Participant() { 
   }
@@ -158,7 +158,7 @@ public class Participant implements Serializable {
 
 
   public Participant ultimateParentId(String ultimateParentId) {
-    this.ultimateParentId = ultimateParentId;
+    this.ultimateParentId = JsonNullable.<String>of(ultimateParentId);
     return this;
   }
 
@@ -168,18 +168,26 @@ public class Participant implements Serializable {
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(example = "000N1N-E", value = "FactSet Permanent Identifier of the ultimate parent of the participant. Six alpha-numeric characters, excluding vowels, with an -E suffix (XXXXXX-E).")
-  @JsonProperty(JSON_PROPERTY_ULTIMATE_PARENT_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getUltimateParentId() {
-    return ultimateParentId;
+        return ultimateParentId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ULTIMATE_PARENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUltimateParentId(String ultimateParentId) {
+
+  public JsonNullable<String> getUltimateParentId_JsonNullable() {
+    return ultimateParentId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ULTIMATE_PARENT_ID)
+  public void setUltimateParentId_JsonNullable(JsonNullable<String> ultimateParentId) {
     this.ultimateParentId = ultimateParentId;
+  }
+
+  public void setUltimateParentId(String ultimateParentId) {
+    this.ultimateParentId = JsonNullable.<String>of(ultimateParentId);
   }
 
 
@@ -198,7 +206,7 @@ public class Participant implements Serializable {
     return Objects.equals(this.fsymId, participant.fsymId) &&
         Objects.equals(this.name, participant.name) &&
         equalsNullable(this.industry, participant.industry) &&
-        Objects.equals(this.ultimateParentId, participant.ultimateParentId);
+        equalsNullable(this.ultimateParentId, participant.ultimateParentId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -207,7 +215,7 @@ public class Participant implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(fsymId, name, hashCodeNullable(industry), ultimateParentId);
+    return Objects.hash(fsymId, name, hashCodeNullable(industry), hashCodeNullable(ultimateParentId));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

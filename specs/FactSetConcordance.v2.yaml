@@ -20,7 +20,11 @@ info:
      
      <b>Entity & People Match - Bulk:</b> The second workflow allows you to input a large list of names within a .CSV file in a single request With this workflow, a task is created for uploading a set of queries. Once the task has completed, the client retrieves the concordance results through the /entity-decisions or /people-decisions endpoint. Note that in the Bulk workflow, only the matches for the records are returned. Candidates are not included.
      
-     Once the service has provided a list of concorded FactSet Identifiers, you can then use our Entity Mappings and People Mappings endpoints to further review the universe of mapped identifiers or modify existing records. </p>
+     Once the service has provided a list of concorded FactSet Identifiers, you can then use our Entity Mappings and People Mappings endpoints to further review the universe of mapped identifiers or modify existing records. </p><p><b>Rate limit is set to 10 requests per second</b>.</p>
+     
+     Methodology Guide link: 
+     [https://open.factset.com/api/public/media/download/products/documents/8ca33e81-a7da-4d77-a8cf-2b3a2e868b3d](https://open.factset.com/api/public/media/download/products/documents/8ca33e81-a7da-4d77-a8cf-2b3a2e868b3d)
+
      
   contact:
     name: FactSet Research Systems, Inc.
@@ -155,13 +159,15 @@ paths:
       summary: Input a file with names and attributes, creating a taskId.
       description: >
         Upload a Comma-Separated List file (.csv / UTF-8 encoding) with a list
-        of names and attributes and receive a `taskId`. The taskId is then used
-        for reference in the */entity-task-status* and */entity-decisions*
-        endpoints to receive results once the task is successful.<p>This is the
-        first step in the overall "Bulk" workflow. Use the /entity-task-status
-        endpoint to check the status.</p> <p> A universeId must be included in
-        request. If you do not have a universe created, reference the
-        `/universe` endpoint.
+        of names and attributes and receive a `taskId`. [Concordance Sample
+        Template
+        File](https://my.apps.factset.com/oa/cms/oaAttachment/57096850-3834-49fd-9d35-d02d72bdb142/27317).
+        The taskId is then used for reference in the */entity-task-status* and
+        */entity-decisions* endpoints to receive results once the task is
+        successful.<p>This is the first step in the overall "Bulk" workflow. Use
+        the /entity-task-status endpoint to check the status.</p> <p> A
+        universeId must be included in request. If you do not have a universe
+        created, reference the `/universe` endpoint.
       tags:
         - Entity Match - Bulk
       operationId: getEntityTaskForList
@@ -963,7 +969,8 @@ paths:
         The "Bulk" workflow allows the user to create a People Concordance Task.
         Uploading of a Comma-Separated List file (.csv / UTF-8 encoding) with a
         list of names and attributes and creation of a task id is mandatory to
-        start the process.
+        start the process. [Concordance Sample People
+        Template](https://my.apps.factset.com/oa/cms/oaAttachment/8bd62c75-8f78-48c0-a27d-9cd186c9a54a/27317)
            The taskId is then used for reference in the /people-task-status and /people-decisions endpoints to receive results once the task is successful.The /people-task-status endpoint is to check the status of the Tasks as per the ids.
             A universeId must be included in request. If you do not have a universe created, reference the /universe endpoint.The bulk workflow supports a two way approach for the user.
           **The user can use these parameters in the following ways.**
@@ -1174,7 +1181,7 @@ components:
       schema:
         type: string
       required: true
-      example: FactSet
+      example: Tesla
     country:
       name: country
       description: >-
@@ -1198,7 +1205,7 @@ components:
         type: string
         maxLength: 2
         minLength: 2
-      example: CT
+      example: TX
     url:
       name: url
       description: >-
@@ -1207,6 +1214,7 @@ components:
       in: query
       schema:
         type: string
+      example: www.tesla.com
     includeEntityType:
       name: includeEntityType
       description: >
@@ -1391,7 +1399,7 @@ components:
       in: query
       schema:
         type: string
-        example: BICCode
+        example: TSLAUS66
     bbgTicker:
       description: >-
         Input identifiers for the Bloomberg Listing and Regional Ticker symbol
@@ -1400,14 +1408,14 @@ components:
       in: query
       schema:
         type: string
-        example: BloombergId
+        example: TSLA UW
     cik:
       description: Input identifiers for the CIK - Edgar Central Index Keys symbol type.
       name: cik
       in: query
       schema:
         type: string
-        example: CIK
+        example: 1318605
     crd:
       description: >-
         Input identifiers for the CRD - Central Registration Depository symbol
@@ -1423,7 +1431,7 @@ components:
       in: query
       schema:
         type: string
-        example: CUSIP
+        example: 88160R101
     duns:
       description: >-
         Input identifiers for the DUNS - Dun & Bradstreet Data Universal
@@ -1441,7 +1449,7 @@ components:
       in: query
       schema:
         type: string
-        example: EmployerIdentificationNumber
+        example: 912197729
     rssd:
       description: Input identifiers for the RSSD - Federal Reserve RSSD symbol typ.
       name: rssd
@@ -1464,14 +1472,14 @@ components:
       in: query
       schema:
         type: string
-        example: ISIN
+        example: US88160R1014
     lei:
       description: Input identifiers for the LEI - Legal Entity Identifier symbol type
       name: lei
       in: query
       schema:
         type: string
-        example: LegalEntityIdentifier
+        example: 54930043XZGB27CTOV49
     bbgFigi:
       description: >-
         Input identifiers for the Bloomberg Listing/Regional/Security ID symbol
@@ -1480,14 +1488,14 @@ components:
       in: query
       schema:
         type: string
-        example: BBG009S39JY5
+        example: BBG000N9P426
     md:
       description: Input identifiers for the Moody's Ratings Identifier type.
       name: md
       in: query
       schema:
         type: string
-        example: MoodysIssuer
+        example: 823642219
     ticker:
       description: Input identifiers for the Price Ticker symbol type.
       name: ticker
@@ -1501,28 +1509,28 @@ components:
       in: query
       schema:
         type: string
-        example: SPRating
+        example: 562703
     sedol:
       description: Input identifiers for the SEDOL symbol type.
       name: sedol
       in: query
       schema:
         type: string
-        example: SEDOL
+        example: B616C79
     tickerExchange:
       description: Input identifiers for the TickerExchange.
       name: tickerExchange
       in: query
       schema:
         type: string
-        example: TickerExch
+        example: TSLA-NAS
     tickerRegion:
       description: Input identifiers for the TickerRegion.
       name: tickerRegion
       in: query
       schema:
         type: string
-        example: TickerRegion
+        example: TSLA-US
     ukch:
       description: Input identifiers for the UKCH - UK Company House symbol type.
       name: ukch
@@ -1543,7 +1551,7 @@ components:
       in: query
       schema:
         type: string
-        example: WKN
+        example: A1CX3T
     jcn:
       description: >-
         Input identifiers for the type JCN - Japanese Corporate Number symbol
@@ -1597,7 +1605,7 @@ components:
       in: query
       schema:
         type: string
-        example: FactSetIdentifier
+        example: 006XY7-E
     taskDecisionId:
       name: taskId
       description: >-
@@ -1911,6 +1919,9 @@ components:
         application/json;charset=utf-8:
           schema:
             $ref: '#/components/schemas/EntityMatchRequest'
+          examples:
+            Entity Match Request:
+              $ref: '#/components/examples/EntityMatchPostRequests'
     EntityMappingRequestV2:
       description: A request to create a single mapping.
       required: true
@@ -1918,6 +1929,9 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/EntityMappingRequest'
+          examples:
+            Entity Mapping Request:
+              $ref: '#/components/examples/EntityMappingPostRequest'
     PeopleMappingRequestV2:
       description: A request to create a single mapping.
       required: true
@@ -1925,6 +1939,9 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/PeopleMappingRequest'
+          examples:
+            People Mapping Request:
+              $ref: '#/components/examples/PeopleMappingPostRequest'
     EntityMappingDeleteRequestV2:
       description: A request to delete entity mappings specified by the client
       required: true
@@ -1932,6 +1949,9 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/EntityMappingDeleteRequest'
+          examples:
+            Entity Mapping Delete Request:
+              $ref: '#/components/examples/EntityMappingDeletePostRequest'
     PeopleMappingDeleteRequestV2:
       description: A request to delete people mappings specified by the client
       required: true
@@ -1939,6 +1959,9 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/EntityMappingDeleteRequest'
+          examples:
+            People Mapping Delete Request:
+              $ref: '#/components/examples/PeopleMappingDeletePostRequest'
     EntityUniverseRequest:
       description: A request to fetch all entities of a given universe
       required: true
@@ -1946,6 +1969,9 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/EntityUniverseRequest'
+          examples:
+            Entity Universe Request:
+              $ref: '#/components/examples/EntityUniversePostRequest'
     CreateUniverseRequest:
       description: A request to create a user's universe
       required: true
@@ -1953,6 +1979,9 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/CreateUniverseRequest'
+          examples:
+            Universe Request:
+              $ref: '#/components/examples/UniversePostRequest'
     UpdateUniverseRequest:
       description: A request to update a user's universe
       required: true
@@ -1960,6 +1989,9 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/UpdateUniverseRequest'
+          examples:
+            Update Universe Request:
+              $ref: '#/components/examples/UpdateUniversePostRequest'
     PeopleUniverseRequest:
       description: A request to fetch all entities of a given universe
       required: true
@@ -1967,6 +1999,9 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/PeopleUniverseRequest'
+          examples:
+            People Universe Request:
+              $ref: '#/components/examples/PeopleUniversePostRequest'
     SnowflakeEntityMatchRequest:
       description: A request to match an entity name and its attributes within Snowflake.
       required: true
@@ -1988,6 +2023,9 @@ components:
         application/json;charset=utf-8:
           schema:
             $ref: '#/components/schemas/PeopleMatchRequest'
+          examples:
+            People Match Request:
+              $ref: '#/components/examples/PeopleMatchPostRequest'
   responses:
     '400':
       description: >-
@@ -2106,7 +2144,7 @@ components:
           schema:
             $ref: '#/components/schemas/EntityUniverseResponse'
           examples:
-            CompanyUniverse:
+            Company Universe:
               $ref: '#/components/examples/EntityUniverse'
     PeopleUniverseResponse:
       description: Response object for FactSet Concordance Universe detail.
@@ -2115,7 +2153,7 @@ components:
           schema:
             $ref: '#/components/schemas/PeopleUniverseResponse'
           examples:
-            CompanyUniverse:
+            Company Universe:
               $ref: '#/components/examples/PeopleUniverse'
     EntityUniverseStatisticsResponse:
       description: Response object for mapping statistics for a universe
@@ -2123,24 +2161,36 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/EntityUniverseStatisticsResponse'
+          examples:
+            Entity Universe Statistics Response:
+              $ref: '#/components/examples/EntityUniverseStatisticsExample'
     universeStatisticsResponse:
       description: Response object for mapping statistics for a universe
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/universeStatisticsResponse'
+          examples:
+            Universe Statistics Response:
+              $ref: '#/components/examples/UniverseStatisticsGetExample'
     UniversesResponse:
       description: Metadata on multiple universes
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/UniversesResponse'
+          examples:
+            Universes Response:
+              $ref: '#/components/examples/UniversesExample'
     UniverseMetaResponse:
       description: Metadata on a single universe
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/UniverseMetaResponse'
+          examples:
+            Update Universe Response:
+              $ref: '#/components/examples/UpdateUniversePostResponse'
     EntityMappingResponse:
       description: Single entity mapping
       content:
@@ -2154,7 +2204,7 @@ components:
           schema:
             $ref: '#/components/schemas/PeopleMappingResponse'
           examples:
-            PeopleResponse:
+            People Response:
               $ref: '#/components/examples/PeopleResponse'
     EntityResponse:
       description: Response object for FactSet Concordance Entity.
@@ -2163,7 +2213,7 @@ components:
           schema:
             $ref: '#/components/schemas/EntityResponse'
           examples:
-            EntityResponse:
+            Entity Response:
               $ref: '#/components/examples/EntityResponse'
     SnowflakeEntityMatchResponse:
       description: >-
@@ -2196,6 +2246,9 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/EntityMappingDeleteResponse'
+          examples:
+            Entity Mapping Delete Response:
+              $ref: '#/components/examples/EntityMappingDeletePostResponse'
     PeopleMappingDeleteResponse:
       description: Response object for the people-mapping-delete endpoint
       content:
@@ -2203,7 +2256,7 @@ components:
           schema:
             $ref: '#/components/schemas/PeopleMappingDeleteResponse'
           examples:
-            PeopleResponse:
+            People Response:
               $ref: '#/components/examples/PeopleResponse'
     PeopleTaskResponse:
       description: OK. The People Task creation is submitted.
@@ -2261,7 +2314,7 @@ components:
               name:
                 description: The Name of the entity to match.
                 type: string
-                example: Amazon
+                example: Tesla
               clientId:
                 description: >
                   A unique identifier supplied by the user. ClientId is saved to
@@ -2288,13 +2341,13 @@ components:
                 type: string
                 maxLength: 2
                 minLength: 2
-                example: CT
+                example: TX
               url:
                 description: >
                   URL corresponding to the entity name that is used when
                   evaluating candidates for a match.
                 type: string
-                example: www.amazon.com
+                example: www.tesla.com
               priority:
                 description: Priority associated to the id.
                 type: string
@@ -2307,91 +2360,91 @@ components:
               bbgFigi:
                 description: Name for the type Bloomberg Listing/Regional/Security ID.
                 type: string
-                example: BBG009S39JY5
+                example: BBG000N9P426
               bbgTicker:
                 description: Name for the type Bloomberg Listing and Regional Ticker.
                 type: string
-                example: GOOGL UW
+                example: TSLA UW
               bic:
                 description: Name for type BICCode, bank indentification code
                 type: string
-                example: ABXXHKH1
+                example: TSLAUS66
               cik:
                 description: Name for the type CIK, Edgar Central Index Keys
                 type: string
-                example: 100331
+                example: '0001318605'
               crd:
                 description: Name for the type CRD, Central Registration Depository
                 type: string
-                example: 149722
+                example: ''
               cusip:
                 description: Name for the type CUSIP.
                 type: string
-                example: 02079K305
+                example: 88160R101
               duns:
                 description: Name for the type DUNS, Dun&Bradstreet.
                 type: string
-                example: 687741991
+                example: ''
               ein:
                 description: Name for the type EmployerIdentificationNumber, EIN.
                 type: string
-                example: 953540776
+                example: ''
               factsetId:
                 description: >-
                   Name for the type FactSet Identifier, FactSet -E,-S,-R, -L
                   Permanent Identifier.
                 type: string
-                example: 0013TZ-E
+                example: 006XY7-E
               fitch:
                 description: Name for the type FitchCreditRating, Fitch Ratings Identifier.
                 type: string
-                example: 47504
+                example: ''
               gvkey:
                 description: Name for the type GVKEY, Compustat Global Company Key.
                 type: string
-                example: 107481
+                example: ''
               gvkeyIid:
                 description: >-
                   Name for the type GVKEY+IID, Compustat Global Company Key and
                   Issue Identifier.
                 type: string
-                example: 107481001
+                example: ''
               isin:
                 description: Name for the type ISIN.
                 type: string
-                example: US02079K305
+                example: US88160R1014
               jcn:
                 description: Name for the type JCN , Japanese Corporate Number.
                 type: string
-                example: 3120001077477
+                example: ''
               lei:
                 description: Name for the type LegalEntityIdentifier, LEI.
                 type: string
-                example: 549300A6K7JX8EX2QZ33
+                example: 54930043XZGB27CTOV49
               lxid:
                 description: Name for the type LXID, Markit Syndicated Loan Identifier.
                 type: string
-                example: LX113630
+                example: ''
               md:
                 description: Name for the type MoodysIssuer, Moody's Ratings Identifier.
                 type: string
-                example: 823736553
+                example: 823642219
               redCode:
                 description: Name for the type RedCode, Markit Reference Entity Identifier.
                 type: string
-                example: 4C933G
+                example: ''
               rssd:
                 description: Name for the type FederalReserveRSSDIdentifier, RSSD.
                 type: string
-                example: 1139297
+                example: ''
               sedol:
                 description: Name for the type SEDOL.
                 type: string
-                example: BYZ5YB6
+                example: B616C79
               spr:
                 description: Name for the type S&PRating, S&P Ratings Identifier.
                 type: string
-                example: 301939
+                example: 562703
               ticker:
                 description: Name for the type PriceTicker.
                 type: string
@@ -2399,11 +2452,11 @@ components:
               tickerExchange:
                 description: Name for the type TickerExch.
                 type: string
-                example: GOOGL-NAS
+                example: TSLA-NAS
               tickerRegion:
                 description: Name for the type TickerRegion
                 type: string
-                example: GOOGL-US
+                example: TSLA-US
               ukch:
                 description: Name for the type UKCompanyHouse
                 type: string
@@ -2411,11 +2464,11 @@ components:
               valoren:
                 description: Name for the type VALOR, Valoren ("Valor") Identification.
                 type: string
-                example: 685558
+                example: ''
               wkn:
                 description: Name for the type WKN, German Securities Identification.
                 type: string
-                example: A0MU9T
+                example: A1CX3T
               additionalContext:
                 description: >
                   Any additional context information along with other input
@@ -2428,9 +2481,9 @@ components:
                   type: string
                 maxProperties: 5
                 example:
-                  Address: 123 Main St
-                  Phone: 555-555-5555
-                  City: New York
+                  Address: 1 Tesla Road
+                  Phone: 1-800 662 7232
+                  City: Austin
             required:
               - name
           minItems: 1
@@ -2465,7 +2518,7 @@ components:
             type: string
             maxLength: 3
             minLength: 3
-            example: PUB
+            example: ''
         excludeEntityType:
           description: >
             Three-character FactSet entity type code used to filter candidates
@@ -2523,7 +2576,7 @@ components:
           type: array
           items:
             type: string
-            example: PR
+            example: ''
             maxLength: 2
             minLength: 2
         excludeEntitySubType:
@@ -5628,6 +5681,58 @@ components:
         excludeEntityType:
           - PVT
         includeParent: true
+    EntityMatchPostRequests:
+      summary: Entity Match Request
+      description: Example of a request to find a match for a list of Companies.
+      value:
+        input:
+          - name: Tesla
+            clientId: abc-123
+            country: US
+            state: TX
+            url: www.tesla.com
+            priority: HIGH
+            bbgFigi: BBG000N9P426
+            bbgTicker: TSLA UW
+            bic: TSLAUS66
+            cik: '0001318605'
+            crd: ''
+            cusip: 88160R101
+            duns: ''
+            ein: ''
+            factsetId: 006XY7-E
+            fitch: ''
+            gvkey: ''
+            gvkeyIid: ''
+            isin: US88160R1014
+            jcn: ''
+            lei: 54930043XZGB27CTOV49
+            lxid: ''
+            md: '823642219'
+            redCode: ''
+            rssd: ''
+            sedol: B616C79
+            spr: '562703'
+            ticker: PriceTicker
+            tickerExchange: TSLA-NAS
+            tickerRegion: TSLA-US
+            ukch: CE012494
+            valoren: ''
+            wkn: A1CX3T
+            additionalContext:
+              Address: 1 Tesla Road
+              Phone: 1-800 662 7232
+              City: Austin
+        includeEntityType:
+          - ''
+        excludeEntityType:
+          - EXT
+        includeEntitySubType:
+          - ''
+        excludeEntitySubType:
+          - HF
+        includeParent: false
+        universeId: 1
     EntityMatches:
       description: Entity Matches
       value:
@@ -6228,8 +6333,243 @@ components:
         path: /factset-concordance/v2/fakeendpoint
         message: '''/factset-concordance/v2/fake-endpoint'' is not a valid endpoint'
         subErrors: null
+    UniversePostRequest:
+      description: Universe request
+      value:
+        universeName: My Universe
+        universeDescription: This is my universe
+        universeType: ENTITY
+    UniversePostResponse:
+      description: Universe response
+      value:
+        data:
+          universeId: 1
+          universeName: My Universe
+          universeDescription: This is a universe
+          universeType: ENTITY
+          selfManaged: true
+          createdBy: FDSQAR_C-000000
+          createdOn: '2020-01-01T00:00:00.000'
+          updatedBy: FDSQAR_C-000000
+          updatedOn: '2020-01-01T00:00:00.000'
+    UpdateUniversePostRequest:
+      description: Update Universe request
+      value:
+        universeName: My Universe
+        universeDescription: This is my universe
+        universeId: 1
+    UpdateUniversePostResponse:
+      description: Update Universe response
+      value:
+        data: null
+        universeId: 1
+        universeName: My Universe
+        universeDescription: This is a universe
+        universeType: ENTITY
+        selfManaged: true
+        createdBy: FDSQAR_C-000000
+        createdOn: '2020-01-01T00:00:00.000'
+        updatedBy: FDSQAR_C-000000
+        updatedOn: '2020-01-01T00:00:00.000'
+    UniversesExample:
+      description: Universes response
+      value:
+        data:
+          - universeId: 1
+            universeName: My Universe
+            universeDescription: This is a universe
+            universeType: ENTITY
+            selfManaged: true
+            createdBy: FDSQAR_C-000000
+            createdOn: '2020-01-01T00:00:00.000'
+            updatedBy: FDSQAR_C-000000
+            updatedOn: '2020-01-01T00:00:00.000'
+    EntityUniverseStatisticsExample:
+      description: Entity Universe Statistics response
+      value:
+        data:
+          - totalCount: 10
+            mappedCount: 8
+            unmappedCount: 1
+            indeterminateCount: 1
+            universeId: 1
+    UniverseStatisticsGetExample:
+      description: Universe Statistics response
+      value:
+        data:
+          - totalCount: 10
+            mappedCount: 8
+            unmappedCount: 1
+            indeterminateCount: 1
+            universeId: 1
+    EntityUniversePostRequest:
+      description: Entity Universe request
+      value:
+        universeId: 1
+        offset: 0
+        limit: 10
+        mapStatus:
+          - MAPPED
+        clientId:
+          - abc-123
+          - dfg-456
+        sort:
+          - clientId:asc
+          - clientName:desc
+    EntityMappingPostRequest:
+      description: Entity Mapping request
+      value:
+        universeId: 1
+        clientId: FDS-USA
+        entityId: 0016YD-E
+        clientName: FactSet
+        clientCountry: US
+        clientState: CT
+        clientUrl: www.factset.com
+        clientBbgFigi: BBG009S39JY5
+        clientBbgTicker: GOOGL UW
+        clientBic: ABXXHKH1
+        clientCik: '100331'
+        clientCrd: '149722'
+        clientCusip: 02079K305
+        clientDuns: '687741991'
+        clientEin: '953540776'
+        clientFactsetId: 0013TZ-E
+        clientFitch: '47504'
+        clientGvkeyIid: '107481001'
+        clientGvkey: '107481'
+        clientIsin: US02079K305
+        clientJcn: '3120001077477'
+        clientLei: 549300A6K7JX8EX2QZ33
+        clientLxid: LX113630
+        clientMd: '823736553'
+        clientTicker: PriceTicker
+        clientPriority: HIGH
+        clientRedCode: 4C933G
+        clientRssd: '1139297'
+        clientSedol: BYZ5YB6
+        clientSpr: '301939'
+        clientTickerExchange: GOOGL-NAS
+        clientTickerRegion: GOOGL-US
+        clientUkch: CE012494
+        clientValoren: '685558'
+        clientWkn: A0MU9T
+        clientAdditionalContext:
+          Address: 123 Main St
+          Phone: 555-555-5555
+          City: New York
+    EntityMappingDeletePostRequest:
+      description: Entity Mapping Delete request
+      value:
+        universeId: 1
+        clientId:
+          - abc-123
+          - dfg-456
+    EntityMappingDeletePostResponse:
+      description: Entity Mapping Delete response
+      value:
+        data:
+          - entityId: 00456-E
+            entityName: FactSet Inc.
+            clientId: abc-1234
+            clientName: factset
+            clientCountry: us
+            clientState: ct
+            clientPriority: HIGH
+            clientBbgFigi: BBG009S39JY5
+            clientBbgTicker: GOOGL UW
+            clientBic: ABXXHKH1
+            clientCik: '100331'
+            clientCrd: '149722'
+            clientCusip: 02079K305
+            clientDuns: '687741991'
+            clientEin: '953540776'
+            clientFactsetId: 0013TZ-E
+            clientFitch: '47504'
+            clientGvkey: '107481'
+            clientGvkeyIid: '107481001'
+            clientIsin: US02079K305
+            clientJcn: '3120001077477'
+            clientLei: 549300A6K7JX8EX2QZ33
+            clientLxid: LX113630
+            clientMd: '823736553'
+            clientRedCode: 4C933G
+            clientRssd: '1139297'
+            clientSedol: BYZ5YB6
+            clientSpr: '301939'
+            clientTicker: GOOGL
+            clientTickerExchange: GOOGL-NAS
+            clientTickerRegion: GOOGL-US
+            clientUkch: CE012494
+            clientValoren: '685558'
+            clientWkn: A0MU9T
+            clientAdditionalContext:
+              Address: 123 Main St
+              Phone: 555-555-5555
+              City: New York
+            clientUrl: www.factset.com
+            createdTime: '2020-06-24T22:02:21.000'
+            updatedTime: '2020-06-24T22:02:21.000'
+            mapStatus: MAPPED
+            universeId: 1
+    PeopleMatchPostRequest:
+      description: People Match request
+      value:
+        input:
+          - personName: Bill Gates
+            clientId: abc-123
+            salutation: Mr
+            firstName: Bill
+            middleName: Henry
+            lastName: Gates
+            additionalContext:
+              Address: 123 Main St
+              Phone: 555-555-5555
+              City: New York
+            suffix: III
+            entity: Microsoft
+        universeId: 1
+    PeopleUniversePostRequest:
+      description: People Universe request
+      value:
+        universeId: 1
+        offset: 0
+        limit: 10
+        mapStatus:
+          - MAPPED
+        clientId:
+          - abc-123
+          - dfg-456
+        sort:
+          - clientId:asc
+          - clientPersonName:desc
+    PeopleMappingPostRequest:
+      description: People Mapping request
+      value:
+        clientEntity: Microsoft
+        clientFirstName: William
+        clientId: BGA-123
+        clientLastName: Gates
+        clientMiddleName: Henry
+        clientPersonName: Bill Gates
+        clientPriority: HIGH
+        clientSalutation: Mr
+        clientSuffix: III
+        clientAdditionalContext:
+          Address: 123 Main St
+          Phone: 555-555-5555
+          City: New York
+        personId: 00118X-E
+        universeId: 1
+    PeopleMappingDeletePostRequest:
+      description: People Mapping Delete request
+      value:
+        universeId: 1
+        clientId:
+          - abc-123
+          - dfg-456
     EntityUniverse:
-      description: Entity Universe response from v2 endpoint
+      description: Entity Universe response
       value:
         data:
           - entityId: 00345-E
@@ -6267,7 +6607,7 @@ components:
               Phone: 555-555-5555
               City: New York
     PeopleUniverse:
-      description: People Universe response from v2 endpoint
+      description: People Universe response
       value:
         data:
           - clientEntity: Microsoft

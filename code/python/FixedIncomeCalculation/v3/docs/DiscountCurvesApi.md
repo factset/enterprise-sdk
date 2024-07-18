@@ -1,10 +1,10 @@
 # fds.sdk.FixedIncomeCalculation.DiscountCurvesApi
 
-All URIs are relative to *https://api.factset.com*
+All URIs are relative to *https://api.factset.com/analytics/engines/fi/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_all_fi_discount_curves**](DiscountCurvesApi.md#get_all_fi_discount_curves) | **GET** /analytics/engines/fi/v3/discount-curves | Get Discount Curves
+[**get_all_fi_discount_curves**](DiscountCurvesApi.md#get_all_fi_discount_curves) | **GET** /discount-curves | Get Discount Curves
 
 
 

@@ -129,7 +129,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new AccountsApi();
-const accountPath = "accountPath_example"; // String | URL encoded account path
+const accountPath = Client:SPAR_Return_Type.ACCT; // String | URL encoded account path
 
 // Call api endpoint
 apiInstance.getSPARReturnsType(accountPath).then(

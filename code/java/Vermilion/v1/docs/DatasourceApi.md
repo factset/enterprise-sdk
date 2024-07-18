@@ -59,7 +59,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         DatasourceApi apiInstance = new DatasourceApi(defaultClient);
-        String tenant = "XXXXXXXXXX"; // String | The code of the tenancy
+        String tenant = "TENANT"; // String | The code of the tenancy
         java.util.List<String> sort = Arrays.asList(); // java.util.List<String> | The column to sort on. Append - to sort in descending order. If parameter is not given, no sorting will be done
         Integer paginationLimit = 25; // Integer | Non-negative maximum number of entries to return. Default is 25
         Integer paginationOffset = 0; // Integer | Non-negative number of entries to skip. Default is 0
@@ -85,8 +85,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenant** | **String**| The code of the tenancy |
  **sort** | **List&lt;String&gt;**| The column to sort on. Append - to sort in descending order. If parameter is not given, no sorting will be done | [optional]
- **paginationLimit** | **Integer**| Non-negative maximum number of entries to return. Default is 25 | [optional]
- **paginationOffset** | **Integer**| Non-negative number of entries to skip. Default is 0 | [optional]
+ **paginationLimit** | **Integer**| Non-negative maximum number of entries to return. Default is 25 | [optional] [default to 25]
+ **paginationOffset** | **Integer**| Non-negative number of entries to skip. Default is 0 | [optional] [default to 0]
 
 ### Return type
 
@@ -159,8 +159,8 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         DatasourceApi apiInstance = new DatasourceApi(defaultClient);
-        String tenant = "XXXXXXXXXX"; // String | The code of the tenancy
-        String dataSourceCode = "XXXXXXXXXX"; // String | The code of the datasource
+        String tenant = "TENANT"; // String | The code of the tenancy
+        String dataSourceCode = "DSCODE"; // String | The code of the datasource
         try {
             DataSourceData result = apiInstance.getDataSourceByCode(tenant, dataSourceCode);
             System.out.println(result);
@@ -256,8 +256,8 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         DatasourceApi apiInstance = new DatasourceApi(defaultClient);
-        String tenant = "XXXXXXXXXX"; // String | The code of the tenancy
-        String dataSourceCode = "XXXXXXXXXX"; // String | The code of the datasource
+        String tenant = "TENANT"; // String | The code of the tenancy
+        String dataSourceCode = "DSCODE"; // String | The code of the datasource
         String entityCodes = "FUNDS"; // String | A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes=ACCOUNT&entityCodes=FUNDS
         String entityKeys = "Test2"; // String | A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys=1&entityKeys=Test2
         Integer paginationLimit = 25; // Integer | Non-negative maximum number of entries to return. Default is 25
@@ -286,8 +286,8 @@ Name | Type | Description  | Notes
  **dataSourceCode** | **String**| The code of the datasource |
  **entityCodes** | **String**| A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes&#x3D;ACCOUNT&amp;entityCodes&#x3D;FUNDS | [optional]
  **entityKeys** | **String**| A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys&#x3D;1&amp;entityKeys&#x3D;Test2 | [optional]
- **paginationLimit** | **Integer**| Non-negative maximum number of entries to return. Default is 25 | [optional]
- **paginationOffset** | **Integer**| Non-negative number of entries to skip. Default is 0 | [optional]
+ **paginationLimit** | **Integer**| Non-negative maximum number of entries to return. Default is 25 | [optional] [default to 25]
+ **paginationOffset** | **Integer**| Non-negative number of entries to skip. Default is 0 | [optional] [default to 0]
 
 ### Return type
 

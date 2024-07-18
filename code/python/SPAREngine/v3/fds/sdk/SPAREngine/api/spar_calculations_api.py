@@ -1580,7 +1580,7 @@ class SPARCalculationsApi(object):
 
 
         Keyword Args:
-            x_fact_set_api_long_running_deadline (int): Long running deadline in seconds when only one unit is passed in the POST body.. [optional]
+            x_fact_set_api_long_running_deadline (int): Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation.. [optional]
             cache_control (str): Standard HTTP header.  Accepts max-stale.. [optional]
             spar_calculation_parameters_root (SPARCalculationParametersRoot): Calculation Parameters. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1625,7 +1625,7 @@ class SPARCalculationsApi(object):
 
 
         Keyword Args:
-            x_fact_set_api_long_running_deadline (int): Long running deadline in seconds when only one unit is passed in the POST body.. [optional]
+            x_fact_set_api_long_running_deadline (int): Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation.. [optional]
             cache_control (str): Standard HTTP header.  Accepts max-stale.. [optional]
             spar_calculation_parameters_root (SPARCalculationParametersRoot): Calculation Parameters. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1674,7 +1674,7 @@ class SPARCalculationsApi(object):
 
 
         Keyword Args:
-            x_fact_set_api_long_running_deadline (int): Long running deadline in seconds when only one unit is passed in the POST body.. [optional]
+            x_fact_set_api_long_running_deadline (int): Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation.. [optional]
             cache_control (str): Standard HTTP header.  Accepts max-stale.. [optional]
             spar_calculation_parameters_root (SPARCalculationParametersRoot): Calculation Parameters. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1718,7 +1718,7 @@ class SPARCalculationsApi(object):
 
 
         Keyword Args:
-            x_fact_set_api_long_running_deadline (int): Long running deadline in seconds when only one unit is passed in the POST body.. [optional]
+            x_fact_set_api_long_running_deadline (int): Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation.. [optional]
             cache_control (str): Standard HTTP header.  Accepts max-stale.. [optional]
             spar_calculation_parameters_root (SPARCalculationParametersRoot): Calculation Parameters. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1766,7 +1766,7 @@ class SPARCalculationsApi(object):
             id (str): from url, provided from the location header in the Create and Run SPAR calculation endpoint
 
         Keyword Args:
-            x_fact_set_api_long_running_deadline (int): Long running deadline in seconds when only one unit is passed in the PUT body.. [optional]
+            x_fact_set_api_long_running_deadline (int): Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation.. [optional]
             cache_control (str): Standard HTTP header.  Accepts max-stale.. [optional]
             spar_calculation_parameters_root (SPARCalculationParametersRoot): Calculation Parameters. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1816,7 +1816,7 @@ class SPARCalculationsApi(object):
             id (str): from url, provided from the location header in the Create and Run SPAR calculation endpoint
 
         Keyword Args:
-            x_fact_set_api_long_running_deadline (int): Long running deadline in seconds when only one unit is passed in the PUT body.. [optional]
+            x_fact_set_api_long_running_deadline (int): Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation.. [optional]
             cache_control (str): Standard HTTP header.  Accepts max-stale.. [optional]
             spar_calculation_parameters_root (SPARCalculationParametersRoot): Calculation Parameters. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1870,7 +1870,7 @@ class SPARCalculationsApi(object):
             id (str): from url, provided from the location header in the Create and Run SPAR calculation endpoint
 
         Keyword Args:
-            x_fact_set_api_long_running_deadline (int): Long running deadline in seconds when only one unit is passed in the PUT body.. [optional]
+            x_fact_set_api_long_running_deadline (int): Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation.. [optional]
             cache_control (str): Standard HTTP header.  Accepts max-stale.. [optional]
             spar_calculation_parameters_root (SPARCalculationParametersRoot): Calculation Parameters. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1919,7 +1919,7 @@ class SPARCalculationsApi(object):
             id (str): from url, provided from the location header in the Create and Run SPAR calculation endpoint
 
         Keyword Args:
-            x_fact_set_api_long_running_deadline (int): Long running deadline in seconds when only one unit is passed in the PUT body.. [optional]
+            x_fact_set_api_long_running_deadline (int): Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation.. [optional]
             cache_control (str): Standard HTTP header.  Accepts max-stale.. [optional]
             spar_calculation_parameters_root (SPARCalculationParametersRoot): Calculation Parameters. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object

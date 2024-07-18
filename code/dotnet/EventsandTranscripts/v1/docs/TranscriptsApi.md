@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetTranscriptsDates**](TranscriptsApi.md#gettranscriptsdates) | **GET** /transcripts/dates | Returns the transcript documents in XML format and related metadata within FactSet coverage based on specific date range and time zones.
 [**GetTranscriptsEvents**](TranscriptsApi.md#gettranscriptsevents) | **GET** /transcripts/events | Returns the transcript documents in XML format and related metadata within FactSet coverage based on eventIds and eventType.
 [**GetTranscriptsIds**](TranscriptsApi.md#gettranscriptsids) | **GET** /transcripts/ids | Returns the transcript documents in XML format and related metadata within FactSet coverage based on specific IDs.
+[**GetTranscriptsTime**](TranscriptsApi.md#gettranscriptstime) | **GET** /transcripts/times | Returns the transcript documents in XML format and related metadata within FactSet coverage based on specific time.
 [**Getcategories**](TranscriptsApi.md#getcategories) | **GET** /reference/categories | Returns the categories.
 
 
@@ -551,6 +552,116 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The latest transcripts based on the provided report ID, IDs and primary ID. |  -  |
+| **400** | Bad request |  -  |
+| **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
+| **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
+| **500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+<a name="gettranscriptstime"></a>
+# **GetTranscriptsTime**
+> TranscriptsTimes GetTranscriptsTime (DateTime? startDateTime = null, DateTime? endDateTime = null, List<string> sort = null, int? paginationLimit = null, int? paginationOffset = null)
+
+Returns the transcript documents in XML format and related metadata within FactSet coverage based on specific time.
+
+Returns the transcripts documents within FactSet coverage along with other response fields.   All transcripts originate from Factset Callstreet Transcripts. 
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```csharp
+using System;
+using System.Threading.Tasks;
+using FactSet.SDK.Utils.Authentication;
+using FactSet.SDK.EventsandTranscripts.Api;
+using FactSet.SDK.EventsandTranscripts.Client;
+using FactSet.SDK.EventsandTranscripts.Model;
+
+namespace Example
+{
+    public class GetTranscriptsTimeExample
+    {
+        public static async Task Main()
+        {
+            var config = new FactSet.SDK.EventsandTranscripts.Client.Configuration();
+
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
+
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            //
+            // The confidential client instance should be reused in production environments.
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
+
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
+
+            var apiInstance = new TranscriptsApi(config);
+
+            var startDateTime = DateTime.Parse("2020-10-01T00:00:00Z");  // DateTime? |  **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.**    (optional) 
+            var endDateTime = DateTime.Parse("2020-10-26T10:00:00Z");  // DateTime? | The date to which data is required (optional) 
+            var sort = new List<string>(); // List<string> | Enables sorting data in ascending or descending chronological order based on eventDate.  (optional) 
+            var paginationLimit = 25;  // int? | Number of results to return per page. (optional)  (default to 25)
+            var paginationOffset = 0;  // int? | Page number of the results to return. (optional)  (default to 0)
+
+            try
+            {
+                // Returns the transcript documents in XML format and related metadata within FactSet coverage based on specific time.
+                TranscriptsTimes result = apiInstance.GetTranscriptsTime(startDateTime, endDateTime, sort, paginationLimit, paginationOffset);
+                Console.WriteLine(result.ToJson());
+            }
+            catch (ApiException  e)
+            {
+                Console.WriteLine("Exception when calling TranscriptsApi.GetTranscriptsTime: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startDateTime** | **DateTime?**|  **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.**    | [optional] 
+ **endDateTime** | **DateTime?**| The date to which data is required | [optional] 
+ **sort** | [**List&lt;string&gt;**](string.md)| Enables sorting data in ascending or descending chronological order based on eventDate.  | [optional] 
+ **paginationLimit** | **int?**| Number of results to return per page. | [optional] [default to 25]
+ **paginationOffset** | **int?**| Page number of the results to return. | [optional] [default to 0]
+
+### Return type
+[**TranscriptsTimes**](TranscriptsTimes.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The latest transcripts based on the provided date ranges. |  -  |
 | **400** | Bad request |  -  |
 | **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 | **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
