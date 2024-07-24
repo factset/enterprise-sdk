@@ -66,6 +66,8 @@ class InlineResponse20010Data(ModelNormal):
             'None': None,
             'RLT': "RLT",
             'DLY': "DLY",
+
+
         },
     }
 

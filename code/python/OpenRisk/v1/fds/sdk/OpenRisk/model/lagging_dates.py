@@ -65,6 +65,8 @@ class LaggingDates(ModelNormal):
         ('ssr_date_is',): {
             'EXPOSUREDATE': "ExposureDate",
             'COVARIANCEDATE': "CovarianceDate",
+
+
         },
     }
 

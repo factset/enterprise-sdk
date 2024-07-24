@@ -64,6 +64,8 @@ class InlineResponse200DataIndex(ModelNormal):
             'AS_NEEDED': "As Needed",
             'BI-MONTHLY': "Bi-Monthly",
             'WEEKLY': "Weekly",
+
+
         },
     }
 

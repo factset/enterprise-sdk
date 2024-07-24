@@ -66,6 +66,8 @@ class InlineResponse20050DataComponents(ModelNormal):
             'None': None,
             'LONG': "long",
             'SHORT': "short",
+
+
         },
     }
 

@@ -65,6 +65,8 @@ class SMCreateResponse(ModelNormal):
         ('status',): {
             'SUCCESS': "success",
             'FAILURE': "failure",
+
+
         },
     }
 

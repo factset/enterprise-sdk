@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 Get Vault configuration by id
 
-This endpoint returns details for a Vault configuration as well as a list of accounts it is used in.
+This endpoint returns details for a Vault configuration as well as a list of accounts it is used in.    The __lockingDate__ parameter in the response can help in identifying if the vault configuration data is locked or unlocked.
 
 ### Example
 
@@ -50,7 +50,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new ConfigurationsApi();
-const id = "id_example"; // String | Vault configuration id to get the details of
+const id = e95ef921-b4d4-4bb7-93ba-60eca8e3247a; // String | Vault configuration id to get the details of. This is a sample example for illustration purposes only. Client should use a valid Vault API Configuration Id to get a successful response.
 
 // Call api endpoint
 apiInstance.getVaultConfigurationById(id).then(
@@ -72,7 +72,7 @@ apiInstance.getVaultConfigurationById(id).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Vault configuration id to get the details of | 
+ **id** | **String**| Vault configuration id to get the details of. This is a sample example for illustration purposes only. Client should use a valid Vault API Configuration Id to get a successful response. | 
 
 ### Return type
 
@@ -129,7 +129,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new ConfigurationsApi();
-const account = "account_example"; // String | Required account query parameter to filter configurations for a specific account
+const account = CLIENT:/MAC/DEMO/DEMO_PS_EQ_EM_COUNTRY_ALPHA.ACCT; // String | Required account query parameter to filter configurations for a specific account. This is a sample example for illustration purposes only. Client should use a valid Portfolio Insight Account to get a successful response.
 
 // Call api endpoint
 apiInstance.getVaultConfigurations(account).then(
@@ -151,7 +151,7 @@ apiInstance.getVaultConfigurations(account).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account** | **String**| Required account query parameter to filter configurations for a specific account | 
+ **account** | **String**| Required account query parameter to filter configurations for a specific account. This is a sample example for illustration purposes only. Client should use a valid Portfolio Insight Account to get a successful response. | 
 
 ### Return type
 

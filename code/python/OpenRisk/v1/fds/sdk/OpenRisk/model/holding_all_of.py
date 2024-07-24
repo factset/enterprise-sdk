@@ -66,6 +66,8 @@ class HoldingAllOf(ModelNormal):
             'NORMALIZEWITHGROUPCASH': "NormalizeWithGroupCash",
             'EXCLUDETOCASHWITHINGROUP': "ExcludeToCashWithinGroup",
             'NORMALIZEWITHINGROUP': "NormalizeWithinGroup",
+
+
         },
     }
 

@@ -66,6 +66,8 @@ class PostNotationCategoryListRequestData(ModelNormal):
             'TICKERREGION': "tickerRegion",
             'FDSPERMANENTIDENTIFIERLISTING': "fdsPermanentIdentifierListing",
             'FDSPERMANENTIDENTIFIERREGIONAL': "fdsPermanentIdentifierRegional",
+
+
         },
     }
 

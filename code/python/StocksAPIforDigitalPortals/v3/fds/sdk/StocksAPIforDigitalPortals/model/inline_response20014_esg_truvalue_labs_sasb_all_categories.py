@@ -62,6 +62,8 @@ class InlineResponse20014EsgTruvalueLabsSasbAllCategories(ModelNormal):
             'AVERAGE': "average",
             'BELOWAVERAGE': "belowAverage",
             'LAGGARD': "laggard",
+
+
         },
     }
 

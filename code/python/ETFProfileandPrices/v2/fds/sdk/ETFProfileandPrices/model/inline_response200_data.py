@@ -81,6 +81,8 @@ class InlineResponse200Data(ModelNormal):
             'ACTIVE': "Active",
             'DELISTED': "Delisted",
             'NOT_TRADING_YET': "Not trading yet",
+
+
         },
     }
 

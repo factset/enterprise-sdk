@@ -73,6 +73,8 @@ class PostInstrumentNotationListRequestMeta(ModelNormal):
             '-NOTATIONS.VALUEUNIT.NAME': "-notations.valueUnit.name",
             'NOTATIONS.TRADINGVOLUME.MONTH1.AVERAGE': "notations.tradingVolume.month1.average",
             '-NOTATIONS.TRADINGVOLUME.MONTH1.AVERAGE': "-notations.tradingVolume.month1.average",
+
+
         },
     }
 

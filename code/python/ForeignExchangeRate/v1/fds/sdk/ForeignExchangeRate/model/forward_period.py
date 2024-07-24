@@ -64,6 +64,8 @@ class ForwardPeriod(ModelSimple):
             '1Y': "1Y",
             '2Y': "2Y",
             '5Y': "5Y",
+
+
         },
     }
 

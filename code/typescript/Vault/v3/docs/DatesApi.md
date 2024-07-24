@@ -49,11 +49,11 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new DatesApi();
-const enddate = "enddate_example"; // String | End Date
-const componentid = "componentid_example"; // String | Vault Component Id
-const account = "account_example"; // String | Account
+const enddate = -1AY; // String | End Date
+const componentid = AFB43C61A6651B87988FEA62ED333638595AE7D8D7345A33AB9994CF23AFCC5D; // String | Vault Component Id. This is a sample example for illustration purposes only. Client should use a valid Component Id to get a successful response.
+const account = CLIENT:/MAC/DEMO/DEMO_PS_EQ_EM_COUNTRY_ALPHA.ACCT; // String | Account. This is a sample example for illustration purposes only. Client should use a valid Component Id to get a successful response.
 const opts = {
-  'startdate': "startdate_example" // String | Start Date
+  'startdate': -3AY // String | Start Date
 };
 
 // Call api endpoint
@@ -77,8 +77,8 @@ apiInstance.convertVaultDatesToAbsoluteFormat(enddate, componentid, account, opt
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enddate** | **String**| End Date | 
- **componentid** | **String**| Vault Component Id | 
- **account** | **String**| Account | 
+ **componentid** | **String**| Vault Component Id. This is a sample example for illustration purposes only. Client should use a valid Component Id to get a successful response. | 
+ **account** | **String**| Account. This is a sample example for illustration purposes only. Client should use a valid Component Id to get a successful response. | 
  **startdate** | **String**| Start Date | [optional] 
 
 ### Return type

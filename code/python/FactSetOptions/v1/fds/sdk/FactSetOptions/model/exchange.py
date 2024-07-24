@@ -54,6 +54,8 @@ class Exchange(ModelSimple):
     allowed_values = {
         ('value',): {
             'USA': "USA",
+
+
         },
     }
 

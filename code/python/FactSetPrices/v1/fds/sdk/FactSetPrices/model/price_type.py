@@ -55,6 +55,8 @@ class PriceType(ModelSimple):
         ('value',): {
             'INTRADAY': "INTRADAY",
             'CLOSE': "CLOSE",
+
+
         },
     }
 

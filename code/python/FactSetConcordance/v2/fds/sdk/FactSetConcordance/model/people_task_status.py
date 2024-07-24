@@ -64,6 +64,8 @@ class PeopleTaskStatus(ModelNormal):
             'FAILURE': "FAILURE",
             'BAD_REQUEST': "BAD_REQUEST",
             'ABORTED': "ABORTED",
+
+
         },
     }
 

@@ -55,6 +55,8 @@ class Batch(ModelSimple):
         ('value',): {
             'Y': "Y",
             'N': "N",
+
+
         },
     }
 

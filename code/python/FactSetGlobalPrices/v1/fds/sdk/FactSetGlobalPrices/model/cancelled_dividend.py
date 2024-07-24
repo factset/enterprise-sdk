@@ -55,6 +55,8 @@ class CancelledDividend(ModelSimple):
         ('value',): {
             'INCLUDE': "include",
             'EXCLUDE': "exclude",
+
+
         },
     }
 

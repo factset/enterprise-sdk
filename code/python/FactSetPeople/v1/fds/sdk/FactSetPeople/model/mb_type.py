@@ -56,6 +56,8 @@ class MbType(ModelSimple):
             'MB': "MB",
             'MGMT': "MGMT",
             'BRD': "BRD",
+
+
         },
     }
 

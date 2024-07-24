@@ -34,11 +34,11 @@ def lazy_import():
     from fds.sdk.FactSetGlobalPrices.model.batch import Batch
     from fds.sdk.FactSetGlobalPrices.model.calendar import Calendar
     from fds.sdk.FactSetGlobalPrices.model.frequency import Frequency
-    from fds.sdk.FactSetGlobalPrices.model.ids_batch_max2000 import IdsBatchMax2000
+    from fds.sdk.FactSetGlobalPrices.model.ids_max50 import IdsMax50
     globals()['Batch'] = Batch
     globals()['Calendar'] = Calendar
     globals()['Frequency'] = Frequency
-    globals()['IdsBatchMax2000'] = IdsBatchMax2000
+    globals()['IdsMax50'] = IdsMax50
 
 
 class SharesOutstandingRequestBody(ModelNormal):
@@ -94,7 +94,7 @@ class SharesOutstandingRequestBody(ModelNormal):
         """
         lazy_import()
         return {
-            'ids': (IdsBatchMax2000,),  # noqa: E501
+            'ids': (IdsMax50,),  # noqa: E501
             'start_date': (str,),  # noqa: E501
             'end_date': (str,),  # noqa: E501
             'frequency': (Frequency,),  # noqa: E501
@@ -127,7 +127,7 @@ class SharesOutstandingRequestBody(ModelNormal):
         """SharesOutstandingRequestBody - a model defined in OpenAPI
 
         Args:
-            ids (IdsBatchMax2000):
+            ids (IdsMax50):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -217,7 +217,7 @@ class SharesOutstandingRequestBody(ModelNormal):
         """SharesOutstandingRequestBody - a model defined in OpenAPI
 
         Args:
-            ids (IdsBatchMax2000):
+            ids (IdsMax50):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

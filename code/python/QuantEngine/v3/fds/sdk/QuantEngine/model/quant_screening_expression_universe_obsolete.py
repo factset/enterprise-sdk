@@ -59,11 +59,15 @@ class QuantScreeningExpressionUniverseObsolete(ModelNormal):
         ('universe_type',): {
             'EQUITY': "Equity",
             'DEBT': "Debt",
+
+
         },
         ('source',): {
             'SCREENINGEXPRESSIONUNIVERSE': "ScreeningExpressionUniverse",
             'UNIVERSALSCREENUNIVERSE': "UniversalScreenUniverse",
             'IDENTIFIERUNIVERSE': "IdentifierUniverse",
+
+
         },
     }
 

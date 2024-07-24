@@ -1,13 +1,13 @@
 # universalscreening.ScreeningOperationsApi
 
-All URIs are relative to *https://api.factset.com/universal-screening*
+All URIs are relative to *https://api.factset.com/universal-screening/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getCalculateResults**](ScreeningOperationsApi.md#getCalculateResults) | **GET** /v2/job/{id} | 
-[**pollCalculate**](ScreeningOperationsApi.md#pollCalculate) | **GET** /v2/job/{id}/status | 
-[**submitArchiveOFDB**](ScreeningOperationsApi.md#submitArchiveOFDB) | **POST** /v2/job/archive | 
-[**submitCalculate**](ScreeningOperationsApi.md#submitCalculate) | **POST** /v2/job/calculate | 
+[**getCalculateResults**](ScreeningOperationsApi.md#getCalculateResults) | **GET** /job/{id} | 
+[**pollCalculate**](ScreeningOperationsApi.md#pollCalculate) | **GET** /job/{id}/status | 
+[**submitArchiveOFDB**](ScreeningOperationsApi.md#submitArchiveOFDB) | **POST** /job/archive | 
+[**submitCalculate**](ScreeningOperationsApi.md#submitCalculate) | **POST** /job/calculate | 
 
 
 
@@ -52,10 +52,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new ScreeningOperationsApi();
-const id = "id_example"; // String | Unique identifier for a screen calculation job
+const id = 123e4567-e89b-12d3-a456-426655440000; // String | Unique identifier for a job. \"Job\" refers to a screen calculation or archival.
 const opts = {
-  'paginationLimit': 56, // Number | Page size limit (minumum 1000, default 10,000, maximum 100,000)
-  'paginationCursor': 56 // Number | Paging index (Initial request may omit)
+  'paginationLimit': 12345, // Number | Page size limit (minumum 1000, default 10,000, maximum 100,000)
+  'paginationCursor': 0 // Number | Paging index (Initial request may omit)
 };
 
 // Call api endpoint
@@ -78,9 +78,9 @@ apiInstance.getCalculateResults(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Unique identifier for a screen calculation job | 
- **paginationLimit** | **Number**| Page size limit (minumum 1000, default 10,000, maximum 100,000) | [optional] 
- **paginationCursor** | **Number**| Paging index (Initial request may omit) | [optional] 
+ **id** | **String**| Unique identifier for a job. \&quot;Job\&quot; refers to a screen calculation or archival. | 
+ **paginationLimit** | **Number**| Page size limit (minumum 1000, default 10,000, maximum 100,000) | [optional] [default to 10000]
+ **paginationCursor** | **Number**| Paging index (Initial request may omit) | [optional] [default to 0]
 
 ### Return type
 
@@ -137,7 +137,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new ScreeningOperationsApi();
-const id = "id_example"; // String | Unique identifier for a screen calculation job
+const id = 123e4567-e89b-12d3-a456-426655440000; // String | Unique identifier for a job. \"Job\" refers to a screen calculation or archival.
 
 // Call api endpoint
 apiInstance.pollCalculate(id).then(
@@ -159,7 +159,7 @@ apiInstance.pollCalculate(id).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Unique identifier for a screen calculation job | 
+ **id** | **String**| Unique identifier for a job. \&quot;Job\&quot; refers to a screen calculation or archival. | 
 
 ### Return type
 

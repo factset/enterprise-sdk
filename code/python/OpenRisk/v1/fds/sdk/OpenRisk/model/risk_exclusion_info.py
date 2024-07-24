@@ -63,6 +63,8 @@ class RiskExclusionInfo(ModelNormal):
         ('model_class',): {
             'UNKNOWN': "Unknown",
             'COMPOSITEASSET': "CompositeAsset",
+
+
         },
     }
 

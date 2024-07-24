@@ -61,6 +61,8 @@ class CompanyEventRequestDataUniverse(ModelNormal):
             'INDEX': "Index",
             'ETF': "Etf",
             'ALLCOMPANIES': "AllCompanies",
+
+
         },
     }
 

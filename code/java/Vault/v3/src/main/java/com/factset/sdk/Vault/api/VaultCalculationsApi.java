@@ -728,7 +728,7 @@ public class VaultCalculationsApi {
   /**
    * Create and Run Vault calculation
    * This endpoint runs the Vault calculation specified in the POST body parameters.  It can take one or more units as input.    Remarks:    *   Start and and end date must be within the configuration&#39;s min and max date range
-   * @param xFactSetApiLongRunningDeadline Long running deadline in seconds when only one unit is passed in the POST body. (optional)
+   * @param xFactSetApiLongRunningDeadline Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)
    * @param cacheControl Standard HTTP header.  Accepts max-stale. (optional)
    * @param vaultCalculationParametersRoot Calculation Parameters (optional)
    * @return PostAndCalculateResponseWrapper
@@ -756,7 +756,7 @@ public class VaultCalculationsApi {
   /**
    * Create and Run Vault calculation
    * This endpoint runs the Vault calculation specified in the POST body parameters.  It can take one or more units as input.    Remarks:    *   Start and and end date must be within the configuration&#39;s min and max date range
-   * @param xFactSetApiLongRunningDeadline Long running deadline in seconds when only one unit is passed in the POST body. (optional)
+   * @param xFactSetApiLongRunningDeadline Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)
    * @param cacheControl Standard HTTP header.  Accepts max-stale. (optional)
    * @param vaultCalculationParametersRoot Calculation Parameters (optional)
    * @return ApiResponse&lt;PostAndCalculateResponseWrapper&gt;
@@ -832,7 +832,7 @@ if (cacheControl != null)
    * Create or Update Vault calculation and run it.
    * This endpoint updates and run the Vault calculation specified in the PUT body parameters. This also allows creating new Vault calculations with custom ids.  It can take one or more units as input.    Remarks:    *   Start and and end date must be within the configuration&#39;s min and max date range
    * @param id from url, provided from the location header in the Create and Run Vault calculation endpoint (required)
-   * @param xFactSetApiLongRunningDeadline Long running deadline in seconds when only one unit is passed in the PUT body. (optional)
+   * @param xFactSetApiLongRunningDeadline Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)
    * @param cacheControl Standard HTTP header.  Accepts max-stale. (optional)
    * @param vaultCalculationParametersRoot Calculation Parameters (optional)
    * @return PutAndCalculateResponseWrapper
@@ -862,7 +862,7 @@ if (cacheControl != null)
    * Create or Update Vault calculation and run it.
    * This endpoint updates and run the Vault calculation specified in the PUT body parameters. This also allows creating new Vault calculations with custom ids.  It can take one or more units as input.    Remarks:    *   Start and and end date must be within the configuration&#39;s min and max date range
    * @param id from url, provided from the location header in the Create and Run Vault calculation endpoint (required)
-   * @param xFactSetApiLongRunningDeadline Long running deadline in seconds when only one unit is passed in the PUT body. (optional)
+   * @param xFactSetApiLongRunningDeadline Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)
    * @param cacheControl Standard HTTP header.  Accepts max-stale. (optional)
    * @param vaultCalculationParametersRoot Calculation Parameters (optional)
    * @return ApiResponse&lt;PutAndCalculateResponseWrapper&gt;

@@ -61,16 +61,22 @@ class CalculationMeta(ModelNormal):
             'ROW': "Row",
             'COLUMN': "Column",
             'SIMPLIFIEDROW': "SimplifiedRow",
+
+
         },
         ('stach_content_organization',): {
             'NONE': "None",
             'ROW': "Row",
             'COLUMN': "Column",
             'SIMPLIFIEDROW': "SimplifiedRow",
+
+
         },
         ('contenttype',): {
             'JSON': "Json",
             'BINARY': "Binary",
+
+
         },
         ('format',): {
             'JSONSTACH': "JsonStach",
@@ -82,6 +88,8 @@ class CalculationMeta(ModelNormal):
             'PDF': "Pdf",
             'PPTX': "Pptx",
             'FEATHER': "Feather",
+
+
         },
     }
 

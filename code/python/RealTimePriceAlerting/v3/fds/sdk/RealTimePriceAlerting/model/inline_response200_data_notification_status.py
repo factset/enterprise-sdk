@@ -67,6 +67,8 @@ class InlineResponse200DataNotificationStatus(ModelNormal):
             'DELIVERED': "delivered",
             'ERROR': "error",
             'REJECTED': "rejected",
+
+
         },
     }
 

@@ -55,6 +55,8 @@ class SegmentsPeriodicity(ModelSimple):
         ('value',): {
             'ANN': "ANN",
             'ANN_R': "ANN_R",
+
+
         },
     }
 

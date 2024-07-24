@@ -69,6 +69,8 @@ class NEREntity(ModelNormal):
             'DATETIME': "NE_DATETIME",
             'DRUG': "NE_DRUG",
             'HEALTH_INDICATION': "NE_HEALTH_INDICATION",
+
+
         },
     }
 

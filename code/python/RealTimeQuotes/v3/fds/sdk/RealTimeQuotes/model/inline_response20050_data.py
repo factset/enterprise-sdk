@@ -66,6 +66,8 @@ class InlineResponse20050Data(ModelNormal):
             'ALPHASTRUCTURE': "alphaStructure",
             'FUTURESSPREAD': "futuresSpread",
             'FACTORINDEX': "factorIndex",
+
+
         },
     }
 

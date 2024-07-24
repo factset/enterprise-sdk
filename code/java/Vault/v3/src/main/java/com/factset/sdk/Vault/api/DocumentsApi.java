@@ -58,7 +58,7 @@ public class DocumentsApi {
   /**
    * Get Vault documents and sub-directories in a directory
    * This endpoint looks up all Vault documents and sub-directories in a given directory.
-   * @param path The directory to get the documents in (required)
+   * @param path The directory to get the documents in. This is a sample example for illustration purposes only. Client should use a valid Directory/Sub-Directory to get a successful response. (required)
    * @return DocumentDirectoriesRoot
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -82,7 +82,7 @@ public class DocumentsApi {
   /**
    * Get Vault documents and sub-directories in a directory
    * This endpoint looks up all Vault documents and sub-directories in a given directory.
-   * @param path The directory to get the documents in (required)
+   * @param path The directory to get the documents in. This is a sample example for illustration purposes only. Client should use a valid Directory/Sub-Directory to get a successful response. (required)
    * @return ApiResponse&lt;DocumentDirectoriesRoot&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details

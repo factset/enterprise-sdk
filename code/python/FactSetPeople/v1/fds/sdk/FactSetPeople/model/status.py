@@ -57,6 +57,8 @@ class Status(ModelSimple):
             'PRIMARY': "PRIMARY",
             'ACTIVE': "ACTIVE",
             'INACTIVE': "INACTIVE",
+
+
         },
     }
 

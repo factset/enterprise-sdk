@@ -56,6 +56,8 @@ class SecurityType(ModelSimple):
             'EQ': "EQ",
             'FI': "FI",
             'ALL': "ALL",
+
+
         },
     }
 

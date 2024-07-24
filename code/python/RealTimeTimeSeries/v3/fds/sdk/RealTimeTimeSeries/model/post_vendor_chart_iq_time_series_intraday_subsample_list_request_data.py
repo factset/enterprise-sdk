@@ -69,11 +69,15 @@ class PostVendorChartIQTimeSeriesIntradaySubsampleListRequestData(ModelNormal):
             'BID': "bid",
             'ASK': "ask",
             'YIELD': "yield",
+
+
         },
         ('quality',): {
             'RLT': "RLT",
             'DLY': "DLY",
             'BST': "BST",
+
+
         },
         ('granularity',): {
             '1S': "1s",
@@ -86,6 +90,8 @@ class PostVendorChartIQTimeSeriesIntradaySubsampleListRequestData(ModelNormal):
             '15M': "15m",
             '30M': "30m",
             '1H': "1h",
+
+
         },
     }
 

@@ -78,6 +78,8 @@ class Subcategory(ModelSimple):
             'RETAILERS': "RETAILERS",
             'TELECOMMUNICATIONS': "TELECOMMUNICATIONS",
             'TRANSPORTATION': "TRANSPORTATION",
+
+
         },
     }
 

@@ -59,6 +59,8 @@ class ReportInstanceLogDTO(ModelNormal):
         ('type',): {
             'LOG': "LOG",
             'ERROR': "ERROR",
+
+
         },
     }
 

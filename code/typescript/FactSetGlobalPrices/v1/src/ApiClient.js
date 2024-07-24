@@ -62,7 +62,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'fds-sdk/javascript/FactSetGlobalPrices/2.1.0'
+            'User-Agent': 'fds-sdk/javascript/FactSetGlobalPrices/2.2.0'
         };
 
         /**

@@ -27,7 +27,7 @@ from fds.sdk.PortfolioReportingBatcher.model.job_list_response_meta_pagination i
 from fds.sdk.PortfolioReportingBatcher.model.job_list_response_root import JobListResponseRoot
 from fds.sdk.PortfolioReportingBatcher.model.job_overrides import JobOverrides
 from fds.sdk.PortfolioReportingBatcher.model.job_overrides_combinations_root import JobOverridesCombinationsRoot
-from fds.sdk.PortfolioReportingBatcher.model.job_overrides_dates import JobOverridesDates
+from fds.sdk.PortfolioReportingBatcher.model.job_overrides_combinations_root_date_range import JobOverridesCombinationsRootDateRange
 from fds.sdk.PortfolioReportingBatcher.model.job_types import JobTypes
 from fds.sdk.PortfolioReportingBatcher.model.prb_status import PrbStatus
 from fds.sdk.PortfolioReportingBatcher.model.runs_for_job import RunsForJob

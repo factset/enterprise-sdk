@@ -65,6 +65,8 @@ class InlineResponse20054DataOccurrence(ModelNormal):
             'NEVER': "never",
             'ONCE': "once",
             'REPEATED': "repeated",
+
+
         },
     }
 

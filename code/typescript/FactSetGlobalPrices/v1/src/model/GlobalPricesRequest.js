@@ -26,7 +26,7 @@ class GlobalPricesRequest {
      * Constructs a new <code>GlobalPricesRequest</code>.
      * Prices Request Body
      * @alias module:model/GlobalPricesRequest
-     * @param ids {Array.<String>} The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.  <p>ids limit =  1000 per non-batch request / 10000 per batch request for a single day and 50 per multi-day request</p> 
+     * @param ids {Array.<String>} The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.  <p>ids limit =  500 per non-batch request / 2000 per batch request for a single day and 50 per multi-day request</p> 
      * @param startDate {String} The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. 
      */
     constructor(ids, startDate) { 
@@ -90,7 +90,7 @@ class GlobalPricesRequest {
 }
 
 /**
- * The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.  <p>ids limit =  1000 per non-batch request / 10000 per batch request for a single day and 50 per multi-day request</p> 
+ * The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.  <p>ids limit =  500 per non-batch request / 2000 per batch request for a single day and 50 per multi-day request</p> 
  * @member {Array.<String>} ids
  */
 GlobalPricesRequest.prototype['ids'] = undefined;

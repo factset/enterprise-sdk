@@ -68,6 +68,8 @@ class SupportedStatDetails(ModelNormal):
             'ACTIVEWEIGHTS': "ActiveWeights",
             'MARKETWEIGHTS': "MarketWeights",
             'FILLALL': "FillAll",
+
+
         },
     }
 

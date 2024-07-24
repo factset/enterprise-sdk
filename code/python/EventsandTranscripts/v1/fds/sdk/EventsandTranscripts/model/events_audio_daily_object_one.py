@@ -63,6 +63,8 @@ class EventsAudioDailyObjectOne(ModelNormal):
             'FLASH': "Flash",
             'REPLAY': "Replay",
             'PHONE': "Phone",
+
+
         },
     }
 

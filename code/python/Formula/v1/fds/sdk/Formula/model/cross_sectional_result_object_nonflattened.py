@@ -66,6 +66,8 @@ class CrossSectionalResultObjectNonflattened(ModelNormal):
             'STRING': "STRING",
             'INTEGER': "INTEGER",
             'DOUBLE': "DOUBLE",
+
+
         },
     }
 

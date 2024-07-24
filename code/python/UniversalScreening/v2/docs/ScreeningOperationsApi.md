@@ -1,13 +1,13 @@
 # fds.sdk.UniversalScreening.ScreeningOperationsApi
 
-All URIs are relative to *https://api.factset.com/universal-screening*
+All URIs are relative to *https://api.factset.com/universal-screening/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_calculate_results**](ScreeningOperationsApi.md#get_calculate_results) | **GET** /v2/job/{id} | 
-[**poll_calculate**](ScreeningOperationsApi.md#poll_calculate) | **GET** /v2/job/{id}/status | 
-[**submit_archive_ofdb**](ScreeningOperationsApi.md#submit_archive_ofdb) | **POST** /v2/job/archive | 
-[**submit_calculate**](ScreeningOperationsApi.md#submit_calculate) | **POST** /v2/job/calculate | 
+[**get_calculate_results**](ScreeningOperationsApi.md#get_calculate_results) | **GET** /job/{id} | 
+[**poll_calculate**](ScreeningOperationsApi.md#poll_calculate) | **GET** /job/{id}/status | 
+[**submit_archive_ofdb**](ScreeningOperationsApi.md#submit_archive_ofdb) | **POST** /job/archive | 
+[**submit_calculate**](ScreeningOperationsApi.md#submit_calculate) | **POST** /job/calculate | 
 
 
 
@@ -63,9 +63,9 @@ with fds.sdk.UniversalScreening.ApiClient(configuration) as api_client:
     api_instance = screening_operations_api.ScreeningOperationsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    id = "id_example" # str | Unique identifier for a screen calculation job
-    pagination_limit = 1 # int | Page size limit (minumum 1000, default 10,000, maximum 100,000) (optional)
-    pagination_cursor = 1 # int | Paging index (Initial request may omit) (optional)
+    id = "123e4567-e89b-12d3-a456-426655440000" # str | Unique identifier for a job. \"Job\" refers to a screen calculation or archival.
+    pagination_limit = 12345 # int | Page size limit (minumum 1000, default 10,000, maximum 100,000) (optional) if omitted the server will use the default value of 10000
+    pagination_cursor = 0 # int | Paging index (Initial request may omit) (optional) if omitted the server will use the default value of 0
 
     try:
         # example passing only required values which don't have defaults set
@@ -83,9 +83,9 @@ with fds.sdk.UniversalScreening.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Unique identifier for a screen calculation job |
- **pagination_limit** | **int**| Page size limit (minumum 1000, default 10,000, maximum 100,000) | [optional]
- **pagination_cursor** | **int**| Paging index (Initial request may omit) | [optional]
+ **id** | **str**| Unique identifier for a job. \&quot;Job\&quot; refers to a screen calculation or archival. |
+ **pagination_limit** | **int**| Page size limit (minumum 1000, default 10,000, maximum 100,000) | [optional] if omitted the server will use the default value of 10000
+ **pagination_cursor** | **int**| Paging index (Initial request may omit) | [optional] if omitted the server will use the default value of 0
 
 ### Return type
 
@@ -105,12 +105,14 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Paginated Screen Results and Metadata |  -  |
-**202** | Calculation job still in progress |  * Location - Relative location to poll for status <br>  * X-FactSet-Api-PickUp-Progress - Screen progress <br>  |
-**400** | The requested screen could not be opened. |  -  |
+**200** | Paginated Screen Results and Metadata |  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
+**202** | Long-running job still in progress |  * Location -  <br>  * X-FactSet-Api-PickUp-Progress -  <br>  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
+**400** | The requested screen could not be opened. |  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
 **401** | Invalid or missing authentication. |  -  |
-**404** | Job ID not found. |  -  |
-**410** | The results have been fetched for this ID. |  -  |
+**403** | User is not authorized for this operation. |  -  |
+**404** | Job ID not found. |  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
+**410** | The results have been fetched for this ID. |  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
+**429** | Too many requests. |  * X-FactSet-Api-Units-Limit -  <br>  * X-FactSet-Api-Units-Remaining -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  * Retry-After -  <br>  |
 **500** | Internal Server Error |  * Request-Key - Provide this key when reporting this issue <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -167,7 +169,7 @@ with fds.sdk.UniversalScreening.ApiClient(configuration) as api_client:
     api_instance = screening_operations_api.ScreeningOperationsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    id = "id_example" # str | Unique identifier for a screen calculation job
+    id = "123e4567-e89b-12d3-a456-426655440000" # str | Unique identifier for a job. \"Job\" refers to a screen calculation or archival.
 
     try:
         # example passing only required values which don't have defaults set
@@ -184,7 +186,7 @@ with fds.sdk.UniversalScreening.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Unique identifier for a screen calculation job |
+ **id** | **str**| Unique identifier for a job. \&quot;Job\&quot; refers to a screen calculation or archival. |
 
 ### Return type
 
@@ -204,11 +206,13 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Job completed |  * Location - Relative location to poll for status <br>  * X-FactSet-Api-PickUp-Progress - Screen progress <br>  |
-**202** | Calculation job still in progress |  * Location - Relative location to poll for status <br>  * X-FactSet-Api-PickUp-Progress - Screen progress <br>  |
+**201** | Job completed |  * Location -  <br>  * X-FactSet-Api-PickUp-Progress -  <br>  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
+**202** | Long-running job still in progress |  * Location -  <br>  * X-FactSet-Api-PickUp-Progress -  <br>  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
 **401** | Invalid or missing authentication. |  -  |
-**404** | Job ID not found. |  -  |
-**410** | The results have been fetched for this ID. |  -  |
+**403** | User is not authorized for this operation. |  -  |
+**404** | Job ID not found. |  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
+**410** | The results have been fetched for this ID. |  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
+**429** | Too many requests. |  * X-FactSet-Api-Units-Limit -  <br>  * X-FactSet-Api-Units-Remaining -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  * Retry-After -  <br>  |
 **500** | Internal Server Error |  * Request-Key - Provide this key when reporting this issue <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -268,24 +272,24 @@ with fds.sdk.UniversalScreening.ApiClient(configuration) as api_client:
     screen_archive_ofdb_parameters = ScreenArchiveOFDBParameters(
         data=ScreenArchiveOFDBParametersData(
             archive_options=ScreenArchiveOFDBParametersDataArchiveOptions(
-                archive_date="archive_date_example",
-                archive_type="archive_type_example",
+                archive_date="20201231",
+                archive_type="ofdbSymbols",
                 auto_symbol_updates=True,
-                existed=True,
-                filename="filename_example",
+                existed=False,
+                filename="personal:/screening_api_example_file.ofdb",
                 overwrite_data=True,
-                quick_columns="quick_columns_example",
-                symbol_type="symbol_type_example",
+                quick_columns="PARAM1 PARAM2",
+                symbol_type="cusip",
                 time_series=True,
-                unsplit_history=True,
+                unsplit_history=False,
                 use_report_order=True,
             ),
-            backtest_date="backtest_date_example",
+            backtest_date="19951203",
             global_variables_map={
                 "key": "key_example",
             },
-            legacy_universe_type="legacy_universe_type_example",
-            screen_name="screen_name_example",
+            legacy_universe_type="equity",
+            screen_name="SAMPLE_SCREENS:KPI_AIR.USWEB",
         ),
     ) # ScreenArchiveOFDBParameters | Data required for an archive to OFDB request (optional)
 
@@ -325,10 +329,10 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**202** | Successful archive OFDB submission response, returns the job ID unique to this archive and the URL in the Location header to check the status of the archive. |  * Location - Relative location to poll for status <br>  * X-FactSet-Api-Units-Limit - Maximum number of jobs. <br>  * X-FactSet-Api-Units-Remaining - Number of available jobs. <br>  * RateLimit-Limit - Number of weekly jobs available. <br>  * RateLimit-Remaining - Number of remaining weekly jobs. <br>  * RateLimit-Reset - Time, in seconds, until weekly limit resets. <br>  |
-**400** | Invalid request body. |  -  |
+**202** | Successful archive OFDB submission response, returns the job ID unique to this archive and the URL in the Location header to check the status of the archive. |  * Location -  <br>  * X-FactSet-Api-Units-Limit -  <br>  * X-FactSet-Api-Units-Remaining -  <br>  * X-RateLimit-Limit-604800 -  <br>  * X-RateLimit-Remaining-604800 -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
+**400** | Invalid request body. |  * X-RateLimit-Limit-604800 -  <br>  * X-RateLimit-Remaining-604800 -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
 **401** | Invalid or missing authentication. |  -  |
-**429** | Too many requests. |  * X-FactSet-Api-Units-Limit - Maximum number of jobs. <br>  * X-FactSet-Api-Units-Remaining - Number of available jobs. <br>  |
+**429** | Too many requests. |  * X-FactSet-Api-Units-Limit -  <br>  * X-FactSet-Api-Units-Remaining -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  * Retry-After -  <br>  |
 **500** | Internal Server Error |  * Request-Key - Provide this key when reporting this issue <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -387,12 +391,12 @@ with fds.sdk.UniversalScreening.ApiClient(configuration) as api_client:
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     screen_calc_parameters = ScreenCalcParameters(
         data=ScreenCalcParametersData(
-            backtest_date="backtest_date_example",
+            backtest_date="20040412",
             global_variables_map={
                 "key": "key_example",
             },
-            legacy_universe_type="legacy_universe_type_example",
-            screen_name="screen_name_example",
+            legacy_universe_type="equity",
+            screen_name="SAMPLE_SCREENS:KPI_AIR.USWEB",
         ),
     ) # ScreenCalcParameters | Data required for a calculation request (optional)
 
@@ -432,10 +436,10 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**202** | Successful calculation submission response, returns the job ID unique to this calculation and the URL in the Location header to check the status of the calculation. |  * Location - Relative location to poll for status <br>  * X-FactSet-Api-Units-Limit - Maximum number of jobs. <br>  * X-FactSet-Api-Units-Remaining - Number of available jobs. <br>  * RateLimit-Limit - Number of weekly jobs available. <br>  * RateLimit-Remaining - Number of remaining weekly jobs. <br>  * RateLimit-Reset - Time, in seconds, until weekly limit resets. <br>  |
-**400** | Invalid request body. |  -  |
+**202** | Successful calculation submission response, returns the job ID unique to this calculation and the URL in the Location header to check the status of the calculation. |  * Location -  <br>  * X-FactSet-Api-Units-Limit -  <br>  * X-FactSet-Api-Units-Remaining -  <br>  * X-RateLimit-Limit-604800 -  <br>  * X-RateLimit-Remaining-604800 -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
+**400** | Invalid request body. |  * X-RateLimit-Limit-604800 -  <br>  * X-RateLimit-Remaining-604800 -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
 **401** | Invalid or missing authentication. |  -  |
-**429** | Too many requests. |  * X-FactSet-Api-Units-Limit - Maximum number of jobs. <br>  * X-FactSet-Api-Units-Remaining - Number of available jobs. <br>  |
+**429** | Too many requests. |  * X-FactSet-Api-Units-Limit -  <br>  * X-FactSet-Api-Units-Remaining -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  * Retry-After -  <br>  |
 **500** | Internal Server Error |  * Request-Key - Provide this key when reporting this issue <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

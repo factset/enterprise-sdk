@@ -29,11 +29,12 @@ paths:
       - description: The requested list of security identifiers. Accepted ID types
           include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.<p>***ids
           limit** =  1000 per non-batch request / 2000 per batch request for a single
-          day and 50 per multi-day request*</p> *<p>Make note, GET Method URL request
-          lines are also limited to a total length of 8192 bytes (8KB). In cases where
-          the service allows for thousands of ids, which may lead to exceeding this
-          request line limit of 8KB, it's advised for any requests with large request
-          lines to be requested through the respective "POST" method.</p>*
+          day and 50 per multi-day request. The number of unique currencies present
+          in the requested ids is limited to 50 per request.*</p> *<p>Make note, GET
+          Method URL request lines are also limited to a total length of 8192 bytes
+          (8KB). In cases where the service allows for thousands of ids, which may
+          lead to exceeding this request line limit of 8KB, it's advised for any requests
+          with large request lines to be requested through the respective "POST" method.</p>*
         examples:
           oneEquityId:
             summary: One Equity Market Identifier
@@ -166,11 +167,9 @@ paths:
         schema:
           type: string
         style: form
-      - description: |
-          Controls the split and spinoff adjustments for the prices.
-            * **SPLIT** = Split ONLY Adjusted. This is used by default.
-            * **SPLIT_SPINOFF** = Splits & Spinoff Adjusted.
-            * **UNSPLIT** = No Adjustments.
+      - description: "Controls the split and spinoff adjustments for the prices.\n\
+          \  * **SPLIT** = Split ONLY Adjusted. This is used by default.\n  * **SPLIT_SPINOFF**\
+          \ = Splits & Spinoff Adjusted.\n  * **UNSPLIT** = No Adjustments.\n  \n"
         explode: true
         in: query
         name: adjust
@@ -439,12 +438,12 @@ paths:
       parameters:
       - description: The requested list of security identifiers. Accepted ID types
           include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.<p>***ids
-          limit** =  1000 per non-batch request / 2000 per batch request for a single
-          day and 50 per multi-day request*</p> *<p>Make note, GET Method URL request
-          lines are also limited to a total length of 8192 bytes (8KB). In cases where
-          the service allows for thousands of ids, which may lead to exceeding this
-          request line limit of 8KB, it's advised for any requests with large request
-          lines to be requested through the respective "POST" method.</p>*
+          limit** =  50 per both non-batch request and batch request*</p> *<p>Make
+          note, GET Method URL request lines are also limited to a total length of
+          8192 bytes (8KB). In cases where the service allows for thousands of ids,
+          which may lead to exceeding this request line limit of 8KB, it's advised
+          for any requests with large request lines to be requested through the respective
+          "POST" method.</p>*
         examples:
           oneEquityId:
             summary: One Equity Market Identifier
@@ -868,12 +867,12 @@ paths:
       parameters:
       - description: The requested list of security identifiers. Accepted ID types
           include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.<p>***ids
-          limit** =  1000 per non-batch request / 2000 per batch request for a single
-          day and 50 per multi-day request*</p> *<p>Make note, GET Method URL request
-          lines are also limited to a total length of 8192 bytes (8KB). In cases where
-          the service allows for thousands of ids, which may lead to exceeding this
-          request line limit of 8KB, it's advised for any requests with large request
-          lines to be requested through the respective "POST" method.</p>*
+          limit** =  50 per both non-batch request and batch request*</p> *<p>Make
+          note, GET Method URL request lines are also limited to a total length of
+          8192 bytes (8KB). In cases where the service allows for thousands of ids,
+          which may lead to exceeding this request line limit of 8KB, it's advised
+          for any requests with large request lines to be requested through the respective
+          "POST" method.</p>*
         examples:
           oneEquityId:
             summary: One Equity Market Identifier
@@ -1133,12 +1132,12 @@ paths:
       parameters:
       - description: The requested list of security identifiers. Accepted ID types
           include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.<p>***ids
-          limit** =  1000 per non-batch request / 2000 per batch request for a single
-          day and 50 per multi-day request*</p> *<p>Make note, GET Method URL request
-          lines are also limited to a total length of 8192 bytes (8KB). In cases where
-          the service allows for thousands of ids, which may lead to exceeding this
-          request line limit of 8KB, it's advised for any requests with large request
-          lines to be requested through the respective "POST" method.</p>*
+          limit** =  50 per both non-batch request and batch request*</p> *<p>Make
+          note, GET Method URL request lines are also limited to a total length of
+          8192 bytes (8KB). In cases where the service allows for thousands of ids,
+          which may lead to exceeding this request line limit of 8KB, it's advised
+          for any requests with large request lines to be requested through the respective
+          "POST" method.</p>*
         examples:
           oneEquityId:
             summary: One Equity Market Identifier
@@ -1473,12 +1472,12 @@ paths:
       parameters:
       - description: The requested list of security identifiers. Accepted ID types
           include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.<p>***ids
-          limit** =  500 per non-batch request / 1000 per batch request for a single
-          day and 50 per multi-day request*</p> *<p>Make note, GET Method URL request
-          lines are also limited to a total length of 8192 bytes (8KB). In cases where
-          the service allows for thousands of ids, which may lead to exceeding this
-          request line limit of 8KB, it's advised for any requests with large request
-          lines to be requested through the respective "POST" method.</p>*
+          limit** =  50 per both non-batch request and batch request*</p> *<p>Make
+          note, GET Method URL request lines are also limited to a total length of
+          8192 bytes (8KB). In cases where the service allows for thousands of ids,
+          which may lead to exceeding this request line limit of 8KB, it's advised
+          for any requests with large request lines to be requested through the respective
+          "POST" method.</p>*
         examples:
           oneEquityId:
             summary: One Equity Market Identifier
@@ -1688,6 +1687,9 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              Security Shares Request over 1 year period for one security - FactSet (FDS-US):
+                $ref: '#/components/examples/postSecurityShares'
             schema:
               $ref: '#/components/schemas/sharesOutstandingRequest'
         description: Request object for `Shares Outstanding`.
@@ -1696,6 +1698,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Shares Outstanding:
+                  $ref: '#/components/examples/sharesOutstanding'
               schema:
                 $ref: '#/components/schemas/sharesOutstandingResponse'
           description: Array of shares outstanding
@@ -1921,6 +1926,17 @@ paths:
       x-accepts: application/json
 components:
   examples:
+    postSecurityShares:
+      summary: Security Shares Request over 1 year period for FDS-US
+      value:
+        data:
+          ids:
+          - FDS-US
+          startDate: 2020-06-30
+          endDate: 2021-06-30
+          frequency: M
+          calendar: FIVEDAY
+          batch: "N"
     DividendsFields:
       summary: Dividends Fields
       value:
@@ -2973,11 +2989,9 @@ components:
         type: string
       style: form
     adjust:
-      description: |
-        Controls the split and spinoff adjustments for the prices.
-          * **SPLIT** = Split ONLY Adjusted. This is used by default.
-          * **SPLIT_SPINOFF** = Splits & Spinoff Adjusted.
-          * **UNSPLIT** = No Adjustments.
+      description: "Controls the split and spinoff adjustments for the prices.\n \
+        \ * **SPLIT** = Split ONLY Adjusted. This is used by default.\n  * **SPLIT_SPINOFF**\
+        \ = Splits & Spinoff Adjusted.\n  * **UNSPLIT** = No Adjustments.\n  \n"
       explode: true
       in: query
       name: adjust
@@ -2990,15 +3004,44 @@ components:
         - UNSPLIT
         type: string
       style: form
+    idsBatchMax50:
+      description: The requested list of security identifiers. Accepted ID types include
+        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.<p>***ids limit**
+        =  50 per both non-batch request and batch request*</p> *<p>Make note, GET
+        Method URL request lines are also limited to a total length of 8192 bytes
+        (8KB). In cases where the service allows for thousands of ids, which may lead
+        to exceeding this request line limit of 8KB, it's advised for any requests
+        with large request lines to be requested through the respective "POST" method.</p>*
+      examples:
+        oneEquityId:
+          summary: One Equity Market Identifier
+          value:
+          - AAPL-USA
+        multipleEquityIds:
+          summary: Multiple Equity Market Identifiers
+          value:
+          - FDS-US
+          - AAPL-US
+          - MSFT-US
+      explode: false
+      in: query
+      name: ids
+      required: true
+      schema:
+        items:
+          type: string
+        type: array
+      style: form
     idsBatchMax2000:
       description: The requested list of security identifiers. Accepted ID types include
         Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.<p>***ids limit**
         =  1000 per non-batch request / 2000 per batch request for a single day and
-        50 per multi-day request*</p> *<p>Make note, GET Method URL request lines
-        are also limited to a total length of 8192 bytes (8KB). In cases where the
-        service allows for thousands of ids, which may lead to exceeding this request
-        line limit of 8KB, it's advised for any requests with large request lines
-        to be requested through the respective "POST" method.</p>*
+        50 per multi-day request. The number of unique currencies present in the requested
+        ids is limited to 50 per request.*</p> *<p>Make note, GET Method URL request
+        lines are also limited to a total length of 8192 bytes (8KB). In cases where
+        the service allows for thousands of ids, which may lead to exceeding this
+        request line limit of 8KB, it's advised for any requests with large request
+        lines to be requested through the respective "POST" method.</p>*
       examples:
         oneEquityId:
           summary: One Equity Market Identifier
@@ -3324,7 +3367,7 @@ components:
         ids:
           description: "The requested list of security identifiers. Accepted ID types\
             \ include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.\
-            \ \n<p>ids limit =  1000 per non-batch request / 10000 per batch request\
+            \ \n<p>ids limit =  500 per non-batch request / 2000 per batch request\
             \ for a single day and 50 per multi-day request</p>\n"
           example:
           - FDS-US
@@ -3605,14 +3648,15 @@ components:
       description: Corporate Actions Request Body
       properties:
         ids:
-          description: "The requested list of security identifiers. Accepted ID types\
-            \ include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.\
-            \ \n<p>ids limit =  1000 per non-batch request / 10000 per batch request\
-            \ for a single day and 50 per multi-day request</p>\n"
+          description: |
+            The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. Requests are limited to 50 IDs.
           example:
-          - FDS-US
+          - AAPL-US
           items:
             type: string
+          maxItems: 50
+          minItems: 1
+          title: ids
           type: array
         eventCategory:
           $ref: '#/components/schemas/eventCategory'
@@ -3760,14 +3804,15 @@ components:
       description: Annualized Dividends Request Body
       properties:
         ids:
-          description: "The requested list of security identifiers. Accepted ID types\
-            \ include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.\
-            \ \n<p>ids limit =  1000 per non-batch request / 10000 per batch request\
-            \ for a single day and 50 per multi-day request</p>\n"
+          description: |
+            The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. Requests are limited to 50 IDs.
           example:
-          - FDS-US
+          - AAPL-US
           items:
             type: string
+          maxItems: 50
+          minItems: 1
+          title: ids
           type: array
         currency:
           description: Currency code for adjusting prices. Default is Local. For a
@@ -3875,7 +3920,7 @@ components:
       description: |
         The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. Requests are limited to 50 IDs.
       example:
-      - TSLA-US
+      - AAPL-US
       items:
         type: string
       maxItems: 50
@@ -3906,14 +3951,15 @@ components:
       description: Shares Outstanding Request Body
       properties:
         ids:
-          description: "The requested list of security identifiers. Accepted ID types\
-            \ include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.\
-            \ \n<p>ids limit =  500 per non-batch request / 2000 per batch request\
-            \ for a single day and 50 per multi-day request</p>\n"
+          description: |
+            The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. Requests are limited to 50 IDs.
           example:
-          - FDS-US
+          - AAPL-US
           items:
             type: string
+          maxItems: 50
+          minItems: 1
+          title: ids
           type: array
         startDate:
           description: |
@@ -4455,6 +4501,13 @@ components:
       example: USD
       title: Request Currency
       type: string
+    idsBatchMax50:
+      description: The requested list of security identifiers. Accepted ID types include
+        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.<p>***ids limit**
+        =  50 per both non-batch request and batch request*</p>
+      example: AAPL-US
+      title: ids
+      type: string
     adjust:
       default: SPLIT
       description: |
@@ -4932,14 +4985,15 @@ components:
       description: Returns Request Body
       properties:
         ids:
-          description: "The requested list of security identifiers. Accepted ID types\
-            \ include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.\
-            \ \n<p>ids limit =  1000 per non-batch request / 10000 per batch request\
-            \ for a single day and 50 per multi-day request</p>\n"
+          description: |
+            The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. Requests are limited to 50 IDs.
           example:
-          - FDS-US
+          - AAPL-US
           items:
             type: string
+          maxItems: 50
+          minItems: 1
+          title: ids
           type: array
         startDate:
           description: |

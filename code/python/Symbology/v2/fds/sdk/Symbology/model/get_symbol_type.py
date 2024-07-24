@@ -68,6 +68,8 @@ class GetSymbolType(ModelSimple):
             'UKCH': "UKCH",
             'RSSD': "RSSD",
             'EMPTY': "",
+
+
         },
     }
 

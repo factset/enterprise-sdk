@@ -37,7 +37,7 @@ Remarks:
 *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding 
     the default frequency of the Beginning of Period to whatever we pass in the request body.
     
-*   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
+*   If we are overriding grouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
 
 ### Example
 
@@ -450,7 +450,7 @@ Remarks:
 *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding 
     the default frequency of the Beginning of Period to whatever we pass in the request body.
     
-*   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
+*   If we are overriding grouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
 
 ### Example
 

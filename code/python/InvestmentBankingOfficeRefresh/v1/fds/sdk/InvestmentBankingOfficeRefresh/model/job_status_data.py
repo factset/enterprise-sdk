@@ -66,6 +66,8 @@ class JobStatusData(ModelNormal):
             'CREATED': "created",
             'FAILED': "failed",
             'CANCELLED': "cancelled",
+
+
         },
     }
 

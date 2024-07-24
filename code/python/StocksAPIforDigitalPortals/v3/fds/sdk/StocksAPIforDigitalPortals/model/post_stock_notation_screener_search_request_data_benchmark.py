@@ -66,6 +66,8 @@ class PostStockNotationScreenerSearchRequestDataBenchmark(ModelNormal):
         ('type',): {
             'LOCAL': "local",
             'GLOBAL': "global",
+
+
         },
     }
 

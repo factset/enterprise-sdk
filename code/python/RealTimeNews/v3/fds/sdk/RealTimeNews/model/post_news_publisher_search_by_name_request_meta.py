@@ -65,6 +65,8 @@ class PostNewsPublisherSearchByNameRequestMeta(ModelNormal):
             '-ID': "-id",
             'NAME': "name",
             '-NAME': "-name",
+
+
         },
     }
 

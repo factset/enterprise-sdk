@@ -9,6 +9,8 @@
 # import sys
 # sys.setrecursionlimit(n)
 
+from fds.sdk.Vault.model.account_directories import AccountDirectories
+from fds.sdk.Vault.model.account_directories_root import AccountDirectoriesRoot
 from fds.sdk.Vault.model.calculation_meta import CalculationMeta
 from fds.sdk.Vault.model.calculation_status import CalculationStatus
 from fds.sdk.Vault.model.calculation_status_meta import CalculationStatusMeta

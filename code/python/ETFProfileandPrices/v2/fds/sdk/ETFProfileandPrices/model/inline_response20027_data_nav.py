@@ -69,6 +69,8 @@ class InlineResponse20027DataNav(ModelNormal):
             'GBX': "GBX",
             'SEK': "SEK",
             'JPY': "JPY",
+
+
         },
     }
 

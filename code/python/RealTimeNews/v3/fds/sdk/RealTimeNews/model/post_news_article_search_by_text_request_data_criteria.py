@@ -79,6 +79,8 @@ class PostNewsArticleSearchByTextRequestDataCriteria(ModelNormal):
         ('selection_type',): {
             'INCLUDE': "include",
             'EXCLUDE': "exclude",
+
+
         },
     }
 

@@ -63,7 +63,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         VaultCalculationsApi apiInstance = new VaultCalculationsApi(defaultClient);
-        String id = "id_example"; // String | from url, provided from the location header in the Create and Run Vault calculation endpoint
+        String id = "3d06d752c26d4fafaafa1dacd958670c"; // String | from url, provided from the location header in the Create and Run Vault calculation endpoint
         try {
             apiInstance.cancelCalculationById(id);
 
@@ -258,7 +258,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         VaultCalculationsApi apiInstance = new VaultCalculationsApi(defaultClient);
-        String id = "id_example"; // String | from url, provided from the location header in the Create and Run Vault calculation endpoint
+        String id = "3d06d752c26d4fafaafa1dacd958670c"; // String | from url, provided from the location header in the Create and Run Vault calculation endpoint
         try {
             VaultCalculationParametersRoot result = apiInstance.getCalculationParameters(id);
             System.out.println(result);
@@ -356,7 +356,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         VaultCalculationsApi apiInstance = new VaultCalculationsApi(defaultClient);
-        String id = "id_example"; // String | from url, provided from the location header in the Create and Run Vault calculation endpoint
+        String id = "3d06d752c26d4fafaafa1dacd958670c"; // String | from url, provided from the location header in the Create and Run Vault calculation endpoint
         try {
             CalculationStatusRoot result = apiInstance.getCalculationStatusById(id);
             System.out.println(result);
@@ -455,8 +455,8 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         VaultCalculationsApi apiInstance = new VaultCalculationsApi(defaultClient);
-        String id = "id_example"; // String | from url, provided from the location header in the Get Vault calculation status by id endpoint
-        String unitId = "unitId_example"; // String | from url, provided from the location header in the Get Vault calculation status by id endpoint
+        String id = "3d06d752c26d4fafaafa1dacd958670c"; // String | from url, provided from the location header in the Get Vault calculation status by id endpoint
+        String unitId = "vault1"; // String | from url, provided from the location header in the Get Vault calculation status by id endpoint
         try {
             ObjectRoot result = apiInstance.getCalculationUnitResultById(id, unitId);
             System.out.println(result);
@@ -560,7 +560,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         VaultCalculationsApi apiInstance = new VaultCalculationsApi(defaultClient);
-        Integer xFactSetApiLongRunningDeadline = 56; // Integer | Long running deadline in seconds when only one unit is passed in the POST body.
+        Integer xFactSetApiLongRunningDeadline = 10; // Integer | Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation.
         String cacheControl = "cacheControl_example"; // String | Standard HTTP header.  Accepts max-stale.
         VaultCalculationParametersRoot vaultCalculationParametersRoot = new VaultCalculationParametersRoot(); // VaultCalculationParametersRoot | Calculation Parameters
         try {
@@ -594,7 +594,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xFactSetApiLongRunningDeadline** | **Integer**| Long running deadline in seconds when only one unit is passed in the POST body. | [optional]
+ **xFactSetApiLongRunningDeadline** | **Integer**| Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. | [optional]
  **cacheControl** | **String**| Standard HTTP header.  Accepts max-stale. | [optional]
  **vaultCalculationParametersRoot** | [**VaultCalculationParametersRoot**](VaultCalculationParametersRoot.md)| Calculation Parameters | [optional]
 
@@ -683,7 +683,7 @@ public class Example {
 
         VaultCalculationsApi apiInstance = new VaultCalculationsApi(defaultClient);
         String id = "id_example"; // String | from url, provided from the location header in the Create and Run Vault calculation endpoint
-        Integer xFactSetApiLongRunningDeadline = 56; // Integer | Long running deadline in seconds when only one unit is passed in the PUT body.
+        Integer xFactSetApiLongRunningDeadline = 10; // Integer | Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation.
         String cacheControl = "cacheControl_example"; // String | Standard HTTP header.  Accepts max-stale.
         VaultCalculationParametersRoot vaultCalculationParametersRoot = new VaultCalculationParametersRoot(); // VaultCalculationParametersRoot | Calculation Parameters
         try {
@@ -718,7 +718,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| from url, provided from the location header in the Create and Run Vault calculation endpoint |
- **xFactSetApiLongRunningDeadline** | **Integer**| Long running deadline in seconds when only one unit is passed in the PUT body. | [optional]
+ **xFactSetApiLongRunningDeadline** | **Integer**| Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. | [optional]
  **cacheControl** | **String**| Standard HTTP header.  Accepts max-stale. | [optional]
  **vaultCalculationParametersRoot** | [**VaultCalculationParametersRoot**](VaultCalculationParametersRoot.md)| Calculation Parameters | [optional]
 

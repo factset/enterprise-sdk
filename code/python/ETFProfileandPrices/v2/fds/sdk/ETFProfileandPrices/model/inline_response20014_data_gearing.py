@@ -65,6 +65,8 @@ class InlineResponse20014DataGearing(ModelNormal):
             'NONE': "None",
             'MONTHLY': "Monthly",
             'QUARTERLY': "Quarterly",
+
+
         },
     }
 

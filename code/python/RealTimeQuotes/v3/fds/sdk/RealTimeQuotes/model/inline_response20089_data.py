@@ -81,6 +81,8 @@ class InlineResponse20089Data(ModelNormal):
             'RLT': "RLT",
             'DLY': "DLY",
             'EOD': "EOD",
+
+
         },
     }
 

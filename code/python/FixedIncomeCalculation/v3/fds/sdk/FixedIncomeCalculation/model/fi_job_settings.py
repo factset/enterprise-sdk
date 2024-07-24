@@ -74,6 +74,8 @@ class FIJobSettings(ModelNormal):
             'INTRINSIC_VALUE': "Intrinsic Value",
             'FIRST_CALL': "First Call",
             'FIRST_PAR': "First Par",
+
+
         },
     }
 

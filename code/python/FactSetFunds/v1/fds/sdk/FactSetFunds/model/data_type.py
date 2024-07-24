@@ -55,6 +55,8 @@ class DataType(ModelSimple):
         ('value',): {
             'ROLL': "ROLL",
             'RAW': "RAW",
+
+
         },
     }
 

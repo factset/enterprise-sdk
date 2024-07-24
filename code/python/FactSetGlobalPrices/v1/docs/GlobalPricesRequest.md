@@ -5,7 +5,7 @@ Prices Request Body
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ids** | [**IdsBatchMax10000**](IdsBatchMax10000.md) |  | 
+**ids** | [**IdsBatchMax2000**](IdsBatchMax2000.md) |  | 
 **start_date** | **str** | The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.  | 
 **fields** | [**PricesFields**](PricesFields.md) |  | [optional] 
 **end_date** | **str** | The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.  | [optional] 

@@ -61,6 +61,8 @@ class QuantFormula(ModelNormal):
             'FQLEXPRESSION': "FqlExpression",
             'UNIVERSALSCREENPARAMETER': "UniversalScreenParameter",
             'ALLUNIVERSALSCREENPARAMETERS': "AllUniversalScreenParameters",
+
+
         },
     }
 

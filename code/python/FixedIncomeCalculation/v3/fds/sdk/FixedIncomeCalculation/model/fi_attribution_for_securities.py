@@ -62,6 +62,8 @@ class FIAttributionForSecurities(ModelNormal):
             'PRICING_MATRIX': "Pricing Matrix",
             'ACTUAL_SPREAD': "Actual Spread",
             'OAS': "OAS",
+
+
         },
     }
 

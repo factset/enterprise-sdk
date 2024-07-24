@@ -62,6 +62,8 @@ class PostVendorChartIQTimeSeriesEodListRequestDataIdentifier(ModelNormal):
             'TICKERREGION': "tickerRegion",
             'FDSPERMANENTIDENTIFIERLISTING': "fdsPermanentIdentifierListing",
             'FDSPERMANENTIDENTIFIERREGIONAL': "fdsPermanentIdentifierRegional",
+
+
         },
     }
 

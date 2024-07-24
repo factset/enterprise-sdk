@@ -68,6 +68,8 @@ class ErrorResponse(ModelNormal):
             'INVALID_TIMEZONE': "Invalid timezone",
             'INVALID_TICKER': "Invalid ticker",
             'INVALID_CHART_TITLE': "Invalid chart title",
+
+
         },
     }
 

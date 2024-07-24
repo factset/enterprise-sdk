@@ -8,13 +8,8 @@ If this object is provided, the settings given here will override the default se
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**calendar** | **Calendar** |  |  [optional]
-**combinations** | [**java.util.List&lt;JobOverridesCombinationsRoot&gt;**](JobOverridesCombinationsRoot.md) | An array of date account combinations |  [optional]
-**dates** | [**JobOverridesDates**](JobOverridesDates.md) |  |  [optional]
-**frequency** | **Frequency** |  |  [optional]
-**runAsOfDate** | **LocalDate** | PUB |  [optional]
+**combinations** | [**java.util.List&lt;JobOverridesCombinationsRoot&gt;**](JobOverridesCombinationsRoot.md) | An array of date, account, and tasks combinations |  [optional]
 **runAsSerialNumber** | **String** | The FactSet serial number which has the credentials wanted to run the job |  [optional]
-**tasks** | **java.util.List&lt;String&gt;** | Used only for jobs where type is PA |  [optional]
 
 
 ## Implemented Interfaces

@@ -59,6 +59,8 @@ class PriceType(ModelSimple):
             'CLOSE': "CLOSE",
             'SETTLE': "SETTLE",
             'EMPTY': "",
+
+
         },
     }
 

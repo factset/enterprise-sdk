@@ -61,6 +61,8 @@ class InlineResponse20069Status(ModelNormal):
             'NONE': "none",
             'PARAMETER': "parameter",
             'ENTITLEMENT': "entitlement",
+
+
         },
     }
 

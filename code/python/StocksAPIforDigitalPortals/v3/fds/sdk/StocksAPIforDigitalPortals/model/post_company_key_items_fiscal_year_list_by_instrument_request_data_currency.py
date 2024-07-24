@@ -60,6 +60,8 @@ class PostCompanyKeyItemsFiscalYearListByInstrumentRequestDataCurrency(ModelNorm
             'USD': "USD",
             'GBP': "GBP",
             'CHF': "CHF",
+
+
         },
     }
 

@@ -56,6 +56,8 @@ class MapStatus(ModelSimple):
             'MAPPED': "MAPPED",
             'UNMAPPED': "UNMAPPED",
             'INDETERMINATE': "INDETERMINATE",
+
+
         },
     }
 

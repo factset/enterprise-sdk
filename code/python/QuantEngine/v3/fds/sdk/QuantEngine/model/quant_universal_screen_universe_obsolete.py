@@ -60,6 +60,8 @@ class QuantUniversalScreenUniverseObsolete(ModelNormal):
             'SCREENINGEXPRESSIONUNIVERSE': "ScreeningExpressionUniverse",
             'UNIVERSALSCREENUNIVERSE': "UniversalScreenUniverse",
             'IDENTIFIERUNIVERSE': "IdentifierUniverse",
+
+
         },
     }
 

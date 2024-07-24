@@ -60,6 +60,8 @@ class PostCompanyKeyItemsCurrentGetByInstrumentRequestDataCurrency(ModelNormal):
             'USD': "USD",
             'GBP': "GBP",
             'CHF': "CHF",
+
+
         },
     }
 

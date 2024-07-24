@@ -57,6 +57,8 @@ class Adjust(ModelSimple):
             'SPINOFF': "SPINOFF",
             'DIVADJ': "DIVADJ",
             'UNSPLIT': "UNSPLIT",
+
+
         },
     }
 

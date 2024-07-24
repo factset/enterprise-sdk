@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Start** | **DateTime** | The date for (or from which) the data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format.   | [optional] 
-**End** | **DateTime** | The date to which data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format. end time is interpreted in the local timezone as the selected exchange.  | [optional] 
+**End** | **DateTime** | The date to which data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format.   | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

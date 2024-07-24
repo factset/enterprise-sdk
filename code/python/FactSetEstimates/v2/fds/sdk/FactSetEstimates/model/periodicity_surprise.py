@@ -56,6 +56,8 @@ class PeriodicitySurprise(ModelSimple):
             'ANN': "ANN",
             'QTR': "QTR",
             'SEMI': "SEMI",
+
+
         },
     }
 

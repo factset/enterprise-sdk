@@ -23,7 +23,7 @@ class AnnualizedDividendsRequest {
      * Constructs a new <code>AnnualizedDividendsRequest</code>.
      * Annualized Dividends Request Body
      * @alias module:model/AnnualizedDividendsRequest
-     * @param ids {Array.<String>} The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.  <p>ids limit =  1000 per non-batch request / 10000 per batch request for a single day and 50 per multi-day request</p> 
+     * @param ids {Array.<String>} The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. Requests are limited to 50 IDs. 
      */
     constructor(ids) { 
         
@@ -67,7 +67,7 @@ class AnnualizedDividendsRequest {
 }
 
 /**
- * The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.  <p>ids limit =  1000 per non-batch request / 10000 per batch request for a single day and 50 per multi-day request</p> 
+ * The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. Requests are limited to 50 IDs. 
  * @member {Array.<String>} ids
  */
 AnnualizedDividendsRequest.prototype['ids'] = undefined;

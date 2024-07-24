@@ -2,6 +2,7 @@
 
 # ScreenArchiveOFDBParameters
 
+Request body for screen archive request
 
 ## Properties
 

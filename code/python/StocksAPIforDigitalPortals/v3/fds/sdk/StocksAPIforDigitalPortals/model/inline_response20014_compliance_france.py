@@ -57,10 +57,12 @@ class InlineResponse20014ComplianceFrance(ModelNormal):
     allowed_values = {
         ('id',): {
             'None': None,
-            '2': "2",
-            '3': "3",
-            '4': "4",
-            '10': "10",
+            '2': 2,
+            '3': 3,
+            '4': 4,
+            '10': 10,
+
+
         },
     }
 

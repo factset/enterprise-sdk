@@ -56,6 +56,8 @@ class ChangeColor(ModelSimple):
             'COLORNEUTRAL': "colorNeutral",
             'COLORPOSITIVE': "colorPositive",
             'COLORNEGATIVE': "colorNegative",
+
+
         },
     }
 

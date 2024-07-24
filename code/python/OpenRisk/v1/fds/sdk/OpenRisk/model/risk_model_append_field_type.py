@@ -60,6 +60,8 @@ class RiskModelAppendFieldType(ModelNormal):
             'STRING': "String",
             'DOUBLE': "Double",
             'INTEGER': "Integer",
+
+
         },
     }
 

@@ -1,19 +1,19 @@
 # FactSet.SDK.UniversalScreening.Api.ScreeningOperationsApi
 
-All URIs are relative to *https://api.factset.com/universal-screening*
+All URIs are relative to *https://api.factset.com/universal-screening/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetCalculateResults**](ScreeningOperationsApi.md#getcalculateresults) | **GET** /v2/job/{id} | 
-[**PollCalculate**](ScreeningOperationsApi.md#pollcalculate) | **GET** /v2/job/{id}/status | 
-[**SubmitArchiveOFDB**](ScreeningOperationsApi.md#submitarchiveofdb) | **POST** /v2/job/archive | 
-[**SubmitCalculate**](ScreeningOperationsApi.md#submitcalculate) | **POST** /v2/job/calculate | 
+[**GetCalculateResults**](ScreeningOperationsApi.md#getcalculateresults) | **GET** /job/{id} | 
+[**PollCalculate**](ScreeningOperationsApi.md#pollcalculate) | **GET** /job/{id}/status | 
+[**SubmitArchiveOFDB**](ScreeningOperationsApi.md#submitarchiveofdb) | **POST** /job/archive | 
+[**SubmitCalculate**](ScreeningOperationsApi.md#submitcalculate) | **POST** /job/calculate | 
 
 
 
 <a name="getcalculateresults"></a>
 # **GetCalculateResults**
-> PaginatedCalculationResponse GetCalculateResults (string id, int? paginationLimit = null, int? paginationCursor = null)
+> PaginatedCalculationResponse GetCalculateResults (Guid id, int? paginationLimit = null, int? paginationCursor = null)
 
 
 
@@ -63,9 +63,9 @@ namespace Example
 
             var apiInstance = new ScreeningOperationsApi(config);
 
-            var id = "id_example";  // string | Unique identifier for a screen calculation job
-            var paginationLimit = 56;  // int? | Page size limit (minumum 1000, default 10,000, maximum 100,000) (optional) 
-            var paginationCursor = 56;  // int? | Paging index (Initial request may omit) (optional) 
+            var id = "123e4567-e89b-12d3-a456-426655440000";  // Guid | Unique identifier for a job. \"Job\" refers to a screen calculation or archival.
+            var paginationLimit = 10000;  // int? | Page size limit (minumum 1000, default 10,000, maximum 100,000) (optional)  (default to 10000)
+            var paginationCursor = 0;  // int? | Paging index (Initial request may omit) (optional)  (default to 0)
 
             try
             {
@@ -87,9 +87,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Unique identifier for a screen calculation job | 
- **paginationLimit** | **int?**| Page size limit (minumum 1000, default 10,000, maximum 100,000) | [optional] 
- **paginationCursor** | **int?**| Paging index (Initial request may omit) | [optional] 
+ **id** | **Guid**| Unique identifier for a job. \&quot;Job\&quot; refers to a screen calculation or archival. | 
+ **paginationLimit** | **int?**| Page size limit (minumum 1000, default 10,000, maximum 100,000) | [optional] [default to 10000]
+ **paginationCursor** | **int?**| Paging index (Initial request may omit) | [optional] [default to 0]
 
 ### Return type
 [**PaginatedCalculationResponse**](PaginatedCalculationResponse.md)
@@ -107,12 +107,14 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Paginated Screen Results and Metadata |  -  |
-| **202** | Calculation job still in progress |  * Location - Relative location to poll for status <br>  * X-FactSet-Api-PickUp-Progress - Screen progress <br>  |
-| **400** | The requested screen could not be opened. |  -  |
+| **200** | Paginated Screen Results and Metadata |  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
+| **202** | Long-running job still in progress |  * Location -  <br>  * X-FactSet-Api-PickUp-Progress -  <br>  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
+| **400** | The requested screen could not be opened. |  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
 | **401** | Invalid or missing authentication. |  -  |
-| **404** | Job ID not found. |  -  |
-| **410** | The results have been fetched for this ID. |  -  |
+| **403** | User is not authorized for this operation. |  -  |
+| **404** | Job ID not found. |  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
+| **410** | The results have been fetched for this ID. |  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
+| **429** | Too many requests. |  * X-FactSet-Api-Units-Limit -  <br>  * X-FactSet-Api-Units-Remaining -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  * Retry-After -  <br>  |
 | **500** | Internal Server Error |  * Request-Key - Provide this key when reporting this issue <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -120,7 +122,7 @@ Name | Type | Description  | Notes
 
 <a name="pollcalculate"></a>
 # **PollCalculate**
-> ResourceStatusResponse PollCalculate (string id)
+> ResourceStatusResponse PollCalculate (Guid id)
 
 
 
@@ -170,7 +172,7 @@ namespace Example
 
             var apiInstance = new ScreeningOperationsApi(config);
 
-            var id = "id_example";  // string | Unique identifier for a screen calculation job
+            var id = "123e4567-e89b-12d3-a456-426655440000";  // Guid | Unique identifier for a job. \"Job\" refers to a screen calculation or archival.
 
             try
             {
@@ -192,7 +194,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Unique identifier for a screen calculation job | 
+ **id** | **Guid**| Unique identifier for a job. \&quot;Job\&quot; refers to a screen calculation or archival. | 
 
 ### Return type
 [**ResourceStatusResponse**](ResourceStatusResponse.md)
@@ -210,11 +212,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Job completed |  * Location - Relative location to poll for status <br>  * X-FactSet-Api-PickUp-Progress - Screen progress <br>  |
-| **202** | Calculation job still in progress |  * Location - Relative location to poll for status <br>  * X-FactSet-Api-PickUp-Progress - Screen progress <br>  |
+| **201** | Job completed |  * Location -  <br>  * X-FactSet-Api-PickUp-Progress -  <br>  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
+| **202** | Long-running job still in progress |  * Location -  <br>  * X-FactSet-Api-PickUp-Progress -  <br>  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
 | **401** | Invalid or missing authentication. |  -  |
-| **404** | Job ID not found. |  -  |
-| **410** | The results have been fetched for this ID. |  -  |
+| **403** | User is not authorized for this operation. |  -  |
+| **404** | Job ID not found. |  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
+| **410** | The results have been fetched for this ID. |  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
+| **429** | Too many requests. |  * X-FactSet-Api-Units-Limit -  <br>  * X-FactSet-Api-Units-Remaining -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  * Retry-After -  <br>  |
 | **500** | Internal Server Error |  * Request-Key - Provide this key when reporting this issue <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -312,10 +316,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **202** | Successful archive OFDB submission response, returns the job ID unique to this archive and the URL in the Location header to check the status of the archive. |  * Location - Relative location to poll for status <br>  * X-FactSet-Api-Units-Limit - Maximum number of jobs. <br>  * X-FactSet-Api-Units-Remaining - Number of available jobs. <br>  * RateLimit-Limit - Number of weekly jobs available. <br>  * RateLimit-Remaining - Number of remaining weekly jobs. <br>  * RateLimit-Reset - Time, in seconds, until weekly limit resets. <br>  |
-| **400** | Invalid request body. |  -  |
+| **202** | Successful archive OFDB submission response, returns the job ID unique to this archive and the URL in the Location header to check the status of the archive. |  * Location -  <br>  * X-FactSet-Api-Units-Limit -  <br>  * X-FactSet-Api-Units-Remaining -  <br>  * X-RateLimit-Limit-604800 -  <br>  * X-RateLimit-Remaining-604800 -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
+| **400** | Invalid request body. |  * X-RateLimit-Limit-604800 -  <br>  * X-RateLimit-Remaining-604800 -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
 | **401** | Invalid or missing authentication. |  -  |
-| **429** | Too many requests. |  * X-FactSet-Api-Units-Limit - Maximum number of jobs. <br>  * X-FactSet-Api-Units-Remaining - Number of available jobs. <br>  |
+| **429** | Too many requests. |  * X-FactSet-Api-Units-Limit -  <br>  * X-FactSet-Api-Units-Remaining -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  * Retry-After -  <br>  |
 | **500** | Internal Server Error |  * Request-Key - Provide this key when reporting this issue <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -413,10 +417,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **202** | Successful calculation submission response, returns the job ID unique to this calculation and the URL in the Location header to check the status of the calculation. |  * Location - Relative location to poll for status <br>  * X-FactSet-Api-Units-Limit - Maximum number of jobs. <br>  * X-FactSet-Api-Units-Remaining - Number of available jobs. <br>  * RateLimit-Limit - Number of weekly jobs available. <br>  * RateLimit-Remaining - Number of remaining weekly jobs. <br>  * RateLimit-Reset - Time, in seconds, until weekly limit resets. <br>  |
-| **400** | Invalid request body. |  -  |
+| **202** | Successful calculation submission response, returns the job ID unique to this calculation and the URL in the Location header to check the status of the calculation. |  * Location -  <br>  * X-FactSet-Api-Units-Limit -  <br>  * X-FactSet-Api-Units-Remaining -  <br>  * X-RateLimit-Limit-604800 -  <br>  * X-RateLimit-Remaining-604800 -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
+| **400** | Invalid request body. |  * X-RateLimit-Limit-604800 -  <br>  * X-RateLimit-Remaining-604800 -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
 | **401** | Invalid or missing authentication. |  -  |
-| **429** | Too many requests. |  * X-FactSet-Api-Units-Limit - Maximum number of jobs. <br>  * X-FactSet-Api-Units-Remaining - Number of available jobs. <br>  |
+| **429** | Too many requests. |  * X-FactSet-Api-Units-Limit -  <br>  * X-FactSet-Api-Units-Remaining -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  * Retry-After -  <br>  |
 | **500** | Internal Server Error |  * Request-Key - Provide this key when reporting this issue <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

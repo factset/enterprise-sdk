@@ -58,6 +58,8 @@ class ReportStatusReportStaus(ModelNormal):
         ('value',): {
             'RESTATED': "RESTATED",
             'NON-RESTATED': "NON-RESTATED",
+
+
         },
     }
 

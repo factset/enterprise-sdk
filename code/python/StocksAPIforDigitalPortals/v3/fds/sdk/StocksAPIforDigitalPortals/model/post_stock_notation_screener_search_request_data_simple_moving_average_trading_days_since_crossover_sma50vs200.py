@@ -62,6 +62,8 @@ class PostStockNotationScreenerSearchRequestDataSimpleMovingAverageTradingDaysSi
         ('direction',): {
             'UP': "up",
             'DOWN': "down",
+
+
         },
     }
 

@@ -67,6 +67,8 @@ class Fundamental(ModelNormal):
             'LTM': "LTM",
             'LTMSG': "LTMSG",
             'YTD': "YTD",
+
+
         },
     }
 

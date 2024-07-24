@@ -66,6 +66,8 @@ class InlineResponse20015DataGeography(ModelNormal):
             'LATIN_AMERICA': "Latin America",
             'MIDDLE_EAST_&amp;_AFRICA': "Middle East & Africa",
             'FRONTIER_MARKETS': "Frontier Markets",
+
+
         },
     }
 

@@ -66,6 +66,8 @@ class InlineResponse2007Data(ModelNormal):
             'None': None,
             'DLY': "DLY",
             'EOD': "EOD",
+
+
         },
     }
 

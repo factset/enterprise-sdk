@@ -64,6 +64,8 @@ class EntityTaskStatus(ModelNormal):
             'FAILURE': "FAILURE",
             'BAD_REQUEST': "BAD_REQUEST",
             'ABORTED': "ABORTED",
+
+
         },
     }
 

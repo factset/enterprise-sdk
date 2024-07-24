@@ -1,5 +1,5 @@
 # FactSet.SDK.UniversalScreening.Model.ResourceStatusResponse
-ResourceStatusResponse contains information regarding the status of a calculation job
+ResourceStatusResponse contains information regarding the status of a long-running job. \"Job\" refers to a screen calculation or archival.
 
 ## Properties
 

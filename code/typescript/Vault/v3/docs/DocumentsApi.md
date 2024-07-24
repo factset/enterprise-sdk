@@ -49,7 +49,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new DocumentsApi();
-const path = "''"; // String | The directory to get the documents in
+const path = Client:; // String | The directory to get the documents in. This is a sample example for illustration purposes only. Client should use a valid Directory/Sub-Directory to get a successful response.
 
 // Call api endpoint
 apiInstance.getVaultDocuments(path).then(
@@ -71,7 +71,7 @@ apiInstance.getVaultDocuments(path).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **String**| The directory to get the documents in | [default to &#39;&#39;]
+ **path** | **String**| The directory to get the documents in. This is a sample example for illustration purposes only. Client should use a valid Directory/Sub-Directory to get a successful response. | 
 
 ### Return type
 

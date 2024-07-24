@@ -22,7 +22,7 @@ docs/JobListResponseMetaPagination.md
 docs/JobListResponseRoot.md
 docs/JobOverrides.md
 docs/JobOverridesCombinationsRoot.md
-docs/JobOverridesDates.md
+docs/JobOverridesCombinationsRootDateRange.md
 docs/JobTypes.md
 docs/JobsApi.md
 docs/PrbStatus.md
@@ -63,7 +63,7 @@ fds/sdk/PortfolioReportingBatcher/model/job_list_response_meta_pagination.py
 fds/sdk/PortfolioReportingBatcher/model/job_list_response_root.py
 fds/sdk/PortfolioReportingBatcher/model/job_overrides.py
 fds/sdk/PortfolioReportingBatcher/model/job_overrides_combinations_root.py
-fds/sdk/PortfolioReportingBatcher/model/job_overrides_dates.py
+fds/sdk/PortfolioReportingBatcher/model/job_overrides_combinations_root_date_range.py
 fds/sdk/PortfolioReportingBatcher/model/job_types.py
 fds/sdk/PortfolioReportingBatcher/model/prb_status.py
 fds/sdk/PortfolioReportingBatcher/model/runs_for_job.py

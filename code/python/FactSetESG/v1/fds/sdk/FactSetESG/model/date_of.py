@@ -55,6 +55,8 @@ class DateOf(ModelSimple):
         ('value',): {
             'PUBLICATION': "PUBLICATION",
             'INGESTION': "INGESTION",
+
+
         },
     }
 

@@ -60,6 +60,8 @@ class ThemeSentiment(ModelNormal):
             'POSITIVE': "positive",
             'NEGATIVE': "negative",
             'NEUTRAL': "neutral",
+
+
         },
     }
 

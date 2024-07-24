@@ -25,7 +25,7 @@ class SharesOutstandingRequestBody {
      * Constructs a new <code>SharesOutstandingRequestBody</code>.
      * Shares Outstanding Request Body
      * @alias module:model/SharesOutstandingRequestBody
-     * @param ids {Array.<String>} The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.  <p>ids limit =  500 per non-batch request / 2000 per batch request for a single day and 50 per multi-day request</p> 
+     * @param ids {Array.<String>} The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. Requests are limited to 50 IDs. 
      */
     constructor(ids) { 
         
@@ -78,7 +78,7 @@ class SharesOutstandingRequestBody {
 }
 
 /**
- * The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.  <p>ids limit =  500 per non-batch request / 2000 per batch request for a single day and 50 per multi-day request</p> 
+ * The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. Requests are limited to 50 IDs. 
  * @member {Array.<String>} ids
  */
 SharesOutstandingRequestBody.prototype['ids'] = undefined;

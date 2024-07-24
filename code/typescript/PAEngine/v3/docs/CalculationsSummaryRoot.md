@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**CalculationsSummary**](CalculationsSummary.md) |  | 
+**data** | [**{String: CalculationsSummary}**](CalculationsSummary.md) |  | 
 **meta** | [**PaginationMeta**](PaginationMeta.md) |  | [optional] 
 
 

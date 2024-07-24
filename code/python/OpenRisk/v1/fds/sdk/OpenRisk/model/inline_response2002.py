@@ -58,6 +58,8 @@ class InlineResponse2002(ModelNormal):
     allowed_values = {
         ('status',): {
             'PASS': "pass",
+
+
         },
     }
 

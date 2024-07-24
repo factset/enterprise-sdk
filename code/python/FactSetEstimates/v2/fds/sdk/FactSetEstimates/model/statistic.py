@@ -59,6 +59,8 @@ class Statistic(ModelSimple):
             'LOW': "LOW",
             'COUNT': "COUNT",
             'STDDEV': "STDDEV",
+
+
         },
     }
 

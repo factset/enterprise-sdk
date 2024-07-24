@@ -61,6 +61,8 @@ class ErrorCode(ModelSimple):
             'ENDPOINTNOTFOUND': "endpointNotFound",
             'GENERICSERVERERROR': "genericServerError",
             'QUANTITYLIMITSEXCEEDED': "quantityLimitsExceeded",
+
+
         },
     }
 

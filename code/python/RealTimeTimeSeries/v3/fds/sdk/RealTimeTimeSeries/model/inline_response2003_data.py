@@ -60,6 +60,8 @@ class InlineResponse2003Data(ModelNormal):
             'None': None,
             'RLT': "RLT",
             'DLY': "DLY",
+
+
         },
     }
 

@@ -69,6 +69,8 @@ class ChildOrder(ModelNormal):
             'STOPLIMIT': "stopLimit",
             'MARKETONCLOSE': "marketOnClose",
             'LIMITORBETTER': "limitOrBetter",
+
+
         },
         ('side',): {
             'None': None,
@@ -78,12 +80,16 @@ class ChildOrder(ModelNormal):
             'SELLPLUS': "sellPlus",
             'SELLSHORT': "sellShort",
             'SELLSHORTEXEMPT': "sellShortExempt",
+
+
         },
         ('handling_instructions',): {
             'None': None,
             'AUTOORDERPRIVATE': "autoOrderPrivate",
             'AUTOORDERPUBLIC': "autoOrderPublic",
             'BESTEXECUTION': "bestExecution",
+
+
         },
         ('settlement_type',): {
             'None': None,
@@ -97,6 +103,8 @@ class ChildOrder(ModelNormal):
             'WHENISSUED': "whenIssued",
             'SELLERSOPTION': "sellersOption",
             'TPLUS5': "tPlus5",
+
+
         },
         ('execution_instructions',): {
             'None': None,
@@ -147,6 +155,8 @@ class ChildOrder(ModelNormal):
             'IMBALANCEONLY': "imbalanceOnly",
             'SINGLEEXECUTIONREQUESTEDFORBLOCKTRADE': "singleExecutionRequestedForBlockTrade",
             'BESTEXECUTION': "bestExecution",
+
+
         },
     }
 

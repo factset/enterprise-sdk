@@ -1,4 +1,5 @@
 # FactSet.SDK.UniversalScreening.Model.ScreenArchiveOFDBParameters
+Request body for screen archive request
 
 ## Properties
 

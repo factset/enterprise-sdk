@@ -62,6 +62,8 @@ class BPMOptimizerStrategyAlphaOverride(ModelNormal):
             'ACTIVE': "Active",
             'RESIDUAL': "Residual",
             'EXCEPTIONAL': "Exceptional",
+
+
         },
     }
 

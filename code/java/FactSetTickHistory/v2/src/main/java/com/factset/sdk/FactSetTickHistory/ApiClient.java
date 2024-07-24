@@ -82,6 +82,11 @@ public class ApiClient extends JavaTimeFormatter {
       "https://api.factset.com/tick-history/v2",
       "No description provided",
       new HashMap<String, ServerVariable>()
+    ),
+    new ServerConfiguration(
+      "https://api-sandbox.factset.com/tick-history/v2",
+      "No description provided",
+      new HashMap<String, ServerVariable>()
     )
   ));
   protected Integer serverIndex = 0;
@@ -123,7 +128,7 @@ public class ApiClient extends JavaTimeFormatter {
     this.dateFormat = new RFC3339DateFormat();
 
     // Set default User-Agent.
-    setUserAgent("fds-sdk/java/FactSetTickHistory/0.33.1");
+    setUserAgent("fds-sdk/java/FactSetTickHistory/0.33.2");
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<String, Authentication>();

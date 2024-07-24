@@ -61,7 +61,7 @@ namespace Example
 
             var apiInstance = new ComponentsApi(config);
 
-            var id = "id_example";  // string | Unique identifier for a vault component
+            var id = "AFB43C61A6651B87988FEA62ED333638595AE7D8D7345A33AB9994CF23AFCC5D";  // string | Unique identifier for a vault component. This is a sample example for illustration purposes only. Client should use a valid Vault API Component Id to get a successful response.
 
             try
             {
@@ -84,7 +84,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Unique identifier for a vault component | 
+ **id** | **string**| Unique identifier for a vault component. This is a sample example for illustration purposes only. Client should use a valid Vault API Component Id to get a successful response. | 
 
 ### Return type
 [**VaultComponentRoot**](VaultComponentRoot.md)
@@ -167,7 +167,7 @@ namespace Example
 
             var apiInstance = new ComponentsApi(config);
 
-            var document = "document_example";  // string | Document Name
+            var document = "CLIENT:/MAC/DEMO/DEMO_PS_EQ_EM_COUNTRY_ALPHA";  // string | Document Name. This is a sample example for illustration purposes only. Client should use a valid Portfolio Insight Document to get a successful response.
 
             try
             {
@@ -190,7 +190,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **document** | **string**| Document Name | 
+ **document** | **string**| Document Name. This is a sample example for illustration purposes only. Client should use a valid Portfolio Insight Document to get a successful response. | 
 
 ### Return type
 [**ComponentSummaryRoot**](ComponentSummaryRoot.md)

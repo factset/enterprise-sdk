@@ -91,11 +91,15 @@ class ReportRevisionDTO(ModelNormal):
             'REPORT_ORIGINAL_GENERATION': "REPORT_ORIGINAL_GENERATION",
             'REPORT_PREVIOUS_REVISION': "REPORT_PREVIOUS_REVISION",
             'GENERATING': "GENERATING",
+
+
         },
         ('sign_off_status',): {
             'REJECTED': "REJECTED",
             'PENDING': "PENDING",
             'APPROVED': "APPROVED",
+
+
         },
     }
 

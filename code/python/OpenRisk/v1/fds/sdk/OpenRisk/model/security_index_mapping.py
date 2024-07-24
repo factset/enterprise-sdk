@@ -55,6 +55,8 @@ class SecurityIndexMapping(ModelSimple):
         ('value',): {
             'INPUTTORESULT': "InputToResult",
             'RESULTTOINPUT': "ResultToInput",
+
+
         },
     }
 

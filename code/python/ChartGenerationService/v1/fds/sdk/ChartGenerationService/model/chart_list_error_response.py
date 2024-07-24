@@ -58,6 +58,8 @@ class ChartListErrorResponse(ModelNormal):
         ('error',): {
             'INVALID_CATEGORY_NAME(S)': "Invalid Category Name(s)",
             'UNABLE_TO_BUILD_CHART-LIST': "Unable to build chart-list",
+
+
         },
     }
 

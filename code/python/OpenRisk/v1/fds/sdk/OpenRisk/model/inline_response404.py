@@ -58,6 +58,8 @@ class InlineResponse404(ModelNormal):
     allowed_values = {
         ('status',): {
             'FAIL': "fail",
+
+
         },
     }
 

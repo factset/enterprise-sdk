@@ -58,6 +58,8 @@ class Periodicity(ModelSimple):
             'SEMI': "SEMI",
             'LTMA': "LTMA",
             'NTMA': "NTMA",
+
+
         },
     }
 

@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **[String]** |  | [optional] 
+**id** | **[String]** | Array of active job IDs associated with the account | [optional] 
 
 

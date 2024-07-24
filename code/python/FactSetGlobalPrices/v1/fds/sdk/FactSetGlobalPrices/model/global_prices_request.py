@@ -35,13 +35,13 @@ def lazy_import():
     from fds.sdk.FactSetGlobalPrices.model.batch import Batch
     from fds.sdk.FactSetGlobalPrices.model.calendar import Calendar
     from fds.sdk.FactSetGlobalPrices.model.frequency import Frequency
-    from fds.sdk.FactSetGlobalPrices.model.ids_batch_max10000 import IdsBatchMax10000
+    from fds.sdk.FactSetGlobalPrices.model.ids_batch_max2000 import IdsBatchMax2000
     from fds.sdk.FactSetGlobalPrices.model.prices_fields import PricesFields
     globals()['Adjust'] = Adjust
     globals()['Batch'] = Batch
     globals()['Calendar'] = Calendar
     globals()['Frequency'] = Frequency
-    globals()['IdsBatchMax10000'] = IdsBatchMax10000
+    globals()['IdsBatchMax2000'] = IdsBatchMax2000
     globals()['PricesFields'] = PricesFields
 
 
@@ -98,7 +98,7 @@ class GlobalPricesRequest(ModelNormal):
         """
         lazy_import()
         return {
-            'ids': (IdsBatchMax10000,),  # noqa: E501
+            'ids': (IdsBatchMax2000,),  # noqa: E501
             'start_date': (str,),  # noqa: E501
             'fields': (PricesFields,),  # noqa: E501
             'end_date': (str,),  # noqa: E501
@@ -137,7 +137,7 @@ class GlobalPricesRequest(ModelNormal):
         """GlobalPricesRequest - a model defined in OpenAPI
 
         Args:
-            ids (IdsBatchMax10000):
+            ids (IdsBatchMax2000):
             start_date (str): The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. 
 
         Keyword Args:
@@ -231,7 +231,7 @@ class GlobalPricesRequest(ModelNormal):
         """GlobalPricesRequest - a model defined in OpenAPI
 
         Args:
-            ids (IdsBatchMax10000):
+            ids (IdsBatchMax2000):
             start_date (str): The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. 
 
         Keyword Args:

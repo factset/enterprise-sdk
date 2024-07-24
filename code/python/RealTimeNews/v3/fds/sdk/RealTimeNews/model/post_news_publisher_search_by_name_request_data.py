@@ -64,6 +64,8 @@ class PostNewsPublisherSearchByNameRequestData(ModelNormal):
             'BEGINS': "begins",
             'ENDS': "ends",
             'CONTAINS': "contains",
+
+
         },
     }
 

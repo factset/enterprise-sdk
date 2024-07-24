@@ -25,7 +25,7 @@ class CorporateActionsRequest {
      * Constructs a new <code>CorporateActionsRequest</code>.
      * Corporate Actions Request Body
      * @alias module:model/CorporateActionsRequest
-     * @param ids {Array.<String>} The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.  <p>ids limit =  1000 per non-batch request / 10000 per batch request for a single day and 50 per multi-day request</p> 
+     * @param ids {Array.<String>} The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. Requests are limited to 50 IDs. 
      */
     constructor(ids) { 
         
@@ -84,7 +84,7 @@ class CorporateActionsRequest {
 }
 
 /**
- * The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.  <p>ids limit =  1000 per non-batch request / 10000 per batch request for a single day and 50 per multi-day request</p> 
+ * The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. Requests are limited to 50 IDs. 
  * @member {Array.<String>} ids
  */
 CorporateActionsRequest.prototype['ids'] = undefined;

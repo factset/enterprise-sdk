@@ -61,6 +61,8 @@ class SymbolData(ModelNormal):
             'TICKER': "ticker",
             'ENTITY': "entity",
             'SEDOL': "sedol",
+
+
         },
     }
 

@@ -55,6 +55,8 @@ class ImpliedDate(ModelSimple):
         ('value',): {
             'Y': "Y",
             'N': "N",
+
+
         },
     }
 

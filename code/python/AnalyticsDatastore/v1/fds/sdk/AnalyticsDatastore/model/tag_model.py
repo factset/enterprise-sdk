@@ -60,6 +60,8 @@ class TagModel(ModelNormal):
             'STRING': "string",
             'DATE': "date",
             'DATETIME': "datetime",
+
+
         },
     }
 

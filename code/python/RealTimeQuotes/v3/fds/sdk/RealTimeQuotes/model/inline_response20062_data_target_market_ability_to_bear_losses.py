@@ -62,6 +62,8 @@ class InlineResponse20062DataTargetMarketAbilityToBearLosses(ModelNormal):
             'NO': "no",
             'NEUTRAL': "neutral",
             'FEEDBACK': "feedback",
+
+
         },
         ('limited_capital_loss',): {
             'None': None,
@@ -69,6 +71,8 @@ class InlineResponse20062DataTargetMarketAbilityToBearLosses(ModelNormal):
             'NO': "no",
             'NEUTRAL': "neutral",
             'FEEDBACK': "feedback",
+
+
         },
         ('no_capital_guarantee',): {
             'None': None,
@@ -76,6 +80,8 @@ class InlineResponse20062DataTargetMarketAbilityToBearLosses(ModelNormal):
             'NO': "no",
             'NEUTRAL': "neutral",
             'FEEDBACK': "feedback",
+
+
         },
         ('loss_beyond_capital',): {
             'None': None,
@@ -83,6 +89,8 @@ class InlineResponse20062DataTargetMarketAbilityToBearLosses(ModelNormal):
             'NO': "no",
             'NEUTRAL': "neutral",
             'FEEDBACK': "feedback",
+
+
         },
     }
 

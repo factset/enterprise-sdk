@@ -71,6 +71,8 @@ class InlineResponse20014Instrument(ModelNormal):
             'PREFERRED': "preferred",
             'DEPOSITORYRECEIPT': "depositoryReceipt",
             'OTHER': "other",
+
+
         },
     }
 

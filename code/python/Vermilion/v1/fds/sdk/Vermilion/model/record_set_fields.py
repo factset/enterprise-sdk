@@ -66,6 +66,8 @@ class RecordSetFields(ModelNormal):
             'HTML': "HTML",
             'INTEGER': "INTEGER",
             'TEXT': "TEXT",
+
+
         },
     }
 

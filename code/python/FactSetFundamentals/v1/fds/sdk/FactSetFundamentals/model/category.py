@@ -63,6 +63,8 @@ class Category(ModelSimple):
             'MARKET_DATA': "MARKET_DATA",
             'MISCELLANEOUS': "MISCELLANEOUS",
             'DATES': "DATES",
+
+
         },
     }
 

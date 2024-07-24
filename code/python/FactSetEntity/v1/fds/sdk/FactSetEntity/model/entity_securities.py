@@ -88,11 +88,15 @@ class EntitySecurities(ModelNormal):
             'LAUTH': "LAUTH",
             'BLDN': "BLDN",
             'CMBS': "CMBS",
+
+
         },
         ('active_flag',): {
             'None': None,
-            '0': "0",
-            '1': "1",
+            '0': 0,
+            '1': 1,
+
+
         },
     }
 

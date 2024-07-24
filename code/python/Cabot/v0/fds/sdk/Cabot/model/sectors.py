@@ -78,6 +78,8 @@ class Sectors(ModelSimple):
             'EQUITYDATACENTERS': "equityDataCenters",
             'MORTAGEHOMEFINANCING': "mortageHomeFinancing",
             'MORTAGECOMMERCIALFINANCING': "mortageCommercialFinancing",
+
+
         },
     }
 

@@ -69,15 +69,21 @@ class PostPricesTimeSeriesIntradayListRequestData(ModelNormal):
             'BID': "bid",
             'ASK': "ask",
             'YIELD': "yield",
+
+
         },
         ('quality',): {
             'RLT': "RLT",
             'DLY': "DLY",
             'BST': "BST",
+
+
         },
         ('apply_tick_corrections',): {
             'NONE': "none",
             'ALL': "all",
+
+
         },
     }
 

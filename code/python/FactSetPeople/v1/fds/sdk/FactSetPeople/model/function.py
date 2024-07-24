@@ -56,6 +56,8 @@ class Function(ModelSimple):
             'PEOPLE': "PEOPLE",
             'OFFICER': "OFFICER",
             'DIRECTOR': "DIRECTOR",
+
+
         },
     }
 

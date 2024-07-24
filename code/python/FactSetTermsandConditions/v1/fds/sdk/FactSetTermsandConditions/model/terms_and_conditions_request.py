@@ -61,6 +61,8 @@ class TermsAndConditionsRequest(ModelNormal):
             'COUPON_DETAILS': "COUPON_DETAILS",
             'CONVERTIBLE_FEATURES': "CONVERTIBLE_FEATURES",
             'REDEMPTION_OPTIONS': "REDEMPTION_OPTIONS",
+
+
         },
     }
 

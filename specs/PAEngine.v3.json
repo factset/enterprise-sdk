@@ -12,7 +12,7 @@
       "name": "Apache License, Version 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0"
     },
-    "version": "3.14.1"
+    "version": "3.15.6"
   },
   "servers": [
     {
@@ -32,11 +32,11 @@
           {
             "name": "path",
             "in": "path",
-            "description": "The directory to get the accounts and sub-directories in",
+            "description": "The directory to get the accounts and sub-directories.",
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The directory to get the accounts and sub-directories in",
+              "description": "The directory to get the accounts and sub-directories.",
               "example": "Client:"
             }
           }
@@ -82,6 +82,24 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/AccountDirectoriesRoot"
+                },
+                "examples": {
+                  "200 - List of Accounts & Directories": {
+                    "value": {
+                      "data": {
+                        "accounts": [
+                          "SAMPLE_ACCOUNT.ACCT",
+                          "TEST20240523.ACCT",
+                          "TEST_201BENCH.ACCT",
+                          "TEST_201RESPONSE.ACCT"
+                        ],
+                        "directories": [
+                          "$$lmac_holdings",
+                          "notes"
+                        ]
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -226,6 +244,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "404 - Path not found": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "668BBA7F3690C5A8",
+                          "code": "NotFound",
+                          "title": "Failed to process request",
+                          "detail": "Path not found"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -423,6 +455,19 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ColumnSummaryRoot"
+                },
+                "examples": {
+                  "200 - Valid Parameters": {
+                    "value": {
+                      "data": {
+                        "984BAF79264A884A161C7E167FCD50E26D61CD0B85E9CA073BCDCA3003040A6B": {
+                          "name": "Port. Ending Total Cost ( Local )",
+                          "directory": "Factset",
+                          "category": "Portfolio/Cost Basis"
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -655,6 +700,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ColumnRoot"
+                },
+                "examples": {
+                  "200 - Valid identifier": {
+                    "value": {
+                      "data": {
+                        "defaultstatisticsids": [
+                          "f25882fe0b724c1da563a99ce96085db"
+                        ],
+                        "name": "Port. Ending Total Cost ( Local )",
+                        "directory": "Factset",
+                        "category": "Portfolio/Cost Basis"
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -699,6 +758,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "400 - Invalid identifier": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "668BC77F9C40DFA8",
+                          "code": "BadRequest",
+                          "title": "Failed to process request",
+                          "detail": "Invalid column identifier: 984BAF79264A884A161C7E167FCD5"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -955,6 +1028,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ColumnStatisticRoot"
+                },
+                "examples": {
+                  "200 - Sample list": {
+                    "value": {
+                      "data": {
+                        "eb9d6d91416e4224bacadc261787e56f": {
+                          "name": "Active Weights"
+                        },
+                        "998e9415544f4376a7db4085fe4cda39": {
+                          "name": "Average"
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -1180,6 +1267,63 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ComponentSummaryRoot"
+                },
+                "examples": {
+                  "200 - Valid Document": {
+                    "value": {
+                      "data": {
+                        "AFB43C61A6651B87988FEA62ED333638595AE7D8D7345A33AB9994CF23AFCC5D": {
+                          "name": "Weights",
+                          "category": "General / Positioning"
+                        },
+                        "F52D1DDFB8215B40EAC9B58631F9BE322972C08DBCE51E9DFCF562C44FC05839": {
+                          "name": "Top 5 Positioned Groups",
+                          "category": "General / Positioning"
+                        },
+                        "85CE04EF7A2DD151920978F35EC65C1A5A0B4C3B775D49089CC9BAF0F80244FC": {
+                          "name": "Weights over Time",
+                          "category": "General / Positioning"
+                        },
+                        "5FF59FE24268D612337155EC8C3E2DF17C14B829B80B60240925E13E7E198596": {
+                          "name": "Portfolio Weights",
+                          "category": "Weights / Weights Over Time"
+                        },
+                        "29253A4CC0ED1CD84229242D71F72447B8598DA23F87DA7DDFB9ECF35214CEDD": {
+                          "name": "Benchmark Weights",
+                          "category": "Weights / Weights Over Time"
+                        },
+                        "72289D47266C4C0172224412051A8948E07A7A2403E41BF5E531A86F02348C71": {
+                          "name": "2 Factor Attribution with Currency",
+                          "category": "Attribution / 2 Factor S+I with Currency Attribution"
+                        },
+                        "1950760789B2640B5394334AF6826A05B6A96849FF7EE648695721B54186C7F8": {
+                          "name": "2 Factor Attribution with Currency Over Time",
+                          "category": "Attribution / 2 Factor S+I with Currency Attribution"
+                        },
+                        "823A0A4A6BFD2DF9F339FFEB9CA6911E41C528F6328B0E95EECBDE68ABAF001E": {
+                          "name": "Attribution Effects with Currency",
+                          "category": "Attribution / 2 Factor S+I with Currency Attribution"
+                        },
+                        "EC59BA7B0CA506A2342E280BC32E989F2A0B6219C3D1252BF98F9708FD8D78A1": {
+                          "name": "Geometric Attribution",
+                          "category": "Attribution / Geometric Attribution"
+                        },
+                        "E0830D627BB59AD3C2644938153DB8AED4237B022DFE7965433A64C5DBCA1F7F": {
+                          "name": "3 Factor Attribution",
+                          "category": "Attribution / 3 Factor Attribution"
+                        },
+                        "DE4F587BD740BC039E78CFB61C27A8C676007FF2D23F0134667E041468351DC5": {
+                          "name": "3 Factor Attribution Over Time",
+                          "category": "Attribution / 3 Factor Attribution"
+                        },
+                        "B4FBAD33F1B9DB7EDCDADCBB9CD00E8104262BB64AA25617108F6D6391E13A5C": {
+                          "name": "Attribution Effects",
+                          "category": "Attribution / 3 Factor Attribution"
+                        }
+                      },
+                      "meta": {}
+                    }
+                  }
                 }
               }
             }
@@ -1324,6 +1468,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "404 - Invalid Document provided": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "668BCD4C51DEB1D6",
+                          "code": "NotFound",
+                          "title": "Failed to process request",
+                          "detail": "Document xyzFail not found"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -1493,6 +1651,31 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PAComponentRoot"
+                },
+                "examples": {
+                  "200 - Valid Component Identifier": {
+                    "value": {
+                      "data": {
+                        "id": "5FF59FE24268D612337155EC8C3E2DF17C14B829B80B60240925E13E7E198596",
+                        "accounts": [
+                          {
+                            "id": "CLIENT:VAULT_TEST.ACCT",
+                            "holdingsmode": "B&H"
+                          }
+                        ],
+                        "benchmarks": [],
+                        "currencyisocode": "USD",
+                        "dates": {
+                          "enddate": "LOCKED_REPOSITORY",
+                          "frequency": "Single"
+                        },
+                        "snapshot": true,
+                        "path": "client:/vault_groupsall_test.par;report1c01a7af-f269-58bc-bc9a-567ec1424a92;tile3a07d145-6ac2-8cec-ece0-2f3f03e49276",
+                        "name": "Portfolio Weights",
+                        "category": "Weights / Weights Over Time"
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -1537,6 +1720,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "400 - Invalid Component Identifier": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "668BCEFB164B303D",
+                          "code": "BadRequest",
+                          "title": "Failed to process request",
+                          "detail": "Invalid component identifier: 5FF59FE24268D61233"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -1637,6 +1834,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "404 - Component not found": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "668BD01843B733E9",
+                          "code": "NotFound",
+                          "title": "Failed to process request",
+                          "detail": "Component identifier: EC2D68FBBBF538098DFFF658BFDDE5B1CD80D24426B49C96B141F0F0556D7BF0 fetch failed"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -1793,6 +2004,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CurrencyRoot"
+                },
+                "examples": {
+                  "200 - Sample List": {
+                    "value": {
+                      "data": {
+                        "AZN": {
+                          "name": "Azerbaijan New Manat"
+                        },
+                        "BSD": {
+                          "name": "Bahamas Dollar"
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -2050,6 +2275,17 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/DateParametersSummaryRoot"
+                },
+                "examples": {
+                  "200 - Valid Input Parameters": {
+                    "value": {
+                      "data": {
+                        "startdate": "20210618",
+                        "enddate": "20230619"
+                      },
+                      "meta": {}
+                    }
+                  }
                 }
               }
             }
@@ -2194,6 +2430,56 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "404 - Invalid Account": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "667D3791C2BEFA41",
+                          "code": "NotFound",
+                          "title": "Failed to process request",
+                          "detail": "Account name: CLIENT:/MAC/DEMO/DEMO_PS_EQ_EM_COUNTRY_ALPHA1.ACCT fetch failed"
+                        }
+                      ]
+                    }
+                  },
+                  "404 - Invalid Component Identifier": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "667D38337DB6E3FC",
+                          "code": "BadRequest",
+                          "title": "Failed to process request",
+                          "detail": "Invalid component identifier: D91D7E41A1FEDDC5E42A3EEAD27C919B09FCC1C99CB88A09A1604F390C0DCAE"
+                        }
+                      ]
+                    }
+                  },
+                  "404 - Invalid Start Date Input": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "667D38A49A9FB4BB",
+                          "code": "BadRequest",
+                          "title": "Failed to process request",
+                          "detail": "Invalid start date input"
+                        }
+                      ]
+                    }
+                  },
+                  "404 - Invalid End Date Input": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "667D38A49A9FB4BB",
+                          "code": "BadRequest",
+                          "title": "Failed to process request",
+                          "detail": "Invalid end date input"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -2363,6 +2649,24 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/DocumentDirectoriesRoot"
+                },
+                "examples": {
+                  "200 - Valid Path": {
+                    "value": {
+                      "data": {
+                        "documents": [
+                          "test_compid",
+                          "test_moreColumns",
+                          "TEST_REPORT",
+                          "test_stach"
+                        ],
+                        "directories": [
+                          "$$lmac_holdings",
+                          "notes"
+                        ]
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -2507,6 +2811,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "404 - Path not found": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "668BDDBB7D633388",
+                          "code": "NotFound",
+                          "title": "Failed to process request",
+                          "detail": "Path not found"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -2663,6 +2981,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/FrequencyRoot"
+                },
+                "examples": {
+                  "200 - Sample list": {
+                    "value": {
+                      "data": {
+                        "Single": {
+                          "name": "Single"
+                        },
+                        "FiscalYearly": {
+                          "name": "Fiscal Yearly"
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -2882,6 +3214,29 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GroupRoot"
+                },
+                "examples": {
+                  "200 - Sample list": {
+                    "value": {
+                      "data": {
+                        "C63CE4FC44FDCB0287D5A262B09AF6CB1DE8B347B119B45C8B2E76CE20AF9A48": {
+                          "name": "Asset Type",
+                          "directory": "Client",
+                          "category": ""
+                        },
+                        "EF951E74F704BB72A256F28A2BF8D85979AFE37BE157F573F717CBE14FADB937": {
+                          "name": "Asset Type",
+                          "directory": "Client",
+                          "category": "FDS_DEMO"
+                        },
+                        "0F61FBDBA7A8AFB0AF9428FA9733D69AE8437743E3879C25119BDA77FE2B5548": {
+                          "name": "FI Asset Type",
+                          "directory": "Client",
+                          "category": "Mumbai"
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -3094,6 +3449,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/FrequencyRoot"
+                },
+                "examples": {
+                  "200 - Sample list": {
+                    "value": {
+                      "data": {
+                        "BeginningOfPeriod": {
+                          "name": "Beginning Of Period"
+                        },
+                        "EndOfPeriod": {
+                          "name": "End Of Period"
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -4873,15 +5242,16 @@
           "PACalculations"
         ],
         "summary": "Create and Run PA calculation",
-        "description": "This endpoint runs the PA calculation specified in the POST body parameters.\r\nIt can take one or more calculation units as input.\r\n\r\nRemarks:\r\n\r\n*\tAny settings in POST body will act as a one-time override over the settings saved in the PA template.\r\n\r\n*   Account identifiers must have .ACCT or .ACTM extension or BENCH: prefix. Holdings mode can be optionally set for every account. \r\n    Possible values for holdings mode are B&H (Buy and Hold), TBR (Transaction based returns), OMS (Order Management System), \r\n    VLT (Vaulted returns) or EXT (External Returns Data). Default holdings mode value is B&H. \r\n\r\n*   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding \r\n    the default frequency of the Beginning of Period to whatever we pass in the request body.\r\n    \r\n*   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.\r\n\r\n*   Componentdetail supports securities, groups, groupsall, and totals levels of granularity. However, if no value is passed, the default value is 'securities'.\r\n    Additionally, while 'groupsall' returns all the group levels in the PA component,\r\n    setting componentdetail to 'groups' only returns the expanded or collapsed group levels within the PA component. \r\n\n* Multi-horizon frequencies are not supported through this endpoint.",
+        "description": "This endpoint runs the PA calculation specified in the POST body parameters.\r\nIt can take one or more calculation units as input.\r\n\r\nRemarks:\r\n\r\n*\tAny settings in POST body will act as a one-time override over the settings saved in the PA template.\r\n\r\n*   Account identifiers must have .ACCT or .ACTM extension or BENCH: prefix. Holdings mode can be optionally set for every account. \r\n    Possible values for holdings mode are B&H (Buy and Hold), TBR (Transaction based returns), OMS (Order Management System), \r\n    VLT (Vaulted returns) or EXT (External Returns Data). Default holdings mode value is B&H. \r\n\r\n*   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding \r\n    the default frequency of the Beginning of Period to whatever we pass in the request body.\r\n    \r\n*   If we are overriding grouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.\r\n\r\n*   Componentdetail supports securities, groups, groupsall, and totals levels of granularity. However, if no value is passed, the default value is 'securities'.\r\n    Additionally, while 'groupsall' returns all the group levels in the PA component,\r\n    setting componentdetail to 'groups' only returns the expanded or collapsed group levels within the PA component.",
         "operationId": "postAndCalculate",
         "parameters": [
           {
             "name": "X-FactSet-Api-Long-Running-Deadline",
             "in": "header",
-            "description": "Long running deadline in seconds when only one unit is passed in the POST body.",
+            "description": "Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation.",
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "example": 10
             }
           },
           {
@@ -4900,53 +5270,15 @@
               "schema": {
                 "$ref": "#/components/schemas/PACalculationParametersRoot"
               },
-              "example": {
-                "data": {
-                  "1": {
-                    "componentid": "801B800245E468A52AEBEC4BE31CFF5AF82F371DAEF5F158AC2E98C2FA324B46",
-                    "accounts": [
-                      {
-                        "id": "BENCH:DJII",
-                        "holdingsmode": "B&H"
-                      }
-                    ],
-                    "benchmarks": [
-                      {
-                        "id": "BENCH:SP50",
-                        "holdingsmode": "B&H"
-                      }
-                    ],
-                    "dates": {
-                      "startdate": "20210101",
-                      "enddate": "20210331",
-                      "frequency": "Monthly"
-                    },
-                    "currencyisocode": "USD"
-                  },
-                  "2": {
-                    "componentid": "67077F67610EC30675E240A614661176C792A8997C78C9B9D64F738C01F18893",
-                    "accounts": [
-                      {
-                        "id": "BENCH:SP100EQ",
-                        "holdingsmode": "B&H"
-                      }
-                    ],
-                    "benchmarks": [
-                      {
-                        "id": "BENCH:SP50",
-                        "holdingsmode": "B&H"
-                      }
-                    ],
-                    "dates": {
-                      "frequency": "Single",
-                      "enddate": "0"
-                    },
-                    "currencyisocode": "USD"
-                  }
+              "examples": {
+                "Single Unit Request": {
+                  "$ref": "#/components/examples/SingleUnitRequest"
                 },
-                "meta": {
-                  "stachContentorganization": "SimplifiedRow",
-                  "format": "JsonStach"
+                "Single Unit Multi-Port Request": {
+                  "$ref": "#/components/examples/SingleUnitMultiPortRequest"
+                },
+                "Multi-Unit Request": {
+                  "$ref": "#/components/examples/MultiUnitRequest"
                 }
               }
             }
@@ -4993,6 +5325,29 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CalculationStatusRoot"
+                },
+                "examples": {
+                  "Invalid component identifier": {
+                    "value": {
+                      "data": {
+                        "calculationid": "dc03ac2bbbc448f7a848b49ae0fd879f",
+                        "status": "Completed",
+                        "units": {
+                          "1": {
+                            "status": "Failed",
+                            "errors": [
+                              {
+                                "id": "424372eb1cc14c82954b82a1f5791200:1",
+                                "code": "400",
+                                "title": "ErrorMessage",
+                                "detail": "Invalid component identifier:invalid_comp"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               },
               "application/x-protobuf": {
@@ -5042,6 +5397,17 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ObjectRoot"
+                },
+                "examples": {
+                  "201 - SimplifiedRow organised": {
+                    "$ref": "#/components/examples/ResponseSimplifiedRowOrganised"
+                  },
+                  "201 - Row organised": {
+                    "$ref": "#/components/examples/ResponseRowOrganised"
+                  },
+                  "201 - Column organised": {
+                    "$ref": "#/components/examples/ResponseColumnOrganised"
+                  }
                 }
               },
               "application/x-protobuf": {
@@ -5098,6 +5464,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CalculationStatusRoot"
+                },
+                "example": {
+                  "data": {
+                    "calculationid": "0ca202f44010451d8196938af10f018e",
+                    "status": "Queued",
+                    "units": {
+                      "1": {
+                        "status": "Executing"
+                      },
+                      "2": {
+                        "status": "Queued"
+                      }
+                    }
+                  }
                 }
               },
               "application/x-protobuf": {
@@ -5147,6 +5527,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "Bad request": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "66619C6CAE74BDEC",
+                          "code": "BadRequest",
+                          "title": "Failed to process request",
+                          "detail": "{\"\":[\"Invalid field value specified\"]}"
+                        }
+                      ]
+                    }
+                  }
                 }
               },
               "application/x-protobuf": {
@@ -5441,6 +5835,57 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CalculationsSummaryRoot"
+                },
+                "examples": {
+                  "200 - Successful Response": {
+                    "value": {
+                      "data": {
+                        "87f9d3d7e4cd42099863fcc61e7e8953": {
+                          "status": "Queued",
+                          "units": 1,
+                          "requestTime": "2024-07-03T09:08:13.649394Z",
+                          "lastPollTime": "2024-07-03T09:08:13.649394Z"
+                        },
+                        "15ad5008f9134ed89b52a40e9d4b2739": {
+                          "status": "Completed",
+                          "units": 1,
+                          "requestTime": "2024-07-03T09:07:52.240115Z",
+                          "lastPollTime": "2024-07-03T09:07:52.240115Z"
+                        },
+                        "58d6a3e3864a45fabd958096e960a96e": {
+                          "status": "Completed",
+                          "units": 1,
+                          "requestTime": "2024-07-03T05:06:46.642605Z",
+                          "lastPollTime": "2024-07-03T05:07:28.817092Z"
+                        }
+                      },
+                      "meta": {
+                        "pagination": {
+                          "pageNumber": 1,
+                          "pageSize": 20,
+                          "totalPages": 1,
+                          "totalCalculations": 3,
+                          "nextPage": null,
+                          "previousPage": null
+                        }
+                      }
+                    }
+                  },
+                  "200 - Successful Response - No calculation in database": {
+                    "value": {
+                      "data": {},
+                      "meta": {
+                        "pagination": {
+                          "pageNumber": 1,
+                          "pageSize": 20,
+                          "totalPages": 0,
+                          "totalCalculations": 0,
+                          "nextPage": null,
+                          "previousPage": null
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -5485,6 +5930,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "Invalid Page Number": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "66851540C4CE19B6",
+                          "code": "BadRequest",
+                          "title": "Failed to process request",
+                          "detail": "Invalid page number"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -5698,7 +6157,7 @@
           "PACalculations"
         ],
         "summary": "Create or Update PA calculation and run it.",
-        "description": "This endpoint updates and run the PA calculation specified in the PUT body parameters. This also allows creating new PA calculations with custom ids.\r\nIt can take one or more calculation units as input.\r\n\r\nRemarks:\r\n\r\n*\tAny settings in PUT body will act as a one-time override over the settings saved in the PA template.\r\n\r\n*   Account identifiers must have .ACCT or .ACTM extension or BENCH: prefix. Holdings mode can be optionally set for every account. \r\n    Possible values for holdings mode are B&H (Buy and Hold), TBR (Transaction based returns), OMS (Order Management System), \r\n    VLT (Vaulted returns) or EXT (External Returns Data). Default holdings mode value is B&H.\r\n\r\n*   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding \r\n    the default frequency of the Beginning of Period to whatever we pass in the request body.\r\n    \r\n*   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.\r\n\r\n*   Componentdetail supports securities, groups, groupsall, and totals levels of granularity. However, if no value is passed, the default value is 'securities'.\r\n    Additionally, while 'groupsall' returns all the group levels in the PA component,\r\n    setting componentdetail to 'groups' only returns the expanded or collapsed group levels within the PA component.",
+        "description": "This endpoint updates and run the PA calculation specified in the PUT body parameters. This also allows creating new PA calculations with custom ids.\r\nIt can take one or more calculation units as input.\r\n\r\nRemarks:\r\n\r\n*\tAny settings in PUT body will act as a one-time override over the settings saved in the PA template.\r\n\r\n*   Account identifiers must have .ACCT or .ACTM extension or BENCH: prefix. Holdings mode can be optionally set for every account. \r\n    Possible values for holdings mode are B&H (Buy and Hold), TBR (Transaction based returns), OMS (Order Management System), \r\n    VLT (Vaulted returns) or EXT (External Returns Data). Default holdings mode value is B&H.\r\n\r\n*   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding \r\n    the default frequency of the Beginning of Period to whatever we pass in the request body.\r\n    \r\n*   If we are overriding grouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.\r\n\r\n*   Componentdetail supports securities, groups, groupsall, and totals levels of granularity. However, if no value is passed, the default value is 'securities'.\r\n    Additionally, while 'groupsall' returns all the group levels in the PA component,\r\n    setting componentdetail to 'groups' only returns the expanded or collapsed group levels within the PA component.",
         "operationId": "putAndCalculate",
         "parameters": [
           {
@@ -5714,9 +6173,10 @@
           {
             "name": "X-FactSet-Api-Long-Running-Deadline",
             "in": "header",
-            "description": "Long running deadline in seconds when only one unit is passed in the PUT body.",
+            "description": "Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation",
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "example": 10
             }
           },
           {
@@ -5735,53 +6195,15 @@
               "schema": {
                 "$ref": "#/components/schemas/PACalculationParametersRoot"
               },
-              "example": {
-                "data": {
-                  "1": {
-                    "componentid": "801B800245E468A52AEBEC4BE31CFF5AF82F371DAEF5F158AC2E98C2FA324B46",
-                    "accounts": [
-                      {
-                        "id": "BENCH:DJII",
-                        "holdingsmode": "B&H"
-                      }
-                    ],
-                    "benchmarks": [
-                      {
-                        "id": "BENCH:SP50",
-                        "holdingsmode": "B&H"
-                      }
-                    ],
-                    "dates": {
-                      "startdate": "20210101",
-                      "enddate": "20210231",
-                      "frequency": "Monthly"
-                    },
-                    "currencyisocode": "USD"
-                  },
-                  "2": {
-                    "componentid": "67077F67610EC30675E240A614661176C792A8997C78C9B9D64F738C01F18893",
-                    "accounts": [
-                      {
-                        "id": "BENCH:SP100EQ",
-                        "holdingsmode": "B&H"
-                      }
-                    ],
-                    "benchmarks": [
-                      {
-                        "id": "BENCH:SP50",
-                        "holdingsmode": "B&H"
-                      }
-                    ],
-                    "dates": {
-                      "frequency": "Single",
-                      "enddate": "0"
-                    },
-                    "currencyisocode": "USD"
-                  }
+              "examples": {
+                "Single Unit Request": {
+                  "$ref": "#/components/examples/SingleUnitRequest"
                 },
-                "meta": {
-                  "stachContentorganization": "SimplifiedRow",
-                  "format": "JsonStach"
+                "Single Unit Multi-Port Request": {
+                  "$ref": "#/components/examples/SingleUnitMultiPortRequest"
+                },
+                "Multi-Unit Request": {
+                  "$ref": "#/components/examples/MultiUnitRequest"
                 }
               }
             }
@@ -5828,6 +6250,29 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CalculationStatusRoot"
+                },
+                "examples": {
+                  "Invalid component identifier": {
+                    "value": {
+                      "data": {
+                        "calculationid": "dc03ac2bbbc448f7a848b49ae0fd879f",
+                        "status": "Completed",
+                        "units": {
+                          "1": {
+                            "status": "Failed",
+                            "errors": [
+                              {
+                                "id": "424372eb1cc14c82954b82a1f5791200:1",
+                                "code": "400",
+                                "title": "ErrorMessage",
+                                "detail": "Invalid component identifier:invalid_comp"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               },
               "application/x-protobuf": {
@@ -5877,6 +6322,17 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ObjectRoot"
+                },
+                "examples": {
+                  "201 - SimplifiedRow organised": {
+                    "$ref": "#/components/examples/ResponseSimplifiedRowOrganised"
+                  },
+                  "201 - Row organised": {
+                    "$ref": "#/components/examples/ResponseRowOrganised"
+                  },
+                  "201 - Column organised": {
+                    "$ref": "#/components/examples/ResponseColumnOrganised"
+                  }
                 }
               },
               "application/x-protobuf": {
@@ -5933,6 +6389,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CalculationStatusRoot"
+                },
+                "example": {
+                  "data": {
+                    "calculationid": "0ca202f44010451d8196938af10f018e",
+                    "status": "Queued",
+                    "units": {
+                      "1": {
+                        "status": "Executing"
+                      },
+                      "2": {
+                        "status": "Queued"
+                      }
+                    }
+                  }
                 }
               },
               "application/x-protobuf": {
@@ -5982,6 +6452,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "Bad request": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "66619C6CAE74BDEC",
+                          "code": "BadRequest",
+                          "title": "Failed to process request",
+                          "detail": "{\"\":[\"Invalid field value specified\"]}"
+                        }
+                      ]
+                    }
+                  }
                 }
               },
               "application/x-protobuf": {
@@ -6136,6 +6620,23 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "Duplicate Calculation Id": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "6687CD4B6574E222",
+                          "code": "Conflict",
+                          "title": "Failed to process request",
+                          "detail": "Cannot create/update the calculation as the duplicate calculation id (80931ca92c7b432380dcd51f539c79f5) exists",
+                          "source": {
+                            "pointer": "/data"
+                          }
+                        }
+                      ]
+                    }
+                  }
                 }
               },
               "application/x-protobuf": {
@@ -6347,6 +6848,54 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PACalculationParametersRoot"
+                },
+                "example": {
+                  "data": {
+                    "1": {
+                      "componentid": "125872e5d836683a3eb09ef8c73d3e1be854be4ef6173bab4bfbb5752788f4e9",
+                      "accounts": [
+                        {
+                          "id": "bench:sp50",
+                          "holdingsmode": "b&h"
+                        }
+                      ],
+                      "benchmarks": [
+                        {
+                          "id": "bench:oex",
+                          "holdingsmode": "b&h"
+                        }
+                      ],
+                      "dates": {
+                        "startdate": "20240506",
+                        "enddate": "20240508",
+                        "frequency": "daily"
+                      },
+                      "groups": [
+                        {
+                          "id": "e5db59f608778844cd784dd5659f65aa8a0a9f63f9e4314b2d92761af0b1b3d9",
+                          "frequency": "daily"
+                        }
+                      ],
+                      "currencyisocode": "usd",
+                      "columns": null,
+                      "datasources": {
+                        "portfoliopricingsources": [
+                          {
+                            "id": "d4a1d551be11f15fdcc54e3f3b3f0b0a053180f4358d580fcde340afb1698b07"
+                          }
+                        ],
+                        "useportfoliopricingsourcesforbenchmark": true
+                      },
+                      "componentdetail": null
+                    }
+                  },
+                  "meta": {
+                    "contentorganization": "None",
+                    "stachcontentorganization": "simplifiedrow",
+                    "contenttype": "Json",
+                    "format": "JsonStach",
+                    "cachecontrol": null
+                  }
                 }
               }
             }
@@ -6491,6 +7040,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "6687DEF23DEB1DD6",
+                      "code": "NotFound",
+                      "title": "Failed to process request",
+                      "detail": "Calculation not found"
+                    }
+                  ]
                 }
               }
             }
@@ -6732,6 +7291,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "6687EE31CB78566C",
+                      "code": "NotFound",
+                      "title": "Failed to process request",
+                      "detail": "Calculation not found"
+                    }
+                  ]
                 }
               }
             }
@@ -6859,6 +7428,46 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CalculationStatusRoot"
+                },
+                "examples": {
+                  "200 - Single Unit calculation": {
+                    "value": {
+                      "data": {
+                        "calculationid": "80931ca92c7b432380dcd51f539c79f5",
+                        "status": "Completed",
+                        "units": {
+                          "1": {
+                            "status": "Success",
+                            "result": "https://api.staging-cauth.factset.com/analytics/engines/pa/v3/calculations/80931ca92c7b432380dcd51f539c79f5/units/1/result",
+                            "progress": "100",
+                            "points": 1
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "200 - Multi Unit Calculation": {
+                    "value": {
+                      "data": {
+                        "calculationid": "5661d802af5747a4bf1929bf3cd0ef0b",
+                        "status": "Completed",
+                        "units": {
+                          "1": {
+                            "status": "Success",
+                            "result": "https://api.staging-cauth.factset.com/analytics/engines/pa/v3/calculations/5661d802af5747a4bf1929bf3cd0ef0b/units/1/result",
+                            "progress": "100",
+                            "points": 1
+                          },
+                          "2": {
+                            "status": "Success",
+                            "result": "https://api.staging-cauth.factset.com/analytics/engines/pa/v3/calculations/5661d802af5747a4bf1929bf3cd0ef0b/units/2/result",
+                            "progress": "100",
+                            "points": 1
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -6917,6 +7526,42 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CalculationStatusRoot"
+                },
+                "examples": {
+                  "202 - Single Unit Calculation": {
+                    "value": {
+                      "data": {
+                        "calculationid": "80931ca92c7b432380dcd51f539c79f5",
+                        "status": "Executing",
+                        "units": {
+                          "1": {
+                            "status": "Executing",
+                            "progress": "0"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "202 - Multi Unit Calculation": {
+                    "value": {
+                      "data": {
+                        "calculationid": "5661d802af5747a4bf1929bf3cd0ef0b",
+                        "status": "Executing",
+                        "units": {
+                          "1": {
+                            "status": "Success",
+                            "result": "https://api.staging-cauth.factset.com/analytics/engines/pa/v3/calculations/5661d802af5747a4bf1929bf3cd0ef0b/units/1/result",
+                            "progress": "100",
+                            "points": 1
+                          },
+                          "2": {
+                            "status": "Executing",
+                            "progress": "10"
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -7061,6 +7706,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "404 - Invalid Calculation ID Provided": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "667BC1D3CCF1F383",
+                          "code": "NotFound",
+                          "title": "Failed to process request",
+                          "detail": "Calculation not found"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -7198,6 +7857,17 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ObjectRoot"
+                },
+                "examples": {
+                  "200 - SimplifiedRow organised": {
+                    "$ref": "#/components/examples/ResponseSimplifiedRowOrganised"
+                  },
+                  "200 - Row organised": {
+                    "$ref": "#/components/examples/ResponseRowOrganised"
+                  },
+                  "200 - Column organised": {
+                    "$ref": "#/components/examples/ResponseColumnOrganised"
+                  }
                 }
               },
               "application/x-protobuf": {
@@ -7352,6 +8022,44 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "404 - Calculation is in progress": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "667BBEFFBD1F4651",
+                          "code": "NotFound",
+                          "title": "Failed to process request",
+                          "detail": "Calculation Unit identifier 10 not completed yet"
+                        }
+                      ]
+                    }
+                  },
+                  "404 - Invalid CalculationId provided": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "668BA563FDF6EACF",
+                          "code": "NotFound",
+                          "title": "Failed to process request",
+                          "detail": "Calculation not found"
+                        }
+                      ]
+                    }
+                  },
+                  "404 - Invalid unitId provided": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "668BA4C43D4DA77E",
+                          "code": "NotFound",
+                          "title": "Failed to process request",
+                          "detail": "Calculation Unit Identifier 10 not found"
+                        }
+                      ]
+                    }
+                  }
                 }
               },
               "application/x-protobuf": {
@@ -7490,6 +8198,19 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PAPricingSourceRoot"
+                },
+                "examples": {
+                  "200 - Valid Parameters": {
+                    "value": {
+                      "data": {
+                        "2813F242AC580BB5D5A57A06AB49539B3522287582D192E33B865B46EF3E5E14": {
+                          "name": "S&P Canada Bond Index - FactSet",
+                          "directory": "Fixed Income",
+                          "category": "S&P"
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -7534,6 +8255,23 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "400 - Missing Directory Parameter": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "668BB3F8F3AA36FA",
+                          "code": "BadRequest",
+                          "title": "Failed to process request",
+                          "detail": "Please provide the directory parameter and try again!",
+                          "source": {
+                            "parameter": "directory"
+                          }
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -7747,7 +8485,7 @@
           "TemplatedPAComponents"
         ],
         "summary": "Create templated PA component",
-        "description": "This endpoint creates new component based off of linked PA template or unlinked PA template.\r\n\r\nRemarks:\r\n\r\n*   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.\r\n\r\n*   Account identifiers must have .ACCT or .ACTM extension or BENCH: prefix. Holdings mode can be optionally set for every account. \r\n    Possible values for holdings mode are B&H (Buy and Hold), TBR (Transaction based returns), OMS (Order Management System), \r\n    VLT (Vaulted returns) or EXT (External Returns Data). Default holdings mode value is B&H.\r\n\r\n*   Multi-horizon frequencies are not supported through this endpoint.\r\n\r\n*   Componentdetail supports securities, groups, groupsall, and totals levels of granularity. However, if no value is passed, the default value is 'securities'.\r\n    Additionally, while 'groupsall' returns all the group levels in the PA component,\r\n    setting componentdetail to 'groups' only returns the expanded or collapsed group levels within the PA component.\r\n\r\n*   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding \r\n    the default frequency of the Beginning of Period to whatever we pass in the request body.\r\n    \r\n*   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.",
+        "description": "This endpoint creates new component based off of linked PA template or unlinked PA template.\r\n\r\nRemarks:\r\n\r\n*   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.\r\n\r\n*   Account identifiers must have .ACCT or .ACTM extension or BENCH: prefix. Holdings mode can be optionally set for every account. \r\n    Possible values for holdings mode are B&H (Buy and Hold), TBR (Transaction based returns), OMS (Order Management System), \r\n    VLT (Vaulted returns) or EXT (External Returns Data). Default holdings mode value is B&H.\r\n\r\n*   Multi-horizon frequencies are not supported through this endpoint.\r\n\r\n*   Componentdetail supports securities, groups, groupsall, and totals levels of granularity. However, if no value is passed, the default value is 'securities'.\r\n    Additionally, while 'groupsall' returns all the group levels in the PA component,\r\n    setting componentdetail to 'groups' only returns the expanded or collapsed group levels within the PA component.\r\n\r\n*   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding \r\n    the default frequency of the Beginning of Period to whatever we pass in the request body.\r\n    \r\n*   If we are overriding grouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.",
         "operationId": "createTemplatedPAComponents",
         "requestBody": {
           "description": "Request Parameters",
@@ -8376,7 +9114,7 @@
           "TemplatedPAComponents"
         ],
         "summary": "Update templated PA component",
-        "description": "This endpoint allows the user to change the request body from an existing templated PA component.\r\n\r\nRemarks:\r\n\r\n*   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.\r\n\r\n*   Account identifiers must have .ACCT or .ACTM extension or BENCH: prefix. Holdings mode can be optionally set for every account. \r\n    Possible values for holdings mode are B&H (Buy and Hold), TBR (Transaction based returns), OMS (Order Management System), \r\n    VLT (Vaulted returns) or EXT (External Returns Data). Default holdings mode value is B&H. \r\n\r\n*   Multi-horizon frequencies are not supported through this endpoint.\r\n\r\n*   Componentdetail supports securities, groups, groupsall, and totals levels of granularity. However, if no value is passed, the default value is 'securities'.\r\n    Additionally, while 'groupsall' returns all the group levels in the PA component,\r\n    setting componentdetail to 'groups' only returns the expanded or collapsed group levels within the PA component.\r\n\r\n*   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding \r\n    the default frequency of the Beginning of Period to whatever we pass in the request body.\r\n    \r\n*   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.",
+        "description": "This endpoint allows the user to change the request body from an existing templated PA component.\r\n\r\nRemarks:\r\n\r\n*   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.\r\n\r\n*   Account identifiers must have .ACCT or .ACTM extension or BENCH: prefix. Holdings mode can be optionally set for every account. \r\n    Possible values for holdings mode are B&H (Buy and Hold), TBR (Transaction based returns), OMS (Order Management System), \r\n    VLT (Vaulted returns) or EXT (External Returns Data). Default holdings mode value is B&H. \r\n\r\n*   Multi-horizon frequencies are not supported through this endpoint.\r\n\r\n*   Componentdetail supports securities, groups, groupsall, and totals levels of granularity. However, if no value is passed, the default value is 'securities'.\r\n    Additionally, while 'groupsall' returns all the group levels in the PA component,\r\n    setting componentdetail to 'groups' only returns the expanded or collapsed group levels within the PA component.\r\n\r\n*   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding \r\n    the default frequency of the Beginning of Period to whatever we pass in the request body.\r\n    \r\n*   If we are overriding grouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.",
         "operationId": "updateTemplatedPAComponents",
         "parameters": [
           {
@@ -9372,7 +10110,7 @@
           "UnlinkedPATemplates"
         ],
         "summary": "Create unlinked PA template",
-        "description": "This endpoint creates a template which is not linked to any specific PA3 tile. \r\n\r\nRemarks:\r\n\r\n*   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary. \r\n    If no mandatory fields are passed, then we can use the template as a component and skip the component creation.\r\n    \r\n*   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"datasources\", \"dates\", \"currencyisocode\" and \"componentdetail\".\r\n\r\n*   We cannot override the Locked fields when creating the Component.\r\n\r\n*   Mandatory and locked strings are mutually exclusive.\r\n\r\n*   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.\r\n\r\n*   Account identifiers must have .ACCT or .ACTM extension or BENCH: prefix. Holdings mode can be optionally set for every account. \r\n    Possible values for holdings mode are B&H (Buy and Hold), TBR (Transaction based returns), OMS (Order Management System), \r\n    VLT (Vaulted returns) or EXT (External Returns Data). Default holdings mode value is B&H.\r\n\r\n*   Multi-horizon frequencies are not supported through this endpoint.\r\n\r\n*   Componentdetail supports securities, groups, groupsall, and totals levels of granularity. However, if no value is passed, the default value is 'securities'.\r\n    Additionally, while 'groupsall' returns all the group levels in the PA component,\r\n    setting componentdetail to 'groups' only returns the expanded or collapsed group levels within the PA component.\r\n\r\n*   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also \r\n    overriding the default frequency of the Beginning of Period to whatever we pass in the request body.\r\n    \r\n*   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.",
+        "description": "This endpoint creates a template which is not linked to any specific PA3 tile. \r\n\r\nRemarks:\r\n\r\n*   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary. \r\n    If no mandatory fields are passed, then we can use the template as a component and skip the component creation.\r\n    \r\n*   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"datasources\", \"dates\", \"currencyisocode\" and \"componentdetail\".\r\n\r\n*   We cannot override the Locked fields when creating the Component.\r\n\r\n*   Mandatory and locked strings are mutually exclusive.\r\n\r\n*   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.\r\n\r\n*   Account identifiers must have .ACCT or .ACTM extension or BENCH: prefix. Holdings mode can be optionally set for every account. \r\n    Possible values for holdings mode are B&H (Buy and Hold), TBR (Transaction based returns), OMS (Order Management System), \r\n    VLT (Vaulted returns) or EXT (External Returns Data). Default holdings mode value is B&H.\r\n\r\n*   Multi-horizon frequencies are not supported through this endpoint.\r\n\r\n*   Componentdetail supports securities, groups, groupsall, and totals levels of granularity. However, if no value is passed, the default value is 'securities'.\r\n    Additionally, while 'groupsall' returns all the group levels in the PA component,\r\n    setting componentdetail to 'groups' only returns the expanded or collapsed group levels within the PA component.\r\n\r\n*   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also \r\n    overriding the default frequency of the Beginning of Period to whatever we pass in the request body.\r\n    \r\n*   If we are overriding grouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.",
         "operationId": "createUnlinkedPATemplates",
         "requestBody": {
           "description": "Request Parameters",
@@ -9989,7 +10727,7 @@
           "UnlinkedPATemplates"
         ],
         "summary": "Update unlinked PA template",
-        "description": "This endpoint updates an existing unlinked PA template.\r\n\r\nRemarks:\r\n            \r\n*   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary. \r\n    If no mandatory fields are passed, then we can use the template as a component and skip the component creation.\r\n    \r\n*   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"datasources\", \"dates\", \"currencyisocode\" and \"componentdetail\".\r\n\r\n*   We cannot override the Locked fields when creating the Component.\r\n\r\n*   Mandatory and locked strings are mutually exclusive.\r\n\r\n*   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.\r\n\r\n*   Account identifiers must have .ACCT or .ACTM extension or BENCH: prefix. Holdings mode can be optionally set for every account. \r\n    Possible values for holdings mode are B&H (Buy and Hold), TBR (Transaction based returns), OMS (Order Management System), \r\n    VLT (Vaulted returns) or EXT (External Returns Data). Default holdings mode value is B&H.\r\n\r\n*   Multi-horizon frequencies are not supported through this endpoint.\r\n\r\n*   Componentdetail supports securities, groups, groupsall, and totals levels of granularity. However, if no value is passed, the default value is 'securities'.\r\n    Additionally, while 'groupsall' returns all the group levels in the PA component,\r\n    setting componentdetail to 'groups' only returns the expanded or collapsed group levels within the PA component.\r\n\r\n*   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding \r\n    the default frequency of the Beginning of Period to whatever we pass in the request body.\r\n    \r\n*   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.",
+        "description": "This endpoint updates an existing unlinked PA template.\r\n\r\nRemarks:\r\n            \r\n*   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary. \r\n    If no mandatory fields are passed, then we can use the template as a component and skip the component creation.\r\n    \r\n*   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"datasources\", \"dates\", \"currencyisocode\" and \"componentdetail\".\r\n\r\n*   We cannot override the Locked fields when creating the Component.\r\n\r\n*   Mandatory and locked strings are mutually exclusive.\r\n\r\n*   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.\r\n\r\n*   Account identifiers must have .ACCT or .ACTM extension or BENCH: prefix. Holdings mode can be optionally set for every account. \r\n    Possible values for holdings mode are B&H (Buy and Hold), TBR (Transaction based returns), OMS (Order Management System), \r\n    VLT (Vaulted returns) or EXT (External Returns Data). Default holdings mode value is B&H.\r\n\r\n*   Multi-horizon frequencies are not supported through this endpoint.\r\n\r\n*   Componentdetail supports securities, groups, groupsall, and totals levels of granularity. However, if no value is passed, the default value is 'securities'.\r\n    Additionally, while 'groupsall' returns all the group levels in the PA component,\r\n    setting componentdetail to 'groups' only returns the expanded or collapsed group levels within the PA component.\r\n\r\n*   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding \r\n    the default frequency of the Beginning of Period to whatever we pass in the request body.\r\n    \r\n*   If we are overriding grouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.",
         "operationId": "updateUnlinkedPATemplates",
         "parameters": [
           {
@@ -11551,6 +12289,7 @@
             "$ref": "#/components/schemas/AccountDirectories"
           },
           "meta": {
+            "type": "object",
             "nullable": true
           }
         }
@@ -11638,6 +12377,7 @@
             }
           },
           "meta": {
+            "type": "object",
             "nullable": true
           }
         }
@@ -11680,6 +12420,7 @@
             "$ref": "#/components/schemas/Column"
           },
           "meta": {
+            "type": "object",
             "nullable": true
           }
         }
@@ -11707,6 +12448,7 @@
             }
           },
           "meta": {
+            "type": "object",
             "nullable": true
           }
         }
@@ -11739,6 +12481,7 @@
             }
           },
           "meta": {
+            "type": "object",
             "nullable": true
           }
         }
@@ -11755,7 +12498,7 @@
           },
           "holdingsmode": {
             "type": "string",
-            "description": "Holdings Mode can be B&H, TBR, OMS, EXT or VLT.",
+            "description": "Holdings Mode can be B&H, TBR, OMS , EXT or VLT.",
             "nullable": true
           }
         }
@@ -11845,6 +12588,7 @@
             "$ref": "#/components/schemas/PAComponent"
           },
           "meta": {
+            "type": "object",
             "nullable": true
           }
         }
@@ -11872,6 +12616,7 @@
             }
           },
           "meta": {
+            "type": "object",
             "nullable": true
           }
         }
@@ -11901,6 +12646,7 @@
             "$ref": "#/components/schemas/DateParametersSummary"
           },
           "meta": {
+            "type": "object",
             "nullable": true
           }
         }
@@ -11936,6 +12682,7 @@
             "$ref": "#/components/schemas/DocumentDirectories"
           },
           "meta": {
+            "type": "object",
             "nullable": true
           }
         }
@@ -11963,6 +12710,7 @@
             }
           },
           "meta": {
+            "type": "object",
             "nullable": true
           }
         }
@@ -12000,6 +12748,7 @@
             }
           },
           "meta": {
+            "type": "object",
             "nullable": true
           }
         }
@@ -12068,6 +12817,7 @@
             "$ref": "#/components/schemas/LinkedPATemplateParameters"
           },
           "meta": {
+            "type": "object",
             "nullable": true
           }
         }
@@ -12107,6 +12857,7 @@
             "$ref": "#/components/schemas/LinkedPATemplatePostSummary"
           },
           "meta": {
+            "type": "object",
             "nullable": true
           }
         }
@@ -12144,6 +12895,7 @@
             }
           },
           "meta": {
+            "type": "object",
             "nullable": true
           }
         }
@@ -12176,6 +12928,7 @@
             "$ref": "#/components/schemas/LinkedPATemplateUpdateParameters"
           },
           "meta": {
+            "type": "object",
             "nullable": true
           }
         }
@@ -12227,6 +12980,7 @@
             "$ref": "#/components/schemas/LinkedPATemplate"
           },
           "meta": {
+            "type": "object",
             "nullable": true
           }
         }
@@ -12545,8 +13299,11 @@
         ],
         "type": "object",
         "properties": {
-          "data": {},
+          "data": {
+            "type": "object"
+          },
           "meta": {
+            "type": "object",
             "nullable": true
           }
         }
@@ -12625,7 +13382,10 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/CalculationsSummary"
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/CalculationsSummary"
+            }
           },
           "meta": {
             "$ref": "#/components/schemas/PaginationMeta"
@@ -12665,6 +13425,7 @@
             }
           },
           "meta": {
+            "type": "object",
             "nullable": true
           }
         }
@@ -12757,6 +13518,7 @@
             "$ref": "#/components/schemas/TemplatedPAComponentParameters"
           },
           "meta": {
+            "type": "object",
             "nullable": true
           }
         }
@@ -12796,6 +13558,7 @@
             "$ref": "#/components/schemas/TemplatedPAComponentPostSummary"
           },
           "meta": {
+            "type": "object",
             "nullable": true
           }
         }
@@ -12834,6 +13597,7 @@
             }
           },
           "meta": {
+            "type": "object",
             "nullable": true
           }
         }
@@ -12866,6 +13630,7 @@
             "$ref": "#/components/schemas/TemplatedPAComponentUpdateParameters"
           },
           "meta": {
+            "type": "object",
             "nullable": true
           }
         }
@@ -12915,6 +13680,7 @@
             "$ref": "#/components/schemas/TemplatedPAComponent"
           },
           "meta": {
+            "type": "object",
             "nullable": true
           }
         }
@@ -13002,6 +13768,7 @@
             "$ref": "#/components/schemas/UnlinkedPATemplateParameters"
           },
           "meta": {
+            "type": "object",
             "nullable": true
           }
         }
@@ -13041,6 +13808,7 @@
             "$ref": "#/components/schemas/UnlinkedPATemplatePostSummary"
           },
           "meta": {
+            "type": "object",
             "nullable": true
           }
         }
@@ -13078,6 +13846,7 @@
             }
           },
           "meta": {
+            "type": "object",
             "nullable": true
           }
         }
@@ -13153,6 +13922,7 @@
             "$ref": "#/components/schemas/UnlinkedPATemplateUpdateParameters"
           },
           "meta": {
+            "type": "object",
             "nullable": true
           }
         }
@@ -13257,6 +14027,7 @@
             "$ref": "#/components/schemas/UnlinkedPATemplate"
           },
           "meta": {
+            "type": "object",
             "nullable": true
           }
         }
@@ -13289,6 +14060,7 @@
             }
           },
           "meta": {
+            "type": "object",
             "nullable": true
           }
         }
@@ -13386,6 +14158,7 @@
             "$ref": "#/components/schemas/UnlinkedPATemplateCategoryAndTypeDetails"
           },
           "meta": {
+            "type": "object",
             "nullable": true
           }
         }
@@ -13405,6 +14178,822 @@
         "type": "http",
         "scheme": "basic"
       }
+    },
+    "examples": {
+      "SingleUnitRequest": {
+        "value": {
+          "data": {
+            "1": {
+              "componentid": "8A4863688B9360E09957CF79684E68F85D5F4E514E657B6F24D00D5E928E7A1B",
+              "accounts": [
+                {
+                  "id": "LION:100D-GB",
+                  "holdingsmode": "B&H"
+                }
+              ],
+              "benchmarks": [
+                {
+                  "id": "LION:OEF-US",
+                  "holdingsmode": "B&H"
+                }
+              ],
+              "dates": {
+                "startdate": "",
+                "enddate": "20240508",
+                "frequency": "Single"
+              },
+              "currencyisocode": "USD"
+            }
+          },
+          "meta": {
+            "stachContentOrganization": "SimplifiedRow",
+            "format": "JsonStach"
+          }
+        }
+      },
+      "SingleUnitMultiPortRequest": {
+        "value": {
+          "data": {
+            "1": {
+              "componentid": "8A4863688B9360E09957CF79684E68F85D5F4E514E657B6F24D00D5E928E7A1B",
+              "accounts": [
+                {
+                  "id": "LION:100D-GB",
+                  "holdingsmode": "B&H"
+                },
+                {
+                  "id": "LION:FXI-US",
+                  "holdingsmode": "B&H"
+                }
+              ],
+              "benchmarks": [
+                {
+                  "id": "LION:OEF-US",
+                  "holdingsmode": "B&H"
+                }
+              ],
+              "dates": {
+                "startdate": "",
+                "enddate": "20240508",
+                "frequency": "Single"
+              },
+              "currencyisocode": "USD"
+            }
+          },
+          "meta": {
+            "stachContentOrganization": "SimplifiedRow",
+            "format": "JsonStach"
+          }
+        }
+      },
+      "MultiUnitRequest": {
+        "value": {
+          "data": {
+            "1": {
+              "componentid": "8A4863688B9360E09957CF79684E68F85D5F4E514E657B6F24D00D5E928E7A1B",
+              "accounts": [
+                {
+                  "id": "LION:100D-GB",
+                  "holdingsmode": "B&H"
+                }
+              ],
+              "benchmarks": [
+                {
+                  "id": "LION:OEF-US",
+                  "holdingsmode": "B&H"
+                }
+              ],
+              "dates": {
+                "startdate": "",
+                "enddate": "20240508",
+                "frequency": "Single"
+              },
+              "currencyisocode": "USD"
+            },
+            "2": {
+              "componentid": "8A4863688B9360E09957CF79684E68F85D5F4E514E657B6F24D00D5E928E7A1B",
+              "accounts": [
+                {
+                  "id": "LION:FXI-US",
+                  "holdingsmode": "B&H"
+                }
+              ],
+              "benchmarks": [
+                {
+                  "id": "LION:OEF-US",
+                  "holdingsmode": "B&H"
+                }
+              ],
+              "dates": {
+                "startdate": "20240507",
+                "enddate": "20240508",
+                "frequency": "Daily"
+              },
+              "currencyisocode": "USD"
+            }
+          },
+          "meta": {
+            "stachContentOrganization": "SimplifiedRow",
+            "format": "JsonStach"
+          }
+        }
+      },
+      "ResponseSimplifiedRowOrganised": {
+        "value": {
+          "data": {
+            "tables": {
+              "table_0": {
+                "data": {
+                  "rows": [
+                    {
+                      "values": {
+                        "col_0": "GOOGL",
+                        "col_1": "Alphabet Inc. Class A",
+                        "col_2": 66.6666666666667,
+                        "col_3": 169.380004882813,
+                        "col_4": 2097093.75
+                      }
+                    },
+                    {
+                      "values": {
+                        "col_0": "FDS",
+                        "col_1": "FactSet Research Systems Inc.",
+                        "col_2": 33.3333333333333,
+                        "col_3": 433.899993896484,
+                        "col_4": 16541.607421875
+                      }
+                    }
+                  ],
+                  "tableMetadata": {
+                    "Absolute End Date": {
+                      "value": [
+                        "20240508"
+                      ]
+                    },
+                    "Absolute Start Date": {
+                      "value": [
+                        "20240508"
+                      ]
+                    },
+                    "Accounts": {
+                      "value": [
+                        "PERSONAL:TEST_201RESPONSE.ACCT"
+                      ]
+                    },
+                    "Additional Pricing Options": {
+                      "value": [
+                        "Calculate Returns with Missing Accrued Interest"
+                      ]
+                    },
+                    "Asset Level": {
+                      "value": [
+                        "Directly Held Assets"
+                      ]
+                    },
+                    "Benchmark": {
+                      "value": [
+                        "LION:OEF-US"
+                      ]
+                    },
+                    "Benchmark Analytics Sources": {
+                      "value": [
+                        "FactSet - Equity|FactSet FI - ICE U.S. - FactSet"
+                      ]
+                    },
+                    "Benchmark Holdings As Of Date": {
+                      "value": [
+                        "iShares S&P 100 ETF 30-APR-2024"
+                      ]
+                    },
+                    "Benchmark Pricing Sources": {
+                      "value": [
+                        "FactSet - Equity|FactSet FI - ICE U.S. - FactSet"
+                      ]
+                    },
+                    "Calendar": {
+                      "value": [
+                        "FIVEDAY"
+                      ]
+                    },
+                    "Component Id": {
+                      "value": [
+                        "FD3AD742592EB6E5F5F9E74E158C8A766A9D81A118B0A9DB41B202C57E373DB5"
+                      ]
+                    },
+                    "Component Name": {
+                      "value": [
+                        "Multiple Portfolios"
+                      ]
+                    },
+                    "Currency ISO Code": {
+                      "value": [
+                        "USD"
+                      ]
+                    },
+                    "Document Name": {
+                      "value": [
+                        "personal:/test_stach"
+                      ]
+                    },
+                    "Estimates DB Sources": {
+                      "value": [
+                        "FactSet"
+                      ]
+                    },
+                    "Fundamental DB Sources": {
+                      "value": [
+                        "FactSet"
+                      ]
+                    },
+                    "Hidden": {
+                      "value": [
+                        "Benchmark Only Securities and Groups"
+                      ]
+                    },
+                    "Portfolio Analytics Sources": {
+                      "value": [
+                        "FactSet - Equity|FactSet FI - ICE U.S. - FactSet"
+                      ]
+                    },
+                    "Portfolio Holdings As Of Date": {
+                      "value": [
+                        "Test account 04-JUN-2024"
+                      ]
+                    },
+                    "Portfolio Pricing Sources": {
+                      "value": [
+                        "FactSet - Equity|FactSet FI - ICE U.S. - FactSet"
+                      ]
+                    },
+                    "Report Frequency": {
+                      "value": [
+                        "Single"
+                      ]
+                    },
+                    "Risk Models": {
+                      "value": [
+                        "FactSet Equity Model - Global (Monthly)"
+                      ]
+                    }
+                  }
+                },
+                "definition": {
+                  "columns": [
+                    {
+                      "description": "Symbol",
+                      "id": "col_0",
+                      "isDimension": true,
+                      "name": "Symbol:FACTSET016",
+                      "type": "string"
+                    },
+                    {
+                      "description": "security0",
+                      "id": "col_1",
+                      "isDimension": true,
+                      "name": "security0",
+                      "type": "string"
+                    },
+                    {
+                      "description": "Port. Ending Weight",
+                      "id": "col_2",
+                      "name": "EndingWeight:FACTSET099:13",
+                      "type": "real"
+                    },
+                    {
+                      "description": "Port.+Ending+Price",
+                      "id": "col_3",
+                      "name": "PortfolioEndingPrice:FACTSET895:0",
+                      "type": "real"
+                    },
+                    {
+                      "description": "Market Capitalization - WA",
+                      "id": "col_4",
+                      "name": "MarketCapitalization:FACTSET059:8",
+                      "type": "real"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "ResponseRowOrganised": {
+        "value": {
+          "data": {
+            "tables": {
+              "4af688f6-86c0-427c-930c-19704a4b1ddd": {
+                "data": {
+                  "rows": [
+                    {
+                      "cells": [
+                        "Symbol",
+                        "security0",
+                        "Port. Ending Weight",
+                        "Port.+Ending+Price",
+                        "Market Capitalization - WA"
+                      ],
+                      "headerCellDetails": {
+                        "0": {
+                          "source": "PRIMARY"
+                        },
+                        "1": {
+                          "columnIndex": 1,
+                          "source": "PRIMARY"
+                        },
+                        "2": {
+                          "source": "HEADERS"
+                        },
+                        "3": {
+                          "source": "HEADERS"
+                        },
+                        "4": {
+                          "source": "HEADERS"
+                        }
+                      },
+                      "rowType": "Header"
+                    },
+                    {
+                      "values": {
+                        "27d503b6-6d89-4712-a519-76e5eb717a72": 169.380004882813,
+                        "6028661d-a54f-44b8-84a1-7934e75d57cb": "GOOGL",
+                        "6d92f554-2d71-4924-8848-36abeeafdc27": "Alphabet Inc. Class A",
+                        "d1a49f41-ab5c-47ca-8dda-ed2bb3a0939a": 2097093.75,
+                        "e3d43000-0525-40f2-a176-dc9df6f31a08": 66.6666666666667
+                      }
+                    },
+                    {
+                      "values": {
+                        "27d503b6-6d89-4712-a519-76e5eb717a72": 433.899993896484,
+                        "6028661d-a54f-44b8-84a1-7934e75d57cb": "FDS",
+                        "6d92f554-2d71-4924-8848-36abeeafdc27": "FactSet Research Systems Inc.",
+                        "d1a49f41-ab5c-47ca-8dda-ed2bb3a0939a": 16541.607421875,
+                        "e3d43000-0525-40f2-a176-dc9df6f31a08": 33.3333333333333
+                      }
+                    }
+                  ],
+                  "tableMetadata": {
+                    "Absolute End Date": {
+                      "value": [
+                        "20240508"
+                      ]
+                    },
+                    "Absolute Start Date": {
+                      "value": [
+                        "20240508"
+                      ]
+                    },
+                    "Accounts": {
+                      "value": [
+                        "PERSONAL:TEST_201RESPONSE.ACCT"
+                      ]
+                    },
+                    "Additional Pricing Options": {
+                      "value": [
+                        "Calculate Returns with Missing Accrued Interest"
+                      ]
+                    },
+                    "Asset Level": {
+                      "value": [
+                        "Directly Held Assets"
+                      ]
+                    },
+                    "Benchmark": {
+                      "value": [
+                        "LION:OEF-US"
+                      ]
+                    },
+                    "Benchmark Analytics Sources": {
+                      "value": [
+                        "FactSet - Equity|FactSet FI - ICE U.S. - FactSet"
+                      ]
+                    },
+                    "Benchmark Holdings As Of Date": {
+                      "value": [
+                        "iShares S&P 100 ETF 30-APR-2024"
+                      ]
+                    },
+                    "Benchmark Pricing Sources": {
+                      "value": [
+                        "FactSet - Equity|FactSet FI - ICE U.S. - FactSet"
+                      ]
+                    },
+                    "Calendar": {
+                      "value": [
+                        "FIVEDAY"
+                      ]
+                    },
+                    "Component Id": {
+                      "value": [
+                        "FD3AD742592EB6E5F5F9E74E158C8A766A9D81A118B0A9DB41B202C57E373DB5"
+                      ]
+                    },
+                    "Component Name": {
+                      "value": [
+                        "Multiple Portfolios"
+                      ]
+                    },
+                    "Currency ISO Code": {
+                      "value": [
+                        "USD"
+                      ]
+                    },
+                    "Document Name": {
+                      "value": [
+                        "personal:/test_stach"
+                      ]
+                    },
+                    "Estimates DB Sources": {
+                      "value": [
+                        "FactSet"
+                      ]
+                    },
+                    "Fundamental DB Sources": {
+                      "value": [
+                        "FactSet"
+                      ]
+                    },
+                    "Hidden": {
+                      "value": [
+                        "Benchmark Only Securities and Groups"
+                      ]
+                    },
+                    "Portfolio Analytics Sources": {
+                      "value": [
+                        "FactSet - Equity|FactSet FI - ICE U.S. - FactSet"
+                      ]
+                    },
+                    "Portfolio Holdings As Of Date": {
+                      "value": [
+                        "Test account 04-JUN-2024"
+                      ]
+                    },
+                    "Portfolio Pricing Sources": {
+                      "value": [
+                        "FactSet - Equity|FactSet FI - ICE U.S. - FactSet"
+                      ]
+                    },
+                    "Report Frequency": {
+                      "value": [
+                        "Single"
+                      ]
+                    },
+                    "Risk Models": {
+                      "value": [
+                        "FactSet Equity Model - Global (Monthly)"
+                      ]
+                    }
+                  }
+                },
+                "definition": {
+                  "columns": [
+                    {
+                      "description": "Symbol",
+                      "id": "6028661d-a54f-44b8-84a1-7934e75d57cb",
+                      "isDimension": true,
+                      "name": "Symbol:FACTSET016",
+                      "type": "string"
+                    },
+                    {
+                      "id": "6d92f554-2d71-4924-8848-36abeeafdc27",
+                      "isDimension": true,
+                      "name": "security0",
+                      "type": "string"
+                    },
+                    {
+                      "description": "Port. Ending Weight",
+                      "format": {
+                        "format": "{0:0.0}",
+                        "halign": "RIGHT",
+                        "nullFormat": "--"
+                      },
+                      "headerId": "426f4127-c2df-46c4-bc69-3ed6ae437182",
+                      "id": "e3d43000-0525-40f2-a176-dc9df6f31a08",
+                      "name": "EndingWeight:FACTSET099:13",
+                      "type": "real"
+                    },
+                    {
+                      "description": "Port.+Ending+Price",
+                      "format": {
+                        "format": "{0:0.00}",
+                        "halign": "RIGHT",
+                        "nullFormat": "--"
+                      },
+                      "headerId": "aafe2239-84c8-494f-878a-427dea9d9489",
+                      "id": "27d503b6-6d89-4712-a519-76e5eb717a72",
+                      "name": "PortfolioEndingPrice:FACTSET895:0",
+                      "type": "real"
+                    },
+                    {
+                      "description": "Market Capitalization - WA",
+                      "format": {
+                        "format": "{0:0.0}",
+                        "halign": "RIGHT",
+                        "nullFormat": "--"
+                      },
+                      "headerId": "f2c6b047-e283-41c1-b6ba-f7b162e64b97",
+                      "id": "d1a49f41-ab5c-47ca-8dda-ed2bb3a0939a",
+                      "name": "MarketCapitalization:FACTSET059:8",
+                      "type": "real"
+                    }
+                  ]
+                },
+                "headersDefinition": {
+                  "columns": [
+                    {
+                      "id": "c0f262ba-330c-44d8-a8f8-63a94e29ad73",
+                      "name": "EndingWeight:FACTSET099:13",
+                      "type": "string"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "ResponseColumnOrganised": {
+        "value": {
+          "data": {
+            "primaryTableIds": [
+              "0cce1421-845a-4c80-b6ce-0bd2831b78e5"
+            ],
+            "tables": {
+              "0cce1421-845a-4c80-b6ce-0bd2831b78e5": {
+                "data": {
+                  "columns": {
+                    "2f793158-d441-4136-acc4-87ae0b819f8f": {
+                      "values": [
+                        66.6666666666667,
+                        33.3333333333333
+                      ]
+                    },
+                    "3681ebfe-0c2a-4e5b-aded-84d96ce598cd": {
+                      "values": [
+                        2097093.75,
+                        16541.607421875
+                      ]
+                    },
+                    "c4bab001-3344-4e32-a9a3-5866e40485d0": {
+                      "values": [
+                        "Alphabet Inc. Class A",
+                        "FactSet Research Systems Inc."
+                      ]
+                    },
+                    "dd1c450d-91bb-461a-a7f6-ce3186c4536f": {
+                      "values": [
+                        "GOOGL",
+                        "FDS"
+                      ]
+                    },
+                    "e0e7d181-97d0-4562-abd4-57d2ca3a4836": {
+                      "values": [
+                        169.380004882813,
+                        433.899993896484
+                      ]
+                    }
+                  },
+                  "metadata": {
+                    "items": {
+                      "Absolute End Date": {
+                        "value": [
+                          "20240508"
+                        ]
+                      },
+                      "Absolute Start Date": {
+                        "value": [
+                          "20240508"
+                        ]
+                      },
+                      "Accounts": {
+                        "value": [
+                          "PERSONAL:TEST_201RESPONSE.ACCT"
+                        ]
+                      },
+                      "Additional Pricing Options": {
+                        "value": [
+                          "Calculate Returns with Missing Accrued Interest"
+                        ]
+                      },
+                      "Asset Level": {
+                        "value": [
+                          "Directly Held Assets"
+                        ]
+                      },
+                      "Benchmark": {
+                        "value": [
+                          "LION:OEF-US"
+                        ]
+                      },
+                      "Benchmark Analytics Sources": {
+                        "value": [
+                          "FactSet - Equity|FactSet FI - ICE U.S. - FactSet"
+                        ]
+                      },
+                      "Benchmark Holdings As Of Date": {
+                        "value": [
+                          "iShares S&P 100 ETF 30-APR-2024"
+                        ]
+                      },
+                      "Benchmark Pricing Sources": {
+                        "value": [
+                          "FactSet - Equity|FactSet FI - ICE U.S. - FactSet"
+                        ]
+                      },
+                      "Calendar": {
+                        "value": [
+                          "FIVEDAY"
+                        ]
+                      },
+                      "Component Id": {
+                        "value": [
+                          "FD3AD742592EB6E5F5F9E74E158C8A766A9D81A118B0A9DB41B202C57E373DB5"
+                        ]
+                      },
+                      "Component Name": {
+                        "value": [
+                          "Multiple Portfolios"
+                        ]
+                      },
+                      "Currency ISO Code": {
+                        "value": [
+                          "USD"
+                        ]
+                      },
+                      "Document Name": {
+                        "value": [
+                          "personal:/test_stach"
+                        ]
+                      },
+                      "Estimates DB Sources": {
+                        "value": [
+                          "FactSet"
+                        ]
+                      },
+                      "Fundamental DB Sources": {
+                        "value": [
+                          "FactSet"
+                        ]
+                      },
+                      "Hidden": {
+                        "value": [
+                          "Benchmark Only Securities and Groups"
+                        ]
+                      },
+                      "Portfolio Analytics Sources": {
+                        "value": [
+                          "FactSet - Equity|FactSet FI - ICE U.S. - FactSet"
+                        ]
+                      },
+                      "Portfolio Holdings As Of Date": {
+                        "value": [
+                          "Test account 04-JUN-2024"
+                        ]
+                      },
+                      "Portfolio Pricing Sources": {
+                        "value": [
+                          "FactSet - Equity|FactSet FI - ICE U.S. - FactSet"
+                        ]
+                      },
+                      "Report Frequency": {
+                        "value": [
+                          "Single"
+                        ]
+                      },
+                      "Risk Models": {
+                        "value": [
+                          "FactSet Equity Model - Global (Monthly)"
+                        ]
+                      }
+                    },
+                    "locations": {
+                      "table": [
+                        "Portfolio Holdings As Of Date",
+                        "Benchmark Holdings As Of Date",
+                        "Portfolio Pricing Sources",
+                        "Benchmark Pricing Sources",
+                        "Document Name",
+                        "Hidden",
+                        "Fundamental DB Sources",
+                        "Estimates DB Sources",
+                        "Portfolio Analytics Sources",
+                        "Benchmark Analytics Sources",
+                        "Additional Pricing Options",
+                        "Calendar",
+                        "Asset Level",
+                        "Currency ISO Code",
+                        "Absolute Start Date",
+                        "Absolute End Date",
+                        "Report Frequency",
+                        "Accounts",
+                        "Benchmark",
+                        "Component Name",
+                        "Risk Models",
+                        "Component Id"
+                      ]
+                    }
+                  },
+                  "rows": [
+                    {
+                      "id": "93961ea1-2637-4806-97ff-9412a3fb8c53"
+                    },
+                    {
+                      "id": "5a7ceeee-f328-41b7-9fe6-94b49ed051e8"
+                    }
+                  ]
+                },
+                "definition": {
+                  "columns": [
+                    {
+                      "description": "Symbol",
+                      "id": "dd1c450d-91bb-461a-a7f6-ce3186c4536f",
+                      "isDimension": true,
+                      "name": "Symbol:FACTSET016",
+                      "type": "string"
+                    },
+                    {
+                      "id": "c4bab001-3344-4e32-a9a3-5866e40485d0",
+                      "isDimension": true,
+                      "name": "security0",
+                      "type": "string"
+                    },
+                    {
+                      "description": "Port. Ending Weight",
+                      "format": {
+                        "format": "{0:0.0}",
+                        "halign": "RIGHT",
+                        "nullFormat": "--"
+                      },
+                      "headerId": "dcb6af36-7572-4d49-a505-1b287846d243",
+                      "id": "2f793158-d441-4136-acc4-87ae0b819f8f",
+                      "name": "EndingWeight:FACTSET099:13",
+                      "type": "real"
+                    },
+                    {
+                      "description": "Port.+Ending+Price",
+                      "format": {
+                        "format": "{0:0.00}",
+                        "halign": "RIGHT",
+                        "nullFormat": "--"
+                      },
+                      "headerId": "94cbed8c-7492-45b2-a149-c5d21915f337",
+                      "id": "e0e7d181-97d0-4562-abd4-57d2ca3a4836",
+                      "name": "PortfolioEndingPrice:FACTSET895:0",
+                      "type": "real"
+                    },
+                    {
+                      "description": "Market Capitalization - WA",
+                      "format": {
+                        "format": "{0:0.0}",
+                        "halign": "RIGHT",
+                        "nullFormat": "--"
+                      },
+                      "headerId": "d3893c49-1e73-4938-982a-a370e5482787",
+                      "id": "3681ebfe-0c2a-4e5b-aded-84d96ce598cd",
+                      "name": "MarketCapitalization:FACTSET059:8",
+                      "type": "real"
+                    }
+                  ],
+                  "headerTableId": "9a9b5eaa-a170-475d-89ac-9b9481d26a05"
+                }
+              },
+              "9a9b5eaa-a170-475d-89ac-9b9481d26a05": {
+                "data": {
+                  "columns": {
+                    "1123b66c-94de-445a-b2de-d3a48c1fb98b": {
+                      "values": [
+                        "Port. Ending Weight",
+                        "Port.+Ending+Price",
+                        "Market Capitalization - WA"
+                      ]
+                    }
+                  },
+                  "rows": [
+                    {
+                      "id": "dcb6af36-7572-4d49-a505-1b287846d243"
+                    },
+                    {
+                      "id": "94cbed8c-7492-45b2-a149-c5d21915f337"
+                    },
+                    {
+                      "id": "d3893c49-1e73-4938-982a-a370e5482787"
+                    }
+                  ]
+                },
+                "definition": {
+                  "columns": [
+                    {
+                      "id": "1123b66c-94de-445a-b2de-d3a48c1fb98b",
+                      "name": "EndingWeight:FACTSET099:13",
+                      "type": "string"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "security": [
@@ -13413,6 +15002,50 @@
     },
     {
       "FactSetOAuth2": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Accounts"
+    },
+    {
+      "name": "Columns"
+    },
+    {
+      "name": "ColumnStatistics"
+    },
+    {
+      "name": "Components"
+    },
+    {
+      "name": "Currencies"
+    },
+    {
+      "name": "Dates"
+    },
+    {
+      "name": "Documents"
+    },
+    {
+      "name": "Frequencies"
+    },
+    {
+      "name": "Groups"
+    },
+    {
+      "name": "LinkedPATemplates"
+    },
+    {
+      "name": "PACalculations"
+    },
+    {
+      "name": "PricingSources"
+    },
+    {
+      "name": "TemplatedPAComponents"
+    },
+    {
+      "name": "UnlinkedPATemplates"
     }
   ],
   "externalDocs": {

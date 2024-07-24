@@ -63,6 +63,8 @@ class FamilyFilter(ModelSimple):
             'SP': "SP",
             'STOXX': "STOXX",
             'TOPIX': "TOPIX",
+
+
         },
     }
 

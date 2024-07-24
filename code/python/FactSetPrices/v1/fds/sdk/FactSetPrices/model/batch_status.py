@@ -61,6 +61,8 @@ class BatchStatus(ModelNormal):
             'EXECUTING': "EXECUTING",
             'DONE': "DONE",
             'FAILED': "FAILED",
+
+
         },
     }
 

@@ -55,6 +55,8 @@ class DividendAdjust(ModelSimple):
         ('value',): {
             'DIV': "DIV",
             'NO_DIV': "NO_DIV",
+
+
         },
     }
 

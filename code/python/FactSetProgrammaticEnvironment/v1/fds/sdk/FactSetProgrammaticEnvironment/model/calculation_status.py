@@ -59,6 +59,8 @@ class CalculationStatus(ModelNormal):
             'PENDING': "pending",
             'FAILED': "failed",
             'COMPLETED': "completed",
+
+
         },
     }
 

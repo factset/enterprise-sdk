@@ -20,7 +20,7 @@ docs/JobListResponseMetaPagination.md
 docs/JobListResponseRoot.md
 docs/JobOverrides.md
 docs/JobOverridesCombinationsRoot.md
-docs/JobOverridesDates.md
+docs/JobOverridesCombinationsRootDateRange.md
 docs/JobTypes.md
 docs/JobsApi.md
 docs/PrbStatus.md
@@ -68,7 +68,7 @@ src/FactSet.SDK.PortfolioReportingBatcher/Model/JobListResponseMetaPagination.cs
 src/FactSet.SDK.PortfolioReportingBatcher/Model/JobListResponseRoot.cs
 src/FactSet.SDK.PortfolioReportingBatcher/Model/JobOverrides.cs
 src/FactSet.SDK.PortfolioReportingBatcher/Model/JobOverridesCombinationsRoot.cs
-src/FactSet.SDK.PortfolioReportingBatcher/Model/JobOverridesDates.cs
+src/FactSet.SDK.PortfolioReportingBatcher/Model/JobOverridesCombinationsRootDateRange.cs
 src/FactSet.SDK.PortfolioReportingBatcher/Model/JobTypes.cs
 src/FactSet.SDK.PortfolioReportingBatcher/Model/PrbStatus.cs
 src/FactSet.SDK.PortfolioReportingBatcher/Model/RunsForJob.cs

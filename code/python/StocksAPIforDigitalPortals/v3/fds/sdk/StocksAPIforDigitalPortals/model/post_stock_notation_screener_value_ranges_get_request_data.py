@@ -88,6 +88,8 @@ class PostStockNotationScreenerValueRangesGetRequestData(ModelNormal):
             'PREFERRED': "preferred",
             'DEPOSITORYRECEIPT': "depositoryReceipt",
             'OTHER': "other",
+
+
         },
     }
 

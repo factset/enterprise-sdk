@@ -60,6 +60,8 @@ class SMRetrieveParameters(ModelNormal):
             'None': None,
             'BOND': "Bond",
             'CCF': "CCF",
+
+
         },
     }
 

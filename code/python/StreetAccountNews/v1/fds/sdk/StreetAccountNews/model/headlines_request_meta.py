@@ -70,6 +70,8 @@ class HeadlinesRequestMeta(ModelNormal):
             'STORYBODY': "storyBody",
             'REFERENCEURIS': "referenceUris",
             'URL': "url",
+
+
         },
     }
 

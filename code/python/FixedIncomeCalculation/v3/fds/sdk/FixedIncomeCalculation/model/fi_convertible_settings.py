@@ -61,6 +61,8 @@ class FIConvertibleSettings(ModelNormal):
             'NOCAP': "noCap",
             'SPECIFIEDRATE': "specifiedRate",
             'MULTIPLIER': "multiplier",
+
+
         },
     }
 

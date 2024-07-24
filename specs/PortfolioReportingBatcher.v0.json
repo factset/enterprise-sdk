@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Portfolio Reporting Batcher",
-    "version": "0.5.0",
+    "version": "0.6.0",
     "description": "The Portfolio Reporting Batcher (PRB) API allows clients to systematically leverage functionalities of the PRB application.",
     "license": {
       "name": "Apache License, Version 2.0",
@@ -771,18 +771,83 @@
                 "$ref": "#/components/schemas/startJobRoot"
               },
               "examples": {
-                "ADF": {
+                "ADF - date range": {
                   "value": {
                     "data": {
                       "jobType": "ADF",
                       "jobName": "adf_multi_date",
                       "overrides": {
-                        "dates": {
-                          "start": "2023-11-10",
-                          "end": "2023-12-10"
-                        },
-                        "frequency": "daily",
-                        "calendar": "sevenDay",
+                        "combinations": [
+                          {
+                            "accounts": [
+                              "CLIENT:/FPS/VAULTED_RETURNS/7DAYS_VLT.ACCT",
+                              "CLIENT:/FPS/VAULTED_RETURNS/1MONTH.ACCT"
+                            ],
+                            "dateRange": {
+                              "start": "2023-11-10",
+                              "end": "2023-12-10",
+                              "frequency": "daily",
+                              "calendar": "sevenDay"
+                            }
+                          },
+                          {
+                            "accounts": [
+                              "CLIENT:/PRB/VAULTED_RETURNS/DEMO1.ACCT"
+                            ],
+                            "dateRange": {
+                              "start": "2022-11-21",
+                              "end": "2022-11-25",
+                              "frequency": "weekly",
+                              "calendar": "fiveDay"
+                            }
+                          }
+                        ],
+                        "runAsSerialNumber": "894550"
+                      }
+                    }
+                  }
+                },
+                "ADF - individual dates": {
+                  "value": {
+                    "data": {
+                      "jobType": "ADF",
+                      "jobName": "adf_weekly_date",
+                      "overrides": {
+                        "combinations": [
+                          {
+                            "accounts": [
+                              "CLIENT:/FPS/VAULTED_RETURNS/7DAYS_VLT.ACCT",
+                              "CLIENT:/FPS/VAULTED_RETURNS/1MONTH.ACCT"
+                            ],
+                            "dates": [
+                              "2022-12-24",
+                              "2022-12-23"
+                            ]
+                          }
+                        ],
+                        "runAsSerialNumber": "894550"
+                      }
+                    }
+                  }
+                },
+                "ADF - tasks and accounts": {
+                  "value": {
+                    "data": {
+                      "jobType": "ADF",
+                      "jobName": "adf_weekly_date",
+                      "overrides": {
+                        "combinations": [
+                          {
+                            "accounts": [
+                              "CLIENT:/FPS/VAULTED_RETURNS/7DAYS_VLT.ACCT",
+                              "CLIENT:/FPS/VAULTED_RETURNS/1MONTH.ACCT"
+                            ],
+                            "tasks": [
+                              "my_task_1",
+                              "my_task_2"
+                            ]
+                          }
+                        ],
                         "runAsSerialNumber": "894550"
                       }
                     }
@@ -794,9 +859,30 @@
                       "jobType": "PA",
                       "jobName": "pa_multi_date",
                       "overrides": {
-                        "tasks": [
-                          "task_1",
-                          "task_2"
+                        "combinations": [
+                          {
+                            "tasks": [
+                              "Task1",
+                              "Task2"
+                            ]
+                          }
+                        ],
+                        "runAsSerialNumber": "894550"
+                      }
+                    }
+                  }
+                },
+                "PA - all tasks": {
+                  "description": "Sending `allTasks` will also run tasks that have been disabled",
+                  "value": {
+                    "data": {
+                      "jobType": "PA",
+                      "jobName": "pa_multi_date",
+                      "overrides": {
+                        "combinations": [
+                          {
+                            "allTasks": true
+                          }
                         ],
                         "runAsSerialNumber": "894550"
                       }
@@ -828,13 +914,81 @@
                       "jobType": "PUB",
                       "jobName": "pub_run_daily",
                       "overrides": {
-                        "runAsOfDate": "2023-02-05",
+                        "combinations": [
+                          {
+                            "dates": [
+                              "2023-02-05"
+                            ]
+                          }
+                        ],
                         "runAsSerialNumber": "894550"
                       }
                     }
                   }
                 },
-                "Vault (No Overrides)": {
+                "PUB - with tasks and accounts": {
+                  "value": {
+                    "data": {
+                      "jobType": "PUB",
+                      "jobName": "pub_run_daily",
+                      "overrides": {
+                        "combinations": [
+                          {
+                            "dates": [
+                              "2023-02-05"
+                            ],
+                            "tasks": [
+                              "my_task_1"
+                            ]
+                          },
+                          {
+                            "tasks": [
+                              "my_task_1"
+                            ],
+                            "accounts": [
+                              "client:/equity/uk_funds.acct"
+                            ]
+                          }
+                        ],
+                        "runAsSerialNumber": "894550"
+                      }
+                    }
+                  }
+                },
+                "Vault - date range": {
+                  "description": "Please note only daily or monthly is supported as frequency for Vault jobs",
+                  "value": {
+                    "data": {
+                      "jobType": "vault",
+                      "jobName": "vault_multi_date",
+                      "overrides": {
+                        "combinations": [
+                          {
+                            "accounts": [
+                              "CLIENT:/FPS/VAULTED_RETURNS/7DAYS_VLT.ACCT"
+                            ],
+                            "dateRange": {
+                              "start": "2023-11-10",
+                              "end": "2023-12-10",
+                              "frequency": "daily"
+                            }
+                          },
+                          {
+                            "accounts": [
+                              "CLIENT:/FPS/VAULTED_RETURNS/1MONTH.ACCT"
+                            ],
+                            "dateRange": {
+                              "start": "2023-10-21",
+                              "end": "2023-12-21",
+                              "frequency": "monthly"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                "Vault - no overrides": {
                   "value": {
                     "data": {
                       "jobType": "vault",
@@ -842,7 +996,7 @@
                     }
                   }
                 },
-                "Vault (With Overrides)": {
+                "Vault - with overrides": {
                   "value": {
                     "data": {
                       "jobType": "vault",
@@ -899,12 +1053,16 @@
                           "jobName": "my_adf_job",
                           "jobType": "ADF",
                           "overrides": {
-                            "dates": {
-                              "start": "2023-12-25",
-                              "end": "2023-12-27"
-                            },
-                            "frequency": "daily",
-                            "calendar": "sevenDay",
+                            "combinations": [
+                              {
+                                "dateRange": {
+                                  "start": "2023-12-25",
+                                  "end": "2023-12-27",
+                                  "frequency": "daily",
+                                  "calendar": "sevenDay"
+                                }
+                              }
+                            ],
                             "runAsSerialNumber": "894550"
                           }
                         },
@@ -922,9 +1080,13 @@
                           "jobName": "my_pa_job",
                           "jobType": "PA",
                           "overrides": {
-                            "tasks": [
-                              "task_1",
-                              "task_2"
+                            "combinations": [
+                              {
+                                "tasks": [
+                                  "task_1",
+                                  "task_2"
+                                ]
+                              }
                             ],
                             "runAsSerialNumber": "894550"
                           }
@@ -974,7 +1136,13 @@
                           "jobName": "my_pub_job",
                           "jobType": "PUB",
                           "overrides": {
-                            "runAsOfDate": "2023-02-05"
+                            "combinations": [
+                              {
+                                "dates": [
+                                  "2023-02-05"
+                                ]
+                              }
+                            ]
                           }
                         },
                         "id": "3456789"
@@ -1683,18 +1851,41 @@
       "jobOverrides": {
         "description": "If this object is provided, the settings given here will override the default settings of the job for the job run (settings will only be used temporarily and no changes will be made to the default PRB job). Only certain objects can be used for certain job types.",
         "properties": {
-          "calendar": {
-            "$ref": "#/components/schemas/calendar"
-          },
           "combinations": {
-            "description": "An array of date account combinations",
+            "description": "An array of date, account, and tasks combinations",
             "items": {
               "$ref": "#/components/schemas/jobOverridesCombinationsRoot"
             },
             "type": "array"
           },
+          "runAsSerialNumber": {
+            "description": "The FactSet serial number which has the credentials wanted to run the job",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "jobOverridesCombinationsRoot": {
+        "description": "This creates a matrix of the given details. When the job is run, it will only run for the accounts, dates and/or tasks within the objects given. Dates can be specified either by giving individual dates in the `dates` parameter, or by using the `dateRange` parameter for where these are supported. The job will fail if both are provided. (Settings will only be used temporarily and no changes will be made to the default PRB job.) Certain parameters are only valid for certain job types. Please see below for more details.",
+        "properties": {
+          "accounts": {
+            "description": "An array of accounts, used for jobs types ADF, PUB, and Vault",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
           "dates": {
-            "description": "Used only for jobs where type is ADF. If using dates override, please provide both start date and end date.",
+            "description": "An array of dates, used for jobs types ADF, PUB, and Vault. Please see OA Page 20650 for more details",
+            "items": {
+              "format": "date",
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "dateRange": {
+            "description": "Used if the job needs to be executed for many dates periodically spaced, used for jobs type ADF. Please see OA page 20650 for more details.",
+            "type": "object",
             "properties": {
               "end": {
                 "description": "The end date in format YYYY-MM-DD",
@@ -1705,49 +1896,25 @@
                 "description": "The start date in format YYYY-MM-DD",
                 "format": "date",
                 "type": "string"
+              },
+              "calendar": {
+                "$ref": "#/components/schemas/calendar"
+              },
+              "frequency": {
+                "$ref": "#/components/schemas/frequency"
               }
-            },
-            "type": "object"
-          },
-          "frequency": {
-            "$ref": "#/components/schemas/frequency"
-          },
-          "runAsOfDate": {
-            "description": "PUB",
-            "format": "date",
-            "type": "string"
-          },
-          "runAsSerialNumber": {
-            "description": "The FactSet serial number which has the credentials wanted to run the job",
-            "type": "string"
+            }
           },
           "tasks": {
-            "description": "Used only for jobs where type is PA",
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          }
-        },
-        "type": "object"
-      },
-      "jobOverridesCombinationsRoot": {
-        "description": "Used for Vault job type only. This creates a matrix of given accounts and dates. When the job is run, it will only run for the accounts and dates within this object. (Settings will only be used temporarily and no changes will be made to the default PRB job.)",
-        "properties": {
-          "accounts": {
-            "description": "An array of accounts",
+            "description": "Used only for jobs where type is ADF, PA, PUB, or vault",
             "items": {
               "type": "string"
             },
             "type": "array"
           },
-          "dates": {
-            "description": "An array of dates",
-            "items": {
-              "format": "date",
-              "type": "string"
-            },
-            "type": "array"
+          "allTasks": {
+            "description": "boolean flag to indicate if all tasks for given ADF, PA, PUB, or vault job should be run, e.g. if account is newly created and not yet added to any tasks",
+            "type": "boolean"
           }
         },
         "type": "object"
@@ -1873,6 +2040,9 @@
             "$ref": "#/components/schemas/startJob"
           }
         },
+        "required": [
+          "data"
+        ],
         "type": "object"
       },
       "startJobRunResponse": {

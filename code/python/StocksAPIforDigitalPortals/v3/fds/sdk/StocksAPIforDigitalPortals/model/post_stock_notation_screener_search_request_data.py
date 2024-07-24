@@ -94,6 +94,8 @@ class PostStockNotationScreenerSearchRequestData(ModelNormal):
             'PREFERRED': "preferred",
             'DEPOSITORYRECEIPT': "depositoryReceipt",
             'OTHER': "other",
+
+
         },
     }
 

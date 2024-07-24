@@ -60,6 +60,8 @@ class RedemptionPrice(ModelNormal):
             'CALL': "CALL",
             'PUT': "PUT",
             'SF': "SF",
+
+
         },
     }
 

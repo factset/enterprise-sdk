@@ -61,6 +61,8 @@ class PeopleDecisions(ModelNormal):
             'MAPPED': "MAPPED",
             'UNMAPPED': "UNMAPPED",
             'INDETERMINATE': "INDETERMINATE",
+
+
         },
     }
 

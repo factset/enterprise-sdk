@@ -59,6 +59,8 @@ class InlineResponse201Data(ModelNormal):
         ('status',): {
             'EXECUTING': "executing",
             'CREATED': "created",
+
+
         },
     }
 

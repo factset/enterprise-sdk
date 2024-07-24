@@ -61,6 +61,8 @@ class ValueTypeValueType(ModelNormal):
             'RATIO': "RATIO",
             'TREND': "TREND",
             'RANGE': "RANGE",
+
+
         },
     }
 

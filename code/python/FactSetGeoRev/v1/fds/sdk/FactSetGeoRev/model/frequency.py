@@ -63,6 +63,8 @@ class Frequency(ModelSimple):
             'CY': "CY",
             'FY': "FY",
             'EMPTY': "",
+
+
         },
     }
 

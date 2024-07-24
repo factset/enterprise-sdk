@@ -64,6 +64,8 @@ class PostStockNotationScreenerSearchRequestDataValidationPrices(ModelNormal):
         ('quality',): {
             'DLY': "DLY",
             'EOD': "EOD",
+
+
         },
     }
 

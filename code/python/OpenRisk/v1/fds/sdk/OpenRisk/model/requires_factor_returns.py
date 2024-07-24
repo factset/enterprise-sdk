@@ -55,6 +55,8 @@ class RequiresFactorReturns(ModelSimple):
         ('value',): {
             'DAILY': "Daily",
             'MONTHLY': "Monthly",
+
+
         },
     }
 

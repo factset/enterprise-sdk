@@ -63,6 +63,8 @@ class SMDeleteResponse(ModelNormal):
         ('status',): {
             'SUCCESS': "success",
             'FAILURE': "failure",
+
+
         },
     }
 

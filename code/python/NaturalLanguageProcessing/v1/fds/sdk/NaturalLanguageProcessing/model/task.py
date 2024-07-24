@@ -62,6 +62,8 @@ class Task(ModelNormal):
             'FAILED': "failed",
             'EXECUTING': "executing",
             'CANCELLED': "cancelled",
+
+
         },
     }
 

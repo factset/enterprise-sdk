@@ -77,6 +77,8 @@ class PostNotationSelectionListMembersListRequestMeta(ModelNormal):
             '-INSTRUMENT.NAME.ASSETCLASSSPECIFIC.LONG': "-instrument.name.assetClassSpecific.long",
             'INSTRUMENT.NAME.ASSETCLASSSPECIFIC.SHORT': "instrument.name.assetClassSpecific.short",
             '-INSTRUMENT.NAME.ASSETCLASSSPECIFIC.SHORT': "-instrument.name.assetClassSpecific.short",
+
+
         },
     }
 

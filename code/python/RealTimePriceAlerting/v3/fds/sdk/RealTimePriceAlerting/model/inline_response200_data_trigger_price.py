@@ -61,12 +61,16 @@ class InlineResponse200DataTriggerPrice(ModelNormal):
             'TRADE': "trade",
             'BID': "bid",
             'ASK': "ask",
+
+
         },
         ('quality',): {
             'None': None,
             'RLT': "RLT",
             'DLY': "DLY",
             'EOD': "EOD",
+
+
         },
     }
 

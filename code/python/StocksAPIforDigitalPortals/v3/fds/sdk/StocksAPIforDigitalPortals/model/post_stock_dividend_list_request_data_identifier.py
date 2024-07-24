@@ -68,6 +68,8 @@ class PostStockDividendListRequestDataIdentifier(ModelNormal):
             'WKN': "wkn",
             'VALOR': "valor",
             'CUSIP': "cusip",
+
+
         },
     }
 

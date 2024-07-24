@@ -74,6 +74,8 @@ class PostStockNotationRankingIntradayListRequestMeta(ModelNormal):
             '-ACCUMULATED.TRADINGVOLUME': "-accumulated.tradingVolume",
             'ACCUMULATED.TRADINGVALUE': "accumulated.tradingValue",
             '-ACCUMULATED.TRADINGVALUE': "-accumulated.tradingValue",
+
+
         },
     }
 

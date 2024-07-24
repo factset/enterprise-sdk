@@ -74,11 +74,15 @@ class Fundamental(ModelNormal):
             'LTMSG': "LTMSG",
             'LTM_SEMI': "LTM_SEMI",
             'YTD': "YTD",
+
+
         },
         ('update_type',): {
             'None': None,
             'PRELIMINARY': "Preliminary",
             'FINAL': "Final",
+
+
         },
     }
 

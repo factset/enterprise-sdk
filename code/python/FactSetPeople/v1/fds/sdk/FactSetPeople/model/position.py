@@ -70,6 +70,8 @@ class Position(ModelSimple):
             'TREAS': "TREAS",
             'MKT': "MKT",
             'HR': "HR",
+
+
         },
     }
 

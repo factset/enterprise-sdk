@@ -60,6 +60,8 @@ class PostCompanyEstimatesListByInstrumentRequestDataCurrency(ModelNormal):
             'USD': "USD",
             'GBP': "GBP",
             'CHF': "CHF",
+
+
         },
     }
 

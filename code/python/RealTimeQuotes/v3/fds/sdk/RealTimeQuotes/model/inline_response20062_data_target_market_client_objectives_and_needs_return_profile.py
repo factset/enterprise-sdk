@@ -66,6 +66,8 @@ class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile(M
             'NO': "no",
             'NEUTRAL': "neutral",
             'FEEDBACK': "feedback",
+
+
         },
         ('growth',): {
             'None': None,
@@ -73,6 +75,8 @@ class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile(M
             'NO': "no",
             'NEUTRAL': "neutral",
             'FEEDBACK': "feedback",
+
+
         },
         ('income',): {
             'None': None,
@@ -80,6 +84,8 @@ class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile(M
             'NO': "no",
             'NEUTRAL': "neutral",
             'FEEDBACK': "feedback",
+
+
         },
         ('financing',): {
             'None': None,
@@ -87,6 +93,8 @@ class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile(M
             'NO': "no",
             'NEUTRAL': "neutral",
             'FEEDBACK': "feedback",
+
+
         },
         ('hedging',): {
             'None': None,
@@ -94,6 +102,8 @@ class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile(M
             'NO': "no",
             'NEUTRAL': "neutral",
             'FEEDBACK': "feedback",
+
+
         },
         ('option_or_leveraged',): {
             'None': None,
@@ -101,6 +111,8 @@ class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile(M
             'NO': "no",
             'NEUTRAL': "neutral",
             'FEEDBACK': "feedback",
+
+
         },
         ('other',): {
             'None': None,
@@ -108,6 +120,8 @@ class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile(M
             'NO': "no",
             'NEUTRAL': "neutral",
             'FEEDBACK': "feedback",
+
+
         },
     }
 

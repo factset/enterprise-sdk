@@ -60,6 +60,8 @@ class InlineResponse200DataExchange(ModelNormal):
             'NORTH_AMERICA': "North America",
             'ASIA-PACIFIC': "Asia-Pacific",
             'MIDDLE_EAST_&amp;_AFRICA': "Middle East & Africa",
+
+
         },
     }
 

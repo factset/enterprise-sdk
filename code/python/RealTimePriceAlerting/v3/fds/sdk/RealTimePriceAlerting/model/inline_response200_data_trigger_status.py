@@ -61,6 +61,8 @@ class InlineResponse200DataTriggerStatus(ModelNormal):
             'ACTIVE': "active",
             'INACTIVE': "inactive",
             'ERROR': "error",
+
+
         },
     }
 

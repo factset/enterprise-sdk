@@ -1,12 +1,12 @@
 # JobManagementApi
 
-All URIs are relative to *https://api.factset.com/universal-screening*
+All URIs are relative to *https://api.factset.com/universal-screening/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteActiveJob**](JobManagementApi.md#deleteActiveJob) | **DELETE** /v2/job/{id} | 
-[**deleteAllActiveJobs**](JobManagementApi.md#deleteAllActiveJobs) | **DELETE** /v2/jobs | 
-[**getAllActiveJobs**](JobManagementApi.md#getAllActiveJobs) | **GET** /v2/jobs | 
+[**deleteActiveJob**](JobManagementApi.md#deleteActiveJob) | **DELETE** /job/{id} | 
+[**deleteAllActiveJobs**](JobManagementApi.md#deleteAllActiveJobs) | **DELETE** /jobs | 
+[**getAllActiveJobs**](JobManagementApi.md#getAllActiveJobs) | **GET** /jobs | 
 
 
 
@@ -59,7 +59,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         JobManagementApi apiInstance = new JobManagementApi(defaultClient);
-        String id = "id_example"; // String | Unique identifier for a screen calculation job
+        java.util.UUID id = new java.util.UUID(); // java.util.UUID | Unique identifier for a job. \"Job\" refers to a screen calculation or archival.
         try {
             apiInstance.deleteActiveJob(id);
 
@@ -79,7 +79,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Unique identifier for a screen calculation job |
+ **id** | **java.util.UUID**| Unique identifier for a job. \&quot;Job\&quot; refers to a screen calculation or archival. |
 
 ### Return type
 
@@ -97,9 +97,10 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | No content |  -  |
+| **204** | No content |  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
 | **401** | Invalid or missing authentication. |  -  |
-| **404** | Job ID not found. |  -  |
+| **404** | Job ID not found. |  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
+| **429** | Too many requests. |  * X-FactSet-Api-Units-Limit -  <br>  * X-FactSet-Api-Units-Remaining -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  * Retry-After -  <br>  |
 | **500** | Internal Server Error |  * Request-Key - Provide this key when reporting this issue <br>  |
 
 
@@ -186,9 +187,10 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | No Content |  -  |
+| **204** | No content |  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
 | **401** | Invalid or missing authentication. |  -  |
-| **404** | Job ID not found. |  -  |
+| **404** | Job ID not found. |  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
+| **429** | Too many requests. |  * X-FactSet-Api-Units-Limit -  <br>  * X-FactSet-Api-Units-Remaining -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  * Retry-After -  <br>  |
 | **500** | Internal Server Error |  * Request-Key - Provide this key when reporting this issue <br>  |
 
 
@@ -276,8 +278,9 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | ActiveJobsResponse contains id of all of a user&#39;s active jobs |  -  |
+| **200** | ActiveJobsResponse contains id of all of a user&#39;s active jobs |  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
 | **401** | Invalid or missing authentication. |  -  |
-| **404** | Job ID not found. |  -  |
+| **404** | Job ID not found. |  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
+| **429** | Too many requests. |  * X-FactSet-Api-Units-Limit -  <br>  * X-FactSet-Api-Units-Remaining -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  * Retry-After -  <br>  |
 | **500** | Internal Server Error |  * Request-Key - Provide this key when reporting this issue <br>  |
 

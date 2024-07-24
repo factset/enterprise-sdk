@@ -53,6 +53,8 @@ class GoogleProtobufNullValue(ModelSimple):
     allowed_values = {
         ('value',): {
             '0': 0,
+
+
         },
     }
 

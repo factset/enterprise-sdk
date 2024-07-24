@@ -67,6 +67,8 @@ class OptimizerTradesList(ModelNormal):
             'TICKER': "Ticker",
             'TICKERREGION': "TickerRegion",
             'USER': "User",
+
+
         },
     }
 

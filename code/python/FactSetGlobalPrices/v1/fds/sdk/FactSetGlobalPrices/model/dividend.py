@@ -60,10 +60,14 @@ class Dividend(ModelNormal):
             'DVC': "DVC",
             'DVCD': "DVCD",
             'DRP': "DRP",
+
+
         },
         ('amt_def_net_gross_indicator',): {
             'N': "N",
             'G': "G",
+
+
         },
     }
 

@@ -64,6 +64,8 @@ class Dividend(ModelNormal):
             'X': "X",
             'V': "V",
             '0': "0",
+
+
         },
     }
 

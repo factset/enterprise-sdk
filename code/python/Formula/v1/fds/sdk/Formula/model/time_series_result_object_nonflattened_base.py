@@ -61,12 +61,16 @@ class TimeSeriesResultObjectNonflattenedBase(ModelNormal):
             'STRING': "STRING",
             'INTEGER': "INTEGER",
             'DOUBLE': "DOUBLE",
+
+
         },
         ('object_type',): {
             'SCALAR': "SCALAR",
             'ARRAY': "ARRAY",
             'MATRIX': "MATRIX",
             'TIMESERIES': "TIMESERIES",
+
+
         },
     }
 

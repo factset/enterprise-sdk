@@ -5,7 +5,7 @@ Corporate Actions Request Body
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ids** | [**IdsBatchMax10000**](IdsBatchMax10000.md) |  | 
+**ids** | [**IdsMax50**](IdsMax50.md) |  | 
 **event_category** | [**EventCategory**](EventCategory.md) |  | [optional] 
 **fields** | [**FieldsCorporateActions**](FieldsCorporateActions.md) |  | [optional] 
 **start_date** | **str** | The start date requested for a given date range in **YYYY-MM-DD** format. In the context of corporate actions, this filters the response to only include events within the date range. The frequency between the startDate and endDate is always set to the \&quot;event\&quot; frequency- meaning the service will return only events within those inclusive boundaries. Leaving both startDate and endDate blank will pull \&quot;all\&quot; events for each requested ids.  | [optional] 

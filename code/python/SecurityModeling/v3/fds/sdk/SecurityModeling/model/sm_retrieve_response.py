@@ -65,6 +65,8 @@ class SMRetrieveResponse(ModelNormal):
         ('status',): {
             'SUCCESS': "success",
             'FAILURE': "failure",
+
+
         },
     }
 

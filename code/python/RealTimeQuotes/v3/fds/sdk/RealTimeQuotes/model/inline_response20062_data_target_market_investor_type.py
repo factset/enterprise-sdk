@@ -61,6 +61,8 @@ class InlineResponse20062DataTargetMarketInvestorType(ModelNormal):
             'YES': "yes",
             'NO': "no",
             'NEUTRAL': "neutral",
+
+
         },
         ('professional',): {
             'None': None,
@@ -70,12 +72,16 @@ class InlineResponse20062DataTargetMarketInvestorType(ModelNormal):
             'PERSE': "perSe",
             'ELECTIVE': "elective",
             'BOTH': "both",
+
+
         },
         ('eligible_counter_party',): {
             'None': None,
             'YES': "yes",
             'NO': "no",
             'NEUTRAL': "neutral",
+
+
         },
     }
 

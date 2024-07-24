@@ -70,11 +70,15 @@ class PostVendorChartIQTimeSeriesEodListRequestData(ModelNormal):
             'ASK': "ask",
             'YIELD': "yield",
             'ESTIMATE': "estimate",
+
+
         },
         ('quality',): {
             'DLY': "DLY",
             'EOD': "EOD",
             'BST': "BST",
+
+
         },
     }
 

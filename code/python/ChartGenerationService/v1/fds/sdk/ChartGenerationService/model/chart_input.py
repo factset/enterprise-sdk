@@ -58,6 +58,8 @@ class ChartInput(ModelNormal):
         ('_in',): {
             'QUERY': "query",
             'PARAM': "param",
+
+
         },
     }
 

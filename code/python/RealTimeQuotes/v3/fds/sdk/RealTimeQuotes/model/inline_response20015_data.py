@@ -67,6 +67,8 @@ class InlineResponse20015Data(ModelNormal):
             'SUBDIVISION': "subdivision",
             'MISC': "misc",
             'COMPOUND': "compound",
+
+
         },
     }
 

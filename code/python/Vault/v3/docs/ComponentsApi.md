@@ -61,7 +61,7 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
     api_instance = components_api.ComponentsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    id = "id_example" # str | Unique identifier for a vault component
+    id = "AFB43C61A6651B87988FEA62ED333638595AE7D8D7345A33AB9994CF23AFCC5D" # str | Unique identifier for a vault component. This is a sample example for illustration purposes only. Client should use a valid Vault API Component Id to get a successful response.
 
     try:
         # Get Vault component by id
@@ -79,7 +79,7 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Unique identifier for a vault component |
+ **id** | **str**| Unique identifier for a vault component. This is a sample example for illustration purposes only. Client should use a valid Vault API Component Id to get a successful response. |
 
 ### Return type
 
@@ -163,7 +163,7 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
     api_instance = components_api.ComponentsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    document = "document_example" # str | Document Name
+    document = "CLIENT:/MAC/DEMO/DEMO_PS_EQ_EM_COUNTRY_ALPHA" # str | Document Name. This is a sample example for illustration purposes only. Client should use a valid Portfolio Insight Document to get a successful response.
 
     try:
         # Get Vault components
@@ -181,7 +181,7 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **document** | **str**| Document Name |
+ **document** | **str**| Document Name. This is a sample example for illustration purposes only. Client should use a valid Portfolio Insight Document to get a successful response. |
 
 ### Return type
 

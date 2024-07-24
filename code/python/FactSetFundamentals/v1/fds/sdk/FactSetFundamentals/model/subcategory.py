@@ -93,6 +93,8 @@ class Subcategory(ModelSimple):
             'INSURANCE': "INSURANCE",
             'UTILITY': "UTILITY",
             'OTHER': "OTHER",
+
+
         },
     }
 

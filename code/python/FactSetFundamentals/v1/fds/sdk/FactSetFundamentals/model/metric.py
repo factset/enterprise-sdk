@@ -60,6 +60,8 @@ class Metric(ModelNormal):
             'None': None,
             'BASIC': "BASIC",
             'ADVANCED': "ADVANCED",
+
+
         },
     }
 

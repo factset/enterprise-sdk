@@ -5,7 +5,7 @@ Shares Outstanding Request Body
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ids** | [**IdsBatchMax2000**](IdsBatchMax2000.md) |  | 
+**ids** | [**IdsMax50**](IdsMax50.md) |  | 
 **start_date** | **str** | The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.  | [optional] 
 **end_date** | **str** | The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.  | [optional] 
 **frequency** | [**Frequency**](Frequency.md) |  | [optional] 

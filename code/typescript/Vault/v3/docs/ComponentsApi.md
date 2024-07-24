@@ -50,7 +50,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new ComponentsApi();
-const id = "id_example"; // String | Unique identifier for a vault component
+const id = AFB43C61A6651B87988FEA62ED333638595AE7D8D7345A33AB9994CF23AFCC5D; // String | Unique identifier for a vault component. This is a sample example for illustration purposes only. Client should use a valid Vault API Component Id to get a successful response.
 
 // Call api endpoint
 apiInstance.getVaultComponentById(id).then(
@@ -72,7 +72,7 @@ apiInstance.getVaultComponentById(id).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Unique identifier for a vault component | 
+ **id** | **String**| Unique identifier for a vault component. This is a sample example for illustration purposes only. Client should use a valid Vault API Component Id to get a successful response. | 
 
 ### Return type
 
@@ -129,7 +129,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new ComponentsApi();
-const document = "document_example"; // String | Document Name
+const document = CLIENT:/MAC/DEMO/DEMO_PS_EQ_EM_COUNTRY_ALPHA; // String | Document Name. This is a sample example for illustration purposes only. Client should use a valid Portfolio Insight Document to get a successful response.
 
 // Call api endpoint
 apiInstance.getVaultComponents(document).then(
@@ -151,7 +151,7 @@ apiInstance.getVaultComponents(document).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **document** | **String**| Document Name | 
+ **document** | **String**| Document Name. This is a sample example for illustration purposes only. Client should use a valid Portfolio Insight Document to get a successful response. | 
 
 ### Return type
 

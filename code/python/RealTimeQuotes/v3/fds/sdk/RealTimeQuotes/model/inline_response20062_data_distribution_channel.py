@@ -62,6 +62,8 @@ class InlineResponse20062DataDistributionChannel(ModelNormal):
             'PROFESSIONAL': "professional",
             'BOTH': "both",
             'NONE': "none",
+
+
         },
         ('execution_appropriateness',): {
             'None': None,
@@ -69,6 +71,8 @@ class InlineResponse20062DataDistributionChannel(ModelNormal):
             'PROFESSIONAL': "professional",
             'BOTH': "both",
             'NONE': "none",
+
+
         },
         ('investment_advice',): {
             'None': None,
@@ -76,6 +80,8 @@ class InlineResponse20062DataDistributionChannel(ModelNormal):
             'PROFESSIONAL': "professional",
             'BOTH': "both",
             'NONE': "none",
+
+
         },
         ('portfolio_management',): {
             'None': None,
@@ -83,6 +89,8 @@ class InlineResponse20062DataDistributionChannel(ModelNormal):
             'PROFESSIONAL': "professional",
             'BOTH': "both",
             'NONE': "none",
+
+
         },
     }
 

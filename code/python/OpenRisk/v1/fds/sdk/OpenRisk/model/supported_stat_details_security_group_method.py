@@ -62,16 +62,22 @@ class SupportedStatDetailsSecurityGroupMethod(ModelNormal):
             'WEIGHTEDAVERAGE': "WeightedAverage",
             'WEIGHTEDNORMALIZEDAVERAGE': "WeightedNormalizedAverage",
             'WEIGHTEDNORMALIZEDAVERAGEFILL': "WeightedNormalizedAverageFill",
+
+
         },
         ('weights',): {
             'PORTFOLIOWEIGHTS': "PortfolioWeights",
             'BENCHMARKWEIGHTS': "BenchmarkWeights",
             'ACTIVEWEIGHTS': "ActiveWeights",
             'MARKETWEIGHTS': "MarketWeights",
+
+
         },
         ('weighting',): {
             'ABSOLUTEVALUE': "AbsoluteValue",
             'ACTUALVALUE': "ActualValue",
+
+
         },
     }
 

@@ -59,6 +59,8 @@ class EventCategory(ModelSimple):
             'SPINOFFS': "SPINOFFS",
             'SPLITS': "SPLITS",
             'ALL': "ALL",
+
+
         },
     }
 

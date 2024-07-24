@@ -59,6 +59,8 @@ class ConstraintAction(ModelNormal):
         ('item2',): {
             'DISABLE': "Disable",
             'ENABLE': "Enable",
+
+
         },
     }
 

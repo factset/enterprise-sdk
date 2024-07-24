@@ -5,7 +5,7 @@ For errors and warnings found in screens, contains the paramID the error/warning
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Parameter** | **string** |  | [optional] 
+**Parameter** | **string** | Param ID | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

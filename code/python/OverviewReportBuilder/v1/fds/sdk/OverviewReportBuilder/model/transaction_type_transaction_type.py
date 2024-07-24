@@ -60,6 +60,8 @@ class TransactionTypeTransactionType(ModelNormal):
             'MA': "MA",
             'IPO': "IPO",
             'FOLLOW-ON': "Follow-On",
+
+
         },
     }
 

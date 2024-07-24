@@ -61,6 +61,8 @@ class Regions(ModelSimple):
             'PACIFICRIM': "pacificRim",
             'SOUTHAMERICA': "southAmerica",
             'WESTERNEUROPE': "westernEurope",
+
+
         },
     }
 

@@ -66,7 +66,7 @@ namespace Example
 
             var apiInstance = new VaultCalculationsApi(config);
 
-            var id = "id_example";  // string | from url, provided from the location header in the Create and Run Vault calculation endpoint
+            var id = "3d06d752c26d4fafaafa1dacd958670c";  // string | from url, provided from the location header in the Create and Run Vault calculation endpoint
 
             try
             {
@@ -275,7 +275,7 @@ namespace Example
 
             var apiInstance = new VaultCalculationsApi(config);
 
-            var id = "id_example";  // string | from url, provided from the location header in the Create and Run Vault calculation endpoint
+            var id = "3d06d752c26d4fafaafa1dacd958670c";  // string | from url, provided from the location header in the Create and Run Vault calculation endpoint
 
             try
             {
@@ -379,7 +379,7 @@ namespace Example
 
             var apiInstance = new VaultCalculationsApi(config);
 
-            var id = "id_example";  // string | from url, provided from the location header in the Create and Run Vault calculation endpoint
+            var id = "3d06d752c26d4fafaafa1dacd958670c";  // string | from url, provided from the location header in the Create and Run Vault calculation endpoint
 
             try
             {
@@ -484,8 +484,8 @@ namespace Example
 
             var apiInstance = new VaultCalculationsApi(config);
 
-            var id = "id_example";  // string | from url, provided from the location header in the Get Vault calculation status by id endpoint
-            var unitId = "unitId_example";  // string | from url, provided from the location header in the Get Vault calculation status by id endpoint
+            var id = "3d06d752c26d4fafaafa1dacd958670c";  // string | from url, provided from the location header in the Get Vault calculation status by id endpoint
+            var unitId = "vault1";  // string | from url, provided from the location header in the Get Vault calculation status by id endpoint
 
             try
             {
@@ -591,7 +591,7 @@ namespace Example
 
             var apiInstance = new VaultCalculationsApi(config);
 
-            var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds when only one unit is passed in the POST body. (optional) 
+            var xFactSetApiLongRunningDeadline = 10;  // int? | Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional) 
             var cacheControl = "cacheControl_example";  // string | Standard HTTP header.  Accepts max-stale. (optional) 
             var vaultCalculationParametersRoot = new VaultCalculationParametersRoot(); // VaultCalculationParametersRoot | Calculation Parameters (optional) 
 
@@ -632,7 +632,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xFactSetApiLongRunningDeadline** | **int?**| Long running deadline in seconds when only one unit is passed in the POST body. | [optional] 
+ **xFactSetApiLongRunningDeadline** | **int?**| Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. | [optional] 
  **cacheControl** | **string**| Standard HTTP header.  Accepts max-stale. | [optional] 
  **vaultCalculationParametersRoot** | [**VaultCalculationParametersRoot**](VaultCalculationParametersRoot.md)| Calculation Parameters | [optional] 
 
@@ -721,7 +721,7 @@ namespace Example
             var apiInstance = new VaultCalculationsApi(config);
 
             var id = "id_example";  // string | from url, provided from the location header in the Create and Run Vault calculation endpoint
-            var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds when only one unit is passed in the PUT body. (optional) 
+            var xFactSetApiLongRunningDeadline = 10;  // int? | Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional) 
             var cacheControl = "cacheControl_example";  // string | Standard HTTP header.  Accepts max-stale. (optional) 
             var vaultCalculationParametersRoot = new VaultCalculationParametersRoot(); // VaultCalculationParametersRoot | Calculation Parameters (optional) 
 
@@ -763,7 +763,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| from url, provided from the location header in the Create and Run Vault calculation endpoint | 
- **xFactSetApiLongRunningDeadline** | **int?**| Long running deadline in seconds when only one unit is passed in the PUT body. | [optional] 
+ **xFactSetApiLongRunningDeadline** | **int?**| Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. | [optional] 
  **cacheControl** | **string**| Standard HTTP header.  Accepts max-stale. | [optional] 
  **vaultCalculationParametersRoot** | [**VaultCalculationParametersRoot**](VaultCalculationParametersRoot.md)| Calculation Parameters | [optional] 
 

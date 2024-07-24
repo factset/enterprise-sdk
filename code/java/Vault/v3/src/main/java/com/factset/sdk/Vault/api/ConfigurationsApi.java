@@ -65,8 +65,8 @@ public class ConfigurationsApi {
 
   /**
    * Get Vault configuration by id
-   * This endpoint returns details for a Vault configuration as well as a list of accounts it is used in.
-   * @param id Vault configuration id to get the details of (required)
+   * This endpoint returns details for a Vault configuration as well as a list of accounts it is used in.    The __lockingDate__ parameter in the response can help in identifying if the vault configuration data is locked or unlocked.
+   * @param id Vault configuration id to get the details of. This is a sample example for illustration purposes only. Client should use a valid Vault API Configuration Id to get a successful response. (required)
    * @return VaultConfigurationRoot
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -89,8 +89,8 @@ public class ConfigurationsApi {
 
   /**
    * Get Vault configuration by id
-   * This endpoint returns details for a Vault configuration as well as a list of accounts it is used in.
-   * @param id Vault configuration id to get the details of (required)
+   * This endpoint returns details for a Vault configuration as well as a list of accounts it is used in.    The __lockingDate__ parameter in the response can help in identifying if the vault configuration data is locked or unlocked.
+   * @param id Vault configuration id to get the details of. This is a sample example for illustration purposes only. Client should use a valid Vault API Configuration Id to get a successful response. (required)
    * @return ApiResponse&lt;VaultConfigurationRoot&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -156,7 +156,7 @@ public class ConfigurationsApi {
   /**
    * Get Vault configurations
    * This endpoint returns all the Vault configurations saved in the provided account.
-   * @param account Required account query parameter to filter configurations for a specific account (required)
+   * @param account Required account query parameter to filter configurations for a specific account. This is a sample example for illustration purposes only. Client should use a valid Portfolio Insight Account to get a successful response. (required)
    * @return VaultConfigurationSummaryRoot
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -180,7 +180,7 @@ public class ConfigurationsApi {
   /**
    * Get Vault configurations
    * This endpoint returns all the Vault configurations saved in the provided account.
-   * @param account Required account query parameter to filter configurations for a specific account (required)
+   * @param account Required account query parameter to filter configurations for a specific account. This is a sample example for illustration purposes only. Client should use a valid Portfolio Insight Account to get a successful response. (required)
    * @return ApiResponse&lt;VaultConfigurationSummaryRoot&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details

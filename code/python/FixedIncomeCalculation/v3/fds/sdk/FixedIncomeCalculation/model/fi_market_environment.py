@@ -60,6 +60,8 @@ class FIMarketEnvironment(ModelNormal):
             'FLAT': "FLAT",
             'FORWARD': "FORWARD",
             'FLAT_&amp;_FORWARD': "FLAT & FORWARD",
+
+
         },
     }
 

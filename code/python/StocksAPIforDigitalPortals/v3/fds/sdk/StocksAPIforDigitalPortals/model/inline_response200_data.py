@@ -73,6 +73,8 @@ class InlineResponse200Data(ModelNormal):
             'PREFERRED': "preferred",
             'DEPOSITORYRECEIPT': "depositoryReceipt",
             'OTHER': "other",
+
+
         },
     }
 

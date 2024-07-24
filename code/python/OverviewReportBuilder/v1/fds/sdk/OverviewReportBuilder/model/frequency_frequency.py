@@ -75,6 +75,8 @@ class FrequencyFrequency(ModelNormal):
             'YTD': "YTD",
             'FYTD': "FYTD",
             'CYTD': "CYTD",
+
+
         },
     }
 

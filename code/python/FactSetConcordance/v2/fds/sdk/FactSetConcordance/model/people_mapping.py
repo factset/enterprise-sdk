@@ -61,6 +61,8 @@ class PeopleMapping(ModelNormal):
             'MAPPED': "MAPPED",
             'UNMAPPED': "UNMAPPED",
             'INDETERMINATE': "INDETERMINATE",
+
+
         },
     }
 

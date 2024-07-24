@@ -62,6 +62,8 @@ class PostPricesTradingScheduleEventListRequestDataIdentifier(ModelNormal):
             'TICKERREGION': "tickerRegion",
             'FDSPERMANENTIDENTIFIERLISTING': "fdsPermanentIdentifierListing",
             'FDSPERMANENTIDENTIFIERREGIONAL': "fdsPermanentIdentifierRegional",
+
+
         },
     }
 

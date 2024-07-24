@@ -6,7 +6,7 @@
 # raise a `RecursionError`.
 # In order to avoid this, import only the API that you directly need like:
 #
-#   from .api.components_api import ComponentsApi
+#   from .api.accounts_api import AccountsApi
 #
 # or import this package, but before doing it, use:
 #
@@ -14,6 +14,7 @@
 #   sys.setrecursionlimit(n)
 
 # Import APIs into API package:
+from fds.sdk.Vault.api.accounts_api import AccountsApi
 from fds.sdk.Vault.api.components_api import ComponentsApi
 from fds.sdk.Vault.api.configurations_api import ConfigurationsApi
 from fds.sdk.Vault.api.dates_api import DatesApi

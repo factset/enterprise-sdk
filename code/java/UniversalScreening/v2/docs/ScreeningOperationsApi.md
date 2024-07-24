@@ -1,13 +1,13 @@
 # ScreeningOperationsApi
 
-All URIs are relative to *https://api.factset.com/universal-screening*
+All URIs are relative to *https://api.factset.com/universal-screening/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getCalculateResults**](ScreeningOperationsApi.md#getCalculateResults) | **GET** /v2/job/{id} | 
-[**pollCalculate**](ScreeningOperationsApi.md#pollCalculate) | **GET** /v2/job/{id}/status | 
-[**submitArchiveOFDB**](ScreeningOperationsApi.md#submitArchiveOFDB) | **POST** /v2/job/archive | 
-[**submitCalculate**](ScreeningOperationsApi.md#submitCalculate) | **POST** /v2/job/calculate | 
+[**getCalculateResults**](ScreeningOperationsApi.md#getCalculateResults) | **GET** /job/{id} | 
+[**pollCalculate**](ScreeningOperationsApi.md#pollCalculate) | **GET** /job/{id}/status | 
+[**submitArchiveOFDB**](ScreeningOperationsApi.md#submitArchiveOFDB) | **POST** /job/archive | 
+[**submitCalculate**](ScreeningOperationsApi.md#submitCalculate) | **POST** /job/calculate | 
 
 
 
@@ -60,9 +60,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         ScreeningOperationsApi apiInstance = new ScreeningOperationsApi(defaultClient);
-        String id = "id_example"; // String | Unique identifier for a screen calculation job
-        Integer paginationLimit = 56; // Integer | Page size limit (minumum 1000, default 10,000, maximum 100,000)
-        Integer paginationCursor = 56; // Integer | Paging index (Initial request may omit)
+        java.util.UUID id = new java.util.UUID(); // java.util.UUID | Unique identifier for a job. \"Job\" refers to a screen calculation or archival.
+        Integer paginationLimit = 10000; // Integer | Page size limit (minumum 1000, default 10,000, maximum 100,000)
+        Integer paginationCursor = 0; // Integer | Paging index (Initial request may omit)
         try {
             PaginatedCalculationResponse result = apiInstance.getCalculateResults(id, paginationLimit, paginationCursor);
             System.out.println(result);
@@ -83,9 +83,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Unique identifier for a screen calculation job |
- **paginationLimit** | **Integer**| Page size limit (minumum 1000, default 10,000, maximum 100,000) | [optional]
- **paginationCursor** | **Integer**| Paging index (Initial request may omit) | [optional]
+ **id** | **java.util.UUID**| Unique identifier for a job. \&quot;Job\&quot; refers to a screen calculation or archival. |
+ **paginationLimit** | **Integer**| Page size limit (minumum 1000, default 10,000, maximum 100,000) | [optional] [default to 10000]
+ **paginationCursor** | **Integer**| Paging index (Initial request may omit) | [optional] [default to 0]
 
 ### Return type
 
@@ -103,12 +103,14 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Paginated Screen Results and Metadata |  -  |
-| **202** | Calculation job still in progress |  * Location - Relative location to poll for status <br>  * X-FactSet-Api-PickUp-Progress - Screen progress <br>  |
-| **400** | The requested screen could not be opened. |  -  |
+| **200** | Paginated Screen Results and Metadata |  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
+| **202** | Long-running job still in progress |  * Location -  <br>  * X-FactSet-Api-PickUp-Progress -  <br>  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
+| **400** | The requested screen could not be opened. |  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
 | **401** | Invalid or missing authentication. |  -  |
-| **404** | Job ID not found. |  -  |
-| **410** | The results have been fetched for this ID. |  -  |
+| **403** | User is not authorized for this operation. |  -  |
+| **404** | Job ID not found. |  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
+| **410** | The results have been fetched for this ID. |  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
+| **429** | Too many requests. |  * X-FactSet-Api-Units-Limit -  <br>  * X-FactSet-Api-Units-Remaining -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  * Retry-After -  <br>  |
 | **500** | Internal Server Error |  * Request-Key - Provide this key when reporting this issue <br>  |
 
 
@@ -161,7 +163,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         ScreeningOperationsApi apiInstance = new ScreeningOperationsApi(defaultClient);
-        String id = "id_example"; // String | Unique identifier for a screen calculation job
+        java.util.UUID id = new java.util.UUID(); // java.util.UUID | Unique identifier for a job. \"Job\" refers to a screen calculation or archival.
         try {
             ResourceStatusResponse result = apiInstance.pollCalculate(id);
             System.out.println(result);
@@ -182,7 +184,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Unique identifier for a screen calculation job |
+ **id** | **java.util.UUID**| Unique identifier for a job. \&quot;Job\&quot; refers to a screen calculation or archival. |
 
 ### Return type
 
@@ -200,11 +202,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Job completed |  * Location - Relative location to poll for status <br>  * X-FactSet-Api-PickUp-Progress - Screen progress <br>  |
-| **202** | Calculation job still in progress |  * Location - Relative location to poll for status <br>  * X-FactSet-Api-PickUp-Progress - Screen progress <br>  |
+| **201** | Job completed |  * Location -  <br>  * X-FactSet-Api-PickUp-Progress -  <br>  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
+| **202** | Long-running job still in progress |  * Location -  <br>  * X-FactSet-Api-PickUp-Progress -  <br>  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
 | **401** | Invalid or missing authentication. |  -  |
-| **404** | Job ID not found. |  -  |
-| **410** | The results have been fetched for this ID. |  -  |
+| **403** | User is not authorized for this operation. |  -  |
+| **404** | Job ID not found. |  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
+| **410** | The results have been fetched for this ID. |  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
+| **429** | Too many requests. |  * X-FactSet-Api-Units-Limit -  <br>  * X-FactSet-Api-Units-Remaining -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  * Retry-After -  <br>  |
 | **500** | Internal Server Error |  * Request-Key - Provide this key when reporting this issue <br>  |
 
 
@@ -296,10 +300,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **202** | Successful archive OFDB submission response, returns the job ID unique to this archive and the URL in the Location header to check the status of the archive. |  * Location - Relative location to poll for status <br>  * X-FactSet-Api-Units-Limit - Maximum number of jobs. <br>  * X-FactSet-Api-Units-Remaining - Number of available jobs. <br>  * RateLimit-Limit - Number of weekly jobs available. <br>  * RateLimit-Remaining - Number of remaining weekly jobs. <br>  * RateLimit-Reset - Time, in seconds, until weekly limit resets. <br>  |
-| **400** | Invalid request body. |  -  |
+| **202** | Successful archive OFDB submission response, returns the job ID unique to this archive and the URL in the Location header to check the status of the archive. |  * Location -  <br>  * X-FactSet-Api-Units-Limit -  <br>  * X-FactSet-Api-Units-Remaining -  <br>  * X-RateLimit-Limit-604800 -  <br>  * X-RateLimit-Remaining-604800 -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
+| **400** | Invalid request body. |  * X-RateLimit-Limit-604800 -  <br>  * X-RateLimit-Remaining-604800 -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
 | **401** | Invalid or missing authentication. |  -  |
-| **429** | Too many requests. |  * X-FactSet-Api-Units-Limit - Maximum number of jobs. <br>  * X-FactSet-Api-Units-Remaining - Number of available jobs. <br>  |
+| **429** | Too many requests. |  * X-FactSet-Api-Units-Limit -  <br>  * X-FactSet-Api-Units-Remaining -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  * Retry-After -  <br>  |
 | **500** | Internal Server Error |  * Request-Key - Provide this key when reporting this issue <br>  |
 
 
@@ -391,9 +395,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **202** | Successful calculation submission response, returns the job ID unique to this calculation and the URL in the Location header to check the status of the calculation. |  * Location - Relative location to poll for status <br>  * X-FactSet-Api-Units-Limit - Maximum number of jobs. <br>  * X-FactSet-Api-Units-Remaining - Number of available jobs. <br>  * RateLimit-Limit - Number of weekly jobs available. <br>  * RateLimit-Remaining - Number of remaining weekly jobs. <br>  * RateLimit-Reset - Time, in seconds, until weekly limit resets. <br>  |
-| **400** | Invalid request body. |  -  |
+| **202** | Successful calculation submission response, returns the job ID unique to this calculation and the URL in the Location header to check the status of the calculation. |  * Location -  <br>  * X-FactSet-Api-Units-Limit -  <br>  * X-FactSet-Api-Units-Remaining -  <br>  * X-RateLimit-Limit-604800 -  <br>  * X-RateLimit-Remaining-604800 -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
+| **400** | Invalid request body. |  * X-RateLimit-Limit-604800 -  <br>  * X-RateLimit-Remaining-604800 -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
 | **401** | Invalid or missing authentication. |  -  |
-| **429** | Too many requests. |  * X-FactSet-Api-Units-Limit - Maximum number of jobs. <br>  * X-FactSet-Api-Units-Remaining - Number of available jobs. <br>  |
+| **429** | Too many requests. |  * X-FactSet-Api-Units-Limit -  <br>  * X-FactSet-Api-Units-Remaining -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  * Retry-After -  <br>  |
 | **500** | Internal Server Error |  * Request-Key - Provide this key when reporting this issue <br>  |
 

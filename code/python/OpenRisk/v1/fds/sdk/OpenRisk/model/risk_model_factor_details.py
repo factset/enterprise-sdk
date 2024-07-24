@@ -59,6 +59,8 @@ class RiskModelFactorDetails(ModelNormal):
         ('defined_as',): {
             'PERCENTCHG': "PercentChg",
             '1STDIFF': "1stDiff",
+
+
         },
     }
 

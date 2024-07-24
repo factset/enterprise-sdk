@@ -62,6 +62,8 @@ class FrequencyFi(ModelSimple):
             'AY': "AY",
             'CY': "CY",
             'CYTD': "CYTD",
+
+
         },
     }
 

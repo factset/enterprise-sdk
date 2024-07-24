@@ -60,6 +60,8 @@ class SMDeleteParameters(ModelNormal):
             'None': None,
             'BOND': "Bond",
             'CCF': "CCF",
+
+
         },
     }
 

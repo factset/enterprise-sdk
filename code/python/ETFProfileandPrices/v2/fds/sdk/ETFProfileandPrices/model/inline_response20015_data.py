@@ -68,12 +68,16 @@ class InlineResponse20015Data(ModelNormal):
             'COMMODITIES': "Commodities",
             'CURRENCY': "Currency",
             'ASSET_ALLOCATION': "Asset Allocation",
+
+
         },
         ('economic_development',): {
             'DEVELOPED_MARKETS': "Developed Markets",
             'BLENDED_DEVELOPMENT': "Blended Development",
             'EMERGING_MARKETS': "Emerging Markets",
             'FRONTIER_MARKETS': "Frontier Markets",
+
+
         },
     }
 

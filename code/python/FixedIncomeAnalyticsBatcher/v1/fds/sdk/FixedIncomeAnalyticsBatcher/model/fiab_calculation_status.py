@@ -67,6 +67,8 @@ class FIABCalculationStatus(ModelNormal):
             'PAUSED': "Paused",
             'CANCELLED': "Cancelled",
             'ERROR': "Error",
+
+
         },
     }
 

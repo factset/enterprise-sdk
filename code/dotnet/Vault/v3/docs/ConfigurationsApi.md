@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 Get Vault configuration by id
 
-This endpoint returns details for a Vault configuration as well as a list of accounts it is used in.
+This endpoint returns details for a Vault configuration as well as a list of accounts it is used in.    The __lockingDate__ parameter in the response can help in identifying if the vault configuration data is locked or unlocked.
 
 ### Example
 
@@ -61,7 +61,7 @@ namespace Example
 
             var apiInstance = new ConfigurationsApi(config);
 
-            var id = "id_example";  // string | Vault configuration id to get the details of
+            var id = "e95ef921-b4d4-4bb7-93ba-60eca8e3247a";  // string | Vault configuration id to get the details of. This is a sample example for illustration purposes only. Client should use a valid Vault API Configuration Id to get a successful response.
 
             try
             {
@@ -84,7 +84,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Vault configuration id to get the details of | 
+ **id** | **string**| Vault configuration id to get the details of. This is a sample example for illustration purposes only. Client should use a valid Vault API Configuration Id to get a successful response. | 
 
 ### Return type
 [**VaultConfigurationRoot**](VaultConfigurationRoot.md)
@@ -167,7 +167,7 @@ namespace Example
 
             var apiInstance = new ConfigurationsApi(config);
 
-            var account = "account_example";  // string | Required account query parameter to filter configurations for a specific account
+            var account = "CLIENT:/MAC/DEMO/DEMO_PS_EQ_EM_COUNTRY_ALPHA.ACCT";  // string | Required account query parameter to filter configurations for a specific account. This is a sample example for illustration purposes only. Client should use a valid Portfolio Insight Account to get a successful response.
 
             try
             {
@@ -190,7 +190,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account** | **string**| Required account query parameter to filter configurations for a specific account | 
+ **account** | **string**| Required account query parameter to filter configurations for a specific account. This is a sample example for illustration purposes only. Client should use a valid Portfolio Insight Account to get a successful response. | 
 
 ### Return type
 [**VaultConfigurationSummaryRoot**](VaultConfigurationSummaryRoot.md)

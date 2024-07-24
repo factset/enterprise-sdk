@@ -55,7 +55,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new VaultCalculationsApi();
-const id = "id_example"; // String | from url, provided from the location header in the Create and Run Vault calculation endpoint
+const id = 3d06d752c26d4fafaafa1dacd958670c; // String | from url, provided from the location header in the Create and Run Vault calculation endpoint
 
 // Call api endpoint
 apiInstance.cancelCalculationById(id).then(
@@ -213,7 +213,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new VaultCalculationsApi();
-const id = "id_example"; // String | from url, provided from the location header in the Create and Run Vault calculation endpoint
+const id = 3d06d752c26d4fafaafa1dacd958670c; // String | from url, provided from the location header in the Create and Run Vault calculation endpoint
 
 // Call api endpoint
 apiInstance.getCalculationParameters(id).then(
@@ -292,7 +292,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new VaultCalculationsApi();
-const id = "id_example"; // String | from url, provided from the location header in the Create and Run Vault calculation endpoint
+const id = 3d06d752c26d4fafaafa1dacd958670c; // String | from url, provided from the location header in the Create and Run Vault calculation endpoint
 
 // Call api endpoint
 apiInstance.getCalculationStatusById(id).then(
@@ -371,8 +371,8 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new VaultCalculationsApi();
-const id = "id_example"; // String | from url, provided from the location header in the Get Vault calculation status by id endpoint
-const unitId = "unitId_example"; // String | from url, provided from the location header in the Get Vault calculation status by id endpoint
+const id = 3d06d752c26d4fafaafa1dacd958670c; // String | from url, provided from the location header in the Get Vault calculation status by id endpoint
+const unitId = vault1; // String | from url, provided from the location header in the Get Vault calculation status by id endpoint
 
 // Call api endpoint
 apiInstance.getCalculationUnitResultById(id, unitId).then(
@@ -453,9 +453,9 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new VaultCalculationsApi();
 const opts = {
-  'xFactSetApiLongRunningDeadline': 56, // Number | Long running deadline in seconds when only one unit is passed in the POST body.
+  'xFactSetApiLongRunningDeadline': 10, // Number | Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation.
   'cacheControl': "cacheControl_example", // String | Standard HTTP header.  Accepts max-stale.
-  'vaultCalculationParametersRoot': new vault.VaultCalculationParametersRoot() // VaultCalculationParametersRoot | Calculation Parameters
+  'vaultCalculationParametersRoot': {"data":{"vault1":{"componentid":"7CF4BCEB46020A5D3C78344108905FF73A4937F5E37CFF6BD97EC29545341935","account":{"id":"CLIENT:/MAC/DEMO/DEMO_PS_EQ_EM_COUNTRY_ALPHA.ACCT"},"dates":{"startdate":"20180501","enddate":"20180601","frequency":"Monthly"},"configid":"e95ef921-b4d4-4bb7-93ba-60eca8e3247a"}}} // VaultCalculationParametersRoot | Calculation Parameters
 };
 
 // Call api endpoint
@@ -496,7 +496,7 @@ apiInstance.postAndCalculate(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xFactSetApiLongRunningDeadline** | **Number**| Long running deadline in seconds when only one unit is passed in the POST body. | [optional] 
+ **xFactSetApiLongRunningDeadline** | **Number**| Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. | [optional] 
  **cacheControl** | **String**| Standard HTTP header.  Accepts max-stale. | [optional] 
  **vaultCalculationParametersRoot** | [**VaultCalculationParametersRoot**](VaultCalculationParametersRoot.md)| Calculation Parameters | [optional] 
 
@@ -557,9 +557,9 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 const apiInstance = new VaultCalculationsApi();
 const id = "id_example"; // String | from url, provided from the location header in the Create and Run Vault calculation endpoint
 const opts = {
-  'xFactSetApiLongRunningDeadline': 56, // Number | Long running deadline in seconds when only one unit is passed in the PUT body.
+  'xFactSetApiLongRunningDeadline': 10, // Number | Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation.
   'cacheControl': "cacheControl_example", // String | Standard HTTP header.  Accepts max-stale.
-  'vaultCalculationParametersRoot': new vault.VaultCalculationParametersRoot() // VaultCalculationParametersRoot | Calculation Parameters
+  'vaultCalculationParametersRoot': {"data":{"vault1":{"componentid":"7CF4BCEB46020A5D3C78344108905FF73A4937F5E37CFF6BD97EC29545341935","account":{"id":"CLIENT:/MAC/DEMO/DEMO_PS_EQ_EM_COUNTRY_ALPHA.ACCT"},"dates":{"startdate":"20180501","enddate":"20180601","frequency":"Monthly"},"configid":"e95ef921-b4d4-4bb7-93ba-60eca8e3247a"}}} // VaultCalculationParametersRoot | Calculation Parameters
 };
 
 // Call api endpoint
@@ -601,7 +601,7 @@ apiInstance.putAndCalculate(id, opts).then(
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| from url, provided from the location header in the Create and Run Vault calculation endpoint | 
- **xFactSetApiLongRunningDeadline** | **Number**| Long running deadline in seconds when only one unit is passed in the PUT body. | [optional] 
+ **xFactSetApiLongRunningDeadline** | **Number**| Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. | [optional] 
  **cacheControl** | **String**| Standard HTTP header.  Accepts max-stale. | [optional] 
  **vaultCalculationParametersRoot** | [**VaultCalculationParametersRoot**](VaultCalculationParametersRoot.md)| Calculation Parameters | [optional] 
 

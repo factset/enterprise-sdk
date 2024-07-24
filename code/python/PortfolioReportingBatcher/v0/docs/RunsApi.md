@@ -266,7 +266,6 @@ with fds.sdk.PortfolioReportingBatcher.ApiClient(configuration) as api_client:
         data=StartJob(
             job_name="job_name_example",
             overrides=JobOverrides(
-                calendar=Calendar("fiveDay"),
                 combinations=[
                     JobOverridesCombinationsRoot(
                         accounts=[
@@ -275,18 +274,19 @@ with fds.sdk.PortfolioReportingBatcher.ApiClient(configuration) as api_client:
                         dates=[
                             dateutil_parser('1970-01-01').date(),
                         ],
+                        date_range=JobOverridesCombinationsRootDateRange(
+                            end=dateutil_parser('1970-01-01').date(),
+                            start=dateutil_parser('1970-01-01').date(),
+                            calendar=Calendar("fiveDay"),
+                            frequency=Frequency("daily"),
+                        ),
+                        tasks=[
+                            "tasks_example",
+                        ],
+                        all_tasks=True,
                     ),
                 ],
-                dates=JobOverridesDates(
-                    end=dateutil_parser('1970-01-01').date(),
-                    start=dateutil_parser('1970-01-01').date(),
-                ),
-                frequency=Frequency("daily"),
-                run_as_of_date=dateutil_parser('1970-01-01').date(),
                 run_as_serial_number="run_as_serial_number_example",
-                tasks=[
-                    "tasks_example",
-                ],
             ),
             job_type=JobTypes("vault"),
         ),

@@ -60,6 +60,8 @@ class FIBalloonExtension(ModelNormal):
             'NONE': "Loan_Amort_None",
             'REGULAR': "Loan_Amort_Regular",
             'DEFAULT': "Loan_Amort_Default",
+
+
         },
     }
 

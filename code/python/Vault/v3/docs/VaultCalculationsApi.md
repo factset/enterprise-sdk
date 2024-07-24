@@ -66,7 +66,7 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
     api_instance = vault_calculations_api.VaultCalculationsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    id = "id_example" # str | from url, provided from the location header in the Create and Run Vault calculation endpoint
+    id = "3d06d752c26d4fafaafa1dacd958670c" # str | from url, provided from the location header in the Create and Run Vault calculation endpoint
 
     try:
         # Cancel Vault calculation by id
@@ -268,7 +268,7 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
     api_instance = vault_calculations_api.VaultCalculationsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    id = "id_example" # str | from url, provided from the location header in the Create and Run Vault calculation endpoint
+    id = "3d06d752c26d4fafaafa1dacd958670c" # str | from url, provided from the location header in the Create and Run Vault calculation endpoint
 
     try:
         # Get Vault calculation parameters by id
@@ -368,7 +368,7 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
     api_instance = vault_calculations_api.VaultCalculationsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    id = "id_example" # str | from url, provided from the location header in the Create and Run Vault calculation endpoint
+    id = "3d06d752c26d4fafaafa1dacd958670c" # str | from url, provided from the location header in the Create and Run Vault calculation endpoint
 
     try:
         # Get Vault calculation status by id
@@ -469,8 +469,8 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
     api_instance = vault_calculations_api.VaultCalculationsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    id = "id_example" # str | from url, provided from the location header in the Get Vault calculation status by id endpoint
-    unit_id = "unitId_example" # str | from url, provided from the location header in the Get Vault calculation status by id endpoint
+    id = "3d06d752c26d4fafaafa1dacd958670c" # str | from url, provided from the location header in the Get Vault calculation status by id endpoint
+    unit_id = "vault1" # str | from url, provided from the location header in the Get Vault calculation status by id endpoint
 
     try:
         # Get Vault calculation result by id
@@ -571,7 +571,7 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
     api_instance = vault_calculations_api.VaultCalculationsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    x_fact_set_api_long_running_deadline = 1 # int | Long running deadline in seconds when only one unit is passed in the POST body. (optional)
+    x_fact_set_api_long_running_deadline = 10 # int | Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)
     cache_control = "Cache-Control_example" # str | Standard HTTP header.  Accepts max-stale. (optional)
     vault_calculation_parameters_root = VaultCalculationParametersRoot(
         data={
@@ -623,7 +623,7 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_fact_set_api_long_running_deadline** | **int**| Long running deadline in seconds when only one unit is passed in the POST body. | [optional]
+ **x_fact_set_api_long_running_deadline** | **int**| Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. | [optional]
  **cache_control** | **str**| Standard HTTP header.  Accepts max-stale. | [optional]
  **vault_calculation_parameters_root** | [**VaultCalculationParametersRoot**](VaultCalculationParametersRoot.md)| Calculation Parameters | [optional]
 
@@ -716,7 +716,7 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | from url, provided from the location header in the Create and Run Vault calculation endpoint
-    x_fact_set_api_long_running_deadline = 1 # int | Long running deadline in seconds when only one unit is passed in the PUT body. (optional)
+    x_fact_set_api_long_running_deadline = 10 # int | Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)
     cache_control = "Cache-Control_example" # str | Standard HTTP header.  Accepts max-stale. (optional)
     vault_calculation_parameters_root = VaultCalculationParametersRoot(
         data={
@@ -769,7 +769,7 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| from url, provided from the location header in the Create and Run Vault calculation endpoint |
- **x_fact_set_api_long_running_deadline** | **int**| Long running deadline in seconds when only one unit is passed in the PUT body. | [optional]
+ **x_fact_set_api_long_running_deadline** | **int**| Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. | [optional]
  **cache_control** | **str**| Standard HTTP header.  Accepts max-stale. | [optional]
  **vault_calculation_parameters_root** | [**VaultCalculationParametersRoot**](VaultCalculationParametersRoot.md)| Calculation Parameters | [optional]
 

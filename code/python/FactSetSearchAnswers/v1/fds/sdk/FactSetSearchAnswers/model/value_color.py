@@ -59,6 +59,8 @@ class ValueColor(ModelSimple):
             'COLORSELL': "colorSell",
             'COLOROVERWEIGHT': "colorOverweight",
             'COLORUNDERWEIGHT': "colorUnderweight",
+
+
         },
     }
 

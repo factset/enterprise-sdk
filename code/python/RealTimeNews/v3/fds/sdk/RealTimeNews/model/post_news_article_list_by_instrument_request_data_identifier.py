@@ -69,6 +69,8 @@ class PostNewsArticleListByInstrumentRequestDataIdentifier(ModelNormal):
             'WKN': "wkn",
             'VALOR': "valor",
             'CUSIP': "cusip",
+
+
         },
     }
 

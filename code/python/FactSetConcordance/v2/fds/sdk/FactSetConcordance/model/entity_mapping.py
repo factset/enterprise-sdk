@@ -61,6 +61,8 @@ class EntityMapping(ModelNormal):
             'MAPPED': "MAPPED",
             'UNMAPPED': "UNMAPPED",
             'INDETERMINATE': "INDETERMINATE",
+
+
         },
     }
 

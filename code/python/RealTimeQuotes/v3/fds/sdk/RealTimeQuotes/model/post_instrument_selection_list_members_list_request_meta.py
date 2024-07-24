@@ -73,6 +73,8 @@ class PostInstrumentSelectionListMembersListRequestMeta(ModelNormal):
             '-NAME.ASSETCLASSSPECIFIC.LONG': "-name.assetClassSpecific.long",
             'NAME.ASSETCLASSSPECIFIC.SHORT': "name.assetClassSpecific.short",
             '-NAME.ASSETCLASSSPECIFIC.SHORT': "-name.assetClassSpecific.short",
+
+
         },
     }
 

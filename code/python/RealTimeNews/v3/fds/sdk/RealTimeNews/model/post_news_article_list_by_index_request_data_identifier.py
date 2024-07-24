@@ -62,6 +62,8 @@ class PostNewsArticleListByIndexRequestDataIdentifier(ModelNormal):
             'TICKERREGION': "tickerRegion",
             'FDSPERMANENTIDENTIFIERLISTING': "fdsPermanentIdentifierListing",
             'FDSPERMANENTIDENTIFIERREGIONAL': "fdsPermanentIdentifierRegional",
+
+
         },
     }
 

@@ -59,6 +59,8 @@ class MetricMetric(ModelNormal):
         ('value',): {
             'FIN': "FIN",
             'RAT': "RAT",
+
+
         },
     }
 

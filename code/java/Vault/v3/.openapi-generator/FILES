@@ -6,6 +6,9 @@ README.md
 api/openapi.yaml
 build.gradle
 build.sbt
+docs/AccountDirectories.md
+docs/AccountDirectoriesRoot.md
+docs/AccountsApi.md
 docs/CalculationMeta.md
 docs/CalculationStatus.md
 docs/CalculationStatusMeta.md
@@ -65,6 +68,7 @@ src/main/java/com/factset/sdk/Vault/RFC3339DateFormat.java
 src/main/java/com/factset/sdk/Vault/ServerConfiguration.java
 src/main/java/com/factset/sdk/Vault/ServerVariable.java
 src/main/java/com/factset/sdk/Vault/StringUtil.java
+src/main/java/com/factset/sdk/Vault/api/AccountsApi.java
 src/main/java/com/factset/sdk/Vault/api/ComponentsApi.java
 src/main/java/com/factset/sdk/Vault/api/ConfigurationsApi.java
 src/main/java/com/factset/sdk/Vault/api/DatesApi.java
@@ -79,6 +83,8 @@ src/main/java/com/factset/sdk/Vault/auth/HttpBearerAuth.java
 src/main/java/com/factset/sdk/Vault/auth/OAuth.java
 src/main/java/com/factset/sdk/Vault/auth/OAuthFlow.java
 src/main/java/com/factset/sdk/Vault/models/AbstractOpenApiSchema.java
+src/main/java/com/factset/sdk/Vault/models/AccountDirectories.java
+src/main/java/com/factset/sdk/Vault/models/AccountDirectoriesRoot.java
 src/main/java/com/factset/sdk/Vault/models/CalculationMeta.java
 src/main/java/com/factset/sdk/Vault/models/CalculationStatus.java
 src/main/java/com/factset/sdk/Vault/models/CalculationStatusMeta.java

@@ -66,6 +66,8 @@ class InlineResponse20062DataCostsAndCharges(ModelNormal):
             'None': None,
             'CURRENCY': "currency",
             'PERCENT': "percent",
+
+
         },
     }
 

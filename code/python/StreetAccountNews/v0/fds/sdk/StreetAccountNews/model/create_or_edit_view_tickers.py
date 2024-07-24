@@ -62,6 +62,8 @@ class CreateOrEditViewTickers(ModelNormal):
             'HOLDER': "Holder",
             'MUTUAL_FUND': "Mutual_Fund",
             'PORTFOLIOS': "Portfolios",
+
+
         },
     }
 

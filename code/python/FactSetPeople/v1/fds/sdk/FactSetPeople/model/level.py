@@ -55,6 +55,8 @@ class Level(ModelSimple):
         ('value',): {
             'SUMMARY': "SUMMARY",
             'DETAIL': "DETAIL",
+
+
         },
     }
 

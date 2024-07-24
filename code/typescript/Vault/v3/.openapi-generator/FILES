@@ -4,6 +4,9 @@
 .travis.yml
 LICENSE
 README.md
+docs/AccountDirectories.md
+docs/AccountDirectoriesRoot.md
+docs/AccountsApi.md
 docs/CalculationMeta.md
 docs/CalculationStatus.md
 docs/CalculationStatusMeta.md
@@ -47,6 +50,7 @@ git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js
+src/api/AccountsApi.js
 src/api/ComponentsApi.js
 src/api/ConfigurationsApi.js
 src/api/DatesApi.js
@@ -54,6 +58,8 @@ src/api/DocumentsApi.js
 src/api/FrequenciesApi.js
 src/api/VaultCalculationsApi.js
 src/index.js
+src/model/AccountDirectories.js
+src/model/AccountDirectoriesRoot.js
 src/model/CalculationMeta.js
 src/model/CalculationStatus.js
 src/model/CalculationStatusMeta.js

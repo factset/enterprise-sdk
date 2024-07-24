@@ -55,6 +55,8 @@ class ReturnType(ModelSimple):
         ('value',): {
             'GROSS': "GROSS",
             'NET': "NET",
+
+
         },
     }
 

@@ -59,11 +59,15 @@ class FieldProperties(ModelNormal):
         ('iteration',): {
             '2D': "2D",
             '3D': "3D",
+
+
         },
         ('split_direction',): {
             'NONE': "NONE",
             'NORMAL': "NORMAL",
             'REVERSE': "REVERSE",
+
+
         },
         ('type',): {
             'INT': "INT",
@@ -73,6 +77,8 @@ class FieldProperties(ModelNormal):
             'LONG_CHAR': "LONG_CHAR",
             'STRING': "STRING",
             'DATE': "DATE",
+
+
         },
     }
 

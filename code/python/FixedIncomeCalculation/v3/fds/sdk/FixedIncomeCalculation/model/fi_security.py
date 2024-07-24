@@ -80,11 +80,15 @@ class FISecurity(ModelNormal):
             'INTRINSIC_VALUE': "Intrinsic Value",
             'FIRST_CALL': "First Call",
             'FIRST_PAR': "First Par",
+
+
         },
         ('face_type',): {
             'None': None,
             'CURRENT': "Current",
             'ORIGINAL': "Original",
+
+
         },
     }
 

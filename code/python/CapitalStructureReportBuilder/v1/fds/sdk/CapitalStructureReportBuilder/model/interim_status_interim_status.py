@@ -62,6 +62,8 @@ class InterimStatusInterimStatus(ModelNormal):
             'REDEEMED': "redeemed",
             'TERMINATED': "terminated",
             'DEFAULTED': "defaulted",
+
+
         },
     }
 

@@ -65,6 +65,8 @@ class CalculationStatus(ModelNormal):
             'EXECUTING': "Executing",
             'COMPLETED': "Completed",
             'CANCELLED': "Cancelled",
+
+
         },
     }
 

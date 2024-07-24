@@ -60,18 +60,26 @@ class CrossSectionalRequestData(ModelNormal):
             'EQUITY': "EQUITY",
             'DEBT': "DEBT",
             'FUND': "FUND",
+
+
         },
         ('fsym_id',): {
             'Y': "Y",
             'N': "N",
+
+
         },
         ('flatten',): {
             'Y': "Y",
             'N': "N",
+
+
         },
         ('batch',): {
             'Y': "Y",
             'N': "N",
+
+
         },
         ('frequency',): {
             'D': "D",
@@ -81,6 +89,8 @@ class CrossSectionalRequestData(ModelNormal):
             'CQ': "CQ",
             'AY': "AY",
             'CY': "CY",
+
+
         },
     }
 

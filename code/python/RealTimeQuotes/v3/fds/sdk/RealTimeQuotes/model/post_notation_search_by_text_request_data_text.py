@@ -67,6 +67,8 @@ class PostNotationSearchByTextRequestDataText(ModelNormal):
             'NORMALIZEDSYMBOL': "normalizedSymbol",
             'LONGNAME': "longName",
             'SHORTNAME': "shortName",
+
+
         },
     }
 

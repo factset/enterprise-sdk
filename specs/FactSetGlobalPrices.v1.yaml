@@ -166,7 +166,7 @@ paths:
           * **SPL** - Split
           * **EXOS** - Exchange of Securities
       parameters:
-        - $ref: '#/components/parameters/idsBatchMax2000'
+        - $ref: '#/components/parameters/idsBatchMax50'
         - $ref: '#/components/parameters/eventCategory'
         - $ref: '#/components/parameters/fieldsCorporateActions'
         - $ref: '#/components/parameters/startDateCA'
@@ -287,7 +287,7 @@ paths:
         The annualized dividend calculations does not involve cancelled
         dividends.
       parameters:
-        - $ref: '#/components/parameters/idsBatchMax2000'
+        - $ref: '#/components/parameters/idsBatchMax50'
         - $ref: '#/components/parameters/currency'
         - $ref: '#/components/parameters/batch'
       responses:
@@ -381,7 +381,7 @@ paths:
         Returns for the requested ids and currency for the given dates.
         Depending on the input parameters the return data is provided. 
       parameters:
-        - $ref: '#/components/parameters/idsBatchMax2000'
+        - $ref: '#/components/parameters/idsBatchMax50'
         - $ref: '#/components/parameters/startDate'
         - $ref: '#/components/parameters/endDate'
         - $ref: '#/components/parameters/currency'
@@ -482,7 +482,7 @@ paths:
         Returns security level shares outstanding data for the given ids and
         dates. At this time, all values returned are split adjusted.
       parameters:
-        - $ref: '#/components/parameters/idsBatchMax1000'
+        - $ref: '#/components/parameters/idsBatchMax50'
         - $ref: '#/components/parameters/startDateSS'
         - $ref: '#/components/parameters/endDate'
         - $ref: '#/components/parameters/frequency'
@@ -541,6 +541,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/sharesOutstandingRequest'
+            examples:
+              Security Shares Request over 1 year period for one security - FactSet (FDS-US):
+                $ref: '#/components/examples/postSecurityShares'
       responses:
         '200':
           description: Array of shares outstanding
@@ -548,6 +551,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/sharesOutstandingResponse'
+              examples:
+                Shares Outstanding:
+                  $ref: '#/components/examples/sharesOutstanding'
         '202':
           description: Batch request has been accepted.
           content:
@@ -1000,6 +1006,36 @@ components:
           * **SPLIT** = Split ONLY Adjusted. This is used by default.
           * **SPLIT_SPINOFF** = Splits & Spinoff Adjusted.
           * **UNSPLIT** = No Adjustments.
+          
+    idsBatchMax50:
+      name: ids
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+      required: true
+      explode: false
+      description: >-
+        The requested list of security identifiers. Accepted ID types include
+        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.<p>***ids
+        limit** =  50 per both non-batch request and batch request*</p> *<p>Make
+        note, GET Method URL request lines are also limited to a total length of
+        8192 bytes (8KB). In cases where the service allows for thousands of
+        ids, which may lead to exceeding this request line limit of 8KB, it's
+        advised for any requests with large request lines to be requested
+        through the respective "POST" method.</p>*
+      examples:
+        oneEquityId:
+          summary: One Equity Market Identifier
+          value:
+            - AAPL-USA
+        multipleEquityIds:
+          summary: Multiple Equity Market Identifiers
+          value:
+            - FDS-US
+            - AAPL-US
+            - MSFT-US
     idsBatchMax2000:
       name: ids
       in: query
@@ -1013,12 +1049,13 @@ components:
         The requested list of security identifiers. Accepted ID types include
         Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.<p>***ids
         limit** =  1000 per non-batch request / 2000 per batch request for a
-        single day and 50 per multi-day request*</p> *<p>Make note, GET Method
-        URL request lines are also limited to a total length of 8192 bytes
-        (8KB). In cases where the service allows for thousands of ids, which may
-        lead to exceeding this request line limit of 8KB, it's advised for any
-        requests with large request lines to be requested through the respective
-        "POST" method.</p>*
+        single day and 50 per multi-day request. The number of unique currencies
+        present in the requested ids is limited to 50 per request.*</p> *<p>Make
+        note, GET Method URL request lines are also limited to a total length of
+        8192 bytes (8KB). In cases where the service allows for thousands of
+        ids, which may lead to exceeding this request line limit of 8KB, it's
+        advised for any requests with large request lines to be requested
+        through the respective "POST" method.</p>*
       examples:
         oneEquityId:
           summary: One Equity Market Identifier
@@ -1197,7 +1234,7 @@ components:
       type: object
       properties:
         ids:
-          $ref: '#/components/schemas/idsBatchMax10000'
+          $ref: '#/components/schemas/idsBatchMax2000'
         fields:
           $ref: '#/components/schemas/pricesFields'
         startDate:
@@ -1393,7 +1430,7 @@ components:
       type: object
       properties:
         ids:
-          $ref: '#/components/schemas/idsBatchMax10000'
+          $ref: '#/components/schemas/idsMax50'
         eventCategory:
           $ref: '#/components/schemas/eventCategory'
         fields:
@@ -1416,7 +1453,7 @@ components:
       type: object
       properties:
         ids:
-          $ref: '#/components/schemas/idsBatchMax10000'
+          $ref: '#/components/schemas/idsMax50'
         currency:
           $ref: '#/components/schemas/requestCurrency'
         batch:
@@ -1511,7 +1548,7 @@ components:
         Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. Requests
         are limited to 50 IDs.
       example:
-        - TSLA-US
+        - AAPL-US
     idsMax1000:
       title: ids
       type: array
@@ -1541,7 +1578,7 @@ components:
       type: object
       properties:
         ids:
-          $ref: '#/components/schemas/idsBatchMax2000'
+          $ref: '#/components/schemas/idsMax50'
         startDate:
           $ref: '#/components/schemas/startDate'
         endDate:
@@ -2020,6 +2057,14 @@ components:
         currency ISO codes, visit [Online Assistant Page
         1470](https://oa.apps.factset.com/pages/1470).
       example: USD
+    idsBatchMax50:
+      title: ids
+      type: string
+      description: >-
+        The requested list of security identifiers. Accepted ID types include
+        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.<p>***ids
+        limit** =  50 per both non-batch request and batch request*</p>
+      example: AAPL-US
     adjust:
       title: Adjust
       type: string
@@ -2535,7 +2580,7 @@ components:
       type: object
       properties:
         ids:
-          $ref: '#/components/schemas/idsBatchMax10000'
+          $ref: '#/components/schemas/idsMax50'
         startDate:
           $ref: '#/components/schemas/startDate'
         endDate:
@@ -2864,6 +2909,17 @@ components:
             Internal Server Error - General Exception:
               $ref: '#/components/examples/sogeneralException'
   examples:
+    postSecurityShares:
+      summary: Security Shares Request over 1 year period for FDS-US
+      value:
+        data:
+          ids:
+            - FDS-US
+          startDate: '2020-06-30'
+          endDate: '2021-06-30'
+          frequency: M
+          calendar: FIVEDAY
+          batch: 'N'
     DividendsFields:
       summary: Dividends Fields
       value:

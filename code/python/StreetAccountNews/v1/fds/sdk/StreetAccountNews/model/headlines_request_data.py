@@ -74,6 +74,8 @@ class HeadlinesRequestData(ModelNormal):
             'FIVEYEARS': "fiveYears",
             'TENYEARS': "tenYears",
             'ALLAVAILABLE': "allAvailable",
+
+
         },
     }
 

@@ -60,7 +60,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     api_instance = accounts_api.AccountsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    path = "Client:" # str | The directory to get the accounts and sub-directories in
+    path = "Client:" # str | The directory to get the accounts and sub-directories.
 
     try:
         # Get accounts and sub-directories in a directory
@@ -78,7 +78,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **str**| The directory to get the accounts and sub-directories in |
+ **path** | **str**| The directory to get the accounts and sub-directories. |
 
 ### Return type
 

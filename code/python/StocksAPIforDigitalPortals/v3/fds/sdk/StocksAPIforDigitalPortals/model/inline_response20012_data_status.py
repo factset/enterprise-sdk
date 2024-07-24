@@ -59,6 +59,8 @@ class InlineResponse20012DataStatus(ModelNormal):
             'None': None,
             'NONE': "none",
             'PARAMETER': "parameter",
+
+
         },
     }
 

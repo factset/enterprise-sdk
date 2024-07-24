@@ -516,6 +516,8 @@ class PostStockNotationScreenerSearchRequestMeta(ModelNormal):
             '-ESTIMATES.THIRDFISCALYEAR.RATIOS.ENTERPRISEVALUEEBITDA.MEAN': "-estimates.thirdFiscalYear.ratios.enterpriseValueEbitda.mean",
             'ESTIMATES.THIRDFISCALYEAR.RATIOS.ENTERPRISEVALUESALES.MEAN': "estimates.thirdFiscalYear.ratios.enterpriseValueSales.mean",
             '-ESTIMATES.THIRDFISCALYEAR.RATIOS.ENTERPRISEVALUESALES.MEAN': "-estimates.thirdFiscalYear.ratios.enterpriseValueSales.mean",
+
+
         },
     }
 

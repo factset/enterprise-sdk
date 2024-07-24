@@ -62,6 +62,8 @@ class InboundOrderMetadata(ModelNormal):
             'SELL': "sell",
             'SELLSHORT': "sellShort",
             'SELLSHORTEXEMPT': "sellShortExempt",
+
+
         },
         ('order_type',): {
             'None': None,
@@ -71,6 +73,8 @@ class InboundOrderMetadata(ModelNormal):
             'STOPLIMIT': "stopLimit",
             'MARKETONCLOSE': "marketOnClose",
             'LIMITORBETTER': "limitOrBetter",
+
+
         },
     }
 

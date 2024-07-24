@@ -59,6 +59,8 @@ class InlineResponse20014SimpleMovingAverageTradingDaysSinceCrossoverSma50vs200(
             'None': None,
             'UP': "up",
             'DOWN': "down",
+
+
         },
     }
 

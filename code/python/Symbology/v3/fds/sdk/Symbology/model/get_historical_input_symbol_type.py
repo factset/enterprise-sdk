@@ -82,6 +82,8 @@ class GetHistoricalInputSymbolType(ModelSimple):
             'JCN': "JCN",
             'LOANX': "LoanX",
             'MARKITRED': "MarkitRed",
+
+
         },
     }
 

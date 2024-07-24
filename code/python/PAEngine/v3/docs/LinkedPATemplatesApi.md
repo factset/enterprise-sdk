@@ -81,7 +81,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
                 ],
             ),
         ),
-        meta=None,
+        meta={},
     ) # LinkedPATemplateParametersRoot | Request Parameters
 
     try:
@@ -511,7 +511,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
                 ],
             ),
         ),
-        meta=None,
+        meta={},
     ) # LinkedPATemplateUpdateParametersRoot | Request Parameters
 
     try:

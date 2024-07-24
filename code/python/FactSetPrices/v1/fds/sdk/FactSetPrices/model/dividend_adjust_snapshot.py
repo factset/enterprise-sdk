@@ -56,6 +56,8 @@ class DividendAdjustSnapshot(ModelSimple):
             'PRICE': "PRICE",
             'EXDATE': "EXDATE",
             'EXDATE_C': "EXDATE_C",
+
+
         },
     }
 

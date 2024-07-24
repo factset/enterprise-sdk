@@ -55,6 +55,8 @@ class SplitAdjust(ModelSimple):
         ('value',): {
             'SPLIT': "SPLIT",
             'UNSPLIT': "UNSPLIT",
+
+
         },
     }
 

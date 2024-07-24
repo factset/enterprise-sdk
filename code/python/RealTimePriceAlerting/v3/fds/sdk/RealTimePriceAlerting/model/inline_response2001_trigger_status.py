@@ -61,6 +61,8 @@ class InlineResponse2001TriggerStatus(ModelNormal):
             'ACTIVE': "active",
             'INACTIVE': "inactive",
             'ERROR': "error",
+
+
         },
     }
 

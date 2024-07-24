@@ -2,7 +2,7 @@
 
 # ActiveJobsData
 
-Object containing active jobs ids
+Object containing active job IDs
 
 ## Properties
 

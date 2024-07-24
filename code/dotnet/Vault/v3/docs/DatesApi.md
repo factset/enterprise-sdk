@@ -60,10 +60,10 @@ namespace Example
 
             var apiInstance = new DatesApi(config);
 
-            var enddate = "enddate_example";  // string | End Date
-            var componentid = "componentid_example";  // string | Vault Component Id
-            var account = "account_example";  // string | Account
-            var startdate = "startdate_example";  // string | Start Date (optional) 
+            var enddate = "-1AY";  // string | End Date
+            var componentid = "AFB43C61A6651B87988FEA62ED333638595AE7D8D7345A33AB9994CF23AFCC5D";  // string | Vault Component Id. This is a sample example for illustration purposes only. Client should use a valid Component Id to get a successful response.
+            var account = "CLIENT:/MAC/DEMO/DEMO_PS_EQ_EM_COUNTRY_ALPHA.ACCT";  // string | Account. This is a sample example for illustration purposes only. Client should use a valid Component Id to get a successful response.
+            var startdate = "-3AY";  // string | Start Date (optional) 
 
             try
             {
@@ -87,8 +87,8 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enddate** | **string**| End Date | 
- **componentid** | **string**| Vault Component Id | 
- **account** | **string**| Account | 
+ **componentid** | **string**| Vault Component Id. This is a sample example for illustration purposes only. Client should use a valid Component Id to get a successful response. | 
+ **account** | **string**| Account. This is a sample example for illustration purposes only. Client should use a valid Component Id to get a successful response. | 
  **startdate** | **string**| Start Date | [optional] 
 
 ### Return type

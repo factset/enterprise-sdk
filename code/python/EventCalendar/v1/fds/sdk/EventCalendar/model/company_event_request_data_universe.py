@@ -62,6 +62,8 @@ class CompanyEventRequestDataUniverse(ModelNormal):
             'ETF': "etf",
             'MUTUAL': "mutual",
             'ALLCOMPANIES': "allCompanies",
+
+
         },
     }
 

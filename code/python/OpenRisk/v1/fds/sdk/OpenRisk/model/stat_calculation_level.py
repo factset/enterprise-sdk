@@ -64,6 +64,8 @@ class StatCalculationLevel(ModelSimple):
             'FACTORGROUPSECURITY': "FactorGroupSecurity",
             'FACTORSECURITYGROUP': "FactorSecurityGroup",
             'FACTORGROUPSECURITYGROUP': "FactorGroupSecurityGroup",
+
+
         },
     }
 

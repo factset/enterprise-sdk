@@ -58,6 +58,8 @@ class PostStockNotationRankingIntradayListRequestDataPrices(ModelNormal):
         ('quality',): {
             'RLT': "RLT",
             'DLY': "DLY",
+
+
         },
     }
 

@@ -60,6 +60,8 @@ class PostAlertingPricesBasicTriggerListRequestDataFilterStatus(ModelNormal):
             'ACTIVE': "active",
             'INACTIVE': "inactive",
             'ERROR': "error",
+
+
         },
     }
 

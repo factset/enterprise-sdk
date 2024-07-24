@@ -1,12 +1,12 @@
 # fds.sdk.UniversalScreening.JobManagementApi
 
-All URIs are relative to *https://api.factset.com/universal-screening*
+All URIs are relative to *https://api.factset.com/universal-screening/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_active_job**](JobManagementApi.md#delete_active_job) | **DELETE** /v2/job/{id} | 
-[**delete_all_active_jobs**](JobManagementApi.md#delete_all_active_jobs) | **DELETE** /v2/jobs | 
-[**get_all_active_jobs**](JobManagementApi.md#get_all_active_jobs) | **GET** /v2/jobs | 
+[**delete_active_job**](JobManagementApi.md#delete_active_job) | **DELETE** /job/{id} | 
+[**delete_all_active_jobs**](JobManagementApi.md#delete_all_active_jobs) | **DELETE** /jobs | 
+[**get_all_active_jobs**](JobManagementApi.md#get_all_active_jobs) | **GET** /jobs | 
 
 
 
@@ -62,7 +62,7 @@ with fds.sdk.UniversalScreening.ApiClient(configuration) as api_client:
     api_instance = job_management_api.JobManagementApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    id = "id_example" # str | Unique identifier for a screen calculation job
+    id = "123e4567-e89b-12d3-a456-426655440000" # str | Unique identifier for a job. \"Job\" refers to a screen calculation or archival.
 
     try:
         # example passing only required values which don't have defaults set
@@ -78,7 +78,7 @@ with fds.sdk.UniversalScreening.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Unique identifier for a screen calculation job |
+ **id** | **str**| Unique identifier for a job. \&quot;Job\&quot; refers to a screen calculation or archival. |
 
 ### Return type
 
@@ -98,9 +98,10 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | No content |  -  |
+**204** | No content |  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
 **401** | Invalid or missing authentication. |  -  |
-**404** | Job ID not found. |  -  |
+**404** | Job ID not found. |  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
+**429** | Too many requests. |  * X-FactSet-Api-Units-Limit -  <br>  * X-FactSet-Api-Units-Remaining -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  * Retry-After -  <br>  |
 **500** | Internal Server Error |  * Request-Key - Provide this key when reporting this issue <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -189,9 +190,10 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | No Content |  -  |
+**204** | No content |  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
 **401** | Invalid or missing authentication. |  -  |
-**404** | Job ID not found. |  -  |
+**404** | Job ID not found. |  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
+**429** | Too many requests. |  * X-FactSet-Api-Units-Limit -  <br>  * X-FactSet-Api-Units-Remaining -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  * Retry-After -  <br>  |
 **500** | Internal Server Error |  * Request-Key - Provide this key when reporting this issue <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -281,9 +283,10 @@ This endpoint does not need any parameter.
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | ActiveJobsResponse contains id of all of a user&#39;s active jobs |  -  |
+**200** | ActiveJobsResponse contains id of all of a user&#39;s active jobs |  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
 **401** | Invalid or missing authentication. |  -  |
-**404** | Job ID not found. |  -  |
+**404** | Job ID not found. |  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
+**429** | Too many requests. |  * X-FactSet-Api-Units-Limit -  <br>  * X-FactSet-Api-Units-Remaining -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  * Retry-After -  <br>  |
 **500** | Internal Server Error |  * Request-Key - Provide this key when reporting this issue <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

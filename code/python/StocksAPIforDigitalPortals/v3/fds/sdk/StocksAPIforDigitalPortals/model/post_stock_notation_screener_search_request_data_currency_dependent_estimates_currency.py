@@ -60,6 +60,8 @@ class PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesCurren
             'USD': "USD",
             'GBP': "GBP",
             'CHF': "CHF",
+
+
         },
     }
 

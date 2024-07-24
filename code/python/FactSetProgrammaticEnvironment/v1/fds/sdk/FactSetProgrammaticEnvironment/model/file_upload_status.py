@@ -60,6 +60,8 @@ class FileUploadStatus(ModelNormal):
             'FAILED': "failed",
             'COMPLETED': "completed",
             'RUNNING': "running",
+
+
         },
     }
 

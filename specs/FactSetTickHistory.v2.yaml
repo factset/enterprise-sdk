@@ -4,7 +4,7 @@ info:
   description: >-
     Tick History provides dynamic access to historical tick data for a specific
     security for specific dates or date range.
-  version: 2.2.0
+  version: 2.3.0
   contact:
     name: FactSet Research Systems
     email: api@factset.com
@@ -17,6 +17,7 @@ externalDocs:
   url: https://developer.factset.com/api-catalog/factset-tick-history-api
 servers:
   - url: https://api.factset.com/tick-history/v2
+  - url: https://api-sandbox.factset.com/tick-history/v2
 paths:
   /level1/coverage:
     get:
@@ -109,12 +110,24 @@ paths:
             schema:
               $ref: '#/components/schemas/leveloneRequest'
             examples:
-              Single ticker with default all fields for the given period:
-                $ref: '#/components/examples/postBodyOfSingleTicker'
-              Multiple tickers with default all fields for the given period:
-                $ref: '#/components/examples/postBodyAll'
-              Multiple tickers with multiple fields for the given period:
-                $ref: '#/components/examples/postBodyOfMultipleTicker'
+              US Equity tickers with default all fields for the given period:
+                $ref: '#/components/examples/postBodyOfUSTickers'
+              ASX  tickers with default all fields for the given period:
+                $ref: '#/components/examples/postBodyOfASXTickers'
+              LSE tickers with default all fields for the given period:
+                $ref: '#/components/examples/postBodyOfLSETickers'
+              Tokyo tickers with default all fields for the given period:
+                $ref: '#/components/examples/postBodyOfTokyoTickers'
+              Swiss tickers with default all fields for the given period:
+                $ref: '#/components/examples/postBodyOfSwissTickers'
+              Singapore tickers with default all fields for the given period:
+                $ref: '#/components/examples/postBodyOfSingaporeTickers'
+              HongKong tickers with default all fields for the given period:
+                $ref: '#/components/examples/postBodyOfHongKongTickers'
+              US Equity tickers for a Regional ISO Code with default all fields for the given period:
+                $ref: '#/components/examples/postBodyOfUSTickersReg'
+              ASX  tickers for a Regional ISO Code with default all fields for the given period:
+                $ref: '#/components/examples/postBodyOfASXTickersReg'
       responses:
         '202':
           description: The Request has been Accepted
@@ -875,8 +888,7 @@ components:
           format: date-time
           description: >
             The date to which data is required. Supports in YYYY-MM-DDTHH:MM:SSZ
-            format. end time is interpreted in the local timezone as the
-            selected exchange.
+            format. 
           example: '2012-01-30T11:20:30Z'
     single:
       type: boolean
@@ -997,7 +1009,11 @@ components:
     dateTimePeriodMin:
       type: object
       description: |
-        Date-Time
+
+        NOTE: 
+          
+          - The start and end times are processed as the local time of the factsetExchangeCode provided. Please refer to the **Data Model User Guide** for time zone to exchange mappings.
+          
       required:
         - start
         - end
@@ -1005,7 +1021,7 @@ components:
         start:
           description: >
             The date for (or from which) the data is required. Supports in
-            YYYY-MM-DDTHH:MM:SSZ format.
+            YYYY-MM-DDTHH:MM:SSZ format. 
           type: string
           format: date-time
           example: '2012-01-01T11:00:00Z'
@@ -1014,7 +1030,7 @@ components:
           format: date-time
           description: >
             The date to which data is required. Supports in YYYY-MM-DDTHH:MM:SSZ
-            format.
+            format. 
           example: '2012-01-30T11:20:30Z'
     submittedResponse:
       type: object
@@ -1268,85 +1284,187 @@ components:
             API should always return the exact count
           type: boolean
   examples:
+    postBodyOfUSTickers:
+      summary: US Equity tickers with default all fields for the given period
+      description: >-
+        Post body request example to fetch details of the US Equity tick data
+        for the period 2021-01-01T00:00:00Z to 2021-01-31T23:59:59Z.
+      value:
+        data:
+          tickers:
+            - IBM
+            - F
+            - AAPL
+            - GOOG
+          factsetExchangeCode: USA
+          dateTimeRange:
+            start: '2021-01-01T00:00:00Z'
+            end: '2021-01-31T23:59:59Z'
+          single: false
+    postBodyOfUSTickersReg:
+      summary: >-
+        US Equity tickers for a Regional ISO Code with default all fields for
+        the given period
+      description: >-
+        Post body request example to fetch details of the US Equity tick data
+        for a Regional ISO Code for the period 2021-01-01T00:00:00Z to
+        2021-01-31T23:59:59Z.
+      value:
+        data:
+          tickers:
+            - IBM
+            - F
+            - AAPL
+            - GOOG
+          factsetExchangeCode: NYS
+          dateTimeRange:
+            start: '2021-01-01T00:00:00Z'
+            end: '2021-01-31T23:59:59Z'
+          single: false
+    postBodyOfASXTickers:
+      summary: AUS tickers with default all fields for the given period
+      description: >-
+        Post body request example to fetch details of the AUS tick data for the
+        period 2021-01-01T00:00:00Z to 2021-01-31T23:59:59Z.
+      value:
+        data:
+          tickers:
+            - CBA
+            - BHP
+          factsetExchangeCode: AUS
+          dateTimeRange:
+            start: '2021-01-01T00:00:00Z'
+            end: '2021-01-31T23:59:59Z'
+          single: false
+    postBodyOfASXTickersReg:
+      summary: >-
+        ASX tickers for a Regional ISO Code with default all fields for the
+        given period
+      description: >-
+        Post body request example to fetch details of the ASX tick data for a
+        Regional ISO Code for the period 2021-01-01T00:00:00Z to
+        2021-01-31T23:59:59Z.
+      value:
+        data:
+          tickers:
+            - CBA
+            - BHP
+          factsetExchangeCode: ASX
+          dateTimeRange:
+            start: '2021-01-01T00:00:00Z'
+            end: '2021-01-31T23:59:59Z'
+          single: false
+    postBodyOfLSETickers:
+      summary: LSE tickers with default all fields for the given period
+      description: >-
+        Post body request example to fetch details of the LSE tick data for the
+        period 2021-01-01T00:00:00Z to 2021-01-31T23:59:59Z.
+      value:
+        data:
+          tickers:
+            - HSBA
+            - VOD
+          factsetExchangeCode: LON
+          dateTimeRange:
+            start: '2021-01-01T00:00:00Z'
+            end: '2021-01-31T23:59:59Z'
+          single: false
+    postBodyOfTokyoTickers:
+      summary: Tokyo tickers with default all fields for the given period
+      description: >-
+        Post body request example to fetch details of the Tokyo tick data for
+        the period 2021-01-01T00:00:00Z to 2021-01-31T23:59:59Z.
+      value:
+        data:
+          tickers:
+            - '7203'
+            - '4307'
+          factsetExchangeCode: TKS
+          dateTimeRange:
+            start: '2021-01-01T00:00:00Z'
+            end: '2021-01-31T23:59:59Z'
+          single: false
+    postBodyOfSwissTickers:
+      summary: Swiss tickers with default all fields for the given period
+      description: >-
+        Post body request example to fetch details of the Swiss tick data for
+        the period 2021-01-01T00:00:00Z to 2021-01-31T23:59:59Z.
+      value:
+        data:
+          tickers:
+            - NESN
+            - COTN
+          factsetExchangeCode: SWX
+          dateTimeRange:
+            start: '2021-01-01T00:00:00Z'
+            end: '2021-01-31T23:59:59Z'
+          single: false
+    postBodyOfSingaporeTickers:
+      summary: Singapore tickers with default all fields for the given period
+      description: >-
+        Post body request example to fetch details of the Singapore tick data
+        for the period 2021-01-01T00:00:00Z to 2021-01-31T23:59:59Z.
+      value:
+        data:
+          tickers:
+            - J36
+          factsetExchangeCode: SES
+          dateTimeRange:
+            start: '2021-01-01T00:00:00Z'
+            end: '2021-01-31T23:59:59Z'
+          single: false
+    postBodyOfHongKongTickers:
+      summary: Hong Kong tickers with default all fields for the given period
+      description: >-
+        Post body request example to fetch details of the Hong Kong tick data
+        for the period 2021-01-01T00:00:00Z to 2021-01-31T23:59:59Z.
+      value:
+        data:
+          tickers:
+            - '700'
+          factsetExchangeCode: HKG
+          dateTimeRange:
+            start: '2021-01-01T00:00:00Z'
+            end: '2021-01-31T23:59:59Z'
+          single: false
     minSingleTicker:
       summary: Single ticker for the given period
       description: >-
         Post body request example to fetch details of the IBM tick data for the
-        period 2023-01-01T00:00:00Z to 2023-01-05T23:59:59Z.
+        period 2023-08-01T00:00:00Z to 2024-01-31T23:59:59Z.
       value:
         data:
           tickers:
             - IBM
           factsetExchangeCode: USA
           dateTimeRange:
-            start: '2023-01-01T00:00:00Z'
-            end: '2023-01-05T23:59:59Z'
+            start: '2023-08-01T00:00:00Z'
+            end: '2023-09-28T23:59:59Z'
           granularity: 1m
           type: trades
     minMultipleTicker:
       summary: Multiple tickers for the given period
       description: >-
-        Post body request example to fetch details of the IBM and GOOGL tick
-        data for the period    2023-01-01T00:00:00Z to 2023-01-05T23:59:59Z
+        Post body request example to fetch details of the AMZN, FDS, MSFT, AAPL,
+        TSLA, CL00, ES00 and NQ00 tick data for the period 2023-08-01T00:00:00Z
+        to 2024-01-31T23:59:59Z.
       value:
         data:
           tickers:
-            - IBM
-            - GOOGL
+            - AMZN
+            - FDS
+            - MSFT
+            - AAPL
+            - TSLA
+            - CL00
+            - ES00
+            - NQ00
           factsetExchangeCode: USA
           dateTimeRange:
-            start: '2023-01-01T00:00:00Z'
-            end: '2023-01-05T23:59:59Z'
+            start: '2023-08-01T00:00:00Z'
+            end: '2023-09-28T23:59:59Z'
           granularity: 1m
           type: trades
-    postBodyOfSingleTicker:
-      summary: Single ticker with defaualt all fields for the given period
-      description: >-
-        Post body request example to fetch details of the IBM tick data for the
-        period 2023-01-01T00:00:00Z to 2023-01-05T23:59:59Z.
-      value:
-        data:
-          tickers:
-            - IBM
-          factsetExchangeCode: USA
-          dateTimeRange:
-            start: '2023-01-01T00:00:00Z'
-            end: '2023-01-05T23:59:59Z'
-          single: false
-    postBodyAll:
-      summary: Multiple tickers with default all fields for the given period
-      description: >-
-        Post body request example to fetch details of the IBM and GOOGL tick
-        data for the period 2023-01-01T00:00:00Z to 2023-01-05T23:59:59Z.
-      value:
-        data:
-          tickers:
-            - IBM
-            - GOOGL
-          factsetExchangeCode: USA
-          dateTimeRange:
-            start: '2023-01-01T00:00:00Z'
-            end: '2023-01-05T23:59:59Z'
-          single: false
-    postBodyOfMultipleTicker:
-      summary: Multiple tickers with requested fields for the given period
-      description: >-
-        Post body request example to fetch details of the IBM and GOOGL tick
-        data for the period 2023-01-01T00:00:00Z to 2023-01-05T23:59:59Z to get
-        requested ASK and BID values.
-      value:
-        data:
-          tickers:
-            - IBM
-            - GOOGL
-          factsetExchangeCode: USA
-          dateTimeRange:
-            start: '2023-01-01T00:00:00Z'
-            end: '2023-01-05T23:59:59Z'
-          fields:
-            - ASK
-            - BID
-          single: false
     sampleFilesResponse:
       summary: Status Accepted
       value:

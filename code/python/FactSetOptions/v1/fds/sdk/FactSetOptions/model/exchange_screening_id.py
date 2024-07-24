@@ -55,6 +55,8 @@ class ExchangeScreeningId(ModelSimple):
         ('value',): {
             'ALLUSA_OPTS': "ALLUSA_OPTS",
             'USA_OPTS': "USA_OPTS",
+
+
         },
     }
 

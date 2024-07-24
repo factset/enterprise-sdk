@@ -1,12 +1,12 @@
 # universalscreening.JobManagementApi
 
-All URIs are relative to *https://api.factset.com/universal-screening*
+All URIs are relative to *https://api.factset.com/universal-screening/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteActiveJob**](JobManagementApi.md#deleteActiveJob) | **DELETE** /v2/job/{id} | 
-[**deleteAllActiveJobs**](JobManagementApi.md#deleteAllActiveJobs) | **DELETE** /v2/jobs | 
-[**getAllActiveJobs**](JobManagementApi.md#getAllActiveJobs) | **GET** /v2/jobs | 
+[**deleteActiveJob**](JobManagementApi.md#deleteActiveJob) | **DELETE** /job/{id} | 
+[**deleteAllActiveJobs**](JobManagementApi.md#deleteAllActiveJobs) | **DELETE** /jobs | 
+[**getAllActiveJobs**](JobManagementApi.md#getAllActiveJobs) | **GET** /jobs | 
 
 
 
@@ -51,7 +51,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new JobManagementApi();
-const id = "id_example"; // String | Unique identifier for a screen calculation job
+const id = 123e4567-e89b-12d3-a456-426655440000; // String | Unique identifier for a job. \"Job\" refers to a screen calculation or archival.
 
 // Call api endpoint
 apiInstance.deleteActiveJob(id).then(
@@ -71,7 +71,7 @@ apiInstance.deleteActiveJob(id).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Unique identifier for a screen calculation job | 
+ **id** | **String**| Unique identifier for a job. \&quot;Job\&quot; refers to a screen calculation or archival. | 
 
 ### Return type
 

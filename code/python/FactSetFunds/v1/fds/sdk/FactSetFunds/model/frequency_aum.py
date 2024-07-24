@@ -59,6 +59,8 @@ class FrequencyAum(ModelSimple):
             'CQ': "CQ",
             'CYTD': "CYTD",
             'CY': "CY",
+
+
         },
     }
 

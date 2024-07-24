@@ -67,6 +67,8 @@ class OptimizerOptimalHoldings(ModelNormal):
             'TICKER': "Ticker",
             'TICKERREGION': "TickerRegion",
             'USER': "User",
+
+
         },
     }
 

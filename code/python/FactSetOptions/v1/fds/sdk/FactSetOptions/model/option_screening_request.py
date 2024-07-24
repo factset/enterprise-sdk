@@ -71,6 +71,8 @@ class OptionScreeningRequest(ModelNormal):
             'VOLUME_E': "P_OPT_VOLUME_E",
             'OPTION_TYPE_E': "P_OPT_OPTION_TYPE_E",
             'CALL_OR_PUT_E': "P_OPT_CALL_OR_PUT_E",
+
+
         },
         ('condition_two',): {
             'UNDERLYING_SECURITY_E': "P_OPT_UNDERLYING_SECURITY_E",
@@ -83,6 +85,8 @@ class OptionScreeningRequest(ModelNormal):
             'VOLUME_E': "P_OPT_VOLUME_E",
             'OPTION_TYPE_E': "P_OPT_OPTION_TYPE_E",
             'CALL_OR_PUT_E': "P_OPT_CALL_OR_PUT_E",
+
+
         },
         ('condition_three',): {
             'UNDERLYING_SECURITY_E': "P_OPT_UNDERLYING_SECURITY_E",
@@ -95,6 +99,8 @@ class OptionScreeningRequest(ModelNormal):
             'VOLUME_E': "P_OPT_VOLUME_E",
             'OPTION_TYPE_E': "P_OPT_OPTION_TYPE_E",
             'CALL_OR_PUT_E': "P_OPT_CALL_OR_PUT_E",
+
+
         },
     }
 

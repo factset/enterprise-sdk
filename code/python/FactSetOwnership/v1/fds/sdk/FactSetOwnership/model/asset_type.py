@@ -56,6 +56,8 @@ class AssetType(ModelSimple):
             'ALL': "ALL",
             'EQ': "EQ",
             'FI': "FI",
+
+
         },
     }
 

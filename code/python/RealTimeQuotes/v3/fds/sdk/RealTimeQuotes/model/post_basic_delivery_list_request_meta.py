@@ -63,6 +63,8 @@ class PostBasicDeliveryListRequestMeta(ModelNormal):
         ('sort',): {
             'NAME': "name",
             '-NAME': "-name",
+
+
         },
     }
 

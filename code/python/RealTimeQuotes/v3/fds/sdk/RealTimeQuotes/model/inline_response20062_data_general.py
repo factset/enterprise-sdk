@@ -79,6 +79,8 @@ class InlineResponse20062DataGeneral(ModelNormal):
             'NOTINACCORDANCE': "notInAccordance",
             'NOTREQUIRED': "notRequired",
             'NOTRELEVANT': "notRelevant",
+
+
         },
         ('complex_product',): {
             'None': None,
@@ -86,6 +88,8 @@ class InlineResponse20062DataGeneral(ModelNormal):
             'NO': "no",
             'SITUATIONAL': "situational",
             'NOTRELEVANT': "notRelevant",
+
+
         },
     }
 

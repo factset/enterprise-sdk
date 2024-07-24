@@ -67,6 +67,8 @@ class DealPublic(ModelNormal):
             'MAJORITY_STAKE': "Majority Stake",
             'MINORITY_STAKE': "Minority Stake",
             'SPINOFF': "Spinoff",
+
+
         },
         ('status',): {
             'PENDING': "Pending",
@@ -74,6 +76,8 @@ class DealPublic(ModelNormal):
             'CANCELLED': "Cancelled",
             'RUMOR': "Rumor",
             'RUMOR_CANCELLED': "Rumor Cancelled",
+
+
         },
     }
 

@@ -62,6 +62,8 @@ class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfileGe
             'NO': "no",
             'NEUTRAL': "neutral",
             'FEEDBACK': "feedback",
+
+
         },
     }
 

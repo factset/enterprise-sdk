@@ -5,7 +5,7 @@
     <artifactId>factsettickhistory</artifactId>
     <packaging>jar</packaging>
     <name>factsettickhistory</name>
-    <version>0.33.1</version>
+    <version>0.33.2</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>FactSet Tick History client library for Java</description>
     <scm>

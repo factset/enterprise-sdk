@@ -59,6 +59,8 @@ class SMFields(ModelNormal):
         ('security_type',): {
             'BOND': "Bond",
             'CCF': "CCF",
+
+
         },
     }
 

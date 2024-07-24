@@ -57,6 +57,8 @@ class UnauthorizedResponse(ModelNormal):
     allowed_values = {
         ('error',): {
             'USER_CREDENTIALS_NOT_FOUND': "User credentials not found",
+
+
         },
     }
 

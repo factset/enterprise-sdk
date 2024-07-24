@@ -8,7 +8,7 @@ For errors and warnings found in screens, contains the paramID the error/warning
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**parameter** | **String** |  |  [optional]
+**parameter** | **String** | Param ID |  [optional]
 
 
 ## Implemented Interfaces

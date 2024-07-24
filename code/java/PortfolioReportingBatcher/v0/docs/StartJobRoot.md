@@ -8,7 +8,7 @@ Details required to start the job wrapped in a data object
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**StartJob**](StartJob.md) |  |  [optional]
+**data** | [**StartJob**](StartJob.md) |  | 
 
 
 ## Implemented Interfaces

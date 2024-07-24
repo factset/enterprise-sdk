@@ -64,6 +64,8 @@ class Periodicity(ModelSimple):
             'LTMSG': "LTMSG",
             'LTM_SEMI': "LTM_SEMI",
             'YTD': "YTD",
+
+
         },
     }
 

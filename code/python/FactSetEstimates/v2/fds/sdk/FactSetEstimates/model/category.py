@@ -56,6 +56,8 @@ class Category(ModelSimple):
             'FINANCIAL_STATEMENT': "FINANCIAL_STATEMENT",
             'INDUSTRY_METRIC': "INDUSTRY_METRIC",
             'OTHER': "OTHER",
+
+
         },
     }
 

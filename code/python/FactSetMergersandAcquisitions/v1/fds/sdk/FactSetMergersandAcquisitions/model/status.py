@@ -56,6 +56,8 @@ class Status(ModelSimple):
             'ALL': "All",
             'PENDING': "Pending",
             'COMPLETE': "Complete",
+
+
         },
     }
 

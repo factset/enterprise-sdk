@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**CalculationsSummary**](CalculationsSummary.md) |  | 
+**data** | [**Map&lt;String, CalculationsSummary&gt;**](CalculationsSummary.md) |  | 
 **meta** | [**PaginationMeta**](PaginationMeta.md) |  |  [optional]
 
 

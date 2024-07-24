@@ -63,6 +63,8 @@ class InlineResponse20015DataNestedRegions(ModelNormal):
             'SUBDIVISION': "subdivision",
             'MISC': "misc",
             'COMPOUND': "compound",
+
+
         },
     }
 

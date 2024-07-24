@@ -55,6 +55,8 @@ class SegmentType(ModelSimple):
         ('value',): {
             'BUS': "BUS",
             'GEO': "GEO",
+
+
         },
     }
 

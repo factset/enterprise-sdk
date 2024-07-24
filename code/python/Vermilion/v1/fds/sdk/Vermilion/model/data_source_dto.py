@@ -64,6 +64,8 @@ class DataSourceDTO(ModelNormal):
             'AUTOMATIC': "AUTOMATIC",
             'MANUAL': "MANUAL",
             'FILTER': "FILTER",
+
+
         },
     }
 

@@ -63,6 +63,8 @@ class Period(ModelSimple):
             '3Y': "3Y",
             '5Y': "5Y",
             '10Y': "10Y",
+
+
         },
     }
 

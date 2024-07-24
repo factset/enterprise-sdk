@@ -49,7 +49,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new AccountsApi();
-const path = Client:; // String | The directory to get the accounts and sub-directories in
+const path = Client:; // String | The directory to get the accounts and sub-directories.
 
 // Call api endpoint
 apiInstance.getAccounts(path).then(
@@ -71,7 +71,7 @@ apiInstance.getAccounts(path).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **String**| The directory to get the accounts and sub-directories in | 
+ **path** | **String**| The directory to get the accounts and sub-directories. | 
 
 ### Return type
 

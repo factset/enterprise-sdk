@@ -57,10 +57,10 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         DatesApi apiInstance = new DatesApi(defaultClient);
-        String enddate = "enddate_example"; // String | End Date
-        String componentid = "componentid_example"; // String | Vault Component Id
-        String account = "account_example"; // String | Account
-        String startdate = "startdate_example"; // String | Start Date
+        String enddate = "-1AY"; // String | End Date
+        String componentid = "AFB43C61A6651B87988FEA62ED333638595AE7D8D7345A33AB9994CF23AFCC5D"; // String | Vault Component Id. This is a sample example for illustration purposes only. Client should use a valid Component Id to get a successful response.
+        String account = "CLIENT:/MAC/DEMO/DEMO_PS_EQ_EM_COUNTRY_ALPHA.ACCT"; // String | Account. This is a sample example for illustration purposes only. Client should use a valid Component Id to get a successful response.
+        String startdate = "-3AY"; // String | Start Date
         try {
             DateParametersSummaryRoot result = apiInstance.convertVaultDatesToAbsoluteFormat(enddate, componentid, account, startdate);
             System.out.println(result);
@@ -82,8 +82,8 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enddate** | **String**| End Date |
- **componentid** | **String**| Vault Component Id |
- **account** | **String**| Account |
+ **componentid** | **String**| Vault Component Id. This is a sample example for illustration purposes only. Client should use a valid Component Id to get a successful response. |
+ **account** | **String**| Account. This is a sample example for illustration purposes only. Client should use a valid Component Id to get a successful response. |
  **startdate** | **String**| Start Date | [optional]
 
 ### Return type

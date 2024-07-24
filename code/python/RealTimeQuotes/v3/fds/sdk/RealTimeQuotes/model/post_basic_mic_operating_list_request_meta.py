@@ -67,6 +67,8 @@ class PostBasicMicOperatingListRequestMeta(ModelNormal):
             '-ISOCODE': "-isoCode",
             'NAME': "name",
             '-NAME': "-name",
+
+
         },
     }
 

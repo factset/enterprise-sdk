@@ -69,6 +69,8 @@ class CompanyEventResponseObject(ModelNormal):
             'PROJECTEDEARNINGSRELEASE': "ProjectedEarningsRelease",
             'SPLIT': "Split",
             'DIVIDEND': "Dividend",
+
+
         },
     }
 

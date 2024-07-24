@@ -417,7 +417,7 @@ Name | Type | Description  | Notes
 
 Create and Run PA calculation
 
-This endpoint runs the PA calculation specified in the POST body parameters.  It can take one or more calculation units as input.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the PA template.    *   Account identifiers must have .ACCT or .ACTM extension or BENCH: prefix. Holdings mode can be optionally set for every account.       Possible values for holdings mode are B&amp;H (Buy and Hold), TBR (Transaction based returns), OMS (Order Management System),       VLT (Vaulted returns) or EXT (External Returns Data). Default holdings mode value is B&amp;H.     *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.    *   Componentdetail supports securities, groups, groupsall, and totals levels of granularity. However, if no value is passed, the default value is &#39;securities&#39;.      Additionally, while &#39;groupsall&#39; returns all the group levels in the PA component,      setting componentdetail to &#39;groups&#39; only returns the expanded or collapsed group levels within the PA component.    * Multi-horizon frequencies are not supported through this endpoint.
+This endpoint runs the PA calculation specified in the POST body parameters.  It can take one or more calculation units as input.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the PA template.    *   Account identifiers must have .ACCT or .ACTM extension or BENCH: prefix. Holdings mode can be optionally set for every account.       Possible values for holdings mode are B&amp;H (Buy and Hold), TBR (Transaction based returns), OMS (Order Management System),       VLT (Vaulted returns) or EXT (External Returns Data). Default holdings mode value is B&amp;H.     *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding grouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.    *   Componentdetail supports securities, groups, groupsall, and totals levels of granularity. However, if no value is passed, the default value is &#39;securities&#39;.      Additionally, while &#39;groupsall&#39; returns all the group levels in the PA component,      setting componentdetail to &#39;groups&#39; only returns the expanded or collapsed group levels within the PA component.
 
 ### Example
 
@@ -453,9 +453,9 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new PACalculationsApi();
 const opts = {
-  'xFactSetApiLongRunningDeadline': 56, // Number | Long running deadline in seconds when only one unit is passed in the POST body.
+  'xFactSetApiLongRunningDeadline': 10, // Number | Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation.
   'cacheControl': "cacheControl_example", // String | Standard HTTP header.  Accepts max-stale.
-  'pACalculationParametersRoot': {"data":{"1":{"componentid":"801B800245E468A52AEBEC4BE31CFF5AF82F371DAEF5F158AC2E98C2FA324B46","accounts":[{"id":"BENCH:DJII","holdingsmode":"B&H"}],"benchmarks":[{"id":"BENCH:SP50","holdingsmode":"B&H"}],"dates":{"startdate":"20210101","enddate":"20210331","frequency":"Monthly"},"currencyisocode":"USD"},"2":{"componentid":"67077F67610EC30675E240A614661176C792A8997C78C9B9D64F738C01F18893","accounts":[{"id":"BENCH:SP100EQ","holdingsmode":"B&H"}],"benchmarks":[{"id":"BENCH:SP50","holdingsmode":"B&H"}],"dates":{"frequency":"Single","enddate":"0"},"currencyisocode":"USD"}},"meta":{"stachContentorganization":"SimplifiedRow","format":"JsonStach"}} // PACalculationParametersRoot | Calculation Parameters
+  'pACalculationParametersRoot': new paengine.PACalculationParametersRoot() // PACalculationParametersRoot | Calculation Parameters
 };
 
 // Call api endpoint
@@ -496,7 +496,7 @@ apiInstance.postAndCalculate(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xFactSetApiLongRunningDeadline** | **Number**| Long running deadline in seconds when only one unit is passed in the POST body. | [optional] 
+ **xFactSetApiLongRunningDeadline** | **Number**| Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. | [optional] 
  **cacheControl** | **String**| Standard HTTP header.  Accepts max-stale. | [optional] 
  **pACalculationParametersRoot** | [**PACalculationParametersRoot**](PACalculationParametersRoot.md)| Calculation Parameters | [optional] 
 
@@ -520,7 +520,7 @@ Name | Type | Description  | Notes
 
 Create or Update PA calculation and run it.
 
-This endpoint updates and run the PA calculation specified in the PUT body parameters. This also allows creating new PA calculations with custom ids.  It can take one or more calculation units as input.    Remarks:    * Any settings in PUT body will act as a one-time override over the settings saved in the PA template.    *   Account identifiers must have .ACCT or .ACTM extension or BENCH: prefix. Holdings mode can be optionally set for every account.       Possible values for holdings mode are B&amp;H (Buy and Hold), TBR (Transaction based returns), OMS (Order Management System),       VLT (Vaulted returns) or EXT (External Returns Data). Default holdings mode value is B&amp;H.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.    *   Componentdetail supports securities, groups, groupsall, and totals levels of granularity. However, if no value is passed, the default value is &#39;securities&#39;.      Additionally, while &#39;groupsall&#39; returns all the group levels in the PA component,      setting componentdetail to &#39;groups&#39; only returns the expanded or collapsed group levels within the PA component.
+This endpoint updates and run the PA calculation specified in the PUT body parameters. This also allows creating new PA calculations with custom ids.  It can take one or more calculation units as input.    Remarks:    * Any settings in PUT body will act as a one-time override over the settings saved in the PA template.    *   Account identifiers must have .ACCT or .ACTM extension or BENCH: prefix. Holdings mode can be optionally set for every account.       Possible values for holdings mode are B&amp;H (Buy and Hold), TBR (Transaction based returns), OMS (Order Management System),       VLT (Vaulted returns) or EXT (External Returns Data). Default holdings mode value is B&amp;H.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding grouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.    *   Componentdetail supports securities, groups, groupsall, and totals levels of granularity. However, if no value is passed, the default value is &#39;securities&#39;.      Additionally, while &#39;groupsall&#39; returns all the group levels in the PA component,      setting componentdetail to &#39;groups&#39; only returns the expanded or collapsed group levels within the PA component.
 
 ### Example
 
@@ -557,9 +557,9 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 const apiInstance = new PACalculationsApi();
 const id = "id_example"; // String | from url, provided from the location header in the Create and Run PA calculation endpoint
 const opts = {
-  'xFactSetApiLongRunningDeadline': 56, // Number | Long running deadline in seconds when only one unit is passed in the PUT body.
+  'xFactSetApiLongRunningDeadline': 10, // Number | Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation
   'cacheControl': "cacheControl_example", // String | Standard HTTP header.  Accepts max-stale.
-  'pACalculationParametersRoot': {"data":{"1":{"componentid":"801B800245E468A52AEBEC4BE31CFF5AF82F371DAEF5F158AC2E98C2FA324B46","accounts":[{"id":"BENCH:DJII","holdingsmode":"B&H"}],"benchmarks":[{"id":"BENCH:SP50","holdingsmode":"B&H"}],"dates":{"startdate":"20210101","enddate":"20210231","frequency":"Monthly"},"currencyisocode":"USD"},"2":{"componentid":"67077F67610EC30675E240A614661176C792A8997C78C9B9D64F738C01F18893","accounts":[{"id":"BENCH:SP100EQ","holdingsmode":"B&H"}],"benchmarks":[{"id":"BENCH:SP50","holdingsmode":"B&H"}],"dates":{"frequency":"Single","enddate":"0"},"currencyisocode":"USD"}},"meta":{"stachContentorganization":"SimplifiedRow","format":"JsonStach"}} // PACalculationParametersRoot | Calculation Parameters
+  'pACalculationParametersRoot': new paengine.PACalculationParametersRoot() // PACalculationParametersRoot | Calculation Parameters
 };
 
 // Call api endpoint
@@ -601,7 +601,7 @@ apiInstance.putAndCalculate(id, opts).then(
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| from url, provided from the location header in the Create and Run PA calculation endpoint | 
- **xFactSetApiLongRunningDeadline** | **Number**| Long running deadline in seconds when only one unit is passed in the PUT body. | [optional] 
+ **xFactSetApiLongRunningDeadline** | **Number**| Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation | [optional] 
  **cacheControl** | **String**| Standard HTTP header.  Accepts max-stale. | [optional] 
  **pACalculationParametersRoot** | [**PACalculationParametersRoot**](PACalculationParametersRoot.md)| Calculation Parameters | [optional] 
 

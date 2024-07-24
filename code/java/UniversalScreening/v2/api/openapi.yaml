@@ -1,23 +1,36 @@
 openapi: 3.0.2
 info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
   description: |-
     Through the Universal Screening API, you can access the power of FactSet's Universal Screening Application.
     Calculate and return the results of your saved Universal Screens.
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
   title: Universal Screening API
   version: 2.0.2
 externalDocs:
-  description: Read more about STACH 2.0's column organized schema
-  url: https://factset.github.io/stachschema/#/v2/ColumnOrganized
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/universal-screening-api
 servers:
-- url: https://api.factset.com/universal-screening
+- url: https://api.factset.com/universal-screening/v2
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
+tags:
+- description: Routes related to submitting, polling, or picking up results for Screening
+    operations.
+  name: Screening Operations
+- description: Routes related to managing long-running jobs.
+  name: Job Management
 paths:
-  /v2/job/archive:
+  /job/archive:
     post:
       description: Begins archive of screen to OFDB. Subject to rate limiting by serial.
-      operationId: SubmitArchiveOFDB
+      operationId: submitArchiveOFDB
       requestBody:
         $ref: '#/components/requestBodies/submitArchiveOFDBRequest'
       responses:
@@ -31,47 +44,38 @@ paths:
             the status of the archive.
           headers:
             Location:
-              description: Relative location to poll for archive status
-              explode: false
-              schema:
-                type: string
-              style: simple
+              $ref: '#/components/headers/StatusLocation'
             X-FactSet-Api-Units-Limit:
-              description: Maximum number of jobs.
-              explode: false
-              schema:
-                type: string
-              style: simple
+              $ref: '#/components/headers/X-FactSet-Api-Units-Limit'
             X-FactSet-Api-Units-Remaining:
-              description: Number of available jobs.
-              explode: false
-              schema:
-                type: string
-              style: simple
+              $ref: '#/components/headers/X-FactSet-Api-Units-Remaining'
+            X-RateLimit-Limit-604800:
+              $ref: '#/components/headers/X-RateLimit-Limit-604800'
+            X-RateLimit-Remaining-604800:
+              $ref: '#/components/headers/X-RateLimit-Remaining-604800'
             RateLimit-Limit:
-              description: Number of weekly jobs available.
-              explode: false
-              schema:
-                type: string
-              style: simple
+              $ref: '#/components/headers/RateLimit-Limit'
             RateLimit-Remaining:
-              description: Number of remaining weekly jobs.
-              explode: false
-              schema:
-                type: string
-              style: simple
+              $ref: '#/components/headers/RateLimit-Remaining'
             RateLimit-Reset:
-              description: Time, in seconds, until weekly limit resets.
-              explode: false
-              schema:
-                type: string
-              style: simple
+              $ref: '#/components/headers/RateLimit-Reset'
         "400":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorArray'
           description: Invalid request body.
+          headers:
+            X-RateLimit-Limit-604800:
+              $ref: '#/components/headers/X-RateLimit-Limit-604800'
+            X-RateLimit-Remaining-604800:
+              $ref: '#/components/headers/X-RateLimit-Remaining-604800'
+            RateLimit-Limit:
+              $ref: '#/components/headers/RateLimit-Limit'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/RateLimit-Remaining'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimit-Reset'
         "401":
           content:
             application/json:
@@ -86,17 +90,17 @@ paths:
           description: Too many requests.
           headers:
             X-FactSet-Api-Units-Limit:
-              description: Maximum number of jobs.
-              explode: false
-              schema:
-                type: string
-              style: simple
+              $ref: '#/components/headers/X-FactSet-Api-Units-Limit'
             X-FactSet-Api-Units-Remaining:
-              description: Number of available jobs.
-              explode: false
-              schema:
-                type: string
-              style: simple
+              $ref: '#/components/headers/X-FactSet-Api-Units-Remaining'
+            RateLimit-Limit:
+              $ref: '#/components/headers/RateLimit-Limit'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/RateLimit-Remaining'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimit-Reset'
+            Retry-After:
+              $ref: '#/components/headers/RateLimit-Reset'
         "500":
           description: Internal Server Error
           headers:
@@ -110,10 +114,10 @@ paths:
       - Screening Operations
       x-contentType: application/json
       x-accepts: application/json
-  /v2/job/calculate:
+  /job/calculate:
     post:
       description: Begins calculation of screen. Subject to rate limiting by serial.
-      operationId: SubmitCalculate
+      operationId: submitCalculate
       requestBody:
         $ref: '#/components/requestBodies/submitCalcRequest'
       responses:
@@ -127,47 +131,38 @@ paths:
             the status of the calculation.
           headers:
             Location:
-              description: Relative location to poll for calculation status
-              explode: false
-              schema:
-                type: string
-              style: simple
+              $ref: '#/components/headers/StatusLocation'
             X-FactSet-Api-Units-Limit:
-              description: Maximum number of jobs.
-              explode: false
-              schema:
-                type: string
-              style: simple
+              $ref: '#/components/headers/X-FactSet-Api-Units-Limit'
             X-FactSet-Api-Units-Remaining:
-              description: Number of available jobs.
-              explode: false
-              schema:
-                type: string
-              style: simple
+              $ref: '#/components/headers/X-FactSet-Api-Units-Remaining'
+            X-RateLimit-Limit-604800:
+              $ref: '#/components/headers/X-RateLimit-Limit-604800'
+            X-RateLimit-Remaining-604800:
+              $ref: '#/components/headers/X-RateLimit-Remaining-604800'
             RateLimit-Limit:
-              description: Number of weekly jobs available.
-              explode: false
-              schema:
-                type: string
-              style: simple
+              $ref: '#/components/headers/RateLimit-Limit'
             RateLimit-Remaining:
-              description: Number of remaining weekly jobs.
-              explode: false
-              schema:
-                type: string
-              style: simple
+              $ref: '#/components/headers/RateLimit-Remaining'
             RateLimit-Reset:
-              description: Time, in seconds, until weekly limit resets.
-              explode: false
-              schema:
-                type: string
-              style: simple
+              $ref: '#/components/headers/RateLimit-Reset'
         "400":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorArray'
           description: Invalid request body.
+          headers:
+            X-RateLimit-Limit-604800:
+              $ref: '#/components/headers/X-RateLimit-Limit-604800'
+            X-RateLimit-Remaining-604800:
+              $ref: '#/components/headers/X-RateLimit-Remaining-604800'
+            RateLimit-Limit:
+              $ref: '#/components/headers/RateLimit-Limit'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/RateLimit-Remaining'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimit-Reset'
         "401":
           content:
             application/json:
@@ -182,17 +177,17 @@ paths:
           description: Too many requests.
           headers:
             X-FactSet-Api-Units-Limit:
-              description: Maximum number of jobs.
-              explode: false
-              schema:
-                type: string
-              style: simple
+              $ref: '#/components/headers/X-FactSet-Api-Units-Limit'
             X-FactSet-Api-Units-Remaining:
-              description: Number of available jobs.
-              explode: false
-              schema:
-                type: string
-              style: simple
+              $ref: '#/components/headers/X-FactSet-Api-Units-Remaining'
+            RateLimit-Limit:
+              $ref: '#/components/headers/RateLimit-Limit'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/RateLimit-Remaining'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimit-Reset'
+            Retry-After:
+              $ref: '#/components/headers/RateLimit-Reset'
         "500":
           description: Internal Server Error
           headers:
@@ -206,17 +201,20 @@ paths:
       - Screening Operations
       x-contentType: application/json
       x-accepts: application/json
-  /v2/job/{id}/status:
+  /job/{id}/status:
     get:
       description: Polls the job with a given screen ID and returns job status
-      operationId: PollCalculate
+      operationId: pollCalculate
       parameters:
-      - description: Unique identifier for a screen calculation job
+      - description: Unique identifier for a job. "Job" refers to a screen calculation
+          or archival.
         explode: false
         in: path
         name: id
         required: true
         schema:
+          example: 123e4567-e89b-12d3-a456-426655440000
+          format: uuid
           type: string
         style: simple
       responses:
@@ -228,55 +226,105 @@ paths:
           description: Job completed
           headers:
             Location:
-              description: Relative location to pick up screen results, calculate
-                route only
-              explode: false
-              schema:
-                type: string
-              style: simple
+              $ref: '#/components/headers/ResultsLocation'
             X-FactSet-Api-PickUp-Progress:
-              description: Screen progress
-              explode: false
-              schema:
-                type: string
-              style: simple
+              $ref: '#/components/headers/X-FactSet-Api-PickUp-Progress-Complete'
+            X-RateLimit-Limit-second:
+              $ref: '#/components/headers/X-RateLimit-Limit-second'
+            X-RateLimit-Remaining-second:
+              $ref: '#/components/headers/X-RateLimit-Remaining-second'
+            RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit-second'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining-second'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimit-Reset'
         "202":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResourceStatusResponse'
-          description: Calculation job still in progress
+          description: Long-running job still in progress
           headers:
             Location:
-              description: Relative location to poll for status
-              explode: false
-              schema:
-                type: string
-              style: simple
+              $ref: '#/components/headers/StatusLocation'
             X-FactSet-Api-PickUp-Progress:
-              description: Screen progress
-              explode: false
-              schema:
-                type: string
-              style: simple
+              $ref: '#/components/headers/X-FactSet-Api-PickUp-Progress'
+            X-RateLimit-Limit-second:
+              $ref: '#/components/headers/X-RateLimit-Limit-second'
+            X-RateLimit-Remaining-second:
+              $ref: '#/components/headers/X-RateLimit-Remaining-second'
+            RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit-second'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining-second'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimit-Reset'
         "401":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorArray'
           description: Invalid or missing authentication.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorArray'
+          description: User is not authorized for this operation.
         "404":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorArray'
           description: Job ID not found.
+          headers:
+            X-RateLimit-Limit-second:
+              $ref: '#/components/headers/X-RateLimit-Limit-second'
+            X-RateLimit-Remaining-second:
+              $ref: '#/components/headers/X-RateLimit-Remaining-second'
+            RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit-second'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining-second'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimit-Reset'
         "410":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorArray'
           description: The results have been fetched for this ID.
+          headers:
+            X-RateLimit-Limit-second:
+              $ref: '#/components/headers/X-RateLimit-Limit-second'
+            X-RateLimit-Remaining-second:
+              $ref: '#/components/headers/X-RateLimit-Remaining-second'
+            RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit-second'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining-second'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimit-Reset'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorArray'
+          description: Too many requests.
+          headers:
+            X-FactSet-Api-Units-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-Units-Limit'
+            X-FactSet-Api-Units-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-Units-Remaining'
+            RateLimit-Limit:
+              $ref: '#/components/headers/RateLimit-Limit'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/RateLimit-Remaining'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimit-Reset'
+            Retry-After:
+              $ref: '#/components/headers/RateLimit-Reset'
         "500":
           description: Internal Server Error
           headers:
@@ -289,13 +337,24 @@ paths:
       tags:
       - Screening Operations
       x-accepts: application/json
-  /v2/jobs:
+  /jobs:
     delete:
       description: Delete all active jobs started by the requester's username-serial
-      operationId: DeleteAllActiveJobs
+      operationId: deleteAllActiveJobs
       responses:
         "204":
-          description: No Content
+          description: No content
+          headers:
+            X-RateLimit-Limit-second:
+              $ref: '#/components/headers/X-RateLimit-Limit-second'
+            X-RateLimit-Remaining-second:
+              $ref: '#/components/headers/X-RateLimit-Remaining-second'
+            RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit-second'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining-second'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimit-Reset'
         "401":
           content:
             application/json:
@@ -308,6 +367,36 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorArray'
           description: Job ID not found.
+          headers:
+            X-RateLimit-Limit-second:
+              $ref: '#/components/headers/X-RateLimit-Limit-second'
+            X-RateLimit-Remaining-second:
+              $ref: '#/components/headers/X-RateLimit-Remaining-second'
+            RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit-second'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining-second'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimit-Reset'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorArray'
+          description: Too many requests.
+          headers:
+            X-FactSet-Api-Units-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-Units-Limit'
+            X-FactSet-Api-Units-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-Units-Remaining'
+            RateLimit-Limit:
+              $ref: '#/components/headers/RateLimit-Limit'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/RateLimit-Remaining'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimit-Reset'
+            Retry-After:
+              $ref: '#/components/headers/RateLimit-Reset'
         "500":
           description: Internal Server Error
           headers:
@@ -322,7 +411,7 @@ paths:
       x-accepts: application/json
     get:
       description: Retrieve list of all active job ids started by requester's username-serial
-      operationId: GetAllActiveJobs
+      operationId: getAllActiveJobs
       responses:
         "200":
           content:
@@ -330,6 +419,17 @@ paths:
               schema:
                 $ref: '#/components/schemas/ActiveJobsData'
           description: ActiveJobsResponse contains id of all of a user's active jobs
+          headers:
+            X-RateLimit-Limit-second:
+              $ref: '#/components/headers/X-RateLimit-Limit-second'
+            X-RateLimit-Remaining-second:
+              $ref: '#/components/headers/X-RateLimit-Remaining-second'
+            RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit-second'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining-second'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimit-Reset'
         "401":
           content:
             application/json:
@@ -342,6 +442,36 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorArray'
           description: Job ID not found.
+          headers:
+            X-RateLimit-Limit-second:
+              $ref: '#/components/headers/X-RateLimit-Limit-second'
+            X-RateLimit-Remaining-second:
+              $ref: '#/components/headers/X-RateLimit-Remaining-second'
+            RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit-second'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining-second'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimit-Reset'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorArray'
+          description: Too many requests.
+          headers:
+            X-FactSet-Api-Units-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-Units-Limit'
+            X-FactSet-Api-Units-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-Units-Remaining'
+            RateLimit-Limit:
+              $ref: '#/components/headers/RateLimit-Limit'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/RateLimit-Remaining'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimit-Reset'
+            Retry-After:
+              $ref: '#/components/headers/RateLimit-Reset'
         "500":
           description: Internal Server Error
           headers:
@@ -354,22 +484,36 @@ paths:
       tags:
       - Job Management
       x-accepts: application/json
-  /v2/job/{id}:
+  /job/{id}:
     delete:
       description: Delete a specified job started by the requester's username-serial
-      operationId: DeleteActiveJob
+      operationId: deleteActiveJob
       parameters:
-      - description: Unique identifier for a screen calculation job
+      - description: Unique identifier for a job. "Job" refers to a screen calculation
+          or archival.
         explode: false
         in: path
         name: id
         required: true
         schema:
+          example: 123e4567-e89b-12d3-a456-426655440000
+          format: uuid
           type: string
         style: simple
       responses:
         "204":
           description: No content
+          headers:
+            X-RateLimit-Limit-second:
+              $ref: '#/components/headers/X-RateLimit-Limit-second'
+            X-RateLimit-Remaining-second:
+              $ref: '#/components/headers/X-RateLimit-Remaining-second'
+            RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit-second'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining-second'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimit-Reset'
         "401":
           content:
             application/json:
@@ -382,6 +526,36 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorArray'
           description: Job ID not found.
+          headers:
+            X-RateLimit-Limit-second:
+              $ref: '#/components/headers/X-RateLimit-Limit-second'
+            X-RateLimit-Remaining-second:
+              $ref: '#/components/headers/X-RateLimit-Remaining-second'
+            RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit-second'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining-second'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimit-Reset'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorArray'
+          description: Too many requests.
+          headers:
+            X-FactSet-Api-Units-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-Units-Limit'
+            X-FactSet-Api-Units-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-Units-Remaining'
+            RateLimit-Limit:
+              $ref: '#/components/headers/RateLimit-Limit'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/RateLimit-Remaining'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimit-Reset'
+            Retry-After:
+              $ref: '#/components/headers/RateLimit-Reset'
         "500":
           description: Internal Server Error
           headers:
@@ -398,14 +572,17 @@ paths:
       description: Retrieve results of complete screen calculation. Screens with more
         than 10,000 rows will be returned in a paginated format. Results may be fetched
         in pages of 1,000 - 100,000 results with 10,000 being the default page size.
-      operationId: GetCalculateResults
+      operationId: getCalculateResults
       parameters:
-      - description: Unique identifier for a screen calculation job
+      - description: Unique identifier for a job. "Job" refers to a screen calculation
+          or archival.
         explode: false
         in: path
         name: id
         required: true
         schema:
+          example: 123e4567-e89b-12d3-a456-426655440000
+          format: uuid
           type: string
         style: simple
       - description: Page size limit (minumum 1000, default 10,000, maximum 100,000)
@@ -414,6 +591,11 @@ paths:
         name: _paginationLimit
         required: false
         schema:
+          default: 10000
+          example: 12345
+          format: int32
+          maximum: 100000
+          minimum: 1000
           type: integer
         style: form
       - description: Paging index (Initial request may omit)
@@ -422,6 +604,10 @@ paths:
         name: _paginationCursor
         required: false
         schema:
+          default: 0
+          example: 0
+          format: int32
+          minimum: 0
           type: integer
         style: form
       responses:
@@ -431,49 +617,120 @@ paths:
               schema:
                 $ref: '#/components/schemas/PaginatedCalculationResponse'
           description: Paginated Screen Results and Metadata
+          headers:
+            X-RateLimit-Limit-second:
+              $ref: '#/components/headers/X-RateLimit-Limit-second'
+            X-RateLimit-Remaining-second:
+              $ref: '#/components/headers/X-RateLimit-Remaining-second'
+            RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit-second'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining-second'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimit-Reset'
         "202":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResourceStatusResponse'
-          description: Calculation job still in progress
+          description: Long-running job still in progress
           headers:
             Location:
-              description: Relative location to poll for status
-              explode: false
-              schema:
-                type: string
-              style: simple
+              $ref: '#/components/headers/StatusLocation'
             X-FactSet-Api-PickUp-Progress:
-              description: Screen progress
-              explode: false
-              schema:
-                type: string
-              style: simple
+              $ref: '#/components/headers/X-FactSet-Api-PickUp-Progress'
+            X-RateLimit-Limit-second:
+              $ref: '#/components/headers/X-RateLimit-Limit-second'
+            X-RateLimit-Remaining-second:
+              $ref: '#/components/headers/X-RateLimit-Remaining-second'
+            RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit-second'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining-second'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimit-Reset'
         "400":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorArray'
           description: The requested screen could not be opened.
+          headers:
+            X-RateLimit-Limit-second:
+              $ref: '#/components/headers/X-RateLimit-Limit-second'
+            X-RateLimit-Remaining-second:
+              $ref: '#/components/headers/X-RateLimit-Remaining-second'
+            RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit-second'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining-second'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimit-Reset'
         "401":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorArray'
           description: Invalid or missing authentication.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorArray'
+          description: User is not authorized for this operation.
         "404":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorArray'
           description: Job ID not found.
+          headers:
+            X-RateLimit-Limit-second:
+              $ref: '#/components/headers/X-RateLimit-Limit-second'
+            X-RateLimit-Remaining-second:
+              $ref: '#/components/headers/X-RateLimit-Remaining-second'
+            RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit-second'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining-second'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimit-Reset'
         "410":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorArray'
           description: The results have been fetched for this ID.
+          headers:
+            X-RateLimit-Limit-second:
+              $ref: '#/components/headers/X-RateLimit-Limit-second'
+            X-RateLimit-Remaining-second:
+              $ref: '#/components/headers/X-RateLimit-Remaining-second'
+            RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit-second'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining-second'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimit-Reset'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorArray'
+          description: Too many requests.
+          headers:
+            X-FactSet-Api-Units-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-Units-Limit'
+            X-FactSet-Api-Units-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-Units-Remaining'
+            RateLimit-Limit:
+              $ref: '#/components/headers/RateLimit-Limit'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/RateLimit-Remaining'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimit-Reset'
+            Retry-After:
+              $ref: '#/components/headers/RateLimit-Reset'
         "500":
           description: Internal Server Error
           headers:
@@ -487,16 +744,116 @@ paths:
       - Screening Operations
       x-accepts: application/json
 components:
-  parameters:
-    ArchiveID:
-      description: Unique identifier for a screen archive to OFDB job
+  examples:
+    errorObjectSourceExample:
+      value:
+        parameter: param1
+    errorObjectExample:
+      value:
+        code: parameterError
+        id: 123e4567-e89b-12d3-a456-426655440001
+        source:
+          $ref: '#/components/examples/errorObjectSourceExample'
+        title: param1 notFound
+    paginationResponseExample:
+      value:
+        isEstimatedTotal: true
+        next: nextCursorSent
+        prev: null
+        total: 98
+  headers:
+    StatusLocation:
+      description: Relative location to poll for job status
       explode: false
-      in: path
-      name: id
-      required: true
       schema:
+        example: /v2/job/123e4567-e89b-12d3-a456-426655440000/status
         type: string
       style: simple
+    ResultsLocation:
+      description: Relative location to pick up screen results, calculate route only
+      explode: false
+      schema:
+        example: /v2/job/123e4567-e89b-12d3-a456-426655440000
+        type: string
+      style: simple
+    X-FactSet-Api-PickUp-Progress:
+      description: Long-running operation progress
+      explode: false
+      schema:
+        example: 5/9
+        type: string
+      style: simple
+    X-FactSet-Api-PickUp-Progress-Complete:
+      description: Long-running operation progress
+      explode: false
+      schema:
+        example: 9/9
+        type: string
+      style: simple
+    X-FactSet-Api-Units-Limit:
+      description: Maximum number of concurrent jobs.
+      explode: false
+      schema:
+        example: "3"
+        type: string
+      style: simple
+    X-FactSet-Api-Units-Remaining:
+      description: Number of available concurrent jobs.
+      explode: false
+      schema:
+        example: "1"
+        type: string
+      style: simple
+    X-RateLimit-Limit-second:
+      description: Number of allowed requests per second.
+      explode: false
+      schema:
+        example: "20"
+        type: string
+      style: simple
+    X-RateLimit-Remaining-second:
+      description: Number of remaining requests per second.
+      explode: false
+      schema:
+        example: "15"
+        type: string
+      style: simple
+    X-RateLimit-Limit-604800:
+      description: Number of weekly jobs allowed.
+      explode: false
+      schema:
+        example: "10"
+        type: string
+      style: simple
+    X-RateLimit-Remaining-604800:
+      description: Number of remaining weekly jobs.
+      explode: false
+      schema:
+        example: "5"
+        type: string
+      style: simple
+    RateLimit-Limit:
+      description: Number of allowed requests for the time window.
+      explode: false
+      schema:
+        example: "20"
+        type: string
+      style: simple
+    RateLimit-Remaining:
+      description: Number of remaining requests for the time window.
+      explode: false
+      schema:
+        example: "15"
+        type: string
+      style: simple
+    RateLimit-Reset:
+      description: Time, in seconds, until the rate limit resets.
+      explode: false
+      schema:
+        example: "1"
+        type: string
+      style: simple
+  parameters:
     PaginationCursor:
       description: Paging index (Initial request may omit)
       explode: true
@@ -504,6 +861,10 @@ components:
       name: _paginationCursor
       required: false
       schema:
+        default: 0
+        example: 0
+        format: int32
+        minimum: 0
         type: integer
       style: form
     PaginationLimit:
@@ -513,15 +874,23 @@ components:
       name: _paginationLimit
       required: false
       schema:
+        default: 10000
+        example: 12345
+        format: int32
+        maximum: 100000
+        minimum: 1000
         type: integer
       style: form
     ScreenCalcID:
-      description: Unique identifier for a screen calculation job
+      description: Unique identifier for a job. "Job" refers to a screen calculation
+        or archival.
       explode: false
       in: path
       name: id
       required: true
       schema:
+        example: 123e4567-e89b-12d3-a456-426655440000
+        format: uuid
         type: string
       style: simple
   requestBodies:
@@ -544,57 +913,38 @@ components:
           schema:
             $ref: '#/components/schemas/ActiveJobsData'
       description: ActiveJobsResponse contains id of all of a user's active jobs
-    ArchiveOFDBInProgressResponse:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ResourceStatusResponse'
-      description: Archive job still in progress
       headers:
-        Location:
-          description: Relative location to poll for archive status
-          explode: false
-          schema:
-            type: string
-          style: simple
-        X-FactSet-Api-PickUp-Progress:
-          description: Screen archive progress
-          explode: false
-          schema:
-            type: string
-          style: simple
-    ArchiveOFDBSuccessResponse:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ResourceStatusResponse'
-      description: Archive job completed
-      headers:
-        X-FactSet-Api-PickUp-Progress:
-          description: Screen progress
-          explode: false
-          schema:
-            type: string
-          style: simple
+        X-RateLimit-Limit-second:
+          $ref: '#/components/headers/X-RateLimit-Limit-second'
+        X-RateLimit-Remaining-second:
+          $ref: '#/components/headers/X-RateLimit-Remaining-second'
+        RateLimit-Limit:
+          $ref: '#/components/headers/X-RateLimit-Limit-second'
+        RateLimit-Remaining:
+          $ref: '#/components/headers/X-RateLimit-Remaining-second'
+        RateLimit-Reset:
+          $ref: '#/components/headers/RateLimit-Reset'
     CalculateInProgressResponse:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ResourceStatusResponse'
-      description: Calculation job still in progress
+      description: Long-running job still in progress
       headers:
         Location:
-          description: Relative location to poll for status
-          explode: false
-          schema:
-            type: string
-          style: simple
+          $ref: '#/components/headers/StatusLocation'
         X-FactSet-Api-PickUp-Progress:
-          description: Screen progress
-          explode: false
-          schema:
-            type: string
-          style: simple
+          $ref: '#/components/headers/X-FactSet-Api-PickUp-Progress'
+        X-RateLimit-Limit-second:
+          $ref: '#/components/headers/X-RateLimit-Limit-second'
+        X-RateLimit-Remaining-second:
+          $ref: '#/components/headers/X-RateLimit-Remaining-second'
+        RateLimit-Limit:
+          $ref: '#/components/headers/X-RateLimit-Limit-second'
+        RateLimit-Remaining:
+          $ref: '#/components/headers/X-RateLimit-Remaining-second'
+        RateLimit-Reset:
+          $ref: '#/components/headers/RateLimit-Reset'
     CalculateSuccessResponse:
       content:
         application/json:
@@ -603,54 +953,116 @@ components:
       description: Job completed
       headers:
         Location:
-          description: Relative location to pick up screen results, calculate route
-            only
-          explode: false
-          schema:
-            type: string
-          style: simple
+          $ref: '#/components/headers/ResultsLocation'
         X-FactSet-Api-PickUp-Progress:
-          description: Screen progress
-          explode: false
-          schema:
-            type: string
-          style: simple
+          $ref: '#/components/headers/X-FactSet-Api-PickUp-Progress-Complete'
+        X-RateLimit-Limit-second:
+          $ref: '#/components/headers/X-RateLimit-Limit-second'
+        X-RateLimit-Remaining-second:
+          $ref: '#/components/headers/X-RateLimit-Remaining-second'
+        RateLimit-Limit:
+          $ref: '#/components/headers/X-RateLimit-Limit-second'
+        RateLimit-Remaining:
+          $ref: '#/components/headers/X-RateLimit-Remaining-second'
+        RateLimit-Reset:
+          $ref: '#/components/headers/RateLimit-Reset'
     PaginatedCalculateResponse:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/PaginatedCalculationResponse'
       description: Paginated Screen Results and Metadata
+      headers:
+        X-RateLimit-Limit-second:
+          $ref: '#/components/headers/X-RateLimit-Limit-second'
+        X-RateLimit-Remaining-second:
+          $ref: '#/components/headers/X-RateLimit-Remaining-second'
+        RateLimit-Limit:
+          $ref: '#/components/headers/X-RateLimit-Limit-second'
+        RateLimit-Remaining:
+          $ref: '#/components/headers/X-RateLimit-Remaining-second'
+        RateLimit-Reset:
+          $ref: '#/components/headers/RateLimit-Reset'
     Error400InvalidRequest:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorArray'
       description: Invalid request body.
+      headers:
+        X-RateLimit-Limit-604800:
+          $ref: '#/components/headers/X-RateLimit-Limit-604800'
+        X-RateLimit-Remaining-604800:
+          $ref: '#/components/headers/X-RateLimit-Remaining-604800'
+        RateLimit-Limit:
+          $ref: '#/components/headers/RateLimit-Limit'
+        RateLimit-Remaining:
+          $ref: '#/components/headers/RateLimit-Remaining'
+        RateLimit-Reset:
+          $ref: '#/components/headers/RateLimit-Reset'
     Error400ScreenOpen:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorArray'
       description: The requested screen could not be opened.
+      headers:
+        X-RateLimit-Limit-second:
+          $ref: '#/components/headers/X-RateLimit-Limit-second'
+        X-RateLimit-Remaining-second:
+          $ref: '#/components/headers/X-RateLimit-Remaining-second'
+        RateLimit-Limit:
+          $ref: '#/components/headers/X-RateLimit-Limit-second'
+        RateLimit-Remaining:
+          $ref: '#/components/headers/X-RateLimit-Remaining-second'
+        RateLimit-Reset:
+          $ref: '#/components/headers/RateLimit-Reset'
     Error401Response:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorArray'
       description: Invalid or missing authentication.
+    Error403Response:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorArray'
+      description: User is not authorized for this operation.
     Error404Response:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorArray'
       description: Job ID not found.
+      headers:
+        X-RateLimit-Limit-second:
+          $ref: '#/components/headers/X-RateLimit-Limit-second'
+        X-RateLimit-Remaining-second:
+          $ref: '#/components/headers/X-RateLimit-Remaining-second'
+        RateLimit-Limit:
+          $ref: '#/components/headers/X-RateLimit-Limit-second'
+        RateLimit-Remaining:
+          $ref: '#/components/headers/X-RateLimit-Remaining-second'
+        RateLimit-Reset:
+          $ref: '#/components/headers/RateLimit-Reset'
     Error410Response:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorArray'
       description: The results have been fetched for this ID.
+      headers:
+        X-RateLimit-Limit-second:
+          $ref: '#/components/headers/X-RateLimit-Limit-second'
+        X-RateLimit-Remaining-second:
+          $ref: '#/components/headers/X-RateLimit-Remaining-second'
+        RateLimit-Limit:
+          $ref: '#/components/headers/X-RateLimit-Limit-second'
+        RateLimit-Remaining:
+          $ref: '#/components/headers/X-RateLimit-Remaining-second'
+        RateLimit-Reset:
+          $ref: '#/components/headers/RateLimit-Reset'
     Error429Response:
       content:
         application/json:
@@ -659,17 +1071,17 @@ components:
       description: Too many requests.
       headers:
         X-FactSet-Api-Units-Limit:
-          description: Maximum number of jobs.
-          explode: false
-          schema:
-            type: string
-          style: simple
+          $ref: '#/components/headers/X-FactSet-Api-Units-Limit'
         X-FactSet-Api-Units-Remaining:
-          description: Number of available jobs.
-          explode: false
-          schema:
-            type: string
-          style: simple
+          $ref: '#/components/headers/X-FactSet-Api-Units-Remaining'
+        RateLimit-Limit:
+          $ref: '#/components/headers/RateLimit-Limit'
+        RateLimit-Remaining:
+          $ref: '#/components/headers/RateLimit-Remaining'
+        RateLimit-Reset:
+          $ref: '#/components/headers/RateLimit-Reset'
+        Retry-After:
+          $ref: '#/components/headers/RateLimit-Reset'
     Generic500ErrorResponse:
       description: Internal Server Error
       headers:
@@ -689,41 +1101,21 @@ components:
         of the archive.
       headers:
         Location:
-          description: Relative location to poll for archive status
-          explode: false
-          schema:
-            type: string
-          style: simple
+          $ref: '#/components/headers/StatusLocation'
         X-FactSet-Api-Units-Limit:
-          description: Maximum number of jobs.
-          explode: false
-          schema:
-            type: string
-          style: simple
+          $ref: '#/components/headers/X-FactSet-Api-Units-Limit'
         X-FactSet-Api-Units-Remaining:
-          description: Number of available jobs.
-          explode: false
-          schema:
-            type: string
-          style: simple
+          $ref: '#/components/headers/X-FactSet-Api-Units-Remaining'
+        X-RateLimit-Limit-604800:
+          $ref: '#/components/headers/X-RateLimit-Limit-604800'
+        X-RateLimit-Remaining-604800:
+          $ref: '#/components/headers/X-RateLimit-Remaining-604800'
         RateLimit-Limit:
-          description: Number of weekly jobs available.
-          explode: false
-          schema:
-            type: string
-          style: simple
+          $ref: '#/components/headers/RateLimit-Limit'
         RateLimit-Remaining:
-          description: Number of remaining weekly jobs.
-          explode: false
-          schema:
-            type: string
-          style: simple
+          $ref: '#/components/headers/RateLimit-Remaining'
         RateLimit-Reset:
-          description: Time, in seconds, until weekly limit resets.
-          explode: false
-          schema:
-            type: string
-          style: simple
+          $ref: '#/components/headers/RateLimit-Reset'
     SubmitCalculateResponse:
       content:
         application/json:
@@ -734,61 +1126,51 @@ components:
         status of the calculation.
       headers:
         Location:
-          description: Relative location to poll for calculation status
-          explode: false
-          schema:
-            type: string
-          style: simple
+          $ref: '#/components/headers/StatusLocation'
         X-FactSet-Api-Units-Limit:
-          description: Maximum number of jobs.
-          explode: false
-          schema:
-            type: string
-          style: simple
+          $ref: '#/components/headers/X-FactSet-Api-Units-Limit'
         X-FactSet-Api-Units-Remaining:
-          description: Number of available jobs.
-          explode: false
-          schema:
-            type: string
-          style: simple
+          $ref: '#/components/headers/X-FactSet-Api-Units-Remaining'
+        X-RateLimit-Limit-604800:
+          $ref: '#/components/headers/X-RateLimit-Limit-604800'
+        X-RateLimit-Remaining-604800:
+          $ref: '#/components/headers/X-RateLimit-Remaining-604800'
         RateLimit-Limit:
-          description: Number of weekly jobs available.
-          explode: false
-          schema:
-            type: string
-          style: simple
+          $ref: '#/components/headers/RateLimit-Limit'
         RateLimit-Remaining:
-          description: Number of remaining weekly jobs.
-          explode: false
-          schema:
-            type: string
-          style: simple
+          $ref: '#/components/headers/RateLimit-Remaining'
         RateLimit-Reset:
-          description: Time, in seconds, until weekly limit resets.
-          explode: false
-          schema:
-            type: string
-          style: simple
+          $ref: '#/components/headers/RateLimit-Reset'
   schemas:
     ActiveJobsData:
-      description: Object containing active jobs ids
+      description: Object containing active job IDs
       example:
         data:
           id:
-          - id
-          - id
+          - 123e4567-e89b-12d3-a456-426655440000
+          - 927876ca-2b99-477f-b50c-724e9b808945
+          - 43c51881-2d88-41ad-8aab-da014ec16857
       properties:
         data:
           $ref: '#/components/schemas/ActiveJobIDs'
+      type: object
     ActiveJobIDs:
-      description: Array of active jobs ids associated with the account
+      description: Array of active job IDs associated with the account
       example:
         id:
-        - id
-        - id
+        - 123e4567-e89b-12d3-a456-426655440000
+        - 927876ca-2b99-477f-b50c-724e9b808945
+        - 43c51881-2d88-41ad-8aab-da014ec16857
       properties:
         id:
+          description: Array of active job IDs associated with the account
+          example:
+          - 123e4567-e89b-12d3-a456-426655440000
+          - 927876ca-2b99-477f-b50c-724e9b808945
+          - 43c51881-2d88-41ad-8aab-da014ec16857
           items:
+            example: 123e4567-e89b-12d3-a456-426655440000
+            format: uuid
             type: string
           type: array
       type: object
@@ -797,6 +1179,17 @@ components:
       properties:
         errors:
           description: Array of Error Objects
+          example:
+          - code: parameterError
+            id: 123e4567-e89b-12d3-a456-426655440001
+            source:
+              parameter: param1
+            title: param1 notFound
+          - code: universal_screening_parameterWarning
+            id: 123e4567-e89b-12d3-a456-426655440002
+            source:
+              parameter: param2
+            title: The screen you are attempting to open is corrupt.
           items:
             $ref: '#/components/schemas/ErrorObject'
           type: array
@@ -814,71 +1207,65 @@ components:
       - quantityLimitsExceeded
       - universal_screening_parameterError
       - universal_screening_parameterWarning
+      example: notAuthenticated
       type: string
     ErrorObject:
       description: Associated Error Objects
-      example:
-        id: id
-        source:
-          parameter: parameter
-        title: title
       properties:
         code:
           $ref: '#/components/schemas/ErrorCode'
         id:
           description: A unique ID for the occurrence of the error. It is advised
             to log this code and include it if you contact FactSet support desk.
+          example: 123e4567-e89b-12d3-a456-426655440002
+          format: uuid
           type: string
         source:
           $ref: '#/components/schemas/ErrorObjectSource'
         title:
-          description: a description of the error
+          description: A description of the error
+          example: Parameter Error
           type: string
       type: object
     ErrorObjectSource:
       description: For errors and warnings found in screens, contains the paramID
         the error/warning belongs to
-      example:
-        parameter: parameter
       properties:
         parameter:
+          description: Param ID
+          example: PARAM1
           type: string
       type: object
     PaginationResponse:
-      example:
-        next: next
-        total: 6
-        prev: 0
-        isEstimatedTotal: true
+      description: Information about the paginated data in this response.
       properties:
         isEstimatedTotal:
           description: Denotes if the 'total' property is an estimation
+          example: true
           type: boolean
         next:
           description: Next cursor to be sent, will be null when there are no more
             results
           nullable: true
           type: string
-        prev:
+        previous:
           description: Previous cursor, currently not supported
           nullable: true
-          type: integer
+          type: string
         total:
           description: Total number of rows in the screen
+          example: 2002
           type: integer
       type: object
     ResourceStatusResponse:
       description: ResourceStatusResponse contains information regarding the status
-        of a calculation job
+        of a long-running job. "Job" refers to a screen calculation or archival.
       example:
         data:
-          id: id
           error:
-            id: id
-            source:
-              parameter: parameter
-            title: title
-          status: status
+            $ref: '#/components/examples/errorObjectExample'
+          id: 123e4567-e89b-12d3-a456-426655440000
+          status: queued
       properties:
         data:
           $ref: '#/components/schemas/ResourceStatusResponse_data'
@@ -887,16 +1274,14 @@ components:
       description: Metadata containing results pagination information
       example:
         pagination:
-          next: next
-          total: 6
-          prev: 0
-          isEstimatedTotal: true
+          $ref: '#/components/examples/paginationResponseExample'
       properties:
         pagination:
           $ref: '#/components/schemas/PaginationResponse'
       type: object
     StachPackage:
-      description: Stach v2 column oriented paginated screen results
+      description: Stach v2 column oriented paginated screen results. Documentation
+        https://factset.github.io/stachschema/#/v2/README
       type: object
     PaginatedCalculationResponse:
       description: Paged results from screen calculation
@@ -904,37 +1289,36 @@ components:
         data: '{}'
         meta:
           pagination:
-            next: next
-            total: 6
-            prev: 0
-            isEstimatedTotal: true
+            $ref: '#/components/examples/paginationResponseExample'
       properties:
         meta:
           $ref: '#/components/schemas/ResultsMetadata'
         data:
-          description: Stach v2 column oriented paginated screen results
+          description: Stach v2 column oriented paginated screen results. Documentation
+            https://factset.github.io/stachschema/#/v2/README
           type: object
       type: object
     ScreenArchiveOFDBParameters:
+      description: Request body for screen archive request
       example:
         data:
           globalVariablesMap:
             key: globalVariablesMap
           archiveOptions:
-            unsplitHistory: true
+            unsplitHistory: false
             timeSeries: true
-            archiveType: archiveType
-            filename: filename
+            archiveType: ofdbSymbols
+            filename: personal:/screening_api_example_file.ofdb
             overwriteData: true
-            archiveDate: archiveDate
-            quickColumns: quickColumns
+            archiveDate: "20201231"
+            quickColumns: PARAM1 PARAM2
             useReportOrder: true
             autoSymbolUpdates: true
-            existed: true
-            symbolType: symbolType
-          legacyUniverseType: legacyUniverseType
-          screenName: screenName
-          backtestDate: backtestDate
+            existed: false
+            symbolType: cusip
+          legacyUniverseType: equity
+          screenName: SAMPLE_SCREENS:KPI_AIR.USWEB
+          backtestDate: "19951203"
       properties:
         data:
           $ref: '#/components/schemas/ScreenArchiveOFDBParameters_data'
@@ -942,13 +1326,14 @@ components:
       - data
       type: object
     ScreenCalcParameters:
+      description: Request body to calculate a screen.
       example:
         data:
           globalVariablesMap:
             key: globalVariablesMap
-          legacyUniverseType: legacyUniverseType
-          screenName: screenName
-          backtestDate: backtestDate
+          legacyUniverseType: equity
+          screenName: SAMPLE_SCREENS:KPI_AIR.USWEB
+          backtestDate: "20040412"
       properties:
         data:
           $ref: '#/components/schemas/ScreenCalcParameters_data'
@@ -956,72 +1341,121 @@ components:
       - data
       type: object
     ResourceStatusResponse_data:
+      description: Information about the status of the long-running job.
       example:
-        id: id
         error:
-          id: id
-          source:
-            parameter: parameter
-          title: title
-        status: status
+          $ref: '#/components/examples/errorObjectExample'
+        id: 123e4567-e89b-12d3-a456-426655440000
+        status: queued
       properties:
         error:
           $ref: '#/components/schemas/ErrorObject'
         id:
-          description: ID of the submitted calculation job
+          description: ID of the submitted job
+          example: 123e4567-e89b-12d3-a456-426655440002
+          format: uuid
           type: string
         status:
-          description: Current status of the calculation job
+          description: |-
+            Current status of the job.\
+            `queued`: The job has not started.\
+            `executing`: The job is in progress.\
+            `created`: The job completed successfully.\
+            `failed`: The job failed. See the `error` property for more information.\
+            `cancelled`: The job was cancelled before it could finish.
+          enum:
+          - queued
+          - executing
+          - created
+          - failed
+          - cancelled
+          example: queued
           type: string
       type: object
     ScreenArchiveOFDBParameters_data_archiveOptions:
+      description: Archive-specific parameters
       example:
-        unsplitHistory: true
+        unsplitHistory: false
         timeSeries: true
-        archiveType: archiveType
-        filename: filename
+        archiveType: ofdbSymbols
+        filename: personal:/screening_api_example_file.ofdb
         overwriteData: true
-        archiveDate: archiveDate
-        quickColumns: quickColumns
+        archiveDate: "20201231"
+        quickColumns: PARAM1 PARAM2
         useReportOrder: true
         autoSymbolUpdates: true
-        existed: true
-        symbolType: symbolType
+        existed: false
+        symbolType: cusip
       properties:
         archiveDate:
           description: YYYYMMDD date to archive to
+          example: "20201231"
+          maxLength: 8
+          minLength: 8
+          nullable: true
+          pattern: ^\d{8}$
           type: string
         archiveType:
-          description: Type of archive, i.e. ofdbSymbols, ofdbNts, ofdbQuickNts, ofdb
+          description: |-
+            Type of archive.\
+            `ofdbSymbols`: Archives the list of identifiers that passed the screen to an OFDB file.\
+            `ofdb`: Archives the results of the screen to a time series OFDB. A mapping between Universal Screening and the OFDB must be created and saved in the screen.\
+            `ofdbNts`: Archives the results of the screen to a non-time series OFDB. A mapping between Universal Screening and the OFDB database must be created and saved in the screen.\
+            `ofdbQuickNts`: Archives the results of the screen to a non-time series OFDB without requiring a Universal Screening-to-OFDB map. By default, all columns in the screen will be archived to the OFDB. Each column's parameter reference name will be used as the OFDB field name. Use the `quickColumns` property to specify which parameters to archive.
+          enum:
+          - ofdbSymbols
+          - ofdb
+          - ofdbNts
+          - ofdbQuickNts
+          example: ofdbSymbols
           type: string
         autoSymbolUpdates:
           description: Flag to enable automatic symbol updates
+          example: true
           type: boolean
         existed:
           description: Indicates that the output file exists
+          example: false
           type: boolean
         filename:
           description: OFDB Filename to archive to
+          example: personal:/screening_api_example_file.ofdb
           type: string
         overwriteData:
           description: If true and target file (or date for a time series file) exists,
             it will be cleared before archiving
+          example: true
           type: boolean
         quickColumns:
           description: 'Space delimited list of parameter references to be archived,
             which are UPPERCASED with the #P. omitted'
+          example: PARAM1 PARAM2
+          nullable: true
           type: string
         symbolType:
-          description: The symbol type for archiving
+          description: |-
+            The type of symbol to be saved to the SYMBOL field of the OFDB\
+            `cusip`: Recommended. Primarily CUSIP for North American listed securities and SEDOL for the rest of the world.\
+            `ticker`: Should only be used when writing to an existing OFDB that uses Tickers in the symbol column. Primarily Tickers for North American listed securities, QUICK Codes for Japanese listed securities, and SEDOL for the rest of the world. Applicable for equity screen archives.\
+            `isin`: International Securities Identification Number (ISIN). Applicable for debt screen archives.
+          enum:
+          - cusip
+          - ticker
+          - isin
+          example: cusip
+          nullable: true
           type: string
         timeSeries:
-          description: If true, archive 3D time series OFDB
+          deprecated: true
+          description: Has no effect. Use the `archiveType` property.
           type: boolean
         unsplitHistory:
           description: Flag indicating split adjust
+          example: false
           type: boolean
         useReportOrder:
           description: If true, archive in report order
+          example: true
           type: boolean
       required:
       - archiveType
@@ -1033,20 +1467,20 @@ components:
         globalVariablesMap:
           key: globalVariablesMap
         archiveOptions:
-          unsplitHistory: true
+          unsplitHistory: false
           timeSeries: true
-          archiveType: archiveType
-          filename: filename
+          archiveType: ofdbSymbols
+          filename: personal:/screening_api_example_file.ofdb
           overwriteData: true
-          archiveDate: archiveDate
-          quickColumns: quickColumns
+          archiveDate: "20201231"
+          quickColumns: PARAM1 PARAM2
           useReportOrder: true
           autoSymbolUpdates: true
-          existed: true
-          symbolType: symbolType
-        legacyUniverseType: legacyUniverseType
-        screenName: screenName
-        backtestDate: backtestDate
+          existed: false
+          symbolType: cusip
+        legacyUniverseType: equity
+        screenName: SAMPLE_SCREENS:KPI_AIR.USWEB
+        backtestDate: "19951203"
       properties:
         archiveOptions:
           $ref: '#/components/schemas/ScreenArchiveOFDBParameters_data_archiveOptions'
@@ -1056,6 +1490,8 @@ components:
               the backtest date saved in the screen, can be written in YYYYMMDD,
               MM/DD/YYYY or relative (0, -1, 0/-1/0) format.
             Requires addtional access to use.
+          example: "19951203"
+          nullable: true
           type: string
         globalVariablesMap:
           additionalProperties:
@@ -1065,11 +1501,22 @@ components:
             Variable names can only contain the characters A-Z (case insensitive). Variable values must be non-empty.
           type: object
         legacyUniverseType:
-          description: Universe type to open legacy screen with. Must be one of "equity",
-            "debt", or "fund". Defaults to "equity".
+          default: equity
+          description: |-
+            Universe type to open a Screen 1.0 document with\
+            `equity`: Uses the equity universe from the Screen 1.0 document.\
+            `debt`: Uses the debt universe from the Screen 1.0 document.\
+            `fund`: Uses the fund universe from the Screen 1.0 document.
+          enum:
+          - equity
+          - debt
+          - fund
+          example: equity
+          nullable: true
           type: string
         screenName:
-          description: File path to a valid screen
+          description: Full file path to a valid screen
+          example: SAMPLE_SCREENS:KPI_AIR.USWEB
           type: string
       required:
       - screenName
@@ -1079,14 +1526,16 @@ components:
       example:
         globalVariablesMap:
           key: globalVariablesMap
-        legacyUniverseType: legacyUniverseType
-        screenName: screenName
-        backtestDate: backtestDate
+        legacyUniverseType: equity
+        screenName: SAMPLE_SCREENS:KPI_AIR.USWEB
+        backtestDate: "20040412"
       properties:
         backtestDate:
           description: Specifies the backtest date used when running the screen, replacing
             the backtest date saved in the screen, can be written in YYYYMMDD, MM/DD/YYYY
             or relative (0, -1, 0/-1/0) format. Requires addtional access to use.
+          example: "20040412"
+          nullable: true
           type: string
         globalVariablesMap:
           additionalProperties:
@@ -1096,11 +1545,22 @@ components:
             Variable names can only contain the characters A-Z (case insensitive). Variable values must be non-empty.
           type: object
         legacyUniverseType:
-          description: Universe type to open legacy screen with. Must be one of "equity",
-            "debt", or "fund". Defaults to "equity".
+          default: equity
+          description: |-
+            Universe type to open a Screen 1.0 document with\
+            `equity`: Uses the equity universe from the Screen 1.0 document.\
+            `debt`: Uses the debt universe from the Screen 1.0 document.\
+            `fund`: Uses the fund universe from the Screen 1.0 document.
+          enum:
+          - equity
+          - debt
+          - fund
+          example: equity
+          nullable: true
           type: string
         screenName:
           description: File path to a valid screen
+          example: SAMPLE_SCREENS:KPI_AIR.USWEB
           type: string
       required:
       - screenName

@@ -75,6 +75,8 @@ class CompanyEventRequestData(ModelNormal):
             'PROJECTEDER': "projectedER",
             'S': "S",
             'D': "D",
+
+
         },
     }
 

@@ -63,6 +63,8 @@ class InlineResponse20010DataOccurrence(ModelNormal):
             'None': None,
             'PERIODIC': "periodic",
             'EXTRAORDINARY': "extraordinary",
+
+
         },
     }
 

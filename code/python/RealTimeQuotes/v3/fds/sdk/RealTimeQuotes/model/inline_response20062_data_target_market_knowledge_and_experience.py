@@ -66,6 +66,8 @@ class InlineResponse20062DataTargetMarketKnowledgeAndExperience(ModelNormal):
             'NO': "no",
             'NEUTRAL': "neutral",
             'FEEDBACK': "feedback",
+
+
         },
         ('informed_investor',): {
             'None': None,
@@ -73,6 +75,8 @@ class InlineResponse20062DataTargetMarketKnowledgeAndExperience(ModelNormal):
             'NO': "no",
             'NEUTRAL': "neutral",
             'FEEDBACK': "feedback",
+
+
         },
         ('advanced_investor',): {
             'None': None,
@@ -80,6 +84,8 @@ class InlineResponse20062DataTargetMarketKnowledgeAndExperience(ModelNormal):
             'NO': "no",
             'NEUTRAL': "neutral",
             'FEEDBACK': "feedback",
+
+
         },
     }
 

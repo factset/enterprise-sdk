@@ -55,6 +55,8 @@ class Restated(ModelSimple):
         ('value',): {
             'RP': "RP",
             'RF': "RF",
+
+
         },
     }
 

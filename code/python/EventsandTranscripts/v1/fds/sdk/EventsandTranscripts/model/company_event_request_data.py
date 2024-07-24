@@ -75,6 +75,8 @@ class CompanyEventRequestData(ModelNormal):
             'SALESREVENUERELEASE': "SalesRevenueRelease",
             'SPLIT': "Split",
             'DIVIDEND': "Dividend",
+
+
         },
     }
 

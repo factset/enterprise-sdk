@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **get_vault_documents**
-> DocumentDirectoriesRoot get_vault_documents()
+> DocumentDirectoriesRoot get_vault_documents(path)
 
 Get Vault documents and sub-directories in a directory
 
@@ -60,11 +60,12 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
     api_instance = documents_api.DocumentsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
+    path = "Client:" # str | The directory to get the documents in. This is a sample example for illustration purposes only. Client should use a valid Directory/Sub-Directory to get a successful response.
 
     try:
         # Get Vault documents and sub-directories in a directory
         # example passing only required values which don't have defaults set
-        api_response = api_instance.get_vault_documents()
+        api_response = api_instance.get_vault_documents(path)
 
         pprint(api_response)
 
@@ -77,7 +78,7 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **str**| The directory to get the documents in | defaults to ""
+ **path** | **str**| The directory to get the documents in. This is a sample example for illustration purposes only. Client should use a valid Directory/Sub-Directory to get a successful response. |
 
 ### Return type
 

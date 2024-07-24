@@ -55,6 +55,8 @@ class HedgeType(ModelSimple):
         ('value',): {
             'UNHEDGED': "UNHEDGED",
             'HEDGED': "HEDGED",
+
+
         },
     }
 

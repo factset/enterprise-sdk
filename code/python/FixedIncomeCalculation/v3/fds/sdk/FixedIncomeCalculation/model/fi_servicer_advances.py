@@ -62,6 +62,8 @@ class FIServicerAdvances(ModelNormal):
             'DOES_NOT_ADVANCE': "Does Not Advance",
             'PRINCIPAL_ONLY': "Principal Only",
             'INTEREST_ONLY': "Interest Only",
+
+
         },
     }
 

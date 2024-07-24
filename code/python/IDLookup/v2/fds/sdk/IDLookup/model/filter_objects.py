@@ -90,6 +90,8 @@ class FilterObjects(ModelNormal):
             'REGIONS': "regions",
             'YIELDS': "yields",
             'OPTIONS': "options",
+
+
         },
     }
 

@@ -63,6 +63,8 @@ class FICashflows(ModelNormal):
             'DATE': "Date",
             'DEAL_CLOSING': "Deal Closing",
             'SETTLE_DATE': "Settle Date",
+
+
         },
     }
 

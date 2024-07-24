@@ -60,6 +60,8 @@ class Instrument(ModelNormal):
             'None': None,
             'PUT': "put",
             'CALL': "call",
+
+
         },
     }
 

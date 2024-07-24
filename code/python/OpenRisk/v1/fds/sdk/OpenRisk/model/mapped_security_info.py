@@ -126,6 +126,8 @@ class MappedSecurityInfo(ModelNormal):
             'VIXOPTION': "VixOption",
             'VIXUNDERLYINGSECURITY': "VixUnderlyingSecurity",
             'ZEROEXPOSURESECURITY': "ZeroExposureSecurity",
+
+
         },
     }
 

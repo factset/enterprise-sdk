@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.SecurityModeling",
-  "packageVersion": "0.20.10",
+  "packageVersion": "0.20.11",
   "packageGuid": "{599e5e4d-6d32-5ff7-b222-2dc9904ff0bd}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/SecurityModeling/v3",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/SecurityModeling/0.20.10",
+  "httpUserAgent": "fds-sdk/dotnet/SecurityModeling/0.20.11",
   "files": {
     "LICENSE": {}
   },

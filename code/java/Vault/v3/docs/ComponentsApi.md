@@ -58,7 +58,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         ComponentsApi apiInstance = new ComponentsApi(defaultClient);
-        String id = "id_example"; // String | Unique identifier for a vault component
+        String id = "AFB43C61A6651B87988FEA62ED333638595AE7D8D7345A33AB9994CF23AFCC5D"; // String | Unique identifier for a vault component. This is a sample example for illustration purposes only. Client should use a valid Vault API Component Id to get a successful response.
         try {
             VaultComponentRoot result = apiInstance.getVaultComponentById(id);
             System.out.println(result);
@@ -79,7 +79,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Unique identifier for a vault component |
+ **id** | **String**| Unique identifier for a vault component. This is a sample example for illustration purposes only. Client should use a valid Vault API Component Id to get a successful response. |
 
 ### Return type
 
@@ -157,7 +157,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         ComponentsApi apiInstance = new ComponentsApi(defaultClient);
-        String document = "document_example"; // String | Document Name
+        String document = "CLIENT:/MAC/DEMO/DEMO_PS_EQ_EM_COUNTRY_ALPHA"; // String | Document Name. This is a sample example for illustration purposes only. Client should use a valid Portfolio Insight Document to get a successful response.
         try {
             ComponentSummaryRoot result = apiInstance.getVaultComponents(document);
             System.out.println(result);
@@ -178,7 +178,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **document** | **String**| Document Name |
+ **document** | **String**| Document Name. This is a sample example for illustration purposes only. Client should use a valid Portfolio Insight Document to get a successful response. |
 
 ### Return type
 

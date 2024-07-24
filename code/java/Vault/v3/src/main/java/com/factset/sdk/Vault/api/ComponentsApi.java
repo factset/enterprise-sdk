@@ -66,7 +66,7 @@ public class ComponentsApi {
   /**
    * Get Vault component by id
    * This endpoint returns the default settings of a Vault component.
-   * @param id Unique identifier for a vault component (required)
+   * @param id Unique identifier for a vault component. This is a sample example for illustration purposes only. Client should use a valid Vault API Component Id to get a successful response. (required)
    * @return VaultComponentRoot
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -90,7 +90,7 @@ public class ComponentsApi {
   /**
    * Get Vault component by id
    * This endpoint returns the default settings of a Vault component.
-   * @param id Unique identifier for a vault component (required)
+   * @param id Unique identifier for a vault component. This is a sample example for illustration purposes only. Client should use a valid Vault API Component Id to get a successful response. (required)
    * @return ApiResponse&lt;VaultComponentRoot&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -156,7 +156,7 @@ public class ComponentsApi {
   /**
    * Get Vault components
    * This endpoint returns the list of Vault components in a given Vault document.
-   * @param document Document Name (required)
+   * @param document Document Name. This is a sample example for illustration purposes only. Client should use a valid Portfolio Insight Document to get a successful response. (required)
    * @return ComponentSummaryRoot
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -180,7 +180,7 @@ public class ComponentsApi {
   /**
    * Get Vault components
    * This endpoint returns the list of Vault components in a given Vault document.
-   * @param document Document Name (required)
+   * @param document Document Name. This is a sample example for illustration purposes only. Client should use a valid Portfolio Insight Document to get a successful response. (required)
    * @return ApiResponse&lt;ComponentSummaryRoot&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details

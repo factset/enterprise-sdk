@@ -62,6 +62,8 @@ class InlineResponse20062DataTargetMarketKnowledgeAndExperienceGermany(ModelNorm
             'NO': "no",
             'NEUTRAL': "neutral",
             'FEEDBACK': "feedback",
+
+
         },
     }
 

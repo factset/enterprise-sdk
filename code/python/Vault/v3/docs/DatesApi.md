@@ -60,10 +60,10 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
     api_instance = dates_api.DatesApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    enddate = "enddate_example" # str | End Date
-    componentid = "componentid_example" # str | Vault Component Id
-    account = "account_example" # str | Account
-    startdate = "startdate_example" # str | Start Date (optional)
+    enddate = "-1AY" # str | End Date
+    componentid = "AFB43C61A6651B87988FEA62ED333638595AE7D8D7345A33AB9994CF23AFCC5D" # str | Vault Component Id. This is a sample example for illustration purposes only. Client should use a valid Component Id to get a successful response.
+    account = "CLIENT:/MAC/DEMO/DEMO_PS_EQ_EM_COUNTRY_ALPHA.ACCT" # str | Account. This is a sample example for illustration purposes only. Client should use a valid Component Id to get a successful response.
+    startdate = "-3AY" # str | Start Date (optional)
 
     try:
         # Convert Vault dates to absolute format
@@ -83,8 +83,8 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enddate** | **str**| End Date |
- **componentid** | **str**| Vault Component Id |
- **account** | **str**| Account |
+ **componentid** | **str**| Vault Component Id. This is a sample example for illustration purposes only. Client should use a valid Component Id to get a successful response. |
+ **account** | **str**| Account. This is a sample example for illustration purposes only. Client should use a valid Component Id to get a successful response. |
  **startdate** | **str**| Start Date | [optional]
 
 ### Return type

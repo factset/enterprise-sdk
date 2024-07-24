@@ -62,6 +62,8 @@ class InlineResponse2003DataStatus(ModelNormal):
             'PARAMETER': "parameter",
             'ENTITLEMENT': "entitlement",
             'IDENTIFIERMAPPING': "identifierMapping",
+
+
         },
     }
 

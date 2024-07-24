@@ -61,6 +61,8 @@ class Periodicity(ModelSimple):
             '1': "1",
             '2': "2",
             'QTR': "QTR",
+
+
         },
     }
 

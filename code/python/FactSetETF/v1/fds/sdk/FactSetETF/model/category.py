@@ -69,6 +69,8 @@ class Category(ModelSimple):
             'STRATEGY': "STRATEGY",
             'STRUCTURE': "STRUCTURE",
             'TAX': "TAX",
+
+
         },
     }
 

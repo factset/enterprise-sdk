@@ -69,6 +69,8 @@ class PostInstrumentBenchmarkListRequestDataIdentifier(ModelNormal):
             'WKN': "wkn",
             'VALOR': "valor",
             'CUSIP': "cusip",
+
+
         },
     }
 

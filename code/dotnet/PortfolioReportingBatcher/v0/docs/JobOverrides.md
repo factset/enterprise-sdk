@@ -5,13 +5,8 @@ If this object is provided, the settings given here will override the default se
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Calendar** | [**Calendar**](Calendar.md) |  | [optional] 
-**Combinations** | [**List&lt;JobOverridesCombinationsRoot&gt;**](JobOverridesCombinationsRoot.md) | An array of date account combinations | [optional] 
-**Dates** | [**JobOverridesDates**](JobOverridesDates.md) |  | [optional] 
-**Frequency** | [**Frequency**](Frequency.md) |  | [optional] 
-**RunAsOfDate** | **DateTime** | PUB | [optional] 
+**Combinations** | [**List&lt;JobOverridesCombinationsRoot&gt;**](JobOverridesCombinationsRoot.md) | An array of date, account, and tasks combinations | [optional] 
 **RunAsSerialNumber** | **string** | The FactSet serial number which has the credentials wanted to run the job | [optional] 
-**Tasks** | **List&lt;string&gt;** | Used only for jobs where type is PA | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

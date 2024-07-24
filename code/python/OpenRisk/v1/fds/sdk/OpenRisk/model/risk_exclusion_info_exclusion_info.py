@@ -64,6 +64,8 @@ class RiskExclusionInfoExclusionInfo(ModelNormal):
             'INVALIDCOMPOSITEASSETDEFINITION': "InvalidCompositeAssetDefinition",
             'INTERNALERROR': "InternalError",
             'UNKNOWN': "Unknown",
+
+
         },
     }
 

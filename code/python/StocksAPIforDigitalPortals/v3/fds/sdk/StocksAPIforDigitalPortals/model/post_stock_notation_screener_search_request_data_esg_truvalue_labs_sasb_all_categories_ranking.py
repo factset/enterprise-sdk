@@ -61,6 +61,8 @@ class PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategories
             'AVERAGE': "average",
             'BELOWAVERAGE': "belowAverage",
             'LAGGARD': "laggard",
+
+
         },
     }
 

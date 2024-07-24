@@ -75,6 +75,8 @@ class PostBasicMarketListRequestMeta(ModelNormal):
             '-TYPE.NAME': "-type.name",
             'GROUP.NAME': "group.name",
             '-GROUP.NAME': "-group.name",
+
+
         },
     }
 

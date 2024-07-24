@@ -60,6 +60,8 @@ class PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanyCurrency
             'USD': "USD",
             'GBP': "GBP",
             'CHF': "CHF",
+
+
         },
     }
 

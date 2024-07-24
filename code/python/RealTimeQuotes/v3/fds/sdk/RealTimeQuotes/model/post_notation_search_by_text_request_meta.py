@@ -77,6 +77,8 @@ class PostNotationSearchByTextRequestMeta(ModelNormal):
             '-MATCH.SCORE': "-match.score",
             'AVERAGEINDICATIVETRADINGVALUE30TD': "averageIndicativeTradingValue30TD",
             '-AVERAGEINDICATIVETRADINGVALUE30TD': "-averageIndicativeTradingValue30TD",
+
+
         },
     }
 

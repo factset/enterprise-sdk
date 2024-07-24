@@ -61,6 +61,8 @@ class Field(ModelNormal):
             'COUPON_DETAILS': "COUPON_DETAILS",
             'REDEMPTION_OPTIONS': "REDEMPTION_OPTIONS",
             'SECURITY_DETAILS': "SECURITY_DETAILS",
+
+
         },
     }
 

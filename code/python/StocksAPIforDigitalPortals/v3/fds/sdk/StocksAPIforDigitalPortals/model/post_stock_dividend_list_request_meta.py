@@ -70,6 +70,8 @@ class PostStockDividendListRequestMeta(ModelNormal):
             '-DIVIDENDS.DATES.EFFECTIVE': "-dividends.dates.effective",
             'DIVIDENDS.DATES.PAYMENT': "dividends.dates.payment",
             '-DIVIDENDS.DATES.PAYMENT': "-dividends.dates.payment",
+
+
         },
     }
 

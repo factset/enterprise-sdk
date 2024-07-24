@@ -60,6 +60,8 @@ class NrtCallsObject(ModelNormal):
             'None': None,
             'PHONEREPLAY': "PhoneReplay",
             'WEBCAST': "Webcast",
+
+
         },
         ('event_type',): {
             'None': None,
@@ -70,6 +72,8 @@ class NrtCallsObject(ModelNormal):
             'SALESREVENUECALL': "SalesRevenueCall",
             'SALESREVENUERELEASE': "SalesRevenueRelease",
             'SPECIALSITUATION': "SpecialSituation",
+
+
         },
         ('call_status',): {
             'None': None,
@@ -77,6 +81,8 @@ class NrtCallsObject(ModelNormal):
             'ENDED': "Ended",
             'ENDEDWITHOUTNOTIFICATION': "EndedWithoutNotification",
             'ISSUEATSOURCE': "IssueAtSource",
+
+
         },
     }
 

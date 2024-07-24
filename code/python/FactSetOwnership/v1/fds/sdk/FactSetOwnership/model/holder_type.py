@@ -58,6 +58,8 @@ class HolderType(ModelSimple):
             'S': "S",
             'FS': "FS",
             'B': "B",
+
+
         },
     }
 

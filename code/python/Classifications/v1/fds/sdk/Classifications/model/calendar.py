@@ -55,6 +55,8 @@ class Calendar(ModelSimple):
         ('value',): {
             'FIVEDAY': "FIVEDAY",
             'SEVENDAY': "SEVENDAY",
+
+
         },
     }
 

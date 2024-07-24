@@ -65,6 +65,8 @@ class PostNotationSearchByTextRequestDataValidationPrices(ModelNormal):
         ('quality',): {
             'DLY': "DLY",
             'EOD': "EOD",
+
+
         },
     }
 

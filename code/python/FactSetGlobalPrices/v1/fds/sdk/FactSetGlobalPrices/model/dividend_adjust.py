@@ -58,6 +58,8 @@ class DividendAdjust(ModelSimple):
             'PAYDATE': "PAYDATE",
             'EXDATE_C': "EXDATE_C",
             'PAYDATE_C': "PAYDATE_C",
+
+
         },
     }
 

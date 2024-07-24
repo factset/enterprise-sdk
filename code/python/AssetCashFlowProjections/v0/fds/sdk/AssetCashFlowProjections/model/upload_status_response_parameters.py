@@ -61,6 +61,8 @@ class UploadStatusResponseParameters(ModelNormal):
             'MILLIMAN&#39;S_MG-ALFA_(ALFA)': "Milliman's MG-ALFA (ALFA)",
             'SUNGARD_IWORKS_PROPHET': "Sungard iWorks Prophet",
             'FACTSET': "FactSet",
+
+
         },
         ('acfp_status',): {
             'PENDING': "pending",
@@ -70,11 +72,15 @@ class UploadStatusResponseParameters(ModelNormal):
             'GOOD': "good",
             'PREPARING': "preparing",
             'UNINITIATED': "uninitiated",
+
+
         },
         ('status',): {
             'QUEUED': "queued",
             'EXECUTING': "executing",
             'CREATED': "created",
+
+
         },
     }
 

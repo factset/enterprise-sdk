@@ -59,6 +59,8 @@ class TranscriptObjectOne(ModelNormal):
         ('transcript_type',): {
             'RAW': "Raw",
             'CORRECTED': "Corrected",
+
+
         },
         ('event_type',): {
             'EARNINGS': "Earnings",
@@ -67,6 +69,8 @@ class TranscriptObjectOne(ModelNormal):
             'CONFERENCEPRESENTATION': "ConferencePresentation",
             'SALESREVENUE': "SalesRevenue",
             'SPECIALSITUATION': "SpecialSituation",
+
+
         },
     }
 

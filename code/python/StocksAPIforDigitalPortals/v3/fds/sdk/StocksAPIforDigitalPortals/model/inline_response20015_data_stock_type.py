@@ -61,6 +61,8 @@ class InlineResponse20015DataStockType(ModelNormal):
             'PREFERRED': "preferred",
             'DEPOSITORYRECEIPT': "depositoryReceipt",
             'OTHER': "other",
+
+
         },
     }
 

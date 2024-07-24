@@ -66,6 +66,8 @@ class InlineResponse20062DataTargetMarketClientObjectivesAndNeeds(ModelNormal):
             'NO': "no",
             'NEUTRAL': "neutral",
             'FEEDBACK': "feedback",
+
+
         },
         ('specific_investment_need',): {
             'YES': "yes",
@@ -75,6 +77,8 @@ class InlineResponse20062DataTargetMarketClientObjectivesAndNeeds(ModelNormal):
             'ISLAMIC': "islamic",
             'ESG': "esg",
             'OTHER': "other",
+
+
         },
     }
 

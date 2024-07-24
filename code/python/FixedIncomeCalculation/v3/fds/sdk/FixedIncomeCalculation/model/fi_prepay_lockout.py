@@ -60,11 +60,15 @@ class FIPrepayLockout(ModelNormal):
             'ANY': "ANY",
             'NO_LOCKOUT': "NO_LOCKOUT",
             'NUMERIC': "NUMERIC",
+
+
         },
         ('ym_above',): {
             'ANY': "ANY",
             'NO_LOCKOUT': "NO_LOCKOUT",
             'NUMERIC': "NUMERIC",
+
+
         },
     }
 

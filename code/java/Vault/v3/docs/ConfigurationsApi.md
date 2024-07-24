@@ -15,7 +15,9 @@ Method | HTTP request | Description
 
 Get Vault configuration by id
 
-This endpoint returns details for a Vault configuration as well as a list of accounts it is used in.
+This endpoint returns details for a Vault configuration as well as a list of accounts it is used in. 
+
+ The __lockingDate__ parameter in the response can help in identifying if the vault configuration data is locked or unlocked.
 
 ### Example
 
@@ -58,7 +60,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         ConfigurationsApi apiInstance = new ConfigurationsApi(defaultClient);
-        String id = "id_example"; // String | Vault configuration id to get the details of
+        String id = "e95ef921-b4d4-4bb7-93ba-60eca8e3247a"; // String | Vault configuration id to get the details of. This is a sample example for illustration purposes only. Client should use a valid Vault API Configuration Id to get a successful response.
         try {
             VaultConfigurationRoot result = apiInstance.getVaultConfigurationById(id);
             System.out.println(result);
@@ -79,7 +81,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Vault configuration id to get the details of |
+ **id** | **String**| Vault configuration id to get the details of. This is a sample example for illustration purposes only. Client should use a valid Vault API Configuration Id to get a successful response. |
 
 ### Return type
 
@@ -157,7 +159,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         ConfigurationsApi apiInstance = new ConfigurationsApi(defaultClient);
-        String account = "account_example"; // String | Required account query parameter to filter configurations for a specific account
+        String account = "CLIENT:/MAC/DEMO/DEMO_PS_EQ_EM_COUNTRY_ALPHA.ACCT"; // String | Required account query parameter to filter configurations for a specific account. This is a sample example for illustration purposes only. Client should use a valid Portfolio Insight Account to get a successful response.
         try {
             VaultConfigurationSummaryRoot result = apiInstance.getVaultConfigurations(account);
             System.out.println(result);
@@ -178,7 +180,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account** | **String**| Required account query parameter to filter configurations for a specific account |
+ **account** | **String**| Required account query parameter to filter configurations for a specific account. This is a sample example for illustration purposes only. Client should use a valid Portfolio Insight Account to get a successful response. |
 
 ### Return type
 

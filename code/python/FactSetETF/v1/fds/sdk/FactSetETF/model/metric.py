@@ -65,6 +65,8 @@ class Metric(ModelNormal):
             'DOUBLE': "DOUBLE",
             'INTEGER': "INTEGER",
             'STRING': "STRING",
+
+
         },
     }
 

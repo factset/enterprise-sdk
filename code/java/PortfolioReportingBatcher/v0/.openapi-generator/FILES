@@ -22,7 +22,7 @@ docs/JobListResponseMetaPagination.md
 docs/JobListResponseRoot.md
 docs/JobOverrides.md
 docs/JobOverridesCombinationsRoot.md
-docs/JobOverridesDates.md
+docs/JobOverridesCombinationsRootDateRange.md
 docs/JobTypes.md
 docs/JobsApi.md
 docs/PrbStatus.md
@@ -79,7 +79,7 @@ src/main/java/com/factset/sdk/PortfolioReportingBatcher/models/JobListResponseMe
 src/main/java/com/factset/sdk/PortfolioReportingBatcher/models/JobListResponseRoot.java
 src/main/java/com/factset/sdk/PortfolioReportingBatcher/models/JobOverrides.java
 src/main/java/com/factset/sdk/PortfolioReportingBatcher/models/JobOverridesCombinationsRoot.java
-src/main/java/com/factset/sdk/PortfolioReportingBatcher/models/JobOverridesDates.java
+src/main/java/com/factset/sdk/PortfolioReportingBatcher/models/JobOverridesCombinationsRootDateRange.java
 src/main/java/com/factset/sdk/PortfolioReportingBatcher/models/JobTypes.java
 src/main/java/com/factset/sdk/PortfolioReportingBatcher/models/PrbStatus.java
 src/main/java/com/factset/sdk/PortfolioReportingBatcher/models/RunsForJob.java

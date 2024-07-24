@@ -77,6 +77,8 @@ class Attributes(ModelSimple):
             'REVEV': "QFL_REVEV",
             'ROIC': "QFL_ROIC",
             'CFROIC': "QFL_CFROIC",
+
+
         },
     }
 

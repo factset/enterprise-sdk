@@ -70,12 +70,16 @@ class Detail(ModelNormal):
             'CANCELLED': "Cancelled",
             'RUMOR': "Rumor",
             'RUMOR_CANCELLED': "Rumor Cancelled",
+
+
         },
         ('deal_type',): {
             'ACQUISITION_/_MERGER': "Acquisition / Merger",
             'MAJORITY_STAKE': "Majority Stake",
             'MINORITY_STAKE': "Minority Stake",
             'SPINOFF': "Spinoff",
+
+
         },
         ('source_funds',): {
             'None': None,
@@ -88,17 +92,23 @@ class Detail(ModelNormal):
             'PRIVATE_WARRANT_OPTION': "Private Warrant Option",
             'SOURCE_OF_FUNDING_NOT_DISCLOSED': "Source of Funding Not Disclosed",
             'STOCK_ISSUANCE:_PREF_&amp;_COM_(PUBLIC)': "Stock Issuance: Pref & Com (Public)",
+
+
         },
         ('purpose',): {
             'None': None,
             'FINANCIAL': "Financial",
             'STRATEGIC': "Strategic",
+
+
         },
         ('attitude',): {
             'None': None,
             'FRIENDLY': "Friendly",
             'HOSTILE': "Hostile",
             'NEUTRAL': "Neutral",
+
+
         },
         ('deal_characteristics',): {
             'None': None,
@@ -146,6 +156,8 @@ class Detail(ModelNormal):
             'BIDDER_CONTROLLING_SHAREHOLDER': "Bidder Controlling Shareholder",
             'PROPERTY_TRANSACTION': "Property Transaction",
             'POWER_PLANT_PURCHASE': "Power Plant Purchase",
+
+
         },
     }
 

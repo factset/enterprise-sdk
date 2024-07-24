@@ -59,11 +59,15 @@ class PostNewsArticleSearchByTextRequestDataTextCriteria(ModelNormal):
         ('selection_type',): {
             'INCLUDE': "include",
             'EXCLUDE': "exclude",
+
+
         },
         ('scope',): {
             'HEADLINE': "headline",
             'BODY': "body",
             'ALL': "all",
+
+
         },
     }
 

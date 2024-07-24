@@ -67,6 +67,8 @@ class DealValue(ModelNormal):
             'PREFERRED_STOCK': "Preferred Stock",
             'STOCK': "Stock",
             'WARRANT_/_OPTIONS': "Warrant / Options",
+
+
         },
     }
 

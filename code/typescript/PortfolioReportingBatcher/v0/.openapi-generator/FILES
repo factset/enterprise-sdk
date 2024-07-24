@@ -20,7 +20,7 @@ docs/JobListResponseMetaPagination.md
 docs/JobListResponseRoot.md
 docs/JobOverrides.md
 docs/JobOverridesCombinationsRoot.md
-docs/JobOverridesDates.md
+docs/JobOverridesCombinationsRootDateRange.md
 docs/JobTypes.md
 docs/JobsApi.md
 docs/PrbStatus.md
@@ -54,7 +54,7 @@ src/model/JobListResponseMetaPagination.js
 src/model/JobListResponseRoot.js
 src/model/JobOverrides.js
 src/model/JobOverridesCombinationsRoot.js
-src/model/JobOverridesDates.js
+src/model/JobOverridesCombinationsRootDateRange.js
 src/model/JobTypes.js
 src/model/PrbStatus.js
 src/model/RunsForJob.js

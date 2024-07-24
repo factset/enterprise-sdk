@@ -82,6 +82,8 @@ class GetInputSymbolType(ModelSimple):
             'JCN': "JCN",
             'LOANX': "LoanX",
             'MARKITRED': "MarkitRed",
+
+
         },
     }
 

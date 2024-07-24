@@ -66,6 +66,8 @@ class CalculationUnitStatus(ModelNormal):
             'SUCCESS': "Success",
             'FAILED': "Failed",
             'CANCELLED': "Cancelled",
+
+
         },
     }
 

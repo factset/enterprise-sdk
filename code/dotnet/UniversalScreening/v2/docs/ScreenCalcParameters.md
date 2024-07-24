@@ -1,4 +1,5 @@
 # FactSet.SDK.UniversalScreening.Model.ScreenCalcParameters
+Request body to calculate a screen.
 
 ## Properties
 

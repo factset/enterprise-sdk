@@ -60,11 +60,15 @@ class OptimalPortfolio(ModelNormal):
             'ABORT': "abort",
             'OVERWRITE': "overwrite",
             'APPENDDATE': "appenddate",
+
+
         },
         ('ifofdbdateexists',): {
             'ABORT': "abort",
             'REPLACEDATE': "replacedate",
             'APPENDSECURITIES': "appendsecurities",
+
+
         },
     }
 

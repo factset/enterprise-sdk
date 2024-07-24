@@ -36,6 +36,7 @@ public class JobManagementApi {
     getAllActiveJobsResponseTypeMap.put(200, new GenericType<ActiveJobsData>(){});
     getAllActiveJobsResponseTypeMap.put(401, new GenericType<ErrorArray>(){});
     getAllActiveJobsResponseTypeMap.put(404, new GenericType<ErrorArray>(){});
+    getAllActiveJobsResponseTypeMap.put(429, new GenericType<ErrorArray>(){});
   }
 
   
@@ -62,37 +63,39 @@ public class JobManagementApi {
   /**
    * 
    * Delete a specified job started by the requester&#39;s username-serial
-   * @param id Unique identifier for a screen calculation job (required)
+   * @param id Unique identifier for a job. \&quot;Job\&quot; refers to a screen calculation or archival. (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> No content </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> No content </td><td>  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 401 </td><td> Invalid or missing authentication. </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Job ID not found. </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Job ID not found. </td><td>  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 429 </td><td> Too many requests. </td><td>  * X-FactSet-Api-Units-Limit -  <br>  * X-FactSet-Api-Units-Remaining -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  * Retry-After -  <br>  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error </td><td>  * Request-Key - Provide this key when reporting this issue <br>  </td></tr>
      </table>
    */
-  public void deleteActiveJob(String id) throws ApiException {
+  public void deleteActiveJob(java.util.UUID id) throws ApiException {
     deleteActiveJobWithHttpInfo(id);
   }
 
   /**
    * 
    * Delete a specified job started by the requester&#39;s username-serial
-   * @param id Unique identifier for a screen calculation job (required)
+   * @param id Unique identifier for a job. \&quot;Job\&quot; refers to a screen calculation or archival. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> No content </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> No content </td><td>  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 401 </td><td> Invalid or missing authentication. </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Job ID not found. </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Job ID not found. </td><td>  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 429 </td><td> Too many requests. </td><td>  * X-FactSet-Api-Units-Limit -  <br>  * X-FactSet-Api-Units-Remaining -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  * Retry-After -  <br>  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error </td><td>  * Request-Key - Provide this key when reporting this issue <br>  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteActiveJobWithHttpInfo(String id) throws ApiException {
+  public ApiResponse<Void> deleteActiveJobWithHttpInfo(java.util.UUID id) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -101,7 +104,7 @@ public class JobManagementApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v2/job/{id}"
+    String localVarPath = "/job/{id}"
       .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
     // query params
@@ -143,9 +146,10 @@ public class JobManagementApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> No content </td><td>  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 401 </td><td> Invalid or missing authentication. </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Job ID not found. </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Job ID not found. </td><td>  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 429 </td><td> Too many requests. </td><td>  * X-FactSet-Api-Units-Limit -  <br>  * X-FactSet-Api-Units-Remaining -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  * Retry-After -  <br>  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error </td><td>  * Request-Key - Provide this key when reporting this issue <br>  </td></tr>
      </table>
    */
@@ -161,9 +165,10 @@ public class JobManagementApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> No content </td><td>  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 401 </td><td> Invalid or missing authentication. </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Job ID not found. </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Job ID not found. </td><td>  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 429 </td><td> Too many requests. </td><td>  * X-FactSet-Api-Units-Limit -  <br>  * X-FactSet-Api-Units-Remaining -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  * Retry-After -  <br>  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error </td><td>  * Request-Key - Provide this key when reporting this issue <br>  </td></tr>
      </table>
    */
@@ -171,7 +176,7 @@ public class JobManagementApi {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/v2/jobs";
+    String localVarPath = "/jobs";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -213,9 +218,10 @@ public class JobManagementApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> ActiveJobsResponse contains id of all of a user&#39;s active jobs </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> ActiveJobsResponse contains id of all of a user&#39;s active jobs </td><td>  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 401 </td><td> Invalid or missing authentication. </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Job ID not found. </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Job ID not found. </td><td>  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 429 </td><td> Too many requests. </td><td>  * X-FactSet-Api-Units-Limit -  <br>  * X-FactSet-Api-Units-Remaining -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  * Retry-After -  <br>  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error </td><td>  * Request-Key - Provide this key when reporting this issue <br>  </td></tr>
      </table>
    */
@@ -231,9 +237,10 @@ public class JobManagementApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> ActiveJobsResponse contains id of all of a user&#39;s active jobs </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> ActiveJobsResponse contains id of all of a user&#39;s active jobs </td><td>  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 401 </td><td> Invalid or missing authentication. </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Job ID not found. </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Job ID not found. </td><td>  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 429 </td><td> Too many requests. </td><td>  * X-FactSet-Api-Units-Limit -  <br>  * X-FactSet-Api-Units-Remaining -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  * Retry-After -  <br>  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error </td><td>  * Request-Key - Provide this key when reporting this issue <br>  </td></tr>
      </table>
    */
@@ -241,7 +248,7 @@ public class JobManagementApi {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/v2/jobs";
+    String localVarPath = "/jobs";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();

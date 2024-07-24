@@ -59,6 +59,8 @@ class QuantDate(ModelNormal):
         ('source',): {
             'FDSDATE': "FdsDate",
             'DATELIST': "DateList",
+
+
         },
     }
 

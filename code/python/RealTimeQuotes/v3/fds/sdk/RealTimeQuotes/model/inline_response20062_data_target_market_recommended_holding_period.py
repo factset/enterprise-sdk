@@ -62,6 +62,8 @@ class InlineResponse20062DataTargetMarketRecommendedHoldingPeriod(ModelNormal):
             'MEDIUM': "medium",
             'LONG': "long",
             'NEUTRAL': "neutral",
+
+
         },
     }
 

@@ -66,6 +66,8 @@ class TimeInForce(ModelNormal):
             'GOODTILLCROSSING': "goodTillCrossing",
             'GOODTILLDATE': "goodTillDate",
             'ATC': "atc",
+
+
         },
     }
 

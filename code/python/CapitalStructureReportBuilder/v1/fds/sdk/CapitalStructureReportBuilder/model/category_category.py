@@ -64,6 +64,8 @@ class CategoryCategory(ModelNormal):
             'DETAIL': "DETAIL",
             'MAIN': "MAIN",
             'SECTION': "SECTION",
+
+
         },
     }
 

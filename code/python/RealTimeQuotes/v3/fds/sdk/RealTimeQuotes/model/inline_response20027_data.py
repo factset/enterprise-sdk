@@ -60,6 +60,8 @@ class InlineResponse20027Data(ModelNormal):
             'None': None,
             'MAIN': "main",
             'FRACTIONAL': "fractional",
+
+
         },
     }
 

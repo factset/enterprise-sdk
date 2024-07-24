@@ -59,6 +59,8 @@ class FactorsVisible(ModelNormal):
         ('type',): {
             'WHITELIST': "Whitelist",
             'BLACKLIST': "Blacklist",
+
+
         },
     }
 

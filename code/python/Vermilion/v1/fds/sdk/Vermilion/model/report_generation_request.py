@@ -73,6 +73,8 @@ class ReportGenerationRequest(ModelNormal):
             'VXML': "VXML",
             'HTML': "HTML",
             'PS': "PS",
+
+
         },
     }
 

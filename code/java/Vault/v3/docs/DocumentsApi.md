@@ -57,7 +57,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         DocumentsApi apiInstance = new DocumentsApi(defaultClient);
-        String path = ""; // String | The directory to get the documents in
+        String path = "Client:"; // String | The directory to get the documents in. This is a sample example for illustration purposes only. Client should use a valid Directory/Sub-Directory to get a successful response.
         try {
             DocumentDirectoriesRoot result = apiInstance.getVaultDocuments(path);
             System.out.println(result);
@@ -78,7 +78,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **String**| The directory to get the documents in | [default to ]
+ **path** | **String**| The directory to get the documents in. This is a sample example for illustration purposes only. Client should use a valid Directory/Sub-Directory to get a successful response. |
 
 ### Return type
 

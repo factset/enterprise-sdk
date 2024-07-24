@@ -65,6 +65,8 @@ class ResponseDetails(ModelNormal):
             'ENTITYID': "entityId",
             'TICKERREGION': "tickerRegion",
             'TICKEREXCHANGE': "tickerExchange",
+
+
         },
     }
 

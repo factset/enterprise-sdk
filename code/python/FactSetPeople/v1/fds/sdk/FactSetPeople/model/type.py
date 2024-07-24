@@ -56,6 +56,8 @@ class Type(ModelSimple):
             'ALL': "ALL",
             'BRD': "BRD",
             'EMP': "EMP",
+
+
         },
     }
 

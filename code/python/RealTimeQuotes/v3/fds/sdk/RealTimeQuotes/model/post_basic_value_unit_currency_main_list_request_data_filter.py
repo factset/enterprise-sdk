@@ -60,6 +60,8 @@ class PostBasicValueUnitCurrencyMainListRequestDataFilter(ModelNormal):
             'ALL': "all",
             'ACTIVE': "active",
             'INACTIVE': "inactive",
+
+
         },
     }
 

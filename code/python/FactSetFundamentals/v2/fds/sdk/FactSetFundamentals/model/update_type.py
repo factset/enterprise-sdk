@@ -55,6 +55,8 @@ class UpdateType(ModelSimple):
         ('value',): {
             'RP': "RP",
             'RF': "RF",
+
+
         },
     }
 

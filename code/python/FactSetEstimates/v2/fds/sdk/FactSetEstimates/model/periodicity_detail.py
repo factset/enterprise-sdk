@@ -56,6 +56,8 @@ class PeriodicityDetail(ModelSimple):
             'ANN': "ANN",
             'QTR': "QTR",
             'SEMI': "SEMI",
+
+
         },
     }
 
