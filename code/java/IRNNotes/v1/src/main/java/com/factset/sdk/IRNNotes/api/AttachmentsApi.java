@@ -37,6 +37,12 @@ public class AttachmentsApi {
   }
 
   private static final Map<Integer, GenericType> downloadAttachmentResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    downloadAttachmentResponseTypeMap.put(200, new GenericType<File>(){});
+    downloadAttachmentResponseTypeMap.put(400, new GenericType<ProblemDetails>(){});
+    downloadAttachmentResponseTypeMap.put(403, new GenericType<ProblemDetails>(){});
+    downloadAttachmentResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
+  }
 
   private static final Map<Integer, GenericType> getAttachmentsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
@@ -71,7 +77,7 @@ public class AttachmentsApi {
   /**
    * Create an attachment for an existing note
    * 
-   * @param noteId  (required)
+   * @param noteId Note Id (required)
    * @param _file  (required)
    * @return NewItemDto
    * @throws ApiException if fails to make API call
@@ -90,7 +96,7 @@ public class AttachmentsApi {
   /**
    * Create an attachment for an existing note
    * 
-   * @param noteId  (required)
+   * @param noteId Note Id (required)
    * @param _file  (required)
    * @return ApiResponse&lt;NewItemDto&gt;
    * @throws ApiException if fails to make API call
@@ -158,8 +164,9 @@ public class AttachmentsApi {
   /**
    * Download an attachment from a Note
    * 
-   * @param noteId  (required)
-   * @param attachmentId  (required)
+   * @param noteId Note Id (required)
+   * @param attachmentId Attachment Id (required)
+   * @return File
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -170,16 +177,16 @@ public class AttachmentsApi {
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
    */
-  public void downloadAttachment(java.util.UUID noteId, java.util.UUID attachmentId) throws ApiException {
-    downloadAttachmentWithHttpInfo(noteId, attachmentId);
+  public File downloadAttachment(java.util.UUID noteId, java.util.UUID attachmentId) throws ApiException {
+    return downloadAttachmentWithHttpInfo(noteId, attachmentId).getData();
   }
 
   /**
    * Download an attachment from a Note
    * 
-   * @param noteId  (required)
-   * @param attachmentId  (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @param noteId Note Id (required)
+   * @param attachmentId Attachment Id (required)
+   * @return ApiResponse&lt;File&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -190,7 +197,7 @@ public class AttachmentsApi {
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> downloadAttachmentWithHttpInfo(java.util.UUID noteId, java.util.UUID attachmentId) throws ApiException {
+  public ApiResponse<File> downloadAttachmentWithHttpInfo(java.util.UUID noteId, java.util.UUID attachmentId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'noteId' is set
@@ -219,7 +226,7 @@ public class AttachmentsApi {
     
     
     final String[] localVarAccepts = {
-      "application/json"
+      "application/octet-stream", "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -232,7 +239,9 @@ public class AttachmentsApi {
 
 
     ApiResponse<
-      Void
+        
+        File
+      
     > apiResponse = apiClient.invokeAPI("AttachmentsApi.downloadAttachment", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, downloadAttachmentResponseTypeMap, false);

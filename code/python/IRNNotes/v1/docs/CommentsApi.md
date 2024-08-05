@@ -65,13 +65,13 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     api_instance = comments_api.CommentsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    note_id = "noteId_example" # str | 
+    note_id = "noteId_example" # str | The note Id to which the comment will be added
     create_comment_dto = CreateCommentDto(
         author_id="author_id_example",
         parent_comment_id="parent_comment_id_example",
         body="body_example",
         attachments_count=1,
-    ) # CreateCommentDto |  (optional)
+    ) # CreateCommentDto | The details of the comment to be created (optional)
 
     try:
         # Create a comment to a Note
@@ -90,8 +90,8 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **note_id** | **str**|  |
- **create_comment_dto** | [**CreateCommentDto**](CreateCommentDto.md)|  | [optional]
+ **note_id** | **str**| The note Id to which the comment will be added |
+ **create_comment_dto** | [**CreateCommentDto**](CreateCommentDto.md)| The details of the comment to be created | [optional]
 
 ### Return type
 
@@ -169,8 +169,8 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     api_instance = comments_api.CommentsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    note_id = "noteId_example" # str | 
-    comment_id = "commentId_example" # str | 
+    note_id = "noteId_example" # str | Note Id
+    comment_id = "commentId_example" # str | Comment  Id
     file = open('/path/to/file', 'rb') # file_type | 
 
     try:
@@ -189,8 +189,8 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **note_id** | **str**|  |
- **comment_id** | **str**|  |
+ **note_id** | **str**| Note Id |
+ **comment_id** | **str**| Comment  Id |
  **file** | **file_type**|  |
 
 ### Return type
@@ -269,8 +269,8 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     api_instance = comments_api.CommentsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    note_id = "noteId_example" # str | 
-    comment_id = "commentId_example" # str | 
+    note_id = "noteId_example" # str | The note id from which the comment will be deleted
+    comment_id = "commentId_example" # str | Comment Id
 
     try:
         # Delete a Comment from a Note
@@ -287,8 +287,8 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **note_id** | **str**|  |
- **comment_id** | **str**|  |
+ **note_id** | **str**| The note id from which the comment will be deleted |
+ **comment_id** | **str**| Comment Id |
 
 ### Return type
 
@@ -365,9 +365,9 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     api_instance = comments_api.CommentsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    note_id = "noteId_example" # str | 
-    comment_id = "commentId_example" # str | 
-    attachment_id = "attachmentId_example" # str | 
+    note_id = "noteId_example" # str | Note Id
+    comment_id = "commentId_example" # str | Comment Id
+    attachment_id = "attachmentId_example" # str | Attachment Id
 
     try:
         # Download single attachment detail of a comment belonging to a note
@@ -384,9 +384,9 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **note_id** | **str**|  |
- **comment_id** | **str**|  |
- **attachment_id** | **str**|  |
+ **note_id** | **str**| Note Id |
+ **comment_id** | **str**| Comment Id |
+ **attachment_id** | **str**| Attachment Id |
 
 ### Return type
 
@@ -463,8 +463,8 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     api_instance = comments_api.CommentsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    note_id = "noteId_example" # str | 
-    comment_id = "commentId_example" # str | 
+    note_id = "noteId_example" # str | Note Id
+    comment_id = "commentId_example" # str | Comment Id
 
     try:
         # Get details of a comment belonging to a note
@@ -482,8 +482,8 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **note_id** | **str**|  |
- **comment_id** | **str**|  |
+ **note_id** | **str**| Note Id |
+ **comment_id** | **str**| Comment Id |
 
 ### Return type
 
@@ -560,8 +560,8 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     api_instance = comments_api.CommentsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    note_id = "noteId_example" # str | 
-    comment_id = "commentId_example" # str | 
+    note_id = "noteId_example" # str | Note Id
+    comment_id = "commentId_example" # str | Comment Id
 
     try:
         # Get attachments summary of a comment belonging to a note
@@ -579,8 +579,8 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **note_id** | **str**|  |
- **comment_id** | **str**|  |
+ **note_id** | **str**| Note Id |
+ **comment_id** | **str**| Comment Id |
 
 ### Return type
 
@@ -657,7 +657,7 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     api_instance = comments_api.CommentsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    note_id = "noteId_example" # str | 
+    note_id = "noteId_example" # str | Note Id
 
     try:
         # Get all comments for a note
@@ -675,7 +675,7 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **note_id** | **str**|  |
+ **note_id** | **str**| Note Id |
 
 ### Return type
 
@@ -752,8 +752,8 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     api_instance = comments_api.CommentsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    note_id = "noteId_example" # str | 
-    comment_id = "commentId_example" # str | 
+    note_id = "noteId_example" # str | Note Id
+    comment_id = "commentId_example" # str | Comment Id
     operation = [
         Operation(
             operation_type=OperationType(0),
@@ -762,7 +762,7 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
             _from="_from_example",
             value=None,
         ),
-    ] # [Operation] |  (optional)
+    ] # [Operation] | The JSON patch document with updates for the comment (optional)
 
     try:
         # Edit a comment for a note
@@ -780,9 +780,9 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **note_id** | **str**|  |
- **comment_id** | **str**|  |
- **operation** | [**[Operation]**](Operation.md)|  | [optional]
+ **note_id** | **str**| Note Id |
+ **comment_id** | **str**| Comment Id |
+ **operation** | [**[Operation]**](Operation.md)| The JSON patch document with updates for the comment | [optional]
 
 ### Return type
 

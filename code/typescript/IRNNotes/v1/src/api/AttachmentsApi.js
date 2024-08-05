@@ -38,7 +38,7 @@ export default class AttachmentsApi {
 
     /**
      * Create an attachment for an existing note
-     * @param {String} noteId 
+     * @param {String} noteId Note Id
      * @param {File} file 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/NewItemDto} and HTTP response
      */
@@ -80,7 +80,7 @@ export default class AttachmentsApi {
 
     /**
      * Create an attachment for an existing note
-     * @param {String} noteId 
+     * @param {String} noteId Note Id
      * @param {File} file 
      * @return { Promise.< module:model/NewItemDto > } a Promise, with data of type {@link module:model/NewItemDto }
      */
@@ -94,9 +94,9 @@ export default class AttachmentsApi {
 
     /**
      * Download an attachment from a Note
-     * @param {String} noteId 
-     * @param {String} attachmentId 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
+     * @param {String} noteId Note Id
+     * @param {String} attachmentId Attachment Id
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link File} and HTTP response
      */
     downloadAttachmentWithHttpInfo(noteId, attachmentId) {
       let postBody = null;
@@ -122,10 +122,10 @@ export default class AttachmentsApi {
 
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
-      let accepts = ['application/json'];
+      let accepts = ['application/octet-stream', 'application/json'];
 
 
-      let returnType = null;
+      let returnType = File;
 
       return this.apiClient.callApi(
         '/notes/{noteId}/attachments/{attachmentId}/download', 'GET',
@@ -136,9 +136,9 @@ export default class AttachmentsApi {
 
     /**
      * Download an attachment from a Note
-     * @param {String} noteId 
-     * @param {String} attachmentId 
-     * @return { Promise } a Promise
+     * @param {String} noteId Note Id
+     * @param {String} attachmentId Attachment Id
+     * @return { Promise.< File > } a Promise, with data of type {@link File }
      */
     downloadAttachment(noteId, attachmentId) {
       return this.downloadAttachmentWithHttpInfo(noteId, attachmentId)

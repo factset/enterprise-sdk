@@ -4,7 +4,6 @@
 .travis.yml
 LICENSE
 README.md
-docs/AttachmentStatus.md
 docs/AttachmentSummaryDto.md
 docs/AttachmentsApi.md
 docs/CommentDto.md
@@ -43,7 +42,6 @@ src/api/EventsApi.js
 src/api/IdentifiersApi.js
 src/api/NotesApi.js
 src/index.js
-src/model/AttachmentStatus.js
 src/model/AttachmentSummaryDto.js
 src/model/CommentDto.js
 src/model/CommentSummaryDto.js

@@ -192,7 +192,7 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <summary>
         /// Gets or Sets RelatedRecords
         /// </summary>
-        [DataMember(Name = "relatedRecords", EmitDefaultValue = false)]
+        [DataMember(Name = "relatedRecords", EmitDefaultValue = true)]
         public RelatedRecordsDto RelatedRecords { get; set; }
 
         /// <summary>

@@ -133,7 +133,7 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <summary>
         /// Gets or Sets UserTeamLookupValues
         /// </summary>
-        [DataMember(Name = "userTeamLookupValues", EmitDefaultValue = false)]
+        [DataMember(Name = "userTeamLookupValues", EmitDefaultValue = true)]
         public UserTeamLookupDto UserTeamLookupValues { get; set; }
 
         /// <summary>

@@ -161,7 +161,7 @@ if (xIRNContributorSerial != null)
   /**
    * Delete a Note
    * 
-   * @param noteId  (required)
+   * @param noteId Note Id (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -179,7 +179,7 @@ if (xIRNContributorSerial != null)
   /**
    * Delete a Note
    * 
-   * @param noteId  (required)
+   * @param noteId Note Id (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details

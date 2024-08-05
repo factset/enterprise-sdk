@@ -5,8 +5,13 @@
     "description": "Collection of endpoints for providing Signal Events, Definitions and Metadata",
     "version": "2.6.0",
     "contact": {
-      "name": "Signals API Support",
-      "email": "signals.api@factset.com"
+      "name": "FactSet Research Systems",
+      "email": "api@factset.com",
+      "url": "https://developer.factset.com/contact"
+    },
+    "license": {
+      "name": "Apache License, Version 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
     }
   },
   "servers": [
@@ -2056,5 +2061,9 @@
     {
       "FactSetOAuth2": []
     }
-  ]
+  ],
+  "externalDocs": {
+    "description": "API Documentation",
+    "url": "https://developer.factset.com/api-catalog/signals-api"
+  }
 }

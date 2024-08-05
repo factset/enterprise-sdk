@@ -134,7 +134,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NotesApi();
-const noteId = "noteId_example"; // String | 
+const noteId = "noteId_example"; // String | Note Id
 
 // Call api endpoint
 apiInstance.deleteNote(noteId).then(
@@ -154,7 +154,7 @@ apiInstance.deleteNote(noteId).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **noteId** | **String**|  | 
+ **noteId** | **String**| Note Id | 
 
 ### Return type
 

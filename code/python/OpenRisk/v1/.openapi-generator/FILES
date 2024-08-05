@@ -77,7 +77,6 @@ docs/StatsResults.md
 docs/StringDate.md
 docs/SuccessResponseMeta.md
 docs/SupportedStatDetails.md
-docs/SupportedStatDetailsLevels.md
 docs/SupportedStatDetailsSecurityGroupMethod.md
 docs/SupportedStats.md
 docs/SupportedStatsNamesOnly.md
@@ -165,7 +164,6 @@ fds/sdk/OpenRisk/model/stats_results.py
 fds/sdk/OpenRisk/model/string_date.py
 fds/sdk/OpenRisk/model/success_response_meta.py
 fds/sdk/OpenRisk/model/supported_stat_details.py
-fds/sdk/OpenRisk/model/supported_stat_details_levels.py
 fds/sdk/OpenRisk/model/supported_stat_details_security_group_method.py
 fds/sdk/OpenRisk/model/supported_stats.py
 fds/sdk/OpenRisk/model/supported_stats_names_only.py

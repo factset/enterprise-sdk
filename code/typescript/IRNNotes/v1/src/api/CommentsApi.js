@@ -42,9 +42,9 @@ export default class CommentsApi {
 
     /**
      * Create a comment to a Note
-     * @param {String} noteId 
+     * @param {String} noteId The note Id to which the comment will be added
      * @param {Object} opts Optional parameters
-     * @param {module:model/CreateCommentDto} opts.createCommentDto 
+     * @param {module:model/CreateCommentDto} opts.createCommentDto The details of the comment to be created
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/NewItemDto} and HTTP response
      */
     createCommentWithHttpInfo(noteId, opts) {
@@ -81,9 +81,9 @@ export default class CommentsApi {
 
     /**
      * Create a comment to a Note
-     * @param {String} noteId 
+     * @param {String} noteId The note Id to which the comment will be added
      * @param {Object} opts Optional parameters
-     * @param {module:model/CreateCommentDto} opts.createCommentDto 
+     * @param {module:model/CreateCommentDto} opts.createCommentDto The details of the comment to be created
      * @return { Promise.< module:model/NewItemDto > } a Promise, with data of type {@link module:model/NewItemDto }
      */
     createComment(noteId, opts) {
@@ -96,8 +96,8 @@ export default class CommentsApi {
 
     /**
      * Create a comment attachment to a Note
-     * @param {String} noteId 
-     * @param {String} commentId 
+     * @param {String} noteId Note Id
+     * @param {String} commentId Comment  Id
      * @param {File} file 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/NewItemDto} and HTTP response
      */
@@ -144,8 +144,8 @@ export default class CommentsApi {
 
     /**
      * Create a comment attachment to a Note
-     * @param {String} noteId 
-     * @param {String} commentId 
+     * @param {String} noteId Note Id
+     * @param {String} commentId Comment  Id
      * @param {File} file 
      * @return { Promise.< module:model/NewItemDto > } a Promise, with data of type {@link module:model/NewItemDto }
      */
@@ -159,8 +159,8 @@ export default class CommentsApi {
 
     /**
      * Delete a Comment from a Note
-     * @param {String} noteId 
-     * @param {String} commentId 
+     * @param {String} noteId The note id from which the comment will be deleted
+     * @param {String} commentId Comment Id
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
     deleteCommentWithHttpInfo(noteId, commentId) {
@@ -201,8 +201,8 @@ export default class CommentsApi {
 
     /**
      * Delete a Comment from a Note
-     * @param {String} noteId 
-     * @param {String} commentId 
+     * @param {String} noteId The note id from which the comment will be deleted
+     * @param {String} commentId Comment Id
      * @return { Promise } a Promise
      */
     deleteComment(noteId, commentId) {
@@ -215,9 +215,9 @@ export default class CommentsApi {
 
     /**
      * Download single attachment detail of a comment belonging to a note
-     * @param {String} noteId 
-     * @param {String} commentId 
-     * @param {String} attachmentId 
+     * @param {String} noteId Note Id
+     * @param {String} commentId Comment Id
+     * @param {String} attachmentId Attachment Id
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
     downloadCommentAttachmentForCommentWithHttpInfo(noteId, commentId, attachmentId) {
@@ -263,9 +263,9 @@ export default class CommentsApi {
 
     /**
      * Download single attachment detail of a comment belonging to a note
-     * @param {String} noteId 
-     * @param {String} commentId 
-     * @param {String} attachmentId 
+     * @param {String} noteId Note Id
+     * @param {String} commentId Comment Id
+     * @param {String} attachmentId Attachment Id
      * @return { Promise } a Promise
      */
     downloadCommentAttachmentForComment(noteId, commentId, attachmentId) {
@@ -278,8 +278,8 @@ export default class CommentsApi {
 
     /**
      * Get details of a comment belonging to a note
-     * @param {String} noteId 
-     * @param {String} commentId 
+     * @param {String} noteId Note Id
+     * @param {String} commentId Comment Id
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/CommentDto} and HTTP response
      */
     getCommentWithHttpInfo(noteId, commentId) {
@@ -320,8 +320,8 @@ export default class CommentsApi {
 
     /**
      * Get details of a comment belonging to a note
-     * @param {String} noteId 
-     * @param {String} commentId 
+     * @param {String} noteId Note Id
+     * @param {String} commentId Comment Id
      * @return { Promise.< module:model/CommentDto > } a Promise, with data of type {@link module:model/CommentDto }
      */
     getComment(noteId, commentId) {
@@ -334,8 +334,8 @@ export default class CommentsApi {
 
     /**
      * Get attachments summary of a comment belonging to a note
-     * @param {String} noteId 
-     * @param {String} commentId 
+     * @param {String} noteId Note Id
+     * @param {String} commentId Comment Id
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/AttachmentSummaryDto>} and HTTP response
      */
     getCommentAttachmentsWithHttpInfo(noteId, commentId) {
@@ -376,8 +376,8 @@ export default class CommentsApi {
 
     /**
      * Get attachments summary of a comment belonging to a note
-     * @param {String} noteId 
-     * @param {String} commentId 
+     * @param {String} noteId Note Id
+     * @param {String} commentId Comment Id
      * @return { Promise.< Array.<module:model/AttachmentSummaryDto> > } a Promise, with data of type {@link Array.<module:model/AttachmentSummaryDto> }
      */
     getCommentAttachments(noteId, commentId) {
@@ -390,7 +390,7 @@ export default class CommentsApi {
 
     /**
      * Get all comments for a note
-     * @param {String} noteId 
+     * @param {String} noteId Note Id
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/CommentSummaryDto>} and HTTP response
      */
     getCommentsWithHttpInfo(noteId) {
@@ -426,7 +426,7 @@ export default class CommentsApi {
 
     /**
      * Get all comments for a note
-     * @param {String} noteId 
+     * @param {String} noteId Note Id
      * @return { Promise.< Array.<module:model/CommentSummaryDto> > } a Promise, with data of type {@link Array.<module:model/CommentSummaryDto> }
      */
     getComments(noteId) {
@@ -439,10 +439,10 @@ export default class CommentsApi {
 
     /**
      * Edit a comment for a note
-     * @param {String} noteId 
-     * @param {String} commentId 
+     * @param {String} noteId Note Id
+     * @param {String} commentId Comment Id
      * @param {Object} opts Optional parameters
-     * @param {Array.<module:model/Operation>} opts.operation 
+     * @param {Array.<module:model/Operation>} opts.operation The JSON patch document with updates for the comment
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
     patchCommentWithHttpInfo(noteId, commentId, opts) {
@@ -484,10 +484,10 @@ export default class CommentsApi {
 
     /**
      * Edit a comment for a note
-     * @param {String} noteId 
-     * @param {String} commentId 
+     * @param {String} noteId Note Id
+     * @param {String} commentId Comment Id
      * @param {Object} opts Optional parameters
-     * @param {Array.<module:model/Operation>} opts.operation 
+     * @param {Array.<module:model/Operation>} opts.operation The JSON patch document with updates for the comment
      * @return { Promise } a Promise
      */
     patchComment(noteId, commentId, opts) {

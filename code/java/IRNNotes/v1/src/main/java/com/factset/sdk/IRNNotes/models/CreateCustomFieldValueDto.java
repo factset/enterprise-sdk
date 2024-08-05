@@ -87,7 +87,7 @@ public class CreateCustomFieldValueDto implements Serializable {
   private JsonNullable<java.util.List<String>> optionValues = JsonNullable.<java.util.List<String>>undefined();
 
   public static final String JSON_PROPERTY_USER_TEAM_LOOKUP_VALUES = "userTeamLookupValues";
-  private UserTeamLookupDto userTeamLookupValues;
+  private JsonNullable<UserTeamLookupDto> userTeamLookupValues = JsonNullable.<UserTeamLookupDto>undefined();
 
   public CreateCustomFieldValueDto() { 
   }
@@ -457,7 +457,7 @@ public class CreateCustomFieldValueDto implements Serializable {
 
 
   public CreateCustomFieldValueDto userTeamLookupValues(UserTeamLookupDto userTeamLookupValues) {
-    this.userTeamLookupValues = userTeamLookupValues;
+    this.userTeamLookupValues = JsonNullable.<UserTeamLookupDto>of(userTeamLookupValues);
     return this;
   }
 
@@ -467,18 +467,26 @@ public class CreateCustomFieldValueDto implements Serializable {
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_USER_TEAM_LOOKUP_VALUES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public UserTeamLookupDto getUserTeamLookupValues() {
-    return userTeamLookupValues;
+        return userTeamLookupValues.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_USER_TEAM_LOOKUP_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUserTeamLookupValues(UserTeamLookupDto userTeamLookupValues) {
+
+  public JsonNullable<UserTeamLookupDto> getUserTeamLookupValues_JsonNullable() {
+    return userTeamLookupValues;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_USER_TEAM_LOOKUP_VALUES)
+  public void setUserTeamLookupValues_JsonNullable(JsonNullable<UserTeamLookupDto> userTeamLookupValues) {
     this.userTeamLookupValues = userTeamLookupValues;
+  }
+
+  public void setUserTeamLookupValues(UserTeamLookupDto userTeamLookupValues) {
+    this.userTeamLookupValues = JsonNullable.<UserTeamLookupDto>of(userTeamLookupValues);
   }
 
 
@@ -504,7 +512,7 @@ public class CreateCustomFieldValueDto implements Serializable {
         equalsNullable(this.contactLookupValues, createCustomFieldValueDto.contactLookupValues) &&
         equalsNullable(this.optionValue, createCustomFieldValueDto.optionValue) &&
         equalsNullable(this.optionValues, createCustomFieldValueDto.optionValues) &&
-        Objects.equals(this.userTeamLookupValues, createCustomFieldValueDto.userTeamLookupValues);
+        equalsNullable(this.userTeamLookupValues, createCustomFieldValueDto.userTeamLookupValues);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -513,7 +521,7 @@ public class CreateCustomFieldValueDto implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, hashCodeNullable(integerValue), hashCodeNullable(textValue), hashCodeNullable(filePathValue), hashCodeNullable(numericValue), hashCodeNullable(dateValue), hashCodeNullable(extendedTextValue), hashCodeNullable(contactLookupValues), hashCodeNullable(optionValue), hashCodeNullable(optionValues), userTeamLookupValues);
+    return Objects.hash(code, hashCodeNullable(integerValue), hashCodeNullable(textValue), hashCodeNullable(filePathValue), hashCodeNullable(numericValue), hashCodeNullable(dateValue), hashCodeNullable(extendedTextValue), hashCodeNullable(contactLookupValues), hashCodeNullable(optionValue), hashCodeNullable(optionValues), hashCodeNullable(userTeamLookupValues));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

@@ -65,7 +65,6 @@ docs/StatResultValue.md
 docs/StatResultValueSparseMatrix.md
 docs/SuccessResponseMeta.md
 docs/SupportedStatDetails.md
-docs/SupportedStatDetailsLevels.md
 docs/SupportedStatDetailsSecurityGroupMethod.md
 docs/SupportedStats.md
 docs/SupportedStatsNamesOnly.md
@@ -150,7 +149,6 @@ src/FactSet.SDK.OpenRisk/Model/StatResultValue.cs
 src/FactSet.SDK.OpenRisk/Model/StatResultValueSparseMatrix.cs
 src/FactSet.SDK.OpenRisk/Model/SuccessResponseMeta.cs
 src/FactSet.SDK.OpenRisk/Model/SupportedStatDetails.cs
-src/FactSet.SDK.OpenRisk/Model/SupportedStatDetailsLevels.cs
 src/FactSet.SDK.OpenRisk/Model/SupportedStatDetailsSecurityGroupMethod.cs
 src/FactSet.SDK.OpenRisk/Model/SupportedStats.cs
 src/FactSet.SDK.OpenRisk/Model/SupportedStatsNamesOnly.cs

@@ -643,7 +643,7 @@ class NotesApi(object):
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
-            note_id (str):
+            note_id (str): Note Id
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -689,7 +689,7 @@ class NotesApi(object):
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
-            note_id (str):
+            note_id (str): Note Id
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -739,7 +739,7 @@ class NotesApi(object):
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
-            note_id (str):
+            note_id (str): Note Id
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -784,7 +784,7 @@ class NotesApi(object):
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
-            note_id (str):
+            note_id (str): Note Id
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object

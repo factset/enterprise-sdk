@@ -65,8 +65,8 @@ namespace Example
 
             var apiInstance = new CommentsApi(config);
 
-            var noteId = "noteId_example";  // Guid | 
-            var createCommentDto = new CreateCommentDto(); // CreateCommentDto |  (optional) 
+            var noteId = "noteId_example";  // Guid | The note Id to which the comment will be added
+            var createCommentDto = new CreateCommentDto(); // CreateCommentDto | The details of the comment to be created (optional) 
 
             try
             {
@@ -89,8 +89,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **noteId** | **Guid**|  | 
- **createCommentDto** | [**CreateCommentDto**](CreateCommentDto.md)|  | [optional] 
+ **noteId** | **Guid**| The note Id to which the comment will be added | 
+ **createCommentDto** | [**CreateCommentDto**](CreateCommentDto.md)| The details of the comment to be created | [optional] 
 
 ### Return type
 [**NewItemDto**](NewItemDto.md)
@@ -167,8 +167,8 @@ namespace Example
 
             var apiInstance = new CommentsApi(config);
 
-            var noteId = "noteId_example";  // Guid | 
-            var commentId = "commentId_example";  // Guid | 
+            var noteId = "noteId_example";  // Guid | Note Id
+            var commentId = "commentId_example";  // Guid | Comment  Id
             var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | 
 
             try
@@ -192,8 +192,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **noteId** | **Guid**|  | 
- **commentId** | **Guid**|  | 
+ **noteId** | **Guid**| Note Id | 
+ **commentId** | **Guid**| Comment  Id | 
  **file** | **System.IO.Stream****System.IO.Stream**|  | 
 
 ### Return type
@@ -271,8 +271,8 @@ namespace Example
 
             var apiInstance = new CommentsApi(config);
 
-            var noteId = "noteId_example";  // Guid | 
-            var commentId = "commentId_example";  // Guid | 
+            var noteId = "noteId_example";  // Guid | The note id from which the comment will be deleted
+            var commentId = "commentId_example";  // Guid | Comment Id
 
             try
             {
@@ -294,8 +294,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **noteId** | **Guid**|  | 
- **commentId** | **Guid**|  | 
+ **noteId** | **Guid**| The note id from which the comment will be deleted | 
+ **commentId** | **Guid**| Comment Id | 
 
 ### Return type
 void (empty response body)
@@ -371,9 +371,9 @@ namespace Example
 
             var apiInstance = new CommentsApi(config);
 
-            var noteId = "noteId_example";  // Guid | 
-            var commentId = "commentId_example";  // Guid | 
-            var attachmentId = "attachmentId_example";  // Guid | 
+            var noteId = "noteId_example";  // Guid | Note Id
+            var commentId = "commentId_example";  // Guid | Comment Id
+            var attachmentId = "attachmentId_example";  // Guid | Attachment Id
 
             try
             {
@@ -395,9 +395,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **noteId** | **Guid**|  | 
- **commentId** | **Guid**|  | 
- **attachmentId** | **Guid**|  | 
+ **noteId** | **Guid**| Note Id | 
+ **commentId** | **Guid**| Comment Id | 
+ **attachmentId** | **Guid**| Attachment Id | 
 
 ### Return type
 void (empty response body)
@@ -473,8 +473,8 @@ namespace Example
 
             var apiInstance = new CommentsApi(config);
 
-            var noteId = "noteId_example";  // Guid | 
-            var commentId = "commentId_example";  // Guid | 
+            var noteId = "noteId_example";  // Guid | Note Id
+            var commentId = "commentId_example";  // Guid | Comment Id
 
             try
             {
@@ -497,8 +497,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **noteId** | **Guid**|  | 
- **commentId** | **Guid**|  | 
+ **noteId** | **Guid**| Note Id | 
+ **commentId** | **Guid**| Comment Id | 
 
 ### Return type
 [**CommentDto**](CommentDto.md)
@@ -574,8 +574,8 @@ namespace Example
 
             var apiInstance = new CommentsApi(config);
 
-            var noteId = "noteId_example";  // Guid | 
-            var commentId = "commentId_example";  // Guid | 
+            var noteId = "noteId_example";  // Guid | Note Id
+            var commentId = "commentId_example";  // Guid | Comment Id
 
             try
             {
@@ -598,8 +598,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **noteId** | **Guid**|  | 
- **commentId** | **Guid**|  | 
+ **noteId** | **Guid**| Note Id | 
+ **commentId** | **Guid**| Comment Id | 
 
 ### Return type
 [**List&lt;AttachmentSummaryDto&gt;**](AttachmentSummaryDto.md)
@@ -675,7 +675,7 @@ namespace Example
 
             var apiInstance = new CommentsApi(config);
 
-            var noteId = "noteId_example";  // Guid | 
+            var noteId = "noteId_example";  // Guid | Note Id
 
             try
             {
@@ -698,7 +698,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **noteId** | **Guid**|  | 
+ **noteId** | **Guid**| Note Id | 
 
 ### Return type
 [**List&lt;CommentSummaryDto&gt;**](CommentSummaryDto.md)
@@ -774,9 +774,9 @@ namespace Example
 
             var apiInstance = new CommentsApi(config);
 
-            var noteId = "noteId_example";  // Guid | 
-            var commentId = "commentId_example";  // Guid | 
-            var operation = new List<Operation>(); // List<Operation> |  (optional) 
+            var noteId = "noteId_example";  // Guid | Note Id
+            var commentId = "commentId_example";  // Guid | Comment Id
+            var operation = new List<Operation>(); // List<Operation> | The JSON patch document with updates for the comment (optional) 
 
             try
             {
@@ -798,9 +798,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **noteId** | **Guid**|  | 
- **commentId** | **Guid**|  | 
- **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] 
+ **noteId** | **Guid**| Note Id | 
+ **commentId** | **Guid**| Comment Id | 
+ **operation** | [**List&lt;Operation&gt;**](Operation.md)| The JSON patch document with updates for the comment | [optional] 
 
 ### Return type
 void (empty response body)

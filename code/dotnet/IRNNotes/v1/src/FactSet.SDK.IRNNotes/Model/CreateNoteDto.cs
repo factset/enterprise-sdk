@@ -85,7 +85,7 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <summary>
         /// Gets or Sets Author
         /// </summary>
-        [DataMember(Name = "author", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "author", IsRequired = true, EmitDefaultValue = true)]
         public UserSerialDto Author { get; set; }
 
         /// <summary>
@@ -127,7 +127,7 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <summary>
         /// Gets or Sets Body
         /// </summary>
-        [DataMember(Name = "body", EmitDefaultValue = false)]
+        [DataMember(Name = "body", EmitDefaultValue = true)]
         public CreateBodyDto Body { get; set; }
 
         /// <summary>
@@ -157,7 +157,7 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <summary>
         /// Gets or Sets RelatedRecords
         /// </summary>
-        [DataMember(Name = "relatedRecords", EmitDefaultValue = false)]
+        [DataMember(Name = "relatedRecords", EmitDefaultValue = true)]
         public RelatedRecordsDto RelatedRecords { get; set; }
 
         /// <summary>

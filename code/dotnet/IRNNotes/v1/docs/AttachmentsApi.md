@@ -61,7 +61,7 @@ namespace Example
 
             var apiInstance = new AttachmentsApi(config);
 
-            var noteId = "noteId_example";  // Guid | 
+            var noteId = "noteId_example";  // Guid | Note Id
             var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | 
 
             try
@@ -85,7 +85,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **noteId** | **Guid**|  | 
+ **noteId** | **Guid**| Note Id | 
  **file** | **System.IO.Stream****System.IO.Stream**|  | 
 
 ### Return type
@@ -113,7 +113,7 @@ Name | Type | Description  | Notes
 
 <a name="downloadattachment"></a>
 # **DownloadAttachment**
-> void DownloadAttachment (Guid noteId, Guid attachmentId)
+> System.IO.Stream DownloadAttachment (Guid noteId, Guid attachmentId)
 
 Download an attachment from a Note
 
@@ -161,13 +161,14 @@ namespace Example
 
             var apiInstance = new AttachmentsApi(config);
 
-            var noteId = "noteId_example";  // Guid | 
-            var attachmentId = "attachmentId_example";  // Guid | 
+            var noteId = "noteId_example";  // Guid | Note Id
+            var attachmentId = "attachmentId_example";  // Guid | Attachment Id
 
             try
             {
                 // Download an attachment from a Note
-                apiInstance.DownloadAttachment(noteId, attachmentId);
+                System.IO.Stream result = apiInstance.DownloadAttachment(noteId, attachmentId);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
@@ -184,11 +185,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **noteId** | **Guid**|  | 
- **attachmentId** | **Guid**|  | 
+ **noteId** | **Guid**| Note Id | 
+ **attachmentId** | **Guid**| Attachment Id | 
 
 ### Return type
-void (empty response body)
+**System.IO.Stream**
 
 ### Authorization
 
@@ -197,7 +198,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/octet-stream, application/json
 
 
 ### HTTP response details

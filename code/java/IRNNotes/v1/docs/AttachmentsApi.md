@@ -59,7 +59,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         AttachmentsApi apiInstance = new AttachmentsApi(defaultClient);
-        java.util.UUID noteId = new java.util.UUID(); // java.util.UUID | 
+        java.util.UUID noteId = new java.util.UUID(); // java.util.UUID | Note Id
         File _file = new File("/path/to/file"); // File | 
         try {
             NewItemDto result = apiInstance.createAttachment(noteId, _file);
@@ -81,7 +81,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **noteId** | **java.util.UUID**|  |
+ **noteId** | **java.util.UUID**| Note Id |
  **_file** | **File**|  |
 
 ### Return type
@@ -107,7 +107,7 @@ Name | Type | Description  | Notes
 
 ## downloadAttachment
 
-> downloadAttachment(noteId, attachmentId)
+> File downloadAttachment(noteId, attachmentId)
 
 Download an attachment from a Note
 
@@ -152,10 +152,11 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         AttachmentsApi apiInstance = new AttachmentsApi(defaultClient);
-        java.util.UUID noteId = new java.util.UUID(); // java.util.UUID | 
-        java.util.UUID attachmentId = new java.util.UUID(); // java.util.UUID | 
+        java.util.UUID noteId = new java.util.UUID(); // java.util.UUID | Note Id
+        java.util.UUID attachmentId = new java.util.UUID(); // java.util.UUID | Attachment Id
         try {
-            apiInstance.downloadAttachment(noteId, attachmentId);
+            File result = apiInstance.downloadAttachment(noteId, attachmentId);
+            System.out.println(result);
 
         } catch (ApiException e) {
             System.err.println("Exception when calling AttachmentsApi#downloadAttachment");
@@ -173,12 +174,12 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **noteId** | **java.util.UUID**|  |
- **attachmentId** | **java.util.UUID**|  |
+ **noteId** | **java.util.UUID**| Note Id |
+ **attachmentId** | **java.util.UUID**| Attachment Id |
 
 ### Return type
 
-null (empty response body)
+[**File**](File.md)
 
 ### Authorization
 
@@ -187,7 +188,7 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: application/octet-stream, application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |

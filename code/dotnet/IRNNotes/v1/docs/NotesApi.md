@@ -163,7 +163,7 @@ namespace Example
 
             var apiInstance = new NotesApi(config);
 
-            var noteId = "noteId_example";  // Guid | 
+            var noteId = "noteId_example";  // Guid | Note Id
 
             try
             {
@@ -185,7 +185,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **noteId** | **Guid**|  | 
+ **noteId** | **Guid**| Note Id | 
 
 ### Return type
 void (empty response body)

@@ -3,7 +3,7 @@
   "info": {
     "title": "Open:Risk API",
     "description": "Service to calculate parametric linear risk statistics and generate risk model asset identifier mappings.",
-    "version": "1.24.0",
+    "version": "1.26.0",
     "contact": {
       "name": "FactSet Research Systems",
       "email": "api@factset.com",
@@ -12,7 +12,8 @@
     "license": {
       "name": "Apache License, Version 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0"
-    }
+    },
+    "x-factset-caccess": "00RP0"
   },
   "tags": [
     {
@@ -1909,7 +1910,7 @@
           "requiresCorrelatedSpecificRisk",
           "requiresCovarianceTimesTwo",
           "derived",
-          "levels"
+          "supportedLevels"
         ],
         "properties": {
           "correlatedSpecificRisk": {
@@ -1937,67 +1938,13 @@
               "minLength": 1
             }
           },
-          "levels": {
-            "description": "Indicates whether each level is supported by the base stat and all derived stats",
-            "type": "object",
-            "required": [
-              "Portfolio",
-              "Security",
-              "SecurityGroup",
-              "SecuritySecurity",
-              "Factor",
-              "FactorGroup",
-              "FactorFactor",
-              "FactorSecurity",
-              "FactorGroupSecurity",
-              "FactorSecurityGroup",
-              "FactorGroupSecurityGroup"
-            ],
-            "properties": {
-              "Portfolio": {
-                "description": "True indicates calculation support for this level, otherwise calculation is not supported.",
-                "type": "boolean"
-              },
-              "Security": {
-                "description": "True indicates calculation support for this level, otherwise calculation is not supported.",
-                "type": "boolean"
-              },
-              "SecurityGroup": {
-                "description": "True indicates calculation support for this level, otherwise calculation is not supported.",
-                "type": "boolean"
-              },
-              "SecuritySecurity": {
-                "description": "True indicates calculation support for this level, otherwise calculation is not supported.",
-                "type": "boolean"
-              },
-              "Factor": {
-                "description": "True indicates calculation support for this level, otherwise calculation is not supported.",
-                "type": "boolean"
-              },
-              "FactorGroup": {
-                "description": "True indicates calculation support for this level, otherwise calculation is not supported.",
-                "type": "boolean"
-              },
-              "FactorFactor": {
-                "description": "True indicates calculation support for this level, otherwise calculation is not supported.",
-                "type": "boolean"
-              },
-              "FactorSecurity": {
-                "description": "True indicates calculation support for this level, otherwise calculation is not supported.",
-                "type": "boolean"
-              },
-              "FactorGroupSecurity": {
-                "description": "True indicates calculation support for this level, otherwise calculation is not supported.",
-                "type": "boolean"
-              },
-              "FactorSecurityGroup": {
-                "description": "True indicates calculation support for this level, otherwise calculation is not supported.",
-                "type": "boolean"
-              },
-              "FactorGroupSecurityGroup": {
-                "description": "True indicates calculation support for this level, otherwise calculation is not supported.",
-                "type": "boolean"
-              }
+          "supportedLevels": {
+            "description": "Indicates the calculation levels that are supported by the base stat and all derived stats. Unless it is present, a given calculation level is not supported.",
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 11,
+            "items": {
+              "$ref": "#/components/schemas/StatCalculationLevel"
             }
           },
           "securityGroupMethod": {

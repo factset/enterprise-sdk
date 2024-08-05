@@ -331,7 +331,8 @@ paths:
     delete:
       operationId: DeleteNote
       parameters:
-      - explode: false
+      - description: Note Id
+        explode: false
         in: path
         name: noteId
         required: true
@@ -487,7 +488,8 @@ paths:
     post:
       operationId: CreateAttachment
       parameters:
-      - explode: false
+      - description: Note Id
+        explode: false
         in: path
         name: noteId
         required: true
@@ -535,7 +537,8 @@ paths:
     get:
       operationId: DownloadAttachment
       parameters:
-      - explode: false
+      - description: Note Id
+        explode: false
         in: path
         name: noteId
         required: true
@@ -543,7 +546,8 @@ paths:
           format: uuid
           type: string
         style: simple
-      - explode: false
+      - description: Attachment Id
+        explode: false
         in: path
         name: attachmentId
         required: true
@@ -553,6 +557,11 @@ paths:
         style: simple
       responses:
         "200":
+          content:
+            application/octet-stream:
+              schema:
+                format: binary
+                type: string
           description: Success
         "400":
           content:
@@ -580,7 +589,8 @@ paths:
     get:
       operationId: GetComments
       parameters:
-      - explode: false
+      - description: Note Id
+        explode: false
         in: path
         name: noteId
         required: true
@@ -622,7 +632,8 @@ paths:
     post:
       operationId: CreateComment
       parameters:
-      - explode: false
+      - description: The note Id to which the comment will be added
+        explode: false
         in: path
         name: noteId
         required: true
@@ -644,6 +655,7 @@ paths:
           application/*+json:
             schema:
               $ref: '#/components/schemas/CreateCommentDto'
+        description: The details of the comment to be created
       responses:
         "201":
           content:
@@ -680,7 +692,8 @@ paths:
     delete:
       operationId: DeleteComment
       parameters:
-      - explode: false
+      - description: The note id from which the comment will be deleted
+        explode: false
         in: path
         name: noteId
         required: true
@@ -688,7 +701,8 @@ paths:
           format: uuid
           type: string
         style: simple
-      - explode: false
+      - description: Comment Id
+        explode: false
         in: path
         name: commentId
         required: true
@@ -720,7 +734,8 @@ paths:
     get:
       operationId: GetComment
       parameters:
-      - explode: false
+      - description: Note Id
+        explode: false
         in: path
         name: noteId
         required: true
@@ -728,7 +743,8 @@ paths:
           format: uuid
           type: string
         style: simple
-      - explode: false
+      - description: Comment Id
+        explode: false
         in: path
         name: commentId
         required: true
@@ -768,7 +784,8 @@ paths:
     patch:
       operationId: PatchComment
       parameters:
-      - explode: false
+      - description: Note Id
+        explode: false
         in: path
         name: noteId
         required: true
@@ -776,7 +793,8 @@ paths:
           format: uuid
           type: string
         style: simple
-      - explode: false
+      - description: Comment Id
+        explode: false
         in: path
         name: commentId
         required: true
@@ -806,6 +824,7 @@ paths:
               items:
                 $ref: '#/components/schemas/Operation'
               type: array
+        description: The JSON patch document with updates for the comment
       responses:
         "200":
           description: Success
@@ -836,7 +855,8 @@ paths:
     get:
       operationId: GetCommentAttachments
       parameters:
-      - explode: false
+      - description: Note Id
+        explode: false
         in: path
         name: noteId
         required: true
@@ -844,7 +864,8 @@ paths:
           format: uuid
           type: string
         style: simple
-      - explode: false
+      - description: Comment Id
+        explode: false
         in: path
         name: commentId
         required: true
@@ -886,7 +907,8 @@ paths:
     post:
       operationId: CreateCommentAttachment
       parameters:
-      - explode: false
+      - description: Note Id
+        explode: false
         in: path
         name: noteId
         required: true
@@ -894,7 +916,8 @@ paths:
           format: uuid
           type: string
         style: simple
-      - explode: false
+      - description: Comment  Id
+        explode: false
         in: path
         name: commentId
         required: true
@@ -950,7 +973,8 @@ paths:
     get:
       operationId: DownloadCommentAttachmentForComment
       parameters:
-      - explode: false
+      - description: Note Id
+        explode: false
         in: path
         name: noteId
         required: true
@@ -958,7 +982,8 @@ paths:
           format: uuid
           type: string
         style: simple
-      - explode: false
+      - description: Comment Id
+        explode: false
         in: path
         name: commentId
         required: true
@@ -966,7 +991,8 @@ paths:
           format: uuid
           type: string
         style: simple
-      - explode: false
+      - description: Attachment Id
+        explode: false
         in: path
         name: attachmentId
         required: true
@@ -1142,22 +1168,13 @@ components:
           schema:
             $ref: '#/components/schemas/inline_object'
   schemas:
-    AttachmentStatus:
-      enum:
-      - 0
-      - 1
-      - 2
-      - 3
-      - 4
-      format: int32
-      type: integer
     AttachmentSummaryDto:
-      additionalProperties: false
       example:
         fileName: fileName
         size: 0
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         mimeType: mimeType
+      nullable: true
       properties:
         id:
           format: uuid
@@ -1172,11 +1189,8 @@ components:
           format: int64
           nullable: true
           type: integer
-        status:
-          $ref: '#/components/schemas/AttachmentStatus'
       type: object
     CommentDto:
-      additionalProperties: false
       example:
         createdAt: createdAt
         attachments:
@@ -1199,6 +1213,7 @@ components:
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         authorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         body: body
+      nullable: true
       properties:
         id:
           format: uuid
@@ -1228,7 +1243,6 @@ components:
           type: array
       type: object
     CommentSummaryDto:
-      additionalProperties: false
       example:
         createdAt: createdAt
         subcomments:
@@ -1240,6 +1254,7 @@ components:
           userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
@@ -1257,16 +1272,15 @@ components:
           type: array
       type: object
     CreateBodyDto:
-      additionalProperties: false
       example:
         content: content
+      nullable: true
       properties:
         content:
           nullable: true
           type: string
       type: object
     CreateCommentDto:
-      additionalProperties: false
       example:
         attachmentsCount: 0
         parentCommentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -1288,7 +1302,6 @@ components:
           type: integer
       type: object
     CreateCustomFieldValueDto:
-      additionalProperties: false
       description: "Set a value or values for a custom field identified by the field\
         \ 'Code'. Only one of the fields (IntegerValue / TextValue / FilePathValue\
         \ etc) will be used,\r\ndepending on the data type of the custom field corresponding\
@@ -1315,6 +1328,7 @@ components:
           teamIds:
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         code:
           minLength: 1
@@ -1359,7 +1373,6 @@ components:
       - code
       type: object
     CreateNoteDto:
-      additionalProperties: false
       example:
         date: date
         identifier: identifier
@@ -1497,7 +1510,6 @@ components:
       - date
       type: object
     CustomFieldValueDto:
-      additionalProperties: false
       example:
         code: code
         options:
@@ -1514,6 +1526,7 @@ components:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         value: value
+      nullable: true
       properties:
         code:
           nullable: true
@@ -1536,13 +1549,13 @@ components:
           $ref: '#/components/schemas/UserTeamLookupDto'
       type: object
     EventSnippetDto:
-      additionalProperties: false
       example:
         createdAt: 2000-01-23T04:56:07.000+00:00
         noteId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         meetingId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         type: type
+      nullable: true
       properties:
         id:
           format: uuid
@@ -1563,19 +1576,18 @@ components:
           type: string
       type: object
     IdentifierResolutionDto:
-      additionalProperties: false
+      nullable: true
       type: object
     NewItemDto:
-      additionalProperties: false
       example:
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
           type: string
       type: object
     NoteDto:
-      additionalProperties: false
       example:
         date: date
         approvalStatus: approvalStatus
@@ -1638,6 +1650,7 @@ components:
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         sentimentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
@@ -1712,7 +1725,6 @@ components:
           type: array
       type: object
     NoteEventDto:
-      additionalProperties: false
       example:
         createdAt: createdAt
         changeList:
@@ -1739,6 +1751,7 @@ components:
         comment: comment
         type: type
         user: user
+      nullable: true
       properties:
         createdAt:
           nullable: true
@@ -1759,7 +1772,6 @@ components:
           type: array
       type: object
     NoteSummaryDto:
-      additionalProperties: false
       example:
         date: date
         approvalStatus: approvalStatus
@@ -1811,6 +1823,7 @@ components:
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         state: state
         sentimentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
@@ -1868,12 +1881,12 @@ components:
           type: array
       type: object
     Operation:
-      additionalProperties: false
       example:
         path: path
         op: op
         from: from
         value: ""
+      nullable: true
       properties:
         operationType:
           $ref: '#/components/schemas/OperationType'
@@ -1902,6 +1915,7 @@ components:
       type: integer
     ProblemDetails:
       additionalProperties: {}
+      nullable: true
       properties:
         type:
           nullable: true
@@ -1921,7 +1935,6 @@ components:
           type: string
       type: object
     RecordChangeDto:
-      additionalProperties: false
       example:
         newValue: newValue
         oldList:
@@ -1933,6 +1946,7 @@ components:
         - newList
         oldValue: oldValue
         operation: operation
+      nullable: true
       properties:
         field:
           nullable: true
@@ -1958,11 +1972,11 @@ components:
           type: array
       type: object
     RecordEventSummaryDto:
-      additionalProperties: false
       example:
         createdAt: createdAt
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         type: type
+      nullable: true
       properties:
         id:
           format: uuid
@@ -1975,7 +1989,6 @@ components:
           type: string
       type: object
     RelatedRecordsDto:
-      additionalProperties: false
       example:
         meetingIds:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -1983,6 +1996,7 @@ components:
         noteIds:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         noteIds:
           items:
@@ -1998,11 +2012,11 @@ components:
           type: array
       type: object
     SubcommentSummaryDto:
-      additionalProperties: false
       example:
         createdAt: createdAt
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
@@ -2015,7 +2029,6 @@ components:
           type: string
       type: object
     UpdateNoteDto:
-      additionalProperties: false
       example:
         identifier: identifier
         author:
@@ -2149,10 +2162,10 @@ components:
           type: string
       type: object
     UserSerialDto:
-      additionalProperties: false
       example:
         serialNumber: serialNumber
         username: username
+      nullable: true
       properties:
         username:
           maxLength: 30
@@ -2167,7 +2180,6 @@ components:
       - username
       type: object
     UserTeamLookupDto:
-      additionalProperties: false
       example:
         userIds:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -2175,6 +2187,7 @@ components:
         teamIds:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         userIds:
           items:

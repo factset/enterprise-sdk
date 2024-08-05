@@ -121,7 +121,7 @@ public class NoteDto implements Serializable {
   private JsonNullable<Integer> averageRating = JsonNullable.<Integer>undefined();
 
   public static final String JSON_PROPERTY_RELATED_RECORDS = "relatedRecords";
-  private RelatedRecordsDto relatedRecords;
+  private JsonNullable<RelatedRecordsDto> relatedRecords = JsonNullable.<RelatedRecordsDto>undefined();
 
   public static final String JSON_PROPERTY_RELATED_CONTACTS = "relatedContacts";
   private JsonNullable<java.util.List<java.util.UUID>> relatedContacts = JsonNullable.<java.util.List<java.util.UUID>>undefined();
@@ -717,7 +717,7 @@ public class NoteDto implements Serializable {
 
 
   public NoteDto relatedRecords(RelatedRecordsDto relatedRecords) {
-    this.relatedRecords = relatedRecords;
+    this.relatedRecords = JsonNullable.<RelatedRecordsDto>of(relatedRecords);
     return this;
   }
 
@@ -727,18 +727,26 @@ public class NoteDto implements Serializable {
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_RELATED_RECORDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public RelatedRecordsDto getRelatedRecords() {
-    return relatedRecords;
+        return relatedRecords.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_RELATED_RECORDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRelatedRecords(RelatedRecordsDto relatedRecords) {
+
+  public JsonNullable<RelatedRecordsDto> getRelatedRecords_JsonNullable() {
+    return relatedRecords;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_RELATED_RECORDS)
+  public void setRelatedRecords_JsonNullable(JsonNullable<RelatedRecordsDto> relatedRecords) {
     this.relatedRecords = relatedRecords;
+  }
+
+  public void setRelatedRecords(RelatedRecordsDto relatedRecords) {
+    this.relatedRecords = JsonNullable.<RelatedRecordsDto>of(relatedRecords);
   }
 
 
@@ -864,7 +872,7 @@ public class NoteDto implements Serializable {
         equalsNullable(this.state, noteDto.state) &&
         equalsNullable(this.approvalStatus, noteDto.approvalStatus) &&
         equalsNullable(this.averageRating, noteDto.averageRating) &&
-        Objects.equals(this.relatedRecords, noteDto.relatedRecords) &&
+        equalsNullable(this.relatedRecords, noteDto.relatedRecords) &&
         equalsNullable(this.relatedContacts, noteDto.relatedContacts) &&
         equalsNullable(this.customFields, noteDto.customFields);
   }
@@ -875,7 +883,7 @@ public class NoteDto implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, hashCodeNullable(date), hashCodeNullable(createdAt), authorId, contributorId, hashCodeNullable(title), hashCodeNullable(identifier), hashCodeNullable(relatedSymbols), subjectId, hashCodeNullable(recommendationId), hashCodeNullable(sentimentId), hashCodeNullable(source), hashCodeNullable(link), hashCodeNullable(body), isPersonal, hashCodeNullable(state), hashCodeNullable(approvalStatus), hashCodeNullable(averageRating), relatedRecords, hashCodeNullable(relatedContacts), hashCodeNullable(customFields));
+    return Objects.hash(id, hashCodeNullable(date), hashCodeNullable(createdAt), authorId, contributorId, hashCodeNullable(title), hashCodeNullable(identifier), hashCodeNullable(relatedSymbols), subjectId, hashCodeNullable(recommendationId), hashCodeNullable(sentimentId), hashCodeNullable(source), hashCodeNullable(link), hashCodeNullable(body), isPersonal, hashCodeNullable(state), hashCodeNullable(approvalStatus), hashCodeNullable(averageRating), hashCodeNullable(relatedRecords), hashCodeNullable(relatedContacts), hashCodeNullable(customFields));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

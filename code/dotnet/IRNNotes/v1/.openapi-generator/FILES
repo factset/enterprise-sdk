@@ -4,7 +4,6 @@ FactSet.SDK.IRNNotes.sln
 LICENSE
 README.md
 appveyor.yml
-docs/AttachmentStatus.md
 docs/AttachmentSummaryDto.md
 docs/AttachmentsApi.md
 docs/CommentDto.md
@@ -57,7 +56,6 @@ src/FactSet.SDK.IRNNotes/Client/RequestOptions.cs
 src/FactSet.SDK.IRNNotes/Client/RetryConfiguration.cs
 src/FactSet.SDK.IRNNotes/FactSet.SDK.IRNNotes.csproj
 src/FactSet.SDK.IRNNotes/Model/AbstractOpenAPISchema.cs
-src/FactSet.SDK.IRNNotes/Model/AttachmentStatus.cs
 src/FactSet.SDK.IRNNotes/Model/AttachmentSummaryDto.cs
 src/FactSet.SDK.IRNNotes/Model/CommentDto.cs
 src/FactSet.SDK.IRNNotes/Model/CommentSummaryDto.cs

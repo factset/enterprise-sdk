@@ -9,7 +9,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: DSOTM API
-  version: 1.3.0
+  version: 1.5.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/direct-streaming-transaction-messages-api
@@ -199,26 +199,46 @@ components:
     ExecutionParameters:
       example:
         symbol: symbol
-        settlementvalue: 1.4658129805029452
-        amount: 5.637376656633329
-        currencyiso: currencyiso
-        gross: 6.027456183070403
-        orderid: orderid
+        currencyISO: currencyISO
+        orderId: orderId
+        exchangeFee: 2.027123023002322
+        foreignExchangeRate: 1.4658129
         description: description
-        parentid: parentid
-        transactionid: transactionid
-        settlementcurrencyiso: settlementcurrencyiso
-        tradetype: tradetype
-        transactionleaves: 5.962133916683182
+        transactionLeaves: 7.386281948385884
+        localTax: 7.061401241503109
+        brokerFee: 3.616076749251911
+        localFee: 9.301444243932576
+        unitType: unitType
         portfolio: portfolio
-        tradedate: tradedate
-        foreignexchangerate: 2.302136
+        price: 1.4894159098541704
+        commission: 5.637376656633329
         net: 0.8008281904610115
-        settlementdate: settlementdate
+        tradeType: tradeType
+        clearingCommission: 2.3021358869347655
+        quantity: 1.2315135367772556
+        custodian: custodian
+        gross: 1.0246457001441578
+        transactionStatus: transactionStatus
+        settlementCurrencyISO: settlementCurrencyISO
+        accruedInterest: 5.962133916683182
+        settlementDate: settlementDate
+        tradeDate: tradeDate
+        broker: broker
+        parentId: parentId
+        transactionId: transactionId
+        settlementValue: 6.027456183070403
+        updatedDateTime: updatedDateTime
+        miscellaneousFee: 4.145608029883936
+        addedDateTime: addedDateTime
+        entity: entity
         status: status
       properties:
-        parentid:
-          description: Unique ID of the placement which spawned this execution
+        transactionStatus:
+          description: 'Transaction Status of an Execution could be any of the following
+            values: Executed, Booked, Cancelled.'
+          type: string
+        parentId:
+          description: Unique Id of the placement which spawned this execution
           maxLength: 32
           minLength: 0
           nullable: true
@@ -227,36 +247,77 @@ components:
           description: Cash value of the transaction, net of brokerage costs.
           format: double
           type: number
-        gross:
-          description: Cash value of the transaction, including brokerage costs
-          format: double
-          type: number
-        settlementvalue:
-          description: Cash value of the transaction, a value that has been multiplied
-            by an applicable FX rates to convert the a transacti
-          format: double
-          type: number
-        settlementdate:
-          description: Settlement date in YYYYMMDD format
+        settlementDate:
+          description: Settlement date in YYYY-MM-DD format
           type: string
-        settlementcurrencyiso:
+        settlementCurrencyISO:
           description: Currency code for Settlement Value
+          maxLength: 3
+          minLength: 0
+          type: string
+        settlementValue:
+          description: Cash value of the transaction in settlement currency
+          format: double
+          type: number
+        foreignExchangeRate:
+          description: FX rate to convert the net, gross fields to reporting currency.
+          format: float
+          type: number
+        broker:
+          description: Execution broker id.
           maxLength: 32
           minLength: 0
           type: string
-        orderid:
-          description: Unique ID of the order which originated the record
+        custodian:
+          description: Execution custodian Id.
+          maxLength: 32
+          minLength: 0
+          type: string
+        accruedInterest:
+          description: Execution accrued interest.
+          format: double
+          type: number
+        commission:
+          description: Execution commission value.
+          format: double
+          type: number
+        clearingCommission:
+          description: Execution clearing commission value.
+          format: double
+          type: number
+        localTax:
+          description: Execution local tax value.
+          format: double
+          type: number
+        localFee:
+          description: Execution local fee value.
+          format: double
+          type: number
+        brokerFee:
+          description: Execution broker fee value.
+          format: double
+          type: number
+        exchangeFee:
+          description: Execution exchange fee value.
+          format: double
+          type: number
+        miscellaneousFee:
+          description: Execution miscellaneous fee value.
+          format: double
+          type: number
+        transactionId:
+          description: Unique Id for the transaction
+          maxLength: 252
+          minLength: 0
+          type: string
+        orderId:
+          description: Unique Id of the order which originated the record
           maxLength: 32
           minLength: 0
           nullable: true
           type: string
         portfolio:
           description: 'Path of the portfolio (Ex: Client:/folder1/testing.ofdb)'
-          type: string
-        transactionid:
-          description: Unique id for the transaction
-          maxLength: 252
-          minLength: 0
           type: string
         symbol:
           description: Symbol corresponding to the traded instrument.
@@ -268,99 +329,134 @@ components:
           maxLength: 32
           minLength: 0
           type: string
-        tradetype:
+        tradeType:
           description: "Trade type could be any of the following values BL, BC, SL,\
             \ SS.\r\nwhich stands for Buy Long, Buy to cover, Sell Long and Sell Short\
             \ respectively."
-          maxLength: 8
-          minLength: 0
           type: string
-        status:
-          description: "Status could be any of the following value: ACCT or CNCL.\r\
-            \nwhich stands for Accounted and Cancelled respectively."
-          maxLength: 32
-          minLength: 0
+        unitType:
+          description: Unit type could be one of Quantity or Value.
           type: string
-        tradedate:
-          description: Transaction date which is in the format YYYYMMDD
-          type: string
-        transactionleaves:
+        transactionLeaves:
           description: Shares that have been ordered and not executed
           format: double
           type: number
-        amount:
+        quantity:
           description: Quantity of the instrument traded.
           format: double
           type: number
-        currencyiso:
+        gross:
+          description: Cash value of the transaction
+          format: double
+          type: number
+        price:
+          description: The transaction price
+          format: double
+          type: number
+        currencyISO:
           description: The currency code of cash valued fields, Net Amount and Gross
             Amount.
-          maxLength: 8
+          maxLength: 3
           minLength: 0
           type: string
-        foreignexchangerate:
-          description: FX rate that can be picked up by PA, multiplied with the cash
-            valued fields, Net, Gross, to allow PA to show transactions in reporting
-            currency.
-          format: float
-          type: number
+        tradeDate:
+          description: Trade date which is in the format YYYY-MM-DD
+          type: string
+        addedDateTime:
+          description: Date and time expressed in UTC when the transaction was first
+            added in the format YYYY-MM-DDTHH:MM:SS.FFF
+          type: string
+        updatedDateTime:
+          description: Date and time expressed in UTC when the transaction was last
+            updated in the format YYYY-MM-DDTHH:MM:SS.FFF
+          type: string
+        entity:
+          readOnly: true
+          type: string
+        status:
+          readOnly: true
+          type: string
       required:
-      - amount
-      - currencyiso
+      - currencyISO
       - description
       - gross
       - net
       - portfolio
-      - settlementcurrencyiso
-      - settlementdate
-      - settlementvalue
-      - status
+      - quantity
+      - settlementCurrencyISO
+      - settlementDate
+      - settlementValue
       - symbol
-      - tradedate
-      - tradetype
-      - transactionid
+      - tradeDate
+      - tradeType
+      - transactionId
+      - transactionStatus
+      - unitType
       type: object
     PlacementParameters:
       example:
         symbol: symbol
-        amount: 9.301444243932576
-        currencyiso: currencyiso
-        orderid: orderid
+        tifDate: tifDate
+        currencyISO: currencyISO
+        quantity: 1.1730742509559433
+        gross: 4.965218492984954
+        transactionStatus: transactionStatus
+        orderId: orderId
         description: description
-        parentid: parentid
-        transactionid: transactionid
-        settlementcurrencyiso: settlementcurrencyiso
-        tradetype: tradetype
-        transactionleaves: 7.061401241503109
+        transactionLeaves: 7.457744773683766
+        tradeDate: tradeDate
+        parentId: parentId
+        transactionId: transactionId
+        updatedDateTime: updatedDateTime
+        tif: tif
+        unitType: unitType
+        addedDateTime: addedDateTime
+        instructionType: instructionType
         portfolio: portfolio
-        tradedate: tradedate
-        foreignexchangerate: 3.6160767
+        price: 5.025004791520295
+        instructionValue: 6.84685269835264
+        tradeType: tradeType
+        entity: entity
         status: status
       properties:
-        settlementcurrencyiso:
-          description: Currency code for Settlement Value
-          maxLength: 32
-          minLength: 0
+        transactionStatus:
+          description: 'Transaction Status of a Placement could be any of the following
+            values: Placed, PartialFilled, Filled, Expired, Cancelled, Rejected.'
           type: string
-        parentid:
-          description: Unique ID of the order which spawned this placement
+        parentId:
+          description: Unique Id of the order which spawned this placement
           maxLength: 32
           minLength: 0
           nullable: true
           type: string
-        orderid:
-          description: Unique ID of the order which originated the record
+        instructionType:
+          description: 'Instruction Type of a Placement could be any of the following
+            values: Market, Limit, Stop'
+          type: string
+        instructionValue:
+          description: InstructionValue for a Placement
+          format: double
+          type: number
+        tif:
+          description: 'TIF of an Order could be any of the following values: GTC,
+            GTD, D, W'
+          type: string
+        tifDate:
+          description: TIF date which is in the format YYYY-MM-DD
+          type: string
+        transactionId:
+          description: Unique Id for the transaction
+          maxLength: 252
+          minLength: 0
+          type: string
+        orderId:
+          description: Unique Id of the order which originated the record
           maxLength: 32
           minLength: 0
           nullable: true
           type: string
         portfolio:
           description: 'Path of the portfolio (Ex: Client:/folder1/testing.ofdb)'
-          type: string
-        transactionid:
-          description: Unique id for the transaction
-          maxLength: 252
-          minLength: 0
           type: string
         symbol:
           description: Symbol corresponding to the traded instrument.
@@ -372,82 +468,142 @@ components:
           maxLength: 32
           minLength: 0
           type: string
-        tradetype:
+        tradeType:
           description: "Trade type could be any of the following values BL, BC, SL,\
             \ SS.\r\nwhich stands for Buy Long, Buy to cover, Sell Long and Sell Short\
             \ respectively."
-          maxLength: 8
-          minLength: 0
           type: string
-        status:
-          description: "Status could be any of the following value: ACCT or CNCL.\r\
-            \nwhich stands for Accounted and Cancelled respectively."
-          maxLength: 32
-          minLength: 0
+        unitType:
+          description: Unit type could be one of Quantity or Value.
           type: string
-        tradedate:
-          description: Transaction date which is in the format YYYYMMDD
-          type: string
-        transactionleaves:
+        transactionLeaves:
           description: Shares that have been ordered and not executed
           format: double
           type: number
-        amount:
+        quantity:
           description: Quantity of the instrument traded.
           format: double
           type: number
-        currencyiso:
+        gross:
+          description: Cash value of the transaction
+          format: double
+          type: number
+        price:
+          description: The transaction price
+          format: double
+          type: number
+        currencyISO:
           description: The currency code of cash valued fields, Net Amount and Gross
             Amount.
-          maxLength: 8
+          maxLength: 3
           minLength: 0
           type: string
-        foreignexchangerate:
-          description: FX rate that can be picked up by PA, multiplied with the cash
-            valued fields, Net, Gross, to allow PA to show transactions in reporting
-            currency.
-          format: float
-          type: number
+        tradeDate:
+          description: Trade date which is in the format YYYY-MM-DD
+          type: string
+        addedDateTime:
+          description: Date and time expressed in UTC when the transaction was first
+            added in the format YYYY-MM-DDTHH:MM:SS.FFF
+          type: string
+        updatedDateTime:
+          description: Date and time expressed in UTC when the transaction was last
+            updated in the format YYYY-MM-DDTHH:MM:SS.FFF
+          type: string
+        entity:
+          readOnly: true
+          type: string
+        status:
+          readOnly: true
+          type: string
       required:
-      - amount
-      - currencyiso
+      - currencyISO
       - description
+      - gross
       - portfolio
-      - settlementcurrencyiso
-      - status
+      - quantity
       - symbol
-      - tradedate
-      - tradetype
-      - transactionid
+      - tradeDate
+      - tradeType
+      - transactionId
+      - transactionStatus
+      - unitType
       type: object
     OrderParameters:
       example:
         symbol: symbol
-        tradetype: tradetype
-        transactionleaves: 2.027123023002322
-        amount: 4.145608029883936
-        currencyiso: currencyiso
-        orderid: orderid
-        portfolio: portfolio
-        tradedate: tradedate
-        foreignexchangerate: 7.386282
+        currencyISO: currencyISO
+        orderId: orderId
         description: description
-        transactionid: transactionid
+        transactionLeaves: 9.369310271410669
+        fundTeam: fundTeam
+        tif: tif
+        unitType: unitType
+        portfolio: portfolio
+        price: 9.018348186070783
+        tradeType: tradeType
+        tifDate: tifDate
+        quantity: 6.683562403749608
+        gross: 8.762042012749001
+        transactionStatus: transactionStatus
+        trader: trader
+        tradeDate: tradeDate
+        transactionId: transactionId
+        updatedDateTime: updatedDateTime
+        tradingTeam: tradingTeam
+        addedDateTime: addedDateTime
+        instructionType: instructionType
+        instructionValue: 9.965781217890562
+        entity: entity
         status: status
       properties:
-        orderid:
-          description: Unique ID of the order which originated the record
+        transactionStatus:
+          description: 'Transaction Status of an Order could be any of the following
+            values: PendingApproval, Open, Placed, PartialFilled, Filled, Expired,
+            Cancelled, Rejected, Booked.'
+          type: string
+        instructionType:
+          description: 'Instruction Type of an Order could be any of the following
+            values: Market, Limit, Stop'
+          type: string
+        instructionValue:
+          description: Instruction Value of an Order
+          format: double
+          type: number
+        tif:
+          description: 'TIF of an Order could be any of the following values: GTC,
+            GTD, D, W'
+          type: string
+        tifDate:
+          description: TIF date which is in the format YYYY-MM-DD
+          type: string
+        fundTeam:
+          description: Fund Team of an Order
+          maxLength: 32
+          minLength: 0
+          type: string
+        tradingTeam:
+          description: Trading Team of an Order
+          maxLength: 32
+          minLength: 0
+          type: string
+        trader:
+          description: User Id of assigned trader.
+          maxLength: 32
+          minLength: 0
+          type: string
+        transactionId:
+          description: Unique Id for the transaction
+          maxLength: 252
+          minLength: 0
+          type: string
+        orderId:
+          description: Unique Id of the order which originated the record
           maxLength: 32
           minLength: 0
           nullable: true
           type: string
         portfolio:
           description: 'Path of the portfolio (Ex: Client:/folder1/testing.ofdb)'
-          type: string
-        transactionid:
-          description: Unique id for the transaction
-          maxLength: 252
-          minLength: 0
           type: string
         symbol:
           description: Symbol corresponding to the traded instrument.
@@ -459,145 +615,234 @@ components:
           maxLength: 32
           minLength: 0
           type: string
-        tradetype:
+        tradeType:
           description: "Trade type could be any of the following values BL, BC, SL,\
             \ SS.\r\nwhich stands for Buy Long, Buy to cover, Sell Long and Sell Short\
             \ respectively."
-          maxLength: 8
-          minLength: 0
           type: string
-        status:
-          description: "Status could be any of the following value: ACCT or CNCL.\r\
-            \nwhich stands for Accounted and Cancelled respectively."
-          maxLength: 32
-          minLength: 0
+        unitType:
+          description: Unit type could be one of Quantity or Value.
           type: string
-        tradedate:
-          description: Transaction date which is in the format YYYYMMDD
-          type: string
-        transactionleaves:
+        transactionLeaves:
           description: Shares that have been ordered and not executed
           format: double
           type: number
-        amount:
+        quantity:
           description: Quantity of the instrument traded.
           format: double
           type: number
-        currencyiso:
+        gross:
+          description: Cash value of the transaction
+          format: double
+          type: number
+        price:
+          description: The transaction price
+          format: double
+          type: number
+        currencyISO:
           description: The currency code of cash valued fields, Net Amount and Gross
             Amount.
-          maxLength: 8
+          maxLength: 3
           minLength: 0
           type: string
-        foreignexchangerate:
-          description: FX rate that can be picked up by PA, multiplied with the cash
-            valued fields, Net, Gross, to allow PA to show transactions in reporting
-            currency.
-          format: float
-          type: number
+        tradeDate:
+          description: Trade date which is in the format YYYY-MM-DD
+          type: string
+        addedDateTime:
+          description: Date and time expressed in UTC when the transaction was first
+            added in the format YYYY-MM-DDTHH:MM:SS.FFF
+          type: string
+        updatedDateTime:
+          description: Date and time expressed in UTC when the transaction was last
+            updated in the format YYYY-MM-DDTHH:MM:SS.FFF
+          type: string
+        entity:
+          readOnly: true
+          type: string
+        status:
+          readOnly: true
+          type: string
       required:
-      - amount
-      - currencyiso
+      - currencyISO
       - description
+      - gross
       - portfolio
-      - status
+      - quantity
       - symbol
-      - tradedate
-      - tradetype
-      - transactionid
+      - tradeDate
+      - tradeType
+      - transactionId
+      - transactionStatus
+      - unitType
       type: object
     Transactions:
       example:
         executions:
         - symbol: symbol
-          settlementvalue: 1.4658129805029452
-          amount: 5.637376656633329
-          currencyiso: currencyiso
-          gross: 6.027456183070403
-          orderid: orderid
+          currencyISO: currencyISO
+          orderId: orderId
+          exchangeFee: 2.027123023002322
+          foreignExchangeRate: 1.4658129
           description: description
-          parentid: parentid
-          transactionid: transactionid
-          settlementcurrencyiso: settlementcurrencyiso
-          tradetype: tradetype
-          transactionleaves: 5.962133916683182
+          transactionLeaves: 7.386281948385884
+          localTax: 7.061401241503109
+          brokerFee: 3.616076749251911
+          localFee: 9.301444243932576
+          unitType: unitType
           portfolio: portfolio
-          tradedate: tradedate
-          foreignexchangerate: 2.302136
+          price: 1.4894159098541704
+          commission: 5.637376656633329
           net: 0.8008281904610115
-          settlementdate: settlementdate
+          tradeType: tradeType
+          clearingCommission: 2.3021358869347655
+          quantity: 1.2315135367772556
+          custodian: custodian
+          gross: 1.0246457001441578
+          transactionStatus: transactionStatus
+          settlementCurrencyISO: settlementCurrencyISO
+          accruedInterest: 5.962133916683182
+          settlementDate: settlementDate
+          tradeDate: tradeDate
+          broker: broker
+          parentId: parentId
+          transactionId: transactionId
+          settlementValue: 6.027456183070403
+          updatedDateTime: updatedDateTime
+          miscellaneousFee: 4.145608029883936
+          addedDateTime: addedDateTime
+          entity: entity
           status: status
         - symbol: symbol
-          settlementvalue: 1.4658129805029452
-          amount: 5.637376656633329
-          currencyiso: currencyiso
-          gross: 6.027456183070403
-          orderid: orderid
+          currencyISO: currencyISO
+          orderId: orderId
+          exchangeFee: 2.027123023002322
+          foreignExchangeRate: 1.4658129
           description: description
-          parentid: parentid
-          transactionid: transactionid
-          settlementcurrencyiso: settlementcurrencyiso
-          tradetype: tradetype
-          transactionleaves: 5.962133916683182
+          transactionLeaves: 7.386281948385884
+          localTax: 7.061401241503109
+          brokerFee: 3.616076749251911
+          localFee: 9.301444243932576
+          unitType: unitType
           portfolio: portfolio
-          tradedate: tradedate
-          foreignexchangerate: 2.302136
+          price: 1.4894159098541704
+          commission: 5.637376656633329
           net: 0.8008281904610115
-          settlementdate: settlementdate
+          tradeType: tradeType
+          clearingCommission: 2.3021358869347655
+          quantity: 1.2315135367772556
+          custodian: custodian
+          gross: 1.0246457001441578
+          transactionStatus: transactionStatus
+          settlementCurrencyISO: settlementCurrencyISO
+          accruedInterest: 5.962133916683182
+          settlementDate: settlementDate
+          tradeDate: tradeDate
+          broker: broker
+          parentId: parentId
+          transactionId: transactionId
+          settlementValue: 6.027456183070403
+          updatedDateTime: updatedDateTime
+          miscellaneousFee: 4.145608029883936
+          addedDateTime: addedDateTime
+          entity: entity
           status: status
         placements:
         - symbol: symbol
-          amount: 9.301444243932576
-          currencyiso: currencyiso
-          orderid: orderid
+          tifDate: tifDate
+          currencyISO: currencyISO
+          quantity: 1.1730742509559433
+          gross: 4.965218492984954
+          transactionStatus: transactionStatus
+          orderId: orderId
           description: description
-          parentid: parentid
-          transactionid: transactionid
-          settlementcurrencyiso: settlementcurrencyiso
-          tradetype: tradetype
-          transactionleaves: 7.061401241503109
+          transactionLeaves: 7.457744773683766
+          tradeDate: tradeDate
+          parentId: parentId
+          transactionId: transactionId
+          updatedDateTime: updatedDateTime
+          tif: tif
+          unitType: unitType
+          addedDateTime: addedDateTime
+          instructionType: instructionType
           portfolio: portfolio
-          tradedate: tradedate
-          foreignexchangerate: 3.6160767
+          price: 5.025004791520295
+          instructionValue: 6.84685269835264
+          tradeType: tradeType
+          entity: entity
           status: status
         - symbol: symbol
-          amount: 9.301444243932576
-          currencyiso: currencyiso
-          orderid: orderid
+          tifDate: tifDate
+          currencyISO: currencyISO
+          quantity: 1.1730742509559433
+          gross: 4.965218492984954
+          transactionStatus: transactionStatus
+          orderId: orderId
           description: description
-          parentid: parentid
-          transactionid: transactionid
-          settlementcurrencyiso: settlementcurrencyiso
-          tradetype: tradetype
-          transactionleaves: 7.061401241503109
+          transactionLeaves: 7.457744773683766
+          tradeDate: tradeDate
+          parentId: parentId
+          transactionId: transactionId
+          updatedDateTime: updatedDateTime
+          tif: tif
+          unitType: unitType
+          addedDateTime: addedDateTime
+          instructionType: instructionType
           portfolio: portfolio
-          tradedate: tradedate
-          foreignexchangerate: 3.6160767
+          price: 5.025004791520295
+          instructionValue: 6.84685269835264
+          tradeType: tradeType
+          entity: entity
           status: status
         orders:
         - symbol: symbol
-          tradetype: tradetype
-          transactionleaves: 2.027123023002322
-          amount: 4.145608029883936
-          currencyiso: currencyiso
-          orderid: orderid
-          portfolio: portfolio
-          tradedate: tradedate
-          foreignexchangerate: 7.386282
+          currencyISO: currencyISO
+          orderId: orderId
           description: description
-          transactionid: transactionid
+          transactionLeaves: 9.369310271410669
+          fundTeam: fundTeam
+          tif: tif
+          unitType: unitType
+          portfolio: portfolio
+          price: 9.018348186070783
+          tradeType: tradeType
+          tifDate: tifDate
+          quantity: 6.683562403749608
+          gross: 8.762042012749001
+          transactionStatus: transactionStatus
+          trader: trader
+          tradeDate: tradeDate
+          transactionId: transactionId
+          updatedDateTime: updatedDateTime
+          tradingTeam: tradingTeam
+          addedDateTime: addedDateTime
+          instructionType: instructionType
+          instructionValue: 9.965781217890562
+          entity: entity
           status: status
         - symbol: symbol
-          tradetype: tradetype
-          transactionleaves: 2.027123023002322
-          amount: 4.145608029883936
-          currencyiso: currencyiso
-          orderid: orderid
-          portfolio: portfolio
-          tradedate: tradedate
-          foreignexchangerate: 7.386282
+          currencyISO: currencyISO
+          orderId: orderId
           description: description
-          transactionid: transactionid
+          transactionLeaves: 9.369310271410669
+          fundTeam: fundTeam
+          tif: tif
+          unitType: unitType
+          portfolio: portfolio
+          price: 9.018348186070783
+          tradeType: tradeType
+          tifDate: tifDate
+          quantity: 6.683562403749608
+          gross: 8.762042012749001
+          transactionStatus: transactionStatus
+          trader: trader
+          tradeDate: tradeDate
+          transactionId: transactionId
+          updatedDateTime: updatedDateTime
+          tradingTeam: tradingTeam
+          addedDateTime: addedDateTime
+          instructionType: instructionType
+          instructionValue: 9.965781217890562
+          entity: entity
           status: status
       properties:
         executions:

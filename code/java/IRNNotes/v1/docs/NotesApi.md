@@ -153,7 +153,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NotesApi apiInstance = new NotesApi(defaultClient);
-        java.util.UUID noteId = new java.util.UUID(); // java.util.UUID | 
+        java.util.UUID noteId = new java.util.UUID(); // java.util.UUID | Note Id
         try {
             apiInstance.deleteNote(noteId);
 
@@ -173,7 +173,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **noteId** | **java.util.UUID**|  |
+ **noteId** | **java.util.UUID**| Note Id |
 
 ### Return type
 

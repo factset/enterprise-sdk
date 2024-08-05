@@ -67,7 +67,6 @@ docs/StatResultValue.md
 docs/StatResultValueSparseMatrix.md
 docs/SuccessResponseMeta.md
 docs/SupportedStatDetails.md
-docs/SupportedStatDetailsLevels.md
 docs/SupportedStatDetailsSecurityGroupMethod.md
 docs/SupportedStats.md
 docs/SupportedStatsNamesOnly.md
@@ -161,7 +160,6 @@ src/main/java/com/factset/sdk/OpenRisk/models/StatResultValue.java
 src/main/java/com/factset/sdk/OpenRisk/models/StatResultValueSparseMatrix.java
 src/main/java/com/factset/sdk/OpenRisk/models/SuccessResponseMeta.java
 src/main/java/com/factset/sdk/OpenRisk/models/SupportedStatDetails.java
-src/main/java/com/factset/sdk/OpenRisk/models/SupportedStatDetailsLevels.java
 src/main/java/com/factset/sdk/OpenRisk/models/SupportedStatDetailsSecurityGroupMethod.java
 src/main/java/com/factset/sdk/OpenRisk/models/SupportedStats.java
 src/main/java/com/factset/sdk/OpenRisk/models/SupportedStatsNamesOnly.java

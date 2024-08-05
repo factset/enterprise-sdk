@@ -522,6 +522,7 @@
           {
             "name": "noteId",
             "in": "path",
+            "description": "Note Id",
             "required": true,
             "schema": {
               "type": "string",
@@ -631,6 +632,7 @@
           {
             "name": "noteId",
             "in": "path",
+            "description": "Note Id",
             "required": true,
             "schema": {
               "type": "string",
@@ -701,6 +703,7 @@
           {
             "name": "noteId",
             "in": "path",
+            "description": "Note Id",
             "required": true,
             "schema": {
               "type": "string",
@@ -710,6 +713,7 @@
           {
             "name": "attachmentId",
             "in": "path",
+            "description": "Attachment Id",
             "required": true,
             "schema": {
               "type": "string",
@@ -719,7 +723,15 @@
         ],
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Success",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
           },
           "400": {
             "description": "Bad Request",
@@ -765,6 +777,7 @@
           {
             "name": "noteId",
             "in": "path",
+            "description": "Note Id",
             "required": true,
             "schema": {
               "type": "string",
@@ -828,6 +841,7 @@
           {
             "name": "noteId",
             "in": "path",
+            "description": "The note Id to which the comment will be added",
             "required": true,
             "schema": {
               "type": "string",
@@ -836,6 +850,7 @@
           }
         ],
         "requestBody": {
+          "description": "The details of the comment to be created",
           "content": {
             "application/json-patch+json": {
               "schema": {
@@ -917,6 +932,7 @@
           {
             "name": "noteId",
             "in": "path",
+            "description": "Note Id",
             "required": true,
             "schema": {
               "type": "string",
@@ -926,6 +942,7 @@
           {
             "name": "commentId",
             "in": "path",
+            "description": "Comment Id",
             "required": true,
             "schema": {
               "type": "string",
@@ -986,6 +1003,7 @@
           {
             "name": "noteId",
             "in": "path",
+            "description": "Note Id",
             "required": true,
             "schema": {
               "type": "string",
@@ -995,6 +1013,7 @@
           {
             "name": "commentId",
             "in": "path",
+            "description": "Comment Id",
             "required": true,
             "schema": {
               "type": "string",
@@ -1003,6 +1022,7 @@
           }
         ],
         "requestBody": {
+          "description": "The JSON patch document with updates for the comment",
           "content": {
             "application/json-patch+json": {
               "schema": {
@@ -1084,6 +1104,7 @@
           {
             "name": "noteId",
             "in": "path",
+            "description": "The note id from which the comment will be deleted",
             "required": true,
             "schema": {
               "type": "string",
@@ -1093,6 +1114,7 @@
           {
             "name": "commentId",
             "in": "path",
+            "description": "Comment Id",
             "required": true,
             "schema": {
               "type": "string",
@@ -1141,6 +1163,7 @@
           {
             "name": "noteId",
             "in": "path",
+            "description": "Note Id",
             "required": true,
             "schema": {
               "type": "string",
@@ -1150,6 +1173,7 @@
           {
             "name": "commentId",
             "in": "path",
+            "description": "Comment Id",
             "required": true,
             "schema": {
               "type": "string",
@@ -1213,6 +1237,7 @@
           {
             "name": "noteId",
             "in": "path",
+            "description": "Note Id",
             "required": true,
             "schema": {
               "type": "string",
@@ -1222,6 +1247,7 @@
           {
             "name": "commentId",
             "in": "path",
+            "description": "Comment  Id",
             "required": true,
             "schema": {
               "type": "string",
@@ -1305,6 +1331,7 @@
           {
             "name": "noteId",
             "in": "path",
+            "description": "Note Id",
             "required": true,
             "schema": {
               "type": "string",
@@ -1314,6 +1341,7 @@
           {
             "name": "commentId",
             "in": "path",
+            "description": "Comment Id",
             "required": true,
             "schema": {
               "type": "string",
@@ -1323,6 +1351,7 @@
           {
             "name": "attachmentId",
             "in": "path",
+            "description": "Attachment Id",
             "required": true,
             "schema": {
               "type": "string",
@@ -1555,17 +1584,6 @@
   },
   "components": {
     "schemas": {
-      "AttachmentStatus": {
-        "enum": [
-          0,
-          1,
-          2,
-          3,
-          4
-        ],
-        "type": "integer",
-        "format": "int32"
-      },
       "AttachmentSummaryDto": {
         "type": "object",
         "properties": {
@@ -1585,12 +1603,9 @@
             "type": "integer",
             "format": "int64",
             "nullable": true
-          },
-          "status": {
-            "$ref": "#/components/schemas/AttachmentStatus"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "CommentDto": {
         "type": "object",
@@ -1631,7 +1646,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "CommentSummaryDto": {
         "type": "object",
@@ -1656,7 +1671,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "CreateBodyDto": {
         "type": "object",
@@ -1666,7 +1681,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "CreateCommentDto": {
         "type": "object",
@@ -1688,8 +1703,7 @@
             "type": "integer",
             "format": "int32"
           }
-        },
-        "additionalProperties": false
+        }
       },
       "CreateCustomFieldValueDto": {
         "required": [
@@ -1750,8 +1764,8 @@
             "$ref": "#/components/schemas/UserTeamLookupDto"
           }
         },
-        "additionalProperties": false,
-        "description": "Set a value or values for a custom field identified by the field 'Code'. Only one of the fields (IntegerValue / TextValue / FilePathValue etc) will be used,\r\ndepending on the data type of the custom field corresponding to the 'Code' provided"
+        "description": "Set a value or values for a custom field identified by the field 'Code'. Only one of the fields (IntegerValue / TextValue / FilePathValue etc) will be used,\r\ndepending on the data type of the custom field corresponding to the 'Code' provided",
+        "nullable": true
       },
       "CreateNoteDto": {
         "required": [
@@ -1835,8 +1849,7 @@
             "type": "boolean",
             "default": false
           }
-        },
-        "additionalProperties": false
+        }
       },
       "CustomFieldValueDto": {
         "type": "object",
@@ -1868,7 +1881,7 @@
             "$ref": "#/components/schemas/UserTeamLookupDto"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "EventSnippetDto": {
         "type": "object",
@@ -1896,11 +1909,11 @@
             "format": "date-time"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "IdentifierResolutionDto": {
         "type": "object",
-        "additionalProperties": false
+        "nullable": true
       },
       "NewItemDto": {
         "type": "object",
@@ -1910,7 +1923,7 @@
             "format": "uuid"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "NoteDto": {
         "type": "object",
@@ -2011,7 +2024,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "NoteEventDto": {
         "type": "object",
@@ -2040,7 +2053,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "NoteSummaryDto": {
         "type": "object",
@@ -2119,7 +2132,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "Operation": {
         "type": "object",
@@ -2143,7 +2156,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "OperationType": {
         "enum": [
@@ -2183,7 +2196,8 @@
             "nullable": true
           }
         },
-        "additionalProperties": {}
+        "additionalProperties": {},
+        "nullable": true
       },
       "RecordChangeDto": {
         "type": "object",
@@ -2219,7 +2233,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "RecordEventSummaryDto": {
         "type": "object",
@@ -2237,7 +2251,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "RelatedRecordsDto": {
         "type": "object",
@@ -2259,7 +2273,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "SubcommentSummaryDto": {
         "type": "object",
@@ -2277,7 +2291,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "UpdateNoteDto": {
         "type": "object",
@@ -2356,8 +2370,7 @@
             "type": "string",
             "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "UserSerialDto": {
         "required": [
@@ -2377,7 +2390,7 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "UserTeamLookupDto": {
         "type": "object",
@@ -2399,7 +2412,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       }
     },
     "securitySchemes": {

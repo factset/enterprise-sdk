@@ -217,7 +217,7 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     api_instance = notes_api.NotesApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    note_id = "noteId_example" # str | 
+    note_id = "noteId_example" # str | Note Id
 
     try:
         # Delete a Note
@@ -234,7 +234,7 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **note_id** | **str**|  |
+ **note_id** | **str**| Note Id |
 
 ### Return type
 

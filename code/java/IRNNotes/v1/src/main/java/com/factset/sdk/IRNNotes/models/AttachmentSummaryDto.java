@@ -17,7 +17,6 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.IRNNotes.models.AttachmentStatus;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -41,8 +40,7 @@ import com.factset.sdk.IRNNotes.JSON;
   AttachmentSummaryDto.JSON_PROPERTY_ID,
   AttachmentSummaryDto.JSON_PROPERTY_FILE_NAME,
   AttachmentSummaryDto.JSON_PROPERTY_MIME_TYPE,
-  AttachmentSummaryDto.JSON_PROPERTY_SIZE,
-  AttachmentSummaryDto.JSON_PROPERTY_STATUS
+  AttachmentSummaryDto.JSON_PROPERTY_SIZE
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -60,9 +58,6 @@ public class AttachmentSummaryDto implements Serializable {
 
   public static final String JSON_PROPERTY_SIZE = "size";
   private JsonNullable<Long> size = JsonNullable.<Long>undefined();
-
-  public static final String JSON_PROPERTY_STATUS = "status";
-  private AttachmentStatus status;
 
   public AttachmentSummaryDto() { 
   }
@@ -195,32 +190,6 @@ public class AttachmentSummaryDto implements Serializable {
   }
 
 
-  public AttachmentSummaryDto status(AttachmentStatus status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Get status
-   * @return status
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public AttachmentStatus getStatus() {
-    return status;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStatus(AttachmentStatus status) {
-    this.status = status;
-  }
-
-
   /**
    * Return true if this AttachmentSummaryDto object is equal to o.
    */
@@ -236,8 +205,7 @@ public class AttachmentSummaryDto implements Serializable {
     return Objects.equals(this.id, attachmentSummaryDto.id) &&
         equalsNullable(this.fileName, attachmentSummaryDto.fileName) &&
         equalsNullable(this.mimeType, attachmentSummaryDto.mimeType) &&
-        equalsNullable(this.size, attachmentSummaryDto.size) &&
-        Objects.equals(this.status, attachmentSummaryDto.status);
+        equalsNullable(this.size, attachmentSummaryDto.size);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -246,7 +214,7 @@ public class AttachmentSummaryDto implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, hashCodeNullable(fileName), hashCodeNullable(mimeType), hashCodeNullable(size), status);
+    return Objects.hash(id, hashCodeNullable(fileName), hashCodeNullable(mimeType), hashCodeNullable(size));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -264,7 +232,6 @@ public class AttachmentSummaryDto implements Serializable {
     sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
     sb.append("    mimeType: ").append(toIndentedString(mimeType)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }

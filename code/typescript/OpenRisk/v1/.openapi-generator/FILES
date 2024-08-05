@@ -65,7 +65,6 @@ docs/StatResultValue.md
 docs/StatResultValueSparseMatrix.md
 docs/SuccessResponseMeta.md
 docs/SupportedStatDetails.md
-docs/SupportedStatDetailsLevels.md
 docs/SupportedStatDetailsSecurityGroupMethod.md
 docs/SupportedStats.md
 docs/SupportedStatsNamesOnly.md
@@ -136,7 +135,6 @@ src/model/StatResultValue.js
 src/model/StatResultValueSparseMatrix.js
 src/model/SuccessResponseMeta.js
 src/model/SupportedStatDetails.js
-src/model/SupportedStatDetailsLevels.js
 src/model/SupportedStatDetailsSecurityGroupMethod.js
 src/model/SupportedStats.js
 src/model/SupportedStatsNamesOnly.js

@@ -1,12 +1,19 @@
 openapi: 3.0.2
 info:
   contact:
-    email: signals.api@factset.com
-    name: Signals API Support
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
   description: Collection of endpoints for providing Signal Events, Definitions and
     Metadata
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
   title: Signals API
   version: 2.6.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/signals-api
 servers:
 - description: Production
   url: https://api.factset.com/signals/v2

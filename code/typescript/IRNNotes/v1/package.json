@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-irnnotes",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "description": "IRN Notes client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",

@@ -12,7 +12,6 @@
  */
 
 import ApiClient from './ApiClient';
-import AttachmentStatus from './model/AttachmentStatus';
 import AttachmentSummaryDto from './model/AttachmentSummaryDto';
 import CommentDto from './model/CommentDto';
 import CommentSummaryDto from './model/CommentSummaryDto';
@@ -80,12 +79,6 @@ export {
      * @property {module:ApiClient}
      */
     ApiClient,
-
-    /**
-     * The AttachmentStatus model constructor.
-     * @property {module:model/AttachmentStatus}
-     */
-    AttachmentStatus,
 
     /**
      * The AttachmentSummaryDto model constructor.

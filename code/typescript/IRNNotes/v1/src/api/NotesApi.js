@@ -98,7 +98,7 @@ export default class NotesApi {
 
     /**
      * Delete a Note
-     * @param {String} noteId 
+     * @param {String} noteId Note Id
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
     deleteNoteWithHttpInfo(noteId) {
@@ -134,7 +134,7 @@ export default class NotesApi {
 
     /**
      * Delete a Note
-     * @param {String} noteId 
+     * @param {String} noteId Note Id
      * @return { Promise } a Promise
      */
     deleteNote(noteId) {

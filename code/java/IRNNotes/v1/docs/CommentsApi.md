@@ -62,8 +62,8 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         CommentsApi apiInstance = new CommentsApi(defaultClient);
-        java.util.UUID noteId = new java.util.UUID(); // java.util.UUID | 
-        CreateCommentDto createCommentDto = new CreateCommentDto(); // CreateCommentDto | 
+        java.util.UUID noteId = new java.util.UUID(); // java.util.UUID | The note Id to which the comment will be added
+        CreateCommentDto createCommentDto = new CreateCommentDto(); // CreateCommentDto | The details of the comment to be created
         try {
             NewItemDto result = apiInstance.createComment(noteId, createCommentDto);
             System.out.println(result);
@@ -84,8 +84,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **noteId** | **java.util.UUID**|  |
- **createCommentDto** | [**CreateCommentDto**](CreateCommentDto.md)|  | [optional]
+ **noteId** | **java.util.UUID**| The note Id to which the comment will be added |
+ **createCommentDto** | [**CreateCommentDto**](CreateCommentDto.md)| The details of the comment to be created | [optional]
 
 ### Return type
 
@@ -158,8 +158,8 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         CommentsApi apiInstance = new CommentsApi(defaultClient);
-        java.util.UUID noteId = new java.util.UUID(); // java.util.UUID | 
-        java.util.UUID commentId = new java.util.UUID(); // java.util.UUID | 
+        java.util.UUID noteId = new java.util.UUID(); // java.util.UUID | Note Id
+        java.util.UUID commentId = new java.util.UUID(); // java.util.UUID | Comment  Id
         File _file = new File("/path/to/file"); // File | 
         try {
             NewItemDto result = apiInstance.createCommentAttachment(noteId, commentId, _file);
@@ -181,8 +181,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **noteId** | **java.util.UUID**|  |
- **commentId** | **java.util.UUID**|  |
+ **noteId** | **java.util.UUID**| Note Id |
+ **commentId** | **java.util.UUID**| Comment  Id |
  **_file** | **File**|  |
 
 ### Return type
@@ -255,8 +255,8 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         CommentsApi apiInstance = new CommentsApi(defaultClient);
-        java.util.UUID noteId = new java.util.UUID(); // java.util.UUID | 
-        java.util.UUID commentId = new java.util.UUID(); // java.util.UUID | 
+        java.util.UUID noteId = new java.util.UUID(); // java.util.UUID | The note id from which the comment will be deleted
+        java.util.UUID commentId = new java.util.UUID(); // java.util.UUID | Comment Id
         try {
             apiInstance.deleteComment(noteId, commentId);
 
@@ -276,8 +276,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **noteId** | **java.util.UUID**|  |
- **commentId** | **java.util.UUID**|  |
+ **noteId** | **java.util.UUID**| The note id from which the comment will be deleted |
+ **commentId** | **java.util.UUID**| Comment Id |
 
 ### Return type
 
@@ -348,9 +348,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         CommentsApi apiInstance = new CommentsApi(defaultClient);
-        java.util.UUID noteId = new java.util.UUID(); // java.util.UUID | 
-        java.util.UUID commentId = new java.util.UUID(); // java.util.UUID | 
-        java.util.UUID attachmentId = new java.util.UUID(); // java.util.UUID | 
+        java.util.UUID noteId = new java.util.UUID(); // java.util.UUID | Note Id
+        java.util.UUID commentId = new java.util.UUID(); // java.util.UUID | Comment Id
+        java.util.UUID attachmentId = new java.util.UUID(); // java.util.UUID | Attachment Id
         try {
             apiInstance.downloadCommentAttachmentForComment(noteId, commentId, attachmentId);
 
@@ -370,9 +370,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **noteId** | **java.util.UUID**|  |
- **commentId** | **java.util.UUID**|  |
- **attachmentId** | **java.util.UUID**|  |
+ **noteId** | **java.util.UUID**| Note Id |
+ **commentId** | **java.util.UUID**| Comment Id |
+ **attachmentId** | **java.util.UUID**| Attachment Id |
 
 ### Return type
 
@@ -443,8 +443,8 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         CommentsApi apiInstance = new CommentsApi(defaultClient);
-        java.util.UUID noteId = new java.util.UUID(); // java.util.UUID | 
-        java.util.UUID commentId = new java.util.UUID(); // java.util.UUID | 
+        java.util.UUID noteId = new java.util.UUID(); // java.util.UUID | Note Id
+        java.util.UUID commentId = new java.util.UUID(); // java.util.UUID | Comment Id
         try {
             CommentDto result = apiInstance.getComment(noteId, commentId);
             System.out.println(result);
@@ -465,8 +465,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **noteId** | **java.util.UUID**|  |
- **commentId** | **java.util.UUID**|  |
+ **noteId** | **java.util.UUID**| Note Id |
+ **commentId** | **java.util.UUID**| Comment Id |
 
 ### Return type
 
@@ -537,8 +537,8 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         CommentsApi apiInstance = new CommentsApi(defaultClient);
-        java.util.UUID noteId = new java.util.UUID(); // java.util.UUID | 
-        java.util.UUID commentId = new java.util.UUID(); // java.util.UUID | 
+        java.util.UUID noteId = new java.util.UUID(); // java.util.UUID | Note Id
+        java.util.UUID commentId = new java.util.UUID(); // java.util.UUID | Comment Id
         try {
             java.util.List<AttachmentSummaryDto> result = apiInstance.getCommentAttachments(noteId, commentId);
             System.out.println(result);
@@ -559,8 +559,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **noteId** | **java.util.UUID**|  |
- **commentId** | **java.util.UUID**|  |
+ **noteId** | **java.util.UUID**| Note Id |
+ **commentId** | **java.util.UUID**| Comment Id |
 
 ### Return type
 
@@ -631,7 +631,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         CommentsApi apiInstance = new CommentsApi(defaultClient);
-        java.util.UUID noteId = new java.util.UUID(); // java.util.UUID | 
+        java.util.UUID noteId = new java.util.UUID(); // java.util.UUID | Note Id
         try {
             java.util.List<CommentSummaryDto> result = apiInstance.getComments(noteId);
             System.out.println(result);
@@ -652,7 +652,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **noteId** | **java.util.UUID**|  |
+ **noteId** | **java.util.UUID**| Note Id |
 
 ### Return type
 
@@ -723,9 +723,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         CommentsApi apiInstance = new CommentsApi(defaultClient);
-        java.util.UUID noteId = new java.util.UUID(); // java.util.UUID | 
-        java.util.UUID commentId = new java.util.UUID(); // java.util.UUID | 
-        java.util.List<Operation> operation = Arrays.asList(); // java.util.List<Operation> | 
+        java.util.UUID noteId = new java.util.UUID(); // java.util.UUID | Note Id
+        java.util.UUID commentId = new java.util.UUID(); // java.util.UUID | Comment Id
+        java.util.List<Operation> operation = Arrays.asList(); // java.util.List<Operation> | The JSON patch document with updates for the comment
         try {
             apiInstance.patchComment(noteId, commentId, operation);
 
@@ -745,9 +745,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **noteId** | **java.util.UUID**|  |
- **commentId** | **java.util.UUID**|  |
- **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional]
+ **noteId** | **java.util.UUID**| Note Id |
+ **commentId** | **java.util.UUID**| Comment Id |
+ **operation** | [**List&lt;Operation&gt;**](Operation.md)| The JSON patch document with updates for the comment | [optional]
 
 ### Return type
 

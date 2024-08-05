@@ -32,12 +32,6 @@ namespace FactSet.SDK.IRNNotes.Model
     [DataContract(Name = "AttachmentSummaryDto")]
     public partial class AttachmentSummaryDto : IEquatable<AttachmentSummaryDto>, IValidatableObject
     {
-
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
-        public AttachmentStatus? Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="AttachmentSummaryDto" /> class.
         /// </summary>
@@ -45,14 +39,12 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <param name="fileName">fileName.</param>
         /// <param name="mimeType">mimeType.</param>
         /// <param name="size">size.</param>
-        /// <param name="status">status.</param>
-        public AttachmentSummaryDto(Guid id = default(Guid), string fileName = default(string), string mimeType = default(string), long? size = default(long?), AttachmentStatus status = default(AttachmentStatus))
+        public AttachmentSummaryDto(Guid id = default(Guid), string fileName = default(string), string mimeType = default(string), long? size = default(long?))
         {
             this.Id = id;
             this.FileName = fileName;
             this.MimeType = mimeType;
             this.Size = size;
-            this.Status = status;
         }
 
         /// <summary>
@@ -91,7 +83,6 @@ namespace FactSet.SDK.IRNNotes.Model
             sb.Append("  FileName: ").Append(FileName).Append("\n");
             sb.Append("  MimeType: ").Append(MimeType).Append("\n");
             sb.Append("  Size: ").Append(Size).Append("\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -146,10 +137,6 @@ namespace FactSet.SDK.IRNNotes.Model
                     this.Size == input.Size ||
                     (this.Size != null &&
                     this.Size.Equals(input.Size))
-                ) && 
-                (
-                    this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
                 );
         }
 
@@ -178,7 +165,6 @@ namespace FactSet.SDK.IRNNotes.Model
                 {
                     hashCode = (hashCode * 59) + this.Size.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 return hashCode;
             }
         }

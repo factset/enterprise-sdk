@@ -10,7 +10,8 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Open:Risk API
-  version: 1.24.0
+  version: 1.26.0
+  x-factset-caccess: 00RP0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/openrisk-api
@@ -3407,22 +3408,16 @@ components:
           weighting: ActualValue
           sqrt: false
         requiresCovarianceTimesTwo: true
+        supportedLevels:
+        - null
+        - null
+        - null
+        - null
+        - null
         securityLotAllocation: PortfolioWeights
         derived:
         - derived
         - derived
-        levels:
-          FactorSecurityGroup: true
-          FactorSecurity: true
-          FactorGroup: true
-          Portfolio: true
-          Factor: true
-          FactorGroupSecurity: true
-          SecuritySecurity: true
-          FactorGroupSecurityGroup: true
-          FactorFactor: true
-          Security: true
-          SecurityGroup: true
       properties:
         correlatedSpecificRisk:
           description: Indicates support for correlated specific risk (CSR) calculation
@@ -3448,8 +3443,15 @@ components:
             type: string
           minItems: 1
           type: array
-        levels:
-          $ref: '#/components/schemas/SupportedStatDetails_levels'
+        supportedLevels:
+          description: Indicates the calculation levels that are supported by the
+            base stat and all derived stats. Unless it is present, a given calculation
+            level is not supported.
+          items:
+            $ref: '#/components/schemas/StatCalculationLevel'
+          maxItems: 11
+          minItems: 1
+          type: array
         securityGroupMethod:
           $ref: '#/components/schemas/SupportedStatDetails_securityGroupMethod'
         securityLotAllocation:
@@ -3474,9 +3476,9 @@ components:
       - correlatedSpecificRisk
       - covarianceTimesTwo
       - derived
-      - levels
       - requiresCorrelatedSpecificRisk
       - requiresCovarianceTimesTwo
+      - supportedLevels
       type: object
     SupportedStats:
       description: Contains all available base risk statistics. In the event 'data'
@@ -3493,22 +3495,16 @@ components:
               weighting: ActualValue
               sqrt: false
             requiresCovarianceTimesTwo: true
+            supportedLevels:
+            - null
+            - null
+            - null
+            - null
+            - null
             securityLotAllocation: PortfolioWeights
             derived:
             - derived
             - derived
-            levels:
-              FactorSecurityGroup: true
-              FactorSecurity: true
-              FactorGroup: true
-              Portfolio: true
-              Factor: true
-              FactorGroupSecurity: true
-              SecuritySecurity: true
-              FactorGroupSecurityGroup: true
-              FactorFactor: true
-              Security: true
-              SecurityGroup: true
       properties:
         data:
           additionalProperties:
@@ -4801,79 +4797,6 @@ components:
       required:
       - code
       - details
-      type: object
-    SupportedStatDetails_levels:
-      description: Indicates whether each level is supported by the base stat and
-        all derived stats
-      example:
-        FactorSecurityGroup: true
-        FactorSecurity: true
-        FactorGroup: true
-        Portfolio: true
-        Factor: true
-        FactorGroupSecurity: true
-        SecuritySecurity: true
-        FactorGroupSecurityGroup: true
-        FactorFactor: true
-        Security: true
-        SecurityGroup: true
-      properties:
-        Portfolio:
-          description: True indicates calculation support for this level, otherwise
-            calculation is not supported.
-          type: boolean
-        Security:
-          description: True indicates calculation support for this level, otherwise
-            calculation is not supported.
-          type: boolean
-        SecurityGroup:
-          description: True indicates calculation support for this level, otherwise
-            calculation is not supported.
-          type: boolean
-        SecuritySecurity:
-          description: True indicates calculation support for this level, otherwise
-            calculation is not supported.
-          type: boolean
-        Factor:
-          description: True indicates calculation support for this level, otherwise
-            calculation is not supported.
-          type: boolean
-        FactorGroup:
-          description: True indicates calculation support for this level, otherwise
-            calculation is not supported.
-          type: boolean
-        FactorFactor:
-          description: True indicates calculation support for this level, otherwise
-            calculation is not supported.
-          type: boolean
-        FactorSecurity:
-          description: True indicates calculation support for this level, otherwise
-            calculation is not supported.
-          type: boolean
-        FactorGroupSecurity:
-          description: True indicates calculation support for this level, otherwise
-            calculation is not supported.
-          type: boolean
-        FactorSecurityGroup:
-          description: True indicates calculation support for this level, otherwise
-            calculation is not supported.
-          type: boolean
-        FactorGroupSecurityGroup:
-          description: True indicates calculation support for this level, otherwise
-            calculation is not supported.
-          type: boolean
-      required:
-      - Factor
-      - FactorFactor
-      - FactorGroup
-      - FactorGroupSecurity
-      - FactorGroupSecurityGroup
-      - FactorSecurity
-      - FactorSecurityGroup
-      - Portfolio
-      - Security
-      - SecurityGroup
-      - SecuritySecurity
       type: object
     SupportedStatDetails_securityGroupMethod:
       description: If present, describes the calculations specified in common by all

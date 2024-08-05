@@ -54,7 +54,7 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Delete a Note
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
+        /// <param name="noteId">Note Id</param>
         /// <returns>void</returns>
         void DeleteNote(Guid noteId);
 
@@ -65,7 +65,7 @@ namespace FactSet.SDK.IRNNotes.Api
         /// 
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
+        /// <param name="noteId">Note Id</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteNoteWithHttpInfo(Guid noteId);
         /// <summary>
@@ -193,7 +193,7 @@ namespace FactSet.SDK.IRNNotes.Api
         /// 
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
+        /// <param name="noteId">Note Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DeleteNoteAsync(Guid noteId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -205,7 +205,7 @@ namespace FactSet.SDK.IRNNotes.Api
         /// 
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
+        /// <param name="noteId">Note Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteNoteWithHttpInfoAsync(Guid noteId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -675,7 +675,7 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Delete a Note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
+        /// <param name="noteId">Note Id</param>
         /// <returns>void</returns>
         public void DeleteNote(Guid noteId)
         {
@@ -686,7 +686,7 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Delete a Note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
+        /// <param name="noteId">Note Id</param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> DeleteNoteWithHttpInfo(Guid noteId)
         {
@@ -754,7 +754,7 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Delete a Note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
+        /// <param name="noteId">Note Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task DeleteNoteAsync(Guid noteId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -766,7 +766,7 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Delete a Note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
+        /// <param name="noteId">Note Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
 

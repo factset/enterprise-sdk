@@ -12,7 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import AttachmentStatus from './AttachmentStatus';
 
 /**
  * The AttachmentSummaryDto model module.
@@ -59,9 +58,6 @@ class AttachmentSummaryDto {
             if (data.hasOwnProperty('size')) {
                 obj['size'] = ApiClient.convertToType(data['size'], 'Number');
             }
-            if (data.hasOwnProperty('status')) {
-                obj['status'] = AttachmentStatus.constructFromObject(data['status']);
-            }
         }
         return obj;
     }
@@ -88,11 +84,6 @@ AttachmentSummaryDto.prototype['mimeType'] = undefined;
  * @member {Number} size
  */
 AttachmentSummaryDto.prototype['size'] = undefined;
-
-/**
- * @member {module:model/AttachmentStatus} status
- */
-AttachmentSummaryDto.prototype['status'] = undefined;
 
 
 

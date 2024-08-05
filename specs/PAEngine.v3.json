@@ -1656,23 +1656,28 @@
                   "200 - Valid Component Identifier": {
                     "value": {
                       "data": {
-                        "id": "5FF59FE24268D612337155EC8C3E2DF17C14B829B80B60240925E13E7E198596",
+                        "id": "8A4863688B9360E09957CF79684E68F85D5F4E514E657B6F24D00D5E928E7A1B",
                         "accounts": [
                           {
-                            "id": "CLIENT:VAULT_TEST.ACCT",
+                            "id": "LION:100D-GB",
                             "holdingsmode": "B&H"
                           }
                         ],
-                        "benchmarks": [],
+                        "benchmarks": [
+                          {
+                            "id": "LION:OEF-US",
+                            "holdingsmode": "B&H"
+                          }
+                        ],
                         "currencyisocode": "USD",
                         "dates": {
-                          "enddate": "LOCKED_REPOSITORY",
+                          "enddate": "0",
                           "frequency": "Single"
                         },
                         "snapshot": true,
-                        "path": "client:/vault_groupsall_test.par;report1c01a7af-f269-58bc-bc9a-567ec1424a92;tile3a07d145-6ac2-8cec-ece0-2f3f03e49276",
-                        "name": "Portfolio Weights",
-                        "category": "Weights / Weights Over Time"
+                        "path": "pa3_documents:/pa_api_default_document-rbics;report51566341-6c7c-367d-2286-0cdd3ae16b64;tile1",
+                        "name": "Multiple Portfolios",
+                        "category": "Exposures & Characteristics / Exposures & Characteristics"
                       }
                     }
                   }

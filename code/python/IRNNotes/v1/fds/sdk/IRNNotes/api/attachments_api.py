@@ -111,7 +111,10 @@ class AttachmentsApi(object):
 
         self.download_attachment_endpoint = _Endpoint(
             settings={
-                'response_type': None,
+                'response_type': (
+                  { 200: (file_type,), 400: (ProblemDetails,), 403: (ProblemDetails,), 404: (ProblemDetails,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
@@ -161,6 +164,7 @@ class AttachmentsApi(object):
             },
             headers_map={
                 'accept': [
+                    'application/octet-stream',
                     'application/json'
                 ],
                 'content_type': [],
@@ -308,7 +312,7 @@ class AttachmentsApi(object):
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
-            note_id (str):
+            note_id (str): Note Id
             file (file_type):
 
         Keyword Args:
@@ -358,7 +362,7 @@ class AttachmentsApi(object):
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
-            note_id (str):
+            note_id (str): Note Id
             file (file_type):
 
         Keyword Args:
@@ -412,7 +416,7 @@ class AttachmentsApi(object):
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
-            note_id (str):
+            note_id (str): Note Id
             file (file_type):
 
         Keyword Args:
@@ -461,7 +465,7 @@ class AttachmentsApi(object):
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
-            note_id (str):
+            note_id (str): Note Id
             file (file_type):
 
         Keyword Args:
@@ -505,14 +509,14 @@ class AttachmentsApi(object):
         note_id,
         attachment_id,
         **kwargs
-    ) -> None:
+    ) -> file_type:
         """Download an attachment from a Note  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
-            note_id (str):
-            attachment_id (str):
+            note_id (str): Note Id
+            attachment_id (str): Attachment Id
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -540,7 +544,7 @@ class AttachmentsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            None
+            file_type
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -555,14 +559,14 @@ class AttachmentsApi(object):
         note_id,
         attachment_id,
         **kwargs
-    ) -> typing.Tuple[None, int, typing.MutableMapping]:
+    ) -> typing.Tuple[file_type, int, typing.MutableMapping]:
         """Download an attachment from a Note  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
-            note_id (str):
-            attachment_id (str):
+            note_id (str): Note Id
+            attachment_id (str): Attachment Id
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -590,7 +594,7 @@ class AttachmentsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            None
+            file_type
                 Response Object
             int
                 Http Status Code
@@ -609,14 +613,14 @@ class AttachmentsApi(object):
         note_id,
         attachment_id,
         **kwargs
-    ) -> "ApplyResult[None]":
+    ) -> "ApplyResult[file_type]":
         """Download an attachment from a Note  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
-            note_id (str):
-            attachment_id (str):
+            note_id (str): Note Id
+            attachment_id (str): Attachment Id
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -644,7 +648,7 @@ class AttachmentsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[None]
+            ApplyResult[file_type]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['note_id'] = \
@@ -658,14 +662,14 @@ class AttachmentsApi(object):
         note_id,
         attachment_id,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[None, int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[file_type, int, typing.MutableMapping]]":
         """Download an attachment from a Note  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
-            note_id (str):
-            attachment_id (str):
+            note_id (str): Note Id
+            attachment_id (str): Attachment Id
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -693,7 +697,7 @@ class AttachmentsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(None, int, typing.Dict)]
+            ApplyResult[(file_type, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['note_id'] = \

@@ -9,7 +9,6 @@
 # import sys
 # sys.setrecursionlimit(n)
 
-from fds.sdk.IRNNotes.model.attachment_status import AttachmentStatus
 from fds.sdk.IRNNotes.model.attachment_summary_dto import AttachmentSummaryDto
 from fds.sdk.IRNNotes.model.comment_dto import CommentDto
 from fds.sdk.IRNNotes.model.comment_summary_dto import CommentSummaryDto

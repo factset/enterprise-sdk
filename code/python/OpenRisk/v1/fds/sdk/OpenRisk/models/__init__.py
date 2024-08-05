@@ -80,7 +80,6 @@ from fds.sdk.OpenRisk.model.stats_results import StatsResults
 from fds.sdk.OpenRisk.model.string_date import StringDate
 from fds.sdk.OpenRisk.model.success_response_meta import SuccessResponseMeta
 from fds.sdk.OpenRisk.model.supported_stat_details import SupportedStatDetails
-from fds.sdk.OpenRisk.model.supported_stat_details_levels import SupportedStatDetailsLevels
 from fds.sdk.OpenRisk.model.supported_stat_details_security_group_method import SupportedStatDetailsSecurityGroupMethod
 from fds.sdk.OpenRisk.model.supported_stats import SupportedStats
 from fds.sdk.OpenRisk.model.supported_stats_names_only import SupportedStatsNamesOnly

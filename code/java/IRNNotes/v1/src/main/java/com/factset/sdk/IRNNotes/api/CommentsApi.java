@@ -103,8 +103,8 @@ public class CommentsApi {
   /**
    * Create a comment to a Note
    * 
-   * @param noteId  (required)
-   * @param createCommentDto  (optional)
+   * @param noteId The note Id to which the comment will be added (required)
+   * @param createCommentDto The details of the comment to be created (optional)
    * @return NewItemDto
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -124,8 +124,8 @@ public class CommentsApi {
   /**
    * Create a comment to a Note
    * 
-   * @param noteId  (required)
-   * @param createCommentDto  (optional)
+   * @param noteId The note Id to which the comment will be added (required)
+   * @param createCommentDto The details of the comment to be created (optional)
    * @return ApiResponse&lt;NewItemDto&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -187,8 +187,8 @@ public class CommentsApi {
   /**
    * Create a comment attachment to a Note
    * 
-   * @param noteId  (required)
-   * @param commentId  (required)
+   * @param noteId Note Id (required)
+   * @param commentId Comment  Id (required)
    * @param _file  (required)
    * @return NewItemDto
    * @throws ApiException if fails to make API call
@@ -209,8 +209,8 @@ public class CommentsApi {
   /**
    * Create a comment attachment to a Note
    * 
-   * @param noteId  (required)
-   * @param commentId  (required)
+   * @param noteId Note Id (required)
+   * @param commentId Comment  Id (required)
    * @param _file  (required)
    * @return ApiResponse&lt;NewItemDto&gt;
    * @throws ApiException if fails to make API call
@@ -286,8 +286,8 @@ public class CommentsApi {
   /**
    * Delete a Comment from a Note
    * 
-   * @param noteId  (required)
-   * @param commentId  (required)
+   * @param noteId The note id from which the comment will be deleted (required)
+   * @param commentId Comment Id (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -305,8 +305,8 @@ public class CommentsApi {
   /**
    * Delete a Comment from a Note
    * 
-   * @param noteId  (required)
-   * @param commentId  (required)
+   * @param noteId The note id from which the comment will be deleted (required)
+   * @param commentId Comment Id (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -371,9 +371,9 @@ public class CommentsApi {
   /**
    * Download single attachment detail of a comment belonging to a note
    * 
-   * @param noteId  (required)
-   * @param commentId  (required)
-   * @param attachmentId  (required)
+   * @param noteId Note Id (required)
+   * @param commentId Comment Id (required)
+   * @param attachmentId Attachment Id (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -391,9 +391,9 @@ public class CommentsApi {
   /**
    * Download single attachment detail of a comment belonging to a note
    * 
-   * @param noteId  (required)
-   * @param commentId  (required)
-   * @param attachmentId  (required)
+   * @param noteId Note Id (required)
+   * @param commentId Comment Id (required)
+   * @param attachmentId Attachment Id (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -464,8 +464,8 @@ public class CommentsApi {
   /**
    * Get details of a comment belonging to a note
    * 
-   * @param noteId  (required)
-   * @param commentId  (required)
+   * @param noteId Note Id (required)
+   * @param commentId Comment Id (required)
    * @return CommentDto
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -484,8 +484,8 @@ public class CommentsApi {
   /**
    * Get details of a comment belonging to a note
    * 
-   * @param noteId  (required)
-   * @param commentId  (required)
+   * @param noteId Note Id (required)
+   * @param commentId Comment Id (required)
    * @return ApiResponse&lt;CommentDto&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -552,8 +552,8 @@ public class CommentsApi {
   /**
    * Get attachments summary of a comment belonging to a note
    * 
-   * @param noteId  (required)
-   * @param commentId  (required)
+   * @param noteId Note Id (required)
+   * @param commentId Comment Id (required)
    * @return java.util.List<AttachmentSummaryDto>
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -572,8 +572,8 @@ public class CommentsApi {
   /**
    * Get attachments summary of a comment belonging to a note
    * 
-   * @param noteId  (required)
-   * @param commentId  (required)
+   * @param noteId Note Id (required)
+   * @param commentId Comment Id (required)
    * @return ApiResponse&lt;java.util.List<AttachmentSummaryDto>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -640,7 +640,7 @@ public class CommentsApi {
   /**
    * Get all comments for a note
    * 
-   * @param noteId  (required)
+   * @param noteId Note Id (required)
    * @return java.util.List<CommentSummaryDto>
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -659,7 +659,7 @@ public class CommentsApi {
   /**
    * Get all comments for a note
    * 
-   * @param noteId  (required)
+   * @param noteId Note Id (required)
    * @return ApiResponse&lt;java.util.List<CommentSummaryDto>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -720,9 +720,9 @@ public class CommentsApi {
   /**
    * Edit a comment for a note
    * 
-   * @param noteId  (required)
-   * @param commentId  (required)
-   * @param operation  (optional)
+   * @param noteId Note Id (required)
+   * @param commentId Comment Id (required)
+   * @param operation The JSON patch document with updates for the comment (optional)
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -740,9 +740,9 @@ public class CommentsApi {
   /**
    * Edit a comment for a note
    * 
-   * @param noteId  (required)
-   * @param commentId  (required)
-   * @param operation  (optional)
+   * @param noteId Note Id (required)
+   * @param commentId Comment Id (required)
+   * @param operation The JSON patch document with updates for the comment (optional)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details

@@ -4,24 +4,40 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Parentid** | **string** | Unique ID of the placement which spawned this execution | [optional] 
+**TransactionStatus** | **string** | Transaction Status of an Execution could be any of the following values: Executed, Booked, Cancelled. | 
+**ParentId** | **string** | Unique Id of the placement which spawned this execution | [optional] 
 **Net** | **double** | Cash value of the transaction, net of brokerage costs. | 
-**Gross** | **double** | Cash value of the transaction, including brokerage costs | 
-**Settlementvalue** | **double** | Cash value of the transaction, a value that has been multiplied by an applicable FX rates to convert the a transacti | 
-**Settlementdate** | **string** | Settlement date in YYYYMMDD format | 
-**Settlementcurrencyiso** | **string** | Currency code for Settlement Value | 
-**Orderid** | **string** | Unique ID of the order which originated the record | [optional] 
+**SettlementDate** | **string** | Settlement date in YYYY-MM-DD format | 
+**SettlementCurrencyISO** | **string** | Currency code for Settlement Value | 
+**SettlementValue** | **double** | Cash value of the transaction in settlement currency | 
+**ForeignExchangeRate** | **float** | FX rate to convert the net, gross fields to reporting currency. | [optional] 
+**Broker** | **string** | Execution broker id. | [optional] 
+**Custodian** | **string** | Execution custodian Id. | [optional] 
+**AccruedInterest** | **double** | Execution accrued interest. | [optional] 
+**Commission** | **double** | Execution commission value. | [optional] 
+**ClearingCommission** | **double** | Execution clearing commission value. | [optional] 
+**LocalTax** | **double** | Execution local tax value. | [optional] 
+**LocalFee** | **double** | Execution local fee value. | [optional] 
+**BrokerFee** | **double** | Execution broker fee value. | [optional] 
+**ExchangeFee** | **double** | Execution exchange fee value. | [optional] 
+**MiscellaneousFee** | **double** | Execution miscellaneous fee value. | [optional] 
+**TransactionId** | **string** | Unique Id for the transaction | 
+**OrderId** | **string** | Unique Id of the order which originated the record | [optional] 
 **Portfolio** | **string** | Path of the portfolio (Ex: Client:/folder1/testing.ofdb) | 
-**Transactionid** | **string** | Unique id for the transaction | 
 **Symbol** | **string** | Symbol corresponding to the traded instrument. | 
 **Description** | **string** | Description | 
-**Tradetype** | **string** | Trade type could be any of the following values BL, BC, SL, SS.  which stands for Buy Long, Buy to cover, Sell Long and Sell Short respectively. | 
-**Status** | **string** | Status could be any of the following value: ACCT or CNCL.  which stands for Accounted and Cancelled respectively. | 
-**Tradedate** | **string** | Transaction date which is in the format YYYYMMDD | 
-**Transactionleaves** | **double** | Shares that have been ordered and not executed | [optional] 
-**Amount** | **double** | Quantity of the instrument traded. | 
-**Currencyiso** | **string** | The currency code of cash valued fields, Net Amount and Gross Amount. | 
-**Foreignexchangerate** | **float** | FX rate that can be picked up by PA, multiplied with the cash valued fields, Net, Gross, to allow PA to show transactions in reporting currency. | [optional] 
+**TradeType** | **string** | Trade type could be any of the following values BL, BC, SL, SS.  which stands for Buy Long, Buy to cover, Sell Long and Sell Short respectively. | 
+**UnitType** | **string** | Unit type could be one of Quantity or Value. | 
+**TransactionLeaves** | **double** | Shares that have been ordered and not executed | [optional] 
+**Quantity** | **double** | Quantity of the instrument traded. | 
+**Gross** | **double** | Cash value of the transaction | 
+**Price** | **double** | The transaction price | [optional] 
+**CurrencyISO** | **string** | The currency code of cash valued fields, Net Amount and Gross Amount. | 
+**TradeDate** | **string** | Trade date which is in the format YYYY-MM-DD | 
+**AddedDateTime** | **string** | Date and time expressed in UTC when the transaction was first added in the format YYYY-MM-DDTHH:MM:SS.FFF | [optional] 
+**UpdatedDateTime** | **string** | Date and time expressed in UTC when the transaction was last updated in the format YYYY-MM-DDTHH:MM:SS.FFF | [optional] 
+**Entity** | **string** |  | [optional] [readonly] 
+**Status** | **string** |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,17 +4,30 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**orderid** | **String** | Unique ID of the order which originated the record | [optional] 
+**transactionStatus** | **String** | Transaction Status of an Order could be any of the following values: PendingApproval, Open, Placed, PartialFilled, Filled, Expired, Cancelled, Rejected, Booked. | 
+**instructionType** | **String** | Instruction Type of an Order could be any of the following values: Market, Limit, Stop | [optional] 
+**instructionValue** | **Number** | Instruction Value of an Order | [optional] 
+**tif** | **String** | TIF of an Order could be any of the following values: GTC, GTD, D, W | [optional] 
+**tifDate** | **String** | TIF date which is in the format YYYY-MM-DD | [optional] 
+**fundTeam** | **String** | Fund Team of an Order | [optional] 
+**tradingTeam** | **String** | Trading Team of an Order | [optional] 
+**trader** | **String** | User Id of assigned trader. | [optional] 
+**transactionId** | **String** | Unique Id for the transaction | 
+**orderId** | **String** | Unique Id of the order which originated the record | [optional] 
 **portfolio** | **String** | Path of the portfolio (Ex: Client:/folder1/testing.ofdb) | 
-**transactionid** | **String** | Unique id for the transaction | 
 **symbol** | **String** | Symbol corresponding to the traded instrument. | 
 **description** | **String** | Description | 
-**tradetype** | **String** | Trade type could be any of the following values BL, BC, SL, SS.  which stands for Buy Long, Buy to cover, Sell Long and Sell Short respectively. | 
-**status** | **String** | Status could be any of the following value: ACCT or CNCL.  which stands for Accounted and Cancelled respectively. | 
-**tradedate** | **String** | Transaction date which is in the format YYYYMMDD | 
-**transactionleaves** | **Number** | Shares that have been ordered and not executed | [optional] 
-**amount** | **Number** | Quantity of the instrument traded. | 
-**currencyiso** | **String** | The currency code of cash valued fields, Net Amount and Gross Amount. | 
-**foreignexchangerate** | **Number** | FX rate that can be picked up by PA, multiplied with the cash valued fields, Net, Gross, to allow PA to show transactions in reporting currency. | [optional] 
+**tradeType** | **String** | Trade type could be any of the following values BL, BC, SL, SS.  which stands for Buy Long, Buy to cover, Sell Long and Sell Short respectively. | 
+**unitType** | **String** | Unit type could be one of Quantity or Value. | 
+**transactionLeaves** | **Number** | Shares that have been ordered and not executed | [optional] 
+**quantity** | **Number** | Quantity of the instrument traded. | 
+**gross** | **Number** | Cash value of the transaction | 
+**price** | **Number** | The transaction price | [optional] 
+**currencyISO** | **String** | The currency code of cash valued fields, Net Amount and Gross Amount. | 
+**tradeDate** | **String** | Trade date which is in the format YYYY-MM-DD | 
+**addedDateTime** | **String** | Date and time expressed in UTC when the transaction was first added in the format YYYY-MM-DDTHH:MM:SS.FFF | [optional] 
+**updatedDateTime** | **String** | Date and time expressed in UTC when the transaction was last updated in the format YYYY-MM-DDTHH:MM:SS.FFF | [optional] 
+**entity** | **String** |  | [optional] [readonly] 
+**status** | **String** |  | [optional] [readonly] 
 
 

@@ -32,7 +32,7 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Create an attachment for an existing note
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
+        /// <param name="noteId">Note Id</param>
         /// <param name="file"></param>
         /// <returns>NewItemDto</returns>
         NewItemDto CreateAttachment(Guid noteId, System.IO.Stream file);
@@ -44,7 +44,7 @@ namespace FactSet.SDK.IRNNotes.Api
         /// 
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
+        /// <param name="noteId">Note Id</param>
         /// <param name="file"></param>
         /// <returns>ApiResponse of NewItemDto</returns>
         ApiResponse<NewItemDto> CreateAttachmentWithHttpInfo(Guid noteId, System.IO.Stream file);
@@ -52,10 +52,10 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Download an attachment from a Note
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="attachmentId"></param>
-        /// <returns>void</returns>
-        void DownloadAttachment(Guid noteId, Guid attachmentId);
+        /// <param name="noteId">Note Id</param>
+        /// <param name="attachmentId">Attachment Id</param>
+        /// <returns>System.IO.Stream</returns>
+        System.IO.Stream DownloadAttachment(Guid noteId, Guid attachmentId);
 
         /// <summary>
         /// Download an attachment from a Note
@@ -64,10 +64,10 @@ namespace FactSet.SDK.IRNNotes.Api
         /// 
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="attachmentId"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DownloadAttachmentWithHttpInfo(Guid noteId, Guid attachmentId);
+        /// <param name="noteId">Note Id</param>
+        /// <param name="attachmentId">Attachment Id</param>
+        /// <returns>ApiResponse of System.IO.Stream</returns>
+        ApiResponse<System.IO.Stream> DownloadAttachmentWithHttpInfo(Guid noteId, Guid attachmentId);
         /// <summary>
         /// Get all the attachments belonging to a note
         /// </summary>
@@ -122,7 +122,7 @@ namespace FactSet.SDK.IRNNotes.Api
         /// 
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
+        /// <param name="noteId">Note Id</param>
         /// <param name="file"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NewItemDto</returns>
@@ -135,7 +135,7 @@ namespace FactSet.SDK.IRNNotes.Api
         /// 
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
+        /// <param name="noteId">Note Id</param>
         /// <param name="file"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (NewItemDto)</returns>
@@ -147,11 +147,11 @@ namespace FactSet.SDK.IRNNotes.Api
         /// 
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="attachmentId"></param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="attachmentId">Attachment Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DownloadAttachmentAsync(Guid noteId, Guid attachmentId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of System.IO.Stream</returns>
+        System.Threading.Tasks.Task<System.IO.Stream> DownloadAttachmentAsync(Guid noteId, Guid attachmentId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Download an attachment from a Note
@@ -160,11 +160,11 @@ namespace FactSet.SDK.IRNNotes.Api
         /// 
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="attachmentId"></param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="attachmentId">Attachment Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DownloadAttachmentWithHttpInfoAsync(Guid noteId, Guid attachmentId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> DownloadAttachmentWithHttpInfoAsync(Guid noteId, Guid attachmentId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get all the attachments belonging to a note
         /// </summary>
@@ -242,6 +242,10 @@ namespace FactSet.SDK.IRNNotes.Api
 
         private static readonly Dictionary<HttpStatusCode, System.Type> DownloadAttachmentResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
+            { (HttpStatusCode)200, typeof(System.IO.Stream) },
+            { (HttpStatusCode)400, typeof(ProblemDetails) },
+            { (HttpStatusCode)403, typeof(ProblemDetails) },
+            { (HttpStatusCode)404, typeof(ProblemDetails) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetAttachmentsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
@@ -368,7 +372,7 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Create an attachment for an existing note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
+        /// <param name="noteId">Note Id</param>
         /// <param name="file"></param>
         /// <returns>NewItemDto</returns>
         public NewItemDto CreateAttachment(Guid noteId, System.IO.Stream file)
@@ -381,7 +385,7 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Create an attachment for an existing note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
+        /// <param name="noteId">Note Id</param>
         /// <param name="file"></param>
         /// <returns>ApiResponse of NewItemDto</returns>
         public ApiResponse<NewItemDto> CreateAttachmentWithHttpInfo(Guid noteId, System.IO.Stream file)
@@ -458,7 +462,7 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Create an attachment for an existing note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
+        /// <param name="noteId">Note Id</param>
         /// <param name="file"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NewItemDto</returns>
@@ -472,7 +476,7 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Create an attachment for an existing note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
+        /// <param name="noteId">Note Id</param>
         /// <param name="file"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (NewItemDto)</returns>
@@ -553,22 +557,23 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Download an attachment from a Note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="attachmentId"></param>
-        /// <returns>void</returns>
-        public void DownloadAttachment(Guid noteId, Guid attachmentId)
+        /// <param name="noteId">Note Id</param>
+        /// <param name="attachmentId">Attachment Id</param>
+        /// <returns>System.IO.Stream</returns>
+        public System.IO.Stream DownloadAttachment(Guid noteId, Guid attachmentId)
         {
-            DownloadAttachmentWithHttpInfo(noteId, attachmentId);
+            var localVarResponse = DownloadAttachmentWithHttpInfo(noteId, attachmentId);
+            return localVarResponse.Data;
         }
 
         /// <summary>
         /// Download an attachment from a Note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="attachmentId"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> DownloadAttachmentWithHttpInfo(Guid noteId, Guid attachmentId)
+        /// <param name="noteId">Note Id</param>
+        /// <param name="attachmentId">Attachment Id</param>
+        /// <returns>ApiResponse of System.IO.Stream</returns>
+        public ApiResponse<System.IO.Stream> DownloadAttachmentWithHttpInfo(Guid noteId, Guid attachmentId)
         {
             FactSet.SDK.IRNNotes.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNNotes.Client.RequestOptions();
 
@@ -577,6 +582,7 @@ namespace FactSet.SDK.IRNNotes.Api
 
             // to determine the Accept header
             string[] _accepts = new string[] {
+                "application/octet-stream",
                 "application/json"
             };
 
@@ -619,7 +625,7 @@ namespace FactSet.SDK.IRNNotes.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            Object>("/notes/{noteId}/attachments/{attachmentId}/download", localVarRequestOptions, this.Configuration);
+            System.IO.Stream>("/notes/{noteId}/attachments/{attachmentId}/download", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DownloadAttachment", localVarResponse);
@@ -635,25 +641,26 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Download an attachment from a Note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="attachmentId"></param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="attachmentId">Attachment Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DownloadAttachmentAsync(Guid noteId, Guid attachmentId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of System.IO.Stream</returns>
+        public async System.Threading.Tasks.Task<System.IO.Stream>DownloadAttachmentAsync(Guid noteId, Guid attachmentId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await DownloadAttachmentWithHttpInfoAsync(noteId, attachmentId, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await DownloadAttachmentWithHttpInfoAsync(noteId, attachmentId, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
         /// Download an attachment from a Note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="attachmentId"></param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="attachmentId">Attachment Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DownloadAttachmentWithHttpInfoAsync(Guid noteId, Guid attachmentId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> DownloadAttachmentWithHttpInfoAsync(Guid noteId, Guid attachmentId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.IRNNotes.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNNotes.Client.RequestOptions();
@@ -663,6 +670,7 @@ namespace FactSet.SDK.IRNNotes.Api
 
             // to determine the Accept header
             string[] _accepts = new string[] {
+                "application/octet-stream",
                 "application/json"
             };
 
@@ -704,7 +712,7 @@ namespace FactSet.SDK.IRNNotes.Api
             localVarRequestOptions.ResponseTypeDictionary = DownloadAttachmentResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/notes/{noteId}/attachments/{attachmentId}/download", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<System.IO.Stream>("/notes/{noteId}/attachments/{attachmentId}/download", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

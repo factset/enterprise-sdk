@@ -61,7 +61,7 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     api_instance = attachments_api.AttachmentsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    note_id = "noteId_example" # str | 
+    note_id = "noteId_example" # str | Note Id
     file = open('/path/to/file', 'rb') # file_type | 
 
     try:
@@ -80,7 +80,7 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **note_id** | **str**|  |
+ **note_id** | **str**| Note Id |
  **file** | **file_type**|  |
 
 ### Return type
@@ -108,7 +108,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **download_attachment**
-> download_attachment(note_id, attachment_id)
+> file_type download_attachment(note_id, attachment_id)
 
 Download an attachment from a Note
 
@@ -157,14 +157,15 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     api_instance = attachments_api.AttachmentsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    note_id = "noteId_example" # str | 
-    attachment_id = "attachmentId_example" # str | 
+    note_id = "noteId_example" # str | Note Id
+    attachment_id = "attachmentId_example" # str | Attachment Id
 
     try:
         # Download an attachment from a Note
         # example passing only required values which don't have defaults set
-        api_instance.download_attachment(note_id, attachment_id)
+        api_response = api_instance.download_attachment(note_id, attachment_id)
 
+        pprint(api_response)
 
     except fds.sdk.IRNNotes.ApiException as e:
         print("Exception when calling AttachmentsApi->download_attachment: %s\n" % e)
@@ -175,12 +176,12 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **note_id** | **str**|  |
- **attachment_id** | **str**|  |
+ **note_id** | **str**| Note Id |
+ **attachment_id** | **str**| Attachment Id |
 
 ### Return type
 
-void (empty response body)
+**file_type**
 
 ### Authorization
 
@@ -189,7 +190,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/octet-stream, application/json
 
 
 ### HTTP response details

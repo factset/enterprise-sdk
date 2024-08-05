@@ -580,10 +580,10 @@ class CommentsApi(object):
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
-            note_id (str):
+            note_id (str): The note Id to which the comment will be added
 
         Keyword Args:
-            create_comment_dto (CreateCommentDto): [optional]
+            create_comment_dto (CreateCommentDto): The details of the comment to be created. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -627,10 +627,10 @@ class CommentsApi(object):
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
-            note_id (str):
+            note_id (str): The note Id to which the comment will be added
 
         Keyword Args:
-            create_comment_dto (CreateCommentDto): [optional]
+            create_comment_dto (CreateCommentDto): The details of the comment to be created. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -678,10 +678,10 @@ class CommentsApi(object):
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
-            note_id (str):
+            note_id (str): The note Id to which the comment will be added
 
         Keyword Args:
-            create_comment_dto (CreateCommentDto): [optional]
+            create_comment_dto (CreateCommentDto): The details of the comment to be created. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -724,10 +724,10 @@ class CommentsApi(object):
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
-            note_id (str):
+            note_id (str): The note Id to which the comment will be added
 
         Keyword Args:
-            create_comment_dto (CreateCommentDto): [optional]
+            create_comment_dto (CreateCommentDto): The details of the comment to be created. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -773,8 +773,8 @@ class CommentsApi(object):
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
-            note_id (str):
-            comment_id (str):
+            note_id (str): Note Id
+            comment_id (str): Comment  Id
             file (file_type):
 
         Keyword Args:
@@ -827,8 +827,8 @@ class CommentsApi(object):
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
-            note_id (str):
-            comment_id (str):
+            note_id (str): Note Id
+            comment_id (str): Comment  Id
             file (file_type):
 
         Keyword Args:
@@ -885,8 +885,8 @@ class CommentsApi(object):
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
-            note_id (str):
-            comment_id (str):
+            note_id (str): Note Id
+            comment_id (str): Comment  Id
             file (file_type):
 
         Keyword Args:
@@ -938,8 +938,8 @@ class CommentsApi(object):
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
-            note_id (str):
-            comment_id (str):
+            note_id (str): Note Id
+            comment_id (str): Comment  Id
             file (file_type):
 
         Keyword Args:
@@ -991,8 +991,8 @@ class CommentsApi(object):
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
-            note_id (str):
-            comment_id (str):
+            note_id (str): The note id from which the comment will be deleted
+            comment_id (str): Comment Id
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1041,8 +1041,8 @@ class CommentsApi(object):
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
-            note_id (str):
-            comment_id (str):
+            note_id (str): The note id from which the comment will be deleted
+            comment_id (str): Comment Id
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1095,8 +1095,8 @@ class CommentsApi(object):
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
-            note_id (str):
-            comment_id (str):
+            note_id (str): The note id from which the comment will be deleted
+            comment_id (str): Comment Id
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1144,8 +1144,8 @@ class CommentsApi(object):
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
-            note_id (str):
-            comment_id (str):
+            note_id (str): The note id from which the comment will be deleted
+            comment_id (str): Comment Id
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1195,9 +1195,9 @@ class CommentsApi(object):
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
-            note_id (str):
-            comment_id (str):
-            attachment_id (str):
+            note_id (str): Note Id
+            comment_id (str): Comment Id
+            attachment_id (str): Attachment Id
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1249,9 +1249,9 @@ class CommentsApi(object):
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
-            note_id (str):
-            comment_id (str):
-            attachment_id (str):
+            note_id (str): Note Id
+            comment_id (str): Comment Id
+            attachment_id (str): Attachment Id
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1307,9 +1307,9 @@ class CommentsApi(object):
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
-            note_id (str):
-            comment_id (str):
-            attachment_id (str):
+            note_id (str): Note Id
+            comment_id (str): Comment Id
+            attachment_id (str): Attachment Id
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1360,9 +1360,9 @@ class CommentsApi(object):
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
-            note_id (str):
-            comment_id (str):
-            attachment_id (str):
+            note_id (str): Note Id
+            comment_id (str): Comment Id
+            attachment_id (str): Attachment Id
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1413,8 +1413,8 @@ class CommentsApi(object):
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
-            note_id (str):
-            comment_id (str):
+            note_id (str): Note Id
+            comment_id (str): Comment Id
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1463,8 +1463,8 @@ class CommentsApi(object):
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
-            note_id (str):
-            comment_id (str):
+            note_id (str): Note Id
+            comment_id (str): Comment Id
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1517,8 +1517,8 @@ class CommentsApi(object):
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
-            note_id (str):
-            comment_id (str):
+            note_id (str): Note Id
+            comment_id (str): Comment Id
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1566,8 +1566,8 @@ class CommentsApi(object):
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
-            note_id (str):
-            comment_id (str):
+            note_id (str): Note Id
+            comment_id (str): Comment Id
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1616,8 +1616,8 @@ class CommentsApi(object):
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
-            note_id (str):
-            comment_id (str):
+            note_id (str): Note Id
+            comment_id (str): Comment Id
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1666,8 +1666,8 @@ class CommentsApi(object):
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
-            note_id (str):
-            comment_id (str):
+            note_id (str): Note Id
+            comment_id (str): Comment Id
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1720,8 +1720,8 @@ class CommentsApi(object):
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
-            note_id (str):
-            comment_id (str):
+            note_id (str): Note Id
+            comment_id (str): Comment Id
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1769,8 +1769,8 @@ class CommentsApi(object):
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
-            note_id (str):
-            comment_id (str):
+            note_id (str): Note Id
+            comment_id (str): Comment Id
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1818,7 +1818,7 @@ class CommentsApi(object):
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
-            note_id (str):
+            note_id (str): Note Id
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1864,7 +1864,7 @@ class CommentsApi(object):
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
-            note_id (str):
+            note_id (str): Note Id
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1914,7 +1914,7 @@ class CommentsApi(object):
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
-            note_id (str):
+            note_id (str): Note Id
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1959,7 +1959,7 @@ class CommentsApi(object):
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
-            note_id (str):
+            note_id (str): Note Id
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -2006,11 +2006,11 @@ class CommentsApi(object):
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
-            note_id (str):
-            comment_id (str):
+            note_id (str): Note Id
+            comment_id (str): Comment Id
 
         Keyword Args:
-            operation ([Operation]): [optional]
+            operation ([Operation]): The JSON patch document with updates for the comment. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -2057,11 +2057,11 @@ class CommentsApi(object):
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
-            note_id (str):
-            comment_id (str):
+            note_id (str): Note Id
+            comment_id (str): Comment Id
 
         Keyword Args:
-            operation ([Operation]): [optional]
+            operation ([Operation]): The JSON patch document with updates for the comment. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -2112,11 +2112,11 @@ class CommentsApi(object):
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
-            note_id (str):
-            comment_id (str):
+            note_id (str): Note Id
+            comment_id (str): Comment Id
 
         Keyword Args:
-            operation ([Operation]): [optional]
+            operation ([Operation]): The JSON patch document with updates for the comment. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -2162,11 +2162,11 @@ class CommentsApi(object):
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
-            note_id (str):
-            comment_id (str):
+            note_id (str): Note Id
+            comment_id (str): Comment Id
 
         Keyword Args:
-            operation ([Operation]): [optional]
+            operation ([Operation]): The JSON patch document with updates for the comment. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **get_identifiers**
-> [dict] get_identifiers()
+> [dict, none_type] get_identifiers()
 
 Get all the identifier details for given identifiers
 
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**[dict]**
+**[dict, none_type]**
 
 ### Authorization
 

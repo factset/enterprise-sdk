@@ -46,7 +46,7 @@ class IdentifiersApi(object):
         self.get_identifiers_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: ([dict],), 400: (ProblemDetails,),  },
+                  { 200: ([dict, none_type],), 400: (ProblemDetails,),  },
                   None
                 ),
                 'auth': [

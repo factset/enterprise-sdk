@@ -84,7 +84,7 @@ public class CreateNoteDto implements Serializable {
   private JsonNullable<java.util.UUID> sentimentId = JsonNullable.<java.util.UUID>undefined();
 
   public static final String JSON_PROPERTY_BODY = "body";
-  private CreateBodyDto body;
+  private JsonNullable<CreateBodyDto> body = JsonNullable.<CreateBodyDto>undefined();
 
   public static final String JSON_PROPERTY_SOURCE = "source";
   private JsonNullable<String> source = JsonNullable.<String>undefined();
@@ -99,7 +99,7 @@ public class CreateNoteDto implements Serializable {
   private JsonNullable<java.util.List<java.util.UUID>> relatedContacts = JsonNullable.<java.util.List<java.util.UUID>>undefined();
 
   public static final String JSON_PROPERTY_RELATED_RECORDS = "relatedRecords";
-  private RelatedRecordsDto relatedRecords;
+  private JsonNullable<RelatedRecordsDto> relatedRecords = JsonNullable.<RelatedRecordsDto>undefined();
 
   public static final String JSON_PROPERTY_CUSTOM_FIELD_VALUES = "customFieldValues";
   private JsonNullable<java.util.List<CreateCustomFieldValueDto>> customFieldValues = JsonNullable.<java.util.List<CreateCustomFieldValueDto>>undefined();
@@ -129,7 +129,7 @@ public class CreateNoteDto implements Serializable {
    * Get author
    * @return author
   **/
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_AUTHOR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -343,7 +343,7 @@ public class CreateNoteDto implements Serializable {
 
 
   public CreateNoteDto body(CreateBodyDto body) {
-    this.body = body;
+    this.body = JsonNullable.<CreateBodyDto>of(body);
     return this;
   }
 
@@ -353,18 +353,26 @@ public class CreateNoteDto implements Serializable {
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_BODY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public CreateBodyDto getBody() {
-    return body;
+        return body.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_BODY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBody(CreateBodyDto body) {
+
+  public JsonNullable<CreateBodyDto> getBody_JsonNullable() {
+    return body;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_BODY)
+  public void setBody_JsonNullable(JsonNullable<CreateBodyDto> body) {
     this.body = body;
+  }
+
+  public void setBody(CreateBodyDto body) {
+    this.body = JsonNullable.<CreateBodyDto>of(body);
   }
 
 
@@ -529,7 +537,7 @@ public class CreateNoteDto implements Serializable {
 
 
   public CreateNoteDto relatedRecords(RelatedRecordsDto relatedRecords) {
-    this.relatedRecords = relatedRecords;
+    this.relatedRecords = JsonNullable.<RelatedRecordsDto>of(relatedRecords);
     return this;
   }
 
@@ -539,18 +547,26 @@ public class CreateNoteDto implements Serializable {
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_RELATED_RECORDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public RelatedRecordsDto getRelatedRecords() {
-    return relatedRecords;
+        return relatedRecords.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_RELATED_RECORDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRelatedRecords(RelatedRecordsDto relatedRecords) {
+
+  public JsonNullable<RelatedRecordsDto> getRelatedRecords_JsonNullable() {
+    return relatedRecords;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_RELATED_RECORDS)
+  public void setRelatedRecords_JsonNullable(JsonNullable<RelatedRecordsDto> relatedRecords) {
     this.relatedRecords = relatedRecords;
+  }
+
+  public void setRelatedRecords(RelatedRecordsDto relatedRecords) {
+    this.relatedRecords = JsonNullable.<RelatedRecordsDto>of(relatedRecords);
   }
 
 
@@ -645,12 +661,12 @@ public class CreateNoteDto implements Serializable {
         equalsNullable(this.subjectId, createNoteDto.subjectId) &&
         equalsNullable(this.recommendationId, createNoteDto.recommendationId) &&
         equalsNullable(this.sentimentId, createNoteDto.sentimentId) &&
-        Objects.equals(this.body, createNoteDto.body) &&
+        equalsNullable(this.body, createNoteDto.body) &&
         equalsNullable(this.source, createNoteDto.source) &&
         equalsNullable(this.link, createNoteDto.link) &&
         equalsNullable(this.relatedSymbols, createNoteDto.relatedSymbols) &&
         equalsNullable(this.relatedContacts, createNoteDto.relatedContacts) &&
-        Objects.equals(this.relatedRecords, createNoteDto.relatedRecords) &&
+        equalsNullable(this.relatedRecords, createNoteDto.relatedRecords) &&
         equalsNullable(this.customFieldValues, createNoteDto.customFieldValues) &&
         Objects.equals(this.isPersonal, createNoteDto.isPersonal);
   }
@@ -661,7 +677,7 @@ public class CreateNoteDto implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(author, hashCodeNullable(title), hashCodeNullable(identifier), date, hashCodeNullable(subjectId), hashCodeNullable(recommendationId), hashCodeNullable(sentimentId), body, hashCodeNullable(source), hashCodeNullable(link), hashCodeNullable(relatedSymbols), hashCodeNullable(relatedContacts), relatedRecords, hashCodeNullable(customFieldValues), isPersonal);
+    return Objects.hash(author, hashCodeNullable(title), hashCodeNullable(identifier), date, hashCodeNullable(subjectId), hashCodeNullable(recommendationId), hashCodeNullable(sentimentId), hashCodeNullable(body), hashCodeNullable(source), hashCodeNullable(link), hashCodeNullable(relatedSymbols), hashCodeNullable(relatedContacts), hashCodeNullable(relatedRecords), hashCodeNullable(customFieldValues), isPersonal);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

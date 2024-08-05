@@ -50,7 +50,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new AttachmentsApi();
-const noteId = "noteId_example"; // String | 
+const noteId = "noteId_example"; // String | Note Id
 const file = "/path/to/file"; // File | 
 
 // Call api endpoint
@@ -73,7 +73,7 @@ apiInstance.createAttachment(noteId, file).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **noteId** | **String**|  | 
+ **noteId** | **String**| Note Id | 
  **file** | **File**|  | 
 
 ### Return type
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 
 ## downloadAttachment
 
-> downloadAttachment(noteId, attachmentId)
+> File downloadAttachment(noteId, attachmentId)
 
 Download an attachment from a Note
 
@@ -129,13 +129,15 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new AttachmentsApi();
-const noteId = "noteId_example"; // String | 
-const attachmentId = "attachmentId_example"; // String | 
+const noteId = "noteId_example"; // String | Note Id
+const attachmentId = "attachmentId_example"; // String | Attachment Id
 
 // Call api endpoint
 apiInstance.downloadAttachment(noteId, attachmentId).then(
-  () => {
-    console.log('API called successfully.');
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
   },
   error => {
     console.error(error);
@@ -150,12 +152,12 @@ apiInstance.downloadAttachment(noteId, attachmentId).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **noteId** | **String**|  | 
- **attachmentId** | **String**|  | 
+ **noteId** | **String**| Note Id | 
+ **attachmentId** | **String**| Attachment Id | 
 
 ### Return type
 
-null (empty response body)
+**File**
 
 ### Authorization
 
@@ -164,7 +166,7 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: application/octet-stream, application/json
 
 
 ## getAttachments

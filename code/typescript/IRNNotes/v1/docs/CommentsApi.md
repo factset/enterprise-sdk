@@ -54,9 +54,9 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new CommentsApi();
-const noteId = "noteId_example"; // String | 
+const noteId = "noteId_example"; // String | The note Id to which the comment will be added
 const opts = {
-  'createCommentDto': new irnnotes.CreateCommentDto() // CreateCommentDto | 
+  'createCommentDto': new irnnotes.CreateCommentDto() // CreateCommentDto | The details of the comment to be created
 };
 
 // Call api endpoint
@@ -79,8 +79,8 @@ apiInstance.createComment(noteId, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **noteId** | **String**|  | 
- **createCommentDto** | [**CreateCommentDto**](CreateCommentDto.md)|  | [optional] 
+ **noteId** | **String**| The note Id to which the comment will be added | 
+ **createCommentDto** | [**CreateCommentDto**](CreateCommentDto.md)| The details of the comment to be created | [optional] 
 
 ### Return type
 
@@ -135,8 +135,8 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new CommentsApi();
-const noteId = "noteId_example"; // String | 
-const commentId = "commentId_example"; // String | 
+const noteId = "noteId_example"; // String | Note Id
+const commentId = "commentId_example"; // String | Comment  Id
 const file = "/path/to/file"; // File | 
 
 // Call api endpoint
@@ -159,8 +159,8 @@ apiInstance.createCommentAttachment(noteId, commentId, file).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **noteId** | **String**|  | 
- **commentId** | **String**|  | 
+ **noteId** | **String**| Note Id | 
+ **commentId** | **String**| Comment  Id | 
  **file** | **File**|  | 
 
 ### Return type
@@ -216,8 +216,8 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new CommentsApi();
-const noteId = "noteId_example"; // String | 
-const commentId = "commentId_example"; // String | 
+const noteId = "noteId_example"; // String | The note id from which the comment will be deleted
+const commentId = "commentId_example"; // String | Comment Id
 
 // Call api endpoint
 apiInstance.deleteComment(noteId, commentId).then(
@@ -237,8 +237,8 @@ apiInstance.deleteComment(noteId, commentId).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **noteId** | **String**|  | 
- **commentId** | **String**|  | 
+ **noteId** | **String**| The note id from which the comment will be deleted | 
+ **commentId** | **String**| Comment Id | 
 
 ### Return type
 
@@ -293,9 +293,9 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new CommentsApi();
-const noteId = "noteId_example"; // String | 
-const commentId = "commentId_example"; // String | 
-const attachmentId = "attachmentId_example"; // String | 
+const noteId = "noteId_example"; // String | Note Id
+const commentId = "commentId_example"; // String | Comment Id
+const attachmentId = "attachmentId_example"; // String | Attachment Id
 
 // Call api endpoint
 apiInstance.downloadCommentAttachmentForComment(noteId, commentId, attachmentId).then(
@@ -315,9 +315,9 @@ apiInstance.downloadCommentAttachmentForComment(noteId, commentId, attachmentId)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **noteId** | **String**|  | 
- **commentId** | **String**|  | 
- **attachmentId** | **String**|  | 
+ **noteId** | **String**| Note Id | 
+ **commentId** | **String**| Comment Id | 
+ **attachmentId** | **String**| Attachment Id | 
 
 ### Return type
 
@@ -372,8 +372,8 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new CommentsApi();
-const noteId = "noteId_example"; // String | 
-const commentId = "commentId_example"; // String | 
+const noteId = "noteId_example"; // String | Note Id
+const commentId = "commentId_example"; // String | Comment Id
 
 // Call api endpoint
 apiInstance.getComment(noteId, commentId).then(
@@ -395,8 +395,8 @@ apiInstance.getComment(noteId, commentId).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **noteId** | **String**|  | 
- **commentId** | **String**|  | 
+ **noteId** | **String**| Note Id | 
+ **commentId** | **String**| Comment Id | 
 
 ### Return type
 
@@ -451,8 +451,8 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new CommentsApi();
-const noteId = "noteId_example"; // String | 
-const commentId = "commentId_example"; // String | 
+const noteId = "noteId_example"; // String | Note Id
+const commentId = "commentId_example"; // String | Comment Id
 
 // Call api endpoint
 apiInstance.getCommentAttachments(noteId, commentId).then(
@@ -474,8 +474,8 @@ apiInstance.getCommentAttachments(noteId, commentId).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **noteId** | **String**|  | 
- **commentId** | **String**|  | 
+ **noteId** | **String**| Note Id | 
+ **commentId** | **String**| Comment Id | 
 
 ### Return type
 
@@ -530,7 +530,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new CommentsApi();
-const noteId = "noteId_example"; // String | 
+const noteId = "noteId_example"; // String | Note Id
 
 // Call api endpoint
 apiInstance.getComments(noteId).then(
@@ -552,7 +552,7 @@ apiInstance.getComments(noteId).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **noteId** | **String**|  | 
+ **noteId** | **String**| Note Id | 
 
 ### Return type
 
@@ -607,10 +607,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new CommentsApi();
-const noteId = "noteId_example"; // String | 
-const commentId = "commentId_example"; // String | 
+const noteId = "noteId_example"; // String | Note Id
+const commentId = "commentId_example"; // String | Comment Id
 const opts = {
-  'operation': [new irnnotes.Operation()] // [Operation] | 
+  'operation': [new irnnotes.Operation()] // [Operation] | The JSON patch document with updates for the comment
 };
 
 // Call api endpoint
@@ -631,9 +631,9 @@ apiInstance.patchComment(noteId, commentId, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **noteId** | **String**|  | 
- **commentId** | **String**|  | 
- **operation** | [**[Operation]**](Operation.md)|  | [optional] 
+ **noteId** | **String**| Note Id | 
+ **commentId** | **String**| Comment Id | 
+ **operation** | [**[Operation]**](Operation.md)| The JSON patch document with updates for the comment | [optional] 
 
 ### Return type
 

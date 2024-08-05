@@ -4,7 +4,6 @@
 .travis.yml
 LICENSE
 README.md
-docs/AttachmentStatus.md
 docs/AttachmentSummaryDto.md
 docs/AttachmentsApi.md
 docs/CommentDto.md
@@ -46,7 +45,6 @@ fds/sdk/IRNNotes/apis/__init__.py
 fds/sdk/IRNNotes/configuration.py
 fds/sdk/IRNNotes/exceptions.py
 fds/sdk/IRNNotes/model/__init__.py
-fds/sdk/IRNNotes/model/attachment_status.py
 fds/sdk/IRNNotes/model/attachment_summary_dto.py
 fds/sdk/IRNNotes/model/comment_dto.py
 fds/sdk/IRNNotes/model/comment_summary_dto.py

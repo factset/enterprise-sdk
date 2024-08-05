@@ -32,8 +32,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Create a comment to a Note
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="createCommentDto"> (optional)</param>
+        /// <param name="noteId">The note Id to which the comment will be added</param>
+        /// <param name="createCommentDto">The details of the comment to be created (optional)</param>
         /// <returns>NewItemDto</returns>
         NewItemDto CreateComment(Guid noteId, CreateCommentDto createCommentDto = default(CreateCommentDto));
 
@@ -44,16 +44,16 @@ namespace FactSet.SDK.IRNNotes.Api
         /// 
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="createCommentDto"> (optional)</param>
+        /// <param name="noteId">The note Id to which the comment will be added</param>
+        /// <param name="createCommentDto">The details of the comment to be created (optional)</param>
         /// <returns>ApiResponse of NewItemDto</returns>
         ApiResponse<NewItemDto> CreateCommentWithHttpInfo(Guid noteId, CreateCommentDto createCommentDto = default(CreateCommentDto));
         /// <summary>
         /// Create a comment attachment to a Note
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="commentId">Comment  Id</param>
         /// <param name="file"></param>
         /// <returns>NewItemDto</returns>
         NewItemDto CreateCommentAttachment(Guid noteId, Guid commentId, System.IO.Stream file);
@@ -65,8 +65,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// 
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="commentId">Comment  Id</param>
         /// <param name="file"></param>
         /// <returns>ApiResponse of NewItemDto</returns>
         ApiResponse<NewItemDto> CreateCommentAttachmentWithHttpInfo(Guid noteId, Guid commentId, System.IO.Stream file);
@@ -74,8 +74,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Delete a Comment from a Note
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
+        /// <param name="noteId">The note id from which the comment will be deleted</param>
+        /// <param name="commentId">Comment Id</param>
         /// <returns>void</returns>
         void DeleteComment(Guid noteId, Guid commentId);
 
@@ -86,17 +86,17 @@ namespace FactSet.SDK.IRNNotes.Api
         /// 
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
+        /// <param name="noteId">The note id from which the comment will be deleted</param>
+        /// <param name="commentId">Comment Id</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteCommentWithHttpInfo(Guid noteId, Guid commentId);
         /// <summary>
         /// Download single attachment detail of a comment belonging to a note
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
-        /// <param name="attachmentId"></param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="commentId">Comment Id</param>
+        /// <param name="attachmentId">Attachment Id</param>
         /// <returns>void</returns>
         void DownloadCommentAttachmentForComment(Guid noteId, Guid commentId, Guid attachmentId);
 
@@ -107,17 +107,17 @@ namespace FactSet.SDK.IRNNotes.Api
         /// 
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
-        /// <param name="attachmentId"></param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="commentId">Comment Id</param>
+        /// <param name="attachmentId">Attachment Id</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DownloadCommentAttachmentForCommentWithHttpInfo(Guid noteId, Guid commentId, Guid attachmentId);
         /// <summary>
         /// Get details of a comment belonging to a note
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="commentId">Comment Id</param>
         /// <returns>CommentDto</returns>
         CommentDto GetComment(Guid noteId, Guid commentId);
 
@@ -128,16 +128,16 @@ namespace FactSet.SDK.IRNNotes.Api
         /// 
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="commentId">Comment Id</param>
         /// <returns>ApiResponse of CommentDto</returns>
         ApiResponse<CommentDto> GetCommentWithHttpInfo(Guid noteId, Guid commentId);
         /// <summary>
         /// Get attachments summary of a comment belonging to a note
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="commentId">Comment Id</param>
         /// <returns>List<AttachmentSummaryDto></returns>
         List<AttachmentSummaryDto> GetCommentAttachments(Guid noteId, Guid commentId);
 
@@ -148,15 +148,15 @@ namespace FactSet.SDK.IRNNotes.Api
         /// 
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="commentId">Comment Id</param>
         /// <returns>ApiResponse of List<AttachmentSummaryDto></returns>
         ApiResponse<List<AttachmentSummaryDto>> GetCommentAttachmentsWithHttpInfo(Guid noteId, Guid commentId);
         /// <summary>
         /// Get all comments for a note
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
+        /// <param name="noteId">Note Id</param>
         /// <returns>List<CommentSummaryDto></returns>
         List<CommentSummaryDto> GetComments(Guid noteId);
 
@@ -167,16 +167,16 @@ namespace FactSet.SDK.IRNNotes.Api
         /// 
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
+        /// <param name="noteId">Note Id</param>
         /// <returns>ApiResponse of List<CommentSummaryDto></returns>
         ApiResponse<List<CommentSummaryDto>> GetCommentsWithHttpInfo(Guid noteId);
         /// <summary>
         /// Edit a comment for a note
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
-        /// <param name="operation"> (optional)</param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="commentId">Comment Id</param>
+        /// <param name="operation">The JSON patch document with updates for the comment (optional)</param>
         /// <returns>void</returns>
         void PatchComment(Guid noteId, Guid commentId, List<Operation> operation = default(List<Operation>));
 
@@ -187,9 +187,9 @@ namespace FactSet.SDK.IRNNotes.Api
         /// 
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
-        /// <param name="operation"> (optional)</param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="commentId">Comment Id</param>
+        /// <param name="operation">The JSON patch document with updates for the comment (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> PatchCommentWithHttpInfo(Guid noteId, Guid commentId, List<Operation> operation = default(List<Operation>));
         #endregion Synchronous Operations
@@ -208,8 +208,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// 
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="createCommentDto"> (optional)</param>
+        /// <param name="noteId">The note Id to which the comment will be added</param>
+        /// <param name="createCommentDto">The details of the comment to be created (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NewItemDto</returns>
         System.Threading.Tasks.Task<NewItemDto> CreateCommentAsync(Guid noteId, CreateCommentDto createCommentDto = default(CreateCommentDto), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -221,8 +221,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// 
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="createCommentDto"> (optional)</param>
+        /// <param name="noteId">The note Id to which the comment will be added</param>
+        /// <param name="createCommentDto">The details of the comment to be created (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (NewItemDto)</returns>
         System.Threading.Tasks.Task<ApiResponse<NewItemDto>> CreateCommentWithHttpInfoAsync(Guid noteId, CreateCommentDto createCommentDto = default(CreateCommentDto), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -233,8 +233,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// 
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="commentId">Comment  Id</param>
         /// <param name="file"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NewItemDto</returns>
@@ -247,8 +247,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// 
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="commentId">Comment  Id</param>
         /// <param name="file"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (NewItemDto)</returns>
@@ -260,8 +260,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// 
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
+        /// <param name="noteId">The note id from which the comment will be deleted</param>
+        /// <param name="commentId">Comment Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DeleteCommentAsync(Guid noteId, Guid commentId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -273,8 +273,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// 
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
+        /// <param name="noteId">The note id from which the comment will be deleted</param>
+        /// <param name="commentId">Comment Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCommentWithHttpInfoAsync(Guid noteId, Guid commentId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -285,9 +285,9 @@ namespace FactSet.SDK.IRNNotes.Api
         /// 
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
-        /// <param name="attachmentId"></param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="commentId">Comment Id</param>
+        /// <param name="attachmentId">Attachment Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DownloadCommentAttachmentForCommentAsync(Guid noteId, Guid commentId, Guid attachmentId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -299,9 +299,9 @@ namespace FactSet.SDK.IRNNotes.Api
         /// 
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
-        /// <param name="attachmentId"></param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="commentId">Comment Id</param>
+        /// <param name="attachmentId">Attachment Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DownloadCommentAttachmentForCommentWithHttpInfoAsync(Guid noteId, Guid commentId, Guid attachmentId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -312,8 +312,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// 
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="commentId">Comment Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CommentDto</returns>
         System.Threading.Tasks.Task<CommentDto> GetCommentAsync(Guid noteId, Guid commentId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -325,8 +325,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// 
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="commentId">Comment Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CommentDto)</returns>
         System.Threading.Tasks.Task<ApiResponse<CommentDto>> GetCommentWithHttpInfoAsync(Guid noteId, Guid commentId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -337,8 +337,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// 
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="commentId">Comment Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;AttachmentSummaryDto&gt;</returns>
         System.Threading.Tasks.Task<List<AttachmentSummaryDto>> GetCommentAttachmentsAsync(Guid noteId, Guid commentId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -350,8 +350,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// 
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="commentId">Comment Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List<AttachmentSummaryDto>)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<AttachmentSummaryDto>>> GetCommentAttachmentsWithHttpInfoAsync(Guid noteId, Guid commentId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -362,7 +362,7 @@ namespace FactSet.SDK.IRNNotes.Api
         /// 
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
+        /// <param name="noteId">Note Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;CommentSummaryDto&gt;</returns>
         System.Threading.Tasks.Task<List<CommentSummaryDto>> GetCommentsAsync(Guid noteId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -374,7 +374,7 @@ namespace FactSet.SDK.IRNNotes.Api
         /// 
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
+        /// <param name="noteId">Note Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List<CommentSummaryDto>)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<CommentSummaryDto>>> GetCommentsWithHttpInfoAsync(Guid noteId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -385,9 +385,9 @@ namespace FactSet.SDK.IRNNotes.Api
         /// 
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
-        /// <param name="operation"> (optional)</param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="commentId">Comment Id</param>
+        /// <param name="operation">The JSON patch document with updates for the comment (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task PatchCommentAsync(Guid noteId, Guid commentId, List<Operation> operation = default(List<Operation>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -399,9 +399,9 @@ namespace FactSet.SDK.IRNNotes.Api
         /// 
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
-        /// <param name="operation"> (optional)</param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="commentId">Comment Id</param>
+        /// <param name="operation">The JSON patch document with updates for the comment (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> PatchCommentWithHttpInfoAsync(Guid noteId, Guid commentId, List<Operation> operation = default(List<Operation>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -590,8 +590,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Create a comment to a Note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="createCommentDto"> (optional)</param>
+        /// <param name="noteId">The note Id to which the comment will be added</param>
+        /// <param name="createCommentDto">The details of the comment to be created (optional)</param>
         /// <returns>NewItemDto</returns>
         public NewItemDto CreateComment(Guid noteId, CreateCommentDto createCommentDto = default(CreateCommentDto))
         {
@@ -603,8 +603,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Create a comment to a Note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="createCommentDto"> (optional)</param>
+        /// <param name="noteId">The note Id to which the comment will be added</param>
+        /// <param name="createCommentDto">The details of the comment to be created (optional)</param>
         /// <returns>ApiResponse of NewItemDto</returns>
         public ApiResponse<NewItemDto> CreateCommentWithHttpInfo(Guid noteId, CreateCommentDto createCommentDto = default(CreateCommentDto))
         {
@@ -677,8 +677,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Create a comment to a Note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="createCommentDto"> (optional)</param>
+        /// <param name="noteId">The note Id to which the comment will be added</param>
+        /// <param name="createCommentDto">The details of the comment to be created (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NewItemDto</returns>
         public async System.Threading.Tasks.Task<NewItemDto>CreateCommentAsync(Guid noteId, CreateCommentDto createCommentDto = default(CreateCommentDto), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -691,8 +691,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Create a comment to a Note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="createCommentDto"> (optional)</param>
+        /// <param name="noteId">The note Id to which the comment will be added</param>
+        /// <param name="createCommentDto">The details of the comment to be created (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (NewItemDto)</returns>
 
@@ -769,8 +769,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Create a comment attachment to a Note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="commentId">Comment  Id</param>
         /// <param name="file"></param>
         /// <returns>NewItemDto</returns>
         public NewItemDto CreateCommentAttachment(Guid noteId, Guid commentId, System.IO.Stream file)
@@ -783,8 +783,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Create a comment attachment to a Note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="commentId">Comment  Id</param>
         /// <param name="file"></param>
         /// <returns>ApiResponse of NewItemDto</returns>
         public ApiResponse<NewItemDto> CreateCommentAttachmentWithHttpInfo(Guid noteId, Guid commentId, System.IO.Stream file)
@@ -862,8 +862,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Create a comment attachment to a Note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="commentId">Comment  Id</param>
         /// <param name="file"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NewItemDto</returns>
@@ -877,8 +877,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Create a comment attachment to a Note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="commentId">Comment  Id</param>
         /// <param name="file"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (NewItemDto)</returns>
@@ -960,8 +960,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Delete a Comment from a Note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
+        /// <param name="noteId">The note id from which the comment will be deleted</param>
+        /// <param name="commentId">Comment Id</param>
         /// <returns>void</returns>
         public void DeleteComment(Guid noteId, Guid commentId)
         {
@@ -972,8 +972,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Delete a Comment from a Note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
+        /// <param name="noteId">The note id from which the comment will be deleted</param>
+        /// <param name="commentId">Comment Id</param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> DeleteCommentWithHttpInfo(Guid noteId, Guid commentId)
         {
@@ -1042,8 +1042,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Delete a Comment from a Note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
+        /// <param name="noteId">The note id from which the comment will be deleted</param>
+        /// <param name="commentId">Comment Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task DeleteCommentAsync(Guid noteId, Guid commentId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1055,8 +1055,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Delete a Comment from a Note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
+        /// <param name="noteId">The note id from which the comment will be deleted</param>
+        /// <param name="commentId">Comment Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
 
@@ -1129,9 +1129,9 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Download single attachment detail of a comment belonging to a note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
-        /// <param name="attachmentId"></param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="commentId">Comment Id</param>
+        /// <param name="attachmentId">Attachment Id</param>
         /// <returns>void</returns>
         public void DownloadCommentAttachmentForComment(Guid noteId, Guid commentId, Guid attachmentId)
         {
@@ -1142,9 +1142,9 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Download single attachment detail of a comment belonging to a note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
-        /// <param name="attachmentId"></param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="commentId">Comment Id</param>
+        /// <param name="attachmentId">Attachment Id</param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> DownloadCommentAttachmentForCommentWithHttpInfo(Guid noteId, Guid commentId, Guid attachmentId)
         {
@@ -1214,9 +1214,9 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Download single attachment detail of a comment belonging to a note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
-        /// <param name="attachmentId"></param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="commentId">Comment Id</param>
+        /// <param name="attachmentId">Attachment Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task DownloadCommentAttachmentForCommentAsync(Guid noteId, Guid commentId, Guid attachmentId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1228,9 +1228,9 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Download single attachment detail of a comment belonging to a note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
-        /// <param name="attachmentId"></param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="commentId">Comment Id</param>
+        /// <param name="attachmentId">Attachment Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
 
@@ -1304,8 +1304,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Get details of a comment belonging to a note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="commentId">Comment Id</param>
         /// <returns>CommentDto</returns>
         public CommentDto GetComment(Guid noteId, Guid commentId)
         {
@@ -1317,8 +1317,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Get details of a comment belonging to a note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="commentId">Comment Id</param>
         /// <returns>ApiResponse of CommentDto</returns>
         public ApiResponse<CommentDto> GetCommentWithHttpInfo(Guid noteId, Guid commentId)
         {
@@ -1387,8 +1387,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Get details of a comment belonging to a note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="commentId">Comment Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CommentDto</returns>
         public async System.Threading.Tasks.Task<CommentDto>GetCommentAsync(Guid noteId, Guid commentId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1401,8 +1401,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Get details of a comment belonging to a note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="commentId">Comment Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CommentDto)</returns>
 
@@ -1475,8 +1475,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Get attachments summary of a comment belonging to a note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="commentId">Comment Id</param>
         /// <returns>List<AttachmentSummaryDto></returns>
         public List<AttachmentSummaryDto> GetCommentAttachments(Guid noteId, Guid commentId)
         {
@@ -1488,8 +1488,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Get attachments summary of a comment belonging to a note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="commentId">Comment Id</param>
         /// <returns>ApiResponse of List&lt;AttachmentSummaryDto&gt;</returns>
         public ApiResponse<List<AttachmentSummaryDto>> GetCommentAttachmentsWithHttpInfo(Guid noteId, Guid commentId)
         {
@@ -1558,8 +1558,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Get attachments summary of a comment belonging to a note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="commentId">Comment Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;AttachmentSummaryDto&gt;</returns>
         public async System.Threading.Tasks.Task<List<AttachmentSummaryDto>>GetCommentAttachmentsAsync(Guid noteId, Guid commentId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1572,8 +1572,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Get attachments summary of a comment belonging to a note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="commentId">Comment Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;AttachmentSummaryDto&gt;)</returns>
 
@@ -1646,7 +1646,7 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Get all comments for a note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
+        /// <param name="noteId">Note Id</param>
         /// <returns>List<CommentSummaryDto></returns>
         public List<CommentSummaryDto> GetComments(Guid noteId)
         {
@@ -1658,7 +1658,7 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Get all comments for a note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
+        /// <param name="noteId">Note Id</param>
         /// <returns>ApiResponse of List&lt;CommentSummaryDto&gt;</returns>
         public ApiResponse<List<CommentSummaryDto>> GetCommentsWithHttpInfo(Guid noteId)
         {
@@ -1726,7 +1726,7 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Get all comments for a note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
+        /// <param name="noteId">Note Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;CommentSummaryDto&gt;</returns>
         public async System.Threading.Tasks.Task<List<CommentSummaryDto>>GetCommentsAsync(Guid noteId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1739,7 +1739,7 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Get all comments for a note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
+        /// <param name="noteId">Note Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;CommentSummaryDto&gt;)</returns>
 
@@ -1811,9 +1811,9 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Edit a comment for a note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
-        /// <param name="operation"> (optional)</param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="commentId">Comment Id</param>
+        /// <param name="operation">The JSON patch document with updates for the comment (optional)</param>
         /// <returns>void</returns>
         public void PatchComment(Guid noteId, Guid commentId, List<Operation> operation = default(List<Operation>))
         {
@@ -1824,9 +1824,9 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Edit a comment for a note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
-        /// <param name="operation"> (optional)</param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="commentId">Comment Id</param>
+        /// <param name="operation">The JSON patch document with updates for the comment (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> PatchCommentWithHttpInfo(Guid noteId, Guid commentId, List<Operation> operation = default(List<Operation>))
         {
@@ -1900,9 +1900,9 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Edit a comment for a note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
-        /// <param name="operation"> (optional)</param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="commentId">Comment Id</param>
+        /// <param name="operation">The JSON patch document with updates for the comment (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task PatchCommentAsync(Guid noteId, Guid commentId, List<Operation> operation = default(List<Operation>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1914,9 +1914,9 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Edit a comment for a note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId"></param>
-        /// <param name="commentId"></param>
-        /// <param name="operation"> (optional)</param>
+        /// <param name="noteId">Note Id</param>
+        /// <param name="commentId">Comment Id</param>
+        /// <param name="operation">The JSON patch document with updates for the comment (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
 
