@@ -28,6 +28,10 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.OpenRisk.JSON;
@@ -59,7 +63,7 @@ public class StatResult implements Serializable {
   private StatCalculationSettings settings;
 
   public static final String JSON_PROPERTY_VALUE = "value";
-  private StatResultValue value;
+  private JsonNullable<StatResultValue> value = JsonNullable.<StatResultValue>undefined();
 
   public static final String JSON_PROPERTY_ERROR = "error";
   private ErrorItem error;
@@ -156,7 +160,7 @@ public class StatResult implements Serializable {
 
 
   public StatResult value(StatResultValue value) {
-    this.value = value;
+    this.value = JsonNullable.<StatResultValue>of(value);
     return this;
   }
 
@@ -166,18 +170,26 @@ public class StatResult implements Serializable {
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public StatResultValue getValue() {
-    return value;
+        return value.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setValue(StatResultValue value) {
+
+  public JsonNullable<StatResultValue> getValue_JsonNullable() {
+    return value;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  public void setValue_JsonNullable(JsonNullable<StatResultValue> value) {
     this.value = value;
+  }
+
+  public void setValue(StatResultValue value) {
+    this.value = JsonNullable.<StatResultValue>of(value);
   }
 
 
@@ -222,13 +234,24 @@ public class StatResult implements Serializable {
     return Objects.equals(this.stat, statResult.stat) &&
         Objects.equals(this.level, statResult.level) &&
         Objects.equals(this.settings, statResult.settings) &&
-        Objects.equals(this.value, statResult.value) &&
+        equalsNullable(this.value, statResult.value) &&
         Objects.equals(this.error, statResult.error);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(stat, level, settings, value, error);
+    return Objects.hash(stat, level, settings, hashCodeNullable(value), error);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

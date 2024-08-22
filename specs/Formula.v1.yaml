@@ -2621,6 +2621,7 @@ components:
           format: double
         - type: integer
           description: Array of integers
+      nullable: true
     cross_sectional_result_object_nonflattened:
       title: Cross-Sectional Non-Flattened Response Object
       description: An object returning the results for a single formula.
@@ -2710,6 +2711,7 @@ components:
           format: double
         - type: integer
           nullable: true
+      nullable: true
     cross_sectional_result_object_flattened:
       title: Cross-Sectional Flattened Result Object
       description: >

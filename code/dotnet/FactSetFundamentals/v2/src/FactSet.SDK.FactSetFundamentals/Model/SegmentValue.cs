@@ -35,14 +35,23 @@ namespace FactSet.SDK.FactSetFundamentals.Model
     public partial class SegmentValue : AbstractOpenAPISchema, IEquatable<SegmentValue>, IValidatableObject
     {
         /// <summary>
+        /// Initializes a new instance of the <see cref="SegmentValue" /> class.
+        /// </summary>
+        public SegmentValue()
+        {
+            this.IsNullable = true;
+            this.SchemaType= "oneOf";
+        }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="SegmentValue" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of string.</param>
         public SegmentValue(string actualInstance)
         {
-            this.IsNullable = false;
+            this.IsNullable = true;
             this.SchemaType= "oneOf";
-            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+            this.ActualInstance = actualInstance;
         }
 
         /// <summary>
@@ -51,7 +60,7 @@ namespace FactSet.SDK.FactSetFundamentals.Model
         /// <param name="actualInstance">An instance of double?.</param>
         public SegmentValue(double? actualInstance)
         {
-            this.IsNullable = false;
+            this.IsNullable = true;
             this.SchemaType= "oneOf";
             this.ActualInstance = actualInstance;
         }

@@ -5604,6 +5604,7 @@ components:
       - FDS
       - AAPL
       - MSFT
+      nullable: true
       oneOf:
       - description: Array of strings
         nullable: true
@@ -5686,6 +5687,7 @@ components:
       description: |
         The Key in the Key-Value pair will be the formula. If the `displayName` parameter is used, then the Key will be displayName specified for that formula. The Value in the Key-Value pair will be the result of the formula for that "row".
       example: '"P_PRICE(0)": 142.32'
+      nullable: true
       oneOf:
       - nullable: true
         type: string

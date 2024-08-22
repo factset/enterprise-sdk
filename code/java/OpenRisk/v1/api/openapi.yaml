@@ -2926,6 +2926,7 @@ components:
       description: Floating point double(s) in a dimension corresponding to the calculation-level.
         Data is guaranteed to be present and non-empty if the HTTP status code is
         200 Success
+      nullable: true
       oneOf:
       - $ref: '#/components/schemas/StatResultValueScalar'
       - $ref: '#/components/schemas/StatResultValueVector'

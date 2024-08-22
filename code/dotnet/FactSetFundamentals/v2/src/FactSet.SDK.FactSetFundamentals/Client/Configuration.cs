@@ -33,7 +33,7 @@ namespace FactSet.SDK.FactSetFundamentals.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "2.3.0";
+        public const string Version = "2.3.1";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -106,7 +106,7 @@ namespace FactSet.SDK.FactSetFundamentals.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "fds-sdk/dotnet/FactSetFundamentals/2.3.0";
+            UserAgent = "fds-sdk/dotnet/FactSetFundamentals/2.3.1";
             BasePath = "https://api.factset.com/content/factset-fundamentals/v2";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -484,7 +484,7 @@ namespace FactSet.SDK.FactSetFundamentals.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 2.2.0\n";
-            report += "    SDK Package Version: 2.3.0\n";
+            report += "    SDK Package Version: 2.3.1\n";
 
             return report;
         }

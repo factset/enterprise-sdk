@@ -80,7 +80,7 @@ namespace FactSet.SDK.OpenRisk.Model
         /// <summary>
         /// Gets or Sets Value
         /// </summary>
-        [DataMember(Name = "value", EmitDefaultValue = false)]
+        [DataMember(Name = "value", EmitDefaultValue = true)]
         public StatResultValue Value { get; set; }
 
         /// <summary>

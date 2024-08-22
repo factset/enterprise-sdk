@@ -67,7 +67,7 @@ public class Segment implements Serializable {
   private JsonNullable<LocalDate> date = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_VALUE = "value";
-  private SegmentValue value;
+  private JsonNullable<SegmentValue> value = JsonNullable.<SegmentValue>undefined();
 
   public Segment() { 
   }
@@ -235,7 +235,7 @@ public class Segment implements Serializable {
 
 
   public Segment value(SegmentValue value) {
-    this.value = value;
+    this.value = JsonNullable.<SegmentValue>of(value);
     return this;
   }
 
@@ -245,18 +245,26 @@ public class Segment implements Serializable {
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public SegmentValue getValue() {
-    return value;
+        return value.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setValue(SegmentValue value) {
+
+  public JsonNullable<SegmentValue> getValue_JsonNullable() {
+    return value;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  public void setValue_JsonNullable(JsonNullable<SegmentValue> value) {
     this.value = value;
+  }
+
+  public void setValue(SegmentValue value) {
+    this.value = JsonNullable.<SegmentValue>of(value);
   }
 
 
@@ -277,7 +285,7 @@ public class Segment implements Serializable {
         equalsNullable(this.metric, segment.metric) &&
         Objects.equals(this.label, segment.label) &&
         equalsNullable(this.date, segment.date) &&
-        Objects.equals(this.value, segment.value);
+        equalsNullable(this.value, segment.value);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -286,7 +294,7 @@ public class Segment implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, hashCodeNullable(fsymId), hashCodeNullable(metric), label, hashCodeNullable(date), value);
+    return Objects.hash(requestId, hashCodeNullable(fsymId), hashCodeNullable(metric), label, hashCodeNullable(date), hashCodeNullable(value));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

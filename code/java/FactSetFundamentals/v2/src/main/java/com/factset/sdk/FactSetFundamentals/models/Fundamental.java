@@ -186,7 +186,7 @@ public class Fundamental implements Serializable {
   private JsonNullable<String> currency = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_VALUE = "value";
-  private FundamentalValue value;
+  private JsonNullable<FundamentalValue> value = JsonNullable.<FundamentalValue>undefined();
 
   public Fundamental() { 
   }
@@ -592,7 +592,7 @@ public class Fundamental implements Serializable {
 
 
   public Fundamental value(FundamentalValue value) {
-    this.value = value;
+    this.value = JsonNullable.<FundamentalValue>of(value);
     return this;
   }
 
@@ -602,18 +602,26 @@ public class Fundamental implements Serializable {
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public FundamentalValue getValue() {
-    return value;
+        return value.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setValue(FundamentalValue value) {
+
+  public JsonNullable<FundamentalValue> getValue_JsonNullable() {
+    return value;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  public void setValue_JsonNullable(JsonNullable<FundamentalValue> value) {
     this.value = value;
+  }
+
+  public void setValue(FundamentalValue value) {
+    this.value = JsonNullable.<FundamentalValue>of(value);
   }
 
 
@@ -641,7 +649,7 @@ public class Fundamental implements Serializable {
         equalsNullable(this.epsReportDate, fundamental.epsReportDate) &&
         equalsNullable(this.updateType, fundamental.updateType) &&
         equalsNullable(this.currency, fundamental.currency) &&
-        Objects.equals(this.value, fundamental.value);
+        equalsNullable(this.value, fundamental.value);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -650,7 +658,7 @@ public class Fundamental implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, hashCodeNullable(fsymId), hashCodeNullable(metric), hashCodeNullable(periodicity), fiscalPeriod, hashCodeNullable(fiscalYear), hashCodeNullable(fiscalPeriodLength), hashCodeNullable(fiscalEndDate), hashCodeNullable(reportDate), hashCodeNullable(epsReportDate), hashCodeNullable(updateType), hashCodeNullable(currency), value);
+    return Objects.hash(requestId, hashCodeNullable(fsymId), hashCodeNullable(metric), hashCodeNullable(periodicity), fiscalPeriod, hashCodeNullable(fiscalYear), hashCodeNullable(fiscalPeriodLength), hashCodeNullable(fiscalEndDate), hashCodeNullable(reportDate), hashCodeNullable(epsReportDate), hashCodeNullable(updateType), hashCodeNullable(currency), hashCodeNullable(value));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

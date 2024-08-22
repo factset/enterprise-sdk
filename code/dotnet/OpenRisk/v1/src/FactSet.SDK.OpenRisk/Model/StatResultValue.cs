@@ -35,12 +35,21 @@ namespace FactSet.SDK.OpenRisk.Model
     public partial class StatResultValue : AbstractOpenAPISchema, IEquatable<StatResultValue>, IValidatableObject
     {
         /// <summary>
+        /// Initializes a new instance of the <see cref="StatResultValue" /> class.
+        /// </summary>
+        public StatResultValue()
+        {
+            this.IsNullable = true;
+            this.SchemaType= "oneOf";
+        }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="StatResultValue" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of double?.</param>
         public StatResultValue(double? actualInstance)
         {
-            this.IsNullable = false;
+            this.IsNullable = true;
             this.SchemaType= "oneOf";
             this.ActualInstance = actualInstance;
         }
@@ -51,9 +60,9 @@ namespace FactSet.SDK.OpenRisk.Model
         /// <param name="actualInstance">An instance of List&lt;double?&gt;.</param>
         public StatResultValue(List<double?> actualInstance)
         {
-            this.IsNullable = false;
+            this.IsNullable = true;
             this.SchemaType= "oneOf";
-            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+            this.ActualInstance = actualInstance;
         }
 
         /// <summary>
@@ -62,9 +71,9 @@ namespace FactSet.SDK.OpenRisk.Model
         /// <param name="actualInstance">An instance of List&lt;List&lt;double?&gt;&gt;.</param>
         public StatResultValue(List<List<double?>> actualInstance)
         {
-            this.IsNullable = false;
+            this.IsNullable = true;
             this.SchemaType= "oneOf";
-            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+            this.ActualInstance = actualInstance;
         }
 
         /// <summary>
@@ -73,9 +82,9 @@ namespace FactSet.SDK.OpenRisk.Model
         /// <param name="actualInstance">An instance of StatResultValueSparseMatrix.</param>
         public StatResultValue(StatResultValueSparseMatrix actualInstance)
         {
-            this.IsNullable = false;
+            this.IsNullable = true;
             this.SchemaType= "oneOf";
-            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+            this.ActualInstance = actualInstance;
         }
 
 

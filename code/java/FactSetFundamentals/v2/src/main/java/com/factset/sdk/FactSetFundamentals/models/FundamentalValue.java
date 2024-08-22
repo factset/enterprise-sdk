@@ -155,7 +155,7 @@ public class FundamentalValue extends AbstractOpenApiSchema implements Serializa
          */
         @Override
         public FundamentalValue getNullValue(DeserializationContext ctxt) throws JsonMappingException {
-            throw new JsonMappingException(ctxt.getParser(), "FundamentalValue cannot be null");
+            return null;
         }
     }
 
@@ -163,7 +163,7 @@ public class FundamentalValue extends AbstractOpenApiSchema implements Serializa
     public static final Map<String, GenericType> schemas = new HashMap<String, GenericType>();
 
     public FundamentalValue() {
-        super("oneOf", Boolean.FALSE);
+        super("oneOf", Boolean.TRUE);
     }
 
     public FundamentalValue(String o) {
@@ -197,6 +197,11 @@ public class FundamentalValue extends AbstractOpenApiSchema implements Serializa
      */
     @Override
     public void setActualInstance(Object instance) {
+        if (instance == null) {
+           super.setActualInstance(instance);
+           return;
+        }
+
         // String
         if (JSON.isInstanceOf(String.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);

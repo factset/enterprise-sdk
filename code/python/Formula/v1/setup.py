@@ -16,7 +16,7 @@ def read(filename):
   return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 NAME = "fds.sdk.Formula"
-VERSION = "2.3.2"
+VERSION = "3.0.0"
 # To install the library, run the following
 #
 # python setup.py install

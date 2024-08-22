@@ -1,5 +1,67 @@
 # Breaking Changes
 
+## 2024-10-01 Formula: Deserialization of BatchData
+
+When a long-running `BatchRequest` is made to the `/time-series` endpoint, the `/batch-result` response containing `BatchData` may be incorrectly deserialized as `CrossSectionalResponseObjectItems` instead of `TimeSeriesResponseObjectItems`.
+
+This issue stems from the polymorphic nature of the `BatchData` object, which can represent either `CrossSectionalResponseObjectItems` or `TimeSeriesResponseObjectItems`. During deserialization, the process may default to `CrossSectionalResponseObjectItems`, if the data for `TimeSeriesResponseObjectItems` closely resembles the former.
+
+### Impact
+
+Applications that rely on the correct type for downstream processing can experience disrupted functionality if a `CrossSectionalResponseObjectItems` is encountered instead of an expected `TimeSeriesResponseObjectItems`. This type mismatch can lead to runtime errors.
+
+### Recommendation
+
+Before casting `BatchData` to the expected type, perform a type check to ensure it matches the expected type.
+
+#### Java
+
+```java
+if (batchData.getActualInstance() instanceof TimeSeriesResponseObjectItems) {
+    // Process TimeSeriesResponseObjectItems
+} else {
+    CrossSectionalResponseObjectItems crossSectionalResponseObjectItems = (CrossSectionalResponseObjectItems) batchData.getActualInstance();
+    // Process CrossSectionalResponseObjectItems
+}
+```
+
+#### Dotnet
+
+```dotnet
+if (batchData.ActualInstance is TimeSeriesResponseObjectItems timeSeriesResponseObjectItems) {
+    // Process TimeSeriesResponseObjectItems
+} else {
+    CrossSectionalResponseObjectItems crossSectionalResponseObjectItems = (CrossSectionalResponseObjectItems) batchData.ActualInstance;
+    // Process CrossSectionalResponseObjectItems
+}
+```
+
+#### Python
+
+```python
+if isinstance(batch_data, time_series_response_object_items):
+    # Process TimeSeriesResponseObjectItems
+elif isinstance(batch_data, cross_sectional_response_object_items):
+    # Process CrossSectionalResponseObjectItems
+else:
+    raise TypeError(f"Unexpected type: {type(batch_data)}")
+
+```
+
+#### TypeScript
+
+```typescript
+if (batchData instanceof TimeSeriesResponseObjectItems) {
+    const timeSeriesResponseObjectItems = batchData as TimeSeriesResponseObjectItems;
+    // Process TimeSeriesResponseObjectItems
+} else {
+    const crossSectionalResponseObjectItems = batchData as CrossSectionalResponseObjectItems;
+    // Process CrossSectionalResponseObjectItems
+}
+```
+
+Affected SDKs:
+* Formula
 
 ## 2024-06-13 Dotnet: HashSet instead of a List when `uniqueItems: true`
 

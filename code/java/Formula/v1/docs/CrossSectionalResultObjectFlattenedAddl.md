@@ -9,6 +9,8 @@ The Key in the Key-Value pair will be the formula. If the `displayName` paramete
 * [Integer](Integer.md)
 * [String](String.md)
 
+NOTE: this class is nullable.
+
 ## Example
 ```java
 // Import classes:

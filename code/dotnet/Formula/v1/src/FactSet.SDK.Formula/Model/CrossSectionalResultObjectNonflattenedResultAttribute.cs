@@ -35,14 +35,23 @@ namespace FactSet.SDK.Formula.Model
     public partial class CrossSectionalResultObjectNonflattenedResultAttribute : AbstractOpenAPISchema, IEquatable<CrossSectionalResultObjectNonflattenedResultAttribute>, IValidatableObject
     {
         /// <summary>
+        /// Initializes a new instance of the <see cref="CrossSectionalResultObjectNonflattenedResultAttribute" /> class.
+        /// </summary>
+        public CrossSectionalResultObjectNonflattenedResultAttribute()
+        {
+            this.IsNullable = true;
+            this.SchemaType= "oneOf";
+        }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="CrossSectionalResultObjectNonflattenedResultAttribute" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of string.</param>
         public CrossSectionalResultObjectNonflattenedResultAttribute(string actualInstance)
         {
-            this.IsNullable = false;
+            this.IsNullable = true;
             this.SchemaType= "oneOf";
-            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+            this.ActualInstance = actualInstance;
         }
 
         /// <summary>
@@ -51,7 +60,7 @@ namespace FactSet.SDK.Formula.Model
         /// <param name="actualInstance">An instance of double.</param>
         public CrossSectionalResultObjectNonflattenedResultAttribute(double actualInstance)
         {
-            this.IsNullable = false;
+            this.IsNullable = true;
             this.SchemaType= "oneOf";
             this.ActualInstance = actualInstance;
         }
@@ -62,7 +71,7 @@ namespace FactSet.SDK.Formula.Model
         /// <param name="actualInstance">An instance of int.</param>
         public CrossSectionalResultObjectNonflattenedResultAttribute(int actualInstance)
         {
-            this.IsNullable = false;
+            this.IsNullable = true;
             this.SchemaType= "oneOf";
             this.ActualInstance = actualInstance;
         }

@@ -266,7 +266,7 @@ namespace FactSet.SDK.FactSetFundamentals.Model
         /// <summary>
         /// Gets or Sets Value
         /// </summary>
-        [DataMember(Name = "value", EmitDefaultValue = false)]
+        [DataMember(Name = "value", EmitDefaultValue = true)]
         public FundamentalValue Value { get; set; }
 
         /// <summary>

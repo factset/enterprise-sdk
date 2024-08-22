@@ -1454,6 +1454,7 @@ components:
         - type: number
           format: double
           nullable: true
+      nullable: true
     SegmentsRequest:
       title: Segments Request Body
       description: Segments request body elements
@@ -1547,6 +1548,7 @@ components:
         - type: number
           format: double
           nullable: true
+      nullable: true
     FinancialResponse:
       type: object
       title: Financials Response

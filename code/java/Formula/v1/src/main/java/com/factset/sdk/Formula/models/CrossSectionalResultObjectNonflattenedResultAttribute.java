@@ -180,7 +180,7 @@ public class CrossSectionalResultObjectNonflattenedResultAttribute extends Abstr
          */
         @Override
         public CrossSectionalResultObjectNonflattenedResultAttribute getNullValue(DeserializationContext ctxt) throws JsonMappingException {
-            throw new JsonMappingException(ctxt.getParser(), "CrossSectionalResultObjectNonflattenedResultAttribute cannot be null");
+            return null;
         }
     }
 
@@ -188,7 +188,7 @@ public class CrossSectionalResultObjectNonflattenedResultAttribute extends Abstr
     public static final Map<String, GenericType> schemas = new HashMap<String, GenericType>();
 
     public CrossSectionalResultObjectNonflattenedResultAttribute() {
-        super("oneOf", Boolean.FALSE);
+        super("oneOf", Boolean.TRUE);
     }
 
     public CrossSectionalResultObjectNonflattenedResultAttribute(String o) {
@@ -228,6 +228,11 @@ public class CrossSectionalResultObjectNonflattenedResultAttribute extends Abstr
      */
     @Override
     public void setActualInstance(Object instance) {
+        if (instance == null) {
+           super.setActualInstance(instance);
+           return;
+        }
+
         // String
         if (JSON.isInstanceOf(String.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);

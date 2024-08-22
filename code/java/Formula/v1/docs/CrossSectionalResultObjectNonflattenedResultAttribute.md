@@ -9,6 +9,8 @@ An array containing the values for the data item
 * [Integer](Integer.md)
 * [String](String.md)
 
+NOTE: this class is nullable.
+
 ## Example
 ```java
 // Import classes:

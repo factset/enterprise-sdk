@@ -35,14 +35,23 @@ namespace FactSet.SDK.FactSetFundamentals.Model
     public partial class FundamentalValue : AbstractOpenAPISchema, IEquatable<FundamentalValue>, IValidatableObject
     {
         /// <summary>
+        /// Initializes a new instance of the <see cref="FundamentalValue" /> class.
+        /// </summary>
+        public FundamentalValue()
+        {
+            this.IsNullable = true;
+            this.SchemaType= "oneOf";
+        }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="FundamentalValue" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of string.</param>
         public FundamentalValue(string actualInstance)
         {
-            this.IsNullable = false;
+            this.IsNullable = true;
             this.SchemaType= "oneOf";
-            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+            this.ActualInstance = actualInstance;
         }
 
         /// <summary>
@@ -51,7 +60,7 @@ namespace FactSet.SDK.FactSetFundamentals.Model
         /// <param name="actualInstance">An instance of double?.</param>
         public FundamentalValue(double? actualInstance)
         {
-            this.IsNullable = false;
+            this.IsNullable = true;
             this.SchemaType= "oneOf";
             this.ActualInstance = actualInstance;
         }

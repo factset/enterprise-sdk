@@ -8,6 +8,8 @@ Value of the data metric requested. Note that the type of value is 'object', and
 * [Double](Double.md)
 * [String](String.md)
 
+NOTE: this class is nullable.
+
 ## Example
 ```java
 // Import classes:

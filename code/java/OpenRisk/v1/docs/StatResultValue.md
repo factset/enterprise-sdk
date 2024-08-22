@@ -10,6 +10,8 @@ Floating point double(s) in a dimension corresponding to the calculation-level. 
 * [java.util.List<Double>](java.util.List<Double>.md)
 * [java.util.List<java.util.List<Double>>](java.util.List<java.util.List<Double>>.md)
 
+NOTE: this class is nullable.
+
 ## Example
 ```java
 // Import classes:

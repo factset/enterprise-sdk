@@ -155,7 +155,7 @@ public class SegmentValue extends AbstractOpenApiSchema implements Serializable 
          */
         @Override
         public SegmentValue getNullValue(DeserializationContext ctxt) throws JsonMappingException {
-            throw new JsonMappingException(ctxt.getParser(), "SegmentValue cannot be null");
+            return null;
         }
     }
 
@@ -163,7 +163,7 @@ public class SegmentValue extends AbstractOpenApiSchema implements Serializable 
     public static final Map<String, GenericType> schemas = new HashMap<String, GenericType>();
 
     public SegmentValue() {
-        super("oneOf", Boolean.FALSE);
+        super("oneOf", Boolean.TRUE);
     }
 
     public SegmentValue(String o) {
@@ -197,6 +197,11 @@ public class SegmentValue extends AbstractOpenApiSchema implements Serializable 
      */
     @Override
     public void setActualInstance(Object instance) {
+        if (instance == null) {
+           super.setActualInstance(instance);
+           return;
+        }
+
         // String
         if (JSON.isInstanceOf(String.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);

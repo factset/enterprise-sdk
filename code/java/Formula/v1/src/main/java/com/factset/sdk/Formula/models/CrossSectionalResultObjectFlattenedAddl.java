@@ -182,7 +182,7 @@ public class CrossSectionalResultObjectFlattenedAddl extends AbstractOpenApiSche
          */
         @Override
         public CrossSectionalResultObjectFlattenedAddl getNullValue(DeserializationContext ctxt) throws JsonMappingException {
-            throw new JsonMappingException(ctxt.getParser(), "CrossSectionalResultObjectFlattenedAddl cannot be null");
+            return null;
         }
     }
 
@@ -190,7 +190,7 @@ public class CrossSectionalResultObjectFlattenedAddl extends AbstractOpenApiSche
     public static final Map<String, GenericType> schemas = new HashMap<String, GenericType>();
 
     public CrossSectionalResultObjectFlattenedAddl() {
-        super("oneOf", Boolean.FALSE);
+        super("oneOf", Boolean.TRUE);
     }
 
     public CrossSectionalResultObjectFlattenedAddl(String o) {
@@ -230,6 +230,11 @@ public class CrossSectionalResultObjectFlattenedAddl extends AbstractOpenApiSche
      */
     @Override
     public void setActualInstance(Object instance) {
+        if (instance == null) {
+           super.setActualInstance(instance);
+           return;
+        }
+
         // String
         if (JSON.isInstanceOf(String.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
