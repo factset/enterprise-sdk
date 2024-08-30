@@ -31,8 +31,9 @@ import com.factset.sdk.Signals.JSON;
 
 
 /**
- * Contract
+ * Provides details on a given contract
  */
+@ApiModel(description = "Provides details on a given contract")
 @JsonPropertyOrder({
   Contract.JSON_PROPERTY_FIELDS,
   Contract.JSON_PROPERTY_VERSION
@@ -93,11 +94,11 @@ public class Contract implements Serializable {
   }
 
    /**
-   * Get version
+   * Contract version number
    * @return version
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Contract version number")
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

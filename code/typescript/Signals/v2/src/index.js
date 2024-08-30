@@ -14,6 +14,7 @@
 import ApiClient from './ApiClient';
 import Contract from './model/Contract';
 import ContractFields from './model/ContractFields';
+import ContractFieldsEventDate from './model/ContractFieldsEventDate';
 import ContractFieldsSummary from './model/ContractFieldsSummary';
 import ContractProperty from './model/ContractProperty';
 import ContractPropertyItems from './model/ContractPropertyItems';
@@ -99,6 +100,12 @@ export {
      * @property {module:model/ContractFields}
      */
     ContractFields,
+
+    /**
+     * The ContractFieldsEventDate model constructor.
+     * @property {module:model/ContractFieldsEventDate}
+     */
+    ContractFieldsEventDate,
 
     /**
      * The ContractFieldsSummary model constructor.

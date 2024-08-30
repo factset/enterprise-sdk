@@ -5,6 +5,10 @@ LICENSE
 README.md
 appveyor.yml
 docs/CategoriesErrorResponse.md
+docs/CategorizedChartList.md
+docs/CategoryChartListErrorObject.md
+docs/CategoryListResponse.md
+docs/ChartErrorResponseObject.md
 docs/ChartInput.md
 docs/ChartList.md
 docs/ChartListErrorResponse.md
@@ -32,6 +36,10 @@ src/FactSet.SDK.ChartGenerationService/Client/RetryConfiguration.cs
 src/FactSet.SDK.ChartGenerationService/FactSet.SDK.ChartGenerationService.csproj
 src/FactSet.SDK.ChartGenerationService/Model/AbstractOpenAPISchema.cs
 src/FactSet.SDK.ChartGenerationService/Model/CategoriesErrorResponse.cs
+src/FactSet.SDK.ChartGenerationService/Model/CategorizedChartList.cs
+src/FactSet.SDK.ChartGenerationService/Model/CategoryChartListErrorObject.cs
+src/FactSet.SDK.ChartGenerationService/Model/CategoryListResponse.cs
+src/FactSet.SDK.ChartGenerationService/Model/ChartErrorResponseObject.cs
 src/FactSet.SDK.ChartGenerationService/Model/ChartInput.cs
 src/FactSet.SDK.ChartGenerationService/Model/ChartList.cs
 src/FactSet.SDK.ChartGenerationService/Model/ChartListErrorResponse.cs

@@ -1,14 +1,14 @@
 # CustomSymbolsCustomFieldsApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createCustomSymbolCustomField**](CustomSymbolsCustomFieldsApi.md#createCustomSymbolCustomField) | **POST** /v1/custom-symbol-custom-fields | Create a Custom symbol custom field
-[**deleteCustomSymbolCustomField**](CustomSymbolsCustomFieldsApi.md#deleteCustomSymbolCustomField) | **DELETE** /v1/custom-symbol-custom-fields/{customSymbolCustomFieldId} | Delete a Custom symbol custom field
-[**getCustomSymbolCustomField**](CustomSymbolsCustomFieldsApi.md#getCustomSymbolCustomField) | **GET** /v1/custom-symbol-custom-fields/{customSymbolCustomFieldId} | Get a specific Custom symbol custom field&#39;s details
-[**getCustomSymbolCustomFields**](CustomSymbolsCustomFieldsApi.md#getCustomSymbolCustomFields) | **GET** /v1/custom-symbol-custom-fields | Get all the Custom symbol custom fields
-[**patchCustomSymbolCustomField**](CustomSymbolsCustomFieldsApi.md#patchCustomSymbolCustomField) | **PATCH** /v1/custom-symbol-custom-fields/{customSymbolCustomFieldId} | Edit a Custom symbol custom field
+[**createCustomSymbolCustomField**](CustomSymbolsCustomFieldsApi.md#createCustomSymbolCustomField) | **POST** /custom-symbol-custom-fields | Create a Custom symbol custom field
+[**deleteCustomSymbolCustomField**](CustomSymbolsCustomFieldsApi.md#deleteCustomSymbolCustomField) | **DELETE** /custom-symbol-custom-fields/{customSymbolCustomFieldId} | Delete a Custom symbol custom field
+[**getCustomSymbolCustomField**](CustomSymbolsCustomFieldsApi.md#getCustomSymbolCustomField) | **GET** /custom-symbol-custom-fields/{customSymbolCustomFieldId} | Get a specific Custom symbol custom field&#39;s details
+[**getCustomSymbolCustomFields**](CustomSymbolsCustomFieldsApi.md#getCustomSymbolCustomFields) | **GET** /custom-symbol-custom-fields | Get all the Custom symbol custom fields
+[**patchCustomSymbolCustomField**](CustomSymbolsCustomFieldsApi.md#patchCustomSymbolCustomField) | **PATCH** /custom-symbol-custom-fields/{customSymbolCustomFieldId} | Edit a Custom symbol custom field
 
 
 
@@ -17,6 +17,8 @@ Method | HTTP request | Description
 > NewItemDto createCustomSymbolCustomField(createCustomSymbolCustomFieldDto)
 
 Create a Custom symbol custom field
+
+Create a contact custom field with given name and type
 
 ### Example
 
@@ -92,7 +94,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 ### HTTP response details
@@ -108,6 +110,8 @@ Name | Type | Description  | Notes
 > deleteCustomSymbolCustomField(customSymbolCustomFieldId)
 
 Delete a Custom symbol custom field
+
+Delete a custom field configured for custom symbols
 
 ### Example
 
@@ -200,6 +204,8 @@ null (empty response body)
 
 Get a specific Custom symbol custom field&#39;s details
 
+Get details of a given custom field configured for custom symbols
+
 ### Example
 
 > [!IMPORTANT]
@@ -291,6 +297,8 @@ Name | Type | Description  | Notes
 
 Get all the Custom symbol custom fields
 
+Get all custom fields configured for custom symbols configured in your group
+
 ### Example
 
 > [!IMPORTANT]
@@ -375,6 +383,8 @@ This endpoint does not need any parameter.
 > patchCustomSymbolCustomField(customSymbolCustomFieldId, operation)
 
 Edit a Custom symbol custom field
+
+Update a custom field configuration for custom symbols
 
 ### Example
 

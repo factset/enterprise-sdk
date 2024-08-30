@@ -253,7 +253,7 @@ namespace Example
 
             var apiInstance = new MetadataApi(config);
 
-            var signalId = "dilutionTrigger";  // string | 
+            var signalId = "dilutionTrigger";  // string | A single signalId.
 
             try
             {
@@ -275,7 +275,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **signalId** | **string**|  | 
+ **signalId** | **string**| A single signalId. | 
 
 ### Return type
 [**SignalDefinition**](SignalDefinition.md)

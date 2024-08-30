@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## sendTransactions
 
-> sendTransactions(transactions)
+> sendTransactions(dsotmParametersRoot)
 
 Push transactions data into FactSet.
 
@@ -57,9 +57,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         DsotmApi apiInstance = new DsotmApi(defaultClient);
-        Transactions transactions = new Transactions(); // Transactions | 
+        DsotmParametersRoot dsotmParametersRoot = new DsotmParametersRoot(); // DsotmParametersRoot | 
         try {
-            apiInstance.sendTransactions(transactions);
+            apiInstance.sendTransactions(dsotmParametersRoot);
 
         } catch (ApiException e) {
             System.err.println("Exception when calling DsotmApi#sendTransactions");
@@ -77,7 +77,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **transactions** | [**Transactions**](Transactions.md)|  | [optional]
+ **dsotmParametersRoot** | [**DsotmParametersRoot**](DsotmParametersRoot.md)|  | [optional]
 
 ### Return type
 
@@ -95,12 +95,12 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **202** | Expected response. |  * X-DataDirect-Request-Key - FactSet’s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
+| **200** | Expected response. |  * X-DataDirect-Request-Key - FactSet’s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 | **400** | Invalid POST body. |  * X-DataDirect-Request-Key - FactSet’s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 | **401** | Missing or invalid authentication. |  * X-DataDirect-Request-Key - FactSet’s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 | **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key - FactSet’s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 | **415** | Missing/Invalid Content-Type header. Header needs to be set to application/json. |  * X-DataDirect-Request-Key - FactSet’s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 | **429** | Rate limit reached. Retry the requests after waiting the time specified in the retry-after header. |  * X-DataDirect-Request-Key - FactSet’s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 | **500** | Server error. Log the X-DataDirectRequest-Key header to assist in troubleshooting. |  * X-DataDirect-Request-Key - FactSet’s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
-| **503** | Request timed out. Retry the request in sometime. |  * X-DataDirect-Request-Key - FactSet’s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
+| **503** | Request timed out. |  * X-DataDirect-Request-Key - FactSet’s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 

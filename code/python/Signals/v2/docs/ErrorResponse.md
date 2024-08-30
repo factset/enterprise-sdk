@@ -1,5 +1,6 @@
 # ErrorResponse
 
+The response returned for an unsuccessful request
 
 ## Properties
 Name | Type | Description | Notes

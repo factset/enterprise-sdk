@@ -20,8 +20,9 @@ import ApiClient from '../ApiClient';
 class ContractPropertyItems {
     /**
      * Constructs a new <code>ContractPropertyItems</code>.
+     * Information about list of items if type is array
      * @alias module:model/ContractPropertyItems
-     * @param type {String} 
+     * @param type {String} Type of the elements contained in the list
      */
     constructor(type) { 
         
@@ -59,6 +60,7 @@ class ContractPropertyItems {
 }
 
 /**
+ * Type of the elements contained in the list
  * @member {String} type
  */
 ContractPropertyItems.prototype['type'] = undefined;

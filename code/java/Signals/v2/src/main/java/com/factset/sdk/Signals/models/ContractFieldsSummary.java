@@ -56,11 +56,11 @@ public class ContractFieldsSummary implements Serializable {
   }
 
    /**
-   * Get description
+   * Description of the event summary
    * @return description
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Description of the event summary")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -82,11 +82,11 @@ public class ContractFieldsSummary implements Serializable {
   }
 
    /**
-   * Get type
+   * Type of the summary
    * @return type
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Type of the summary")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -50,7 +50,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new DSOTMApi();
 const opts = {
-  'transactions': new directstreamingoftransactionmessages.Transactions() // Transactions | 
+  'dsotmParametersRoot': new directstreamingoftransactionmessages.DsotmParametersRoot() // DsotmParametersRoot | 
 };
 
 // Call api endpoint
@@ -71,7 +71,7 @@ apiInstance.sendTransactions(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **transactions** | [**Transactions**](Transactions.md)|  | [optional] 
+ **dsotmParametersRoot** | [**DsotmParametersRoot**](DsotmParametersRoot.md)|  | [optional] 
 
 ### Return type
 

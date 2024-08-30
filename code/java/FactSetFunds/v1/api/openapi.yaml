@@ -3,6 +3,7 @@ info:
   contact:
     email: api@factset.com
     name: FactSet Research Systems
+    url: https://developer.factset.com/contact
   description: "FactSet Mutual Funds data offers over 50 fund- and share class-specific\
     \ data points for mutual funds listed in the United States. <p>FactSet Mutual\
     \ Funds Reference provides fund-specific reference information as well as FactSet's\
@@ -11,9 +12,17 @@ info:
     \  * Leverage information\n  * Fees and expenses \n  * Portfolio managers \n \
     \ \n  FactSet Mutual Funds Time Series provides quantitative data items on a historical\
     \ basis. It includes but is not limited to the following coverage \n  * Net asset\
-    \ value\n  * Fund flows \n  * Assets under management\n  * Total return \n"
+    \ value\n  * Fund flows \n  * Assets under management\n  * Total return \n<p>This\
+    \ API is rate-limited to 10 requests per second and 10 concurrent requests per\
+    \ user.</p>\n"
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
   title: FactSet Funds API
-  version: 1.0.1
+  version: 1.1.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/factset-funds-api
 servers:
 - description: Production
   url: https://api.factset.com/content
@@ -26,8 +35,14 @@ tags:
   name: Reference
 - description: Fetch Fund Price (NAV) and Returns over a requested time-series.
   name: Prices & Returns
+- description: Current and historical distributions.
+  name: Distributions
 - description: Fetch Fund AUM and Fund Flows over a requested time-series.
   name: Fund Flows & AUM
+- description: Group holdings as of a specific date.
+  name: Group Holdings
+- description: Market Aggregates over a requested time-series.
+  name: Market Aggregates
 - description: Check the Fund's current status and database availability
   name: Helper
 paths:
@@ -64,6 +79,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Fund Managers for MABAX-US:
+                  $ref: '#/components/examples/fundSummary'
               schema:
                 $ref: '#/components/schemas/summariesResponse'
           description: The Fund Summaries response object.
@@ -146,6 +164,9 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              Request for Fund Summary for MABAX and FCNTX:
+                $ref: '#/components/examples/postSummary'
             schema:
               $ref: '#/components/schemas/summariesRequest'
         description: The Funds Summary request body, allowing the user to specify
@@ -155,6 +176,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Fund Managers for MABAX-US:
+                  $ref: '#/components/examples/fundSummary'
               schema:
                 $ref: '#/components/schemas/summariesResponse'
           description: The Funds Summary response object.
@@ -274,6 +298,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Fund Classifications for MABAX-US:
+                  $ref: '#/components/examples/fundClassifications'
               schema:
                 $ref: '#/components/schemas/classificationsResponse'
           description: The Fund Summaries response object.
@@ -366,6 +393,9 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              Request for Fund Classifications for MABAX and FCNTX:
+                $ref: '#/components/examples/postClassifications'
             schema:
               $ref: '#/components/schemas/classificationsRequest'
         description: The Classifications request body, allowing the user to specify
@@ -375,6 +405,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Fund Classifications for MABAX-US:
+                  $ref: '#/components/examples/fundClassifications'
               schema:
                 $ref: '#/components/schemas/classificationsResponse'
           description: The Classifications response object.
@@ -484,6 +517,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Fund Benchmark Details for MABAX-US:
+                  $ref: '#/components/examples/fundBenchmarkDetails'
               schema:
                 $ref: '#/components/schemas/benchmarkDetailsResponse'
           description: The Benchmark Details response object.
@@ -566,6 +602,9 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              Request for Fund Benchmark Details for MABAX and FCNTX:
+                $ref: '#/components/examples/postBenchmarkDetails'
             schema:
               $ref: '#/components/schemas/benchmarkDetailsRequest'
         description: The Benchmark Details request body, allowing the user to specify
@@ -575,6 +614,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Fund Benchmark Details for MABAX-US:
+                  $ref: '#/components/examples/fundBenchmarkDetails'
               schema:
                 $ref: '#/components/schemas/benchmarkDetailsResponse'
           description: The Benchmark Details response object.
@@ -691,8 +733,8 @@ paths:
         schema:
           type: string
         style: form
-      - description: Controls the Currency conversion of the Fund. By default, the
-          currency will use the funds local currency.
+      - description: |
+          Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).
         example: USD
         explode: true
         in: query
@@ -706,6 +748,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Fund Costs Fees details for MABAX-US:
+                  $ref: '#/components/examples/fundCostsFees'
               schema:
                 $ref: '#/components/schemas/costsFeesResponse'
           description: The Costs and Fees response object.
@@ -788,6 +833,9 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              Request for Fund Costs Fees for MABAX and FCNTX:
+                $ref: '#/components/examples/postCostsFees'
             schema:
               $ref: '#/components/schemas/costsFeesRequest'
         description: The Costs and Fees request body, allowing the user to specify
@@ -797,6 +845,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Fund Costs Fees details for MABAX-US:
+                  $ref: '#/components/examples/fundCostsFees'
               schema:
                 $ref: '#/components/schemas/costsFeesResponse'
           description: The Cost and Fees response object.
@@ -908,7 +959,7 @@ paths:
           content:
             application/json:
               examples:
-                Fund Managers for MABAX:
+                Fund Managers for MABAX-US:
                   $ref: '#/components/examples/fundManagers'
               schema:
                 $ref: '#/components/schemas/managersResponse'
@@ -992,6 +1043,9 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              Request for Fund Managers for MABAX and FCNTX:
+                $ref: '#/components/examples/postManagers'
             schema:
               $ref: '#/components/schemas/managersRequest'
         description: The Funds Managers request body, allowing the user to specify
@@ -1114,6 +1168,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Related Fund details for MABAX-US:
+                  $ref: '#/components/examples/fundRelatedFunds'
               schema:
                 $ref: '#/components/schemas/relatedFundsResponse'
           description: The Related Funds response object.
@@ -1196,6 +1253,9 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              Request for Fund Related Funds for MABAX and FCNTX:
+                $ref: '#/components/examples/postRelatedFunds'
             schema:
               $ref: '#/components/schemas/relatedFundsRequest'
         description: The Related Funds request body, allowing the user to specify
@@ -1205,6 +1265,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Related Fund details for MABAX-US:
+                  $ref: '#/components/examples/fundRelatedFunds'
               schema:
                 $ref: '#/components/schemas/relatedFundsResponse'
           description: The Related Funds response object.
@@ -1311,7 +1374,7 @@ paths:
           type: array
         style: form
       - description: |
-          The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.
+          The `start date` requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.
         example: 2018-12-31
         explode: true
         in: query
@@ -1330,17 +1393,17 @@ paths:
         schema:
           type: string
         style: form
-      - description: |
-          Controls the display frequency of the data returned.
-            * **D** = Daily
-            * **W** = Weekly, based on the last day of the week of the start date.
-            * **M** = Monthly, based on the last trading day of the month.
-            * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).
-            * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).
-            * **FQ** = Fiscal Quarter of the company.
-            * **AY** = Actual Annual, based on the start date.
-            * **CY** = Calendar Annual, based on the last trading day of the calendar year.
-            * **FY** = Fiscal Annual, based on the last trading day of the company's fiscal year.
+      - description: "Controls the display frequency of the data returned.\n  * **D**\
+          \ = Daily\n  * **W** = Weekly, based on the last day of the week of the\
+          \ start date.\n  * **M** = Monthly, based on the last trading day of the\
+          \ month.\n  * **AM** = Monthly, based on the start date (e.g., if the start\
+          \ date is June 16, data is displayed for June 16, May 16, April 16 etc.).\n\
+          \  * **CQ** = Quarterly based on the last trading day of the calendar quarter\
+          \ (March, June, September, or December).\n  * **FQ** = Fiscal Quarter of\
+          \ the company.\n  * **AY** = Actual Annual, based on the start date.\n \
+          \ * **CY** = Calendar Annual, based on the last trading day of the calendar\
+          \ year.\n  * **FY** = Fiscal Annual, based on the last trading day of the\
+          \ company's fiscal year.\n  \n"
         explode: true
         in: query
         name: frequency
@@ -1359,8 +1422,8 @@ paths:
           - FY
           type: string
         style: form
-      - description: Controls the Currency conversion of the Fund. By default, the
-          currency will use the funds local currency.
+      - description: |
+          Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).
         example: USD
         explode: true
         in: query
@@ -1398,6 +1461,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Fund Prices details for MABAX-US:
+                  $ref: '#/components/examples/fundPrices'
               schema:
                 $ref: '#/components/schemas/fundsPricesResponse'
           description: The Prices response object.
@@ -1480,6 +1546,9 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              Request for Fund Prices for MABAX and FCNTX:
+                $ref: '#/components/examples/postPrices'
             schema:
               $ref: '#/components/schemas/fundsPricesRequest'
         description: The Prices request body, allowing the user to specify a list
@@ -1489,6 +1558,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Fund Prices details for MABAX-US:
+                  $ref: '#/components/examples/fundPrices'
               schema:
                 $ref: '#/components/schemas/fundsPricesResponse'
           description: The Prices response object.
@@ -1596,7 +1668,7 @@ paths:
           type: array
         style: form
       - description: |
-          The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.
+          The `start date` requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.
         example: 2018-12-31
         explode: true
         in: query
@@ -1615,17 +1687,17 @@ paths:
         schema:
           type: string
         style: form
-      - description: |
-          Controls the display frequency of the data returned.
-            * **D** = Daily
-            * **W** = Weekly, based on the last day of the week of the start date.
-            * **M** = Monthly, based on the last trading day of the month.
-            * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).
-            * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).
-            * **FQ** = Fiscal Quarter of the company.
-            * **AY** = Actual Annual, based on the start date.
-            * **CY** = Calendar Annual, based on the last trading day of the calendar year.
-            * **FY** = Fiscal Annual, based on the last trading day of the company's fiscal year.
+      - description: "Controls the display frequency of the data returned.\n  * **D**\
+          \ = Daily\n  * **W** = Weekly, based on the last day of the week of the\
+          \ start date.\n  * **M** = Monthly, based on the last trading day of the\
+          \ month.\n  * **AM** = Monthly, based on the start date (e.g., if the start\
+          \ date is June 16, data is displayed for June 16, May 16, April 16 etc.).\n\
+          \  * **CQ** = Quarterly based on the last trading day of the calendar quarter\
+          \ (March, June, September, or December).\n  * **FQ** = Fiscal Quarter of\
+          \ the company.\n  * **AY** = Actual Annual, based on the start date.\n \
+          \ * **CY** = Calendar Annual, based on the last trading day of the calendar\
+          \ year.\n  * **FY** = Fiscal Annual, based on the last trading day of the\
+          \ company's fiscal year.\n  \n"
         explode: true
         in: query
         name: frequency
@@ -1644,8 +1716,8 @@ paths:
           - FY
           type: string
         style: form
-      - description: Controls the Currency conversion of the Fund. By default, the
-          currency will use the funds local currency.
+      - description: |
+          Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).
         example: USD
         explode: true
         in: query
@@ -1673,6 +1745,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Fund Returns details for MABAX-US:
+                  $ref: '#/components/examples/fundReturns'
               schema:
                 $ref: '#/components/schemas/fundsReturnsResponse'
           description: The Returns response object.
@@ -1755,6 +1830,9 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              Request for Fund Returns for MABAX and FCNTX:
+                $ref: '#/components/examples/postReturns'
             schema:
               $ref: '#/components/schemas/fundsReturnsRequest'
         description: The Returns request body, allowing the user to specify a list
@@ -1764,6 +1842,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Fund Returns details for MABAX-US:
+                  $ref: '#/components/examples/fundReturns'
               schema:
                 $ref: '#/components/schemas/fundsReturnsResponse'
           description: The Returns response object.
@@ -1900,6 +1981,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Fund Returns Snapshot details for MABAX-US:
+                  $ref: '#/components/examples/fundReturnsSnapshot'
               schema:
                 $ref: '#/components/schemas/fundsReturnsSnapshotResponse'
           description: The Returns Snapshot response object.
@@ -1986,6 +2070,9 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              Request for Fund Returns Snapshot for MABAX and FCNTX:
+                $ref: '#/components/examples/postReturnsSnapshot'
             schema:
               $ref: '#/components/schemas/fundsReturnsSnapshotRequest'
         description: The Returns Snapshot request body, allowing the user to specify
@@ -1995,6 +2082,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Fund Returns Snapshot details for MABAX-US:
+                  $ref: '#/components/examples/fundReturnsSnapshot'
               schema:
                 $ref: '#/components/schemas/fundsReturnsSnapshotResponse'
           description: The Returns Snapshot response object.
@@ -2101,7 +2191,7 @@ paths:
           type: array
         style: form
       - description: |
-          The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to the day prior to today's previous close. The startDate cannot be equal to the endDate as no return can be computed. Additionally, the startDate MUST be equal to or greater than the `priceFirstDate` found within the /summary endpoint.
+          The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to the day prior to today's previous close. The `startDate` cannot be equal to the `endDate` as no return can be computed. Additionally, the `startDate` MUST be equal to or greater than the `priceFirstDate` found within the `/summary` endpoint.
         example: 2018-12-31
         explode: true
         in: query
@@ -2138,6 +2228,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Fund Returns Range details for MABAX-US:
+                  $ref: '#/components/examples/fundReturnsRange'
               schema:
                 $ref: '#/components/schemas/returnsRangeResponse'
           description: The Returns Range response object.
@@ -2220,6 +2313,9 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              Request for Fund Returns Range details for MABAX and FCNTX:
+                $ref: '#/components/examples/postReturnsRange'
             schema:
               $ref: '#/components/schemas/returnsRangeRequest'
         description: The Returns Range request body, allowing the user to specify
@@ -2229,6 +2325,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Fund Returns Range details for MABAX-US:
+                  $ref: '#/components/examples/fundReturnsRange'
               schema:
                 $ref: '#/components/schemas/returnsRangeResponse'
           description: The Returns Range response object.
@@ -2306,6 +2405,495 @@ paths:
       - Prices & Returns
       x-contentType: application/json
       x-accepts: application/json
+  /factset-funds/v1/distributions/current:
+    get:
+      description: |
+        Retrieves the most recently available distributions data for the funds specified.
+      operationId: getFundsDistCurrent
+      parameters:
+      - description: |
+          The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective "POST" method.</p>*
+        examples:
+          oneId:
+            summary: One Market Identifier
+            value:
+            - MABAX-US
+          multipleIds:
+            summary: Multiple Market Identifiers
+            value:
+            - MABAX-US
+            - FCNTX-US
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          maxItems: 1000
+          minItems: 1
+          type: array
+        style: form
+      - description: |
+          Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).
+        example: USD
+        explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          default: LOCAL
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Current Distributions for AGG-US:
+                  $ref: '#/components/examples/distCurrent'
+              schema:
+                $ref: '#/components/schemas/distCurrentResponse'
+          description: The current distribution response object.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Get Most Recent Fund Distributions
+      tags:
+      - Distributions
+      x-accepts: application/json
+    post:
+      description: |
+        Retrieves the most recently available distributions data for the funds specified.
+      operationId: getFundsDistCurrentForList
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/distCurrentRequest'
+        description: The current distribution request body, allowing the user to specify
+          a list of ids.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Current Distributions for AGG-US:
+                  $ref: '#/components/examples/distCurrent'
+              schema:
+                $ref: '#/components/schemas/distCurrentResponse'
+          description: The current distribution response object.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Get Most Recent Fund Distributions
+      tags:
+      - Distributions
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-funds/v1/distributions/historical:
+    get:
+      description: |
+        Retrieves historical distributions data for the funds and date range specified.
+      operationId: getFundsDistHistorical
+      parameters:
+      - description: |
+          The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective "POST" method.</p>*
+        examples:
+          oneId:
+            summary: One Market Identifier
+            value:
+            - MABAX-US
+          multipleIds:
+            summary: Multiple Market Identifiers
+            value:
+            - MABAX-US
+            - FCNTX-US
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          maxItems: 1000
+          minItems: 1
+          type: array
+        style: form
+      - description: |
+          The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to the day prior to today's previous close. The `startDate` cannot be equal to the `endDate` as no return can be computed.
+        example: 2018-12-31
+        explode: true
+        in: query
+        name: startDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: |
+          The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.
+        example: 2019-12-31
+        explode: true
+        in: query
+        name: endDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Controls the display frequency of the data returned.\n  * **D**\
+          \ = Daily\n  * **W** = Weekly, based on the last day of the week of the\
+          \ start date.\n  * **M** = Monthly, based on the last trading day of the\
+          \ month.\n  * **AM** = Monthly, based on the start date (e.g., if the start\
+          \ date is June 16, data is displayed for June 16, May 16, April 16 etc.).\n\
+          \  * **CQ** = Quarterly based on the last trading day of the calendar quarter\
+          \ (March, June, September, or December).\n  * **FQ** = Fiscal Quarter of\
+          \ the company.\n  * **AY** = Actual Annual, based on the start date.\n \
+          \ * **CY** = Calendar Annual, based on the last trading day of the calendar\
+          \ year.\n  * **FY** = Fiscal Annual, based on the last trading day of the\
+          \ company's fiscal year.\n  \n"
+        explode: true
+        in: query
+        name: frequency
+        required: false
+        schema:
+          default: M
+          enum:
+          - D
+          - W
+          - M
+          - AM
+          - CQ
+          - FQ
+          - AY
+          - CY
+          - FY
+          type: string
+        style: form
+      - description: |
+          Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).
+        example: USD
+        explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          default: LOCAL
+          type: string
+        style: form
+      - description: The price adjustment split or unsplit.
+        explode: true
+        in: query
+        name: splitAdjust
+        required: false
+        schema:
+          default: true
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Historical Distributions for AGG-US:
+                  $ref: '#/components/examples/distHistorical'
+              schema:
+                $ref: '#/components/schemas/distHistoricalResponse'
+          description: The historical distribution response object.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Get Historical Fund Distributions
+      tags:
+      - Distributions
+      x-accepts: application/json
+    post:
+      description: |
+        Retrieves historical distributions data for the funds and date range specified.
+      operationId: getFundsDistHistoricalForList
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/distHistoricalRequest'
+        description: The historical distribution request body, allowing the user to
+          specify a list of ids and date range.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/distHistoricalResponse'
+          description: The historical distribution response object.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Get Historical Fund Distributions
+      tags:
+      - Distributions
+      x-contentType: application/json
+      x-accepts: application/json
   /factset-funds/v1/aum:
     get:
       description: |
@@ -2336,7 +2924,7 @@ paths:
           type: array
         style: form
       - description: |
-          The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.
+          The `start date` requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.
         example: 2018-12-31
         explode: true
         in: query
@@ -2378,8 +2966,8 @@ paths:
           - CY
           type: string
         style: form
-      - description: Controls the Currency conversion of the Fund. By default, the
-          currency will use the funds local currency.
+      - description: |
+          Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).
         example: USD
         explode: true
         in: query
@@ -2405,6 +2993,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Fund AUM details for MABAX-US:
+                  $ref: '#/components/examples/fundAum'
               schema:
                 $ref: '#/components/schemas/aumResponse'
           description: The AUM response object.
@@ -2487,6 +3078,9 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              Request for Fund Aum for MABAX and FCNTX:
+                $ref: '#/components/examples/postAum'
             schema:
               $ref: '#/components/schemas/aumRequest'
         description: The AUM request body, allowing the user to specify a list of
@@ -2496,6 +3090,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Fund AUM details for MABAX-US:
+                  $ref: '#/components/examples/fundAum'
               schema:
                 $ref: '#/components/schemas/aumResponse'
           description: The AUM response object.
@@ -2617,7 +3214,7 @@ paths:
           type: array
         style: form
       - description: |
-          The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.
+          The `start date` requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.
         example: 2018-12-31
         explode: true
         in: query
@@ -2636,17 +3233,17 @@ paths:
         schema:
           type: string
         style: form
-      - description: |
-          Controls the display frequency of the data returned.
-            * **D** = Daily
-            * **W** = Weekly, based on the last day of the week of the start date.
-            * **M** = Monthly, based on the last trading day of the month.
-            * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).
-            * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).
-            * **FQ** = Fiscal Quarter of the company.
-            * **AY** = Actual Annual, based on the start date.
-            * **CY** = Calendar Annual, based on the last trading day of the calendar year.
-            * **FY** = Fiscal Annual, based on the last trading day of the company's fiscal year.
+      - description: "Controls the display frequency of the data returned.\n  * **D**\
+          \ = Daily\n  * **W** = Weekly, based on the last day of the week of the\
+          \ start date.\n  * **M** = Monthly, based on the last trading day of the\
+          \ month.\n  * **AM** = Monthly, based on the start date (e.g., if the start\
+          \ date is June 16, data is displayed for June 16, May 16, April 16 etc.).\n\
+          \  * **CQ** = Quarterly based on the last trading day of the calendar quarter\
+          \ (March, June, September, or December).\n  * **FQ** = Fiscal Quarter of\
+          \ the company.\n  * **AY** = Actual Annual, based on the start date.\n \
+          \ * **CY** = Calendar Annual, based on the last trading day of the calendar\
+          \ year.\n  * **FY** = Fiscal Annual, based on the last trading day of the\
+          \ company's fiscal year.\n  \n"
         explode: true
         in: query
         name: frequency
@@ -2665,8 +3262,8 @@ paths:
           - FY
           type: string
         style: form
-      - description: Controls the Currency conversion of the Fund. By default, the
-          currency will use the funds local currency.
+      - description: |
+          Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).
         example: USD
         explode: true
         in: query
@@ -2680,6 +3277,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Fund AUM details for MABAX-US:
+                  $ref: '#/components/examples/fundFlows'
               schema:
                 $ref: '#/components/schemas/flowsResponse'
           description: The Fund Flows response object.
@@ -2777,6 +3377,9 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              Request for Fund Flows for MABAX and FCNTX:
+                $ref: '#/components/examples/postFlows'
             schema:
               $ref: '#/components/schemas/flowsRequest'
         description: The Fund Flows request body, allowing the user to specify a list
@@ -2786,6 +3389,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Fund AUM details for MABAX-US:
+                  $ref: '#/components/examples/fundFlows'
               schema:
                 $ref: '#/components/schemas/flowsResponse'
           description: The AUM response object.
@@ -2862,6 +3468,533 @@ paths:
       - Fund Flows & AUM
       x-contentType: application/json
       x-accepts: application/json
+  /factset-funds/v1/holdings/group:
+    get:
+      description: |
+        Retrieves the holding percentages for the group and funds specified. Available groups are:
+          * **ASSET** = Asset Class
+          * **ASSETISTYP** = Issue Type with Asset Class
+          * **CAPGRP** = Cap Group
+          * **CNTRY** = Country
+          * **EXCHANGE** = Exchange
+          * **INDUSTRY** = Industry
+          * **ISSUE_TYPE** = Issue Type
+          * **REGION** = Region
+          * **SECTOR** = Sector
+          * **ULTPARENT** = Ultimate Parent
+      operationId: getGroupHoldings
+      parameters:
+      - description: |
+          The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective "POST" method.</p>*
+        examples:
+          oneId:
+            summary: One Market Identifier
+            value:
+            - MABAX-US
+          multipleIds:
+            summary: Multiple Market Identifiers
+            value:
+            - MABAX-US
+            - FCNTX-US
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          maxItems: 1000
+          minItems: 1
+          type: array
+        style: form
+      - description: |
+          As of date for historical group holdings in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.
+        example: 2024-02-20
+        explode: true
+        in: query
+        name: asOfDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Controls the group of the data returned.\n  * **ASSET** = Asset\
+          \ Class\n  * **ASSETISTYP** = Issue Type with Asset Class\n  * **CAPGRP**\
+          \ = Cap Group\n  * **CNTRY** = Country\n  * **EXCHANGE** = Exchange\n  *\
+          \ **INDUSTRY** = Industry\n  * **ISSUE_TYPE** = Issue Type\n  * **REGION**\
+          \ = Region\n  * **SECTOR** = Sector\n  * **ULTPARENT** = Ultimate Parent\n\
+          \  \n  \n"
+        explode: true
+        in: query
+        name: group
+        required: false
+        schema:
+          default: CNTRY
+          enum:
+          - ASSET
+          - ASSETISTYP
+          - CAPGRP
+          - CNTRY
+          - EXCHANGE
+          - INDUSTRY
+          - ISSUE_TYPE
+          - REGION
+          - SECTOR
+          - ULTPARENT
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Country Holdings for SPAXX-US:
+                  $ref: '#/components/examples/groupHoldings'
+              schema:
+                $ref: '#/components/schemas/groupHoldingsResponse'
+          description: The Group Holdings response object.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Get group holdings for a specific date and group.
+      tags:
+      - Group Holdings
+      x-accepts: application/json
+    post:
+      description: |
+        Retrieves the holding percentages for the group and funds specified. Available groups are:
+          * **ASSET** = Asset Class
+          * **ASSETISTYP** = Issue Type with Asset Class
+          * **CAPGRP** = Cap Group
+          * **CNTRY** = Country
+          * **EXCHANGE** = Exchange
+          * **INDUSTRY** = Industry
+          * **ISSUE_TYPE** = Issue Type
+          * **REGION** = Region
+          * **SECTOR** = Sector
+          * **ULTPARENT** = Ultimate Parent
+      operationId: getGroupHoldingsForList
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/groupHoldingsRequest'
+        description: The Group Holdings request body, allowing the user to specify
+          a list of ids, date, and group.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Country Holdings for SPAXX-US:
+                  $ref: '#/components/examples/groupHoldings'
+              schema:
+                $ref: '#/components/schemas/groupHoldingsResponse'
+          description: The Group Holdings response object.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Get group holdings for a specific date and group.
+      tags:
+      - Group Holdings
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-funds/v1/aggregates/market:
+    get:
+      description: |
+        Retrieves FactSet market aggregate data for the funds and date range specified.
+      operationId: getMarketAggregates
+      parameters:
+      - description: |
+          The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective "POST" method.</p>*
+        examples:
+          oneId:
+            summary: One Market Identifier
+            value:
+            - MABAX-US
+          multipleIds:
+            summary: Multiple Market Identifiers
+            value:
+            - MABAX-US
+            - FCNTX-US
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          maxItems: 1000
+          minItems: 1
+          type: array
+        style: form
+      - description: |
+          The `start date` requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.
+        example: 2018-12-31
+        explode: true
+        in: query
+        name: startDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: |
+          The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.
+        example: 2019-12-31
+        explode: true
+        in: query
+        name: endDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Controls the display frequency of the data returned.\n  * **D**\
+          \ = Daily\n  * **W** = Weekly, based on the last day of the week of the\
+          \ start date.\n  * **M** = Monthly, based on the last trading day of the\
+          \ month.\n  * **AM** = Monthly, based on the start date (e.g., if the start\
+          \ date is June 16, data is displayed for June 16, May 16, April 16 etc.).\n\
+          \  * **CQ** = Quarterly based on the last trading day of the calendar quarter\
+          \ (March, June, September, or December).\n  * **FQ** = Fiscal Quarter of\
+          \ the company.\n  * **AY** = Actual Annual, based on the start date.\n \
+          \ * **CY** = Calendar Annual, based on the last trading day of the calendar\
+          \ year.\n  * **FY** = Fiscal Annual, based on the last trading day of the\
+          \ company's fiscal year.\n  \n"
+        explode: true
+        in: query
+        name: frequency
+        required: false
+        schema:
+          default: M
+          enum:
+          - D
+          - W
+          - M
+          - AM
+          - CQ
+          - FQ
+          - AY
+          - CY
+          - FY
+          type: string
+        style: form
+      - description: |
+          Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).
+        example: USD
+        explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          default: LOCAL
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Market Aggregates for AGG-US:
+                  $ref: '#/components/examples/marketAggregates'
+              schema:
+                $ref: '#/components/schemas/marketAggregatesResponse'
+          description: The Market Aggregates response object.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Get market aggregates for a requested time series.
+      tags:
+      - Market Aggregates
+      x-accepts: application/json
+    post:
+      description: |
+        Retrieves FactSet market aggregate data for the funds and date range specified.
+      operationId: getMarketAggregatesForList
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/marketAggregatesRequest'
+        description: The Market Aggregates request body, allowing the user to specify
+          a list of ids and date range.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Market Aggregates for AGG-US:
+                  $ref: '#/components/examples/marketAggregates'
+              schema:
+                $ref: '#/components/schemas/marketAggregatesResponse'
+          description: The Market Aggregates response object.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Get market aggregates for a requested time series.
+      tags:
+      - Market Aggregates
+      x-contentType: application/json
+      x-accepts: application/json
   /factset-funds/v1/status:
     get:
       description: |
@@ -2895,6 +4028,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Fund Statuses details for MABAX-US:
+                  $ref: '#/components/examples/fundStatus'
               schema:
                 $ref: '#/components/schemas/statusesResponse'
           description: The Statuses response object.
@@ -2977,6 +4113,9 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              Fund Statuses details for MABAX-US:
+                $ref: '#/components/examples/fundStatus'
             schema:
               $ref: '#/components/schemas/statusesRequest'
         description: The Statuses request body, allowing the user to specify a list
@@ -2986,6 +4125,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Fund Statuses details for MABAX-US:
+                  $ref: '#/components/examples/fundStatus'
               schema:
                 $ref: '#/components/schemas/statusesResponse'
           description: The Statuses response object.
@@ -3065,6 +4207,239 @@ paths:
       x-accepts: application/json
 components:
   examples:
+    postSummary:
+      summary: Fund Summary for MABAX and FCNTX
+      value:
+        ids:
+        - MABAX
+        - FCNTX
+    postClassifications:
+      summary: Fund Classifications for MABAX and FCNTX
+      value:
+        ids:
+        - MABAX
+        - FCNTX
+    postBenchmarkDetails:
+      summary: Fund Benchmark Details for MABAX and FCNTX
+      value:
+        ids:
+        - MABAX
+        - FCNTX
+    postCostsFees:
+      summary: Fund Costs Fees for MABAX and FCNTX
+      value:
+        ids:
+        - MABAX
+        - FCNTX
+        date: 2019-12-31
+        currency: USD
+    postManagers:
+      summary: Fund Managers for MABAX and FCNTX
+      value:
+        ids:
+        - MABAX
+        - FCNTX
+    postRelatedFunds:
+      summary: Fund Related Funds for MABAX and FCNTX
+      value:
+        ids:
+        - MABAX
+        - FCNTX
+    postPrices:
+      summary: Fund Prices for MABAX and FCNTX
+      value:
+        ids:
+        - MABAX
+        - FCNTX
+        startDate: 2019-01-01
+        endDate: 2019-12-31
+        frequency: M
+        currency: USD
+        dataType: ROLL
+        splitAdjust: SPLIT
+    postReturns:
+      summary: Fund Returns for MABAX and FCNTX
+      value:
+        ids:
+        - MABAX
+        - FCNTX
+        startDate: 2019-01-01
+        endDate: 2019-12-31
+        frequency: M
+        currency: USD
+        dividendAdjust: DIV
+    postReturnsSnapshot:
+      summary: Fund Returns Snapshot for MABAX and FCNTX
+      value:
+        ids:
+        - MABAX
+        - FCNTX
+        date: 2019-01-01
+        dividendAdjust: DIV
+    postReturnsRange:
+      summary: Fund Returns Range for MABAX and FCNTX
+      value:
+        ids:
+        - MABAX
+        - FCNTX
+        startDate: 2019-01-01
+        endDate: 2019-12-31
+        dividendAdjust: DIV
+    postAum:
+      summary: Fund Aum for MABAX and FCNTX
+      value:
+        ids:
+        - MABAX
+        - FCNTX
+        startDate: 2019-01-01
+        endDate: 2019-12-31
+        frequency: M
+        currency: USD
+        dataType: ROLL
+    postFlows:
+      summary: Fund Flows for MABAX and FCNTX
+      value:
+        ids:
+        - MABAX
+        - FCNTX
+        startDate: 2019-01-01
+        endDate: 2019-12-31
+        frequency: M
+        currency: USD
+    fundSummary:
+      description: |
+        The list of all associated Fund Summary for MABAX-US.
+      summary: List of Fund Summary for MABAX-US.
+      value:
+        data:
+        - fsymId: FNK7XP-S
+          fsymEntityId: 04BFG7-E
+          fsymRegionalId: SJY03Z-R
+          fsymTickerRegion: MABAX-US
+          fsymUltimateParentId: 002HJD-E
+          requestId: MABAX-US
+          activeFlag: 1
+          activelyManagedFlag: 1
+          brand: BlackRock
+          countryDomicile: US
+          currency: USD
+          descInfo: The fund seeks capital appreciation and income from an actively
+            managed portfolio of US large-cap value stocks.
+          fundOfFundsId: null
+          inceptionDate: 1977-07-01
+          insight: The fund provides narrow exposure to the US large-cap value segment.
+            It actively manages a portfolio of 30 to 50 stocks issued by companies
+            the adviser believes are undervalued relative to their intrinsic worth.
+            The fund emphasizes firms with below average price-to-earnings ratios
+            that may pay above average dividends. Eligible companies must also have
+            a market capitalization within the range of companies included in the
+            Russell 1000 Value Index, a market cap-weighted index of large-cap value
+            firms. The portfolio includes common stock, preferred and convertible
+            securities, other financial instruments that are components of, or have
+            characteristics similar to the securities included in the Russell 1000
+            Value Index, as well as American Depositary Receipts (ADRs). Though the
+            fund primarily holds US companies, it may invest up to 25% of its total
+            assets in foreign issuers.
+          issuerId: "7"
+          issuerName: BlackRock, Inc.
+          legalStructure: Open-Ended Fund
+          leverageFactor: 0
+          leverageInverse: Neither
+          name: BlackRock Large Cap Focus Value Fund, Inc - Institutional
+          navCurrency: USD
+          objective: Under normal circumstances, the Fund seeks to invest at least
+            80% of its net assets plus the amount of any borrowings for investment
+            purposes in large cap equity securities and derivatives that have similar
+            economic characteristics to such securities. For purposes of the Fund’s
+            80% policy, large cap equity securities are equity securities that at
+            the time of purchase have a market capitalization within the range of
+            companies included in the Russell 1000® Value Index (the “Russell 1000
+            Value Index”). The Russell 1000 Value Index is a capitalization-weighted
+            index from a broad range of industries chosen for market size, liquidity
+            and industry group representation. Equity securities consist of common
+            stock, preferred stock and convertible securities, other financial instruments
+            that are components of, or have characteristics similar to, the securities
+            included in the Russell 1000 Value Index, and American Depositary Receipts
+            (“ADRs”), which are receipts typically issued by an American bank or trust
+            company that evidence underlying securities issued by a foreign company.
+            The Fund invests primarily in equity securities that Fund management believes
+            are undervalued, which means that their prices are less than Fund management
+            believes they are worth. Fund management places particular emphasis on
+            companies with below average price/earnings ratios that may pay above
+            average dividends. The Fund invests primarily in common stock of U.S.
+            companies, but the Fund may invest up to 25% of its total assets in the
+            securities of foreign companies and ADRs. The Fund generally intends to
+            invest in not less than 30 to not more than 50 companies.
+          priceFirstDate: 2008-05-30
+          priceRecentDate: 2024-04-05
+          shrClass: Institutional Class
+          shrClassActiveFlag: 1
+          shrClsActivelyManagedFlag: 1
+          shrClsCurrency: USD
+          shrClsInceptDate: 1977-07-01
+          shrClsName: BlackRock Large Cap Focus Value Fund, Inc - Institutional
+          shrClsTermDate: null
+          terminationDate: null
+          type: Mutual Fund
+          webSite: https://www.blackrock.com/investing/products/227716/blackrock-Large
+            Cap Focus-value-class-a-fund
+    fundClassifications:
+      description: |
+        The list of all associated basic Fund Classifications for MABAX-US.
+      summary: List of Fund Classifications for MABAX-US.
+      value:
+        data:
+        - fsymId: FNK7XP-S
+          requestId: MABAX-US
+          assetClass: Equity
+          categoryClass: Size and Style
+          economicDevelopmentClass: Developed Markets
+          focusClass: Large Cap
+          geographicClass: U.S.
+          nicheClass: Value
+          regionClass: North America
+    fundBenchmarkDetails:
+      description: |
+        The list of Fund's Benchmark and Segment Benchmark ids for MABAX-US.
+      summary: List of Benchmark Details for MABAX-US.
+      value:
+        data:
+        - fsymId: FNK7XP-S
+          benchmarkId: R.1000V
+          benchmarkName: Russell 1000 Value
+          multipleBenchmarkFlag: Non-Composite
+          benchmarkChangeDate: null
+          segment: 'Equity: U.S.  -  Large Cap Value'
+          segmentBenchmarkId: MS650145
+          segmentBenchmarkName: MSCI USA Large Cap Value
+          segmentBenchmarkCurrency: USD
+          segmentBenchmarkReturnType: GROSS_RETURN
+          requestId: MABAX-US
+    fundCostsFees:
+      description: |
+        The list of Fund Costs Fees for MABAX-US.
+      summary: List of Fund Costs Fees for MABAX-US.
+      value:
+        data:
+        - fsymId: FNK7XP-S
+          managementExpenses: 0.41
+          date: 2018-10-28
+          currency: USD
+          entryExpenses: null
+          exitExpenses: null
+          frontExpensesMax: null
+          backExpensesMax: null
+          expenseRatio: 0.54
+          expenseRatioProspectus: null
+          initInvestmentMin: 2000000
+          initInvestmentIra: null
+          swingPrice: null
+          swingPriceDate: null
+          sriPriips: null
+          srriUcits: null
+          performanceFee: null
+          tradingExpenseRatio: null
+          requestId: MABAX-US
     fundManagers:
       description: |
         The list of all associated Fund Managers for MABAX-US.
@@ -3077,34 +4452,482 @@ components:
           managerName: Mr. Antonio DeSpirito III
           managerPhone: 1.212.810.5300
           managerTitle: Managing Director
-          requestId: MABAX
+          requestId: MABAX-US
         - fsymId: FNK7XP-S
           managerInceptionDate: 0001-01-01
           managerJobId: 6256670
           managerName: Ms. Carrie E. King, MBA
           managerPhone: 1.609.282.2000
           managerTitle: Managing Director
-          requestId: MABAX
+          requestId: MABAX-US
         - fsymId: FNK7XP-S
           managerInceptionDate: 2016-04-01
           managerJobId: 8659057
           managerName: Mr. David Zhao
           managerPhone: 1.609.282.2000
           managerTitle: Portfolio Manager
-          requestId: MABAX
+          requestId: MABAX-US
         - fsymId: FNK7XP-S
           managerInceptionDate: 2016-01-01
           managerJobId: 8014279
           managerName: Mr. Franco Fabrizio Tapia CFA, MBA
           managerPhone: 1.212.810.5300
           managerTitle: MD, Director of Research & Portfolio Manager
-          requestId: MABAX
+          requestId: MABAX-US
         - fsymId: FNK7XP-S
           managerInceptionDate: 2012-01-01
           managerJobId: 8654243
           managerName: Mr. Joseph E. Wolfe, CFA
           managerPhone: 1.609.282.2000
           managerTitle: Director
+          requestId: MABAX-US
+    fundRelatedFunds:
+      description: |
+        The list of Related Funds for MABAX-US.
+      summary: List of Related Funds for MABAX-US.
+      value:
+        data:
+        - fsymId: FNK7XP-S
+          relatedFundIdOne: V7LPJQ-S
+          relatedFundIdTwo: W15L47-S
+          relatedFundIdThree: M0JDX9-S
+          relatedFundIdFour: MS975S-S
+          relatedFundIdFive: QJG307-S
+          requestId: MABAX-US
+    fundPrices:
+      description: |
+        The list of Fund Prices for MABAX-US.
+      summary: List of Fund Prices for MABAX-US.
+      value:
+        data:
+        - fsymId: FNK7XP-S
+          price: 19.1
+          date: 2018-12-31
+          requestId: MABAX-US
+          currency: USD
+        - fsymId: FNK7XP-S
+          price: 20.56
+          date: 2019-01-31
+          requestId: MABAX-US
+          currency: USD
+        - fsymId: FNK7XP-S
+          price: 21.18
+          date: 2019-02-28
+          requestId: MABAX-US
+          currency: USD
+        - fsymId: FNK7XP-S
+          price: 21.25
+          date: 2019-03-29
+          requestId: MABAX-US
+          currency: USD
+        - fsymId: FNK7XP-S
+          price: 22.1
+          date: 2019-04-30
+          requestId: MABAX-US
+          currency: USD
+        - fsymId: FNK7XP-S
+          price: 20.58
+          date: 2019-05-31
+          requestId: MABAX-US
+          currency: USD
+        - fsymId: FNK7XP-S
+          price: 21.86
+          date: 2019-06-28
+          requestId: MABAX-US
+          currency: USD
+        - fsymId: FNK7XP-S
+          price: 21.95
+          date: 2019-07-31
+          requestId: MABAX-US
+          currency: USD
+        - fsymId: FNK7XP-S
+          price: 21.29
+          date: 2019-08-30
+          requestId: MABAX-US
+          currency: USD
+        - fsymId: FNK7XP-S
+          price: 22.07
+          date: 2019-09-30
+          requestId: MABAX-US
+          currency: USD
+        - fsymId: FNK7XP-S
+          price: 22.29
+          date: 2019-10-31
+          requestId: MABAX-US
+          currency: USD
+        - fsymId: FNK7XP-S
+          price: 20.25
+          date: 2019-11-29
+          requestId: MABAX-US
+          currency: USD
+        - fsymId: FNK7XP-S
+          price: 20.96
+          date: 2019-12-31
+          requestId: MABAX-US
+          currency: USD
+    fundReturns:
+      description: |
+        The list of Fund Returns for MABAX-US.
+      summary: List of Fund Returns for MABAX-US.
+      value:
+        data:
+        - return: 52.9513688433916
+          fsymId: FNK7XP-S
+          date: 2018-12-31
+          currency: USD
+          requestId: MABAX-US
+        - return: 56.9989603884885
+          fsymId: FNK7XP-S
+          date: 2019-01-31
+          currency: USD
+          requestId: MABAX-US
+        - return: 58.7178006336667
+          fsymId: FNK7XP-S
+          date: 2019-02-28
+          currency: USD
+          requestId: MABAX-US
+        - return: 58.9118632419932
+          fsymId: FNK7XP-S
+          date: 2019-03-29
+          currency: USD
+          requestId: MABAX-US
+        - return: 61.2683377716729
+          fsymId: FNK7XP-S
+          date: 2019-04-30
+          currency: USD
+          requestId: MABAX-US
+        - return: 57.0544068480104
+          fsymId: FNK7XP-S
+          date: 2019-05-31
+          currency: USD
+          requestId: MABAX-US
+        - return: 60.6029802574104
+          fsymId: FNK7XP-S
+          date: 2019-06-28
+          currency: USD
+          requestId: MABAX-US
+        - return: 60.8524893252589
+          fsymId: FNK7XP-S
+          date: 2019-07-31
+          currency: USD
+          requestId: MABAX-US
+        - return: 59.022756161037
+          fsymId: FNK7XP-S
+          date: 2019-08-30
+          currency: USD
+          requestId: MABAX-US
+        - return: 61.1851680823901
+          fsymId: FNK7XP-S
+          date: 2019-09-30
+          currency: USD
+          requestId: MABAX-US
+        - return: 61.7950791371307
+          fsymId: FNK7XP-S
+          date: 2019-10-31
+          currency: USD
+          requestId: MABAX-US
+        - return: 63.5486156680155
+          fsymId: FNK7XP-S
+          date: 2019-11-29
+          currency: USD
+          requestId: MABAX-US
+        - return: 65.7767399704497
+          fsymId: FNK7XP-S
+          date: 2019-12-31
+          currency: USD
+          requestId: MABAX-US
+    fundReturnsSnapshot:
+      description: |
+        The list of Fund Returns Snapshot for MABAX-US.
+      summary: List of Fund Retuns Snapshot for MABAX-US.
+      value:
+        data:
+        - fsymId: FNK7XP-S
+          oneWeek: 5.3502482073911
+          oneMonth: -9.64995269631025
+          threeMonth: -13.8591762235202
+          yearToDate: 0
+          oneYear: -7.6898524635287
+          threeYear: 18.8249106003396
+          threeYearAnnualized: 5.91785215998126
+          fiveYear: 23.0660688456055
+          fiveYearAnnualized: 4.23838296071539
+          date: 2018-12-31
+          requestId: MABAX-US
+    fundReturnsRange:
+      description: |
+        The list of Fund Retuns Range for MABAX-US.
+      summary: List of Fund Retuns Range for MABAX-US.
+      value:
+        data:
+        - return: -19.4983380642152
+          fsymId: FNK7XP-S
+          returnStartDate: 2018-12-31
+          returnEndDate: 2019-12-31
+          requestId: MABAX-US
+    fundAum:
+      description: |
+        The list of Fund AUM for MABAX-US.
+      summary: List of Fund AUM for MABAX-US.
+      value:
+        data:
+        - fsymId: FNK7XP-S
+          fundLevelAUM: 2.08043023801063E9
+          shrClassAUMRpt: 9.083156450967E8
+          shrClassAUMAct: 9.0118227615615E8
+          currency: USD
+          date: 2018-12-31
+          requestId: MABAX-US
+        - fsymId: FNK7XP-S
+          fundLevelAUM: 2.20911459913568E9
+          shrClassAUMRpt: 9.5908284881048E8
+          shrClassAUMAct: 9.5068620908354E8
+          currency: null
+          date: 2019-01-31
+          requestId: MABAX-US
+        - fsymId: FNK7XP-S
+          fundLevelAUM: 2.24553606851867E9
+          shrClassAUMRpt: 9.7728001614996E8
+          shrClassAUMAct: 9.7912568190284E8
+          currency: null
+          date: 2019-02-28
+          requestId: MABAX-US
+        - fsymId: FNK7XP-S
+          fundLevelAUM: 2.18050152821191E9
+          shrClassAUMRpt: 9.518840386225E8
+          shrClassAUMAct: 9.4830047518298E8
+          currency: null
+          date: 2019-03-31
+          requestId: MABAX-US
+        - fsymId: FNK7XP-S
+          fundLevelAUM: 2.26674487648856E9
+          shrClassAUMRpt: 9.774700894231E8
+          shrClassAUMAct: 9.7172026536767E8
+          currency: null
+          date: 2019-04-30
+          requestId: MABAX-US
+        - fsymId: FNK7XP-S
+          fundLevelAUM: 2.06894677060497E9
+          shrClassAUMRpt: 8.9748559895232E8
+          shrClassAUMAct: 9.0795190331328E8
+          currency: null
+          date: 2019-05-31
+          requestId: MABAX-US
+        - fsymId: FNK7XP-S
+          fundLevelAUM: 2.13745681051876E9
+          shrClassAUMRpt: 8.9794519572866E8
+          shrClassAUMAct: 8.913728612677E8
+          currency: null
+          date: 2019-06-30
+          requestId: MABAX-US
+        - fsymId: FNK7XP-S
+          fundLevelAUM: 2.11273710567929E9
+          shrClassAUMRpt: 8.9130869351145E8
+          shrClassAUMAct: 9.0024208360587E8
+          currency: null
+          date: 2019-07-31
+          requestId: MABAX-US
+        - fsymId: FNK7XP-S
+          fundLevelAUM: 2.0392588287366E9
+          shrClassAUMRpt: 8.5634575715737E8
+          shrClassAUMAct: 8.527256952436E8
+          currency: null
+          date: 2019-08-31
+          requestId: MABAX-US
+        - fsymId: FNK7XP-S
+          fundLevelAUM: 1.99749322326852E9
+          shrClassAUMRpt: 7.8927370132438E8
+          shrClassAUMAct: 7.8748558691268E8
+          currency: null
+          date: 2019-09-30
+          requestId: MABAX-US
+        - fsymId: FNK7XP-S
+          fundLevelAUM: 1.97055879564425E9
+          shrClassAUMRpt: 7.8220647390657E8
+          shrClassAUMAct: 7.8747031289652E8
+          currency: null
+          date: 2019-10-31
+          requestId: MABAX-US
+        - fsymId: FNK7XP-S
+          fundLevelAUM: 1.93697303368817E9
+          shrClassAUMRpt: 7.768011910815E8
+          shrClassAUMAct: 7.7987003529318E8
+          currency: null
+          date: 2019-11-30
+          requestId: MABAX-US
+        - fsymId: FNK7XP-S
+          fundLevelAUM: 1.96049114390068E9
+          shrClassAUMRpt: 7.8993731736656E8
+          shrClassAUMAct: 7.8654541094657E8
+          currency: null
+          date: 2019-12-31
+          requestId: MABAX-US
+    fundFlows:
+      description: |
+        The list of Fund Flows for MABAX-US.
+      summary: List of Fund Flows for MABAX-US.
+      value:
+        data:
+        - fsymId: FNK7XP-S
+          fundFlows: -6021392.69972005
+          currency: USD
+          date: 2018-12-31
+          requestId: MABAX-US
+        - fsymId: FNK7XP-S
+          fundFlows: -1.82200476857099E7
+          currency: USD
+          date: 2019-01-31
+          requestId: MABAX-US
+        - fsymId: FNK7XP-S
+          fundFlows: -1.05671669255101E7
+          currency: USD
+          date: 2019-02-28
+          requestId: MABAX-US
+        - fsymId: FNK7XP-S
+          fundFlows: -2.85298079196299E7
+          currency: USD
+          date: 2019-03-31
+          requestId: MABAX-US
+        - fsymId: FNK7XP-S
+          fundFlows: -1.22293988178001E7
+          currency: USD
+          date: 2019-04-30
+          requestId: MABAX-US
+        - fsymId: FNK7XP-S
+          fundFlows: -1.33607537394899E7
+          currency: USD
+          date: 2019-05-31
+          requestId: MABAX-US
+        - fsymId: FNK7XP-S
+          fundFlows: -5.261205607234E7
+          currency: USD
+          date: 2019-06-30
+          requestId: MABAX-US
+        - fsymId: FNK7XP-S
+          fundFlows: -1.04136952632299E7
+          currency: USD
+          date: 2019-07-31
+          requestId: MABAX-US
+        - fsymId: FNK7XP-S
+          fundFlows: -8089136.23641009
+          currency: USD
+          date: 2019-08-31
+          requestId: MABAX-US
+        - fsymId: FNK7XP-S
+          fundFlows: -9.736900539047E7
+          currency: USD
+          date: 2019-09-30
+          requestId: MABAX-US
+        - fsymId: FNK7XP-S
+          fundFlows: -1.472506998605E7
+          currency: USD
+          date: 2019-10-31
+          requestId: MABAX-US
+        - fsymId: FNK7XP-S
+          fundFlows: 6.492083231808E7
+          currency: USD
+          date: 2019-11-30
+          requestId: MABAX-US
+        - fsymId: FNK7XP-S
+          fundFlows: -1.38436105042699E7
+          currency: USD
+          date: 2019-12-31
+          requestId: MABAX-US
+    fundStatus:
+      description: |
+        The list of Fund Status for MABAX-US.
+      summary: List of Fund Status for MABAX-US.
+      value:
+        data:
+          ids:
+          - MABAX
+          - FCNTX
+    groupHoldings:
+      description: |
+        The list of all group percentages for countries holding SPAXX-US.
+      summary: List of Group Holdings for SPAXX-US.
+      value:
+        data:
+        - fsymId: FNK7XP-S
+          date: 2024-02-20
+          name: Cash/Repo/MM
+          holdingPercent: 0.415229
+          requestId: SPAXX-US
+        - fsymId: FNK7XP-S
+          date: 2024-02-20
+          name: Treasury/Short-Term
+          holdingPercent: 0.329737
+          requestId: SPAXX-US
+        - fsymId: FNK7XP-S
+          date: 2024-02-20
+          name: Agency Bond
+          holdingPercent: 0.233489
+          requestId: SPAXX-US
+        - fsymId: FNK7XP-S
+          date: 2024-02-20
+          name: Treasury/Long-Term
+          holdingPercent: 0.018658
+          requestId: SPAXX-US
+        - fsymId: FNK7XP-S
+          date: 2024-02-20
+          name: Bond
+          holdingPercent: 0.002887
+          requestId: SPAXX-US
+    marketAggregates:
+      description: |
+        The list of aggregated market figures for AGG-US.
+      summary: List of Market Aggregates for AGG-US.
+      value:
+        data:
+        - fsymId: FNK7XP-S
+          date: 2024-02-20
+          couponRate: 3.29161081
+          couponCurveDuration: 6.086715474
+          effectiveDuration: 6.071507738
+          requestId: AGG-US
+    distCurrent:
+      description: Details about the current distribution for AGG-US.
+      summary: Current Distributions for AGG-US.
+      value:
+        data:
+        - fsymId: FNK7XP-S
+          date: 2021-02-26
+          currency: USD
+          totalDistributions: 3.16187341965815
+          returnOfCapital: 3.16187341965815
+          qualifiedDividends: 3.16187341965815
+          nonQalifiedDividends: 3.16187341965815
+          dailyAccruedDividends: 3.16187341965815
+          stCapitalGains: 3.16187341965815
+          ltCapitalGains: 3.16187341965815
+          indicatedAnnualDividend: 3.16187341965815
+          distFrequency: Annual
+          ltmDistYield: 3.16187341965815
+          firstDistDate: 2021-02-26
+          sevenDayNetSecYield: 3.16187341965815
+          sevenDayGrossSecYield: 3.16187341965815
+          thirtyDayNetSecYield: 3.16187341965815
+          thirtyDayGrossSecYield: 3.16187341965815
+          requestId: MABAX
+    distHistorical:
+      description: The list of historical distributions for AGG-US.
+      summary: List of historical distributions for AGG-US.
+      value:
+        data:
+        - fsymId: FNK7XP-S
+          date: 2021-02-26
+          currency: USD
+          totalDistributions: 3.16187341965815
+          returnOfCapital: 3.16187341965815
+          qualifiedDividends: 3.16187341965815
+          nonQalifiedDividends: 3.16187341965815
+          dailyAccruedDividends: 3.16187341965815
+          stCapitalGains: 3.16187341965815
+          ltCapitalGains: 3.16187341965815
+          sevenDayNetSecYield: 3.16187341965815
+          sevenDayGrossSecYield: 3.16187341965815
+          thirtyDayNetSecYield: 3.16187341965815
+          thirtyDayGrossSecYield: 3.16187341965815
           requestId: MABAX
     badRequestDateFormat:
       description: This bad request occurs when a request doesn't use the YYYY-MM-DD
@@ -3279,7 +5102,7 @@ components:
       style: form
     startDate:
       description: |
-        The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.
+        The `start date` requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.
       example: 2018-12-31
       explode: true
       in: query
@@ -3288,9 +5111,31 @@ components:
       schema:
         type: string
       style: form
+    asOfDate:
+      description: |
+        As of date for historical group holdings in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.
+      example: 2024-02-20
+      explode: true
+      in: query
+      name: asOfDate
+      required: false
+      schema:
+        type: string
+      style: form
     startDateRange:
       description: |
-        The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to the day prior to today's previous close. The startDate cannot be equal to the endDate as no return can be computed. Additionally, the startDate MUST be equal to or greater than the `priceFirstDate` found within the /summary endpoint.
+        The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to the day prior to today's previous close. The `startDate` cannot be equal to the `endDate` as no return can be computed. Additionally, the `startDate` MUST be equal to or greater than the `priceFirstDate` found within the `/summary` endpoint.
+      example: 2018-12-31
+      explode: true
+      in: query
+      name: startDate
+      required: false
+      schema:
+        type: string
+      style: form
+    startDateDist:
+      description: |
+        The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to the day prior to today's previous close. The `startDate` cannot be equal to the `endDate` as no return can be computed.
       example: 2018-12-31
       explode: true
       in: query
@@ -3333,17 +5178,17 @@ components:
         type: string
       style: form
     frequency:
-      description: |
-        Controls the display frequency of the data returned.
-          * **D** = Daily
-          * **W** = Weekly, based on the last day of the week of the start date.
-          * **M** = Monthly, based on the last trading day of the month.
-          * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).
-          * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).
-          * **FQ** = Fiscal Quarter of the company.
-          * **AY** = Actual Annual, based on the start date.
-          * **CY** = Calendar Annual, based on the last trading day of the calendar year.
-          * **FY** = Fiscal Annual, based on the last trading day of the company's fiscal year.
+      description: "Controls the display frequency of the data returned.\n  * **D**\
+        \ = Daily\n  * **W** = Weekly, based on the last day of the week of the start\
+        \ date.\n  * **M** = Monthly, based on the last trading day of the month.\n\
+        \  * **AM** = Monthly, based on the start date (e.g., if the start date is\
+        \ June 16, data is displayed for June 16, May 16, April 16 etc.).\n  * **CQ**\
+        \ = Quarterly based on the last trading day of the calendar quarter (March,\
+        \ June, September, or December).\n  * **FQ** = Fiscal Quarter of the company.\n\
+        \  * **AY** = Actual Annual, based on the start date.\n  * **CY** = Calendar\
+        \ Annual, based on the last trading day of the calendar year.\n  * **FY**\
+        \ = Fiscal Annual, based on the last trading day of the company's fiscal year.\n\
+        \  \n"
       explode: true
       in: query
       name: frequency
@@ -3360,6 +5205,31 @@ components:
         - AY
         - CY
         - FY
+        type: string
+      style: form
+    group:
+      description: "Controls the group of the data returned.\n  * **ASSET** = Asset\
+        \ Class\n  * **ASSETISTYP** = Issue Type with Asset Class\n  * **CAPGRP**\
+        \ = Cap Group\n  * **CNTRY** = Country\n  * **EXCHANGE** = Exchange\n  * **INDUSTRY**\
+        \ = Industry\n  * **ISSUE_TYPE** = Issue Type\n  * **REGION** = Region\n \
+        \ * **SECTOR** = Sector\n  * **ULTPARENT** = Ultimate Parent\n  \n  \n"
+      explode: true
+      in: query
+      name: group
+      required: false
+      schema:
+        default: CNTRY
+        enum:
+        - ASSET
+        - ASSETISTYP
+        - CAPGRP
+        - CNTRY
+        - EXCHANGE
+        - INDUSTRY
+        - ISSUE_TYPE
+        - REGION
+        - SECTOR
+        - ULTPARENT
         type: string
       style: form
     frequencyAum:
@@ -3387,8 +5257,8 @@ components:
         type: string
       style: form
     currency:
-      description: Controls the Currency conversion of the Fund. By default, the currency
-        will use the funds local currency.
+      description: |
+        Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).
       example: USD
       explode: true
       in: query
@@ -3423,6 +5293,16 @@ components:
         - SPLIT
         - UNSPLIT
         type: string
+      style: form
+    splitAdjustDist:
+      description: The price adjustment split or unsplit.
+      explode: true
+      in: query
+      name: splitAdjust
+      required: false
+      schema:
+        default: true
+        type: boolean
       style: form
     dividendAdjust:
       description: "Controls the dividend inclusion for the NAV returns calculations,\
@@ -3512,7 +5392,7 @@ components:
       properties:
         ids:
           description: |
-            The requested Fund Identifier. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective "POST" method.</p>*
+            The requested Fund Identifier. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  1000 per request*</p>
           example:
           - MABAX
           - FCNTX
@@ -3936,7 +5816,7 @@ components:
       properties:
         ids:
           description: |
-            The requested Fund Identifier. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective "POST" method.</p>*
+            The requested Fund Identifier. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  1000 per request*</p>
           example:
           - MABAX
           - FCNTX
@@ -4067,7 +5947,7 @@ components:
       properties:
         ids:
           description: |
-            The requested Fund Identifier. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective "POST" method.</p>*
+            The requested Fund Identifier. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  1000 per request*</p>
           example:
           - MABAX
           - FCNTX
@@ -4207,7 +6087,7 @@ components:
       properties:
         ids:
           description: |
-            The requested Fund Identifier. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective "POST" method.</p>*
+            The requested Fund Identifier. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  1000 per request*</p>
           example:
           - MABAX
           - FCNTX
@@ -4445,7 +6325,7 @@ components:
           x-fds-fql-formula: FFD_EXPENSES({date},EXIT)
         frontExpensesMax:
           description: |
-            The Maximum sales load or initial Sales Fee is a reduction made from each investment in the fund, the maximum paid is dependent on the size of the purchase, it decreases as the investment increases. Often associated with class 'A' shares of a mutual fund it is also known as Sales Charge, this is a fee paid when shares are purchased. Also known as a "front-end load", this fee typically goes to the brokers that sell the fund's shares.  (Under the Investment Company Act of 1940 is 9%. The maximum sales load under NASD Rules is 8 1/2%)."
+            The Maximum sales load or initial Sales Fee is a reduction made from each investment in the fund, the maximum paid is dependent on the size of the purchase, it decreases as the investment increases. Often associated with class 'A' shares of a mutual fund it is also known as Sales Charge, this is a fee paid when shares are purchased. Also known as a "front-end load", this fee typically goes to the brokers that sell the fund's shares.  (Under the Investment Company Act of 1940 is 9%. The maximum sales load under NASD Rules is 81⁄2%)."
           format: double
           nullable: true
           type: number
@@ -4540,7 +6420,7 @@ components:
       properties:
         ids:
           description: |
-            The requested Fund Identifier. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective "POST" method.</p>*
+            The requested Fund Identifier. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  1000 per request*</p>
           example:
           - MABAX
           - FCNTX
@@ -4637,7 +6517,7 @@ components:
       properties:
         ids:
           description: |
-            The requested Fund Identifier. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective "POST" method.</p>*
+            The requested Fund Identifier. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  1000 per request*</p>
           example:
           - MABAX
           - FCNTX
@@ -4648,7 +6528,7 @@ components:
           type: array
         startDate:
           description: |
-            The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this #endpoint.
+            The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.
           example: 2019-01-01
           type: string
         endDate:
@@ -4738,7 +6618,7 @@ components:
       properties:
         ids:
           description: |
-            The requested Fund Identifier. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective "POST" method.</p>*
+            The requested Fund Identifier. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  1000 per request*</p>
           example:
           - MABAX
           - FCNTX
@@ -4749,7 +6629,7 @@ components:
           type: array
         startDate:
           description: |
-            The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this #endpoint.
+            The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.
           example: 2019-01-01
           type: string
         endDate:
@@ -4839,7 +6719,7 @@ components:
       properties:
         ids:
           description: |
-            The requested Fund Identifier. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective "POST" method.</p>*
+            The requested Fund Identifier. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  1000 per request*</p>
           example:
           - MABAX
           - FCNTX
@@ -5012,7 +6892,7 @@ components:
       properties:
         ids:
           description: |
-            The requested Fund Identifier. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective "POST" method.</p>*
+            The requested Fund Identifier. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  1000 per request*</p>
           example:
           - MABAX
           - FCNTX
@@ -5108,12 +6988,233 @@ components:
           type: string
       title: Returns Range Object
       type: object
-    aumRequest:
-      description: AUM Request Body
+    distCurrentRequest:
+      description: Returns Current Distributions Body
       properties:
         ids:
           description: |
-            The requested Fund Identifier. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective "POST" method.</p>*
+            The requested Fund Identifier. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  1000 per request*</p>
+          example:
+          - MABAX
+          - FCNTX
+          items:
+            type: string
+          maxItems: 1000
+          minItems: 1
+          type: array
+        currency:
+          default: LOCAL
+          description: The ISO3 currency control for the requested fund.
+          example: USD
+          type: string
+      required:
+      - ids
+      title: Returns Current Distributions Body
+      type: object
+    distCurrentResponse:
+      example:
+        data:
+        - date: 2021-02-26T00:00:00.000+0000
+          nonQalifiedDividends: 3.16187341965815
+          sevenDayGrossSecYield: 3.16187341965815
+          distFrequency: Annual
+          firstDistDate: 2021-02-26T00:00:00.000+0000
+          totalDistributions: 3.16187341965815
+          returnOfCapital: 3.16187341965815
+          fsymId: FNK7XP-S
+          thirtyDayGrossSecYield: 3.16187341965815
+          sevenDayNetSecYield: 3.16187341965815
+          dailyAccruedDividends: 3.16187341965815
+          stCapitalGains: 3.16187341965815
+          ltmDistYield: 3.16187341965815
+          indicatedAnnualDividend: 3.16187341965815
+          requestId: MABAX
+          currency: USD
+          ltCapitalGains: 3.16187341965815
+          thirtyDayNetSecYield: 3.16187341965815
+          qualifiedDividends: 3.16187341965815
+        - date: 2021-02-26T00:00:00.000+0000
+          nonQalifiedDividends: 3.16187341965815
+          sevenDayGrossSecYield: 3.16187341965815
+          distFrequency: Annual
+          firstDistDate: 2021-02-26T00:00:00.000+0000
+          totalDistributions: 3.16187341965815
+          returnOfCapital: 3.16187341965815
+          fsymId: FNK7XP-S
+          thirtyDayGrossSecYield: 3.16187341965815
+          sevenDayNetSecYield: 3.16187341965815
+          dailyAccruedDividends: 3.16187341965815
+          stCapitalGains: 3.16187341965815
+          ltmDistYield: 3.16187341965815
+          indicatedAnnualDividend: 3.16187341965815
+          requestId: MABAX
+          currency: USD
+          ltCapitalGains: 3.16187341965815
+          thirtyDayNetSecYield: 3.16187341965815
+          qualifiedDividends: 3.16187341965815
+      properties:
+        data:
+          description: Array of Current Distribution Objects
+          items:
+            $ref: '#/components/schemas/distCurrent'
+          type: array
+      title: Current Distributions Response
+      type: object
+    distCurrent:
+      example:
+        date: 2021-02-26T00:00:00.000+0000
+        nonQalifiedDividends: 3.16187341965815
+        sevenDayGrossSecYield: 3.16187341965815
+        distFrequency: Annual
+        firstDistDate: 2021-02-26T00:00:00.000+0000
+        totalDistributions: 3.16187341965815
+        returnOfCapital: 3.16187341965815
+        fsymId: FNK7XP-S
+        thirtyDayGrossSecYield: 3.16187341965815
+        sevenDayNetSecYield: 3.16187341965815
+        dailyAccruedDividends: 3.16187341965815
+        stCapitalGains: 3.16187341965815
+        ltmDistYield: 3.16187341965815
+        indicatedAnnualDividend: 3.16187341965815
+        requestId: MABAX
+        currency: USD
+        ltCapitalGains: 3.16187341965815
+        thirtyDayNetSecYield: 3.16187341965815
+        qualifiedDividends: 3.16187341965815
+      properties:
+        fsymId:
+          description: FactSet Security Identifier. Six alpha-numeric characters,
+            excluding vowels, with a -S suffix (XXXXXX-S), resolved from the requestId
+            of the Fund requested.
+          example: FNK7XP-S
+          nullable: true
+          type: string
+        date:
+          description: The date of the distribution in YYYY-MM-DD format.
+          example: 2021-02-26
+          format: date
+          nullable: true
+          type: string
+        currency:
+          description: ISO Currency
+          example: USD
+          nullable: true
+          type: string
+          x-fds-fql-formula: FFD_CURRENCY
+        totalDistributions:
+          description: Total Distributions.
+          example: 3.16187341965815
+          format: double
+          nullable: true
+          type: number
+          x-fds-fql-formula: FFD_DIST(0,,,TOTAL)
+        returnOfCapital:
+          description: Return on Capital.
+          example: 3.16187341965815
+          format: double
+          nullable: true
+          type: number
+          x-fds-fql-formula: FFD_DIST(0,,,ROC)
+        qualifiedDividends:
+          description: Qualified Dividends.
+          example: 3.16187341965815
+          format: double
+          nullable: true
+          type: number
+          x-fds-fql-formula: FFD_DIST(0,,,QUAL)
+        nonQalifiedDividends:
+          description: Non-Qualified Dividends.
+          example: 3.16187341965815
+          format: double
+          nullable: true
+          type: number
+          x-fds-fql-formula: FFD_DIST(0,,,NONQUAL)
+        dailyAccruedDividends:
+          description: Daily Accrued Dividends.
+          example: 3.16187341965815
+          format: double
+          nullable: true
+          type: number
+          x-fds-fql-formula: FFD_DIST(0,,,DA)
+        stCapitalGains:
+          description: Short-Term Capital Gains.
+          example: 3.16187341965815
+          format: double
+          nullable: true
+          type: number
+          x-fds-fql-formula: FFD_DIST(0,,,ST_CAPG)
+        ltCapitalGains:
+          description: Long-Term Capital Gains.
+          example: 3.16187341965815
+          format: double
+          nullable: true
+          type: number
+          x-fds-fql-formula: FFD_DIST(0,,,LT_CAPG)
+        indicatedAnnualDividend:
+          description: Indicated annual dividend.
+          example: 3.16187341965815
+          format: double
+          nullable: true
+          type: number
+          x-fds-fql-formula: FFD_DIST_IAD
+        distFrequency:
+          description: Distribution frequency.
+          example: Annual
+          nullable: true
+          type: string
+        ltmDistYield:
+          description: Distribution yield for the last twelve months.
+          example: 3.16187341965815
+          format: double
+          nullable: true
+          type: number
+          x-fds-fql-formula: FFD_DIST_YLD_LTM(0)
+        firstDistDate:
+          description: The date of the funds first distribution in YYYY-MM-DD format.
+          example: 2021-02-26
+          format: date
+          nullable: true
+          type: string
+        sevenDayNetSecYield:
+          description: Net SEC yield for the last seven days.
+          example: 3.16187341965815
+          format: double
+          nullable: true
+          type: number
+          x-fds-fql-formula: FFD_SEC_YIELD(0,,,"7")
+        sevenDayGrossSecYield:
+          description: Gross SEC yield for the last seven days.
+          example: 3.16187341965815
+          format: double
+          nullable: true
+          type: number
+          x-fds-fql-formula: FFD_SEC_YIELD(0,,,"7G")
+        thirtyDayNetSecYield:
+          description: Net SEC yield for the thirty thirty days.
+          example: 3.16187341965815
+          format: double
+          nullable: true
+          type: number
+          x-fds-fql-formula: FFD_SEC_YIELD(0,,,"30")
+        thirtyDayGrossSecYield:
+          description: Gross SEC yield for the last thirty days.
+          example: 3.16187341965815
+          format: double
+          nullable: true
+          type: number
+          x-fds-fql-formula: FFD_SEC_YIELD(0,,,"30G")
+        requestId:
+          description: The requested Id sent as input.
+          example: MABAX
+          type: string
+      title: Current Distributions Object
+      type: object
+    distHistoricalRequest:
+      description: Returns Historical Distributions Body
+      properties:
+        ids:
+          description: |
+            The requested Fund Identifier. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  1000 per request*</p>
           example:
           - MABAX
           - FCNTX
@@ -5124,7 +7225,209 @@ components:
           type: array
         startDate:
           description: |
-            The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this #endpoint.
+            The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.
+          example: 2019-01-01
+          type: string
+        endDate:
+          description: |
+            The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.
+          example: 2019-12-31
+          type: string
+        frequency:
+          $ref: '#/components/schemas/frequency'
+        currency:
+          default: LOCAL
+          description: The ISO3 currency control for the requested fund.
+          example: USD
+          type: string
+        splitAdjust:
+          default: true
+          description: |
+            Controls the split adjustment of the Fund's NAV.
+          example: true
+          type: boolean
+      required:
+      - ids
+      title: Returns Historical Distributions Body
+      type: object
+    distHistoricalResponse:
+      example:
+        data:
+        - date: 2021-02-26T00:00:00.000+0000
+          nonQalifiedDividends: 3.16187341965815
+          sevenDayGrossSecYield: 3.16187341965815
+          totalDistributions: 3.16187341965815
+          returnOfCapital: 3.16187341965815
+          fsymId: FNK7XP-S
+          thirtyDayGrossSecYield: 3.16187341965815
+          sevenDayNetSecYield: 3.16187341965815
+          dailyAccruedDividends: 3.16187341965815
+          stCapitalGains: 3.16187341965815
+          requestId: MABAX
+          currency: USD
+          ltCapitalGains: 3.16187341965815
+          thirtyDayNetSecYield: 3.16187341965815
+          qualifiedDividends: 3.16187341965815
+        - date: 2021-02-26T00:00:00.000+0000
+          nonQalifiedDividends: 3.16187341965815
+          sevenDayGrossSecYield: 3.16187341965815
+          totalDistributions: 3.16187341965815
+          returnOfCapital: 3.16187341965815
+          fsymId: FNK7XP-S
+          thirtyDayGrossSecYield: 3.16187341965815
+          sevenDayNetSecYield: 3.16187341965815
+          dailyAccruedDividends: 3.16187341965815
+          stCapitalGains: 3.16187341965815
+          requestId: MABAX
+          currency: USD
+          ltCapitalGains: 3.16187341965815
+          thirtyDayNetSecYield: 3.16187341965815
+          qualifiedDividends: 3.16187341965815
+      properties:
+        data:
+          description: Array of Historical Distribution Objects
+          items:
+            $ref: '#/components/schemas/distHistorical'
+          type: array
+      title: Historical Distributions Response
+      type: object
+    distHistorical:
+      example:
+        date: 2021-02-26T00:00:00.000+0000
+        nonQalifiedDividends: 3.16187341965815
+        sevenDayGrossSecYield: 3.16187341965815
+        totalDistributions: 3.16187341965815
+        returnOfCapital: 3.16187341965815
+        fsymId: FNK7XP-S
+        thirtyDayGrossSecYield: 3.16187341965815
+        sevenDayNetSecYield: 3.16187341965815
+        dailyAccruedDividends: 3.16187341965815
+        stCapitalGains: 3.16187341965815
+        requestId: MABAX
+        currency: USD
+        ltCapitalGains: 3.16187341965815
+        thirtyDayNetSecYield: 3.16187341965815
+        qualifiedDividends: 3.16187341965815
+      properties:
+        fsymId:
+          description: FactSet Security Identifier. Six alpha-numeric characters,
+            excluding vowels, with a -S suffix (XXXXXX-S), resolved from the requestId
+            of the Fund requested.
+          example: FNK7XP-S
+          nullable: true
+          type: string
+        date:
+          description: The date of the distribution in YYYY-MM-DD format.
+          example: 2021-02-26
+          format: date
+          nullable: true
+          type: string
+        currency:
+          description: ISO Currency
+          example: USD
+          nullable: true
+          type: string
+          x-fds-fql-formula: FFD_CURRENCY
+        totalDistributions:
+          description: Total Distributions.
+          example: 3.16187341965815
+          format: double
+          nullable: true
+          type: number
+          x-fds-fql-formula: FFD_DIST(0,,,TOTAL)
+        returnOfCapital:
+          description: Return on Capital.
+          example: 3.16187341965815
+          format: double
+          nullable: true
+          type: number
+          x-fds-fql-formula: FFD_DIST(0,,,ROC)
+        qualifiedDividends:
+          description: Qualified Dividends.
+          example: 3.16187341965815
+          format: double
+          nullable: true
+          type: number
+          x-fds-fql-formula: FFD_DIST(0,,,QUAL)
+        nonQalifiedDividends:
+          description: Qualified Dividends.
+          example: 3.16187341965815
+          format: double
+          nullable: true
+          type: number
+          x-fds-fql-formula: FFD_DIST(0,,,NONQUAL)
+        dailyAccruedDividends:
+          description: Daily Accrued Dividends.
+          example: 3.16187341965815
+          format: double
+          nullable: true
+          type: number
+          x-fds-fql-formula: FFD_DIST(0,,,DA)
+        stCapitalGains:
+          description: Short-Term Capital Gains.
+          example: 3.16187341965815
+          format: double
+          nullable: true
+          type: number
+          x-fds-fql-formula: FFD_DIST(0,,,ST_CAPG)
+        ltCapitalGains:
+          description: Long-Term Capital Gains.
+          example: 3.16187341965815
+          format: double
+          nullable: true
+          type: number
+          x-fds-fql-formula: FFD_DIST(0,,,LT_CAPG)
+        sevenDayNetSecYield:
+          description: Net SEC yield for the last seven days.
+          example: 3.16187341965815
+          format: double
+          nullable: true
+          type: number
+          x-fds-fql-formula: FFD_SEC_YIELD(0,,,"7")
+        sevenDayGrossSecYield:
+          description: Gross SEC yield for the last seven days.
+          example: 3.16187341965815
+          format: double
+          nullable: true
+          type: number
+          x-fds-fql-formula: FFD_SEC_YIELD(0,,,"7G")
+        thirtyDayNetSecYield:
+          description: Net SEC yield for the thirty thirty days.
+          example: 3.16187341965815
+          format: double
+          nullable: true
+          type: number
+          x-fds-fql-formula: FFD_SEC_YIELD(0,,,"30")
+        thirtyDayGrossSecYield:
+          description: Gross SEC yield for the last thirty days.
+          example: 3.16187341965815
+          format: double
+          nullable: true
+          type: number
+          x-fds-fql-formula: FFD_SEC_YIELD(0,,,"30G")
+        requestId:
+          description: The requested Id sent as input.
+          example: MABAX
+          type: string
+      title: Historical Distributions Object
+      type: object
+    aumRequest:
+      description: AUM Request Body
+      properties:
+        ids:
+          description: |
+            The requested Fund Identifier. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  1000 per request*</p>
+          example:
+          - MABAX
+          - FCNTX
+          items:
+            type: string
+          maxItems: 1000
+          minItems: 1
+          type: array
+        startDate:
+          description: |
+            The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.
           example: 2019-01-01
           type: string
         endDate:
@@ -5240,7 +7543,7 @@ components:
       properties:
         ids:
           description: |
-            The requested Fund Identifier. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective "POST" method.</p>*
+            The requested Fund Identifier. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  1000 per request*</p>
           example:
           - MABAX
           - FCNTX
@@ -5251,7 +7554,7 @@ components:
           type: array
         startDate:
           description: |
-            The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this #endpoint.
+            The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.
           example: 2019-01-01
           type: string
         endDate:
@@ -5334,12 +7637,93 @@ components:
           type: string
       title: Flows Object
       type: object
+    groupHoldingsRequest:
+      description: Returns Group Holdings Body
+      properties:
+        ids:
+          description: |
+            The requested Fund Identifier. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  1000 per request*</p>
+          example:
+          - MABAX
+          - FCNTX
+          items:
+            type: string
+          maxItems: 1000
+          minItems: 1
+          type: array
+        asOfDate:
+          description: |
+            As of date for historical group holdings in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.
+          example: 2024-02-20
+          type: string
+        group:
+          $ref: '#/components/schemas/group'
+      required:
+      - ids
+      title: Returns Group Holdings Body
+      type: object
+    groupHoldingsResponse:
+      example:
+        data:
+        - date: 2021-02-26T00:00:00.000+0000
+          holdingPercent: 0.415299
+          requestId: SPAXX-US
+          fsymId: FNK7XP-S
+          name: Cash/Repo/MM
+        - date: 2021-02-26T00:00:00.000+0000
+          holdingPercent: 0.415299
+          requestId: SPAXX-US
+          fsymId: FNK7XP-S
+          name: Cash/Repo/MM
+      properties:
+        data:
+          description: Array of Group Holding Objects
+          items:
+            $ref: '#/components/schemas/groupHolding'
+          type: array
+      title: Group Holding Response
+      type: object
+    groupHolding:
+      example:
+        date: 2021-02-26T00:00:00.000+0000
+        holdingPercent: 0.415299
+        requestId: SPAXX-US
+        fsymId: FNK7XP-S
+        name: Cash/Repo/MM
+      properties:
+        fsymId:
+          description: FactSet Security Identifier. Six alpha-numeric characters,
+            excluding vowels, with a -S suffix (XXXXXX-S), resolved from the requestId
+            of the Fund requested.
+          example: FNK7XP-S
+          type: string
+        date:
+          description: The date of the holdings percentages in YYYY-MM-DD format.
+          example: 2021-02-26
+          format: date
+          type: string
+        name:
+          description: The group name.
+          example: Cash/Repo/MM
+          type: string
+        holdingPercent:
+          description: Percentage held by the group.
+          example: 0.415299
+          format: double
+          nullable: true
+          type: number
+        requestId:
+          description: The requested Id sent as input.
+          example: SPAXX-US
+          type: string
+      title: Current Distributions Object
+      type: object
     statusesRequest:
       description: Classifications Request Body
       properties:
         ids:
           description: |
-            The requested Fund Identifier. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective "POST" method.</p>*
+            The requested Fund Identifier. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  1000 per request*</p>
           example:
           - MABAX
           - FCNTX
@@ -5416,9 +7800,117 @@ components:
           type: string
       title: Statuses Object
       type: object
+    marketAggregatesRequest:
+      description: Market Aggregate Request Body
+      properties:
+        ids:
+          description: |
+            The requested Fund Identifier. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  1000 per request*</p>
+          example:
+          - MABAX
+          - FCNTX
+          items:
+            type: string
+          maxItems: 1000
+          minItems: 1
+          type: array
+        startDate:
+          description: |
+            The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.
+          example: 2019-01-01
+          type: string
+        endDate:
+          description: |
+            The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.
+          example: 2019-12-31
+          type: string
+        frequency:
+          $ref: '#/components/schemas/frequency'
+        currency:
+          default: LOCAL
+          description: The ISO3 currency control for the requested fund.
+          example: USD
+          type: string
+      required:
+      - ids
+      title: Market Aggregate Request Body
+      type: object
+    marketAggregatesResponse:
+      example:
+        data:
+        - date: 2021-02-26T00:00:00.000+0000
+          couponRate: 3.29161081
+          requestId: MABAX
+          fsymId: FNK7XP-S
+          effectiveDuration: 6.0715073738
+          couponCurveDuration: 6.086715474
+        - date: 2021-02-26T00:00:00.000+0000
+          couponRate: 3.29161081
+          requestId: MABAX
+          fsymId: FNK7XP-S
+          effectiveDuration: 6.0715073738
+          couponCurveDuration: 6.086715474
+      properties:
+        data:
+          description: Array of Market Aggregates Objects
+          items:
+            $ref: '#/components/schemas/marketAggregate'
+          type: array
+      title: Market Aggregates Response
+      type: object
+    marketAggregate:
+      example:
+        date: 2021-02-26T00:00:00.000+0000
+        couponRate: 3.29161081
+        requestId: MABAX
+        fsymId: FNK7XP-S
+        effectiveDuration: 6.0715073738
+        couponCurveDuration: 6.086715474
+      properties:
+        fsymId:
+          description: FactSet Security Identifier. Six alpha-numeric characters,
+            excluding vowels, with a -S suffix (XXXXXX-S), resolved from the requestId
+            of the Fund requested.
+          example: FNK7XP-S
+          nullable: true
+          type: string
+          x-fds-fql-formula: FSYM_SECURITY_PERM_ID('SECURITY')
+        date:
+          description: The date of the NAV in YYYY-MM-DD format.
+          example: 2021-02-26
+          format: date
+          nullable: true
+          type: string
+        couponRate:
+          description: Coupon Rate.
+          example: 3.29161081
+          format: double
+          nullable: true
+          type: number
+          x-fds-fql-formula: FMA_CPN_RATE
+        couponCurveDuration:
+          description: Coupon Curve Duration.
+          example: 6.086715474
+          format: double
+          nullable: true
+          type: number
+          x-fds-fql-formula: FMA_CCDURATION
+        effectiveDuration:
+          description: Effective Duration.
+          example: 6.0715073738
+          format: double
+          nullable: true
+          type: number
+          x-fds-fql-formula: FMA_EDURATION
+        requestId:
+          description: The requested Id sent as input.
+          example: MABAX
+          type: string
+      title: Market Aggregates Object
+      type: object
     ids:
       description: |
-        The requested Fund Identifier. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective "POST" method.</p>*
+        The requested Fund Identifier. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  1000 per request*</p>
       example:
       - MABAX
       - FCNTX
@@ -5440,7 +7932,7 @@ components:
       type: array
     startDate:
       description: |
-        The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this #endpoint.
+        The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.
       example: 2019-01-01
       type: string
     startDateRange:
@@ -5477,6 +7969,38 @@ components:
       - RAW
       example: ROLL
       type: string
+    group:
+      default: CNTRY
+      description: |
+        Controls the group of the data returned.
+          * **ASSET** = Asset Class
+          * **ASSETISTYP** = Issue Type with Asset Class
+          * **CAPGRP** = Cap Group
+          * **CNTRY** = Country
+          * **EXCHANGE** = Exchange
+          * **INDUSTRY** = Industry
+          * **ISSUE_TYPE** = Issue Type
+          * **REGION** = Region
+          * **SECTOR** = Sector
+          * **ULTPARENT** = Ultimate Parent
+      enum:
+      - ASSET
+      - ASSETISTYP
+      - CAPGRP
+      - CNTRY
+      - EXCHANGE
+      - INDUSTRY
+      - ISSUE_TYPE
+      - REGION
+      - SECTOR
+      - ULTPARENT
+      example: CNTRY
+      type: string
+    asOfDate:
+      description: |
+        As of date for historical group holdings in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.
+      example: 2024-02-20
+      type: string
     splitAdjust:
       default: SPLIT
       description: "Controls the split adjustment of the Fund's NAV - \n  * **SPLIT**\
@@ -5487,6 +8011,12 @@ components:
       - UNSPLIT
       example: SPLIT
       type: string
+    splitAdjustDist:
+      default: true
+      description: |
+        Controls the split adjustment of the Fund's NAV.
+      example: true
+      type: boolean
     dividendAdjust:
       default: DIV
       description: |

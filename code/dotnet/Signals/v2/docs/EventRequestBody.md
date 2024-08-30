@@ -1,4 +1,5 @@
 # FactSet.SDK.Signals.Model.EventRequestBody
+The POST request's body containing the request criterion
 
 ## Properties
 

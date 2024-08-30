@@ -1,12 +1,12 @@
 # FactSet.SDK.ChartGenerationService.Api.ChartTemplatesApi
 
-All URIs are relative to *https://api-sandbox.factset.com/charting*
+All URIs are relative to *https://api.factset.com/charting/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetCategoryList**](ChartTemplatesApi.md#getcategorylist) | **GET** /v1/catalog/categories | Get a list of chart categories
-[**GetChartList**](ChartTemplatesApi.md#getchartlist) | **GET** /v1/catalog/charts | Get a list of chart templates that can be used for getting the image from the service.
-[**Images**](ChartTemplatesApi.md#images) | **GET** /v1/image | Get chart image back in PNG or JPEG formats
+[**GetCategoryList**](ChartTemplatesApi.md#getcategorylist) | **GET** /catalog/categories | Get a list of chart categories
+[**GetChartList**](ChartTemplatesApi.md#getchartlist) | **GET** /catalog/charts | Get a list of chart templates that can be used for getting the image from the service.
+[**Images**](ChartTemplatesApi.md#images) | **GET** /image | Get chart image back in PNG or JPEG formats
 
 
 
@@ -15,6 +15,8 @@ Method | HTTP request | Description
 > List&lt;string&gt; GetCategoryList ()
 
 Get a list of chart categories
+
+Retrieve a list of all chart categories with getCategoryList() API call.
 
 ### Example
 
@@ -105,7 +107,7 @@ This endpoint does not need any parameter.
 
 <a name="getchartlist"></a>
 # **GetChartList**
-> List&lt;Object&gt; GetChartList (string categories = null, string type = null)
+> List&lt;CategoryChartListErrorObject&gt; GetChartList (string categories = null)
 
 Get a list of chart templates that can be used for getting the image from the service.
 
@@ -156,12 +158,11 @@ namespace Example
             var apiInstance = new ChartTemplatesApi(config);
 
             var categories = "categories_example";  // string | A comma delimited string of catgory names to limit the response to certain categories. If nothing is provided, all charts under every category would be listed out. (optional) 
-            var type = "json";  // string | return type of the response (optional) 
 
             try
             {
                 // Get a list of chart templates that can be used for getting the image from the service.
-                List<Object> result = apiInstance.GetChartList(categories, type);
+                List<CategoryChartListErrorObject> result = apiInstance.GetChartList(categories);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -180,10 +181,9 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **categories** | **string**| A comma delimited string of catgory names to limit the response to certain categories. If nothing is provided, all charts under every category would be listed out. | [optional] 
- **type** | **string**| return type of the response | [optional] 
 
 ### Return type
-**List<Object>**
+[**List&lt;CategoryChartListErrorObject&gt;**](CategoryChartListErrorObject.md)
 
 ### Authorization
 
@@ -192,7 +192,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/pdf
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -206,9 +206,11 @@ Name | Type | Description  | Notes
 
 <a name="images"></a>
 # **Images**
-> string Images (string chart, string ids = null, string sd = null, string ed = null, long? width = null, long? height = null, string freq = null, string ccy = null, string split = null, decimal? spin = null, string cal = null, string title = null, decimal? fontSize = null, string type = null, bool? gridLines = null)
+> System.IO.Stream Images (string chart, string ids = null, string sd = null, string ed = null, long? width = null, long? height = null, string freq = null, string ccy = null, string split = null, decimal? spin = null, string cal = null, string title = null, decimal? fontSize = null, string type = null, bool? gridLines = null, decimal? decimalPrecision = null)
 
 Get chart image back in PNG or JPEG formats
+
+Get a chart image in PNG or JPEG formats with the images() API call.
 
 ### Example
 
@@ -256,8 +258,8 @@ namespace Example
 
             var chart = "Equity/RSI";  // string | Path to the saved chart. For any of the default charts, the option should be `categoryName + '/' + chartName`. For charts under the Client or Personal directories, the option should be `directoryName + ':/' + pathTotheChart`.  
             var ids = "FDS,AAPL";  // string | List of identifiers to be charted in a comma(,) separated string. Only the first one would be considered as primary and rest would be added as comps. Check the catalog for more information on which charts require a ticker. (optional) 
-            var sd = "-1Y";  // string | Option for overriding the startDate of the chart. For absolute dates provide a string in `YYYYMMDD` format. We can also specify relative date options (optional) 
-            var ed = "0";  // string | Option for overriding the endDate of the chart. For absolute dates provide a string in `YYYYMMDD` format. We can also specify relative date options (optional) 
+            var sd = "-1Y";  // string | Option for overriding the startDate of the chart.  #### Absolute Dates  For absolute dates, provide a string in `YYYYMMDD` format.  #### Relative Dates  Relative dates represent a date relative to the most recently-updated period. For example, 0 (zero) represents the most recently-updated period; -1 represents the time period prior to the most recently updated.\\ \\ The \"zero date\" is determined by the default time period or the natural frequency of the data being requested. Zero (0), when used with monthly data, indicates the most recent month-end. Negative one (-1), when used with annual data, indicates one fiscal year prior to the most recently-updated fiscal year.  #### Relative Date Options  **D:** `0D` is the most recent trading day, `-1D` is one trading day prior  **M:** `0M` is the last trading day of the most recent month, `-1M` is the last trading day of the prior month  **AY:** `0AY` is the most recent trading day, `-1AY` is one actual year (365 days) prior  **Y:** `0Y` is the last trading day of the company's most recent fiscal year, `-1Y` is the last trading day of the prior fiscal year\\ \\ For more information and examples, refer to our [date format documentation](https://my.apps.factset.com/oa/pages/1964#date_f). (optional) 
+            var ed = "0";  // string | Option for overriding the endDate of the chart. For absolute dates provide a string in `YYYYMMDD` format. We can also specify relative date options as described in the above `sd` option. (optional) 
             var width = 1056L;  // long? | Option for setting the width of the image (optional)  (default to 1056)
             var height = 816L;  // long? | Option for setting the height of the image (optional)  (default to 816)
             var freq = "D";  // string | A shorthand string for the overall frequency of the chart like `D` (daily), `W` (weekly), `Y` (yearly) and `Q` (Quarterly). This will default to frequency stored in the document. (optional) 
@@ -269,11 +271,12 @@ namespace Example
             var fontSize = 10D;  // decimal? | Option to adjust chart's fontSize (optional) 
             var type = "png";  // string | The type of image to be generated by the service (optional)  (default to png)
             var gridLines = true;  // bool? | Option to toggle gridLines on/off on the chart (optional)  (default to true)
+            var decimalPrecision = 2D;  // decimal? | Option to add custom decimal precision on the chart (optional) 
 
             try
             {
                 // Get chart image back in PNG or JPEG formats
-                string result = apiInstance.Images(chart, ids, sd, ed, width, height, freq, ccy, split, spin, cal, title, fontSize, type, gridLines);
+                System.IO.Stream result = apiInstance.Images(chart, ids, sd, ed, width, height, freq, ccy, split, spin, cal, title, fontSize, type, gridLines, decimalPrecision);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -293,8 +296,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **chart** | **string**| Path to the saved chart. For any of the default charts, the option should be &#x60;categoryName + &#39;/&#39; + chartName&#x60;. For charts under the Client or Personal directories, the option should be &#x60;directoryName + &#39;:/&#39; + pathTotheChart&#x60;.   | 
  **ids** | **string**| List of identifiers to be charted in a comma(,) separated string. Only the first one would be considered as primary and rest would be added as comps. Check the catalog for more information on which charts require a ticker. | [optional] 
- **sd** | **string**| Option for overriding the startDate of the chart. For absolute dates provide a string in &#x60;YYYYMMDD&#x60; format. We can also specify relative date options | [optional] 
- **ed** | **string**| Option for overriding the endDate of the chart. For absolute dates provide a string in &#x60;YYYYMMDD&#x60; format. We can also specify relative date options | [optional] 
+ **sd** | **string**| Option for overriding the startDate of the chart.  #### Absolute Dates  For absolute dates, provide a string in &#x60;YYYYMMDD&#x60; format.  #### Relative Dates  Relative dates represent a date relative to the most recently-updated period. For example, 0 (zero) represents the most recently-updated period; -1 represents the time period prior to the most recently updated.\\ \\ The \&quot;zero date\&quot; is determined by the default time period or the natural frequency of the data being requested. Zero (0), when used with monthly data, indicates the most recent month-end. Negative one (-1), when used with annual data, indicates one fiscal year prior to the most recently-updated fiscal year.  #### Relative Date Options  **D:** &#x60;0D&#x60; is the most recent trading day, &#x60;-1D&#x60; is one trading day prior  **M:** &#x60;0M&#x60; is the last trading day of the most recent month, &#x60;-1M&#x60; is the last trading day of the prior month  **AY:** &#x60;0AY&#x60; is the most recent trading day, &#x60;-1AY&#x60; is one actual year (365 days) prior  **Y:** &#x60;0Y&#x60; is the last trading day of the company&#39;s most recent fiscal year, &#x60;-1Y&#x60; is the last trading day of the prior fiscal year\\ \\ For more information and examples, refer to our [date format documentation](https://my.apps.factset.com/oa/pages/1964#date_f). | [optional] 
+ **ed** | **string**| Option for overriding the endDate of the chart. For absolute dates provide a string in &#x60;YYYYMMDD&#x60; format. We can also specify relative date options as described in the above &#x60;sd&#x60; option. | [optional] 
  **width** | **long?**| Option for setting the width of the image | [optional] [default to 1056]
  **height** | **long?**| Option for setting the height of the image | [optional] [default to 816]
  **freq** | **string**| A shorthand string for the overall frequency of the chart like &#x60;D&#x60; (daily), &#x60;W&#x60; (weekly), &#x60;Y&#x60; (yearly) and &#x60;Q&#x60; (Quarterly). This will default to frequency stored in the document. | [optional] 
@@ -306,9 +309,10 @@ Name | Type | Description  | Notes
  **fontSize** | **decimal?**| Option to adjust chart&#39;s fontSize | [optional] 
  **type** | **string**| The type of image to be generated by the service | [optional] [default to png]
  **gridLines** | **bool?**| Option to toggle gridLines on/off on the chart | [optional] [default to true]
+ **decimalPrecision** | **decimal?**| Option to add custom decimal precision on the chart | [optional] 
 
 ### Return type
-**string**
+**System.IO.Stream**
 
 ### Authorization
 

@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **IsHidden** | **bool** |  | [optional] 
 **CustomFieldIds** | **List&lt;Guid&gt;** |  | [optional] 
 **NoteLengthLimit** | **int?** |  | [optional] 
+**LayoutId** | **Guid?** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -13,5 +13,6 @@ Name | Type | Description | Notes
 **isHidden** | **Boolean** |  | [optional] 
 **customFieldIds** | **[String]** |  | [optional] 
 **noteLengthLimit** | **Number** |  | [optional] 
+**layoutId** | **String** |  | [optional] 
 
 

@@ -1,4 +1,5 @@
 # FactSet.SDK.Signals.Model.IdResolutionsMeta
+Details about resolved identifiers
 
 ## Properties
 

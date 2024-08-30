@@ -114,7 +114,7 @@ class Contract(ModelNormal):
 
         Args:
             fields (ContractFields):
-            version (str):
+            version (str): Contract version number
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -201,7 +201,7 @@ class Contract(ModelNormal):
 
         Args:
             fields (ContractFields):
-            version (str):
+            version (str): Contract version number
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

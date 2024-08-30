@@ -32,8 +32,9 @@ import com.factset.sdk.Signals.JSON;
 
 
 /**
- * EventHeadlineDataItem
+ * Return object that includes details about an event headline
  */
+@ApiModel(description = "Return object that includes details about an event headline")
 @JsonPropertyOrder({
   EventHeadlineDataItem.JSON_PROPERTY_REQUEST_ID,
   EventHeadlineDataItem.JSON_PROPERTY_COMPANY_NAME,

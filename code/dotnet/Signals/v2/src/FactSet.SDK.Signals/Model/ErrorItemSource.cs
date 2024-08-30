@@ -35,15 +35,16 @@ namespace FactSet.SDK.Signals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ErrorItemSource" /> class.
         /// </summary>
-        /// <param name="_parameter">_parameter.</param>
+        /// <param name="_parameter">The source of the error.</param>
         public ErrorItemSource(string _parameter = default(string))
         {
             this.Parameter = _parameter;
         }
 
         /// <summary>
-        /// Gets or Sets Parameter
+        /// The source of the error
         /// </summary>
+        /// <value>The source of the error</value>
         [DataMember(Name = "parameter", EmitDefaultValue = false)]
         public string Parameter { get; set; }
 

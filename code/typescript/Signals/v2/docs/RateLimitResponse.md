@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**message** | **String** |  | [optional] 
+**message** | **String** | Detail about the rate limit error. | [optional] 
 
 

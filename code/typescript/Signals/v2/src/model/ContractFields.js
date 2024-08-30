@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import ContractFieldsEventDate from './ContractFieldsEventDate';
 import ContractFieldsSummary from './ContractFieldsSummary';
 import ContractProperty from './ContractProperty';
 
@@ -22,9 +23,10 @@ import ContractProperty from './ContractProperty';
 class ContractFields {
     /**
      * Constructs a new <code>ContractFields</code>.
+     * List of required fields at the top level of each signal
      * @alias module:model/ContractFields
      * @param summary {module:model/ContractFieldsSummary} 
-     * @param eventDate {module:model/ContractFieldsSummary} 
+     * @param eventDate {module:model/ContractFieldsEventDate} 
      */
     constructor(summary, eventDate) { 
         
@@ -56,7 +58,7 @@ class ContractFields {
                 obj['summary'] = ContractFieldsSummary.constructFromObject(data['summary']);
             }
             if (data.hasOwnProperty('eventDate')) {
-                obj['eventDate'] = ContractFieldsSummary.constructFromObject(data['eventDate']);
+                obj['eventDate'] = ContractFieldsEventDate.constructFromObject(data['eventDate']);
             }
             if (data.hasOwnProperty('additionalProperties')) {
                 obj['additionalProperties'] = ContractProperty.constructFromObject(data['additionalProperties']);
@@ -74,7 +76,7 @@ class ContractFields {
 ContractFields.prototype['summary'] = undefined;
 
 /**
- * @member {module:model/ContractFieldsSummary} eventDate
+ * @member {module:model/ContractFieldsEventDate} eventDate
  */
 ContractFields.prototype['eventDate'] = undefined;
 

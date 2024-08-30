@@ -31,8 +31,9 @@ import com.factset.sdk.Signals.JSON;
 
 
 /**
- * SignalMetaData
+ * Metadata about a signal
  */
+@ApiModel(description = "Metadata about a signal")
 @JsonPropertyOrder({
   SignalMetaData.JSON_PROPERTY_DATA
 })

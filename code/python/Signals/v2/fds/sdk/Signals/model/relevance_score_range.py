@@ -144,10 +144,10 @@ class RelevanceScoreRange(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            gt (float): [optional]  # noqa: E501
-            gte (float): [optional]  # noqa: E501
-            lt (float): [optional]  # noqa: E501
-            lte (float): [optional]  # noqa: E501
+            gt (float): A date/time string in ISO 8601 format. gt stands for greater than. [optional]  # noqa: E501
+            gte (float): A date/time string in ISO 8601 format. gte stands for greater than or equal to. [optional]  # noqa: E501
+            lt (float): A date/time string in ISO 8601 format. lt stands for less than. [optional]  # noqa: E501
+            lte (float): A date/time string in ISO 8601 format. lte stands for less than or equal to. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -229,10 +229,10 @@ class RelevanceScoreRange(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            gt (float): [optional]  # noqa: E501
-            gte (float): [optional]  # noqa: E501
-            lt (float): [optional]  # noqa: E501
-            lte (float): [optional]  # noqa: E501
+            gt (float): A date/time string in ISO 8601 format. gt stands for greater than. [optional]  # noqa: E501
+            gte (float): A date/time string in ISO 8601 format. gte stands for greater than or equal to. [optional]  # noqa: E501
+            lt (float): A date/time string in ISO 8601 format. lt stands for less than. [optional]  # noqa: E501
+            lte (float): A date/time string in ISO 8601 format. lte stands for less than or equal to. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

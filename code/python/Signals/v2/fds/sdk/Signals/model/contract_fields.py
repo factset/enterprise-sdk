@@ -31,8 +31,10 @@ from fds.sdk.Signals.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from fds.sdk.Signals.model.contract_fields_event_date import ContractFieldsEventDate
     from fds.sdk.Signals.model.contract_fields_summary import ContractFieldsSummary
     from fds.sdk.Signals.model.contract_property import ContractProperty
+    globals()['ContractFieldsEventDate'] = ContractFieldsEventDate
     globals()['ContractFieldsSummary'] = ContractFieldsSummary
     globals()['ContractProperty'] = ContractProperty
 
@@ -91,7 +93,7 @@ class ContractFields(ModelNormal):
         lazy_import()
         return {
             'summary': (ContractFieldsSummary,),  # noqa: E501
-            'event_date': (ContractFieldsSummary,),  # noqa: E501
+            'event_date': (ContractFieldsEventDate,),  # noqa: E501
             'additional_properties': (ContractProperty,),  # noqa: E501
         }
 
@@ -118,7 +120,7 @@ class ContractFields(ModelNormal):
 
         Args:
             summary (ContractFieldsSummary):
-            event_date (ContractFieldsSummary):
+            event_date (ContractFieldsEventDate):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -206,7 +208,7 @@ class ContractFields(ModelNormal):
 
         Args:
             summary (ContractFieldsSummary):
-            event_date (ContractFieldsSummary):
+            event_date (ContractFieldsEventDate):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

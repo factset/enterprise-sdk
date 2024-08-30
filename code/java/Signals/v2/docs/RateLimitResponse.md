@@ -8,7 +8,7 @@ Error returned if any of the user's rate limit have been reached.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**message** | **String** |  |  [optional]
+**message** | **String** | Detail about the rate limit error. |  [optional]
 
 
 ## Implemented Interfaces

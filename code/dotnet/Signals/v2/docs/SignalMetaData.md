@@ -1,4 +1,5 @@
 # FactSet.SDK.Signals.Model.SignalMetaData
+Metadata about a signal
 
 ## Properties
 

@@ -2,6 +2,7 @@
 
 # ErrorResponse
 
+The response returned for an unsuccessful request
 
 ## Properties
 

@@ -1,5 +1,6 @@
 # IdResolutionsMeta
 
+Details about resolved identifiers
 
 ## Properties
 Name | Type | Description | Notes

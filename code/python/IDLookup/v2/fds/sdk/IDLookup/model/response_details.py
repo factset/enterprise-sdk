@@ -100,6 +100,7 @@ class ResponseDetails(ModelNormal):
             'name': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'id_type': (str,),  # noqa: E501
+            'issuer_name': (str,),  # noqa: E501
             'entity_id': (str,),  # noqa: E501
             'underlying': (ResponseDetailsUnderlying,),  # noqa: E501
             'fsym_regional_id': (str,),  # noqa: E501
@@ -117,6 +118,7 @@ class ResponseDetails(ModelNormal):
         'name': 'name',  # noqa: E501
         'id': 'id',  # noqa: E501
         'id_type': 'idType',  # noqa: E501
+        'issuer_name': 'issuerName',  # noqa: E501
         'entity_id': 'entityId',  # noqa: E501
         'underlying': 'underlying',  # noqa: E501
         'fsym_regional_id': 'fsymRegionalId',  # noqa: E501
@@ -171,6 +173,7 @@ class ResponseDetails(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): Identifier of a market security pertaining to the dataset .. [optional]  # noqa: E501
             id_type (str): Type of the identifier. * `symbol`: The value in symbol is associated with the name of the related dataset. It is the only value that should be passed back to any FactSet services to retrieve data. Example: M-US.   * `tickerRegion`: FactSet region ticker symbol. For details on Global Region Codes, visit [Online Assistant Page #13258](https://oa.apps.factset.com/pages/13258). Example: MKSXX-US.   * `tickerExchange`: FactSet exchange ticker symbol. For definitions of Exchange Codes, visit [Online Assistant Page #12544](https://oa.apps.factset.com/pages/12544). Example: N3ZWW5.FI-CEP.    * `entityId`: FactSet Entity Identifier (-E). For more information on Entity Ids, visit [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881). Example: 000F9X-E. . [optional]  # noqa: E501
+            issuer_name (str): Name of the issuer.. [optional]  # noqa: E501
             entity_id (str): FactSet Entity Identifier (-E). For more information on Entity Ids, visit [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881). . [optional]  # noqa: E501
             underlying (ResponseDetailsUnderlying): [optional]  # noqa: E501
             fsym_regional_id (str): FactSet Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet. [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881).. [optional]  # noqa: E501
@@ -265,6 +268,7 @@ class ResponseDetails(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): Identifier of a market security pertaining to the dataset .. [optional]  # noqa: E501
             id_type (str): Type of the identifier. * `symbol`: The value in symbol is associated with the name of the related dataset. It is the only value that should be passed back to any FactSet services to retrieve data. Example: M-US.   * `tickerRegion`: FactSet region ticker symbol. For details on Global Region Codes, visit [Online Assistant Page #13258](https://oa.apps.factset.com/pages/13258). Example: MKSXX-US.   * `tickerExchange`: FactSet exchange ticker symbol. For definitions of Exchange Codes, visit [Online Assistant Page #12544](https://oa.apps.factset.com/pages/12544). Example: N3ZWW5.FI-CEP.    * `entityId`: FactSet Entity Identifier (-E). For more information on Entity Ids, visit [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881). Example: 000F9X-E. . [optional]  # noqa: E501
+            issuer_name (str): Name of the issuer.. [optional]  # noqa: E501
             entity_id (str): FactSet Entity Identifier (-E). For more information on Entity Ids, visit [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881). . [optional]  # noqa: E501
             underlying (ResponseDetailsUnderlying): [optional]  # noqa: E501
             fsym_regional_id (str): FactSet Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet. [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881).. [optional]  # noqa: E501

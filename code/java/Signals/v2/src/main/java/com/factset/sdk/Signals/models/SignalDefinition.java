@@ -31,8 +31,9 @@ import com.factset.sdk.Signals.JSON;
 
 
 /**
- * SignalDefinition
+ * Detailed information about a given signal
  */
+@ApiModel(description = "Detailed information about a given signal")
 @JsonPropertyOrder({
   SignalDefinition.JSON_PROPERTY_DATA
 })

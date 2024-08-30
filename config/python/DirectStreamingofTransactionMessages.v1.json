@@ -1,14 +1,14 @@
 {
   "packageName": "fds.sdk.DirectStreamingofTransactionMessages",
   "projectName": "fds.sdk.DirectStreamingofTransactionMessages",
-  "packageVersion": "0.24.0",
+  "packageVersion": "0.24.1",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache License, Version 2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "packageDescription": "Direct Streaming of Transaction Messages client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/DirectStreamingofTransactionMessages/v1",
-  "httpUserAgent": "fds-sdk/python/DirectStreamingofTransactionMessages/0.24.0",
+  "httpUserAgent": "fds-sdk/python/DirectStreamingofTransactionMessages/0.24.1",
   "files": {
     "LICENSE": {}
   }

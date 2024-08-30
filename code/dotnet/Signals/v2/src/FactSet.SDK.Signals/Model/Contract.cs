@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Signals.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Signals.Model
 {
     /// <summary>
-    /// Contract
+    /// Provides details on a given contract
     /// </summary>
     [DataContract(Name = "contract")]
     public partial class Contract : IEquatable<Contract>, IValidatableObject
@@ -41,7 +41,7 @@ namespace FactSet.SDK.Signals.Model
         /// Initializes a new instance of the <see cref="Contract" /> class.
         /// </summary>
         /// <param name="fields">fields (required).</param>
-        /// <param name="version">version (required).</param>
+        /// <param name="version">Contract version number (required).</param>
         public Contract(ContractFields fields, string version)
         {
             // to ensure "fields" is required (not null)
@@ -63,8 +63,9 @@ namespace FactSet.SDK.Signals.Model
         public ContractFields Fields { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Contract version number
         /// </summary>
+        /// <value>Contract version number</value>
         [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = false)]
         public string _Version { get; set; }
 

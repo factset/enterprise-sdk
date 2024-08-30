@@ -135,7 +135,7 @@ class RateLimitResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            message (str): [optional]  # noqa: E501
+            message (str): Detail about the rate limit error.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -217,7 +217,7 @@ class RateLimitResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            message (str): [optional]  # noqa: E501
+            message (str): Detail about the rate limit error.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

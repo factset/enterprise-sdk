@@ -67,7 +67,7 @@ public class ContactsTypesApi {
 
   /**
    * Create contact types
-   * 
+   * Create contact type with given name
    * @param body Contact type name (required)
    * @return NewItemDto
    * @throws ApiException if fails to make API call
@@ -85,7 +85,7 @@ public class ContactsTypesApi {
 
   /**
    * Create contact types
-   * 
+   * Create contact type with given name
    * @param body Contact type name (required)
    * @return ApiResponse&lt;NewItemDto&gt;
    * @throws ApiException if fails to make API call
@@ -106,7 +106,7 @@ public class ContactsTypesApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/contact-types";
+    String localVarPath = "/contact-types";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -124,7 +124,7 @@ public class ContactsTypesApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+      "application/json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
@@ -144,7 +144,7 @@ public class ContactsTypesApi {
   }
   /**
    * Delete a contact type
-   * 
+   * Delete a contact type based on guid
    * @param contactTypeId contactTypeId to delete associated record (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -162,7 +162,7 @@ public class ContactsTypesApi {
 
   /**
    * Delete a contact type
-   * 
+   * Delete a contact type based on guid
    * @param contactTypeId contactTypeId to delete associated record (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -184,7 +184,7 @@ public class ContactsTypesApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/contact-types/{contactTypeId}"
+    String localVarPath = "/contact-types/{contactTypeId}"
       .replaceAll("\\{" + "contactTypeId" + "\\}", apiClient.escapeString(contactTypeId.toString()));
 
     // query params
@@ -221,7 +221,7 @@ public class ContactsTypesApi {
   }
   /**
    * Get list of the contact types configured in your group
-   * 
+   * Get all contact types configured in your group
    * @return java.util.List<ContactTypeDto>
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -236,7 +236,7 @@ public class ContactsTypesApi {
 
   /**
    * Get list of the contact types configured in your group
-   * 
+   * Get all contact types configured in your group
    * @return ApiResponse&lt;java.util.List<ContactTypeDto>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -249,7 +249,7 @@ public class ContactsTypesApi {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/v1/contact-types";
+    String localVarPath = "/contact-types";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -287,7 +287,7 @@ public class ContactsTypesApi {
   }
   /**
    * Edit a contact type
-   * 
+   * Update a contact type
    * @param contactTypeId contactTypeId to update associated record (required)
    * @param body Updated contact type name (required)
    * @throws ApiException if fails to make API call
@@ -306,7 +306,7 @@ public class ContactsTypesApi {
 
   /**
    * Edit a contact type
-   * 
+   * Update a contact type
    * @param contactTypeId contactTypeId to update associated record (required)
    * @param body Updated contact type name (required)
    * @return ApiResponse&lt;Void&gt;
@@ -334,7 +334,7 @@ public class ContactsTypesApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/contact-types/{contactTypeId}"
+    String localVarPath = "/contact-types/{contactTypeId}"
       .replaceAll("\\{" + "contactTypeId" + "\\}", apiClient.escapeString(contactTypeId.toString()));
 
     // query params

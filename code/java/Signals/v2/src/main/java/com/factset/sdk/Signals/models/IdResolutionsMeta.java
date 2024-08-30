@@ -30,8 +30,9 @@ import com.factset.sdk.Signals.JSON;
 
 
 /**
- * IdResolutionsMeta
+ * Details about resolved identifiers
  */
+@ApiModel(description = "Details about resolved identifiers")
 @JsonPropertyOrder({
   IdResolutionsMeta.JSON_PROPERTY_TICKER_REGION,
   IdResolutionsMeta.JSON_PROPERTY_REGIONAL_PERM_ID

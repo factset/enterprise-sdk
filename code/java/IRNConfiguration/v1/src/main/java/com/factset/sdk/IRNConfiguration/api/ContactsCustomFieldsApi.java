@@ -76,7 +76,7 @@ public class ContactsCustomFieldsApi {
 
   /**
    * Create a contact custom field
-   * 
+   * Create a contact custom field with given name and type
    * @param contactCustomFieldSaveDto ContactCustomFieldSaveDto object to save (optional)
    * @return NewItemDto
    * @throws ApiException if fails to make API call
@@ -94,7 +94,7 @@ public class ContactsCustomFieldsApi {
 
   /**
    * Create a contact custom field
-   * 
+   * Create a contact custom field with given name and type
    * @param contactCustomFieldSaveDto ContactCustomFieldSaveDto object to save (optional)
    * @return ApiResponse&lt;NewItemDto&gt;
    * @throws ApiException if fails to make API call
@@ -110,7 +110,7 @@ public class ContactsCustomFieldsApi {
     Object localVarPostBody = contactCustomFieldSaveDto;
     
     // create path and map variables
-    String localVarPath = "/v1/contact-custom-fields";
+    String localVarPath = "/contact-custom-fields";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -128,7 +128,7 @@ public class ContactsCustomFieldsApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+      "application/json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
@@ -148,7 +148,7 @@ public class ContactsCustomFieldsApi {
   }
   /**
    * Delete a contact custom field
-   * 
+   * Delete a contact custom field based on guid
    * @param contactCustomFieldId contactCustomFieldId to delete associated record (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -166,7 +166,7 @@ public class ContactsCustomFieldsApi {
 
   /**
    * Delete a contact custom field
-   * 
+   * Delete a contact custom field based on guid
    * @param contactCustomFieldId contactCustomFieldId to delete associated record (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -188,7 +188,7 @@ public class ContactsCustomFieldsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/contact-custom-fields/{contactCustomFieldId}"
+    String localVarPath = "/contact-custom-fields/{contactCustomFieldId}"
       .replaceAll("\\{" + "contactCustomFieldId" + "\\}", apiClient.escapeString(contactCustomFieldId.toString()));
 
     // query params
@@ -225,7 +225,7 @@ public class ContactsCustomFieldsApi {
   }
   /**
    * Get a specific Contact custom field&#39;s details
-   * 
+   * Get all details of custom field&#39;s defined for contacts
    * @param contactCustomFieldId contactCustomFieldId to get associated record (required)
    * @return ContactCustomFieldDto
    * @throws ApiException if fails to make API call
@@ -243,7 +243,7 @@ public class ContactsCustomFieldsApi {
 
   /**
    * Get a specific Contact custom field&#39;s details
-   * 
+   * Get all details of custom field&#39;s defined for contacts
    * @param contactCustomFieldId contactCustomFieldId to get associated record (required)
    * @return ApiResponse&lt;ContactCustomFieldDto&gt;
    * @throws ApiException if fails to make API call
@@ -264,7 +264,7 @@ public class ContactsCustomFieldsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/contact-custom-fields/{contactCustomFieldId}"
+    String localVarPath = "/contact-custom-fields/{contactCustomFieldId}"
       .replaceAll("\\{" + "contactCustomFieldId" + "\\}", apiClient.escapeString(contactCustomFieldId.toString()));
 
     // query params
@@ -303,7 +303,7 @@ public class ContactsCustomFieldsApi {
   }
   /**
    * Get all the contact custom fields
-   * 
+   * Get all the contact custom fields
    * @return java.util.List<ContactCustomFieldDto>
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -318,7 +318,7 @@ public class ContactsCustomFieldsApi {
 
   /**
    * Get all the contact custom fields
-   * 
+   * Get all the contact custom fields
    * @return ApiResponse&lt;java.util.List<ContactCustomFieldDto>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -331,7 +331,7 @@ public class ContactsCustomFieldsApi {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/v1/contact-custom-fields";
+    String localVarPath = "/contact-custom-fields";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -369,7 +369,7 @@ public class ContactsCustomFieldsApi {
   }
   /**
    * Edit a contact custom field
-   * 
+   * Update a contact custom field configuration
    * @param contactCustomFieldId contactCustomFieldId to update associated record (required)
    * @param operation contactCustomFieldUpdateDto object to update (optional)
    * @throws ApiException if fails to make API call
@@ -388,7 +388,7 @@ public class ContactsCustomFieldsApi {
 
   /**
    * Edit a contact custom field
-   * 
+   * Update a contact custom field configuration
    * @param contactCustomFieldId contactCustomFieldId to update associated record (required)
    * @param operation contactCustomFieldUpdateDto object to update (optional)
    * @return ApiResponse&lt;Void&gt;
@@ -411,7 +411,7 @@ public class ContactsCustomFieldsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/contact-custom-fields/{contactCustomFieldId}"
+    String localVarPath = "/contact-custom-fields/{contactCustomFieldId}"
       .replaceAll("\\{" + "contactCustomFieldId" + "\\}", apiClient.escapeString(contactCustomFieldId.toString()));
 
     // query params
@@ -430,7 +430,7 @@ public class ContactsCustomFieldsApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+      "application/json-patch+json", "application/json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 

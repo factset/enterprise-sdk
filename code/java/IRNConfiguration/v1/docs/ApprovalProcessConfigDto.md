@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **approvalLevels** | [**java.util.List&lt;ApprovalLevelConfigDto&gt;**](ApprovalLevelConfigDto.md) |  |  [optional]
 **viewerIds** | **java.util.List&lt;java.util.UUID&gt;** |  |  [optional]
+**pendingNotesVisible** | **String** |  |  [optional]
+**deniedNotesVisible** | **String** |  |  [optional]
 **shouldSendEmailAlertsWhenSubmittedForApproval** | **Boolean** |  |  [optional]
 **shouldSendEmailAlertsWhenApproved** | **Boolean** |  |  [optional]
 **shouldSendEmailAlertsWhenDenied** | **Boolean** |  |  [optional]

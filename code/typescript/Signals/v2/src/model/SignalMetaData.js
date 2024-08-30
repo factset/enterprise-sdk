@@ -21,6 +21,7 @@ import SignalMetaDataData from './SignalMetaDataData';
 class SignalMetaData {
     /**
      * Constructs a new <code>SignalMetaData</code>.
+     * Metadata about a signal
      * @alias module:model/SignalMetaData
      * @param data {Array.<module:model/SignalMetaDataData>} 
      */

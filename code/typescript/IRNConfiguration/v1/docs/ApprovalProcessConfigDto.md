@@ -6,6 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **approvalLevels** | [**[ApprovalLevelConfigDto]**](ApprovalLevelConfigDto.md) |  | [optional] 
 **viewerIds** | **[String]** |  | [optional] 
+**pendingNotesVisible** | **String** |  | [optional] 
+**deniedNotesVisible** | **String** |  | [optional] 
 **shouldSendEmailAlertsWhenSubmittedForApproval** | **Boolean** |  | [optional] 
 **shouldSendEmailAlertsWhenApproved** | **Boolean** |  | [optional] 
 **shouldSendEmailAlertsWhenDenied** | **Boolean** |  | [optional] 

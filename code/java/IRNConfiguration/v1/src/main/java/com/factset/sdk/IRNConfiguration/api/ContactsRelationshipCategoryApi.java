@@ -71,7 +71,7 @@ public class ContactsRelationshipCategoryApi {
 
   /**
    * Create a relationship category
-   * 
+   * Create a relationship category with given name
    * @param relationshipCategorySaveDto RelationshipCategorySaveDto object to save (optional)
    * @return NewItemDto
    * @throws ApiException if fails to make API call
@@ -89,7 +89,7 @@ public class ContactsRelationshipCategoryApi {
 
   /**
    * Create a relationship category
-   * 
+   * Create a relationship category with given name
    * @param relationshipCategorySaveDto RelationshipCategorySaveDto object to save (optional)
    * @return ApiResponse&lt;NewItemDto&gt;
    * @throws ApiException if fails to make API call
@@ -105,7 +105,7 @@ public class ContactsRelationshipCategoryApi {
     Object localVarPostBody = relationshipCategorySaveDto;
     
     // create path and map variables
-    String localVarPath = "/v1/relationship-categories";
+    String localVarPath = "/relationship-categories";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -123,7 +123,7 @@ public class ContactsRelationshipCategoryApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+      "application/json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
@@ -136,14 +136,14 @@ public class ContactsRelationshipCategoryApi {
       
     > apiResponse = apiClient.invokeAPI("ContactsRelationshipCategoryApi.createRelationshipCategory", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, createRelationshipCategoryResponseTypeMap, false);
+                               localVarAuthNames, createRelationshipCategoryResponseTypeMap, true);
 
     return apiResponse;
 
   }
   /**
    * Delete a relationship category
-   * 
+   * Delete a contact relationship category based on guid
    * @param relationshipCategoryId relationshipCategoryId to delete associated record (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -161,7 +161,7 @@ public class ContactsRelationshipCategoryApi {
 
   /**
    * Delete a relationship category
-   * 
+   * Delete a contact relationship category based on guid
    * @param relationshipCategoryId relationshipCategoryId to delete associated record (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -183,7 +183,7 @@ public class ContactsRelationshipCategoryApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/relationship-categories/{relationshipCategoryId}"
+    String localVarPath = "/relationship-categories/{relationshipCategoryId}"
       .replaceAll("\\{" + "relationshipCategoryId" + "\\}", apiClient.escapeString(relationshipCategoryId.toString()));
 
     // query params
@@ -220,7 +220,7 @@ public class ContactsRelationshipCategoryApi {
   }
   /**
    * Edit a relationship category
-   * 
+   * Update details of contact relationship category
    * @param relationshipCategoryId relationshipCategoryId to update associated record (required)
    * @param relationshipCategorySaveDto RelationshipCategorySaveDto object to update (optional)
    * @throws ApiException if fails to make API call
@@ -239,7 +239,7 @@ public class ContactsRelationshipCategoryApi {
 
   /**
    * Edit a relationship category
-   * 
+   * Update details of contact relationship category
    * @param relationshipCategoryId relationshipCategoryId to update associated record (required)
    * @param relationshipCategorySaveDto RelationshipCategorySaveDto object to update (optional)
    * @return ApiResponse&lt;Void&gt;
@@ -262,7 +262,7 @@ public class ContactsRelationshipCategoryApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/relationship-categories/{relationshipCategoryId}"
+    String localVarPath = "/relationship-categories/{relationshipCategoryId}"
       .replaceAll("\\{" + "relationshipCategoryId" + "\\}", apiClient.escapeString(relationshipCategoryId.toString()));
 
     // query params
@@ -292,14 +292,14 @@ public class ContactsRelationshipCategoryApi {
       Void
     > apiResponse = apiClient.invokeAPI("ContactsRelationshipCategoryApi.editRelationshipCategory", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, editRelationshipCategoryResponseTypeMap, false);
+                               localVarAuthNames, editRelationshipCategoryResponseTypeMap, true);
 
     return apiResponse;
 
   }
   /**
    * Get list of the relationship categories configured in your group
-   * 
+   * Get all relationship categories configured in your group
    * @return java.util.List<RelationshipCategoryDto>
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -314,7 +314,7 @@ public class ContactsRelationshipCategoryApi {
 
   /**
    * Get list of the relationship categories configured in your group
-   * 
+   * Get all relationship categories configured in your group
    * @return ApiResponse&lt;java.util.List<RelationshipCategoryDto>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -327,7 +327,7 @@ public class ContactsRelationshipCategoryApi {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/v1/relationship-categories";
+    String localVarPath = "/relationship-categories";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -365,7 +365,7 @@ public class ContactsRelationshipCategoryApi {
   }
   /**
    * Reorder relationship categories
-   * 
+   * Reorder relationship categories that are configured in your group
    * @param relationshipCategoryListDto List of Guid (optional)
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -383,7 +383,7 @@ public class ContactsRelationshipCategoryApi {
 
   /**
    * Reorder relationship categories
-   * 
+   * Reorder relationship categories that are configured in your group
    * @param relationshipCategoryListDto List of Guid (optional)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -400,7 +400,7 @@ public class ContactsRelationshipCategoryApi {
     Object localVarPostBody = relationshipCategoryListDto;
     
     // create path and map variables
-    String localVarPath = "/v1/relationship-categories/reorder";
+    String localVarPath = "/relationship-categories/reorder";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -429,7 +429,7 @@ public class ContactsRelationshipCategoryApi {
       Void
     > apiResponse = apiClient.invokeAPI("ContactsRelationshipCategoryApi.updateRelationshipCategoryOrder", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, updateRelationshipCategoryOrderResponseTypeMap, false);
+                               localVarAuthNames, updateRelationshipCategoryOrderResponseTypeMap, true);
 
     return apiResponse;
 

@@ -64,6 +64,9 @@ class ResponseDetails {
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
+            if (data.hasOwnProperty('issuerName')) {
+                obj['issuerName'] = ApiClient.convertToType(data['issuerName'], 'String');
+            }
             if (data.hasOwnProperty('entityId')) {
                 obj['entityId'] = ApiClient.convertToType(data['entityId'], 'String');
             }
@@ -109,6 +112,12 @@ ResponseDetails.prototype['idType'] = undefined;
  * @member {String} name
  */
 ResponseDetails.prototype['name'] = undefined;
+
+/**
+ * Name of the issuer.
+ * @member {String} issuerName
+ */
+ResponseDetails.prototype['issuerName'] = undefined;
 
 /**
  * FactSet Entity Identifier (-E). For more information on Entity Ids, visit [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881). 

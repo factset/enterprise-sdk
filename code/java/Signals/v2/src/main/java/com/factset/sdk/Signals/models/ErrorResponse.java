@@ -31,8 +31,9 @@ import com.factset.sdk.Signals.JSON;
 
 
 /**
- * ErrorResponse
+ * The response returned for an unsuccessful request
  */
+@ApiModel(description = "The response returned for an unsuccessful request")
 @JsonPropertyOrder({
   ErrorResponse.JSON_PROPERTY_MESSAGE,
   ErrorResponse.JSON_PROPERTY_ERRORS

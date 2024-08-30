@@ -22,6 +22,7 @@ import RelevanceScoreRange from './RelevanceScoreRange';
 class EventsEntitiesPost {
     /**
      * Constructs a new <code>EventsEntitiesPost</code>.
+     * Contains list of entities that matches the request criterion
      * @alias module:model/EventsEntitiesPost
      */
     constructor() { 

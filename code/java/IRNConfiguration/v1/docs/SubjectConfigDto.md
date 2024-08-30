@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **emailHeadlineFormat** | [**java.util.List&lt;HeadlineFormatConfigDto&gt;**](HeadlineFormatConfigDto.md) |  |  [optional]
 **ratingConfig** | [**RatingConfigDto**](RatingConfigDto.md) |  |  [optional]
 **noteLengthLimit** | **Integer** |  |  [optional]
+**layoutId** | **java.util.UUID** |  |  [optional]
 
 
 ## Implemented Interfaces

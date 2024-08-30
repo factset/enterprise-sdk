@@ -1,13 +1,13 @@
 # fds.sdk.IRNConfiguration.CustomSymbolsRelationshipsApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_symbol_relationship_type**](CustomSymbolsRelationshipsApi.md#create_symbol_relationship_type) | **POST** /v1/symbols-relationships | Create a symbol relationship
-[**delete_symbols_relationship**](CustomSymbolsRelationshipsApi.md#delete_symbols_relationship) | **DELETE** /v1/symbols-relationships/{symbolsRelationshipId} | Delete a symbol relationship
-[**edit_symbols_relationship**](CustomSymbolsRelationshipsApi.md#edit_symbols_relationship) | **PUT** /v1/symbols-relationships/{symbolsRelationshipId} | Edit a symbol relationship
-[**get_symbols_relationships**](CustomSymbolsRelationshipsApi.md#get_symbols_relationships) | **GET** /v1/symbols-relationships | Get all the Symbols Relationships
+[**create_symbol_relationship_type**](CustomSymbolsRelationshipsApi.md#create_symbol_relationship_type) | **POST** /symbols-relationships | Create a symbol relationship
+[**delete_symbols_relationship**](CustomSymbolsRelationshipsApi.md#delete_symbols_relationship) | **DELETE** /symbols-relationships/{symbolsRelationshipId} | Delete a symbol relationship
+[**edit_symbols_relationship**](CustomSymbolsRelationshipsApi.md#edit_symbols_relationship) | **PUT** /symbols-relationships/{symbolsRelationshipId} | Edit a symbol relationship
+[**get_symbols_relationships**](CustomSymbolsRelationshipsApi.md#get_symbols_relationships) | **GET** /symbols-relationships | Get all the Symbols Relationships
 
 
 
@@ -15,6 +15,8 @@ Method | HTTP request | Description
 > NewItemDto create_symbol_relationship_type()
 
 Create a symbol relationship
+
+Create a symbol relationship with given name
 
 ### Example
 
@@ -99,7 +101,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -117,6 +119,8 @@ Name | Type | Description  | Notes
 > delete_symbols_relationship(symbols_relationship_id)
 
 Delete a symbol relationship
+
+Delete a symbol relationship based on guid
 
 ### Example
 
@@ -211,6 +215,8 @@ void (empty response body)
 > edit_symbols_relationship(symbols_relationship_id)
 
 Edit a symbol relationship
+
+Update a symbol relationship
 
 ### Example
 
@@ -315,6 +321,8 @@ void (empty response body)
 > [SymbolsRelationshipDto] get_symbols_relationships()
 
 Get all the Symbols Relationships
+
+Get all symbols relationships configured in your group
 
 ### Example
 

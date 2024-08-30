@@ -212,7 +212,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new EventsApi();
-const eventRequestBody = new signals.EventRequestBody(); // EventRequestBody | 
+const eventRequestBody = {"created":{"gt":"2021-01-01T00:00:00Z","gte":"2021-01-01T00:00:00Z","lt":"2021-01-01T00:00:00Z","lte":"2021-01-01T00:00:00Z"},"updated":{"gt":"2021-01-01T00:00:00Z","gte":"2021-01-01T00:00:00Z","lt":"2021-01-01T00:00:00Z","lte":"2021-01-01T00:00:00Z"},"signalIds":"dilutionTrigger,freeCashFlow","ids":"FDS-US,AMZN-US","portfolios":"testPortfolio.ofdb","themes":"testTheme","categories":"testCategory","userRelevanceScore":{"gt":0,"gte":0,"lt":0,"lte":0},"sort":"-userRelevanceScore","resolveIdentifiers":true,"propertyFilter":{"portfolioUniqueId":"abc-xyz-def"}}; // EventRequestBody | 
 
 // Call api endpoint
 apiInstance.postEventAdaptiveCards(eventRequestBody).then(
@@ -291,7 +291,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new EventsApi();
-const eventRequestBody = new signals.EventRequestBody(); // EventRequestBody | 
+const eventRequestBody = {"created":{"gt":"2021-01-01T00:00:00Z","gte":"2021-01-01T00:00:00Z","lt":"2021-01-01T00:00:00Z","lte":"2021-01-01T00:00:00Z"},"updated":{"gt":"2021-01-01T00:00:00Z","gte":"2021-01-01T00:00:00Z","lt":"2021-01-01T00:00:00Z","lte":"2021-01-01T00:00:00Z"},"signalIds":"dilutionTrigger,freeCashFlow","ids":"FDS-US,AMZN-US","portfolios":"testPortfolio.ofdb","themes":"testTheme","categories":"testCategory","userRelevanceScore":{"gt":0,"gte":0,"lt":0,"lte":0},"sort":"-userRelevanceScore","resolveIdentifiers":true,"propertyFilter":{"portfolioUniqueId":"abc-xyz-def"}}; // EventRequestBody | 
 
 // Call api endpoint
 apiInstance.postEventDetails(eventRequestBody).then(
@@ -370,7 +370,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new EventsApi();
-const eventsEntitiesPost = new signals.EventsEntitiesPost(); // EventsEntitiesPost | 
+const eventsEntitiesPost = {"created":{"gt":"2021-01-01T00:00:00Z","gte":"2021-01-01T00:00:00Z","lt":"2021-01-01T00:00:00Z","lte":"2021-01-01T00:00:00Z"},"updated":{"gt":"2021-01-01T00:00:00Z","gte":"2021-01-01T00:00:00Z","lt":"2021-01-01T00:00:00Z","lte":"2021-01-01T00:00:00Z"},"signalIds":"dilutionTrigger,freeCashFlow","themes":"testTheme","categories":"testCategory","userRelevanceScore":{"gt":0,"gte":0,"lt":0,"lte":0}}; // EventsEntitiesPost | 
 
 // Call api endpoint
 apiInstance.postEventEntities(eventsEntitiesPost).then(
@@ -449,7 +449,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new EventsApi();
-const eventRequestBody = new signals.EventRequestBody(); // EventRequestBody | 
+const eventRequestBody = {"created":{"gt":"2021-01-01T00:00:00Z","gte":"2021-01-01T00:00:00Z","lt":"2021-01-01T00:00:00Z","lte":"2021-01-01T00:00:00Z"},"updated":{"gt":"2021-01-01T00:00:00Z","gte":"2021-01-01T00:00:00Z","lt":"2021-01-01T00:00:00Z","lte":"2021-01-01T00:00:00Z"},"signalIds":"dilutionTrigger,freeCashFlow","ids":"FDS-US,AMZN-US","portfolios":"testPortfolio.ofdb","themes":"testTheme","categories":"testCategory","userRelevanceScore":{"gt":0,"gte":0,"lt":0,"lte":0},"sort":"-userRelevanceScore","resolveIdentifiers":true,"propertyFilter":{"portfolioUniqueId":"abc-xyz-def"}}; // EventRequestBody | 
 
 // Call api endpoint
 apiInstance.postEventHeadlines(eventRequestBody).then(

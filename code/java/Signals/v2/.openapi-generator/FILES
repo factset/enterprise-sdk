@@ -8,6 +8,7 @@ build.gradle
 build.sbt
 docs/Contract.md
 docs/ContractFields.md
+docs/ContractFieldsEventDate.md
 docs/ContractFieldsSummary.md
 docs/ContractProperty.md
 docs/ContractPropertyItems.md
@@ -74,6 +75,7 @@ src/main/java/com/factset/sdk/Signals/auth/OAuthFlow.java
 src/main/java/com/factset/sdk/Signals/models/AbstractOpenApiSchema.java
 src/main/java/com/factset/sdk/Signals/models/Contract.java
 src/main/java/com/factset/sdk/Signals/models/ContractFields.java
+src/main/java/com/factset/sdk/Signals/models/ContractFieldsEventDate.java
 src/main/java/com/factset/sdk/Signals/models/ContractFieldsSummary.java
 src/main/java/com/factset/sdk/Signals/models/ContractProperty.java
 src/main/java/com/factset/sdk/Signals/models/ContractPropertyItems.java

@@ -238,7 +238,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         MetadataApi apiInstance = new MetadataApi(defaultClient);
-        String signalId = "dilutionTrigger"; // String | 
+        String signalId = "dilutionTrigger"; // String | A single signalId.
         try {
             SignalDefinition result = apiInstance.getDataDictionaryById(signalId);
             System.out.println(result);
@@ -259,7 +259,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **signalId** | **String**|  |
+ **signalId** | **String**| A single signalId. |
 
 ### Return type
 

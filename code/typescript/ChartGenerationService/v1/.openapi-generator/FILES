@@ -5,6 +5,10 @@
 LICENSE
 README.md
 docs/CategoriesErrorResponse.md
+docs/CategorizedChartList.md
+docs/CategoryChartListErrorObject.md
+docs/CategoryListResponse.md
+docs/ChartErrorResponseObject.md
 docs/ChartInput.md
 docs/ChartList.md
 docs/ChartListErrorResponse.md
@@ -18,6 +22,10 @@ src/ApiClient.js
 src/api/ChartTemplatesApi.js
 src/index.js
 src/model/CategoriesErrorResponse.js
+src/model/CategorizedChartList.js
+src/model/CategoryChartListErrorObject.js
+src/model/CategoryListResponse.js
+src/model/ChartErrorResponseObject.js
 src/model/ChartInput.js
 src/model/ChartList.js
 src/model/ChartListErrorResponse.js

@@ -1,14 +1,14 @@
 # irnconfiguration.ContactsRelationshipCategoryApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createRelationshipCategory**](ContactsRelationshipCategoryApi.md#createRelationshipCategory) | **POST** /v1/relationship-categories | Create a relationship category
-[**deleteRelationshipCategory**](ContactsRelationshipCategoryApi.md#deleteRelationshipCategory) | **DELETE** /v1/relationship-categories/{relationshipCategoryId} | Delete a relationship category
-[**editRelationshipCategory**](ContactsRelationshipCategoryApi.md#editRelationshipCategory) | **PUT** /v1/relationship-categories/{relationshipCategoryId} | Edit a relationship category
-[**getRelationshipCategories**](ContactsRelationshipCategoryApi.md#getRelationshipCategories) | **GET** /v1/relationship-categories | Get list of the relationship categories configured in your group
-[**updateRelationshipCategoryOrder**](ContactsRelationshipCategoryApi.md#updateRelationshipCategoryOrder) | **POST** /v1/relationship-categories/reorder | Reorder relationship categories
+[**createRelationshipCategory**](ContactsRelationshipCategoryApi.md#createRelationshipCategory) | **POST** /relationship-categories | Create a relationship category
+[**deleteRelationshipCategory**](ContactsRelationshipCategoryApi.md#deleteRelationshipCategory) | **DELETE** /relationship-categories/{relationshipCategoryId} | Delete a relationship category
+[**editRelationshipCategory**](ContactsRelationshipCategoryApi.md#editRelationshipCategory) | **PUT** /relationship-categories/{relationshipCategoryId} | Edit a relationship category
+[**getRelationshipCategories**](ContactsRelationshipCategoryApi.md#getRelationshipCategories) | **GET** /relationship-categories | Get list of the relationship categories configured in your group
+[**updateRelationshipCategoryOrder**](ContactsRelationshipCategoryApi.md#updateRelationshipCategoryOrder) | **POST** /relationship-categories/reorder | Reorder relationship categories
 
 
 
@@ -17,6 +17,8 @@ Method | HTTP request | Description
 > NewItemDto createRelationshipCategory(opts)
 
 Create a relationship category
+
+Create a relationship category with given name
 
 ### Example
 
@@ -87,7 +89,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -96,6 +98,8 @@ Name | Type | Description  | Notes
 > deleteRelationshipCategory(relationshipCategoryId)
 
 Delete a relationship category
+
+Delete a contact relationship category based on guid
 
 ### Example
 
@@ -171,6 +175,8 @@ null (empty response body)
 > editRelationshipCategory(relationshipCategoryId, opts)
 
 Edit a relationship category
+
+Update details of contact relationship category
 
 ### Example
 
@@ -251,6 +257,8 @@ null (empty response body)
 
 Get list of the relationship categories configured in your group
 
+Get all relationship categories configured in your group
+
 ### Example
 
 > [!IMPORTANT]
@@ -323,6 +331,8 @@ This endpoint does not need any parameter.
 > updateRelationshipCategoryOrder(opts)
 
 Reorder relationship categories
+
+Reorder relationship categories that are configured in your group
 
 ### Example
 

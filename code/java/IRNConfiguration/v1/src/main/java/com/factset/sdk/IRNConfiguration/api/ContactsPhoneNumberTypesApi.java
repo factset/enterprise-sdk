@@ -67,7 +67,7 @@ public class ContactsPhoneNumberTypesApi {
 
   /**
    * Create a phone type
-   * 
+   * Create a phone type with given name
    * @param body To add phoneNumberType (required)
    * @return NewItemDto
    * @throws ApiException if fails to make API call
@@ -85,7 +85,7 @@ public class ContactsPhoneNumberTypesApi {
 
   /**
    * Create a phone type
-   * 
+   * Create a phone type with given name
    * @param body To add phoneNumberType (required)
    * @return ApiResponse&lt;NewItemDto&gt;
    * @throws ApiException if fails to make API call
@@ -106,7 +106,7 @@ public class ContactsPhoneNumberTypesApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/phone-number-types";
+    String localVarPath = "/phone-number-types";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -124,7 +124,7 @@ public class ContactsPhoneNumberTypesApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+      "application/json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
@@ -144,7 +144,7 @@ public class ContactsPhoneNumberTypesApi {
   }
   /**
    * Delete a phone type
-   * 
+   * Delete a phone number type based on guid
    * @param phoneNumberTypeId phoneNumberTypeId for deleting associated record (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -162,7 +162,7 @@ public class ContactsPhoneNumberTypesApi {
 
   /**
    * Delete a phone type
-   * 
+   * Delete a phone number type based on guid
    * @param phoneNumberTypeId phoneNumberTypeId for deleting associated record (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -184,7 +184,7 @@ public class ContactsPhoneNumberTypesApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/phone-number-types/{phoneNumberTypeId}"
+    String localVarPath = "/phone-number-types/{phoneNumberTypeId}"
       .replaceAll("\\{" + "phoneNumberTypeId" + "\\}", apiClient.escapeString(phoneNumberTypeId.toString()));
 
     // query params
@@ -221,7 +221,7 @@ public class ContactsPhoneNumberTypesApi {
   }
   /**
    * Get list of the phone types configured in your group
-   * 
+   * Get all phone types configured in your group
    * @return java.util.List<PhoneNumberTypeDto>
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -236,7 +236,7 @@ public class ContactsPhoneNumberTypesApi {
 
   /**
    * Get list of the phone types configured in your group
-   * 
+   * Get all phone types configured in your group
    * @return ApiResponse&lt;java.util.List<PhoneNumberTypeDto>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -249,7 +249,7 @@ public class ContactsPhoneNumberTypesApi {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/v1/phone-number-types";
+    String localVarPath = "/phone-number-types";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -287,7 +287,7 @@ public class ContactsPhoneNumberTypesApi {
   }
   /**
    * Edit a phone type
-   * 
+   * Update a phone number type
    * @param phoneNumberTypeId phoneNumberTypeId to update associated record (required)
    * @param body Update with phoneNumberType (required)
    * @throws ApiException if fails to make API call
@@ -306,7 +306,7 @@ public class ContactsPhoneNumberTypesApi {
 
   /**
    * Edit a phone type
-   * 
+   * Update a phone number type
    * @param phoneNumberTypeId phoneNumberTypeId to update associated record (required)
    * @param body Update with phoneNumberType (required)
    * @return ApiResponse&lt;Void&gt;
@@ -334,7 +334,7 @@ public class ContactsPhoneNumberTypesApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/phone-number-types/{phoneNumberTypeId}"
+    String localVarPath = "/phone-number-types/{phoneNumberTypeId}"
       .replaceAll("\\{" + "phoneNumberTypeId" + "\\}", apiClient.escapeString(phoneNumberTypeId.toString()));
 
     // query params

@@ -1,13 +1,13 @@
 # fds.sdk.IRNConfiguration.ContactsRolesApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_contact_role**](ContactsRolesApi.md#create_contact_role) | **POST** /v1/contact-roles | Create contact roles
-[**delete_contact_role**](ContactsRolesApi.md#delete_contact_role) | **DELETE** /v1/contact-roles/{contactRoleId} | Delete a contact role
-[**get_contact_roles**](ContactsRolesApi.md#get_contact_roles) | **GET** /v1/contact-roles | Get list of the contact roles configured in your group
-[**update_contact_role**](ContactsRolesApi.md#update_contact_role) | **PUT** /v1/contact-roles/{contactRoleId} | Edit a contact role
+[**create_contact_role**](ContactsRolesApi.md#create_contact_role) | **POST** /contact-roles | Create contact roles
+[**delete_contact_role**](ContactsRolesApi.md#delete_contact_role) | **DELETE** /contact-roles/{contactRoleId} | Delete a contact role
+[**get_contact_roles**](ContactsRolesApi.md#get_contact_roles) | **GET** /contact-roles | Get list of the contact roles configured in your group
+[**update_contact_role**](ContactsRolesApi.md#update_contact_role) | **PUT** /contact-roles/{contactRoleId} | Edit a contact role
 
 
 
@@ -15,6 +15,8 @@ Method | HTTP request | Description
 > NewItemDto create_contact_role(body)
 
 Create contact roles
+
+Create a contact role with given name and type
 
 ### Example
 
@@ -91,7 +93,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -109,6 +111,8 @@ Name | Type | Description  | Notes
 > delete_contact_role(contact_role_id)
 
 Delete a contact role
+
+Delete a contact role based on guid
 
 ### Example
 
@@ -204,6 +208,8 @@ void (empty response body)
 
 Get list of the contact roles configured in your group
 
+Get all contact roles configured in your group
+
 ### Example
 
 > [!IMPORTANT]
@@ -291,6 +297,8 @@ This endpoint does not need any parameter.
 > update_contact_role(contact_role_id, body)
 
 Edit a contact role
+
+Update a contact role name and other details
 
 ### Example
 

@@ -1,33 +1,55 @@
 openapi: 3.0.1
 info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
   description: Allows users to extract, create, update and configure IRN data.
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
   title: IRN API v1
-  version: "1"
+  version: 1.0.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/irn-configuration-api#apiDocumentation
 servers:
 - description: Production Server
-  url: https://api.factset.com/research/irn
-- description: Sandbox
-  url: https://api-sandbox.factset.com/research/irn
+  url: https://api.factset.com/research/irn/v1
+- description: Sandbox Server
+  url: https://api-sandbox.factset.com/research/irn/v1
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
 tags:
-- name: Contacts - CustomFields
-- name: Contacts - PhoneNumberTypes
-- name: Contacts - Relationship Category
-- name: Contacts - Relationships
-- name: Contacts - Roles
-- name: Contacts - Types
-- name: CustomSymbols - CustomFields
-- name: CustomSymbols - Relationships
-- name: CustomSymbols - Types
-- name: Notes - Configuration
+- description: Customfields for contacts types
+  name: Contacts - CustomFields
+- description: Phone number types for contacts
+  name: Contacts - PhoneNumberTypes
+- description: Relationship categories for contacts
+  name: Contacts - Relationship Category
+- description: Relationships for contacts
+  name: Contacts - Relationships
+- description: Roles for contacts
+  name: Contacts - Roles
+- description: Types for contacts
+  name: Contacts - Types
+- description: Customfields for custom symbols
+  name: CustomSymbols - CustomFields
+- description: Relationships for custom symbols
+  name: CustomSymbols - Relationships
+- description: Types for custom symbols
+  name: CustomSymbols - Types
+- description: Subjects, custom fields and all other preferences for notes
+  name: Notes - Configuration
 paths:
-  /v1/authors:
+  /authors:
     get:
+      description: Get all Authors
       operationId: GetAuthors
       parameters:
-      - explode: false
+      - description: If set to true, permissions will be ignored. Default is false.
+        explode: false
         in: header
         name: X-IRN-Ignore-Permissions
         required: false
@@ -54,8 +76,9 @@ paths:
       tags:
       - Notes - Configuration
       x-accepts: application/json
-  /v1/contact-custom-fields:
+  /contact-custom-fields:
     get:
+      description: Get all the contact custom fields
       operationId: GetContactCustomFields
       responses:
         "200":
@@ -71,19 +94,11 @@ paths:
       - Contacts - CustomFields
       x-accepts: application/json
     post:
+      description: Create a contact custom field with given name and type
       operationId: CreateContactCustomField
       requestBody:
         content:
-          application/json-patch+json:
-            schema:
-              $ref: '#/components/schemas/ContactCustomFieldSaveDto'
           application/json:
-            schema:
-              $ref: '#/components/schemas/ContactCustomFieldSaveDto'
-          text/json:
-            schema:
-              $ref: '#/components/schemas/ContactCustomFieldSaveDto'
-          application/*+json:
             schema:
               $ref: '#/components/schemas/ContactCustomFieldSaveDto'
         description: ContactCustomFieldSaveDto object to save
@@ -109,10 +124,11 @@ paths:
       summary: Create a contact custom field
       tags:
       - Contacts - CustomFields
-      x-contentType: application/json-patch+json
+      x-contentType: application/json
       x-accepts: application/json
-  /v1/contact-custom-fields/{contactCustomFieldId}:
+  /contact-custom-fields/{contactCustomFieldId}:
     delete:
+      description: Delete a contact custom field based on guid
       operationId: DeleteContactCustomField
       parameters:
       - description: contactCustomFieldId to delete associated record
@@ -150,6 +166,7 @@ paths:
       - Contacts - CustomFields
       x-accepts: application/json
     get:
+      description: Get all details of custom field's defined for contacts
       operationId: GetContactCustomField
       parameters:
       - description: contactCustomFieldId to get associated record
@@ -185,6 +202,7 @@ paths:
       - Contacts - CustomFields
       x-accepts: application/json
     patch:
+      description: Update a contact custom field configuration
       operationId: PatchContactCustomField
       parameters:
       - description: contactCustomFieldId to update associated record
@@ -204,16 +222,6 @@ paths:
                 $ref: '#/components/schemas/Operation'
               type: array
           application/json:
-            schema:
-              items:
-                $ref: '#/components/schemas/Operation'
-              type: array
-          text/json:
-            schema:
-              items:
-                $ref: '#/components/schemas/Operation'
-              type: array
-          application/*+json:
             schema:
               items:
                 $ref: '#/components/schemas/Operation'
@@ -245,8 +253,9 @@ paths:
       - Contacts - CustomFields
       x-contentType: application/json-patch+json
       x-accepts: application/json
-  /v1/contact-roles:
+  /contact-roles:
     get:
+      description: Get all contact roles configured in your group
       operationId: GetContactRoles
       responses:
         "200":
@@ -262,25 +271,11 @@ paths:
       - Contacts - Roles
       x-accepts: application/json
     post:
+      description: Create a contact role with given name and type
       operationId: CreateContactRole
       requestBody:
         content:
-          application/json-patch+json:
-            schema:
-              maxLength: 50
-              minLength: 0
-              type: string
           application/json:
-            schema:
-              maxLength: 50
-              minLength: 0
-              type: string
-          text/json:
-            schema:
-              maxLength: 50
-              minLength: 0
-              type: string
-          application/*+json:
             schema:
               maxLength: 50
               minLength: 0
@@ -309,10 +304,11 @@ paths:
       summary: Create contact roles
       tags:
       - Contacts - Roles
-      x-contentType: application/json-patch+json
+      x-contentType: application/json
       x-accepts: application/json
-  /v1/contact-types:
+  /contact-types:
     get:
+      description: Get all contact types configured in your group
       operationId: GetContactTypes
       responses:
         "200":
@@ -328,25 +324,11 @@ paths:
       - Contacts - Types
       x-accepts: application/json
     post:
+      description: Create contact type with given name
       operationId: CreateContactType
       requestBody:
         content:
-          application/json-patch+json:
-            schema:
-              maxLength: 50
-              minLength: 0
-              type: string
           application/json:
-            schema:
-              maxLength: 50
-              minLength: 0
-              type: string
-          text/json:
-            schema:
-              maxLength: 50
-              minLength: 0
-              type: string
-          application/*+json:
             schema:
               maxLength: 50
               minLength: 0
@@ -375,10 +357,11 @@ paths:
       summary: Create contact types
       tags:
       - Contacts - Types
-      x-contentType: application/json-patch+json
+      x-contentType: application/json
       x-accepts: application/json
-  /v1/custom-fields:
+  /custom-fields:
     get:
+      description: Get all customfields configured in your group
       operationId: GetCustomFields
       parameters:
       - explode: false
@@ -408,8 +391,10 @@ paths:
       tags:
       - Notes - Configuration
       x-accepts: application/json
-  /v1/custom-symbol-custom-fields:
+  /custom-symbol-custom-fields:
     get:
+      description: Get all custom fields configured for custom symbols configured
+        in your group
       operationId: GetCustomSymbolCustomFields
       responses:
         "200":
@@ -425,19 +410,11 @@ paths:
       - CustomSymbols - CustomFields
       x-accepts: application/json
     post:
+      description: Create a contact custom field with given name and type
       operationId: CreateCustomSymbolCustomField
       requestBody:
         content:
-          application/json-patch+json:
-            schema:
-              $ref: '#/components/schemas/CreateCustomSymbolCustomFieldDto'
           application/json:
-            schema:
-              $ref: '#/components/schemas/CreateCustomSymbolCustomFieldDto'
-          text/json:
-            schema:
-              $ref: '#/components/schemas/CreateCustomSymbolCustomFieldDto'
-          application/*+json:
             schema:
               $ref: '#/components/schemas/CreateCustomSymbolCustomFieldDto'
         description: createCustomSymbolCustomFieldDto object to save
@@ -463,10 +440,11 @@ paths:
       summary: Create a Custom symbol custom field
       tags:
       - CustomSymbols - CustomFields
-      x-contentType: application/json-patch+json
+      x-contentType: application/json
       x-accepts: application/json
-  /v1/custom-symbol-custom-fields/{customSymbolCustomFieldId}:
+  /custom-symbol-custom-fields/{customSymbolCustomFieldId}:
     delete:
+      description: Delete a custom field configured for custom symbols
       operationId: DeleteCustomSymbolCustomField
       parameters:
       - description: customSymbolCustomFieldId to delete associated record
@@ -504,6 +482,7 @@ paths:
       - CustomSymbols - CustomFields
       x-accepts: application/json
     get:
+      description: Get details of a given custom field configured for custom symbols
       operationId: GetCustomSymbolCustomField
       parameters:
       - description: customSymbolCustomFieldId to get associated record
@@ -539,6 +518,7 @@ paths:
       - CustomSymbols - CustomFields
       x-accepts: application/json
     patch:
+      description: Update a custom field configuration for custom symbols
       operationId: PatchCustomSymbolCustomField
       parameters:
       - description: customSymbolCustomFieldId to update associated record
@@ -599,8 +579,9 @@ paths:
       - CustomSymbols - CustomFields
       x-contentType: application/json-patch+json
       x-accepts: application/json
-  /v1/custom-symbol-types:
+  /custom-symbol-types:
     get:
+      description: Get all custom symbol types configured in your group
       operationId: GetCustomSymbolTypes
       responses:
         "200":
@@ -616,19 +597,11 @@ paths:
       - CustomSymbols - Types
       x-accepts: application/json
     post:
+      description: Create a custom symbol type with given name
       operationId: CreateCustomSymbolType
       requestBody:
         content:
-          application/json-patch+json:
-            schema:
-              $ref: '#/components/schemas/SaveCustomSymbolTypeDto'
           application/json:
-            schema:
-              $ref: '#/components/schemas/SaveCustomSymbolTypeDto'
-          text/json:
-            schema:
-              $ref: '#/components/schemas/SaveCustomSymbolTypeDto'
-          application/*+json:
             schema:
               $ref: '#/components/schemas/SaveCustomSymbolTypeDto'
         description: saveCustomSymbolTypeDto object to save
@@ -654,10 +627,11 @@ paths:
       summary: Create a Custom symbol type
       tags:
       - CustomSymbols - Types
-      x-contentType: application/json-patch+json
+      x-contentType: application/json
       x-accepts: application/json
-  /v1/custom-symbol-types/{customSymbolTypeId}:
+  /custom-symbol-types/{customSymbolTypeId}:
     delete:
+      description: Delete a custom symbol type based on guid
       operationId: DeleteCustomSymbolTypeAsync
       parameters:
       - description: customSymbolTypeId to delete associated record
@@ -695,6 +669,7 @@ paths:
       - CustomSymbols - Types
       x-accepts: application/json
     get:
+      description: Get details of a given custom symbol type
       operationId: GetCustomSymbolType
       parameters:
       - description: customSymbolTypeId to get associated record
@@ -730,6 +705,7 @@ paths:
       - CustomSymbols - Types
       x-accepts: application/json
     put:
+      description: Update a custom symbol type configuration
       operationId: UpdateCustomSymbolType
       parameters:
       - description: customSymbolTypeId to update associated record
@@ -782,8 +758,10 @@ paths:
       - CustomSymbols - Types
       x-contentType: application/json-patch+json
       x-accepts: application/json
-  /v1/custom-symbol-types/{customSymbolTypeId}/custom-fields:
+  /custom-symbol-types/{customSymbolTypeId}/custom-fields:
     get:
+      description: Get all custom fields configured for custom symbols configured
+        in your group
       operationId: GetSymbolCustomFieldsForCustomSymbolType
       parameters:
       - description: customSymbolTypeId to get associated Custom fileds
@@ -820,8 +798,9 @@ paths:
       tags:
       - CustomSymbols - Types
       x-accepts: application/json
-  /v1/group:
+  /group:
     get:
+      description: Get all the group details
       operationId: GetGroup
       responses:
         "200":
@@ -830,12 +809,19 @@ paths:
               schema:
                 $ref: '#/components/schemas/GroupConfigDto'
           description: Success
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
       summary: Get Group details
       tags:
       - Notes - Configuration
       x-accepts: application/json
-  /v1/group/client-sales-representative:
+  /group/client-sales-representative:
     get:
+      description: Get the client sales representative for the group
       operationId: GetClientsSalesRepresentative
       responses:
         "200":
@@ -850,11 +836,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
           description: Not Found
+      summary: Get Client Sales Representative
       tags:
       - Notes - Configuration
       x-accepts: application/json
-  /v1/phone-number-types:
+  /phone-number-types:
     get:
+      description: Get all phone types configured in your group
       operationId: GetPhoneNumberTypes
       responses:
         "200":
@@ -870,25 +858,11 @@ paths:
       - Contacts - PhoneNumberTypes
       x-accepts: application/json
     post:
+      description: Create a phone type with given name
       operationId: CreatePhoneNumberType
       requestBody:
         content:
-          application/json-patch+json:
-            schema:
-              maxLength: 50
-              minLength: 0
-              type: string
           application/json:
-            schema:
-              maxLength: 50
-              minLength: 0
-              type: string
-          text/json:
-            schema:
-              maxLength: 50
-              minLength: 0
-              type: string
-          application/*+json:
             schema:
               maxLength: 50
               minLength: 0
@@ -917,10 +891,11 @@ paths:
       summary: Create a phone type
       tags:
       - Contacts - PhoneNumberTypes
-      x-contentType: application/json-patch+json
+      x-contentType: application/json
       x-accepts: application/json
-  /v1/recommendations:
+  /recommendations:
     get:
+      description: Get all recommendations configured in your group
       operationId: GetRecommendations
       responses:
         "200":
@@ -935,8 +910,9 @@ paths:
       tags:
       - Notes - Configuration
       x-accepts: application/json
-  /v1/relationship-categories:
+  /relationship-categories:
     get:
+      description: Get all relationship categories configured in your group
       operationId: GetRelationshipCategories
       responses:
         "200":
@@ -952,19 +928,11 @@ paths:
       - Contacts - Relationship Category
       x-accepts: application/json
     post:
+      description: Create a relationship category with given name
       operationId: CreateRelationshipCategory
       requestBody:
         content:
-          application/json-patch+json:
-            schema:
-              $ref: '#/components/schemas/RelationshipCategorySaveDto'
           application/json:
-            schema:
-              $ref: '#/components/schemas/RelationshipCategorySaveDto'
-          text/json:
-            schema:
-              $ref: '#/components/schemas/RelationshipCategorySaveDto'
-          application/*+json:
             schema:
               $ref: '#/components/schemas/RelationshipCategorySaveDto'
         description: RelationshipCategorySaveDto object to save
@@ -990,10 +958,11 @@ paths:
       summary: Create a relationship category
       tags:
       - Contacts - Relationship Category
-      x-contentType: application/json-patch+json
+      x-contentType: application/json
       x-accepts: application/json
-  /v1/relationships:
+  /relationships:
     get:
+      description: Get all contact relationships configured in your group
       operationId: GetRelationships
       parameters:
       - explode: true
@@ -1017,19 +986,11 @@ paths:
       - Contacts - Relationships
       x-accepts: application/json
     post:
+      description: Create a contact relationship type with given name
       operationId: CreateContactRelationshipType
       requestBody:
         content:
-          application/json-patch+json:
-            schema:
-              $ref: '#/components/schemas/RelationshipSaveDto'
           application/json:
-            schema:
-              $ref: '#/components/schemas/RelationshipSaveDto'
-          text/json:
-            schema:
-              $ref: '#/components/schemas/RelationshipSaveDto'
-          application/*+json:
             schema:
               $ref: '#/components/schemas/RelationshipSaveDto'
         description: RelationshipSaveDto object to save
@@ -1055,10 +1016,11 @@ paths:
       summary: Create a relationship type
       tags:
       - Contacts - Relationships
-      x-contentType: application/json-patch+json
+      x-contentType: application/json
       x-accepts: application/json
-  /v1/sentiments:
+  /sentiments:
     get:
+      description: Get all sentiments configured in your group
       operationId: GetSentiments
       responses:
         "200":
@@ -1073,8 +1035,9 @@ paths:
       tags:
       - Notes - Configuration
       x-accepts: application/json
-  /v1/subjects:
+  /subjects:
     get:
+      description: Get all subjects configured in your group
       operationId: GetSubjects
       parameters:
       - explode: false
@@ -1104,8 +1067,9 @@ paths:
       tags:
       - Notes - Configuration
       x-accepts: application/json
-  /v1/subjects/{subjectId}:
+  /subjects/{subjectId}:
     get:
+      description: Get all details of a given subject
       operationId: GetSubject
       parameters:
       - description: Id
@@ -1148,8 +1112,9 @@ paths:
       tags:
       - Notes - Configuration
       x-accepts: application/json
-  /v1/symbols-relationships:
+  /symbols-relationships:
     get:
+      description: Get all symbols relationships configured in your group
       operationId: GetSymbolsRelationships
       responses:
         "200":
@@ -1165,19 +1130,11 @@ paths:
       - CustomSymbols - Relationships
       x-accepts: application/json
     post:
+      description: Create a symbol relationship with given name
       operationId: CreateSymbolRelationshipType
       requestBody:
         content:
-          application/json-patch+json:
-            schema:
-              $ref: '#/components/schemas/SymbolsRelationShipSaveDto'
           application/json:
-            schema:
-              $ref: '#/components/schemas/SymbolsRelationShipSaveDto'
-          text/json:
-            schema:
-              $ref: '#/components/schemas/SymbolsRelationShipSaveDto'
-          application/*+json:
             schema:
               $ref: '#/components/schemas/SymbolsRelationShipSaveDto'
         description: symbolsRelationshipSaveDto object to save
@@ -1203,13 +1160,15 @@ paths:
       summary: Create a symbol relationship
       tags:
       - CustomSymbols - Relationships
-      x-contentType: application/json-patch+json
+      x-contentType: application/json
       x-accepts: application/json
-  /v1/teams:
+  /teams:
     get:
+      description: Get all teams configured in your group
       operationId: GetTeams
       parameters:
-      - explode: false
+      - description: If set to true, permissions will be ignored. Default is false.
+        explode: false
         in: header
         name: X-IRN-Ignore-Permissions
         required: false
@@ -1236,8 +1195,9 @@ paths:
       tags:
       - Notes - Configuration
       x-accepts: application/json
-  /v1/teams/{teamId}:
+  /teams/{teamId}:
     get:
+      description: Get all details of a given team
       operationId: GetTeam
       parameters:
       - description: Id
@@ -1249,7 +1209,8 @@ paths:
           format: uuid
           type: string
         style: simple
-      - explode: false
+      - description: If set to true, permissions will be ignored. Default is false.
+        explode: false
         in: header
         name: X-IRN-Ignore-Permissions
         required: false
@@ -1280,8 +1241,9 @@ paths:
       tags:
       - Notes - Configuration
       x-accepts: application/json
-  /v1/users:
+  /users:
     get:
+      description: Get all assigned FactSet users in your group
       operationId: GetAssignedFactSetUsers
       responses:
         "200":
@@ -1296,8 +1258,9 @@ paths:
       tags:
       - Notes - Configuration
       x-accepts: application/json
-  /v1/custom-symbol-types/reorder:
+  /custom-symbol-types/reorder:
     post:
+      description: Reorder custom symbol types that are configured in your group
       operationId: UpdateCustomSymbolTypeOrder
       requestBody:
         content:
@@ -1334,12 +1297,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
           description: Error
+      summary: Reorder custom symbol types
       tags:
       - CustomSymbols - Types
       x-contentType: application/json-patch+json
       x-accepts: application/json
-  /v1/relationship-categories/reorder:
+  /relationship-categories/reorder:
     post:
+      description: Reorder relationship categories that are configured in your group
       operationId: UpdateRelationshipCategoryOrder
       requestBody:
         content:
@@ -1382,8 +1347,9 @@ paths:
       - Contacts - Relationship Category
       x-contentType: application/json-patch+json
       x-accepts: application/json
-  /v1/contact-roles/{contactRoleId}:
+  /contact-roles/{contactRoleId}:
     delete:
+      description: Delete a contact role based on guid
       operationId: DeleteContactRole
       parameters:
       - description: contactRoleId to delete associated record
@@ -1421,6 +1387,7 @@ paths:
       - Contacts - Roles
       x-accepts: application/json
     put:
+      description: Update a contact role name and other details
       operationId: UpdateContactRole
       parameters:
       - description: contactRoleId to update associated record
@@ -1482,8 +1449,9 @@ paths:
       - Contacts - Roles
       x-contentType: application/json-patch+json
       x-accepts: application/json
-  /v1/contact-types/{contactTypeId}:
+  /contact-types/{contactTypeId}:
     delete:
+      description: Delete a contact type based on guid
       operationId: DeleteContactType
       parameters:
       - description: contactTypeId to delete associated record
@@ -1521,6 +1489,7 @@ paths:
       - Contacts - Types
       x-accepts: application/json
     put:
+      description: Update a contact type
       operationId: UpdateContactType
       parameters:
       - description: contactTypeId to update associated record
@@ -1582,8 +1551,9 @@ paths:
       - Contacts - Types
       x-contentType: application/json-patch+json
       x-accepts: application/json
-  /v1/phone-number-types/{phoneNumberTypeId}:
+  /phone-number-types/{phoneNumberTypeId}:
     delete:
+      description: Delete a phone number type based on guid
       operationId: DeletePhoneNumberType
       parameters:
       - description: phoneNumberTypeId for deleting associated record
@@ -1621,6 +1591,7 @@ paths:
       - Contacts - PhoneNumberTypes
       x-accepts: application/json
     put:
+      description: Update a phone number type
       operationId: UpdatePhoneNumberType
       parameters:
       - description: phoneNumberTypeId to update associated record
@@ -1682,8 +1653,9 @@ paths:
       - Contacts - PhoneNumberTypes
       x-contentType: application/json-patch+json
       x-accepts: application/json
-  /v1/relationship-categories/{relationshipCategoryId}:
+  /relationship-categories/{relationshipCategoryId}:
     delete:
+      description: Delete a contact relationship category based on guid
       operationId: DeleteRelationshipCategory
       parameters:
       - description: relationshipCategoryId to delete associated record
@@ -1721,6 +1693,7 @@ paths:
       - Contacts - Relationship Category
       x-accepts: application/json
     put:
+      description: Update details of contact relationship category
       operationId: EditRelationshipCategory
       parameters:
       - description: relationshipCategoryId to update associated record
@@ -1773,8 +1746,9 @@ paths:
       - Contacts - Relationship Category
       x-contentType: application/json-patch+json
       x-accepts: application/json
-  /v1/relationships/{relationshipId}:
+  /relationships/{relationshipId}:
     delete:
+      description: Delete a contact relationship type based on guid
       operationId: DeleteRelationship
       parameters:
       - description: relationshipId to delete associated record
@@ -1812,6 +1786,7 @@ paths:
       - Contacts - Relationships
       x-accepts: application/json
     put:
+      description: Update a contact relationship type
       operationId: EditRelationship
       parameters:
       - description: relationshipId to update associated record
@@ -1864,8 +1839,9 @@ paths:
       - Contacts - Relationships
       x-contentType: application/json-patch+json
       x-accepts: application/json
-  /v1/symbols-relationships/{symbolsRelationshipId}:
+  /symbols-relationships/{symbolsRelationshipId}:
     delete:
+      description: Delete a symbol relationship based on guid
       operationId: DeleteSymbolsRelationship
       parameters:
       - description: symbolsRelationshipId to delete associated record
@@ -1903,6 +1879,7 @@ paths:
       - CustomSymbols - Relationships
       x-accepts: application/json
     put:
+      description: Update a symbol relationship
       operationId: EditSymbolsRelationship
       parameters:
       - description: symbolsRelationshipId to update associated record
@@ -1958,12 +1935,12 @@ paths:
 components:
   schemas:
     ApprovalLevelConfigDto:
-      additionalProperties: false
       example:
         approverIds:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         name: name
+      nullable: true
       properties:
         name:
           nullable: true
@@ -1976,9 +1953,9 @@ components:
           type: array
       type: object
     ApprovalProcessConfigDto:
-      additionalProperties: false
       example:
         shouldSendEmailAlertsWhenSubmittedForApproval: true
+        deniedNotesVisible: deniedNotesVisible
         shouldSendEmailAlertsWhenApproved: true
         shouldSendEmailAlertsToAuthor: true
         viewerIds:
@@ -1998,6 +1975,8 @@ components:
           name: name
         shouldSendEmailAlertsWhenDenied: true
         canAuthorSelfApprove: true
+        pendingNotesVisible: pendingNotesVisible
+      nullable: true
       properties:
         approvalLevels:
           items:
@@ -2010,6 +1989,12 @@ components:
             type: string
           nullable: true
           type: array
+        pendingNotesVisible:
+          nullable: true
+          type: string
+        deniedNotesVisible:
+          nullable: true
+          type: string
         shouldSendEmailAlertsWhenSubmittedForApproval:
           type: boolean
         shouldSendEmailAlertsWhenApproved:
@@ -2028,7 +2013,6 @@ components:
           type: boolean
       type: object
     AuthorConfigDto:
-      additionalProperties: false
       example:
         firstName: firstName
         lastName: lastName
@@ -2041,6 +2025,7 @@ components:
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         userName: userName
         isActive: true
+      nullable: true
       properties:
         id:
           format: uuid
@@ -2066,7 +2051,6 @@ components:
           $ref: '#/components/schemas/TeamSummaryDto'
       type: object
     ClientSalesRepresentativeDto:
-      additionalProperties: false
       example:
         emailAddress: emailAddress
         fullname: fullname
@@ -2079,11 +2063,11 @@ components:
           type: string
       type: object
     CommentaryConfigDto:
-      additionalProperties: false
       example:
         shouldSendEmailAlertsToAuthor: true
         shouldSendEmailAlertsToCommenters: true
         shouldSendEmailAlertsToAll: true
+      nullable: true
       properties:
         shouldSendEmailAlertsToAuthor:
           type: boolean
@@ -2093,7 +2077,6 @@ components:
           type: boolean
       type: object
     ContactCustomFieldDto:
-      additionalProperties: false
       example:
         contactCustomFieldOptions:
         - name: name
@@ -2111,6 +2094,7 @@ components:
         type: type
         isMandatory: true
         isHidden: true
+      nullable: true
       properties:
         id:
           format: uuid
@@ -2137,11 +2121,11 @@ components:
           type: array
       type: object
     ContactCustomFieldFormulaDto:
-      additionalProperties: false
       example:
         symbol: symbol
         formula: formula
         isScreening: false
+      nullable: true
       properties:
         formula:
           maxLength: 2040
@@ -2155,11 +2139,11 @@ components:
           type: string
       type: object
     ContactCustomFieldOptionDto:
-      additionalProperties: false
       example:
         name: name
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         order: 0
+      nullable: true
       properties:
         id:
           format: uuid
@@ -2172,18 +2156,17 @@ components:
           type: integer
       type: object
     ContactCustomFieldOptionSaveDto:
-      additionalProperties: false
       example:
         name: name
       properties:
         name:
           maxLength: 255
+          minLength: 1
           type: string
       required:
       - name
       type: object
     ContactCustomFieldSaveDto:
-      additionalProperties: false
       example:
         contactCustomFieldOptions:
         - name: name
@@ -2199,9 +2182,11 @@ components:
       properties:
         code:
           maxLength: 32
+          minLength: 1
           type: string
         name:
           maxLength: 100
+          minLength: 1
           type: string
         type:
           $ref: '#/components/schemas/ContactCustomFieldType'
@@ -2226,6 +2211,8 @@ components:
       - type
       type: object
     ContactCustomFieldType:
+      description: Type can be one of 0- None, 1-Text, 2-Email, 3-Link, 4-SingleOptions,
+        5-MultiOptions, 6-Numeric, 7-Date
       enum:
       - 0
       - 1
@@ -2238,10 +2225,10 @@ components:
       format: int32
       type: integer
     ContactRoleDto:
-      additionalProperties: false
       example:
         name: name
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
@@ -2255,10 +2242,10 @@ components:
       - name
       type: object
     ContactTypeDto:
-      additionalProperties: false
       example:
         name: name
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
@@ -2272,7 +2259,6 @@ components:
       - name
       type: object
     CreateCustomSymbolCustomFieldDto:
-      additionalProperties: false
       example:
         code: code
         formulaConfig:
@@ -2292,13 +2278,16 @@ components:
       properties:
         code:
           maxLength: 32
+          minLength: 1
           type: string
         name:
           maxLength: 100
+          minLength: 1
           type: string
         type:
           description: Type can be one of Text, SingleOption, MultiOptions, Numeric,
             Date, ExtendedText, ContactLookup
+          minLength: 1
           type: string
         isHidden:
           default: false
@@ -2331,10 +2320,10 @@ components:
       - type
       type: object
     CustomFieldConfigDto:
-      additionalProperties: false
       example:
         usePreviousValue: true
         code: code
+        isCalculated: true
         optionsConfig:
           multiSelectEnabled: true
           options:
@@ -2344,6 +2333,7 @@ components:
         source: source
         type: type
         isHidden: true
+        hasPairedField: true
         extendedTextConfig:
           maxChars: 6
         isFilePath: true
@@ -2355,9 +2345,18 @@ components:
           splitType: splitType
         integerConfig:
           splitType: splitType
+        userTeamConfig:
+          customFieldTeams:
+          - teamName: teamName
+            fieldName: fieldName
+            teamId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - teamName: teamName
+            fieldName: fieldName
+            teamId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         name: name
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         isMandatory: true
+      nullable: true
       properties:
         id:
           format: uuid
@@ -2382,6 +2381,10 @@ components:
           type: boolean
         isFilePath:
           type: boolean
+        isCalculated:
+          type: boolean
+        hasPairedField:
+          type: boolean
         formulaConfig:
           $ref: '#/components/schemas/FormulaConfigDto'
         numericConfig:
@@ -2392,9 +2395,35 @@ components:
           $ref: '#/components/schemas/ExtendedTextConfigDto'
         optionsConfig:
           $ref: '#/components/schemas/OptionsConfigDto'
+        userTeamConfig:
+          $ref: '#/components/schemas/UserTeamConfigDto'
       type: object
+    CustomFieldTeamConfigDto:
+      example:
+        teamName: teamName
+        fieldName: fieldName
+        teamId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
+      properties:
+        teamId:
+          format: uuid
+          type: string
+        teamName:
+          nullable: true
+          type: string
+        fieldName:
+          nullable: true
+          type: string
+      type: object
+    CustomFieldUserTeamLookupFilterType:
+      description: Type can be one of 0-Users, 1-Teams, 2-Both
+      enum:
+      - 0
+      - 1
+      - 2
+      format: int32
+      type: integer
     CustomSymbolCustomFieldConfigDto:
-      additionalProperties: false
       example:
         code: code
         formulaConfig:
@@ -2414,6 +2443,7 @@ components:
         isMandatory: true
         isHidden: true
         isShownInInfobox: true
+      nullable: true
       properties:
         id:
           format: uuid
@@ -2447,25 +2477,27 @@ components:
           type: array
       type: object
     CustomSymbolCustomFieldFormulaConfigDto:
-      additionalProperties: false
       example:
         formulaType: formulaType
         formula: formula
+      nullable: true
       properties:
         formula:
           maxLength: 2040
+          minLength: 1
           type: string
         formulaType:
+          minLength: 1
           type: string
       required:
       - formula
       - formulaType
       type: object
     CustomSymbolSubTypeDto:
-      additionalProperties: false
       example:
         name: name
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
@@ -2475,7 +2507,6 @@ components:
           type: string
       type: object
     CustomSymbolTypeDetailDto:
-      additionalProperties: false
       example:
         hideSymbolSubType: true
         isDefault: true
@@ -2487,6 +2518,7 @@ components:
         - name: name
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
@@ -2509,7 +2541,6 @@ components:
           type: array
       type: object
     CustomSymbolTypeDto:
-      additionalProperties: false
       example:
         hideSymbolSubType: true
         isDefault: true
@@ -2517,6 +2548,7 @@ components:
         name: name
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         order: 0
+      nullable: true
       properties:
         id:
           format: uuid
@@ -2537,10 +2569,10 @@ components:
           $ref: '#/components/schemas/EntityType'
       type: object
     CustomSymbolTypeSummaryDto:
-      additionalProperties: false
       example:
         name: name
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
@@ -2550,10 +2582,10 @@ components:
           type: string
       type: object
     DateSettingsDto:
-      additionalProperties: false
       example:
         allowEdit: true
         isLocked: true
+      nullable: true
       properties:
         allowEdit:
           type: boolean
@@ -2561,27 +2593,33 @@ components:
           type: boolean
       type: object
     EntityType:
+      description: Type can be one of 0-Unknown, 1-Contact, 2-Firm, 3-Product, 4-Project,
+        5-Classification,6-Template, 7-Country
       enum:
       - 0
       - 1
       - 2
       - 3
+      - 4
+      - 5
+      - 6
+      - 7
       format: int32
       type: integer
     ExtendedTextConfigDto:
-      additionalProperties: false
       example:
         maxChars: 6
+      nullable: true
       properties:
         maxChars:
           format: int32
           type: integer
       type: object
     FormulaConfigDto:
-      additionalProperties: false
       example:
         formulaType: formulaType
         formula: formula
+      nullable: true
       properties:
         formula:
           nullable: true
@@ -2591,9 +2629,10 @@ components:
           type: string
       type: object
     GroupConfigDto:
-      additionalProperties: false
       example:
-        Fields:
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        fields:
           date:
             allowEdit: true
             isLocked: true
@@ -2645,20 +2684,18 @@ components:
           organizer:
             isMandatory: true
             isHidden: true
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Name: Name
+      nullable: true
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        Name:
+        name:
           nullable: true
           type: string
-        Fields:
+        fields:
           $ref: '#/components/schemas/GroupFieldsDto'
       type: object
     GroupFieldsDto:
-      additionalProperties: false
       example:
         date:
           allowEdit: true
@@ -2711,6 +2748,7 @@ components:
         organizer:
           isMandatory: true
           isHidden: true
+      nullable: true
       properties:
         title:
           $ref: '#/components/schemas/TitleSettingsDto'
@@ -2742,11 +2780,11 @@ components:
           $ref: '#/components/schemas/OrganizerSettingsDto'
       type: object
     HeadlineFormatConfigDto:
-      additionalProperties: false
       example:
         name: name
         customFieldName: customFieldName
         customString: customString
+      nullable: true
       properties:
         name:
           nullable: true
@@ -2759,28 +2797,28 @@ components:
           type: string
       type: object
     IdentifierSettingsDto:
-      additionalProperties: false
       example:
         allowEdit: true
+      nullable: true
       properties:
         allowEdit:
           type: boolean
       type: object
     IntegerConfigDto:
-      additionalProperties: false
       example:
         splitType: splitType
+      nullable: true
       properties:
         splitType:
           nullable: true
           type: string
       type: object
     LinkSettingsDto:
-      additionalProperties: false
       example:
         isMandatory: true
         isHidden: true
         usePrevious: true
+      nullable: true
       properties:
         isHidden:
           type: boolean
@@ -2790,16 +2828,15 @@ components:
           type: boolean
       type: object
     NewItemDto:
-      additionalProperties: false
       example:
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
           type: string
       type: object
     NoteSettingsDto:
-      additionalProperties: false
       example:
         defaultStatus: defaultStatus
         alternativeCustomFieldId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -2807,6 +2844,7 @@ components:
         isMandatory: true
         isHidden: true
         usePrevious: true
+      nullable: true
       properties:
         isHidden:
           type: boolean
@@ -2825,10 +2863,10 @@ components:
           type: string
       type: object
     NumericConfigDto:
-      additionalProperties: false
       example:
         decimals: 0
         splitType: splitType
+      nullable: true
       properties:
         decimals:
           format: int32
@@ -2838,12 +2876,12 @@ components:
           type: string
       type: object
     Operation:
-      additionalProperties: false
       example:
         path: path
         op: op
         from: from
         value: ""
+      nullable: true
       properties:
         operationType:
           $ref: '#/components/schemas/OperationType'
@@ -2860,6 +2898,8 @@ components:
           nullable: true
       type: object
     OperationType:
+      description: Type can be one of 0-Add, 1-Remove, 2-Replace, 3-Move, 4-Copy,
+        5-Test, 6-Get
       enum:
       - 0
       - 1
@@ -2871,13 +2911,13 @@ components:
       format: int32
       type: integer
     OptionsConfigDto:
-      additionalProperties: false
       example:
         multiSelectEnabled: true
         options:
         - options
         - options
         onTheFlyEnabled: true
+      nullable: true
       properties:
         multiSelectEnabled:
           type: boolean
@@ -2890,10 +2930,10 @@ components:
           type: array
       type: object
     OrganizerSettingsDto:
-      additionalProperties: false
       example:
         isMandatory: true
         isHidden: true
+      nullable: true
       properties:
         isHidden:
           type: boolean
@@ -2901,11 +2941,11 @@ components:
           type: boolean
       type: object
     PhoneNumberTypeDto:
-      additionalProperties: false
       example:
         isStandard: true
         name: name
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
@@ -2920,6 +2960,7 @@ components:
       type: object
     ProblemDetails:
       additionalProperties: {}
+      nullable: true
       properties:
         type:
           nullable: true
@@ -2939,7 +2980,6 @@ components:
           type: string
       type: object
     RatingConfigDto:
-      additionalProperties: false
       example:
         viewerIds:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -2950,6 +2990,7 @@ components:
         optionValues:
         - 0
         - 0
+      nullable: true
       properties:
         ratingsVisibleToAuthor:
           type: boolean
@@ -2971,12 +3012,12 @@ components:
           type: array
       type: object
     RecommendationConfigDto:
-      additionalProperties: false
       example:
         code: 0
         name: name
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         isHidden: true
+      nullable: true
       properties:
         id:
           format: uuid
@@ -2991,12 +3032,12 @@ components:
           type: boolean
       type: object
     RecommendationSettingsDto:
-      additionalProperties: false
       example:
         defaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         isMandatory: true
         isHidden: true
         usePrevious: true
+      nullable: true
       properties:
         isHidden:
           type: boolean
@@ -3010,11 +3051,11 @@ components:
           type: string
       type: object
     RelatedContactsSettingsDto:
-      additionalProperties: false
       example:
         isMandatory: true
         isHidden: true
         usePrevious: true
+      nullable: true
       properties:
         isHidden:
           type: boolean
@@ -3024,11 +3065,11 @@ components:
           type: boolean
       type: object
     RelatedResearchSettingsDto:
-      additionalProperties: false
       example:
         isMandatory: true
         isHidden: true
         usePrevious: true
+      nullable: true
       properties:
         isHidden:
           type: boolean
@@ -3038,11 +3079,11 @@ components:
           type: boolean
       type: object
     RelatedSymbolsSettingsDto:
-      additionalProperties: false
       example:
         isMandatory: true
         isHidden: true
         usePrevious: true
+      nullable: true
       properties:
         isHidden:
           type: boolean
@@ -3052,7 +3093,6 @@ components:
           type: boolean
       type: object
     RelationshipCategoryDto:
-      additionalProperties: false
       example:
         isContactToContact: true
         relationships:
@@ -3080,6 +3120,7 @@ components:
         isStandard: true
         name: name
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
@@ -3100,11 +3141,11 @@ components:
           type: array
       type: object
     RelationshipCategoryListDto:
-      additionalProperties: false
       example:
         ids:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         ids:
           items:
@@ -3115,11 +3156,11 @@ components:
       - ids
       type: object
     RelationshipCategorySaveDto:
-      additionalProperties: false
       example:
         isContactToContact: false
         isContactToSymbol: false
         categoryName: categoryName
+      nullable: true
       properties:
         categoryName:
           maxLength: 50
@@ -3135,7 +3176,6 @@ components:
       - categoryName
       type: object
     RelationshipDto:
-      additionalProperties: false
       example:
         bidirectionalName: bidirectionalName
         hideCompany: true
@@ -3147,6 +3187,7 @@ components:
         relationshipCode: relationshipCode
         hideDates: true
         isCustomisable: true
+      nullable: true
       properties:
         id:
           format: uuid
@@ -3176,7 +3217,6 @@ components:
           type: boolean
       type: object
     RelationshipSaveDto:
-      additionalProperties: false
       example:
         bidirectionalName: bidirectionalName
         hideCompany: false
@@ -3226,6 +3266,7 @@ components:
       - relationshipCategoryId
       type: object
     RelationshipType:
+      description: Type can be one of 0-All, 1-Contact-to-Contact, 2-Contact-to-Symbol
       enum:
       - 0
       - 1
@@ -3233,7 +3274,6 @@ components:
       format: int32
       type: integer
     ReorderCustomSymbolTypeDto:
-      additionalProperties: false
       example:
         ids:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -3247,7 +3287,6 @@ components:
           type: array
       type: object
     SaveCustomSymbolTypeDto:
-      additionalProperties: false
       example:
         isDefault: false
         hideAddressField: true
@@ -3288,13 +3327,13 @@ components:
       - name
       type: object
     SentimentConfigDto:
-      additionalProperties: false
       example:
         code: 0
         color: color
         name: name
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         isHidden: true
+      nullable: true
       properties:
         id:
           format: uuid
@@ -3312,12 +3351,12 @@ components:
           type: boolean
       type: object
     SentimentSettingsDto:
-      additionalProperties: false
       example:
         defaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         isMandatory: true
         isHidden: true
         usePrevious: true
+      nullable: true
       properties:
         isHidden:
           type: boolean
@@ -3331,11 +3370,11 @@ components:
           type: string
       type: object
     SourceSettingsDto:
-      additionalProperties: false
       example:
         isMandatory: true
         isHidden: true
         usePrevious: true
+      nullable: true
       properties:
         isHidden:
           type: boolean
@@ -3345,7 +3384,6 @@ components:
           type: boolean
       type: object
     SubjectConfigDto:
-      additionalProperties: false
       example:
         code: code
         customFieldIds:
@@ -3360,6 +3398,7 @@ components:
         - name: name
           customFieldName: customFieldName
           customString: customString
+        layoutId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         identifierTypes:
         - identifierTypes
         - identifierTypes
@@ -3373,6 +3412,7 @@ components:
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         approvalProcessConfig:
           shouldSendEmailAlertsWhenSubmittedForApproval: true
+          deniedNotesVisible: deniedNotesVisible
           shouldSendEmailAlertsWhenApproved: true
           shouldSendEmailAlertsToAuthor: true
           viewerIds:
@@ -3392,6 +3432,7 @@ components:
             name: name
           shouldSendEmailAlertsWhenDenied: true
           canAuthorSelfApprove: true
+          pendingNotesVisible: pendingNotesVisible
         ratingConfig:
           viewerIds:
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -3409,6 +3450,7 @@ components:
         - name: name
           customFieldName: customFieldName
           customString: customString
+      nullable: true
       properties:
         id:
           format: uuid
@@ -3458,11 +3500,15 @@ components:
           format: int32
           nullable: true
           type: integer
+        layoutId:
+          format: uuid
+          nullable: true
+          type: string
       type: object
     SubjectSettingsDto:
-      additionalProperties: false
       example:
         defaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         defaultId:
           format: uuid
@@ -3470,7 +3516,6 @@ components:
           type: string
       type: object
     SubjectSummaryDto:
-      additionalProperties: false
       example:
         noteLengthLimit: 0
         code: code
@@ -3481,10 +3526,12 @@ components:
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         identifierType: identifierType
         type: type
+        layoutId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         identifierTypes:
         - identifierTypes
         - identifierTypes
         isHidden: true
+      nullable: true
       properties:
         id:
           format: uuid
@@ -3518,9 +3565,12 @@ components:
           format: int32
           nullable: true
           type: integer
+        layoutId:
+          format: uuid
+          nullable: true
+          type: string
       type: object
     SymbolsRelationShipSaveDto:
-      additionalProperties: false
       example:
         peerName: peerName
         childToParentName: childToParentName
@@ -3560,7 +3610,6 @@ components:
       - hideDates
       type: object
     SymbolsRelationshipDto:
-      additionalProperties: false
       example:
         peerName: peerName
         childToParentName: childToParentName
@@ -3569,6 +3618,7 @@ components:
         relationshipCode: relationshipCode
         hideDates: true
         parentToChildName: parentToChildName
+      nullable: true
       properties:
         id:
           format: uuid
@@ -3591,7 +3641,6 @@ components:
           type: boolean
       type: object
     TeamConfigDto:
-      additionalProperties: false
       example:
         code: code
         userIds:
@@ -3600,6 +3649,7 @@ components:
         name: name
         defaultSubjectId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
@@ -3622,9 +3672,9 @@ components:
           type: array
       type: object
     TeamSettingsDto:
-      additionalProperties: false
       example:
         defaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         defaultId:
           format: uuid
@@ -3632,11 +3682,11 @@ components:
           type: string
       type: object
     TeamSummaryDto:
-      additionalProperties: false
       example:
         code: code
         name: name
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
@@ -3649,15 +3699,14 @@ components:
           type: string
       type: object
     TitleSettingsDto:
-      additionalProperties: false
       example:
         usePrevious: true
+      nullable: true
       properties:
         usePrevious:
           type: boolean
       type: object
     UpdateCustomSymbolTypeDto:
-      additionalProperties: false
       example:
         isDefault: false
         hideAddressField: true
@@ -3700,7 +3749,6 @@ components:
       - name
       type: object
     UserConfigDto:
-      additionalProperties: false
       example:
         firstName: firstName
         lastName: lastName
@@ -3712,6 +3760,7 @@ components:
           name: name
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         userName: userName
+      nullable: true
       properties:
         id:
           format: uuid
@@ -3733,6 +3782,25 @@ components:
           type: string
         team:
           $ref: '#/components/schemas/TeamSummaryDto'
+      type: object
+    UserTeamConfigDto:
+      example:
+        customFieldTeams:
+        - teamName: teamName
+          fieldName: fieldName
+          teamId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - teamName: teamName
+          fieldName: fieldName
+          teamId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
+      properties:
+        userTeamLookupFilterType:
+          $ref: '#/components/schemas/CustomFieldUserTeamLookupFilterType'
+        customFieldTeams:
+          items:
+            $ref: '#/components/schemas/CustomFieldTeamConfigDto'
+          nullable: true
+          type: array
       type: object
   securitySchemes:
     FactSetOAuth2:

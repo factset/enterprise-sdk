@@ -2,6 +2,7 @@
 
 # SignalDefinition
 
+Detailed information about a given signal
 
 ## Properties
 

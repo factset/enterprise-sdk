@@ -36,8 +36,9 @@ import com.factset.sdk.Signals.JSON;
 
 
 /**
- * EventRequestBody
+ * The POST request&#39;s body containing the request criterion
  */
+@ApiModel(description = "The POST request's body containing the request criterion")
 @JsonPropertyOrder({
   EventRequestBody.JSON_PROPERTY_CREATED,
   EventRequestBody.JSON_PROPERTY_UPDATED,

@@ -52,11 +52,11 @@ public class ErrorItemSource implements Serializable {
   }
 
    /**
-   * Get parameter
+   * The source of the error
    * @return parameter
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The source of the error")
   @JsonProperty(JSON_PROPERTY_PARAMETER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

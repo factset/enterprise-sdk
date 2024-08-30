@@ -17,6 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.factset.sdk.Signals.models.ContractFieldsEventDate;
 import com.factset.sdk.Signals.models.ContractFieldsSummary;
 import com.factset.sdk.Signals.models.ContractProperty;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -32,8 +33,9 @@ import com.factset.sdk.Signals.JSON;
 
 
 /**
- * ContractFields
+ * List of required fields at the top level of each signal
  */
+@ApiModel(description = "List of required fields at the top level of each signal")
 @JsonPropertyOrder({
   ContractFields.JSON_PROPERTY_SUMMARY,
   ContractFields.JSON_PROPERTY_EVENT_DATE,
@@ -48,7 +50,7 @@ public class ContractFields implements Serializable {
   private ContractFieldsSummary summary;
 
   public static final String JSON_PROPERTY_EVENT_DATE = "eventDate";
-  private ContractFieldsSummary eventDate;
+  private ContractFieldsEventDate eventDate;
 
   public static final String JSON_PROPERTY_ADDITIONAL_PROPERTIES = "additionalProperties";
   private ContractProperty additionalProperties;
@@ -59,7 +61,7 @@ public class ContractFields implements Serializable {
   @JsonCreator
   public ContractFields(
     @JsonProperty(value=JSON_PROPERTY_SUMMARY, required=true) ContractFieldsSummary summary, 
-    @JsonProperty(value=JSON_PROPERTY_EVENT_DATE, required=true) ContractFieldsSummary eventDate
+    @JsonProperty(value=JSON_PROPERTY_EVENT_DATE, required=true) ContractFieldsEventDate eventDate
   ) {
     this();
     this.summary = summary;
@@ -92,7 +94,7 @@ public class ContractFields implements Serializable {
   }
 
 
-  public ContractFields eventDate(ContractFieldsSummary eventDate) {
+  public ContractFields eventDate(ContractFieldsEventDate eventDate) {
     this.eventDate = eventDate;
     return this;
   }
@@ -106,14 +108,14 @@ public class ContractFields implements Serializable {
   @JsonProperty(JSON_PROPERTY_EVENT_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public ContractFieldsSummary getEventDate() {
+  public ContractFieldsEventDate getEventDate() {
     return eventDate;
   }
 
 
   @JsonProperty(JSON_PROPERTY_EVENT_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setEventDate(ContractFieldsSummary eventDate) {
+  public void setEventDate(ContractFieldsEventDate eventDate) {
     this.eventDate = eventDate;
   }
 

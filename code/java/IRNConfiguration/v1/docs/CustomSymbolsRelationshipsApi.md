@@ -1,13 +1,13 @@
 # CustomSymbolsRelationshipsApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createSymbolRelationshipType**](CustomSymbolsRelationshipsApi.md#createSymbolRelationshipType) | **POST** /v1/symbols-relationships | Create a symbol relationship
-[**deleteSymbolsRelationship**](CustomSymbolsRelationshipsApi.md#deleteSymbolsRelationship) | **DELETE** /v1/symbols-relationships/{symbolsRelationshipId} | Delete a symbol relationship
-[**editSymbolsRelationship**](CustomSymbolsRelationshipsApi.md#editSymbolsRelationship) | **PUT** /v1/symbols-relationships/{symbolsRelationshipId} | Edit a symbol relationship
-[**getSymbolsRelationships**](CustomSymbolsRelationshipsApi.md#getSymbolsRelationships) | **GET** /v1/symbols-relationships | Get all the Symbols Relationships
+[**createSymbolRelationshipType**](CustomSymbolsRelationshipsApi.md#createSymbolRelationshipType) | **POST** /symbols-relationships | Create a symbol relationship
+[**deleteSymbolsRelationship**](CustomSymbolsRelationshipsApi.md#deleteSymbolsRelationship) | **DELETE** /symbols-relationships/{symbolsRelationshipId} | Delete a symbol relationship
+[**editSymbolsRelationship**](CustomSymbolsRelationshipsApi.md#editSymbolsRelationship) | **PUT** /symbols-relationships/{symbolsRelationshipId} | Edit a symbol relationship
+[**getSymbolsRelationships**](CustomSymbolsRelationshipsApi.md#getSymbolsRelationships) | **GET** /symbols-relationships | Get all the Symbols Relationships
 
 
 
@@ -16,6 +16,8 @@ Method | HTTP request | Description
 > NewItemDto createSymbolRelationshipType(symbolsRelationShipSaveDto)
 
 Create a symbol relationship
+
+Create a symbol relationship with given name
 
 ### Example
 
@@ -91,7 +93,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 ### HTTP response details
@@ -107,6 +109,8 @@ Name | Type | Description  | Notes
 > deleteSymbolsRelationship(symbolsRelationshipId)
 
 Delete a symbol relationship
+
+Delete a symbol relationship based on guid
 
 ### Example
 
@@ -198,6 +202,8 @@ null (empty response body)
 > editSymbolsRelationship(symbolsRelationshipId, symbolsRelationShipSaveDto)
 
 Edit a symbol relationship
+
+Update a symbol relationship
 
 ### Example
 
@@ -291,6 +297,8 @@ null (empty response body)
 > java.util.List<SymbolsRelationshipDto> getSymbolsRelationships()
 
 Get all the Symbols Relationships
+
+Get all symbols relationships configured in your group
 
 ### Example
 

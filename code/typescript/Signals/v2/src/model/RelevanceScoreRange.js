@@ -67,21 +67,25 @@ class RelevanceScoreRange {
 }
 
 /**
+ * A date/time string in ISO 8601 format. gt stands for greater than
  * @member {Number} gt
  */
 RelevanceScoreRange.prototype['gt'] = undefined;
 
 /**
+ * A date/time string in ISO 8601 format. gte stands for greater than or equal to
  * @member {Number} gte
  */
 RelevanceScoreRange.prototype['gte'] = undefined;
 
 /**
+ * A date/time string in ISO 8601 format. lt stands for less than
  * @member {Number} lt
  */
 RelevanceScoreRange.prototype['lt'] = undefined;
 
 /**
+ * A date/time string in ISO 8601 format. lte stands for less than or equal to
  * @member {Number} lte
  */
 RelevanceScoreRange.prototype['lte'] = undefined;

@@ -88,7 +88,7 @@ public class CustomSymbolsTypesApi {
 
   /**
    * Create a Custom symbol type
-   * 
+   * Create a custom symbol type with given name
    * @param saveCustomSymbolTypeDto saveCustomSymbolTypeDto object to save (optional)
    * @return NewItemDto
    * @throws ApiException if fails to make API call
@@ -106,7 +106,7 @@ public class CustomSymbolsTypesApi {
 
   /**
    * Create a Custom symbol type
-   * 
+   * Create a custom symbol type with given name
    * @param saveCustomSymbolTypeDto saveCustomSymbolTypeDto object to save (optional)
    * @return ApiResponse&lt;NewItemDto&gt;
    * @throws ApiException if fails to make API call
@@ -122,7 +122,7 @@ public class CustomSymbolsTypesApi {
     Object localVarPostBody = saveCustomSymbolTypeDto;
     
     // create path and map variables
-    String localVarPath = "/v1/custom-symbol-types";
+    String localVarPath = "/custom-symbol-types";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -140,7 +140,7 @@ public class CustomSymbolsTypesApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+      "application/json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
@@ -160,7 +160,7 @@ public class CustomSymbolsTypesApi {
   }
   /**
    * Delete a Custom symbol type
-   * 
+   * Delete a custom symbol type based on guid
    * @param customSymbolTypeId customSymbolTypeId to delete associated record (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -178,7 +178,7 @@ public class CustomSymbolsTypesApi {
 
   /**
    * Delete a Custom symbol type
-   * 
+   * Delete a custom symbol type based on guid
    * @param customSymbolTypeId customSymbolTypeId to delete associated record (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -200,7 +200,7 @@ public class CustomSymbolsTypesApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/custom-symbol-types/{customSymbolTypeId}"
+    String localVarPath = "/custom-symbol-types/{customSymbolTypeId}"
       .replaceAll("\\{" + "customSymbolTypeId" + "\\}", apiClient.escapeString(customSymbolTypeId.toString()));
 
     // query params
@@ -237,7 +237,7 @@ public class CustomSymbolsTypesApi {
   }
   /**
    * Get a specific Custom symbol type&#39;s details
-   * 
+   * Get details of a given custom symbol type
    * @param customSymbolTypeId customSymbolTypeId to get associated record (required)
    * @return CustomSymbolTypeDetailDto
    * @throws ApiException if fails to make API call
@@ -255,7 +255,7 @@ public class CustomSymbolsTypesApi {
 
   /**
    * Get a specific Custom symbol type&#39;s details
-   * 
+   * Get details of a given custom symbol type
    * @param customSymbolTypeId customSymbolTypeId to get associated record (required)
    * @return ApiResponse&lt;CustomSymbolTypeDetailDto&gt;
    * @throws ApiException if fails to make API call
@@ -276,7 +276,7 @@ public class CustomSymbolsTypesApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/custom-symbol-types/{customSymbolTypeId}"
+    String localVarPath = "/custom-symbol-types/{customSymbolTypeId}"
       .replaceAll("\\{" + "customSymbolTypeId" + "\\}", apiClient.escapeString(customSymbolTypeId.toString()));
 
     // query params
@@ -315,7 +315,7 @@ public class CustomSymbolsTypesApi {
   }
   /**
    * Get all the custom symbol types
-   * 
+   * Get all custom symbol types configured in your group
    * @return java.util.List<CustomSymbolTypeDto>
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -330,7 +330,7 @@ public class CustomSymbolsTypesApi {
 
   /**
    * Get all the custom symbol types
-   * 
+   * Get all custom symbol types configured in your group
    * @return ApiResponse&lt;java.util.List<CustomSymbolTypeDto>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -343,7 +343,7 @@ public class CustomSymbolsTypesApi {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/v1/custom-symbol-types";
+    String localVarPath = "/custom-symbol-types";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -381,7 +381,7 @@ public class CustomSymbolsTypesApi {
   }
   /**
    * Get Custom fields for Custom Symbol type
-   * 
+   * Get all custom fields configured for custom symbols configured in your group
    * @param customSymbolTypeId customSymbolTypeId to get associated Custom fileds (required)
    * @return java.util.List<CustomSymbolCustomFieldConfigDto>
    * @throws ApiException if fails to make API call
@@ -399,7 +399,7 @@ public class CustomSymbolsTypesApi {
 
   /**
    * Get Custom fields for Custom Symbol type
-   * 
+   * Get all custom fields configured for custom symbols configured in your group
    * @param customSymbolTypeId customSymbolTypeId to get associated Custom fileds (required)
    * @return ApiResponse&lt;java.util.List<CustomSymbolCustomFieldConfigDto>&gt;
    * @throws ApiException if fails to make API call
@@ -420,7 +420,7 @@ public class CustomSymbolsTypesApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/custom-symbol-types/{customSymbolTypeId}/custom-fields"
+    String localVarPath = "/custom-symbol-types/{customSymbolTypeId}/custom-fields"
       .replaceAll("\\{" + "customSymbolTypeId" + "\\}", apiClient.escapeString(customSymbolTypeId.toString()));
 
     // query params
@@ -459,7 +459,7 @@ public class CustomSymbolsTypesApi {
   }
   /**
    * Edit a Custom symbol type
-   * 
+   * Update a custom symbol type configuration
    * @param customSymbolTypeId customSymbolTypeId to update associated record (required)
    * @param updateCustomSymbolTypeDto updateCustomSymbolTypeDto object to update (optional)
    * @throws ApiException if fails to make API call
@@ -478,7 +478,7 @@ public class CustomSymbolsTypesApi {
 
   /**
    * Edit a Custom symbol type
-   * 
+   * Update a custom symbol type configuration
    * @param customSymbolTypeId customSymbolTypeId to update associated record (required)
    * @param updateCustomSymbolTypeDto updateCustomSymbolTypeDto object to update (optional)
    * @return ApiResponse&lt;Void&gt;
@@ -501,7 +501,7 @@ public class CustomSymbolsTypesApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/custom-symbol-types/{customSymbolTypeId}"
+    String localVarPath = "/custom-symbol-types/{customSymbolTypeId}"
       .replaceAll("\\{" + "customSymbolTypeId" + "\\}", apiClient.escapeString(customSymbolTypeId.toString()));
 
     // query params
@@ -537,8 +537,8 @@ public class CustomSymbolsTypesApi {
 
   }
   /**
-   * 
-   * 
+   * Reorder custom symbol types
+   * Reorder custom symbol types that are configured in your group
    * @param reorderCustomSymbolTypeDto  (optional)
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -555,8 +555,8 @@ public class CustomSymbolsTypesApi {
   }
 
   /**
-   * 
-   * 
+   * Reorder custom symbol types
+   * Reorder custom symbol types that are configured in your group
    * @param reorderCustomSymbolTypeDto  (optional)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -573,7 +573,7 @@ public class CustomSymbolsTypesApi {
     Object localVarPostBody = reorderCustomSymbolTypeDto;
     
     // create path and map variables
-    String localVarPath = "/v1/custom-symbol-types/reorder";
+    String localVarPath = "/custom-symbol-types/reorder";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();

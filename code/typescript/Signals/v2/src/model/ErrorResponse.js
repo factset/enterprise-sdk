@@ -21,6 +21,7 @@ import ErrorItem from './ErrorItem';
 class ErrorResponse {
     /**
      * Constructs a new <code>ErrorResponse</code>.
+     * The response returned for an unsuccessful request
      * @alias module:model/ErrorResponse
      * @param message {String} A short description of the error.
      */

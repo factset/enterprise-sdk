@@ -2,6 +2,7 @@
 
 # EventAdaptiveCard
 
+Returns Microsoft's Adaptive Cards, which includes headlines and event details data plus hyperlinks to FactSet reports
 
 ## Properties
 

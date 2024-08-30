@@ -1,16 +1,16 @@
 # FactSet.SDK.IRNConfiguration.Api.CustomSymbolsTypesApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateCustomSymbolType**](CustomSymbolsTypesApi.md#createcustomsymboltype) | **POST** /v1/custom-symbol-types | Create a Custom symbol type
-[**DeleteCustomSymbolTypeAsync**](CustomSymbolsTypesApi.md#deletecustomsymboltypeasync) | **DELETE** /v1/custom-symbol-types/{customSymbolTypeId} | Delete a Custom symbol type
-[**GetCustomSymbolType**](CustomSymbolsTypesApi.md#getcustomsymboltype) | **GET** /v1/custom-symbol-types/{customSymbolTypeId} | Get a specific Custom symbol type&#39;s details
-[**GetCustomSymbolTypes**](CustomSymbolsTypesApi.md#getcustomsymboltypes) | **GET** /v1/custom-symbol-types | Get all the custom symbol types
-[**GetSymbolCustomFieldsForCustomSymbolType**](CustomSymbolsTypesApi.md#getsymbolcustomfieldsforcustomsymboltype) | **GET** /v1/custom-symbol-types/{customSymbolTypeId}/custom-fields | Get Custom fields for Custom Symbol type
-[**UpdateCustomSymbolType**](CustomSymbolsTypesApi.md#updatecustomsymboltype) | **PUT** /v1/custom-symbol-types/{customSymbolTypeId} | Edit a Custom symbol type
-[**UpdateCustomSymbolTypeOrder**](CustomSymbolsTypesApi.md#updatecustomsymboltypeorder) | **POST** /v1/custom-symbol-types/reorder | 
+[**CreateCustomSymbolType**](CustomSymbolsTypesApi.md#createcustomsymboltype) | **POST** /custom-symbol-types | Create a Custom symbol type
+[**DeleteCustomSymbolTypeAsync**](CustomSymbolsTypesApi.md#deletecustomsymboltypeasync) | **DELETE** /custom-symbol-types/{customSymbolTypeId} | Delete a Custom symbol type
+[**GetCustomSymbolType**](CustomSymbolsTypesApi.md#getcustomsymboltype) | **GET** /custom-symbol-types/{customSymbolTypeId} | Get a specific Custom symbol type&#39;s details
+[**GetCustomSymbolTypes**](CustomSymbolsTypesApi.md#getcustomsymboltypes) | **GET** /custom-symbol-types | Get all the custom symbol types
+[**GetSymbolCustomFieldsForCustomSymbolType**](CustomSymbolsTypesApi.md#getsymbolcustomfieldsforcustomsymboltype) | **GET** /custom-symbol-types/{customSymbolTypeId}/custom-fields | Get Custom fields for Custom Symbol type
+[**UpdateCustomSymbolType**](CustomSymbolsTypesApi.md#updatecustomsymboltype) | **PUT** /custom-symbol-types/{customSymbolTypeId} | Edit a Custom symbol type
+[**UpdateCustomSymbolTypeOrder**](CustomSymbolsTypesApi.md#updatecustomsymboltypeorder) | **POST** /custom-symbol-types/reorder | Reorder custom symbol types
 
 
 
@@ -19,6 +19,8 @@ Method | HTTP request | Description
 > NewItemDto CreateCustomSymbolType (SaveCustomSymbolTypeDto saveCustomSymbolTypeDto = null)
 
 Create a Custom symbol type
+
+Create a custom symbol type with given name
 
 ### Example
 
@@ -98,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -117,6 +119,8 @@ Name | Type | Description  | Notes
 > void DeleteCustomSymbolTypeAsync (Guid customSymbolTypeId)
 
 Delete a Custom symbol type
+
+Delete a custom symbol type based on guid
 
 ### Example
 
@@ -216,6 +220,8 @@ void (empty response body)
 
 Get a specific Custom symbol type's details
 
+Get details of a given custom symbol type
+
 ### Example
 
 > [!IMPORTANT]
@@ -314,6 +320,8 @@ Name | Type | Description  | Notes
 
 Get all the custom symbol types
 
+Get all custom symbol types configured in your group
+
 ### Example
 
 > [!IMPORTANT]
@@ -405,6 +413,8 @@ This endpoint does not need any parameter.
 > List&lt;CustomSymbolCustomFieldConfigDto&gt; GetSymbolCustomFieldsForCustomSymbolType (Guid customSymbolTypeId)
 
 Get Custom fields for Custom Symbol type
+
+Get all custom fields configured for custom symbols configured in your group
 
 ### Example
 
@@ -504,6 +514,8 @@ Name | Type | Description  | Notes
 
 Edit a Custom symbol type
 
+Update a custom symbol type configuration
+
 ### Example
 
 > [!IMPORTANT]
@@ -602,7 +614,9 @@ void (empty response body)
 # **UpdateCustomSymbolTypeOrder**
 > void UpdateCustomSymbolTypeOrder (ReorderCustomSymbolTypeDto reorderCustomSymbolTypeDto = null)
 
+Reorder custom symbol types
 
+Reorder custom symbol types that are configured in your group
 
 ### Example
 
@@ -652,6 +666,7 @@ namespace Example
 
             try
             {
+                // Reorder custom symbol types
                 apiInstance.UpdateCustomSymbolTypeOrder(reorderCustomSymbolTypeDto);
             }
             catch (ApiException  e)

@@ -60,102 +60,134 @@ with fds.sdk.DirectStreamingofTransactionMessages.ApiClient(configuration) as ap
     api_instance = dsotm_api.DSOTMApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    transactions = Transactions(
-        executions=[
-            ExecutionParameters(
-                transaction_status="transaction_status_example",
-                parent_id="parent_id_example",
-                net=3.14,
-                settlement_date="settlement_date_example",
-                settlement_currency_iso="settlement_currency_iso_example",
-                settlement_value=3.14,
-                foreign_exchange_rate=3.14,
-                broker="broker_example",
-                custodian="custodian_example",
-                accrued_interest=3.14,
-                commission=3.14,
-                clearing_commission=3.14,
-                local_tax=3.14,
-                local_fee=3.14,
-                broker_fee=3.14,
-                exchange_fee=3.14,
-                miscellaneous_fee=3.14,
-                transaction_id="transaction_id_example",
-                order_id="order_id_example",
-                portfolio="portfolio_example",
-                symbol="symbol_example",
-                description="description_example",
-                trade_type="trade_type_example",
-                unit_type="unit_type_example",
-                transaction_leaves=3.14,
-                quantity=3.14,
-                gross=3.14,
-                price=3.14,
-                currency_iso="currency_iso_example",
-                trade_date="trade_date_example",
-                added_date_time="added_date_time_example",
-                updated_date_time="updated_date_time_example",
-            ),
-        ],
-        placements=[
-            PlacementParameters(
-                transaction_status="transaction_status_example",
-                parent_id="parent_id_example",
-                instruction_type="instruction_type_example",
-                instruction_value=3.14,
-                tif="tif_example",
-                tif_date="tif_date_example",
-                transaction_id="transaction_id_example",
-                order_id="order_id_example",
-                portfolio="portfolio_example",
-                symbol="symbol_example",
-                description="description_example",
-                trade_type="trade_type_example",
-                unit_type="unit_type_example",
-                transaction_leaves=3.14,
-                quantity=3.14,
-                gross=3.14,
-                price=3.14,
-                currency_iso="currency_iso_example",
-                trade_date="trade_date_example",
-                added_date_time="added_date_time_example",
-                updated_date_time="updated_date_time_example",
-            ),
-        ],
-        orders=[
-            OrderParameters(
-                transaction_status="transaction_status_example",
-                instruction_type="instruction_type_example",
-                instruction_value=3.14,
-                tif="tif_example",
-                tif_date="tif_date_example",
-                fund_team="fund_team_example",
-                trading_team="trading_team_example",
-                trader="trader_example",
-                transaction_id="transaction_id_example",
-                order_id="order_id_example",
-                portfolio="portfolio_example",
-                symbol="symbol_example",
-                description="description_example",
-                trade_type="trade_type_example",
-                unit_type="unit_type_example",
-                transaction_leaves=3.14,
-                quantity=3.14,
-                gross=3.14,
-                price=3.14,
-                currency_iso="currency_iso_example",
-                trade_date="trade_date_example",
-                added_date_time="added_date_time_example",
-                updated_date_time="updated_date_time_example",
-            ),
-        ],
-    ) # Transactions |  (optional)
+    dsotm_parameters_root = DsotmParametersRoot(
+        data=DsotmParameters(
+            orders=[
+                Order(
+                    order_date="2024-01-25",
+                    transaction_id="O_FDS_012424_113",
+                    order_id="O123",
+                    transaction_status="pendingApproval",
+                    order_type="market",
+                    limit_price=3.14,
+                    stop_price=3.14,
+                    tif="goodTilCancel",
+                    tif_date="2024-02-21",
+                    settlement_type="regular",
+                    settlement_date="2024-03-11",
+                    fund_team="T1",
+                    trading_team="T2",
+                    trader="msmith",
+                    account="Client:/folder1/testing.acct",
+                    symbol="FDS-USA",
+                    instrument_name="FactSet Research Systems",
+                    side="buy",
+                    unit_type="quantity",
+                    transaction_leaves=3.14,
+                    quantity=3.14,
+                    gross=3.14,
+                    price=3.14,
+                    currency="USD",
+                    compliance_status="unchecked",
+                    added_date_time="2024-01-25T09:30:23.235",
+                    updated_date_time="2024-01-25T09:30:23.235",
+                    additional_fields=[
+                        AdditionalField(
+                            name="name_example",
+                            type="string",
+                            value="value_example",
+                        ),
+                    ],
+                ),
+            ],
+            placements=[
+                Placement(
+                    placement_date="2024-01-25",
+                    transaction_id="P123",
+                    parent_id="O_FDS_012424_113",
+                    order_id="O123",
+                    transaction_status="placed",
+                    order_type="market",
+                    limit_price=3.14,
+                    stop_price=3.14,
+                    tif="goodTilCancel",
+                    tif_date="2024-02-21",
+                    settlement_type="regular",
+                    settlement_date="2024-03-11",
+                    account="Client:/folder1/testing.acct",
+                    symbol="FDS-USA",
+                    instrument_name="FactSet Research Systems",
+                    side="buy",
+                    unit_type="quantity",
+                    transaction_leaves=3.14,
+                    quantity=3.14,
+                    gross=3.14,
+                    price=3.14,
+                    currency="USD",
+                    compliance_status="unchecked",
+                    added_date_time="2024-01-25T09:30:23.235",
+                    updated_date_time="2024-01-25T09:30:23.235",
+                    additional_fields=[
+                        AdditionalField(
+                            name="name_example",
+                            type="string",
+                            value="value_example",
+                        ),
+                    ],
+                ),
+            ],
+            executions=[
+                Execution(
+                    trade_date="2024-01-25",
+                    transaction_id="E456",
+                    parent_id="P123",
+                    order_id="O123",
+                    transaction_status="executed",
+                    net=3.14,
+                    settlement_date="2024-03-11",
+                    settlement_currency="EUR",
+                    settlement_value=3.14,
+                    foreign_exchange_rate=3.14,
+                    broker="broker_example",
+                    custodian="custodian_example",
+                    accrued_interest=3.14,
+                    commission=3.14,
+                    clearing_commission=3.14,
+                    local_tax=3.14,
+                    local_fee=3.14,
+                    broker_fee=3.14,
+                    exchange_fee=3.14,
+                    miscellaneous_fee=3.14,
+                    account="Client:/folder1/testing.acct",
+                    symbol="FDS-USA",
+                    instrument_name="FactSet Research Systems",
+                    side="buy",
+                    unit_type="quantity",
+                    transaction_leaves=3.14,
+                    quantity=3.14,
+                    gross=3.14,
+                    price=3.14,
+                    currency="USD",
+                    compliance_status="unchecked",
+                    added_date_time="2024-01-25T09:30:23.235",
+                    updated_date_time="2024-01-25T09:30:23.235",
+                    additional_fields=[
+                        AdditionalField(
+                            name="name_example",
+                            type="string",
+                            value="value_example",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+    ) # DsotmParametersRoot |  (optional)
 
     try:
         # Push transactions data into FactSet.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_instance.send_transactions(transactions=transactions)
+        api_instance.send_transactions(dsotm_parameters_root=dsotm_parameters_root)
 
 
     except fds.sdk.DirectStreamingofTransactionMessages.ApiException as e:
@@ -167,7 +199,7 @@ with fds.sdk.DirectStreamingofTransactionMessages.ApiClient(configuration) as ap
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **transactions** | [**Transactions**](Transactions.md)|  | [optional]
+ **dsotm_parameters_root** | [**DsotmParametersRoot**](DsotmParametersRoot.md)|  | [optional]
 
 ### Return type
 
@@ -187,14 +219,14 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**202** | Expected response. |  * X-DataDirect-Request-Key - FactSet’s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
+**200** | Expected response. |  * X-DataDirect-Request-Key - FactSet’s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 **400** | Invalid POST body. |  * X-DataDirect-Request-Key - FactSet’s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 **401** | Missing or invalid authentication. |  * X-DataDirect-Request-Key - FactSet’s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key - FactSet’s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 **415** | Missing/Invalid Content-Type header. Header needs to be set to application/json. |  * X-DataDirect-Request-Key - FactSet’s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 **429** | Rate limit reached. Retry the requests after waiting the time specified in the retry-after header. |  * X-DataDirect-Request-Key - FactSet’s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 **500** | Server error. Log the X-DataDirectRequest-Key header to assist in troubleshooting. |  * X-DataDirect-Request-Key - FactSet’s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
-**503** | Request timed out. Retry the request in sometime. |  * X-DataDirect-Request-Key - FactSet’s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
+**503** | Request timed out. |  * X-DataDirect-Request-Key - FactSet’s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

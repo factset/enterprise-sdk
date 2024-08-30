@@ -202,7 +202,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new MetadataApi();
-const signalId = dilutionTrigger; // String | 
+const signalId = dilutionTrigger; // String | A single signalId.
 
 // Call api endpoint
 apiInstance.getDataDictionaryById(signalId).then(
@@ -224,7 +224,7 @@ apiInstance.getDataDictionaryById(signalId).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **signalId** | **String**|  | 
+ **signalId** | **String**| A single signalId. | 
 
 ### Return type
 

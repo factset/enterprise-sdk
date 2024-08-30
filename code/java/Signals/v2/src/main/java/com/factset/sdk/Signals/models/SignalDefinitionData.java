@@ -79,11 +79,11 @@ public class SignalDefinitionData implements Serializable {
   }
 
    /**
-   * Get signalId
+   * UUID of a signal
    * @return signalId
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "UUID of a signal")
   @JsonProperty(JSON_PROPERTY_SIGNAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -105,11 +105,11 @@ public class SignalDefinitionData implements Serializable {
   }
 
    /**
-   * Get theme
+   * Theme chosen for the signal request
    * @return theme
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Theme chosen for the signal request")
   @JsonProperty(JSON_PROPERTY_THEME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -136,11 +136,11 @@ public class SignalDefinitionData implements Serializable {
   }
 
    /**
-   * Get categories
+   * Categories chosen for the signal request
    * @return categories
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Categories chosen for the signal request")
   @JsonProperty(JSON_PROPERTY_CATEGORIES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

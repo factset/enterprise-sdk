@@ -11,6 +11,7 @@
 
 from fds.sdk.Signals.model.contract import Contract
 from fds.sdk.Signals.model.contract_fields import ContractFields
+from fds.sdk.Signals.model.contract_fields_event_date import ContractFieldsEventDate
 from fds.sdk.Signals.model.contract_fields_summary import ContractFieldsSummary
 from fds.sdk.Signals.model.contract_property import ContractProperty
 from fds.sdk.Signals.model.contract_property_items import ContractPropertyItems

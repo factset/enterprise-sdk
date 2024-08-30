@@ -1,4 +1,5 @@
 # FactSet.SDK.Signals.Model.EventsEntitiesPost
+Contains list of entities that matches the request criterion
 
 ## Properties
 

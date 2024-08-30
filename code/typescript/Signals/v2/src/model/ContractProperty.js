@@ -21,9 +21,10 @@ import ContractPropertyItems from './ContractPropertyItems';
 class ContractProperty {
     /**
      * Constructs a new <code>ContractProperty</code>.
+     * Includes properties that describes each fields in a signal
      * @alias module:model/ContractProperty
-     * @param description {String} 
-     * @param type {String} 
+     * @param description {String} Description of the contract property
+     * @param type {String} Type of the contract property
      */
     constructor(description, type) { 
         
@@ -71,16 +72,19 @@ class ContractProperty {
 }
 
 /**
+ * Description of the contract property
  * @member {String} description
  */
 ContractProperty.prototype['description'] = undefined;
 
 /**
+ * Type of the contract property
  * @member {String} type
  */
 ContractProperty.prototype['type'] = undefined;
 
 /**
+ * Boolean value representing if the contract property is optional
  * @member {Boolean} optional
  */
 ContractProperty.prototype['optional'] = undefined;

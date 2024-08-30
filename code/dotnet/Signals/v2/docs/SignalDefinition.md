@@ -1,4 +1,5 @@
 # FactSet.SDK.Signals.Model.SignalDefinition
+Detailed information about a given signal
 
 ## Properties
 

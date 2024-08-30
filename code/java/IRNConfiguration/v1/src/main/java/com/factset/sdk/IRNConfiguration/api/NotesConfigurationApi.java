@@ -63,6 +63,7 @@ public class NotesConfigurationApi {
   private static final Map<Integer, GenericType> getGroupResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getGroupResponseTypeMap.put(200, new GenericType<GroupConfigDto>(){});
+    getGroupResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
   }
 
   private static final Map<Integer, GenericType> getRecommendationsResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -124,7 +125,7 @@ public class NotesConfigurationApi {
 
   /**
    * Get all assigned FactSet users
-   * 
+   * Get all assigned FactSet users in your group
    * @return java.util.List<UserConfigDto>
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -139,7 +140,7 @@ public class NotesConfigurationApi {
 
   /**
    * Get all assigned FactSet users
-   * 
+   * Get all assigned FactSet users in your group
    * @return ApiResponse&lt;java.util.List<UserConfigDto>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -152,7 +153,7 @@ public class NotesConfigurationApi {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/v1/users";
+    String localVarPath = "/users";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -190,8 +191,8 @@ public class NotesConfigurationApi {
   }
   /**
    * Get all Authors
-   * 
-   * @param xIRNIgnorePermissions  (optional, default to false)
+   * Get all Authors
+   * @param xIRNIgnorePermissions If set to true, permissions will be ignored. Default is false. (optional, default to false)
    * @return java.util.List<AuthorConfigDto>
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -207,8 +208,8 @@ public class NotesConfigurationApi {
 
   /**
    * Get all Authors
-   * 
-   * @param xIRNIgnorePermissions  (optional, default to false)
+   * Get all Authors
+   * @param xIRNIgnorePermissions If set to true, permissions will be ignored. Default is false. (optional, default to false)
    * @return ApiResponse&lt;java.util.List<AuthorConfigDto>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -222,7 +223,7 @@ public class NotesConfigurationApi {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/v1/authors";
+    String localVarPath = "/authors";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -261,8 +262,8 @@ public class NotesConfigurationApi {
 
   }
   /**
-   * 
-   * 
+   * Get Client Sales Representative
+   * Get the client sales representative for the group
    * @return ClientSalesRepresentativeDto
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -277,8 +278,8 @@ public class NotesConfigurationApi {
   }
 
   /**
-   * 
-   * 
+   * Get Client Sales Representative
+   * Get the client sales representative for the group
    * @return ApiResponse&lt;ClientSalesRepresentativeDto&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -292,7 +293,7 @@ public class NotesConfigurationApi {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/v1/group/client-sales-representative";
+    String localVarPath = "/group/client-sales-representative";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -330,7 +331,7 @@ public class NotesConfigurationApi {
   }
   /**
    * Get all Custom Fields
-   * 
+   * Get all customfields configured in your group
    * @param xIRNIgnorePermissions  (optional, default to false)
    * @return java.util.List<CustomFieldConfigDto>
    * @throws ApiException if fails to make API call
@@ -347,7 +348,7 @@ public class NotesConfigurationApi {
 
   /**
    * Get all Custom Fields
-   * 
+   * Get all customfields configured in your group
    * @param xIRNIgnorePermissions  (optional, default to false)
    * @return ApiResponse&lt;java.util.List<CustomFieldConfigDto>&gt;
    * @throws ApiException if fails to make API call
@@ -362,7 +363,7 @@ public class NotesConfigurationApi {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/v1/custom-fields";
+    String localVarPath = "/custom-fields";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -402,13 +403,14 @@ public class NotesConfigurationApi {
   }
   /**
    * Get Group details
-   * 
+   * Get all the group details
    * @return GroupConfigDto
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
    */
   public GroupConfigDto getGroup() throws ApiException {
@@ -417,20 +419,21 @@ public class NotesConfigurationApi {
 
   /**
    * Get Group details
-   * 
+   * Get all the group details
    * @return ApiResponse&lt;GroupConfigDto&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<GroupConfigDto> getGroupWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/v1/group";
+    String localVarPath = "/group";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -468,7 +471,7 @@ public class NotesConfigurationApi {
   }
   /**
    * Get all Recommendations
-   * 
+   * Get all recommendations configured in your group
    * @return java.util.List<RecommendationConfigDto>
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -483,7 +486,7 @@ public class NotesConfigurationApi {
 
   /**
    * Get all Recommendations
-   * 
+   * Get all recommendations configured in your group
    * @return ApiResponse&lt;java.util.List<RecommendationConfigDto>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -496,7 +499,7 @@ public class NotesConfigurationApi {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/v1/recommendations";
+    String localVarPath = "/recommendations";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -534,7 +537,7 @@ public class NotesConfigurationApi {
   }
   /**
    * Get all Sentiments
-   * 
+   * Get all sentiments configured in your group
    * @return java.util.List<SentimentConfigDto>
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -549,7 +552,7 @@ public class NotesConfigurationApi {
 
   /**
    * Get all Sentiments
-   * 
+   * Get all sentiments configured in your group
    * @return ApiResponse&lt;java.util.List<SentimentConfigDto>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -562,7 +565,7 @@ public class NotesConfigurationApi {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/v1/sentiments";
+    String localVarPath = "/sentiments";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -600,7 +603,7 @@ public class NotesConfigurationApi {
   }
   /**
    * Get Subject details for the given Id provided
-   * 
+   * Get all details of a given subject
    * @param subjectId Id (required)
    * @param xIRNIgnorePermissions  (optional, default to false)
    * @return SubjectConfigDto
@@ -619,7 +622,7 @@ public class NotesConfigurationApi {
 
   /**
    * Get Subject details for the given Id provided
-   * 
+   * Get all details of a given subject
    * @param subjectId Id (required)
    * @param xIRNIgnorePermissions  (optional, default to false)
    * @return ApiResponse&lt;SubjectConfigDto&gt;
@@ -641,7 +644,7 @@ public class NotesConfigurationApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/subjects/{subjectId}"
+    String localVarPath = "/subjects/{subjectId}"
       .replaceAll("\\{" + "subjectId" + "\\}", apiClient.escapeString(subjectId.toString()));
 
     // query params
@@ -682,7 +685,7 @@ public class NotesConfigurationApi {
   }
   /**
    * Get all Subjects
-   * 
+   * Get all subjects configured in your group
    * @param xIRNIgnorePermissions  (optional, default to false)
    * @return java.util.List<SubjectSummaryDto>
    * @throws ApiException if fails to make API call
@@ -699,7 +702,7 @@ public class NotesConfigurationApi {
 
   /**
    * Get all Subjects
-   * 
+   * Get all subjects configured in your group
    * @param xIRNIgnorePermissions  (optional, default to false)
    * @return ApiResponse&lt;java.util.List<SubjectSummaryDto>&gt;
    * @throws ApiException if fails to make API call
@@ -714,7 +717,7 @@ public class NotesConfigurationApi {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/v1/subjects";
+    String localVarPath = "/subjects";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -754,9 +757,9 @@ public class NotesConfigurationApi {
   }
   /**
    * Get Team details for the given Id provided
-   * 
+   * Get all details of a given team
    * @param teamId Id (required)
-   * @param xIRNIgnorePermissions  (optional, default to false)
+   * @param xIRNIgnorePermissions If set to true, permissions will be ignored. Default is false. (optional, default to false)
    * @return TeamConfigDto
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -773,9 +776,9 @@ public class NotesConfigurationApi {
 
   /**
    * Get Team details for the given Id provided
-   * 
+   * Get all details of a given team
    * @param teamId Id (required)
-   * @param xIRNIgnorePermissions  (optional, default to false)
+   * @param xIRNIgnorePermissions If set to true, permissions will be ignored. Default is false. (optional, default to false)
    * @return ApiResponse&lt;TeamConfigDto&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -795,7 +798,7 @@ public class NotesConfigurationApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/teams/{teamId}"
+    String localVarPath = "/teams/{teamId}"
       .replaceAll("\\{" + "teamId" + "\\}", apiClient.escapeString(teamId.toString()));
 
     // query params
@@ -836,8 +839,8 @@ public class NotesConfigurationApi {
   }
   /**
    * Get all Teams
-   * 
-   * @param xIRNIgnorePermissions  (optional, default to false)
+   * Get all teams configured in your group
+   * @param xIRNIgnorePermissions If set to true, permissions will be ignored. Default is false. (optional, default to false)
    * @return java.util.List<TeamSummaryDto>
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -853,8 +856,8 @@ public class NotesConfigurationApi {
 
   /**
    * Get all Teams
-   * 
-   * @param xIRNIgnorePermissions  (optional, default to false)
+   * Get all teams configured in your group
+   * @param xIRNIgnorePermissions If set to true, permissions will be ignored. Default is false. (optional, default to false)
    * @return ApiResponse&lt;java.util.List<TeamSummaryDto>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -868,7 +871,7 @@ public class NotesConfigurationApi {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/v1/teams";
+    String localVarPath = "/teams";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();

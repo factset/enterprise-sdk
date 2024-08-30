@@ -40,9 +40,9 @@ namespace FactSet.SDK.Signals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SignalMetaDataData" /> class.
         /// </summary>
-        /// <param name="id">id (required).</param>
-        /// <param name="name">name (required).</param>
-        /// <param name="description">description (required).</param>
+        /// <param name="id">UUID of a signal (required).</param>
+        /// <param name="name">Name of the signal (required).</param>
+        /// <param name="description">A description of the signal (required).</param>
         public SignalMetaDataData(string id, string name, string description)
         {
             // to ensure "id" is required (not null)
@@ -63,20 +63,23 @@ namespace FactSet.SDK.Signals.Model
         }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// UUID of a signal
         /// </summary>
+        /// <value>UUID of a signal</value>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Name
+        /// Name of the signal
         /// </summary>
+        /// <value>Name of the signal</value>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets Description
+        /// A description of the signal
         /// </summary>
+        /// <value>A description of the signal</value>
         [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = false)]
         public string Description { get; set; }
 

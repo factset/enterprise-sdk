@@ -1,13 +1,13 @@
 # FactSet.SDK.IRNConfiguration.Api.ContactsPhoneNumberTypesApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreatePhoneNumberType**](ContactsPhoneNumberTypesApi.md#createphonenumbertype) | **POST** /v1/phone-number-types | Create a phone type
-[**DeletePhoneNumberType**](ContactsPhoneNumberTypesApi.md#deletephonenumbertype) | **DELETE** /v1/phone-number-types/{phoneNumberTypeId} | Delete a phone type
-[**GetPhoneNumberTypes**](ContactsPhoneNumberTypesApi.md#getphonenumbertypes) | **GET** /v1/phone-number-types | Get list of the phone types configured in your group
-[**UpdatePhoneNumberType**](ContactsPhoneNumberTypesApi.md#updatephonenumbertype) | **PUT** /v1/phone-number-types/{phoneNumberTypeId} | Edit a phone type
+[**CreatePhoneNumberType**](ContactsPhoneNumberTypesApi.md#createphonenumbertype) | **POST** /phone-number-types | Create a phone type
+[**DeletePhoneNumberType**](ContactsPhoneNumberTypesApi.md#deletephonenumbertype) | **DELETE** /phone-number-types/{phoneNumberTypeId} | Delete a phone type
+[**GetPhoneNumberTypes**](ContactsPhoneNumberTypesApi.md#getphonenumbertypes) | **GET** /phone-number-types | Get list of the phone types configured in your group
+[**UpdatePhoneNumberType**](ContactsPhoneNumberTypesApi.md#updatephonenumbertype) | **PUT** /phone-number-types/{phoneNumberTypeId} | Edit a phone type
 
 
 
@@ -16,6 +16,8 @@ Method | HTTP request | Description
 > NewItemDto CreatePhoneNumberType (string body)
 
 Create a phone type
+
+Create a phone type with given name
 
 ### Example
 
@@ -95,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -114,6 +116,8 @@ Name | Type | Description  | Notes
 > void DeletePhoneNumberType (Guid phoneNumberTypeId)
 
 Delete a phone type
+
+Delete a phone number type based on guid
 
 ### Example
 
@@ -213,6 +217,8 @@ void (empty response body)
 
 Get list of the phone types configured in your group
 
+Get all phone types configured in your group
+
 ### Example
 
 > [!IMPORTANT]
@@ -304,6 +310,8 @@ This endpoint does not need any parameter.
 > void UpdatePhoneNumberType (Guid phoneNumberTypeId, string body)
 
 Edit a phone type
+
+Update a phone number type
 
 ### Example
 

@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Signals.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Signals.Model
 {
     /// <summary>
-    /// ContractFields
+    /// List of required fields at the top level of each signal
     /// </summary>
     [DataContract(Name = "contractFields")]
     public partial class ContractFields : IEquatable<ContractFields>, IValidatableObject
@@ -43,7 +43,7 @@ namespace FactSet.SDK.Signals.Model
         /// <param name="summary">summary (required).</param>
         /// <param name="eventDate">eventDate (required).</param>
         /// <param name="additionalProperties">additionalProperties.</param>
-        public ContractFields(ContractFieldsSummary summary, ContractFieldsSummary eventDate,ContractProperty additionalProperties = default(ContractProperty))
+        public ContractFields(ContractFieldsSummary summary, ContractFieldsEventDate eventDate,ContractProperty additionalProperties = default(ContractProperty))
         {
             // to ensure "summary" is required (not null)
             if (summary == null) {
@@ -68,7 +68,7 @@ namespace FactSet.SDK.Signals.Model
         /// Gets or Sets EventDate
         /// </summary>
         [DataMember(Name = "eventDate", IsRequired = true, EmitDefaultValue = false)]
-        public ContractFieldsSummary EventDate { get; set; }
+        public ContractFieldsEventDate EventDate { get; set; }
 
         /// <summary>
         /// Gets or Sets AdditionalProperties

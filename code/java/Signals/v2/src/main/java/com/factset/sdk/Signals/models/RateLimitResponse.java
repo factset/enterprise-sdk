@@ -53,11 +53,11 @@ public class RateLimitResponse implements Serializable {
   }
 
    /**
-   * Get message
+   * Detail about the rate limit error.
    * @return message
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "API rate limit exceeded", value = "")
+  @ApiModelProperty(example = "API rate limit exceeded", value = "Detail about the rate limit error.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

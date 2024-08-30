@@ -1,20 +1,20 @@
 # irnconfiguration.NotesConfigurationApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getAssignedFactSetUsers**](NotesConfigurationApi.md#getAssignedFactSetUsers) | **GET** /v1/users | Get all assigned FactSet users
-[**getAuthors**](NotesConfigurationApi.md#getAuthors) | **GET** /v1/authors | Get all Authors
-[**getClientsSalesRepresentative**](NotesConfigurationApi.md#getClientsSalesRepresentative) | **GET** /v1/group/client-sales-representative | 
-[**getCustomFields**](NotesConfigurationApi.md#getCustomFields) | **GET** /v1/custom-fields | Get all Custom Fields
-[**getGroup**](NotesConfigurationApi.md#getGroup) | **GET** /v1/group | Get Group details
-[**getRecommendations**](NotesConfigurationApi.md#getRecommendations) | **GET** /v1/recommendations | Get all Recommendations
-[**getSentiments**](NotesConfigurationApi.md#getSentiments) | **GET** /v1/sentiments | Get all Sentiments
-[**getSubject**](NotesConfigurationApi.md#getSubject) | **GET** /v1/subjects/{subjectId} | Get Subject details for the given Id provided
-[**getSubjects**](NotesConfigurationApi.md#getSubjects) | **GET** /v1/subjects | Get all Subjects
-[**getTeam**](NotesConfigurationApi.md#getTeam) | **GET** /v1/teams/{teamId} | Get Team details for the given Id provided
-[**getTeams**](NotesConfigurationApi.md#getTeams) | **GET** /v1/teams | Get all Teams
+[**getAssignedFactSetUsers**](NotesConfigurationApi.md#getAssignedFactSetUsers) | **GET** /users | Get all assigned FactSet users
+[**getAuthors**](NotesConfigurationApi.md#getAuthors) | **GET** /authors | Get all Authors
+[**getClientsSalesRepresentative**](NotesConfigurationApi.md#getClientsSalesRepresentative) | **GET** /group/client-sales-representative | Get Client Sales Representative
+[**getCustomFields**](NotesConfigurationApi.md#getCustomFields) | **GET** /custom-fields | Get all Custom Fields
+[**getGroup**](NotesConfigurationApi.md#getGroup) | **GET** /group | Get Group details
+[**getRecommendations**](NotesConfigurationApi.md#getRecommendations) | **GET** /recommendations | Get all Recommendations
+[**getSentiments**](NotesConfigurationApi.md#getSentiments) | **GET** /sentiments | Get all Sentiments
+[**getSubject**](NotesConfigurationApi.md#getSubject) | **GET** /subjects/{subjectId} | Get Subject details for the given Id provided
+[**getSubjects**](NotesConfigurationApi.md#getSubjects) | **GET** /subjects | Get all Subjects
+[**getTeam**](NotesConfigurationApi.md#getTeam) | **GET** /teams/{teamId} | Get Team details for the given Id provided
+[**getTeams**](NotesConfigurationApi.md#getTeams) | **GET** /teams | Get all Teams
 
 
 
@@ -23,6 +23,8 @@ Method | HTTP request | Description
 > [UserConfigDto] getAssignedFactSetUsers()
 
 Get all assigned FactSet users
+
+Get all assigned FactSet users in your group
 
 ### Example
 
@@ -97,6 +99,8 @@ This endpoint does not need any parameter.
 
 Get all Authors
 
+Get all Authors
+
 ### Example
 
 > [!IMPORTANT]
@@ -131,7 +135,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new NotesConfigurationApi();
 const opts = {
-  'xIRNIgnorePermissions': false // Boolean | 
+  'xIRNIgnorePermissions': false // Boolean | If set to true, permissions will be ignored. Default is false.
 };
 
 // Call api endpoint
@@ -154,7 +158,7 @@ apiInstance.getAuthors(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xIRNIgnorePermissions** | **Boolean**|  | [optional] [default to false]
+ **xIRNIgnorePermissions** | **Boolean**| If set to true, permissions will be ignored. Default is false. | [optional] [default to false]
 
 ### Return type
 
@@ -174,7 +178,9 @@ Name | Type | Description  | Notes
 
 > ClientSalesRepresentativeDto getClientsSalesRepresentative()
 
+Get Client Sales Representative
 
+Get the client sales representative for the group
 
 ### Example
 
@@ -248,6 +254,8 @@ This endpoint does not need any parameter.
 > [CustomFieldConfigDto] getCustomFields(opts)
 
 Get all Custom Fields
+
+Get all customfields configured in your group
 
 ### Example
 
@@ -328,6 +336,8 @@ Name | Type | Description  | Notes
 
 Get Group details
 
+Get all the group details
+
 ### Example
 
 > [!IMPORTANT]
@@ -400,6 +410,8 @@ This endpoint does not need any parameter.
 > [RecommendationConfigDto] getRecommendations()
 
 Get all Recommendations
+
+Get all recommendations configured in your group
 
 ### Example
 
@@ -474,6 +486,8 @@ This endpoint does not need any parameter.
 
 Get all Sentiments
 
+Get all sentiments configured in your group
+
 ### Example
 
 > [!IMPORTANT]
@@ -546,6 +560,8 @@ This endpoint does not need any parameter.
 > SubjectConfigDto getSubject(subjectId, opts)
 
 Get Subject details for the given Id provided
+
+Get all details of a given subject
 
 ### Example
 
@@ -628,6 +644,8 @@ Name | Type | Description  | Notes
 
 Get all Subjects
 
+Get all subjects configured in your group
+
 ### Example
 
 > [!IMPORTANT]
@@ -707,6 +725,8 @@ Name | Type | Description  | Notes
 
 Get Team details for the given Id provided
 
+Get all details of a given team
+
 ### Example
 
 > [!IMPORTANT]
@@ -742,7 +762,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 const apiInstance = new NotesConfigurationApi();
 const teamId = "teamId_example"; // String | Id
 const opts = {
-  'xIRNIgnorePermissions': false // Boolean | 
+  'xIRNIgnorePermissions': false // Boolean | If set to true, permissions will be ignored. Default is false.
 };
 
 // Call api endpoint
@@ -766,7 +786,7 @@ apiInstance.getTeam(teamId, opts).then(
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **teamId** | **String**| Id | 
- **xIRNIgnorePermissions** | **Boolean**|  | [optional] [default to false]
+ **xIRNIgnorePermissions** | **Boolean**| If set to true, permissions will be ignored. Default is false. | [optional] [default to false]
 
 ### Return type
 
@@ -787,6 +807,8 @@ Name | Type | Description  | Notes
 > [TeamSummaryDto] getTeams(opts)
 
 Get all Teams
+
+Get all teams configured in your group
 
 ### Example
 
@@ -822,7 +844,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new NotesConfigurationApi();
 const opts = {
-  'xIRNIgnorePermissions': false // Boolean | 
+  'xIRNIgnorePermissions': false // Boolean | If set to true, permissions will be ignored. Default is false.
 };
 
 // Call api endpoint
@@ -845,7 +867,7 @@ apiInstance.getTeams(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xIRNIgnorePermissions** | **Boolean**|  | [optional] [default to false]
+ **xIRNIgnorePermissions** | **Boolean**| If set to true, permissions will be ignored. Default is false. | [optional] [default to false]
 
 ### Return type
 

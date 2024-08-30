@@ -1,20 +1,20 @@
 # NotesConfigurationApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getAssignedFactSetUsers**](NotesConfigurationApi.md#getAssignedFactSetUsers) | **GET** /v1/users | Get all assigned FactSet users
-[**getAuthors**](NotesConfigurationApi.md#getAuthors) | **GET** /v1/authors | Get all Authors
-[**getClientsSalesRepresentative**](NotesConfigurationApi.md#getClientsSalesRepresentative) | **GET** /v1/group/client-sales-representative | 
-[**getCustomFields**](NotesConfigurationApi.md#getCustomFields) | **GET** /v1/custom-fields | Get all Custom Fields
-[**getGroup**](NotesConfigurationApi.md#getGroup) | **GET** /v1/group | Get Group details
-[**getRecommendations**](NotesConfigurationApi.md#getRecommendations) | **GET** /v1/recommendations | Get all Recommendations
-[**getSentiments**](NotesConfigurationApi.md#getSentiments) | **GET** /v1/sentiments | Get all Sentiments
-[**getSubject**](NotesConfigurationApi.md#getSubject) | **GET** /v1/subjects/{subjectId} | Get Subject details for the given Id provided
-[**getSubjects**](NotesConfigurationApi.md#getSubjects) | **GET** /v1/subjects | Get all Subjects
-[**getTeam**](NotesConfigurationApi.md#getTeam) | **GET** /v1/teams/{teamId} | Get Team details for the given Id provided
-[**getTeams**](NotesConfigurationApi.md#getTeams) | **GET** /v1/teams | Get all Teams
+[**getAssignedFactSetUsers**](NotesConfigurationApi.md#getAssignedFactSetUsers) | **GET** /users | Get all assigned FactSet users
+[**getAuthors**](NotesConfigurationApi.md#getAuthors) | **GET** /authors | Get all Authors
+[**getClientsSalesRepresentative**](NotesConfigurationApi.md#getClientsSalesRepresentative) | **GET** /group/client-sales-representative | Get Client Sales Representative
+[**getCustomFields**](NotesConfigurationApi.md#getCustomFields) | **GET** /custom-fields | Get all Custom Fields
+[**getGroup**](NotesConfigurationApi.md#getGroup) | **GET** /group | Get Group details
+[**getRecommendations**](NotesConfigurationApi.md#getRecommendations) | **GET** /recommendations | Get all Recommendations
+[**getSentiments**](NotesConfigurationApi.md#getSentiments) | **GET** /sentiments | Get all Sentiments
+[**getSubject**](NotesConfigurationApi.md#getSubject) | **GET** /subjects/{subjectId} | Get Subject details for the given Id provided
+[**getSubjects**](NotesConfigurationApi.md#getSubjects) | **GET** /subjects | Get all Subjects
+[**getTeam**](NotesConfigurationApi.md#getTeam) | **GET** /teams/{teamId} | Get Team details for the given Id provided
+[**getTeams**](NotesConfigurationApi.md#getTeams) | **GET** /teams | Get all Teams
 
 
 
@@ -23,6 +23,8 @@ Method | HTTP request | Description
 > java.util.List<UserConfigDto> getAssignedFactSetUsers()
 
 Get all assigned FactSet users
+
+Get all assigned FactSet users in your group
 
 ### Example
 
@@ -109,6 +111,8 @@ This endpoint does not need any parameter.
 
 Get all Authors
 
+Get all Authors
+
 ### Example
 
 > [!IMPORTANT]
@@ -150,7 +154,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NotesConfigurationApi apiInstance = new NotesConfigurationApi(defaultClient);
-        Boolean xIRNIgnorePermissions = false; // Boolean | 
+        Boolean xIRNIgnorePermissions = false; // Boolean | If set to true, permissions will be ignored. Default is false.
         try {
             java.util.List<AuthorConfigDto> result = apiInstance.getAuthors(xIRNIgnorePermissions);
             System.out.println(result);
@@ -171,7 +175,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xIRNIgnorePermissions** | **Boolean**|  | [optional] [default to false]
+ **xIRNIgnorePermissions** | **Boolean**| If set to true, permissions will be ignored. Default is false. | [optional] [default to false]
 
 ### Return type
 
@@ -197,7 +201,9 @@ Name | Type | Description  | Notes
 
 > ClientSalesRepresentativeDto getClientsSalesRepresentative()
 
+Get Client Sales Representative
 
+Get the client sales representative for the group
 
 ### Example
 
@@ -284,6 +290,8 @@ This endpoint does not need any parameter.
 > java.util.List<CustomFieldConfigDto> getCustomFields(xIRNIgnorePermissions)
 
 Get all Custom Fields
+
+Get all customfields configured in your group
 
 ### Example
 
@@ -375,6 +383,8 @@ Name | Type | Description  | Notes
 
 Get Group details
 
+Get all the group details
+
 ### Example
 
 > [!IMPORTANT]
@@ -452,6 +462,7 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
+| **404** | Not Found |  -  |
 
 
 ## getRecommendations
@@ -459,6 +470,8 @@ This endpoint does not need any parameter.
 > java.util.List<RecommendationConfigDto> getRecommendations()
 
 Get all Recommendations
+
+Get all recommendations configured in your group
 
 ### Example
 
@@ -545,6 +558,8 @@ This endpoint does not need any parameter.
 
 Get all Sentiments
 
+Get all sentiments configured in your group
+
 ### Example
 
 > [!IMPORTANT]
@@ -629,6 +644,8 @@ This endpoint does not need any parameter.
 > SubjectConfigDto getSubject(subjectId, xIRNIgnorePermissions)
 
 Get Subject details for the given Id provided
+
+Get all details of a given subject
 
 ### Example
 
@@ -723,6 +740,8 @@ Name | Type | Description  | Notes
 
 Get all Subjects
 
+Get all subjects configured in your group
+
 ### Example
 
 > [!IMPORTANT]
@@ -813,6 +832,8 @@ Name | Type | Description  | Notes
 
 Get Team details for the given Id provided
 
+Get all details of a given team
+
 ### Example
 
 > [!IMPORTANT]
@@ -855,7 +876,7 @@ public class Example {
 
         NotesConfigurationApi apiInstance = new NotesConfigurationApi(defaultClient);
         java.util.UUID teamId = new java.util.UUID(); // java.util.UUID | Id
-        Boolean xIRNIgnorePermissions = false; // Boolean | 
+        Boolean xIRNIgnorePermissions = false; // Boolean | If set to true, permissions will be ignored. Default is false.
         try {
             TeamConfigDto result = apiInstance.getTeam(teamId, xIRNIgnorePermissions);
             System.out.println(result);
@@ -877,7 +898,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **teamId** | **java.util.UUID**| Id |
- **xIRNIgnorePermissions** | **Boolean**|  | [optional] [default to false]
+ **xIRNIgnorePermissions** | **Boolean**| If set to true, permissions will be ignored. Default is false. | [optional] [default to false]
 
 ### Return type
 
@@ -905,6 +926,8 @@ Name | Type | Description  | Notes
 > java.util.List<TeamSummaryDto> getTeams(xIRNIgnorePermissions)
 
 Get all Teams
+
+Get all teams configured in your group
 
 ### Example
 
@@ -947,7 +970,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NotesConfigurationApi apiInstance = new NotesConfigurationApi(defaultClient);
-        Boolean xIRNIgnorePermissions = false; // Boolean | 
+        Boolean xIRNIgnorePermissions = false; // Boolean | If set to true, permissions will be ignored. Default is false.
         try {
             java.util.List<TeamSummaryDto> result = apiInstance.getTeams(xIRNIgnorePermissions);
             System.out.println(result);
@@ -968,7 +991,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xIRNIgnorePermissions** | **Boolean**|  | [optional] [default to false]
+ **xIRNIgnorePermissions** | **Boolean**| If set to true, permissions will be ignored. Default is false. | [optional] [default to false]
 
 ### Return type
 

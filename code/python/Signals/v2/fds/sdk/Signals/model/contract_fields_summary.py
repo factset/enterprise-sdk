@@ -137,8 +137,8 @@ class ContractFieldsSummary(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            description (str): [optional]  # noqa: E501
-            type (str): [optional]  # noqa: E501
+            description (str): Description of the event summary. [optional]  # noqa: E501
+            type (str): Type of the summary. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -220,8 +220,8 @@ class ContractFieldsSummary(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            description (str): [optional]  # noqa: E501
-            type (str): [optional]  # noqa: E501
+            description (str): Description of the event summary. [optional]  # noqa: E501
+            type (str): Type of the summary. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -1,14 +1,14 @@
 # FactSet.SDK.IRNConfiguration.Api.ContactsCustomFieldsApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateContactCustomField**](ContactsCustomFieldsApi.md#createcontactcustomfield) | **POST** /v1/contact-custom-fields | Create a contact custom field
-[**DeleteContactCustomField**](ContactsCustomFieldsApi.md#deletecontactcustomfield) | **DELETE** /v1/contact-custom-fields/{contactCustomFieldId} | Delete a contact custom field
-[**GetContactCustomField**](ContactsCustomFieldsApi.md#getcontactcustomfield) | **GET** /v1/contact-custom-fields/{contactCustomFieldId} | Get a specific Contact custom field&#39;s details
-[**GetContactCustomFields**](ContactsCustomFieldsApi.md#getcontactcustomfields) | **GET** /v1/contact-custom-fields | Get all the contact custom fields
-[**PatchContactCustomField**](ContactsCustomFieldsApi.md#patchcontactcustomfield) | **PATCH** /v1/contact-custom-fields/{contactCustomFieldId} | Edit a contact custom field
+[**CreateContactCustomField**](ContactsCustomFieldsApi.md#createcontactcustomfield) | **POST** /contact-custom-fields | Create a contact custom field
+[**DeleteContactCustomField**](ContactsCustomFieldsApi.md#deletecontactcustomfield) | **DELETE** /contact-custom-fields/{contactCustomFieldId} | Delete a contact custom field
+[**GetContactCustomField**](ContactsCustomFieldsApi.md#getcontactcustomfield) | **GET** /contact-custom-fields/{contactCustomFieldId} | Get a specific Contact custom field&#39;s details
+[**GetContactCustomFields**](ContactsCustomFieldsApi.md#getcontactcustomfields) | **GET** /contact-custom-fields | Get all the contact custom fields
+[**PatchContactCustomField**](ContactsCustomFieldsApi.md#patchcontactcustomfield) | **PATCH** /contact-custom-fields/{contactCustomFieldId} | Edit a contact custom field
 
 
 
@@ -17,6 +17,8 @@ Method | HTTP request | Description
 > NewItemDto CreateContactCustomField (ContactCustomFieldSaveDto contactCustomFieldSaveDto = null)
 
 Create a contact custom field
+
+Create a contact custom field with given name and type
 
 ### Example
 
@@ -96,7 +98,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -115,6 +117,8 @@ Name | Type | Description  | Notes
 > void DeleteContactCustomField (Guid contactCustomFieldId)
 
 Delete a contact custom field
+
+Delete a contact custom field based on guid
 
 ### Example
 
@@ -214,6 +218,8 @@ void (empty response body)
 
 Get a specific Contact custom field's details
 
+Get all details of custom field's defined for contacts
+
 ### Example
 
 > [!IMPORTANT]
@@ -312,6 +318,8 @@ Name | Type | Description  | Notes
 
 Get all the contact custom fields
 
+Get all the contact custom fields
+
 ### Example
 
 > [!IMPORTANT]
@@ -404,6 +412,8 @@ This endpoint does not need any parameter.
 
 Edit a contact custom field
 
+Update a contact custom field configuration
+
 ### Example
 
 > [!IMPORTANT]
@@ -483,7 +493,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json-patch+json, application/json
  - **Accept**: application/json
 
 

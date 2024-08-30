@@ -84,12 +84,13 @@ namespace FactSet.SDK.IDLookup.Model
         /// <param name="id">Identifier of a market security pertaining to the dataset ..</param>
         /// <param name="idType">Type of the identifier. * &#x60;symbol&#x60;: The value in symbol is associated with the name of the related dataset. It is the only value that should be passed back to any FactSet services to retrieve data. Example: M-US.   * &#x60;tickerRegion&#x60;: FactSet region ticker symbol. For details on Global Region Codes, visit [Online Assistant Page #13258](https://oa.apps.factset.com/pages/13258). Example: MKSXX-US.   * &#x60;tickerExchange&#x60;: FactSet exchange ticker symbol. For definitions of Exchange Codes, visit [Online Assistant Page #12544](https://oa.apps.factset.com/pages/12544). Example: N3ZWW5.FI-CEP.    * &#x60;entityId&#x60;: FactSet Entity Identifier (-E). For more information on Entity Ids, visit [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881). Example: 000F9X-E. .</param>
         /// <param name="name">Name of the related dataset. (required).</param>
+        /// <param name="issuerName">Name of the issuer..</param>
         /// <param name="entityId">FactSet Entity Identifier (-E). For more information on Entity Ids, visit [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881). .</param>
         /// <param name="underlying">underlying.</param>
         /// <param name="fsymRegionalId">FactSet Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security&#39;s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet. [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)..</param>
         /// <param name="fsymListingId">FactSet Listing Security Identifier. Six alpha-numeric characters, vowels excluded, with an -L suffix (XXXXXX-L). The listing-level permanent identifier will be available prior to the end of trading on the first day of trading..</param>
         /// <param name="fsymUnderlyingId">FactSet Underlying Id.</param>
-        public ResponseDetails(string dataset, string name,string id = default(string), IdTypeEnum? idType = default(IdTypeEnum?), string entityId = default(string), ResponseDetailsUnderlying underlying = default(ResponseDetailsUnderlying), string fsymRegionalId = default(string), string fsymListingId = default(string), string fsymUnderlyingId = default(string))
+        public ResponseDetails(string dataset, string name,string id = default(string), IdTypeEnum? idType = default(IdTypeEnum?), string issuerName = default(string), string entityId = default(string), ResponseDetailsUnderlying underlying = default(ResponseDetailsUnderlying), string fsymRegionalId = default(string), string fsymListingId = default(string), string fsymUnderlyingId = default(string))
         {
             // to ensure "dataset" is required (not null)
             if (dataset == null) {
@@ -103,6 +104,7 @@ namespace FactSet.SDK.IDLookup.Model
             this.Name = name;
             this.Id = id;
             this.IdType = idType;
+            this.IssuerName = issuerName;
             this.EntityId = entityId;
             this.Underlying = underlying;
             this.FsymRegionalId = fsymRegionalId;
@@ -130,6 +132,13 @@ namespace FactSet.SDK.IDLookup.Model
         /// <value>Name of the related dataset.</value>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
         public string Name { get; set; }
+
+        /// <summary>
+        /// Name of the issuer.
+        /// </summary>
+        /// <value>Name of the issuer.</value>
+        [DataMember(Name = "issuerName", EmitDefaultValue = false)]
+        public string IssuerName { get; set; }
 
         /// <summary>
         /// FactSet Entity Identifier (-E). For more information on Entity Ids, visit [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881). 
@@ -177,6 +186,7 @@ namespace FactSet.SDK.IDLookup.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  IdType: ").Append(IdType).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  IssuerName: ").Append(IssuerName).Append("\n");
             sb.Append("  EntityId: ").Append(EntityId).Append("\n");
             sb.Append("  Underlying: ").Append(Underlying).Append("\n");
             sb.Append("  FsymRegionalId: ").Append(FsymRegionalId).Append("\n");
@@ -237,6 +247,11 @@ namespace FactSet.SDK.IDLookup.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
+                    this.IssuerName == input.IssuerName ||
+                    (this.IssuerName != null &&
+                    this.IssuerName.Equals(input.IssuerName))
+                ) && 
+                (
                     this.EntityId == input.EntityId ||
                     (this.EntityId != null &&
                     this.EntityId.Equals(input.EntityId))
@@ -284,6 +299,10 @@ namespace FactSet.SDK.IDLookup.Model
                 if (this.Name != null)
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
+                if (this.IssuerName != null)
+                {
+                    hashCode = (hashCode * 59) + this.IssuerName.GetHashCode();
                 }
                 if (this.EntityId != null)
                 {

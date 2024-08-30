@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "DSOTM API",
+    "title": "dsotm API",
     "description": "Allow clients to send transactions data to FactSet.",
     "contact": {
       "name": "FactSet Research Systems",
@@ -12,11 +12,16 @@
       "name": "Apache License, Version 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0"
     },
-    "version": "1.5.0"
+    "version": "1.6.0"
   },
   "servers": [
     {
-      "url": "https://api.factset.com/analytics/dsotm/v1"
+      "url": "https://api.factset.com/analytics/dsotm/v1",
+      "description": "Production Server"
+    },
+    {
+      "url": "https://api-sandbox.factset.com/analytics/dsotm/v1",
+      "description": "Sandbox Server"
     }
   ],
   "paths": {
@@ -32,13 +37,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Transactions"
+                "$ref": "#/components/schemas/DsotmParametersRoot"
               }
             }
           }
         },
         "responses": {
-          "202": {
+          "200": {
             "description": "Expected response.",
             "headers": {
               "X-DataDirect-Request-Key": {
@@ -179,7 +184,7 @@
             }
           },
           "503": {
-            "description": "Request timed out. Retry the request in sometime.",
+            "description": "Request timed out.",
             "headers": {
               "X-DataDirect-Request-Key": {
                 "description": "FactSet’s request key header.",
@@ -203,51 +208,550 @@
   },
   "components": {
     "schemas": {
-      "ExecutionParameters": {
+      "AdditionalField": {
         "required": [
-          "currencyISO",
-          "description",
+          "name",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the ofdb field"
+          },
+          "type": {
+            "enum": [
+              "string",
+              "double",
+              "int"
+            ],
+            "type": "string",
+            "description": "Data type of the ofdb field"
+          },
+          "value": {
+            "type": "string",
+            "description": "Value of the ofdb field",
+            "nullable": true
+          }
+        },
+        "description": "Defines an ofdb field and value to be persisted"
+      },
+      "Order": {
+        "required": [
+          "account",
+          "currency",
           "gross",
-          "net",
-          "portfolio",
+          "instrumentName",
+          "orderDate",
           "quantity",
-          "settlementCurrencyISO",
-          "settlementDate",
-          "settlementValue",
+          "side",
           "symbol",
-          "tradeDate",
-          "tradeType",
           "transactionId",
           "transactionStatus",
           "unitType"
         ],
         "type": "object",
         "properties": {
-          "transactionStatus": {
+          "orderDate": {
             "type": "string",
-            "description": "Transaction Status of an Execution could be any of the following values: Executed, Booked, Cancelled."
+            "description": "Order date which is in the format YYYY-MM-DD",
+            "example": "2024-01-25"
+          },
+          "transactionId": {
+            "maxLength": 252,
+            "minLength": 0,
+            "type": "string",
+            "description": "Unique Id of the order",
+            "example": "O_FDS_012424_113"
+          },
+          "orderId": {
+            "maxLength": 32,
+            "minLength": 0,
+            "type": "string",
+            "description": "Id of the order as assigned by the OMS. If not specified then transactionId is used.",
+            "nullable": true,
+            "example": "O123"
+          },
+          "transactionStatus": {
+            "enum": [
+              "pendingApproval",
+              "open",
+              "placed",
+              "partialFilled",
+              "filled",
+              "expired",
+              "cancelled",
+              "rejected",
+              "booked"
+            ],
+            "type": "string",
+            "description": "Status of the Order"
+          },
+          "orderType": {
+            "enum": [
+              "market",
+              "limit",
+              "stopLimit",
+              "stop"
+            ],
+            "type": "string",
+            "description": "Order type indicating the price type of the Order"
+          },
+          "limitPrice": {
+            "type": "number",
+            "description": "Price related to limit and stopLimit order types",
+            "format": "double"
+          },
+          "stopPrice": {
+            "type": "number",
+            "description": "Price related to stop and stopLimit order types",
+            "format": "double"
+          },
+          "tif": {
+            "enum": [
+              "goodTilCancel",
+              "goodTilDate",
+              "day",
+              "week"
+            ],
+            "type": "string",
+            "description": "Time In Force of the Order"
+          },
+          "tifDate": {
+            "type": "string",
+            "description": "Time In Force date for goodTilDate orders in YYYY-MM-DD format",
+            "nullable": true,
+            "example": "2024-02-21"
+          },
+          "settlementType": {
+            "enum": [
+              "regular",
+              "cash",
+              "nextDay",
+              "tPlus2",
+              "tPlus3",
+              "tPlus4",
+              "future",
+              "whenIssued",
+              "sellersOption",
+              "tPlus5"
+            ],
+            "type": "string",
+            "description": "Indicates order settlement period"
+          },
+          "settlementDate": {
+            "type": "string",
+            "description": "Settlement date in YYYY-MM-DD format",
+            "nullable": true,
+            "example": "2024-03-11"
+          },
+          "fundTeam": {
+            "maxLength": 32,
+            "minLength": 0,
+            "type": "string",
+            "description": "Fund Team Id of the Order",
+            "nullable": true,
+            "example": "T1"
+          },
+          "tradingTeam": {
+            "maxLength": 32,
+            "minLength": 0,
+            "type": "string",
+            "description": "Trading Team Id of the Order",
+            "nullable": true,
+            "example": "T2"
+          },
+          "trader": {
+            "maxLength": 32,
+            "minLength": 0,
+            "type": "string",
+            "description": "User Id of assigned trader.",
+            "nullable": true,
+            "example": "msmith"
+          },
+          "account": {
+            "type": "string",
+            "description": "Path of the account",
+            "example": "Client:/folder1/testing.acct"
+          },
+          "symbol": {
+            "maxLength": 32,
+            "minLength": 0,
+            "type": "string",
+            "description": "Symbol corresponding to the traded instrument",
+            "example": "FDS-USA"
+          },
+          "instrumentName": {
+            "maxLength": 32,
+            "minLength": 0,
+            "type": "string",
+            "description": "Name or description of the traded instrument",
+            "example": "FactSet Research Systems"
+          },
+          "side": {
+            "enum": [
+              "buy",
+              "buyCover",
+              "sell",
+              "sellShort"
+            ],
+            "type": "string",
+            "description": "Side of the order"
+          },
+          "unitType": {
+            "enum": [
+              "quantity",
+              "value"
+            ],
+            "type": "string",
+            "description": "Unit type of the order. Indicates if the trade is driven by quantity or value"
+          },
+          "transactionLeaves": {
+            "type": "number",
+            "description": "Shares that have been ordered and not executed",
+            "format": "double",
+            "nullable": true
+          },
+          "quantity": {
+            "type": "number",
+            "description": "Quantity of the instrument traded",
+            "format": "double"
+          },
+          "gross": {
+            "type": "number",
+            "description": "Cash value of the transaction",
+            "format": "double"
+          },
+          "price": {
+            "type": "number",
+            "description": "The transaction price",
+            "format": "double",
+            "nullable": true
+          },
+          "currency": {
+            "maxLength": 3,
+            "minLength": 0,
+            "type": "string",
+            "description": "The iso currency code of cash valued fields, Net Amount and Gross Amount",
+            "example": "USD"
+          },
+          "complianceStatus": {
+            "enum": [
+              "unchecked",
+              "pass",
+              "fail"
+            ],
+            "type": "string",
+            "description": "Compliance check status"
+          },
+          "addedDateTime": {
+            "type": "string",
+            "description": "Date and time expressed in UTC when the transaction was first added in the format YYYY-MM-DDTHH:MM:SS.FFF",
+            "nullable": true,
+            "example": "2024-01-25T09:30:23.235"
+          },
+          "updatedDateTime": {
+            "type": "string",
+            "description": "Date and time expressed in UTC when the transaction was last updated in the format YYYY-MM-DDTHH:MM:SS.FFF",
+            "nullable": true,
+            "example": "2024-01-25T09:30:23.235"
+          },
+          "additionalFields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AdditionalField"
+            },
+            "description": "List of additional fields which can be used for dynamically populating other ofdb fields",
+            "nullable": true
+          }
+        },
+        "description": "Order transaction attributes"
+      },
+      "Placement": {
+        "required": [
+          "account",
+          "currency",
+          "gross",
+          "instrumentName",
+          "placementDate",
+          "quantity",
+          "side",
+          "symbol",
+          "transactionId",
+          "transactionStatus",
+          "unitType"
+        ],
+        "type": "object",
+        "properties": {
+          "placementDate": {
+            "type": "string",
+            "description": "Placement date which is in the format YYYY-MM-DD",
+            "example": "2024-01-25"
+          },
+          "transactionId": {
+            "maxLength": 252,
+            "minLength": 0,
+            "type": "string",
+            "description": "Unique Id of the placement",
+            "example": "P123"
           },
           "parentId": {
             "maxLength": 32,
             "minLength": 0,
             "type": "string",
-            "description": "Unique Id of the placement which spawned this execution",
+            "description": "transactionId of the order which spawned this placement",
+            "nullable": true,
+            "example": "O_FDS_012424_113"
+          },
+          "orderId": {
+            "maxLength": 32,
+            "minLength": 0,
+            "type": "string",
+            "description": "orderId of the order related to this placement",
+            "nullable": true,
+            "example": "O123"
+          },
+          "transactionStatus": {
+            "enum": [
+              "placed",
+              "partialFilled",
+              "filled",
+              "expired",
+              "cancelled",
+              "rejected"
+            ],
+            "type": "string",
+            "description": "Status of the Placement"
+          },
+          "orderType": {
+            "enum": [
+              "market",
+              "limit",
+              "stopLimit",
+              "stop"
+            ],
+            "type": "string",
+            "description": "Order type indicating the price type of the Placement"
+          },
+          "limitPrice": {
+            "type": "number",
+            "description": "Price related to limit and stopLimit order types",
+            "format": "double"
+          },
+          "stopPrice": {
+            "type": "number",
+            "description": "Price related to stop and stopLimit order types",
+            "format": "double"
+          },
+          "tif": {
+            "enum": [
+              "goodTilCancel",
+              "goodTilDate",
+              "day",
+              "week"
+            ],
+            "type": "string",
+            "description": "Time In Force of the Placement"
+          },
+          "tifDate": {
+            "type": "string",
+            "description": "Time In Force date for goodTilDate placements in YYYY-MM-DD format",
+            "nullable": true,
+            "example": "2024-02-21"
+          },
+          "settlementType": {
+            "enum": [
+              "regular",
+              "cash",
+              "nextDay",
+              "tPlus2",
+              "tPlus3",
+              "tPlus4",
+              "future",
+              "whenIssued",
+              "sellersOption",
+              "tPlus5"
+            ],
+            "type": "string",
+            "description": "Indicates placement settlement period"
+          },
+          "settlementDate": {
+            "type": "string",
+            "description": "Settlement date in YYYY-MM-DD format",
+            "nullable": true,
+            "example": "2024-03-11"
+          },
+          "account": {
+            "type": "string",
+            "description": "Path of the account",
+            "example": "Client:/folder1/testing.acct"
+          },
+          "symbol": {
+            "maxLength": 32,
+            "minLength": 0,
+            "type": "string",
+            "description": "Symbol corresponding to the traded instrument",
+            "example": "FDS-USA"
+          },
+          "instrumentName": {
+            "maxLength": 32,
+            "minLength": 0,
+            "type": "string",
+            "description": "Name or description of the traded instrument",
+            "example": "FactSet Research Systems"
+          },
+          "side": {
+            "enum": [
+              "buy",
+              "buyCover",
+              "sell",
+              "sellShort"
+            ],
+            "type": "string",
+            "description": "Side of the order"
+          },
+          "unitType": {
+            "enum": [
+              "quantity",
+              "value"
+            ],
+            "type": "string",
+            "description": "Unit type of the order. Indicates if the trade is driven by quantity or value"
+          },
+          "transactionLeaves": {
+            "type": "number",
+            "description": "Shares that have been ordered and not executed",
+            "format": "double",
             "nullable": true
+          },
+          "quantity": {
+            "type": "number",
+            "description": "Quantity of the instrument traded",
+            "format": "double"
+          },
+          "gross": {
+            "type": "number",
+            "description": "Cash value of the transaction",
+            "format": "double"
+          },
+          "price": {
+            "type": "number",
+            "description": "The transaction price",
+            "format": "double",
+            "nullable": true
+          },
+          "currency": {
+            "maxLength": 3,
+            "minLength": 0,
+            "type": "string",
+            "description": "The iso currency code of cash valued fields, Net Amount and Gross Amount",
+            "example": "USD"
+          },
+          "complianceStatus": {
+            "enum": [
+              "unchecked",
+              "pass",
+              "fail"
+            ],
+            "type": "string",
+            "description": "Compliance check status"
+          },
+          "addedDateTime": {
+            "type": "string",
+            "description": "Date and time expressed in UTC when the transaction was first added in the format YYYY-MM-DDTHH:MM:SS.FFF",
+            "nullable": true,
+            "example": "2024-01-25T09:30:23.235"
+          },
+          "updatedDateTime": {
+            "type": "string",
+            "description": "Date and time expressed in UTC when the transaction was last updated in the format YYYY-MM-DDTHH:MM:SS.FFF",
+            "nullable": true,
+            "example": "2024-01-25T09:30:23.235"
+          },
+          "additionalFields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AdditionalField"
+            },
+            "description": "List of additional fields which can be used for dynamically populating other ofdb fields",
+            "nullable": true
+          }
+        },
+        "description": "Placement transaction attributes"
+      },
+      "Execution": {
+        "required": [
+          "account",
+          "currency",
+          "gross",
+          "instrumentName",
+          "net",
+          "quantity",
+          "settlementCurrency",
+          "settlementDate",
+          "settlementValue",
+          "side",
+          "symbol",
+          "tradeDate",
+          "transactionId",
+          "transactionStatus",
+          "unitType"
+        ],
+        "type": "object",
+        "properties": {
+          "tradeDate": {
+            "type": "string",
+            "description": "Trade date which is in the format YYYY-MM-DD",
+            "example": "2024-01-25"
+          },
+          "transactionId": {
+            "maxLength": 252,
+            "minLength": 0,
+            "type": "string",
+            "description": "Unique Id of the execution",
+            "example": "E456"
+          },
+          "parentId": {
+            "maxLength": 32,
+            "minLength": 0,
+            "type": "string",
+            "description": "transactionId of the placement which spawned this execution",
+            "nullable": true,
+            "example": "P123"
+          },
+          "orderId": {
+            "maxLength": 32,
+            "minLength": 0,
+            "type": "string",
+            "description": "orderId of the order related to this execution",
+            "nullable": true,
+            "example": "O123"
+          },
+          "transactionStatus": {
+            "enum": [
+              "executed",
+              "booked",
+              "cancelled"
+            ],
+            "type": "string",
+            "description": "Status of the Execution"
           },
           "net": {
             "type": "number",
-            "description": "Cash value of the transaction, net of brokerage costs.",
+            "description": "Cash value of the transaction, net of brokerage costs",
             "format": "double"
           },
           "settlementDate": {
             "type": "string",
-            "description": "Settlement date in YYYY-MM-DD format"
+            "description": "Settlement date in YYYY-MM-DD format",
+            "example": "2024-03-11"
           },
-          "settlementCurrencyISO": {
+          "settlementCurrency": {
             "maxLength": 3,
             "minLength": 0,
             "type": "string",
-            "description": "Currency code for Settlement Value"
+            "description": "The iso currency code of the Settlement Value",
+            "example": "EUR"
           },
           "settlementValue": {
             "type": "number",
@@ -256,106 +760,118 @@
           },
           "foreignExchangeRate": {
             "type": "number",
-            "description": "FX rate to convert the net, gross fields to reporting currency.",
-            "format": "float"
+            "description": "FX rate to convert the net, gross fields to reporting currency",
+            "format": "float",
+            "nullable": true
           },
           "broker": {
             "maxLength": 32,
             "minLength": 0,
             "type": "string",
-            "description": "Execution broker id."
+            "description": "Execution broker id",
+            "nullable": true
           },
           "custodian": {
             "maxLength": 32,
             "minLength": 0,
             "type": "string",
-            "description": "Execution custodian Id."
+            "description": "Execution custodian Id",
+            "nullable": true
           },
           "accruedInterest": {
             "type": "number",
-            "description": "Execution accrued interest.",
-            "format": "double"
+            "description": "Execution accrued interest",
+            "format": "double",
+            "nullable": true
           },
           "commission": {
             "type": "number",
-            "description": "Execution commission value.",
-            "format": "double"
+            "description": "Execution commission value",
+            "format": "double",
+            "nullable": true
           },
           "clearingCommission": {
             "type": "number",
-            "description": "Execution clearing commission value.",
-            "format": "double"
+            "description": "Execution clearing commission value",
+            "format": "double",
+            "nullable": true
           },
           "localTax": {
             "type": "number",
-            "description": "Execution local tax value.",
-            "format": "double"
+            "description": "Execution local tax value",
+            "format": "double",
+            "nullable": true
           },
           "localFee": {
             "type": "number",
-            "description": "Execution local fee value.",
-            "format": "double"
+            "description": "Execution local fee value",
+            "format": "double",
+            "nullable": true
           },
           "brokerFee": {
             "type": "number",
-            "description": "Execution broker fee value.",
-            "format": "double"
+            "description": "Execution broker fee value",
+            "format": "double",
+            "nullable": true
           },
           "exchangeFee": {
             "type": "number",
-            "description": "Execution exchange fee value.",
-            "format": "double"
+            "description": "Execution exchange fee value",
+            "format": "double",
+            "nullable": true
           },
           "miscellaneousFee": {
             "type": "number",
-            "description": "Execution miscellaneous fee value.",
-            "format": "double"
-          },
-          "transactionId": {
-            "maxLength": 252,
-            "minLength": 0,
-            "type": "string",
-            "description": "Unique Id for the transaction"
-          },
-          "orderId": {
-            "maxLength": 32,
-            "minLength": 0,
-            "type": "string",
-            "description": "Unique Id of the order which originated the record",
+            "description": "Execution miscellaneous fee value",
+            "format": "double",
             "nullable": true
           },
-          "portfolio": {
+          "account": {
             "type": "string",
-            "description": "Path of the portfolio (Ex: Client:/folder1/testing.ofdb)"
+            "description": "Path of the account",
+            "example": "Client:/folder1/testing.acct"
           },
           "symbol": {
             "maxLength": 32,
             "minLength": 0,
             "type": "string",
-            "description": "Symbol corresponding to the traded instrument."
+            "description": "Symbol corresponding to the traded instrument",
+            "example": "FDS-USA"
           },
-          "description": {
+          "instrumentName": {
             "maxLength": 32,
             "minLength": 0,
             "type": "string",
-            "description": "Description"
+            "description": "Name or description of the traded instrument",
+            "example": "FactSet Research Systems"
           },
-          "tradeType": {
+          "side": {
+            "enum": [
+              "buy",
+              "buyCover",
+              "sell",
+              "sellShort"
+            ],
             "type": "string",
-            "description": "Trade type could be any of the following values BL, BC, SL, SS.\r\nwhich stands for Buy Long, Buy to cover, Sell Long and Sell Short respectively."
+            "description": "Side of the order"
           },
           "unitType": {
+            "enum": [
+              "quantity",
+              "value"
+            ],
             "type": "string",
-            "description": "Unit type could be one of Quantity or Value."
+            "description": "Unit type of the order. Indicates if the trade is driven by quantity or value"
           },
           "transactionLeaves": {
             "type": "number",
             "description": "Shares that have been ordered and not executed",
-            "format": "double"
+            "format": "double",
+            "nullable": true
           },
           "quantity": {
             "type": "number",
-            "description": "Quantity of the instrument traded.",
+            "description": "Quantity of the instrument traded",
             "format": "double"
           },
           "gross": {
@@ -366,333 +882,89 @@
           "price": {
             "type": "number",
             "description": "The transaction price",
-            "format": "double"
+            "format": "double",
+            "nullable": true
           },
-          "currencyISO": {
+          "currency": {
             "maxLength": 3,
             "minLength": 0,
             "type": "string",
-            "description": "The currency code of cash valued fields, Net Amount and Gross Amount."
+            "description": "The iso currency code of cash valued fields, Net Amount and Gross Amount",
+            "example": "USD"
           },
-          "tradeDate": {
+          "complianceStatus": {
+            "enum": [
+              "unchecked",
+              "pass",
+              "fail"
+            ],
             "type": "string",
-            "description": "Trade date which is in the format YYYY-MM-DD"
+            "description": "Compliance check status"
           },
           "addedDateTime": {
             "type": "string",
-            "description": "Date and time expressed in UTC when the transaction was first added in the format YYYY-MM-DDTHH:MM:SS.FFF"
+            "description": "Date and time expressed in UTC when the transaction was first added in the format YYYY-MM-DDTHH:MM:SS.FFF",
+            "nullable": true,
+            "example": "2024-01-25T09:30:23.235"
           },
           "updatedDateTime": {
             "type": "string",
-            "description": "Date and time expressed in UTC when the transaction was last updated in the format YYYY-MM-DDTHH:MM:SS.FFF"
+            "description": "Date and time expressed in UTC when the transaction was last updated in the format YYYY-MM-DDTHH:MM:SS.FFF",
+            "nullable": true,
+            "example": "2024-01-25T09:30:23.235"
           },
-          "entity": {
-            "type": "string",
-            "readOnly": true
-          },
-          "status": {
-            "type": "string",
-            "readOnly": true
-          }
-        }
-      },
-      "PlacementParameters": {
-        "required": [
-          "currencyISO",
-          "description",
-          "gross",
-          "portfolio",
-          "quantity",
-          "symbol",
-          "tradeDate",
-          "tradeType",
-          "transactionId",
-          "transactionStatus",
-          "unitType"
-        ],
-        "type": "object",
-        "properties": {
-          "transactionStatus": {
-            "type": "string",
-            "description": "Transaction Status of a Placement could be any of the following values: Placed, PartialFilled, Filled, Expired, Cancelled, Rejected."
-          },
-          "parentId": {
-            "maxLength": 32,
-            "minLength": 0,
-            "type": "string",
-            "description": "Unique Id of the order which spawned this placement",
-            "nullable": true
-          },
-          "instructionType": {
-            "type": "string",
-            "description": "Instruction Type of a Placement could be any of the following values: Market, Limit, Stop"
-          },
-          "instructionValue": {
-            "type": "number",
-            "description": "InstructionValue for a Placement",
-            "format": "double"
-          },
-          "tif": {
-            "type": "string",
-            "description": "TIF of an Order could be any of the following values: GTC, GTD, D, W"
-          },
-          "tifDate": {
-            "type": "string",
-            "description": "TIF date which is in the format YYYY-MM-DD"
-          },
-          "transactionId": {
-            "maxLength": 252,
-            "minLength": 0,
-            "type": "string",
-            "description": "Unique Id for the transaction"
-          },
-          "orderId": {
-            "maxLength": 32,
-            "minLength": 0,
-            "type": "string",
-            "description": "Unique Id of the order which originated the record",
-            "nullable": true
-          },
-          "portfolio": {
-            "type": "string",
-            "description": "Path of the portfolio (Ex: Client:/folder1/testing.ofdb)"
-          },
-          "symbol": {
-            "maxLength": 32,
-            "minLength": 0,
-            "type": "string",
-            "description": "Symbol corresponding to the traded instrument."
-          },
-          "description": {
-            "maxLength": 32,
-            "minLength": 0,
-            "type": "string",
-            "description": "Description"
-          },
-          "tradeType": {
-            "type": "string",
-            "description": "Trade type could be any of the following values BL, BC, SL, SS.\r\nwhich stands for Buy Long, Buy to cover, Sell Long and Sell Short respectively."
-          },
-          "unitType": {
-            "type": "string",
-            "description": "Unit type could be one of Quantity or Value."
-          },
-          "transactionLeaves": {
-            "type": "number",
-            "description": "Shares that have been ordered and not executed",
-            "format": "double"
-          },
-          "quantity": {
-            "type": "number",
-            "description": "Quantity of the instrument traded.",
-            "format": "double"
-          },
-          "gross": {
-            "type": "number",
-            "description": "Cash value of the transaction",
-            "format": "double"
-          },
-          "price": {
-            "type": "number",
-            "description": "The transaction price",
-            "format": "double"
-          },
-          "currencyISO": {
-            "maxLength": 3,
-            "minLength": 0,
-            "type": "string",
-            "description": "The currency code of cash valued fields, Net Amount and Gross Amount."
-          },
-          "tradeDate": {
-            "type": "string",
-            "description": "Trade date which is in the format YYYY-MM-DD"
-          },
-          "addedDateTime": {
-            "type": "string",
-            "description": "Date and time expressed in UTC when the transaction was first added in the format YYYY-MM-DDTHH:MM:SS.FFF"
-          },
-          "updatedDateTime": {
-            "type": "string",
-            "description": "Date and time expressed in UTC when the transaction was last updated in the format YYYY-MM-DDTHH:MM:SS.FFF"
-          },
-          "entity": {
-            "type": "string",
-            "readOnly": true
-          },
-          "status": {
-            "type": "string",
-            "readOnly": true
-          }
-        }
-      },
-      "OrderParameters": {
-        "required": [
-          "currencyISO",
-          "description",
-          "gross",
-          "portfolio",
-          "quantity",
-          "symbol",
-          "tradeDate",
-          "tradeType",
-          "transactionId",
-          "transactionStatus",
-          "unitType"
-        ],
-        "type": "object",
-        "properties": {
-          "transactionStatus": {
-            "type": "string",
-            "description": "Transaction Status of an Order could be any of the following values: PendingApproval, Open, Placed, PartialFilled, Filled, Expired, Cancelled, Rejected, Booked."
-          },
-          "instructionType": {
-            "type": "string",
-            "description": "Instruction Type of an Order could be any of the following values: Market, Limit, Stop"
-          },
-          "instructionValue": {
-            "type": "number",
-            "description": "Instruction Value of an Order",
-            "format": "double"
-          },
-          "tif": {
-            "type": "string",
-            "description": "TIF of an Order could be any of the following values: GTC, GTD, D, W"
-          },
-          "tifDate": {
-            "type": "string",
-            "description": "TIF date which is in the format YYYY-MM-DD"
-          },
-          "fundTeam": {
-            "maxLength": 32,
-            "minLength": 0,
-            "type": "string",
-            "description": "Fund Team of an Order"
-          },
-          "tradingTeam": {
-            "maxLength": 32,
-            "minLength": 0,
-            "type": "string",
-            "description": "Trading Team of an Order"
-          },
-          "trader": {
-            "maxLength": 32,
-            "minLength": 0,
-            "type": "string",
-            "description": "User Id of assigned trader."
-          },
-          "transactionId": {
-            "maxLength": 252,
-            "minLength": 0,
-            "type": "string",
-            "description": "Unique Id for the transaction"
-          },
-          "orderId": {
-            "maxLength": 32,
-            "minLength": 0,
-            "type": "string",
-            "description": "Unique Id of the order which originated the record",
-            "nullable": true
-          },
-          "portfolio": {
-            "type": "string",
-            "description": "Path of the portfolio (Ex: Client:/folder1/testing.ofdb)"
-          },
-          "symbol": {
-            "maxLength": 32,
-            "minLength": 0,
-            "type": "string",
-            "description": "Symbol corresponding to the traded instrument."
-          },
-          "description": {
-            "maxLength": 32,
-            "minLength": 0,
-            "type": "string",
-            "description": "Description"
-          },
-          "tradeType": {
-            "type": "string",
-            "description": "Trade type could be any of the following values BL, BC, SL, SS.\r\nwhich stands for Buy Long, Buy to cover, Sell Long and Sell Short respectively."
-          },
-          "unitType": {
-            "type": "string",
-            "description": "Unit type could be one of Quantity or Value."
-          },
-          "transactionLeaves": {
-            "type": "number",
-            "description": "Shares that have been ordered and not executed",
-            "format": "double"
-          },
-          "quantity": {
-            "type": "number",
-            "description": "Quantity of the instrument traded.",
-            "format": "double"
-          },
-          "gross": {
-            "type": "number",
-            "description": "Cash value of the transaction",
-            "format": "double"
-          },
-          "price": {
-            "type": "number",
-            "description": "The transaction price",
-            "format": "double"
-          },
-          "currencyISO": {
-            "maxLength": 3,
-            "minLength": 0,
-            "type": "string",
-            "description": "The currency code of cash valued fields, Net Amount and Gross Amount."
-          },
-          "tradeDate": {
-            "type": "string",
-            "description": "Trade date which is in the format YYYY-MM-DD"
-          },
-          "addedDateTime": {
-            "type": "string",
-            "description": "Date and time expressed in UTC when the transaction was first added in the format YYYY-MM-DDTHH:MM:SS.FFF"
-          },
-          "updatedDateTime": {
-            "type": "string",
-            "description": "Date and time expressed in UTC when the transaction was last updated in the format YYYY-MM-DDTHH:MM:SS.FFF"
-          },
-          "entity": {
-            "type": "string",
-            "readOnly": true
-          },
-          "status": {
-            "type": "string",
-            "readOnly": true
-          }
-        }
-      },
-      "Transactions": {
-        "type": "object",
-        "properties": {
-          "executions": {
+          "additionalFields": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ExecutionParameters"
+              "$ref": "#/components/schemas/AdditionalField"
             },
-            "description": "List of executions",
+            "description": "List of additional fields which can be used for dynamically populating other ofdb fields",
+            "nullable": true
+          }
+        },
+        "description": "Execution transaction attributes"
+      },
+      "DsotmParameters": {
+        "type": "object",
+        "properties": {
+          "orders": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Order"
+            },
+            "description": "List of orders",
             "nullable": true
           },
           "placements": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/PlacementParameters"
+              "$ref": "#/components/schemas/Placement"
             },
             "description": "List of placements",
             "nullable": true
           },
-          "orders": {
+          "executions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/OrderParameters"
+              "$ref": "#/components/schemas/Execution"
             },
-            "description": "List of orders",
+            "description": "List of executions",
             "nullable": true
           }
-        }
+        },
+        "description": "Container object for transaction records"
+      },
+      "DsotmParametersRoot": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/DsotmParameters"
+          }
+        },
+        "description": "Top-level data container object"
       },
       "ErrorSource": {
         "type": "object",
@@ -766,6 +1038,12 @@
     },
     {
       "FactSetOAuth2": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "DSOTM",
+      "description": "This endpoint is used to push transaction data into FactSet."
     }
   ],
   "externalDocs": {

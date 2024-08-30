@@ -18,5 +18,6 @@ Name | Type | Description | Notes
 **emailHeadlineFormat** | [**[HeadlineFormatConfigDto]**](HeadlineFormatConfigDto.md) |  | [optional] 
 **ratingConfig** | [**RatingConfigDto**](RatingConfigDto.md) |  | [optional] 
 **noteLengthLimit** | **Number** |  | [optional] 
+**layoutId** | **String** |  | [optional] 
 
 

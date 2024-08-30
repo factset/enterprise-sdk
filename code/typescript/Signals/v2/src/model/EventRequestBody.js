@@ -22,6 +22,7 @@ import RelevanceScoreRange from './RelevanceScoreRange';
 class EventRequestBody {
     /**
      * Constructs a new <code>EventRequestBody</code>.
+     * The POST request&#39;s body containing the request criterion
      * @alias module:model/EventRequestBody
      */
     constructor() { 

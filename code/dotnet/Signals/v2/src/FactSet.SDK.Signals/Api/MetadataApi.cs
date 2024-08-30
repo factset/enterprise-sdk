@@ -73,7 +73,7 @@ namespace FactSet.SDK.Signals.Api
         /// Fetch the metadata and contract for the requested signal
         /// </remarks>
         /// <exception cref="FactSet.SDK.Signals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="signalId"></param>
+        /// <param name="signalId">A single signalId.</param>
         /// <returns>SignalDefinition</returns>
         SignalDefinition GetDataDictionaryById(string signalId);
 
@@ -84,7 +84,7 @@ namespace FactSet.SDK.Signals.Api
         /// Fetch the metadata and contract for the requested signal
         /// </remarks>
         /// <exception cref="FactSet.SDK.Signals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="signalId"></param>
+        /// <param name="signalId">A single signalId.</param>
         /// <returns>ApiResponse of SignalDefinition</returns>
         ApiResponse<SignalDefinition> GetDataDictionaryByIdWithHttpInfo(string signalId);
         /// <summary>
@@ -164,7 +164,7 @@ namespace FactSet.SDK.Signals.Api
         /// Fetch the metadata and contract for the requested signal
         /// </remarks>
         /// <exception cref="FactSet.SDK.Signals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="signalId"></param>
+        /// <param name="signalId">A single signalId.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignalDefinition</returns>
         System.Threading.Tasks.Task<SignalDefinition> GetDataDictionaryByIdAsync(string signalId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -176,7 +176,7 @@ namespace FactSet.SDK.Signals.Api
         /// Fetch the metadata and contract for the requested signal
         /// </remarks>
         /// <exception cref="FactSet.SDK.Signals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="signalId"></param>
+        /// <param name="signalId">A single signalId.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignalDefinition)</returns>
         System.Threading.Tasks.Task<ApiResponse<SignalDefinition>> GetDataDictionaryByIdWithHttpInfoAsync(string signalId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -681,7 +681,7 @@ namespace FactSet.SDK.Signals.Api
         ///  Fetch the metadata and contract for the requested signal
         /// </summary>
         /// <exception cref="FactSet.SDK.Signals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="signalId"></param>
+        /// <param name="signalId">A single signalId.</param>
         /// <returns>SignalDefinition</returns>
         public SignalDefinition GetDataDictionaryById(string signalId)
         {
@@ -693,7 +693,7 @@ namespace FactSet.SDK.Signals.Api
         ///  Fetch the metadata and contract for the requested signal
         /// </summary>
         /// <exception cref="FactSet.SDK.Signals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="signalId"></param>
+        /// <param name="signalId">A single signalId.</param>
         /// <returns>ApiResponse of SignalDefinition</returns>
         public ApiResponse<SignalDefinition> GetDataDictionaryByIdWithHttpInfo(string signalId)
         {
@@ -767,7 +767,7 @@ namespace FactSet.SDK.Signals.Api
         ///  Fetch the metadata and contract for the requested signal
         /// </summary>
         /// <exception cref="FactSet.SDK.Signals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="signalId"></param>
+        /// <param name="signalId">A single signalId.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignalDefinition</returns>
         public async System.Threading.Tasks.Task<SignalDefinition>GetDataDictionaryByIdAsync(string signalId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -780,7 +780,7 @@ namespace FactSet.SDK.Signals.Api
         ///  Fetch the metadata and contract for the requested signal
         /// </summary>
         /// <exception cref="FactSet.SDK.Signals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="signalId"></param>
+        /// <param name="signalId">A single signalId.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignalDefinition)</returns>
 

@@ -13,10 +13,13 @@ Name | Type | Description | Notes
 **isMandatory** | **Boolean** |  | [optional] 
 **isHidden** | **Boolean** |  | [optional] 
 **isFilePath** | **Boolean** |  | [optional] 
+**isCalculated** | **Boolean** |  | [optional] 
+**hasPairedField** | **Boolean** |  | [optional] 
 **formulaConfig** | [**FormulaConfigDto**](FormulaConfigDto.md) |  | [optional] 
 **numericConfig** | [**NumericConfigDto**](NumericConfigDto.md) |  | [optional] 
 **integerConfig** | [**IntegerConfigDto**](IntegerConfigDto.md) |  | [optional] 
 **extendedTextConfig** | [**ExtendedTextConfigDto**](ExtendedTextConfigDto.md) |  | [optional] 
 **optionsConfig** | [**OptionsConfigDto**](OptionsConfigDto.md) |  | [optional] 
+**userTeamConfig** | [**UserTeamConfigDto**](UserTeamConfigDto.md) |  | [optional] 
 
 

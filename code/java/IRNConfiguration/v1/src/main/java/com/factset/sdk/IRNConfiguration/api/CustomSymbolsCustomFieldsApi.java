@@ -76,7 +76,7 @@ public class CustomSymbolsCustomFieldsApi {
 
   /**
    * Create a Custom symbol custom field
-   * 
+   * Create a contact custom field with given name and type
    * @param createCustomSymbolCustomFieldDto createCustomSymbolCustomFieldDto object to save (optional)
    * @return NewItemDto
    * @throws ApiException if fails to make API call
@@ -94,7 +94,7 @@ public class CustomSymbolsCustomFieldsApi {
 
   /**
    * Create a Custom symbol custom field
-   * 
+   * Create a contact custom field with given name and type
    * @param createCustomSymbolCustomFieldDto createCustomSymbolCustomFieldDto object to save (optional)
    * @return ApiResponse&lt;NewItemDto&gt;
    * @throws ApiException if fails to make API call
@@ -110,7 +110,7 @@ public class CustomSymbolsCustomFieldsApi {
     Object localVarPostBody = createCustomSymbolCustomFieldDto;
     
     // create path and map variables
-    String localVarPath = "/v1/custom-symbol-custom-fields";
+    String localVarPath = "/custom-symbol-custom-fields";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -128,7 +128,7 @@ public class CustomSymbolsCustomFieldsApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+      "application/json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
@@ -148,7 +148,7 @@ public class CustomSymbolsCustomFieldsApi {
   }
   /**
    * Delete a Custom symbol custom field
-   * 
+   * Delete a custom field configured for custom symbols
    * @param customSymbolCustomFieldId customSymbolCustomFieldId to delete associated record (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -166,7 +166,7 @@ public class CustomSymbolsCustomFieldsApi {
 
   /**
    * Delete a Custom symbol custom field
-   * 
+   * Delete a custom field configured for custom symbols
    * @param customSymbolCustomFieldId customSymbolCustomFieldId to delete associated record (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -188,7 +188,7 @@ public class CustomSymbolsCustomFieldsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/custom-symbol-custom-fields/{customSymbolCustomFieldId}"
+    String localVarPath = "/custom-symbol-custom-fields/{customSymbolCustomFieldId}"
       .replaceAll("\\{" + "customSymbolCustomFieldId" + "\\}", apiClient.escapeString(customSymbolCustomFieldId.toString()));
 
     // query params
@@ -225,7 +225,7 @@ public class CustomSymbolsCustomFieldsApi {
   }
   /**
    * Get a specific Custom symbol custom field&#39;s details
-   * 
+   * Get details of a given custom field configured for custom symbols
    * @param customSymbolCustomFieldId customSymbolCustomFieldId to get associated record (required)
    * @return CustomSymbolCustomFieldConfigDto
    * @throws ApiException if fails to make API call
@@ -243,7 +243,7 @@ public class CustomSymbolsCustomFieldsApi {
 
   /**
    * Get a specific Custom symbol custom field&#39;s details
-   * 
+   * Get details of a given custom field configured for custom symbols
    * @param customSymbolCustomFieldId customSymbolCustomFieldId to get associated record (required)
    * @return ApiResponse&lt;CustomSymbolCustomFieldConfigDto&gt;
    * @throws ApiException if fails to make API call
@@ -264,7 +264,7 @@ public class CustomSymbolsCustomFieldsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/custom-symbol-custom-fields/{customSymbolCustomFieldId}"
+    String localVarPath = "/custom-symbol-custom-fields/{customSymbolCustomFieldId}"
       .replaceAll("\\{" + "customSymbolCustomFieldId" + "\\}", apiClient.escapeString(customSymbolCustomFieldId.toString()));
 
     // query params
@@ -303,7 +303,7 @@ public class CustomSymbolsCustomFieldsApi {
   }
   /**
    * Get all the Custom symbol custom fields
-   * 
+   * Get all custom fields configured for custom symbols configured in your group
    * @return java.util.List<CustomSymbolCustomFieldConfigDto>
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -318,7 +318,7 @@ public class CustomSymbolsCustomFieldsApi {
 
   /**
    * Get all the Custom symbol custom fields
-   * 
+   * Get all custom fields configured for custom symbols configured in your group
    * @return ApiResponse&lt;java.util.List<CustomSymbolCustomFieldConfigDto>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -331,7 +331,7 @@ public class CustomSymbolsCustomFieldsApi {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/v1/custom-symbol-custom-fields";
+    String localVarPath = "/custom-symbol-custom-fields";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -369,7 +369,7 @@ public class CustomSymbolsCustomFieldsApi {
   }
   /**
    * Edit a Custom symbol custom field
-   * 
+   * Update a custom field configuration for custom symbols
    * @param customSymbolCustomFieldId customSymbolCustomFieldId to update associated record (required)
    * @param operation customSymbolCustomFieldUpdateDto object to update (optional)
    * @throws ApiException if fails to make API call
@@ -388,7 +388,7 @@ public class CustomSymbolsCustomFieldsApi {
 
   /**
    * Edit a Custom symbol custom field
-   * 
+   * Update a custom field configuration for custom symbols
    * @param customSymbolCustomFieldId customSymbolCustomFieldId to update associated record (required)
    * @param operation customSymbolCustomFieldUpdateDto object to update (optional)
    * @return ApiResponse&lt;Void&gt;
@@ -411,7 +411,7 @@ public class CustomSymbolsCustomFieldsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/custom-symbol-custom-fields/{customSymbolCustomFieldId}"
+    String localVarPath = "/custom-symbol-custom-fields/{customSymbolCustomFieldId}"
       .replaceAll("\\{" + "customSymbolCustomFieldId" + "\\}", apiClient.escapeString(customSymbolCustomFieldId.toString()));
 
     // query params

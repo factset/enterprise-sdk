@@ -40,9 +40,9 @@ namespace FactSet.SDK.Signals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SignalDefinitionData" /> class.
         /// </summary>
-        /// <param name="signalId">signalId (required).</param>
-        /// <param name="theme">theme (required).</param>
-        /// <param name="categories">categories (required).</param>
+        /// <param name="signalId">UUID of a signal (required).</param>
+        /// <param name="theme">Theme chosen for the signal request (required).</param>
+        /// <param name="categories">Categories chosen for the signal request (required).</param>
         /// <param name="contract">contract (required).</param>
         public SignalDefinitionData(string signalId, string theme, List<string> categories, Contract contract)
         {
@@ -69,20 +69,23 @@ namespace FactSet.SDK.Signals.Model
         }
 
         /// <summary>
-        /// Gets or Sets SignalId
+        /// UUID of a signal
         /// </summary>
+        /// <value>UUID of a signal</value>
         [DataMember(Name = "signalId", IsRequired = true, EmitDefaultValue = false)]
         public string SignalId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Theme
+        /// Theme chosen for the signal request
         /// </summary>
+        /// <value>Theme chosen for the signal request</value>
         [DataMember(Name = "theme", IsRequired = true, EmitDefaultValue = false)]
         public string Theme { get; set; }
 
         /// <summary>
-        /// Gets or Sets Categories
+        /// Categories chosen for the signal request
         /// </summary>
+        /// <value>Categories chosen for the signal request</value>
         [DataMember(Name = "categories", IsRequired = true, EmitDefaultValue = false)]
         public List<string> Categories { get; set; }
 

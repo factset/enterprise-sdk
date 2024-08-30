@@ -1,5 +1,6 @@
 # EventDetail
 
+Signals event headlines plus all additional event details
 
 ## Properties
 Name | Type | Description | Notes

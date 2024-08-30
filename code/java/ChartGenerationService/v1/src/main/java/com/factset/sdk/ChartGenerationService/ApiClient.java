@@ -73,19 +73,19 @@ import com.factset.sdk.ChartGenerationService.auth.FactSetOAuth2ClientAuth;
 public class ApiClient extends JavaTimeFormatter {
   protected Map<String, String> defaultHeaderMap = new HashMap<String, String>();
   protected Map<String, String> defaultCookieMap = new HashMap<String, String>();
-  protected String basePath = "https://api-sandbox.factset.com/charting";
+  protected String basePath = "https://api.factset.com/charting/v1";
   protected String userAgent;
   private static final Logger log = Logger.getLogger(ApiClient.class.getName());
 
   protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
     new ServerConfiguration(
-      "https://api-sandbox.factset.com/charting",
-      "sandbox server (uses dummy data)",
+      "https://api.factset.com/charting/v1",
+      "production server (uses live data)",
       new HashMap<String, ServerVariable>()
     ),
     new ServerConfiguration(
-      "https://api.factset.com/charting",
-      "production server (uses live data)",
+      "https://api-sandbox.factset.com/charting/v1",
+      "sandbox server (uses dummy data)",
       new HashMap<String, ServerVariable>()
     )
   ));
@@ -128,7 +128,7 @@ public class ApiClient extends JavaTimeFormatter {
     this.dateFormat = new RFC3339DateFormat();
 
     // Set default User-Agent.
-    setUserAgent("fds-sdk/java/ChartGenerationService/0.22.0");
+    setUserAgent("fds-sdk/java/ChartGenerationService/0.22.1");
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<String, Authentication>();

@@ -1,4 +1,5 @@
 # FactSet.SDK.IRNConfiguration.Model.RelationshipType
+Type can be one of 0-All, 1-Contact-to-Contact, 2-Contact-to-Symbol
 
 ## Properties
 

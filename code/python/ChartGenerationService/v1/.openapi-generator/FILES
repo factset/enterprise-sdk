@@ -6,7 +6,9 @@ LICENSE
 README.md
 docs/CategoriesErrorResponse.md
 docs/CategorizedChartList.md
+docs/CategoryChartListErrorObject.md
 docs/CategoryListResponse.md
+docs/ChartErrorResponseObject.md
 docs/ChartInput.md
 docs/ChartList.md
 docs/ChartListErrorResponse.md
@@ -24,7 +26,9 @@ fds/sdk/ChartGenerationService/exceptions.py
 fds/sdk/ChartGenerationService/model/__init__.py
 fds/sdk/ChartGenerationService/model/categories_error_response.py
 fds/sdk/ChartGenerationService/model/categorized_chart_list.py
+fds/sdk/ChartGenerationService/model/category_chart_list_error_object.py
 fds/sdk/ChartGenerationService/model/category_list_response.py
+fds/sdk/ChartGenerationService/model/chart_error_response_object.py
 fds/sdk/ChartGenerationService/model/chart_input.py
 fds/sdk/ChartGenerationService/model/chart_list.py
 fds/sdk/ChartGenerationService/model/chart_list_error_response.py

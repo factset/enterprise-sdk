@@ -80,7 +80,12 @@ public class ApiClient extends JavaTimeFormatter {
   protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
     new ServerConfiguration(
       "https://api.factset.com/analytics/dsotm/v1",
-      "No description provided",
+      "Production Server",
+      new HashMap<String, ServerVariable>()
+    ),
+    new ServerConfiguration(
+      "https://api-sandbox.factset.com/analytics/dsotm/v1",
+      "Sandbox Server",
       new HashMap<String, ServerVariable>()
     )
   ));
@@ -123,7 +128,7 @@ public class ApiClient extends JavaTimeFormatter {
     this.dateFormat = new RFC3339DateFormat();
 
     // Set default User-Agent.
-    setUserAgent("fds-sdk/java/DirectStreamingofTransactionMessages/0.25.0");
+    setUserAgent("fds-sdk/java/DirectStreamingofTransactionMessages/0.25.1");
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<String, Authentication>();

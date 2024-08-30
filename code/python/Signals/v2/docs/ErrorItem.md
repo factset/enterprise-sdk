@@ -1,13 +1,14 @@
 # ErrorItem
 
+Details about an unsuccessful request
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | 
-**code** | **str** |  | 
-**title** | **str** |  | 
-**detail** | **str** |  | [optional] 
+**id** | **str** | A unique identifier for the error object | 
+**code** | **str** | Error type | 
+**title** | **str** | Condition that caused the error | 
+**detail** | **str** | A short description of the error. | [optional] 
 **source** | [**ErrorItemSource**](ErrorItemSource.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

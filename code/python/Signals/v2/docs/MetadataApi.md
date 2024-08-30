@@ -245,7 +245,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
     api_instance = metadata_api.MetadataApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    signal_id = "dilutionTrigger" # str | 
+    signal_id = "dilutionTrigger" # str | A single signalId.
 
     try:
         # example passing only required values which don't have defaults set
@@ -262,7 +262,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **signal_id** | **str**|  |
+ **signal_id** | **str**| A single signalId. |
 
 ### Return type
 

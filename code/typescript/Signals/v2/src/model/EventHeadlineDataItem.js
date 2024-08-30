@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class EventHeadlineDataItem {
     /**
      * Constructs a new <code>EventHeadlineDataItem</code>.
+     * Return object that includes details about an event headline
      * @alias module:model/EventHeadlineDataItem
      * @param requestId {String} The id that was requested. This can be a ticker, cusip or factset entity id.
      * @param signalId {String} Signal Id for this event. e.g. dilutionTrigger

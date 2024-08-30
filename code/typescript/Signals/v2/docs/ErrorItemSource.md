@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**parameter** | **String** |  | [optional] 
+**parameter** | **String** | The source of the error | [optional] 
 
 

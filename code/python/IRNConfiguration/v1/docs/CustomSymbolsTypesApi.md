@@ -1,16 +1,16 @@
 # fds.sdk.IRNConfiguration.CustomSymbolsTypesApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_custom_symbol_type**](CustomSymbolsTypesApi.md#create_custom_symbol_type) | **POST** /v1/custom-symbol-types | Create a Custom symbol type
-[**delete_custom_symbol_type_async**](CustomSymbolsTypesApi.md#delete_custom_symbol_type_async) | **DELETE** /v1/custom-symbol-types/{customSymbolTypeId} | Delete a Custom symbol type
-[**get_custom_symbol_type**](CustomSymbolsTypesApi.md#get_custom_symbol_type) | **GET** /v1/custom-symbol-types/{customSymbolTypeId} | Get a specific Custom symbol type&#39;s details
-[**get_custom_symbol_types**](CustomSymbolsTypesApi.md#get_custom_symbol_types) | **GET** /v1/custom-symbol-types | Get all the custom symbol types
-[**get_symbol_custom_fields_for_custom_symbol_type**](CustomSymbolsTypesApi.md#get_symbol_custom_fields_for_custom_symbol_type) | **GET** /v1/custom-symbol-types/{customSymbolTypeId}/custom-fields | Get Custom fields for Custom Symbol type
-[**update_custom_symbol_type**](CustomSymbolsTypesApi.md#update_custom_symbol_type) | **PUT** /v1/custom-symbol-types/{customSymbolTypeId} | Edit a Custom symbol type
-[**update_custom_symbol_type_order**](CustomSymbolsTypesApi.md#update_custom_symbol_type_order) | **POST** /v1/custom-symbol-types/reorder | 
+[**create_custom_symbol_type**](CustomSymbolsTypesApi.md#create_custom_symbol_type) | **POST** /custom-symbol-types | Create a Custom symbol type
+[**delete_custom_symbol_type_async**](CustomSymbolsTypesApi.md#delete_custom_symbol_type_async) | **DELETE** /custom-symbol-types/{customSymbolTypeId} | Delete a Custom symbol type
+[**get_custom_symbol_type**](CustomSymbolsTypesApi.md#get_custom_symbol_type) | **GET** /custom-symbol-types/{customSymbolTypeId} | Get a specific Custom symbol type&#39;s details
+[**get_custom_symbol_types**](CustomSymbolsTypesApi.md#get_custom_symbol_types) | **GET** /custom-symbol-types | Get all the custom symbol types
+[**get_symbol_custom_fields_for_custom_symbol_type**](CustomSymbolsTypesApi.md#get_symbol_custom_fields_for_custom_symbol_type) | **GET** /custom-symbol-types/{customSymbolTypeId}/custom-fields | Get Custom fields for Custom Symbol type
+[**update_custom_symbol_type**](CustomSymbolsTypesApi.md#update_custom_symbol_type) | **PUT** /custom-symbol-types/{customSymbolTypeId} | Edit a Custom symbol type
+[**update_custom_symbol_type_order**](CustomSymbolsTypesApi.md#update_custom_symbol_type_order) | **POST** /custom-symbol-types/reorder | Reorder custom symbol types
 
 
 
@@ -18,6 +18,8 @@ Method | HTTP request | Description
 > NewItemDto create_custom_symbol_type()
 
 Create a Custom symbol type
+
+Create a custom symbol type with given name
 
 ### Example
 
@@ -107,7 +109,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -125,6 +127,8 @@ Name | Type | Description  | Notes
 > delete_custom_symbol_type_async(custom_symbol_type_id)
 
 Delete a Custom symbol type
+
+Delete a custom symbol type based on guid
 
 ### Example
 
@@ -220,6 +224,8 @@ void (empty response body)
 
 Get a specific Custom symbol type's details
 
+Get details of a given custom symbol type
+
 ### Example
 
 > [!IMPORTANT]
@@ -314,6 +320,8 @@ Name | Type | Description  | Notes
 
 Get all the custom symbol types
 
+Get all custom symbol types configured in your group
+
 ### Example
 
 > [!IMPORTANT]
@@ -401,6 +409,8 @@ This endpoint does not need any parameter.
 > [CustomSymbolCustomFieldConfigDto] get_symbol_custom_fields_for_custom_symbol_type(custom_symbol_type_id)
 
 Get Custom fields for Custom Symbol type
+
+Get all custom fields configured for custom symbols configured in your group
 
 ### Example
 
@@ -495,6 +505,8 @@ Name | Type | Description  | Notes
 > update_custom_symbol_type(custom_symbol_type_id)
 
 Edit a Custom symbol type
+
+Update a custom symbol type configuration
 
 ### Example
 
@@ -606,7 +618,9 @@ void (empty response body)
 # **update_custom_symbol_type_order**
 > update_custom_symbol_type_order()
 
+Reorder custom symbol types
 
+Reorder custom symbol types that are configured in your group
 
 ### Example
 
@@ -660,6 +674,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     ) # ReorderCustomSymbolTypeDto |  (optional)
 
     try:
+        # Reorder custom symbol types
         # example passing only required values which don't have defaults set
         # and optional values
         api_instance.update_custom_symbol_type_order(reorder_custom_symbol_type_dto=reorder_custom_symbol_type_dto)

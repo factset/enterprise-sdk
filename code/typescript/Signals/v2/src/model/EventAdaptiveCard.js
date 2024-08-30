@@ -23,6 +23,7 @@ import EventMeta from './EventMeta';
 class EventAdaptiveCard {
     /**
      * Constructs a new <code>EventAdaptiveCard</code>.
+     * Returns Microsoft&#39;s Adaptive Cards, which includes headlines and event details data plus hyperlinks to FactSet reports
      * @alias module:model/EventAdaptiveCard
      * @param data {module:model/EventAdaptiveDataItem} 
      * @param meta {module:model/EventMeta} 

@@ -58,6 +58,7 @@ class RateLimitResponse {
 }
 
 /**
+ * Detail about the rate limit error.
  * @member {String} message
  */
 RateLimitResponse.prototype['message'] = undefined;

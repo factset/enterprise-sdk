@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **is_shown_in_infobox** | **bool** |  | defaults to True
 **formula_config** | [**CustomSymbolCustomFieldFormulaConfigDto**](CustomSymbolCustomFieldFormulaConfigDto.md) |  | [optional] 
 **options_config** | **[str], none_type** |  | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

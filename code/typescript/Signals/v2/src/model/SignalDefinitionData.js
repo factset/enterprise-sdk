@@ -22,9 +22,9 @@ class SignalDefinitionData {
     /**
      * Constructs a new <code>SignalDefinitionData</code>.
      * @alias module:model/SignalDefinitionData
-     * @param signalId {String} 
-     * @param theme {String} 
-     * @param categories {Array.<String>} 
+     * @param signalId {String} UUID of a signal
+     * @param theme {String} Theme chosen for the signal request
+     * @param categories {Array.<String>} Categories chosen for the signal request
      * @param contract {module:model/Contract} 
      */
     constructor(signalId, theme, categories, contract) { 
@@ -75,16 +75,19 @@ class SignalDefinitionData {
 }
 
 /**
+ * UUID of a signal
  * @member {String} signalId
  */
 SignalDefinitionData.prototype['signalId'] = undefined;
 
 /**
+ * Theme chosen for the signal request
  * @member {String} theme
  */
 SignalDefinitionData.prototype['theme'] = undefined;
 
 /**
+ * Categories chosen for the signal request
  * @member {Array.<String>} categories
  */
 SignalDefinitionData.prototype['categories'] = undefined;

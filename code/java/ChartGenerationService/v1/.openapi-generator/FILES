@@ -7,6 +7,10 @@ api/openapi.yaml
 build.gradle
 build.sbt
 docs/CategoriesErrorResponse.md
+docs/CategorizedChartList.md
+docs/CategoryChartListErrorObject.md
+docs/CategoryListResponse.md
+docs/ChartErrorResponseObject.md
 docs/ChartInput.md
 docs/ChartList.md
 docs/ChartListErrorResponse.md
@@ -43,6 +47,10 @@ src/main/java/com/factset/sdk/ChartGenerationService/auth/OAuth.java
 src/main/java/com/factset/sdk/ChartGenerationService/auth/OAuthFlow.java
 src/main/java/com/factset/sdk/ChartGenerationService/models/AbstractOpenApiSchema.java
 src/main/java/com/factset/sdk/ChartGenerationService/models/CategoriesErrorResponse.java
+src/main/java/com/factset/sdk/ChartGenerationService/models/CategorizedChartList.java
+src/main/java/com/factset/sdk/ChartGenerationService/models/CategoryChartListErrorObject.java
+src/main/java/com/factset/sdk/ChartGenerationService/models/CategoryListResponse.java
+src/main/java/com/factset/sdk/ChartGenerationService/models/ChartErrorResponseObject.java
 src/main/java/com/factset/sdk/ChartGenerationService/models/ChartInput.java
 src/main/java/com/factset/sdk/ChartGenerationService/models/ChartList.java
 src/main/java/com/factset/sdk/ChartGenerationService/models/ChartListErrorResponse.java

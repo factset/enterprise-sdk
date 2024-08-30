@@ -67,7 +67,7 @@ public class ContactsRolesApi {
 
   /**
    * Create contact roles
-   * 
+   * Create a contact role with given name and type
    * @param body Contact role name (required)
    * @return NewItemDto
    * @throws ApiException if fails to make API call
@@ -85,7 +85,7 @@ public class ContactsRolesApi {
 
   /**
    * Create contact roles
-   * 
+   * Create a contact role with given name and type
    * @param body Contact role name (required)
    * @return ApiResponse&lt;NewItemDto&gt;
    * @throws ApiException if fails to make API call
@@ -106,7 +106,7 @@ public class ContactsRolesApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/contact-roles";
+    String localVarPath = "/contact-roles";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -124,7 +124,7 @@ public class ContactsRolesApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+      "application/json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
@@ -144,7 +144,7 @@ public class ContactsRolesApi {
   }
   /**
    * Delete a contact role
-   * 
+   * Delete a contact role based on guid
    * @param contactRoleId contactRoleId to delete associated record (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -162,7 +162,7 @@ public class ContactsRolesApi {
 
   /**
    * Delete a contact role
-   * 
+   * Delete a contact role based on guid
    * @param contactRoleId contactRoleId to delete associated record (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -184,7 +184,7 @@ public class ContactsRolesApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/contact-roles/{contactRoleId}"
+    String localVarPath = "/contact-roles/{contactRoleId}"
       .replaceAll("\\{" + "contactRoleId" + "\\}", apiClient.escapeString(contactRoleId.toString()));
 
     // query params
@@ -221,7 +221,7 @@ public class ContactsRolesApi {
   }
   /**
    * Get list of the contact roles configured in your group
-   * 
+   * Get all contact roles configured in your group
    * @return java.util.List<ContactRoleDto>
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -236,7 +236,7 @@ public class ContactsRolesApi {
 
   /**
    * Get list of the contact roles configured in your group
-   * 
+   * Get all contact roles configured in your group
    * @return ApiResponse&lt;java.util.List<ContactRoleDto>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -249,7 +249,7 @@ public class ContactsRolesApi {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/v1/contact-roles";
+    String localVarPath = "/contact-roles";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -287,7 +287,7 @@ public class ContactsRolesApi {
   }
   /**
    * Edit a contact role
-   * 
+   * Update a contact role name and other details
    * @param contactRoleId contactRoleId to update associated record (required)
    * @param body Updated contact role name (required)
    * @throws ApiException if fails to make API call
@@ -306,7 +306,7 @@ public class ContactsRolesApi {
 
   /**
    * Edit a contact role
-   * 
+   * Update a contact role name and other details
    * @param contactRoleId contactRoleId to update associated record (required)
    * @param body Updated contact role name (required)
    * @return ApiResponse&lt;Void&gt;
@@ -334,7 +334,7 @@ public class ContactsRolesApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/contact-roles/{contactRoleId}"
+    String localVarPath = "/contact-roles/{contactRoleId}"
       .replaceAll("\\{" + "contactRoleId" + "\\}", apiClient.escapeString(contactRoleId.toString()));
 
     // query params

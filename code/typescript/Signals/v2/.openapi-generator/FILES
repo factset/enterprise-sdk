@@ -6,6 +6,7 @@ LICENSE
 README.md
 docs/Contract.md
 docs/ContractFields.md
+docs/ContractFieldsEventDate.md
 docs/ContractFieldsSummary.md
 docs/ContractProperty.md
 docs/ContractPropertyItems.md
@@ -49,6 +50,7 @@ src/api/MetadataApi.js
 src/index.js
 src/model/Contract.js
 src/model/ContractFields.js
+src/model/ContractFieldsEventDate.js
 src/model/ContractFieldsSummary.js
 src/model/ContractProperty.js
 src/model/ContractPropertyItems.js

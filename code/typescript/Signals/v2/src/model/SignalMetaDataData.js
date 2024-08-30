@@ -21,9 +21,9 @@ class SignalMetaDataData {
     /**
      * Constructs a new <code>SignalMetaDataData</code>.
      * @alias module:model/SignalMetaDataData
-     * @param id {String} 
-     * @param name {String} 
-     * @param description {String} 
+     * @param id {String} UUID of a signal
+     * @param name {String} Name of the signal
+     * @param description {String} A description of the signal
      */
     constructor(id, name, description) { 
         
@@ -69,16 +69,19 @@ class SignalMetaDataData {
 }
 
 /**
+ * UUID of a signal
  * @member {String} id
  */
 SignalMetaDataData.prototype['id'] = undefined;
 
 /**
+ * Name of the signal
  * @member {String} name
  */
 SignalMetaDataData.prototype['name'] = undefined;
 
 /**
+ * A description of the signal
  * @member {String} description
  */
 SignalMetaDataData.prototype['description'] = undefined;

@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Signals.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Signals.Model
 {
     /// <summary>
-    /// ContractProperty
+    /// Includes properties that describes each fields in a signal
     /// </summary>
     [DataContract(Name = "contractProperty")]
     public partial class ContractProperty : IEquatable<ContractProperty>, IValidatableObject
@@ -40,9 +40,9 @@ namespace FactSet.SDK.Signals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ContractProperty" /> class.
         /// </summary>
-        /// <param name="description">description (required).</param>
-        /// <param name="type">type (required).</param>
-        /// <param name="optional">optional.</param>
+        /// <param name="description">Description of the contract property (required).</param>
+        /// <param name="type">Type of the contract property (required).</param>
+        /// <param name="optional">Boolean value representing if the contract property is optional.</param>
         /// <param name="items">items.</param>
         public ContractProperty(string description, string type,bool optional = default(bool), ContractPropertyItems items = default(ContractPropertyItems))
         {
@@ -61,20 +61,23 @@ namespace FactSet.SDK.Signals.Model
         }
 
         /// <summary>
-        /// Gets or Sets Description
+        /// Description of the contract property
         /// </summary>
+        /// <value>Description of the contract property</value>
         [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = false)]
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or Sets Type
+        /// Type of the contract property
         /// </summary>
+        /// <value>Type of the contract property</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = false)]
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets Optional
+        /// Boolean value representing if the contract property is optional
         /// </summary>
+        /// <value>Boolean value representing if the contract property is optional</value>
         [DataMember(Name = "optional", EmitDefaultValue = true)]
         public bool Optional { get; set; }
 

@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Signals.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Signals.Model
 {
     /// <summary>
-    /// EventsEntities
+    /// Contains list of entities that matches the request criterion
     /// </summary>
     [DataContract(Name = "eventsEntities")]
     public partial class EventsEntities : IEquatable<EventsEntities>, IValidatableObject

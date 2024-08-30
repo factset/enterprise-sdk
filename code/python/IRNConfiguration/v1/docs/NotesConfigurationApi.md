@@ -1,20 +1,20 @@
 # fds.sdk.IRNConfiguration.NotesConfigurationApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_assigned_fact_set_users**](NotesConfigurationApi.md#get_assigned_fact_set_users) | **GET** /v1/users | Get all assigned FactSet users
-[**get_authors**](NotesConfigurationApi.md#get_authors) | **GET** /v1/authors | Get all Authors
-[**get_clients_sales_representative**](NotesConfigurationApi.md#get_clients_sales_representative) | **GET** /v1/group/client-sales-representative | 
-[**get_custom_fields**](NotesConfigurationApi.md#get_custom_fields) | **GET** /v1/custom-fields | Get all Custom Fields
-[**get_group**](NotesConfigurationApi.md#get_group) | **GET** /v1/group | Get Group details
-[**get_recommendations**](NotesConfigurationApi.md#get_recommendations) | **GET** /v1/recommendations | Get all Recommendations
-[**get_sentiments**](NotesConfigurationApi.md#get_sentiments) | **GET** /v1/sentiments | Get all Sentiments
-[**get_subject**](NotesConfigurationApi.md#get_subject) | **GET** /v1/subjects/{subjectId} | Get Subject details for the given Id provided
-[**get_subjects**](NotesConfigurationApi.md#get_subjects) | **GET** /v1/subjects | Get all Subjects
-[**get_team**](NotesConfigurationApi.md#get_team) | **GET** /v1/teams/{teamId} | Get Team details for the given Id provided
-[**get_teams**](NotesConfigurationApi.md#get_teams) | **GET** /v1/teams | Get all Teams
+[**get_assigned_fact_set_users**](NotesConfigurationApi.md#get_assigned_fact_set_users) | **GET** /users | Get all assigned FactSet users
+[**get_authors**](NotesConfigurationApi.md#get_authors) | **GET** /authors | Get all Authors
+[**get_clients_sales_representative**](NotesConfigurationApi.md#get_clients_sales_representative) | **GET** /group/client-sales-representative | Get Client Sales Representative
+[**get_custom_fields**](NotesConfigurationApi.md#get_custom_fields) | **GET** /custom-fields | Get all Custom Fields
+[**get_group**](NotesConfigurationApi.md#get_group) | **GET** /group | Get Group details
+[**get_recommendations**](NotesConfigurationApi.md#get_recommendations) | **GET** /recommendations | Get all Recommendations
+[**get_sentiments**](NotesConfigurationApi.md#get_sentiments) | **GET** /sentiments | Get all Sentiments
+[**get_subject**](NotesConfigurationApi.md#get_subject) | **GET** /subjects/{subjectId} | Get Subject details for the given Id provided
+[**get_subjects**](NotesConfigurationApi.md#get_subjects) | **GET** /subjects | Get all Subjects
+[**get_team**](NotesConfigurationApi.md#get_team) | **GET** /teams/{teamId} | Get Team details for the given Id provided
+[**get_teams**](NotesConfigurationApi.md#get_teams) | **GET** /teams | Get all Teams
 
 
 
@@ -22,6 +22,8 @@ Method | HTTP request | Description
 > [UserConfigDto] get_assigned_fact_set_users()
 
 Get all assigned FactSet users
+
+Get all assigned FactSet users in your group
 
 ### Example
 
@@ -111,6 +113,8 @@ This endpoint does not need any parameter.
 
 Get all Authors
 
+Get all Authors
+
 ### Example
 
 > [!IMPORTANT]
@@ -156,7 +160,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     api_instance = notes___configuration_api.NotesConfigurationApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    x_irn_ignore_permissions = False # bool |  (optional) if omitted the server will use the default value of False
+    x_irn_ignore_permissions = False # bool | If set to true, permissions will be ignored. Default is false. (optional) if omitted the server will use the default value of False
 
     try:
         # Get all Authors
@@ -175,7 +179,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_irn_ignore_permissions** | **bool**|  | [optional] if omitted the server will use the default value of False
+ **x_irn_ignore_permissions** | **bool**| If set to true, permissions will be ignored. Default is false. | [optional] if omitted the server will use the default value of False
 
 ### Return type
 
@@ -203,7 +207,9 @@ Name | Type | Description  | Notes
 # **get_clients_sales_representative**
 > ClientSalesRepresentativeDto get_clients_sales_representative()
 
+Get Client Sales Representative
 
+Get the client sales representative for the group
 
 ### Example
 
@@ -252,6 +258,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
 
     try:
+        # Get Client Sales Representative
         # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_clients_sales_representative()
 
@@ -292,6 +299,8 @@ This endpoint does not need any parameter.
 > [CustomFieldConfigDto] get_custom_fields()
 
 Get all Custom Fields
+
+Get all customfields configured in your group
 
 ### Example
 
@@ -387,6 +396,8 @@ Name | Type | Description  | Notes
 
 Get Group details
 
+Get all the group details
+
 ### Example
 
 > [!IMPORTANT]
@@ -467,6 +478,7 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
+**404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -474,6 +486,8 @@ This endpoint does not need any parameter.
 > [RecommendationConfigDto] get_recommendations()
 
 Get all Recommendations
+
+Get all recommendations configured in your group
 
 ### Example
 
@@ -563,6 +577,8 @@ This endpoint does not need any parameter.
 
 Get all Sentiments
 
+Get all sentiments configured in your group
+
 ### Example
 
 > [!IMPORTANT]
@@ -650,6 +666,8 @@ This endpoint does not need any parameter.
 > SubjectConfigDto get_subject(subject_id)
 
 Get Subject details for the given Id provided
+
+Get all details of a given subject
 
 ### Example
 
@@ -748,6 +766,8 @@ Name | Type | Description  | Notes
 
 Get all Subjects
 
+Get all subjects configured in your group
+
 ### Example
 
 > [!IMPORTANT]
@@ -842,6 +862,8 @@ Name | Type | Description  | Notes
 
 Get Team details for the given Id provided
 
+Get all details of a given team
+
 ### Example
 
 > [!IMPORTANT]
@@ -888,7 +910,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     team_id = "teamId_example" # str | Id
-    x_irn_ignore_permissions = False # bool |  (optional) if omitted the server will use the default value of False
+    x_irn_ignore_permissions = False # bool | If set to true, permissions will be ignored. Default is false. (optional) if omitted the server will use the default value of False
 
     try:
         # Get Team details for the given Id provided
@@ -908,7 +930,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **team_id** | **str**| Id |
- **x_irn_ignore_permissions** | **bool**|  | [optional] if omitted the server will use the default value of False
+ **x_irn_ignore_permissions** | **bool**| If set to true, permissions will be ignored. Default is false. | [optional] if omitted the server will use the default value of False
 
 ### Return type
 
@@ -938,6 +960,8 @@ Name | Type | Description  | Notes
 > [TeamSummaryDto] get_teams()
 
 Get all Teams
+
+Get all teams configured in your group
 
 ### Example
 
@@ -984,7 +1008,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     api_instance = notes___configuration_api.NotesConfigurationApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    x_irn_ignore_permissions = False # bool |  (optional) if omitted the server will use the default value of False
+    x_irn_ignore_permissions = False # bool | If set to true, permissions will be ignored. Default is false. (optional) if omitted the server will use the default value of False
 
     try:
         # Get all Teams
@@ -1003,7 +1027,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_irn_ignore_permissions** | **bool**|  | [optional] if omitted the server will use the default value of False
+ **x_irn_ignore_permissions** | **bool**| If set to true, permissions will be ignored. Default is false. | [optional] if omitted the server will use the default value of False
 
 ### Return type
 

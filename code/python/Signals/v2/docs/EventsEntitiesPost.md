@@ -1,5 +1,6 @@
 # EventsEntitiesPost
 
+Contains list of entities that matches the request criterion
 
 ## Properties
 Name | Type | Description | Notes

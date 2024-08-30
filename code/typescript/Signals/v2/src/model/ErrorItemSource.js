@@ -57,6 +57,7 @@ class ErrorItemSource {
 }
 
 /**
+ * The source of the error
  * @member {String} parameter
  */
 ErrorItemSource.prototype['parameter'] = undefined;

@@ -1,13 +1,13 @@
 # FactSet.SDK.IRNConfiguration.Api.ContactsTypesApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateContactType**](ContactsTypesApi.md#createcontacttype) | **POST** /v1/contact-types | Create contact types
-[**DeleteContactType**](ContactsTypesApi.md#deletecontacttype) | **DELETE** /v1/contact-types/{contactTypeId} | Delete a contact type
-[**GetContactTypes**](ContactsTypesApi.md#getcontacttypes) | **GET** /v1/contact-types | Get list of the contact types configured in your group
-[**UpdateContactType**](ContactsTypesApi.md#updatecontacttype) | **PUT** /v1/contact-types/{contactTypeId} | Edit a contact type
+[**CreateContactType**](ContactsTypesApi.md#createcontacttype) | **POST** /contact-types | Create contact types
+[**DeleteContactType**](ContactsTypesApi.md#deletecontacttype) | **DELETE** /contact-types/{contactTypeId} | Delete a contact type
+[**GetContactTypes**](ContactsTypesApi.md#getcontacttypes) | **GET** /contact-types | Get list of the contact types configured in your group
+[**UpdateContactType**](ContactsTypesApi.md#updatecontacttype) | **PUT** /contact-types/{contactTypeId} | Edit a contact type
 
 
 
@@ -16,6 +16,8 @@ Method | HTTP request | Description
 > NewItemDto CreateContactType (string body)
 
 Create contact types
+
+Create contact type with given name
 
 ### Example
 
@@ -95,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -114,6 +116,8 @@ Name | Type | Description  | Notes
 > void DeleteContactType (Guid contactTypeId)
 
 Delete a contact type
+
+Delete a contact type based on guid
 
 ### Example
 
@@ -213,6 +217,8 @@ void (empty response body)
 
 Get list of the contact types configured in your group
 
+Get all contact types configured in your group
+
 ### Example
 
 > [!IMPORTANT]
@@ -304,6 +310,8 @@ This endpoint does not need any parameter.
 > void UpdateContactType (Guid contactTypeId, string body)
 
 Edit a contact type
+
+Update a contact type
 
 ### Example
 

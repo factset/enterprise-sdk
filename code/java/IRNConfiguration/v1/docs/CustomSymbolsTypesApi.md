@@ -1,16 +1,16 @@
 # CustomSymbolsTypesApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createCustomSymbolType**](CustomSymbolsTypesApi.md#createCustomSymbolType) | **POST** /v1/custom-symbol-types | Create a Custom symbol type
-[**deleteCustomSymbolTypeAsync**](CustomSymbolsTypesApi.md#deleteCustomSymbolTypeAsync) | **DELETE** /v1/custom-symbol-types/{customSymbolTypeId} | Delete a Custom symbol type
-[**getCustomSymbolType**](CustomSymbolsTypesApi.md#getCustomSymbolType) | **GET** /v1/custom-symbol-types/{customSymbolTypeId} | Get a specific Custom symbol type&#39;s details
-[**getCustomSymbolTypes**](CustomSymbolsTypesApi.md#getCustomSymbolTypes) | **GET** /v1/custom-symbol-types | Get all the custom symbol types
-[**getSymbolCustomFieldsForCustomSymbolType**](CustomSymbolsTypesApi.md#getSymbolCustomFieldsForCustomSymbolType) | **GET** /v1/custom-symbol-types/{customSymbolTypeId}/custom-fields | Get Custom fields for Custom Symbol type
-[**updateCustomSymbolType**](CustomSymbolsTypesApi.md#updateCustomSymbolType) | **PUT** /v1/custom-symbol-types/{customSymbolTypeId} | Edit a Custom symbol type
-[**updateCustomSymbolTypeOrder**](CustomSymbolsTypesApi.md#updateCustomSymbolTypeOrder) | **POST** /v1/custom-symbol-types/reorder | 
+[**createCustomSymbolType**](CustomSymbolsTypesApi.md#createCustomSymbolType) | **POST** /custom-symbol-types | Create a Custom symbol type
+[**deleteCustomSymbolTypeAsync**](CustomSymbolsTypesApi.md#deleteCustomSymbolTypeAsync) | **DELETE** /custom-symbol-types/{customSymbolTypeId} | Delete a Custom symbol type
+[**getCustomSymbolType**](CustomSymbolsTypesApi.md#getCustomSymbolType) | **GET** /custom-symbol-types/{customSymbolTypeId} | Get a specific Custom symbol type&#39;s details
+[**getCustomSymbolTypes**](CustomSymbolsTypesApi.md#getCustomSymbolTypes) | **GET** /custom-symbol-types | Get all the custom symbol types
+[**getSymbolCustomFieldsForCustomSymbolType**](CustomSymbolsTypesApi.md#getSymbolCustomFieldsForCustomSymbolType) | **GET** /custom-symbol-types/{customSymbolTypeId}/custom-fields | Get Custom fields for Custom Symbol type
+[**updateCustomSymbolType**](CustomSymbolsTypesApi.md#updateCustomSymbolType) | **PUT** /custom-symbol-types/{customSymbolTypeId} | Edit a Custom symbol type
+[**updateCustomSymbolTypeOrder**](CustomSymbolsTypesApi.md#updateCustomSymbolTypeOrder) | **POST** /custom-symbol-types/reorder | Reorder custom symbol types
 
 
 
@@ -19,6 +19,8 @@ Method | HTTP request | Description
 > NewItemDto createCustomSymbolType(saveCustomSymbolTypeDto)
 
 Create a Custom symbol type
+
+Create a custom symbol type with given name
 
 ### Example
 
@@ -94,7 +96,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 ### HTTP response details
@@ -110,6 +112,8 @@ Name | Type | Description  | Notes
 > deleteCustomSymbolTypeAsync(customSymbolTypeId)
 
 Delete a Custom symbol type
+
+Delete a custom symbol type based on guid
 
 ### Example
 
@@ -202,6 +206,8 @@ null (empty response body)
 
 Get a specific Custom symbol type&#39;s details
 
+Get details of a given custom symbol type
+
 ### Example
 
 > [!IMPORTANT]
@@ -293,6 +299,8 @@ Name | Type | Description  | Notes
 
 Get all the custom symbol types
 
+Get all custom symbol types configured in your group
+
 ### Example
 
 > [!IMPORTANT]
@@ -377,6 +385,8 @@ This endpoint does not need any parameter.
 > java.util.List<CustomSymbolCustomFieldConfigDto> getSymbolCustomFieldsForCustomSymbolType(customSymbolTypeId)
 
 Get Custom fields for Custom Symbol type
+
+Get all custom fields configured for custom symbols configured in your group
 
 ### Example
 
@@ -469,6 +479,8 @@ Name | Type | Description  | Notes
 
 Edit a Custom symbol type
 
+Update a custom symbol type configuration
+
 ### Example
 
 > [!IMPORTANT]
@@ -560,7 +572,9 @@ null (empty response body)
 
 > updateCustomSymbolTypeOrder(reorderCustomSymbolTypeDto)
 
+Reorder custom symbol types
 
+Reorder custom symbol types that are configured in your group
 
 ### Example
 

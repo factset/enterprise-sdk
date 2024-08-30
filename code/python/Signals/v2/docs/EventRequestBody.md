@@ -1,5 +1,6 @@
 # EventRequestBody
 
+The POST request's body containing the request criterion
 
 ## Properties
 Name | Type | Description | Notes

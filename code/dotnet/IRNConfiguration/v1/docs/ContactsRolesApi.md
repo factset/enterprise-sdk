@@ -1,13 +1,13 @@
 # FactSet.SDK.IRNConfiguration.Api.ContactsRolesApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateContactRole**](ContactsRolesApi.md#createcontactrole) | **POST** /v1/contact-roles | Create contact roles
-[**DeleteContactRole**](ContactsRolesApi.md#deletecontactrole) | **DELETE** /v1/contact-roles/{contactRoleId} | Delete a contact role
-[**GetContactRoles**](ContactsRolesApi.md#getcontactroles) | **GET** /v1/contact-roles | Get list of the contact roles configured in your group
-[**UpdateContactRole**](ContactsRolesApi.md#updatecontactrole) | **PUT** /v1/contact-roles/{contactRoleId} | Edit a contact role
+[**CreateContactRole**](ContactsRolesApi.md#createcontactrole) | **POST** /contact-roles | Create contact roles
+[**DeleteContactRole**](ContactsRolesApi.md#deletecontactrole) | **DELETE** /contact-roles/{contactRoleId} | Delete a contact role
+[**GetContactRoles**](ContactsRolesApi.md#getcontactroles) | **GET** /contact-roles | Get list of the contact roles configured in your group
+[**UpdateContactRole**](ContactsRolesApi.md#updatecontactrole) | **PUT** /contact-roles/{contactRoleId} | Edit a contact role
 
 
 
@@ -16,6 +16,8 @@ Method | HTTP request | Description
 > NewItemDto CreateContactRole (string body)
 
 Create contact roles
+
+Create a contact role with given name and type
 
 ### Example
 
@@ -95,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -114,6 +116,8 @@ Name | Type | Description  | Notes
 > void DeleteContactRole (Guid contactRoleId)
 
 Delete a contact role
+
+Delete a contact role based on guid
 
 ### Example
 
@@ -213,6 +217,8 @@ void (empty response body)
 
 Get list of the contact roles configured in your group
 
+Get all contact roles configured in your group
+
 ### Example
 
 > [!IMPORTANT]
@@ -304,6 +310,8 @@ This endpoint does not need any parameter.
 > void UpdateContactRole (Guid contactRoleId, string body)
 
 Edit a contact role
+
+Update a contact role name and other details
 
 ### Example
 

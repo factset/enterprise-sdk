@@ -35,10 +35,10 @@ namespace FactSet.SDK.Signals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RelevanceScoreRange" /> class.
         /// </summary>
-        /// <param name="gt">gt.</param>
-        /// <param name="gte">gte.</param>
-        /// <param name="lt">lt.</param>
-        /// <param name="lte">lte.</param>
+        /// <param name="gt">A date/time string in ISO 8601 format. gt stands for greater than.</param>
+        /// <param name="gte">A date/time string in ISO 8601 format. gte stands for greater than or equal to.</param>
+        /// <param name="lt">A date/time string in ISO 8601 format. lt stands for less than.</param>
+        /// <param name="lte">A date/time string in ISO 8601 format. lte stands for less than or equal to.</param>
         public RelevanceScoreRange(float gt = default(float), float gte = default(float), float lt = default(float), float lte = default(float))
         {
             this.Gt = gt;
@@ -48,26 +48,30 @@ namespace FactSet.SDK.Signals.Model
         }
 
         /// <summary>
-        /// Gets or Sets Gt
+        /// A date/time string in ISO 8601 format. gt stands for greater than
         /// </summary>
+        /// <value>A date/time string in ISO 8601 format. gt stands for greater than</value>
         [DataMember(Name = "gt", EmitDefaultValue = false)]
         public float Gt { get; set; }
 
         /// <summary>
-        /// Gets or Sets Gte
+        /// A date/time string in ISO 8601 format. gte stands for greater than or equal to
         /// </summary>
+        /// <value>A date/time string in ISO 8601 format. gte stands for greater than or equal to</value>
         [DataMember(Name = "gte", EmitDefaultValue = false)]
         public float Gte { get; set; }
 
         /// <summary>
-        /// Gets or Sets Lt
+        /// A date/time string in ISO 8601 format. lt stands for less than
         /// </summary>
+        /// <value>A date/time string in ISO 8601 format. lt stands for less than</value>
         [DataMember(Name = "lt", EmitDefaultValue = false)]
         public float Lt { get; set; }
 
         /// <summary>
-        /// Gets or Sets Lte
+        /// A date/time string in ISO 8601 format. lte stands for less than or equal to
         /// </summary>
+        /// <value>A date/time string in ISO 8601 format. lte stands for less than or equal to</value>
         [DataMember(Name = "lte", EmitDefaultValue = false)]
         public float Lte { get; set; }
 

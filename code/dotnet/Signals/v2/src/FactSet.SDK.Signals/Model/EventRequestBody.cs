@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Signals.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Signals.Model
 {
     /// <summary>
-    /// EventRequestBody
+    /// The POST request&#39;s body containing the request criterion
     /// </summary>
     [DataContract(Name = "eventRequestBody")]
     public partial class EventRequestBody : IEquatable<EventRequestBody>, IValidatableObject

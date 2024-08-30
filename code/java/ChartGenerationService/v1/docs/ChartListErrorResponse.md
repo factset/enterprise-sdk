@@ -8,6 +8,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **error** | [**ErrorEnum**](#ErrorEnum) |  |  [optional]
+**errors** | [**java.util.List&lt;ChartErrorResponseObject&gt;**](ChartErrorResponseObject.md) |  |  [optional]
 
 
 

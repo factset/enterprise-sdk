@@ -1,4 +1,5 @@
 # FactSet.SDK.Signals.Model.EventHeadlineDataItem
+Return object that includes details about an event headline
 
 ## Properties
 

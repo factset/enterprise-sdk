@@ -68,7 +68,7 @@ public class CustomSymbolsRelationshipsApi {
 
   /**
    * Create a symbol relationship
-   * 
+   * Create a symbol relationship with given name
    * @param symbolsRelationShipSaveDto symbolsRelationshipSaveDto object to save (optional)
    * @return NewItemDto
    * @throws ApiException if fails to make API call
@@ -86,7 +86,7 @@ public class CustomSymbolsRelationshipsApi {
 
   /**
    * Create a symbol relationship
-   * 
+   * Create a symbol relationship with given name
    * @param symbolsRelationShipSaveDto symbolsRelationshipSaveDto object to save (optional)
    * @return ApiResponse&lt;NewItemDto&gt;
    * @throws ApiException if fails to make API call
@@ -102,7 +102,7 @@ public class CustomSymbolsRelationshipsApi {
     Object localVarPostBody = symbolsRelationShipSaveDto;
     
     // create path and map variables
-    String localVarPath = "/v1/symbols-relationships";
+    String localVarPath = "/symbols-relationships";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -120,7 +120,7 @@ public class CustomSymbolsRelationshipsApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+      "application/json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
@@ -140,7 +140,7 @@ public class CustomSymbolsRelationshipsApi {
   }
   /**
    * Delete a symbol relationship
-   * 
+   * Delete a symbol relationship based on guid
    * @param symbolsRelationshipId symbolsRelationshipId to delete associated record (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -158,7 +158,7 @@ public class CustomSymbolsRelationshipsApi {
 
   /**
    * Delete a symbol relationship
-   * 
+   * Delete a symbol relationship based on guid
    * @param symbolsRelationshipId symbolsRelationshipId to delete associated record (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -180,7 +180,7 @@ public class CustomSymbolsRelationshipsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/symbols-relationships/{symbolsRelationshipId}"
+    String localVarPath = "/symbols-relationships/{symbolsRelationshipId}"
       .replaceAll("\\{" + "symbolsRelationshipId" + "\\}", apiClient.escapeString(symbolsRelationshipId.toString()));
 
     // query params
@@ -217,7 +217,7 @@ public class CustomSymbolsRelationshipsApi {
   }
   /**
    * Edit a symbol relationship
-   * 
+   * Update a symbol relationship
    * @param symbolsRelationshipId symbolsRelationshipId to update associated record (required)
    * @param symbolsRelationShipSaveDto SymbolsRelationShipSaveDto object to update (optional)
    * @throws ApiException if fails to make API call
@@ -236,7 +236,7 @@ public class CustomSymbolsRelationshipsApi {
 
   /**
    * Edit a symbol relationship
-   * 
+   * Update a symbol relationship
    * @param symbolsRelationshipId symbolsRelationshipId to update associated record (required)
    * @param symbolsRelationShipSaveDto SymbolsRelationShipSaveDto object to update (optional)
    * @return ApiResponse&lt;Void&gt;
@@ -259,7 +259,7 @@ public class CustomSymbolsRelationshipsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/symbols-relationships/{symbolsRelationshipId}"
+    String localVarPath = "/symbols-relationships/{symbolsRelationshipId}"
       .replaceAll("\\{" + "symbolsRelationshipId" + "\\}", apiClient.escapeString(symbolsRelationshipId.toString()));
 
     // query params
@@ -296,7 +296,7 @@ public class CustomSymbolsRelationshipsApi {
   }
   /**
    * Get all the Symbols Relationships
-   * 
+   * Get all symbols relationships configured in your group
    * @return java.util.List<SymbolsRelationshipDto>
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -311,7 +311,7 @@ public class CustomSymbolsRelationshipsApi {
 
   /**
    * Get all the Symbols Relationships
-   * 
+   * Get all symbols relationships configured in your group
    * @return ApiResponse&lt;java.util.List<SymbolsRelationshipDto>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -324,7 +324,7 @@ public class CustomSymbolsRelationshipsApi {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/v1/symbols-relationships";
+    String localVarPath = "/symbols-relationships";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();

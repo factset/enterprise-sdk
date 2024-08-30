@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Signals.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Signals.Model
 {
     /// <summary>
-    /// SignalMetaData
+    /// Metadata about a signal
     /// </summary>
     [DataContract(Name = "signalMetaData")]
     public partial class SignalMetaData : IEquatable<SignalMetaData>, IValidatableObject

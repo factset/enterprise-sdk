@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Signals.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Signals.Model
 {
     /// <summary>
-    /// ErrorResponse
+    /// The response returned for an unsuccessful request
     /// </summary>
     [DataContract(Name = "errorResponse")]
     public partial class ErrorResponse : IEquatable<ErrorResponse>, IValidatableObject

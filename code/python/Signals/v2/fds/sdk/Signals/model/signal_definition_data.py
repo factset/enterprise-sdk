@@ -117,9 +117,9 @@ class SignalDefinitionData(ModelNormal):
         """SignalDefinitionData - a model defined in OpenAPI
 
         Args:
-            signal_id (str):
-            theme (str):
-            categories ([str]):
+            signal_id (str): UUID of a signal
+            theme (str): Theme chosen for the signal request
+            categories ([str]): Categories chosen for the signal request
             contract (Contract):
 
         Keyword Args:
@@ -208,9 +208,9 @@ class SignalDefinitionData(ModelNormal):
         """SignalDefinitionData - a model defined in OpenAPI
 
         Args:
-            signal_id (str):
-            theme (str):
-            categories ([str]):
+            signal_id (str): UUID of a signal
+            theme (str): Theme chosen for the signal request
+            categories ([str]): Categories chosen for the signal request
             contract (Contract):
 
         Keyword Args:

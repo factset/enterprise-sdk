@@ -72,11 +72,11 @@ public class SignalMetaDataData implements Serializable {
   }
 
    /**
-   * Get id
+   * UUID of a signal
    * @return id
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "UUID of a signal")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -98,11 +98,11 @@ public class SignalMetaDataData implements Serializable {
   }
 
    /**
-   * Get name
+   * Name of the signal
    * @return name
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Name of the signal")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -124,11 +124,11 @@ public class SignalMetaDataData implements Serializable {
   }
 
    /**
-   * Get description
+   * A description of the signal
    * @return description
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A description of the signal")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

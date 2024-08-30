@@ -105,7 +105,7 @@ class ContractPropertyItems(ModelNormal):
         """ContractPropertyItems - a model defined in OpenAPI
 
         Args:
-            type (str):
+            type (str): Type of the elements contained in the list
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -190,7 +190,7 @@ class ContractPropertyItems(ModelNormal):
         """ContractPropertyItems - a model defined in OpenAPI
 
         Args:
-            type (str):
+            type (str): Type of the elements contained in the list
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

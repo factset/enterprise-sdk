@@ -2,6 +2,7 @@
 
 # SignalMetaData
 
+Metadata about a signal
 
 ## Properties
 

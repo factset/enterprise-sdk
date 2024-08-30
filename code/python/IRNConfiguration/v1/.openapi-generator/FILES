@@ -25,6 +25,8 @@ docs/ContactsRolesApi.md
 docs/ContactsTypesApi.md
 docs/CreateCustomSymbolCustomFieldDto.md
 docs/CustomFieldConfigDto.md
+docs/CustomFieldTeamConfigDto.md
+docs/CustomFieldUserTeamLookupFilterType.md
 docs/CustomSymbolCustomFieldConfigDto.md
 docs/CustomSymbolCustomFieldFormulaConfigDto.md
 docs/CustomSymbolSubTypeDto.md
@@ -82,6 +84,7 @@ docs/TeamSummaryDto.md
 docs/TitleSettingsDto.md
 docs/UpdateCustomSymbolTypeDto.md
 docs/UserConfigDto.md
+docs/UserTeamConfigDto.md
 fds/__init__.py
 fds/sdk/IRNConfiguration/__init__.py
 fds/sdk/IRNConfiguration/api/__init__.py
@@ -115,6 +118,8 @@ fds/sdk/IRNConfiguration/model/contact_role_dto.py
 fds/sdk/IRNConfiguration/model/contact_type_dto.py
 fds/sdk/IRNConfiguration/model/create_custom_symbol_custom_field_dto.py
 fds/sdk/IRNConfiguration/model/custom_field_config_dto.py
+fds/sdk/IRNConfiguration/model/custom_field_team_config_dto.py
+fds/sdk/IRNConfiguration/model/custom_field_user_team_lookup_filter_type.py
 fds/sdk/IRNConfiguration/model/custom_symbol_custom_field_config_dto.py
 fds/sdk/IRNConfiguration/model/custom_symbol_custom_field_formula_config_dto.py
 fds/sdk/IRNConfiguration/model/custom_symbol_sub_type_dto.py
@@ -168,6 +173,7 @@ fds/sdk/IRNConfiguration/model/team_summary_dto.py
 fds/sdk/IRNConfiguration/model/title_settings_dto.py
 fds/sdk/IRNConfiguration/model/update_custom_symbol_type_dto.py
 fds/sdk/IRNConfiguration/model/user_config_dto.py
+fds/sdk/IRNConfiguration/model/user_team_config_dto.py
 fds/sdk/IRNConfiguration/model_utils.py
 fds/sdk/IRNConfiguration/models/__init__.py
 fds/sdk/IRNConfiguration/rest.py

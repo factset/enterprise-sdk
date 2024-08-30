@@ -21,6 +21,7 @@ import SignalDefinitionData from './SignalDefinitionData';
 class SignalDefinition {
     /**
      * Constructs a new <code>SignalDefinition</code>.
+     * Detailed information about a given signal
      * @alias module:model/SignalDefinition
      * @param data {module:model/SignalDefinitionData} 
      */

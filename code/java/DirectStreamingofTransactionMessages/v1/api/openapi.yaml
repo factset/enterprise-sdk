@@ -8,16 +8,22 @@ info:
   license:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
-  title: DSOTM API
-  version: 1.5.0
+  title: dsotm API
+  version: 1.6.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/direct-streaming-transaction-messages-api
 servers:
-- url: https://api.factset.com/analytics/dsotm/v1
+- description: Production Server
+  url: https://api.factset.com/analytics/dsotm/v1
+- description: Sandbox Server
+  url: https://api-sandbox.factset.com/analytics/dsotm/v1
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
+tags:
+- description: This endpoint is used to push transaction data into FactSet.
+  name: DSOTM
 paths:
   /transactions:
     post:
@@ -28,9 +34,9 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Transactions'
+              $ref: '#/components/schemas/DsotmParametersRoot'
       responses:
-        "202":
+        "200":
           description: Expected response.
           headers:
             X-DataDirect-Request-Key:
@@ -171,7 +177,7 @@ paths:
                 type: string
               style: simple
         "503":
-          description: Request timed out. Retry the request in sometime.
+          description: Request timed out.
           headers:
             X-DataDirect-Request-Key:
               description: FactSet’s request key header.
@@ -196,62 +202,564 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    ExecutionParameters:
+    AdditionalField:
+      description: Defines an ofdb field and value to be persisted
       example:
-        symbol: symbol
-        currencyISO: currencyISO
-        orderId: orderId
-        exchangeFee: 2.027123023002322
-        foreignExchangeRate: 1.4658129
-        description: description
-        transactionLeaves: 7.386281948385884
-        localTax: 7.061401241503109
-        brokerFee: 3.616076749251911
-        localFee: 9.301444243932576
-        unitType: unitType
-        portfolio: portfolio
-        price: 1.4894159098541704
-        commission: 5.637376656633329
-        net: 0.8008281904610115
-        tradeType: tradeType
-        clearingCommission: 2.3021358869347655
-        quantity: 1.2315135367772556
-        custodian: custodian
-        gross: 1.0246457001441578
-        transactionStatus: transactionStatus
-        settlementCurrencyISO: settlementCurrencyISO
-        accruedInterest: 5.962133916683182
-        settlementDate: settlementDate
-        tradeDate: tradeDate
-        broker: broker
-        parentId: parentId
-        transactionId: transactionId
-        settlementValue: 6.027456183070403
-        updatedDateTime: updatedDateTime
-        miscellaneousFee: 4.145608029883936
-        addedDateTime: addedDateTime
-        entity: entity
-        status: status
+        name: name
+        type: string
+        value: value
       properties:
-        transactionStatus:
-          description: 'Transaction Status of an Execution could be any of the following
-            values: Executed, Booked, Cancelled.'
+        name:
+          description: Name of the ofdb field
           type: string
-        parentId:
-          description: Unique Id of the placement which spawned this execution
+        type:
+          description: Data type of the ofdb field
+          enum:
+          - string
+          - double
+          - int
+          type: string
+        value:
+          description: Value of the ofdb field
+          nullable: true
+          type: string
+      required:
+      - name
+      - type
+      type: object
+    Order:
+      description: Order transaction attributes
+      example:
+        orderType: market
+        symbol: FDS-USA
+        additionalFields:
+        - name: name
+          type: string
+          value: value
+        - name: name
+          type: string
+          value: value
+        orderId: O123
+        complianceStatus: unchecked
+        transactionLeaves: 1.4658129805029452
+        fundTeam: T1
+        tif: goodTilCancel
+        unitType: quantity
+        price: 2.3021358869347655
+        currency: USD
+        settlementType: regular
+        tifDate: 2024-02-21
+        side: buy
+        quantity: 5.962133916683182
+        limitPrice: 0.8008281904610115
+        gross: 5.637376656633329
+        transactionStatus: pendingApproval
+        trader: msmith
+        settlementDate: 2024-03-11
+        transactionId: O_FDS_012424_113
+        updatedDateTime: 2024-01-25T09:30:23.235
+        tradingTeam: T2
+        addedDateTime: 2024-01-25T09:30:23.235
+        stopPrice: 6.027456183070403
+        instrumentName: FactSet Research Systems
+        orderDate: 2024-01-25
+        account: Client:/folder1/testing.acct
+      properties:
+        orderDate:
+          description: Order date which is in the format YYYY-MM-DD
+          example: 2024-01-25
+          type: string
+        transactionId:
+          description: Unique Id of the order
+          example: O_FDS_012424_113
+          maxLength: 252
+          minLength: 0
+          type: string
+        orderId:
+          description: Id of the order as assigned by the OMS. If not specified then
+            transactionId is used.
+          example: O123
           maxLength: 32
           minLength: 0
           nullable: true
           type: string
+        transactionStatus:
+          description: Status of the Order
+          enum:
+          - pendingApproval
+          - open
+          - placed
+          - partialFilled
+          - filled
+          - expired
+          - cancelled
+          - rejected
+          - booked
+          type: string
+        orderType:
+          description: Order type indicating the price type of the Order
+          enum:
+          - market
+          - limit
+          - stopLimit
+          - stop
+          type: string
+        limitPrice:
+          description: Price related to limit and stopLimit order types
+          format: double
+          type: number
+        stopPrice:
+          description: Price related to stop and stopLimit order types
+          format: double
+          type: number
+        tif:
+          description: Time In Force of the Order
+          enum:
+          - goodTilCancel
+          - goodTilDate
+          - day
+          - week
+          type: string
+        tifDate:
+          description: Time In Force date for goodTilDate orders in YYYY-MM-DD format
+          example: 2024-02-21
+          nullable: true
+          type: string
+        settlementType:
+          description: Indicates order settlement period
+          enum:
+          - regular
+          - cash
+          - nextDay
+          - tPlus2
+          - tPlus3
+          - tPlus4
+          - future
+          - whenIssued
+          - sellersOption
+          - tPlus5
+          type: string
+        settlementDate:
+          description: Settlement date in YYYY-MM-DD format
+          example: 2024-03-11
+          nullable: true
+          type: string
+        fundTeam:
+          description: Fund Team Id of the Order
+          example: T1
+          maxLength: 32
+          minLength: 0
+          nullable: true
+          type: string
+        tradingTeam:
+          description: Trading Team Id of the Order
+          example: T2
+          maxLength: 32
+          minLength: 0
+          nullable: true
+          type: string
+        trader:
+          description: User Id of assigned trader.
+          example: msmith
+          maxLength: 32
+          minLength: 0
+          nullable: true
+          type: string
+        account:
+          description: Path of the account
+          example: Client:/folder1/testing.acct
+          type: string
+        symbol:
+          description: Symbol corresponding to the traded instrument
+          example: FDS-USA
+          maxLength: 32
+          minLength: 0
+          type: string
+        instrumentName:
+          description: Name or description of the traded instrument
+          example: FactSet Research Systems
+          maxLength: 32
+          minLength: 0
+          type: string
+        side:
+          description: Side of the order
+          enum:
+          - buy
+          - buyCover
+          - sell
+          - sellShort
+          type: string
+        unitType:
+          description: Unit type of the order. Indicates if the trade is driven by
+            quantity or value
+          enum:
+          - quantity
+          - value
+          type: string
+        transactionLeaves:
+          description: Shares that have been ordered and not executed
+          format: double
+          nullable: true
+          type: number
+        quantity:
+          description: Quantity of the instrument traded
+          format: double
+          type: number
+        gross:
+          description: Cash value of the transaction
+          format: double
+          type: number
+        price:
+          description: The transaction price
+          format: double
+          nullable: true
+          type: number
+        currency:
+          description: The iso currency code of cash valued fields, Net Amount and
+            Gross Amount
+          example: USD
+          maxLength: 3
+          minLength: 0
+          type: string
+        complianceStatus:
+          description: Compliance check status
+          enum:
+          - unchecked
+          - pass
+          - fail
+          type: string
+        addedDateTime:
+          description: Date and time expressed in UTC when the transaction was first
+            added in the format YYYY-MM-DDTHH:MM:SS.FFF
+          example: 2024-01-25T09:30:23.235
+          nullable: true
+          type: string
+        updatedDateTime:
+          description: Date and time expressed in UTC when the transaction was last
+            updated in the format YYYY-MM-DDTHH:MM:SS.FFF
+          example: 2024-01-25T09:30:23.235
+          nullable: true
+          type: string
+        additionalFields:
+          description: List of additional fields which can be used for dynamically
+            populating other ofdb fields
+          items:
+            $ref: '#/components/schemas/AdditionalField'
+          nullable: true
+          type: array
+      required:
+      - account
+      - currency
+      - gross
+      - instrumentName
+      - orderDate
+      - quantity
+      - side
+      - symbol
+      - transactionId
+      - transactionStatus
+      - unitType
+      type: object
+    Placement:
+      description: Placement transaction attributes
+      example:
+        orderType: market
+        symbol: FDS-USA
+        additionalFields:
+        - name: name
+          type: string
+          value: value
+        - name: name
+          type: string
+          value: value
+        orderId: O123
+        complianceStatus: unchecked
+        transactionLeaves: 3.616076749251911
+        tif: goodTilCancel
+        unitType: quantity
+        price: 7.386281948385884
+        currency: USD
+        settlementType: regular
+        tifDate: 2024-02-21
+        side: buy
+        quantity: 2.027123023002322
+        limitPrice: 7.061401241503109
+        gross: 4.145608029883936
+        transactionStatus: placed
+        settlementDate: 2024-03-11
+        transactionId: P123
+        parentId: O_FDS_012424_113
+        updatedDateTime: 2024-01-25T09:30:23.235
+        addedDateTime: 2024-01-25T09:30:23.235
+        stopPrice: 9.301444243932576
+        instrumentName: FactSet Research Systems
+        placementDate: 2024-01-25
+        account: Client:/folder1/testing.acct
+      properties:
+        placementDate:
+          description: Placement date which is in the format YYYY-MM-DD
+          example: 2024-01-25
+          type: string
+        transactionId:
+          description: Unique Id of the placement
+          example: P123
+          maxLength: 252
+          minLength: 0
+          type: string
+        parentId:
+          description: transactionId of the order which spawned this placement
+          example: O_FDS_012424_113
+          maxLength: 32
+          minLength: 0
+          nullable: true
+          type: string
+        orderId:
+          description: orderId of the order related to this placement
+          example: O123
+          maxLength: 32
+          minLength: 0
+          nullable: true
+          type: string
+        transactionStatus:
+          description: Status of the Placement
+          enum:
+          - placed
+          - partialFilled
+          - filled
+          - expired
+          - cancelled
+          - rejected
+          type: string
+        orderType:
+          description: Order type indicating the price type of the Placement
+          enum:
+          - market
+          - limit
+          - stopLimit
+          - stop
+          type: string
+        limitPrice:
+          description: Price related to limit and stopLimit order types
+          format: double
+          type: number
+        stopPrice:
+          description: Price related to stop and stopLimit order types
+          format: double
+          type: number
+        tif:
+          description: Time In Force of the Placement
+          enum:
+          - goodTilCancel
+          - goodTilDate
+          - day
+          - week
+          type: string
+        tifDate:
+          description: Time In Force date for goodTilDate placements in YYYY-MM-DD
+            format
+          example: 2024-02-21
+          nullable: true
+          type: string
+        settlementType:
+          description: Indicates placement settlement period
+          enum:
+          - regular
+          - cash
+          - nextDay
+          - tPlus2
+          - tPlus3
+          - tPlus4
+          - future
+          - whenIssued
+          - sellersOption
+          - tPlus5
+          type: string
+        settlementDate:
+          description: Settlement date in YYYY-MM-DD format
+          example: 2024-03-11
+          nullable: true
+          type: string
+        account:
+          description: Path of the account
+          example: Client:/folder1/testing.acct
+          type: string
+        symbol:
+          description: Symbol corresponding to the traded instrument
+          example: FDS-USA
+          maxLength: 32
+          minLength: 0
+          type: string
+        instrumentName:
+          description: Name or description of the traded instrument
+          example: FactSet Research Systems
+          maxLength: 32
+          minLength: 0
+          type: string
+        side:
+          description: Side of the order
+          enum:
+          - buy
+          - buyCover
+          - sell
+          - sellShort
+          type: string
+        unitType:
+          description: Unit type of the order. Indicates if the trade is driven by
+            quantity or value
+          enum:
+          - quantity
+          - value
+          type: string
+        transactionLeaves:
+          description: Shares that have been ordered and not executed
+          format: double
+          nullable: true
+          type: number
+        quantity:
+          description: Quantity of the instrument traded
+          format: double
+          type: number
+        gross:
+          description: Cash value of the transaction
+          format: double
+          type: number
+        price:
+          description: The transaction price
+          format: double
+          nullable: true
+          type: number
+        currency:
+          description: The iso currency code of cash valued fields, Net Amount and
+            Gross Amount
+          example: USD
+          maxLength: 3
+          minLength: 0
+          type: string
+        complianceStatus:
+          description: Compliance check status
+          enum:
+          - unchecked
+          - pass
+          - fail
+          type: string
+        addedDateTime:
+          description: Date and time expressed in UTC when the transaction was first
+            added in the format YYYY-MM-DDTHH:MM:SS.FFF
+          example: 2024-01-25T09:30:23.235
+          nullable: true
+          type: string
+        updatedDateTime:
+          description: Date and time expressed in UTC when the transaction was last
+            updated in the format YYYY-MM-DDTHH:MM:SS.FFF
+          example: 2024-01-25T09:30:23.235
+          nullable: true
+          type: string
+        additionalFields:
+          description: List of additional fields which can be used for dynamically
+            populating other ofdb fields
+          items:
+            $ref: '#/components/schemas/AdditionalField'
+          nullable: true
+          type: array
+      required:
+      - account
+      - currency
+      - gross
+      - instrumentName
+      - placementDate
+      - quantity
+      - side
+      - symbol
+      - transactionId
+      - transactionStatus
+      - unitType
+      type: object
+    Execution:
+      description: Execution transaction attributes
+      example:
+        symbol: FDS-USA
+        additionalFields:
+        - name: name
+          type: string
+          value: value
+        - name: name
+          type: string
+          value: value
+        orderId: O123
+        exchangeFee: 9.369310271410669
+        foreignExchangeRate: 1.4894159
+        complianceStatus: unchecked
+        transactionLeaves: 8.762042012749001
+        localTax: 4.965218492984954
+        brokerFee: 9.965781217890562
+        localFee: 5.025004791520295
+        unitType: quantity
+        price: 3.5571952270680973
+        commission: 7.457744773683766
+        currency: USD
+        net: 1.2315135367772556
+        clearingCommission: 1.1730742509559433
+        side: buy
+        quantity: 9.018348186070783
+        custodian: custodian
+        gross: 6.438423552598547
+        transactionStatus: executed
+        accruedInterest: 6.84685269835264
+        tradeDate: 2024-01-25
+        settlementDate: 2024-03-11
+        broker: broker
+        transactionId: E456
+        parentId: P123
+        settlementValue: 1.0246457001441578
+        updatedDateTime: 2024-01-25T09:30:23.235
+        miscellaneousFee: 6.683562403749608
+        addedDateTime: 2024-01-25T09:30:23.235
+        instrumentName: FactSet Research Systems
+        settlementCurrency: EUR
+        account: Client:/folder1/testing.acct
+      properties:
+        tradeDate:
+          description: Trade date which is in the format YYYY-MM-DD
+          example: 2024-01-25
+          type: string
+        transactionId:
+          description: Unique Id of the execution
+          example: E456
+          maxLength: 252
+          minLength: 0
+          type: string
+        parentId:
+          description: transactionId of the placement which spawned this execution
+          example: P123
+          maxLength: 32
+          minLength: 0
+          nullable: true
+          type: string
+        orderId:
+          description: orderId of the order related to this execution
+          example: O123
+          maxLength: 32
+          minLength: 0
+          nullable: true
+          type: string
+        transactionStatus:
+          description: Status of the Execution
+          enum:
+          - executed
+          - booked
+          - cancelled
+          type: string
         net:
-          description: Cash value of the transaction, net of brokerage costs.
+          description: Cash value of the transaction, net of brokerage costs
           format: double
           type: number
         settlementDate:
           description: Settlement date in YYYY-MM-DD format
+          example: 2024-03-11
           type: string
-        settlementCurrencyISO:
-          description: Currency code for Settlement Value
+        settlementCurrency:
+          description: The iso currency code of the Settlement Value
+          example: EUR
           maxLength: 3
           minLength: 0
           type: string
@@ -260,89 +768,100 @@ components:
           format: double
           type: number
         foreignExchangeRate:
-          description: FX rate to convert the net, gross fields to reporting currency.
+          description: FX rate to convert the net, gross fields to reporting currency
           format: float
+          nullable: true
           type: number
         broker:
-          description: Execution broker id.
+          description: Execution broker id
           maxLength: 32
           minLength: 0
+          nullable: true
           type: string
         custodian:
-          description: Execution custodian Id.
+          description: Execution custodian Id
           maxLength: 32
           minLength: 0
+          nullable: true
           type: string
         accruedInterest:
-          description: Execution accrued interest.
+          description: Execution accrued interest
           format: double
+          nullable: true
           type: number
         commission:
-          description: Execution commission value.
+          description: Execution commission value
           format: double
+          nullable: true
           type: number
         clearingCommission:
-          description: Execution clearing commission value.
+          description: Execution clearing commission value
           format: double
+          nullable: true
           type: number
         localTax:
-          description: Execution local tax value.
+          description: Execution local tax value
           format: double
+          nullable: true
           type: number
         localFee:
-          description: Execution local fee value.
+          description: Execution local fee value
           format: double
+          nullable: true
           type: number
         brokerFee:
-          description: Execution broker fee value.
+          description: Execution broker fee value
           format: double
+          nullable: true
           type: number
         exchangeFee:
-          description: Execution exchange fee value.
+          description: Execution exchange fee value
           format: double
+          nullable: true
           type: number
         miscellaneousFee:
-          description: Execution miscellaneous fee value.
+          description: Execution miscellaneous fee value
           format: double
-          type: number
-        transactionId:
-          description: Unique Id for the transaction
-          maxLength: 252
-          minLength: 0
-          type: string
-        orderId:
-          description: Unique Id of the order which originated the record
-          maxLength: 32
-          minLength: 0
           nullable: true
-          type: string
-        portfolio:
-          description: 'Path of the portfolio (Ex: Client:/folder1/testing.ofdb)'
+          type: number
+        account:
+          description: Path of the account
+          example: Client:/folder1/testing.acct
           type: string
         symbol:
-          description: Symbol corresponding to the traded instrument.
+          description: Symbol corresponding to the traded instrument
+          example: FDS-USA
           maxLength: 32
           minLength: 0
           type: string
-        description:
-          description: Description
+        instrumentName:
+          description: Name or description of the traded instrument
+          example: FactSet Research Systems
           maxLength: 32
           minLength: 0
           type: string
-        tradeType:
-          description: "Trade type could be any of the following values BL, BC, SL,\
-            \ SS.\r\nwhich stands for Buy Long, Buy to cover, Sell Long and Sell Short\
-            \ respectively."
+        side:
+          description: Side of the order
+          enum:
+          - buy
+          - buyCover
+          - sell
+          - sellShort
           type: string
         unitType:
-          description: Unit type could be one of Quantity or Value.
+          description: Unit type of the order. Indicates if the trade is driven by
+            quantity or value
+          enum:
+          - quantity
+          - value
           type: string
         transactionLeaves:
           description: Shares that have been ordered and not executed
           format: double
+          nullable: true
           type: number
         quantity:
-          description: Quantity of the instrument traded.
+          description: Quantity of the instrument traded
           format: double
           type: number
         gross:
@@ -352,517 +871,520 @@ components:
         price:
           description: The transaction price
           format: double
+          nullable: true
           type: number
-        currencyISO:
-          description: The currency code of cash valued fields, Net Amount and Gross
-            Amount.
+        currency:
+          description: The iso currency code of cash valued fields, Net Amount and
+            Gross Amount
+          example: USD
           maxLength: 3
           minLength: 0
           type: string
-        tradeDate:
-          description: Trade date which is in the format YYYY-MM-DD
+        complianceStatus:
+          description: Compliance check status
+          enum:
+          - unchecked
+          - pass
+          - fail
           type: string
         addedDateTime:
           description: Date and time expressed in UTC when the transaction was first
             added in the format YYYY-MM-DDTHH:MM:SS.FFF
+          example: 2024-01-25T09:30:23.235
+          nullable: true
           type: string
         updatedDateTime:
           description: Date and time expressed in UTC when the transaction was last
             updated in the format YYYY-MM-DDTHH:MM:SS.FFF
+          example: 2024-01-25T09:30:23.235
+          nullable: true
           type: string
-        entity:
-          readOnly: true
-          type: string
-        status:
-          readOnly: true
-          type: string
+        additionalFields:
+          description: List of additional fields which can be used for dynamically
+            populating other ofdb fields
+          items:
+            $ref: '#/components/schemas/AdditionalField'
+          nullable: true
+          type: array
       required:
-      - currencyISO
-      - description
+      - account
+      - currency
       - gross
+      - instrumentName
       - net
-      - portfolio
       - quantity
-      - settlementCurrencyISO
+      - settlementCurrency
       - settlementDate
       - settlementValue
+      - side
       - symbol
       - tradeDate
-      - tradeType
       - transactionId
       - transactionStatus
       - unitType
       type: object
-    PlacementParameters:
-      example:
-        symbol: symbol
-        tifDate: tifDate
-        currencyISO: currencyISO
-        quantity: 1.1730742509559433
-        gross: 4.965218492984954
-        transactionStatus: transactionStatus
-        orderId: orderId
-        description: description
-        transactionLeaves: 7.457744773683766
-        tradeDate: tradeDate
-        parentId: parentId
-        transactionId: transactionId
-        updatedDateTime: updatedDateTime
-        tif: tif
-        unitType: unitType
-        addedDateTime: addedDateTime
-        instructionType: instructionType
-        portfolio: portfolio
-        price: 5.025004791520295
-        instructionValue: 6.84685269835264
-        tradeType: tradeType
-        entity: entity
-        status: status
-      properties:
-        transactionStatus:
-          description: 'Transaction Status of a Placement could be any of the following
-            values: Placed, PartialFilled, Filled, Expired, Cancelled, Rejected.'
-          type: string
-        parentId:
-          description: Unique Id of the order which spawned this placement
-          maxLength: 32
-          minLength: 0
-          nullable: true
-          type: string
-        instructionType:
-          description: 'Instruction Type of a Placement could be any of the following
-            values: Market, Limit, Stop'
-          type: string
-        instructionValue:
-          description: InstructionValue for a Placement
-          format: double
-          type: number
-        tif:
-          description: 'TIF of an Order could be any of the following values: GTC,
-            GTD, D, W'
-          type: string
-        tifDate:
-          description: TIF date which is in the format YYYY-MM-DD
-          type: string
-        transactionId:
-          description: Unique Id for the transaction
-          maxLength: 252
-          minLength: 0
-          type: string
-        orderId:
-          description: Unique Id of the order which originated the record
-          maxLength: 32
-          minLength: 0
-          nullable: true
-          type: string
-        portfolio:
-          description: 'Path of the portfolio (Ex: Client:/folder1/testing.ofdb)'
-          type: string
-        symbol:
-          description: Symbol corresponding to the traded instrument.
-          maxLength: 32
-          minLength: 0
-          type: string
-        description:
-          description: Description
-          maxLength: 32
-          minLength: 0
-          type: string
-        tradeType:
-          description: "Trade type could be any of the following values BL, BC, SL,\
-            \ SS.\r\nwhich stands for Buy Long, Buy to cover, Sell Long and Sell Short\
-            \ respectively."
-          type: string
-        unitType:
-          description: Unit type could be one of Quantity or Value.
-          type: string
-        transactionLeaves:
-          description: Shares that have been ordered and not executed
-          format: double
-          type: number
-        quantity:
-          description: Quantity of the instrument traded.
-          format: double
-          type: number
-        gross:
-          description: Cash value of the transaction
-          format: double
-          type: number
-        price:
-          description: The transaction price
-          format: double
-          type: number
-        currencyISO:
-          description: The currency code of cash valued fields, Net Amount and Gross
-            Amount.
-          maxLength: 3
-          minLength: 0
-          type: string
-        tradeDate:
-          description: Trade date which is in the format YYYY-MM-DD
-          type: string
-        addedDateTime:
-          description: Date and time expressed in UTC when the transaction was first
-            added in the format YYYY-MM-DDTHH:MM:SS.FFF
-          type: string
-        updatedDateTime:
-          description: Date and time expressed in UTC when the transaction was last
-            updated in the format YYYY-MM-DDTHH:MM:SS.FFF
-          type: string
-        entity:
-          readOnly: true
-          type: string
-        status:
-          readOnly: true
-          type: string
-      required:
-      - currencyISO
-      - description
-      - gross
-      - portfolio
-      - quantity
-      - symbol
-      - tradeDate
-      - tradeType
-      - transactionId
-      - transactionStatus
-      - unitType
-      type: object
-    OrderParameters:
-      example:
-        symbol: symbol
-        currencyISO: currencyISO
-        orderId: orderId
-        description: description
-        transactionLeaves: 9.369310271410669
-        fundTeam: fundTeam
-        tif: tif
-        unitType: unitType
-        portfolio: portfolio
-        price: 9.018348186070783
-        tradeType: tradeType
-        tifDate: tifDate
-        quantity: 6.683562403749608
-        gross: 8.762042012749001
-        transactionStatus: transactionStatus
-        trader: trader
-        tradeDate: tradeDate
-        transactionId: transactionId
-        updatedDateTime: updatedDateTime
-        tradingTeam: tradingTeam
-        addedDateTime: addedDateTime
-        instructionType: instructionType
-        instructionValue: 9.965781217890562
-        entity: entity
-        status: status
-      properties:
-        transactionStatus:
-          description: 'Transaction Status of an Order could be any of the following
-            values: PendingApproval, Open, Placed, PartialFilled, Filled, Expired,
-            Cancelled, Rejected, Booked.'
-          type: string
-        instructionType:
-          description: 'Instruction Type of an Order could be any of the following
-            values: Market, Limit, Stop'
-          type: string
-        instructionValue:
-          description: Instruction Value of an Order
-          format: double
-          type: number
-        tif:
-          description: 'TIF of an Order could be any of the following values: GTC,
-            GTD, D, W'
-          type: string
-        tifDate:
-          description: TIF date which is in the format YYYY-MM-DD
-          type: string
-        fundTeam:
-          description: Fund Team of an Order
-          maxLength: 32
-          minLength: 0
-          type: string
-        tradingTeam:
-          description: Trading Team of an Order
-          maxLength: 32
-          minLength: 0
-          type: string
-        trader:
-          description: User Id of assigned trader.
-          maxLength: 32
-          minLength: 0
-          type: string
-        transactionId:
-          description: Unique Id for the transaction
-          maxLength: 252
-          minLength: 0
-          type: string
-        orderId:
-          description: Unique Id of the order which originated the record
-          maxLength: 32
-          minLength: 0
-          nullable: true
-          type: string
-        portfolio:
-          description: 'Path of the portfolio (Ex: Client:/folder1/testing.ofdb)'
-          type: string
-        symbol:
-          description: Symbol corresponding to the traded instrument.
-          maxLength: 32
-          minLength: 0
-          type: string
-        description:
-          description: Description
-          maxLength: 32
-          minLength: 0
-          type: string
-        tradeType:
-          description: "Trade type could be any of the following values BL, BC, SL,\
-            \ SS.\r\nwhich stands for Buy Long, Buy to cover, Sell Long and Sell Short\
-            \ respectively."
-          type: string
-        unitType:
-          description: Unit type could be one of Quantity or Value.
-          type: string
-        transactionLeaves:
-          description: Shares that have been ordered and not executed
-          format: double
-          type: number
-        quantity:
-          description: Quantity of the instrument traded.
-          format: double
-          type: number
-        gross:
-          description: Cash value of the transaction
-          format: double
-          type: number
-        price:
-          description: The transaction price
-          format: double
-          type: number
-        currencyISO:
-          description: The currency code of cash valued fields, Net Amount and Gross
-            Amount.
-          maxLength: 3
-          minLength: 0
-          type: string
-        tradeDate:
-          description: Trade date which is in the format YYYY-MM-DD
-          type: string
-        addedDateTime:
-          description: Date and time expressed in UTC when the transaction was first
-            added in the format YYYY-MM-DDTHH:MM:SS.FFF
-          type: string
-        updatedDateTime:
-          description: Date and time expressed in UTC when the transaction was last
-            updated in the format YYYY-MM-DDTHH:MM:SS.FFF
-          type: string
-        entity:
-          readOnly: true
-          type: string
-        status:
-          readOnly: true
-          type: string
-      required:
-      - currencyISO
-      - description
-      - gross
-      - portfolio
-      - quantity
-      - symbol
-      - tradeDate
-      - tradeType
-      - transactionId
-      - transactionStatus
-      - unitType
-      type: object
-    Transactions:
+    DsotmParameters:
+      description: Container object for transaction records
       example:
         executions:
-        - symbol: symbol
-          currencyISO: currencyISO
-          orderId: orderId
-          exchangeFee: 2.027123023002322
-          foreignExchangeRate: 1.4658129
-          description: description
-          transactionLeaves: 7.386281948385884
-          localTax: 7.061401241503109
-          brokerFee: 3.616076749251911
-          localFee: 9.301444243932576
-          unitType: unitType
-          portfolio: portfolio
-          price: 1.4894159098541704
-          commission: 5.637376656633329
-          net: 0.8008281904610115
-          tradeType: tradeType
-          clearingCommission: 2.3021358869347655
-          quantity: 1.2315135367772556
+        - symbol: FDS-USA
+          additionalFields:
+          - name: name
+            type: string
+            value: value
+          - name: name
+            type: string
+            value: value
+          orderId: O123
+          exchangeFee: 9.369310271410669
+          foreignExchangeRate: 1.4894159
+          complianceStatus: unchecked
+          transactionLeaves: 8.762042012749001
+          localTax: 4.965218492984954
+          brokerFee: 9.965781217890562
+          localFee: 5.025004791520295
+          unitType: quantity
+          price: 3.5571952270680973
+          commission: 7.457744773683766
+          currency: USD
+          net: 1.2315135367772556
+          clearingCommission: 1.1730742509559433
+          side: buy
+          quantity: 9.018348186070783
           custodian: custodian
-          gross: 1.0246457001441578
-          transactionStatus: transactionStatus
-          settlementCurrencyISO: settlementCurrencyISO
-          accruedInterest: 5.962133916683182
-          settlementDate: settlementDate
-          tradeDate: tradeDate
+          gross: 6.438423552598547
+          transactionStatus: executed
+          accruedInterest: 6.84685269835264
+          tradeDate: 2024-01-25
+          settlementDate: 2024-03-11
           broker: broker
-          parentId: parentId
-          transactionId: transactionId
-          settlementValue: 6.027456183070403
-          updatedDateTime: updatedDateTime
-          miscellaneousFee: 4.145608029883936
-          addedDateTime: addedDateTime
-          entity: entity
-          status: status
-        - symbol: symbol
-          currencyISO: currencyISO
-          orderId: orderId
-          exchangeFee: 2.027123023002322
-          foreignExchangeRate: 1.4658129
-          description: description
-          transactionLeaves: 7.386281948385884
-          localTax: 7.061401241503109
-          brokerFee: 3.616076749251911
-          localFee: 9.301444243932576
-          unitType: unitType
-          portfolio: portfolio
-          price: 1.4894159098541704
-          commission: 5.637376656633329
-          net: 0.8008281904610115
-          tradeType: tradeType
-          clearingCommission: 2.3021358869347655
-          quantity: 1.2315135367772556
+          transactionId: E456
+          parentId: P123
+          settlementValue: 1.0246457001441578
+          updatedDateTime: 2024-01-25T09:30:23.235
+          miscellaneousFee: 6.683562403749608
+          addedDateTime: 2024-01-25T09:30:23.235
+          instrumentName: FactSet Research Systems
+          settlementCurrency: EUR
+          account: Client:/folder1/testing.acct
+        - symbol: FDS-USA
+          additionalFields:
+          - name: name
+            type: string
+            value: value
+          - name: name
+            type: string
+            value: value
+          orderId: O123
+          exchangeFee: 9.369310271410669
+          foreignExchangeRate: 1.4894159
+          complianceStatus: unchecked
+          transactionLeaves: 8.762042012749001
+          localTax: 4.965218492984954
+          brokerFee: 9.965781217890562
+          localFee: 5.025004791520295
+          unitType: quantity
+          price: 3.5571952270680973
+          commission: 7.457744773683766
+          currency: USD
+          net: 1.2315135367772556
+          clearingCommission: 1.1730742509559433
+          side: buy
+          quantity: 9.018348186070783
           custodian: custodian
-          gross: 1.0246457001441578
-          transactionStatus: transactionStatus
-          settlementCurrencyISO: settlementCurrencyISO
-          accruedInterest: 5.962133916683182
-          settlementDate: settlementDate
-          tradeDate: tradeDate
+          gross: 6.438423552598547
+          transactionStatus: executed
+          accruedInterest: 6.84685269835264
+          tradeDate: 2024-01-25
+          settlementDate: 2024-03-11
           broker: broker
-          parentId: parentId
-          transactionId: transactionId
-          settlementValue: 6.027456183070403
-          updatedDateTime: updatedDateTime
-          miscellaneousFee: 4.145608029883936
-          addedDateTime: addedDateTime
-          entity: entity
-          status: status
-        placements:
-        - symbol: symbol
-          tifDate: tifDate
-          currencyISO: currencyISO
-          quantity: 1.1730742509559433
-          gross: 4.965218492984954
-          transactionStatus: transactionStatus
-          orderId: orderId
-          description: description
-          transactionLeaves: 7.457744773683766
-          tradeDate: tradeDate
-          parentId: parentId
-          transactionId: transactionId
-          updatedDateTime: updatedDateTime
-          tif: tif
-          unitType: unitType
-          addedDateTime: addedDateTime
-          instructionType: instructionType
-          portfolio: portfolio
-          price: 5.025004791520295
-          instructionValue: 6.84685269835264
-          tradeType: tradeType
-          entity: entity
-          status: status
-        - symbol: symbol
-          tifDate: tifDate
-          currencyISO: currencyISO
-          quantity: 1.1730742509559433
-          gross: 4.965218492984954
-          transactionStatus: transactionStatus
-          orderId: orderId
-          description: description
-          transactionLeaves: 7.457744773683766
-          tradeDate: tradeDate
-          parentId: parentId
-          transactionId: transactionId
-          updatedDateTime: updatedDateTime
-          tif: tif
-          unitType: unitType
-          addedDateTime: addedDateTime
-          instructionType: instructionType
-          portfolio: portfolio
-          price: 5.025004791520295
-          instructionValue: 6.84685269835264
-          tradeType: tradeType
-          entity: entity
-          status: status
+          transactionId: E456
+          parentId: P123
+          settlementValue: 1.0246457001441578
+          updatedDateTime: 2024-01-25T09:30:23.235
+          miscellaneousFee: 6.683562403749608
+          addedDateTime: 2024-01-25T09:30:23.235
+          instrumentName: FactSet Research Systems
+          settlementCurrency: EUR
+          account: Client:/folder1/testing.acct
         orders:
-        - symbol: symbol
-          currencyISO: currencyISO
-          orderId: orderId
-          description: description
-          transactionLeaves: 9.369310271410669
-          fundTeam: fundTeam
-          tif: tif
-          unitType: unitType
-          portfolio: portfolio
-          price: 9.018348186070783
-          tradeType: tradeType
-          tifDate: tifDate
-          quantity: 6.683562403749608
-          gross: 8.762042012749001
-          transactionStatus: transactionStatus
-          trader: trader
-          tradeDate: tradeDate
-          transactionId: transactionId
-          updatedDateTime: updatedDateTime
-          tradingTeam: tradingTeam
-          addedDateTime: addedDateTime
-          instructionType: instructionType
-          instructionValue: 9.965781217890562
-          entity: entity
-          status: status
-        - symbol: symbol
-          currencyISO: currencyISO
-          orderId: orderId
-          description: description
-          transactionLeaves: 9.369310271410669
-          fundTeam: fundTeam
-          tif: tif
-          unitType: unitType
-          portfolio: portfolio
-          price: 9.018348186070783
-          tradeType: tradeType
-          tifDate: tifDate
-          quantity: 6.683562403749608
-          gross: 8.762042012749001
-          transactionStatus: transactionStatus
-          trader: trader
-          tradeDate: tradeDate
-          transactionId: transactionId
-          updatedDateTime: updatedDateTime
-          tradingTeam: tradingTeam
-          addedDateTime: addedDateTime
-          instructionType: instructionType
-          instructionValue: 9.965781217890562
-          entity: entity
-          status: status
+        - orderType: market
+          symbol: FDS-USA
+          additionalFields:
+          - name: name
+            type: string
+            value: value
+          - name: name
+            type: string
+            value: value
+          orderId: O123
+          complianceStatus: unchecked
+          transactionLeaves: 1.4658129805029452
+          fundTeam: T1
+          tif: goodTilCancel
+          unitType: quantity
+          price: 2.3021358869347655
+          currency: USD
+          settlementType: regular
+          tifDate: 2024-02-21
+          side: buy
+          quantity: 5.962133916683182
+          limitPrice: 0.8008281904610115
+          gross: 5.637376656633329
+          transactionStatus: pendingApproval
+          trader: msmith
+          settlementDate: 2024-03-11
+          transactionId: O_FDS_012424_113
+          updatedDateTime: 2024-01-25T09:30:23.235
+          tradingTeam: T2
+          addedDateTime: 2024-01-25T09:30:23.235
+          stopPrice: 6.027456183070403
+          instrumentName: FactSet Research Systems
+          orderDate: 2024-01-25
+          account: Client:/folder1/testing.acct
+        - orderType: market
+          symbol: FDS-USA
+          additionalFields:
+          - name: name
+            type: string
+            value: value
+          - name: name
+            type: string
+            value: value
+          orderId: O123
+          complianceStatus: unchecked
+          transactionLeaves: 1.4658129805029452
+          fundTeam: T1
+          tif: goodTilCancel
+          unitType: quantity
+          price: 2.3021358869347655
+          currency: USD
+          settlementType: regular
+          tifDate: 2024-02-21
+          side: buy
+          quantity: 5.962133916683182
+          limitPrice: 0.8008281904610115
+          gross: 5.637376656633329
+          transactionStatus: pendingApproval
+          trader: msmith
+          settlementDate: 2024-03-11
+          transactionId: O_FDS_012424_113
+          updatedDateTime: 2024-01-25T09:30:23.235
+          tradingTeam: T2
+          addedDateTime: 2024-01-25T09:30:23.235
+          stopPrice: 6.027456183070403
+          instrumentName: FactSet Research Systems
+          orderDate: 2024-01-25
+          account: Client:/folder1/testing.acct
+        placements:
+        - orderType: market
+          symbol: FDS-USA
+          additionalFields:
+          - name: name
+            type: string
+            value: value
+          - name: name
+            type: string
+            value: value
+          orderId: O123
+          complianceStatus: unchecked
+          transactionLeaves: 3.616076749251911
+          tif: goodTilCancel
+          unitType: quantity
+          price: 7.386281948385884
+          currency: USD
+          settlementType: regular
+          tifDate: 2024-02-21
+          side: buy
+          quantity: 2.027123023002322
+          limitPrice: 7.061401241503109
+          gross: 4.145608029883936
+          transactionStatus: placed
+          settlementDate: 2024-03-11
+          transactionId: P123
+          parentId: O_FDS_012424_113
+          updatedDateTime: 2024-01-25T09:30:23.235
+          addedDateTime: 2024-01-25T09:30:23.235
+          stopPrice: 9.301444243932576
+          instrumentName: FactSet Research Systems
+          placementDate: 2024-01-25
+          account: Client:/folder1/testing.acct
+        - orderType: market
+          symbol: FDS-USA
+          additionalFields:
+          - name: name
+            type: string
+            value: value
+          - name: name
+            type: string
+            value: value
+          orderId: O123
+          complianceStatus: unchecked
+          transactionLeaves: 3.616076749251911
+          tif: goodTilCancel
+          unitType: quantity
+          price: 7.386281948385884
+          currency: USD
+          settlementType: regular
+          tifDate: 2024-02-21
+          side: buy
+          quantity: 2.027123023002322
+          limitPrice: 7.061401241503109
+          gross: 4.145608029883936
+          transactionStatus: placed
+          settlementDate: 2024-03-11
+          transactionId: P123
+          parentId: O_FDS_012424_113
+          updatedDateTime: 2024-01-25T09:30:23.235
+          addedDateTime: 2024-01-25T09:30:23.235
+          stopPrice: 9.301444243932576
+          instrumentName: FactSet Research Systems
+          placementDate: 2024-01-25
+          account: Client:/folder1/testing.acct
       properties:
-        executions:
-          description: List of executions
+        orders:
+          description: List of orders
           items:
-            $ref: '#/components/schemas/ExecutionParameters'
+            $ref: '#/components/schemas/Order'
           nullable: true
           type: array
         placements:
           description: List of placements
           items:
-            $ref: '#/components/schemas/PlacementParameters'
+            $ref: '#/components/schemas/Placement'
           nullable: true
           type: array
-        orders:
-          description: List of orders
+        executions:
+          description: List of executions
           items:
-            $ref: '#/components/schemas/OrderParameters'
+            $ref: '#/components/schemas/Execution'
           nullable: true
           type: array
+      type: object
+    DsotmParametersRoot:
+      description: Top-level data container object
+      example:
+        data:
+          executions:
+          - symbol: FDS-USA
+            additionalFields:
+            - name: name
+              type: string
+              value: value
+            - name: name
+              type: string
+              value: value
+            orderId: O123
+            exchangeFee: 9.369310271410669
+            foreignExchangeRate: 1.4894159
+            complianceStatus: unchecked
+            transactionLeaves: 8.762042012749001
+            localTax: 4.965218492984954
+            brokerFee: 9.965781217890562
+            localFee: 5.025004791520295
+            unitType: quantity
+            price: 3.5571952270680973
+            commission: 7.457744773683766
+            currency: USD
+            net: 1.2315135367772556
+            clearingCommission: 1.1730742509559433
+            side: buy
+            quantity: 9.018348186070783
+            custodian: custodian
+            gross: 6.438423552598547
+            transactionStatus: executed
+            accruedInterest: 6.84685269835264
+            tradeDate: 2024-01-25
+            settlementDate: 2024-03-11
+            broker: broker
+            transactionId: E456
+            parentId: P123
+            settlementValue: 1.0246457001441578
+            updatedDateTime: 2024-01-25T09:30:23.235
+            miscellaneousFee: 6.683562403749608
+            addedDateTime: 2024-01-25T09:30:23.235
+            instrumentName: FactSet Research Systems
+            settlementCurrency: EUR
+            account: Client:/folder1/testing.acct
+          - symbol: FDS-USA
+            additionalFields:
+            - name: name
+              type: string
+              value: value
+            - name: name
+              type: string
+              value: value
+            orderId: O123
+            exchangeFee: 9.369310271410669
+            foreignExchangeRate: 1.4894159
+            complianceStatus: unchecked
+            transactionLeaves: 8.762042012749001
+            localTax: 4.965218492984954
+            brokerFee: 9.965781217890562
+            localFee: 5.025004791520295
+            unitType: quantity
+            price: 3.5571952270680973
+            commission: 7.457744773683766
+            currency: USD
+            net: 1.2315135367772556
+            clearingCommission: 1.1730742509559433
+            side: buy
+            quantity: 9.018348186070783
+            custodian: custodian
+            gross: 6.438423552598547
+            transactionStatus: executed
+            accruedInterest: 6.84685269835264
+            tradeDate: 2024-01-25
+            settlementDate: 2024-03-11
+            broker: broker
+            transactionId: E456
+            parentId: P123
+            settlementValue: 1.0246457001441578
+            updatedDateTime: 2024-01-25T09:30:23.235
+            miscellaneousFee: 6.683562403749608
+            addedDateTime: 2024-01-25T09:30:23.235
+            instrumentName: FactSet Research Systems
+            settlementCurrency: EUR
+            account: Client:/folder1/testing.acct
+          orders:
+          - orderType: market
+            symbol: FDS-USA
+            additionalFields:
+            - name: name
+              type: string
+              value: value
+            - name: name
+              type: string
+              value: value
+            orderId: O123
+            complianceStatus: unchecked
+            transactionLeaves: 1.4658129805029452
+            fundTeam: T1
+            tif: goodTilCancel
+            unitType: quantity
+            price: 2.3021358869347655
+            currency: USD
+            settlementType: regular
+            tifDate: 2024-02-21
+            side: buy
+            quantity: 5.962133916683182
+            limitPrice: 0.8008281904610115
+            gross: 5.637376656633329
+            transactionStatus: pendingApproval
+            trader: msmith
+            settlementDate: 2024-03-11
+            transactionId: O_FDS_012424_113
+            updatedDateTime: 2024-01-25T09:30:23.235
+            tradingTeam: T2
+            addedDateTime: 2024-01-25T09:30:23.235
+            stopPrice: 6.027456183070403
+            instrumentName: FactSet Research Systems
+            orderDate: 2024-01-25
+            account: Client:/folder1/testing.acct
+          - orderType: market
+            symbol: FDS-USA
+            additionalFields:
+            - name: name
+              type: string
+              value: value
+            - name: name
+              type: string
+              value: value
+            orderId: O123
+            complianceStatus: unchecked
+            transactionLeaves: 1.4658129805029452
+            fundTeam: T1
+            tif: goodTilCancel
+            unitType: quantity
+            price: 2.3021358869347655
+            currency: USD
+            settlementType: regular
+            tifDate: 2024-02-21
+            side: buy
+            quantity: 5.962133916683182
+            limitPrice: 0.8008281904610115
+            gross: 5.637376656633329
+            transactionStatus: pendingApproval
+            trader: msmith
+            settlementDate: 2024-03-11
+            transactionId: O_FDS_012424_113
+            updatedDateTime: 2024-01-25T09:30:23.235
+            tradingTeam: T2
+            addedDateTime: 2024-01-25T09:30:23.235
+            stopPrice: 6.027456183070403
+            instrumentName: FactSet Research Systems
+            orderDate: 2024-01-25
+            account: Client:/folder1/testing.acct
+          placements:
+          - orderType: market
+            symbol: FDS-USA
+            additionalFields:
+            - name: name
+              type: string
+              value: value
+            - name: name
+              type: string
+              value: value
+            orderId: O123
+            complianceStatus: unchecked
+            transactionLeaves: 3.616076749251911
+            tif: goodTilCancel
+            unitType: quantity
+            price: 7.386281948385884
+            currency: USD
+            settlementType: regular
+            tifDate: 2024-02-21
+            side: buy
+            quantity: 2.027123023002322
+            limitPrice: 7.061401241503109
+            gross: 4.145608029883936
+            transactionStatus: placed
+            settlementDate: 2024-03-11
+            transactionId: P123
+            parentId: O_FDS_012424_113
+            updatedDateTime: 2024-01-25T09:30:23.235
+            addedDateTime: 2024-01-25T09:30:23.235
+            stopPrice: 9.301444243932576
+            instrumentName: FactSet Research Systems
+            placementDate: 2024-01-25
+            account: Client:/folder1/testing.acct
+          - orderType: market
+            symbol: FDS-USA
+            additionalFields:
+            - name: name
+              type: string
+              value: value
+            - name: name
+              type: string
+              value: value
+            orderId: O123
+            complianceStatus: unchecked
+            transactionLeaves: 3.616076749251911
+            tif: goodTilCancel
+            unitType: quantity
+            price: 7.386281948385884
+            currency: USD
+            settlementType: regular
+            tifDate: 2024-02-21
+            side: buy
+            quantity: 2.027123023002322
+            limitPrice: 7.061401241503109
+            gross: 4.145608029883936
+            transactionStatus: placed
+            settlementDate: 2024-03-11
+            transactionId: P123
+            parentId: O_FDS_012424_113
+            updatedDateTime: 2024-01-25T09:30:23.235
+            addedDateTime: 2024-01-25T09:30:23.235
+            stopPrice: 9.301444243932576
+            instrumentName: FactSet Research Systems
+            placementDate: 2024-01-25
+            account: Client:/folder1/testing.acct
+      properties:
+        data:
+          $ref: '#/components/schemas/DsotmParameters'
+      required:
+      - data
       type: object
     ErrorSource:
       properties:

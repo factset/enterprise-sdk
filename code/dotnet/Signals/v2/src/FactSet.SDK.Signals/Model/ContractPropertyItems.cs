@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Signals.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Signals.Model
 {
     /// <summary>
-    /// ContractPropertyItems
+    /// Information about list of items if type is array
     /// </summary>
     [DataContract(Name = "contractProperty_items")]
     public partial class ContractPropertyItems : IEquatable<ContractPropertyItems>, IValidatableObject
@@ -40,7 +40,7 @@ namespace FactSet.SDK.Signals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ContractPropertyItems" /> class.
         /// </summary>
-        /// <param name="type">type (required).</param>
+        /// <param name="type">Type of the elements contained in the list (required).</param>
         public ContractPropertyItems(string type)
         {
             // to ensure "type" is required (not null)
@@ -51,8 +51,9 @@ namespace FactSet.SDK.Signals.Model
         }
 
         /// <summary>
-        /// Gets or Sets Type
+        /// Type of the elements contained in the list
         /// </summary>
+        /// <value>Type of the elements contained in the list</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = false)]
         public string Type { get; set; }
 

@@ -65,11 +65,11 @@ public class RelevanceScoreRange implements Serializable {
   }
 
    /**
-   * Get gt
+   * A date/time string in ISO 8601 format. gt stands for greater than
    * @return gt
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A date/time string in ISO 8601 format. gt stands for greater than")
   @JsonProperty(JSON_PROPERTY_GT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -91,11 +91,11 @@ public class RelevanceScoreRange implements Serializable {
   }
 
    /**
-   * Get gte
+   * A date/time string in ISO 8601 format. gte stands for greater than or equal to
    * @return gte
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A date/time string in ISO 8601 format. gte stands for greater than or equal to")
   @JsonProperty(JSON_PROPERTY_GTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -117,11 +117,11 @@ public class RelevanceScoreRange implements Serializable {
   }
 
    /**
-   * Get lt
+   * A date/time string in ISO 8601 format. lt stands for less than
    * @return lt
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A date/time string in ISO 8601 format. lt stands for less than")
   @JsonProperty(JSON_PROPERTY_LT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -143,11 +143,11 @@ public class RelevanceScoreRange implements Serializable {
   }
 
    /**
-   * Get lte
+   * A date/time string in ISO 8601 format. lte stands for less than or equal to
    * @return lte
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A date/time string in ISO 8601 format. lte stands for less than or equal to")
   @JsonProperty(JSON_PROPERTY_LTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -69,7 +69,7 @@ public class ContactsRelationshipsApi {
 
   /**
    * Create a relationship type
-   * 
+   * Create a contact relationship type with given name
    * @param relationshipSaveDto RelationshipSaveDto object to save (optional)
    * @return NewItemDto
    * @throws ApiException if fails to make API call
@@ -87,7 +87,7 @@ public class ContactsRelationshipsApi {
 
   /**
    * Create a relationship type
-   * 
+   * Create a contact relationship type with given name
    * @param relationshipSaveDto RelationshipSaveDto object to save (optional)
    * @return ApiResponse&lt;NewItemDto&gt;
    * @throws ApiException if fails to make API call
@@ -103,7 +103,7 @@ public class ContactsRelationshipsApi {
     Object localVarPostBody = relationshipSaveDto;
     
     // create path and map variables
-    String localVarPath = "/v1/relationships";
+    String localVarPath = "/relationships";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -121,7 +121,7 @@ public class ContactsRelationshipsApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      "application/json-patch+json", "application/json", "text/json", "application/_*+json"
+      "application/json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
@@ -141,7 +141,7 @@ public class ContactsRelationshipsApi {
   }
   /**
    * Delete a relationship type
-   * 
+   * Delete a contact relationship type based on guid
    * @param relationshipId relationshipId to delete associated record (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -159,7 +159,7 @@ public class ContactsRelationshipsApi {
 
   /**
    * Delete a relationship type
-   * 
+   * Delete a contact relationship type based on guid
    * @param relationshipId relationshipId to delete associated record (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -181,7 +181,7 @@ public class ContactsRelationshipsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/relationships/{relationshipId}"
+    String localVarPath = "/relationships/{relationshipId}"
       .replaceAll("\\{" + "relationshipId" + "\\}", apiClient.escapeString(relationshipId.toString()));
 
     // query params
@@ -218,7 +218,7 @@ public class ContactsRelationshipsApi {
   }
   /**
    * Edit a relationship type
-   * 
+   * Update a contact relationship type
    * @param relationshipId relationshipId to update associated record (required)
    * @param relationshipSaveDto RelationshipSaveDto object to update (optional)
    * @throws ApiException if fails to make API call
@@ -237,7 +237,7 @@ public class ContactsRelationshipsApi {
 
   /**
    * Edit a relationship type
-   * 
+   * Update a contact relationship type
    * @param relationshipId relationshipId to update associated record (required)
    * @param relationshipSaveDto RelationshipSaveDto object to update (optional)
    * @return ApiResponse&lt;Void&gt;
@@ -260,7 +260,7 @@ public class ContactsRelationshipsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/relationships/{relationshipId}"
+    String localVarPath = "/relationships/{relationshipId}"
       .replaceAll("\\{" + "relationshipId" + "\\}", apiClient.escapeString(relationshipId.toString()));
 
     // query params
@@ -297,7 +297,7 @@ public class ContactsRelationshipsApi {
   }
   /**
    * Get list of the relationships configured in your group
-   * 
+   * Get all contact relationships configured in your group
    * @param type  (optional)
    * @return java.util.List<RelationshipDto>
    * @throws ApiException if fails to make API call
@@ -313,7 +313,7 @@ public class ContactsRelationshipsApi {
 
   /**
    * Get list of the relationships configured in your group
-   * 
+   * Get all contact relationships configured in your group
    * @param type  (optional)
    * @return ApiResponse&lt;java.util.List<RelationshipDto>&gt;
    * @throws ApiException if fails to make API call
@@ -327,7 +327,7 @@ public class ContactsRelationshipsApi {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/v1/relationships";
+    String localVarPath = "/relationships";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();

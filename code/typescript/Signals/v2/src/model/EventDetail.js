@@ -23,6 +23,7 @@ import EventMeta from './EventMeta';
 class EventDetail {
     /**
      * Constructs a new <code>EventDetail</code>.
+     * Signals event headlines plus all additional event details
      * @alias module:model/EventDetail
      * @param data {module:model/EventDetailDataItem} 
      * @param meta {module:model/EventMeta} 

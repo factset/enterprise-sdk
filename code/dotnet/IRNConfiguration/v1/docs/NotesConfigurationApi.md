@@ -1,20 +1,20 @@
 # FactSet.SDK.IRNConfiguration.Api.NotesConfigurationApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetAssignedFactSetUsers**](NotesConfigurationApi.md#getassignedfactsetusers) | **GET** /v1/users | Get all assigned FactSet users
-[**GetAuthors**](NotesConfigurationApi.md#getauthors) | **GET** /v1/authors | Get all Authors
-[**GetClientsSalesRepresentative**](NotesConfigurationApi.md#getclientssalesrepresentative) | **GET** /v1/group/client-sales-representative | 
-[**GetCustomFields**](NotesConfigurationApi.md#getcustomfields) | **GET** /v1/custom-fields | Get all Custom Fields
-[**GetGroup**](NotesConfigurationApi.md#getgroup) | **GET** /v1/group | Get Group details
-[**GetRecommendations**](NotesConfigurationApi.md#getrecommendations) | **GET** /v1/recommendations | Get all Recommendations
-[**GetSentiments**](NotesConfigurationApi.md#getsentiments) | **GET** /v1/sentiments | Get all Sentiments
-[**GetSubject**](NotesConfigurationApi.md#getsubject) | **GET** /v1/subjects/{subjectId} | Get Subject details for the given Id provided
-[**GetSubjects**](NotesConfigurationApi.md#getsubjects) | **GET** /v1/subjects | Get all Subjects
-[**GetTeam**](NotesConfigurationApi.md#getteam) | **GET** /v1/teams/{teamId} | Get Team details for the given Id provided
-[**GetTeams**](NotesConfigurationApi.md#getteams) | **GET** /v1/teams | Get all Teams
+[**GetAssignedFactSetUsers**](NotesConfigurationApi.md#getassignedfactsetusers) | **GET** /users | Get all assigned FactSet users
+[**GetAuthors**](NotesConfigurationApi.md#getauthors) | **GET** /authors | Get all Authors
+[**GetClientsSalesRepresentative**](NotesConfigurationApi.md#getclientssalesrepresentative) | **GET** /group/client-sales-representative | Get Client Sales Representative
+[**GetCustomFields**](NotesConfigurationApi.md#getcustomfields) | **GET** /custom-fields | Get all Custom Fields
+[**GetGroup**](NotesConfigurationApi.md#getgroup) | **GET** /group | Get Group details
+[**GetRecommendations**](NotesConfigurationApi.md#getrecommendations) | **GET** /recommendations | Get all Recommendations
+[**GetSentiments**](NotesConfigurationApi.md#getsentiments) | **GET** /sentiments | Get all Sentiments
+[**GetSubject**](NotesConfigurationApi.md#getsubject) | **GET** /subjects/{subjectId} | Get Subject details for the given Id provided
+[**GetSubjects**](NotesConfigurationApi.md#getsubjects) | **GET** /subjects | Get all Subjects
+[**GetTeam**](NotesConfigurationApi.md#getteam) | **GET** /teams/{teamId} | Get Team details for the given Id provided
+[**GetTeams**](NotesConfigurationApi.md#getteams) | **GET** /teams | Get all Teams
 
 
 
@@ -23,6 +23,8 @@ Method | HTTP request | Description
 > List&lt;UserConfigDto&gt; GetAssignedFactSetUsers ()
 
 Get all assigned FactSet users
+
+Get all assigned FactSet users in your group
 
 ### Example
 
@@ -116,6 +118,8 @@ This endpoint does not need any parameter.
 
 Get all Authors
 
+Get all Authors
+
 ### Example
 
 > [!IMPORTANT]
@@ -160,7 +164,7 @@ namespace Example
 
             var apiInstance = new NotesConfigurationApi(config);
 
-            var xIRNIgnorePermissions = false;  // bool? |  (optional)  (default to false)
+            var xIRNIgnorePermissions = false;  // bool? | If set to true, permissions will be ignored. Default is false. (optional)  (default to false)
 
             try
             {
@@ -183,7 +187,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xIRNIgnorePermissions** | **bool?**|  | [optional] [default to false]
+ **xIRNIgnorePermissions** | **bool?**| If set to true, permissions will be ignored. Default is false. | [optional] [default to false]
 
 ### Return type
 [**List&lt;AuthorConfigDto&gt;**](AuthorConfigDto.md)
@@ -211,7 +215,9 @@ Name | Type | Description  | Notes
 # **GetClientsSalesRepresentative**
 > ClientSalesRepresentativeDto GetClientsSalesRepresentative ()
 
+Get Client Sales Representative
 
+Get the client sales representative for the group
 
 ### Example
 
@@ -260,6 +266,7 @@ namespace Example
 
             try
             {
+                // Get Client Sales Representative
                 ClientSalesRepresentativeDto result = apiInstance.GetClientsSalesRepresentative();
                 Console.WriteLine(result.ToJson());
             }
@@ -304,6 +311,8 @@ This endpoint does not need any parameter.
 > List&lt;CustomFieldConfigDto&gt; GetCustomFields (bool? xIRNIgnorePermissions = null)
 
 Get all Custom Fields
+
+Get all customfields configured in your group
 
 ### Example
 
@@ -402,6 +411,8 @@ Name | Type | Description  | Notes
 
 Get Group details
 
+Get all the group details
+
 ### Example
 
 > [!IMPORTANT]
@@ -484,6 +495,7 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
+| **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -493,6 +505,8 @@ This endpoint does not need any parameter.
 > List&lt;RecommendationConfigDto&gt; GetRecommendations ()
 
 Get all Recommendations
+
+Get all recommendations configured in your group
 
 ### Example
 
@@ -586,6 +600,8 @@ This endpoint does not need any parameter.
 
 Get all Sentiments
 
+Get all sentiments configured in your group
+
 ### Example
 
 > [!IMPORTANT]
@@ -677,6 +693,8 @@ This endpoint does not need any parameter.
 > SubjectConfigDto GetSubject (Guid subjectId, bool? xIRNIgnorePermissions = null)
 
 Get Subject details for the given Id provided
+
+Get all details of a given subject
 
 ### Example
 
@@ -778,6 +796,8 @@ Name | Type | Description  | Notes
 
 Get all Subjects
 
+Get all subjects configured in your group
+
 ### Example
 
 > [!IMPORTANT]
@@ -875,6 +895,8 @@ Name | Type | Description  | Notes
 
 Get Team details for the given Id provided
 
+Get all details of a given team
+
 ### Example
 
 > [!IMPORTANT]
@@ -920,7 +942,7 @@ namespace Example
             var apiInstance = new NotesConfigurationApi(config);
 
             var teamId = "teamId_example";  // Guid | Id
-            var xIRNIgnorePermissions = false;  // bool? |  (optional)  (default to false)
+            var xIRNIgnorePermissions = false;  // bool? | If set to true, permissions will be ignored. Default is false. (optional)  (default to false)
 
             try
             {
@@ -944,7 +966,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **teamId** | **Guid**| Id | 
- **xIRNIgnorePermissions** | **bool?**|  | [optional] [default to false]
+ **xIRNIgnorePermissions** | **bool?**| If set to true, permissions will be ignored. Default is false. | [optional] [default to false]
 
 ### Return type
 [**TeamConfigDto**](TeamConfigDto.md)
@@ -974,6 +996,8 @@ Name | Type | Description  | Notes
 > List&lt;TeamSummaryDto&gt; GetTeams (bool? xIRNIgnorePermissions = null)
 
 Get all Teams
+
+Get all teams configured in your group
 
 ### Example
 
@@ -1019,7 +1043,7 @@ namespace Example
 
             var apiInstance = new NotesConfigurationApi(config);
 
-            var xIRNIgnorePermissions = false;  // bool? |  (optional)  (default to false)
+            var xIRNIgnorePermissions = false;  // bool? | If set to true, permissions will be ignored. Default is false. (optional)  (default to false)
 
             try
             {
@@ -1042,7 +1066,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xIRNIgnorePermissions** | **bool?**|  | [optional] [default to false]
+ **xIRNIgnorePermissions** | **bool?**| If set to true, permissions will be ignored. Default is false. | [optional] [default to false]
 
 ### Return type
 [**List&lt;TeamSummaryDto&gt;**](TeamSummaryDto.md)

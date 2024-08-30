@@ -33,8 +33,9 @@ import com.factset.sdk.Signals.JSON;
 
 
 /**
- * EventDetail
+ * Signals event headlines plus all additional event details
  */
+@ApiModel(description = "Signals event headlines plus all additional event details")
 @JsonPropertyOrder({
   EventDetail.JSON_PROPERTY_DATA,
   EventDetail.JSON_PROPERTY_META,

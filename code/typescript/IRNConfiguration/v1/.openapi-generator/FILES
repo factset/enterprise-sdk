@@ -25,6 +25,8 @@ docs/ContactsRolesApi.md
 docs/ContactsTypesApi.md
 docs/CreateCustomSymbolCustomFieldDto.md
 docs/CustomFieldConfigDto.md
+docs/CustomFieldTeamConfigDto.md
+docs/CustomFieldUserTeamLookupFilterType.md
 docs/CustomSymbolCustomFieldConfigDto.md
 docs/CustomSymbolCustomFieldFormulaConfigDto.md
 docs/CustomSymbolSubTypeDto.md
@@ -82,6 +84,7 @@ docs/TeamSummaryDto.md
 docs/TitleSettingsDto.md
 docs/UpdateCustomSymbolTypeDto.md
 docs/UserConfigDto.md
+docs/UserTeamConfigDto.md
 git_push.sh
 mocha.opts
 package.json
@@ -112,6 +115,8 @@ src/model/ContactRoleDto.js
 src/model/ContactTypeDto.js
 src/model/CreateCustomSymbolCustomFieldDto.js
 src/model/CustomFieldConfigDto.js
+src/model/CustomFieldTeamConfigDto.js
+src/model/CustomFieldUserTeamLookupFilterType.js
 src/model/CustomSymbolCustomFieldConfigDto.js
 src/model/CustomSymbolCustomFieldFormulaConfigDto.js
 src/model/CustomSymbolSubTypeDto.js
@@ -165,3 +170,4 @@ src/model/TeamSummaryDto.js
 src/model/TitleSettingsDto.js
 src/model/UpdateCustomSymbolTypeDto.js
 src/model/UserConfigDto.js
+src/model/UserTeamConfigDto.js

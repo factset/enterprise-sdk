@@ -39,6 +39,7 @@ import com.factset.sdk.IDLookup.JSON;
   ResponseDetails.JSON_PROPERTY_ID,
   ResponseDetails.JSON_PROPERTY_ID_TYPE,
   ResponseDetails.JSON_PROPERTY_NAME,
+  ResponseDetails.JSON_PROPERTY_ISSUER_NAME,
   ResponseDetails.JSON_PROPERTY_ENTITY_ID,
   ResponseDetails.JSON_PROPERTY_UNDERLYING,
   ResponseDetails.JSON_PROPERTY_FSYM_REGIONAL_ID,
@@ -100,6 +101,9 @@ public class ResponseDetails implements Serializable {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_ISSUER_NAME = "issuerName";
+  private String issuerName;
 
   public static final String JSON_PROPERTY_ENTITY_ID = "entityId";
   private String entityId;
@@ -230,6 +234,32 @@ public class ResponseDetails implements Serializable {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public ResponseDetails issuerName(String issuerName) {
+    this.issuerName = issuerName;
+    return this;
+  }
+
+   /**
+   * Name of the issuer.
+   * @return issuerName
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "SentinelOne, Inc.", value = "Name of the issuer.")
+  @JsonProperty(JSON_PROPERTY_ISSUER_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getIssuerName() {
+    return issuerName;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ISSUER_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIssuerName(String issuerName) {
+    this.issuerName = issuerName;
   }
 
 
@@ -379,6 +409,7 @@ public class ResponseDetails implements Serializable {
         Objects.equals(this.id, responseDetails.id) &&
         Objects.equals(this.idType, responseDetails.idType) &&
         Objects.equals(this.name, responseDetails.name) &&
+        Objects.equals(this.issuerName, responseDetails.issuerName) &&
         Objects.equals(this.entityId, responseDetails.entityId) &&
         Objects.equals(this.underlying, responseDetails.underlying) &&
         Objects.equals(this.fsymRegionalId, responseDetails.fsymRegionalId) &&
@@ -388,7 +419,7 @@ public class ResponseDetails implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataset, id, idType, name, entityId, underlying, fsymRegionalId, fsymListingId, fsymUnderlyingId);
+    return Objects.hash(dataset, id, idType, name, issuerName, entityId, underlying, fsymRegionalId, fsymListingId, fsymUnderlyingId);
   }
 
   @Override
@@ -399,6 +430,7 @@ public class ResponseDetails implements Serializable {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    idType: ").append(toIndentedString(idType)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    issuerName: ").append(toIndentedString(issuerName)).append("\n");
     sb.append("    entityId: ").append(toIndentedString(entityId)).append("\n");
     sb.append("    underlying: ").append(toIndentedString(underlying)).append("\n");
     sb.append("    fsymRegionalId: ").append(toIndentedString(fsymRegionalId)).append("\n");

@@ -1,4 +1,5 @@
 # FactSet.SDK.IRNConfiguration.Model.ContactCustomFieldType
+Type can be one of 0- None, 1-Text, 2-Email, 3-Link, 4-SingleOptions, 5-MultiOptions, 6-Numeric, 7-Date
 
 ## Properties
 

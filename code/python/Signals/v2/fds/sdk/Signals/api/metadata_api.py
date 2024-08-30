@@ -616,7 +616,7 @@ class MetadataApi(object):
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
-            signal_id (str):
+            signal_id (str): A single signalId.
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -663,7 +663,7 @@ class MetadataApi(object):
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
-            signal_id (str):
+            signal_id (str): A single signalId.
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -714,7 +714,7 @@ class MetadataApi(object):
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
-            signal_id (str):
+            signal_id (str): A single signalId.
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -760,7 +760,7 @@ class MetadataApi(object):
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
-            signal_id (str):
+            signal_id (str): A single signalId.
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object

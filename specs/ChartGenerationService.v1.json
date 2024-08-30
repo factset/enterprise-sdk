@@ -3,25 +3,47 @@
   "info": {
     "title": "Chart Generation Service",
     "description": "This is a service for generating charts in a node environment that were created using web charting and get back images in form of `PNGs` and `JPEGs` as response.",
-    "version": "1.0.0"
+    "version": "1.5.0",
+    "contact": {
+      "name": "FactSet Research Systems",
+      "email": "api@factset.com",
+      "url": "https://developer.factset.com/contact"
+    },
+    "license": {
+      "name": "Apache License, Version 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
+    }
   },
-  "servers": [
+  "externalDocs": {
+    "description": "API Documentation",
+    "url": "https://developer.factset.com/api-catalog/chart-generation-service"
+  },
+  "security": [
     {
-      "url": "https://api-sandbox.factset.com/charting",
-      "description": "sandbox server (uses dummy data)"
+      "FactSetApiKey": []
     },
     {
-      "url": "https://api.factset.com/charting",
+      "FactSetOAuth2": []
+    }
+  ],
+  "servers": [
+    {
+      "url": "https://api.factset.com/charting/v1",
       "description": "production server (uses live data)"
+    },
+    {
+      "url": "https://api-sandbox.factset.com/charting/v1",
+      "description": "sandbox server (uses dummy data)"
     }
   ],
   "paths": {
-    "/v1/catalog/categories": {
+    "/catalog/categories": {
       "get": {
         "tags": [
           "Chart Templates"
         ],
         "summary": "Get a list of chart categories",
+        "description": "Retrieve a list of all chart categories with getCategoryList() API call.",
         "operationId": "getCategoryList",
         "responses": {
           "200": {
@@ -30,7 +52,15 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CategoryListResponse"
-                }
+                },
+                "example": [
+                  "commodities",
+                  "equity",
+                  "fx",
+                  "interest_rates",
+                  "market_analysis",
+                  "options"
+                ]
               }
             }
           },
@@ -47,7 +77,7 @@
         }
       }
     },
-    "/v1/catalog/charts": {
+    "/catalog/charts": {
       "get": {
         "tags": [
           "Chart Templates"
@@ -64,20 +94,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "query",
-            "name": "type",
-            "description": "return type of the response",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "json",
-                "pdf"
-              ]
-            },
-            "example": "json"
           }
         ],
         "responses": {
@@ -87,12 +103,31 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CategorizedChartList"
-                }
-              },
-              "application/pdf": {
-                "schema": {
-                  "$ref": "#/components/schemas/CatalogPDF"
-                }
+                },
+                "example": [
+                  {
+                    "category": "equity",
+                    "chartList": [
+                      {
+                        "name": "RSI",
+                        "description": "This chart requires a ticker",
+                        "tags": [
+                          "price",
+                          "intraday"
+                        ],
+                        "inputs": [
+                          {
+                            "in": "query",
+                            "name": "tz",
+                            "description": "Can be used to specify timezone of the chart",
+                            "type": "string",
+                            "example": "America/New_York"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
               }
             }
           },
@@ -109,13 +144,14 @@
         }
       }
     },
-    "/v1/image": {
+    "/image": {
       "get": {
         "tags": [
           "Chart Templates"
         ],
         "summary": "Get chart image back in PNG or JPEG formats",
-        "operationId": "Images",
+        "description": "Get a chart image in PNG or JPEG formats with the images() API call.",
+        "operationId": "images",
         "parameters": [
           {
             "in": "query",
@@ -125,7 +161,8 @@
             "schema": {
               "type": "string",
               "example": "Equity/RSI"
-            }
+            },
+            "example": "Equity/RSI"
           },
           {
             "in": "query",
@@ -141,7 +178,7 @@
             "in": "query",
             "name": "sd",
             "required": false,
-            "description": "Option for overriding the startDate of the chart. For absolute dates provide a string in `YYYYMMDD` format. We can also specify relative date options",
+            "description": "Option for overriding the startDate of the chart.\n\n#### Absolute Dates\n\nFor absolute dates, provide a string in `YYYYMMDD` format.\n\n#### Relative Dates\n\nRelative dates represent a date relative to the most recently-updated period. For example, 0 (zero) represents the most recently-updated period; -1 represents the time period prior to the most recently updated.\\\n\\\nThe \"zero date\" is determined by the default time period or the natural frequency of the data being requested. Zero (0), when used with monthly data, indicates the most recent month-end. Negative one (-1), when used with annual data, indicates one fiscal year prior to the most recently-updated fiscal year.\n\n#### Relative Date Options\n\n**D:**\t`0D` is the most recent trading day, `-1D` is one trading day prior\n\n**M:**\t`0M` is the last trading day of the most recent month, `-1M` is the last trading day of the prior month\n\n**AY:**\t`0AY` is the most recent trading day, `-1AY` is one actual year (365 days) prior\n\n**Y:**\t`0Y` is the last trading day of the company's most recent fiscal year, `-1Y` is the last trading day of the prior fiscal year\\\n\\\nFor more information and examples, refer to our [date format documentation](https://my.apps.factset.com/oa/pages/1964#date_f).",
             "schema": {
               "type": "string",
               "example": "-1Y"
@@ -151,7 +188,7 @@
             "in": "query",
             "name": "ed",
             "required": false,
-            "description": "Option for overriding the endDate of the chart. For absolute dates provide a string in `YYYYMMDD` format. We can also specify relative date options",
+            "description": "Option for overriding the endDate of the chart. For absolute dates provide a string in `YYYYMMDD` format. We can also specify relative date options as described in the above `sd` option.",
             "schema": {
               "type": "string",
               "example": "0"
@@ -289,6 +326,16 @@
               "default": true,
               "example": false
             }
+          },
+          {
+            "in": "query",
+            "name": "decimalPrecision",
+            "required": false,
+            "description": "Option to add custom decimal precision on the chart",
+            "schema": {
+              "type": "number",
+              "example": 2
+            }
           }
         ],
         "responses": {
@@ -298,12 +345,14 @@
               "img/png": {
                 "schema": {
                   "$ref": "#/components/schemas/PNGResponse"
-                }
+                },
+                "example": "(no example available)"
               },
               "img/jpeg": {
                 "schema": {
                   "$ref": "#/components/schemas/JPEGResponse"
-                }
+                },
+                "example": "(no example available)"
               }
             }
           },
@@ -335,11 +384,43 @@
     "schemas": {
       "PNGResponse": {
         "type": "string",
+        "format": "binary",
         "example": "(no example available)"
       },
       "JPEGResponse": {
         "type": "string",
+        "format": "binary",
         "example": "(no example available)"
+      },
+      "ChartErrorResponseObject": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        }
+      },
+      "CategoryChartListErrorObject": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string",
+            "example": "equity",
+            "description": "Name of the category. This is required when building the request for the chart image."
+          },
+          "chartList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChartList"
+            }
+          }
+        }
       },
       "CategoryListResponse": {
         "type": "array",
@@ -354,7 +435,13 @@
           "interest_rates",
           "market_analysis",
           "options"
-        ]
+        ],
+        "properties": {
+          "data": {
+            "type": "object",
+            "items": {}
+          }
+        }
       },
       "CategoriesErrorResponse": {
         "type": "object",
@@ -362,6 +449,12 @@
           "error": {
             "type": "string",
             "example": "No categories found"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChartErrorResponseObject"
+            }
           }
         }
       },
@@ -439,19 +532,12 @@
       "CategorizedChartList": {
         "type": "array",
         "items": {
-          "type": "object",
-          "properties": {
-            "category": {
-              "type": "string",
-              "example": "equity",
-              "description": "Name of the category. This is required when building the request for the chart image."
-            },
-            "chartList": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/ChartList"
-              }
-            }
+          "$ref": "#/components/schemas/CategoryChartListErrorObject"
+        },
+        "properties": {
+          "data": {
+            "type": "object",
+            "items": {}
           }
         }
       },
@@ -464,12 +550,14 @@
               "Invalid Category Name(s)",
               "Unable to build chart-list"
             ]
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChartErrorResponseObject"
+            }
           }
         }
-      },
-      "CatalogPDF": {
-        "type": "string",
-        "format": "binary"
       },
       "ErrorResponse": {
         "type": "object",
@@ -490,6 +578,12 @@
               "Invalid ticker",
               "Invalid chart title"
             ]
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChartErrorResponseObject"
+            }
           }
         }
       },
@@ -501,6 +595,12 @@
             "enum": [
               "User credentials not found"
             ]
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChartErrorResponseObject"
+            }
           }
         }
       }
@@ -521,12 +621,10 @@
       }
     }
   },
-  "security": [
+  "tags": [
     {
-      "FactSetApiKey": []
-    },
-    {
-      "FactSetOAuth2": []
+      "name": "Chart Templates",
+      "description": "Get chart categories, templates and images"
     }
   ]
 }

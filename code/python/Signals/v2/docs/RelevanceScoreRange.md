@@ -5,10 +5,10 @@ Represents a valid range for user relevancy score for signal events. The upper b
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**gt** | **float** |  | [optional] 
-**gte** | **float** |  | [optional] 
-**lt** | **float** |  | [optional] 
-**lte** | **float** |  | [optional] 
+**gt** | **float** | A date/time string in ISO 8601 format. gt stands for greater than | [optional] 
+**gte** | **float** | A date/time string in ISO 8601 format. gte stands for greater than or equal to | [optional] 
+**lt** | **float** | A date/time string in ISO 8601 format. lt stands for less than | [optional] 
+**lte** | **float** | A date/time string in ISO 8601 format. lte stands for less than or equal to | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

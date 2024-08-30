@@ -33,8 +33,9 @@ import com.factset.sdk.Signals.JSON;
 
 
 /**
- * EventAdaptiveCards
+ * Returns multiple Microsoft&#39;s Adaptive Cards, which includes headlines and event details data plus hyperlinks to FactSet reports
  */
+@ApiModel(description = "Returns multiple Microsoft's Adaptive Cards, which includes headlines and event details data plus hyperlinks to FactSet reports")
 @JsonPropertyOrder({
   EventAdaptiveCards.JSON_PROPERTY_DATA,
   EventAdaptiveCards.JSON_PROPERTY_META,

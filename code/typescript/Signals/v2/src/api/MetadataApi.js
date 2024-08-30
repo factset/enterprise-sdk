@@ -123,7 +123,7 @@ export default class MetadataApi {
 
     /**
      * Fetch the metadata and contract for the requested signal
-     * @param {String} signalId 
+     * @param {String} signalId A single signalId.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SignalDefinition} and HTTP response
      */
     getDataDictionaryByIdWithHttpInfo(signalId) {
@@ -159,7 +159,7 @@ export default class MetadataApi {
 
     /**
      * Fetch the metadata and contract for the requested signal
-     * @param {String} signalId 
+     * @param {String} signalId A single signalId.
      * @return { Promise.< module:model/SignalDefinition > } a Promise, with data of type {@link module:model/SignalDefinition }
      */
     getDataDictionaryById(signalId) {

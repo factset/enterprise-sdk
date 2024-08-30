@@ -1,13 +1,13 @@
 # fds.sdk.IRNConfiguration.ContactsTypesApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_contact_type**](ContactsTypesApi.md#create_contact_type) | **POST** /v1/contact-types | Create contact types
-[**delete_contact_type**](ContactsTypesApi.md#delete_contact_type) | **DELETE** /v1/contact-types/{contactTypeId} | Delete a contact type
-[**get_contact_types**](ContactsTypesApi.md#get_contact_types) | **GET** /v1/contact-types | Get list of the contact types configured in your group
-[**update_contact_type**](ContactsTypesApi.md#update_contact_type) | **PUT** /v1/contact-types/{contactTypeId} | Edit a contact type
+[**create_contact_type**](ContactsTypesApi.md#create_contact_type) | **POST** /contact-types | Create contact types
+[**delete_contact_type**](ContactsTypesApi.md#delete_contact_type) | **DELETE** /contact-types/{contactTypeId} | Delete a contact type
+[**get_contact_types**](ContactsTypesApi.md#get_contact_types) | **GET** /contact-types | Get list of the contact types configured in your group
+[**update_contact_type**](ContactsTypesApi.md#update_contact_type) | **PUT** /contact-types/{contactTypeId} | Edit a contact type
 
 
 
@@ -15,6 +15,8 @@ Method | HTTP request | Description
 > NewItemDto create_contact_type(body)
 
 Create contact types
+
+Create contact type with given name
 
 ### Example
 
@@ -91,7 +93,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -109,6 +111,8 @@ Name | Type | Description  | Notes
 > delete_contact_type(contact_type_id)
 
 Delete a contact type
+
+Delete a contact type based on guid
 
 ### Example
 
@@ -204,6 +208,8 @@ void (empty response body)
 
 Get list of the contact types configured in your group
 
+Get all contact types configured in your group
+
 ### Example
 
 > [!IMPORTANT]
@@ -291,6 +297,8 @@ This endpoint does not need any parameter.
 > update_contact_type(contact_type_id, body)
 
 Edit a contact type
+
+Update a contact type
 
 ### Example
 

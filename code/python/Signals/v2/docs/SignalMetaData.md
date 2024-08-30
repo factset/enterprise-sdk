@@ -1,5 +1,6 @@
 # SignalMetaData
 
+Metadata about a signal
 
 ## Properties
 Name | Type | Description | Notes

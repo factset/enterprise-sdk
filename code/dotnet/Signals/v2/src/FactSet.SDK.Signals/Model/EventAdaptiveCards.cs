@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Signals.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Signals.Model
 {
     /// <summary>
-    /// EventAdaptiveCards
+    /// Returns multiple Microsoft&#39;s Adaptive Cards, which includes headlines and event details data plus hyperlinks to FactSet reports
     /// </summary>
     [DataContract(Name = "eventAdaptiveCards")]
     public partial class EventAdaptiveCards : IEquatable<EventAdaptiveCards>, IValidatableObject

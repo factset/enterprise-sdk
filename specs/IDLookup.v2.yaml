@@ -730,6 +730,10 @@ components:
           type: string
           description: Name of the related dataset.
           example: Factset Research Systems Inc
+        issuerName:
+          type: string
+          description: Name of the issuer.
+          example: SentinelOne, Inc.
         entityId:
           type: string
           example: 000F9X-E
@@ -993,15 +997,17 @@ components:
       value:
         data:
           - dataset: equities
-            id: A-US
+            id: S-US
             idType: tickerRegion
-            name: Agilent Technologies,Inc.
-            entityId: 002LV5-E
+            name: SentinelOne, Inc. Class A
+            issuerName: SentinelOne, Inc.
+            entityId: 00FMQN-E
           - dataset: equities
-            id: AAPL-US
+            id: 7B0-DE
             idType: tickerRegion
-            name: Apple Inc.
-            entityId: 000C7F-E
+            name: SentinelOne, Inc. Class A
+            issuerName: SentinelOne, Inc.
+            entityId: 00FMQN-E
         meta:
           resultCount:
             equities: 2

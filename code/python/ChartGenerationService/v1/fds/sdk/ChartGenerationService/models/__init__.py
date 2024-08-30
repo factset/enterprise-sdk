@@ -11,7 +11,9 @@
 
 from fds.sdk.ChartGenerationService.model.categories_error_response import CategoriesErrorResponse
 from fds.sdk.ChartGenerationService.model.categorized_chart_list import CategorizedChartList
+from fds.sdk.ChartGenerationService.model.category_chart_list_error_object import CategoryChartListErrorObject
 from fds.sdk.ChartGenerationService.model.category_list_response import CategoryListResponse
+from fds.sdk.ChartGenerationService.model.chart_error_response_object import ChartErrorResponseObject
 from fds.sdk.ChartGenerationService.model.chart_input import ChartInput
 from fds.sdk.ChartGenerationService.model.chart_list import ChartList
 from fds.sdk.ChartGenerationService.model.chart_list_error_response import ChartListErrorResponse

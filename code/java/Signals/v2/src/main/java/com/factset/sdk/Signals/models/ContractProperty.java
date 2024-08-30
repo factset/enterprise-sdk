@@ -31,8 +31,9 @@ import com.factset.sdk.Signals.JSON;
 
 
 /**
- * ContractProperty
+ * Includes properties that describes each fields in a signal
  */
+@ApiModel(description = "Includes properties that describes each fields in a signal")
 @JsonPropertyOrder({
   ContractProperty.JSON_PROPERTY_DESCRIPTION,
   ContractProperty.JSON_PROPERTY_TYPE,
@@ -75,11 +76,11 @@ public class ContractProperty implements Serializable {
   }
 
    /**
-   * Get description
+   * Description of the contract property
    * @return description
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Description of the contract property")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -101,11 +102,11 @@ public class ContractProperty implements Serializable {
   }
 
    /**
-   * Get type
+   * Type of the contract property
    * @return type
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Type of the contract property")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -127,11 +128,11 @@ public class ContractProperty implements Serializable {
   }
 
    /**
-   * Get optional
+   * Boolean value representing if the contract property is optional
    * @return optional
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Boolean value representing if the contract property is optional")
   @JsonProperty(JSON_PROPERTY_OPTIONAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

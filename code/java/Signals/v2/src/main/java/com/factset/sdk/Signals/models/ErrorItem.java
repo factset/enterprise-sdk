@@ -31,8 +31,9 @@ import com.factset.sdk.Signals.JSON;
 
 
 /**
- * ErrorItem
+ * Details about an unsuccessful request
  */
+@ApiModel(description = "Details about an unsuccessful request")
 @JsonPropertyOrder({
   ErrorItem.JSON_PROPERTY_ID,
   ErrorItem.JSON_PROPERTY_CODE,
@@ -81,11 +82,11 @@ public class ErrorItem implements Serializable {
   }
 
    /**
-   * Get id
+   * A unique identifier for the error object
    * @return id
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A unique identifier for the error object")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -107,11 +108,11 @@ public class ErrorItem implements Serializable {
   }
 
    /**
-   * Get code
+   * Error type
    * @return code
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(example = "parameterError", required = true, value = "")
+  @ApiModelProperty(example = "parameterError", required = true, value = "Error type")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -133,11 +134,11 @@ public class ErrorItem implements Serializable {
   }
 
    /**
-   * Get title
+   * Condition that caused the error
    * @return title
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(example = "Invalid type/value", required = true, value = "")
+  @ApiModelProperty(example = "Invalid type/value", required = true, value = "Condition that caused the error")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -159,11 +160,11 @@ public class ErrorItem implements Serializable {
   }
 
    /**
-   * Get detail
+   * A short description of the error.
    * @return detail
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "Value must be a valid UTC date/time that conforms to ISO 8601 format", value = "")
+  @ApiModelProperty(example = "Value must be a valid UTC date/time that conforms to ISO 8601 format", value = "A short description of the error.")
   @JsonProperty(JSON_PROPERTY_DETAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

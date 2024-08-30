@@ -78,6 +78,112 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/eventHeadlines"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "requestId": "AAPL-US",
+                      "companyName": "Apple Inc.",
+                      "signalId": "significantPriceChange",
+                      "signalName": "10% Price Change",
+                      "theme": "Prices",
+                      "source": "FactSet",
+                      "userRelevanceScore": 0.733,
+                      "eventId": "f793221a-71d0-4979-a1a8-86e44770cd16",
+                      "eventDate": "2024-08-16",
+                      "summary": "On 16 Aug '24, Apple (AAPL-US) was up 17.4% YTD.",
+                      "created": "2024-08-21T16:16:44.719Z"
+                    },
+                    {
+                      "requestId": "MSFT-US",
+                      "companyName": "Microsoft Corporation",
+                      "signalId": "significantPriceChange",
+                      "signalName": "10% Price Change",
+                      "theme": "Prices",
+                      "source": "FactSet",
+                      "userRelevanceScore": 0.733,
+                      "eventId": "4a21ee8f-9eea-466b-91ff-49946b18a500",
+                      "eventDate": "2024-08-16",
+                      "summary": "On 16 Aug '24, Microsoft (MSFT-US) was up 11.3% YTD.",
+                      "created": "2024-08-21T16:16:51.595Z"
+                    },
+                    {
+                      "requestId": "AMZN-US",
+                      "companyName": "Amazon.com, Inc.",
+                      "signalId": "significantPriceChange",
+                      "signalName": "10% Price Change",
+                      "theme": "Prices",
+                      "source": "FactSet",
+                      "userRelevanceScore": 0.733,
+                      "eventId": "fbdcf03e-3225-44b2-9350-049b2730f118",
+                      "eventDate": "2024-08-16",
+                      "summary": "On 16 Aug '24, Amazon.com (AMZN-US) was up 16.5% YTD.",
+                      "created": "2024-08-21T16:16:48.196Z"
+                    },
+                    {
+                      "requestId": "GOOG-US",
+                      "companyName": "Alphabet Inc. Class A",
+                      "signalId": "significantPriceChange",
+                      "signalName": "10% Price Change",
+                      "theme": "Prices",
+                      "source": "FactSet",
+                      "userRelevanceScore": 0.733,
+                      "eventId": "89a7c4b6-9eca-4a3c-97fa-40c9776fbd3d",
+                      "eventDate": "2024-08-16",
+                      "summary": "On 16 Aug '24, Alphabet (GOOGL-US) was up 16.7% YTD.",
+                      "created": "2024-08-21T16:17:38.454Z"
+                    },
+                    {
+                      "requestId": "GOOG-US",
+                      "companyName": "Alphabet Inc. Class A",
+                      "signalId": "debtMaturingBond",
+                      "signalName": "Bonds Maturing in 24 Months",
+                      "theme": "Debt Capital Structure",
+                      "source": "FactSet",
+                      "userRelevanceScore": 0.633,
+                      "eventId": "d5151b23-c496-4010-afa7-856aa073afa9",
+                      "eventDate": "2026-08-15",
+                      "summary": "Alphabet (GOOGL-US) has one bond totaling USD 2,000.00 million that will be maturing in 24 months",
+                      "created": "2024-08-15T07:09:22.778Z"
+                    }
+                  ],
+                  "meta": {
+                    "signalRequestId": "811920df-3029-4758-b54e-5096d29da831",
+                    "sort": [
+                      "-userRelevanceScore",
+                      "-eventDate"
+                    ],
+                    "idResolutions": {
+                      "tickerRegion": {
+                        "FDS-US": "FDS-US",
+                        "AMZN-US": "AMZN-US",
+                        "MSFT-US": "MSFT-US",
+                        "AAPL-US": "AAPL-US",
+                        "GOOG-US": "GOOG-US"
+                      },
+                      "regionalPermId": {
+                        "FDS-US": "SQFMK3-R",
+                        "AMZN-US": "MCNYYL-R",
+                        "MSFT-US": "P8R3C2-R",
+                        "AAPL-US": "MH33D6-R",
+                        "GOOG-US": "WFJYTJ-R"
+                      }
+                    },
+                    "dateRange": {
+                      "created": {
+                        "gte": "2024-08-15T00:00:00.000Z",
+                        "lte": "2024-08-22T21:21:22.804Z"
+                      },
+                      "updated": {
+                        "gte": "2024-08-15T00:00:00.000Z",
+                        "lte": "2024-08-22T21:21:22.804Z"
+                      }
+                    },
+                    "pagination": {
+                      "total": 5,
+                      "isEstimatedTotal": false
+                    }
+                  }
                 }
               }
             }
@@ -88,6 +194,17 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/errorResponse"
+                },
+                "example": {
+                  "message": "A parameter in the request has an invalid value or a required parameter is missing.",
+                  "errors": [
+                    {
+                      "id": "b0faf2e1-a7b2-43b0-acd7-3f04ad3c1a33",
+                      "code": "parameterError",
+                      "title": "Required param 'exampleParam' was not provided",
+                      "detail": "A parameter in the request has an invalid value or a required parameter is missing."
+                    }
+                  ]
                 }
               }
             }
@@ -115,6 +232,9 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/rateLimitResponse"
+                },
+                "example": {
+                  "message": "API rate limit exceeded"
                 }
               }
             }
@@ -125,6 +245,17 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/errorResponse"
+                },
+                "example": {
+                  "message": "An error occurred while processing the request.",
+                  "errors": [
+                    {
+                      "code": "genericServerError",
+                      "detail": "An error occurred while processing the request.",
+                      "id": "b0faf2e1-a7b2-43b0-acd7-3f04ad3c1a33",
+                      "title": "An unexpected error happened."
+                    }
+                  ]
                 }
               }
             }
@@ -143,6 +274,36 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/eventRequestBody"
+              },
+              "example": {
+                "created": {
+                  "gt": "2021-01-01T00:00:00Z",
+                  "gte": "2021-01-01T00:00:00Z",
+                  "lt": "2021-01-01T00:00:00Z",
+                  "lte": "2021-01-01T00:00:00Z"
+                },
+                "updated": {
+                  "gt": "2021-01-01T00:00:00Z",
+                  "gte": "2021-01-01T00:00:00Z",
+                  "lt": "2021-01-01T00:00:00Z",
+                  "lte": "2021-01-01T00:00:00Z"
+                },
+                "signalIds": "dilutionTrigger,freeCashFlow",
+                "ids": "FDS-US,AMZN-US",
+                "portfolios": "testPortfolio.ofdb",
+                "themes": "testTheme",
+                "categories": "testCategory",
+                "userRelevanceScore": {
+                  "gt": 0,
+                  "gte": 0,
+                  "lt": 0,
+                  "lte": 0
+                },
+                "sort": "-userRelevanceScore",
+                "resolveIdentifiers": true,
+                "propertyFilter": {
+                  "portfolioUniqueId": "abc-xyz-def"
+                }
               }
             }
           }
@@ -154,6 +315,112 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/eventHeadlines"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "requestId": "AAPL-US",
+                      "companyName": "Apple Inc.",
+                      "signalId": "significantPriceChange",
+                      "signalName": "10% Price Change",
+                      "theme": "Prices",
+                      "source": "FactSet",
+                      "userRelevanceScore": 0.733,
+                      "eventId": "f793221a-71d0-4979-a1a8-86e44770cd16",
+                      "eventDate": "2024-08-16",
+                      "summary": "On 16 Aug '24, Apple (AAPL-US) was up 17.4% YTD.",
+                      "created": "2024-08-21T16:16:44.719Z"
+                    },
+                    {
+                      "requestId": "MSFT-US",
+                      "companyName": "Microsoft Corporation",
+                      "signalId": "significantPriceChange",
+                      "signalName": "10% Price Change",
+                      "theme": "Prices",
+                      "source": "FactSet",
+                      "userRelevanceScore": 0.733,
+                      "eventId": "4a21ee8f-9eea-466b-91ff-49946b18a500",
+                      "eventDate": "2024-08-16",
+                      "summary": "On 16 Aug '24, Microsoft (MSFT-US) was up 11.3% YTD.",
+                      "created": "2024-08-21T16:16:51.595Z"
+                    },
+                    {
+                      "requestId": "AMZN-US",
+                      "companyName": "Amazon.com, Inc.",
+                      "signalId": "significantPriceChange",
+                      "signalName": "10% Price Change",
+                      "theme": "Prices",
+                      "source": "FactSet",
+                      "userRelevanceScore": 0.733,
+                      "eventId": "fbdcf03e-3225-44b2-9350-049b2730f118",
+                      "eventDate": "2024-08-16",
+                      "summary": "On 16 Aug '24, Amazon.com (AMZN-US) was up 16.5% YTD.",
+                      "created": "2024-08-21T16:16:48.196Z"
+                    },
+                    {
+                      "requestId": "GOOG-US",
+                      "companyName": "Alphabet Inc. Class A",
+                      "signalId": "significantPriceChange",
+                      "signalName": "10% Price Change",
+                      "theme": "Prices",
+                      "source": "FactSet",
+                      "userRelevanceScore": 0.733,
+                      "eventId": "89a7c4b6-9eca-4a3c-97fa-40c9776fbd3d",
+                      "eventDate": "2024-08-16",
+                      "summary": "On 16 Aug '24, Alphabet (GOOGL-US) was up 16.7% YTD.",
+                      "created": "2024-08-21T16:17:38.454Z"
+                    },
+                    {
+                      "requestId": "GOOG-US",
+                      "companyName": "Alphabet Inc. Class A",
+                      "signalId": "debtMaturingBond",
+                      "signalName": "Bonds Maturing in 24 Months",
+                      "theme": "Debt Capital Structure",
+                      "source": "FactSet",
+                      "userRelevanceScore": 0.633,
+                      "eventId": "d5151b23-c496-4010-afa7-856aa073afa9",
+                      "eventDate": "2026-08-15",
+                      "summary": "Alphabet (GOOGL-US) has one bond totaling USD 2,000.00 million that will be maturing in 24 months",
+                      "created": "2024-08-15T07:09:22.778Z"
+                    }
+                  ],
+                  "meta": {
+                    "signalRequestId": "811920df-3029-4758-b54e-5096d29da831",
+                    "sort": [
+                      "-userRelevanceScore",
+                      "-eventDate"
+                    ],
+                    "idResolutions": {
+                      "tickerRegion": {
+                        "FDS-US": "FDS-US",
+                        "AMZN-US": "AMZN-US",
+                        "MSFT-US": "MSFT-US",
+                        "AAPL-US": "AAPL-US",
+                        "GOOG-US": "GOOG-US"
+                      },
+                      "regionalPermId": {
+                        "FDS-US": "SQFMK3-R",
+                        "AMZN-US": "MCNYYL-R",
+                        "MSFT-US": "P8R3C2-R",
+                        "AAPL-US": "MH33D6-R",
+                        "GOOG-US": "WFJYTJ-R"
+                      }
+                    },
+                    "dateRange": {
+                      "created": {
+                        "gte": "2024-08-15T00:00:00.000Z",
+                        "lte": "2024-08-22T21:21:22.804Z"
+                      },
+                      "updated": {
+                        "gte": "2024-08-15T00:00:00.000Z",
+                        "lte": "2024-08-22T21:21:22.804Z"
+                      }
+                    },
+                    "pagination": {
+                      "total": 5,
+                      "isEstimatedTotal": false
+                    }
+                  }
                 }
               }
             }
@@ -181,6 +448,9 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/rateLimitResponse"
+                },
+                "example": {
+                  "message": "API rate limit exceeded"
                 }
               }
             }
@@ -235,6 +505,92 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/eventDetails"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "requestId": "MSFT-US",
+                      "companyName": "Microsoft Corporation",
+                      "signalId": "significantPriceChange",
+                      "signalName": "10% Price Change",
+                      "theme": "Prices",
+                      "source": "FactSet",
+                      "userRelevanceScore": 0.733,
+                      "eventId": "4a21ee8f-9eea-466b-91ff-49946b18a500",
+                      "eventDate": "2024-08-16",
+                      "summary": "On 16 Aug '24, Microsoft (MSFT-US) was up 11.3% YTD.",
+                      "created": "2024-08-21T16:16:51.595Z",
+                      "updated": "2024-08-21T16:16:51.595Z",
+                      "details": {
+                        "price": 418.47,
+                        "priceDate": "2024-08-16",
+                        "priceCurrency": "USD",
+                        "1MoPriceChange": -6.90737,
+                        "3MoPriceChange": -0.598586,
+                        "eventIndicator": "Positive",
+                        "ytdPriceChange": 11.2834,
+                        "1WeekPriceChange": 2.86621,
+                        "52WeekPriceChange": 30.6086,
+                        "significantPriceScope": "YTD"
+                      }
+                    },
+                    {
+                      "requestId": "AMZN-US",
+                      "companyName": "Amazon.com, Inc.",
+                      "signalId": "significantPriceChange",
+                      "signalName": "10% Price Change",
+                      "theme": "Prices",
+                      "source": "FactSet",
+                      "userRelevanceScore": 0.733,
+                      "eventId": "fbdcf03e-3225-44b2-9350-049b2730f118",
+                      "eventDate": "2024-08-16",
+                      "summary": "On 16 Aug '24, Amazon.com (AMZN-US) was up 16.5% YTD.",
+                      "created": "2024-08-21T16:16:48.196Z",
+                      "updated": "2024-08-21T16:16:48.196Z",
+                      "details": {
+                        "price": 177.06,
+                        "priceDate": "2024-08-16",
+                        "priceCurrency": "USD",
+                        "1MoPriceChange": -8.26858,
+                        "3MoPriceChange": -3.57785,
+                        "eventIndicator": "Positive",
+                        "ytdPriceChange": 16.5328,
+                        "1WeekPriceChange": 6.15108,
+                        "52WeekPriceChange": 31.0876,
+                        "significantPriceScope": "YTD"
+                      }
+                    }
+                  ],
+                  "meta": {
+                    "signalRequestId": "2b8a6969-af32-4878-8124-758715b19baa",
+                    "sort": [
+                      "-userRelevanceScore"
+                    ],
+                    "idResolutions": {
+                      "tickerRegion": {
+                        "MSFT-US": "MSFT-US",
+                        "AMZN-US": "AMZN-US"
+                      },
+                      "regionalPermId": {
+                        "MSFT-US": "P8R3C2-R",
+                        "AMZN-US": "MCNYYL-R"
+                      }
+                    },
+                    "dateRange": {
+                      "created": {
+                        "gte": "2024-08-15T00:00:00.000Z",
+                        "lte": "2024-08-22T21:40:50.444Z"
+                      },
+                      "updated": {
+                        "gte": "2024-08-15T00:00:00.000Z",
+                        "lte": "2024-08-22T21:40:50.444Z"
+                      }
+                    },
+                    "pagination": {
+                      "total": 2,
+                      "isEstimatedTotal": false
+                    }
+                  }
                 }
               }
             }
@@ -245,6 +601,17 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/errorResponse"
+                },
+                "example": {
+                  "message": "A parameter in the request has an invalid value or a required parameter is missing.",
+                  "errors": [
+                    {
+                      "id": "b0faf2e1-a7b2-43b0-acd7-3f04ad3c1a33",
+                      "code": "parameterError",
+                      "title": "Required param 'exampleParam' was not provided",
+                      "detail": "A parameter in the request has an invalid value or a required parameter is missing."
+                    }
+                  ]
                 }
               }
             }
@@ -272,6 +639,9 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/rateLimitResponse"
+                },
+                "example": {
+                  "message": "API rate limit exceeded"
                 }
               }
             }
@@ -282,6 +652,17 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/errorResponse"
+                },
+                "example": {
+                  "message": "An error occurred while processing the request.",
+                  "errors": [
+                    {
+                      "code": "genericServerError",
+                      "detail": "An error occurred while processing the request.",
+                      "id": "b0faf2e1-a7b2-43b0-acd7-3f04ad3c1a33",
+                      "title": "An unexpected error happened."
+                    }
+                  ]
                 }
               }
             }
@@ -300,6 +681,36 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/eventRequestBody"
+              },
+              "example": {
+                "created": {
+                  "gt": "2021-01-01T00:00:00Z",
+                  "gte": "2021-01-01T00:00:00Z",
+                  "lt": "2021-01-01T00:00:00Z",
+                  "lte": "2021-01-01T00:00:00Z"
+                },
+                "updated": {
+                  "gt": "2021-01-01T00:00:00Z",
+                  "gte": "2021-01-01T00:00:00Z",
+                  "lt": "2021-01-01T00:00:00Z",
+                  "lte": "2021-01-01T00:00:00Z"
+                },
+                "signalIds": "dilutionTrigger,freeCashFlow",
+                "ids": "FDS-US,AMZN-US",
+                "portfolios": "testPortfolio.ofdb",
+                "themes": "testTheme",
+                "categories": "testCategory",
+                "userRelevanceScore": {
+                  "gt": 0,
+                  "gte": 0,
+                  "lt": 0,
+                  "lte": 0
+                },
+                "sort": "-userRelevanceScore",
+                "resolveIdentifiers": true,
+                "propertyFilter": {
+                  "portfolioUniqueId": "abc-xyz-def"
+                }
               }
             }
           }
@@ -311,6 +722,92 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/eventDetails"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "requestId": "MSFT-US",
+                      "companyName": "Microsoft Corporation",
+                      "signalId": "significantPriceChange",
+                      "signalName": "10% Price Change",
+                      "theme": "Prices",
+                      "source": "FactSet",
+                      "userRelevanceScore": 0.733,
+                      "eventId": "4a21ee8f-9eea-466b-91ff-49946b18a500",
+                      "eventDate": "2024-08-16",
+                      "summary": "On 16 Aug '24, Microsoft (MSFT-US) was up 11.3% YTD.",
+                      "created": "2024-08-21T16:16:51.595Z",
+                      "updated": "2024-08-21T16:16:51.595Z",
+                      "details": {
+                        "price": 418.47,
+                        "priceDate": "2024-08-16",
+                        "priceCurrency": "USD",
+                        "1MoPriceChange": -6.90737,
+                        "3MoPriceChange": -0.598586,
+                        "eventIndicator": "Positive",
+                        "ytdPriceChange": 11.2834,
+                        "1WeekPriceChange": 2.86621,
+                        "52WeekPriceChange": 30.6086,
+                        "significantPriceScope": "YTD"
+                      }
+                    },
+                    {
+                      "requestId": "AMZN-US",
+                      "companyName": "Amazon.com, Inc.",
+                      "signalId": "significantPriceChange",
+                      "signalName": "10% Price Change",
+                      "theme": "Prices",
+                      "source": "FactSet",
+                      "userRelevanceScore": 0.733,
+                      "eventId": "fbdcf03e-3225-44b2-9350-049b2730f118",
+                      "eventDate": "2024-08-16",
+                      "summary": "On 16 Aug '24, Amazon.com (AMZN-US) was up 16.5% YTD.",
+                      "created": "2024-08-21T16:16:48.196Z",
+                      "updated": "2024-08-21T16:16:48.196Z",
+                      "details": {
+                        "price": 177.06,
+                        "priceDate": "2024-08-16",
+                        "priceCurrency": "USD",
+                        "1MoPriceChange": -8.26858,
+                        "3MoPriceChange": -3.57785,
+                        "eventIndicator": "Positive",
+                        "ytdPriceChange": 16.5328,
+                        "1WeekPriceChange": 6.15108,
+                        "52WeekPriceChange": 31.0876,
+                        "significantPriceScope": "YTD"
+                      }
+                    }
+                  ],
+                  "meta": {
+                    "signalRequestId": "2b8a6969-af32-4878-8124-758715b19baa",
+                    "sort": [
+                      "-userRelevanceScore"
+                    ],
+                    "idResolutions": {
+                      "tickerRegion": {
+                        "MSFT-US": "MSFT-US",
+                        "AMZN-US": "AMZN-US"
+                      },
+                      "regionalPermId": {
+                        "MSFT-US": "P8R3C2-R",
+                        "AMZN-US": "MCNYYL-R"
+                      }
+                    },
+                    "dateRange": {
+                      "created": {
+                        "gte": "2024-08-15T00:00:00.000Z",
+                        "lte": "2024-08-22T21:40:50.444Z"
+                      },
+                      "updated": {
+                        "gte": "2024-08-15T00:00:00.000Z",
+                        "lte": "2024-08-22T21:40:50.444Z"
+                      }
+                    },
+                    "pagination": {
+                      "total": 2,
+                      "isEstimatedTotal": false
+                    }
+                  }
                 }
               }
             }
@@ -338,6 +835,9 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/rateLimitResponse"
+                },
+                "example": {
+                  "message": "API rate limit exceeded"
                 }
               }
             }
@@ -364,6 +864,49 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/eventDetail"
+                },
+                "example": {
+                  "data": {
+                    "requestId": "000Q07-E",
+                    "companyName": "Microsoft Corporation",
+                    "signalId": "significantPriceChange",
+                    "signalName": "10% Price Change",
+                    "theme": "Prices",
+                    "source": "FactSet",
+                    "userRelevanceScore": 0.733,
+                    "eventId": "4a21ee8f-9eea-466b-91ff-49946b18a500",
+                    "eventDate": "2024-08-16",
+                    "summary": "On 16 Aug '24, Microsoft (MSFT-US) was up 11.3% YTD.",
+                    "created": "2024-08-21T16:16:51.595Z",
+                    "updated": "2024-08-21T16:16:51.595Z",
+                    "details": {
+                      "price": 418.47,
+                      "priceDate": "2024-08-16",
+                      "priceCurrency": "USD",
+                      "1MoPriceChange": -6.90737,
+                      "3MoPriceChange": -0.598586,
+                      "eventIndicator": "Positive",
+                      "ytdPriceChange": 11.2834,
+                      "1WeekPriceChange": 2.86621,
+                      "52WeekPriceChange": 30.6086,
+                      "significantPriceScope": "YTD"
+                    }
+                  },
+                  "meta": {
+                    "signalRequestId": "5a8384b2-3851-4490-bd41-ef8a196dba6e",
+                    "idResolutions": {
+                      "tickerRegion": {
+                        "000Q07-E": "MSFT-US"
+                      },
+                      "regionalPermId": {
+                        "000Q07-E": "P8R3C2-R"
+                      }
+                    },
+                    "pagination": {
+                      "total": 0,
+                      "isEstimatedTotal": false
+                    }
+                  }
                 }
               }
             }
@@ -374,6 +917,17 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/errorResponse"
+                },
+                "example": {
+                  "message": "Could not find event with id f1f8627e-dea5-4457-aa64-e4c278e22626",
+                  "errors": [
+                    {
+                      "id": "aa03dc88-4806-4ea7-b075-58c2e28657cf",
+                      "code": "notFound",
+                      "title": "The requested resource is not available.",
+                      "detail": "Could not find event with id f1f8627e-dea5-4457-aa64-e4c278e22626"
+                    }
+                  ]
                 }
               }
             }
@@ -401,6 +955,9 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/rateLimitResponse"
+                },
+                "example": {
+                  "message": "API rate limit exceeded"
                 }
               }
             }
@@ -411,6 +968,17 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/errorResponse"
+                },
+                "example": {
+                  "message": "An error occurred while processing the request.",
+                  "errors": [
+                    {
+                      "code": "genericServerError",
+                      "detail": "An error occurred while processing the request.",
+                      "id": "b0faf2e1-a7b2-43b0-acd7-3f04ad3c1a33",
+                      "title": "An unexpected error happened."
+                    }
+                  ]
                 }
               }
             }
@@ -465,6 +1033,316 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/eventAdaptiveCards"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "requestId": "GOOG-US",
+                      "signalId": "debtMaturingBond",
+                      "adaptiveCard": {
+                        "type": "AdaptiveCard",
+                        "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+                        "version": "1.0",
+                        "body": [
+                          {
+                            "text": "Alphabet (GOOGL-US) has one bond totaling USD 2,000.00 million that will be maturing in 24 months",
+                            "type": "TextBlock",
+                            "wrap": true,
+                            "size": "Default",
+                            "weight": "Bolder",
+                            "fds": {
+                              "fdsStyle": "text-4"
+                            }
+                          },
+                          {
+                            "type": "Container",
+                            "items": [
+                              {
+                                "type": "Container",
+                                "separator": true,
+                                "items": [
+                                  {
+                                    "type": "ColumnSet",
+                                    "columns": [
+                                      {
+                                        "type": "Column",
+                                        "width": "stretch",
+                                        "items": [
+                                          {
+                                            "type": "Container",
+                                            "items": [
+                                              {
+                                                "text": "Bond ID",
+                                                "type": "TextBlock",
+                                                "wrap": true,
+                                                "weight": "Bolder",
+                                                "fds": {
+                                                  "weight": "Default",
+                                                  "color": "Light"
+                                                }
+                                              },
+                                              {
+                                                "text": "US02079KAC18",
+                                                "type": "TextBlock",
+                                                "wrap": true,
+                                                "spacing": "None"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "Column",
+                                        "width": "stretch",
+                                        "items": [
+                                          {
+                                            "type": "Container",
+                                            "items": [
+                                              {
+                                                "text": "Maturity Date",
+                                                "type": "TextBlock",
+                                                "wrap": true,
+                                                "weight": "Bolder",
+                                                "fds": {
+                                                  "weight": "Default",
+                                                  "color": "Light"
+                                                }
+                                              },
+                                              {
+                                                "text": "15 Aug '26",
+                                                "type": "TextBlock",
+                                                "wrap": true,
+                                                "spacing": "None"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "Column",
+                                        "width": "stretch",
+                                        "items": [
+                                          {
+                                            "type": "Container",
+                                            "items": [
+                                              {
+                                                "text": "Amount",
+                                                "type": "TextBlock",
+                                                "wrap": true,
+                                                "weight": "Bolder",
+                                                "fds": {
+                                                  "weight": "Default",
+                                                  "color": "Light"
+                                                }
+                                              },
+                                              {
+                                                "text": "USD 2,000 Million",
+                                                "type": "TextBlock",
+                                                "wrap": true,
+                                                "spacing": "None"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "text": "[Security Overview](https://my.apps.factset.com/navigator/company-security/security-overview/US02079KAC18)",
+                                    "type": "TextBlock",
+                                    "wrap": true,
+                                    "size": "Default",
+                                    "weight": "Default",
+                                    "fds": {
+                                      "fdsStyle": "text-1"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "text": "Source: FactSet",
+                            "type": "TextBlock",
+                            "wrap": true,
+                            "size": "Small",
+                            "weight": "Default",
+                            "fds": {
+                              "fdsStyle": "text-20",
+                              "color": "Light"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "requestId": "GOOG-US",
+                      "signalId": "debtMaturingBond",
+                      "adaptiveCard": {
+                        "type": "AdaptiveCard",
+                        "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+                        "version": "1.0",
+                        "body": [
+                          {
+                            "text": "Alphabet (GOOGL-US) has two bond totaling USD 2,000.00 million that will be maturing in 24 months",
+                            "type": "TextBlock",
+                            "wrap": true,
+                            "size": "Default",
+                            "weight": "Bolder",
+                            "fds": {
+                              "fdsStyle": "text-4"
+                            }
+                          },
+                          {
+                            "type": "Container",
+                            "items": [
+                              {
+                                "type": "Container",
+                                "separator": true,
+                                "items": [
+                                  {
+                                    "type": "ColumnSet",
+                                    "columns": [
+                                      {
+                                        "type": "Column",
+                                        "width": "stretch",
+                                        "items": [
+                                          {
+                                            "type": "Container",
+                                            "items": [
+                                              {
+                                                "text": "Bond ID",
+                                                "type": "TextBlock",
+                                                "wrap": true,
+                                                "weight": "Bolder",
+                                                "fds": {
+                                                  "weight": "Default",
+                                                  "color": "Light"
+                                                }
+                                              },
+                                              {
+                                                "text": "US02079KAC18",
+                                                "type": "TextBlock",
+                                                "wrap": true,
+                                                "spacing": "None"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "Column",
+                                        "width": "stretch",
+                                        "items": [
+                                          {
+                                            "type": "Container",
+                                            "items": [
+                                              {
+                                                "text": "Maturity Date",
+                                                "type": "TextBlock",
+                                                "wrap": true,
+                                                "weight": "Bolder",
+                                                "fds": {
+                                                  "weight": "Default",
+                                                  "color": "Light"
+                                                }
+                                              },
+                                              {
+                                                "text": "15 Aug '26",
+                                                "type": "TextBlock",
+                                                "wrap": true,
+                                                "spacing": "None"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "Column",
+                                        "width": "stretch",
+                                        "items": [
+                                          {
+                                            "type": "Container",
+                                            "items": [
+                                              {
+                                                "text": "Amount",
+                                                "type": "TextBlock",
+                                                "wrap": true,
+                                                "weight": "Bolder",
+                                                "fds": {
+                                                  "weight": "Default",
+                                                  "color": "Light"
+                                                }
+                                              },
+                                              {
+                                                "text": "USD 2,000 Million",
+                                                "type": "TextBlock",
+                                                "wrap": true,
+                                                "spacing": "None"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "text": "[Security Overview](https://my.apps.factset.com/navigator/company-security/security-overview/US02079KAC18)",
+                                    "type": "TextBlock",
+                                    "wrap": true,
+                                    "size": "Default",
+                                    "weight": "Default",
+                                    "fds": {
+                                      "fdsStyle": "text-1"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "text": "Source: FactSet",
+                            "type": "TextBlock",
+                            "wrap": true,
+                            "size": "Small",
+                            "weight": "Default",
+                            "fds": {
+                              "fdsStyle": "text-20",
+                              "color": "Light"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "meta": {
+                    "signalRequestId": "81024cf7-8b40-4845-ab98-ece81b091f1e",
+                    "sort": [
+                      "-userRelevanceScore"
+                    ],
+                    "idResolutions": {
+                      "tickerRegion": {
+                        "GOOG-US": "GOOG-US"
+                      },
+                      "regionalPermId": {
+                        "GOOG-US": "WFJYTJ-R"
+                      }
+                    },
+                    "dateRange": {
+                      "created": {
+                        "gte": "2024-08-15T00:00:00.000Z",
+                        "lte": "2024-08-22T22:10:58.294Z"
+                      },
+                      "updated": {
+                        "gte": "2024-08-15T00:00:00.000Z",
+                        "lte": "2024-08-22T22:10:58.294Z"
+                      }
+                    },
+                    "pagination": {
+                      "total": 4,
+                      "isEstimatedTotal": false
+                    }
+                  }
                 }
               }
             }
@@ -475,6 +1353,17 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/errorResponse"
+                },
+                "example": {
+                  "message": "A parameter in the request has an invalid value or a required parameter is missing.",
+                  "errors": [
+                    {
+                      "id": "b0faf2e1-a7b2-43b0-acd7-3f04ad3c1a33",
+                      "code": "parameterError",
+                      "title": "Required param 'exampleParam' was not provided",
+                      "detail": "A parameter in the request has an invalid value or a required parameter is missing."
+                    }
+                  ]
                 }
               }
             }
@@ -502,6 +1391,9 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/rateLimitResponse"
+                },
+                "example": {
+                  "message": "API rate limit exceeded"
                 }
               }
             }
@@ -512,6 +1404,17 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/errorResponse"
+                },
+                "example": {
+                  "message": "An error occurred while processing the request.",
+                  "errors": [
+                    {
+                      "code": "genericServerError",
+                      "detail": "An error occurred while processing the request.",
+                      "id": "b0faf2e1-a7b2-43b0-acd7-3f04ad3c1a33",
+                      "title": "An unexpected error happened."
+                    }
+                  ]
                 }
               }
             }
@@ -530,6 +1433,36 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/eventRequestBody"
+              },
+              "example": {
+                "created": {
+                  "gt": "2021-01-01T00:00:00Z",
+                  "gte": "2021-01-01T00:00:00Z",
+                  "lt": "2021-01-01T00:00:00Z",
+                  "lte": "2021-01-01T00:00:00Z"
+                },
+                "updated": {
+                  "gt": "2021-01-01T00:00:00Z",
+                  "gte": "2021-01-01T00:00:00Z",
+                  "lt": "2021-01-01T00:00:00Z",
+                  "lte": "2021-01-01T00:00:00Z"
+                },
+                "signalIds": "dilutionTrigger,freeCashFlow",
+                "ids": "FDS-US,AMZN-US",
+                "portfolios": "testPortfolio.ofdb",
+                "themes": "testTheme",
+                "categories": "testCategory",
+                "userRelevanceScore": {
+                  "gt": 0,
+                  "gte": 0,
+                  "lt": 0,
+                  "lte": 0
+                },
+                "sort": "-userRelevanceScore",
+                "resolveIdentifiers": true,
+                "propertyFilter": {
+                  "portfolioUniqueId": "abc-xyz-def"
+                }
               }
             }
           }
@@ -541,6 +1474,316 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/eventAdaptiveCards"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "requestId": "GOOG-US",
+                      "signalId": "debtMaturingBond",
+                      "adaptiveCard": {
+                        "type": "AdaptiveCard",
+                        "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+                        "version": "1.0",
+                        "body": [
+                          {
+                            "text": "Alphabet (GOOGL-US) has one bond totaling USD 2,000.00 million that will be maturing in 24 months",
+                            "type": "TextBlock",
+                            "wrap": true,
+                            "size": "Default",
+                            "weight": "Bolder",
+                            "fds": {
+                              "fdsStyle": "text-4"
+                            }
+                          },
+                          {
+                            "type": "Container",
+                            "items": [
+                              {
+                                "type": "Container",
+                                "separator": true,
+                                "items": [
+                                  {
+                                    "type": "ColumnSet",
+                                    "columns": [
+                                      {
+                                        "type": "Column",
+                                        "width": "stretch",
+                                        "items": [
+                                          {
+                                            "type": "Container",
+                                            "items": [
+                                              {
+                                                "text": "Bond ID",
+                                                "type": "TextBlock",
+                                                "wrap": true,
+                                                "weight": "Bolder",
+                                                "fds": {
+                                                  "weight": "Default",
+                                                  "color": "Light"
+                                                }
+                                              },
+                                              {
+                                                "text": "US02079KAC18",
+                                                "type": "TextBlock",
+                                                "wrap": true,
+                                                "spacing": "None"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "Column",
+                                        "width": "stretch",
+                                        "items": [
+                                          {
+                                            "type": "Container",
+                                            "items": [
+                                              {
+                                                "text": "Maturity Date",
+                                                "type": "TextBlock",
+                                                "wrap": true,
+                                                "weight": "Bolder",
+                                                "fds": {
+                                                  "weight": "Default",
+                                                  "color": "Light"
+                                                }
+                                              },
+                                              {
+                                                "text": "15 Aug '26",
+                                                "type": "TextBlock",
+                                                "wrap": true,
+                                                "spacing": "None"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "Column",
+                                        "width": "stretch",
+                                        "items": [
+                                          {
+                                            "type": "Container",
+                                            "items": [
+                                              {
+                                                "text": "Amount",
+                                                "type": "TextBlock",
+                                                "wrap": true,
+                                                "weight": "Bolder",
+                                                "fds": {
+                                                  "weight": "Default",
+                                                  "color": "Light"
+                                                }
+                                              },
+                                              {
+                                                "text": "USD 2,000 Million",
+                                                "type": "TextBlock",
+                                                "wrap": true,
+                                                "spacing": "None"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "text": "[Security Overview](https://my.apps.factset.com/navigator/company-security/security-overview/US02079KAC18)",
+                                    "type": "TextBlock",
+                                    "wrap": true,
+                                    "size": "Default",
+                                    "weight": "Default",
+                                    "fds": {
+                                      "fdsStyle": "text-1"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "text": "Source: FactSet",
+                            "type": "TextBlock",
+                            "wrap": true,
+                            "size": "Small",
+                            "weight": "Default",
+                            "fds": {
+                              "fdsStyle": "text-20",
+                              "color": "Light"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "requestId": "GOOG-US",
+                      "signalId": "debtMaturingBond",
+                      "adaptiveCard": {
+                        "type": "AdaptiveCard",
+                        "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+                        "version": "1.0",
+                        "body": [
+                          {
+                            "text": "Alphabet (GOOGL-US) has two bond totaling USD 2,000.00 million that will be maturing in 24 months",
+                            "type": "TextBlock",
+                            "wrap": true,
+                            "size": "Default",
+                            "weight": "Bolder",
+                            "fds": {
+                              "fdsStyle": "text-4"
+                            }
+                          },
+                          {
+                            "type": "Container",
+                            "items": [
+                              {
+                                "type": "Container",
+                                "separator": true,
+                                "items": [
+                                  {
+                                    "type": "ColumnSet",
+                                    "columns": [
+                                      {
+                                        "type": "Column",
+                                        "width": "stretch",
+                                        "items": [
+                                          {
+                                            "type": "Container",
+                                            "items": [
+                                              {
+                                                "text": "Bond ID",
+                                                "type": "TextBlock",
+                                                "wrap": true,
+                                                "weight": "Bolder",
+                                                "fds": {
+                                                  "weight": "Default",
+                                                  "color": "Light"
+                                                }
+                                              },
+                                              {
+                                                "text": "US02079KAC18",
+                                                "type": "TextBlock",
+                                                "wrap": true,
+                                                "spacing": "None"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "Column",
+                                        "width": "stretch",
+                                        "items": [
+                                          {
+                                            "type": "Container",
+                                            "items": [
+                                              {
+                                                "text": "Maturity Date",
+                                                "type": "TextBlock",
+                                                "wrap": true,
+                                                "weight": "Bolder",
+                                                "fds": {
+                                                  "weight": "Default",
+                                                  "color": "Light"
+                                                }
+                                              },
+                                              {
+                                                "text": "15 Aug '26",
+                                                "type": "TextBlock",
+                                                "wrap": true,
+                                                "spacing": "None"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "Column",
+                                        "width": "stretch",
+                                        "items": [
+                                          {
+                                            "type": "Container",
+                                            "items": [
+                                              {
+                                                "text": "Amount",
+                                                "type": "TextBlock",
+                                                "wrap": true,
+                                                "weight": "Bolder",
+                                                "fds": {
+                                                  "weight": "Default",
+                                                  "color": "Light"
+                                                }
+                                              },
+                                              {
+                                                "text": "USD 2,000 Million",
+                                                "type": "TextBlock",
+                                                "wrap": true,
+                                                "spacing": "None"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "text": "[Security Overview](https://my.apps.factset.com/navigator/company-security/security-overview/US02079KAC18)",
+                                    "type": "TextBlock",
+                                    "wrap": true,
+                                    "size": "Default",
+                                    "weight": "Default",
+                                    "fds": {
+                                      "fdsStyle": "text-1"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "text": "Source: FactSet",
+                            "type": "TextBlock",
+                            "wrap": true,
+                            "size": "Small",
+                            "weight": "Default",
+                            "fds": {
+                              "fdsStyle": "text-20",
+                              "color": "Light"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "meta": {
+                    "signalRequestId": "81024cf7-8b40-4845-ab98-ece81b091f1e",
+                    "sort": [
+                      "-userRelevanceScore"
+                    ],
+                    "idResolutions": {
+                      "tickerRegion": {
+                        "GOOG-US": "GOOG-US"
+                      },
+                      "regionalPermId": {
+                        "GOOG-US": "WFJYTJ-R"
+                      }
+                    },
+                    "dateRange": {
+                      "created": {
+                        "gte": "2024-08-15T00:00:00.000Z",
+                        "lte": "2024-08-22T22:10:58.294Z"
+                      },
+                      "updated": {
+                        "gte": "2024-08-15T00:00:00.000Z",
+                        "lte": "2024-08-22T22:10:58.294Z"
+                      }
+                    },
+                    "pagination": {
+                      "total": 4,
+                      "isEstimatedTotal": false
+                    }
+                  }
                 }
               }
             }
@@ -551,6 +1794,17 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/errorResponse"
+                },
+                "example": {
+                  "message": "A parameter in the request has an invalid value or a required parameter is missing.",
+                  "errors": [
+                    {
+                      "id": "b0faf2e1-a7b2-43b0-acd7-3f04ad3c1a33",
+                      "code": "parameterError",
+                      "title": "Required param 'exampleParam' was not provided",
+                      "detail": "A parameter in the request has an invalid value or a required parameter is missing."
+                    }
+                  ]
                 }
               }
             }
@@ -578,6 +1832,9 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/rateLimitResponse"
+                },
+                "example": {
+                  "message": "API rate limit exceeded"
                 }
               }
             }
@@ -588,6 +1845,17 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/errorResponse"
+                },
+                "example": {
+                  "message": "An error occurred while processing the request.",
+                  "errors": [
+                    {
+                      "code": "genericServerError",
+                      "detail": "An error occurred while processing the request.",
+                      "id": "b0faf2e1-a7b2-43b0-acd7-3f04ad3c1a33",
+                      "title": "An unexpected error happened."
+                    }
+                  ]
                 }
               }
             }
@@ -614,6 +1882,162 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/eventAdaptiveCard"
+                },
+                "example": {
+                  "data": {
+                    "requestId": "0FPWZZ-E",
+                    "signalId": "debtMaturingBond",
+                    "adaptiveCard": {
+                      "type": "AdaptiveCard",
+                      "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+                      "version": "1.0",
+                      "body": [
+                        {
+                          "text": "Alphabet (GOOGL-US) has one bond totaling USD 2,000.00 million that will be maturing in 24 months",
+                          "type": "TextBlock",
+                          "wrap": true,
+                          "size": "Default",
+                          "weight": "Bolder",
+                          "fds": {
+                            "fdsStyle": "text-4"
+                          }
+                        },
+                        {
+                          "type": "Container",
+                          "items": [
+                            {
+                              "type": "Container",
+                              "separator": true,
+                              "items": [
+                                {
+                                  "type": "ColumnSet",
+                                  "columns": [
+                                    {
+                                      "type": "Column",
+                                      "width": "stretch",
+                                      "items": [
+                                        {
+                                          "type": "Container",
+                                          "items": [
+                                            {
+                                              "text": "Bond ID",
+                                              "type": "TextBlock",
+                                              "wrap": true,
+                                              "weight": "Bolder",
+                                              "fds": {
+                                                "weight": "Default",
+                                                "color": "Light"
+                                              }
+                                            },
+                                            {
+                                              "text": "US02079KAC18",
+                                              "type": "TextBlock",
+                                              "wrap": true,
+                                              "spacing": "None"
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "Column",
+                                      "width": "stretch",
+                                      "items": [
+                                        {
+                                          "type": "Container",
+                                          "items": [
+                                            {
+                                              "text": "Maturity Date",
+                                              "type": "TextBlock",
+                                              "wrap": true,
+                                              "weight": "Bolder",
+                                              "fds": {
+                                                "weight": "Default",
+                                                "color": "Light"
+                                              }
+                                            },
+                                            {
+                                              "text": "15 Aug '26",
+                                              "type": "TextBlock",
+                                              "wrap": true,
+                                              "spacing": "None"
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "Column",
+                                      "width": "stretch",
+                                      "items": [
+                                        {
+                                          "type": "Container",
+                                          "items": [
+                                            {
+                                              "text": "Amount",
+                                              "type": "TextBlock",
+                                              "wrap": true,
+                                              "weight": "Bolder",
+                                              "fds": {
+                                                "weight": "Default",
+                                                "color": "Light"
+                                              }
+                                            },
+                                            {
+                                              "text": "USD 2,000 Million",
+                                              "type": "TextBlock",
+                                              "wrap": true,
+                                              "spacing": "None"
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "text": "[Security Overview](https://my.apps.factset.com/navigator/company-security/security-overview/US02079KAC18)",
+                                  "type": "TextBlock",
+                                  "wrap": true,
+                                  "size": "Default",
+                                  "weight": "Default",
+                                  "fds": {
+                                    "fdsStyle": "text-1"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "text": "Source: FactSet",
+                          "type": "TextBlock",
+                          "wrap": true,
+                          "size": "Small",
+                          "weight": "Default",
+                          "fds": {
+                            "fdsStyle": "text-20",
+                            "color": "Light"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "meta": {
+                    "signalRequestId": "bdf8dcee-fe26-40bf-bb24-f878d0393174",
+                    "idResolutions": {
+                      "tickerRegion": {
+                        "0FPWZZ-E": "GOOGL-US"
+                      },
+                      "regionalPermId": {
+                        "0FPWZZ-E": "HTM0LK-R"
+                      }
+                    },
+                    "pagination": {
+                      "total": 0,
+                      "isEstimatedTotal": false
+                    }
+                  }
                 }
               }
             }
@@ -624,6 +2048,17 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/errorResponse"
+                },
+                "example": {
+                  "message": "Could not find event with id f1f8627e-dea5-4457-aa64-e4c278e22626",
+                  "errors": [
+                    {
+                      "id": "aa03dc88-4806-4ea7-b075-58c2e28657cf",
+                      "code": "notFound",
+                      "title": "The requested resource is not available.",
+                      "detail": "Could not find event with id f1f8627e-dea5-4457-aa64-e4c278e22626"
+                    }
+                  ]
                 }
               }
             }
@@ -651,6 +2086,9 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/rateLimitResponse"
+                },
+                "example": {
+                  "message": "API rate limit exceeded"
                 }
               }
             }
@@ -661,6 +2099,17 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/errorResponse"
+                },
+                "example": {
+                  "message": "An error occurred while processing the request.",
+                  "errors": [
+                    {
+                      "code": "genericServerError",
+                      "detail": "An error occurred while processing the request.",
+                      "id": "b0faf2e1-a7b2-43b0-acd7-3f04ad3c1a33",
+                      "title": "An unexpected error happened."
+                    }
+                  ]
                 }
               }
             }
@@ -703,6 +2152,34 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/eventsEntities"
+                },
+                "example": {
+                  "data": [
+                    "002FF1-E",
+                    "000CNJ-E",
+                    "001HHK-E",
+                    "002W5H-E",
+                    "003DJY-E",
+                    "003B1C-E",
+                    "0FPWZZ-E",
+                    "06S9GH-E",
+                    "0801VG-E",
+                    "009RJM-E",
+                    "06KNS6-E"
+                  ],
+                  "meta": {
+                    "signalRequestId": "4e36db2d-54cb-4604-b425-170f8f2bc7e3",
+                    "dateRange": {
+                      "created": {
+                        "gte": "2024-08-15T00:00:00.000Z",
+                        "lte": "2024-08-22T22:14:58.764Z"
+                      },
+                      "updated": {
+                        "gte": "2024-08-15T00:00:00.000Z",
+                        "lte": "2024-08-22T22:14:58.764Z"
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -713,6 +2190,17 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/errorResponse"
+                },
+                "example": {
+                  "message": "A parameter in the request has an invalid value or a required parameter is missing.",
+                  "errors": [
+                    {
+                      "id": "b0faf2e1-a7b2-43b0-acd7-3f04ad3c1a33",
+                      "code": "parameterError",
+                      "title": "Required param 'exampleParam' was not provided",
+                      "detail": "A parameter in the request has an invalid value or a required parameter is missing."
+                    }
+                  ]
                 }
               }
             }
@@ -740,6 +2228,9 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/rateLimitResponse"
+                },
+                "example": {
+                  "message": "API rate limit exceeded"
                 }
               }
             }
@@ -750,6 +2241,17 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/errorResponse"
+                },
+                "example": {
+                  "message": "An error occurred while processing the request.",
+                  "errors": [
+                    {
+                      "code": "genericServerError",
+                      "detail": "An error occurred while processing the request.",
+                      "id": "b0faf2e1-a7b2-43b0-acd7-3f04ad3c1a33",
+                      "title": "An unexpected error happened."
+                    }
+                  ]
                 }
               }
             }
@@ -768,6 +2270,29 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/eventsEntitiesPost"
+              },
+              "example": {
+                "created": {
+                  "gt": "2021-01-01T00:00:00Z",
+                  "gte": "2021-01-01T00:00:00Z",
+                  "lt": "2021-01-01T00:00:00Z",
+                  "lte": "2021-01-01T00:00:00Z"
+                },
+                "updated": {
+                  "gt": "2021-01-01T00:00:00Z",
+                  "gte": "2021-01-01T00:00:00Z",
+                  "lt": "2021-01-01T00:00:00Z",
+                  "lte": "2021-01-01T00:00:00Z"
+                },
+                "signalIds": "dilutionTrigger,freeCashFlow",
+                "themes": "testTheme",
+                "categories": "testCategory",
+                "userRelevanceScore": {
+                  "gt": 0,
+                  "gte": 0,
+                  "lt": 0,
+                  "lte": 0
+                }
               }
             }
           }
@@ -779,6 +2304,34 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/eventsEntities"
+                },
+                "example": {
+                  "data": [
+                    "002FF1-E",
+                    "000CNJ-E",
+                    "001HHK-E",
+                    "002W5H-E",
+                    "003DJY-E",
+                    "003B1C-E",
+                    "0FPWZZ-E",
+                    "06S9GH-E",
+                    "0801VG-E",
+                    "009RJM-E",
+                    "06KNS6-E"
+                  ],
+                  "meta": {
+                    "signalRequestId": "4e36db2d-54cb-4604-b425-170f8f2bc7e3",
+                    "dateRange": {
+                      "created": {
+                        "gte": "2024-08-15T00:00:00.000Z",
+                        "lte": "2024-08-22T22:14:58.764Z"
+                      },
+                      "updated": {
+                        "gte": "2024-08-15T00:00:00.000Z",
+                        "lte": "2024-08-22T22:14:58.764Z"
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -789,6 +2342,17 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/errorResponse"
+                },
+                "example": {
+                  "message": "A parameter in the request has an invalid value or a required parameter is missing.",
+                  "errors": [
+                    {
+                      "id": "b0faf2e1-a7b2-43b0-acd7-3f04ad3c1a33",
+                      "code": "parameterError",
+                      "title": "Required param 'exampleParam' was not provided",
+                      "detail": "A parameter in the request has an invalid value or a required parameter is missing."
+                    }
+                  ]
                 }
               }
             }
@@ -816,6 +2380,9 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/rateLimitResponse"
+                },
+                "example": {
+                  "message": "API rate limit exceeded"
                 }
               }
             }
@@ -826,6 +2393,17 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/errorResponse"
+                },
+                "example": {
+                  "message": "An error occurred while processing the request.",
+                  "errors": [
+                    {
+                      "code": "genericServerError",
+                      "detail": "An error occurred while processing the request.",
+                      "id": "b0faf2e1-a7b2-43b0-acd7-3f04ad3c1a33",
+                      "title": "An unexpected error happened."
+                    }
+                  ]
                 }
               }
             }
@@ -847,6 +2425,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/signalMetaData"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "id": "debtMaturingBond",
+                      "name": "Bonds Maturing in 24 Months",
+                      "description": "The company has bonds maturing in 24 months, the Signal does not include Finance companies (RBICS 30)."
+                    },
+                    {
+                      "id": "testSignal",
+                      "name": "Test Signal",
+                      "description": "Signal description"
+                    }
+                  ]
                 }
               }
             }
@@ -874,6 +2466,9 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/rateLimitResponse"
+                },
+                "example": {
+                  "message": "API rate limit exceeded"
                 }
               }
             }
@@ -884,6 +2479,17 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/errorResponse"
+                },
+                "example": {
+                  "message": "An error occurred while processing the request.",
+                  "errors": [
+                    {
+                      "code": "genericServerError",
+                      "detail": "An error occurred while processing the request.",
+                      "id": "b0faf2e1-a7b2-43b0-acd7-3f04ad3c1a33",
+                      "title": "An unexpected error happened."
+                    }
+                  ]
                 }
               }
             }
@@ -910,6 +2516,43 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/signalDefinition"
+                },
+                "example": {
+                  "data": {
+                    "signalId": "debtMaturingBond",
+                    "description": "The company has bonds maturing in 24 months, the Signal does not include Finance companies (RBICS 30).",
+                    "theme": "debtCapitalStructure",
+                    "categories": [
+                      "credit",
+                      "capitalStructure",
+                      "debt"
+                    ],
+                    "contract": {
+                      "fields": {
+                        "summary": {
+                          "description": "Detail message regarding bond maturity",
+                          "type": "string"
+                        },
+                        "eventDate": {
+                          "description": "Event date for bond maturity - YYYY-MM-DD",
+                          "type": "date"
+                        },
+                        "shortDetailMessage": {
+                          "description": "Short detail message regarding bond maturity",
+                          "type": "string",
+                          "optional": true
+                        },
+                        "bondId": {
+                          "description": "Bond ID - ISIN else 9-digit CUSIP",
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "version": "1.0"
+                    }
+                  }
                 }
               }
             }
@@ -920,6 +2563,17 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/errorResponse"
+                },
+                "example": {
+                  "message": "Could not find event with id f1f8627e-dea5-4457-aa64-e4c278e22626",
+                  "errors": [
+                    {
+                      "id": "aa03dc88-4806-4ea7-b075-58c2e28657cf",
+                      "code": "notFound",
+                      "title": "The requested resource is not available.",
+                      "detail": "Could not find event with id f1f8627e-dea5-4457-aa64-e4c278e22626"
+                    }
+                  ]
                 }
               }
             }
@@ -947,6 +2601,9 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/rateLimitResponse"
+                },
+                "example": {
+                  "message": "API rate limit exceeded"
                 }
               }
             }
@@ -957,6 +2614,17 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/errorResponse"
+                },
+                "example": {
+                  "message": "An error occurred while processing the request.",
+                  "errors": [
+                    {
+                      "code": "genericServerError",
+                      "detail": "An error occurred while processing the request.",
+                      "id": "b0faf2e1-a7b2-43b0-acd7-3f04ad3c1a33",
+                      "title": "An unexpected error happened."
+                    }
+                  ]
                 }
               }
             }
@@ -978,6 +2646,25 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/signalMetaData"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "id": "estimates",
+                      "name": "Estimates",
+                      "description": "Derived from comprehensive consensus- and detail-level estimates and statistics from investment banks and research firms, including segment estimates and company-issued guidance and actuals, as well as commodities and sector-specific data"
+                    },
+                    {
+                      "id": "prices",
+                      "name": "Prices",
+                      "description": "Derived mainly from pricing and related data (trading volume, price impact and history, etc.)"
+                    },
+                    {
+                      "id": "fundamentals",
+                      "name": "Fundamentals",
+                      "description": "Derived mainly from historical financial statement content, annual and interim/quarterly data, calculated ratios, and per share data"
+                    }
+                  ]
                 }
               }
             }
@@ -1005,6 +2692,9 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/rateLimitResponse"
+                },
+                "example": {
+                  "message": "API rate limit exceeded"
                 }
               }
             }
@@ -1015,6 +2705,17 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/errorResponse"
+                },
+                "example": {
+                  "message": "An error occurred while processing the request.",
+                  "errors": [
+                    {
+                      "code": "genericServerError",
+                      "detail": "An error occurred while processing the request.",
+                      "id": "b0faf2e1-a7b2-43b0-acd7-3f04ad3c1a33",
+                      "title": "An unexpected error happened."
+                    }
+                  ]
                 }
               }
             }
@@ -1036,6 +2737,30 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/signalMetaData"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "id": "fundamentals",
+                      "name": "fundamentals",
+                      "description": "Relevant change in data reported by the company"
+                    },
+                    {
+                      "id": "price",
+                      "name": "price",
+                      "description": "Events related to the stock price"
+                    },
+                    {
+                      "id": "estimates",
+                      "name": "estimates",
+                      "description": "Meaningful changes to the estimate profile of a company"
+                    },
+                    {
+                      "id": "debt",
+                      "name": "debt",
+                      "description": "Awareness of a company's bond exposure and obligations"
+                    }
+                  ]
                 }
               }
             }
@@ -1063,6 +2788,9 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/rateLimitResponse"
+                },
+                "example": {
+                  "message": "API rate limit exceeded"
                 }
               }
             }
@@ -1073,6 +2801,17 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/errorResponse"
+                },
+                "example": {
+                  "message": "An error occurred while processing the request.",
+                  "errors": [
+                    {
+                      "code": "genericServerError",
+                      "detail": "An error occurred while processing the request.",
+                      "id": "b0faf2e1-a7b2-43b0-acd7-3f04ad3c1a33",
+                      "title": "An unexpected error happened."
+                    }
+                  ]
                 }
               }
             }
@@ -1152,9 +2891,9 @@
       "signalIdsParam": {
         "name": "signalIds",
         "in": "query",
+        "description": "Comma delimited string of signalIds",
         "schema": {
-          "type": "string",
-          "description": "Comma delimited string of signalIds"
+          "type": "string"
         },
         "example": "dilutionTrigger,freeCashFlow"
       },
@@ -1234,9 +2973,9 @@
         "name": "signalId",
         "in": "path",
         "required": true,
+        "description": "A single signalId.",
         "schema": {
-          "type": "string",
-          "description": "A single signalId."
+          "type": "string"
         },
         "example": "dilutionTrigger"
       },
@@ -1261,6 +3000,7 @@
     },
     "schemas": {
       "errorResponse": {
+        "description": "The response returned for an unsuccessful request",
         "type": "object",
         "required": [
           "message"
@@ -1283,14 +3023,17 @@
       "rateLimitResponse": {
         "title": "Rate Limit Error Object",
         "description": "Error returned if any of the user's rate limit have been reached.",
+        "type": "object",
         "properties": {
           "message": {
             "type": "string",
+            "description": "Detail about the rate limit error.",
             "example": "API rate limit exceeded"
           }
         }
       },
       "errorItem": {
+        "description": "Details about an unsuccessful request",
         "type": "object",
         "required": [
           "id",
@@ -1300,24 +3043,29 @@
         "properties": {
           "id": {
             "type": "string",
+            "description": "A unique identifier for the error object",
             "format": "uuid"
           },
           "code": {
             "type": "string",
+            "description": "Error type",
             "example": "parameterError"
           },
           "title": {
             "type": "string",
+            "description": "Condition that caused the error",
             "example": "Invalid type/value"
           },
           "detail": {
             "type": "string",
+            "description": "A short description of the error.",
             "example": "Value must be a valid UTC date/time that conforms to ISO 8601 format"
           },
           "source": {
             "type": "object",
             "properties": {
               "parameter": {
+                "description": "The source of the error",
                 "type": "string"
               }
             }
@@ -1386,6 +3134,7 @@
         }
       },
       "idResolutionsMeta": {
+        "description": "Details about resolved identifiers",
         "type": "object",
         "properties": {
           "tickerRegion": {
@@ -1446,6 +3195,7 @@
         }
       },
       "eventHeadlineDataItem": {
+        "description": "Return object that includes details about an event headline",
         "type": "object",
         "required": [
           "requestId",
@@ -1594,6 +3344,7 @@
         }
       },
       "eventDetail": {
+        "description": "Signals event headlines plus all additional event details",
         "type": "object",
         "required": [
           "data",
@@ -1615,6 +3366,7 @@
         }
       },
       "eventDetails": {
+        "description": "Multiple Signals event headlines plus all additional event details",
         "type": "object",
         "required": [
           "data",
@@ -1639,6 +3391,7 @@
         }
       },
       "eventAdaptiveCard": {
+        "description": "Returns Microsoft's Adaptive Cards, which includes headlines and event details data plus hyperlinks to FactSet reports",
         "type": "object",
         "required": [
           "data",
@@ -1660,6 +3413,7 @@
         }
       },
       "eventAdaptiveCards": {
+        "description": "Returns multiple Microsoft's Adaptive Cards, which includes headlines and event details data plus hyperlinks to FactSet reports",
         "type": "object",
         "required": [
           "data",
@@ -1684,6 +3438,7 @@
         }
       },
       "eventRequestBody": {
+        "description": "The POST request's body containing the request criterion",
         "type": "object",
         "properties": {
           "created": {
@@ -1743,6 +3498,7 @@
         }
       },
       "eventsEntities": {
+        "description": "Contains list of entities that matches the request criterion",
         "type": "object",
         "required": [
           "data",
@@ -1769,6 +3525,7 @@
         }
       },
       "eventsEntitiesPost": {
+        "description": "Contains list of entities that matches the request criterion",
         "type": "object",
         "properties": {
           "created": {
@@ -1811,6 +3568,7 @@
         }
       },
       "signalMetaData": {
+        "description": "Metadata about a signal",
         "type": "object",
         "required": [
           "data"
@@ -1827,12 +3585,15 @@
               ],
               "properties": {
                 "id": {
+                  "description": "UUID of a signal",
                   "type": "string"
                 },
                 "name": {
+                  "description": "Name of the signal",
                   "type": "string"
                 },
                 "description": {
+                  "description": "A description of the signal",
                   "type": "string"
                 }
               }
@@ -1841,6 +3602,7 @@
         }
       },
       "signalDefinition": {
+        "description": "Detailed information about a given signal",
         "type": "object",
         "required": [
           "data"
@@ -1856,14 +3618,18 @@
             ],
             "properties": {
               "signalId": {
+                "description": "UUID of a signal",
                 "type": "string"
               },
               "theme": {
+                "description": "Theme chosen for the signal request",
                 "type": "string"
               },
               "categories": {
+                "description": "Categories chosen for the signal request",
                 "type": "array",
                 "items": {
+                  "description": "List of categories chosen",
                   "type": "string"
                 }
               },
@@ -1875,6 +3641,7 @@
         }
       },
       "contract": {
+        "description": "Provides details on a given contract",
         "type": "object",
         "required": [
           "fields",
@@ -1885,11 +3652,13 @@
             "$ref": "#/components/schemas/contractFields"
           },
           "version": {
+            "description": "Contract version number",
             "type": "string"
           }
         }
       },
       "contractFields": {
+        "description": "List of required fields at the top level of each signal",
         "type": "object",
         "required": [
           "summary",
@@ -1900,9 +3669,11 @@
             "type": "object",
             "properties": {
               "description": {
+                "description": "Description of the event summary",
                 "type": "string"
               },
               "type": {
+                "description": "Type of the summary",
                 "type": "string"
               }
             }
@@ -1911,9 +3682,11 @@
             "type": "object",
             "properties": {
               "description": {
+                "description": "Description of the event date",
                 "type": "string"
               },
               "type": {
+                "description": "Type of the event date",
                 "type": "string"
               }
             }
@@ -1924,6 +3697,7 @@
         }
       },
       "contractProperty": {
+        "description": "Includes properties that describes each fields in a signal",
         "type": "object",
         "required": [
           "description",
@@ -1931,21 +3705,26 @@
         ],
         "properties": {
           "description": {
+            "description": "Description of the contract property",
             "type": "string"
           },
           "type": {
+            "description": "Type of the contract property",
             "type": "string"
           },
           "optional": {
+            "description": "Boolean value representing if the contract property is optional",
             "type": "boolean"
           },
           "items": {
             "type": "object",
+            "description": "Information about list of items if type is array",
             "required": [
               "type"
             ],
             "properties": {
               "type": {
+                "description": "Type of the elements contained in the list",
                 "type": "string"
               }
             }
@@ -1965,19 +3744,23 @@
         "properties": {
           "gt": {
             "type": "number",
-            "format": "float"
+            "format": "float",
+            "description": "A date/time string in ISO 8601 format. gt stands for greater than"
           },
           "gte": {
             "type": "number",
-            "format": "float"
+            "format": "float",
+            "description": "A date/time string in ISO 8601 format. gte stands for greater than or equal to"
           },
           "lt": {
             "type": "number",
-            "format": "float"
+            "format": "float",
+            "description": "A date/time string in ISO 8601 format. lt stands for less than"
           },
           "lte": {
             "type": "number",
-            "format": "float"
+            "format": "float",
+            "description": "A date/time string in ISO 8601 format. lte stands for less than or equal to"
           }
         }
       },

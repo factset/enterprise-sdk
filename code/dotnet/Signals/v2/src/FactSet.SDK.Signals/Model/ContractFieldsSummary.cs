@@ -35,8 +35,8 @@ namespace FactSet.SDK.Signals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ContractFieldsSummary" /> class.
         /// </summary>
-        /// <param name="description">description.</param>
-        /// <param name="type">type.</param>
+        /// <param name="description">Description of the event summary.</param>
+        /// <param name="type">Type of the summary.</param>
         public ContractFieldsSummary(string description = default(string), string type = default(string))
         {
             this.Description = description;
@@ -44,14 +44,16 @@ namespace FactSet.SDK.Signals.Model
         }
 
         /// <summary>
-        /// Gets or Sets Description
+        /// Description of the event summary
         /// </summary>
+        /// <value>Description of the event summary</value>
         [DataMember(Name = "description", EmitDefaultValue = false)]
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or Sets Type
+        /// Type of the summary
         /// </summary>
+        /// <value>Type of the summary</value>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public string Type { get; set; }
 

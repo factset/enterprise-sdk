@@ -21,10 +21,11 @@ import ErrorItemSource from './ErrorItemSource';
 class ErrorItem {
     /**
      * Constructs a new <code>ErrorItem</code>.
+     * Details about an unsuccessful request
      * @alias module:model/ErrorItem
-     * @param id {String} 
-     * @param code {String} 
-     * @param title {String} 
+     * @param id {String} A unique identifier for the error object
+     * @param code {String} Error type
+     * @param title {String} Condition that caused the error
      */
     constructor(id, code, title) { 
         
@@ -76,21 +77,25 @@ class ErrorItem {
 }
 
 /**
+ * A unique identifier for the error object
  * @member {String} id
  */
 ErrorItem.prototype['id'] = undefined;
 
 /**
+ * Error type
  * @member {String} code
  */
 ErrorItem.prototype['code'] = undefined;
 
 /**
+ * Condition that caused the error
  * @member {String} title
  */
 ErrorItem.prototype['title'] = undefined;
 
 /**
+ * A short description of the error.
  * @member {String} detail
  */
 ErrorItem.prototype['detail'] = undefined;

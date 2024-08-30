@@ -1,26 +1,48 @@
 openapi: 3.0.1
 info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
   description: This is a service for generating charts in a node environment that
     were created using web charting and get back images in form of `PNGs` and `JPEGs`
     as response.
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
   title: Chart Generation Service
-  version: 1.0.0
+  version: 1.5.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/chart-generation-service
 servers:
-- description: sandbox server (uses dummy data)
-  url: https://api-sandbox.factset.com/charting
 - description: production server (uses live data)
-  url: https://api.factset.com/charting
+  url: https://api.factset.com/charting/v1
+- description: sandbox server (uses dummy data)
+  url: https://api-sandbox.factset.com/charting/v1
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
+tags:
+- description: Get chart categories, templates and images
+  name: Chart Templates
 paths:
-  /v1/catalog/categories:
+  /catalog/categories:
     get:
+      description: Retrieve a list of all chart categories with getCategoryList()
+        API call.
       operationId: getCategoryList
       responses:
         "200":
           content:
             application/json:
+              example:
+              - commodities
+              - equity
+              - fx
+              - interest_rates
+              - market_analysis
+              - options
               schema:
                 $ref: '#/components/schemas/CategoryListResponse'
           description: Success
@@ -34,7 +56,7 @@ paths:
       tags:
       - Chart Templates
       x-accepts: application/json
-  /v1/catalog/charts:
+  /catalog/charts:
     get:
       description: You can get all the charts present or can just get the information
         by categories. The response includes the name of the chart, description, tags
@@ -54,27 +76,26 @@ paths:
         schema:
           type: string
         style: form
-      - description: return type of the response
-        example: json
-        explode: true
-        in: query
-        name: type
-        required: false
-        schema:
-          enum:
-          - json
-          - pdf
-          type: string
-        style: form
       responses:
         "200":
           content:
             application/json:
+              example:
+              - category: equity
+                chartList:
+                - name: RSI
+                  description: This chart requires a ticker
+                  tags:
+                  - price
+                  - intraday
+                  inputs:
+                  - in: query
+                    name: tz
+                    description: Can be used to specify timezone of the chart
+                    type: string
+                    example: America/New_York
               schema:
                 $ref: '#/components/schemas/CategorizedChartList'
-            application/pdf:
-              schema:
-                $ref: '#/components/schemas/CatalogPDF'
           description: Success
         "400":
           content:
@@ -87,14 +108,17 @@ paths:
       tags:
       - Chart Templates
       x-accepts: application/json
-  /v1/image:
+  /image:
     get:
-      operationId: Images
+      description: Get a chart image in PNG or JPEG formats with the images() API
+        call.
+      operationId: images
       parameters:
       - description: 'Path to the saved chart. For any of the default charts, the
           option should be `categoryName + ''/'' + chartName`. For charts under the
           Client or Personal directories, the option should be `directoryName + '':/''
           + pathTotheChart`.  '
+        example: Equity/RSI
         explode: true
         in: query
         name: chart
@@ -115,9 +139,23 @@ paths:
           example: FDS,AAPL
           type: string
         style: form
-      - description: Option for overriding the startDate of the chart. For absolute
-          dates provide a string in `YYYYMMDD` format. We can also specify relative
-          date options
+      - description: "Option for overriding the startDate of the chart.\n\n#### Absolute\
+          \ Dates\n\nFor absolute dates, provide a string in `YYYYMMDD` format.\n\n\
+          #### Relative Dates\n\nRelative dates represent a date relative to the most\
+          \ recently-updated period. For example, 0 (zero) represents the most recently-updated\
+          \ period; -1 represents the time period prior to the most recently updated.\\\
+          \n\\\nThe \"zero date\" is determined by the default time period or the\
+          \ natural frequency of the data being requested. Zero (0), when used with\
+          \ monthly data, indicates the most recent month-end. Negative one (-1),\
+          \ when used with annual data, indicates one fiscal year prior to the most\
+          \ recently-updated fiscal year.\n\n#### Relative Date Options\n\n**D:**\t\
+          `0D` is the most recent trading day, `-1D` is one trading day prior\n\n\
+          **M:**\t`0M` is the last trading day of the most recent month, `-1M` is\
+          \ the last trading day of the prior month\n\n**AY:**\t`0AY` is the most\
+          \ recent trading day, `-1AY` is one actual year (365 days) prior\n\n**Y:**\t\
+          `0Y` is the last trading day of the company's most recent fiscal year, `-1Y`\
+          \ is the last trading day of the prior fiscal year\\\n\\\nFor more information\
+          \ and examples, refer to our [date format documentation](https://my.apps.factset.com/oa/pages/1964#date_f)."
         explode: true
         in: query
         name: sd
@@ -128,7 +166,7 @@ paths:
         style: form
       - description: Option for overriding the endDate of the chart. For absolute
           dates provide a string in `YYYYMMDD` format. We can also specify relative
-          date options
+          date options as described in the above `sd` option.
         explode: true
         in: query
         name: ed
@@ -261,13 +299,24 @@ paths:
           example: false
           type: boolean
         style: form
+      - description: Option to add custom decimal precision on the chart
+        explode: true
+        in: query
+        name: decimalPrecision
+        required: false
+        schema:
+          example: 2
+          type: number
+        style: form
       responses:
         "200":
           content:
             img/png:
+              example: (no example available)
               schema:
                 $ref: '#/components/schemas/PNGResponse'
             img/jpeg:
+              example: (no example available)
               schema:
                 $ref: '#/components/schemas/JPEGResponse'
           description: Success
@@ -290,11 +339,71 @@ paths:
 components:
   schemas:
     PNGResponse:
-      example: (no example available)
+      format: binary
       type: string
     JPEGResponse:
-      example: (no example available)
+      format: binary
       type: string
+    ChartErrorResponseObject:
+      properties:
+        title:
+          type: string
+        code:
+          type: string
+        id:
+          type: string
+      type: object
+    CategoryChartListErrorObject:
+      example:
+        chartList:
+        - inputs:
+          - in: query
+            name: tz
+            description: Can be used to specify timezone of the chart
+            type: string
+            required: false
+            example: America/New_York
+          - in: query
+            name: tz
+            description: Can be used to specify timezone of the chart
+            type: string
+            required: false
+            example: America/New_York
+          name: RSI
+          description: This chart requires a ticker
+          tags:
+          - price
+          - intraday
+        - inputs:
+          - in: query
+            name: tz
+            description: Can be used to specify timezone of the chart
+            type: string
+            required: false
+            example: America/New_York
+          - in: query
+            name: tz
+            description: Can be used to specify timezone of the chart
+            type: string
+            required: false
+            example: America/New_York
+          name: RSI
+          description: This chart requires a ticker
+          tags:
+          - price
+          - intraday
+        category: equity
+      properties:
+        category:
+          description: Name of the category. This is required when building the request
+            for the chart image.
+          example: equity
+          type: string
+        chartList:
+          items:
+            $ref: '#/components/schemas/ChartList'
+          type: array
+      type: object
     CategoryListResponse:
       example:
       - commodities
@@ -306,14 +415,29 @@ components:
       items:
         description: Chart categories available for user.
         type: string
+      properties:
+        data:
+          items: {}
+          type: array
       type: array
     CategoriesErrorResponse:
       properties:
         error:
           example: No categories found
           type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ChartErrorResponseObject'
+          type: array
       type: object
     ChartInput:
+      example:
+        in: query
+        name: tz
+        description: Can be used to specify timezone of the chart
+        type: string
+        required: false
+        example: America/New_York
       properties:
         in:
           description: How to apply the additional input. Would be often via query
@@ -345,6 +469,25 @@ components:
           type: string
       type: object
     ChartList:
+      example:
+        inputs:
+        - in: query
+          name: tz
+          description: Can be used to specify timezone of the chart
+          type: string
+          required: false
+          example: America/New_York
+        - in: query
+          name: tz
+          description: Can be used to specify timezone of the chart
+          type: string
+          required: false
+          example: America/New_York
+        name: RSI
+        description: This chart requires a ticker
+        tags:
+        - price
+        - intraday
       properties:
         name:
           description: Name of the chart
@@ -371,17 +514,11 @@ components:
       type: object
     CategorizedChartList:
       items:
-        properties:
-          category:
-            description: Name of the category. This is required when building the
-              request for the chart image.
-            example: equity
-            type: string
-          chartList:
-            items:
-              $ref: '#/components/schemas/ChartList'
-            type: array
-        type: object
+        $ref: '#/components/schemas/CategoryChartListErrorObject'
+      properties:
+        data:
+          items: {}
+          type: array
       type: array
     ChartListErrorResponse:
       properties:
@@ -390,10 +527,11 @@ components:
           - Invalid Category Name(s)
           - Unable to build chart-list
           type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ChartErrorResponseObject'
+          type: array
       type: object
-    CatalogPDF:
-      format: binary
-      type: string
     ErrorResponse:
       properties:
         error:
@@ -411,6 +549,10 @@ components:
           - Invalid ticker
           - Invalid chart title
           type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ChartErrorResponseObject'
+          type: array
       type: object
     UnauthorizedResponse:
       properties:
@@ -418,6 +560,10 @@ components:
           enum:
           - User credentials not found
           type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ChartErrorResponseObject'
+          type: array
       type: object
   securitySchemes:
     FactSetOAuth2:

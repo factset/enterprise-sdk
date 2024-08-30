@@ -6,7 +6,7 @@ Prices Request Body
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ids** | [**Ids**](Ids.md) |  | 
-**start_date** | **str** | The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this #endpoint.  | [optional] 
+**start_date** | **str** | The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.  | [optional] 
 **end_date** | **str** | The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.  | [optional] 
 **frequency** | [**Frequency**](Frequency.md) |  | [optional] 
 **currency** | **str** | The ISO3 currency control for the requested fund. | [optional]  if omitted the server will use the default value of "LOCAL"

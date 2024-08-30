@@ -1,12 +1,12 @@
 # ChartTemplatesApi
 
-All URIs are relative to *https://api-sandbox.factset.com/charting*
+All URIs are relative to *https://api.factset.com/charting/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getCategoryList**](ChartTemplatesApi.md#getCategoryList) | **GET** /v1/catalog/categories | Get a list of chart categories
-[**getChartList**](ChartTemplatesApi.md#getChartList) | **GET** /v1/catalog/charts | Get a list of chart templates that can be used for getting the image from the service.
-[**images**](ChartTemplatesApi.md#images) | **GET** /v1/image | Get chart image back in PNG or JPEG formats
+[**getCategoryList**](ChartTemplatesApi.md#getCategoryList) | **GET** /catalog/categories | Get a list of chart categories
+[**getChartList**](ChartTemplatesApi.md#getChartList) | **GET** /catalog/charts | Get a list of chart templates that can be used for getting the image from the service.
+[**images**](ChartTemplatesApi.md#images) | **GET** /image | Get chart image back in PNG or JPEG formats
 
 
 
@@ -15,6 +15,8 @@ Method | HTTP request | Description
 > java.util.List<String> getCategoryList()
 
 Get a list of chart categories
+
+Retrieve a list of all chart categories with getCategoryList() API call.
 
 ### Example
 
@@ -98,7 +100,7 @@ This endpoint does not need any parameter.
 
 ## getChartList
 
-> java.util.List<Object> getChartList(categories, type)
+> java.util.List<CategoryChartListErrorObject> getChartList(categories)
 
 Get a list of chart templates that can be used for getting the image from the service.
 
@@ -146,9 +148,8 @@ public class Example {
 
         ChartTemplatesApi apiInstance = new ChartTemplatesApi(defaultClient);
         String categories = "categories_example"; // String | A comma delimited string of catgory names to limit the response to certain categories. If nothing is provided, all charts under every category would be listed out.
-        String type = "json"; // String | return type of the response
         try {
-            java.util.List<Object> result = apiInstance.getChartList(categories, type);
+            java.util.List<CategoryChartListErrorObject> result = apiInstance.getChartList(categories);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -168,11 +169,10 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **categories** | **String**| A comma delimited string of catgory names to limit the response to certain categories. If nothing is provided, all charts under every category would be listed out. | [optional]
- **type** | **String**| return type of the response | [optional] [enum: json, pdf]
 
 ### Return type
 
-**java.util.List&lt;Object&gt;**
+[**java.util.List&lt;CategoryChartListErrorObject&gt;**](CategoryChartListErrorObject.md)
 
 ### Authorization
 
@@ -181,7 +181,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json, application/pdf
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -192,9 +192,11 @@ Name | Type | Description  | Notes
 
 ## images
 
-> String images(chart, ids, sd, ed, width, height, freq, ccy, split, spin, cal, title, fontSize, type, gridLines)
+> File images(chart, ids, sd, ed, width, height, freq, ccy, split, spin, cal, title, fontSize, type, gridLines, decimalPrecision)
 
 Get chart image back in PNG or JPEG formats
+
+Get a chart image in PNG or JPEG formats with the images() API call.
 
 ### Example
 
@@ -240,8 +242,8 @@ public class Example {
         ChartTemplatesApi apiInstance = new ChartTemplatesApi(defaultClient);
         String chart = "Equity/RSI"; // String | Path to the saved chart. For any of the default charts, the option should be `categoryName + '/' + chartName`. For charts under the Client or Personal directories, the option should be `directoryName + ':/' + pathTotheChart`.  
         String ids = "FDS,AAPL"; // String | List of identifiers to be charted in a comma(,) separated string. Only the first one would be considered as primary and rest would be added as comps. Check the catalog for more information on which charts require a ticker.
-        String sd = "-1Y"; // String | Option for overriding the startDate of the chart. For absolute dates provide a string in `YYYYMMDD` format. We can also specify relative date options
-        String ed = "0"; // String | Option for overriding the endDate of the chart. For absolute dates provide a string in `YYYYMMDD` format. We can also specify relative date options
+        String sd = "-1Y"; // String | Option for overriding the startDate of the chart.  #### Absolute Dates  For absolute dates, provide a string in `YYYYMMDD` format.  #### Relative Dates  Relative dates represent a date relative to the most recently-updated period. For example, 0 (zero) represents the most recently-updated period; -1 represents the time period prior to the most recently updated.\\ \\ The \"zero date\" is determined by the default time period or the natural frequency of the data being requested. Zero (0), when used with monthly data, indicates the most recent month-end. Negative one (-1), when used with annual data, indicates one fiscal year prior to the most recently-updated fiscal year.  #### Relative Date Options  **D:** `0D` is the most recent trading day, `-1D` is one trading day prior  **M:** `0M` is the last trading day of the most recent month, `-1M` is the last trading day of the prior month  **AY:** `0AY` is the most recent trading day, `-1AY` is one actual year (365 days) prior  **Y:** `0Y` is the last trading day of the company's most recent fiscal year, `-1Y` is the last trading day of the prior fiscal year\\ \\ For more information and examples, refer to our [date format documentation](https://my.apps.factset.com/oa/pages/1964#date_f).
+        String ed = "0"; // String | Option for overriding the endDate of the chart. For absolute dates provide a string in `YYYYMMDD` format. We can also specify relative date options as described in the above `sd` option.
         Long width = 1056L; // Long | Option for setting the width of the image
         Long height = 816L; // Long | Option for setting the height of the image
         String freq = "D"; // String | A shorthand string for the overall frequency of the chart like `D` (daily), `W` (weekly), `Y` (yearly) and `Q` (Quarterly). This will default to frequency stored in the document.
@@ -253,8 +255,9 @@ public class Example {
         BigDecimal fontSize = new BigDecimal("10"); // BigDecimal | Option to adjust chart's fontSize
         String type = "png"; // String | The type of image to be generated by the service
         Boolean gridLines = true; // Boolean | Option to toggle gridLines on/off on the chart
+        BigDecimal decimalPrecision = new BigDecimal("2"); // BigDecimal | Option to add custom decimal precision on the chart
         try {
-            String result = apiInstance.images(chart, ids, sd, ed, width, height, freq, ccy, split, spin, cal, title, fontSize, type, gridLines);
+            File result = apiInstance.images(chart, ids, sd, ed, width, height, freq, ccy, split, spin, cal, title, fontSize, type, gridLines, decimalPrecision);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -275,8 +278,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **chart** | **String**| Path to the saved chart. For any of the default charts, the option should be &#x60;categoryName + &#39;/&#39; + chartName&#x60;. For charts under the Client or Personal directories, the option should be &#x60;directoryName + &#39;:/&#39; + pathTotheChart&#x60;.   |
  **ids** | **String**| List of identifiers to be charted in a comma(,) separated string. Only the first one would be considered as primary and rest would be added as comps. Check the catalog for more information on which charts require a ticker. | [optional]
- **sd** | **String**| Option for overriding the startDate of the chart. For absolute dates provide a string in &#x60;YYYYMMDD&#x60; format. We can also specify relative date options | [optional]
- **ed** | **String**| Option for overriding the endDate of the chart. For absolute dates provide a string in &#x60;YYYYMMDD&#x60; format. We can also specify relative date options | [optional]
+ **sd** | **String**| Option for overriding the startDate of the chart.  #### Absolute Dates  For absolute dates, provide a string in &#x60;YYYYMMDD&#x60; format.  #### Relative Dates  Relative dates represent a date relative to the most recently-updated period. For example, 0 (zero) represents the most recently-updated period; -1 represents the time period prior to the most recently updated.\\ \\ The \&quot;zero date\&quot; is determined by the default time period or the natural frequency of the data being requested. Zero (0), when used with monthly data, indicates the most recent month-end. Negative one (-1), when used with annual data, indicates one fiscal year prior to the most recently-updated fiscal year.  #### Relative Date Options  **D:** &#x60;0D&#x60; is the most recent trading day, &#x60;-1D&#x60; is one trading day prior  **M:** &#x60;0M&#x60; is the last trading day of the most recent month, &#x60;-1M&#x60; is the last trading day of the prior month  **AY:** &#x60;0AY&#x60; is the most recent trading day, &#x60;-1AY&#x60; is one actual year (365 days) prior  **Y:** &#x60;0Y&#x60; is the last trading day of the company&#39;s most recent fiscal year, &#x60;-1Y&#x60; is the last trading day of the prior fiscal year\\ \\ For more information and examples, refer to our [date format documentation](https://my.apps.factset.com/oa/pages/1964#date_f). | [optional]
+ **ed** | **String**| Option for overriding the endDate of the chart. For absolute dates provide a string in &#x60;YYYYMMDD&#x60; format. We can also specify relative date options as described in the above &#x60;sd&#x60; option. | [optional]
  **width** | **Long**| Option for setting the width of the image | [optional] [default to 1056]
  **height** | **Long**| Option for setting the height of the image | [optional] [default to 816]
  **freq** | **String**| A shorthand string for the overall frequency of the chart like &#x60;D&#x60; (daily), &#x60;W&#x60; (weekly), &#x60;Y&#x60; (yearly) and &#x60;Q&#x60; (Quarterly). This will default to frequency stored in the document. | [optional]
@@ -288,10 +291,11 @@ Name | Type | Description  | Notes
  **fontSize** | **BigDecimal**| Option to adjust chart&#39;s fontSize | [optional]
  **type** | **String**| The type of image to be generated by the service | [optional] [default to png] [enum: png, jpg]
  **gridLines** | **Boolean**| Option to toggle gridLines on/off on the chart | [optional] [default to true]
+ **decimalPrecision** | **BigDecimal**| Option to add custom decimal precision on the chart | [optional]
 
 ### Return type
 
-**String**
+[**File**](File.md)
 
 ### Authorization
 

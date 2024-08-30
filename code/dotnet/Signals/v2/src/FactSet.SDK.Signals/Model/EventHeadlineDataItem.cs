@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Signals.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Signals.Model
 {
     /// <summary>
-    /// EventHeadlineDataItem
+    /// Return object that includes details about an event headline
     /// </summary>
     [DataContract(Name = "eventHeadlineDataItem")]
     public partial class EventHeadlineDataItem : IEquatable<EventHeadlineDataItem>, IValidatableObject

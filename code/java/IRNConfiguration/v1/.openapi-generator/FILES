@@ -27,6 +27,8 @@ docs/ContactsRolesApi.md
 docs/ContactsTypesApi.md
 docs/CreateCustomSymbolCustomFieldDto.md
 docs/CustomFieldConfigDto.md
+docs/CustomFieldTeamConfigDto.md
+docs/CustomFieldUserTeamLookupFilterType.md
 docs/CustomSymbolCustomFieldConfigDto.md
 docs/CustomSymbolCustomFieldFormulaConfigDto.md
 docs/CustomSymbolSubTypeDto.md
@@ -84,6 +86,7 @@ docs/TeamSummaryDto.md
 docs/TitleSettingsDto.md
 docs/UpdateCustomSymbolTypeDto.md
 docs/UserConfigDto.md
+docs/UserTeamConfigDto.md
 git_push.sh
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
@@ -137,6 +140,8 @@ src/main/java/com/factset/sdk/IRNConfiguration/models/ContactRoleDto.java
 src/main/java/com/factset/sdk/IRNConfiguration/models/ContactTypeDto.java
 src/main/java/com/factset/sdk/IRNConfiguration/models/CreateCustomSymbolCustomFieldDto.java
 src/main/java/com/factset/sdk/IRNConfiguration/models/CustomFieldConfigDto.java
+src/main/java/com/factset/sdk/IRNConfiguration/models/CustomFieldTeamConfigDto.java
+src/main/java/com/factset/sdk/IRNConfiguration/models/CustomFieldUserTeamLookupFilterType.java
 src/main/java/com/factset/sdk/IRNConfiguration/models/CustomSymbolCustomFieldConfigDto.java
 src/main/java/com/factset/sdk/IRNConfiguration/models/CustomSymbolCustomFieldFormulaConfigDto.java
 src/main/java/com/factset/sdk/IRNConfiguration/models/CustomSymbolSubTypeDto.java
@@ -190,3 +195,4 @@ src/main/java/com/factset/sdk/IRNConfiguration/models/TeamSummaryDto.java
 src/main/java/com/factset/sdk/IRNConfiguration/models/TitleSettingsDto.java
 src/main/java/com/factset/sdk/IRNConfiguration/models/UpdateCustomSymbolTypeDto.java
 src/main/java/com/factset/sdk/IRNConfiguration/models/UserConfigDto.java
+src/main/java/com/factset/sdk/IRNConfiguration/models/UserTeamConfigDto.java

@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class IdResolutionsMeta {
     /**
      * Constructs a new <code>IdResolutionsMeta</code>.
+     * Details about resolved identifiers
      * @alias module:model/IdResolutionsMeta
      */
     constructor() { 

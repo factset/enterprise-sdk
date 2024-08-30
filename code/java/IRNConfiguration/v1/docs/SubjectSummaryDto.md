@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **isHidden** | **Boolean** |  |  [optional]
 **customFieldIds** | **java.util.List&lt;java.util.UUID&gt;** |  |  [optional]
 **noteLengthLimit** | **Integer** |  |  [optional]
+**layoutId** | **java.util.UUID** |  |  [optional]
 
 
 ## Implemented Interfaces

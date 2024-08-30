@@ -109,9 +109,9 @@ class SignalMetaDataData(ModelNormal):
         """SignalMetaDataData - a model defined in OpenAPI
 
         Args:
-            id (str):
-            name (str):
-            description (str):
+            id (str): UUID of a signal
+            name (str): Name of the signal
+            description (str): A description of the signal
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -198,9 +198,9 @@ class SignalMetaDataData(ModelNormal):
         """SignalMetaDataData - a model defined in OpenAPI
 
         Args:
-            id (str):
-            name (str):
-            description (str):
+            id (str): UUID of a signal
+            name (str): Name of the signal
+            description (str): A description of the signal
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

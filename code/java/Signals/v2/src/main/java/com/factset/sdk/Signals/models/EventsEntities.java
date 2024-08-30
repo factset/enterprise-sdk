@@ -32,8 +32,9 @@ import com.factset.sdk.Signals.JSON;
 
 
 /**
- * EventsEntities
+ * Contains list of entities that matches the request criterion
  */
+@ApiModel(description = "Contains list of entities that matches the request criterion")
 @JsonPropertyOrder({
   EventsEntities.JSON_PROPERTY_DATA,
   EventsEntities.JSON_PROPERTY_META,

@@ -3,30 +3,41 @@
   "info": {
     "title": "IRN API v1",
     "description": "Allows users to extract, create, update and configure IRN data.",
-    "version": "1"
+    "contact": {
+      "name": "FactSet Research Systems",
+      "url": "https://developer.factset.com/contact",
+      "email": "api@factset.com"
+    },
+    "license": {
+      "name": "Apache License, Version 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
+    },
+    "version": "1.0.0"
   },
   "servers": [
     {
-      "url": "https://api.factset.com/research/irn",
+      "url": "https://api.factset.com/research/irn/v1",
       "description": "Production Server"
     },
     {
-      "url": "https://api-sandbox.factset.com/research/irn",
-      "description": "Sandbox"
+      "url": "https://api-sandbox.factset.com/research/irn/v1",
+      "description": "Sandbox Server"
     }
   ],
   "paths": {
-    "/v1/authors": {
+    "/authors": {
       "get": {
         "tags": [
           "Notes - Configuration"
         ],
         "summary": "Get all Authors",
+        "description": "Get all Authors",
         "operationId": "GetAuthors",
         "parameters": [
           {
             "name": "X-IRN-Ignore-Permissions",
             "in": "header",
+            "description": "If set to true, permissions will be ignored. Default is false.",
             "schema": {
               "type": "boolean",
               "default": false
@@ -60,12 +71,13 @@
         }
       }
     },
-    "/v1/contact-custom-fields": {
+    "/contact-custom-fields": {
       "get": {
         "tags": [
           "Contacts - CustomFields"
         ],
         "summary": "Get all the contact custom fields",
+        "description": "Get all the contact custom fields",
         "operationId": "GetContactCustomFields",
         "responses": {
           "200": {
@@ -88,26 +100,12 @@
           "Contacts - CustomFields"
         ],
         "summary": "Create a contact custom field",
+        "description": "Create a contact custom field with given name and type",
         "operationId": "CreateContactCustomField",
         "requestBody": {
           "description": "ContactCustomFieldSaveDto object to save",
           "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ContactCustomFieldSaveDto"
-              }
-            },
             "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ContactCustomFieldSaveDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ContactCustomFieldSaveDto"
-              }
-            },
-            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/ContactCustomFieldSaveDto"
               }
@@ -148,12 +146,13 @@
         }
       }
     },
-    "/v1/contact-custom-fields/{contactCustomFieldId}": {
+    "/contact-custom-fields/{contactCustomFieldId}": {
       "get": {
         "tags": [
           "Contacts - CustomFields"
         ],
         "summary": "Get a specific Contact custom field's details",
+        "description": "Get all details of custom field's defined for contacts",
         "operationId": "GetContactCustomField",
         "parameters": [
           {
@@ -205,6 +204,7 @@
           "Contacts - CustomFields"
         ],
         "summary": "Edit a contact custom field",
+        "description": "Update a contact custom field configuration",
         "operationId": "PatchContactCustomField",
         "parameters": [
           {
@@ -230,22 +230,6 @@
               }
             },
             "application/json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/Operation"
-                }
-              }
-            },
-            "text/json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/Operation"
-                }
-              }
-            },
-            "application/*+json": {
               "schema": {
                 "type": "array",
                 "items": {
@@ -296,6 +280,7 @@
           "Contacts - CustomFields"
         ],
         "summary": "Delete a contact custom field",
+        "description": "Delete a contact custom field based on guid",
         "operationId": "DeleteContactCustomField",
         "parameters": [
           {
@@ -346,12 +331,13 @@
         }
       }
     },
-    "/v1/contact-roles": {
+    "/contact-roles": {
       "get": {
         "tags": [
           "Contacts - Roles"
         ],
         "summary": "Get list of the contact roles configured in your group",
+        "description": "Get all contact roles configured in your group",
         "operationId": "GetContactRoles",
         "responses": {
           "200": {
@@ -374,32 +360,12 @@
           "Contacts - Roles"
         ],
         "summary": "Create contact roles",
+        "description": "Create a contact role with given name and type",
         "operationId": "CreateContactRole",
         "requestBody": {
           "description": "Contact role name",
           "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "maxLength": 50,
-                "minLength": 0,
-                "type": "string"
-              }
-            },
             "application/json": {
-              "schema": {
-                "maxLength": 50,
-                "minLength": 0,
-                "type": "string"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "maxLength": 50,
-                "minLength": 0,
-                "type": "string"
-              }
-            },
-            "application/*+json": {
               "schema": {
                 "maxLength": 50,
                 "minLength": 0,
@@ -443,12 +409,13 @@
         }
       }
     },
-    "/v1/contact-types": {
+    "/contact-types": {
       "get": {
         "tags": [
           "Contacts - Types"
         ],
         "summary": "Get list of the contact types configured in your group",
+        "description": "Get all contact types configured in your group",
         "operationId": "GetContactTypes",
         "responses": {
           "200": {
@@ -471,32 +438,12 @@
           "Contacts - Types"
         ],
         "summary": "Create contact types",
+        "description": "Create contact type with given name",
         "operationId": "CreateContactType",
         "requestBody": {
           "description": "Contact type name",
           "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "maxLength": 50,
-                "minLength": 0,
-                "type": "string"
-              }
-            },
             "application/json": {
-              "schema": {
-                "maxLength": 50,
-                "minLength": 0,
-                "type": "string"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "maxLength": 50,
-                "minLength": 0,
-                "type": "string"
-              }
-            },
-            "application/*+json": {
               "schema": {
                 "maxLength": 50,
                 "minLength": 0,
@@ -540,12 +487,13 @@
         }
       }
     },
-    "/v1/custom-fields": {
+    "/custom-fields": {
       "get": {
         "tags": [
           "Notes - Configuration"
         ],
         "summary": "Get all Custom Fields",
+        "description": "Get all customfields configured in your group",
         "operationId": "GetCustomFields",
         "parameters": [
           {
@@ -584,12 +532,13 @@
         }
       }
     },
-    "/v1/custom-symbol-custom-fields": {
+    "/custom-symbol-custom-fields": {
       "get": {
         "tags": [
           "CustomSymbols - CustomFields"
         ],
         "summary": "Get all the Custom symbol custom fields",
+        "description": "Get all custom fields configured for custom symbols configured in your group",
         "operationId": "GetCustomSymbolCustomFields",
         "responses": {
           "200": {
@@ -612,26 +561,12 @@
           "CustomSymbols - CustomFields"
         ],
         "summary": "Create a Custom symbol custom field",
+        "description": "Create a contact custom field with given name and type",
         "operationId": "CreateCustomSymbolCustomField",
         "requestBody": {
           "description": "createCustomSymbolCustomFieldDto object to save",
           "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCustomSymbolCustomFieldDto"
-              }
-            },
             "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCustomSymbolCustomFieldDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCustomSymbolCustomFieldDto"
-              }
-            },
-            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateCustomSymbolCustomFieldDto"
               }
@@ -672,12 +607,13 @@
         }
       }
     },
-    "/v1/custom-symbol-custom-fields/{customSymbolCustomFieldId}": {
+    "/custom-symbol-custom-fields/{customSymbolCustomFieldId}": {
       "get": {
         "tags": [
           "CustomSymbols - CustomFields"
         ],
         "summary": "Get a specific Custom symbol custom field's details",
+        "description": "Get details of a given custom field configured for custom symbols",
         "operationId": "GetCustomSymbolCustomField",
         "parameters": [
           {
@@ -729,6 +665,7 @@
           "CustomSymbols - CustomFields"
         ],
         "summary": "Edit a Custom symbol custom field",
+        "description": "Update a custom field configuration for custom symbols",
         "operationId": "PatchCustomSymbolCustomField",
         "parameters": [
           {
@@ -820,6 +757,7 @@
           "CustomSymbols - CustomFields"
         ],
         "summary": "Delete a Custom symbol custom field",
+        "description": "Delete a custom field configured for custom symbols",
         "operationId": "DeleteCustomSymbolCustomField",
         "parameters": [
           {
@@ -870,12 +808,13 @@
         }
       }
     },
-    "/v1/custom-symbol-types": {
+    "/custom-symbol-types": {
       "get": {
         "tags": [
           "CustomSymbols - Types"
         ],
         "summary": "Get all the custom symbol types",
+        "description": "Get all custom symbol types configured in your group",
         "operationId": "GetCustomSymbolTypes",
         "responses": {
           "200": {
@@ -898,26 +837,12 @@
           "CustomSymbols - Types"
         ],
         "summary": "Create a Custom symbol type",
+        "description": "Create a custom symbol type with given name",
         "operationId": "CreateCustomSymbolType",
         "requestBody": {
           "description": "saveCustomSymbolTypeDto object to save",
           "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/SaveCustomSymbolTypeDto"
-              }
-            },
             "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SaveCustomSymbolTypeDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SaveCustomSymbolTypeDto"
-              }
-            },
-            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/SaveCustomSymbolTypeDto"
               }
@@ -958,12 +883,13 @@
         }
       }
     },
-    "/v1/custom-symbol-types/{customSymbolTypeId}": {
+    "/custom-symbol-types/{customSymbolTypeId}": {
       "get": {
         "tags": [
           "CustomSymbols - Types"
         ],
         "summary": "Get a specific Custom symbol type's details",
+        "description": "Get details of a given custom symbol type",
         "operationId": "GetCustomSymbolType",
         "parameters": [
           {
@@ -1015,6 +941,7 @@
           "CustomSymbols - Types"
         ],
         "summary": "Edit a Custom symbol type",
+        "description": "Update a custom symbol type configuration",
         "operationId": "UpdateCustomSymbolType",
         "parameters": [
           {
@@ -1094,6 +1021,7 @@
           "CustomSymbols - Types"
         ],
         "summary": "Delete a Custom symbol type",
+        "description": "Delete a custom symbol type based on guid",
         "operationId": "DeleteCustomSymbolTypeAsync",
         "parameters": [
           {
@@ -1144,12 +1072,13 @@
         }
       }
     },
-    "/v1/custom-symbol-types/{customSymbolTypeId}/custom-fields": {
+    "/custom-symbol-types/{customSymbolTypeId}/custom-fields": {
       "get": {
         "tags": [
           "CustomSymbols - Types"
         ],
         "summary": "Get Custom fields for Custom Symbol type",
+        "description": "Get all custom fields configured for custom symbols configured in your group",
         "operationId": "GetSymbolCustomFieldsForCustomSymbolType",
         "parameters": [
           {
@@ -1200,12 +1129,13 @@
         }
       }
     },
-    "/v1/group": {
+    "/group": {
       "get": {
         "tags": [
           "Notes - Configuration"
         ],
         "summary": "Get Group details",
+        "description": "Get all the group details",
         "operationId": "GetGroup",
         "responses": {
           "200": {
@@ -1217,16 +1147,28 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
     },
-    "/v1/group/client-sales-representative": {
+    "/group/client-sales-representative": {
       "get": {
         "tags": [
           "Notes - Configuration"
         ],
         "operationId": "GetClientsSalesRepresentative",
+        "summary": "Get Client Sales Representative",
+        "description": "Get the client sales representative for the group",
         "responses": {
           "200": {
             "description": "Success",
@@ -1251,12 +1193,13 @@
         }
       }
     },
-    "/v1/phone-number-types": {
+    "/phone-number-types": {
       "get": {
         "tags": [
           "Contacts - PhoneNumberTypes"
         ],
         "summary": "Get list of the phone types configured in your group",
+        "description": "Get all phone types configured in your group",
         "operationId": "GetPhoneNumberTypes",
         "responses": {
           "200": {
@@ -1279,32 +1222,12 @@
           "Contacts - PhoneNumberTypes"
         ],
         "summary": "Create a phone type",
+        "description": "Create a phone type with given name",
         "operationId": "CreatePhoneNumberType",
         "requestBody": {
           "description": "To add phoneNumberType",
           "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "maxLength": 50,
-                "minLength": 0,
-                "type": "string"
-              }
-            },
             "application/json": {
-              "schema": {
-                "maxLength": 50,
-                "minLength": 0,
-                "type": "string"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "maxLength": 50,
-                "minLength": 0,
-                "type": "string"
-              }
-            },
-            "application/*+json": {
               "schema": {
                 "maxLength": 50,
                 "minLength": 0,
@@ -1348,12 +1271,13 @@
         }
       }
     },
-    "/v1/recommendations": {
+    "/recommendations": {
       "get": {
         "tags": [
           "Notes - Configuration"
         ],
         "summary": "Get all Recommendations",
+        "description": "Get all recommendations configured in your group",
         "operationId": "GetRecommendations",
         "responses": {
           "200": {
@@ -1372,12 +1296,13 @@
         }
       }
     },
-    "/v1/relationship-categories": {
+    "/relationship-categories": {
       "get": {
         "tags": [
           "Contacts - Relationship Category"
         ],
         "summary": "Get list of the relationship categories configured in your group",
+        "description": "Get all relationship categories configured in your group",
         "operationId": "GetRelationshipCategories",
         "responses": {
           "200": {
@@ -1400,26 +1325,12 @@
           "Contacts - Relationship Category"
         ],
         "summary": "Create a relationship category",
+        "description": "Create a relationship category with given name",
         "operationId": "CreateRelationshipCategory",
         "requestBody": {
           "description": "RelationshipCategorySaveDto object to save",
           "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/RelationshipCategorySaveDto"
-              }
-            },
             "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RelationshipCategorySaveDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RelationshipCategorySaveDto"
-              }
-            },
-            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/RelationshipCategorySaveDto"
               }
@@ -1460,12 +1371,13 @@
         }
       }
     },
-    "/v1/relationships": {
+    "/relationships": {
       "get": {
         "tags": [
           "Contacts - Relationships"
         ],
         "summary": "Get list of the relationships configured in your group",
+        "description": "Get all contact relationships configured in your group",
         "operationId": "GetRelationships",
         "parameters": [
           {
@@ -1497,26 +1409,12 @@
           "Contacts - Relationships"
         ],
         "summary": "Create a relationship type",
+        "description": "Create a contact relationship type with given name",
         "operationId": "CreateContactRelationshipType",
         "requestBody": {
           "description": "RelationshipSaveDto object to save",
           "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/RelationshipSaveDto"
-              }
-            },
             "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RelationshipSaveDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RelationshipSaveDto"
-              }
-            },
-            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/RelationshipSaveDto"
               }
@@ -1557,12 +1455,13 @@
         }
       }
     },
-    "/v1/sentiments": {
+    "/sentiments": {
       "get": {
         "tags": [
           "Notes - Configuration"
         ],
         "summary": "Get all Sentiments",
+        "description": "Get all sentiments configured in your group",
         "operationId": "GetSentiments",
         "responses": {
           "200": {
@@ -1581,12 +1480,13 @@
         }
       }
     },
-    "/v1/subjects": {
+    "/subjects": {
       "get": {
         "tags": [
           "Notes - Configuration"
         ],
         "summary": "Get all Subjects",
+        "description": "Get all subjects configured in your group",
         "operationId": "GetSubjects",
         "parameters": [
           {
@@ -1625,12 +1525,13 @@
         }
       }
     },
-    "/v1/subjects/{subjectId}": {
+    "/subjects/{subjectId}": {
       "get": {
         "tags": [
           "Notes - Configuration"
         ],
         "summary": "Get Subject details for the given Id provided",
+        "description": "Get all details of a given subject",
         "operationId": "GetSubject",
         "parameters": [
           {
@@ -1687,12 +1588,13 @@
         }
       }
     },
-    "/v1/symbols-relationships": {
+    "/symbols-relationships": {
       "get": {
         "tags": [
           "CustomSymbols - Relationships"
         ],
         "summary": "Get all the Symbols Relationships",
+        "description": "Get all symbols relationships configured in your group",
         "operationId": "GetSymbolsRelationships",
         "responses": {
           "200": {
@@ -1715,26 +1617,12 @@
           "CustomSymbols - Relationships"
         ],
         "summary": "Create a symbol relationship",
+        "description": "Create a symbol relationship with given name",
         "operationId": "CreateSymbolRelationshipType",
         "requestBody": {
           "description": "symbolsRelationshipSaveDto object to save",
           "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/SymbolsRelationShipSaveDto"
-              }
-            },
             "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SymbolsRelationShipSaveDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SymbolsRelationShipSaveDto"
-              }
-            },
-            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/SymbolsRelationShipSaveDto"
               }
@@ -1775,17 +1663,19 @@
         }
       }
     },
-    "/v1/teams": {
+    "/teams": {
       "get": {
         "tags": [
           "Notes - Configuration"
         ],
         "summary": "Get all Teams",
+        "description": "Get all teams configured in your group",
         "operationId": "GetTeams",
         "parameters": [
           {
             "name": "X-IRN-Ignore-Permissions",
             "in": "header",
+            "description": "If set to true, permissions will be ignored. Default is false.",
             "schema": {
               "type": "boolean",
               "default": false
@@ -1819,12 +1709,13 @@
         }
       }
     },
-    "/v1/teams/{teamId}": {
+    "/teams/{teamId}": {
       "get": {
         "tags": [
           "Notes - Configuration"
         ],
         "summary": "Get Team details for the given Id provided",
+        "description": "Get all details of a given team",
         "operationId": "GetTeam",
         "parameters": [
           {
@@ -1840,7 +1731,7 @@
           {
             "name": "X-IRN-Ignore-Permissions",
             "in": "header",
-            "description": "",
+            "description": "If set to true, permissions will be ignored. Default is false.",
             "schema": {
               "type": "boolean",
               "default": false
@@ -1881,12 +1772,13 @@
         }
       }
     },
-    "/v1/users": {
+    "/users": {
       "get": {
         "tags": [
           "Notes - Configuration"
         ],
         "summary": "Get all assigned FactSet users",
+        "description": "Get all assigned FactSet users in your group",
         "operationId": "GetAssignedFactSetUsers",
         "responses": {
           "200": {
@@ -1905,12 +1797,14 @@
         }
       }
     },
-    "/v1/custom-symbol-types/reorder": {
+    "/custom-symbol-types/reorder": {
       "post": {
         "tags": [
           "CustomSymbols - Types"
         ],
         "operationId": "UpdateCustomSymbolTypeOrder",
+        "summary": "Reorder custom symbol types",
+        "description": "Reorder custom symbol types that are configured in your group",
         "requestBody": {
           "content": {
             "application/json-patch+json": {
@@ -1972,12 +1866,13 @@
         }
       }
     },
-    "/v1/relationship-categories/reorder": {
+    "/relationship-categories/reorder": {
       "post": {
         "tags": [
           "Contacts - Relationship Category"
         ],
         "summary": "Reorder relationship categories",
+        "description": "Reorder relationship categories that are configured in your group",
         "operationId": "UpdateRelationshipCategoryOrder",
         "requestBody": {
           "description": "List of Guid",
@@ -2041,12 +1936,13 @@
         }
       }
     },
-    "/v1/contact-roles/{contactRoleId}": {
+    "/contact-roles/{contactRoleId}": {
       "put": {
         "tags": [
           "Contacts - Roles"
         ],
         "summary": "Edit a contact role",
+        "description": "Update a contact role name and other details",
         "operationId": "UpdateContactRole",
         "parameters": [
           {
@@ -2135,6 +2031,7 @@
           "Contacts - Roles"
         ],
         "summary": "Delete a contact role",
+        "description": "Delete a contact role based on guid",
         "operationId": "DeleteContactRole",
         "parameters": [
           {
@@ -2185,12 +2082,13 @@
         }
       }
     },
-    "/v1/contact-types/{contactTypeId}": {
+    "/contact-types/{contactTypeId}": {
       "put": {
         "tags": [
           "Contacts - Types"
         ],
         "summary": "Edit a contact type",
+        "description": "Update a contact type",
         "operationId": "UpdateContactType",
         "parameters": [
           {
@@ -2279,6 +2177,7 @@
           "Contacts - Types"
         ],
         "summary": "Delete a contact type",
+        "description": "Delete a contact type based on guid",
         "operationId": "DeleteContactType",
         "parameters": [
           {
@@ -2329,12 +2228,13 @@
         }
       }
     },
-    "/v1/phone-number-types/{phoneNumberTypeId}": {
+    "/phone-number-types/{phoneNumberTypeId}": {
       "put": {
         "tags": [
           "Contacts - PhoneNumberTypes"
         ],
         "summary": "Edit a phone type",
+        "description": "Update a phone number type",
         "operationId": "UpdatePhoneNumberType",
         "parameters": [
           {
@@ -2423,6 +2323,7 @@
           "Contacts - PhoneNumberTypes"
         ],
         "summary": "Delete a phone type",
+        "description": "Delete a phone number type based on guid",
         "operationId": "DeletePhoneNumberType",
         "parameters": [
           {
@@ -2473,12 +2374,13 @@
         }
       }
     },
-    "/v1/relationship-categories/{relationshipCategoryId}": {
+    "/relationship-categories/{relationshipCategoryId}": {
       "put": {
         "tags": [
           "Contacts - Relationship Category"
         ],
         "summary": "Edit a relationship category",
+        "description": "Update details of contact relationship category",
         "operationId": "EditRelationshipCategory",
         "parameters": [
           {
@@ -2558,6 +2460,7 @@
           "Contacts - Relationship Category"
         ],
         "summary": "Delete a relationship category",
+        "description": "Delete a contact relationship category based on guid",
         "operationId": "DeleteRelationshipCategory",
         "parameters": [
           {
@@ -2608,12 +2511,13 @@
         }
       }
     },
-    "/v1/relationships/{relationshipId}": {
+    "/relationships/{relationshipId}": {
       "put": {
         "tags": [
           "Contacts - Relationships"
         ],
         "summary": "Edit a relationship type",
+        "description": "Update a contact relationship type",
         "operationId": "EditRelationship",
         "parameters": [
           {
@@ -2693,6 +2597,7 @@
           "Contacts - Relationships"
         ],
         "summary": "Delete a relationship type",
+        "description": "Delete a contact relationship type based on guid",
         "operationId": "DeleteRelationship",
         "parameters": [
           {
@@ -2743,12 +2648,13 @@
         }
       }
     },
-    "/v1/symbols-relationships/{symbolsRelationshipId}": {
+    "/symbols-relationships/{symbolsRelationshipId}": {
       "put": {
         "tags": [
           "CustomSymbols - Relationships"
         ],
         "summary": "Edit a symbol relationship",
+        "description": "Update a symbol relationship",
         "operationId": "EditSymbolsRelationship",
         "parameters": [
           {
@@ -2828,6 +2734,7 @@
           "CustomSymbols - Relationships"
         ],
         "summary": "Delete a symbol relationship",
+        "description": "Delete a symbol relationship based on guid",
         "operationId": "DeleteSymbolsRelationship",
         "parameters": [
           {
@@ -2897,7 +2804,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "ApprovalProcessConfigDto": {
         "type": "object",
@@ -2915,6 +2822,14 @@
               "type": "string",
               "format": "uuid"
             },
+            "nullable": true
+          },
+          "pendingNotesVisible": {
+            "type": "string",
+            "nullable": true
+          },
+          "deniedNotesVisible": {
+            "type": "string",
             "nullable": true
           },
           "shouldSendEmailAlertsWhenSubmittedForApproval": {
@@ -2942,7 +2857,7 @@
             "type": "boolean"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "AuthorConfigDto": {
         "type": "object",
@@ -2978,7 +2893,7 @@
             "$ref": "#/components/schemas/TeamSummaryDto"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "ClientSalesRepresentativeDto": {
         "type": "object",
@@ -2991,8 +2906,7 @@
             "type": "string",
             "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "CommentaryConfigDto": {
         "type": "object",
@@ -3007,7 +2921,7 @@
             "type": "boolean"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "ContactCustomFieldDto": {
         "type": "object",
@@ -3045,7 +2959,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "ContactCustomFieldFormulaDto": {
         "type": "object",
@@ -3064,7 +2978,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "ContactCustomFieldOptionDto": {
         "type": "object",
@@ -3082,7 +2996,7 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "ContactCustomFieldOptionSaveDto": {
         "required": [
@@ -3092,10 +3006,10 @@
         "properties": {
           "name": {
             "maxLength": 255,
+            "minLength": 1,
             "type": "string"
           }
-        },
-        "additionalProperties": false
+        }
       },
       "ContactCustomFieldSaveDto": {
         "required": [
@@ -3109,10 +3023,12 @@
         "properties": {
           "code": {
             "maxLength": 32,
+            "minLength": 1,
             "type": "string"
           },
           "name": {
             "maxLength": 100,
+            "minLength": 1,
             "type": "string"
           },
           "type": {
@@ -3136,8 +3052,7 @@
             },
             "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "ContactCustomFieldType": {
         "enum": [
@@ -3151,7 +3066,8 @@
           7
         ],
         "type": "integer",
-        "format": "int32"
+        "format": "int32",
+        "description": "Type can be one of 0- None, 1-Text, 2-Email, 3-Link, 4-SingleOptions, 5-MultiOptions, 6-Numeric, 7-Date"
       },
       "ContactRoleDto": {
         "required": [
@@ -3170,7 +3086,7 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "ContactTypeDto": {
         "required": [
@@ -3189,7 +3105,7 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "CreateCustomSymbolCustomFieldDto": {
         "required": [
@@ -3205,13 +3121,16 @@
         "properties": {
           "code": {
             "maxLength": 32,
+            "minLength": 1,
             "type": "string"
           },
           "name": {
             "maxLength": 100,
+            "minLength": 1,
             "type": "string"
           },
           "type": {
+            "minLength": 1,
             "type": "string",
             "description": "Type can be one of Text, SingleOption, MultiOptions, Numeric, Date, ExtendedText, ContactLookup"
           },
@@ -3244,8 +3163,7 @@
               "format": "uuid"
             }
           }
-        },
-        "additionalProperties": false
+        }
       },
       "CustomFieldConfigDto": {
         "type": "object",
@@ -3282,6 +3200,12 @@
           "isFilePath": {
             "type": "boolean"
           },
+          "isCalculated": {
+            "type": "boolean"
+          },
+          "hasPairedField": {
+            "type": "boolean"
+          },
           "formulaConfig": {
             "$ref": "#/components/schemas/FormulaConfigDto"
           },
@@ -3296,9 +3220,40 @@
           },
           "optionsConfig": {
             "$ref": "#/components/schemas/OptionsConfigDto"
+          },
+          "userTeamConfig": {
+            "$ref": "#/components/schemas/UserTeamConfigDto"
           }
         },
-        "additionalProperties": false
+        "nullable": true
+      },
+      "CustomFieldTeamConfigDto": {
+        "type": "object",
+        "properties": {
+          "teamId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "teamName": {
+            "type": "string",
+            "nullable": true
+          },
+          "fieldName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "nullable": true
+      },
+      "CustomFieldUserTeamLookupFilterType": {
+        "enum": [
+          0,
+          1,
+          2
+        ],
+        "type": "integer",
+        "format": "int32",
+        "description": "Type can be one of 0-Users, 1-Teams, 2-Both"
       },
       "CustomSymbolCustomFieldConfigDto": {
         "type": "object",
@@ -3346,7 +3301,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "CustomSymbolCustomFieldFormulaConfigDto": {
         "required": [
@@ -3357,13 +3312,15 @@
         "properties": {
           "formula": {
             "maxLength": 2040,
+            "minLength": 1,
             "type": "string"
           },
           "formulaType": {
+            "minLength": 1,
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "CustomSymbolSubTypeDto": {
         "type": "object",
@@ -3377,7 +3334,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "CustomSymbolTypeDetailDto": {
         "type": "object",
@@ -3410,7 +3367,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "CustomSymbolTypeDto": {
         "type": "object",
@@ -3440,7 +3397,7 @@
             "$ref": "#/components/schemas/EntityType"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "CustomSymbolTypeSummaryDto": {
         "type": "object",
@@ -3454,7 +3411,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "DateSettingsDto": {
         "type": "object",
@@ -3466,17 +3423,22 @@
             "type": "boolean"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "EntityType": {
         "enum": [
           0,
           1,
           2,
-          3
+          3,
+          4,
+          5,
+          6,
+          7
         ],
         "type": "integer",
-        "format": "int32"
+        "format": "int32",
+        "description": "Type can be one of 0-Unknown, 1-Contact, 2-Firm, 3-Product, 4-Project, 5-Classification,6-Template, 7-Country"
       },
       "ExtendedTextConfigDto": {
         "type": "object",
@@ -3486,7 +3448,7 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "FormulaConfigDto": {
         "type": "object",
@@ -3500,24 +3462,24 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "GroupConfigDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "Name": {
+          "name": {
             "type": "string",
             "nullable": true
           },
-          "Fields": {
+          "fields": {
             "$ref": "#/components/schemas/GroupFieldsDto"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "GroupFieldsDto": {
         "type": "object",
@@ -3565,7 +3527,7 @@
             "$ref": "#/components/schemas/OrganizerSettingsDto"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "HeadlineFormatConfigDto": {
         "type": "object",
@@ -3583,7 +3545,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "IdentifierSettingsDto": {
         "type": "object",
@@ -3592,7 +3554,7 @@
             "type": "boolean"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "IntegerConfigDto": {
         "type": "object",
@@ -3602,7 +3564,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "LinkSettingsDto": {
         "type": "object",
@@ -3617,7 +3579,7 @@
             "type": "boolean"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "NewItemDto": {
         "type": "object",
@@ -3627,7 +3589,7 @@
             "format": "uuid"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "NoteSettingsDto": {
         "type": "object",
@@ -3654,7 +3616,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "NumericConfigDto": {
         "type": "object",
@@ -3668,7 +3630,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "Operation": {
         "type": "object",
@@ -3692,7 +3654,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "OperationType": {
         "enum": [
@@ -3705,7 +3667,8 @@
           6
         ],
         "type": "integer",
-        "format": "int32"
+        "format": "int32",
+        "description": "Type can be one of 0-Add, 1-Remove, 2-Replace, 3-Move, 4-Copy, 5-Test, 6-Get"
       },
       "OptionsConfigDto": {
         "type": "object",
@@ -3724,7 +3687,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "OrganizerSettingsDto": {
         "type": "object",
@@ -3736,7 +3699,7 @@
             "type": "boolean"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "PhoneNumberTypeDto": {
         "type": "object",
@@ -3755,7 +3718,7 @@
             "type": "boolean"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "ProblemDetails": {
         "type": "object",
@@ -3782,7 +3745,8 @@
             "nullable": true
           }
         },
-        "additionalProperties": {}
+        "additionalProperties": {},
+        "nullable": true
       },
       "RatingConfigDto": {
         "type": "object",
@@ -3813,7 +3777,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "RecommendationConfigDto": {
         "type": "object",
@@ -3834,7 +3798,7 @@
             "type": "boolean"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "RecommendationSettingsDto": {
         "type": "object",
@@ -3854,7 +3818,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "RelatedContactsSettingsDto": {
         "type": "object",
@@ -3869,7 +3833,7 @@
             "type": "boolean"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "RelatedResearchSettingsDto": {
         "type": "object",
@@ -3884,7 +3848,7 @@
             "type": "boolean"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "RelatedSymbolsSettingsDto": {
         "type": "object",
@@ -3899,7 +3863,7 @@
             "type": "boolean"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "RelationshipCategoryDto": {
         "type": "object",
@@ -3929,7 +3893,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "RelationshipCategoryListDto": {
         "required": [
@@ -3945,7 +3909,7 @@
             }
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "RelationshipCategorySaveDto": {
         "required": [
@@ -3967,7 +3931,7 @@
             "default": false
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "RelationshipDto": {
         "type": "object",
@@ -4009,7 +3973,7 @@
             "type": "boolean"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "RelationshipSaveDto": {
         "required": [
@@ -4060,8 +4024,7 @@
             "type": "boolean",
             "default": false
           }
-        },
-        "additionalProperties": false
+        }
       },
       "RelationshipType": {
         "enum": [
@@ -4070,7 +4033,8 @@
           2
         ],
         "type": "integer",
-        "format": "int32"
+        "format": "int32",
+        "description": "Type can be one of 0-All, 1-Contact-to-Contact, 2-Contact-to-Symbol"
       },
       "ReorderCustomSymbolTypeDto": {
         "type": "object",
@@ -4083,8 +4047,7 @@
             },
             "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "SaveCustomSymbolTypeDto": {
         "required": [
@@ -4125,8 +4088,7 @@
             },
             "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "SentimentConfigDto": {
         "type": "object",
@@ -4151,7 +4113,7 @@
             "type": "boolean"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "SentimentSettingsDto": {
         "type": "object",
@@ -4171,7 +4133,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "SourceSettingsDto": {
         "type": "object",
@@ -4186,7 +4148,7 @@
             "type": "boolean"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "SubjectConfigDto": {
         "type": "object",
@@ -4256,9 +4218,14 @@
             "type": "integer",
             "format": "int32",
             "nullable": true
+          },
+          "layoutId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "SubjectSettingsDto": {
         "type": "object",
@@ -4269,7 +4236,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "SubjectSummaryDto": {
         "type": "object",
@@ -4316,9 +4283,14 @@
             "type": "integer",
             "format": "int32",
             "nullable": true
+          },
+          "layoutId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "SymbolsRelationShipSaveDto": {
         "required": [
@@ -4359,8 +4331,7 @@
             "type": "boolean",
             "default": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "SymbolsRelationshipDto": {
         "type": "object",
@@ -4392,7 +4363,7 @@
             "type": "boolean"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "TeamConfigDto": {
         "type": "object",
@@ -4423,7 +4394,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "TeamSettingsDto": {
         "type": "object",
@@ -4434,7 +4405,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "TeamSummaryDto": {
         "type": "object",
@@ -4452,7 +4423,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "TitleSettingsDto": {
         "type": "object",
@@ -4461,7 +4432,7 @@
             "type": "boolean"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "UpdateCustomSymbolTypeDto": {
         "required": [
@@ -4502,8 +4473,7 @@
             },
             "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "UserConfigDto": {
         "type": "object",
@@ -4536,7 +4506,23 @@
             "$ref": "#/components/schemas/TeamSummaryDto"
           }
         },
-        "additionalProperties": false
+        "nullable": true
+      },
+      "UserTeamConfigDto": {
+        "type": "object",
+        "properties": {
+          "userTeamLookupFilterType": {
+            "$ref": "#/components/schemas/CustomFieldUserTeamLookupFilterType"
+          },
+          "customFieldTeams": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomFieldTeamConfigDto"
+            },
+            "nullable": true
+          }
+        },
+        "nullable": true
       }
     },
     "securitySchemes": {
@@ -4565,34 +4551,48 @@
   ],
   "tags": [
     {
-      "name": "Contacts - CustomFields"
+      "name": "Contacts - CustomFields",
+      "description": "Customfields for contacts types"
     },
     {
-      "name": "Contacts - PhoneNumberTypes"
+      "name": "Contacts - PhoneNumberTypes",
+      "description": "Phone number types for contacts"
     },
     {
-      "name": "Contacts - Relationship Category"
+      "name": "Contacts - Relationship Category",
+      "description": "Relationship categories for contacts"
     },
     {
-      "name": "Contacts - Relationships"
+      "name": "Contacts - Relationships",
+      "description": "Relationships for contacts"
     },
     {
-      "name": "Contacts - Roles"
+      "name": "Contacts - Roles",
+      "description": "Roles for contacts"
     },
     {
-      "name": "Contacts - Types"
+      "name": "Contacts - Types",
+      "description": "Types for contacts"
     },
     {
-      "name": "CustomSymbols - CustomFields"
+      "name": "CustomSymbols - CustomFields",
+      "description": "Customfields for custom symbols"
     },
     {
-      "name": "CustomSymbols - Relationships"
+      "name": "CustomSymbols - Relationships",
+      "description": "Relationships for custom symbols"
     },
     {
-      "name": "CustomSymbols - Types"
+      "name": "CustomSymbols - Types",
+      "description": "Types for custom symbols"
     },
     {
-      "name": "Notes - Configuration"
+      "name": "Notes - Configuration",
+      "description": "Subjects, custom fields and all other preferences for notes"
     }
-  ]
+  ],
+  "externalDocs": {
+    "description": "API Documentation",
+    "url": "https://developer.factset.com/api-catalog/irn-configuration-api#apiDocumentation"
+  }
 }

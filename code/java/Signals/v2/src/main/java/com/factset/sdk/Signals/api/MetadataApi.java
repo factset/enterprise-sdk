@@ -222,7 +222,7 @@ public class MetadataApi {
   /**
    * 
    * Fetch the metadata and contract for the requested signal
-   * @param signalId  (required)
+   * @param signalId A single signalId. (required)
    * @return SignalDefinition
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -241,7 +241,7 @@ public class MetadataApi {
   /**
    * 
    * Fetch the metadata and contract for the requested signal
-   * @param signalId  (required)
+   * @param signalId A single signalId. (required)
    * @return ApiResponse&lt;SignalDefinition&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details

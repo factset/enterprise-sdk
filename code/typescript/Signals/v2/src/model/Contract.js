@@ -21,9 +21,10 @@ import ContractFields from './ContractFields';
 class Contract {
     /**
      * Constructs a new <code>Contract</code>.
+     * Provides details on a given contract
      * @alias module:model/Contract
      * @param fields {module:model/ContractFields} 
-     * @param version {String} 
+     * @param version {String} Contract version number
      */
     constructor(fields, version) { 
         
@@ -70,6 +71,7 @@ class Contract {
 Contract.prototype['fields'] = undefined;
 
 /**
+ * Contract version number
  * @member {String} version
  */
 Contract.prototype['version'] = undefined;

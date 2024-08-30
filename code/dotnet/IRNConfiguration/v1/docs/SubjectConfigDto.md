@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **EmailHeadlineFormat** | [**List&lt;HeadlineFormatConfigDto&gt;**](HeadlineFormatConfigDto.md) |  | [optional] 
 **RatingConfig** | [**RatingConfigDto**](RatingConfigDto.md) |  | [optional] 
 **NoteLengthLimit** | **int?** |  | [optional] 
+**LayoutId** | **Guid?** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

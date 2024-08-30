@@ -2,6 +2,7 @@
 
 # IdResolutionsMeta
 
+Details about resolved identifiers
 
 ## Properties
 

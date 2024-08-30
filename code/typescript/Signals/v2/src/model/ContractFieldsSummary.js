@@ -60,11 +60,13 @@ class ContractFieldsSummary {
 }
 
 /**
+ * Description of the event summary
  * @member {String} description
  */
 ContractFieldsSummary.prototype['description'] = undefined;
 
 /**
+ * Type of the summary
  * @member {String} type
  */
 ContractFieldsSummary.prototype['type'] = undefined;

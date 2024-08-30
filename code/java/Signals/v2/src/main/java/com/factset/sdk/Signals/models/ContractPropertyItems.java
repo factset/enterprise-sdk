@@ -30,8 +30,9 @@ import com.factset.sdk.Signals.JSON;
 
 
 /**
- * ContractPropertyItems
+ * Information about list of items if type is array
  */
+@ApiModel(description = "Information about list of items if type is array")
 @JsonPropertyOrder({
   ContractPropertyItems.JSON_PROPERTY_TYPE
 })
@@ -60,11 +61,11 @@ public class ContractPropertyItems implements Serializable {
   }
 
    /**
-   * Get type
+   * Type of the elements contained in the list
    * @return type
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Type of the elements contained in the list")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

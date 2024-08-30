@@ -1,13 +1,13 @@
 # fds.sdk.IRNConfiguration.ContactsRelationshipsApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_contact_relationship_type**](ContactsRelationshipsApi.md#create_contact_relationship_type) | **POST** /v1/relationships | Create a relationship type
-[**delete_relationship**](ContactsRelationshipsApi.md#delete_relationship) | **DELETE** /v1/relationships/{relationshipId} | Delete a relationship type
-[**edit_relationship**](ContactsRelationshipsApi.md#edit_relationship) | **PUT** /v1/relationships/{relationshipId} | Edit a relationship type
-[**get_relationships**](ContactsRelationshipsApi.md#get_relationships) | **GET** /v1/relationships | Get list of the relationships configured in your group
+[**create_contact_relationship_type**](ContactsRelationshipsApi.md#create_contact_relationship_type) | **POST** /relationships | Create a relationship type
+[**delete_relationship**](ContactsRelationshipsApi.md#delete_relationship) | **DELETE** /relationships/{relationshipId} | Delete a relationship type
+[**edit_relationship**](ContactsRelationshipsApi.md#edit_relationship) | **PUT** /relationships/{relationshipId} | Edit a relationship type
+[**get_relationships**](ContactsRelationshipsApi.md#get_relationships) | **GET** /relationships | Get list of the relationships configured in your group
 
 
 
@@ -15,6 +15,8 @@ Method | HTTP request | Description
 > NewItemDto create_contact_relationship_type()
 
 Create a relationship type
+
+Create a contact relationship type with given name
 
 ### Example
 
@@ -101,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -119,6 +121,8 @@ Name | Type | Description  | Notes
 > delete_relationship(relationship_id)
 
 Delete a relationship type
+
+Delete a contact relationship type based on guid
 
 ### Example
 
@@ -213,6 +217,8 @@ void (empty response body)
 > edit_relationship(relationship_id)
 
 Edit a relationship type
+
+Update a contact relationship type
 
 ### Example
 
@@ -319,6 +325,8 @@ void (empty response body)
 > [RelationshipDto] get_relationships()
 
 Get list of the relationships configured in your group
+
+Get all contact relationships configured in your group
 
 ### Example
 

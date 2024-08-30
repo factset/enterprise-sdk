@@ -2,6 +2,7 @@
 
 # EventHeadlineDataItem
 
+Return object that includes details about an event headline
 
 ## Properties
 

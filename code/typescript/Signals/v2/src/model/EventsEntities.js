@@ -22,6 +22,7 @@ import ScreenMeta from './ScreenMeta';
 class EventsEntities {
     /**
      * Constructs a new <code>EventsEntities</code>.
+     * Contains list of entities that matches the request criterion
      * @alias module:model/EventsEntities
      * @param data {Array.<String>} 
      * @param meta {module:model/ScreenMeta} 

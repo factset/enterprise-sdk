@@ -119,9 +119,9 @@ class ErrorItem(ModelNormal):
         """ErrorItem - a model defined in OpenAPI
 
         Args:
-            id (str):
-            code (str):
-            title (str):
+            id (str): A unique identifier for the error object
+            code (str): Error type
+            title (str): Condition that caused the error
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -154,7 +154,7 @@ class ErrorItem(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            detail (str): [optional]  # noqa: E501
+            detail (str): A short description of the error.. [optional]  # noqa: E501
             source (ErrorItemSource): [optional]  # noqa: E501
         """
 
@@ -210,9 +210,9 @@ class ErrorItem(ModelNormal):
         """ErrorItem - a model defined in OpenAPI
 
         Args:
-            id (str):
-            code (str):
-            title (str):
+            id (str): A unique identifier for the error object
+            code (str): Error type
+            title (str): Condition that caused the error
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -245,7 +245,7 @@ class ErrorItem(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            detail (str): [optional]  # noqa: E501
+            detail (str): A short description of the error.. [optional]  # noqa: E501
             source (ErrorItemSource): [optional]  # noqa: E501
         """
 

@@ -9,10 +9,12 @@
 # import sys
 # sys.setrecursionlimit(n)
 
+from fds.sdk.DirectStreamingofTransactionMessages.model.additional_field import AdditionalField
 from fds.sdk.DirectStreamingofTransactionMessages.model.client_error_response import ClientErrorResponse
+from fds.sdk.DirectStreamingofTransactionMessages.model.dsotm_parameters import DsotmParameters
+from fds.sdk.DirectStreamingofTransactionMessages.model.dsotm_parameters_root import DsotmParametersRoot
 from fds.sdk.DirectStreamingofTransactionMessages.model.error import Error
 from fds.sdk.DirectStreamingofTransactionMessages.model.error_source import ErrorSource
-from fds.sdk.DirectStreamingofTransactionMessages.model.execution_parameters import ExecutionParameters
-from fds.sdk.DirectStreamingofTransactionMessages.model.order_parameters import OrderParameters
-from fds.sdk.DirectStreamingofTransactionMessages.model.placement_parameters import PlacementParameters
-from fds.sdk.DirectStreamingofTransactionMessages.model.transactions import Transactions
+from fds.sdk.DirectStreamingofTransactionMessages.model.execution import Execution
+from fds.sdk.DirectStreamingofTransactionMessages.model.order import Order
+from fds.sdk.DirectStreamingofTransactionMessages.model.placement import Placement

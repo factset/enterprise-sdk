@@ -35,15 +35,16 @@ namespace FactSet.SDK.Signals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RateLimitResponse" /> class.
         /// </summary>
-        /// <param name="message">message.</param>
+        /// <param name="message">Detail about the rate limit error..</param>
         public RateLimitResponse(string message = default(string))
         {
             this.Message = message;
         }
 
         /// <summary>
-        /// Gets or Sets Message
+        /// Detail about the rate limit error.
         /// </summary>
+        /// <value>Detail about the rate limit error.</value>
         [DataMember(Name = "message", EmitDefaultValue = false)]
         public string Message { get; set; }
 

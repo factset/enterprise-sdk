@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Signals.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Signals.Model
 {
     /// <summary>
-    /// ErrorItem
+    /// Details about an unsuccessful request
     /// </summary>
     [DataContract(Name = "errorItem")]
     public partial class ErrorItem : IEquatable<ErrorItem>, IValidatableObject
@@ -40,10 +40,10 @@ namespace FactSet.SDK.Signals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ErrorItem" /> class.
         /// </summary>
-        /// <param name="id">id (required).</param>
-        /// <param name="code">code (required).</param>
-        /// <param name="title">title (required).</param>
-        /// <param name="detail">detail.</param>
+        /// <param name="id">A unique identifier for the error object (required).</param>
+        /// <param name="code">Error type (required).</param>
+        /// <param name="title">Condition that caused the error (required).</param>
+        /// <param name="detail">A short description of the error..</param>
         /// <param name="source">source.</param>
         public ErrorItem(Guid id, string code, string title,string detail = default(string), ErrorItemSource source = default(ErrorItemSource))
         {
@@ -63,26 +63,30 @@ namespace FactSet.SDK.Signals.Model
         }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// A unique identifier for the error object
         /// </summary>
+        /// <value>A unique identifier for the error object</value>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Code
+        /// Error type
         /// </summary>
+        /// <value>Error type</value>
         [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = false)]
         public string Code { get; set; }
 
         /// <summary>
-        /// Gets or Sets Title
+        /// Condition that caused the error
         /// </summary>
+        /// <value>Condition that caused the error</value>
         [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = false)]
         public string Title { get; set; }
 
         /// <summary>
-        /// Gets or Sets Detail
+        /// A short description of the error.
         /// </summary>
+        /// <value>A short description of the error.</value>
         [DataMember(Name = "detail", EmitDefaultValue = false)]
         public string Detail { get; set; }
 

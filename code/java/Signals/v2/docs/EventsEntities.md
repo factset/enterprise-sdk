@@ -2,6 +2,7 @@
 
 # EventsEntities
 
+Contains list of entities that matches the request criterion
 
 ## Properties
 

@@ -24,6 +24,8 @@ from fds.sdk.IRNConfiguration.model.contact_role_dto import ContactRoleDto
 from fds.sdk.IRNConfiguration.model.contact_type_dto import ContactTypeDto
 from fds.sdk.IRNConfiguration.model.create_custom_symbol_custom_field_dto import CreateCustomSymbolCustomFieldDto
 from fds.sdk.IRNConfiguration.model.custom_field_config_dto import CustomFieldConfigDto
+from fds.sdk.IRNConfiguration.model.custom_field_team_config_dto import CustomFieldTeamConfigDto
+from fds.sdk.IRNConfiguration.model.custom_field_user_team_lookup_filter_type import CustomFieldUserTeamLookupFilterType
 from fds.sdk.IRNConfiguration.model.custom_symbol_custom_field_config_dto import CustomSymbolCustomFieldConfigDto
 from fds.sdk.IRNConfiguration.model.custom_symbol_custom_field_formula_config_dto import CustomSymbolCustomFieldFormulaConfigDto
 from fds.sdk.IRNConfiguration.model.custom_symbol_sub_type_dto import CustomSymbolSubTypeDto
@@ -77,3 +79,4 @@ from fds.sdk.IRNConfiguration.model.team_summary_dto import TeamSummaryDto
 from fds.sdk.IRNConfiguration.model.title_settings_dto import TitleSettingsDto
 from fds.sdk.IRNConfiguration.model.update_custom_symbol_type_dto import UpdateCustomSymbolTypeDto
 from fds.sdk.IRNConfiguration.model.user_config_dto import UserConfigDto
+from fds.sdk.IRNConfiguration.model.user_team_config_dto import UserTeamConfigDto

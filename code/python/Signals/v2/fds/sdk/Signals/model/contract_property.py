@@ -117,8 +117,8 @@ class ContractProperty(ModelNormal):
         """ContractProperty - a model defined in OpenAPI
 
         Args:
-            description (str):
-            type (str):
+            description (str): Description of the contract property
+            type (str): Type of the contract property
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -151,7 +151,7 @@ class ContractProperty(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            optional (bool): [optional]  # noqa: E501
+            optional (bool): Boolean value representing if the contract property is optional. [optional]  # noqa: E501
             items (ContractPropertyItems): [optional]  # noqa: E501
         """
 
@@ -206,8 +206,8 @@ class ContractProperty(ModelNormal):
         """ContractProperty - a model defined in OpenAPI
 
         Args:
-            description (str):
-            type (str):
+            description (str): Description of the contract property
+            type (str): Type of the contract property
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -240,7 +240,7 @@ class ContractProperty(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            optional (bool): [optional]  # noqa: E501
+            optional (bool): Boolean value representing if the contract property is optional. [optional]  # noqa: E501
             items (ContractPropertyItems): [optional]  # noqa: E501
         """
 

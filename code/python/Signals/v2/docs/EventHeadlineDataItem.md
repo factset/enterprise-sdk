@@ -1,5 +1,6 @@
 # EventHeadlineDataItem
 
+Return object that includes details about an event headline
 
 ## Properties
 Name | Type | Description | Notes
