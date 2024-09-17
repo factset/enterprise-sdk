@@ -1,23 +1,30 @@
 openapi: 3.0.3
 info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
+  description: License info
   license:
-    name: Apache 2.0
+    name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
-  title: FactSet Capital Structure Report Builder API
+  title: FactSet Capital Structure Report Builder
   version: 1.0.0
 externalDocs:
-  description: Read more about STACH 2.0's row organized schema
-  url: https://factset.github.io/stachschema/#/v2/RowOrganized
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/capital-structure-report-builder-api
 servers:
 - url: https://api.factset.com/report/capital/v1
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
 tags:
-- name: Capital Structure
+- description: Capital Structure data
+  name: Capital Structure
 paths:
   /dcs-detail:
     get:
+      description: Get the DCS Detail component's data
       operationId: getDcsDetail
       parameters:
       - description: Company ticker
@@ -58,12 +65,6 @@ paths:
           description: Expected response; returns JSON data containing STACH 2.0 row
             organized package format
           headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
             Api-Supported-Versions:
               description: Supported API major versions
               explode: false
@@ -76,14 +77,20 @@ paths:
               schema:
                 type: string
               style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
         "400":
           content:
             application/json:
               examples:
-                idRequiredParameterError:
-                  $ref: '#/components/examples/idRequiredParameterError'
                 idInvalidParameterError:
                   $ref: '#/components/examples/idInvalidParameterError'
+                idRequiredParameterError:
+                  $ref: '#/components/examples/idRequiredParameterError'
                 schemaInvalidParameterError:
                   $ref: '#/components/examples/schemaInvalidParameterError'
               schema:
@@ -93,12 +100,6 @@ paths:
             this page, including the X-DataDirect-Request-Key from the header to assist
             in troubleshooting.
           headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
             Api-Supported-Versions:
               description: Supported API major versions
               explode: false
@@ -107,6 +108,12 @@ paths:
               style: simple
             Api-Version:
               description: API version (semantic versioning)
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
               explode: false
               schema:
                 type: string
@@ -209,184 +216,9 @@ paths:
       tags:
       - Capital Structure
       x-accepts: application/json
-  /source-of-capital:
-    get:
-      operationId: getSourceOfCapital
-      parameters:
-      - description: Company ticker
-        explode: true
-        in: query
-        name: id
-        required: true
-        schema:
-          example: FDS
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              examples:
-                sourceOfCapitalResponse:
-                  $ref: '#/components/examples/sourceOfCapitalResponse'
-              schema:
-                $ref: '#/components/schemas/Response'
-          description: Expected response; returns JSON data containing STACH 2.0 row
-            organized package format
-          headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
-            Api-Supported-Versions:
-              description: Supported API major versions
-              explode: false
-              schema:
-                type: string
-              style: simple
-            Api-Version:
-              description: API version (semantic versioning)
-              explode: false
-              schema:
-                type: string
-              style: simple
-        "400":
-          content:
-            application/json:
-              examples:
-                idRequiredParameterError:
-                  $ref: '#/components/examples/idRequiredParameterError'
-                idInvalidParameterError:
-                  $ref: '#/components/examples/idInvalidParameterError'
-                schemaInvalidParameterError:
-                  $ref: '#/components/examples/schemaInvalidParameterError'
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: Bad Request. For further assistance, file an issue under "Workflow
-            & Throttling - 400 or 429 Response" using `Report Issue` at the top of
-            this page, including the X-DataDirect-Request-Key from the header to assist
-            in troubleshooting.
-          headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
-            Api-Supported-Versions:
-              description: Supported API major versions
-              explode: false
-              schema:
-                type: string
-              style: simple
-            Api-Version:
-              description: API version (semantic versioning)
-              explode: false
-              schema:
-                type: string
-              style: simple
-        "401":
-          description: Missing or invalid authentication. Ensure you are logged in
-            and have successfully generated an API KEY for the IP range you are connecting
-            from. For further assistance, file an issue under "Connectivty - 401 or
-            403 Responses" using `Report Issue` at the top of this page, including
-            the X-DataDirect-Request-Key from the header to assist in troubleshooting.
-          headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
-        "403":
-          content:
-            application/json:
-              examples:
-                notAuthorized:
-                  $ref: '#/components/examples/notAuthorized'
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: User is forbidden access with current credentials. Reach out
-            to your local FactSet Account Manager for assistance, or file an issue
-            under "Connectivty - 401 or 403 Responses" using `Report Issue` at the
-            top of this page, including the X-DataDirect-Request-Key from the header
-            to assist in troubleshooting.
-          headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
-        "404":
-          content:
-            application/json:
-              examples:
-                endpointNotFound:
-                  $ref: '#/components/examples/endpointNotFound'
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: Not found. For further assistance, file an issue under "Performance
-            - 404 and 500 Responses" using `Report Issue` at the top of this page,
-            including the X-DataDirect-Request-Key from the header to assist in troubleshooting.
-          headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
-        "429":
-          description: Too many requests - this API is rate-limited to 20 requests
-            per second. For further assistance, file an issue under "Workflow & Throttling
-            - 400 or 429 Response" using `Report Issue` at the top of this page, including
-            the X-DataDirect-Request-Key from the header to assist in troubleshooting.
-          headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
-        "500":
-          content:
-            application/json:
-              examples:
-                genericServerError:
-                  $ref: '#/components/examples/genericServerError'
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: Server error. For further assistance, file an issue under "Performance
-            - 404 and 500 Responses" using `Report Issue` at the top of this page,
-            including the X-DataDirect-Request-Key from the header to assist in troubleshooting.
-          headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
-        "503":
-          description: Service unavailable. Typically a timeout, or result of a rejected
-            request to prevent service overload. For further assistance, file an issue
-            under "Performance - 404 and 500 Responses" using `Report Issue` at the
-            top of this page, including the X-DataDirect-Request-Key from the header
-            to assist in troubleshooting.
-          headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
-      summary: Source of Capital
-      tags:
-      - Capital Structure
-      x-accepts: application/json
   /dcs-summary:
     get:
+      description: Get the DCS Summary component's data
       operationId: getDcsSummary
       parameters:
       - description: Company ticker
@@ -427,12 +259,6 @@ paths:
           description: Expected response; returns JSON data containing STACH 2.0 row
             organized package format
           headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
             Api-Supported-Versions:
               description: Supported API major versions
               explode: false
@@ -445,14 +271,20 @@ paths:
               schema:
                 type: string
               style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
         "400":
           content:
             application/json:
               examples:
-                idRequiredParameterError:
-                  $ref: '#/components/examples/idRequiredParameterError'
                 idInvalidParameterError:
                   $ref: '#/components/examples/idInvalidParameterError'
+                idRequiredParameterError:
+                  $ref: '#/components/examples/idRequiredParameterError'
                 schemaInvalidParameterError:
                   $ref: '#/components/examples/schemaInvalidParameterError'
               schema:
@@ -462,12 +294,6 @@ paths:
             this page, including the X-DataDirect-Request-Key from the header to assist
             in troubleshooting.
           headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
             Api-Supported-Versions:
               description: Supported API major versions
               explode: false
@@ -476,6 +302,12 @@ paths:
               style: simple
             Api-Version:
               description: API version (semantic versioning)
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
               explode: false
               schema:
                 type: string
@@ -578,35 +410,353 @@ paths:
       tags:
       - Capital Structure
       x-accepts: application/json
+  /source-of-capital:
+    get:
+      description: Get the Source of Capital component's data
+      operationId: getSourceOfCapital
+      parameters:
+      - description: Company ticker
+        explode: true
+        in: query
+        name: id
+        required: true
+        schema:
+          example: FDS
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                sourceOfCapitalResponse:
+                  $ref: '#/components/examples/sourceOfCapitalResponse'
+              schema:
+                $ref: '#/components/schemas/Response'
+          description: Expected response; returns JSON data containing STACH 2.0 row
+            organized package format
+          headers:
+            Api-Supported-Versions:
+              description: Supported API major versions
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Api-Version:
+              description: API version (semantic versioning)
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          content:
+            application/json:
+              examples:
+                idInvalidParameterError:
+                  $ref: '#/components/examples/idInvalidParameterError'
+                idRequiredParameterError:
+                  $ref: '#/components/examples/idRequiredParameterError'
+                schemaInvalidParameterError:
+                  $ref: '#/components/examples/schemaInvalidParameterError'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. For further assistance, file an issue under "Workflow
+            & Throttling - 400 or 429 Response" using `Report Issue` at the top of
+            this page, including the X-DataDirect-Request-Key from the header to assist
+            in troubleshooting.
+          headers:
+            Api-Supported-Versions:
+              description: Supported API major versions
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Api-Version:
+              description: API version (semantic versioning)
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Missing or invalid authentication. Ensure you are logged in
+            and have successfully generated an API KEY for the IP range you are connecting
+            from. For further assistance, file an issue under "Connectivty - 401 or
+            403 Responses" using `Report Issue` at the top of this page, including
+            the X-DataDirect-Request-Key from the header to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          content:
+            application/json:
+              examples:
+                notAuthorized:
+                  $ref: '#/components/examples/notAuthorized'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: User is forbidden access with current credentials. Reach out
+            to your local FactSet Account Manager for assistance, or file an issue
+            under "Connectivty - 401 or 403 Responses" using `Report Issue` at the
+            top of this page, including the X-DataDirect-Request-Key from the header
+            to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "404":
+          content:
+            application/json:
+              examples:
+                endpointNotFound:
+                  $ref: '#/components/examples/endpointNotFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not found. For further assistance, file an issue under "Performance
+            - 404 and 500 Responses" using `Report Issue` at the top of this page,
+            including the X-DataDirect-Request-Key from the header to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "429":
+          description: Too many requests - this API is rate-limited to 20 requests
+            per second. For further assistance, file an issue under "Workflow & Throttling
+            - 400 or 429 Response" using `Report Issue` at the top of this page, including
+            the X-DataDirect-Request-Key from the header to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          content:
+            application/json:
+              examples:
+                genericServerError:
+                  $ref: '#/components/examples/genericServerError'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Server error. For further assistance, file an issue under "Performance
+            - 404 and 500 Responses" using `Report Issue` at the top of this page,
+            including the X-DataDirect-Request-Key from the header to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "503":
+          description: Service unavailable. Typically a timeout, or result of a rejected
+            request to prevent service overload. For further assistance, file an issue
+            under "Performance - 404 and 500 Responses" using `Report Issue` at the
+            top of this page, including the X-DataDirect-Request-Key from the header
+            to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+      summary: Source of Capital
+      tags:
+      - Capital Structure
+      x-accepts: application/json
 components:
   examples:
-    parentChildColumnsResponse:
-      description: Subset of rows and columns for an example STACH 2.0 row organized
-        table with parent-child columns
-      summary: (sample table parent child columns response)
+    endpointNotFound:
+      summary: endpoint not found
+      value:
+        errors:
+        - code: endpointNotFound
+          id: 39314614-e607-465a-ba95-5bb79c362e23
+          title: The requested endpoint does not exist.
+    genericServerError:
+      summary: generic server error
+      value:
+        errors:
+        - code: genericServerError
+          id: 39314614-e607-465a-ba95-5bb79c362e23
+          title: Unexpected error processing request
+    groupLevelResponse:
+      description: Subset of rows and columns for an example response
+      summary: (sample table group level columns response)
       value:
         data:
-          version: "2.0"
           tables:
             main:
-              headersDefinition:
-                columns:
-                - id: detailTableHeader
-                  type: string
-                  isDimension: true
+              data:
+                columnMetadata:
+                  balanceSheetAmountOutstanding:
+                    items:
+                      currencyCode:
+                        value: USD
+                      scale:
+                        value: 6
+                  couponRate:
+                    items:
+                      valueType:
+                        value: PERCENTAGE
+                  currentAmountOutstanding:
+                    items:
+                      currencyCode:
+                        value: USD
+                      scale:
+                        value: 6
+                  oas:
+                    items:
+                      valueType:
+                        value: PERCENTAGE
+                  price:
+                    items:
+                      currencyCode:
+                        value: USD
+                  ytw:
+                    items:
+                      valueType:
+                        value: PERCENTAGE
+                rows:
+                - cells:
+                  - Description
+                  - Instrument ID
+                  - Balance Sheet Amount Outstanding
+                  - Current Amount Outstanding
+                  - Coupon Rate
+                  - Coupon Type
+                  - Issue Date
+                  - Maturity Date
+                  - Issue Currency
+                  - Seniority
+                  - Price
+                  - YTW (Yield to Worst)
+                  - OAS (LIBOR)
+                  headerCellDetails:
+                    "0":
+                      columnIndex: 0
+                      source: HEADERS
+                    "1":
+                      columnIndex: 0
+                      source: HEADERS
+                    "2":
+                      columnIndex: 0
+                      source: HEADERS
+                    "3":
+                      columnIndex: 0
+                      source: HEADERS
+                    "4":
+                      columnIndex: 0
+                      source: HEADERS
+                    "5":
+                      columnIndex: 0
+                      source: HEADERS
+                    "6":
+                      columnIndex: 0
+                      source: HEADERS
+                    "7":
+                      columnIndex: 0
+                      source: HEADERS
+                    "8":
+                      columnIndex: 0
+                      source: HEADERS
+                    "9":
+                      columnIndex: 0
+                      source: HEADERS
+                    "10":
+                      columnIndex: 0
+                      source: HEADERS
+                    "11":
+                      columnIndex: 0
+                      source: HEADERS
+                    "12":
+                      columnIndex: 0
+                      source: HEADERS
+                  rowType: Header
+                - cellDetails:
+                    "0":
+                      groupLevel: 0
+                  cells:
+                  - Notes/Bonds
+                  - null
+                  - 47848
+                  - 47848
+                  - null
+                  - null
+                  - null
+                  - null
+                  - null
+                  - null
+                  - null
+                  - null
+                  - null
+                - cellDetails:
+                    "0":
+                      groupLevel: 1
+                  cells:
+                  - Industrial Development Revenue Bonds
+                  - DCS8073841
+                  - 2461
+                  - 2461
+                  - 1.388
+                  - null
+                  - null
+                  - 12/2051
+                  - USD
+                  - SNR Sec
+                  - null
+                  - null
+                  - null
+                - cellDetails:
+                    "0":
+                      groupLevel: 1
+                  cells:
+                  - Mobil Corp
+                  - 607059AT9
+                  - 250
+                  - 250
+                  - 8.625
+                  - Fixed
+                  - 08/1991
+                  - 08/2021
+                  - USD
+                  - SNR Unsec
+                  - 104.388
+                  - 0.462109129944423
+                  - 28.7109583146608
+                tableMetadata:
+                  source:
+                    value:
+                    - FactSet DCS
+                    - FactSet Fixed Income
               definition:
                 columns:
-                - id: description1
-                  type: string
+                - id: description
                   isDimension: true
-                - id: description2
                   type: string
-                  isDimension: true
-                  parentId: description1
-                - id: description3
-                  type: string
-                  isDimension: true
-                  parentId: description2
                 - id: instrumentID
                   type: string
                 - id: balanceSheetAmountOutstanding
@@ -631,10 +781,450 @@ components:
                   type: real
                 - id: oas
                   type: real
+              headersDefinition:
+                columns:
+                - id: detailTableHeader
+                  isDimension: true
+                  type: string
+          version: "2.0"
+        meta:
+          fsymId: QG1HR7-R
+          requestId: 002Q0G-E
+          schema: table_group_level
+    groupLevelResponseDcsSummary:
+      description: Subset of rows and columns for an example response
+      summary: (sample table group level columns response)
+      value:
+        data:
+          tables:
+            main:
               data:
+                columnMetadata:
+                  last:
+                    items:
+                      scale:
+                        value: 6
+                  lastToLtmEbitda:
+                    items:
+                      valueType:
+                        value: RATIO
+                  lastToNtmEbitda:
+                    items:
+                      valueType:
+                        value: RATIO
+                  latest:
+                    items:
+                      scale:
+                        value: 6
+                  latestToLtmEbitda:
+                    items:
+                      valueType:
+                        value: RATIO
+                  latestToNtmEbitda:
+                    items:
+                      valueType:
+                        value: RATIO
                 rows:
-                - rowType: Header
+                - cells:
+                  - null
+                  - May '21
+                  - /LTM EBITDA
+                  - /NTM EBITDA
+                  - Feb '21
+                  - /LTM EBITDA
+                  - /NTM EBITDA
+                  headerCellDetails:
+                    "0":
+                      columnIndex: 0
+                      source: HEADERS
+                    "1":
+                      columnIndex: 0
+                      source: HEADERS
+                    "2":
+                      columnIndex: 0
+                      source: HEADERS
+                    "3":
+                      columnIndex: 0
+                      source: HEADERS
+                    "4":
+                      columnIndex: 0
+                      source: HEADERS
+                    "5":
+                      columnIndex: 0
+                      source: HEADERS
+                    "6":
+                      columnIndex: 0
+                      source: HEADERS
+                - cellDetails:
+                    "0":
+                      groupLevel: 0
+                    "1":
+                      groupLevel: 0
+                    "2":
+                      groupLevel: 0
+                    "3":
+                      groupLevel: 0
+                    "4":
+                      groupLevel: 0
+                    "5":
+                      groupLevel: 0
+                    "6":
+                      groupLevel: 0
                   cells:
+                  - Short Term Debt
+                  - null
+                  - null
+                  - null
+                  - null
+                  - null
+                  - null
+                - cellDetails:
+                    "0":
+                      groupLevel: 0
+                    "1":
+                      groupLevel: 0
+                    "2":
+                      groupLevel: 0
+                    "3":
+                      groupLevel: 0
+                    "4":
+                      groupLevel: 0
+                    "5":
+                      groupLevel: 0
+                    "6":
+                      groupLevel: 0
+                  cells:
+                  - Long Term Debt
+                  - 574.49
+                  - 1.02130103038535
+                  - 0.998906313302117
+                  - 574.399
+                  - 1.03639663892232
+                  - 1.01769506195566
+                - cellDetails:
+                    "0":
+                      groupLevel: 1
+                    "1":
+                      groupLevel: 0
+                    "2":
+                      groupLevel: 0
+                    "3":
+                      groupLevel: 0
+                    "4":
+                      groupLevel: 0
+                    "5":
+                      groupLevel: 0
+                    "6":
+                      groupLevel: 0
+                  cells:
+                  - Revolving Credit
+                  - 575
+                  - 1.02220768415738
+                  - 0.9997930863004
+                  - 575
+                  - 1.03748103214026
+                  - 1.01875988750765
+                - cellDetails:
+                    "0":
+                      groupLevel: 2
+                    "1":
+                      groupLevel: 0
+                    "2":
+                      groupLevel: 0
+                    "3":
+                      groupLevel: 0
+                    "4":
+                      groupLevel: 0
+                    "5":
+                      groupLevel: 0
+                    "6":
+                      groupLevel: 0
+                  cells:
+                  - Unsec. Rev. Facility
+                  - 575
+                  - null
+                  - null
+                  - 575
+                  - null
+                  - null
+                - cellDetails:
+                    "0":
+                      groupLevel: 1
+                    "1":
+                      groupLevel: 0
+                    "2":
+                      groupLevel: 0
+                    "3":
+                      groupLevel: 0
+                    "4":
+                      groupLevel: 0
+                    "5":
+                      groupLevel: 0
+                    "6":
+                      groupLevel: 0
+                  cells:
+                  - Term Loans
+                  - null
+                  - null
+                  - null
+                  - null
+                  - null
+                  - null
+                - cellDetails:
+                    "0":
+                      groupLevel: 1
+                    "1":
+                      groupLevel: 0
+                    "2":
+                      groupLevel: 0
+                    "3":
+                      groupLevel: 0
+                    "4":
+                      groupLevel: 0
+                    "5":
+                      groupLevel: 0
+                    "6":
+                      groupLevel: 0
+                  cells:
+                  - Notes/Bonds
+                  - null
+                  - null
+                  - null
+                  - null
+                  - null
+                  - null
+                - cellDetails:
+                    "0":
+                      groupLevel: 1
+                    "1":
+                      groupLevel: 0
+                    "2":
+                      groupLevel: 0
+                    "3":
+                      groupLevel: 0
+                    "4":
+                      groupLevel: 0
+                    "5":
+                      groupLevel: 0
+                    "6":
+                      groupLevel: 0
+                  cells:
+                  - Other
+                  - -0.51
+                  - -9.06653772035242E-4
+                  - -8.86772998283833E-4
+                  - -0.601
+                  - -0.00108439321794139
+                  - -0.00106482555198625
+                - cellDetails:
+                    "0":
+                      groupLevel: 2
+                    "1":
+                      groupLevel: 0
+                    "2":
+                      groupLevel: 0
+                    "3":
+                      groupLevel: 0
+                    "4":
+                      groupLevel: 0
+                    "5":
+                      groupLevel: 0
+                    "6":
+                      groupLevel: 0
+                  cells:
+                  - Adjustments
+                  - -0.51
+                  - null
+                  - null
+                  - -0.601
+                  - null
+                  - null
+                - cellDetails:
+                    "0":
+                      groupLevel: 0
+                    "1":
+                      groupLevel: 0
+                    "2":
+                      groupLevel: 0
+                    "3":
+                      groupLevel: 0
+                    "4":
+                      groupLevel: 0
+                    "5":
+                      groupLevel: 0
+                    "6":
+                      groupLevel: 0
+                  cells:
+                  - Long Term Debt, Less Current Portion
+                  - 574.49
+                  - 1.02130103038535
+                  - 0.998906313302117
+                  - 574.399
+                  - 1.03639663892232
+                  - 1.01769506195566
+                - cellDetails:
+                    "0":
+                      groupLevel: 1
+                    "1":
+                      groupLevel: 0
+                    "2":
+                      groupLevel: 0
+                    "3":
+                      groupLevel: 0
+                    "4":
+                      groupLevel: 0
+                    "5":
+                      groupLevel: 0
+                    "6":
+                      groupLevel: 0
+                  cells:
+                  - Long Term Debt
+                  - 574.49
+                  - 1.02130103038535
+                  - 0.998906313302117
+                  - 574.399
+                  - 1.03639663892232
+                  - 1.01769506195566
+                - cellDetails:
+                    "0":
+                      groupLevel: 1
+                    "1":
+                      groupLevel: 0
+                    "2":
+                      groupLevel: 0
+                    "3":
+                      groupLevel: 0
+                    "4":
+                      groupLevel: 0
+                    "5":
+                      groupLevel: 0
+                    "6":
+                      groupLevel: 0
+                  cells:
+                  - Current Portion of LTD
+                  - null
+                  - null
+                  - null
+                  - null
+                  - null
+                  - null
+                - cellDetails:
+                    "0":
+                      groupLevel: 0
+                    "1":
+                      groupLevel: 0
+                    "2":
+                      groupLevel: 0
+                    "3":
+                      groupLevel: 0
+                    "4":
+                      groupLevel: 0
+                    "5":
+                      groupLevel: 0
+                    "6":
+                      groupLevel: 0
+                  cells:
+                  - Total Debt
+                  - 574.49
+                  - 1.02130103038535
+                  - 0.998906313302117
+                  - 574.399
+                  - 1.03639663892232
+                  - 1.01769506195566
+                tableMetadata:
+                  source:
+                    value:
+                    - FactSet DCS
+                    - FactSet Fundamentals
+                    - FactSet Estimates
+              definition:
+                columns:
+                - id: debtClass
+                  type: string
+                - id: latest
+                  type: real
+                - id: latestToLtmEbitda
+                  type: real
+                - id: latestToNtmEbitda
+                  type: real
+                - id: last
+                  type: real
+                - id: lastToLtmEbitda
+                  type: real
+                - id: lastToNtmEbitda
+                  type: real
+              headersDefinition:
+                columns:
+                - id: detailTableHeader
+                  isDimension: true
+                  type: string
+          version: "2.0"
+        meta:
+          fsymId: SQFMK3-R
+          requestId: FDS
+          schema: table_group_level
+    idInvalidParameterError:
+      summary: generic parameter error (invalid parameter)
+      value:
+        errors:
+        - code: parameterError
+          id: 39314614-e607-465a-ba95-5bb79c362e23
+          title: 'Invalid parameter(s): ''id'''
+    idRequiredParameterError:
+      summary: generic parameter error (missing parameter)
+      value:
+        errors:
+        - code: parameterError
+          id: 39314614-e607-465a-ba95-5bb79c362e23
+          title: 'Missing required parameter(s): ''id'''
+    notAuthorized:
+      summary: not authorized
+      value:
+        errors:
+        - code: notAuthorized
+          id: 39314614-e607-465a-ba95-5bb79c362e23
+          title: User is forbidden access with current credentials. For access, contact
+            your FactSet sales representative
+    parentChildColumnsResponse:
+      description: Subset of rows and columns for an example STACH 2.0 row organized
+        table with parent-child columns
+      summary: (sample table parent child columns response)
+      value:
+        data:
+          tables:
+            main:
+              data:
+                columnMetadata:
+                  balanceSheetAmountOutstanding:
+                    items:
+                      currencyCode:
+                        value: USD
+                      scale:
+                        value: 6
+                  couponRate:
+                    items:
+                      valueType:
+                        value: PERCENTAGE
+                  currentAmountOutstanding:
+                    items:
+                      currencyCode:
+                        value: USD
+                      scale:
+                        value: 6
+                  oas:
+                    items:
+                      valueType:
+                        value: PERCENTAGE
+                  price:
+                    items:
+                      currencyCode:
+                        value: USD
+                  ytw:
+                    items:
+                      valueType:
+                        value: PERCENTAGE
+                rows:
+                - cells:
                   - Description
                   - null
                   - null
@@ -652,50 +1242,51 @@ components:
                   - OAS (LIBOR)
                   headerCellDetails:
                     "0":
-                      source: HEADERS
                       columnIndex: 0
+                      source: HEADERS
                     "1":
-                      source: PRIMARY
                       columnIndex: 1
-                    "2":
                       source: PRIMARY
+                    "2":
                       columnIndex: 2
+                      source: PRIMARY
                     "3":
-                      source: HEADERS
                       columnIndex: 0
+                      source: HEADERS
                     "4":
-                      source: HEADERS
                       columnIndex: 0
+                      source: HEADERS
                     "5":
-                      source: HEADERS
                       columnIndex: 0
+                      source: HEADERS
                     "6":
-                      source: HEADERS
                       columnIndex: 0
+                      source: HEADERS
                     "7":
-                      source: HEADERS
                       columnIndex: 0
+                      source: HEADERS
                     "8":
-                      source: HEADERS
                       columnIndex: 0
+                      source: HEADERS
                     "9":
-                      source: HEADERS
                       columnIndex: 0
+                      source: HEADERS
                     "10":
-                      source: HEADERS
                       columnIndex: 0
+                      source: HEADERS
                     "11":
-                      source: HEADERS
                       columnIndex: 0
+                      source: HEADERS
                     "12":
-                      source: HEADERS
                       columnIndex: 0
+                      source: HEADERS
                     "13":
-                      source: HEADERS
                       columnIndex: 0
+                      source: HEADERS
                     "14":
-                      source: HEADERS
                       columnIndex: 0
+                      source: HEADERS
+                  rowType: Header
                 - cells:
                   - Notes/Bonds
                   - null
@@ -747,57 +1338,26 @@ components:
                   - 105.37265
                   - 0.34193928774702
                   - 13.6422446732113
-                columnMetadata:
-                  balanceSheetAmountOutstanding:
-                    items:
-                      currencyCode:
-                        value: USD
-                      scale:
-                        value: 6
-                  currentAmountOutstanding:
-                    items:
-                      currencyCode:
-                        value: USD
-                      scale:
-                        value: 6
-                  price:
-                    items:
-                      currencyCode:
-                        value: USD
-                  couponRate:
-                    items:
-                      valueType:
-                        value: PERCENTAGE
-                  ytw:
-                    items:
-                      valueType:
-                        value: PERCENTAGE
-                  oas:
-                    items:
-                      valueType:
-                        value: PERCENTAGE
-        meta:
-          requestId: 002Q0G-E
-          fsymId: QG1HR7-R
-          schema: table_parent_child_columns
-    groupLevelResponse:
-      description: Subset of rows and columns for an example response
-      summary: (sample table group level columns response)
-      value:
-        data:
-          version: "2.0"
-          tables:
-            main:
-              headersDefinition:
-                columns:
-                - id: detailTableHeader
-                  type: string
-                  isDimension: true
+                tableMetadata:
+                  currencyCode:
+                    value: USD
+                  source:
+                    value:
+                    - FactSet DCS
+                    - FactSet Fixed Income
               definition:
                 columns:
-                - id: description
-                  type: string
+                - id: description1
                   isDimension: true
+                  type: string
+                - id: description2
+                  isDimension: true
+                  parentId: description1
+                  type: string
+                - id: description3
+                  isDimension: true
+                  parentId: description2
+                  type: string
                 - id: instrumentID
                   type: string
                 - id: balanceSheetAmountOutstanding
@@ -822,182 +1382,265 @@ components:
                   type: real
                 - id: oas
                   type: real
+              headersDefinition:
+                columns:
+                - id: detailTableHeader
+                  isDimension: true
+                  type: string
+          version: "2.0"
+        meta:
+          fsymId: QG1HR7-R
+          requestId: 002Q0G-E
+          schema: table_parent_child_columns
+    parentChildColumnsResponseDcsSummary:
+      description: Subset of rows and columns for an example STACH 2.0 row organized
+        table with parent-child columns
+      summary: (sample table parent child columns response)
+      value:
+        data:
+          tables:
+            main:
               data:
+                columnMetadata:
+                  last:
+                    items:
+                      scale:
+                        value: 6
+                  lastToLtmEbitda:
+                    items:
+                      valueType:
+                        value: RATIO
+                  lastToNtmEbitda:
+                    items:
+                      valueType:
+                        value: RATIO
+                  latest:
+                    items:
+                      scale:
+                        value: 6
+                  latestToLtmEbitda:
+                    items:
+                      valueType:
+                        value: RATIO
+                  latestToNtmEbitda:
+                    items:
+                      valueType:
+                        value: RATIO
                 rows:
-                - rowType: Header
-                  cells:
-                  - Description
-                  - Instrument ID
-                  - Balance Sheet Amount Outstanding
-                  - Current Amount Outstanding
-                  - Coupon Rate
-                  - Coupon Type
-                  - Issue Date
-                  - Maturity Date
-                  - Issue Currency
-                  - Seniority
-                  - Price
-                  - YTW (Yield to Worst)
-                  - OAS (LIBOR)
+                - cells:
+                  - null
+                  - null
+                  - null
+                  - May '21
+                  - /LTM EBITDA
+                  - /NTM EBITDA
+                  - Feb '21
+                  - /LTM EBITDA
+                  - /NTM EBITDA
                   headerCellDetails:
                     "0":
-                      source: HEADERS
                       columnIndex: 0
+                      source: HEADERS
                     "1":
-                      source: HEADERS
                       columnIndex: 0
+                      source: HEADERS
                     "2":
-                      source: HEADERS
                       columnIndex: 0
+                      source: HEADERS
                     "3":
-                      source: HEADERS
                       columnIndex: 0
+                      source: HEADERS
                     "4":
-                      source: HEADERS
                       columnIndex: 0
+                      source: HEADERS
                     "5":
-                      source: HEADERS
                       columnIndex: 0
+                      source: HEADERS
                     "6":
-                      source: HEADERS
                       columnIndex: 0
-                    "7":
                       source: HEADERS
-                      columnIndex: 0
-                    "8":
-                      source: HEADERS
-                      columnIndex: 0
-                    "9":
-                      source: HEADERS
-                      columnIndex: 0
-                    "10":
-                      source: HEADERS
-                      columnIndex: 0
-                    "11":
-                      source: HEADERS
-                      columnIndex: 0
-                    "12":
-                      source: HEADERS
-                      columnIndex: 0
                 - cells:
+                  - Short Term Debt
+                  - null
+                  - null
+                  - null
+                  - null
+                  - null
+                  - null
+                  - null
+                  - null
+                - cells:
+                  - Long Term Debt
+                  - null
+                  - null
+                  - 574.49
+                  - 1.02130103038535
+                  - 0.998906313302117
+                  - 574.399
+                  - 1.03639663892232
+                  - 1.01769506195566
+                - cells:
+                  - Long Term Debt
+                  - Revolving Credit
+                  - null
+                  - 575
+                  - 1.02220768415738
+                  - 0.9997930863004
+                  - 575
+                  - 1.03748103214026
+                  - 1.01875988750765
+                - cells:
+                  - Long Term Debt
+                  - Revolving Credit
+                  - Unsec. Rev. Facility
+                  - 575
+                  - null
+                  - null
+                  - 575
+                  - null
+                  - null
+                - cells:
+                  - Long Term Debt
+                  - Term Loans
+                  - null
+                  - null
+                  - null
+                  - null
+                  - null
+                  - null
+                  - null
+                - cells:
+                  - Long Term Debt
                   - Notes/Bonds
                   - null
-                  - 47848
-                  - 47848
                   - null
                   - null
                   - null
                   - null
                   - null
                   - null
-                  - null
-                  - null
-                  - null
-                  cellDetails:
-                    "0":
-                      groupLevel: 0
                 - cells:
-                  - Industrial Development Revenue Bonds
-                  - DCS8073841
-                  - 2461
-                  - 2461
-                  - 1.388
+                  - Long Term Debt
+                  - Other
                   - null
-                  - null
-                  - 12/2051
-                  - USD
-                  - SNR Sec
-                  - null
-                  - null
-                  - null
-                  cellDetails:
-                    "0":
-                      groupLevel: 1
+                  - -0.51
+                  - -9.06653772035242E-4
+                  - -8.86772998283833E-4
+                  - -0.601
+                  - -0.00108439321794139
+                  - -0.00106482555198625
                 - cells:
-                  - Mobil Corp
-                  - 607059AT9
-                  - 250
-                  - 250
-                  - 8.625
-                  - Fixed
-                  - 08/1991
-                  - 08/2021
-                  - USD
-                  - SNR Unsec
-                  - 104.388
-                  - 0.462109129944423
-                  - 28.7109583146608
-                  cellDetails:
-                    "0":
-                      groupLevel: 1
-                columnMetadata:
-                  balanceSheetAmountOutstanding:
-                    items:
-                      currencyCode:
-                        value: USD
-                      scale:
-                        value: 6
-                  currentAmountOutstanding:
-                    items:
-                      currencyCode:
-                        value: USD
-                      scale:
-                        value: 6
-                  price:
-                    items:
-                      currencyCode:
-                        value: USD
-                  couponRate:
-                    items:
-                      valueType:
-                        value: PERCENTAGE
-                  ytw:
-                    items:
-                      valueType:
-                        value: PERCENTAGE
-                  oas:
-                    items:
-                      valueType:
-                        value: PERCENTAGE
+                  - Long Term Debt
+                  - Other
+                  - Adjustments
+                  - -0.51
+                  - null
+                  - null
+                  - -0.601
+                  - null
+                  - null
+                - cells:
+                  - Long Term Debt, Less Current Portion
+                  - null
+                  - null
+                  - 574.49
+                  - 1.02130103038535
+                  - 0.998906313302117
+                  - 574.399
+                  - 1.03639663892232
+                  - 1.01769506195566
+                - cells:
+                  - Long Term Debt, Less Current Portion
+                  - Long Term Debt
+                  - null
+                  - 574.49
+                  - 1.02130103038535
+                  - 0.998906313302117
+                  - 574.399
+                  - 1.03639663892232
+                  - 1.01769506195566
+                - cells:
+                  - Long Term Debt, Less Current Portion
+                  - Current Portion of LTD
+                  - null
+                  - null
+                  - null
+                  - null
+                  - null
+                  - null
+                  - null
+                - cells:
+                  - Total Debt
+                  - null
+                  - null
+                  - 574.49
+                  - 1.02130103038535
+                  - 0.998906313302117
+                  - 574.399
+                  - 1.03639663892232
+                  - 1.01769506195566
+                tableMetadata:
+                  source:
+                    value:
+                    - FactSet DCS
+                    - FactSet Fundamentals
+                    - FactSet Estimates
+              definition:
+                columns:
+                - id: description1
+                  isDimension: true
+                  type: string
+                - id: description2
+                  isDimension: true
+                  parentId: description1
+                  type: string
+                - id: description3
+                  isDimension: true
+                  parentId: description2
+                  type: string
+                - id: latest
+                  type: real
+                - id: latestToLtmEbitda
+                  type: real
+                - id: latestToNtmEbitda
+                  type: real
+                - id: last
+                  type: real
+                - id: lastToLtmEbitda
+                  type: real
+                - id: lastToNtmEbitda
+                  type: real
+              headersDefinition:
+                columns:
+                - id: detailTableHeader
+                  isDimension: true
+                  type: string
+          version: "2.0"
         meta:
-          requestId: 002Q0G-E
-          fsymId: QG1HR7-R
-          schema: table_group_level
+          fsymId: SQFMK3-R
+          requestId: FDS
+          schema: table_parent_child_columns
+    schemaInvalidParameterError:
+      summary: generic parameter error (invalid parameter)
+      value:
+        errors:
+        - code: parameterError
+          id: 39314614-e607-465a-ba95-5bb79c362e23
+          title: 'Invalid parameter(s): ''schema'''
     sourceOfCapitalResponse:
       description: sample source of capital response
       summary: (sample source of capital response)
       value:
         data:
           version: "2.0"
+        meta:
+          fsymId: null
+          requestId: 002Q0G-E
         tables:
           main:
-            headersDefinition:
-              columns:
-              - id: sourceOfCapitalTableHeader
-                type: string
-                isDimension: true
-            definition:
-              columns:
-              - id: closeDate
-                type: string
-              - id: amountRaised
-                type: real
-              - id: description
-                type: string
-              - id: issueCurrency
-                type: string
-              - id: dealType
-                type: string
-              - id: securityType
-                type: string
-              - id: offerPrice
-                type: real
-              - id: useOfProceeds
-                type: string
             data:
               rows:
-              - rowType: Header
-                cells:
+              - cells:
                 - Close Date
                 - Amount Raised (USD)
                 - Description
@@ -1008,29 +1651,30 @@ components:
                 - Use Of Proceeds
                 headerCellDetails:
                   "0":
-                    source: HEADERS
                     columnIndex: 0
+                    source: HEADERS
                   "1":
-                    source: HEADERS
                     columnIndex: 0
+                    source: HEADERS
                   "2":
-                    source: HEADERS
                     columnIndex: 0
+                    source: HEADERS
                   "3":
-                    source: HEADERS
                     columnIndex: 0
+                    source: HEADERS
                   "4":
-                    source: HEADERS
                     columnIndex: 0
+                    source: HEADERS
                   "5":
-                    source: HEADERS
                     columnIndex: 0
+                    source: HEADERS
                   "6":
-                    source: HEADERS
                     columnIndex: 0
+                    source: HEADERS
                   "7":
-                    source: HEADERS
                     columnIndex: 0
+                    source: HEADERS
+                rowType: Header
               - cells:
                 - 30 Apr '21
                 - 1545.305
@@ -1066,640 +1710,32 @@ components:
               tableMetadata:
                 currencyCode:
                   value: USD
-        meta:
-          requestId: 002Q0G-E
-          fsymId: null
-    parentChildColumnsResponseDcsSummary:
-      description: Subset of rows and columns for an example STACH 2.0 row organized
-        table with parent-child columns
-      summary: (sample table parent child columns response)
-      value:
-        data:
-          version: "2.0"
-          tables:
-            main:
-              headersDefinition:
-                columns:
-                - id: detailTableHeader
-                  type: string
-                  isDimension: true
-              definition:
-                columns:
-                - id: description1
-                  type: string
-                  isDimension: true
-                - id: description2
-                  type: string
-                  isDimension: true
-                  parentId: description1
-                - id: description3
-                  type: string
-                  isDimension: true
-                  parentId: description2
-                - id: latest
-                  type: real
-                - id: latestToLtmEbitda
-                  type: real
-                - id: latestToNtmEbitda
-                  type: real
-                - id: last
-                  type: real
-                - id: lastToLtmEbitda
-                  type: real
-                - id: lastToNtmEbitda
-                  type: real
-              data:
-                rows:
-                - cells:
-                  - null
-                  - null
-                  - null
-                  - May '21
-                  - /LTM EBITDA
-                  - /NTM EBITDA
-                  - Feb '21
-                  - /LTM EBITDA
-                  - /NTM EBITDA
-                  headerCellDetails:
-                    "0":
-                      source: HEADERS
-                      columnIndex: 0
-                    "1":
-                      source: HEADERS
-                      columnIndex: 0
-                    "2":
-                      source: HEADERS
-                      columnIndex: 0
-                    "3":
-                      source: HEADERS
-                      columnIndex: 0
-                    "4":
-                      source: HEADERS
-                      columnIndex: 0
-                    "5":
-                      source: HEADERS
-                      columnIndex: 0
-                    "6":
-                      source: HEADERS
-                      columnIndex: 0
-                - cells:
-                  - Short Term Debt
-                  - null
-                  - null
-                  - null
-                  - null
-                  - null
-                  - null
-                  - null
-                  - null
-                - cells:
-                  - Long Term Debt
-                  - null
-                  - null
-                  - 574.49
-                  - 1.02130103038535
-                  - 0.998906313302117
-                  - 574.399
-                  - 1.03639663892232
-                  - 1.01769506195566
-                - cells:
-                  - Long Term Debt
-                  - Revolving Credit
-                  - null
-                  - 575
-                  - 1.02220768415738
-                  - 0.9997930863004
-                  - 575
-                  - 1.03748103214026
-                  - 1.01875988750765
-                - cells:
-                  - Long Term Debt
-                  - Revolving Credit
-                  - Unsec. Rev. Facility
-                  - 575
-                  - null
-                  - null
-                  - 575
-                  - null
-                  - null
-                - cells:
-                  - Long Term Debt
-                  - Term Loans
-                  - null
-                  - null
-                  - null
-                  - null
-                  - null
-                  - null
-                  - null
-                - cells:
-                  - Long Term Debt
-                  - Notes/Bonds
-                  - null
-                  - null
-                  - null
-                  - null
-                  - null
-                  - null
-                  - null
-                - cells:
-                  - Long Term Debt
-                  - Other
-                  - null
-                  - -0.51
-                  - -9.06653772035242E-4
-                  - -8.86772998283833E-4
-                  - -0.601
-                  - -0.00108439321794139
-                  - -0.00106482555198625
-                - cells:
-                  - Long Term Debt
-                  - Other
-                  - Adjustments
-                  - -0.51
-                  - null
-                  - null
-                  - -0.601
-                  - null
-                  - null
-                - cells:
-                  - Long Term Debt, Less Current Portion
-                  - null
-                  - null
-                  - 574.49
-                  - 1.02130103038535
-                  - 0.998906313302117
-                  - 574.399
-                  - 1.03639663892232
-                  - 1.01769506195566
-                - cells:
-                  - Long Term Debt, Less Current Portion
-                  - Long Term Debt
-                  - null
-                  - 574.49
-                  - 1.02130103038535
-                  - 0.998906313302117
-                  - 574.399
-                  - 1.03639663892232
-                  - 1.01769506195566
-                - cells:
-                  - Long Term Debt, Less Current Portion
-                  - Current Portion of LTD
-                  - null
-                  - null
-                  - null
-                  - null
-                  - null
-                  - null
-                  - null
-                - cells:
-                  - Total Debt
-                  - null
-                  - null
-                  - 574.49
-                  - 1.02130103038535
-                  - 0.998906313302117
-                  - 574.399
-                  - 1.03639663892232
-                  - 1.01769506195566
-                columnMetadata:
-                  latest:
-                    items:
-                      scale:
-                        value: 6
-                  latestToLtmEbitda:
-                    items:
-                      valueType:
-                        value: RATIO
-                  last:
-                    items:
-                      scale:
-                        value: 6
-                  latestToNtmEbitda:
-                    items:
-                      valueType:
-                        value: RATIO
-                  lastToLtmEbitda:
-                    items:
-                      valueType:
-                        value: RATIO
-                  lastToNtmEbitda:
-                    items:
-                      valueType:
-                        value: RATIO
-        meta:
-          requestId: FDS
-          fsymId: SQFMK3-R
-          schema: table_parent_child_columns
-    groupLevelResponseDcsSummary:
-      description: Subset of rows and columns for an example response
-      summary: (sample table group level columns response)
-      value:
-        data:
-          version: "2.0"
-          tables:
-            main:
-              headersDefinition:
-                columns:
-                - id: detailTableHeader
-                  type: string
-                  isDimension: true
-              definition:
-                columns:
-                - id: debtClass
-                  type: string
-                - id: latest
-                  type: real
-                - id: latestToLtmEbitda
-                  type: real
-                - id: latestToNtmEbitda
-                  type: real
-                - id: last
-                  type: real
-                - id: lastToLtmEbitda
-                  type: real
-                - id: lastToNtmEbitda
-                  type: real
-              data:
-                rows:
-                - cells:
-                  - null
-                  - May '21
-                  - /LTM EBITDA
-                  - /NTM EBITDA
-                  - Feb '21
-                  - /LTM EBITDA
-                  - /NTM EBITDA
-                  headerCellDetails:
-                    "0":
-                      source: HEADERS
-                      columnIndex: 0
-                    "1":
-                      source: HEADERS
-                      columnIndex: 0
-                    "2":
-                      source: HEADERS
-                      columnIndex: 0
-                    "3":
-                      source: HEADERS
-                      columnIndex: 0
-                    "4":
-                      source: HEADERS
-                      columnIndex: 0
-                    "5":
-                      source: HEADERS
-                      columnIndex: 0
-                    "6":
-                      source: HEADERS
-                      columnIndex: 0
-                - cells:
-                  - Short Term Debt
-                  - null
-                  - null
-                  - null
-                  - null
-                  - null
-                  - null
-                  cellDetails:
-                    "0":
-                      groupLevel: 0
-                    "1":
-                      groupLevel: 0
-                    "2":
-                      groupLevel: 0
-                    "3":
-                      groupLevel: 0
-                    "4":
-                      groupLevel: 0
-                    "5":
-                      groupLevel: 0
-                    "6":
-                      groupLevel: 0
-                - cells:
-                  - Long Term Debt
-                  - 574.49
-                  - 1.02130103038535
-                  - 0.998906313302117
-                  - 574.399
-                  - 1.03639663892232
-                  - 1.01769506195566
-                  cellDetails:
-                    "0":
-                      groupLevel: 0
-                    "1":
-                      groupLevel: 0
-                    "2":
-                      groupLevel: 0
-                    "3":
-                      groupLevel: 0
-                    "4":
-                      groupLevel: 0
-                    "5":
-                      groupLevel: 0
-                    "6":
-                      groupLevel: 0
-                - cells:
-                  - Revolving Credit
-                  - 575
-                  - 1.02220768415738
-                  - 0.9997930863004
-                  - 575
-                  - 1.03748103214026
-                  - 1.01875988750765
-                  cellDetails:
-                    "0":
-                      groupLevel: 1
-                    "1":
-                      groupLevel: 0
-                    "2":
-                      groupLevel: 0
-                    "3":
-                      groupLevel: 0
-                    "4":
-                      groupLevel: 0
-                    "5":
-                      groupLevel: 0
-                    "6":
-                      groupLevel: 0
-                - cells:
-                  - Unsec. Rev. Facility
-                  - 575
-                  - null
-                  - null
-                  - 575
-                  - null
-                  - null
-                  cellDetails:
-                    "0":
-                      groupLevel: 2
-                    "1":
-                      groupLevel: 0
-                    "2":
-                      groupLevel: 0
-                    "3":
-                      groupLevel: 0
-                    "4":
-                      groupLevel: 0
-                    "5":
-                      groupLevel: 0
-                    "6":
-                      groupLevel: 0
-                - cells:
-                  - Term Loans
-                  - null
-                  - null
-                  - null
-                  - null
-                  - null
-                  - null
-                  cellDetails:
-                    "0":
-                      groupLevel: 1
-                    "1":
-                      groupLevel: 0
-                    "2":
-                      groupLevel: 0
-                    "3":
-                      groupLevel: 0
-                    "4":
-                      groupLevel: 0
-                    "5":
-                      groupLevel: 0
-                    "6":
-                      groupLevel: 0
-                - cells:
-                  - Notes/Bonds
-                  - null
-                  - null
-                  - null
-                  - null
-                  - null
-                  - null
-                  cellDetails:
-                    "0":
-                      groupLevel: 1
-                    "1":
-                      groupLevel: 0
-                    "2":
-                      groupLevel: 0
-                    "3":
-                      groupLevel: 0
-                    "4":
-                      groupLevel: 0
-                    "5":
-                      groupLevel: 0
-                    "6":
-                      groupLevel: 0
-                - cells:
-                  - Other
-                  - -0.51
-                  - -9.06653772035242E-4
-                  - -8.86772998283833E-4
-                  - -0.601
-                  - -0.00108439321794139
-                  - -0.00106482555198625
-                  cellDetails:
-                    "0":
-                      groupLevel: 1
-                    "1":
-                      groupLevel: 0
-                    "2":
-                      groupLevel: 0
-                    "3":
-                      groupLevel: 0
-                    "4":
-                      groupLevel: 0
-                    "5":
-                      groupLevel: 0
-                    "6":
-                      groupLevel: 0
-                - cells:
-                  - Adjustments
-                  - -0.51
-                  - null
-                  - null
-                  - -0.601
-                  - null
-                  - null
-                  cellDetails:
-                    "0":
-                      groupLevel: 2
-                    "1":
-                      groupLevel: 0
-                    "2":
-                      groupLevel: 0
-                    "3":
-                      groupLevel: 0
-                    "4":
-                      groupLevel: 0
-                    "5":
-                      groupLevel: 0
-                    "6":
-                      groupLevel: 0
-                - cells:
-                  - Long Term Debt, Less Current Portion
-                  - 574.49
-                  - 1.02130103038535
-                  - 0.998906313302117
-                  - 574.399
-                  - 1.03639663892232
-                  - 1.01769506195566
-                  cellDetails:
-                    "0":
-                      groupLevel: 0
-                    "1":
-                      groupLevel: 0
-                    "2":
-                      groupLevel: 0
-                    "3":
-                      groupLevel: 0
-                    "4":
-                      groupLevel: 0
-                    "5":
-                      groupLevel: 0
-                    "6":
-                      groupLevel: 0
-                - cells:
-                  - Long Term Debt
-                  - 574.49
-                  - 1.02130103038535
-                  - 0.998906313302117
-                  - 574.399
-                  - 1.03639663892232
-                  - 1.01769506195566
-                  cellDetails:
-                    "0":
-                      groupLevel: 1
-                    "1":
-                      groupLevel: 0
-                    "2":
-                      groupLevel: 0
-                    "3":
-                      groupLevel: 0
-                    "4":
-                      groupLevel: 0
-                    "5":
-                      groupLevel: 0
-                    "6":
-                      groupLevel: 0
-                - cells:
-                  - Current Portion of LTD
-                  - null
-                  - null
-                  - null
-                  - null
-                  - null
-                  - null
-                  cellDetails:
-                    "0":
-                      groupLevel: 1
-                    "1":
-                      groupLevel: 0
-                    "2":
-                      groupLevel: 0
-                    "3":
-                      groupLevel: 0
-                    "4":
-                      groupLevel: 0
-                    "5":
-                      groupLevel: 0
-                    "6":
-                      groupLevel: 0
-                - cells:
-                  - Total Debt
-                  - 574.49
-                  - 1.02130103038535
-                  - 0.998906313302117
-                  - 574.399
-                  - 1.03639663892232
-                  - 1.01769506195566
-                  cellDetails:
-                    "0":
-                      groupLevel: 0
-                    "1":
-                      groupLevel: 0
-                    "2":
-                      groupLevel: 0
-                    "3":
-                      groupLevel: 0
-                    "4":
-                      groupLevel: 0
-                    "5":
-                      groupLevel: 0
-                    "6":
-                      groupLevel: 0
-                columnMetadata:
-                  latest:
-                    items:
-                      scale:
-                        value: 6
-                  latestToLtmEbitda:
-                    items:
-                      valueType:
-                        value: RATIO
-                  last:
-                    items:
-                      scale:
-                        value: 6
-                  latestToNtmEbitda:
-                    items:
-                      valueType:
-                        value: RATIO
-                  lastToLtmEbitda:
-                    items:
-                      valueType:
-                        value: RATIO
-                  lastToNtmEbitda:
-                    items:
-                      valueType:
-                        value: RATIO
-        meta:
-          requestId: FDS
-          fsymId: SQFMK3-R
-          schema: table_group_level
-    genericServerError:
-      summary: generic server error
-      value:
-        errors:
-        - id: 39314614-e607-465a-ba95-5bb79c362e23
-          code: genericServerError
-          title: Unexpected error processing request
-    endpointNotFound:
-      summary: endpoint not found
-      value:
-        errors:
-        - id: 39314614-e607-465a-ba95-5bb79c362e23
-          code: endpointNotFound
-          title: The requested endpoint does not exist.
-    idRequiredParameterError:
-      summary: generic parameter error (missing parameter)
-      value:
-        errors:
-        - id: 39314614-e607-465a-ba95-5bb79c362e23
-          code: parameterError
-          title: 'Missing required parameter(s): ''id'''
-    idInvalidParameterError:
-      summary: generic parameter error (invalid parameter)
-      value:
-        errors:
-        - id: 39314614-e607-465a-ba95-5bb79c362e23
-          code: parameterError
-          title: 'Invalid parameter(s): ''id'''
-    schemaInvalidParameterError:
-      summary: generic parameter error (invalid parameter)
-      value:
-        errors:
-        - id: 39314614-e607-465a-ba95-5bb79c362e23
-          code: parameterError
-          title: 'Invalid parameter(s): ''schema'''
-    notAuthorized:
-      summary: not authorized
-      value:
-        errors:
-        - id: 39314614-e607-465a-ba95-5bb79c362e23
-          code: notAuthorized
-          title: User is forbidden access with current credentials. For access, contact
-            your FactSet sales representative
+                source:
+                  value:
+                  - FactSet
+            definition:
+              columns:
+              - id: closeDate
+                type: string
+              - id: amountRaised
+                type: real
+              - id: description
+                type: string
+              - id: issueCurrency
+                type: string
+              - id: dealType
+                type: string
+              - id: securityType
+                type: string
+              - id: offerPrice
+                type: real
+              - id: useOfProceeds
+                type: string
+            headersDefinition:
+              columns:
+              - id: sourceOfCapitalTableHeader
+                isDimension: true
+                type: string
   responses:
     "200OKStach":
       content:
@@ -1714,12 +1750,6 @@ components:
       description: Expected response; returns JSON data containing STACH 2.0 row organized
         package format
       headers:
-        X-DataDirect-Request-Key:
-          description: FactSet request ID
-          explode: false
-          schema:
-            type: string
-          style: simple
         Api-Supported-Versions:
           description: Supported API major versions
           explode: false
@@ -1732,31 +1762,8 @@ components:
           schema:
             type: string
           style: simple
-    "200OKStachSourceOfCapital":
-      content:
-        application/json:
-          examples:
-            sourceOfCapitalResponse:
-              $ref: '#/components/examples/sourceOfCapitalResponse'
-          schema:
-            $ref: '#/components/schemas/Response'
-      description: Expected response; returns JSON data containing STACH 2.0 row organized
-        package format
-      headers:
         X-DataDirect-Request-Key:
           description: FactSet request ID
-          explode: false
-          schema:
-            type: string
-          style: simple
-        Api-Supported-Versions:
-          description: Supported API major versions
-          explode: false
-          schema:
-            type: string
-          style: simple
-        Api-Version:
-          description: API version (semantic versioning)
           explode: false
           schema:
             type: string
@@ -1774,12 +1781,6 @@ components:
       description: Expected response; returns JSON data containing STACH 2.0 row organized
         package format
       headers:
-        X-DataDirect-Request-Key:
-          description: FactSet request ID
-          explode: false
-          schema:
-            type: string
-          style: simple
         Api-Supported-Versions:
           description: Supported API major versions
           explode: false
@@ -1792,14 +1793,49 @@ components:
           schema:
             type: string
           style: simple
+        X-DataDirect-Request-Key:
+          description: FactSet request ID
+          explode: false
+          schema:
+            type: string
+          style: simple
+    "200OKStachSourceOfCapital":
+      content:
+        application/json:
+          examples:
+            sourceOfCapitalResponse:
+              $ref: '#/components/examples/sourceOfCapitalResponse'
+          schema:
+            $ref: '#/components/schemas/Response'
+      description: Expected response; returns JSON data containing STACH 2.0 row organized
+        package format
+      headers:
+        Api-Supported-Versions:
+          description: Supported API major versions
+          explode: false
+          schema:
+            type: string
+          style: simple
+        Api-Version:
+          description: API version (semantic versioning)
+          explode: false
+          schema:
+            type: string
+          style: simple
+        X-DataDirect-Request-Key:
+          description: FactSet request ID
+          explode: false
+          schema:
+            type: string
+          style: simple
     "400BadRequest":
       content:
         application/json:
           examples:
-            idRequiredParameterError:
-              $ref: '#/components/examples/idRequiredParameterError'
             idInvalidParameterError:
               $ref: '#/components/examples/idInvalidParameterError'
+            idRequiredParameterError:
+              $ref: '#/components/examples/idRequiredParameterError'
             schemaInvalidParameterError:
               $ref: '#/components/examples/schemaInvalidParameterError'
           schema:
@@ -1809,12 +1845,6 @@ components:
         page, including the X-DataDirect-Request-Key from the header to assist in
         troubleshooting.
       headers:
-        X-DataDirect-Request-Key:
-          description: FactSet request ID
-          explode: false
-          schema:
-            type: string
-          style: simple
         Api-Supported-Versions:
           description: Supported API major versions
           explode: false
@@ -1823,6 +1853,12 @@ components:
           style: simple
         Api-Version:
           description: API version (semantic versioning)
+          explode: false
+          schema:
+            type: string
+          style: simple
+        X-DataDirect-Request-Key:
+          description: FactSet request ID
           explode: false
           schema:
             type: string
@@ -1922,9 +1958,35 @@ components:
             type: string
           style: simple
   schemas:
+    ErrorObject:
+      description: Schema describing an API error
+      properties:
+        code:
+          description: A common or API-specific error code.
+          type: string
+        detail:
+          description: A human-readable explanation specific to the occurrence of
+            the problem.
+          type: string
+        id:
+          description: A UUID for this particular ocurrence of the problem.  This
+            will be logged for debugging.
+          type: string
+        links:
+          $ref: '#/components/schemas/ErrorObject_links'
+        source:
+          $ref: '#/components/schemas/ErrorObject_source'
+        title:
+          description: A short, human-readable summary of the problem.  This should
+            not change from occurrence to occurrence of the problem
+          type: string
+      type: object
     ErrorResponse:
+      description: A response indicating that there were one or more errors with the
+        requests.
       properties:
         errors:
+          description: Errors which may have occurred during the request
           items:
             $ref: '#/components/schemas/ErrorObject'
           type: array
@@ -1932,267 +1994,48 @@ components:
           additionalProperties:
             nullable: true
             type: string
+          description: Metadata object
           type: object
-      type: object
-    ErrorObject:
-      properties:
-        id:
-          type: string
-        code:
-          type: string
-        title:
-          type: string
-        links:
-          $ref: '#/components/schemas/ErrorObject_links'
-        detail:
-          type: string
-        source:
-          $ref: '#/components/schemas/ErrorObject_source'
       type: object
     Meta:
       additionalProperties:
         nullable: true
         type: string
+      description: Metadata object
       type: object
     Response:
+      description: Capital Structure Response object
       example:
-        data: ""
+        data: '{}'
         meta:
           key: meta
       properties:
         data:
           description: Returns a STACH 2.0 row organized package
           title: STACH
+          type: object
         meta:
           additionalProperties:
             nullable: true
             type: string
+          description: Metadata object
           type: object
       type: object
-    MetadataEntry:
-      description: |
-        Restricted metadata entries. Restricts the possible key in the following STACH schema:
-        - RowOrganizedPackage.CellDetail.CellMetadataEntry
-        - RowOrganizedPackage.HeaderCellDetail.CellMetadataEntry
-        - RowOrganizedPackage.MapOfMetadata.ItemsEntry
-        - RowOrganizedPackage.Row.RowMetadataEntry
-        - RowOrganizedPackage.TableData.TableMetadataEntry
-        And sets restrictions on the possible values for a MetadataItem.
-      oneOf:
-      - $ref: '#/components/schemas/currencyCode'
-      - $ref: '#/components/schemas/currencySymbol'
-      - $ref: '#/components/schemas/category'
-      - $ref: '#/components/schemas/valueType'
-      - $ref: '#/components/schemas/scale'
-      - $ref: '#/components/schemas/description'
-      - $ref: '#/components/schemas/frequency'
-      - $ref: '#/components/schemas/interimStatus'
-      type: object
-    interimStatus:
-      properties:
-        interimStatus:
-          $ref: '#/components/schemas/interimStatus_interimStatus'
-      type: object
-    interimAmtOutChg:
-      properties:
-        interimAmtOutChg:
-          $ref: '#/components/schemas/interimAmtOutChg_interimAmtOutChg'
-      type: object
-    interimCpnChg:
-      properties:
-        interimCpnChg:
-          $ref: '#/components/schemas/interimCpnChg_interimCpnChg'
-      type: object
-    interimMatDateChg:
-      properties:
-        interimMatDateChg:
-          $ref: '#/components/schemas/interimMatDateChg_interimMatDateChg'
-      type: object
-    currencyCode:
-      properties:
-        currencyCode:
-          $ref: '#/components/schemas/currencyCode_currencyCode'
-      type: object
-    currencySymbol:
-      properties:
-        currencySymbol:
-          $ref: '#/components/schemas/currencySymbol_currencySymbol'
-      type: object
-    category:
-      properties:
-        category:
-          $ref: '#/components/schemas/category_category'
-      type: object
-    valueType:
-      properties:
-        valueType:
-          $ref: '#/components/schemas/valueType_valueType'
-      type: object
-    scale:
-      properties:
-        scale:
-          $ref: '#/components/schemas/scale_scale'
-      type: object
-    description:
-      properties:
-        description:
-          $ref: '#/components/schemas/description_description'
-      type: object
-    frequency:
-      properties:
-        frequency:
-          $ref: '#/components/schemas/frequency_frequency'
-      type: object
     ErrorObject_links:
+      description: An object with a member "about" containing a link that leads to
+        further details about the problem.
       properties:
         about:
+          description: Link to further details about the problem
           type: string
       type: object
     ErrorObject_source:
+      description: An object containing references to the source of the error, optionally
+        including additional members
       properties:
         parameter:
-          type: string
-      type: object
-    interimStatus_interimStatus:
-      description: |
-        classifies the status of each debt issue since last report period.
-        - newIssue - New debt issued by the company.
-        - newIssueAcq - New debt assumed from an acquisition.
-        - matured - Debt that has matured.
-        - redeemed - Debt that has been redeemed prior to maturity.
-        - terminated - Debt that has been terminated prior to maturity.
-        - defaulted - Debt that the issuer has missed interest payment(s) or principal.
-      properties:
-        value:
-          enum:
-          - newIssue
-          - newIssueAcq
-          - matured
-          - redeemed
-          - terminated
-          - defaulted
-          type: string
-      type: object
-    interimAmtOutChg_interimAmtOutChg:
-      description: Balance Sheet Amount Outstanding has changed since last report
-        period.
-      properties:
-        value:
-          type: boolean
-      type: object
-    interimCpnChg_interimCpnChg:
-      description: Coupon Rate has changed since last report period.
-      properties:
-        value:
-          type: boolean
-      type: object
-    interimMatDateChg_interimMatDateChg:
-      description: Maturity Date has changed since last report period.
-      properties:
-        value:
-          type: boolean
-      type: object
-    currencyCode_currencyCode:
-      description: Code for data currency
-      properties:
-        value:
-          type: string
-      type: object
-    currencySymbol_currencySymbol:
-      description: Symbol for data currency
-      properties:
-        value:
-          type: string
-      type: object
-    category_category:
-      description: |
-        Describes data based on source or kind of value
-        - ACTUAL - Historical data collected directly from a press release or a median consensus from brokers after a report date.
-        - ESTIMATE - Forward looking average of broker estimates within a specific time horizon.
-        - GUIDANCE - Forward looking indication or estimate of future performance issued by the company itself.
-        - DETAIL - Indicates data that is more granular and may be secondary in focus.
-        - MAIN - Indicates data is of more impactful or higher importance and may want to be emphasized.
-        - SECTION - Indicates data that is used in sectioning rows in group level STACH format.
-      properties:
-        value:
-          enum:
-          - ACTUAL
-          - ESTIMATE
-          - GUIDANCE
-          - EXCLUDED
-          - CHANGE
-          - DETAIL
-          - MAIN
-          - SECTION
-          type: string
-      type: object
-    valueType_valueType:
-      description: Describes how to interpret numbers
-      properties:
-        value:
-          enum:
-          - PERCENTAGE
-          - RATIO
-          - TREND
-          - RANGE
-          type: string
-      type: object
-    scale_scale:
-      description: |
-        Integer power of 10 to which numbers have been scaled. For example: 6 implies millions.
-        Default is 0.
-      properties:
-        value:
-          type: integer
-      type: object
-    description_description:
-      description: Text describing the data
-      properties:
-        value:
-          type: string
-      type: object
-    frequency_frequency:
-      description: |
-        String with frequency of a data series. Allowed values:
-        - "D" (daily)
-        - "W" (weekly)
-        - "AW" (actual weekly)
-        - "M" (monthly)
-        - "AM" (actual monthly)
-        - "Q" (quarterly)
-        - "FQ" (fiscal quarterly)
-        - "CQ" (calendar quarterly)
-        - "AQ" (actual quarterly)
-        - "Y" (yearly)
-        - "FY" (fiscal yearly)
-        - "CY" (calendar yearly)
-        - "AY" (actual yearly)
-        - "MTD" (month-to-date)
-        - "QTD" (quarter-to-date)
-        - "YTD" (year-to-date)
-        - "FYTD" (fiscal-year-to-date)
-        - "CYTD" (calendar-year-to-date)
-      properties:
-        value:
-          enum:
-          - D
-          - W
-          - AW
-          - M
-          - AM
-          - Q
-          - FQ
-          - CQ
-          - AQ
-          - "Y"
-          - FY
-          - CY
-          - AY
-          - MTD
-          - QTD
-          - YTD
-          - FYTD
-          - CYTD
+          description: A string indicating which path or URI query parameter caused
+            the error
           type: string
       type: object
   securitySchemes:

@@ -1,7 +1,7 @@
 """
     FactSet Private Markets API
 
-    FactSet Private Markets API encompasses Private Company Financials data to start. Private Company firmographics can be found in the FactSet Entity API. The future plans of this service will include additional Private Markets data, such as Private Equity/Venture Capital.   # noqa: E501
+    FactSet Private Markets API encompasses Private Company Financials data to start. Private Company firmographics can be found in the FactSet Entity API. The future plans of this service will include additional Private Markets data, such as Private Equity/Venture Capital.<p><b>Rate limit is set to 10 requests per second</b>.</p>   # noqa: E501
 
     The version of the OpenAPI document: 1.2.0
     Contact: api@factset.com
@@ -430,7 +430,7 @@ conf = fds.sdk.FactSetPrivateMarkets.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 1.2.0\n"\
-               "SDK Package Version: 1.0.11".\
+               "SDK Package Version: 1.0.12".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):

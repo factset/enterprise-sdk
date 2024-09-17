@@ -38,18 +38,15 @@ import com.factset.sdk.FactSetOwnershipReportBuilder.JSON;
  */
 @ApiModel(description = "Standard Ownership response meta object.  Contains metadata about the response at the root level.")
 @JsonPropertyOrder({
-  Meta.JSON_PROPERTY_REQUEST_ID,
   Meta.JSON_PROPERTY_CURRENCY,
   Meta.JSON_PROPERTY_FSYM_ID,
-  Meta.JSON_PROPERTY_NO_DATA
+  Meta.JSON_PROPERTY_NO_DATA,
+  Meta.JSON_PROPERTY_REQUEST_ID
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class Meta implements Serializable {
   private static final long serialVersionUID = 1L;
-
-  public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
-  private String requestId;
 
   public static final String JSON_PROPERTY_CURRENCY = "currency";
   private JsonNullable<String> currency = JsonNullable.<String>undefined();
@@ -60,34 +57,11 @@ public class Meta implements Serializable {
   public static final String JSON_PROPERTY_NO_DATA = "noData";
   private JsonNullable<Boolean> noData = JsonNullable.<Boolean>undefined();
 
+  public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
+  private String requestId;
+
   public Meta() { 
   }
-
-  public Meta requestId(String requestId) {
-    this.requestId = requestId;
-    return this;
-  }
-
-   /**
-   * The identifier which was requested by the client
-   * @return requestId
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The identifier which was requested by the client")
-  @JsonProperty(JSON_PROPERTY_REQUEST_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getRequestId() {
-    return requestId;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_REQUEST_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRequestId(String requestId) {
-    this.requestId = requestId;
-  }
-
 
   public Meta currency(String currency) {
     this.currency = JsonNullable.<String>of(currency);
@@ -191,6 +165,32 @@ public class Meta implements Serializable {
   }
 
 
+  public Meta requestId(String requestId) {
+    this.requestId = requestId;
+    return this;
+  }
+
+   /**
+   * The identifier which was requested by the client
+   * @return requestId
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "The identifier which was requested by the client")
+  @JsonProperty(JSON_PROPERTY_REQUEST_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getRequestId() {
+    return requestId;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_REQUEST_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
+  }
+
+
   /**
    * Return true if this Meta object is equal to o.
    */
@@ -203,10 +203,10 @@ public class Meta implements Serializable {
       return false;
     }
     Meta meta = (Meta) o;
-    return Objects.equals(this.requestId, meta.requestId) &&
-        equalsNullable(this.currency, meta.currency) &&
+    return equalsNullable(this.currency, meta.currency) &&
         equalsNullable(this.fsymId, meta.fsymId) &&
-        equalsNullable(this.noData, meta.noData);
+        equalsNullable(this.noData, meta.noData) &&
+        Objects.equals(this.requestId, meta.requestId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -215,7 +215,7 @@ public class Meta implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, hashCodeNullable(currency), hashCodeNullable(fsymId), hashCodeNullable(noData));
+    return Objects.hash(hashCodeNullable(currency), hashCodeNullable(fsymId), hashCodeNullable(noData), requestId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -229,10 +229,10 @@ public class Meta implements Serializable {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Meta {\n");
-    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    fsymId: ").append(toIndentedString(fsymId)).append("\n");
     sb.append("    noData: ").append(toIndentedString(noData)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

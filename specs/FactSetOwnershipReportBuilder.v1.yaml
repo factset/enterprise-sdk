@@ -1,679 +1,39 @@
-openapi: 3.0.3
-info:
-  title: FactSet Ownership API
-  description: description.md
-  contact:
-    name: FactSet Research Systems
-    email: api@factset.com
-    url: https://developer.factset.com/contact
-  license:
-    name: Apache License, Version 2.0
-    url: https://www.apache.org/licenses/LICENSE-2.0
-  version: 1.1.0
-servers:
-  - url: https://api.factset.com/report/ownership/v1
-externalDocs:
-  description: API Documentation
-  url: >-
-    https://developer.factset.com/api-catalog/factset-ownership-report-builder-api
-tags:
-  - name: Ownership
-    description: FactSet Ownership Data
-paths:
-  /holders:
-    get:
-      tags:
-        - Ownership
-      operationId: getOwnershipHolders
-      summary: Holders of a company or fund
-      description: Holders of a company or fund
-      parameters:
-        - name: id
-          in: query
-          description: Company or Fund Identifier
-          required: true
-          schema:
-            type: string
-            example: FDS-US
-            maxLength: 12
-        - name: asset_type
-          in: query
-          description: Controls the Asset Type of the data returned
-          required: false
-          schema:
-            type: string
-            enum:
-              - EQUITY
-              - DEBT
-            default: EQUITY
-        - name: holder_type
-          in: query
-          description: Controls the Holder Type of the data returned
-          required: false
-          schema:
-            type: string
-            enum:
-              - ALL_HOLDERS
-              - BENEFICIAL_OWNERS
-              - FUNDS
-              - INSTITUTIONS
-              - INSTITUTIONS_INSIDERS
-              - INSIDERS_STAKEHOLDERS
-            default: INSTITUTIONS
-        - name: entity_type
-          in: query
-          description: >-
-            Controls the type of Entity data returned. Defaults to Security
-            data, but can also be used to display Company data.
-          required: false
-          schema:
-            type: string
-            enum:
-              - SECURITY
-              - COMPANY
-            default: SECURITY
-        - name: topn
-          in: query
-          description: >
-            Limits the number of holders returned based on their Market Value
-            position in the security.
-
-            Default is ALL, otherwise use a valid number above 0.
-          schema:
-            type: string
-            example: ALL
-        - name: date
-          in: query
-          description: >-
-            Top Holders as of date expressed in YYYY-MM-DD format. Defaults to
-            latest month-end close; non-month-end dates are converted to
-            month-end dates.
-          required: false
-          schema:
-            type: string
-            format: date
-            maxLength: 10
-            example: '2019-12-31'
-      responses:
-        '200':
-          $ref: '#/components/responses/200OKStach2'
-        '400':
-          $ref: '#/components/responses/400BadRequest'
-        '401':
-          $ref: '#/components/responses/401Unauthorized'
-        '403':
-          $ref: '#/components/responses/403Forbidden'
-        '404':
-          $ref: '#/components/responses/404NotFound'
-        '429':
-          $ref: '#/components/responses/429TooManyRequests'
-        '500':
-          $ref: '#/components/responses/500InternalServerError'
-        '503':
-          $ref: '#/components/responses/503ServiceUnavailable'
-  /ultimate-parent:
-    get:
-      tags:
-        - Ownership
-      operationId: getOwnershipUltimateParent
-      summary: >-
-        Get FactSet's ownership breakdown about a specific security.  The
-        returned table will display the institutions, insiders, funds, and
-        beneficial owners that comprise the ownership of the provided security. 
-        These holders will be grouped by the ultimate parent in their entity
-        structure.
-      description: >-
-        Get FactSet's ownership breakdown about a specific security.  The
-        returned table will display the institutions, insiders, funds, and
-        beneficial owners that comprise the ownership of the provided security. 
-        These holders will be grouped by the ultimate parent in their entity
-        structure.
-      parameters:
-        - name: id
-          in: query
-          description: >
-            Any valid FactSet identifier which points to a security.  This could
-            be Ticker Region, Entity ID, CUSIP, or SEDOL.
-          required: true
-          schema:
-            type: string
-            maxLength: 12
-            example: FDS-US
-        - name: currency
-          in: query
-          description: >
-            Currency ISO code that any currency-based data should be returned
-            in.  If excluded, the value will default to the special keyword
-            "LOCAL" which will cause the currency-based values to be calculated
-            in currency which is local to the exchange it is traded on.
-          schema:
-            type: string
-            example: LOCAL
-            enum:
-              - LOCAL
-              - AED
-              - ARS
-              - ATS
-              - AUD
-              - BBD
-              - BDT
-              - BEF
-              - BHD
-              - BMD
-              - BOB
-              - BRL
-              - CAD
-              - CHF
-              - CLP
-              - CNY
-              - COP
-              - CYP
-              - CZK
-              - DKK
-              - DOP
-              - EEK
-              - EGP
-              - ESP
-              - EUR
-              - FIM
-              - FRF
-              - GBP
-              - GHS
-              - GRD
-              - HKD
-              - HRK
-              - HUF
-              - IDR
-              - IEP
-              - ILS
-              - INR
-              - ISK
-              - ITL
-              - JMD
-              - JOD
-              - JPY
-              - KES
-              - KRW
-              - KWD
-              - KYD
-              - KZT
-              - LBP
-              - LKR
-              - LTL
-              - LUF
-              - LVL
-              - MAD
-              - MKD
-              - MNT
-              - MTL
-              - MUR
-              - MWK
-              - MXN
-              - MYR
-              - NAD
-              - NGN
-              - NLG
-              - NOK
-              - NZD
-              - OMR
-              - PAB
-              - PEN
-              - PHP
-              - PKR
-              - PLN
-              - PTE
-              - PYG
-              - QAR
-              - RUB
-              - SAR
-              - SEK
-              - SGD
-              - SIT
-              - SKK
-              - SZL
-              - THB
-              - TND
-              - TWD
-              - TZS
-              - UGX
-              - USD
-              - VND
-              - XAF
-              - ZAR
-        - name: attributes
-          in: query
-          description: The columns to be returned in the resulting table
-          schema:
-            type: array
-            maxItems: 40
-            example:
-              - percentOwnership
-              - position
-              - positionChange
-              - marketValue
-              - marketValueChange
-              - percentPortfolio
-              - reportDate
-              - source
-              - holderId
-            default:
-              - percentOwnership
-              - position
-              - positionChange
-              - marketValue
-              - marketValueChange
-              - percentPortfolio
-              - reportDate
-              - source
-              - holderId
-            items:
-              type: string
-              enum:
-                - percentOwnership
-                - position
-                - positionChange
-                - marketValue
-                - marketValueChange
-                - percentPortfolio
-                - reportDate
-                - source
-                - holderId
-                - percentOwnershipChange
-                - percentPortfolioChange
-                - optionsIndirectShares
-                - fullyDilutedShares
-                - contactName
-                - contactPhone
-                - contactEmail
-                - contactTitle
-                - holderRegion
-                - holderSubRegion
-                - holderCountry
-                - holderMetroRegion
-                - holderCity
-                - holderState
-                - holderIsForeignOrDomestic
-                - holderCapGroupStyle
-                - holderManagerStyle
-                - holderHoldingsStyles
-                - holderTurnover
-                - holderActivismLevel
-                - holderUltimateParent
-                - holderAssetsUnderManagement
-                - holderGroupLevelCount
-                - holderType
-                - investorType
-                - institutionOrInsider
-                - equityAssets
-        - name: period
-          in: query
-          description: The period over which we should return holdings for.
-          schema:
-            type: string
-            enum:
-              - 1m
-              - 3m
-              - 6m
-              - 12m
-              - recent
-            default: 6m
-        - name: holderType
-          in: query
-          description: The holder types which should be included in this table
-          required: false
-          schema:
-            type: string
-            enum:
-              - allHolders
-              - beneficialOwners
-              - funds
-              - institutions
-              - institutionsInsiders
-              - insidersStakeholders
-            default: institutions
-        - name: date
-          in: query
-          description: >-
-            The date as of which this data should be returned. YYYY-MM-DD
-            format. Defaults to current date.
-          required: false
-          schema:
-            type: string
-            format: date
-            maxLength: 10
-            example: '2019-12-31'
-      responses:
-        '200':
-          $ref: '#/components/responses/200OKStach3'
-        '400':
-          $ref: '#/components/responses/400BadRequest'
-        '401':
-          $ref: '#/components/responses/401Unauthorized'
-        '403':
-          $ref: '#/components/responses/403Forbidden'
-        '404':
-          $ref: '#/components/responses/404NotFound'
-        '429':
-          $ref: '#/components/responses/429TooManyRequests'
-        '500':
-          $ref: '#/components/responses/500InternalServerError'
-        '503':
-          $ref: '#/components/responses/503ServiceUnavailable'
-security:
-  - FactSetApiKey: []
-  - FactSetOAuth2: []
 components:
-  securitySchemes:
-    FactSetOAuth2:
-      type: oauth2
-      flows:
-        clientCredentials:
-          tokenUrl: https://auth.factset.com/as/token.oauth2
-          scopes: {}
-    FactSetApiKey:
-      type: http
-      scheme: basic
-  responses:
-    200OKStach2:
-      description: >-
-        Expected response; returns JSON data containing STACH 2.0 row organized
-        package format
-      headers:
-        X-DataDirect-Request-Key:
-          schema:
-            type: string
-          description: FactSet request ID
-        Api-Supported-Versions:
-          schema:
-            type: string
-          description: Supported API versions (semantic versioning)
-        Api-Version:
-          schema:
-            type: string
-          description: API version (semantic versioning)
-        X-FactSet-Api-RateLimit-Limit:
-          schema:
-            type: string
-          description: Number of allowed requests for the time window.
-        X-FactSet-Api-RateLimit-Limit-Remaining:
-          schema:
-            type: string
-          description: Number of requests remaining for the time window
-        X-FactSet-Api-RateLimit-Limit-Reset:
-          schema:
-            type: string
-          description: Number of seconds remaining until rate limit resets
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ResponseHolders'
-          examples:
-            default200ResponseExample:
-              $ref: '#/components/examples/default200Response'
-            noData200ResponseExample:
-              $ref: '#/components/examples/noData200Response'
-    200OKStach3:
-      description: Expected response; returns JSON data containing STACH 3.1 table format
-      headers:
-        X-DataDirect-Request-Key:
-          schema:
-            type: string
-          description: FactSet request ID
-        Api-Supported-Versions:
-          schema:
-            type: string
-          description: Supported API versions (semantic versioning)
-        Api-Version:
-          schema:
-            type: string
-          description: API version (semantic versioning)
-        X-FactSet-Api-RateLimit-Limit:
-          schema:
-            type: string
-          description: Number of allowed requests for the time window.
-        X-FactSet-Api-RateLimit-Limit-Remaining:
-          schema:
-            type: string
-          description: Number of requests remaining for the time window
-        X-FactSet-Api-RateLimit-Limit-Reset:
-          schema:
-            type: string
-          description: Number of seconds remaining until rate limit resets
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ResponseUltimateParent'
-          examples:
-            200ResponseExample:
-              $ref: '#/components/examples/defaultUltimateParent200Response'
-    400BadRequest:
-      description: >-
-        Bad Request. For further assistance, file an issue under "Workflow &
-        Throttling - 400 or 429 Response" using `Report Issue` at the top of
-        this page, including the X-DataDirect-Request-Key from the header to
-        assist in troubleshooting.
-      headers:
-        X-DataDirect-Request-Key:
-          schema:
-            type: string
-          description: FactSet request ID
-        Api-Supported-Versions:
-          schema:
-            type: string
-          description: Supported API versions
-        Api-Version:
-          schema:
-            type: string
-          description: API version (semantic versioning)
-        X-FactSet-Api-RateLimit-Limit:
-          schema:
-            type: string
-          description: Number of allowed requests for the time window.
-        X-FactSet-Api-RateLimit-Limit-Remaining:
-          schema:
-            type: string
-          description: Number of requests remaining for the time window
-        X-FactSet-Api-RateLimit-Limit-Reset:
-          schema:
-            type: string
-          description: Number of seconds remaining until rate limit resets
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorWithMetaResponse'
-          examples:
-            idRequiredParameterError:
-              $ref: '#/components/examples/idRequiredParameterError'
-            idInvalidParameterError:
-              $ref: '#/components/examples/idInvalidParameterError'
-            parameterErrorAssetType:
-              $ref: '#/components/examples/parameterErrorAssetType'
-            parameterErrorHolderType:
-              $ref: '#/components/examples/parameterErrorHolderType'
-            parameterErrorEntityType:
-              $ref: '#/components/examples/parameterErrorEntityType'
-            parameterErrorTopn:
-              $ref: '#/components/examples/parameterErrorTopn'
-            parameterErrorDate:
-              $ref: '#/components/examples/parameterErrorDate'
-    401Unauthorized:
-      description: >-
-        Missing or invalid authentication. Ensure you are logged in and have
-        successfully generated an API KEY for the IP range you are connecting
-        from. For further assistance, file an issue under "Connectivty - 401 or
-        403 Responses" using `Report Issue` at the top of this page, including
-        the X-DataDirect-Request-Key from the header to assist in
-        troubleshooting.
-      headers:
-        X-DataDirect-Request-Key:
-          schema:
-            type: string
-          description: FactSet request ID
-        X-FactSet-Api-RateLimit-Limit:
-          schema:
-            type: string
-          description: Number of allowed requests for the time window.
-        X-FactSet-Api-RateLimit-Limit-Remaining:
-          schema:
-            type: string
-          description: Number of requests remaining for the time window
-        X-FactSet-Api-RateLimit-Limit-Reset:
-          schema:
-            type: string
-          description: Number of seconds remaining until rate limit resets
-    403Forbidden:
-      description: >-
-        User is forbidden access with current credentials. Reach out to your
-        local FactSet Account Manager for assistance, or file an issue under
-        "Connectivty - 401 or 403 Responses" using `Report Issue` at the top of
-        this page, including the X-DataDirect-Request-Key from the header to
-        assist in troubleshooting.
-      headers:
-        X-DataDirect-Request-Key:
-          schema:
-            type: string
-          description: FactSet request ID
-        X-FactSet-Api-RateLimit-Limit:
-          schema:
-            type: string
-          description: Number of allowed requests for the time window.
-        X-FactSet-Api-RateLimit-Limit-Remaining:
-          schema:
-            type: string
-          description: Number of requests remaining for the time window
-        X-FactSet-Api-RateLimit-Limit-Reset:
-          schema:
-            type: string
-          description: Number of seconds remaining until rate limit resets
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-          examples:
-            notAuthorized:
-              $ref: '#/components/examples/notAuthorized'
-    404NotFound:
-      description: >-
-        Not found. For further assistance, file an issue under "Performance -
-        404 and 500 Responses" using `Report Issue` at the top of this page,
-        including the X-DataDirect-Request-Key from the header to assist in
-        troubleshooting.
-      headers:
-        X-DataDirect-Request-Key:
-          schema:
-            type: string
-          description: FactSet request ID
-        X-FactSet-Api-RateLimit-Limit:
-          schema:
-            type: string
-          description: Number of allowed requests for the time window.
-        X-FactSet-Api-RateLimit-Limit-Remaining:
-          schema:
-            type: string
-          description: Number of requests remaining for the time window
-        X-FactSet-Api-RateLimit-Limit-Reset:
-          schema:
-            type: string
-          description: Number of seconds remaining until rate limit resets
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-          examples:
-            endpointNotFound:
-              $ref: '#/components/examples/endpointNotFound'
-    429TooManyRequests:
-      description: >-
-        Too many requests - this API is rate-limited to 20 requests per second.
-        For further assistance, file an issue under "Workflow & Throttling - 400
-        or 429 Response" using `Report Issue` at the top of this page, including
-        the X-DataDirect-Request-Key from the header to assist in
-        troubleshooting.
-      headers:
-        X-DataDirect-Request-Key:
-          schema:
-            type: string
-          description: FactSet request ID
-        X-FactSet-Api-RateLimit-Limit:
-          schema:
-            type: string
-          description: Number of allowed requests for the time window.
-        X-FactSet-Api-RateLimit-Limit-Remaining:
-          schema:
-            type: string
-          description: Number of requests remaining for the time window
-        X-FactSet-Api-RateLimit-Limit-Reset:
-          schema:
-            type: string
-          description: Number of seconds remaining until rate limit resets
-    500InternalServerError:
-      description: >-
-        Server error. For further assistance, file an issue under "Performance -
-        404 and 500 Responses" using `Report Issue` at the top of this page,
-        including the X-DataDirect-Request-Key from the header to assist in
-        troubleshooting.
-      headers:
-        X-DataDirect-Request-Key:
-          schema:
-            type: string
-          description: FactSet request ID
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-          examples:
-            genericServerError:
-              $ref: '#/components/examples/genericServerError'
-    503ServiceUnavailable:
-      description: >-
-        Service unavailable. Typically a timeout, or result of a rejected
-        request to prevent service overload. For further assistance, file an
-        issue under "Performance - 404 and 500 Responses" using `Report Issue`
-        at the top of this page, including the X-DataDirect-Request-Key from the
-        header to assist in troubleshooting.
-      headers:
-        X-DataDirect-Request-Key:
-          schema:
-            type: string
-          description: FactSet request ID
   examples:
     default200Response:
       summary: (dummy data - equity holders)
       value:
         data:
-          version: '2.0'
           tables:
             main:
-              definition:
-                columns:
-                  - id: holderName
-                    type: string
-                    isDimension: true
-                  - id: pctowns
-                    type: real
-                  - id: position
-                    type: real
-                  - id: postionchg
-                    type: real
-                  - id: adj_mv
-                    type: real
-                  - id: pcprt
-                    type: real
-                  - id: actscore
-                    type: string
-                  - id: reportdate
-                    type: string
-                  - id: source
-                    type: string
-              headersDefinition:
-                columns:
-                  - id: ownershipTableHeader
-                    type: string
-                    isDimension: true
               data:
+                columnMetadata:
+                  adj_mv:
+                    items:
+                      currencyCode:
+                        value: USD
+                      currencySymbol:
+                        value: $
+                      scale:
+                        value: 6
+                  pcprt:
+                    items:
+                      valueType:
+                        value: PERCENTAGE
+                  pctowns:
+                    items:
+                      valueType:
+                        value: PERCENTAGE
+                  position:
+                    items:
+                      scale:
+                        value: 3
+                  postionchg:
+                    items:
+                      scale:
+                        value: 3
                 rows:
-                  - rowType: Header
-                    cells:
+                  - cells:
                       - All Holders
                       - '%OS'
                       - Position (000)
@@ -685,32 +45,33 @@ components:
                       - Source
                     headerCellDetails:
                       '0':
-                        source: HEADERS
                         columnIndex: 0
+                        source: HEADERS
                       '1':
-                        source: HEADERS
                         columnIndex: 0
+                        source: HEADERS
                       '2':
-                        source: HEADERS
                         columnIndex: 0
+                        source: HEADERS
                       '3':
-                        source: HEADERS
                         columnIndex: 0
+                        source: HEADERS
                       '4':
-                        source: HEADERS
                         columnIndex: 0
+                        source: HEADERS
                       '5':
-                        source: HEADERS
                         columnIndex: 0
+                        source: HEADERS
                       '6':
+                        columnIndex: 0
                         source: PRIMARY
-                        columnIndex: 0
                       '7':
-                        source: HEADERS
                         columnIndex: 0
+                        source: HEADERS
                       '8':
-                        source: HEADERS
                         columnIndex: 0
+                        source: HEADERS
+                    rowType: Header
                   - cells:
                       - The Vanguard Group, Inc.
                       - 9.8903
@@ -854,142 +215,160 @@ components:
                     rowMetadata:
                       holderId:
                         value: ' M4017307'
-                columnMetadata:
-                  pctowns:
-                    items:
-                      valueType:
-                        value: PERCENTAGE
-                  position:
-                    items:
-                      scale:
-                        value: 3
-                  postionchg:
-                    items:
-                      scale:
-                        value: 3
-                  adj_mv:
-                    items:
-                      scale:
-                        value: 6
-                      currencyCode:
-                        value: USD
-                      currencySymbol:
-                        value: $
-                  pcprt:
-                    items:
-                      valueType:
-                        value: PERCENTAGE
-        meta:
-          requestId: FDS-US
-          fsymId: SQFMK3-R
-    noData200Response:
-      summary: (debt holders - no data case)
-      value:
-        data:
-          version: '2.0'
-          tables:
-            main:
               definition:
                 columns:
                   - id: holderName
-                    type: string
                     isDimension: true
+                    type: string
                   - id: pctowns
                     type: real
                   - id: position
                     type: real
+                  - id: postionchg
+                    type: real
+                  - id: adj_mv
+                    type: real
+                  - id: pcprt
+                    type: real
+                  - id: actscore
+                    type: string
+                  - id: reportdate
+                    type: string
+                  - id: source
+                    type: string
               headersDefinition:
                 columns:
                   - id: ownershipTableHeader
-                    type: string
                     isDimension: true
-              data:
-                rows:
-                  - rowType: Header
-                    cells:
-                      - Institutions
-                      - '%OS'
-                      - Position (MM)
-                    headerCellDetails:
-                      '0':
-                        source: HEADERS
-                        columnIndex: 0
-                      '1':
-                        source: HEADERS
-                        columnIndex: 0
-                      '2':
-                        source: HEADERS
-                        columnIndex: 0
-                  - cells:
-                      - null
-                      - null
-                      - null
-                    rowMetadata:
-                      holderId:
-                        value: '@NA'
-                columnMetadata:
-                  pctowns:
-                    items:
-                      valueType:
-                        value: PERCENTAGE
-                  position:
-                    items:
-                      scale:
-                        value: 6
-                      currencyCode:
-                        value: USD
-                      currencySymbol:
-                        value: $
+                    type: string
+          version: '2.0'
         meta:
-          requestId: YELP-US
-          fsymId: DT59Y2-R
-          noData: true
-          message: There is no data for this request.
+          fsymId: SQFMK3-R
+          requestId: FDS-US
     defaultUltimateParent200Response:
       summary: (dummy data - ultimate parent)
       value:
         data:
-          version: '3.1'
           columns:
-            - name: name
-              contextualType: string
-            - name: pctos
-              contextualType: int64
-            - name: pos
-              contextualType: int64
-            - name: poschg
-              contextualType: int64
-            - name: mv
-              contextualType: int64
-            - name: mvchg
-              contextualType: int64
-            - name: pcprt
-              contextualType: int64
-            - name: report_date
-              contextualType: string
-            - name: source
-              contextualType: string
-            - name: holderId
-              contextualType: string
-            - name: pk
-              contextualType: string
-            - name: rowPath
-              contextualType: string
-            - name: aggr
-              contextualType: boolean
+            - contextualType: string
+              name: name
+            - contextualType: int64
+              name: pctos
+            - contextualType: int64
+              name: pos
+            - contextualType: int64
+              name: poschg
+            - contextualType: int64
+              name: mv
+            - contextualType: int64
+              name: mvchg
+            - contextualType: int64
+              name: pcprt
+            - contextualType: string
+              name: report_date
+            - contextualType: string
+              name: source
+            - contextualType: string
+              name: holderId
+            - contextualType: string
+              name: pk
+            - contextualType: string
+              name: rowPath
+            - contextualType: boolean
+              name: aggr
+          rows:
+            - aggr: true
+              holderId: ''
+              mv: 2190.677202
+              mvchg: 185.87468708999998
+              name: The Vanguard Group, Inc.
+              pcprt: 0.10960070590000001
+              pctos: 11.9781
+              pk: TheVanguardGroupInc
+              pos: 4562.01
+              poschg: -31.840999999999998
+              report_date: ''
+              rowPath: ''
+              source: ''
+            - aggr: true
+              holderId: F72998
+              mv: 2110.5563122
+              mvchg: 176.62241719
+              name: The Vanguard Group, Inc.
+              pcprt: 0.0279046476
+              pctos: 11.54
+              pk: ''
+              pos: 4395.161
+              poschg: -36.3
+              report_date: 12/31/2023
+              rowPath: TheVanguardGroupInc
+              source: 13F Form
+            - aggr: false
+              holderId: F11628548
+              mv: 57.2451222
+              mvchg: 8.15074284
+              name: Vanguard Global Advisers LLC
+              pcprt: 0.0174503751
+              pctos: 0.313
+              pk: ''
+              pos: 119.211
+              poschg: 6.715
+              report_date: 12/31/2023
+              rowPath: TheVanguardGroupInc
+              source: 13F Form
+            - aggr: false
+              holderId: F60034
+              mv: 13.7370814
+              mvchg: 0.75562954
+              name: Vanguard Fiduciary Trust Co.
+              pcprt: 0.0267013638
+              pctos: 0.0751
+              pk: ''
+              pos: 28.607
+              poschg: -1.139
+              report_date: 12/31/2023
+              rowPath: TheVanguardGroupInc
+              source: 13F Form
+            - aggr: false
+              holderId: F5547256
+              mv: 7.9698794
+              mvchg: 0.57840323
+              name: Vanguard Investments Australia Ltd.
+              pcprt: 0.0094628924
+              pctos: 0.0436
+              pk: ''
+              pos: 16.597
+              poschg: -0.34
+              report_date: 12/31/2023
+              rowPath: TheVanguardGroupInc
+              source: 13F Form
+            - aggr: false
+              holderId: F17008500
+              mv: 1.1688068
+              mvchg: -0.23250571
+              name: Vanguard Personalized Indexing Management LLC
+              pcprt: 0.028081427
+              pctos: 0.0064
+              pk: ''
+              pos: 2.434
+              poschg: -0.777
+              report_date: 12/31/2023
+              rowPath: TheVanguardGroupInc
+              source: 13F Form
           table:
-            primaryKeys:
-              - pk
-            groupResult:
-              by:
-                - name
-              rowPath: rowPath
-              aggregateRows: aggr
             customMetadata:
               title:
                 contextualType: string
                 value: Single Company - Point in Time - 03/12/2024
+            groupResult:
+              aggregateRows: aggr
+              by:
+                - name
+              rowPath: rowPath
+            primaryKeys:
+              - pk
             totalNumRows: 1779
+          version: '3.1'
           views:
             - name: UltimateParentTable
               table:
@@ -1004,283 +383,924 @@ components:
                   - report_date
                   - source
                   - holderId
-                headers:
-                  $collapsedColumn: Name
-                  name: Name
-                  pctos: '%OS'
-                  pos: Position (000)
-                  poschg: Position Chg (000) [6M]
-                  mv: Mkt Val (MM)
-                  mvchg: Mkt Val Chg (MM) [6M]
-                  pcprt: '%Port'
-                  report_date: Report Date
-                  source: Source
-                  holderId: Holder ID
                 group:
                   collapsedColumn:
                     alias: $collapsedColumn
-          rows:
-            - name: The Vanguard Group, Inc.
-              pctos: 11.9781
-              pos: 4562.01
-              poschg: -31.840999999999998
-              mv: 2190.677202
-              mvchg: 185.87468708999998
-              pcprt: 0.10960070590000001
-              report_date: ''
-              source: ''
-              holderId: ''
-              pk: TheVanguardGroupInc
-              rowPath: ''
-              aggr: true
-            - name: The Vanguard Group, Inc.
-              pctos: 11.54
-              pos: 4395.161
-              poschg: -36.3
-              mv: 2110.5563122
-              mvchg: 176.62241719
-              pcprt: 0.0279046476
-              report_date: 12/31/2023
-              source: 13F Form
-              holderId: F72998
-              pk: ''
-              rowPath: TheVanguardGroupInc
-              aggr: true
-            - name: Vanguard Global Advisers LLC
-              pctos: 0.313
-              pos: 119.211
-              poschg: 6.715
-              mv: 57.2451222
-              mvchg: 8.15074284
-              pcprt: 0.0174503751
-              report_date: 12/31/2023
-              source: 13F Form
-              holderId: F11628548
-              pk: ''
-              rowPath: TheVanguardGroupInc
-              aggr: false
-            - name: Vanguard Fiduciary Trust Co.
-              pctos: 0.0751
-              pos: 28.607
-              poschg: -1.139
-              mv: 13.7370814
-              mvchg: 0.75562954
-              pcprt: 0.0267013638
-              report_date: 12/31/2023
-              source: 13F Form
-              holderId: F60034
-              pk: ''
-              rowPath: TheVanguardGroupInc
-              aggr: false
-            - name: Vanguard Investments Australia Ltd.
-              pctos: 0.0436
-              pos: 16.597
-              poschg: -0.34
-              mv: 7.9698794
-              mvchg: 0.57840323
-              pcprt: 0.0094628924
-              report_date: 12/31/2023
-              source: 13F Form
-              holderId: F5547256
-              pk: ''
-              rowPath: TheVanguardGroupInc
-              aggr: false
-            - name: Vanguard Personalized Indexing Management LLC
-              pctos: 0.0064
-              pos: 2.434
-              poschg: -0.777
-              mv: 1.1688068
-              mvchg: -0.23250571
-              pcprt: 0.028081427
-              report_date: 12/31/2023
-              source: 13F Form
-              holderId: F17008500
-              pk: ''
-              rowPath: TheVanguardGroupInc
-              aggr: false
+                headers:
+                  $collapsedColumn: Name
+                  holderId: Holder ID
+                  mv: Mkt Val (MM)
+                  mvchg: Mkt Val Chg (MM) [6M]
+                  name: Name
+                  pcprt: '%Port'
+                  pctos: '%OS'
+                  pos: Position (000)
+                  poschg: Position Chg (000) [6M]
+                  report_date: Report Date
+                  source: Source
         meta:
-          requestId: FDS
           fsymId: SQFMK3-R
+          requestId: FDS
+    endpointNotFound:
+      summary: endpoint not found
+      value:
+        errors:
+          - code: endpointNotFound
+            id: 39314614-e607-465a-ba95-5bb79c362e23
+            title: The requested endpoint does not exist.
     genericServerError:
       summary: generic server error
       value:
         errors:
-          - id: 39314614-e607-465a-ba95-5bb79c362e23
-            code: genericServerError
+          - code: genericServerError
+            id: 39314614-e607-465a-ba95-5bb79c362e23
             title: Unexpected error processing request
-    idRequiredParameterError:
-      summary: generic parameter error (missing parameter)
-      value:
-        errors:
-          - id: 39314614-e607-465a-ba95-5bb79c362e23
-            code: parameterError
-            title: 'Missing required parameter(s): ''id'''
     idInvalidParameterError:
       summary: generic parameter error (invalid parameter)
       value:
         errors:
-          - id: 39314614-e607-465a-ba95-5bb79c362e23
-            code: parameterError
+          - code: parameterError
+            id: 39314614-e607-465a-ba95-5bb79c362e23
             title: 'Invalid parameter(s): ''id'''
         meta:
-          requestId: BAD_TICKER
           fsymId: null
+          requestId: BAD_TICKER
+    idRequiredParameterError:
+      summary: generic parameter error (missing parameter)
+      value:
+        errors:
+          - code: parameterError
+            id: 39314614-e607-465a-ba95-5bb79c362e23
+            title: 'Missing required parameter(s): ''id'''
+    noData200Response:
+      summary: (debt holders - no data case)
+      value:
+        data:
+          tables:
+            main:
+              data:
+                columnMetadata:
+                  pctowns:
+                    items:
+                      valueType:
+                        value: PERCENTAGE
+                  position:
+                    items:
+                      currencyCode:
+                        value: USD
+                      currencySymbol:
+                        value: $
+                      scale:
+                        value: 6
+                rows:
+                  - cells:
+                      - Institutions
+                      - '%OS'
+                      - Position (MM)
+                    headerCellDetails:
+                      '0':
+                        columnIndex: 0
+                        source: HEADERS
+                      '1':
+                        columnIndex: 0
+                        source: HEADERS
+                      '2':
+                        columnIndex: 0
+                        source: HEADERS
+                    rowType: Header
+                  - cells:
+                      - null
+                      - null
+                      - null
+                    rowMetadata:
+                      holderId:
+                        value: '@NA'
+              definition:
+                columns:
+                  - id: holderName
+                    isDimension: true
+                    type: string
+                  - id: pctowns
+                    type: real
+                  - id: position
+                    type: real
+              headersDefinition:
+                columns:
+                  - id: ownershipTableHeader
+                    isDimension: true
+                    type: string
+          version: '2.0'
+        meta:
+          fsymId: DT59Y2-R
+          message: There is no data for this request.
+          noData: true
+          requestId: YELP-US
+    notAuthorized:
+      summary: not authorized
+      value:
+        errors:
+          - code: notAuthorized
+            id: 39314614-e607-465a-ba95-5bb79c362e23
+            title: >-
+              User is forbidden access with current credentials. For access,
+              contact your FactSet sales representative
     parameterErrorAssetType:
       summary: asset type parameter error
       value:
         errors:
-          - id: 39314614-e607-465a-ba95-5bb79c362e23
-            code: parameterError
+          - code: parameterError
+            id: 39314614-e607-465a-ba95-5bb79c362e23
             title: 'Invalid parameter: ''asset_type'''
         meta:
-          requestId: FDS
           fsymId: SQFMK3-R
+          requestId: FDS
+    parameterErrorDate:
+      summary: date parameter error
+      value:
+        errors:
+          - code: parameterError
+            id: 39314614-e607-465a-ba95-5bb79c362e23
+            title: 'Invalid parameter: ''date'''
+        meta:
+          fsymId: SQFMK3-R
+          requestId: FDS
+    parameterErrorEntityType:
+      summary: entity type parameter error
+      value:
+        errors:
+          - code: parameterError
+            id: 39314614-e607-465a-ba95-5bb79c362e23
+            title: 'Invalid parameter: ''entity_type'''
+        meta:
+          fsymId: SQFMK3-R
+          requestId: FDS
     parameterErrorHolderType:
       summary: holder type parameter error
       value:
         errors:
-          - id: 39314614-e607-465a-ba95-5bb79c362e23
-            code: parameterError
+          - code: parameterError
+            id: 39314614-e607-465a-ba95-5bb79c362e23
             title: 'Invalid parameter: ''holder_type'''
-          - id: 39314614-e607-465a-ba95-5bb79c362e23
-            code: parameterError
+          - code: parameterError
+            id: 39314614-e607-465a-ba95-5bb79c362e23
             title: >-
               holderType parameter value is invalid with assetType ‘DEBT’. Only
               holderType ‘INSTITUTIONS’ or ‘FUNDS’ are valid when returning
               assetType ‘DEBT’.
         meta:
-          requestId: FDS
           fsymId: SQFMK3-R
-    parameterErrorEntityType:
-      summary: entity type parameter error
-      value:
-        errors:
-          - id: 39314614-e607-465a-ba95-5bb79c362e23
-            code: parameterError
-            title: 'Invalid parameter: ''entity_type'''
-        meta:
           requestId: FDS
-          fsymId: SQFMK3-R
     parameterErrorTopn:
       summary: topn parameter error
       value:
         errors:
-          - id: 39314614-e607-465a-ba95-5bb79c362e23
-            code: parameterError
+          - code: parameterError
+            id: 39314614-e607-465a-ba95-5bb79c362e23
             title: 'Invalid parameter: ''topn'''
         meta:
-          requestId: FDS
           fsymId: SQFMK3-R
-    parameterErrorDate:
-      summary: date parameter error
-      value:
-        errors:
-          - id: 39314614-e607-465a-ba95-5bb79c362e23
-            code: parameterError
-            title: 'Invalid parameter: ''date'''
-        meta:
           requestId: FDS
-          fsymId: SQFMK3-R
-    endpointNotFound:
-      summary: endpoint not found
-      value:
-        errors:
-          - id: 39314614-e607-465a-ba95-5bb79c362e23
-            code: endpointNotFound
-            title: The requested endpoint does not exist.
-    notAuthorized:
-      summary: not authorized
-      value:
-        errors:
-          - id: 39314614-e607-465a-ba95-5bb79c362e23
-            code: notAuthorized
-            title: >-
-              User is forbidden access with current credentials. For access,
-              contact your FactSet sales representative
+  responses:
+    200OKStach2:
+      content:
+        application/json:
+          examples:
+            default200ResponseExample:
+              $ref: '#/components/examples/default200Response'
+            noData200ResponseExample:
+              $ref: '#/components/examples/noData200Response'
+          schema:
+            $ref: '#/components/schemas/ResponseHolders'
+      description: >-
+        Expected response; returns JSON data containing STACH 2.0 row organized
+        package format
+      headers:
+        Api-Supported-Versions:
+          description: Supported API versions (semantic versioning)
+          schema:
+            type: string
+        Api-Version:
+          description: API version (semantic versioning)
+          schema:
+            type: string
+        X-DataDirect-Request-Key:
+          description: FactSet request ID
+          schema:
+            type: string
+        X-FactSet-Api-RateLimit-Limit:
+          description: Number of allowed requests for the time window.
+          schema:
+            type: string
+        X-FactSet-Api-RateLimit-Limit-Remaining:
+          description: Number of requests remaining for the time window
+          schema:
+            type: string
+        X-FactSet-Api-RateLimit-Limit-Reset:
+          description: Number of seconds remaining until rate limit resets
+          schema:
+            type: string
+    200OKStach3:
+      content:
+        application/json:
+          examples:
+            200ResponseExample:
+              $ref: '#/components/examples/defaultUltimateParent200Response'
+          schema:
+            $ref: '#/components/schemas/ResponseUltimateParent'
+      description: Expected response; returns JSON data containing STACH 3.1 table format
+      headers:
+        Api-Supported-Versions:
+          description: Supported API versions (semantic versioning)
+          schema:
+            type: string
+        Api-Version:
+          description: API version (semantic versioning)
+          schema:
+            type: string
+        X-DataDirect-Request-Key:
+          description: FactSet request ID
+          schema:
+            type: string
+        X-FactSet-Api-RateLimit-Limit:
+          description: Number of allowed requests for the time window.
+          schema:
+            type: string
+        X-FactSet-Api-RateLimit-Limit-Remaining:
+          description: Number of requests remaining for the time window
+          schema:
+            type: string
+        X-FactSet-Api-RateLimit-Limit-Reset:
+          description: Number of seconds remaining until rate limit resets
+          schema:
+            type: string
+    400BadRequest:
+      content:
+        application/json:
+          examples:
+            idInvalidParameterError:
+              $ref: '#/components/examples/idInvalidParameterError'
+            idRequiredParameterError:
+              $ref: '#/components/examples/idRequiredParameterError'
+            parameterErrorAssetType:
+              $ref: '#/components/examples/parameterErrorAssetType'
+            parameterErrorDate:
+              $ref: '#/components/examples/parameterErrorDate'
+            parameterErrorEntityType:
+              $ref: '#/components/examples/parameterErrorEntityType'
+            parameterErrorHolderType:
+              $ref: '#/components/examples/parameterErrorHolderType'
+            parameterErrorTopn:
+              $ref: '#/components/examples/parameterErrorTopn'
+          schema:
+            $ref: '#/components/schemas/ErrorWithMetaResponse'
+      description: >-
+        Bad Request. For further assistance, file an issue under "Workflow &
+        Throttling - 400 or 429 Response" using `Report Issue` at the top of
+        this page, including the X-DataDirect-Request-Key from the header to
+        assist in troubleshooting.
+      headers:
+        Api-Supported-Versions:
+          description: Supported API versions
+          schema:
+            type: string
+        Api-Version:
+          description: API version (semantic versioning)
+          schema:
+            type: string
+        X-DataDirect-Request-Key:
+          description: FactSet request ID
+          schema:
+            type: string
+        X-FactSet-Api-RateLimit-Limit:
+          description: Number of allowed requests for the time window.
+          schema:
+            type: string
+        X-FactSet-Api-RateLimit-Limit-Remaining:
+          description: Number of requests remaining for the time window
+          schema:
+            type: string
+        X-FactSet-Api-RateLimit-Limit-Reset:
+          description: Number of seconds remaining until rate limit resets
+          schema:
+            type: string
+    401Unauthorized:
+      description: >-
+        Missing or invalid authentication. Ensure you are logged in and have
+        successfully generated an API KEY for the IP range you are connecting
+        from. For further assistance, file an issue under "Connectivty - 401 or
+        403 Responses" using `Report Issue` at the top of this page, including
+        the X-DataDirect-Request-Key from the header to assist in
+        troubleshooting.
+      headers:
+        X-DataDirect-Request-Key:
+          description: FactSet request ID
+          schema:
+            type: string
+        X-FactSet-Api-RateLimit-Limit:
+          description: Number of allowed requests for the time window.
+          schema:
+            type: string
+        X-FactSet-Api-RateLimit-Limit-Remaining:
+          description: Number of requests remaining for the time window
+          schema:
+            type: string
+        X-FactSet-Api-RateLimit-Limit-Reset:
+          description: Number of seconds remaining until rate limit resets
+          schema:
+            type: string
+    403Forbidden:
+      content:
+        application/json:
+          examples:
+            notAuthorized:
+              $ref: '#/components/examples/notAuthorized'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: >-
+        User is forbidden access with current credentials. Reach out to your
+        local FactSet Account Manager for assistance, or file an issue under
+        "Connectivty - 401 or 403 Responses" using `Report Issue` at the top of
+        this page, including the X-DataDirect-Request-Key from the header to
+        assist in troubleshooting.
+      headers:
+        X-DataDirect-Request-Key:
+          description: FactSet request ID
+          schema:
+            type: string
+        X-FactSet-Api-RateLimit-Limit:
+          description: Number of allowed requests for the time window.
+          schema:
+            type: string
+        X-FactSet-Api-RateLimit-Limit-Remaining:
+          description: Number of requests remaining for the time window
+          schema:
+            type: string
+        X-FactSet-Api-RateLimit-Limit-Reset:
+          description: Number of seconds remaining until rate limit resets
+          schema:
+            type: string
+    404NotFound:
+      content:
+        application/json:
+          examples:
+            endpointNotFound:
+              $ref: '#/components/examples/endpointNotFound'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: >-
+        Not found. For further assistance, file an issue under "Performance -
+        404 and 500 Responses" using `Report Issue` at the top of this page,
+        including the X-DataDirect-Request-Key from the header to assist in
+        troubleshooting.
+      headers:
+        X-DataDirect-Request-Key:
+          description: FactSet request ID
+          schema:
+            type: string
+        X-FactSet-Api-RateLimit-Limit:
+          description: Number of allowed requests for the time window.
+          schema:
+            type: string
+        X-FactSet-Api-RateLimit-Limit-Remaining:
+          description: Number of requests remaining for the time window
+          schema:
+            type: string
+        X-FactSet-Api-RateLimit-Limit-Reset:
+          description: Number of seconds remaining until rate limit resets
+          schema:
+            type: string
+    429TooManyRequests:
+      description: >-
+        Too many requests - this API is rate-limited to 20 requests per second.
+        For further assistance, file an issue under "Workflow & Throttling - 400
+        or 429 Response" using `Report Issue` at the top of this page, including
+        the X-DataDirect-Request-Key from the header to assist in
+        troubleshooting.
+      headers:
+        X-DataDirect-Request-Key:
+          description: FactSet request ID
+          schema:
+            type: string
+        X-FactSet-Api-RateLimit-Limit:
+          description: Number of allowed requests for the time window.
+          schema:
+            type: string
+        X-FactSet-Api-RateLimit-Limit-Remaining:
+          description: Number of requests remaining for the time window
+          schema:
+            type: string
+        X-FactSet-Api-RateLimit-Limit-Reset:
+          description: Number of seconds remaining until rate limit resets
+          schema:
+            type: string
+    500InternalServerError:
+      content:
+        application/json:
+          examples:
+            genericServerError:
+              $ref: '#/components/examples/genericServerError'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: >-
+        Server error. For further assistance, file an issue under "Performance -
+        404 and 500 Responses" using `Report Issue` at the top of this page,
+        including the X-DataDirect-Request-Key from the header to assist in
+        troubleshooting.
+      headers:
+        X-DataDirect-Request-Key:
+          description: FactSet request ID
+          schema:
+            type: string
+    503ServiceUnavailable:
+      description: >-
+        Service unavailable. Typically a timeout, or result of a rejected
+        request to prevent service overload. For further assistance, file an
+        issue under "Performance - 404 and 500 Responses" using `Report Issue`
+        at the top of this page, including the X-DataDirect-Request-Key from the
+        header to assist in troubleshooting.
+      headers:
+        X-DataDirect-Request-Key:
+          description: FactSet request ID
+          schema:
+            type: string
   schemas:
-    ResponseHolders:
-      type: object
-      description: Standard response schema for the Holders endpoint
+    ErrorObject:
+      description: Schema describing an API error
       properties:
-        data:
-          type: object
-          title: STACH
-          description: Returns a STACH 2.0 row organized package
-        meta:
-          $ref: '#/components/schemas/Meta'
-    ResponseUltimateParent:
-      description: Standard response schema for the Ultimate Parent endpoint
-      type: object
-      properties:
-        data:
-          type: object
-          title: STACH
+        code:
+          description: A common or API-specific error code.
+          type: string
+        detail:
           description: >-
-            Returns a STACH 3.1 row organized package.  For more detail on the
-            STACH format, please view our publicly hosted
-            [documentation](https://factset.github.io/stachschema/#/)
+            A human-readable explanation specific to the occurrence of the
+            problem.
+          type: string
+        id:
+          description: >-
+            A UUID for this particular ocurrence of the problem.  This will be
+            logged for debugging.
+          type: string
+        links:
+          description: >-
+            An object with a member "about" containing a link that leads to
+            further details about the problem.
+          properties:
+            about:
+              description: Link to further details about the problem
+              type: string
+          type: object
+        source:
+          description: >-
+            An object containing references to the source of the error,
+            optionally including additional members
+          properties:
+            parameter:
+              description: >-
+                A string indicating which path or URI query parameter caused the
+                error
+              type: string
+          type: object
+        title:
+          description: >-
+            A short, human-readable summary of the problem.  This should not
+            change from occurrence to occurrence of the problem
+          type: string
+      type: object
+    ErrorResponse:
+      description: Standard Ownership response when an error occurs.
+      properties:
+        errors:
+          description: Any errors that occured which made this request unservicable
+          items:
+            $ref: '#/components/schemas/ErrorObject'
+          type: array
+      type: object
+    ErrorWithMetaResponse:
+      description: Standard Ownership response when an error occurs.
+      properties:
+        errors:
+          description: Any errors that occured which made this request unservicable
+          items:
+            $ref: '#/components/schemas/ErrorObject'
+          type: array
         meta:
           $ref: '#/components/schemas/Meta'
+      type: object
     Meta:
       description: >-
         Standard Ownership response meta object.  Contains metadata about the
         response at the root level.
-      type: object
       properties:
-        requestId:
-          type: string
-          description: The identifier which was requested by the client
         currency:
-          type: string
-          nullable: true
           description: The currency ISO of the data which was returned
-        fsymId:
+          nullable: true
           type: string
+        fsymId:
           description: The resolved fsymId that corresponds to the provided requestId
           nullable: true
+          type: string
         noData:
-          type: boolean
-          nullable: true
           description: Indicator of whether FactSet had data for this request
-    ErrorResponse:
-      description: Standard Ownership response when an error occurs.
+          nullable: true
+          type: boolean
+        requestId:
+          description: The identifier which was requested by the client
+          type: string
       type: object
+    ResponseHolders:
+      description: Standard response schema for the Holders endpoint
       properties:
-        errors:
-          description: Any errors that occured which made this request unservicable
-          type: array
-          items:
-            $ref: '#/components/schemas/ErrorObject'
-    ErrorWithMetaResponse:
-      description: Standard Ownership response when an error occurs.
-      type: object
-      properties:
-        errors:
-          description: Any errors that occured which made this request unservicable
-          type: array
-          items:
-            $ref: '#/components/schemas/ErrorObject'
+        data:
+          description: Returns a STACH 2.0 row organized package
+          title: STACH
+          type: object
         meta:
           $ref: '#/components/schemas/Meta'
-    ErrorObject:
-      description: Schema describing an API error
       type: object
+    ResponseUltimateParent:
+      description: Standard response schema for the Ultimate Parent endpoint
       properties:
-        id:
-          type: string
-        code:
-          type: string
-        title:
-          type: string
-        links:
+        data:
+          description: >-
+            Returns a STACH 3.1 row organized package.  For more detail on the
+            STACH format, please view our publicly hosted
+            [documentation](https://factset.github.io/stachschema/#/)
+          title: STACH
           type: object
-          properties:
-            about:
+        meta:
+          $ref: '#/components/schemas/Meta'
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+          scopes: {}
+    FactSetApiKey:
+      type: http
+      scheme: basic
+externalDocs:
+  description: API Documentation
+  url: >-
+    https://developer.factset.com/api-catalog/factset-ownership-report-builder-api
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
+  description: description.md
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  title: FactSet Ownership API
+  version: 1.1.0
+openapi: 3.0.3
+paths:
+  /holders:
+    get:
+      description: Holders of a company or fund
+      operationId: getOwnershipHolders
+      parameters:
+        - description: Company or Fund Identifier
+          in: query
+          name: id
+          required: true
+          schema:
+            example: FDS-US
+            maxLength: 12
+            type: string
+        - description: Controls the Asset Type of the data returned
+          in: query
+          name: asset_type
+          required: false
+          schema:
+            default: EQUITY
+            enum:
+              - EQUITY
+              - DEBT
+            type: string
+        - description: Controls the Holder Type of the data returned
+          in: query
+          name: holder_type
+          required: false
+          schema:
+            default: INSTITUTIONS
+            enum:
+              - ALL_HOLDERS
+              - BENEFICIAL_OWNERS
+              - FUNDS
+              - INSTITUTIONS
+              - INSTITUTIONS_INSIDERS
+              - INSIDERS_STAKEHOLDERS
+            type: string
+        - description: >-
+            Controls the type of Entity data returned. Defaults to Security
+            data, but can also be used to display Company data.
+          in: query
+          name: entity_type
+          required: false
+          schema:
+            default: SECURITY
+            enum:
+              - SECURITY
+              - COMPANY
+            type: string
+        - description: >
+            Limits the number of holders returned based on their Market Value
+            position in the security.
+
+            Default is ALL, otherwise use a valid number above 0.
+          in: query
+          name: topn
+          schema:
+            example: ALL
+            type: string
+        - description: >-
+            Top Holders as of date expressed in YYYY-MM-DD format. Defaults to
+            latest month-end close; non-month-end dates are converted to
+            month-end dates.
+          in: query
+          name: date
+          required: false
+          schema:
+            example: '2019-12-31'
+            format: date
+            maxLength: 10
+            type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/200OKStach2'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+        '429':
+          $ref: '#/components/responses/429TooManyRequests'
+        '500':
+          $ref: '#/components/responses/500InternalServerError'
+        '503':
+          $ref: '#/components/responses/503ServiceUnavailable'
+      summary: Holders of a company or fund
+      tags:
+        - Ownership
+  /ultimate-parent:
+    get:
+      description: >-
+        Get FactSet's ownership breakdown about a specific security.  The
+        returned table will display the institutions, insiders, funds, and
+        beneficial owners that comprise the ownership of the provided security. 
+        These holders will be grouped by the ultimate parent in their entity
+        structure.
+      operationId: getOwnershipUltimateParent
+      parameters:
+        - description: >
+            Any valid FactSet identifier which points to a security.  This could
+            be Ticker Region, Entity ID, CUSIP, or SEDOL.
+          in: query
+          name: id
+          required: true
+          schema:
+            example: FDS-US
+            maxLength: 12
+            type: string
+        - description: >
+            Currency ISO code that any currency-based data should be returned
+            in.  If excluded, the value will default to the special keyword
+            "LOCAL" which will cause the currency-based values to be calculated
+            in currency which is local to the exchange it is traded on.
+          in: query
+          name: currency
+          schema:
+            enum:
+              - LOCAL
+              - AED
+              - ARS
+              - ATS
+              - AUD
+              - BBD
+              - BDT
+              - BEF
+              - BHD
+              - BMD
+              - BOB
+              - BRL
+              - CAD
+              - CHF
+              - CLP
+              - CNY
+              - COP
+              - CYP
+              - CZK
+              - DKK
+              - DOP
+              - EEK
+              - EGP
+              - ESP
+              - EUR
+              - FIM
+              - FRF
+              - GBP
+              - GHS
+              - GRD
+              - HKD
+              - HRK
+              - HUF
+              - IDR
+              - IEP
+              - ILS
+              - INR
+              - ISK
+              - ITL
+              - JMD
+              - JOD
+              - JPY
+              - KES
+              - KRW
+              - KWD
+              - KYD
+              - KZT
+              - LBP
+              - LKR
+              - LTL
+              - LUF
+              - LVL
+              - MAD
+              - MKD
+              - MNT
+              - MTL
+              - MUR
+              - MWK
+              - MXN
+              - MYR
+              - NAD
+              - NGN
+              - NLG
+              - NOK
+              - NZD
+              - OMR
+              - PAB
+              - PEN
+              - PHP
+              - PKR
+              - PLN
+              - PTE
+              - PYG
+              - QAR
+              - RUB
+              - SAR
+              - SEK
+              - SGD
+              - SIT
+              - SKK
+              - SZL
+              - THB
+              - TND
+              - TWD
+              - TZS
+              - UGX
+              - USD
+              - VND
+              - XAF
+              - ZAR
+            example: LOCAL
+            type: string
+        - description: The columns to be returned in the resulting table
+          in: query
+          name: attributes
+          schema:
+            default:
+              - percentOwnership
+              - position
+              - positionChange
+              - marketValue
+              - marketValueChange
+              - percentPortfolio
+              - reportDate
+              - source
+              - holderId
+            example:
+              - percentOwnership
+              - position
+              - positionChange
+              - marketValue
+              - marketValueChange
+              - percentPortfolio
+              - reportDate
+              - source
+              - holderId
+            items:
+              enum:
+                - percentOwnership
+                - position
+                - positionChange
+                - marketValue
+                - marketValueChange
+                - percentPortfolio
+                - reportDate
+                - source
+                - holderId
+                - percentOwnershipChange
+                - percentPortfolioChange
+                - optionsIndirectShares
+                - fullyDilutedShares
+                - contactName
+                - contactPhone
+                - contactEmail
+                - contactTitle
+                - holderRegion
+                - holderSubRegion
+                - holderCountry
+                - holderMetroRegion
+                - holderCity
+                - holderState
+                - holderIsForeignOrDomestic
+                - holderCapGroupStyle
+                - holderManagerStyle
+                - holderHoldingsStyles
+                - holderTurnover
+                - holderActivismLevel
+                - holderUltimateParent
+                - holderAssetsUnderManagement
+                - holderGroupLevelCount
+                - holderType
+                - investorType
+                - institutionOrInsider
+                - equityAssets
               type: string
-        detail:
-          type: string
-        source:
-          type: object
-          properties:
-            parameter:
-              type: string
+            maxItems: 40
+            type: array
+        - description: The period over which we should return holdings for.
+          in: query
+          name: period
+          schema:
+            default: 6m
+            enum:
+              - 1m
+              - 3m
+              - 6m
+              - 12m
+              - recent
+            type: string
+        - description: The holder types which should be included in this table
+          in: query
+          name: holderType
+          required: false
+          schema:
+            default: institutions
+            enum:
+              - allHolders
+              - beneficialOwners
+              - funds
+              - institutions
+              - institutionsInsiders
+              - insidersStakeholders
+            type: string
+        - description: >-
+            The date as of which this data should be returned. YYYY-MM-DD
+            format. Defaults to current date.
+          in: query
+          name: date
+          required: false
+          schema:
+            example: '2019-12-31'
+            format: date
+            maxLength: 10
+            type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/200OKStach3'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+        '429':
+          $ref: '#/components/responses/429TooManyRequests'
+        '500':
+          $ref: '#/components/responses/500InternalServerError'
+        '503':
+          $ref: '#/components/responses/503ServiceUnavailable'
+      summary: >-
+        Get FactSet's ownership breakdown about a specific security.  The
+        returned table will display the institutions, insiders, funds, and
+        beneficial owners that comprise the ownership of the provided security. 
+        These holders will be grouped by the ultimate parent in their entity
+        structure.
+      tags:
+        - Ownership
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
+servers:
+  - url: https://api.factset.com/report/ownership/v1
+tags:
+  - description: FactSet Ownership Data
+    name: Ownership

@@ -5,7 +5,7 @@
     <artifactId>cabot</artifactId>
     <packaging>jar</packaging>
     <name>cabot</name>
-    <version>0.10.0</version>
+    <version>0.11.0</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>Cabot client library for Java</description>
     <scm>

@@ -30,8 +30,9 @@ import com.factset.sdk.FactSetOwnershipReportBuilder.JSON;
 
 
 /**
- * ErrorObjectLinks
+ * An object with a member \&quot;about\&quot; containing a link that leads to further details about the problem.
  */
+@ApiModel(description = "An object with a member \"about\" containing a link that leads to further details about the problem.")
 @JsonPropertyOrder({
   ErrorObjectLinks.JSON_PROPERTY_ABOUT
 })
@@ -52,11 +53,11 @@ public class ErrorObjectLinks implements Serializable {
   }
 
    /**
-   * Get about
+   * Link to further details about the problem
    * @return about
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Link to further details about the problem")
   @JsonProperty(JSON_PROPERTY_ABOUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

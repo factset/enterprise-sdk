@@ -7,10 +7,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**attribute** | **String** |  |  [optional]
 **highSellTimingValues** | [**SellTimingModelAnalytics**](SellTimingModelAnalytics.md) |  |  [optional]
 **lowSellTimingValues** | [**SellTimingModelAnalytics**](SellTimingModelAnalytics.md) |  |  [optional]
 **sellTimingValues** | [**SellTimingModelAnalytics**](SellTimingModelAnalytics.md) |  |  [optional]
-**attribute** | **String** |  |  [optional]
 
 
 ## Implemented Interfaces

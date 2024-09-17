@@ -1,20 +1,26 @@
 openapi: 3.0.3
 info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
+  description: License info
   license:
-    name: Apache 2.0
+    name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: FactSet Entity Report Builder
   version: 1.0.0
 externalDocs:
-  description: Read more about STACH 2.0's row organized schema
-  url: https://factset.github.io/stachschema/#/v2/RowOrganized
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/factset-entity-report-builder-api
 servers:
 - url: https://api.factset.com/report/entity/v1
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
 tags:
-- name: Entity Structure
+- description: Related to the structure of a provided entity
+  name: Entity Structure
 paths:
   /structure:
     get:
@@ -62,12 +68,6 @@ paths:
                 $ref: '#/components/schemas/Response'
           description: Expected response
           headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
             Api-Supported-Versions:
               description: Supported API major versions
               explode: false
@@ -80,14 +80,20 @@ paths:
               schema:
                 type: string
               style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
         "400":
           content:
             application/json:
               examples:
-                idRequiredParameterError:
-                  $ref: '#/components/examples/idRequiredParameterError'
                 idInvalidParameterError:
                   $ref: '#/components/examples/idInvalidParameterError'
+                idRequiredParameterError:
+                  $ref: '#/components/examples/idRequiredParameterError'
                 schemaInvalidParameterError:
                   $ref: '#/components/examples/schemaInvalidParameterError'
               schema:
@@ -97,12 +103,6 @@ paths:
             this page, including the X-DataDirect-Request-Key from the header to assist
             in troubleshooting.
           headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
             Api-Supported-Versions:
               description: Supported API versions (semantic versioning)
               explode: false
@@ -111,6 +111,12 @@ paths:
               style: simple
             Api-Version:
               description: API version (semantic versioning)
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
               explode: false
               schema:
                 type: string
@@ -215,143 +221,159 @@ paths:
       x-accepts: application/json
 components:
   examples:
+    endpointNotFound:
+      summary: endpoint not found
+      value:
+        errors:
+        - code: endpointNotFound
+          id: 39314614-e607-465a-ba95-5bb79c362e23
+          title: The requested endpoint does not exist.
+    genericServerError:
+      summary: generic server error
+      value:
+        errors:
+        - code: genericServerError
+          id: 39314614-e607-465a-ba95-5bb79c362e23
+          title: Unexpected error processing request
     groupLevelResponse:
       description: Subset of rows and columns for an example STACH 2.0 row organized
         package format table group level response
       summary: (sample table group level response)
       value:
         data:
-          version: "2.0"
           tables:
             main:
-              definition:
-                columns:
-                - id: entityID
-                  type: string
-                  isDimension: true
-                - id: name
-                  type: string
-                - id: country
-                  type: string
-                - id: entityType
-                  type: string
-              headersDefinition:
-                columns:
-                - id: entityTableHeader
-                  type: string
-                  isDimension: true
               data:
                 rows:
-                - rowType: Header
-                  cells:
+                - cells:
                   - ID
                   - Name
                   - Country
                   - Entity Type
                   headerCellDetails:
                     "0":
-                      source: HEADERS
                       columnIndex: 0
+                      source: HEADERS
                     "1":
-                      source: HEADERS
                       columnIndex: 0
+                      source: HEADERS
                     "2":
-                      source: HEADERS
                       columnIndex: 0
+                      source: HEADERS
                     "3":
-                      source: HEADERS
                       columnIndex: 0
+                      source: HEADERS
+                  rowType: Header
                 - cells:
                   - 0016YD-E
                   - FactSet Research Systems, Inc.
                   - United States
                   - PUB
-                - cells:
+                  rowMetadata:
+                    contentFlags:
+                      value:
+                      - cni
+                      - dcs
+                      - est
+                      - evt
+                      - fil
+                      - fix
+                      - fun
+                      - maa
+                      - own
+                      - res
+                - cellDetails:
+                    "0":
+                      groupLevel: "1"
+                  cells:
                   - 003S32-E
                   - P.A.N. Securities LP
                   - United States
                   - SUB
-                  cellDetails:
+                  rowMetadata:
+                    contentFlags:
+                      value:
+                      - fil
+                - cellDetails:
                     "0":
                       groupLevel: "1"
-                - cells:
+                  cells:
                   - 007F37-E
                   - Portware LLC
                   - United States
                   - SUB
-                  cellDetails:
+                  rowMetadata:
+                    contentFlags:
+                      value:
+                      - fil
+                      - maa
+                      - peq
+                - cellDetails:
                     "0":
-                      groupLevel: "1"
-                - cells:
+                      groupLevel: "2"
+                  cells:
                   - 0CK25T-E
                   - Aritas Group, Inc. /Technology & Analytical Business/
                   - United States
                   - COR
-                  cellDetails:
+                  rowMetadata:
+                    contentFlags:
+                      value:
+                      - maa
+                - cellDetails:
                     "0":
                       groupLevel: "2"
-                - cells:
+                  cells:
                   - 0DV5KG-E
                   - Long Ridge Portware Holdings, Inc.
                   - United States
                   - EXT
-                  cellDetails:
+                  rowMetadata:
+                    contentFlags:
+                      value:
+                      - peq
+                - cellDetails:
                     "0":
                       groupLevel: "2"
-                - cells:
+                  cells:
                   - 0GV04X-E
                   - Portware India Pvt Ltd.
                   - India
                   - SUB
-                  cellDetails:
+                  rowMetadata:
+                    contentFlags:
+                      value: []
+                - cellDetails:
                     "0":
                       groupLevel: "2"
-                - cells:
+                  cells:
                   - 0GV04Y-E
                   - Portware International LLC
                   - United States
                   - SUB
-                  cellDetails:
+                  rowMetadata:
+                    contentFlags:
+                      value: []
+                - cellDetails:
                     "0":
-                      groupLevel: "2"
-                - cells:
+                      groupLevel: "3"
+                  cells:
                   - 0G910J-E
                   - Portware International LLC (United Kingdom)
                   - United Kingdom
                   - SUB
-                  cellDetails:
-                    "0":
-                      groupLevel: "3"
-        meta:
-          requestId: FDS-US
-          fsymId: SQFMK3-R
-          schema: table_group_level
-    parentChildColumnsResponse:
-      description: Subset of rows and columns for an example STACH 2.0 row organized
-        package format table parent child columns response
-      summary: (sample table parent child columns response)
-      value:
-        data:
-          version: "2.0"
-          tables:
-            main:
+                  rowMetadata:
+                    contentFlags:
+                      value: []
+                tableMetadata:
+                  sources:
+                    value:
+                    - FactSet Entity Data Management
               definition:
                 columns:
-                - id: entityLevel0
-                  type: string
+                - id: entityID
                   isDimension: true
-                - id: entityLevel1
                   type: string
-                  isDimension: true
-                  parentId: entityLevel0
-                - id: entityLevel2
-                  type: string
-                  isDimension: true
-                  parentId: entityLevel1
-                - id: entityLevel3
-                  type: string
-                  isDimension: true
-                  parentId: entityLevel2
                 - id: name
                   type: string
                 - id: country
@@ -361,12 +383,46 @@ components:
               headersDefinition:
                 columns:
                 - id: entityTableHeader
-                  type: string
                   isDimension: true
+                  type: string
+          version: "2.0"
+        meta:
+          fsymId: SQFMK3-R
+          requestId: FDS-US
+          schema: table_group_level
+    idInvalidParameterError:
+      summary: invalid id parameter
+      value:
+        errors:
+        - code: parameterError
+          id: 39314614-e607-465a-ba95-5bb79c362e23
+          title: 'Invalid parameter(s): ''id'''
+    idRequiredParameterError:
+      summary: missing id parameter
+      value:
+        errors:
+        - code: parameterError
+          id: 39314614-e607-465a-ba95-5bb79c362e23
+          title: 'Missing required parameter(s): ''id'''
+    notAuthorized:
+      summary: not authorized
+      value:
+        errors:
+        - code: notAuthorized
+          id: 39314614-e607-465a-ba95-5bb79c362e23
+          title: User is forbidden access with current credentials. For access, contact
+            your FactSet sales representative
+    parentChildColumnsResponse:
+      description: Subset of rows and columns for an example STACH 2.0 row organized
+        package format table parent child columns response
+      summary: (sample table parent child columns response)
+      value:
+        data:
+          tables:
+            main:
               data:
                 rows:
-                - rowType: Header
-                  cells:
+                - cells:
                   - null
                   - null
                   - null
@@ -376,26 +432,27 @@ components:
                   - Entity Type
                   headerCellDetails:
                     "0":
-                      source: HEADERS
                       columnIndex: 0
+                      source: PRIMARY
                     "1":
-                      source: HEADERS
-                      columnIndex: 0
+                      columnIndex: 1
+                      source: PRIMARY
                     "2":
-                      source: HEADERS
-                      columnIndex: 0
+                      columnIndex: 2
+                      source: PRIMARY
                     "3":
-                      source: HEADERS
-                      columnIndex: 0
+                      columnIndex: 3
+                      source: PRIMARY
                     "4":
-                      source: HEADERS
                       columnIndex: 0
+                      source: HEADERS
                     "5":
-                      source: HEADERS
                       columnIndex: 0
+                      source: HEADERS
                     "6":
-                      source: HEADERS
                       columnIndex: 0
+                      source: HEADERS
+                  rowType: Header
                 - cells:
                   - 0016YD-E
                   - null
@@ -404,6 +461,19 @@ components:
                   - FactSet Research Systems, Inc.
                   - United States
                   - PUB
+                  rowMetadata:
+                    contentFlags:
+                      value:
+                      - cni
+                      - dcs
+                      - est
+                      - evt
+                      - fil
+                      - fix
+                      - fun
+                      - maa
+                      - own
+                      - res
                 - cells:
                   - 0016YD-E
                   - 003S32-E
@@ -412,6 +482,10 @@ components:
                   - P.A.N. Securities LP
                   - United States
                   - SUB
+                  rowMetadata:
+                    contentFlags:
+                      value:
+                      - fil
                 - cells:
                   - 0016YD-E
                   - 007F37-E
@@ -420,6 +494,12 @@ components:
                   - Portware LLC
                   - United States
                   - SUB
+                  rowMetadata:
+                    contentFlags:
+                      value:
+                      - fil
+                      - maa
+                      - peq
                 - cells:
                   - 0016YD-E
                   - 007F37-E
@@ -428,6 +508,10 @@ components:
                   - Aritas Group, Inc. /Technology & Analytical Business/
                   - United States
                   - COR
+                  rowMetadata:
+                    contentFlags:
+                      value:
+                      - maa
                 - cells:
                   - 0016YD-E
                   - 007F37-E
@@ -436,6 +520,10 @@ components:
                   - Long Ridge Portware Holdings, Inc.
                   - United States
                   - EXT
+                  rowMetadata:
+                    contentFlags:
+                      value:
+                      - peq
                 - cells:
                   - 0016YD-E
                   - 007F37-E
@@ -444,6 +532,9 @@ components:
                   - Portware India Pvt Ltd.
                   - India
                   - SUB
+                  rowMetadata:
+                    contentFlags:
+                      value: []
                 - cells:
                   - 0016YD-E
                   - 007F37-E
@@ -452,6 +543,9 @@ components:
                   - Portware International LLC
                   - United States
                   - SUB
+                  rowMetadata:
+                    contentFlags:
+                      value: []
                 - cells:
                   - 0016YD-E
                   - 007F37-E
@@ -460,145 +554,160 @@ components:
                   - Portware International LLC (United Kingdom)
                   - United Kingdom
                   - SUB
+                  rowMetadata:
+                    contentFlags:
+                      value: []
+                tableMetadata:
+                  sources:
+                    value:
+                    - FactSet Entity Data Management
+              definition:
+                columns:
+                - id: entityLevel0
+                  isDimension: true
+                  type: string
+                - id: entityLevel1
+                  isDimension: true
+                  parentId: entityLevel0
+                  type: string
+                - id: entityLevel2
+                  isDimension: true
+                  parentId: entityLevel1
+                  type: string
+                - id: entityLevel3
+                  isDimension: true
+                  parentId: entityLevel2
+                  type: string
+                - id: name
+                  type: string
+                - id: country
+                  type: string
+                - id: entityType
+                  type: string
+              headersDefinition:
+                columns:
+                - id: entityTableHeader
+                  isDimension: true
+                  type: string
+          version: "2.0"
         meta:
-          requestId: FDS-US
           fsymId: SQFMK3-R
+          requestId: FDS-US
           schema: table_parent_child_columns
+    schemaInvalidParameterError:
+      summary: invalid schema parameter
+      value:
+        errors:
+        - code: parameterError
+          id: 39314614-e607-465a-ba95-5bb79c362e23
+          title: 'Invalid parameter: ''schema'''
     treeResponse:
       description: Subset of rows and columns for an example response
       summary: (sample tree response)
       value:
         data:
-          root: 0016YD-E
           "0016YD-E":
-            name: FactSet Research Systems, Inc.
-            country: United States
-            entityType: PUB
-            parent: null
             children:
             - 003S32-E
             - 007F37-E
             - 007FCX-E
+            contentFlags:
+            - cni
+            - dcs
+            - est
+            - evt
+            - fil
+            - fix
+            - fun
+            - maa
+            - own
+            - res
+            country: United States
+            entityType: PUB
+            name: FactSet Research Systems, Inc.
+            parent: null
           "003S32-E":
-            name: P.A.N. Securities LP
+            contentFlags:
+            - fil
             country: United States
             entityType: SUB
+            name: P.A.N. Securities LP
             parent: 0016YD-E
           "007F37-E":
-            name: Portware LLC
-            country: United States
-            entityType: SUB
-            parent: 0016YD-E
             children:
             - 0CK25T-E
             - 0DV5KG-E
             - 0GV04X-E
             - 0GV04Y-E
             - 0MLMTB-E
+            contentFlags:
+            - fil
+            - maa
+            - peq
+            country: United States
+            entityType: SUB
+            name: Portware LLC
+            parent: 0016YD-E
+          "007FCX-E":
+            contentFlags:
+            - fil
+            - maa
+            country: United States
+            entityType: SUB
+            name: Code Red, Inc.
+            parent: 0016YD-E
           "0CK25T-E":
-            name: Aritas Group, Inc. /Technology & Analytical Business/
+            contentFlags:
+            - maa
             country: United States
             entityType: COR
+            name: Aritas Group, Inc. /Technology & Analytical Business/
             parent: 007F37-E
           "0DV5KG-E":
-            name: Long Ridge Portware Holdings, Inc.
+            contentFlags:
+            - peq
             country: United States
             entityType: EXT
+            name: Long Ridge Portware Holdings, Inc.
             parent: 007F37-E
+          "0G910J-E":
+            contentFlags: []
+            country: United Kingdom
+            entityType: SUB
+            name: Portware International LLC (United Kingdom)
+            parent: 0GV04Y-E
           "0GV04X-E":
-            name: Portware India Pvt Ltd.
+            contentFlags: []
             country: India
             entityType: SUB
+            name: Portware India Pvt Ltd.
             parent: 007F37-E
           "0GV04Y-E":
-            name: Portware International LLC
-            country: United States
-            entityType: SUB
-            parent: 007F37-E
             children:
             - 0G910J-E
             - 0GV051-E
-          "0G910J-E":
-            name: Portware International LLC (United Kingdom)
-            country: United Kingdom
-            entityType: SUB
-            parent: 0GV04Y-E
-          "0GV051-E":
-            name: Portware International LLC (Hong Kong Branch)
-            country: Hong Kong
-            entityType: SUB
-            parent: 0GV04Y-E
-          "0MLMTB-E":
-            name: Portware Singapore
-            country: Singapore
-            entityType: SUB
-            parent: 007F37-E
-          "007FCX-E":
-            name: Code Red, Inc.
+            contentFlags: []
             country: United States
             entityType: SUB
-            parent: 0016YD-E
+            name: Portware International LLC
+            parent: 007F37-E
+          "0GV051-E":
+            contentFlags: []
+            country: Hong Kong
+            entityType: SUB
+            name: Portware International LLC (Hong Kong Branch)
+            parent: 0GV04Y-E
+          "0MLMTB-E":
+            contentFlags: []
+            country: Singapore
+            entityType: SUB
+            name: Portware Singapore
+            parent: 007F37-E
+          root: 0016YD-E
         meta:
-          requestId: FDS-US
           fsymId: SQFMK3-R
+          requestId: FDS-US
           schema: tree
-    genericServerError:
-      summary: generic server error
-      value:
-        errors:
-        - id: 39314614-e607-465a-ba95-5bb79c362e23
-          code: genericServerError
-          title: Unexpected error processing request
-    parameterError:
-      summary: generic parameter error
-      value:
-        errors:
-        - id: 39314614-e607-465a-ba95-5bb79c362e23
-          code: parameterError
-          title: Missing or invalid parameters
-    parameterErrorMissing:
-      summary: missing required parameter
-      value:
-        errors:
-        - id: 39314614-e607-465a-ba95-5bb79c362e23
-          code: parameterError
-          title: 'Missing required parameter(s): ''id'''
-    notAuthorized:
-      summary: not authorized
-      value:
-        errors:
-        - id: 39314614-e607-465a-ba95-5bb79c362e23
-          code: notAuthorized
-          title: User is forbidden access with current credentials. For access, contact
-            your FactSet sales representative
-    endpointNotFound:
-      summary: endpoint not found
-      value:
-        errors:
-        - id: 39314614-e607-465a-ba95-5bb79c362e23
-          code: endpointNotFound
-          title: The requested endpoint does not exist.
-    idRequiredParameterError:
-      summary: missing id parameter
-      value:
-        errors:
-        - id: 39314614-e607-465a-ba95-5bb79c362e23
-          code: parameterError
-          title: 'Missing required parameter(s): ''id'''
-    idInvalidParameterError:
-      summary: invalid id parameter
-      value:
-        errors:
-        - id: 39314614-e607-465a-ba95-5bb79c362e23
-          code: parameterError
-          title: 'Invalid parameter(s): ''id'''
-    schemaInvalidParameterError:
-      summary: invalid schema parameter
-      value:
-        errors:
-        - id: 39314614-e607-465a-ba95-5bb79c362e23
-          code: parameterError
-          title: 'Invalid parameter: ''schema'''
   parameters:
     idParameter:
       description: Company ticker
@@ -643,12 +752,6 @@ components:
             $ref: '#/components/schemas/Response'
       description: Expected response
       headers:
-        X-DataDirect-Request-Key:
-          description: FactSet request ID
-          explode: false
-          schema:
-            type: string
-          style: simple
         Api-Supported-Versions:
           description: Supported API major versions
           explode: false
@@ -661,14 +764,20 @@ components:
           schema:
             type: string
           style: simple
+        X-DataDirect-Request-Key:
+          description: FactSet request ID
+          explode: false
+          schema:
+            type: string
+          style: simple
     "400BadRequest":
       content:
         application/json:
           examples:
-            idRequiredParameterError:
-              $ref: '#/components/examples/idRequiredParameterError'
             idInvalidParameterError:
               $ref: '#/components/examples/idInvalidParameterError'
+            idRequiredParameterError:
+              $ref: '#/components/examples/idRequiredParameterError'
             schemaInvalidParameterError:
               $ref: '#/components/examples/schemaInvalidParameterError'
           schema:
@@ -678,12 +787,6 @@ components:
         page, including the X-DataDirect-Request-Key from the header to assist in
         troubleshooting.
       headers:
-        X-DataDirect-Request-Key:
-          description: FactSet request ID
-          explode: false
-          schema:
-            type: string
-          style: simple
         Api-Supported-Versions:
           description: Supported API versions (semantic versioning)
           explode: false
@@ -692,6 +795,12 @@ components:
           style: simple
         Api-Version:
           description: API version (semantic versioning)
+          explode: false
+          schema:
+            type: string
+          style: simple
+        X-DataDirect-Request-Key:
+          description: FactSet request ID
           explode: false
           schema:
             type: string
@@ -791,25 +900,28 @@ components:
             type: string
           style: simple
   schemas:
-    Response:
-      example:
-        data: ""
-        meta:
-          key: meta
+    ErrorObject:
+      description: Schema describing an API error
       properties:
-        data:
-          description: Returns a STACH 2.0 row organized package
-          title: STACH
-        meta:
-          additionalProperties:
-            nullable: true
-            type: string
-          type: object
-      type: object
-    Meta:
-      additionalProperties:
-        nullable: true
-        type: string
+        code:
+          description: A common or API-specific error code.
+          type: string
+        detail:
+          description: A human-readable explanation specific to the occurrence of
+            the problem.
+          type: string
+        id:
+          description: A UUID for this particular ocurrence of the problem.  This
+            will be logged for debugging.
+          type: string
+        links:
+          $ref: '#/components/schemas/ErrorObject_links'
+        source:
+          $ref: '#/components/schemas/ErrorObject_source'
+        title:
+          description: A short, human-readable summary of the problem.  This should
+            not change from occurrence to occurrence of the problem
+          type: string
       type: object
     ErrorResponse:
       properties:
@@ -823,185 +935,42 @@ components:
             type: string
           type: object
       type: object
-    ErrorObject:
-      properties:
-        id:
-          type: string
-        code:
-          type: string
-        title:
-          type: string
-        links:
-          $ref: '#/components/schemas/ErrorObject_links'
-        detail:
-          type: string
-        source:
-          $ref: '#/components/schemas/ErrorObject_source'
+    Meta:
+      additionalProperties:
+        nullable: true
+        type: string
       type: object
-    MetadataEntry:
-      description: |
-        Restricted metadata entries. Restricts the possible key in the following STACH schema:
-        - RowOrganizedPackage.CellDetail.CellMetadataEntry
-        - RowOrganizedPackage.HeaderCellDetail.CellMetadataEntry
-        - RowOrganizedPackage.MapOfMetadata.ItemsEntry
-        - RowOrganizedPackage.Row.RowMetadataEntry
-        - RowOrganizedPackage.TableData.TableMetadataEntry
-        And sets restrictions on the possible values for a MetadataItem.
-      oneOf:
-      - $ref: '#/components/schemas/currencyCode'
-      - $ref: '#/components/schemas/currencySymbol'
-      - $ref: '#/components/schemas/category'
-      - $ref: '#/components/schemas/valueType'
-      - $ref: '#/components/schemas/scale'
-      - $ref: '#/components/schemas/description'
-      - $ref: '#/components/schemas/frequency'
-      type: object
-    currencyCode:
+    Response:
+      example:
+        data: '{}'
+        meta:
+          key: meta
       properties:
-        currencyCode:
-          $ref: '#/components/schemas/currencyCode_currencyCode'
-      type: object
-    currencySymbol:
-      properties:
-        currencySymbol:
-          $ref: '#/components/schemas/currencySymbol_currencySymbol'
-      type: object
-    category:
-      properties:
-        category:
-          $ref: '#/components/schemas/category_category'
-      type: object
-    valueType:
-      properties:
-        valueType:
-          $ref: '#/components/schemas/valueType_valueType'
-      type: object
-    scale:
-      properties:
-        scale:
-          $ref: '#/components/schemas/scale_scale'
-      type: object
-    description:
-      properties:
-        description:
-          $ref: '#/components/schemas/description_description'
-      type: object
-    frequency:
-      properties:
-        frequency:
-          $ref: '#/components/schemas/frequency_frequency'
+        data:
+          description: Returns a STACH 2.0 row organized package
+          title: STACH
+          type: object
+        meta:
+          additionalProperties:
+            nullable: true
+            type: string
+          type: object
       type: object
     ErrorObject_links:
+      description: An object with a member "about" containing a link that leads to
+        further details about the problem.
       properties:
         about:
+          description: Link to further details about the problem
           type: string
       type: object
     ErrorObject_source:
+      description: An object containing references to the source of the error, optionally
+        including additional members
       properties:
         parameter:
-          type: string
-      type: object
-    currencyCode_currencyCode:
-      description: Code for data currency
-      properties:
-        value:
-          type: string
-      type: object
-    currencySymbol_currencySymbol:
-      description: Symbol for data currency
-      properties:
-        value:
-          type: string
-      type: object
-    category_category:
-      description: |
-        Describes data based on source or kind of value
-        - ACTUAL - Historical data collected directly from a press release or a median consensus from brokers after a report date.
-        - ESTIMATE - Forward looking average of broker estimates within a specific time horizon.
-        - GUIDANCE - Forward looking indication or estimate of future performance issued by the company itself.
-        - DETAIL - Indicates data that is more granular and may be secondary in focus.
-        - MAIN - Indicates data is of more impactful or higher importance and may want to be emphasized.
-        - SECTION - Indicates data that is used in sectioning rows in group level STACH format.
-      properties:
-        value:
-          enum:
-          - ACTUAL
-          - ESTIMATE
-          - GUIDANCE
-          - EXCLUDED
-          - CHANGE
-          - DETAIL
-          - MAIN
-          - SECTION
-          type: string
-      type: object
-    valueType_valueType:
-      description: Describes how to interpret numbers
-      properties:
-        value:
-          enum:
-          - PERCENTAGE
-          - RATIO
-          - TREND
-          - RANGE
-          type: string
-      type: object
-    scale_scale:
-      description: |
-        Integer power of 10 to which numbers have been scaled. For example: 6 implies millions.
-        Default is 0.
-      properties:
-        value:
-          type: integer
-      type: object
-    description_description:
-      description: Text describing the data
-      properties:
-        value:
-          type: string
-      type: object
-    frequency_frequency:
-      description: |
-        String with frequency of a data series. Allowed values:
-        - "D" (daily)
-        - "W" (weekly)
-        - "AW" (actual weekly)
-        - "M" (monthly)
-        - "AM" (actual monthly)
-        - "Q" (quarterly)
-        - "FQ" (fiscal quarterly)
-        - "CQ" (calendar quarterly)
-        - "AQ" (actual quarterly)
-        - "Y" (yearly)
-        - "FY" (fiscal yearly)
-        - "CY" (calendar yearly)
-        - "AY" (actual yearly)
-        - "MTD" (month-to-date)
-        - "QTD" (quarter-to-date)
-        - "YTD" (year-to-date)
-        - "FYTD" (fiscal-year-to-date)
-        - "CYTD" (calendar-year-to-date)
-      properties:
-        value:
-          enum:
-          - D
-          - W
-          - AW
-          - M
-          - AM
-          - Q
-          - FQ
-          - CQ
-          - AQ
-          - "Y"
-          - FY
-          - CY
-          - AY
-          - MTD
-          - QTD
-          - YTD
-          - FYTD
-          - CYTD
+          description: A string indicating which path or URI query parameter caused
+            the error
           type: string
       type: object
   securitySchemes:

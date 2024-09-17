@@ -51,7 +51,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/globalPricesResponse'
               examples:
-                One Week Prices for Two Securities All Fields:
+                Prices over 1 week period for FDS-US and TSLA-US:
                   $ref: '#/components/examples/GlobalPricesResponseAll'
                 Filtered Fields:
                   $ref: '#/components/examples/GlobalPricesResponsePricesOnly'
@@ -99,6 +99,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/globalPricesRequest'
+            examples:
+              One Security(FDS-US) over one year:
+                $ref: '#/components/examples/postPrices'
       responses:
         '200':
           description: Array of security prices
@@ -106,6 +109,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/globalPricesResponse'
+              examples:
+                One Week Prices for Two Securities:
+                  $ref: '#/components/examples/GlobalPricesResponseAll'
         '202':
           description: Batch request has been accepted.
           content:
@@ -242,6 +248,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/corporateActionsRequest'
+            examples:
+              One Security(FDS-US) over one year:
+                $ref: '#/components/examples/postCorporateActions'
       responses:
         '200':
           description: Array of security prices
@@ -249,6 +258,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/corporateActionsResponse'
+              examples:
+                Ordinary Dividends:
+                  $ref: '#/components/examples/OrdinaryDividends'
+                Security Spinoffs:
+                  $ref: '#/components/examples/DistributionsSpinoff'
+                Rights Issue:
+                  $ref: '#/components/examples/DistributionsRights'
+                Forward Split:
+                  $ref: '#/components/examples/SplitsForward'
+                Bonus Issue:
+                  $ref: '#/components/examples/SplitsBonus'
+                Stock Dividend:
+                  $ref: '#/components/examples/SplitsDividend'
+                Reverse Split:
+                  $ref: '#/components/examples/SplitsReverse'
         '202':
           description: Batch request has been accepted.
           content:
@@ -297,6 +321,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/annualizedDividendResponse'
+              examples:
+                Annualized Dividends Response of Apple (AAPL-US):
+                  $ref: '#/components/examples/annualizedDividendsResponse'
         '202':
           description: Batch request has been accepted.
           content:
@@ -338,6 +365,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/annualizedDividendsRequest'
+            examples:
+              Annualized Dividends Request for one security - FactSet (FDS-US):
+                $ref: '#/components/examples/postAnnualizedDividends'
       responses:
         '200':
           description: Array of security prices
@@ -345,6 +375,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/annualizedDividendResponse'
+              examples:
+                Annualized Dividends Response of Apple (AAPL-US):
+                  $ref: '#/components/examples/annualizedDividendsResponse'
         '202':
           description: Batch request has been accepted.
           content:
@@ -439,6 +472,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/returnsRequest'
+            examples:
+              Returns Request over 1 year period for one security - FactSet (FDS-US):
+                $ref: '#/components/examples/postReturns'
       responses:
         '200':
           description: Array of security prices
@@ -446,6 +482,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/returnsResponse'
+              examples:
+                Returns:
+                  $ref: '#/components/examples/returnsResponseAll'
         '202':
           description: Batch request has been accepted.
           content:
@@ -2938,9 +2977,7 @@ components:
         - distPct
         - shortDesc
     GlobalPricesResponseAll:
-      summary: >-
-        Prices Response of all fields over 1 week period for two securities -
-        FactSet (FDS-US) and Tesla (TSLA-US).
+      summary: Prices over 1 week period for FDS-US and TSLA-US
       value:
         data:
           - volume: 157303
@@ -3064,9 +3101,7 @@ components:
             priceHigh: 714.99
             turnover: 2446231.2914
     GlobalPricesResponsePricesOnly:
-      summary: >-
-        Prices Response of FactSet (FDS-US) filtered to only return "price"
-        field with dates.
+      summary: Prices of FDS-US filtered to only return "price" field with dates
       value:
         data:
           - date: '2021-08-23'
@@ -3382,6 +3417,53 @@ components:
             adrDescription: American Despository Shares
             totalOutstanding: 980.22284
             adrTotalOutstanding: 225.30467
+    postPrices:
+      summary: Prices Request over 1 year period for FDS-US
+      value:
+        ids:
+          - FDS-US
+        startDate: '2020-06-30'
+        endDate: '2021-06-30'
+        frequency: M
+        currency: USD
+        calendar: FIVEDAY
+        adjust: SPLIT
+        batch: 'N'
+    postReturns:
+      summary: Returns Request over 1 year period FDS-US
+      value:
+        ids:
+          - FDS-US
+        startDate: '2020-06-30'
+        endDate: '2021-06-30'
+        currency: USD
+        frequency: M
+        dividendAdjust: EXDATE_C
+        batch: 'N'
+    postCorporateActions:
+      summary: Corporate Actions Request over 1 year period FDS-US
+      value:
+        ids:
+          - FDS-US
+        eventCategory: CASH_DIVS
+        fields:
+          - eventId
+          - eventTypeDesc
+          - recordDate
+          - payDate
+          - currency
+        startDate: '2020-06-30'
+        endDate: '2021-06-30'
+        currency: USD
+        cancelledDividend: exclude
+        batch: 'N'
+    postAnnualizedDividends:
+      summary: Annualized Dividends Request AAPL-US
+      value:
+        ids:
+          - AAPL-US
+        currency: USD
+        batch: 'N'
     BatchStatusQueuedResponse:
       description: Batch Status Queued Response
       value:

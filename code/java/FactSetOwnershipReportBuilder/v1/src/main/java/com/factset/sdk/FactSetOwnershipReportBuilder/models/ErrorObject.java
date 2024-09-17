@@ -36,64 +36,38 @@ import com.factset.sdk.FactSetOwnershipReportBuilder.JSON;
  */
 @ApiModel(description = "Schema describing an API error")
 @JsonPropertyOrder({
-  ErrorObject.JSON_PROPERTY_ID,
   ErrorObject.JSON_PROPERTY_CODE,
-  ErrorObject.JSON_PROPERTY_TITLE,
-  ErrorObject.JSON_PROPERTY_LINKS,
   ErrorObject.JSON_PROPERTY_DETAIL,
-  ErrorObject.JSON_PROPERTY_SOURCE
+  ErrorObject.JSON_PROPERTY_ID,
+  ErrorObject.JSON_PROPERTY_LINKS,
+  ErrorObject.JSON_PROPERTY_SOURCE,
+  ErrorObject.JSON_PROPERTY_TITLE
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class ErrorObject implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
-
   public static final String JSON_PROPERTY_CODE = "code";
   private String code;
-
-  public static final String JSON_PROPERTY_TITLE = "title";
-  private String title;
-
-  public static final String JSON_PROPERTY_LINKS = "links";
-  private ErrorObjectLinks links;
 
   public static final String JSON_PROPERTY_DETAIL = "detail";
   private String detail;
 
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
+
+  public static final String JSON_PROPERTY_LINKS = "links";
+  private ErrorObjectLinks links;
+
   public static final String JSON_PROPERTY_SOURCE = "source";
   private ErrorObjectSource source;
 
+  public static final String JSON_PROPERTY_TITLE = "title";
+  private String title;
+
   public ErrorObject() { 
   }
-
-  public ErrorObject id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Get id
-   * @return id
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getId() {
-    return id;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setId(String id) {
-    this.id = id;
-  }
-
 
   public ErrorObject code(String code) {
     this.code = code;
@@ -101,11 +75,11 @@ public class ErrorObject implements Serializable {
   }
 
    /**
-   * Get code
+   * A common or API-specific error code.
    * @return code
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A common or API-specific error code.")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -121,29 +95,55 @@ public class ErrorObject implements Serializable {
   }
 
 
-  public ErrorObject title(String title) {
-    this.title = title;
+  public ErrorObject detail(String detail) {
+    this.detail = detail;
     return this;
   }
 
    /**
-   * Get title
-   * @return title
+   * A human-readable explanation specific to the occurrence of the problem.
+   * @return detail
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @ApiModelProperty(value = "A human-readable explanation specific to the occurrence of the problem.")
+  @JsonProperty(JSON_PROPERTY_DETAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getTitle() {
-    return title;
+  public String getDetail() {
+    return detail;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonProperty(JSON_PROPERTY_DETAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTitle(String title) {
-    this.title = title;
+  public void setDetail(String detail) {
+    this.detail = detail;
+  }
+
+
+  public ErrorObject id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * A UUID for this particular ocurrence of the problem.  This will be logged for debugging.
+   * @return id
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "A UUID for this particular ocurrence of the problem.  This will be logged for debugging.")
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getId() {
+    return id;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setId(String id) {
+    this.id = id;
   }
 
 
@@ -173,32 +173,6 @@ public class ErrorObject implements Serializable {
   }
 
 
-  public ErrorObject detail(String detail) {
-    this.detail = detail;
-    return this;
-  }
-
-   /**
-   * Get detail
-   * @return detail
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_DETAIL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getDetail() {
-    return detail;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_DETAIL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDetail(String detail) {
-    this.detail = detail;
-  }
-
-
   public ErrorObject source(ErrorObjectSource source) {
     this.source = source;
     return this;
@@ -225,6 +199,32 @@ public class ErrorObject implements Serializable {
   }
 
 
+  public ErrorObject title(String title) {
+    this.title = title;
+    return this;
+  }
+
+   /**
+   * A short, human-readable summary of the problem.  This should not change from occurrence to occurrence of the problem
+   * @return title
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "A short, human-readable summary of the problem.  This should not change from occurrence to occurrence of the problem")
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getTitle() {
+    return title;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+
   /**
    * Return true if this ErrorObject object is equal to o.
    */
@@ -237,29 +237,29 @@ public class ErrorObject implements Serializable {
       return false;
     }
     ErrorObject errorObject = (ErrorObject) o;
-    return Objects.equals(this.id, errorObject.id) &&
-        Objects.equals(this.code, errorObject.code) &&
-        Objects.equals(this.title, errorObject.title) &&
-        Objects.equals(this.links, errorObject.links) &&
+    return Objects.equals(this.code, errorObject.code) &&
         Objects.equals(this.detail, errorObject.detail) &&
-        Objects.equals(this.source, errorObject.source);
+        Objects.equals(this.id, errorObject.id) &&
+        Objects.equals(this.links, errorObject.links) &&
+        Objects.equals(this.source, errorObject.source) &&
+        Objects.equals(this.title, errorObject.title);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, code, title, links, detail, source);
+    return Objects.hash(code, detail, id, links, source, title);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ErrorObject {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("}");
     return sb.toString();
   }

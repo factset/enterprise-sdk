@@ -35,24 +35,17 @@ namespace FactSet.SDK.FactSetOwnershipReportBuilder.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Meta" /> class.
         /// </summary>
-        /// <param name="requestId">The identifier which was requested by the client.</param>
         /// <param name="currency">The currency ISO of the data which was returned.</param>
         /// <param name="fsymId">The resolved fsymId that corresponds to the provided requestId.</param>
         /// <param name="noData">Indicator of whether FactSet had data for this request.</param>
-        public Meta(string requestId = default(string), string currency = default(string), string fsymId = default(string), bool? noData = default(bool?))
+        /// <param name="requestId">The identifier which was requested by the client.</param>
+        public Meta(string currency = default(string), string fsymId = default(string), bool? noData = default(bool?), string requestId = default(string))
         {
-            this.RequestId = requestId;
             this.Currency = currency;
             this.FsymId = fsymId;
             this.NoData = noData;
+            this.RequestId = requestId;
         }
-
-        /// <summary>
-        /// The identifier which was requested by the client
-        /// </summary>
-        /// <value>The identifier which was requested by the client</value>
-        [DataMember(Name = "requestId", EmitDefaultValue = false)]
-        public string RequestId { get; set; }
 
         /// <summary>
         /// The currency ISO of the data which was returned
@@ -76,6 +69,13 @@ namespace FactSet.SDK.FactSetOwnershipReportBuilder.Model
         public bool? NoData { get; set; }
 
         /// <summary>
+        /// The identifier which was requested by the client
+        /// </summary>
+        /// <value>The identifier which was requested by the client</value>
+        [DataMember(Name = "requestId", EmitDefaultValue = false)]
+        public string RequestId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -83,10 +83,10 @@ namespace FactSet.SDK.FactSetOwnershipReportBuilder.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class Meta {\n");
-            sb.Append("  RequestId: ").Append(RequestId).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
             sb.Append("  NoData: ").Append(NoData).Append("\n");
+            sb.Append("  RequestId: ").Append(RequestId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -123,11 +123,6 @@ namespace FactSet.SDK.FactSetOwnershipReportBuilder.Model
             }
             return 
                 (
-                    this.RequestId == input.RequestId ||
-                    (this.RequestId != null &&
-                    this.RequestId.Equals(input.RequestId))
-                ) && 
-                (
                     this.Currency == input.Currency ||
                     (this.Currency != null &&
                     this.Currency.Equals(input.Currency))
@@ -141,6 +136,11 @@ namespace FactSet.SDK.FactSetOwnershipReportBuilder.Model
                     this.NoData == input.NoData ||
                     (this.NoData != null &&
                     this.NoData.Equals(input.NoData))
+                ) && 
+                (
+                    this.RequestId == input.RequestId ||
+                    (this.RequestId != null &&
+                    this.RequestId.Equals(input.RequestId))
                 );
         }
 
@@ -153,10 +153,6 @@ namespace FactSet.SDK.FactSetOwnershipReportBuilder.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.RequestId != null)
-                {
-                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
-                }
                 if (this.Currency != null)
                 {
                     hashCode = (hashCode * 59) + this.Currency.GetHashCode();
@@ -168,6 +164,10 @@ namespace FactSet.SDK.FactSetOwnershipReportBuilder.Model
                 if (this.NoData != null)
                 {
                     hashCode = (hashCode * 59) + this.NoData.GetHashCode();
+                }
+                if (this.RequestId != null)
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
                 }
                 return hashCode;
             }

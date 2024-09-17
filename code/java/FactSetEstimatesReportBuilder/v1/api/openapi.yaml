@@ -1,231 +1,29 @@
 openapi: 3.0.3
 info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
+  description: License info
   license:
-    name: Apache 2.0
+    name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
-  title: FactSet Estimates Report Builder
+  title: FactSet Entity Report Builder
   version: 1.0.0
 externalDocs:
-  description: Read more about STACH 2.0's row organized schema
-  url: https://factset.github.io/stachschema/#/v2/RowOrganized
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/factset-estimates-report-builder-api
 servers:
 - url: https://api.factset.com/report/estimates/v1
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
 tags:
-- name: All Estimates
-- name: Estimate Tables
+- description: All Estimates Report Data
+  name: All Estimates
+- description: Estimate Tables Report Data
+  name: Estimate Tables
 paths:
-  /income-statement:
-    get:
-      description: Returns historical and future period broker estimate consensus
-        in a statement format for Income Statement line items.
-      operationId: getEstimatesIncomeStatement
-      parameters:
-      - description: Company Ticker
-        explode: true
-        in: query
-        name: id
-        required: true
-        schema:
-          example: FDS
-          type: string
-        style: form
-      - description: Periodicity or frequency of the fiscal periods.
-        explode: true
-        in: query
-        name: periodicity
-        required: false
-        schema:
-          default: ANN
-          enum:
-          - ANN
-          - QTR
-          - SEMI
-          - CAL
-          type: string
-        style: form
-      - description: |
-          The schema that the data is returned as. The following are descriptions for the accepted values:
-          - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata
-          - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns
-        explode: true
-        in: query
-        name: schema
-        required: false
-        schema:
-          default: table_parent_child_columns
-          enum:
-          - table_group_level
-          - table_parent_child_columns
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              examples:
-                groupLevelResponse:
-                  $ref: '#/components/examples/groupLevelResponse'
-                parentChildColumnsResponse:
-                  $ref: '#/components/examples/parentChildColumnsResponse'
-              schema:
-                $ref: '#/components/schemas/Response'
-          description: Expected response; returns JSON data containing STACH 2.0 row
-            organized package format
-          headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
-            Api-Supported-Versions:
-              description: Supported API versions (semantic versioning)
-              explode: false
-              schema:
-                type: string
-              style: simple
-            Api-Version:
-              description: API version (semantic versioning)
-              explode: false
-              schema:
-                type: string
-              style: simple
-        "400":
-          content:
-            application/json:
-              examples:
-                idRequiredParameterError:
-                  $ref: '#/components/examples/idRequiredParameterError'
-                idInvalidParameterError:
-                  $ref: '#/components/examples/idInvalidParameterError'
-                parameterErrorPeriodicity:
-                  $ref: '#/components/examples/parameterErrorPeriodicity'
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: Bad Request. For further assistance, file an issue under "Workflow
-            & Throttling - 400 or 429 Response" using `Report Issue` at the top of
-            this page, including the X-DataDirect-Request-Key from the header to assist
-            in troubleshooting.
-          headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
-            Api-Supported-Versions:
-              description: Supported API versions (semantic versioning)
-              explode: false
-              schema:
-                type: string
-              style: simple
-            Api-Version:
-              description: API version (semantic versioning)
-              explode: false
-              schema:
-                type: string
-              style: simple
-        "401":
-          description: Missing or invalid authentication. Ensure you are logged in
-            and have successfully generated an API KEY for the IP range you are connecting
-            from. For further assistance, file an issue under "Connectivty - 401 or
-            403 Responses" using `Report Issue` at the top of this page, including
-            the X-DataDirect-Request-Key from the header to assist in troubleshooting.
-          headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
-        "403":
-          content:
-            application/json:
-              examples:
-                notAuthorized:
-                  $ref: '#/components/examples/notAuthorized'
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: User is forbidden access with current credentials. Reach out
-            to your local FactSet Account Manager for assistance, or file an issue
-            under "Connectivty - 401 or 403 Responses" using `Report Issue` at the
-            top of this page, including the X-DataDirect-Request-Key from the header
-            to assist in troubleshooting.
-          headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
-        "404":
-          content:
-            application/json:
-              examples:
-                endpointNotFound:
-                  $ref: '#/components/examples/endpointNotFound'
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: Not found. For further assistance, file an issue under "Performance
-            - 404 and 500 Responses" using `Report Issue` at the top of this page,
-            including the X-DataDirect-Request-Key from the header to assist in troubleshooting.
-          headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
-        "429":
-          description: Too many requests - this API is rate-limited to 20 requests
-            per second. For further assistance, file an issue under "Workflow & Throttling
-            - 400 or 429 Response" using `Report Issue` at the top of this page, including
-            the X-DataDirect-Request-Key from the header to assist in troubleshooting.
-          headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
-        "500":
-          content:
-            application/json:
-              examples:
-                genericServerError:
-                  $ref: '#/components/examples/genericServerError'
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: Server error. For further assistance, file an issue under "Performance
-            - 404 and 500 Responses" using `Report Issue` at the top of this page,
-            including the X-DataDirect-Request-Key from the header to assist in troubleshooting.
-          headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
-        "503":
-          description: Service unavailable. Typically a timeout, or result of a rejected
-            request to prevent service overload. For further assistance, file an issue
-            under "Performance - 404 and 500 Responses" using `Report Issue` at the
-            top of this page, including the X-DataDirect-Request-Key from the header
-            to assist in troubleshooting.
-          headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
-      summary: Income Statement
-      tags:
-      - All Estimates
-      x-accepts: application/json
   /balance-sheet:
     get:
       description: Returns historical and future period broker estimate consensus
@@ -284,12 +82,6 @@ paths:
           description: Expected response; returns JSON data containing STACH 2.0 row
             organized package format
           headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
             Api-Supported-Versions:
               description: Supported API versions (semantic versioning)
               explode: false
@@ -302,14 +94,20 @@ paths:
               schema:
                 type: string
               style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
         "400":
           content:
             application/json:
               examples:
-                idRequiredParameterError:
-                  $ref: '#/components/examples/idRequiredParameterError'
                 idInvalidParameterError:
                   $ref: '#/components/examples/idInvalidParameterError'
+                idRequiredParameterError:
+                  $ref: '#/components/examples/idRequiredParameterError'
                 parameterErrorPeriodicity:
                   $ref: '#/components/examples/parameterErrorPeriodicity'
               schema:
@@ -319,12 +117,6 @@ paths:
             this page, including the X-DataDirect-Request-Key from the header to assist
             in troubleshooting.
           headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
             Api-Supported-Versions:
               description: Supported API versions (semantic versioning)
               explode: false
@@ -333,6 +125,12 @@ paths:
               style: simple
             Api-Version:
               description: API version (semantic versioning)
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
               explode: false
               schema:
                 type: string
@@ -493,12 +291,6 @@ paths:
           description: Expected response; returns JSON data containing STACH 2.0 row
             organized package format
           headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
             Api-Supported-Versions:
               description: Supported API versions (semantic versioning)
               explode: false
@@ -511,14 +303,20 @@ paths:
               schema:
                 type: string
               style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
         "400":
           content:
             application/json:
               examples:
-                idRequiredParameterError:
-                  $ref: '#/components/examples/idRequiredParameterError'
                 idInvalidParameterError:
                   $ref: '#/components/examples/idInvalidParameterError'
+                idRequiredParameterError:
+                  $ref: '#/components/examples/idRequiredParameterError'
                 parameterErrorPeriodicity:
                   $ref: '#/components/examples/parameterErrorPeriodicity'
               schema:
@@ -528,12 +326,6 @@ paths:
             this page, including the X-DataDirect-Request-Key from the header to assist
             in troubleshooting.
           headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
             Api-Supported-Versions:
               description: Supported API versions (semantic versioning)
               explode: false
@@ -542,6 +334,12 @@ paths:
               style: simple
             Api-Version:
               description: API version (semantic versioning)
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
               explode: false
               schema:
                 type: string
@@ -644,633 +442,6 @@ paths:
       tags:
       - All Estimates
       x-accepts: application/json
-  /per-share:
-    get:
-      description: Returns historical and future period broker estimate consensus
-        in a statement format for Per Share line items.
-      operationId: getEstimatesPerShare
-      parameters:
-      - description: Company Ticker
-        explode: true
-        in: query
-        name: id
-        required: true
-        schema:
-          example: FDS
-          type: string
-        style: form
-      - description: Periodicity or frequency of the fiscal periods.
-        explode: true
-        in: query
-        name: periodicity
-        required: false
-        schema:
-          default: ANN
-          enum:
-          - ANN
-          - QTR
-          - SEMI
-          - CAL
-          type: string
-        style: form
-      - description: |
-          The schema that the data is returned as. The following are descriptions for the accepted values:
-          - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata
-          - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns
-        explode: true
-        in: query
-        name: schema
-        required: false
-        schema:
-          default: table_parent_child_columns
-          enum:
-          - table_group_level
-          - table_parent_child_columns
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              examples:
-                groupLevelResponse:
-                  $ref: '#/components/examples/groupLevelResponse'
-                parentChildColumnsResponse:
-                  $ref: '#/components/examples/parentChildColumnsResponse'
-              schema:
-                $ref: '#/components/schemas/Response'
-          description: Expected response; returns JSON data containing STACH 2.0 row
-            organized package format
-          headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
-            Api-Supported-Versions:
-              description: Supported API versions (semantic versioning)
-              explode: false
-              schema:
-                type: string
-              style: simple
-            Api-Version:
-              description: API version (semantic versioning)
-              explode: false
-              schema:
-                type: string
-              style: simple
-        "400":
-          content:
-            application/json:
-              examples:
-                idRequiredParameterError:
-                  $ref: '#/components/examples/idRequiredParameterError'
-                idInvalidParameterError:
-                  $ref: '#/components/examples/idInvalidParameterError'
-                parameterErrorPeriodicity:
-                  $ref: '#/components/examples/parameterErrorPeriodicity'
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: Bad Request. For further assistance, file an issue under "Workflow
-            & Throttling - 400 or 429 Response" using `Report Issue` at the top of
-            this page, including the X-DataDirect-Request-Key from the header to assist
-            in troubleshooting.
-          headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
-            Api-Supported-Versions:
-              description: Supported API versions (semantic versioning)
-              explode: false
-              schema:
-                type: string
-              style: simple
-            Api-Version:
-              description: API version (semantic versioning)
-              explode: false
-              schema:
-                type: string
-              style: simple
-        "401":
-          description: Missing or invalid authentication. Ensure you are logged in
-            and have successfully generated an API KEY for the IP range you are connecting
-            from. For further assistance, file an issue under "Connectivty - 401 or
-            403 Responses" using `Report Issue` at the top of this page, including
-            the X-DataDirect-Request-Key from the header to assist in troubleshooting.
-          headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
-        "403":
-          content:
-            application/json:
-              examples:
-                notAuthorized:
-                  $ref: '#/components/examples/notAuthorized'
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: User is forbidden access with current credentials. Reach out
-            to your local FactSet Account Manager for assistance, or file an issue
-            under "Connectivty - 401 or 403 Responses" using `Report Issue` at the
-            top of this page, including the X-DataDirect-Request-Key from the header
-            to assist in troubleshooting.
-          headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
-        "404":
-          content:
-            application/json:
-              examples:
-                endpointNotFound:
-                  $ref: '#/components/examples/endpointNotFound'
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: Not found. For further assistance, file an issue under "Performance
-            - 404 and 500 Responses" using `Report Issue` at the top of this page,
-            including the X-DataDirect-Request-Key from the header to assist in troubleshooting.
-          headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
-        "429":
-          description: Too many requests - this API is rate-limited to 20 requests
-            per second. For further assistance, file an issue under "Workflow & Throttling
-            - 400 or 429 Response" using `Report Issue` at the top of this page, including
-            the X-DataDirect-Request-Key from the header to assist in troubleshooting.
-          headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
-        "500":
-          content:
-            application/json:
-              examples:
-                genericServerError:
-                  $ref: '#/components/examples/genericServerError'
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: Server error. For further assistance, file an issue under "Performance
-            - 404 and 500 Responses" using `Report Issue` at the top of this page,
-            including the X-DataDirect-Request-Key from the header to assist in troubleshooting.
-          headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
-        "503":
-          description: Service unavailable. Typically a timeout, or result of a rejected
-            request to prevent service overload. For further assistance, file an issue
-            under "Performance - 404 and 500 Responses" using `Report Issue` at the
-            top of this page, including the X-DataDirect-Request-Key from the header
-            to assist in troubleshooting.
-          headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
-      summary: Per Share
-      tags:
-      - All Estimates
-      x-accepts: application/json
-  /industry-metrics:
-    get:
-      description: Returns historical and future period broker estimate consensus
-        in a statement format for industry-specific metrics.
-      operationId: getEstimatesIndustryMetrics
-      parameters:
-      - description: Company Ticker
-        explode: true
-        in: query
-        name: id
-        required: true
-        schema:
-          example: FDS
-          type: string
-        style: form
-      - description: Periodicity or frequency of the fiscal periods.
-        explode: true
-        in: query
-        name: periodicity
-        required: false
-        schema:
-          default: ANN
-          enum:
-          - ANN
-          - QTR
-          - SEMI
-          - CAL
-          type: string
-        style: form
-      - description: |
-          The schema that the data is returned as. The following are descriptions for the accepted values:
-          - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata
-          - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns
-        explode: true
-        in: query
-        name: schema
-        required: false
-        schema:
-          default: table_parent_child_columns
-          enum:
-          - table_group_level
-          - table_parent_child_columns
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              examples:
-                groupLevelResponse:
-                  $ref: '#/components/examples/groupLevelResponse'
-                parentChildColumnsResponse:
-                  $ref: '#/components/examples/parentChildColumnsResponse'
-              schema:
-                $ref: '#/components/schemas/Response'
-          description: Expected response; returns JSON data containing STACH 2.0 row
-            organized package format
-          headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
-            Api-Supported-Versions:
-              description: Supported API versions (semantic versioning)
-              explode: false
-              schema:
-                type: string
-              style: simple
-            Api-Version:
-              description: API version (semantic versioning)
-              explode: false
-              schema:
-                type: string
-              style: simple
-        "400":
-          content:
-            application/json:
-              examples:
-                idRequiredParameterError:
-                  $ref: '#/components/examples/idRequiredParameterError'
-                idInvalidParameterError:
-                  $ref: '#/components/examples/idInvalidParameterError'
-                parameterErrorPeriodicity:
-                  $ref: '#/components/examples/parameterErrorPeriodicity'
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: Bad Request. For further assistance, file an issue under "Workflow
-            & Throttling - 400 or 429 Response" using `Report Issue` at the top of
-            this page, including the X-DataDirect-Request-Key from the header to assist
-            in troubleshooting.
-          headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
-            Api-Supported-Versions:
-              description: Supported API versions (semantic versioning)
-              explode: false
-              schema:
-                type: string
-              style: simple
-            Api-Version:
-              description: API version (semantic versioning)
-              explode: false
-              schema:
-                type: string
-              style: simple
-        "401":
-          description: Missing or invalid authentication. Ensure you are logged in
-            and have successfully generated an API KEY for the IP range you are connecting
-            from. For further assistance, file an issue under "Connectivty - 401 or
-            403 Responses" using `Report Issue` at the top of this page, including
-            the X-DataDirect-Request-Key from the header to assist in troubleshooting.
-          headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
-        "403":
-          content:
-            application/json:
-              examples:
-                notAuthorized:
-                  $ref: '#/components/examples/notAuthorized'
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: User is forbidden access with current credentials. Reach out
-            to your local FactSet Account Manager for assistance, or file an issue
-            under "Connectivty - 401 or 403 Responses" using `Report Issue` at the
-            top of this page, including the X-DataDirect-Request-Key from the header
-            to assist in troubleshooting.
-          headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
-        "404":
-          content:
-            application/json:
-              examples:
-                endpointNotFound:
-                  $ref: '#/components/examples/endpointNotFound'
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: Not found. For further assistance, file an issue under "Performance
-            - 404 and 500 Responses" using `Report Issue` at the top of this page,
-            including the X-DataDirect-Request-Key from the header to assist in troubleshooting.
-          headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
-        "429":
-          description: Too many requests - this API is rate-limited to 20 requests
-            per second. For further assistance, file an issue under "Workflow & Throttling
-            - 400 or 429 Response" using `Report Issue` at the top of this page, including
-            the X-DataDirect-Request-Key from the header to assist in troubleshooting.
-          headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
-        "500":
-          content:
-            application/json:
-              examples:
-                genericServerError:
-                  $ref: '#/components/examples/genericServerError'
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: Server error. For further assistance, file an issue under "Performance
-            - 404 and 500 Responses" using `Report Issue` at the top of this page,
-            including the X-DataDirect-Request-Key from the header to assist in troubleshooting.
-          headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
-        "503":
-          description: Service unavailable. Typically a timeout, or result of a rejected
-            request to prevent service overload. For further assistance, file an issue
-            under "Performance - 404 and 500 Responses" using `Report Issue` at the
-            top of this page, including the X-DataDirect-Request-Key from the header
-            to assist in troubleshooting.
-          headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
-      summary: Industry Metrics
-      tags:
-      - All Estimates
-      x-accepts: application/json
-  /product-segments:
-    get:
-      description: Returns historical and future period broker estimate consensus
-        in a statement format for line items broken down by product and business.
-      operationId: getEstimatesProductSegments
-      parameters:
-      - description: Company Ticker
-        explode: true
-        in: query
-        name: id
-        required: true
-        schema:
-          example: FDS
-          type: string
-        style: form
-      - description: Periodicity or frequency of the fiscal periods.
-        explode: true
-        in: query
-        name: periodicity
-        required: false
-        schema:
-          default: ANN
-          enum:
-          - ANN
-          - QTR
-          - SEMI
-          - CAL
-          type: string
-        style: form
-      - description: |
-          The schema that the data is returned as. The following are descriptions for the accepted values:
-          - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata
-          - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns
-        explode: true
-        in: query
-        name: schema
-        required: false
-        schema:
-          default: table_parent_child_columns
-          enum:
-          - table_group_level
-          - table_parent_child_columns
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              examples:
-                groupLevelResponse:
-                  $ref: '#/components/examples/groupLevelResponse'
-                parentChildColumnsResponse:
-                  $ref: '#/components/examples/parentChildColumnsResponse'
-              schema:
-                $ref: '#/components/schemas/Response'
-          description: Expected response; returns JSON data containing STACH 2.0 row
-            organized package format
-          headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
-            Api-Supported-Versions:
-              description: Supported API versions (semantic versioning)
-              explode: false
-              schema:
-                type: string
-              style: simple
-            Api-Version:
-              description: API version (semantic versioning)
-              explode: false
-              schema:
-                type: string
-              style: simple
-        "400":
-          content:
-            application/json:
-              examples:
-                idRequiredParameterError:
-                  $ref: '#/components/examples/idRequiredParameterError'
-                idInvalidParameterError:
-                  $ref: '#/components/examples/idInvalidParameterError'
-                parameterErrorPeriodicity:
-                  $ref: '#/components/examples/parameterErrorPeriodicity'
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: Bad Request. For further assistance, file an issue under "Workflow
-            & Throttling - 400 or 429 Response" using `Report Issue` at the top of
-            this page, including the X-DataDirect-Request-Key from the header to assist
-            in troubleshooting.
-          headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
-            Api-Supported-Versions:
-              description: Supported API versions (semantic versioning)
-              explode: false
-              schema:
-                type: string
-              style: simple
-            Api-Version:
-              description: API version (semantic versioning)
-              explode: false
-              schema:
-                type: string
-              style: simple
-        "401":
-          description: Missing or invalid authentication. Ensure you are logged in
-            and have successfully generated an API KEY for the IP range you are connecting
-            from. For further assistance, file an issue under "Connectivty - 401 or
-            403 Responses" using `Report Issue` at the top of this page, including
-            the X-DataDirect-Request-Key from the header to assist in troubleshooting.
-          headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
-        "403":
-          content:
-            application/json:
-              examples:
-                notAuthorized:
-                  $ref: '#/components/examples/notAuthorized'
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: User is forbidden access with current credentials. Reach out
-            to your local FactSet Account Manager for assistance, or file an issue
-            under "Connectivty - 401 or 403 Responses" using `Report Issue` at the
-            top of this page, including the X-DataDirect-Request-Key from the header
-            to assist in troubleshooting.
-          headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
-        "404":
-          content:
-            application/json:
-              examples:
-                endpointNotFound:
-                  $ref: '#/components/examples/endpointNotFound'
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: Not found. For further assistance, file an issue under "Performance
-            - 404 and 500 Responses" using `Report Issue` at the top of this page,
-            including the X-DataDirect-Request-Key from the header to assist in troubleshooting.
-          headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
-        "429":
-          description: Too many requests - this API is rate-limited to 20 requests
-            per second. For further assistance, file an issue under "Workflow & Throttling
-            - 400 or 429 Response" using `Report Issue` at the top of this page, including
-            the X-DataDirect-Request-Key from the header to assist in troubleshooting.
-          headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
-        "500":
-          content:
-            application/json:
-              examples:
-                genericServerError:
-                  $ref: '#/components/examples/genericServerError'
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: Server error. For further assistance, file an issue under "Performance
-            - 404 and 500 Responses" using `Report Issue` at the top of this page,
-            including the X-DataDirect-Request-Key from the header to assist in troubleshooting.
-          headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
-        "503":
-          description: Service unavailable. Typically a timeout, or result of a rejected
-            request to prevent service overload. For further assistance, file an issue
-            under "Performance - 404 and 500 Responses" using `Report Issue` at the
-            top of this page, including the X-DataDirect-Request-Key from the header
-            to assist in troubleshooting.
-          headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
-      summary: Product Segments
-      tags:
-      - All Estimates
-      x-accepts: application/json
   /geographic-segments:
     get:
       description: Returns historical and future period broker estimate consensus
@@ -1329,12 +500,6 @@ paths:
           description: Expected response; returns JSON data containing STACH 2.0 row
             organized package format
           headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
             Api-Supported-Versions:
               description: Supported API versions (semantic versioning)
               explode: false
@@ -1347,14 +512,20 @@ paths:
               schema:
                 type: string
               style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
         "400":
           content:
             application/json:
               examples:
-                idRequiredParameterError:
-                  $ref: '#/components/examples/idRequiredParameterError'
                 idInvalidParameterError:
                   $ref: '#/components/examples/idInvalidParameterError'
+                idRequiredParameterError:
+                  $ref: '#/components/examples/idRequiredParameterError'
                 parameterErrorPeriodicity:
                   $ref: '#/components/examples/parameterErrorPeriodicity'
               schema:
@@ -1364,12 +535,6 @@ paths:
             this page, including the X-DataDirect-Request-Key from the header to assist
             in troubleshooting.
           headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
             Api-Supported-Versions:
               description: Supported API versions (semantic versioning)
               explode: false
@@ -1378,6 +543,12 @@ paths:
               style: simple
             Api-Version:
               description: API version (semantic versioning)
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
               explode: false
               schema:
                 type: string
@@ -1480,11 +651,11 @@ paths:
       tags:
       - All Estimates
       x-accepts: application/json
-  /valuation:
+  /income-statement:
     get:
-      description: Returns valuation ratios in a statement format calculated from
-        historical and future period broker estimate consensus.
-      operationId: getEstimatesValuation
+      description: Returns historical and future period broker estimate consensus
+        in a statement format for Income Statement line items.
+      operationId: getEstimatesIncomeStatement
       parameters:
       - description: Company Ticker
         explode: true
@@ -1538,12 +709,6 @@ paths:
           description: Expected response; returns JSON data containing STACH 2.0 row
             organized package format
           headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
             Api-Supported-Versions:
               description: Supported API versions (semantic versioning)
               explode: false
@@ -1556,14 +721,20 @@ paths:
               schema:
                 type: string
               style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
         "400":
           content:
             application/json:
               examples:
-                idRequiredParameterError:
-                  $ref: '#/components/examples/idRequiredParameterError'
                 idInvalidParameterError:
                   $ref: '#/components/examples/idInvalidParameterError'
+                idRequiredParameterError:
+                  $ref: '#/components/examples/idRequiredParameterError'
                 parameterErrorPeriodicity:
                   $ref: '#/components/examples/parameterErrorPeriodicity'
               schema:
@@ -1573,12 +744,6 @@ paths:
             this page, including the X-DataDirect-Request-Key from the header to assist
             in troubleshooting.
           headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
             Api-Supported-Versions:
               description: Supported API versions (semantic versioning)
               explode: false
@@ -1587,6 +752,12 @@ paths:
               style: simple
             Api-Version:
               description: API version (semantic versioning)
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
               explode: false
               schema:
                 type: string
@@ -1685,7 +856,634 @@ paths:
               schema:
                 type: string
               style: simple
-      summary: Valuation
+      summary: Income Statement
+      tags:
+      - All Estimates
+      x-accepts: application/json
+  /industry-metrics:
+    get:
+      description: Returns historical and future period broker estimate consensus
+        in a statement format for industry-specific metrics.
+      operationId: getEstimatesIndustryMetrics
+      parameters:
+      - description: Company Ticker
+        explode: true
+        in: query
+        name: id
+        required: true
+        schema:
+          example: FDS
+          type: string
+        style: form
+      - description: Periodicity or frequency of the fiscal periods.
+        explode: true
+        in: query
+        name: periodicity
+        required: false
+        schema:
+          default: ANN
+          enum:
+          - ANN
+          - QTR
+          - SEMI
+          - CAL
+          type: string
+        style: form
+      - description: |
+          The schema that the data is returned as. The following are descriptions for the accepted values:
+          - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata
+          - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns
+        explode: true
+        in: query
+        name: schema
+        required: false
+        schema:
+          default: table_parent_child_columns
+          enum:
+          - table_group_level
+          - table_parent_child_columns
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                groupLevelResponse:
+                  $ref: '#/components/examples/groupLevelResponse'
+                parentChildColumnsResponse:
+                  $ref: '#/components/examples/parentChildColumnsResponse'
+              schema:
+                $ref: '#/components/schemas/Response'
+          description: Expected response; returns JSON data containing STACH 2.0 row
+            organized package format
+          headers:
+            Api-Supported-Versions:
+              description: Supported API versions (semantic versioning)
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Api-Version:
+              description: API version (semantic versioning)
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          content:
+            application/json:
+              examples:
+                idInvalidParameterError:
+                  $ref: '#/components/examples/idInvalidParameterError'
+                idRequiredParameterError:
+                  $ref: '#/components/examples/idRequiredParameterError'
+                parameterErrorPeriodicity:
+                  $ref: '#/components/examples/parameterErrorPeriodicity'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. For further assistance, file an issue under "Workflow
+            & Throttling - 400 or 429 Response" using `Report Issue` at the top of
+            this page, including the X-DataDirect-Request-Key from the header to assist
+            in troubleshooting.
+          headers:
+            Api-Supported-Versions:
+              description: Supported API versions (semantic versioning)
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Api-Version:
+              description: API version (semantic versioning)
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Missing or invalid authentication. Ensure you are logged in
+            and have successfully generated an API KEY for the IP range you are connecting
+            from. For further assistance, file an issue under "Connectivty - 401 or
+            403 Responses" using `Report Issue` at the top of this page, including
+            the X-DataDirect-Request-Key from the header to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          content:
+            application/json:
+              examples:
+                notAuthorized:
+                  $ref: '#/components/examples/notAuthorized'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: User is forbidden access with current credentials. Reach out
+            to your local FactSet Account Manager for assistance, or file an issue
+            under "Connectivty - 401 or 403 Responses" using `Report Issue` at the
+            top of this page, including the X-DataDirect-Request-Key from the header
+            to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "404":
+          content:
+            application/json:
+              examples:
+                endpointNotFound:
+                  $ref: '#/components/examples/endpointNotFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not found. For further assistance, file an issue under "Performance
+            - 404 and 500 Responses" using `Report Issue` at the top of this page,
+            including the X-DataDirect-Request-Key from the header to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "429":
+          description: Too many requests - this API is rate-limited to 20 requests
+            per second. For further assistance, file an issue under "Workflow & Throttling
+            - 400 or 429 Response" using `Report Issue` at the top of this page, including
+            the X-DataDirect-Request-Key from the header to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          content:
+            application/json:
+              examples:
+                genericServerError:
+                  $ref: '#/components/examples/genericServerError'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Server error. For further assistance, file an issue under "Performance
+            - 404 and 500 Responses" using `Report Issue` at the top of this page,
+            including the X-DataDirect-Request-Key from the header to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "503":
+          description: Service unavailable. Typically a timeout, or result of a rejected
+            request to prevent service overload. For further assistance, file an issue
+            under "Performance - 404 and 500 Responses" using `Report Issue` at the
+            top of this page, including the X-DataDirect-Request-Key from the header
+            to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+      summary: Industry Metrics
+      tags:
+      - All Estimates
+      x-accepts: application/json
+  /per-share:
+    get:
+      description: Returns historical and future period broker estimate consensus
+        in a statement format for Per Share line items.
+      operationId: getEstimatesPerShare
+      parameters:
+      - description: Company Ticker
+        explode: true
+        in: query
+        name: id
+        required: true
+        schema:
+          example: FDS
+          type: string
+        style: form
+      - description: Periodicity or frequency of the fiscal periods.
+        explode: true
+        in: query
+        name: periodicity
+        required: false
+        schema:
+          default: ANN
+          enum:
+          - ANN
+          - QTR
+          - SEMI
+          - CAL
+          type: string
+        style: form
+      - description: |
+          The schema that the data is returned as. The following are descriptions for the accepted values:
+          - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata
+          - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns
+        explode: true
+        in: query
+        name: schema
+        required: false
+        schema:
+          default: table_parent_child_columns
+          enum:
+          - table_group_level
+          - table_parent_child_columns
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                groupLevelResponse:
+                  $ref: '#/components/examples/groupLevelResponse'
+                parentChildColumnsResponse:
+                  $ref: '#/components/examples/parentChildColumnsResponse'
+              schema:
+                $ref: '#/components/schemas/Response'
+          description: Expected response; returns JSON data containing STACH 2.0 row
+            organized package format
+          headers:
+            Api-Supported-Versions:
+              description: Supported API versions (semantic versioning)
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Api-Version:
+              description: API version (semantic versioning)
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          content:
+            application/json:
+              examples:
+                idInvalidParameterError:
+                  $ref: '#/components/examples/idInvalidParameterError'
+                idRequiredParameterError:
+                  $ref: '#/components/examples/idRequiredParameterError'
+                parameterErrorPeriodicity:
+                  $ref: '#/components/examples/parameterErrorPeriodicity'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. For further assistance, file an issue under "Workflow
+            & Throttling - 400 or 429 Response" using `Report Issue` at the top of
+            this page, including the X-DataDirect-Request-Key from the header to assist
+            in troubleshooting.
+          headers:
+            Api-Supported-Versions:
+              description: Supported API versions (semantic versioning)
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Api-Version:
+              description: API version (semantic versioning)
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Missing or invalid authentication. Ensure you are logged in
+            and have successfully generated an API KEY for the IP range you are connecting
+            from. For further assistance, file an issue under "Connectivty - 401 or
+            403 Responses" using `Report Issue` at the top of this page, including
+            the X-DataDirect-Request-Key from the header to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          content:
+            application/json:
+              examples:
+                notAuthorized:
+                  $ref: '#/components/examples/notAuthorized'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: User is forbidden access with current credentials. Reach out
+            to your local FactSet Account Manager for assistance, or file an issue
+            under "Connectivty - 401 or 403 Responses" using `Report Issue` at the
+            top of this page, including the X-DataDirect-Request-Key from the header
+            to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "404":
+          content:
+            application/json:
+              examples:
+                endpointNotFound:
+                  $ref: '#/components/examples/endpointNotFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not found. For further assistance, file an issue under "Performance
+            - 404 and 500 Responses" using `Report Issue` at the top of this page,
+            including the X-DataDirect-Request-Key from the header to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "429":
+          description: Too many requests - this API is rate-limited to 20 requests
+            per second. For further assistance, file an issue under "Workflow & Throttling
+            - 400 or 429 Response" using `Report Issue` at the top of this page, including
+            the X-DataDirect-Request-Key from the header to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          content:
+            application/json:
+              examples:
+                genericServerError:
+                  $ref: '#/components/examples/genericServerError'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Server error. For further assistance, file an issue under "Performance
+            - 404 and 500 Responses" using `Report Issue` at the top of this page,
+            including the X-DataDirect-Request-Key from the header to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "503":
+          description: Service unavailable. Typically a timeout, or result of a rejected
+            request to prevent service overload. For further assistance, file an issue
+            under "Performance - 404 and 500 Responses" using `Report Issue` at the
+            top of this page, including the X-DataDirect-Request-Key from the header
+            to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+      summary: Per Share
+      tags:
+      - All Estimates
+      x-accepts: application/json
+  /product-segments:
+    get:
+      description: Returns historical and future period broker estimate consensus
+        in a statement format for line items broken down by product and business.
+      operationId: getEstimatesProductSegments
+      parameters:
+      - description: Company Ticker
+        explode: true
+        in: query
+        name: id
+        required: true
+        schema:
+          example: FDS
+          type: string
+        style: form
+      - description: Periodicity or frequency of the fiscal periods.
+        explode: true
+        in: query
+        name: periodicity
+        required: false
+        schema:
+          default: ANN
+          enum:
+          - ANN
+          - QTR
+          - SEMI
+          - CAL
+          type: string
+        style: form
+      - description: |
+          The schema that the data is returned as. The following are descriptions for the accepted values:
+          - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata
+          - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns
+        explode: true
+        in: query
+        name: schema
+        required: false
+        schema:
+          default: table_parent_child_columns
+          enum:
+          - table_group_level
+          - table_parent_child_columns
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                groupLevelResponse:
+                  $ref: '#/components/examples/groupLevelResponse'
+                parentChildColumnsResponse:
+                  $ref: '#/components/examples/parentChildColumnsResponse'
+              schema:
+                $ref: '#/components/schemas/Response'
+          description: Expected response; returns JSON data containing STACH 2.0 row
+            organized package format
+          headers:
+            Api-Supported-Versions:
+              description: Supported API versions (semantic versioning)
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Api-Version:
+              description: API version (semantic versioning)
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          content:
+            application/json:
+              examples:
+                idInvalidParameterError:
+                  $ref: '#/components/examples/idInvalidParameterError'
+                idRequiredParameterError:
+                  $ref: '#/components/examples/idRequiredParameterError'
+                parameterErrorPeriodicity:
+                  $ref: '#/components/examples/parameterErrorPeriodicity'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. For further assistance, file an issue under "Workflow
+            & Throttling - 400 or 429 Response" using `Report Issue` at the top of
+            this page, including the X-DataDirect-Request-Key from the header to assist
+            in troubleshooting.
+          headers:
+            Api-Supported-Versions:
+              description: Supported API versions (semantic versioning)
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Api-Version:
+              description: API version (semantic versioning)
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Missing or invalid authentication. Ensure you are logged in
+            and have successfully generated an API KEY for the IP range you are connecting
+            from. For further assistance, file an issue under "Connectivty - 401 or
+            403 Responses" using `Report Issue` at the top of this page, including
+            the X-DataDirect-Request-Key from the header to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          content:
+            application/json:
+              examples:
+                notAuthorized:
+                  $ref: '#/components/examples/notAuthorized'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: User is forbidden access with current credentials. Reach out
+            to your local FactSet Account Manager for assistance, or file an issue
+            under "Connectivty - 401 or 403 Responses" using `Report Issue` at the
+            top of this page, including the X-DataDirect-Request-Key from the header
+            to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "404":
+          content:
+            application/json:
+              examples:
+                endpointNotFound:
+                  $ref: '#/components/examples/endpointNotFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not found. For further assistance, file an issue under "Performance
+            - 404 and 500 Responses" using `Report Issue` at the top of this page,
+            including the X-DataDirect-Request-Key from the header to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "429":
+          description: Too many requests - this API is rate-limited to 20 requests
+            per second. For further assistance, file an issue under "Workflow & Throttling
+            - 400 or 429 Response" using `Report Issue` at the top of this page, including
+            the X-DataDirect-Request-Key from the header to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          content:
+            application/json:
+              examples:
+                genericServerError:
+                  $ref: '#/components/examples/genericServerError'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Server error. For further assistance, file an issue under "Performance
+            - 404 and 500 Responses" using `Report Issue` at the top of this page,
+            including the X-DataDirect-Request-Key from the header to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "503":
+          description: Service unavailable. Typically a timeout, or result of a rejected
+            request to prevent service overload. For further assistance, file an issue
+            under "Performance - 404 and 500 Responses" using `Report Issue` at the
+            top of this page, including the X-DataDirect-Request-Key from the header
+            to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+      summary: Product Segments
       tags:
       - All Estimates
       x-accepts: application/json
@@ -1726,12 +1524,6 @@ paths:
           description: Expected response; returns JSON data containing STACH 2.0 row
             organized package format
           headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
             Api-Supported-Versions:
               description: Supported API versions (semantic versioning)
               explode: false
@@ -1744,14 +1536,20 @@ paths:
               schema:
                 type: string
               style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
         "400":
           content:
             application/json:
               examples:
-                idRequiredParameterError:
-                  $ref: '#/components/examples/idRequiredParameterError'
                 idInvalidParameterError:
                   $ref: '#/components/examples/idInvalidParameterError'
+                idRequiredParameterError:
+                  $ref: '#/components/examples/idRequiredParameterError'
                 parameterErrorMetric:
                   $ref: '#/components/examples/parameterErrorMetric'
               schema:
@@ -1761,12 +1559,6 @@ paths:
             this page, including the X-DataDirect-Request-Key from the header to assist
             in troubleshooting.
           headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
             Api-Supported-Versions:
               description: Supported API versions (semantic versioning)
               explode: false
@@ -1775,6 +1567,12 @@ paths:
               style: simple
             Api-Version:
               description: API version (semantic versioning)
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
               explode: false
               schema:
                 type: string
@@ -1877,16 +1675,549 @@ paths:
       tags:
       - Estimate Tables
       x-accepts: application/json
+  /valuation:
+    get:
+      description: Returns valuation ratios in a statement format calculated from
+        historical and future period broker estimate consensus.
+      operationId: getEstimatesValuation
+      parameters:
+      - description: Company Ticker
+        explode: true
+        in: query
+        name: id
+        required: true
+        schema:
+          example: FDS
+          type: string
+        style: form
+      - description: Periodicity or frequency of the fiscal periods.
+        explode: true
+        in: query
+        name: periodicity
+        required: false
+        schema:
+          default: ANN
+          enum:
+          - ANN
+          - QTR
+          - SEMI
+          - CAL
+          type: string
+        style: form
+      - description: |
+          The schema that the data is returned as. The following are descriptions for the accepted values:
+          - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata
+          - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns
+        explode: true
+        in: query
+        name: schema
+        required: false
+        schema:
+          default: table_parent_child_columns
+          enum:
+          - table_group_level
+          - table_parent_child_columns
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                groupLevelResponse:
+                  $ref: '#/components/examples/groupLevelResponse'
+                parentChildColumnsResponse:
+                  $ref: '#/components/examples/parentChildColumnsResponse'
+              schema:
+                $ref: '#/components/schemas/Response'
+          description: Expected response; returns JSON data containing STACH 2.0 row
+            organized package format
+          headers:
+            Api-Supported-Versions:
+              description: Supported API versions (semantic versioning)
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Api-Version:
+              description: API version (semantic versioning)
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          content:
+            application/json:
+              examples:
+                idInvalidParameterError:
+                  $ref: '#/components/examples/idInvalidParameterError'
+                idRequiredParameterError:
+                  $ref: '#/components/examples/idRequiredParameterError'
+                parameterErrorPeriodicity:
+                  $ref: '#/components/examples/parameterErrorPeriodicity'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. For further assistance, file an issue under "Workflow
+            & Throttling - 400 or 429 Response" using `Report Issue` at the top of
+            this page, including the X-DataDirect-Request-Key from the header to assist
+            in troubleshooting.
+          headers:
+            Api-Supported-Versions:
+              description: Supported API versions (semantic versioning)
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Api-Version:
+              description: API version (semantic versioning)
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Missing or invalid authentication. Ensure you are logged in
+            and have successfully generated an API KEY for the IP range you are connecting
+            from. For further assistance, file an issue under "Connectivty - 401 or
+            403 Responses" using `Report Issue` at the top of this page, including
+            the X-DataDirect-Request-Key from the header to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          content:
+            application/json:
+              examples:
+                notAuthorized:
+                  $ref: '#/components/examples/notAuthorized'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: User is forbidden access with current credentials. Reach out
+            to your local FactSet Account Manager for assistance, or file an issue
+            under "Connectivty - 401 or 403 Responses" using `Report Issue` at the
+            top of this page, including the X-DataDirect-Request-Key from the header
+            to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "404":
+          content:
+            application/json:
+              examples:
+                endpointNotFound:
+                  $ref: '#/components/examples/endpointNotFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not found. For further assistance, file an issue under "Performance
+            - 404 and 500 Responses" using `Report Issue` at the top of this page,
+            including the X-DataDirect-Request-Key from the header to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "429":
+          description: Too many requests - this API is rate-limited to 20 requests
+            per second. For further assistance, file an issue under "Workflow & Throttling
+            - 400 or 429 Response" using `Report Issue` at the top of this page, including
+            the X-DataDirect-Request-Key from the header to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          content:
+            application/json:
+              examples:
+                genericServerError:
+                  $ref: '#/components/examples/genericServerError'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Server error. For further assistance, file an issue under "Performance
+            - 404 and 500 Responses" using `Report Issue` at the top of this page,
+            including the X-DataDirect-Request-Key from the header to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "503":
+          description: Service unavailable. Typically a timeout, or result of a rejected
+            request to prevent service overload. For further assistance, file an issue
+            under "Performance - 404 and 500 Responses" using `Report Issue` at the
+            top of this page, including the X-DataDirect-Request-Key from the header
+            to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+      summary: Valuation
+      tags:
+      - All Estimates
+      x-accepts: application/json
 components:
   examples:
+    default200Response:
+      description: Subset of rows and columns for an example response
+      summary: (dummy data)
+      value:
+        data:
+          tables:
+            main:
+              data:
+                rows:
+                - cells:
+                  - null
+                  - Aug' 16
+                  - Aug' 17
+                  headerCellDetails:
+                    "0":
+                      columnIndex: 0
+                      source: PRIMARY
+                    "1":
+                      columnIndex: 0
+                      source: HEADERS
+                    "2":
+                      columnIndex: 0
+                      source: HEADERS
+                  rowType: Header
+                - cells:
+                  - null
+                  - "20160831"
+                  - "20170831"
+                  headerCellDetails:
+                    "0":
+                      columnIndex: 0
+                      source: PRIMARY
+                    "1":
+                      columnIndex: 1
+                      source: HEADERS
+                    "2":
+                      columnIndex: 1
+                      source: HEADERS
+                  rowType: Header
+                - cells:
+                  - Q1 (Nov)
+                  - 1.44
+                  - 1.75
+                - cells:
+                  - Q2 (Feb)
+                  - 1.59
+                  - 1.81
+                - cells:
+                  - Q3 (May)
+                  - 1.64
+                  - 1.85
+                tableMetadata:
+                  currencyCode:
+                    value: USD
+                  currencySymbol:
+                    value: $
+                  sources:
+                    value:
+                    - FactSet Estimates
+              definition:
+                columns:
+                - id: fy_ending
+                  type: string
+                - id: period -4
+                  type: real
+                - id: period -3
+                  type: real
+              headersDefinition:
+                columns:
+                - id: dates_display
+                  isDimension: true
+                  type: string
+                - id: dates_value
+                  isDimension: true
+                  isHidden: true
+                  type: string
+          version: "2.0"
+        meta:
+          fsymId: SQFMK3-R
+          requestId: FDS
+    endpointNotFound:
+      summary: endpoint not found
+      value:
+        errors:
+        - code: endpointNotFound
+          id: 39314614-e607-465a-ba95-5bb79c362e23
+          title: The requested endpoint does not exist.
+    genericServerError:
+      summary: generic server error
+      value:
+        errors:
+        - code: genericServerError
+          id: 39314614-e607-465a-ba95-5bb79c362e23
+          title: Unexpected error processing request
+    groupLevelResponse:
+      description: Subset of rows and columns for an example response
+      summary: (sample table group level columns response)
+      value:
+        data:
+          tables:
+            main:
+              data:
+                columnMetadata:
+                  period1:
+                    items:
+                      category:
+                        value: ACTUAL
+                  period2:
+                    items:
+                      category:
+                        value: ACTUAL
+                rows:
+                - cells:
+                  - null
+                  - Aug' 15
+                  - Aug' 16
+                  headerCellDetails:
+                    "0":
+                      columnIndex: 0
+                      source: PRIMARY
+                    "1":
+                      columnIndex: 0
+                      source: HEADERS
+                    "2":
+                      columnIndex: 0
+                      source: HEADERS
+                  rowType: Header
+                - cells:
+                  - null
+                  - "20150831"
+                  - "20160831"
+                  headerCellDetails:
+                    "0":
+                      columnIndex: 0
+                      source: PRIMARY
+                    "1":
+                      columnIndex: 1
+                      source: HEADERS
+                    "2":
+                      columnIndex: 1
+                      source: HEADERS
+                  rowType: Header
+                - cells:
+                  - Net Income
+                  - 241.050995
+                  - 264.675995
+                  rowMetadata:
+                    category:
+                      value: MAIN
+                    metricEstimates:
+                      value: NET_INC
+                - cellDetails:
+                    "0":
+                      groupLevel: "1"
+                  cells:
+                  - Net Income - Non GAAP
+                  - 236.781006
+                  - 264.675995
+                  rowMetadata:
+                    category:
+                      value: DETAIL
+                    metricEstimates:
+                      value: NETBG
+                - cellDetails:
+                    "0":
+                      groupLevel: "1"
+                  cells:
+                  - Net Income - GAAP
+                  - 241.050995
+                  - 338.815002
+                  rowMetadata:
+                    category:
+                      value: DETAIL
+                tableMetadata:
+                  currencyCode:
+                    value: USD
+                  currencySymbol:
+                    value: $
+                  sources:
+                    value:
+                    - FactSet Estimates
+              definition:
+                columns:
+                - id: lineItem
+                  isDimension: true
+                  type: string
+                - id: period1
+                  type: real
+                - id: period2
+                  type: real
+              headersDefinition:
+                columns:
+                - id: dates_display
+                  isDimension: true
+                  type: string
+                - id: dates_value
+                  isDimension: true
+                  isHidden: true
+                  type: string
+          version: "2.0"
+        meta:
+          fsymId: SQFMK3-R
+          requestId: FDS
+          schema: table_group_level
+    idInvalidParameterError:
+      summary: generic parameter error (invalid parameter)
+      value:
+        errors:
+        - code: parameterError
+          id: 39314614-e607-465a-ba95-5bb79c362e23
+          title: 'Invalid parameter(s): ''id'''
+    idRequiredParameterError:
+      summary: generic parameter error (missing parameter)
+      value:
+        errors:
+        - code: parameterError
+          id: 39314614-e607-465a-ba95-5bb79c362e23
+          title: 'Missing required parameter(s): ''id'''
+    notAuthorized:
+      summary: not authorized
+      value:
+        errors:
+        - code: notAuthorized
+          id: 39314614-e607-465a-ba95-5bb79c362e23
+          title: User is forbidden access with current credentials. For access, contact
+            your FactSet sales representative
+    parameterErrorMetric:
+      summary: metric parameter error
+      value:
+        errors:
+        - code: parameterError
+          id: 39314614-e607-465a-ba95-5bb79c362e23
+          title: 'Invalid metric parameter value: ''SALES2'''
+    parameterErrorPeriodicity:
+      summary: periodicity parameter error
+      value:
+        errors:
+        - code: parameterError
+          id: 39314614-e607-465a-ba95-5bb79c362e23
+          title: 'Invalid parameter: ''periodicity'''
     parentChildColumnsResponse:
       description: Subset of rows and columns for an example response
       summary: (sample table parent child columns response)
       value:
         data:
-          version: "2.0"
           tables:
             main:
+              data:
+                columnMetadata:
+                  period1:
+                    items:
+                      category:
+                        value: ACTUAL
+                  period2:
+                    items:
+                      category:
+                        value: ACTUAL
+                rows:
+                - cells:
+                  - null
+                  - null
+                  - Aug' 15
+                  - Aug' 16
+                  headerCellDetails:
+                    "0":
+                      columnIndex: 0
+                      source: PRIMARY
+                    "1":
+                      columnIndex: 1
+                      source: PRIMARY
+                    "2":
+                      columnIndex: 0
+                      source: HEADERS
+                    "3":
+                      columnIndex: 0
+                      source: HEADERS
+                  rowType: Header
+                - cells:
+                  - null
+                  - null
+                  - "20150831"
+                  - "20160831"
+                  headerCellDetails:
+                    "0":
+                      columnIndex: 0
+                      source: PRIMARY
+                    "1":
+                      columnIndex: 1
+                      source: PRIMARY
+                    "2":
+                      columnIndex: 1
+                      source: HEADERS
+                    "3":
+                      columnIndex: 1
+                      source: HEADERS
+                  rowType: Header
+                - cells:
+                  - Net Income
+                  - null
+                  - 241.050995
+                  - 264.675995
+                  rowMetadata:
+                    category:
+                      value: MAIN
+                    metricEstimates:
+                      value: NET_INC
+                - cells:
+                  - Net Income
+                  - Net Income - Non GAAP
+                  - 236.781006
+                  - 264.675995
+                  rowMetadata:
+                    category:
+                      value: DETAIL
+                    metricEstimates:
+                      value: NETBG
+                - cells:
+                  - Net Income
+                  - Net Income - GAAP
+                  - 241.050995
+                  - 338.815002
+                  rowMetadata:
+                    category:
+                      value: DETAIL
+                tableMetadata:
+                  currencyCode:
+                    value: USD
+                  currencySymbol:
+                    value: $
+                  sources:
+                    value:
+                    - FactSet Estimates
               definition:
                 columns:
                 - id: lineItem
@@ -1909,311 +2240,11 @@ components:
                   isDimension: true
                   isHidden: true
                   type: string
-              data:
-                rows:
-                - rowType: Header
-                  cells:
-                  - null
-                  - null
-                  - Aug' 15
-                  - Aug' 16
-                  headerCellDetails:
-                    "0":
-                      source: PRIMARY
-                      columnIndex: 0
-                    "1":
-                      source: PRIMARY
-                      columnIndex: 1
-                    "2":
-                      source: HEADERS
-                      columnIndex: 0
-                    "3":
-                      source: HEADERS
-                      columnIndex: 0
-                - rowType: Header
-                  cells:
-                  - null
-                  - null
-                  - "20150831"
-                  - "20160831"
-                  headerCellDetails:
-                    "0":
-                      source: PRIMARY
-                      columnIndex: 0
-                    "1":
-                      source: PRIMARY
-                      columnIndex: 1
-                    "2":
-                      source: HEADERS
-                      columnIndex: 1
-                    "3":
-                      source: HEADERS
-                      columnIndex: 1
-                - cells:
-                  - Net Income
-                  - null
-                  - 241.050995
-                  - 264.675995
-                  rowMetadata:
-                    metricEstimates:
-                      value: NET_INC
-                    category:
-                      value: MAIN
-                - cells:
-                  - Net Income
-                  - Net Income - Non GAAP
-                  - 236.781006
-                  - 264.675995
-                  rowMetadata:
-                    metricEstimates:
-                      value: NETBG
-                    category:
-                      value: DETAIL
-                - cells:
-                  - Net Income
-                  - Net Income - GAAP
-                  - 241.050995
-                  - 338.815002
-                  rowMetadata:
-                    category:
-                      value: DETAIL
-                columnMetadata:
-                  period1:
-                    items:
-                      category:
-                        value: ACTUAL
-                  period2:
-                    items:
-                      category:
-                        value: ACTUAL
+          version: "2.0"
         meta:
-          requestId: FDS
           fsymId: SQFMK3-R
+          requestId: FDS
           schema: table_parent_child_columns
-    groupLevelResponse:
-      description: Subset of rows and columns for an example response
-      summary: (sample table group level columns response)
-      value:
-        data:
-          version: "2.0"
-          tables:
-            main:
-              definition:
-                columns:
-                - id: lineItem
-                  isDimension: true
-                  type: string
-                - id: period1
-                  type: real
-                - id: period2
-                  type: real
-              headersDefinition:
-                columns:
-                - id: dates_display
-                  isDimension: true
-                  type: string
-                - id: dates_value
-                  isDimension: true
-                  isHidden: true
-                  type: string
-              data:
-                rows:
-                - rowType: Header
-                  cells:
-                  - null
-                  - Aug' 15
-                  - Aug' 16
-                  headerCellDetails:
-                    "0":
-                      source: PRIMARY
-                      columnIndex: 0
-                    "1":
-                      source: HEADERS
-                      columnIndex: 0
-                    "2":
-                      source: HEADERS
-                      columnIndex: 0
-                - rowType: Header
-                  cells:
-                  - null
-                  - "20150831"
-                  - "20160831"
-                  headerCellDetails:
-                    "0":
-                      source: PRIMARY
-                      columnIndex: 0
-                    "1":
-                      source: HEADERS
-                      columnIndex: 1
-                    "2":
-                      source: HEADERS
-                      columnIndex: 1
-                - cells:
-                  - Net Income
-                  - 241.050995
-                  - 264.675995
-                  rowMetadata:
-                    metricEstimates:
-                      value: NET_INC
-                    category:
-                      value: MAIN
-                - cells:
-                  - Net Income - Non GAAP
-                  - 236.781006
-                  - 264.675995
-                  cellDetails:
-                    "0":
-                      groupLevel: "1"
-                  rowMetadata:
-                    metricEstimates:
-                      value: NETBG
-                    category:
-                      value: DETAIL
-                - cells:
-                  - Net Income - GAAP
-                  - 241.050995
-                  - 338.815002
-                  cellDetails:
-                    "0":
-                      groupLevel: "1"
-                  rowMetadata:
-                    category:
-                      value: DETAIL
-                columnMetadata:
-                  period1:
-                    items:
-                      category:
-                        value: ACTUAL
-                  period2:
-                    items:
-                      category:
-                        value: ACTUAL
-        meta:
-          requestId: FDS
-          fsymId: SQFMK3-R
-          schema: table_group_level
-    default200Response:
-      description: Subset of rows and columns for an example response
-      summary: (dummy data)
-      value:
-        data:
-          version: "2.0"
-          tables:
-            main:
-              definition:
-                columns:
-                - id: fy_ending
-                  type: string
-                - id: period -4
-                  type: real
-                - id: period -3
-                  type: real
-              headersDefinition:
-                columns:
-                - id: dates_display
-                  isDimension: true
-                  type: string
-                - id: dates_value
-                  isDimension: true
-                  isHidden: true
-                  type: string
-              data:
-                rows:
-                - rowType: Header
-                  cells:
-                  - null
-                  - Aug' 16
-                  - Aug' 17
-                  headerCellDetails:
-                    "0":
-                      source: PRIMARY
-                      columnIndex: 0
-                    "1":
-                      source: HEADERS
-                      columnIndex: 0
-                    "2":
-                      source: HEADERS
-                      columnIndex: 0
-                - rowType: Header
-                  cells:
-                  - null
-                  - "20160831"
-                  - "20170831"
-                  headerCellDetails:
-                    "0":
-                      source: PRIMARY
-                      columnIndex: 0
-                    "1":
-                      source: HEADERS
-                      columnIndex: 1
-                    "2":
-                      source: HEADERS
-                      columnIndex: 1
-                - cells:
-                  - Q1 (Nov)
-                  - 1.44
-                  - 1.75
-                - cells:
-                  - Q2 (Feb)
-                  - 1.59
-                  - 1.81
-                - cells:
-                  - Q3 (May)
-                  - 1.64
-                  - 1.85
-        meta:
-          requestId: FDS
-          fsymId: SQFMK3-R
-    genericServerError:
-      summary: generic server error
-      value:
-        errors:
-        - id: 39314614-e607-465a-ba95-5bb79c362e23
-          code: genericServerError
-          title: Unexpected error processing request
-    idRequiredParameterError:
-      summary: generic parameter error (missing parameter)
-      value:
-        errors:
-        - id: 39314614-e607-465a-ba95-5bb79c362e23
-          code: parameterError
-          title: 'Missing required parameter(s): ''id'''
-    idInvalidParameterError:
-      summary: generic parameter error (invalid parameter)
-      value:
-        errors:
-        - id: 39314614-e607-465a-ba95-5bb79c362e23
-          code: parameterError
-          title: 'Invalid parameter(s): ''id'''
-    parameterErrorPeriodicity:
-      summary: periodicity parameter error
-      value:
-        errors:
-        - id: 39314614-e607-465a-ba95-5bb79c362e23
-          code: parameterError
-          title: 'Invalid parameter: ''periodicity'''
-    parameterErrorMetric:
-      summary: metric parameter error
-      value:
-        errors:
-        - id: 39314614-e607-465a-ba95-5bb79c362e23
-          code: parameterError
-          title: 'Invalid metric parameter value: ''SALES2'''
-    endpointNotFound:
-      summary: endpoint not found
-      value:
-        errors:
-        - id: 39314614-e607-465a-ba95-5bb79c362e23
-          code: endpointNotFound
-          title: The requested endpoint does not exist.
-    notAuthorized:
-      summary: not authorized
-      value:
-        errors:
-        - id: 39314614-e607-465a-ba95-5bb79c362e23
-          code: notAuthorized
-          title: User is forbidden access with current credentials. For access, contact
-            your FactSet sales representative
   parameters:
     idParameter:
       description: Company Ticker
@@ -2223,6 +2254,17 @@ components:
       required: true
       schema:
         example: FDS
+        type: string
+      style: form
+    metricParameter:
+      description: 'Requested metric. For more details, visit [Online Assitant Page
+        #15034](https://oa.apps.factset.com/pages/15034).'
+      explode: true
+      in: query
+      name: metric
+      required: false
+      schema:
+        example: EPS
         type: string
       style: form
     periodicityParameter:
@@ -2238,17 +2280,6 @@ components:
         - QTR
         - SEMI
         - CAL
-        type: string
-      style: form
-    metricParameter:
-      description: 'Requested metric. For more details, visit [Online Assitant Page
-        #15034](https://oa.apps.factset.com/pages/15034).'
-      explode: true
-      in: query
-      name: metric
-      required: false
-      schema:
-        example: EPS
         type: string
       style: form
     schemaParameter:
@@ -2281,12 +2312,6 @@ components:
       description: Expected response; returns JSON data containing STACH 2.0 row organized
         package format
       headers:
-        X-DataDirect-Request-Key:
-          description: FactSet request ID
-          explode: false
-          schema:
-            type: string
-          style: simple
         Api-Supported-Versions:
           description: Supported API versions (semantic versioning)
           explode: false
@@ -2295,6 +2320,12 @@ components:
           style: simple
         Api-Version:
           description: API version (semantic versioning)
+          explode: false
+          schema:
+            type: string
+          style: simple
+        X-DataDirect-Request-Key:
+          description: FactSet request ID
           explode: false
           schema:
             type: string
@@ -2310,12 +2341,6 @@ components:
       description: Expected response; returns JSON data containing STACH 2.0 row organized
         package format
       headers:
-        X-DataDirect-Request-Key:
-          description: FactSet request ID
-          explode: false
-          schema:
-            type: string
-          style: simple
         Api-Supported-Versions:
           description: Supported API versions (semantic versioning)
           explode: false
@@ -2328,14 +2353,20 @@ components:
           schema:
             type: string
           style: simple
+        X-DataDirect-Request-Key:
+          description: FactSet request ID
+          explode: false
+          schema:
+            type: string
+          style: simple
     "400BadRequest":
       content:
         application/json:
           examples:
-            idRequiredParameterError:
-              $ref: '#/components/examples/idRequiredParameterError'
             idInvalidParameterError:
               $ref: '#/components/examples/idInvalidParameterError'
+            idRequiredParameterError:
+              $ref: '#/components/examples/idRequiredParameterError'
             parameterErrorPeriodicity:
               $ref: '#/components/examples/parameterErrorPeriodicity'
           schema:
@@ -2345,12 +2376,6 @@ components:
         page, including the X-DataDirect-Request-Key from the header to assist in
         troubleshooting.
       headers:
-        X-DataDirect-Request-Key:
-          description: FactSet request ID
-          explode: false
-          schema:
-            type: string
-          style: simple
         Api-Supported-Versions:
           description: Supported API versions (semantic versioning)
           explode: false
@@ -2363,14 +2388,20 @@ components:
           schema:
             type: string
           style: simple
+        X-DataDirect-Request-Key:
+          description: FactSet request ID
+          explode: false
+          schema:
+            type: string
+          style: simple
     "400BadRequest-table":
       content:
         application/json:
           examples:
-            idRequiredParameterError:
-              $ref: '#/components/examples/idRequiredParameterError'
             idInvalidParameterError:
               $ref: '#/components/examples/idInvalidParameterError'
+            idRequiredParameterError:
+              $ref: '#/components/examples/idRequiredParameterError'
             parameterErrorMetric:
               $ref: '#/components/examples/parameterErrorMetric'
           schema:
@@ -2380,12 +2411,6 @@ components:
         page, including the X-DataDirect-Request-Key from the header to assist in
         troubleshooting.
       headers:
-        X-DataDirect-Request-Key:
-          description: FactSet request ID
-          explode: false
-          schema:
-            type: string
-          style: simple
         Api-Supported-Versions:
           description: Supported API versions (semantic versioning)
           explode: false
@@ -2394,6 +2419,12 @@ components:
           style: simple
         Api-Version:
           description: API version (semantic versioning)
+          explode: false
+          schema:
+            type: string
+          style: simple
+        X-DataDirect-Request-Key:
+          description: FactSet request ID
           explode: false
           schema:
             type: string
@@ -2493,25 +2524,28 @@ components:
             type: string
           style: simple
   schemas:
-    Response:
-      example:
-        data: ""
-        meta:
-          key: meta
+    ErrorObject:
+      description: Schema describing an API error
       properties:
-        data:
-          description: Returns a STACH 2.0 row organized package
-          title: STACH
-        meta:
-          additionalProperties:
-            nullable: true
-            type: string
-          type: object
-      type: object
-    Meta:
-      additionalProperties:
-        nullable: true
-        type: string
+        code:
+          description: A common or API-specific error code.
+          type: string
+        detail:
+          description: A human-readable explanation specific to the occurrence of
+            the problem.
+          type: string
+        id:
+          description: A UUID for this particular ocurrence of the problem.  This
+            will be logged for debugging.
+          type: string
+        links:
+          $ref: '#/components/schemas/ErrorObject_links'
+        source:
+          $ref: '#/components/schemas/ErrorObject_source'
+        title:
+          description: A short, human-readable summary of the problem.  This should
+            not change from occurrence to occurrence of the problem
+          type: string
       type: object
     ErrorResponse:
       properties:
@@ -2525,199 +2559,42 @@ components:
             type: string
           type: object
       type: object
-    ErrorObject:
-      properties:
-        id:
-          type: string
-        code:
-          type: string
-        title:
-          type: string
-        links:
-          $ref: '#/components/schemas/ErrorObject_links'
-        detail:
-          type: string
-        source:
-          $ref: '#/components/schemas/ErrorObject_source'
+    Meta:
+      additionalProperties:
+        nullable: true
+        type: string
       type: object
-    MetadataEntry:
-      description: |
-        Restricted metadata entries. Restricts the possible key in the following STACH schema:
-        - RowOrganizedPackage.CellDetail.CellMetadataEntry
-        - RowOrganizedPackage.HeaderCellDetail.CellMetadataEntry
-        - RowOrganizedPackage.MapOfMetadata.ItemsEntry
-        - RowOrganizedPackage.Row.RowMetadataEntry
-        - RowOrganizedPackage.TableData.TableMetadataEntry
-
-        And sets restrictions on the possible values for a MetadataItem.
-      oneOf:
-      - $ref: '#/components/schemas/currencyCode'
-      - $ref: '#/components/schemas/currencySymbol'
-      - $ref: '#/components/schemas/category'
-      - $ref: '#/components/schemas/metricEstimates'
-      - $ref: '#/components/schemas/valueType'
-      - $ref: '#/components/schemas/scale'
-      - $ref: '#/components/schemas/description'
-      - $ref: '#/components/schemas/frequency'
-      type: object
-    currencyCode:
+    Response:
+      example:
+        data: '{}'
+        meta:
+          key: meta
       properties:
-        currencyCode:
-          $ref: '#/components/schemas/currencyCode_currencyCode'
-      type: object
-    currencySymbol:
-      properties:
-        currencySymbol:
-          $ref: '#/components/schemas/currencySymbol_currencySymbol'
-      type: object
-    metricEstimates:
-      properties:
-        metricEstimates:
-          $ref: '#/components/schemas/metricEstimates_metricEstimates'
-      type: object
-    category:
-      properties:
-        category:
-          $ref: '#/components/schemas/category_category'
-      type: object
-    valueType:
-      properties:
-        valueType:
-          $ref: '#/components/schemas/valueType_valueType'
-      type: object
-    scale:
-      properties:
-        scale:
-          $ref: '#/components/schemas/scale_scale'
-      type: object
-    description:
-      properties:
-        description:
-          $ref: '#/components/schemas/description_description'
-      type: object
-    frequency:
-      properties:
-        frequency:
-          $ref: '#/components/schemas/frequency_frequency'
+        data:
+          description: Returns a STACH 2.0 row organized package
+          title: STACH
+          type: object
+        meta:
+          additionalProperties:
+            nullable: true
+            type: string
+          type: object
       type: object
     ErrorObject_links:
+      description: An object with a member "about" containing a link that leads to
+        further details about the problem.
       properties:
         about:
+          description: Link to further details about the problem
           type: string
       type: object
     ErrorObject_source:
+      description: An object containing references to the source of the error, optionally
+        including additional members
       properties:
         parameter:
-          type: string
-      type: object
-    currencyCode_currencyCode:
-      description: Code for data currency
-      properties:
-        value:
-          type: string
-      type: object
-    currencySymbol_currencySymbol:
-      description: Symbol for data currency
-      properties:
-        value:
-          type: string
-      type: object
-    metricEstimates_metricEstimates:
-      description: A unique identifier for the line item. The metric can also be used
-        with single item requests from the FactSet Estimates API.
-      properties:
-        value:
-          type: string
-      type: object
-    category_category:
-      description: |
-        Describes data based on source or kind of value
-        - ACTUAL - Historical data collected directly from a press release or a median consensus from brokers after a report date.
-        - ESTIMATE - Forward looking average of broker estimates within a specific time horizon.
-        - GUIDANCE - Forward looking indication or estimate of future performance issued by the company itself.
-        - DETAIL - Indicates data that is more granular and may be secondary in focus.
-        - MAIN - Indicates data is of more impactful or higher importance and may want to be emphasized.
-        - SECTION - Indicates data that is used in sectioning rows in group level STACH format.
-      properties:
-        value:
-          enum:
-          - ACTUAL
-          - ESTIMATE
-          - GUIDANCE
-          - EXCLUDED
-          - CHANGE
-          - DETAIL
-          - MAIN
-          - SECTION
-          type: string
-      type: object
-    valueType_valueType:
-      description: Describes how to interpret numbers
-      properties:
-        value:
-          enum:
-          - PERCENTAGE
-          - RATIO
-          - TREND
-          - RANGE
-          type: string
-      type: object
-    scale_scale:
-      description: |
-        Integer power of 10 to which numbers have been scaled. For example: 6 implies millions.
-        Default is 0.
-      properties:
-        value:
-          type: integer
-      type: object
-    description_description:
-      description: Text describing the data
-      properties:
-        value:
-          type: string
-      type: object
-    frequency_frequency:
-      description: |
-        String with frequency of a data series. Allowed values:
-        - "D" (daily)
-        - "W" (weekly)
-        - "AW" (actual weekly)
-        - "M" (monthly)
-        - "AM" (actual monthly)
-        - "Q" (quarterly)
-        - "FQ" (fiscal quarterly)
-        - "CQ" (calendar quarterly)
-        - "AQ" (actual quarterly)
-        - "Y" (yearly)
-        - "FY" (fiscal yearly)
-        - "CY" (calendar yearly)
-        - "AY" (actual yearly)
-        - "MTD" (month-to-date)
-        - "QTD" (quarter-to-date)
-        - "YTD" (year-to-date)
-        - "FYTD" (fiscal-year-to-date)
-        - "CYTD" (calendar-year-to-date)
-      properties:
-        value:
-          enum:
-          - D
-          - W
-          - AW
-          - M
-          - AM
-          - Q
-          - FQ
-          - CQ
-          - AQ
-          - "Y"
-          - FY
-          - CY
-          - AY
-          - MTD
-          - QTD
-          - YTD
-          - FYTD
-          - CYTD
+          description: A string indicating which path or URI query parameter caused
+            the error
           type: string
       type: object
   securitySchemes:

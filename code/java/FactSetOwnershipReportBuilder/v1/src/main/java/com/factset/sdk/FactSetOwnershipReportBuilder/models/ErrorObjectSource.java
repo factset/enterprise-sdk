@@ -30,8 +30,9 @@ import com.factset.sdk.FactSetOwnershipReportBuilder.JSON;
 
 
 /**
- * ErrorObjectSource
+ * An object containing references to the source of the error, optionally including additional members
  */
+@ApiModel(description = "An object containing references to the source of the error, optionally including additional members")
 @JsonPropertyOrder({
   ErrorObjectSource.JSON_PROPERTY_PARAMETER
 })
@@ -52,11 +53,11 @@ public class ErrorObjectSource implements Serializable {
   }
 
    /**
-   * Get parameter
+   * A string indicating which path or URI query parameter caused the error
    * @return parameter
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A string indicating which path or URI query parameter caused the error")
   @JsonProperty(JSON_PROPERTY_PARAMETER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

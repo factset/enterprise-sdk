@@ -135,7 +135,7 @@ class ErrorObjectSource(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            parameter (str): [optional]  # noqa: E501
+            parameter (str): A string indicating which path or URI query parameter caused the error. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -217,7 +217,7 @@ class ErrorObjectSource(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            parameter (str): [optional]  # noqa: E501
+            parameter (str): A string indicating which path or URI query parameter caused the error. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

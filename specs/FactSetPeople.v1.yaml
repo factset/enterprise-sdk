@@ -1,9 +1,11 @@
 openapi: 3.0.0
 info:
   title: FactSet People API
-  version: 1.2.0
-  description: |
-    The FactSet People API exposes FactSet data for individuals and their jobs.
+  version: 1.3.0
+  description: >
+    The FactSet People API exposes FactSet data for individuals and their
+    jobs.<p>This API is rate-limited to 10 requests per second and 10 concurrent
+    requests per user.</p>
   contact:
     name: FactSet Research Systems
     email: api@factset.com
@@ -39,6 +41,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/peopleProfilesResponse'
+              examples:
+                Profile response for 0DPHLH-E and 07MZV9-E:
+                  $ref: '#/components/examples/ProfileResponse'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -60,6 +65,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/peopleProfilesRequest'
+            examples:
+              Profile request for 0DPHLH-E:
+                $ref: '#/components/examples/postProfile'
       responses:
         '200':
           description: Array of People Profile Objects
@@ -67,6 +75,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/peopleProfilesResponse'
+              examples:
+                Profile response for 0DPHLH-E and 07MZV9-E:
+                  $ref: '#/components/examples/ProfileResponse'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -98,6 +109,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/peopleJobsResponse'
+              examples:
+                Jobs response for 0DPHLH-E and 07MZV9-E:
+                  $ref: '#/components/examples/JobsResponse'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -122,6 +136,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/peopleJobsRequest'
+            examples:
+              Jobs request for id - 0DPHLH-E:
+                $ref: '#/components/examples/postJobs'
       responses:
         '200':
           description: Array of Job objects.
@@ -129,6 +146,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/peopleJobsResponse'
+              examples:
+                Jobs response for 0DPHLH-E and 07MZV9-E:
+                  $ref: '#/components/examples/JobsResponse'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -160,6 +180,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/companyPeopleResponse'
+              examples:
+                Company People response for 'AAPL-US' to only return "DIRECTOR" field:
+                  $ref: '#/components/examples/CompanyPeopleResponse'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -188,6 +211,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/companyPeopleRequest'
+            examples:
+              Company People request for id - AAPL-US:
+                $ref: '#/components/examples/postCompanyPeople'
       responses:
         '200':
           description: Array of Company People objects.
@@ -195,6 +221,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/companyPeopleResponse'
+              examples:
+                Company People response for 'AAPL-US' to only return "DIRECTOR" field:
+                  $ref: '#/components/examples/CompanyPeopleResponse'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -243,6 +272,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/companyPositionsResponse'
+              examples:
+                Company Positions response for 'FDS-US' to only return "FOU" field:
+                  $ref: '#/components/examples/CompanyPositionsResponse'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -286,6 +318,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/companyPositionsRequest'
+            examples:
+              Company Positions request for id - AAPL-US:
+                $ref: '#/components/examples/postCompanyPositions'
       responses:
         '200':
           description: Array of Company Positions objects.
@@ -293,6 +328,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/companyPositionsResponse'
+              examples:
+                Company Positions response for 'FDS-US' to only return "FOU" field:
+                  $ref: '#/components/examples/CompanyPositionsResponse'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -325,6 +363,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/companyCompensationResponse'
+              examples:
+                Company Compensation response for 'AAPL-US':
+                  $ref: '#/components/examples/CompanyCompensationResponse'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -354,6 +395,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/companyCompensationRequest'
+            examples:
+              Company Compensation request for id - AAPL-US:
+                $ref: '#/components/examples/postCompanyCompensation'
       responses:
         '200':
           description: Array of Company Positions objects.
@@ -361,6 +405,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/companyCompensationResponse'
+              examples:
+                Company Compensation response for 'AAPL-US':
+                  $ref: '#/components/examples/CompanyCompensationResponse'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -392,6 +439,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/companyStatsResponse'
+              examples:
+                Company Stats response for 'AAPL-US' to only return "MB" field:
+                  $ref: '#/components/examples/CompanyStatsResponse'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -418,6 +468,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/companyStatsRequest'
+            examples:
+              Company Stats Request for id - AAPL-US:
+                $ref: '#/components/examples/postCompanyStats'
       responses:
         '200':
           description: Array of Company Positions objects.
@@ -425,6 +478,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/companyStatsResponse'
+              examples:
+                Company Stats response for 'AAPL-US' to only return "MB" field:
+                  $ref: '#/components/examples/CompanyStatsResponse'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -1166,6 +1222,11 @@ components:
         leadership, the number of executives, and the gender diversity of
         leadership for the requested identifier.
       properties:
+        fsymId:
+          description: FactSet Identifier for the company.
+          type: string
+          example: 0016YD-E
+          nullable: true
         averageMgmtCompensation:
           description: Average compensation for the executives
           type: number
@@ -1496,6 +1557,466 @@ components:
         path: /factset-people/v1/{endpoint}
         message: The request took too long. Try again with a smaller request.
         subErrors: null
+    postProfile:
+      summary: Profile request for id - 0DPHLH-E
+      value:
+        ids:
+          - 0DPHLH-E
+    postJobs:
+      summary: Jobs request for id - 0DPHLH-E
+      value:
+        ids:
+          - 0DPHLH-E
+        status: ALL
+        level: DETAIL
+        type: ALL
+    postCompanyPeople:
+      summary: Company People request for id - AAPL-US
+      value:
+        ids:
+          - AAPL-US
+        function: DIRECTOR
+    postCompanyPositions:
+      summary: Company Positions request for id - AAPL-US
+      value:
+        ids:
+          - AAPL-US
+        position: FOU
+    postCompanyCompensation:
+      summary: Company Compensation request for id - AAPL-US
+      value:
+        ids:
+          - AAPL-US
+    postCompanyStats:
+      summary: Company Stats Request for id - AAPL-US
+      value:
+        ids:
+          - AAPL-US
+        mbType: MB
+    ProfileResponse:
+      summary: Profile response for 0DPHLH-E and 07MZV9-E
+      value:
+        data:
+          - requestId: 0DPHLH-E
+            personId: 0DPHLH-E
+            lastName: Snow
+            factsetName: Philip Snow
+            firstName: Frederick
+            middleName: Philip
+            formalName: Frederick Philip Snow
+            properName: Snow Frederick Philip CFA
+            salutation: Mr.
+            highestDegree: GRD
+            highestDegreeInst: Thunderbird School of Global Management
+            suffix: CFA
+            age: 60
+            gender: Male
+            salary: 692500
+            totalCompensation: 6604998
+            primaryCompanyId: 0016YD-E
+            primaryCompanyName: FactSet Research Systems, Inc.
+            primaryTitle: Chief Executive Officer & Director
+            biography: >-
+              Presently, Frederick Philip Snow occupies the position of Chief
+              Executive Officer & Director at FactSet Research Systems, Inc. and
+              Chairman for FactSet JCF SAS (a subsidiary of FactSet Research
+              Systems, Inc.). Mr. Snow is also Member of CFA Institute and on
+              the board of 5 other companies. He received an undergraduate
+              degree from the University of California, Berkeley and a graduate
+              degree from Thunderbird School of Global Management.
+          - requestId: 07MZV9-E
+            personId: 07MZV9-E
+            lastName: Hale
+            factsetName: Mark J. Hale
+            firstName: Mark
+            middleName: J.
+            formalName: Mark J. Hale
+            properName: Hale Mark J.
+            salutation: Mr.
+            highestDegree: UND
+            highestDegreeInst: Carnegie Mellon University
+            suffix: null
+            age: 51
+            gender: Male
+            salary: 300000
+            totalCompensation: 1106928
+            primaryCompanyId: 0GJSJF-E
+            primaryCompanyName: Visible Alpha LLC
+            primaryTitle: Chief Executive Officer
+            biography: >-
+              Mr. Mark J. Hale is a Chief Executive Officer at Visible Alpha
+              LLC. He joined the company in 2018 as COO and has a strong track
+              record in financial services and information technology, as well
+              as in the FinTech community. Prior to joining Visible Alpha, Mr.
+              Hale spent 22 years at FactSet, serving in diverse leadership
+              roles in content operations, software engineering, quality
+              assurance and executive management. He holds a B.S. in Electrical
+              & Computer Engineering from Carnegie Mellon University.
+    JobsResponse:
+      summary: Jobs response for 0DPHLH-E and 07MZV9-E
+      value:
+        data:
+          - companyCity: Paris
+            companyId: 09714M-E
+            companyName: FactSet JCF SAS
+            jobEndDate: null
+            jobFunctionCode: CHM
+            jobFunctionName: Chairman
+            jobStartDate: '2019-04-19'
+            jobTitle: Chairman
+            personId: 0DPHLH-E
+            requestId: 0DPHLH-E
+          - companyCity: Norwalk
+            companyId: 0016YD-E
+            companyName: FactSet Research Systems, Inc.
+            jobEndDate: null
+            jobFunctionCode: CEO
+            jobFunctionName: Chief Executive Officer
+            jobStartDate: '2015-07-01'
+            jobTitle: Chief Executive Officer & Director
+            personId: 0DPHLH-E
+            requestId: 0DPHLH-E
+          - companyCity: Norwalk
+            companyId: 0016YD-E
+            companyName: FactSet Research Systems, Inc.
+            jobEndDate: null
+            jobFunctionCode: BRD
+            jobFunctionName: Director/Board Member
+            jobStartDate: '2015-03-16'
+            jobTitle: Chief Executive Officer & Director
+            personId: 0DPHLH-E
+            requestId: 0DPHLH-E
+          - companyCity: Boston
+            companyId: 0DCNKN-E
+            companyName: Quantopian, Inc.
+            jobEndDate: null
+            jobFunctionCode: BRD
+            jobFunctionName: Director/Board Member
+            jobStartDate: '2019-12-19'
+            jobTitle: Director
+            personId: 0DPHLH-E
+            requestId: 0DPHLH-E
+          - companyCity: Charlottesville
+            companyId: 06NH4N-E
+            companyName: CFA Institute
+            jobEndDate: null
+            jobFunctionCode: PRN
+            jobFunctionName: Corporate Officer/Principal
+            jobStartDate: null
+            jobTitle: Member
+            personId: 0DPHLH-E
+            requestId: 0DPHLH-E
+          - companyCity: Hyderabad
+            companyId: 09KD0V-E
+            companyName: FactSet Systems India Pvt Ltd.
+            jobEndDate: null
+            jobFunctionCode: BRD
+            jobFunctionName: Director/Board Member
+            jobStartDate: null
+            jobTitle: Director
+            personId: 0DPHLH-E
+            requestId: 0DPHLH-E
+          - companyCity: Edinburgh
+            companyId: 0JXRTR-E
+            companyName: Vermilion Holdings Ltd.
+            jobEndDate: null
+            jobFunctionCode: BRD
+            jobFunctionName: Director/Board Member
+            jobStartDate: '2018-10-07'
+            jobTitle: Director
+            personId: 0DPHLH-E
+            requestId: 0DPHLH-E
+          - companyCity: Dubai
+            companyId: 0FJYBG-E
+            companyName: FactSet (UAE) Ltd.
+            jobEndDate: null
+            jobFunctionCode: BRD
+            jobFunctionName: Director/Board Member
+            jobStartDate: null
+            jobTitle: Director
+            personId: 0DPHLH-E
+            requestId: 0DPHLH-E
+          - companyCity: London
+            companyId: 0988HX-E
+            companyName: FactSet UK Ltd.
+            jobEndDate: null
+            jobFunctionCode: BRD
+            jobFunctionName: Director/Board Member
+            jobStartDate: '2018-10-07'
+            jobTitle: Director
+            personId: 0DPHLH-E
+            requestId: 0DPHLH-E
+          - companyCity: Norwalk
+            companyId: 0016YD-E
+            companyName: FactSet Research Systems, Inc.
+            jobEndDate: '2015-06-30'
+            jobFunctionCode: PSD
+            jobFunctionName: President
+            jobStartDate: '2014-07-01'
+            jobTitle: President
+            personId: 0DPHLH-E
+            requestId: 0DPHLH-E
+          - companyCity: Norwalk
+            companyId: 0016YD-E
+            companyName: FactSet Research Systems, Inc.
+            jobEndDate: '2014-07-01'
+            jobFunctionCode: SAM
+            jobFunctionName: Sales & Marketing
+            jobStartDate: '2013-01-01'
+            jobTitle: Sales & Marketing
+            personId: 0DPHLH-E
+            requestId: 0DPHLH-E
+          - companyCity: New York
+            companyId: 0GJSJF-E
+            companyName: Visible Alpha LLC
+            jobEndDate: null
+            jobFunctionCode: CEO
+            jobFunctionName: Chief Executive Officer
+            jobStartDate: '2020-02-01'
+            jobTitle: Chief Executive Officer
+            personId: 07MZV9-E
+            requestId: 07MZV9-E
+          - companyCity: New York
+            companyId: 0GJSJF-E
+            companyName: Visible Alpha LLC
+            jobEndDate: '2020-02-01'
+            jobFunctionCode: COO
+            jobFunctionName: Chief Operating Officer
+            jobStartDate: '2018-09-17'
+            jobTitle: Chief Operating Officer
+            personId: 07MZV9-E
+            requestId: 07MZV9-E
+          - companyCity: Norwalk
+            companyId: 0016YD-E
+            companyName: FactSet Research Systems, Inc.
+            jobEndDate: '2017-12-31'
+            jobFunctionCode: COO
+            jobFunctionName: Chief Operating Officer
+            jobStartDate: '2015-03-16'
+            jobTitle: Chief Operating Officer
+            personId: 07MZV9-E
+            requestId: 07MZV9-E
+          - companyCity: Norwalk
+            companyId: 0016YD-E
+            companyName: FactSet Research Systems, Inc.
+            jobEndDate: '2015-03-16'
+            jobFunctionCode: PRN
+            jobFunctionName: Corporate Officer/Principal
+            jobStartDate: '1995-07-10'
+            jobTitle: Corporate Officer/Principal
+            personId: 07MZV9-E
+            requestId: 07MZV9-E
+    CompanyPeopleResponse:
+      summary: Company People response for 'AAPL-US' to only return "DIRECTOR" field.
+      value:
+        data:
+          - fsymId: 000C7F-E
+            email: null
+            name: Arthur D. Levinson
+            jobFunction1: Chairman
+            jobFunction2: Independent Dir/Board Member
+            jobFunction3: null
+            jobFunction4: null
+            mainPhone: 1.408.996.1010
+            personId: 05F39B-E
+            phone: null
+            requestId: AAPL-US
+            title: Independent Chairman
+          - fsymId: 000C7F-E
+            email: null
+            name: Tim Cook
+            jobFunction1: Chief Executive Officer
+            jobFunction2: Director/Board Member
+            jobFunction3: null
+            jobFunction4: null
+            mainPhone: 1.408.996.1010
+            personId: 05F520-E
+            phone: null
+            requestId: AAPL-US
+            title: Chief Executive Officer & Director
+          - fsymId: 000C7F-E
+            email: null
+            name: Andrea Jung
+            jobFunction1: Chief Operating Officer
+            jobFunction2: null
+            jobFunction3: null
+            jobFunction4: null
+            mainPhone: 1.408.996.1010
+            personId: 05DYGF-E
+            phone: null
+            requestId: AAPL-US
+            title: Independent Non-Executive Director
+          - fsymId: 000C7F-E
+            email: null
+            name: Ronald D. Sugar
+            jobFunction1: Director of Finance/CFO
+            jobFunction2: null
+            jobFunction3: null
+            jobFunction4: null
+            mainPhone: 1.408.996.1010
+            personId: 05HR5F-E
+            phone: null
+            requestId: AAPL-US
+            title: Independent Director
+          - fsymId: 000C7F-E
+            email: null
+            name: Susan Lynne Wagner
+            jobFunction1: Chief Tech/Sci/R&D Officer
+            jobFunction2: null
+            jobFunction3: null
+            jobFunction4: null
+            mainPhone: 1.408.996.1010
+            personId: 0021H2-E
+            phone: null
+            requestId: AAPL-US
+            title: Independent Director
+          - fsymId: 000C7F-E
+            email: null
+            name: Monica Cecilia Lozano
+            jobFunction1: Chief Tech/Sci/R&D Officer
+            jobFunction2: null
+            jobFunction3: null
+            jobFunction4: null
+            mainPhone: 1.408.996.1010
+            personId: 05FTGN-E
+            phone: null
+            requestId: AAPL-US
+            title: Independent Director
+          - fsymId: 000C7F-E
+            email: null
+            name: Alex Gorsky
+            jobFunction1: Corporate Secretary
+            jobFunction2: General Counsel
+            jobFunction3: null
+            jobFunction4: null
+            mainPhone: 1.408.996.1010
+            personId: 065SLB-E
+            phone: null
+            requestId: AAPL-US
+            title: Independent Director
+          - fsymId: 000C7F-E
+            email: null
+            name: Wanda M. Austin
+            jobFunction1: Corporate Officer/Principal
+            jobFunction2: null
+            jobFunction3: null
+            jobFunction4: null
+            mainPhone: 1.408.996.1010
+            personId: 06XHQ6-E
+            phone: null
+            requestId: AAPL-US
+            title: Director
+    CompanyPositionsResponse:
+      summary: Company Positions response for 'FDS-US' to only return "FOU" field.
+      value:
+        data:
+          - fsymId: 0016YD-E
+            personId: 05FJHJ-E
+            name: Charles J. Snyder
+            title: Founder
+            yearsAtFirm: 45.54
+            age: 82
+            gender: Male
+            requestPosition: FOU
+            requestId: FDS-US
+          - fsymId: 0016YD-E
+            personId: 05FJHH-E
+            name: Howard E. Wille
+            title: Founder
+            yearsAtFirm: 45.54
+            age: null
+            gender: Male
+            requestPosition: FOU
+            requestId: FDS-US
+    CompanyCompensationResponse:
+      summary: Company Compensation response for AAPL-US
+      value:
+        data:
+          - name: Tim Cook
+            personId: 05F520-E
+            title: Chief Executive Officer & Director
+            salary: 3000000
+            bonus: null
+            stockAwards: 46970283
+            optionsAwards: null
+            otherCompensation: 2526112
+            totalCompensation: 63209845
+            nonEquityIncentivePlanComp: 10713450
+            nonQualifiedCompEarnings: null
+            compensationYear: '2023'
+            requestId: AAPL-US
+          - name: Jeffrey E. Williams
+            personId: 00CPSF-E
+            title: Chief Operating Officer
+            salary: 1000000
+            bonus: null
+            stockAwards: 22323641
+            optionsAwards: null
+            otherCompensation: 66435
+            totalCompensation: 26961226
+            nonEquityIncentivePlanComp: 3571150
+            nonQualifiedCompEarnings: null
+            compensationYear: '2023'
+            requestId: AAPL-US
+          - name: Luca Maestri
+            personId: 07F5D0-E
+            title: Chief Financial Officer & Senior Vice President
+            salary: 1000000
+            bonus: null
+            stockAwards: 22323641
+            optionsAwards: null
+            otherCompensation: 41092
+            totalCompensation: 26935883
+            nonEquityIncentivePlanComp: 3571150
+            nonQualifiedCompEarnings: null
+            compensationYear: '2023'
+            requestId: AAPL-US
+          - name: Kate Adams
+            personId: 06WHND-E
+            title: Secretary, Senior Vice President & General Counsel
+            salary: 1000000
+            bonus: null
+            stockAwards: 22323641
+            optionsAwards: null
+            otherCompensation: 46914
+            totalCompensation: 26941705
+            nonEquityIncentivePlanComp: 3571150
+            nonQualifiedCompEarnings: null
+            compensationYear: '2023'
+            requestId: AAPL-US
+          - name: Deirdre O'Brien
+            personId: 0H7DRB-E
+            title: Senior Vice President-Retail
+            salary: 1000000
+            bonus: null
+            stockAwards: 22323641
+            optionsAwards: null
+            otherCompensation: 42219
+            totalCompensation: 26937010
+            nonEquityIncentivePlanComp: 3571150
+            nonQualifiedCompEarnings: null
+            compensationYear: '2023'
+            requestId: AAPL-US
+    CompanyStatsResponse:
+      summary: Company Stats response for 'AAPL-US' to only return "MB" field.
+      value:
+        data:
+          - fsymId: 000C7F-E
+            averageMgmtCompensation: 34197132
+            averageTenure: 13.88
+            medianTenure: 0.05
+            averageAge: 59.46
+            maxAge: 75
+            minimumAge: 49
+            medianAge: 59
+            boardIndependentDirectors: 6
+            femaleBoardMembers: 4
+            femaleBoardMembersPercent: 50
+            numberOfMembers: 45
+            onOtherBoardsAll: 8
+            onOtherBoardsCorporate: 8
+            mbType: MB
+            requestId: AAPL-US
     unauthenticated:
       summary: User Authentication Failed
       description: >-

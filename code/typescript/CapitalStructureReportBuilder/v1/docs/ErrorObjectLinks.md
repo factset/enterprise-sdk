@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**about** | **String** |  | [optional] 
+**about** | **String** | Link to further details about the problem | [optional] 
 
 

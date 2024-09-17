@@ -4,7 +4,7 @@ info:
     email: api@factset.com
     name: FactSet Research Systems
   description: |
-    FactSet Private Markets API encompasses Private Company Financials data to start. Private Company firmographics can be found in the FactSet Entity API. The future plans of this service will include additional Private Markets data, such as Private Equity/Venture Capital.
+    FactSet Private Markets API encompasses Private Company Financials data to start. Private Company firmographics can be found in the FactSet Entity API. The future plans of this service will include additional Private Markets data, such as Private Equity/Venture Capital.<p><b>Rate limit is set to 10 requests per second</b>.</p>
   title: FactSet Private Markets API
   version: 1.2.0
 servers:
@@ -173,6 +173,9 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              Private Company Financials Sales Array:
+                $ref: '#/components/examples/postPrivateCompanyFinancials'
             schema:
               $ref: '#/components/schemas/financialsRequest'
         description: Request Body to request a list of Private Market financials objects.
@@ -181,6 +184,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Private Company Financials:
+                  $ref: '#/components/examples/privateCompanyFinancials'
               schema:
                 $ref: '#/components/schemas/financialsResponse'
           description: Private Company financials data items
@@ -386,6 +392,9 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              Private Company Non-Periodic Array:
+                $ref: '#/components/examples/postPrivateCompanyNonPeriodic'
             schema:
               $ref: '#/components/schemas/nonPeriodicRequest'
         description: Request Body to request a list of Private Market non-periodic
@@ -395,6 +404,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Private Company Non Periodic:
+                  $ref: '#/components/examples/privateCompanyNonPeriodic'
               schema:
                 $ref: '#/components/schemas/nonPeriodicResponse'
           description: Private Company Reference data items
@@ -500,6 +512,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Private Company Non Periodic:
+                  $ref: '#/components/examples/privateCompanyFields'
               schema:
                 $ref: '#/components/schemas/fieldsResponse'
           description: Private Company data items
@@ -580,7 +595,7 @@ paths:
       operationId: getUniverse
       parameters:
       - description: Name of Entity to match.
-        example: Cargill
+        example: FactSet
         explode: true
         in: query
         name: name
@@ -690,6 +705,9 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              Entity Matches:
+                $ref: '#/components/examples/postEntityMatches'
             schema:
               $ref: '#/components/schemas/EntityMatchRequest'
         description: A request to match an Entity.
@@ -778,6 +796,35 @@ paths:
       x-accepts: application/json
 components:
   examples:
+    postPrivateCompanyFinancials:
+      description: Array of Private Markets Financials Objects for a list of Companies
+      summary: Private Company Financials Sales Array
+      value:
+        ids:
+        - 000BFG-E
+        - 000BGZ-E
+        - 000C64-E
+        fields:
+        - assets
+        - ebitda
+        startDate: 2019-01-01
+        endDate: 2019-12-31
+    postPrivateCompanyNonPeriodic:
+      description: Array of Private Markets Non-Periodic Objects for a list of Companies
+      summary: Private Company Non-Periodic Array
+      value:
+        ids:
+        - 000BFG-E
+        - 000BGZ-E
+        - 000C64-E
+        fields:
+        - amtRaised
+    postEntityMatches:
+      description: Entity Matches
+      value:
+        input:
+        - name: Amazon
+          country: US
     privateCompanyFinancials:
       description: Array of Private Markets Financials Objects for a list of Companies
       summary: Private Company Financials Sales Array
@@ -858,10 +905,25 @@ components:
       description: Entity Matches
       value:
         data:
-        - entityId: 00161G-E
-          entityName: Cargill, Inc.
+        - entityId: 0016YD-E
+          entityName: FactSet Research Systems, Inc.
           countryCode: US
-          entityTypeCode: PVT
+          entityTypeCode: PUB
+    privateCompanyFields:
+      description: Array of Private Markets Fields Objects for a list of Companies
+      summary: Private Company Fields Array
+      value:
+        data:
+        - field: fsymEntityId
+          name: Unique FactSet-generated identifier representing an entity
+          category: NON_PERIODIC
+          factor: null
+          sdfName: FACTSET_ENTITY_ID
+        - field: crunchbaseCategory
+          name: Industry vertical in which a company participates
+          category: NON_PERIODIC
+          factor: null
+          sdfName: FPC_CRUNCHBASE_CAT
     badRequestDateFormat:
       description: This bad request occurs when a request doesn't use the YYYY-MM-DD
         in the date parameters. To resolve, convert your date to YYYY-MM-DD.
@@ -1072,7 +1134,7 @@ components:
       style: form
     name:
       description: Name of Entity to match.
-      example: Cargill
+      example: FactSet
       explode: true
       in: query
       name: name
@@ -1358,15 +1420,15 @@ components:
       example:
         input:
         - country: US
-          name: Cargill
+          name: Amazon
         - country: US
-          name: Cargill
+          name: Amazon
         - country: US
-          name: Cargill
+          name: Amazon
         - country: US
-          name: Cargill
+          name: Amazon
         - country: US
-          name: Cargill
+          name: Amazon
       properties:
         input:
           items:
@@ -1528,11 +1590,11 @@ components:
     EntityMatchRequest_input:
       example:
         country: US
-        name: Cargill
+        name: Amazon
       properties:
         name:
           description: The Name of the entity to match.
-          example: Cargill
+          example: Amazon
           maxLength: 200
           minLength: 1
           type: string

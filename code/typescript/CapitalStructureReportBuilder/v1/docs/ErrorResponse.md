@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**errors** | [**[ErrorObject]**](ErrorObject.md) |  | [optional] 
-**meta** | **{String: String}** |  | [optional] 
+**errors** | [**[ErrorObject]**](ErrorObject.md) | Errors which may have occurred during the request | [optional] 
+**meta** | **{String: String}** | Metadata object | [optional] 
 
 

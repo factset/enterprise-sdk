@@ -1,6 +1,6 @@
 /*
  * FactSet Private Markets API
- * FactSet Private Markets API encompasses Private Company Financials data to start. Private Company firmographics can be found in the FactSet Entity API. The future plans of this service will include additional Private Markets data, such as Private Equity/Venture Capital. 
+ * FactSet Private Markets API encompasses Private Company Financials data to start. Private Company firmographics can be found in the FactSet Entity API. The future plans of this service will include additional Private Markets data, such as Private Equity/Venture Capital.<p><b>Rate limit is set to 10 requests per second</b>.</p> 
  *
  * The version of the OpenAPI document: 1.2.0
  * Contact: api@factset.com
@@ -68,7 +68,7 @@ public class EntityMatchRequestInput implements Serializable {
    * @return name
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(example = "Cargill", required = true, value = "The Name of the entity to match.")
+  @ApiModelProperty(example = "Amazon", required = true, value = "The Name of the entity to match.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

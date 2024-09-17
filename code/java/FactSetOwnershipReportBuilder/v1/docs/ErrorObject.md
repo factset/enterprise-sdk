@@ -8,12 +8,12 @@ Schema describing an API error
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  |  [optional]
-**code** | **String** |  |  [optional]
-**title** | **String** |  |  [optional]
+**code** | **String** | A common or API-specific error code. |  [optional]
+**detail** | **String** | A human-readable explanation specific to the occurrence of the problem. |  [optional]
+**id** | **String** | A UUID for this particular ocurrence of the problem.  This will be logged for debugging. |  [optional]
 **links** | [**ErrorObjectLinks**](ErrorObjectLinks.md) |  |  [optional]
-**detail** | **String** |  |  [optional]
 **source** | [**ErrorObjectSource**](ErrorObjectSource.md) |  |  [optional]
+**title** | **String** | A short, human-readable summary of the problem.  This should not change from occurrence to occurrence of the problem |  [optional]
 
 
 ## Implemented Interfaces

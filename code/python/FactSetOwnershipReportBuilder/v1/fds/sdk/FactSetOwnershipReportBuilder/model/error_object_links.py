@@ -135,7 +135,7 @@ class ErrorObjectLinks(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            about (str): [optional]  # noqa: E501
+            about (str): Link to further details about the problem. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -217,7 +217,7 @@ class ErrorObjectLinks(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            about (str): [optional]  # noqa: E501
+            about (str): Link to further details about the problem. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

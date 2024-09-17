@@ -4,7 +4,7 @@ info:
     email: api@factset.com
     name: FactSet Research Systems
   description: |
-    FactSet Revere Geographic Revenue ("GeoRev") Exposure data provides a highly structured and normalized display of companies’ revenues by geography. Using a four level taxonomy structure, understand the companies' Super-Region-->Region-->Area-->Country revenue breakdowns. Quickly understand a company’s revenue exposure in countries impacted by geopolitical, macroeconomic, and market risk. Understand the geographic footprint of a company based on sources of revenue versus country of domicile, and analyze global revenue exposures at the company, index, or portfolio level.<p> Geographic revenue has historically been difficult to analyze due to companies’ non-standard and incomplete reporting. Investors relying solely on this as-reported data are limited in their ability to compare, aggregate or screen exposures across a universe or portfolio of companies. To achieve normalization, FactSet GeoRev captures data through a proprietary four-level geographic classification structure. An estimation algorithm based on GDP weighting and accounting logic is then applied to solve for any non-explicit disclosures. The result is a consistent, accurate, and flexible dataset that can take a company’s revenues and break them down into any geographic country or region categories.</p><p>As markets become more integrated and companies expand operations beyond their domestic markets, GeoRev provides a new and valuable country factor to help investors discover alpha, model risk exposure, optimize portfolio weighting, and improve fund administration and reporting.</p><p>Data Frequency -  Annual; Update Frequency - Daily. 49,000+ Publically Listed Companies. All Russell 3000 and MSCI ACWI Index Consituents. U.S. Data is available from 2003, with Non-US data from 2007. For more details, visit [OA 17555](https://my.apps.factset.com/oa/pages/17555)</p>
+    FactSet Revere Geographic Revenue ("GeoRev") Exposure data provides a highly structured and normalized display of companies' revenues by geography. Using a four level taxonomy structure, understand the companies' Super-Region-->Region-->Area-->Country revenue breakdowns. Quickly understand a company's revenue exposure in countries impacted by geopolitical, macroeconomic, and market risk. Understand the geographic footprint of a company based on sources of revenue versus country of domicile, and analyze global revenue exposures at the company, index, or portfolio level.<p> Geographic revenue has historically been difficult to analyze due to companies' non-standard and incomplete reporting. Investors relying solely on this as-reported data are limited in their ability to compare, aggregate or screen exposures across a universe or portfolio of companies. To achieve normalization, FactSet GeoRev captures data through a proprietary four-level geographic classification structure. An estimation algorithm based on GDP weighting and accounting logic is then applied to solve for any non-explicit disclosures. The result is a consistent, accurate, and flexible dataset that can take a company's revenues and break them down into any geographic country or region categories.</p><p>As markets become more integrated and companies expand operations beyond their domestic markets, GeoRev provides a new and valuable country factor to help investors discover alpha, model risk exposure, optimize portfolio weighting, and improve fund administration and reporting.</p><p>Data Frequency -  Annual; Update Frequency - Daily. 49,000+ Publically Listed Companies. All Russell 3000 and MSCI ACWI Index Consituents. U.S. Data is available from 2003, with Non-US data from 2007. For more details, visit [OA 17555](https://my.apps.factset.com/oa/pages/17555)</p><p><b>Rate limit is set to 10 requests per second</b>.</p>
   title: FactSet GeoRev API
   version: 1.0.1
 servers:
@@ -169,6 +169,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Regions response for 'AAPL-USA':
+                  $ref: '#/components/examples/RegionsResponse'
               schema:
                 $ref: '#/components/schemas/regionResponse'
           description: The Region response object, including the Revenue, Percent,
@@ -252,6 +255,9 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              Regions request:
+                $ref: '#/components/examples/postRegions'
             schema:
               $ref: '#/components/schemas/regionRequest'
         description: The Region request body, allowing the user to specify a list
@@ -261,6 +267,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Regions response for 'AAPL-USA':
+                  $ref: '#/components/examples/RegionsResponse'
               schema:
                 $ref: '#/components/schemas/regionResponse'
           description: The Region response object, including the Revenue, Percent,
@@ -451,6 +460,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Country response for 'AAPL-USA':
+                  $ref: '#/components/examples/CountriesResponse'
               schema:
                 $ref: '#/components/schemas/countryResponse'
           description: The Country response object, including the Revenue, Percent,
@@ -534,6 +546,9 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              Countries request:
+                $ref: '#/components/examples/postCountries'
             schema:
               $ref: '#/components/schemas/countryRequest'
         description: The Country request body, allowing the user to specify a list
@@ -543,6 +558,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Country response for 'AAPL-USA':
+                  $ref: '#/components/examples/CountriesResponse'
               schema:
                 $ref: '#/components/schemas/countryResponse'
           description: The Country response object, including the Revenue, Percent,
@@ -691,6 +709,104 @@ components:
         path: /factset-georev/v1/{endpoint}
         message: The request took too long. Try again with a smaller request.
         subErrors: null
+    postRegions:
+      summary: Regions response for 'AAPL-USA'
+      value:
+        ids:
+        - AAPL-USA
+        regionIds:
+        - R101
+        - R101
+        - R167
+        startDate: 2019-01-01
+        endDate: 2019-12-31
+        frequency: FY
+        currency: USD
+    postCountries:
+      summary: Regions response for 'AAPL-USA'
+      value:
+        ids:
+        - AAPL-USA
+        countryIds:
+        - US
+        - CN
+        startDate: 2019-01-01
+        endDate: 2019-12-31
+        frequency: FY
+        currency: USD
+    RegionsResponse:
+      summary: Regions response for AAPL-USA
+      value:
+        data:
+        - date: 2019-09-30
+          fsymId: 000C7F-E
+          regionId: R101
+          requestId: AAPL-USA
+          regionCertaintyClass: A
+          regionCertaintyRank: 79
+          regionConfidence: 0.998968
+          regionName: Americas
+          regionPercent: 44.936848
+          regionRevenue: 116821.42500864
+          currency: USD
+          fiscalEndDate: 2019-09-30
+          reportDate: 2019-09-28
+        - date: 2019-09-30
+          fsymId: 000C7F-E
+          regionId: R171
+          requestId: AAPL-USA
+          regionCertaintyClass: B
+          regionCertaintyRank: 69
+          regionConfidence: 0.999247
+          regionName: Asia
+          regionPercent: 30.571027
+          regionRevenue: 79474.88747136
+          currency: USD
+          fiscalEndDate: 2019-09-30
+          reportDate: 2019-09-28
+        - date: 2019-09-30
+          fsymId: 000C7F-E
+          regionId: R167
+          requestId: AAPL-USA
+          regionCertaintyClass: A
+          regionCertaintyRank: 78
+          regionConfidence: 0.999928
+          regionName: United States and Canada
+          regionPercent: 40.654789
+          regionRevenue: 105689.44186752
+          currency: USD
+          fiscalEndDate: 2019-09-30
+          reportDate: 2019-09-28
+    CountriesResponse:
+      summary: Countries response for AAPL-USA
+      value:
+        data:
+        - date: 2019-09-30
+          fsymId: 000C7F-E
+          countryId: US
+          requestId: AAPL-USA
+          countryCertaintyClass: A
+          countryCertaintyRank: 80
+          countryConfidence: 1
+          countryName: United States
+          countryPercent: 39.306771
+          countryRevenue: 102185.02643328
+          currency: USD
+          fiscalEndDate: 2019-09-30
+          reportDate: 2019-09-28
+        - date: 2019-09-30
+          fsymId: 000C7F-E
+          countryId: CN
+          requestId: AAPL-USA
+          countryCertaintyClass: A
+          countryCertaintyRank: 72
+          countryConfidence: 0.995952
+          countryName: China
+          countryPercent: 15.702107
+          countryRevenue: 40820.45352576
+          currency: USD
+          fiscalEndDate: 2019-09-30
+          reportDate: 2019-09-28
     unauthenticated:
       description: This occurs when a user is not properly authenticated or recognized
         by the service. Please double check the USERNAME-SERIAL and API-Key used to
@@ -1120,15 +1236,18 @@ components:
             format.
           example: 2020-09-30
           format: date
+          nullable: true
           type: string
         fsymId:
           description: FactSet Entity Identifier. Six alpha-numeric characters, excluding
             vowels, with a -E suffix (XXXXXX-E).
           example: 000C7F-E
+          nullable: true
           type: string
         regionId:
           description: Identifier representing the geographic Region.
           example: R164
+          nullable: true
           type: string
         requestId:
           description: Identifier that was used for the request.
@@ -1140,6 +1259,7 @@ components:
             \ Certainty Rank|\n|---|---|---|\n|A|71|80|\n|B|57|70|\n|C|42|56|\n|D|24|41|\n\
             |E|1|23|\n"
           example: A
+          nullable: true
           type: string
         regionCertaintyRank:
           description: "Indicates the relative reliability of estimates. Ranks are\
@@ -1147,26 +1267,30 @@ components:
             \ algorithmic estimation. Ranks range from 1 to 80, with 1 indicating\
             \ the lowest certainty in the estimate, and 80 indicating a reported exposure.\
             \ Certainty Rank factors include - \n* Reporting standards of the country\
-            \ where the source annual report/filing was filed\n* A company’s previous\
-            \ years’ country-level reporting\n* Reliability of country GDP data\n\
+            \ where the source annual report/filing was filed\n* A company's previous\
+            \ years' country-level reporting\n* Reliability of country GDP data\n\
             * Proportion of total report value that must be estimated\n"
           example: 78
+          nullable: true
           type: integer
         regionConfidence:
           description: |
             Returns the confidence score for the company percentage revenue for the selected geographic area. Confidence score is a measure of how confident we are that our algorithm has done a good job in estimating geographic revenue given the estimation parameters ( GDP, accounting standards, details of data that a company has disclosed,...). Confidence Factors are calculated for all estimated country values, then weighted and aggregated up the geographic tree for areas, regions, and super regions. The confidence factor should not be interpreted as the equivalent of a confidence interval from a statistical sense. The confidence factor is ordinal by nature, and its current range of 0.5000 to 1.0000. A confidence factor of 1.000 indicates that the revenue is an actual, reported, or declared value. **Please see OA page 17555 for more details **.
           example: 0.999924
           format: double
+          nullable: true
           type: number
         regionName:
           description: The Region Name in proper format, describing the regionId.
           example: North America
+          nullable: true
           type: string
         regionPercent:
           description: |
-            Returns the company percentage revenue for the selected geographic region. Conventional geographic revenue data are difficult to interpret and compare between companies because they are not normalized. Furthermore, these non-normalized geographic revenue data do not provide any exposure estimates on countries and regions that are not explicitly disclosed by the companies. GeoRev answers these two challenges by first mapping companies’ revenues to a normalized geographic taxonomy, and then applying a proprietary algorithm to estimate % revenue exposure to countries and regions that are not explicitly disclosed. Estimates are accompanied by a Confidence Factor, which offers an easy way to distinguish them from actual disclosed values. Please see OA page 17555 for more details.
+            Returns the company percentage revenue for the selected geographic region. Conventional geographic revenue data are difficult to interpret and compare between companies because they are not normalized. Furthermore, these non-normalized geographic revenue data do not provide any exposure estimates on countries and regions that are not explicitly disclosed by the companies. GeoRev answers these two challenges by first mapping companies' revenues to a normalized geographic taxonomy, and then applying a proprietary algorithm to estimate % revenue exposure to countries and regions that are not explicitly disclosed. Estimates are accompanied by a Confidence Factor, which offers an easy way to distinguish them from actual disclosed values. Please see OA page 17555 for more details.
           example: 41.129925
           format: double
+          nullable: true
           type: number
         regionRevenue:
           description: "Returns the company revenue for the selected geographic region\
@@ -1175,7 +1299,7 @@ components:
             \ they are not normalized. Furthermore, these non-normalized geographic\
             \ revenue data do not provide any exposure estimates on countries and\
             \ regions that are not explicitly disclosed by the companies. GeoRev answers\
-            \ these two challenges by first mapping companies’ revenues to a normalized\
+            \ these two challenges by first mapping companies' revenues to a normalized\
             \ geographic taxonomy, and then applying a proprietary algorithm to estimate\
             \ % revenue exposure to countries and regions that are not explicitly\
             \ disclosed. Estimates are accompanied by a Confidence Factor, which offers\
@@ -1183,22 +1307,26 @@ components:
             \ see OA page 17555 for more details. \n"
           example: 112757.6893875
           format: double
+          nullable: true
           type: number
         currency:
           description: The Currency Code representing the Revenue values in the response.
           example: USD
+          nullable: true
           type: string
         fiscalEndDate:
           description: The latest fully reported fiscal annual period date in YYYY-MM-DD
             format as of the dates requested.
           example: 2019-09-30
           format: date
+          nullable: true
           type: string
         reportDate:
           description: The Report Date for the latest fully reported fiscal year in
             YYYY-MM-DD format.
           example: 2019-09-28
           format: date
+          nullable: true
           type: string
       title: Region Object
       type: object
@@ -1307,15 +1435,18 @@ components:
             format.
           example: 2020-09-30
           format: date
+          nullable: true
           type: string
         fsymId:
           description: FactSet Permanent Entity Identifier. Six alpha-numeric characters,
             excluding vowels, with an -E suffix (XXXXXX-E).
           example: 000C7F-E
+          nullable: true
           type: string
         countryId:
           description: The ISO2 Country Code.
           example: US
+          nullable: true
           type: string
         requestId:
           description: Identifier that was used for the request.
@@ -1327,6 +1458,7 @@ components:
             \ Certainty Rank|\n|---|---|---|\n|A|71|80|\n|B|57|70|\n|C|42|56|\n|D|24|41|\n\
             |E|1|23|\n"
           example: A
+          nullable: true
           type: string
         countryCertaintyRank:
           description: "Indicates the relative reliability of estimates. Ranks are\
@@ -1334,49 +1466,57 @@ components:
             \ algorithmic estimation. Ranks range from 1 to 80, with 1 indicating\
             \ the lowest certainty in the estimate, and 80 indicating a reported exposure.\
             \ Certainty Rank factors include - \n* Reporting standards of the country\
-            \ where the source annual report/filing was filed\n* A company’s previous\
-            \ years’ country-level reporting\n* Reliability of country GDP data\n\
+            \ where the source annual report/filing was filed\n* A company's previous\
+            \ years' country-level reporting\n* Reliability of country GDP data\n\
             * Proportion of total report value that must be estimated\n"
           example: 80
+          nullable: true
           type: integer
         countryConfidence:
           description: |
             Returns the confidence score for the company percentage revenue for the selected geographic area. Confidence score is a measure of how confident we are that our algorithm has done a good job in estimating geographic revenue given the estimation parameters ( GDP, accounting standards, details of data that a company has disclosed,...). Confidence Factors are calculated for all estimated country values, then weighted and aggregated up the geographic tree for areas, regions, and super regions. The confidence factor should not be interpreted as the equivalent of a confidence interval from a statistical sense. The confidence factor is ordinal by nature, and its current range of 0.5000 to 1.0000. A confidence factor of 1.000 indicates that the revenue is an actual, reported, or declared value. **Please see OA page 17555 for more details **.
           example: 1
           format: double
+          nullable: true
           type: number
         countryName:
           description: The Country Name in proper format, describing the ISO2 Country
             Code.
           example: United States
+          nullable: true
           type: string
         countryPercent:
           description: |
-            Returns the company percentage revenue for the selected geographic region. Conventional geographic revenue data are difficult to interpret and compare between companies because they are not normalized. Furthermore, these non-normalized geographic revenue data do not provide any exposure estimates on countries and regions that are not explicitly disclosed by the companies. GeoRev answers these two challenges by first mapping companies’ revenues to a normalized geographic taxonomy, and then applying a proprietary algorithm to estimate % revenue exposure to countries and regions that are not explicitly disclosed. Estimates are accompanied by a Confidence Factor, which offers an easy way to distinguish them from actual disclosed values. Please see OA page 17555 for more details.
+            Returns the company percentage revenue for the selected geographic region. Conventional geographic revenue data are difficult to interpret and compare between companies because they are not normalized. Furthermore, these non-normalized geographic revenue data do not provide any exposure estimates on countries and regions that are not explicitly disclosed by the companies. GeoRev answers these two challenges by first mapping companies' revenues to a normalized geographic taxonomy, and then applying a proprietary algorithm to estimate % revenue exposure to countries and regions that are not explicitly disclosed. Estimates are accompanied by a Confidence Factor, which offers an easy way to distinguish them from actual disclosed values. Please see OA page 17555 for more details.
           example: 9.878022
           format: double
+          nullable: true
           type: number
         countryRevenue:
           description: |
-            Returns the company revenue for the selected geographic region. Conventional geographic revenue data are difficult to interpret and compare between companies because they are not normalized. Furthermore, these non-normalized geographic revenue data do not provide any exposure estimates on countries and regions that are not explicitly disclosed by the companies. GeoRev answers these two challenges by first mapping companies’ revenues to a normalized geographic taxonomy, and then applying a proprietary algorithm to estimate % revenue exposure to countries and regions that are not explicitly disclosed. Estimates are accompanied by a Confidence Factor, which offers an easy way to distinguish them from actual disclosed values. Please see OA page 17555 for more details.
+            Returns the company revenue for the selected geographic region. Conventional geographic revenue data are difficult to interpret and compare between companies because they are not normalized. Furthermore, these non-normalized geographic revenue data do not provide any exposure estimates on countries and regions that are not explicitly disclosed by the companies. GeoRev answers these two challenges by first mapping companies' revenues to a normalized geographic taxonomy, and then applying a proprietary algorithm to estimate % revenue exposure to countries and regions that are not explicitly disclosed. Estimates are accompanied by a Confidence Factor, which offers an easy way to distinguish them from actual disclosed values. Please see OA page 17555 for more details.
           example: 15943.32506844
           format: double
+          nullable: true
           type: number
         currency:
           description: The Currency Code representing the Revenue values in the response.
           example: USD
+          nullable: true
           type: string
         fiscalEndDate:
           description: The latest fully reported fiscal annual period date in YYYY-MM-DD
             format as of the dates requested.
           example: 2019-09-30
           format: date
+          nullable: true
           type: string
         reportDate:
           description: The Report Date for the latest fully reported fiscal year in
             YYYY-MM-DD format.
           example: 2019-09-28
           format: date
+          nullable: true
           type: string
       title: Country Object
       type: object

@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.FactSetOwnershipReportBuilder.Client.Op
 namespace FactSet.SDK.FactSetOwnershipReportBuilder.Model
 {
     /// <summary>
-    /// ErrorObjectLinks
+    /// An object with a member \&quot;about\&quot; containing a link that leads to further details about the problem.
     /// </summary>
     [DataContract(Name = "ErrorObject_links")]
     public partial class ErrorObjectLinks : IEquatable<ErrorObjectLinks>, IValidatableObject
@@ -35,15 +35,16 @@ namespace FactSet.SDK.FactSetOwnershipReportBuilder.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ErrorObjectLinks" /> class.
         /// </summary>
-        /// <param name="about">about.</param>
+        /// <param name="about">Link to further details about the problem.</param>
         public ErrorObjectLinks(string about = default(string))
         {
             this.About = about;
         }
 
         /// <summary>
-        /// Gets or Sets About
+        /// Link to further details about the problem
         /// </summary>
+        /// <value>Link to further details about the problem</value>
         [DataMember(Name = "about", EmitDefaultValue = false)]
         public string About { get; set; }
 

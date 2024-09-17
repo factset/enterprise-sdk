@@ -1,6 +1,6 @@
 /*
  * FactSet GeoRev API
- * FactSet Revere Geographic Revenue (\"GeoRev\") Exposure data provides a highly structured and normalized display of companies’ revenues by geography. Using a four level taxonomy structure, understand the companies' Super-Region-->Region-->Area-->Country revenue breakdowns. Quickly understand a company’s revenue exposure in countries impacted by geopolitical, macroeconomic, and market risk. Understand the geographic footprint of a company based on sources of revenue versus country of domicile, and analyze global revenue exposures at the company, index, or portfolio level.<p> Geographic revenue has historically been difficult to analyze due to companies’ non-standard and incomplete reporting. Investors relying solely on this as-reported data are limited in their ability to compare, aggregate or screen exposures across a universe or portfolio of companies. To achieve normalization, FactSet GeoRev captures data through a proprietary four-level geographic classification structure. An estimation algorithm based on GDP weighting and accounting logic is then applied to solve for any non-explicit disclosures. The result is a consistent, accurate, and flexible dataset that can take a company’s revenues and break them down into any geographic country or region categories.</p><p>As markets become more integrated and companies expand operations beyond their domestic markets, GeoRev provides a new and valuable country factor to help investors discover alpha, model risk exposure, optimize portfolio weighting, and improve fund administration and reporting.</p><p>Data Frequency -  Annual; Update Frequency - Daily. 49,000+ Publically Listed Companies. All Russell 3000 and MSCI ACWI Index Consituents. U.S. Data is available from 2003, with Non-US data from 2007. For more details, visit [OA 17555](https://my.apps.factset.com/oa/pages/17555)</p> 
+ * FactSet Revere Geographic Revenue (\"GeoRev\") Exposure data provides a highly structured and normalized display of companies' revenues by geography. Using a four level taxonomy structure, understand the companies' Super-Region-->Region-->Area-->Country revenue breakdowns. Quickly understand a company's revenue exposure in countries impacted by geopolitical, macroeconomic, and market risk. Understand the geographic footprint of a company based on sources of revenue versus country of domicile, and analyze global revenue exposures at the company, index, or portfolio level.<p> Geographic revenue has historically been difficult to analyze due to companies' non-standard and incomplete reporting. Investors relying solely on this as-reported data are limited in their ability to compare, aggregate or screen exposures across a universe or portfolio of companies. To achieve normalization, FactSet GeoRev captures data through a proprietary four-level geographic classification structure. An estimation algorithm based on GDP weighting and accounting logic is then applied to solve for any non-explicit disclosures. The result is a consistent, accurate, and flexible dataset that can take a company's revenues and break them down into any geographic country or region categories.</p><p>As markets become more integrated and companies expand operations beyond their domestic markets, GeoRev provides a new and valuable country factor to help investors discover alpha, model risk exposure, optimize portfolio weighting, and improve fund administration and reporting.</p><p>Data Frequency -  Annual; Update Frequency - Daily. 49,000+ Publically Listed Companies. All Russell 3000 and MSCI ACWI Index Consituents. U.S. Data is available from 2003, with Non-US data from 2007. For more details, visit [OA 17555](https://my.apps.factset.com/oa/pages/17555)</p><p><b>Rate limit is set to 10 requests per second</b>.</p> 
  *
  * The version of the OpenAPI document: 1.0.1
  * Contact: api@factset.com
@@ -25,6 +25,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.LocalDate;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.FactSetGeoRev.JSON;
@@ -54,49 +58,49 @@ public class Region implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_DATE = "date";
-  private LocalDate date;
+  private JsonNullable<LocalDate> date = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_FSYM_ID = "fsymId";
-  private String fsymId;
+  private JsonNullable<String> fsymId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_REGION_ID = "regionId";
-  private String regionId;
+  private JsonNullable<String> regionId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
 
   public static final String JSON_PROPERTY_REGION_CERTAINTY_CLASS = "regionCertaintyClass";
-  private String regionCertaintyClass;
+  private JsonNullable<String> regionCertaintyClass = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_REGION_CERTAINTY_RANK = "regionCertaintyRank";
-  private Integer regionCertaintyRank;
+  private JsonNullable<Integer> regionCertaintyRank = JsonNullable.<Integer>undefined();
 
   public static final String JSON_PROPERTY_REGION_CONFIDENCE = "regionConfidence";
-  private Double regionConfidence;
+  private JsonNullable<Double> regionConfidence = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_REGION_NAME = "regionName";
-  private String regionName;
+  private JsonNullable<String> regionName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_REGION_PERCENT = "regionPercent";
-  private Double regionPercent;
+  private JsonNullable<Double> regionPercent = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_REGION_REVENUE = "regionRevenue";
-  private Double regionRevenue;
+  private JsonNullable<Double> regionRevenue = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_CURRENCY = "currency";
-  private String currency;
+  private JsonNullable<String> currency = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_FISCAL_END_DATE = "fiscalEndDate";
-  private LocalDate fiscalEndDate;
+  private JsonNullable<LocalDate> fiscalEndDate = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_REPORT_DATE = "reportDate";
-  private LocalDate reportDate;
+  private JsonNullable<LocalDate> reportDate = JsonNullable.<LocalDate>undefined();
 
   public Region() { 
   }
 
   public Region date(LocalDate date) {
-    this.date = date;
+    this.date = JsonNullable.<LocalDate>of(date);
     return this;
   }
 
@@ -106,23 +110,31 @@ public class Region implements Serializable {
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Wed Sep 30 00:00:00 UTC 2020", value = "Ending date for the period requested expressed in YYYY-MM-DD format.")
-  @JsonProperty(JSON_PROPERTY_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getDate() {
-    return date;
+        return date.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDate(LocalDate date) {
+
+  public JsonNullable<LocalDate> getDate_JsonNullable() {
+    return date;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DATE)
+  public void setDate_JsonNullable(JsonNullable<LocalDate> date) {
     this.date = date;
+  }
+
+  public void setDate(LocalDate date) {
+    this.date = JsonNullable.<LocalDate>of(date);
   }
 
 
   public Region fsymId(String fsymId) {
-    this.fsymId = fsymId;
+    this.fsymId = JsonNullable.<String>of(fsymId);
     return this;
   }
 
@@ -132,23 +144,31 @@ public class Region implements Serializable {
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(example = "000C7F-E", value = "FactSet Entity Identifier. Six alpha-numeric characters, excluding vowels, with a -E suffix (XXXXXX-E).")
-  @JsonProperty(JSON_PROPERTY_FSYM_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getFsymId() {
-    return fsymId;
+        return fsymId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFsymId(String fsymId) {
+
+  public JsonNullable<String> getFsymId_JsonNullable() {
+    return fsymId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FSYM_ID)
+  public void setFsymId_JsonNullable(JsonNullable<String> fsymId) {
     this.fsymId = fsymId;
+  }
+
+  public void setFsymId(String fsymId) {
+    this.fsymId = JsonNullable.<String>of(fsymId);
   }
 
 
   public Region regionId(String regionId) {
-    this.regionId = regionId;
+    this.regionId = JsonNullable.<String>of(regionId);
     return this;
   }
 
@@ -158,18 +178,26 @@ public class Region implements Serializable {
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(example = "R164", value = "Identifier representing the geographic Region.")
-  @JsonProperty(JSON_PROPERTY_REGION_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getRegionId() {
-    return regionId;
+        return regionId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_REGION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRegionId(String regionId) {
+
+  public JsonNullable<String> getRegionId_JsonNullable() {
+    return regionId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_REGION_ID)
+  public void setRegionId_JsonNullable(JsonNullable<String> regionId) {
     this.regionId = regionId;
+  }
+
+  public void setRegionId(String regionId) {
+    this.regionId = JsonNullable.<String>of(regionId);
   }
 
 
@@ -200,7 +228,7 @@ public class Region implements Serializable {
 
 
   public Region regionCertaintyClass(String regionCertaintyClass) {
-    this.regionCertaintyClass = regionCertaintyClass;
+    this.regionCertaintyClass = JsonNullable.<String>of(regionCertaintyClass);
     return this;
   }
 
@@ -210,49 +238,65 @@ public class Region implements Serializable {
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(example = "A", value = "Designated classes from A (highest) to E (lowest) based on `regionCertaintyRank`, where -->  |Class|Minimum Certainty Rank|Maximum Certainty Rank| |---|---|---| |A|71|80| |B|57|70| |C|42|56| |D|24|41| |E|1|23| ")
-  @JsonProperty(JSON_PROPERTY_REGION_CERTAINTY_CLASS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getRegionCertaintyClass() {
-    return regionCertaintyClass;
+        return regionCertaintyClass.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_REGION_CERTAINTY_CLASS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRegionCertaintyClass(String regionCertaintyClass) {
+
+  public JsonNullable<String> getRegionCertaintyClass_JsonNullable() {
+    return regionCertaintyClass;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_REGION_CERTAINTY_CLASS)
+  public void setRegionCertaintyClass_JsonNullable(JsonNullable<String> regionCertaintyClass) {
     this.regionCertaintyClass = regionCertaintyClass;
+  }
+
+  public void setRegionCertaintyClass(String regionCertaintyClass) {
+    this.regionCertaintyClass = JsonNullable.<String>of(regionCertaintyClass);
   }
 
 
   public Region regionCertaintyRank(Integer regionCertaintyRank) {
-    this.regionCertaintyRank = regionCertaintyRank;
+    this.regionCertaintyRank = JsonNullable.<Integer>of(regionCertaintyRank);
     return this;
   }
 
    /**
-   * Indicates the relative reliability of estimates. Ranks are based on multiple factors related to the reported information and the algorithmic estimation. Ranks range from 1 to 80, with 1 indicating the lowest certainty in the estimate, and 80 indicating a reported exposure. Certainty Rank factors include -  * Reporting standards of the country where the source annual report/filing was filed * A company’s previous years’ country-level reporting * Reliability of country GDP data * Proportion of total report value that must be estimated 
+   * Indicates the relative reliability of estimates. Ranks are based on multiple factors related to the reported information and the algorithmic estimation. Ranks range from 1 to 80, with 1 indicating the lowest certainty in the estimate, and 80 indicating a reported exposure. Certainty Rank factors include -  * Reporting standards of the country where the source annual report/filing was filed * A company&#39;s previous years&#39; country-level reporting * Reliability of country GDP data * Proportion of total report value that must be estimated 
    * @return regionCertaintyRank
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "78", value = "Indicates the relative reliability of estimates. Ranks are based on multiple factors related to the reported information and the algorithmic estimation. Ranks range from 1 to 80, with 1 indicating the lowest certainty in the estimate, and 80 indicating a reported exposure. Certainty Rank factors include -  * Reporting standards of the country where the source annual report/filing was filed * A company’s previous years’ country-level reporting * Reliability of country GDP data * Proportion of total report value that must be estimated ")
-  @JsonProperty(JSON_PROPERTY_REGION_CERTAINTY_RANK)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @ApiModelProperty(example = "78", value = "Indicates the relative reliability of estimates. Ranks are based on multiple factors related to the reported information and the algorithmic estimation. Ranks range from 1 to 80, with 1 indicating the lowest certainty in the estimate, and 80 indicating a reported exposure. Certainty Rank factors include -  * Reporting standards of the country where the source annual report/filing was filed * A company's previous years' country-level reporting * Reliability of country GDP data * Proportion of total report value that must be estimated ")
+  @JsonIgnore
 
   public Integer getRegionCertaintyRank() {
-    return regionCertaintyRank;
+        return regionCertaintyRank.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_REGION_CERTAINTY_RANK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRegionCertaintyRank(Integer regionCertaintyRank) {
+
+  public JsonNullable<Integer> getRegionCertaintyRank_JsonNullable() {
+    return regionCertaintyRank;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_REGION_CERTAINTY_RANK)
+  public void setRegionCertaintyRank_JsonNullable(JsonNullable<Integer> regionCertaintyRank) {
     this.regionCertaintyRank = regionCertaintyRank;
+  }
+
+  public void setRegionCertaintyRank(Integer regionCertaintyRank) {
+    this.regionCertaintyRank = JsonNullable.<Integer>of(regionCertaintyRank);
   }
 
 
   public Region regionConfidence(Double regionConfidence) {
-    this.regionConfidence = regionConfidence;
+    this.regionConfidence = JsonNullable.<Double>of(regionConfidence);
     return this;
   }
 
@@ -262,23 +306,31 @@ public class Region implements Serializable {
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(example = "0.999924", value = "Returns the confidence score for the company percentage revenue for the selected geographic area. Confidence score is a measure of how confident we are that our algorithm has done a good job in estimating geographic revenue given the estimation parameters ( GDP, accounting standards, details of data that a company has disclosed,...). Confidence Factors are calculated for all estimated country values, then weighted and aggregated up the geographic tree for areas, regions, and super regions. The confidence factor should not be interpreted as the equivalent of a confidence interval from a statistical sense. The confidence factor is ordinal by nature, and its current range of 0.5000 to 1.0000. A confidence factor of 1.000 indicates that the revenue is an actual, reported, or declared value. **Please see OA page 17555 for more details **. ")
-  @JsonProperty(JSON_PROPERTY_REGION_CONFIDENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getRegionConfidence() {
-    return regionConfidence;
+        return regionConfidence.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_REGION_CONFIDENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRegionConfidence(Double regionConfidence) {
+
+  public JsonNullable<Double> getRegionConfidence_JsonNullable() {
+    return regionConfidence;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_REGION_CONFIDENCE)
+  public void setRegionConfidence_JsonNullable(JsonNullable<Double> regionConfidence) {
     this.regionConfidence = regionConfidence;
+  }
+
+  public void setRegionConfidence(Double regionConfidence) {
+    this.regionConfidence = JsonNullable.<Double>of(regionConfidence);
   }
 
 
   public Region regionName(String regionName) {
-    this.regionName = regionName;
+    this.regionName = JsonNullable.<String>of(regionName);
     return this;
   }
 
@@ -288,75 +340,99 @@ public class Region implements Serializable {
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(example = "North America", value = "The Region Name in proper format, describing the regionId.")
-  @JsonProperty(JSON_PROPERTY_REGION_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getRegionName() {
-    return regionName;
+        return regionName.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_REGION_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRegionName(String regionName) {
+
+  public JsonNullable<String> getRegionName_JsonNullable() {
+    return regionName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_REGION_NAME)
+  public void setRegionName_JsonNullable(JsonNullable<String> regionName) {
     this.regionName = regionName;
+  }
+
+  public void setRegionName(String regionName) {
+    this.regionName = JsonNullable.<String>of(regionName);
   }
 
 
   public Region regionPercent(Double regionPercent) {
-    this.regionPercent = regionPercent;
+    this.regionPercent = JsonNullable.<Double>of(regionPercent);
     return this;
   }
 
    /**
-   * Returns the company percentage revenue for the selected geographic region. Conventional geographic revenue data are difficult to interpret and compare between companies because they are not normalized. Furthermore, these non-normalized geographic revenue data do not provide any exposure estimates on countries and regions that are not explicitly disclosed by the companies. GeoRev answers these two challenges by first mapping companies’ revenues to a normalized geographic taxonomy, and then applying a proprietary algorithm to estimate % revenue exposure to countries and regions that are not explicitly disclosed. Estimates are accompanied by a Confidence Factor, which offers an easy way to distinguish them from actual disclosed values. Please see OA page 17555 for more details. 
+   * Returns the company percentage revenue for the selected geographic region. Conventional geographic revenue data are difficult to interpret and compare between companies because they are not normalized. Furthermore, these non-normalized geographic revenue data do not provide any exposure estimates on countries and regions that are not explicitly disclosed by the companies. GeoRev answers these two challenges by first mapping companies&#39; revenues to a normalized geographic taxonomy, and then applying a proprietary algorithm to estimate % revenue exposure to countries and regions that are not explicitly disclosed. Estimates are accompanied by a Confidence Factor, which offers an easy way to distinguish them from actual disclosed values. Please see OA page 17555 for more details. 
    * @return regionPercent
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "41.129925", value = "Returns the company percentage revenue for the selected geographic region. Conventional geographic revenue data are difficult to interpret and compare between companies because they are not normalized. Furthermore, these non-normalized geographic revenue data do not provide any exposure estimates on countries and regions that are not explicitly disclosed by the companies. GeoRev answers these two challenges by first mapping companies’ revenues to a normalized geographic taxonomy, and then applying a proprietary algorithm to estimate % revenue exposure to countries and regions that are not explicitly disclosed. Estimates are accompanied by a Confidence Factor, which offers an easy way to distinguish them from actual disclosed values. Please see OA page 17555 for more details. ")
-  @JsonProperty(JSON_PROPERTY_REGION_PERCENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @ApiModelProperty(example = "41.129925", value = "Returns the company percentage revenue for the selected geographic region. Conventional geographic revenue data are difficult to interpret and compare between companies because they are not normalized. Furthermore, these non-normalized geographic revenue data do not provide any exposure estimates on countries and regions that are not explicitly disclosed by the companies. GeoRev answers these two challenges by first mapping companies' revenues to a normalized geographic taxonomy, and then applying a proprietary algorithm to estimate % revenue exposure to countries and regions that are not explicitly disclosed. Estimates are accompanied by a Confidence Factor, which offers an easy way to distinguish them from actual disclosed values. Please see OA page 17555 for more details. ")
+  @JsonIgnore
 
   public Double getRegionPercent() {
-    return regionPercent;
+        return regionPercent.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_REGION_PERCENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRegionPercent(Double regionPercent) {
+
+  public JsonNullable<Double> getRegionPercent_JsonNullable() {
+    return regionPercent;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_REGION_PERCENT)
+  public void setRegionPercent_JsonNullable(JsonNullable<Double> regionPercent) {
     this.regionPercent = regionPercent;
+  }
+
+  public void setRegionPercent(Double regionPercent) {
+    this.regionPercent = JsonNullable.<Double>of(regionPercent);
   }
 
 
   public Region regionRevenue(Double regionRevenue) {
-    this.regionRevenue = regionRevenue;
+    this.regionRevenue = JsonNullable.<Double>of(regionRevenue);
     return this;
   }
 
    /**
-   * Returns the company revenue for the selected geographic region in Millions for the requested currency. Conventional geographic revenue data are difficult to interpret and compare between companies because they are not normalized. Furthermore, these non-normalized geographic revenue data do not provide any exposure estimates on countries and regions that are not explicitly disclosed by the companies. GeoRev answers these two challenges by first mapping companies’ revenues to a normalized geographic taxonomy, and then applying a proprietary algorithm to estimate % revenue exposure to countries and regions that are not explicitly disclosed. Estimates are accompanied by a Confidence Factor, which offers an easy way to distinguish them from actual disclosed values. Please see OA page 17555 for more details.  
+   * Returns the company revenue for the selected geographic region in Millions for the requested currency. Conventional geographic revenue data are difficult to interpret and compare between companies because they are not normalized. Furthermore, these non-normalized geographic revenue data do not provide any exposure estimates on countries and regions that are not explicitly disclosed by the companies. GeoRev answers these two challenges by first mapping companies&#39; revenues to a normalized geographic taxonomy, and then applying a proprietary algorithm to estimate % revenue exposure to countries and regions that are not explicitly disclosed. Estimates are accompanied by a Confidence Factor, which offers an easy way to distinguish them from actual disclosed values. Please see OA page 17555 for more details.  
    * @return regionRevenue
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "112757.6893875", value = "Returns the company revenue for the selected geographic region in Millions for the requested currency. Conventional geographic revenue data are difficult to interpret and compare between companies because they are not normalized. Furthermore, these non-normalized geographic revenue data do not provide any exposure estimates on countries and regions that are not explicitly disclosed by the companies. GeoRev answers these two challenges by first mapping companies’ revenues to a normalized geographic taxonomy, and then applying a proprietary algorithm to estimate % revenue exposure to countries and regions that are not explicitly disclosed. Estimates are accompanied by a Confidence Factor, which offers an easy way to distinguish them from actual disclosed values. Please see OA page 17555 for more details.  ")
-  @JsonProperty(JSON_PROPERTY_REGION_REVENUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @ApiModelProperty(example = "112757.6893875", value = "Returns the company revenue for the selected geographic region in Millions for the requested currency. Conventional geographic revenue data are difficult to interpret and compare between companies because they are not normalized. Furthermore, these non-normalized geographic revenue data do not provide any exposure estimates on countries and regions that are not explicitly disclosed by the companies. GeoRev answers these two challenges by first mapping companies' revenues to a normalized geographic taxonomy, and then applying a proprietary algorithm to estimate % revenue exposure to countries and regions that are not explicitly disclosed. Estimates are accompanied by a Confidence Factor, which offers an easy way to distinguish them from actual disclosed values. Please see OA page 17555 for more details.  ")
+  @JsonIgnore
 
   public Double getRegionRevenue() {
-    return regionRevenue;
+        return regionRevenue.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_REGION_REVENUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRegionRevenue(Double regionRevenue) {
+
+  public JsonNullable<Double> getRegionRevenue_JsonNullable() {
+    return regionRevenue;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_REGION_REVENUE)
+  public void setRegionRevenue_JsonNullable(JsonNullable<Double> regionRevenue) {
     this.regionRevenue = regionRevenue;
+  }
+
+  public void setRegionRevenue(Double regionRevenue) {
+    this.regionRevenue = JsonNullable.<Double>of(regionRevenue);
   }
 
 
   public Region currency(String currency) {
-    this.currency = currency;
+    this.currency = JsonNullable.<String>of(currency);
     return this;
   }
 
@@ -366,23 +442,31 @@ public class Region implements Serializable {
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "The Currency Code representing the Revenue values in the response.")
-  @JsonProperty(JSON_PROPERTY_CURRENCY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getCurrency() {
-    return currency;
+        return currency.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCurrency(String currency) {
+
+  public JsonNullable<String> getCurrency_JsonNullable() {
+    return currency;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  public void setCurrency_JsonNullable(JsonNullable<String> currency) {
     this.currency = currency;
+  }
+
+  public void setCurrency(String currency) {
+    this.currency = JsonNullable.<String>of(currency);
   }
 
 
   public Region fiscalEndDate(LocalDate fiscalEndDate) {
-    this.fiscalEndDate = fiscalEndDate;
+    this.fiscalEndDate = JsonNullable.<LocalDate>of(fiscalEndDate);
     return this;
   }
 
@@ -392,23 +476,31 @@ public class Region implements Serializable {
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Mon Sep 30 00:00:00 UTC 2019", value = "The latest fully reported fiscal annual period date in YYYY-MM-DD format as of the dates requested.")
-  @JsonProperty(JSON_PROPERTY_FISCAL_END_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getFiscalEndDate() {
-    return fiscalEndDate;
+        return fiscalEndDate.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FISCAL_END_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFiscalEndDate(LocalDate fiscalEndDate) {
+
+  public JsonNullable<LocalDate> getFiscalEndDate_JsonNullable() {
+    return fiscalEndDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FISCAL_END_DATE)
+  public void setFiscalEndDate_JsonNullable(JsonNullable<LocalDate> fiscalEndDate) {
     this.fiscalEndDate = fiscalEndDate;
+  }
+
+  public void setFiscalEndDate(LocalDate fiscalEndDate) {
+    this.fiscalEndDate = JsonNullable.<LocalDate>of(fiscalEndDate);
   }
 
 
   public Region reportDate(LocalDate reportDate) {
-    this.reportDate = reportDate;
+    this.reportDate = JsonNullable.<LocalDate>of(reportDate);
     return this;
   }
 
@@ -418,18 +510,26 @@ public class Region implements Serializable {
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(example = "Sat Sep 28 00:00:00 UTC 2019", value = "The Report Date for the latest fully reported fiscal year in YYYY-MM-DD format.")
-  @JsonProperty(JSON_PROPERTY_REPORT_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getReportDate() {
-    return reportDate;
+        return reportDate.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_REPORT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setReportDate(LocalDate reportDate) {
+
+  public JsonNullable<LocalDate> getReportDate_JsonNullable() {
+    return reportDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_REPORT_DATE)
+  public void setReportDate_JsonNullable(JsonNullable<LocalDate> reportDate) {
     this.reportDate = reportDate;
+  }
+
+  public void setReportDate(LocalDate reportDate) {
+    this.reportDate = JsonNullable.<LocalDate>of(reportDate);
   }
 
 
@@ -445,24 +545,35 @@ public class Region implements Serializable {
       return false;
     }
     Region region = (Region) o;
-    return Objects.equals(this.date, region.date) &&
-        Objects.equals(this.fsymId, region.fsymId) &&
-        Objects.equals(this.regionId, region.regionId) &&
+    return equalsNullable(this.date, region.date) &&
+        equalsNullable(this.fsymId, region.fsymId) &&
+        equalsNullable(this.regionId, region.regionId) &&
         Objects.equals(this.requestId, region.requestId) &&
-        Objects.equals(this.regionCertaintyClass, region.regionCertaintyClass) &&
-        Objects.equals(this.regionCertaintyRank, region.regionCertaintyRank) &&
-        Objects.equals(this.regionConfidence, region.regionConfidence) &&
-        Objects.equals(this.regionName, region.regionName) &&
-        Objects.equals(this.regionPercent, region.regionPercent) &&
-        Objects.equals(this.regionRevenue, region.regionRevenue) &&
-        Objects.equals(this.currency, region.currency) &&
-        Objects.equals(this.fiscalEndDate, region.fiscalEndDate) &&
-        Objects.equals(this.reportDate, region.reportDate);
+        equalsNullable(this.regionCertaintyClass, region.regionCertaintyClass) &&
+        equalsNullable(this.regionCertaintyRank, region.regionCertaintyRank) &&
+        equalsNullable(this.regionConfidence, region.regionConfidence) &&
+        equalsNullable(this.regionName, region.regionName) &&
+        equalsNullable(this.regionPercent, region.regionPercent) &&
+        equalsNullable(this.regionRevenue, region.regionRevenue) &&
+        equalsNullable(this.currency, region.currency) &&
+        equalsNullable(this.fiscalEndDate, region.fiscalEndDate) &&
+        equalsNullable(this.reportDate, region.reportDate);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(date, fsymId, regionId, requestId, regionCertaintyClass, regionCertaintyRank, regionConfidence, regionName, regionPercent, regionRevenue, currency, fiscalEndDate, reportDate);
+    return Objects.hash(hashCodeNullable(date), hashCodeNullable(fsymId), hashCodeNullable(regionId), requestId, hashCodeNullable(regionCertaintyClass), hashCodeNullable(regionCertaintyRank), hashCodeNullable(regionConfidence), hashCodeNullable(regionName), hashCodeNullable(regionPercent), hashCodeNullable(regionRevenue), hashCodeNullable(currency), hashCodeNullable(fiscalEndDate), hashCodeNullable(reportDate));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

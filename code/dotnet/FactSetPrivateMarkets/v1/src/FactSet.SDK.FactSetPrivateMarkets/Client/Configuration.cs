@@ -1,7 +1,7 @@
 /*
  * FactSet Private Markets API
  *
- * FactSet Private Markets API encompasses Private Company Financials data to start. Private Company firmographics can be found in the FactSet Entity API. The future plans of this service will include additional Private Markets data, such as Private Equity/Venture Capital. 
+ * FactSet Private Markets API encompasses Private Company Financials data to start. Private Company firmographics can be found in the FactSet Entity API. The future plans of this service will include additional Private Markets data, such as Private Equity/Venture Capital.<p><b>Rate limit is set to 10 requests per second</b>.</p> 
  *
  * The version of the OpenAPI document: 1.2.0
  * Contact: api@factset.com
@@ -33,7 +33,7 @@ namespace FactSet.SDK.FactSetPrivateMarkets.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "2.0.9";
+        public const string Version = "2.0.10";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -106,7 +106,7 @@ namespace FactSet.SDK.FactSetPrivateMarkets.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "fds-sdk/dotnet/FactSetPrivateMarkets/2.0.9";
+            UserAgent = "fds-sdk/dotnet/FactSetPrivateMarkets/2.0.10";
             BasePath = "https://api.factset.com/content";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -484,7 +484,7 @@ namespace FactSet.SDK.FactSetPrivateMarkets.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 1.2.0\n";
-            report += "    SDK Package Version: 2.0.9\n";
+            report += "    SDK Package Version: 2.0.10\n";
 
             return report;
         }

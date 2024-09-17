@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class ErrorObjectLinks {
     /**
      * Constructs a new <code>ErrorObjectLinks</code>.
+     * An object with a member \&quot;about\&quot; containing a link that leads to further details about the problem.
      * @alias module:model/ErrorObjectLinks
      */
     constructor() { 
@@ -57,6 +58,7 @@ class ErrorObjectLinks {
 }
 
 /**
+ * Link to further details about the problem
  * @member {String} about
  */
 ErrorObjectLinks.prototype['about'] = undefined;

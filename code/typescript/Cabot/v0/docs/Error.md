@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | [optional] 
 **code** | **String** |  | [optional] 
-**title** | **String** |  | [optional] 
 **detail** | **String** |  | [optional] 
+**id** | **String** |  | [optional] 
 **source** | [**ErrorSource**](ErrorSource.md) |  | [optional] 
+**title** | **String** |  | [optional] 
 
 

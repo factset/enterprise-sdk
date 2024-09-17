@@ -1,7 +1,7 @@
 /*
  * FactSet GeoRev API
  *
- * FactSet Revere Geographic Revenue (\"GeoRev\") Exposure data provides a highly structured and normalized display of companies’ revenues by geography. Using a four level taxonomy structure, understand the companies' Super-Region- ->Region- ->Area- ->Country revenue breakdowns. Quickly understand a company’s revenue exposure in countries impacted by geopolitical, macroeconomic, and market risk. Understand the geographic footprint of a company based on sources of revenue versus country of domicile, and analyze global revenue exposures at the company, index, or portfolio level.<p> Geographic revenue has historically been difficult to analyze due to companies’ non-standard and incomplete reporting. Investors relying solely on this as-reported data are limited in their ability to compare, aggregate or screen exposures across a universe or portfolio of companies. To achieve normalization, FactSet GeoRev captures data through a proprietary four-level geographic classification structure. An estimation algorithm based on GDP weighting and accounting logic is then applied to solve for any non-explicit disclosures. The result is a consistent, accurate, and flexible dataset that can take a company’s revenues and break them down into any geographic country or region categories.</p><p>As markets become more integrated and companies expand operations beyond their domestic markets, GeoRev provides a new and valuable country factor to help investors discover alpha, model risk exposure, optimize portfolio weighting, and improve fund administration and reporting.</p><p>Data Frequency -  Annual; Update Frequency - Daily. 49,000+ Publically Listed Companies. All Russell 3000 and MSCI ACWI Index Consituents. U.S. Data is available from 2003, with Non-US data from 2007. For more details, visit [OA 17555](https://my.apps.factset.com/oa/pages/17555)</p> 
+ * FactSet Revere Geographic Revenue (\"GeoRev\") Exposure data provides a highly structured and normalized display of companies' revenues by geography. Using a four level taxonomy structure, understand the companies' Super-Region- ->Region- ->Area- ->Country revenue breakdowns. Quickly understand a company's revenue exposure in countries impacted by geopolitical, macroeconomic, and market risk. Understand the geographic footprint of a company based on sources of revenue versus country of domicile, and analyze global revenue exposures at the company, index, or portfolio level.<p> Geographic revenue has historically been difficult to analyze due to companies' non-standard and incomplete reporting. Investors relying solely on this as-reported data are limited in their ability to compare, aggregate or screen exposures across a universe or portfolio of companies. To achieve normalization, FactSet GeoRev captures data through a proprietary four-level geographic classification structure. An estimation algorithm based on GDP weighting and accounting logic is then applied to solve for any non-explicit disclosures. The result is a consistent, accurate, and flexible dataset that can take a company's revenues and break them down into any geographic country or region categories.</p><p>As markets become more integrated and companies expand operations beyond their domestic markets, GeoRev provides a new and valuable country factor to help investors discover alpha, model risk exposure, optimize portfolio weighting, and improve fund administration and reporting.</p><p>Data Frequency -  Annual; Update Frequency - Daily. 49,000+ Publically Listed Companies. All Russell 3000 and MSCI ACWI Index Consituents. U.S. Data is available from 2003, with Non-US data from 2007. For more details, visit [OA 17555](https://my.apps.factset.com/oa/pages/17555)</p><p><b>Rate limit is set to 10 requests per second</b>.</p> 
  *
  * The version of the OpenAPI document: 1.0.1
  * Contact: api@factset.com
@@ -40,15 +40,15 @@ namespace FactSet.SDK.FactSetGeoRev.Model
         /// <param name="countryId">The ISO2 Country Code..</param>
         /// <param name="requestId">Identifier that was used for the request..</param>
         /// <param name="countryCertaintyClass">Designated classes from A (highest) to E (lowest) based on &#x60;countryCertaintyRank&#x60;, where - -&gt;  |Class|Minimum Certainty Rank|Maximum Certainty Rank| |- --|- --|- --| |A|71|80| |B|57|70| |C|42|56| |D|24|41| |E|1|23| .</param>
-        /// <param name="countryCertaintyRank">Indicates the relative reliability of estimates. Ranks are based on multiple factors related to the reported information and the algorithmic estimation. Ranks range from 1 to 80, with 1 indicating the lowest certainty in the estimate, and 80 indicating a reported exposure. Certainty Rank factors include -  * Reporting standards of the country where the source annual report/filing was filed * A company’s previous years’ country-level reporting * Reliability of country GDP data * Proportion of total report value that must be estimated .</param>
+        /// <param name="countryCertaintyRank">Indicates the relative reliability of estimates. Ranks are based on multiple factors related to the reported information and the algorithmic estimation. Ranks range from 1 to 80, with 1 indicating the lowest certainty in the estimate, and 80 indicating a reported exposure. Certainty Rank factors include -  * Reporting standards of the country where the source annual report/filing was filed * A company&#39;s previous years&#39; country-level reporting * Reliability of country GDP data * Proportion of total report value that must be estimated .</param>
         /// <param name="countryConfidence">Returns the confidence score for the company percentage revenue for the selected geographic area. Confidence score is a measure of how confident we are that our algorithm has done a good job in estimating geographic revenue given the estimation parameters ( GDP, accounting standards, details of data that a company has disclosed,...). Confidence Factors are calculated for all estimated country values, then weighted and aggregated up the geographic tree for areas, regions, and super regions. The confidence factor should not be interpreted as the equivalent of a confidence interval from a statistical sense. The confidence factor is ordinal by nature, and its current range of 0.5000 to 1.0000. A confidence factor of 1.000 indicates that the revenue is an actual, reported, or declared value. **Please see OA page 17555 for more details **. .</param>
         /// <param name="countryName">The Country Name in proper format, describing the ISO2 Country Code..</param>
-        /// <param name="countryPercent">Returns the company percentage revenue for the selected geographic region. Conventional geographic revenue data are difficult to interpret and compare between companies because they are not normalized. Furthermore, these non-normalized geographic revenue data do not provide any exposure estimates on countries and regions that are not explicitly disclosed by the companies. GeoRev answers these two challenges by first mapping companies’ revenues to a normalized geographic taxonomy, and then applying a proprietary algorithm to estimate % revenue exposure to countries and regions that are not explicitly disclosed. Estimates are accompanied by a Confidence Factor, which offers an easy way to distinguish them from actual disclosed values. Please see OA page 17555 for more details. .</param>
-        /// <param name="countryRevenue">Returns the company revenue for the selected geographic region. Conventional geographic revenue data are difficult to interpret and compare between companies because they are not normalized. Furthermore, these non-normalized geographic revenue data do not provide any exposure estimates on countries and regions that are not explicitly disclosed by the companies. GeoRev answers these two challenges by first mapping companies’ revenues to a normalized geographic taxonomy, and then applying a proprietary algorithm to estimate % revenue exposure to countries and regions that are not explicitly disclosed. Estimates are accompanied by a Confidence Factor, which offers an easy way to distinguish them from actual disclosed values. Please see OA page 17555 for more details. .</param>
+        /// <param name="countryPercent">Returns the company percentage revenue for the selected geographic region. Conventional geographic revenue data are difficult to interpret and compare between companies because they are not normalized. Furthermore, these non-normalized geographic revenue data do not provide any exposure estimates on countries and regions that are not explicitly disclosed by the companies. GeoRev answers these two challenges by first mapping companies&#39; revenues to a normalized geographic taxonomy, and then applying a proprietary algorithm to estimate % revenue exposure to countries and regions that are not explicitly disclosed. Estimates are accompanied by a Confidence Factor, which offers an easy way to distinguish them from actual disclosed values. Please see OA page 17555 for more details. .</param>
+        /// <param name="countryRevenue">Returns the company revenue for the selected geographic region. Conventional geographic revenue data are difficult to interpret and compare between companies because they are not normalized. Furthermore, these non-normalized geographic revenue data do not provide any exposure estimates on countries and regions that are not explicitly disclosed by the companies. GeoRev answers these two challenges by first mapping companies&#39; revenues to a normalized geographic taxonomy, and then applying a proprietary algorithm to estimate % revenue exposure to countries and regions that are not explicitly disclosed. Estimates are accompanied by a Confidence Factor, which offers an easy way to distinguish them from actual disclosed values. Please see OA page 17555 for more details. .</param>
         /// <param name="currency">The Currency Code representing the Revenue values in the response..</param>
         /// <param name="fiscalEndDate">The latest fully reported fiscal annual period date in YYYY-MM-DD format as of the dates requested..</param>
         /// <param name="reportDate">The Report Date for the latest fully reported fiscal year in YYYY-MM-DD format..</param>
-        public Country(DateTime date = default(DateTime), string fsymId = default(string), string countryId = default(string), string requestId = default(string), string countryCertaintyClass = default(string), int countryCertaintyRank = default(int), double countryConfidence = default(double), string countryName = default(string), double countryPercent = default(double), double countryRevenue = default(double), string currency = default(string), DateTime fiscalEndDate = default(DateTime), DateTime reportDate = default(DateTime))
+        public Country(DateTime? date = default(DateTime?), string fsymId = default(string), string countryId = default(string), string requestId = default(string), string countryCertaintyClass = default(string), int? countryCertaintyRank = default(int?), double? countryConfidence = default(double?), string countryName = default(string), double? countryPercent = default(double?), double? countryRevenue = default(double?), string currency = default(string), DateTime? fiscalEndDate = default(DateTime?), DateTime? reportDate = default(DateTime?))
         {
             this.Date = date;
             this.FsymId = fsymId;
@@ -69,22 +69,22 @@ namespace FactSet.SDK.FactSetGeoRev.Model
         /// Ending date for the period requested expressed in YYYY-MM-DD format.
         /// </summary>
         /// <value>Ending date for the period requested expressed in YYYY-MM-DD format.</value>
-        [DataMember(Name = "date", EmitDefaultValue = false)]
+        [DataMember(Name = "date", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         /// <summary>
         /// FactSet Permanent Entity Identifier. Six alpha-numeric characters, excluding vowels, with an -E suffix (XXXXXX-E).
         /// </summary>
         /// <value>FactSet Permanent Entity Identifier. Six alpha-numeric characters, excluding vowels, with an -E suffix (XXXXXX-E).</value>
-        [DataMember(Name = "fsymId", EmitDefaultValue = false)]
+        [DataMember(Name = "fsymId", EmitDefaultValue = true)]
         public string FsymId { get; set; }
 
         /// <summary>
         /// The ISO2 Country Code.
         /// </summary>
         /// <value>The ISO2 Country Code.</value>
-        [DataMember(Name = "countryId", EmitDefaultValue = false)]
+        [DataMember(Name = "countryId", EmitDefaultValue = true)]
         public string CountryId { get; set; }
 
         /// <summary>
@@ -98,66 +98,66 @@ namespace FactSet.SDK.FactSetGeoRev.Model
         /// Designated classes from A (highest) to E (lowest) based on &#x60;countryCertaintyRank&#x60;, where - -&gt;  |Class|Minimum Certainty Rank|Maximum Certainty Rank| |- --|- --|- --| |A|71|80| |B|57|70| |C|42|56| |D|24|41| |E|1|23| 
         /// </summary>
         /// <value>Designated classes from A (highest) to E (lowest) based on &#x60;countryCertaintyRank&#x60;, where - -&gt;  |Class|Minimum Certainty Rank|Maximum Certainty Rank| |- --|- --|- --| |A|71|80| |B|57|70| |C|42|56| |D|24|41| |E|1|23| </value>
-        [DataMember(Name = "countryCertaintyClass", EmitDefaultValue = false)]
+        [DataMember(Name = "countryCertaintyClass", EmitDefaultValue = true)]
         public string CountryCertaintyClass { get; set; }
 
         /// <summary>
-        /// Indicates the relative reliability of estimates. Ranks are based on multiple factors related to the reported information and the algorithmic estimation. Ranks range from 1 to 80, with 1 indicating the lowest certainty in the estimate, and 80 indicating a reported exposure. Certainty Rank factors include -  * Reporting standards of the country where the source annual report/filing was filed * A company’s previous years’ country-level reporting * Reliability of country GDP data * Proportion of total report value that must be estimated 
+        /// Indicates the relative reliability of estimates. Ranks are based on multiple factors related to the reported information and the algorithmic estimation. Ranks range from 1 to 80, with 1 indicating the lowest certainty in the estimate, and 80 indicating a reported exposure. Certainty Rank factors include -  * Reporting standards of the country where the source annual report/filing was filed * A company&#39;s previous years&#39; country-level reporting * Reliability of country GDP data * Proportion of total report value that must be estimated 
         /// </summary>
-        /// <value>Indicates the relative reliability of estimates. Ranks are based on multiple factors related to the reported information and the algorithmic estimation. Ranks range from 1 to 80, with 1 indicating the lowest certainty in the estimate, and 80 indicating a reported exposure. Certainty Rank factors include -  * Reporting standards of the country where the source annual report/filing was filed * A company’s previous years’ country-level reporting * Reliability of country GDP data * Proportion of total report value that must be estimated </value>
-        [DataMember(Name = "countryCertaintyRank", EmitDefaultValue = false)]
-        public int CountryCertaintyRank { get; set; }
+        /// <value>Indicates the relative reliability of estimates. Ranks are based on multiple factors related to the reported information and the algorithmic estimation. Ranks range from 1 to 80, with 1 indicating the lowest certainty in the estimate, and 80 indicating a reported exposure. Certainty Rank factors include -  * Reporting standards of the country where the source annual report/filing was filed * A company&#39;s previous years&#39; country-level reporting * Reliability of country GDP data * Proportion of total report value that must be estimated </value>
+        [DataMember(Name = "countryCertaintyRank", EmitDefaultValue = true)]
+        public int? CountryCertaintyRank { get; set; }
 
         /// <summary>
         /// Returns the confidence score for the company percentage revenue for the selected geographic area. Confidence score is a measure of how confident we are that our algorithm has done a good job in estimating geographic revenue given the estimation parameters ( GDP, accounting standards, details of data that a company has disclosed,...). Confidence Factors are calculated for all estimated country values, then weighted and aggregated up the geographic tree for areas, regions, and super regions. The confidence factor should not be interpreted as the equivalent of a confidence interval from a statistical sense. The confidence factor is ordinal by nature, and its current range of 0.5000 to 1.0000. A confidence factor of 1.000 indicates that the revenue is an actual, reported, or declared value. **Please see OA page 17555 for more details **. 
         /// </summary>
         /// <value>Returns the confidence score for the company percentage revenue for the selected geographic area. Confidence score is a measure of how confident we are that our algorithm has done a good job in estimating geographic revenue given the estimation parameters ( GDP, accounting standards, details of data that a company has disclosed,...). Confidence Factors are calculated for all estimated country values, then weighted and aggregated up the geographic tree for areas, regions, and super regions. The confidence factor should not be interpreted as the equivalent of a confidence interval from a statistical sense. The confidence factor is ordinal by nature, and its current range of 0.5000 to 1.0000. A confidence factor of 1.000 indicates that the revenue is an actual, reported, or declared value. **Please see OA page 17555 for more details **. </value>
-        [DataMember(Name = "countryConfidence", EmitDefaultValue = false)]
-        public double CountryConfidence { get; set; }
+        [DataMember(Name = "countryConfidence", EmitDefaultValue = true)]
+        public double? CountryConfidence { get; set; }
 
         /// <summary>
         /// The Country Name in proper format, describing the ISO2 Country Code.
         /// </summary>
         /// <value>The Country Name in proper format, describing the ISO2 Country Code.</value>
-        [DataMember(Name = "countryName", EmitDefaultValue = false)]
+        [DataMember(Name = "countryName", EmitDefaultValue = true)]
         public string CountryName { get; set; }
 
         /// <summary>
-        /// Returns the company percentage revenue for the selected geographic region. Conventional geographic revenue data are difficult to interpret and compare between companies because they are not normalized. Furthermore, these non-normalized geographic revenue data do not provide any exposure estimates on countries and regions that are not explicitly disclosed by the companies. GeoRev answers these two challenges by first mapping companies’ revenues to a normalized geographic taxonomy, and then applying a proprietary algorithm to estimate % revenue exposure to countries and regions that are not explicitly disclosed. Estimates are accompanied by a Confidence Factor, which offers an easy way to distinguish them from actual disclosed values. Please see OA page 17555 for more details. 
+        /// Returns the company percentage revenue for the selected geographic region. Conventional geographic revenue data are difficult to interpret and compare between companies because they are not normalized. Furthermore, these non-normalized geographic revenue data do not provide any exposure estimates on countries and regions that are not explicitly disclosed by the companies. GeoRev answers these two challenges by first mapping companies&#39; revenues to a normalized geographic taxonomy, and then applying a proprietary algorithm to estimate % revenue exposure to countries and regions that are not explicitly disclosed. Estimates are accompanied by a Confidence Factor, which offers an easy way to distinguish them from actual disclosed values. Please see OA page 17555 for more details. 
         /// </summary>
-        /// <value>Returns the company percentage revenue for the selected geographic region. Conventional geographic revenue data are difficult to interpret and compare between companies because they are not normalized. Furthermore, these non-normalized geographic revenue data do not provide any exposure estimates on countries and regions that are not explicitly disclosed by the companies. GeoRev answers these two challenges by first mapping companies’ revenues to a normalized geographic taxonomy, and then applying a proprietary algorithm to estimate % revenue exposure to countries and regions that are not explicitly disclosed. Estimates are accompanied by a Confidence Factor, which offers an easy way to distinguish them from actual disclosed values. Please see OA page 17555 for more details. </value>
-        [DataMember(Name = "countryPercent", EmitDefaultValue = false)]
-        public double CountryPercent { get; set; }
+        /// <value>Returns the company percentage revenue for the selected geographic region. Conventional geographic revenue data are difficult to interpret and compare between companies because they are not normalized. Furthermore, these non-normalized geographic revenue data do not provide any exposure estimates on countries and regions that are not explicitly disclosed by the companies. GeoRev answers these two challenges by first mapping companies&#39; revenues to a normalized geographic taxonomy, and then applying a proprietary algorithm to estimate % revenue exposure to countries and regions that are not explicitly disclosed. Estimates are accompanied by a Confidence Factor, which offers an easy way to distinguish them from actual disclosed values. Please see OA page 17555 for more details. </value>
+        [DataMember(Name = "countryPercent", EmitDefaultValue = true)]
+        public double? CountryPercent { get; set; }
 
         /// <summary>
-        /// Returns the company revenue for the selected geographic region. Conventional geographic revenue data are difficult to interpret and compare between companies because they are not normalized. Furthermore, these non-normalized geographic revenue data do not provide any exposure estimates on countries and regions that are not explicitly disclosed by the companies. GeoRev answers these two challenges by first mapping companies’ revenues to a normalized geographic taxonomy, and then applying a proprietary algorithm to estimate % revenue exposure to countries and regions that are not explicitly disclosed. Estimates are accompanied by a Confidence Factor, which offers an easy way to distinguish them from actual disclosed values. Please see OA page 17555 for more details. 
+        /// Returns the company revenue for the selected geographic region. Conventional geographic revenue data are difficult to interpret and compare between companies because they are not normalized. Furthermore, these non-normalized geographic revenue data do not provide any exposure estimates on countries and regions that are not explicitly disclosed by the companies. GeoRev answers these two challenges by first mapping companies&#39; revenues to a normalized geographic taxonomy, and then applying a proprietary algorithm to estimate % revenue exposure to countries and regions that are not explicitly disclosed. Estimates are accompanied by a Confidence Factor, which offers an easy way to distinguish them from actual disclosed values. Please see OA page 17555 for more details. 
         /// </summary>
-        /// <value>Returns the company revenue for the selected geographic region. Conventional geographic revenue data are difficult to interpret and compare between companies because they are not normalized. Furthermore, these non-normalized geographic revenue data do not provide any exposure estimates on countries and regions that are not explicitly disclosed by the companies. GeoRev answers these two challenges by first mapping companies’ revenues to a normalized geographic taxonomy, and then applying a proprietary algorithm to estimate % revenue exposure to countries and regions that are not explicitly disclosed. Estimates are accompanied by a Confidence Factor, which offers an easy way to distinguish them from actual disclosed values. Please see OA page 17555 for more details. </value>
-        [DataMember(Name = "countryRevenue", EmitDefaultValue = false)]
-        public double CountryRevenue { get; set; }
+        /// <value>Returns the company revenue for the selected geographic region. Conventional geographic revenue data are difficult to interpret and compare between companies because they are not normalized. Furthermore, these non-normalized geographic revenue data do not provide any exposure estimates on countries and regions that are not explicitly disclosed by the companies. GeoRev answers these two challenges by first mapping companies&#39; revenues to a normalized geographic taxonomy, and then applying a proprietary algorithm to estimate % revenue exposure to countries and regions that are not explicitly disclosed. Estimates are accompanied by a Confidence Factor, which offers an easy way to distinguish them from actual disclosed values. Please see OA page 17555 for more details. </value>
+        [DataMember(Name = "countryRevenue", EmitDefaultValue = true)]
+        public double? CountryRevenue { get; set; }
 
         /// <summary>
         /// The Currency Code representing the Revenue values in the response.
         /// </summary>
         /// <value>The Currency Code representing the Revenue values in the response.</value>
-        [DataMember(Name = "currency", EmitDefaultValue = false)]
+        [DataMember(Name = "currency", EmitDefaultValue = true)]
         public string Currency { get; set; }
 
         /// <summary>
         /// The latest fully reported fiscal annual period date in YYYY-MM-DD format as of the dates requested.
         /// </summary>
         /// <value>The latest fully reported fiscal annual period date in YYYY-MM-DD format as of the dates requested.</value>
-        [DataMember(Name = "fiscalEndDate", EmitDefaultValue = false)]
+        [DataMember(Name = "fiscalEndDate", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime FiscalEndDate { get; set; }
+        public DateTime? FiscalEndDate { get; set; }
 
         /// <summary>
         /// The Report Date for the latest fully reported fiscal year in YYYY-MM-DD format.
         /// </summary>
         /// <value>The Report Date for the latest fully reported fiscal year in YYYY-MM-DD format.</value>
-        [DataMember(Name = "reportDate", EmitDefaultValue = false)]
+        [DataMember(Name = "reportDate", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime ReportDate { get; set; }
+        public DateTime? ReportDate { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -242,11 +242,13 @@ namespace FactSet.SDK.FactSetGeoRev.Model
                 ) && 
                 (
                     this.CountryCertaintyRank == input.CountryCertaintyRank ||
-                    this.CountryCertaintyRank.Equals(input.CountryCertaintyRank)
+                    (this.CountryCertaintyRank != null &&
+                    this.CountryCertaintyRank.Equals(input.CountryCertaintyRank))
                 ) && 
                 (
                     this.CountryConfidence == input.CountryConfidence ||
-                    this.CountryConfidence.Equals(input.CountryConfidence)
+                    (this.CountryConfidence != null &&
+                    this.CountryConfidence.Equals(input.CountryConfidence))
                 ) && 
                 (
                     this.CountryName == input.CountryName ||
@@ -255,11 +257,13 @@ namespace FactSet.SDK.FactSetGeoRev.Model
                 ) && 
                 (
                     this.CountryPercent == input.CountryPercent ||
-                    this.CountryPercent.Equals(input.CountryPercent)
+                    (this.CountryPercent != null &&
+                    this.CountryPercent.Equals(input.CountryPercent))
                 ) && 
                 (
                     this.CountryRevenue == input.CountryRevenue ||
-                    this.CountryRevenue.Equals(input.CountryRevenue)
+                    (this.CountryRevenue != null &&
+                    this.CountryRevenue.Equals(input.CountryRevenue))
                 ) && 
                 (
                     this.Currency == input.Currency ||
@@ -307,14 +311,26 @@ namespace FactSet.SDK.FactSetGeoRev.Model
                 {
                     hashCode = (hashCode * 59) + this.CountryCertaintyClass.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.CountryCertaintyRank.GetHashCode();
-                hashCode = (hashCode * 59) + this.CountryConfidence.GetHashCode();
+                if (this.CountryCertaintyRank != null)
+                {
+                    hashCode = (hashCode * 59) + this.CountryCertaintyRank.GetHashCode();
+                }
+                if (this.CountryConfidence != null)
+                {
+                    hashCode = (hashCode * 59) + this.CountryConfidence.GetHashCode();
+                }
                 if (this.CountryName != null)
                 {
                     hashCode = (hashCode * 59) + this.CountryName.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.CountryPercent.GetHashCode();
-                hashCode = (hashCode * 59) + this.CountryRevenue.GetHashCode();
+                if (this.CountryPercent != null)
+                {
+                    hashCode = (hashCode * 59) + this.CountryPercent.GetHashCode();
+                }
+                if (this.CountryRevenue != null)
+                {
+                    hashCode = (hashCode * 59) + this.CountryRevenue.GetHashCode();
+                }
                 if (this.Currency != null)
                 {
                     hashCode = (hashCode * 59) + this.Currency.GetHashCode();

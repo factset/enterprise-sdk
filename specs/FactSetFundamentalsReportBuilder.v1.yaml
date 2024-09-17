@@ -1,149 +1,383 @@
-openapi: 3.0.3
-info:
-  title: FactSet Fundamentals Report Builder
-  description: ''
-  license:
-    name: Apache 2.0
-    url: https://www.apache.org/licenses/LICENSE-2.0
-  version: 1.0.0
-servers:
-  - url: https://api.factset.com/report/financials/v1
-externalDocs:
-  description: Read more about STACH 2.0's row organized schema
-  url: https://factset.github.io/stachschema/#/v2/RowOrganized
-tags:
-  - name: Financials
-paths:
-  /income-statement:
-    get:
-      tags:
-        - Financials
-      operationId: getFinancialsIncomeStatement
-      summary: Income Statement
-      description: Returns a standardized Income Statement based on industry.
-      parameters:
-        - $ref: '#/components/parameters/idParameter'
-        - $ref: '#/components/parameters/periodicityParameter'
-        - $ref: '#/components/parameters/schemaParameter'
-        - $ref: '#/components/parameters/reportStatusParameter'
-        - $ref: '#/components/parameters/currencyParameter'
-      responses:
-        '200':
-          $ref: '#/components/responses/200OKStach'
-        '400':
-          $ref: '#/components/responses/400BadRequest'
-        '401':
-          $ref: '#/components/responses/401Unauthorized'
-        '403':
-          $ref: '#/components/responses/403Forbidden'
-        '404':
-          $ref: '#/components/responses/404NotFound'
-        '429':
-          $ref: '#/components/responses/429TooManyRequests'
-        '500':
-          $ref: '#/components/responses/500InternalServerError'
-        '503':
-          $ref: '#/components/responses/503ServiceUnavailable'
-  /balance-sheet:
-    get:
-      tags:
-        - Financials
-      operationId: getFinancialsBalanceSheet
-      summary: Balance Sheet
-      description: Returns a standardized Balance Sheet based on industry.
-      parameters:
-        - $ref: '#/components/parameters/idParameter'
-        - $ref: '#/components/parameters/periodicityParameter'
-        - $ref: '#/components/parameters/schemaParameter'
-        - $ref: '#/components/parameters/reportStatusParameter'
-        - $ref: '#/components/parameters/currencyParameter'
-      responses:
-        '200':
-          $ref: '#/components/responses/200OKStach'
-        '400':
-          $ref: '#/components/responses/400BadRequest'
-        '401':
-          $ref: '#/components/responses/401Unauthorized'
-        '403':
-          $ref: '#/components/responses/403Forbidden'
-        '404':
-          $ref: '#/components/responses/404NotFound'
-        '429':
-          $ref: '#/components/responses/429TooManyRequests'
-        '500':
-          $ref: '#/components/responses/500InternalServerError'
-        '503':
-          $ref: '#/components/responses/503ServiceUnavailable'
-  /cash-flow:
-    get:
-      tags:
-        - Financials
-      operationId: getFinancialsCashFlow
-      summary: Cash Flow
-      description: Returns a standardized Cash Flow based on industry.
-      parameters:
-        - $ref: '#/components/parameters/idParameter'
-        - $ref: '#/components/parameters/periodicityParameter'
-        - $ref: '#/components/parameters/schemaParameter'
-        - $ref: '#/components/parameters/reportStatusParameter'
-        - $ref: '#/components/parameters/currencyParameter'
-      responses:
-        '200':
-          $ref: '#/components/responses/200OKStach'
-        '400':
-          $ref: '#/components/responses/400BadRequest'
-        '401':
-          $ref: '#/components/responses/401Unauthorized'
-        '403':
-          $ref: '#/components/responses/403Forbidden'
-        '404':
-          $ref: '#/components/responses/404NotFound'
-        '429':
-          $ref: '#/components/responses/429TooManyRequests'
-        '500':
-          $ref: '#/components/responses/500InternalServerError'
-        '503':
-          $ref: '#/components/responses/503ServiceUnavailable'
-security:
-  - FactSetApiKey: []
-  - FactSetOAuth2: []
 components:
-  securitySchemes:
-    FactSetOAuth2:
-      type: oauth2
-      flows:
-        clientCredentials:
-          tokenUrl: https://auth.factset.com/as/token.oauth2
-          scopes: {}
-    FactSetApiKey:
-      type: http
-      scheme: basic
+  examples:
+    endpointNotFound:
+      summary: endpoint not found
+      value:
+        errors:
+          - code: endpointNotFound
+            id: 39314614-e607-465a-ba95-5bb79c362e23
+            title: The requested endpoint does not exist.
+    genericServerError:
+      summary: generic server error
+      value:
+        errors:
+          - code: genericServerError
+            id: 39314614-e607-465a-ba95-5bb79c362e23
+            title: Unexpected error processing request
+    groupLevelResponse:
+      description: Subset of rows and columns for an example response
+      summary: (sample table group level columns response)
+      value:
+        data:
+          tables:
+            main:
+              data:
+                columnMetadata:
+                  period1:
+                    items:
+                      reportStatus:
+                        value: NON-RESTATED
+                  period2:
+                    items:
+                      reportStatus:
+                        value: NON-RESTATED
+                rows:
+                  - cells:
+                      - null
+                      - May' 20
+                      - Aug' 19
+                    headerCellDetails:
+                      '0':
+                        columnIndex: 0
+                        source: PRIMARY
+                      '1':
+                        columnIndex: 0
+                        source: HEADERS
+                      '2':
+                        columnIndex: 0
+                        source: HEADERS
+                    rowType: Header
+                  - cells:
+                      - null
+                      - '20200529'
+                      - '20190830'
+                    headerCellDetails:
+                      '0':
+                        columnIndex: 0
+                        source: PRIMARY
+                      '1':
+                        columnIndex: 1
+                        source: HEADERS
+                      '2':
+                        columnIndex: 1
+                        source: HEADERS
+                    rowType: Header
+                  - cellDetails:
+                      '0':
+                        groupLevel: 0
+                    cells:
+                      - Sales
+                      - 1474.804
+                      - 1435.351
+                    rowMetadata:
+                      category:
+                        value: MAIN
+                      scale:
+                        value: 6
+                  - cellDetails:
+                      '0':
+                        groupLevel: 1
+                    cells:
+                      - EPS (diluted)
+                      - 9.7077
+                      - 9.0754
+                    rowMetadata:
+                      category:
+                        value: DETAIL
+                      scale:
+                        value: 0
+                  - cellDetails:
+                      '0':
+                        groupLevel: 2
+                    cells:
+                      - Diluted Shares Outstanding
+                      - 38.481
+                      - 38.873
+                    rowMetadata:
+                      category:
+                        value: MAIN
+                      scale:
+                        value: 6
+                tableMetadata:
+                  currencyCode:
+                    value: USD
+                  currencySymbol:
+                    value: $
+                  sources:
+                    value:
+                      - FactSet Fundamentals
+              definition:
+                columns:
+                  - id: lineItem
+                    isDimension: true
+                    type: string
+                  - id: period1
+                    type: real
+                  - id: period2
+                    type: real
+              headersDefinition:
+                columns:
+                  - id: dates_display
+                    isDimension: true
+                    type: string
+                  - id: dates_value
+                    isDimension: true
+                    isHidden: true
+                    type: string
+          version: '2.0'
+        meta:
+          fsymId: SQFMK3-R
+          requestId: FDS
+          schema: table_group_level
+    idInvalidParameterError:
+      summary: generic parameter error (invalid parameter)
+      value:
+        errors:
+          - code: parameterError
+            id: 39314614-e607-465a-ba95-5bb79c362e23
+            title: 'Invalid parameter(s): ''id'''
+    idRequiredParameterError:
+      summary: generic parameter error (missing parameter)
+      value:
+        errors:
+          - code: parameterError
+            id: 39314614-e607-465a-ba95-5bb79c362e23
+            title: 'Missing required parameter(s): ''id'''
+    notAuthorized:
+      summary: not authorized
+      value:
+        errors:
+          - code: notAuthorized
+            id: 39314614-e607-465a-ba95-5bb79c362e23
+            title: >-
+              User is forbidden access with current credentials. For access,
+              contact your FactSet sales representative
+    parameterErrorPeriodicity:
+      summary: periodicity parameter error
+      value:
+        errors:
+          - code: parameterError
+            id: 39314614-e607-465a-ba95-5bb79c362e23
+            title: 'Invalid parameter: ''periodicity'''
+    parameterErrorReportStatus:
+      summary: reportStatus parameter error
+      value:
+        errors:
+          - code: parameterError
+            id: 39314614-e607-465a-ba95-5bb79c362e23
+            title: 'Invalid parameter: ''reportStatus'''
+    parentChildColumnsResponse:
+      description: Subset of rows and columns for an example response
+      summary: (sample table parent child columns response)
+      value:
+        data:
+          tables:
+            main:
+              data:
+                columnMetadata:
+                  period1:
+                    items:
+                      reportStatus:
+                        value: NON-RESTATED
+                  period2:
+                    items:
+                      reportStatus:
+                        value: NON-RESTATED
+                rows:
+                  - cells:
+                      - null
+                      - null
+                      - null
+                      - null
+                      - May' 20
+                      - Aug' 19
+                    headerCellDetails:
+                      '0':
+                        columnIndex: 0
+                        source: PRIMARY
+                      '1':
+                        columnIndex: 1
+                        source: PRIMARY
+                      '2':
+                        columnIndex: 2
+                        source: PRIMARY
+                      '3':
+                        columnIndex: 3
+                        source: PRIMARY
+                      '4':
+                        columnIndex: 0
+                        source: HEADERS
+                      '5':
+                        columnIndex: 0
+                        source: HEADERS
+                    rowType: Header
+                  - cells:
+                      - null
+                      - null
+                      - null
+                      - null
+                      - '20200529'
+                      - '20190830'
+                    headerCellDetails:
+                      '0':
+                        columnIndex: 0
+                        source: PRIMARY
+                      '1':
+                        columnIndex: 1
+                        source: PRIMARY
+                      '2':
+                        columnIndex: 2
+                        source: PRIMARY
+                      '3':
+                        columnIndex: 3
+                        source: PRIMARY
+                      '4':
+                        columnIndex: 0
+                        source: HEADERS
+                      '5':
+                        columnIndex: 0
+                        source: HEADERS
+                    rowType: Header
+                  - cells:
+                      - Sales
+                      - null
+                      - null
+                      - null
+                      - 1474.804
+                      - 1435.351
+                    rowMetadata:
+                      category:
+                        value: MAIN
+                      metricFundamentals:
+                        value: FF_SALES
+                      scale:
+                        value: 6
+                  - cells:
+                      - Per Share
+                      - EPS (diluted)
+                      - null
+                      - null
+                      - 9.7077
+                      - 9.0754
+                    rowMetadata:
+                      category:
+                        value: DETAIL
+                      metricFundamentals:
+                        value: FF_EPS_DIL
+                      scale:
+                        value: 0
+                  - cells:
+                      - Per Share
+                      - EPS (diluted)
+                      - Diluted Shares Outstanding
+                      - null
+                      - 38.481
+                      - 38.873
+                    rowMetadata:
+                      category:
+                        value: MAIN
+                      metricFundamentals:
+                        value: FF_COM_SHS_OUT_EPS_DIL
+                      scale:
+                        value: 6
+                tableMetadata:
+                  currencyCode:
+                    value: USD
+                  currencySymbol:
+                    value: $
+                  sources:
+                    value:
+                      - FactSet Fundamentals
+              definition:
+                columns:
+                  - id: lineItem
+                    isDimension: true
+                    type: string
+                  - id: lineItemChild1
+                    isDimension: true
+                    parentId: lineItem
+                    type: string
+                  - id: lineItemChild2
+                    isDimension: true
+                    parentId: lineItemChild1
+                    type: string
+                  - id: lineItemChild3
+                    isDimension: true
+                    parentId: lineItemChild2
+                    type: string
+                  - id: period1
+                    type: real
+                  - id: period2
+                    type: real
+              headersDefinition:
+                columns:
+                  - id: dates_display
+                    isDimension: true
+                    type: string
+                  - id: dates_value
+                    isDimension: true
+                    isHidden: true
+                    type: string
+          version: '2.0'
+        meta:
+          fsymId: SQFMK3-R
+          requestId: FDS
+          schema: table_parent_child_columns
   parameters:
-    idParameter:
-      name: id
+    currencyParameter:
+      description: >
+        Currency code for currency values. "LOCAL" will return the security's
+        pricing currency. "RPT" will return the company's reporting currency
+        (which may differ from "LOCAL" for some companies). For a list of other
+        currency ISO codes, visit Online Assistant Page
+        [OA1470](https://my.apps.factset.com/oa/pages/1470).
       in: query
-      description: Company Ticker
-      required: true
-      schema:
-        type: string
-        example: FDS
-    periodicityParameter:
-      name: periodicity
-      in: query
-      description: Periodicity or frequency of the fiscal periods.
+      name: currency
       required: false
       schema:
+        default: LOCAL
         type: string
+    idParameter:
+      description: Company Ticker
+      in: query
+      name: id
+      required: true
+      schema:
+        example: FDS
+        type: string
+    periodicityParameter:
+      description: Periodicity or frequency of the fiscal periods.
+      in: query
+      name: periodicity
+      required: false
+      schema:
+        default: INTERIM
         enum:
           - ANN
           - QTR
           - SEMI
           - INTERIM
           - CAL
-        default: INTERIM
-    schemaParameter:
-      name: schema
+        type: string
+    reportStatusParameter:
+      description: >
+        Return historical periods as originally reported or retroactively
+        restated (for M&A, accounting changes, and other events). The following
+        are descriptions for the accepted values:
+
+        - RESTATED - retroactively restated data.
+
+        - NON-RESTATED - originally reported data. 
       in: query
+      name: reportStatus
+      required: false
+      schema:
+        default: RESTATED
+        enum:
+          - RESTATED
+          - NON-RESTATED
+        type: string
+    schemaParameter:
       description: >
         The schema that the data is returned as. The following are descriptions
         for the accepted values:
@@ -155,103 +389,74 @@ components:
         - table_parent_child_columns - STACH 2.0 row organized package format
         with parent-child relationships represented using STACH parent-child
         columns
+      in: query
+      name: schema
       required: false
       schema:
-        type: string
+        default: table_parent_child_columns
         enum:
           - table_group_level
           - table_parent_child_columns
-        default: table_parent_child_columns
-    reportStatusParameter:
-      name: reportStatus
-      in: query
-      description: >
-        Return historical periods as originally reported or retroactively
-        restated (for M&A, accounting changes, and other events). The following
-        are descriptions for the accepted values:
-
-        - RESTATED - retroactively restated data.
-
-        - NON-RESTATED - originally reported data. 
-      required: false
-      schema:
         type: string
-        enum:
-          - RESTATED
-          - NON-RESTATED
-        default: RESTATED
-    currencyParameter:
-      name: currency
-      in: query
-      description: >
-        Currency code for currency values. "LOCAL" will return the security's
-        pricing currency. "RPT" will return the company's reporting currency
-        (which may differ from "LOCAL" for some companies). For a list of other
-        currency ISO codes, visit Online Assistant Page
-        [OA1470](https://my.apps.factset.com/oa/pages/1470).
-      required: false
-      schema:
-        type: string
-        default: LOCAL
   responses:
     200OKStach:
-      description: >-
-        Expected response; returns JSON data containing STACH 2.0 row organized
-        package format
-      headers:
-        X-DataDirect-Request-Key:
-          schema:
-            type: string
-          description: FactSet request ID
-        Api-Supported-Versions:
-          schema:
-            type: string
-          description: Supported API major versions
-        Api-Version:
-          schema:
-            type: string
-          description: API version (semantic versioning)
       content:
         application/json:
-          schema:
-            $ref: '#/components/schemas/Response'
           examples:
             groupLevelResponse:
               $ref: '#/components/examples/groupLevelResponse'
             parentChildColumnsResponse:
               $ref: '#/components/examples/parentChildColumnsResponse'
+          schema:
+            $ref: '#/components/schemas/Response'
+      description: >-
+        Expected response; returns JSON data containing STACH 2.0 row organized
+        package format
+      headers:
+        Api-Supported-Versions:
+          description: Supported API major versions
+          schema:
+            type: string
+        Api-Version:
+          description: API version (semantic versioning)
+          schema:
+            type: string
+        X-DataDirect-Request-Key:
+          description: FactSet request ID
+          schema:
+            type: string
     400BadRequest:
+      content:
+        application/json:
+          examples:
+            idInvalidParameterError:
+              $ref: '#/components/examples/idInvalidParameterError'
+            idRequiredParameterError:
+              $ref: '#/components/examples/idRequiredParameterError'
+            parameterErrorPeriodicity:
+              $ref: '#/components/examples/parameterErrorPeriodicity'
+            parameterErrorReportStatus:
+              $ref: '#/components/examples/parameterErrorReportStatus'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
       description: >-
         Bad Request. For further assistance, file an issue under "Workflow &
         Throttling - 400 or 429 Response" using `Report Issue` at the top of
         this page, including the X-DataDirect-Request-Key from the header to
         assist in troubleshooting.
       headers:
-        X-DataDirect-Request-Key:
-          schema:
-            type: string
-          description: FactSet request ID
         Api-Supported-Versions:
-          schema:
-            type: string
           description: Supported API major versions
-        Api-Version:
           schema:
             type: string
+        Api-Version:
           description: API version (semantic versioning)
-      content:
-        application/json:
           schema:
-            $ref: '#/components/schemas/ErrorResponse'
-          examples:
-            idRequiredParameterError:
-              $ref: '#/components/examples/idRequiredParameterError'
-            idInvalidParameterError:
-              $ref: '#/components/examples/idInvalidParameterError'
-            parameterErrorPeriodicity:
-              $ref: '#/components/examples/parameterErrorPeriodicity'
-            parameterErrorReportStatus:
-              $ref: '#/components/examples/parameterErrorReportStatus'
+            type: string
+        X-DataDirect-Request-Key:
+          description: FactSet request ID
+          schema:
+            type: string
     401Unauthorized:
       description: >-
         Missing or invalid authentication. Ensure you are logged in and have
@@ -262,10 +467,17 @@ components:
         troubleshooting.
       headers:
         X-DataDirect-Request-Key:
+          description: FactSet request ID
           schema:
             type: string
-          description: FactSet request ID
     403Forbidden:
+      content:
+        application/json:
+          examples:
+            notAuthorized:
+              $ref: '#/components/examples/notAuthorized'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
       description: >-
         User is forbidden access with current credentials. Reach out to your
         local FactSet Account Manager for assistance, or file an issue under
@@ -274,17 +486,17 @@ components:
         assist in troubleshooting.
       headers:
         X-DataDirect-Request-Key:
+          description: FactSet request ID
           schema:
             type: string
-          description: FactSet request ID
+    404NotFound:
       content:
         application/json:
+          examples:
+            endpointNotFound:
+              $ref: '#/components/examples/endpointNotFound'
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-          examples:
-            notAuthorized:
-              $ref: '#/components/examples/notAuthorized'
-    404NotFound:
       description: >-
         Not found. For further assistance, file an issue under "Performance -
         404 and 500 Responses" using `Report Issue` at the top of this page,
@@ -292,16 +504,9 @@ components:
         troubleshooting.
       headers:
         X-DataDirect-Request-Key:
+          description: FactSet request ID
           schema:
             type: string
-          description: FactSet request ID
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-          examples:
-            endpointNotFound:
-              $ref: '#/components/examples/endpointNotFound'
     429TooManyRequests:
       description: >-
         Too many requests - this API is rate-limited to 20 requests per second.
@@ -311,10 +516,17 @@ components:
         troubleshooting.
       headers:
         X-DataDirect-Request-Key:
+          description: FactSet request ID
           schema:
             type: string
-          description: FactSet request ID
     500InternalServerError:
+      content:
+        application/json:
+          examples:
+            genericServerError:
+              $ref: '#/components/examples/genericServerError'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
       description: >-
         Server error. For further assistance, file an issue under "Performance -
         404 and 500 Responses" using `Report Issue` at the top of this page,
@@ -322,16 +534,9 @@ components:
         troubleshooting.
       headers:
         X-DataDirect-Request-Key:
+          description: FactSet request ID
           schema:
             type: string
-          description: FactSet request ID
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-          examples:
-            genericServerError:
-              $ref: '#/components/examples/genericServerError'
     503ServiceUnavailable:
       description: >-
         Service unavailable. Typically a timeout, or result of a rejected
@@ -341,555 +546,197 @@ components:
         header to assist in troubleshooting.
       headers:
         X-DataDirect-Request-Key:
+          description: FactSet request ID
           schema:
             type: string
-          description: FactSet request ID
-  examples:
-    parentChildColumnsResponse:
-      summary: (sample table parent child columns response)
-      description: Subset of rows and columns for an example response
-      value:
-        data:
-          version: '2.0'
-          tables:
-            main:
-              definition:
-                columns:
-                  - id: lineItem
-                    type: string
-                    isDimension: true
-                  - id: lineItemChild1
-                    type: string
-                    isDimension: true
-                    parentId: lineItem
-                  - id: lineItemChild2
-                    type: string
-                    isDimension: true
-                    parentId: lineItemChild1
-                  - id: lineItemChild3
-                    type: string
-                    isDimension: true
-                    parentId: lineItemChild2
-                  - id: period1
-                    type: real
-                  - id: period2
-                    type: real
-              data:
-                rows:
-                  - rowType: Header
-                    cells:
-                      - null
-                      - null
-                      - null
-                      - null
-                      - May' 20
-                      - Aug' 19
-                    headerCellDetails:
-                      '0':
-                        source: PRIMARY
-                        columnIndex: 0
-                      '1':
-                        source: PRIMARY
-                        columnIndex: 1
-                      '2':
-                        source: PRIMARY
-                        columnIndex: 2
-                      '3':
-                        source: PRIMARY
-                        columnIndex: 3
-                      '4':
-                        source: HEADERS
-                        columnIndex: 0
-                      '5':
-                        source: HEADERS
-                        columnIndex: 0
-                  - rowType: Header
-                    cells:
-                      - null
-                      - null
-                      - null
-                      - null
-                      - '20200529'
-                      - '20190830'
-                    headerCellDetails:
-                      '0':
-                        source: PRIMARY
-                        columnIndex: 0
-                      '1':
-                        source: PRIMARY
-                        columnIndex: 1
-                      '2':
-                        source: PRIMARY
-                        columnIndex: 2
-                      '3':
-                        source: PRIMARY
-                        columnIndex: 3
-                      '4':
-                        source: HEADERS
-                        columnIndex: 0
-                      '5':
-                        source: HEADERS
-                        columnIndex: 0
-                  - cells:
-                      - Sales
-                      - null
-                      - null
-                      - null
-                      - 1474.804
-                      - 1435.351
-                    rowMetadata:
-                      category:
-                        value: MAIN
-                      scale:
-                        value: 6
-                      metricFundamentals:
-                        value: FF_SALES
-                  - cells:
-                      - Per Share
-                      - EPS (diluted)
-                      - null
-                      - null
-                      - 9.7077
-                      - 9.0754
-                    rowMetadata:
-                      category:
-                        value: DETAIL
-                      scale:
-                        value: 0
-                      metricFundamentals:
-                        value: FF_EPS_DIL
-                  - cells:
-                      - Per Share
-                      - EPS (diluted)
-                      - Diluted Shares Outstanding
-                      - null
-                      - 38.481
-                      - 38.873
-                    rowMetadata:
-                      category:
-                        value: MAIN
-                      scale:
-                        value: 6
-                      metricFundamentals:
-                        value: FF_COM_SHS_OUT_EPS_DIL
-                columnMetadata:
-                  period1:
-                    items:
-                      reportStatus:
-                        value: NON-RESTATED
-                  period2:
-                    items:
-                      reportStatus:
-                        value: NON-RESTATED
-                tableMetadata:
-                  currencyCode:
-                    value: LOCAL
-              headersDefinition:
-                columns:
-                  - id: dates_display
-                    type: string
-                    isDimension: true
-                  - id: dates_value
-                    type: string
-                    isDimension: true
-                    isHidden: true
-        meta:
-          requestId: FDS
-          fsymId: SQFMK3-R
-          schema: table_parent_child_columns
-    groupLevelResponse:
-      summary: (sample table group level columns response)
-      description: Subset of rows and columns for an example response
-      value:
-        data:
-          version: '2.0'
-          tables:
-            main:
-              definition:
-                columns:
-                  - id: lineItem
-                    isDimension: true
-                    type: string
-                  - id: period1
-                    type: real
-                  - id: period2
-                    type: real
-              data:
-                rows:
-                  - rowType: Header
-                    cells:
-                      - null
-                      - May' 20
-                      - Aug' 19
-                    headerCellDetails:
-                      '0':
-                        source: PRIMARY
-                        columnIndex: 0
-                      '1':
-                        source: HEADERS
-                        columnIndex: 0
-                      '2':
-                        source: HEADERS
-                        columnIndex: 0
-                  - rowType: Header
-                    cells:
-                      - null
-                      - '20200529'
-                      - '20190830'
-                    headerCellDetails:
-                      '0':
-                        source: PRIMARY
-                        columnIndex: 0
-                      '1':
-                        source: HEADERS
-                        columnIndex: 1
-                      '2':
-                        source: HEADERS
-                        columnIndex: 1
-                  - cells:
-                      - Sales
-                      - 1474.804
-                      - 1435.351
-                    cellDetails:
-                      '0':
-                        groupLevel: 0
-                    rowMetadata:
-                      category:
-                        value: MAIN
-                      scale:
-                        value: 6
-                  - cells:
-                      - EPS (diluted)
-                      - 9.7077
-                      - 9.0754
-                    cellDetails:
-                      '0':
-                        groupLevel: 1
-                    rowMetadata:
-                      category:
-                        value: DETAIL
-                      scale:
-                        value: 0
-                  - cells:
-                      - Diluted Shares Outstanding
-                      - 38.481
-                      - 38.873
-                    cellDetails:
-                      '0':
-                        groupLevel: 2
-                    rowMetadata:
-                      category:
-                        value: MAIN
-                      scale:
-                        value: 6
-                columnMetadata:
-                  period1:
-                    items:
-                      reportStatus:
-                        value: NON-RESTATED
-                  period2:
-                    items:
-                      reportStatus:
-                        value: NON-RESTATED
-                tableMetadata:
-                  currencyCode:
-                    value: LOCAL
-              headersDefinition:
-                columns:
-                  - id: dates_display
-                    type: string
-                    isDimension: true
-                  - id: dates_value
-                    type: string
-                    isDimension: true
-                    isHidden: true
-        meta:
-          requestId: FDS
-          fsymId: SQFMK3-R
-          schema: table_group_level
-    genericServerError:
-      summary: generic server error
-      value:
-        errors:
-          - id: 39314614-e607-465a-ba95-5bb79c362e23
-            code: genericServerError
-            title: Unexpected error processing request
-    idRequiredParameterError:
-      summary: generic parameter error (missing parameter)
-      value:
-        errors:
-          - id: 39314614-e607-465a-ba95-5bb79c362e23
-            code: parameterError
-            title: 'Missing required parameter(s): ''id'''
-    idInvalidParameterError:
-      summary: generic parameter error (invalid parameter)
-      value:
-        errors:
-          - id: 39314614-e607-465a-ba95-5bb79c362e23
-            code: parameterError
-            title: 'Invalid parameter(s): ''id'''
-    parameterErrorPeriodicity:
-      summary: periodicity parameter error
-      value:
-        errors:
-          - id: 39314614-e607-465a-ba95-5bb79c362e23
-            code: parameterError
-            title: 'Invalid parameter: ''periodicity'''
-    parameterErrorReportStatus:
-      summary: reportStatus parameter error
-      value:
-        errors:
-          - id: 39314614-e607-465a-ba95-5bb79c362e23
-            code: parameterError
-            title: 'Invalid parameter: ''reportStatus'''
-    endpointNotFound:
-      summary: endpoint not found
-      value:
-        errors:
-          - id: 39314614-e607-465a-ba95-5bb79c362e23
-            code: endpointNotFound
-            title: The requested endpoint does not exist.
-    notAuthorized:
-      summary: not authorized
-      value:
-        errors:
-          - id: 39314614-e607-465a-ba95-5bb79c362e23
-            code: notAuthorized
-            title: >-
-              User is forbidden access with current credentials. For access,
-              contact your FactSet sales representative
   schemas:
-    Response:
-      type: object
-      properties:
-        data:
-          title: STACH
-          description: Returns a STACH 2.0 row organized package
-        meta:
-          $ref: '#/components/schemas/Meta'
-    Meta:
-      type: object
-      additionalProperties:
-        type: string
-        nullable: true
-    ErrorResponse:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/ErrorObject'
-        meta:
-          $ref: '#/components/schemas/Meta'
     ErrorObject:
-      type: object
+      description: Schema describing an API error
       properties:
-        id:
-          type: string
         code:
+          description: A common or API-specific error code.
           type: string
-        title:
+        detail:
+          description: >-
+            A human-readable explanation specific to the occurrence of the
+            problem.
+          type: string
+        id:
+          description: >-
+            A UUID for this particular ocurrence of the problem.  This will be
+            logged for debugging.
           type: string
         links:
-          type: object
+          description: >-
+            An object with a member "about" containing a link that leads to
+            further details about the problem.
           properties:
             about:
+              description: Link to further details about the problem
               type: string
-        detail:
-          type: string
-        source:
           type: object
+        source:
+          description: >-
+            An object containing references to the source of the error,
+            optionally including additional members
           properties:
             parameter:
+              description: >-
+                A string indicating which path or URI query parameter caused the
+                error
               type: string
-    MetadataEntry:
-      type: object
-      description: >
-        Restricted metadata entries. Restricts the possible key in the following
-        STACH schema:
-
-        - RowOrganizedPackage.CellDetail.CellMetadataEntry
-
-        - RowOrganizedPackage.HeaderCellDetail.CellMetadataEntry
-
-        - RowOrganizedPackage.MapOfMetadata.ItemsEntry
-
-        - RowOrganizedPackage.Row.RowMetadataEntry
-
-        - RowOrganizedPackage.TableData.TableMetadataEntry
-
-
-        And sets restrictions on the possible values for a MetadataItem.
-      oneOf:
-        - $ref: '#/components/schemas/currencyCode'
-        - $ref: '#/components/schemas/currencySymbol'
-        - $ref: '#/components/schemas/category'
-        - $ref: '#/components/schemas/metricFundamentals'
-        - $ref: '#/components/schemas/valueType'
-        - $ref: '#/components/schemas/scale'
-        - $ref: '#/components/schemas/description'
-        - $ref: '#/components/schemas/frequency'
-        - $ref: '#/components/schemas/reportStatus'
-    currencyCode:
-      type: object
-      properties:
-        currencyCode:
           type: object
-          description: Code for data currency
-          properties:
-            value:
-              type: string
-    currencySymbol:
-      type: object
-      properties:
-        currencySymbol:
-          type: object
-          description: Symbol for data currency
-          properties:
-            value:
-              type: string
-    category:
-      type: object
-      properties:
-        category:
-          type: object
-          description: >
-            Describes data based on source or kind of value
-
-            - ACTUAL - Historical data collected directly from a press release
-            or a median consensus from brokers after a report date.
-
-            - ESTIMATE - Forward looking average of broker estimates within a
-            specific time horizon.
-
-            - GUIDANCE - Forward looking indication or estimate of future
-            performance issued by the company itself.
-
-            - DETAIL - Indicates data that is more granular and may be secondary
-            in focus.
-
-            - MAIN - Indicates data is of more impactful or higher importance
-            and may want to be emphasized.
-
-            - SECTION - Indicates data that is used in sectioning rows in group
-            level STACH format.
-          properties:
-            value:
-              type: string
-              enum:
-                - ACTUAL
-                - ESTIMATE
-                - GUIDANCE
-                - EXCLUDED
-                - CHANGE
-                - DETAIL
-                - MAIN
-                - SECTION
-    metricFundamentals:
-      type: object
-      properties:
-        metricFundamentals:
-          type: object
+        title:
           description: >-
-            A unique identifier for the line item. The metric can also be used
-            with single item requests from the FactSet Fundamentals API.
-          properties:
-            value:
-              type: string
-    valueType:
+            A short, human-readable summary of the problem.  This should not
+            change from occurrence to occurrence of the problem
+          type: string
       type: object
+    ErrorResponse:
       properties:
-        valueType:
-          type: object
-          description: Describes how to interpret numbers
-          properties:
-            value:
-              type: string
-              enum:
-                - PERCENTAGE
-                - RATIO
-                - TREND
-                - RANGE
-    scale:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorObject'
+          type: array
+        meta:
+          $ref: '#/components/schemas/Meta'
       type: object
-      properties:
-        scale:
-          type: object
-          description: >
-            Integer power of 10 to which numbers have been scaled. For example:
-            6 implies millions.
-
-            Default is 0.
-          properties:
-            value:
-              type: integer
-    description:
+    Meta:
+      additionalProperties:
+        nullable: true
+        type: string
       type: object
+    Response:
       properties:
-        description:
+        data:
+          description: Returns a STACH 2.0 row organized package
+          title: STACH
           type: object
-          description: Text describing the data
-          properties:
-            value:
-              type: string
-    frequency:
+        meta:
+          $ref: '#/components/schemas/Meta'
       type: object
-      properties:
-        frequency:
-          type: object
-          description: |
-            String with frequency of a data series. Allowed values:
-            - "D" (daily)
-            - "W" (weekly)
-            - "AW" (actual weekly)
-            - "M" (monthly)
-            - "AM" (actual monthly)
-            - "Q" (quarterly)
-            - "FQ" (fiscal quarterly)
-            - "CQ" (calendar quarterly)
-            - "AQ" (actual quarterly)
-            - "Y" (yearly)
-            - "FY" (fiscal yearly)
-            - "CY" (calendar yearly)
-            - "AY" (actual yearly)
-            - "MTD" (month-to-date)
-            - "QTD" (quarter-to-date)
-            - "YTD" (year-to-date)
-            - "FYTD" (fiscal-year-to-date)
-            - "CYTD" (calendar-year-to-date)
-          properties:
-            value:
-              type: string
-              enum:
-                - D
-                - W
-                - AW
-                - M
-                - AM
-                - Q
-                - FQ
-                - CQ
-                - AQ
-                - 'Y'
-                - FY
-                - CY
-                - AY
-                - MTD
-                - QTD
-                - YTD
-                - FYTD
-                - CYTD
-    reportStatus:
-      type: object
-      properties:
-        reportStaus:
-          type: object
-          description: >-
-            Return historical periods as originally reported or retroactively
-            restated (for M&A, accounting changes, and other events).
-          properties:
-            value:
-              type: string
-              enum:
-                - RESTATED
-                - NON-RESTATED
+  securitySchemes:
+    FactSetOAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+          scopes: {}
+    FactSetApiKey:
+      type: http
+      scheme: basic
+externalDocs:
+  description: API Documentation
+  url: >-
+    https://developer.factset.com/api-catalog/factset-fundamentals-report-builder-api
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
+  description: License info
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  title: FactSet Entity Report Builder
+  version: 1.0.0
+openapi: 3.0.3
+paths:
+  /balance-sheet:
+    get:
+      description: Returns a standardized Balance Sheet based on industry.
+      operationId: getFinancialsBalanceSheet
+      parameters:
+        - $ref: '#/components/parameters/idParameter'
+        - $ref: '#/components/parameters/periodicityParameter'
+        - $ref: '#/components/parameters/schemaParameter'
+        - $ref: '#/components/parameters/reportStatusParameter'
+        - $ref: '#/components/parameters/currencyParameter'
+      responses:
+        '200':
+          $ref: '#/components/responses/200OKStach'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+        '429':
+          $ref: '#/components/responses/429TooManyRequests'
+        '500':
+          $ref: '#/components/responses/500InternalServerError'
+        '503':
+          $ref: '#/components/responses/503ServiceUnavailable'
+      summary: Balance Sheet
+      tags:
+        - Financials
+  /cash-flow:
+    get:
+      description: Returns a standardized Cash Flow based on industry.
+      operationId: getFinancialsCashFlow
+      parameters:
+        - $ref: '#/components/parameters/idParameter'
+        - $ref: '#/components/parameters/periodicityParameter'
+        - $ref: '#/components/parameters/schemaParameter'
+        - $ref: '#/components/parameters/reportStatusParameter'
+        - $ref: '#/components/parameters/currencyParameter'
+      responses:
+        '200':
+          $ref: '#/components/responses/200OKStach'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+        '429':
+          $ref: '#/components/responses/429TooManyRequests'
+        '500':
+          $ref: '#/components/responses/500InternalServerError'
+        '503':
+          $ref: '#/components/responses/503ServiceUnavailable'
+      summary: Cash Flow
+      tags:
+        - Financials
+  /income-statement:
+    get:
+      description: Returns a standardized Income Statement based on industry.
+      operationId: getFinancialsIncomeStatement
+      parameters:
+        - $ref: '#/components/parameters/idParameter'
+        - $ref: '#/components/parameters/periodicityParameter'
+        - $ref: '#/components/parameters/schemaParameter'
+        - $ref: '#/components/parameters/reportStatusParameter'
+        - $ref: '#/components/parameters/currencyParameter'
+      responses:
+        '200':
+          $ref: '#/components/responses/200OKStach'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+        '429':
+          $ref: '#/components/responses/429TooManyRequests'
+        '500':
+          $ref: '#/components/responses/500InternalServerError'
+        '503':
+          $ref: '#/components/responses/503ServiceUnavailable'
+      summary: Income Statement
+      tags:
+        - Financials
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
+servers:
+  - url: https://api.factset.com/report/financials/v1
+tags:
+  - description: Relates to Financials/Fundamental Data
+    name: Financials

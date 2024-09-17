@@ -1,5 +1,6 @@
 # Meta
 
+Metadata object
 
 ## Properties
 Name | Type | Description | Notes

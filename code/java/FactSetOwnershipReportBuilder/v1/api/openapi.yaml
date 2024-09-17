@@ -116,12 +116,6 @@ paths:
           description: Expected response; returns JSON data containing STACH 2.0 row
             organized package format
           headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
             Api-Supported-Versions:
               description: Supported API versions (semantic versioning)
               explode: false
@@ -130,6 +124,12 @@ paths:
               style: simple
             Api-Version:
               description: API version (semantic versioning)
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
               explode: false
               schema:
                 type: string
@@ -156,20 +156,20 @@ paths:
           content:
             application/json:
               examples:
-                idRequiredParameterError:
-                  $ref: '#/components/examples/idRequiredParameterError'
                 idInvalidParameterError:
                   $ref: '#/components/examples/idInvalidParameterError'
+                idRequiredParameterError:
+                  $ref: '#/components/examples/idRequiredParameterError'
                 parameterErrorAssetType:
                   $ref: '#/components/examples/parameterErrorAssetType'
-                parameterErrorHolderType:
-                  $ref: '#/components/examples/parameterErrorHolderType'
-                parameterErrorEntityType:
-                  $ref: '#/components/examples/parameterErrorEntityType'
-                parameterErrorTopn:
-                  $ref: '#/components/examples/parameterErrorTopn'
                 parameterErrorDate:
                   $ref: '#/components/examples/parameterErrorDate'
+                parameterErrorEntityType:
+                  $ref: '#/components/examples/parameterErrorEntityType'
+                parameterErrorHolderType:
+                  $ref: '#/components/examples/parameterErrorHolderType'
+                parameterErrorTopn:
+                  $ref: '#/components/examples/parameterErrorTopn'
               schema:
                 $ref: '#/components/schemas/ErrorWithMetaResponse'
           description: Bad Request. For further assistance, file an issue under "Workflow
@@ -177,12 +177,6 @@ paths:
             this page, including the X-DataDirect-Request-Key from the header to assist
             in troubleshooting.
           headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
             Api-Supported-Versions:
               description: Supported API versions
               explode: false
@@ -191,6 +185,12 @@ paths:
               style: simple
             Api-Version:
               description: API version (semantic versioning)
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
               explode: false
               schema:
                 type: string
@@ -626,12 +626,6 @@ paths:
           description: Expected response; returns JSON data containing STACH 3.1 table
             format
           headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
             Api-Supported-Versions:
               description: Supported API versions (semantic versioning)
               explode: false
@@ -640,6 +634,12 @@ paths:
               style: simple
             Api-Version:
               description: API version (semantic versioning)
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
               explode: false
               schema:
                 type: string
@@ -666,20 +666,20 @@ paths:
           content:
             application/json:
               examples:
-                idRequiredParameterError:
-                  $ref: '#/components/examples/idRequiredParameterError'
                 idInvalidParameterError:
                   $ref: '#/components/examples/idInvalidParameterError'
+                idRequiredParameterError:
+                  $ref: '#/components/examples/idRequiredParameterError'
                 parameterErrorAssetType:
                   $ref: '#/components/examples/parameterErrorAssetType'
-                parameterErrorHolderType:
-                  $ref: '#/components/examples/parameterErrorHolderType'
-                parameterErrorEntityType:
-                  $ref: '#/components/examples/parameterErrorEntityType'
-                parameterErrorTopn:
-                  $ref: '#/components/examples/parameterErrorTopn'
                 parameterErrorDate:
                   $ref: '#/components/examples/parameterErrorDate'
+                parameterErrorEntityType:
+                  $ref: '#/components/examples/parameterErrorEntityType'
+                parameterErrorHolderType:
+                  $ref: '#/components/examples/parameterErrorHolderType'
+                parameterErrorTopn:
+                  $ref: '#/components/examples/parameterErrorTopn'
               schema:
                 $ref: '#/components/schemas/ErrorWithMetaResponse'
           description: Bad Request. For further assistance, file an issue under "Workflow
@@ -687,12 +687,6 @@ paths:
             this page, including the X-DataDirect-Request-Key from the header to assist
             in troubleshooting.
           headers:
-            X-DataDirect-Request-Key:
-              description: FactSet request ID
-              explode: false
-              schema:
-                type: string
-              style: simple
             Api-Supported-Versions:
               description: Supported API versions
               explode: false
@@ -701,6 +695,12 @@ paths:
               style: simple
             Api-Version:
               description: API version (semantic versioning)
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
               explode: false
               schema:
                 type: string
@@ -902,39 +902,36 @@ components:
       summary: (dummy data - equity holders)
       value:
         data:
-          version: "2.0"
           tables:
             main:
-              definition:
-                columns:
-                - id: holderName
-                  type: string
-                  isDimension: true
-                - id: pctowns
-                  type: real
-                - id: position
-                  type: real
-                - id: postionchg
-                  type: real
-                - id: adj_mv
-                  type: real
-                - id: pcprt
-                  type: real
-                - id: actscore
-                  type: string
-                - id: reportdate
-                  type: string
-                - id: source
-                  type: string
-              headersDefinition:
-                columns:
-                - id: ownershipTableHeader
-                  type: string
-                  isDimension: true
               data:
+                columnMetadata:
+                  adj_mv:
+                    items:
+                      currencyCode:
+                        value: USD
+                      currencySymbol:
+                        value: $
+                      scale:
+                        value: 6
+                  pcprt:
+                    items:
+                      valueType:
+                        value: PERCENTAGE
+                  pctowns:
+                    items:
+                      valueType:
+                        value: PERCENTAGE
+                  position:
+                    items:
+                      scale:
+                        value: 3
+                  postionchg:
+                    items:
+                      scale:
+                        value: 3
                 rows:
-                - rowType: Header
-                  cells:
+                - cells:
                   - All Holders
                   - '%OS'
                   - Position (000)
@@ -946,32 +943,33 @@ components:
                   - Source
                   headerCellDetails:
                     "0":
-                      source: HEADERS
                       columnIndex: 0
+                      source: HEADERS
                     "1":
-                      source: HEADERS
                       columnIndex: 0
+                      source: HEADERS
                     "2":
-                      source: HEADERS
                       columnIndex: 0
+                      source: HEADERS
                     "3":
-                      source: HEADERS
                       columnIndex: 0
+                      source: HEADERS
                     "4":
-                      source: HEADERS
                       columnIndex: 0
+                      source: HEADERS
                     "5":
-                      source: HEADERS
                       columnIndex: 0
+                      source: HEADERS
                     "6":
+                      columnIndex: 0
                       source: PRIMARY
-                      columnIndex: 0
                     "7":
-                      source: HEADERS
                       columnIndex: 0
+                      source: HEADERS
                     "8":
-                      source: HEADERS
                       columnIndex: 0
+                      source: HEADERS
+                  rowType: Header
                 - cells:
                   - The Vanguard Group, Inc.
                   - 9.8903
@@ -1115,142 +1113,160 @@ components:
                   rowMetadata:
                     holderId:
                       value: ' M4017307'
-                columnMetadata:
-                  pctowns:
-                    items:
-                      valueType:
-                        value: PERCENTAGE
-                  position:
-                    items:
-                      scale:
-                        value: 3
-                  postionchg:
-                    items:
-                      scale:
-                        value: 3
-                  adj_mv:
-                    items:
-                      scale:
-                        value: 6
-                      currencyCode:
-                        value: USD
-                      currencySymbol:
-                        value: $
-                  pcprt:
-                    items:
-                      valueType:
-                        value: PERCENTAGE
-        meta:
-          requestId: FDS-US
-          fsymId: SQFMK3-R
-    noData200Response:
-      summary: (debt holders - no data case)
-      value:
-        data:
-          version: "2.0"
-          tables:
-            main:
               definition:
                 columns:
                 - id: holderName
-                  type: string
                   isDimension: true
+                  type: string
                 - id: pctowns
                   type: real
                 - id: position
                   type: real
+                - id: postionchg
+                  type: real
+                - id: adj_mv
+                  type: real
+                - id: pcprt
+                  type: real
+                - id: actscore
+                  type: string
+                - id: reportdate
+                  type: string
+                - id: source
+                  type: string
               headersDefinition:
                 columns:
                 - id: ownershipTableHeader
-                  type: string
                   isDimension: true
-              data:
-                rows:
-                - rowType: Header
-                  cells:
-                  - Institutions
-                  - '%OS'
-                  - Position (MM)
-                  headerCellDetails:
-                    "0":
-                      source: HEADERS
-                      columnIndex: 0
-                    "1":
-                      source: HEADERS
-                      columnIndex: 0
-                    "2":
-                      source: HEADERS
-                      columnIndex: 0
-                - cells:
-                  - null
-                  - null
-                  - null
-                  rowMetadata:
-                    holderId:
-                      value: '@NA'
-                columnMetadata:
-                  pctowns:
-                    items:
-                      valueType:
-                        value: PERCENTAGE
-                  position:
-                    items:
-                      scale:
-                        value: 6
-                      currencyCode:
-                        value: USD
-                      currencySymbol:
-                        value: $
+                  type: string
+          version: "2.0"
         meta:
-          requestId: YELP-US
-          fsymId: DT59Y2-R
-          noData: true
-          message: There is no data for this request.
+          fsymId: SQFMK3-R
+          requestId: FDS-US
     defaultUltimateParent200Response:
       summary: (dummy data - ultimate parent)
       value:
         data:
-          version: "3.1"
           columns:
-          - name: name
-            contextualType: string
-          - name: pctos
-            contextualType: int64
-          - name: pos
-            contextualType: int64
-          - name: poschg
-            contextualType: int64
-          - name: mv
-            contextualType: int64
-          - name: mvchg
-            contextualType: int64
-          - name: pcprt
-            contextualType: int64
-          - name: report_date
-            contextualType: string
-          - name: source
-            contextualType: string
-          - name: holderId
-            contextualType: string
-          - name: pk
-            contextualType: string
-          - name: rowPath
-            contextualType: string
-          - name: aggr
-            contextualType: boolean
+          - contextualType: string
+            name: name
+          - contextualType: int64
+            name: pctos
+          - contextualType: int64
+            name: pos
+          - contextualType: int64
+            name: poschg
+          - contextualType: int64
+            name: mv
+          - contextualType: int64
+            name: mvchg
+          - contextualType: int64
+            name: pcprt
+          - contextualType: string
+            name: report_date
+          - contextualType: string
+            name: source
+          - contextualType: string
+            name: holderId
+          - contextualType: string
+            name: pk
+          - contextualType: string
+            name: rowPath
+          - contextualType: boolean
+            name: aggr
+          rows:
+          - aggr: true
+            holderId: ""
+            mv: 2190.677202
+            mvchg: 185.87468708999998
+            name: The Vanguard Group, Inc.
+            pcprt: 0.10960070590000001
+            pctos: 11.9781
+            pk: TheVanguardGroupInc
+            pos: 4562.01
+            poschg: -31.840999999999998
+            report_date: ""
+            rowPath: ""
+            source: ""
+          - aggr: true
+            holderId: F72998
+            mv: 2110.5563122
+            mvchg: 176.62241719
+            name: The Vanguard Group, Inc.
+            pcprt: 0.0279046476
+            pctos: 11.54
+            pk: ""
+            pos: 4395.161
+            poschg: -36.3
+            report_date: 12/31/2023
+            rowPath: TheVanguardGroupInc
+            source: 13F Form
+          - aggr: false
+            holderId: F11628548
+            mv: 57.2451222
+            mvchg: 8.15074284
+            name: Vanguard Global Advisers LLC
+            pcprt: 0.0174503751
+            pctos: 0.313
+            pk: ""
+            pos: 119.211
+            poschg: 6.715
+            report_date: 12/31/2023
+            rowPath: TheVanguardGroupInc
+            source: 13F Form
+          - aggr: false
+            holderId: F60034
+            mv: 13.7370814
+            mvchg: 0.75562954
+            name: Vanguard Fiduciary Trust Co.
+            pcprt: 0.0267013638
+            pctos: 0.0751
+            pk: ""
+            pos: 28.607
+            poschg: -1.139
+            report_date: 12/31/2023
+            rowPath: TheVanguardGroupInc
+            source: 13F Form
+          - aggr: false
+            holderId: F5547256
+            mv: 7.9698794
+            mvchg: 0.57840323
+            name: Vanguard Investments Australia Ltd.
+            pcprt: 0.0094628924
+            pctos: 0.0436
+            pk: ""
+            pos: 16.597
+            poschg: -0.34
+            report_date: 12/31/2023
+            rowPath: TheVanguardGroupInc
+            source: 13F Form
+          - aggr: false
+            holderId: F17008500
+            mv: 1.1688068
+            mvchg: -0.23250571
+            name: Vanguard Personalized Indexing Management LLC
+            pcprt: 0.028081427
+            pctos: 0.0064
+            pk: ""
+            pos: 2.434
+            poschg: -0.777
+            report_date: 12/31/2023
+            rowPath: TheVanguardGroupInc
+            source: 13F Form
           table:
-            primaryKeys:
-            - pk
-            groupResult:
-              by:
-              - name
-              rowPath: rowPath
-              aggregateRows: aggr
             customMetadata:
               title:
                 contextualType: string
                 value: Single Company - Point in Time - 03/12/2024
+            groupResult:
+              aggregateRows: aggr
+              by:
+              - name
+              rowPath: rowPath
+            primaryKeys:
+            - pk
             totalNumRows: 1779
+          version: "3.1"
           views:
           - name: UltimateParentTable
             table:
@@ -1265,197 +1281,181 @@ components:
               - report_date
               - source
               - holderId
-              headers:
-                $collapsedColumn: Name
-                name: Name
-                pctos: '%OS'
-                pos: Position (000)
-                poschg: Position Chg (000) [6M]
-                mv: Mkt Val (MM)
-                mvchg: Mkt Val Chg (MM) [6M]
-                pcprt: '%Port'
-                report_date: Report Date
-                source: Source
-                holderId: Holder ID
               group:
                 collapsedColumn:
                   alias: $collapsedColumn
-          rows:
-          - name: The Vanguard Group, Inc.
-            pctos: 11.9781
-            pos: 4562.01
-            poschg: -31.840999999999998
-            mv: 2190.677202
-            mvchg: 185.87468708999998
-            pcprt: 0.10960070590000001
-            report_date: ""
-            source: ""
-            holderId: ""
-            pk: TheVanguardGroupInc
-            rowPath: ""
-            aggr: true
-          - name: The Vanguard Group, Inc.
-            pctos: 11.54
-            pos: 4395.161
-            poschg: -36.3
-            mv: 2110.5563122
-            mvchg: 176.62241719
-            pcprt: 0.0279046476
-            report_date: 12/31/2023
-            source: 13F Form
-            holderId: F72998
-            pk: ""
-            rowPath: TheVanguardGroupInc
-            aggr: true
-          - name: Vanguard Global Advisers LLC
-            pctos: 0.313
-            pos: 119.211
-            poschg: 6.715
-            mv: 57.2451222
-            mvchg: 8.15074284
-            pcprt: 0.0174503751
-            report_date: 12/31/2023
-            source: 13F Form
-            holderId: F11628548
-            pk: ""
-            rowPath: TheVanguardGroupInc
-            aggr: false
-          - name: Vanguard Fiduciary Trust Co.
-            pctos: 0.0751
-            pos: 28.607
-            poschg: -1.139
-            mv: 13.7370814
-            mvchg: 0.75562954
-            pcprt: 0.0267013638
-            report_date: 12/31/2023
-            source: 13F Form
-            holderId: F60034
-            pk: ""
-            rowPath: TheVanguardGroupInc
-            aggr: false
-          - name: Vanguard Investments Australia Ltd.
-            pctos: 0.0436
-            pos: 16.597
-            poschg: -0.34
-            mv: 7.9698794
-            mvchg: 0.57840323
-            pcprt: 0.0094628924
-            report_date: 12/31/2023
-            source: 13F Form
-            holderId: F5547256
-            pk: ""
-            rowPath: TheVanguardGroupInc
-            aggr: false
-          - name: Vanguard Personalized Indexing Management LLC
-            pctos: 0.0064
-            pos: 2.434
-            poschg: -0.777
-            mv: 1.1688068
-            mvchg: -0.23250571
-            pcprt: 0.028081427
-            report_date: 12/31/2023
-            source: 13F Form
-            holderId: F17008500
-            pk: ""
-            rowPath: TheVanguardGroupInc
-            aggr: false
+              headers:
+                $collapsedColumn: Name
+                holderId: Holder ID
+                mv: Mkt Val (MM)
+                mvchg: Mkt Val Chg (MM) [6M]
+                name: Name
+                pcprt: '%Port'
+                pctos: '%OS'
+                pos: Position (000)
+                poschg: Position Chg (000) [6M]
+                report_date: Report Date
+                source: Source
         meta:
-          requestId: FDS
           fsymId: SQFMK3-R
-    genericServerError:
-      summary: generic server error
-      value:
-        errors:
-        - id: 39314614-e607-465a-ba95-5bb79c362e23
-          code: genericServerError
-          title: Unexpected error processing request
-    idRequiredParameterError:
-      summary: generic parameter error (missing parameter)
-      value:
-        errors:
-        - id: 39314614-e607-465a-ba95-5bb79c362e23
-          code: parameterError
-          title: 'Missing required parameter(s): ''id'''
-    idInvalidParameterError:
-      summary: generic parameter error (invalid parameter)
-      value:
-        errors:
-        - id: 39314614-e607-465a-ba95-5bb79c362e23
-          code: parameterError
-          title: 'Invalid parameter(s): ''id'''
-        meta:
-          requestId: BAD_TICKER
-          fsymId: null
-    parameterErrorAssetType:
-      summary: asset type parameter error
-      value:
-        errors:
-        - id: 39314614-e607-465a-ba95-5bb79c362e23
-          code: parameterError
-          title: 'Invalid parameter: ''asset_type'''
-        meta:
           requestId: FDS
-          fsymId: SQFMK3-R
-    parameterErrorHolderType:
-      summary: holder type parameter error
-      value:
-        errors:
-        - id: 39314614-e607-465a-ba95-5bb79c362e23
-          code: parameterError
-          title: 'Invalid parameter: ''holder_type'''
-        - id: 39314614-e607-465a-ba95-5bb79c362e23
-          code: parameterError
-          title: holderType parameter value is invalid with assetType ‘DEBT’. Only
-            holderType ‘INSTITUTIONS’ or ‘FUNDS’ are valid when returning assetType
-            ‘DEBT’.
-        meta:
-          requestId: FDS
-          fsymId: SQFMK3-R
-    parameterErrorEntityType:
-      summary: entity type parameter error
-      value:
-        errors:
-        - id: 39314614-e607-465a-ba95-5bb79c362e23
-          code: parameterError
-          title: 'Invalid parameter: ''entity_type'''
-        meta:
-          requestId: FDS
-          fsymId: SQFMK3-R
-    parameterErrorTopn:
-      summary: topn parameter error
-      value:
-        errors:
-        - id: 39314614-e607-465a-ba95-5bb79c362e23
-          code: parameterError
-          title: 'Invalid parameter: ''topn'''
-        meta:
-          requestId: FDS
-          fsymId: SQFMK3-R
-    parameterErrorDate:
-      summary: date parameter error
-      value:
-        errors:
-        - id: 39314614-e607-465a-ba95-5bb79c362e23
-          code: parameterError
-          title: 'Invalid parameter: ''date'''
-        meta:
-          requestId: FDS
-          fsymId: SQFMK3-R
     endpointNotFound:
       summary: endpoint not found
       value:
         errors:
-        - id: 39314614-e607-465a-ba95-5bb79c362e23
-          code: endpointNotFound
+        - code: endpointNotFound
+          id: 39314614-e607-465a-ba95-5bb79c362e23
           title: The requested endpoint does not exist.
+    genericServerError:
+      summary: generic server error
+      value:
+        errors:
+        - code: genericServerError
+          id: 39314614-e607-465a-ba95-5bb79c362e23
+          title: Unexpected error processing request
+    idInvalidParameterError:
+      summary: generic parameter error (invalid parameter)
+      value:
+        errors:
+        - code: parameterError
+          id: 39314614-e607-465a-ba95-5bb79c362e23
+          title: 'Invalid parameter(s): ''id'''
+        meta:
+          fsymId: null
+          requestId: BAD_TICKER
+    idRequiredParameterError:
+      summary: generic parameter error (missing parameter)
+      value:
+        errors:
+        - code: parameterError
+          id: 39314614-e607-465a-ba95-5bb79c362e23
+          title: 'Missing required parameter(s): ''id'''
+    noData200Response:
+      summary: (debt holders - no data case)
+      value:
+        data:
+          tables:
+            main:
+              data:
+                columnMetadata:
+                  pctowns:
+                    items:
+                      valueType:
+                        value: PERCENTAGE
+                  position:
+                    items:
+                      currencyCode:
+                        value: USD
+                      currencySymbol:
+                        value: $
+                      scale:
+                        value: 6
+                rows:
+                - cells:
+                  - Institutions
+                  - '%OS'
+                  - Position (MM)
+                  headerCellDetails:
+                    "0":
+                      columnIndex: 0
+                      source: HEADERS
+                    "1":
+                      columnIndex: 0
+                      source: HEADERS
+                    "2":
+                      columnIndex: 0
+                      source: HEADERS
+                  rowType: Header
+                - cells:
+                  - null
+                  - null
+                  - null
+                  rowMetadata:
+                    holderId:
+                      value: '@NA'
+              definition:
+                columns:
+                - id: holderName
+                  isDimension: true
+                  type: string
+                - id: pctowns
+                  type: real
+                - id: position
+                  type: real
+              headersDefinition:
+                columns:
+                - id: ownershipTableHeader
+                  isDimension: true
+                  type: string
+          version: "2.0"
+        meta:
+          fsymId: DT59Y2-R
+          message: There is no data for this request.
+          noData: true
+          requestId: YELP-US
     notAuthorized:
       summary: not authorized
       value:
         errors:
-        - id: 39314614-e607-465a-ba95-5bb79c362e23
-          code: notAuthorized
+        - code: notAuthorized
+          id: 39314614-e607-465a-ba95-5bb79c362e23
           title: User is forbidden access with current credentials. For access, contact
             your FactSet sales representative
+    parameterErrorAssetType:
+      summary: asset type parameter error
+      value:
+        errors:
+        - code: parameterError
+          id: 39314614-e607-465a-ba95-5bb79c362e23
+          title: 'Invalid parameter: ''asset_type'''
+        meta:
+          fsymId: SQFMK3-R
+          requestId: FDS
+    parameterErrorDate:
+      summary: date parameter error
+      value:
+        errors:
+        - code: parameterError
+          id: 39314614-e607-465a-ba95-5bb79c362e23
+          title: 'Invalid parameter: ''date'''
+        meta:
+          fsymId: SQFMK3-R
+          requestId: FDS
+    parameterErrorEntityType:
+      summary: entity type parameter error
+      value:
+        errors:
+        - code: parameterError
+          id: 39314614-e607-465a-ba95-5bb79c362e23
+          title: 'Invalid parameter: ''entity_type'''
+        meta:
+          fsymId: SQFMK3-R
+          requestId: FDS
+    parameterErrorHolderType:
+      summary: holder type parameter error
+      value:
+        errors:
+        - code: parameterError
+          id: 39314614-e607-465a-ba95-5bb79c362e23
+          title: 'Invalid parameter: ''holder_type'''
+        - code: parameterError
+          id: 39314614-e607-465a-ba95-5bb79c362e23
+          title: holderType parameter value is invalid with assetType ‘DEBT’. Only
+            holderType ‘INSTITUTIONS’ or ‘FUNDS’ are valid when returning assetType
+            ‘DEBT’.
+        meta:
+          fsymId: SQFMK3-R
+          requestId: FDS
+    parameterErrorTopn:
+      summary: topn parameter error
+      value:
+        errors:
+        - code: parameterError
+          id: 39314614-e607-465a-ba95-5bb79c362e23
+          title: 'Invalid parameter: ''topn'''
+        meta:
+          fsymId: SQFMK3-R
+          requestId: FDS
   responses:
     "200OKStach2":
       content:
@@ -1470,12 +1470,6 @@ components:
       description: Expected response; returns JSON data containing STACH 2.0 row organized
         package format
       headers:
-        X-DataDirect-Request-Key:
-          description: FactSet request ID
-          explode: false
-          schema:
-            type: string
-          style: simple
         Api-Supported-Versions:
           description: Supported API versions (semantic versioning)
           explode: false
@@ -1484,6 +1478,12 @@ components:
           style: simple
         Api-Version:
           description: API version (semantic versioning)
+          explode: false
+          schema:
+            type: string
+          style: simple
+        X-DataDirect-Request-Key:
+          description: FactSet request ID
           explode: false
           schema:
             type: string
@@ -1517,12 +1517,6 @@ components:
       description: Expected response; returns JSON data containing STACH 3.1 table
         format
       headers:
-        X-DataDirect-Request-Key:
-          description: FactSet request ID
-          explode: false
-          schema:
-            type: string
-          style: simple
         Api-Supported-Versions:
           description: Supported API versions (semantic versioning)
           explode: false
@@ -1531,6 +1525,12 @@ components:
           style: simple
         Api-Version:
           description: API version (semantic versioning)
+          explode: false
+          schema:
+            type: string
+          style: simple
+        X-DataDirect-Request-Key:
+          description: FactSet request ID
           explode: false
           schema:
             type: string
@@ -1557,20 +1557,20 @@ components:
       content:
         application/json:
           examples:
-            idRequiredParameterError:
-              $ref: '#/components/examples/idRequiredParameterError'
             idInvalidParameterError:
               $ref: '#/components/examples/idInvalidParameterError'
+            idRequiredParameterError:
+              $ref: '#/components/examples/idRequiredParameterError'
             parameterErrorAssetType:
               $ref: '#/components/examples/parameterErrorAssetType'
-            parameterErrorHolderType:
-              $ref: '#/components/examples/parameterErrorHolderType'
-            parameterErrorEntityType:
-              $ref: '#/components/examples/parameterErrorEntityType'
-            parameterErrorTopn:
-              $ref: '#/components/examples/parameterErrorTopn'
             parameterErrorDate:
               $ref: '#/components/examples/parameterErrorDate'
+            parameterErrorEntityType:
+              $ref: '#/components/examples/parameterErrorEntityType'
+            parameterErrorHolderType:
+              $ref: '#/components/examples/parameterErrorHolderType'
+            parameterErrorTopn:
+              $ref: '#/components/examples/parameterErrorTopn'
           schema:
             $ref: '#/components/schemas/ErrorWithMetaResponse'
       description: Bad Request. For further assistance, file an issue under "Workflow
@@ -1578,12 +1578,6 @@ components:
         page, including the X-DataDirect-Request-Key from the header to assist in
         troubleshooting.
       headers:
-        X-DataDirect-Request-Key:
-          description: FactSet request ID
-          explode: false
-          schema:
-            type: string
-          style: simple
         Api-Supported-Versions:
           description: Supported API versions
           explode: false
@@ -1592,6 +1586,12 @@ components:
           style: simple
         Api-Version:
           description: API version (semantic versioning)
+          explode: false
+          schema:
+            type: string
+          style: simple
+        X-DataDirect-Request-Key:
+          description: FactSet request ID
           explode: false
           schema:
             type: string
@@ -1781,6 +1781,74 @@ components:
             type: string
           style: simple
   schemas:
+    ErrorObject:
+      description: Schema describing an API error
+      properties:
+        code:
+          description: A common or API-specific error code.
+          type: string
+        detail:
+          description: A human-readable explanation specific to the occurrence of
+            the problem.
+          type: string
+        id:
+          description: A UUID for this particular ocurrence of the problem.  This
+            will be logged for debugging.
+          type: string
+        links:
+          $ref: '#/components/schemas/ErrorObject_links'
+        source:
+          $ref: '#/components/schemas/ErrorObject_source'
+        title:
+          description: A short, human-readable summary of the problem.  This should
+            not change from occurrence to occurrence of the problem
+          type: string
+      type: object
+    ErrorResponse:
+      description: Standard Ownership response when an error occurs.
+      properties:
+        errors:
+          description: Any errors that occured which made this request unservicable
+          items:
+            $ref: '#/components/schemas/ErrorObject'
+          type: array
+      type: object
+    ErrorWithMetaResponse:
+      description: Standard Ownership response when an error occurs.
+      properties:
+        errors:
+          description: Any errors that occured which made this request unservicable
+          items:
+            $ref: '#/components/schemas/ErrorObject'
+          type: array
+        meta:
+          $ref: '#/components/schemas/Meta'
+      type: object
+    Meta:
+      description: Standard Ownership response meta object.  Contains metadata about
+        the response at the root level.
+      example:
+        requestId: requestId
+        fsymId: fsymId
+        currency: currency
+        noData: true
+      properties:
+        currency:
+          description: The currency ISO of the data which was returned
+          nullable: true
+          type: string
+        fsymId:
+          description: The resolved fsymId that corresponds to the provided requestId
+          nullable: true
+          type: string
+        noData:
+          description: Indicator of whether FactSet had data for this request
+          nullable: true
+          type: boolean
+        requestId:
+          description: The identifier which was requested by the client
+          type: string
+      type: object
     ResponseHolders:
       description: Standard response schema for the Holders endpoint
       example:
@@ -1816,75 +1884,21 @@ components:
         meta:
           $ref: '#/components/schemas/Meta'
       type: object
-    Meta:
-      description: Standard Ownership response meta object.  Contains metadata about
-        the response at the root level.
-      example:
-        requestId: requestId
-        fsymId: fsymId
-        currency: currency
-        noData: true
-      properties:
-        requestId:
-          description: The identifier which was requested by the client
-          type: string
-        currency:
-          description: The currency ISO of the data which was returned
-          nullable: true
-          type: string
-        fsymId:
-          description: The resolved fsymId that corresponds to the provided requestId
-          nullable: true
-          type: string
-        noData:
-          description: Indicator of whether FactSet had data for this request
-          nullable: true
-          type: boolean
-      type: object
-    ErrorResponse:
-      description: Standard Ownership response when an error occurs.
-      properties:
-        errors:
-          description: Any errors that occured which made this request unservicable
-          items:
-            $ref: '#/components/schemas/ErrorObject'
-          type: array
-      type: object
-    ErrorWithMetaResponse:
-      description: Standard Ownership response when an error occurs.
-      properties:
-        errors:
-          description: Any errors that occured which made this request unservicable
-          items:
-            $ref: '#/components/schemas/ErrorObject'
-          type: array
-        meta:
-          $ref: '#/components/schemas/Meta'
-      type: object
-    ErrorObject:
-      description: Schema describing an API error
-      properties:
-        id:
-          type: string
-        code:
-          type: string
-        title:
-          type: string
-        links:
-          $ref: '#/components/schemas/ErrorObject_links'
-        detail:
-          type: string
-        source:
-          $ref: '#/components/schemas/ErrorObject_source'
-      type: object
     ErrorObject_links:
+      description: An object with a member "about" containing a link that leads to
+        further details about the problem.
       properties:
         about:
+          description: Link to further details about the problem
           type: string
       type: object
     ErrorObject_source:
+      description: An object containing references to the source of the error, optionally
+        including additional members
       properties:
         parameter:
+          description: A string indicating which path or URI query parameter caused
+            the error
           type: string
       type: object
   securitySchemes:

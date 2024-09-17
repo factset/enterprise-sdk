@@ -82,10 +82,10 @@ class Meta(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'request_id': (str,),  # noqa: E501
             'currency': (str, none_type,),  # noqa: E501
             'fsym_id': (str, none_type,),  # noqa: E501
             'no_data': (bool, none_type,),  # noqa: E501
+            'request_id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -94,10 +94,10 @@ class Meta(ModelNormal):
 
 
     attribute_map = {
-        'request_id': 'requestId',  # noqa: E501
         'currency': 'currency',  # noqa: E501
         'fsym_id': 'fsymId',  # noqa: E501
         'no_data': 'noData',  # noqa: E501
+        'request_id': 'requestId',  # noqa: E501
     }
 
     read_only_vars = {
@@ -141,10 +141,10 @@ class Meta(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            request_id (str): The identifier which was requested by the client. [optional]  # noqa: E501
             currency (str, none_type): The currency ISO of the data which was returned. [optional]  # noqa: E501
             fsym_id (str, none_type): The resolved fsymId that corresponds to the provided requestId. [optional]  # noqa: E501
             no_data (bool, none_type): Indicator of whether FactSet had data for this request. [optional]  # noqa: E501
+            request_id (str): The identifier which was requested by the client. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -226,10 +226,10 @@ class Meta(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            request_id (str): The identifier which was requested by the client. [optional]  # noqa: E501
             currency (str, none_type): The currency ISO of the data which was returned. [optional]  # noqa: E501
             fsym_id (str, none_type): The resolved fsymId that corresponds to the provided requestId. [optional]  # noqa: E501
             no_data (bool, none_type): Indicator of whether FactSet had data for this request. [optional]  # noqa: E501
+            request_id (str): The identifier which was requested by the client. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

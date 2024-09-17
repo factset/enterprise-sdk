@@ -16,6 +16,8 @@ Method | HTTP request | Description
 
 Debt Capital Structure (DCS)
 
+Get the DCS Detail component&#39;s data
+
 ### Example
 
 > [!IMPORTANT]
@@ -97,6 +99,8 @@ Name | Type | Description  | Notes
 
 Debt Capital Structure (DCS) Summary
 
+Get the DCS Summary component&#39;s data
+
 ### Example
 
 > [!IMPORTANT]
@@ -177,6 +181,8 @@ Name | Type | Description  | Notes
 > Response getSourceOfCapital(id)
 
 Source of Capital
+
+Get the Source of Capital component&#39;s data
 
 ### Example
 

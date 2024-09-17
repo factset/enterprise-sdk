@@ -59,7 +59,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         UniverseApi apiInstance = new UniverseApi(defaultClient);
-        String name = "Cargill"; // String | Name of Entity to match.
+        String name = "FactSet"; // String | Name of Entity to match.
         String country = "US"; // String | ISO2 country code corresponding to the entity name that is used when evaluating candidates for a match. For a list of ISO2 Country codes, visit [OA 8754](https://my.apps.factset.com/oa/pages/8754).
         try {
             EntityMatchesResponse result = apiInstance.getUniverse(name, country);

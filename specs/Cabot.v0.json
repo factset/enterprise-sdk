@@ -3,7 +3,7 @@
   "info": {
     "description": "Cabot Models API",
     "title": "Cabot Models API",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "contact": {
       "name": "FactSet Research Systems",
       "email": "api@factset.com",
@@ -25,188 +25,156 @@
     "url": "https://developer.factset.com/api-catalog/cabot"
   },
   "paths": {
-    "/models/skills": {
+    "/models/add-trim": {
       "get": {
-        "tags": [
-          "Cabot Models API"
-        ],
-        "description": "Cabot main path for Skills API.",
-        "operationId": "getSkillsModelAnalytic",
+        "description": "Cabot main path for Add Trim API",
+        "operationId": "getAddTrimModelAnalytic",
         "parameters": [
           {
-            "name": "accountPath",
+            "description": "The account path of the portfolio you want to retrieve the data for.<br /><br />",
             "in": "query",
+            "name": "accountPath",
             "required": true,
-            "description": "The account path of the portfolio you want to retrieve the data for.",
             "schema": {
               "$ref": "#/components/schemas/AccountPath"
             }
           },
           {
-            "name": "benchmarkPath",
-            "in": "query",
-            "required": true,
             "description": "The path of the benchmark you want to retrieve the data for.<br /><br />",
+            "in": "query",
+            "name": "benchmarkPath",
+            "required": true,
             "schema": {
               "$ref": "#/components/schemas/BenchmarkPath"
             }
           },
           {
-            "name": "period",
+            "description": "For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />",
+            "example": "2015-2017",
             "in": "query",
-            "description": "For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING, (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />",
+            "name": "period",
             "required": true,
             "schema": {
               "$ref": "#/components/schemas/Period"
             }
           },
           {
-            "name": "attribute",
-            "in": "query",
             "description": "The attribute represents the different factors.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />If provided, the API response will contain both \"LOW\" and \"HIGH\" values for it.<br /><br />",
+            "example": "QFL_EY",
+            "in": "query",
+            "name": "attribute",
             "required": false,
             "schema": {
               "$ref": "#/components/schemas/Attributes"
             }
           },
           {
-            "name": "sector",
-            "in": "query",
             "description": "Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />",
+            "example": "energy",
+            "in": "query",
+            "name": "sector",
             "required": false,
             "schema": {
               "$ref": "#/components/schemas/Sectors"
-            },
-            "example": "energy"
+            }
           },
           {
-            "name": "region",
-            "in": "query",
             "description": "Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />",
+            "example": "northAmerica",
+            "in": "query",
+            "name": "region",
             "required": false,
             "schema": {
               "$ref": "#/components/schemas/Regions"
-            },
-            "example": "northAmerica"
+            }
           }
         ],
         "responses": {
           "200": {
-            "description": "Successful response.",
-            "headers": {
-              "X-DataDirect-Request-Key": {
-                "description": "FactSet's request key header.",
-                "schema": {
-                  "type": "string",
-                  "description": "FactSet's request key header."
-                }
-              },
-              "X-FactSet-Api-Request-Key": {
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
-                "schema": {
-                  "type": "string",
-                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
-                }
-              },
-              "X-FactSet-Api-RateLimit-Limit": {
-                "description": "Number of allowed requests for the time window.",
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "X-FactSet-Api-RateLimit-Remaining": {
-                "description": "Number of requests left for the time window.",
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "X-FactSet-Api-RateLimit-Reset": {
-                "description": "Number of seconds remaining till rate limit resets.",
-                "schema": {
-                  "type": "string"
-                }
-              }
-            },
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SkillsResponseRoot"
-                },
                 "examples": {
+                  "Attribute was provided in the request": {
+                    "value": {
+                      "data": {
+                        "attribute": "QFL_SALES_GR_1Y",
+                        "highAddTrimValues": {
+                          "addDown": 0.08,
+                          "addUp": -0.15,
+                          "trimDown": -0.09,
+                          "trimUp": 0.04
+                        },
+                        "lowAddTrimValues": {
+                          "addDown": -0.06,
+                          "addUp": 0.34,
+                          "trimDown": 0.03,
+                          "trimUp": 0.05
+                        }
+                      }
+                    }
+                  },
                   "No attribute was provided in the request": {
                     "value": {
                       "data": {
-                        "skillValues": {
-                          "buy": 1.48,
-                          "sell": -0.58,
-                          "sizing": 0.15
+                        "addTrimValues": {
+                          "addDown": 0.49,
+                          "addUp": 0.84,
+                          "trimDown": 0.03,
+                          "trimUp": 0.15
                         },
                         "attribute": null
                       }
                     }
-                  },
-                  "An attribute was provided in the request": {
-                    "value": {
-                      "data": {
-                        "lowSkillValues": {
-                          "buy": 0.03,
-                          "sell": 0.24,
-                          "sizing": 0.37
-                        },
-                        "highSkillValues": {
-                          "buy": 2.06,
-                          "sell": -0.88,
-                          "sizing": 0.75
-                        },
-                        "attribute": "QFL_DEBT_ASSETS"
-                      }
-                    }
                   }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/AddTrimResponseRoot"
                 }
+              }
+            },
+            "description": "Successful response.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
               }
             }
           },
           "400": {
-            "description": "Bad request, invalid query parameters.",
-            "headers": {
-              "X-DataDirect-Request-Key": {
-                "description": "FactSet's request key header.",
-                "schema": {
-                  "type": "string",
-                  "description": "FactSet's request key header."
-                }
-              },
-              "X-FactSet-Api-Request-Key": {
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
-                "schema": {
-                  "type": "string",
-                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
-                }
-              },
-              "X-FactSet-Api-RateLimit-Limit": {
-                "description": "Number of allowed requests for the time window.",
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "X-FactSet-Api-RateLimit-Remaining": {
-                "description": "Number of requests left for the time window.",
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "X-FactSet-Api-RateLimit-Reset": {
-                "description": "Number of seconds remaining till rate limit resets.",
-                "schema": {
-                  "type": "string"
-                }
-              }
-            },
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
                 }
+              }
+            },
+            "description": "Bad request, invalid query parameters.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
               }
             }
           },
@@ -214,18 +182,10 @@
             "description": "Missing or invalid authentication.",
             "headers": {
               "X-DataDirect-Request-Key": {
-                "description": "FactSet's request key header.",
-                "schema": {
-                  "type": "string",
-                  "description": "FactSet's request key header."
-                }
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
               },
               "X-FactSet-Api-Request-Key": {
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
-                "schema": {
-                  "type": "string",
-                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
-                }
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
               }
             }
           },
@@ -233,142 +193,86 @@
             "description": "User is forbidden with current credentials.",
             "headers": {
               "X-DataDirect-Request-Key": {
-                "description": "FactSet's request key header.",
-                "schema": {
-                  "type": "string",
-                  "description": "FactSet's request key header."
-                }
-              },
-              "X-FactSet-Api-Request-Key": {
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
-                "schema": {
-                  "type": "string",
-                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
-                }
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
               },
               "X-FactSet-Api-RateLimit-Limit": {
-                "description": "Number of allowed requests for the time window.",
-                "schema": {
-                  "type": "string"
-                }
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
               },
               "X-FactSet-Api-RateLimit-Remaining": {
-                "description": "Number of requests left for the time window.",
-                "schema": {
-                  "type": "string"
-                }
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
               },
               "X-FactSet-Api-RateLimit-Reset": {
-                "description": "Number of seconds remaining till rate limit resets.",
-                "schema": {
-                  "type": "string"
-                }
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
               }
             }
           },
           "404": {
-            "description": "Path not found",
-            "headers": {
-              "X-DataDirect-Request-Key": {
-                "description": "FactSet's request key header.",
-                "schema": {
-                  "type": "string",
-                  "description": "FactSet's request key header."
-                }
-              },
-              "X-FactSet-Api-Request-Key": {
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
-                "schema": {
-                  "type": "string",
-                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
-                }
-              },
-              "X-FactSet-Api-RateLimit-Limit": {
-                "description": "Number of allowed requests for the time window.",
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "X-FactSet-Api-RateLimit-Remaining": {
-                "description": "Number of requests left for the time window.",
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "X-FactSet-Api-RateLimit-Reset": {
-                "description": "Number of seconds remaining till rate limit resets.",
-                "schema": {
-                  "type": "string"
-                }
-              }
-            },
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
+            },
+            "description": "Path not found",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
             }
+          },
+          "408": {
+            "description": "Request timeout. Retry the request in sometime."
           },
           "415": {
             "description": "Missing/Invalid Content-Type header. Header needs to be set to application/json.",
             "headers": {
               "X-DataDirect-Request-Key": {
-                "description": "FactSet's request key header.",
-                "schema": {
-                  "type": "string",
-                  "description": "FactSet's request key header."
-                }
-              },
-              "X-FactSet-Api-Request-Key": {
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
-                "schema": {
-                  "type": "string",
-                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
-                }
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
               },
               "X-FactSet-Api-RateLimit-Limit": {
-                "description": "Number of allowed requests for the time window.",
-                "schema": {
-                  "type": "string"
-                }
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
               },
               "X-FactSet-Api-RateLimit-Remaining": {
-                "description": "Number of requests left for the time window.",
-                "schema": {
-                  "type": "string"
-                }
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
               },
               "X-FactSet-Api-RateLimit-Reset": {
-                "description": "Number of seconds remaining till rate limit resets.",
-                "schema": {
-                  "type": "string"
-                }
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
               }
             }
           },
           "429": {
             "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further requests.",
             "headers": {
-              "X-DataDirect-Request-Key": {
-                "description": "FactSet's request key header.",
-                "schema": {
-                  "type": "string",
-                  "description": "FactSet's request key header."
-                }
-              },
-              "X-FactSet-Api-Request-Key": {
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
-                "schema": {
-                  "type": "string",
-                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
-                }
-              },
               "Retry-After": {
                 "description": "Time to wait in seconds before making a new request as the rate limit has reached.",
                 "schema": {
                   "type": "string"
                 }
+              },
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
               }
             }
           },
@@ -376,18 +280,10 @@
             "description": "Server error.",
             "headers": {
               "X-DataDirect-Request-Key": {
-                "description": "FactSet's request key header.",
-                "schema": {
-                  "type": "string",
-                  "description": "FactSet's request key header."
-                }
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
               },
               "X-FactSet-Api-Request-Key": {
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
-                "schema": {
-                  "type": "string",
-                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
-                }
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
               }
             }
           },
@@ -395,213 +291,2224 @@
             "description": "Request timed out. Retry the request in some time",
             "headers": {
               "X-DataDirect-Request-Key": {
-                "description": "FactSet's request key header.",
-                "schema": {
-                  "type": "string",
-                  "description": "FactSet's request key header."
-                }
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
               },
               "X-FactSet-Api-Request-Key": {
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
-                "schema": {
-                  "type": "string",
-                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
-                }
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
               }
             }
           }
         },
-        "summary": "Cabot main path for Skills API"
+        "summary": "Cabot main path for Add Trim API",
+        "tags": [
+          "Sizing Models"
+        ]
+      },
+      "parameters": []
+    },
+    "/models/buy-context": {
+      "get": {
+        "description": "Cabot main path for Buy Context API",
+        "operationId": "getBuyContextModelAnalytic",
+        "parameters": [
+          {
+            "description": "The account path of the portfolio you want to retrieve the data for.",
+            "in": "query",
+            "name": "accountPath",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/AccountPath"
+            }
+          },
+          {
+            "description": "The path of the benchmark you want to retrieve the data for.<br /><br />",
+            "example": "BENCH:SP50",
+            "in": "query",
+            "name": "benchmarkPath",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/BenchmarkPath"
+            }
+          },
+          {
+            "description": "For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />",
+            "in": "query",
+            "name": "period",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Period"
+            }
+          },
+          {
+            "description": "The attribute represents the different factors.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />If provided, the API response will contain both \"LOW\" and \"HIGH\" values for it.<br /><br />",
+            "example": "QFL_EY",
+            "in": "query",
+            "name": "attribute",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Attributes"
+            }
+          },
+          {
+            "description": "Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />",
+            "example": "energy",
+            "in": "query",
+            "name": "sector",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/Sectors"
+            }
+          },
+          {
+            "description": "Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />",
+            "example": "northAmerica",
+            "in": "query",
+            "name": "region",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/Regions"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Sector was provided in the request": {
+                    "value": {
+                      "data": {
+                        "buyContextValues": {
+                          "affect": 0,
+                          "context": {
+                            "attribute": {
+                              "values": {
+                                "medianLoser": 50,
+                                "medianWinner": 50,
+                                "name": "QFL_CFROIC",
+                                "range": {
+                                  "from": 12,
+                                  "to": 75
+                                }
+                              }
+                            },
+                            "count": 45,
+                            "sectors": [
+                              {
+                                "medianLoser": 50,
+                                "medianWinner": 50,
+                                "name": "industrials",
+                                "range": {
+                                  "from": 12,
+                                  "to": 75
+                                }
+                              }
+                            ]
+                          },
+                          "range": 63
+                        }
+                      }
+                    }
+                  },
+                  "No sector was provided in the request": {
+                    "value": {
+                      "data": {
+                        "buyContextValues": {
+                          "affect": 24,
+                          "context": {
+                            "attribute": {
+                              "values": {
+                                "medianLoser": 11,
+                                "medianWinner": 35,
+                                "name": "QFL_CFROIC",
+                                "range": {
+                                  "from": 6,
+                                  "to": 62
+                                }
+                              }
+                            },
+                            "count": 222,
+                            "sectors": [
+                              {
+                                "medianLoser": 11,
+                                "medianWinner": 21,
+                                "name": "industrials",
+                                "range": {
+                                  "from": 3,
+                                  "to": 46
+                                }
+                              },
+                              {
+                                "medianLoser": 54,
+                                "medianWinner": 42,
+                                "name": "materials",
+                                "range": {
+                                  "from": 16,
+                                  "to": 75
+                                }
+                              },
+                              {
+                                "medianLoser": 47,
+                                "medianWinner": 30,
+                                "name": "energy",
+                                "range": {
+                                  "from": 12,
+                                  "to": 68
+                                }
+                              },
+                              {
+                                "medianLoser": 8,
+                                "medianWinner": 1,
+                                "name": "realEstate",
+                                "range": {
+                                  "from": 1,
+                                  "to": 21
+                                }
+                              },
+                              {
+                                "medianLoser": 63,
+                                "medianWinner": 55,
+                                "name": "utilities",
+                                "range": {
+                                  "from": 50,
+                                  "to": 70
+                                }
+                              },
+                              {
+                                "medianLoser": 51,
+                                "medianWinner": 79,
+                                "name": "financials",
+                                "range": {
+                                  "from": 0,
+                                  "to": 99
+                                }
+                              }
+                            ]
+                          },
+                          "range": 56
+                        }
+                      }
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/BuyContextResponseRoot"
+                }
+              }
+            },
+            "description": "Successful response.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "Bad request, invalid query parameters.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "Path not found",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "408": {
+            "description": "Request timeout. Retry the request in sometime."
+          },
+          "415": {
+            "description": "Missing/Invalid Content-Type header. Header needs to be set to application/json.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further requests.",
+            "headers": {
+              "Retry-After": {
+                "description": "Time to wait in seconds before making a new request as the rate limit has reached.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "500": {
+            "description": "Server error.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in some time",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          }
+        },
+        "summary": "Cabot main path for Buy Context API",
+        "tags": [
+          "Buying Models"
+        ]
+      },
+      "parameters": []
+    },
+    "/models/buy-timing": {
+      "get": {
+        "description": "Cabot main path for Buy Timing API. \r\n\nBuy timing examines the timeliness of entry points and measures how quickly new buys contribute to results. This is done by delaying the buys by the specified number of days to see if buying into the position early would have benefited the portfolio.",
+        "operationId": "getBuyTimingModelAnalytic",
+        "parameters": [
+          {
+            "description": "The account path of the portfolio you want to retrieve the data for.<br /><br />",
+            "in": "query",
+            "name": "accountPath",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/AccountPath"
+            }
+          },
+          {
+            "description": "The path of the benchmark you want to retrieve the data for.<br /><br />",
+            "in": "query",
+            "name": "benchmarkPath",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/BenchmarkPath"
+            }
+          },
+          {
+            "description": "For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />",
+            "example": "2015-2017",
+            "in": "query",
+            "name": "period",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Period"
+            }
+          },
+          {
+            "description": "The attribute represents the different factors.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />If provided, the API response will contain both \"LOW\" and \"HIGH\" values for it.<br /><br />",
+            "example": "QFL_EY",
+            "in": "query",
+            "name": "attribute",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/Attributes"
+            }
+          },
+          {
+            "description": "Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />",
+            "example": "energy",
+            "in": "query",
+            "name": "sector",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/Sectors"
+            }
+          },
+          {
+            "description": "Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />",
+            "example": "northAmerica",
+            "in": "query",
+            "name": "region",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/Regions"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Attribute was provided in the request": {
+                    "value": {
+                      "data": {
+                        "attribute": "QFL_SALES_GR_1Y",
+                        "highBuyTimingValues": [
+                          {
+                            "time": "3 days",
+                            "value": 0.02
+                          },
+                          {
+                            "time": "5 days",
+                            "value": -0.01
+                          },
+                          {
+                            "time": "10 days",
+                            "value": -0.05
+                          },
+                          {
+                            "time": "20 days",
+                            "value": -0.04
+                          },
+                          {
+                            "time": "a month",
+                            "value": -0.05
+                          }
+                        ],
+                        "lowBuyTimingValues": [
+                          {
+                            "time": "3 days",
+                            "value": -0.22
+                          },
+                          {
+                            "time": "5 days",
+                            "value": -0.13
+                          },
+                          {
+                            "time": "10 days",
+                            "value": 0.01
+                          },
+                          {
+                            "time": "20 days",
+                            "value": 0.14
+                          },
+                          {
+                            "time": "a month",
+                            "value": 0.02
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "No attribute was provided in the request": {
+                    "value": {
+                      "data": {
+                        "attribute": null,
+                        "buyTimingValues": [
+                          {
+                            "time": "3 days",
+                            "value": -0.2
+                          },
+                          {
+                            "time": "5 days",
+                            "value": -0.17
+                          },
+                          {
+                            "time": "10 days",
+                            "value": -0.16
+                          },
+                          {
+                            "time": "20 days",
+                            "value": -0.06
+                          },
+                          {
+                            "time": "a month",
+                            "value": -0.37
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/BuyTimingResponseRoot"
+                }
+              }
+            },
+            "description": "Successful response.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "Bad request, invalid query parameters.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "Path not found",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "408": {
+            "description": "Request timeout. Retry the request in sometime."
+          },
+          "415": {
+            "description": "Missing/Invalid Content-Type header. Header needs to be set to application/json.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further requests.",
+            "headers": {
+              "Retry-After": {
+                "description": "Time to wait in seconds before making a new request as the rate limit has reached.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "500": {
+            "description": "Server error.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in some time",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          }
+        },
+        "summary": "Cabot main path for Buy Timing API",
+        "tags": [
+          "Buying Models"
+        ]
+      },
+      "parameters": []
+    },
+    "/models/construction": {
+      "get": {
+        "description": "Cabot main path for Construction API",
+        "operationId": "getConstructionModelAnalytic",
+        "parameters": [
+          {
+            "description": "The account path of the portfolio you want to retrieve the data for.<br /><br />",
+            "in": "query",
+            "name": "accountPath",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/AccountPath"
+            }
+          },
+          {
+            "description": "The path of the benchmark you want to retrieve the data for.<br /><br />",
+            "in": "query",
+            "name": "benchmarkPath",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/BenchmarkPath"
+            }
+          },
+          {
+            "description": "For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />",
+            "example": "2015-2017",
+            "in": "query",
+            "name": "period",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Period"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Construction": {
+                    "value": {
+                      "data": {
+                        "constructionValues": {
+                          "activeShare": 53.08,
+                          "activeWeights": {
+                            "maxOver": {
+                              "large": 2.69,
+                              "medium": 3.11,
+                              "small": 0.75
+                            },
+                            "maxUnder": 4.35
+                          },
+                          "positionCount": {
+                            "active": 31,
+                            "total": 34.8
+                          },
+                          "turnover": 229.82
+                        }
+                      }
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ConstructionResponseRoot"
+                }
+              }
+            },
+            "description": "Successful response.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "Bad request, invalid query parameters.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "Path not found",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "408": {
+            "description": "Request timeout. Retry the request in sometime."
+          },
+          "415": {
+            "description": "Missing/Invalid Content-Type header. Header needs to be set to application/json.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further requests.",
+            "headers": {
+              "Retry-After": {
+                "description": "Time to wait in seconds before making a new request as the rate limit has reached.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "500": {
+            "description": "Server error.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in some time",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          }
+        },
+        "summary": "Cabot main path for Construction API",
+        "tags": [
+          "Overview Models"
+        ]
+      },
+      "parameters": []
+    },
+    "/models/hit-rate": {
+      "get": {
+        "description": "Cabot main path for Hit Rate API",
+        "operationId": "getHitRateModelAnalytic",
+        "parameters": [
+          {
+            "description": "The account path of the portfolio you want to retrieve the data for.<br /><br />",
+            "in": "query",
+            "name": "accountPath",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/AccountPath"
+            }
+          },
+          {
+            "description": "The path of the benchmark you want to retrieve the data for.<br /><br />",
+            "in": "query",
+            "name": "benchmarkPath",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/BenchmarkPath"
+            }
+          },
+          {
+            "description": "For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />",
+            "example": "2015-2017",
+            "in": "query",
+            "name": "period",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Period"
+            }
+          },
+          {
+            "description": "Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />",
+            "example": "energy",
+            "in": "query",
+            "name": "sector",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Sectors"
+            }
+          },
+          {
+            "description": "Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />",
+            "example": "northAmerica",
+            "in": "query",
+            "name": "region",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Regions"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Hit Rate": {
+                    "value": {
+                      "data": {
+                        "hitRateValues": {
+                          "count": 575,
+                          "losers": {
+                            "benefit": -0.03,
+                            "percent": 58
+                          },
+                          "winLossRatio": 145,
+                          "winners": {
+                            "benefit": 0.05,
+                            "percent": 42
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/HitRateResponseRoot"
+                }
+              }
+            },
+            "description": "Successful response.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "Bad request, invalid query parameters.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "Path not found",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "408": {
+            "description": "Request timeout. Retry the request in sometime."
+          },
+          "415": {
+            "description": "Missing/Invalid Content-Type header. Header needs to be set to application/json.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further requests.",
+            "headers": {
+              "Retry-After": {
+                "description": "Time to wait in seconds before making a new request as the rate limit has reached.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "500": {
+            "description": "Server error.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in some time",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          }
+        },
+        "summary": "Cabot main path for Hit Rate API",
+        "tags": [
+          "Overview Models"
+        ]
+      },
+      "parameters": []
+    },
+    "/models/ramp-down": {
+      "get": {
+        "description": "Cabot main path for Ramp Down API",
+        "operationId": "getRampDownModelAnalytic",
+        "parameters": [
+          {
+            "description": "The account path of the portfolio you want to retrieve the data for.<br /><br />",
+            "in": "query",
+            "name": "accountPath",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/AccountPath"
+            }
+          },
+          {
+            "description": "The path of the benchmark you want to retrieve the data for.<br /><br />",
+            "in": "query",
+            "name": "benchmarkPath",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/BenchmarkPath"
+            }
+          },
+          {
+            "description": "For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />",
+            "example": "2015-2017",
+            "in": "query",
+            "name": "period",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Period"
+            }
+          },
+          {
+            "description": "The attribute represents the different factors.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />If provided, the API response will contain both \"LOW\" and \"HIGH\" values for it.<br /><br />",
+            "example": "QFL_EY",
+            "in": "query",
+            "name": "attribute",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/Attributes"
+            }
+          },
+          {
+            "description": "Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />",
+            "example": "energy",
+            "in": "query",
+            "name": "sector",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/Sectors"
+            }
+          },
+          {
+            "description": "Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />",
+            "example": "northAmerica",
+            "in": "query",
+            "name": "region",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/Regions"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Attribute was provided in the request": {
+                    "value": {
+                      "data": {
+                        "attribute": "QFL_SALES_GR_1Y",
+                        "highRampDownValues": [
+                          {
+                            "time": "6 months",
+                            "value": 0.38
+                          },
+                          {
+                            "time": "11 months",
+                            "value": -0.06
+                          },
+                          {
+                            "time": "17 months",
+                            "value": -0.15
+                          }
+                        ],
+                        "lowRampDownValues": [
+                          {
+                            "time": "6 months",
+                            "value": 0.76
+                          },
+                          {
+                            "time": "11 months",
+                            "value": -0.22
+                          },
+                          {
+                            "time": "17 months",
+                            "value": -0.37
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "No attribute was provided in the request": {
+                    "value": {
+                      "data": {
+                        "attribute": null,
+                        "rampDownValues": [
+                          {
+                            "time": "6 months",
+                            "value": 1.26
+                          },
+                          {
+                            "time": "11 months",
+                            "value": -0.11
+                          },
+                          {
+                            "time": "17 months",
+                            "value": -0.51
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/RampDownResponseRoot"
+                }
+              }
+            },
+            "description": "Successful response.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "Bad request, invalid query parameters.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "Path not found",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "408": {
+            "description": "Request timeout. Retry the request in sometime."
+          },
+          "415": {
+            "description": "Missing/Invalid Content-Type header. Header needs to be set to application/json.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further requests.",
+            "headers": {
+              "Retry-After": {
+                "description": "Time to wait in seconds before making a new request as the rate limit has reached.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "500": {
+            "description": "Server error.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in some time",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          }
+        },
+        "summary": "Cabot main path for Ramp Down API",
+        "tags": [
+          "Sizing Models"
+        ]
+      },
+      "parameters": []
+    },
+    "/models/ramp-up": {
+      "get": {
+        "description": "Cabot main path for Ramp Up API",
+        "operationId": "getRampUpModelAnalytic",
+        "parameters": [
+          {
+            "description": "The account path of the portfolio you want to retrieve the data for.<br /><br />",
+            "in": "query",
+            "name": "accountPath",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/AccountPath"
+            }
+          },
+          {
+            "description": "The path of the benchmark you want to retrieve the data for.<br /><br />",
+            "in": "query",
+            "name": "benchmarkPath",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/BenchmarkPath"
+            }
+          },
+          {
+            "description": "For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />",
+            "example": "2015-2017",
+            "in": "query",
+            "name": "period",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Period"
+            }
+          },
+          {
+            "description": "The attribute represents the different factors.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />If provided, the API response will contain both \"LOW\" and \"HIGH\" values for it.<br /><br />",
+            "example": "QFL_EY",
+            "in": "query",
+            "name": "attribute",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/Attributes"
+            }
+          },
+          {
+            "description": "Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />",
+            "example": "energy",
+            "in": "query",
+            "name": "sector",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/Sectors"
+            }
+          },
+          {
+            "description": "Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />",
+            "example": "northAmerica",
+            "in": "query",
+            "name": "region",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/Regions"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Attribute was provided in the request": {
+                    "value": {
+                      "data": {
+                        "attribute": "QFL_SALES_GR_1Y",
+                        "highRampUpValues": [
+                          {
+                            "time": "immediate",
+                            "value": -0.33
+                          },
+                          {
+                            "time": "3 months",
+                            "value": -0.02
+                          },
+                          {
+                            "time": "6 months",
+                            "value": -0.18
+                          }
+                        ],
+                        "lowRampUpValues": [
+                          {
+                            "time": "immediate",
+                            "value": 1.77
+                          },
+                          {
+                            "time": "3 months",
+                            "value": 0.88
+                          },
+                          {
+                            "time": "6 months",
+                            "value": 0.21
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "No attribute was provided in the request": {
+                    "value": {
+                      "data": {
+                        "attribute": null,
+                        "rampUpValues": [
+                          {
+                            "time": "immediate",
+                            "value": 1.82
+                          },
+                          {
+                            "time": "3 months",
+                            "value": 1.21
+                          },
+                          {
+                            "time": "6 months",
+                            "value": 0.01
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/RampUpResponseRoot"
+                }
+              }
+            },
+            "description": "Successful response.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "Bad request, invalid query parameters.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "Path not found",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "408": {
+            "description": "Request timeout. Retry the request in sometime."
+          },
+          "415": {
+            "description": "Missing/Invalid Content-Type header. Header needs to be set to application/json.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further requests.",
+            "headers": {
+              "Retry-After": {
+                "description": "Time to wait in seconds before making a new request as the rate limit has reached.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "500": {
+            "description": "Server error.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in some time",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          }
+        },
+        "summary": "Cabot main path for Ramp Up API",
+        "tags": [
+          "Sizing Models"
+        ]
+      },
+      "parameters": []
+    },
+    "/models/results": {
+      "get": {
+        "description": "Cabot main path for Results API. \r\n\n Describes portfolio returns in comparison to its benchmark. A positive value indicates excess returns while a negative value indicates underperformance.",
+        "operationId": "getResultsModelAnalytic",
+        "parameters": [
+          {
+            "description": "The account path of the portfolio you want to retrieve the data for.<br /><br />",
+            "in": "query",
+            "name": "accountPath",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/AccountPath"
+            }
+          },
+          {
+            "description": "The path of the benchmark you want to retrieve the data for.<br /><br />",
+            "in": "query",
+            "name": "benchmarkPath",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/BenchmarkPath"
+            }
+          },
+          {
+            "description": "For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />",
+            "example": "2015-2017",
+            "in": "query",
+            "name": "period",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Period"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Results": {
+                    "value": {
+                      "data": {
+                        "resultValues": {
+                          "captures": {
+                            "downside": 99.95,
+                            "upside": 97.64
+                          },
+                          "ratios": {
+                            "informationRatio": -0.26,
+                            "sharpeRatio": 0.2,
+                            "treynorRatio": 0.01
+                          },
+                          "returns": {
+                            "portfolio": 2.01,
+                            "reference": 2.55,
+                            "relative": -0.53
+                          },
+                          "risk": {
+                            "alpha": -0.51,
+                            "beta": 0.979,
+                            "rSquared": 0.987
+                          },
+                          "statistics": {
+                            "drawdown": 30.04,
+                            "modiglianiReturn": 0.07,
+                            "standardDeviation": 20.42,
+                            "trackingError": 2.34
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ResultsResponseRoot"
+                }
+              }
+            },
+            "description": "Successful response.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "Bad request, invalid query parameters.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "Path not found",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "408": {
+            "description": "Request timeout. Retry the request in sometime."
+          },
+          "415": {
+            "description": "Missing/Invalid Content-Type header. Header needs to be set to application/json.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further requests.",
+            "headers": {
+              "Retry-After": {
+                "description": "Time to wait in seconds before making a new request as the rate limit has reached.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "500": {
+            "description": "Server error.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in some time",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          }
+        },
+        "summary": "Cabot main path for Results API",
+        "tags": [
+          "Overview Models"
+        ]
       },
       "parameters": []
     },
     "/models/sell-timing": {
       "get": {
-        "tags": [
-          "Cabot Models API"
-        ],
         "description": "Cabot main path for Sell Timing API",
         "operationId": "getSellTimingModelAnalytic",
         "parameters": [
           {
-            "name": "accountPath",
-            "in": "query",
-            "required": true,
             "description": "The account path of the portfolio you want to retrieve the data for.<br /><br />",
+            "in": "query",
+            "name": "accountPath",
+            "required": true,
             "schema": {
               "$ref": "#/components/schemas/AccountPath"
             }
           },
           {
-            "name": "benchmarkPath",
-            "in": "query",
-            "required": true,
             "description": "The path of the benchmark you want to retrieve the data for.<br /><br />",
+            "in": "query",
+            "name": "benchmarkPath",
+            "required": true,
             "schema": {
               "$ref": "#/components/schemas/BenchmarkPath"
             }
           },
           {
-            "name": "period",
+            "description": "For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />",
+            "example": "2015-2017",
             "in": "query",
-            "description": "For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING, (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />",
+            "name": "period",
             "required": true,
             "schema": {
               "$ref": "#/components/schemas/Period"
-            },
-            "example": "2015-2017"
+            }
           },
           {
-            "name": "attribute",
-            "in": "query",
             "description": "The attribute represents the different factors.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />If provided, the API response will contain both \"LOW\" and \"HIGH\" values for it.<br /><br />",
+            "example": "QFL_EY",
+            "in": "query",
+            "name": "attribute",
             "required": false,
             "schema": {
               "$ref": "#/components/schemas/Attributes"
-            },
-            "example": "QFL_EY"
+            }
           },
           {
-            "name": "sector",
-            "in": "query",
             "description": "Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />",
+            "example": "energy",
+            "in": "query",
+            "name": "sector",
             "required": false,
             "schema": {
               "$ref": "#/components/schemas/Sectors"
-            },
-            "example": "energy"
+            }
           },
           {
-            "name": "region",
-            "in": "query",
             "description": "Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />",
+            "example": "northAmerica",
+            "in": "query",
+            "name": "region",
             "required": false,
             "schema": {
               "$ref": "#/components/schemas/Regions"
-            },
-            "example": "northAmerica"
+            }
           }
         ],
         "responses": {
           "200": {
-            "description": "Successful response.",
-            "headers": {
-              "X-DataDirect-Request-Key": {
-                "description": "FactSet's request key header.",
-                "schema": {
-                  "type": "string",
-                  "description": "FactSet's request key header."
-                }
-              },
-              "X-FactSet-Api-Request-Key": {
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
-                "schema": {
-                  "type": "string",
-                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
-                }
-              },
-              "X-FactSet-Api-RateLimit-Limit": {
-                "description": "Number of allowed requests for the time window.",
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "X-FactSet-Api-RateLimit-Remaining": {
-                "description": "Number of requests left for the time window.",
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "X-FactSet-Api-RateLimit-Reset": {
-                "description": "Number of seconds remaining till rate limit resets.",
-                "schema": {
-                  "type": "string"
-                }
-              }
-            },
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SellTimingResponseRoot"
-                },
                 "examples": {
-                  "No attribute was provided in the request": {
-                    "value": {
-                      "data": {
-                        "sellTimingValues": {
-                          "youngerWinner": 1.48,
-                          "youngerLoser": -0.58,
-                          "olderWinner": 0.15,
-                          "olderLoser": 2
-                        },
-                        "attribute": null
-                      }
-                    }
-                  },
                   "Attribute was provided in the request": {
                     "value": {
                       "data": {
+                        "attribute": "QFL_SALES_GR_1Y",
                         "highSellTimingValues": {
-                          "youngerWinner": 1.48,
-                          "youngerLoser": -0.58,
+                          "olderLoser": 2,
                           "olderWinner": 0.15,
-                          "olderLoser": 2
+                          "youngerLoser": -0.58,
+                          "youngerWinner": 1.48
                         },
                         "lowSellTimingValues": {
-                          "youngerWinner": 1.48,
-                          "youngerLoser": -0.58,
+                          "olderLoser": 2,
                           "olderWinner": 0.15,
-                          "olderLoser": 2
-                        },
-                        "attribute": "QFL_SALES_GR_1Y"
+                          "youngerLoser": -0.58,
+                          "youngerWinner": 1.48
+                        }
+                      }
+                    }
+                  },
+                  "No attribute was provided in the request": {
+                    "value": {
+                      "data": {
+                        "attribute": null,
+                        "sellTimingValues": {
+                          "olderLoser": 2,
+                          "olderWinner": 0.15,
+                          "youngerLoser": -0.58,
+                          "youngerWinner": 1.48
+                        }
                       }
                     }
                   }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/SellTimingResponseRoot"
                 }
+              }
+            },
+            "description": "Successful response.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
               }
             }
           },
           "400": {
-            "description": "Bad request, invalid query parameters.",
-            "headers": {
-              "X-DataDirect-Request-Key": {
-                "description": "FactSet's request key header.",
-                "schema": {
-                  "type": "string",
-                  "description": "FactSet's request key header."
-                }
-              },
-              "X-FactSet-Api-Request-Key": {
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
-                "schema": {
-                  "type": "string",
-                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
-                }
-              },
-              "X-FactSet-Api-RateLimit-Limit": {
-                "description": "Number of allowed requests for the time window.",
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "X-FactSet-Api-RateLimit-Remaining": {
-                "description": "Number of requests left for the time window.",
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "X-FactSet-Api-RateLimit-Reset": {
-                "description": "Number of seconds remaining till rate limit resets.",
-                "schema": {
-                  "type": "string"
-                }
-              }
-            },
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
                 }
+              }
+            },
+            "description": "Bad request, invalid query parameters.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
               }
             }
           },
@@ -609,18 +2516,10 @@
             "description": "Missing or invalid authentication.",
             "headers": {
               "X-DataDirect-Request-Key": {
-                "description": "FactSet's request key header.",
-                "schema": {
-                  "type": "string",
-                  "description": "FactSet's request key header."
-                }
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
               },
               "X-FactSet-Api-Request-Key": {
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
-                "schema": {
-                  "type": "string",
-                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
-                }
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
               }
             }
           },
@@ -628,142 +2527,86 @@
             "description": "User is forbidden with current credentials.",
             "headers": {
               "X-DataDirect-Request-Key": {
-                "description": "FactSet's request key header.",
-                "schema": {
-                  "type": "string",
-                  "description": "FactSet's request key header."
-                }
-              },
-              "X-FactSet-Api-Request-Key": {
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
-                "schema": {
-                  "type": "string",
-                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
-                }
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
               },
               "X-FactSet-Api-RateLimit-Limit": {
-                "description": "Number of allowed requests for the time window.",
-                "schema": {
-                  "type": "string"
-                }
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
               },
               "X-FactSet-Api-RateLimit-Remaining": {
-                "description": "Number of requests left for the time window.",
-                "schema": {
-                  "type": "string"
-                }
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
               },
               "X-FactSet-Api-RateLimit-Reset": {
-                "description": "Number of seconds remaining till rate limit resets.",
-                "schema": {
-                  "type": "string"
-                }
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
               }
             }
           },
           "404": {
-            "description": "Path not found",
-            "headers": {
-              "X-DataDirect-Request-Key": {
-                "description": "FactSet's request key header.",
-                "schema": {
-                  "type": "string",
-                  "description": "FactSet's request key header."
-                }
-              },
-              "X-FactSet-Api-Request-Key": {
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
-                "schema": {
-                  "type": "string",
-                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
-                }
-              },
-              "X-FactSet-Api-RateLimit-Limit": {
-                "description": "Number of allowed requests for the time window.",
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "X-FactSet-Api-RateLimit-Remaining": {
-                "description": "Number of requests left for the time window.",
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "X-FactSet-Api-RateLimit-Reset": {
-                "description": "Number of seconds remaining till rate limit resets.",
-                "schema": {
-                  "type": "string"
-                }
-              }
-            },
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
+            },
+            "description": "Path not found",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
             }
+          },
+          "408": {
+            "description": "Request timeout. Retry the request in sometime."
           },
           "415": {
             "description": "Missing/Invalid Content-Type header. Header needs to be set to application/json.",
             "headers": {
               "X-DataDirect-Request-Key": {
-                "description": "FactSet's request key header.",
-                "schema": {
-                  "type": "string",
-                  "description": "FactSet's request key header."
-                }
-              },
-              "X-FactSet-Api-Request-Key": {
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
-                "schema": {
-                  "type": "string",
-                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
-                }
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
               },
               "X-FactSet-Api-RateLimit-Limit": {
-                "description": "Number of allowed requests for the time window.",
-                "schema": {
-                  "type": "string"
-                }
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
               },
               "X-FactSet-Api-RateLimit-Remaining": {
-                "description": "Number of requests left for the time window.",
-                "schema": {
-                  "type": "string"
-                }
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
               },
               "X-FactSet-Api-RateLimit-Reset": {
-                "description": "Number of seconds remaining till rate limit resets.",
-                "schema": {
-                  "type": "string"
-                }
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
               }
             }
           },
           "429": {
             "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further requests.",
             "headers": {
-              "X-DataDirect-Request-Key": {
-                "description": "FactSet's request key header.",
-                "schema": {
-                  "type": "string",
-                  "description": "FactSet's request key header."
-                }
-              },
-              "X-FactSet-Api-Request-Key": {
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
-                "schema": {
-                  "type": "string",
-                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
-                }
-              },
               "Retry-After": {
                 "description": "Time to wait in seconds before making a new request as the rate limit has reached.",
                 "schema": {
                   "type": "string"
                 }
+              },
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
               }
             }
           },
@@ -771,18 +2614,10 @@
             "description": "Server error.",
             "headers": {
               "X-DataDirect-Request-Key": {
-                "description": "FactSet's request key header.",
-                "schema": {
-                  "type": "string",
-                  "description": "FactSet's request key header."
-                }
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
               },
               "X-FactSet-Api-Request-Key": {
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
-                "schema": {
-                  "type": "string",
-                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
-                }
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
               }
             }
           },
@@ -790,23 +2625,601 @@
             "description": "Request timed out. Retry the request in some time",
             "headers": {
               "X-DataDirect-Request-Key": {
-                "description": "FactSet's request key header.",
-                "schema": {
-                  "type": "string",
-                  "description": "FactSet's request key header."
-                }
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
               },
               "X-FactSet-Api-Request-Key": {
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
-                "schema": {
-                  "type": "string",
-                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
-                }
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
               }
             }
           }
         },
-        "summary": "Cabot main path for Sell Timing API"
+        "summary": "Cabot main path for Sell Timing API",
+        "tags": [
+          "Selling Models"
+        ]
+      },
+      "parameters": []
+    },
+    "/models/skills": {
+      "get": {
+        "description": "Cabot main path for Skills API",
+        "operationId": "getSkillsModelAnalytic",
+        "parameters": [
+          {
+            "description": "The account path of the portfolio you want to retrieve the data for.",
+            "in": "query",
+            "name": "accountPath",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/AccountPath"
+            }
+          },
+          {
+            "description": "The path of the benchmark you want to retrieve the data for.<br /><br />",
+            "example": "BENCH:SP50",
+            "in": "query",
+            "name": "benchmarkPath",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/BenchmarkPath"
+            }
+          },
+          {
+            "description": "For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />",
+            "in": "query",
+            "name": "period",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Period"
+            }
+          },
+          {
+            "description": "The attribute represents the different factors.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />If provided, the API response will contain both \"LOW\" and \"HIGH\" values for it.<br /><br />",
+            "example": "QFL_EY",
+            "in": "query",
+            "name": "attribute",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/Attributes"
+            }
+          },
+          {
+            "description": "Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />",
+            "example": "energy",
+            "in": "query",
+            "name": "sector",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/Sectors"
+            }
+          },
+          {
+            "description": "Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />",
+            "example": "northAmerica",
+            "in": "query",
+            "name": "region",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/Regions"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "An attribute was provided in the request": {
+                    "value": {
+                      "data": {
+                        "attribute": "QFL_DEBT_ASSETS",
+                        "highSkillValues": {
+                          "buySkill": 2.06,
+                          "sellSkill": -0.88,
+                          "sizingSkill": 0.75
+                        },
+                        "lowSkillValues": {
+                          "buySkill": 0.03,
+                          "sellSkill": 0.24,
+                          "sizingSkill": 0.37
+                        }
+                      }
+                    }
+                  },
+                  "No attribute was provided in the request": {
+                    "value": {
+                      "data": {
+                        "attribute": null,
+                        "skillValues": {
+                          "buySkill": 1.48,
+                          "sellSkill": -0.58,
+                          "sizingSkill": 0.15
+                        }
+                      }
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/SkillsResponseRoot"
+                }
+              }
+            },
+            "description": "Successful response.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "Bad request, invalid query parameters.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "Path not found",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "408": {
+            "description": "Request timeout. Retry the request in sometime."
+          },
+          "415": {
+            "description": "Missing/Invalid Content-Type header. Header needs to be set to application/json.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further requests.",
+            "headers": {
+              "Retry-After": {
+                "description": "Time to wait in seconds before making a new request as the rate limit has reached.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "500": {
+            "description": "Server error.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in some time",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          }
+        },
+        "summary": "Cabot main path for Skills API",
+        "tags": [
+          "Overview Models"
+        ]
+      },
+      "parameters": []
+    },
+    "/models/stop-loss": {
+      "get": {
+        "description": "Cabot main path for Stop Loss API",
+        "operationId": "getStopLossModelAnalytic",
+        "parameters": [
+          {
+            "description": "The account path of the portfolio you want to retrieve the data for.<br /><br />",
+            "in": "query",
+            "name": "accountPath",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/AccountPath"
+            }
+          },
+          {
+            "description": "The path of the benchmark you want to retrieve the data for.<br /><br />",
+            "in": "query",
+            "name": "benchmarkPath",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/BenchmarkPath"
+            }
+          },
+          {
+            "description": "For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />",
+            "example": "2015-2017",
+            "in": "query",
+            "name": "period",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Period"
+            }
+          },
+          {
+            "description": "The attribute represents the different factors.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />If provided, the API response will contain both \"LOW\" and \"HIGH\" values for it.<br /><br />",
+            "example": "QFL_EY",
+            "in": "query",
+            "name": "attribute",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/Attributes"
+            }
+          },
+          {
+            "description": "Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />",
+            "example": "energy",
+            "in": "query",
+            "name": "sector",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/Sectors"
+            }
+          },
+          {
+            "description": "Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />",
+            "example": "northAmerica",
+            "in": "query",
+            "name": "region",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/Regions"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Attribute was provided in the request": {
+                    "value": {
+                      "data": {
+                        "attribute": "QFL_SALES_GR_1Y",
+                        "highStopLossValues": [
+                          {
+                            "percent": -20,
+                            "value": 0.34
+                          },
+                          {
+                            "percent": -30,
+                            "value": -0.01
+                          },
+                          {
+                            "percent": -40,
+                            "value": -0.01
+                          }
+                        ],
+                        "lowStopLossValues": [
+                          {
+                            "percent": -20,
+                            "value": 0.09
+                          },
+                          {
+                            "percent": -30,
+                            "value": -0.17
+                          },
+                          {
+                            "percent": -40,
+                            "value": -0.06
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "No attribute was provided in the request": {
+                    "value": {
+                      "data": {
+                        "attribute": null,
+                        "stopLossValues": [
+                          {
+                            "percent": -20,
+                            "value": 0.72
+                          },
+                          {
+                            "percent": -30,
+                            "value": -0.49
+                          },
+                          {
+                            "percent": -40,
+                            "value": -0.15
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/StopLossResponseRoot"
+                }
+              }
+            },
+            "description": "Successful response.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "Bad request, invalid query parameters.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "Path not found",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "408": {
+            "description": "Request timeout. Retry the request in sometime."
+          },
+          "415": {
+            "description": "Missing/Invalid Content-Type header. Header needs to be set to application/json.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further requests.",
+            "headers": {
+              "Retry-After": {
+                "description": "Time to wait in seconds before making a new request as the rate limit has reached.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "500": {
+            "description": "Server error.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in some time",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          }
+        },
+        "summary": "Cabot main path for Stop Loss API",
+        "tags": [
+          "Selling Models"
+        ]
       },
       "parameters": []
     }
@@ -820,128 +3233,511 @@
     }
   ],
   "components": {
-    "securitySchemes": {
-      "FactSetOAuth2": {
-        "type": "oauth2",
-        "flows": {
-          "clientCredentials": {
-            "tokenUrl": "https://auth.factset.com/as/token.oauth2",
-            "scopes": {}
-          }
+    "headers": {
+      "X-DataDirect-Request-Key": {
+        "description": "FactSet's request key header.",
+        "schema": {
+          "description": "FactSet's request key header.",
+          "type": "string"
         }
       },
-      "FactSetApiKey": {
-        "type": "http",
-        "scheme": "basic"
+      "X-FactSet-Api-RateLimit-Limit": {
+        "description": "Number of allowed requests for the time window.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "X-FactSet-Api-RateLimit-Remaining": {
+        "description": "Number of requests left for the time window.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "X-FactSet-Api-RateLimit-Reset": {
+        "description": "Number of seconds remaining till rate limit resets.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "X-FactSet-Api-Request-Key": {
+        "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+        "schema": {
+          "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+          "type": "string"
+        }
       }
     },
     "schemas": {
-      "SkillsResponseRoot": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "$ref": "#/components/schemas/SkillsResponseOptions"
-          }
-        }
-      },
-      "SkillsResponseOptions": {
-        "type": "object",
-        "properties": {
-          "highSkillValues": {
-            "$ref": "#/components/schemas/SkillsModelAnalytics"
-          },
-          "lowSkillValues": {
-            "$ref": "#/components/schemas/SkillsModelAnalytics"
-          },
-          "skillValues": {
-            "$ref": "#/components/schemas/SkillsModelAnalytics"
-          },
-          "attribute": {
-            "type": "string",
-            "nullable": true
-          }
-        }
-      },
-      "SellTimingResponseRoot": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "$ref": "#/components/schemas/SellTimingResponseOptions"
-          }
-        }
-      },
-      "SellTimingResponseOptions": {
-        "type": "object",
-        "properties": {
-          "highSellTimingValues": {
-            "$ref": "#/components/schemas/SellTimingModelAnalytics"
-          },
-          "lowSellTimingValues": {
-            "$ref": "#/components/schemas/SellTimingModelAnalytics"
-          },
-          "sellTimingValues": {
-            "$ref": "#/components/schemas/SellTimingModelAnalytics"
-          },
-          "attribute": {
-            "type": "string",
-            "nullable": true
-          }
-        }
-      },
-      "SkillsModelAnalytics": {
-        "type": "object",
-        "properties": {
-          "buy": {
-            "type": "number",
-            "description": "This measures effectiveness in name selection."
-          },
-          "sell": {
-            "type": "number",
-            "description": "This quantifies the effectiveness of the sell discipline (final sells). It considers the impact from selling younger positions (i.e., too quickly, too slowly, done well) and from selling older positions (i.e., too quickly, too slowly, done well)."
-          },
-          "sizing": {
-            "type": "number",
-            "description": "This quantifies the benefit of active sizing decisions including initial position build up and subsequent trims and adds."
-          }
-        }
-      },
-      "SellTimingModelAnalytics": {
-        "type": "object",
-        "properties": {
-          "youngerWinner": {
-            "type": "number",
-            "description": "Benefit of harvesting younger, winning positions."
-          },
-          "youngerLoser": {
-            "type": "number",
-            "description": "Benefit of harvesting younger, losing positions."
-          },
-          "olderWinner": {
-            "type": "number",
-            "description": "Benefit of harvesting older, winning positions"
-          },
-          "olderLoser": {
-            "type": "number",
-            "description": "Benefit of harvesting older, losing positions."
-          }
-        }
-      },
       "AccountPath": {
-        "type": "string",
         "description": "The account path of the portfolio you want to retrieve the data for.",
-        "example": "Client:/Folder1/Cabot.ACCT"
+        "type": "string"
+      },
+      "AddTrimModelAnalytics": {
+        "properties": {
+          "addDown": {
+            "type": "number"
+          },
+          "addUp": {
+            "type": "number"
+          },
+          "trimDown": {
+            "type": "number"
+          },
+          "trimUp": {
+            "type": "number"
+          }
+        },
+        "type": "object"
+      },
+      "AddTrimResponseOptions": {
+        "properties": {
+          "addTrimValues": {
+            "$ref": "#/components/schemas/AddTrimModelAnalytics"
+          },
+          "attribute": {
+            "nullable": true,
+            "type": "string"
+          },
+          "highAddTrimValues": {
+            "$ref": "#/components/schemas/AddTrimModelAnalytics"
+          },
+          "lowAddTrimValues": {
+            "$ref": "#/components/schemas/AddTrimModelAnalytics"
+          }
+        },
+        "type": "object"
+      },
+      "AddTrimResponseRoot": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/AddTrimResponseOptions"
+          }
+        },
+        "type": "object"
+      },
+      "Attributes": {
+        "description": "All currently available attributes.<br/><br/>QFL_EY : EPS for the most recent 12-month period/Share price<br/>QFL_PEG : Price to Earnings/Growth rate<br/>QFL_OCFY : Operating cash flow (FF_OPER_CF)/Market value<br/>QFL_BP : Price/book value per share ratio<br/>QFL_SP : Sales to Price (SP) Net sales/Market value<br/>QFL_OCF_EARNINGS_VAR : Differences of earnings per share in both positive and negative directions<br/>QFL_DY : Indicated annual dividend/Latest close price<br/>QFL_NET_MGN : Net profit/Net sales * 100<br/>QFL_OPER_MGN : Operating Income/Net Sales * 100<br/>QFL_ROE : Net income/Total shareholders' equity<br/>QFL_CFROE : Net cash provided by/used in operating activities /Total shareholders' equity<br/>QFL_EPS_GR_5Y : Compounded annual growth rate (CAGR) of EPS over the previous 5 financial years<br/>QFL_OCF_GR_5Y : Compounded annual growth rate (CAGR) of CFO over the previous 5 financial years<br/>QFL_SALES_GR_5Y : Compounded annual growth rate (CAGR) of Revenue over the previous 5 financial years<br/>QFL_DPS_GR_5Y : Compounded annual growth rate (CAGR) of Dividend over the previous 5 financial years<br/>QFL_EPS_GR_1Y : 1Y EPS Growth,Growth rate of EPS over the previous financial years<br/>QFL_OCF_GR_1Y : Growth rate of CFO over the previous financial years<br/>QFL_SALES_GR_1Y : Growth rate of Revenue over the previous financial years<br/>QFL_LT_DEBT_EQUITY : Long-term debt/Shareholders' Equity<br/>QFL_DEBT_ASSETS : Long-term debt/total assets<br/>QFL_EBITDAEV : Represents unreported fiscal year (F1) Enterprise Value to EBITDA<br/>QFL_REVEV : Represents Enterprise Value to Revenue<br/>QFL_ROIC : Net Income/Two fiscal period average of Total Invested Capital * 100<br/>QFL_CFROIC : Net cash provided by/used in operating activities divided by the sum of the company's total shareholders' equity and its long-term liabilities<br/>",
+        "enum": [
+          "QFL_EY",
+          "QFL_PEG",
+          "QFL_OCFY",
+          "QFL_BP",
+          "QFL_SP",
+          "QFL_OCF_EARNINGS_VAR",
+          "QFL_DY",
+          "QFL_NET_MGN",
+          "QFL_OPER_MGN",
+          "QFL_ROE",
+          "QFL_CFROE",
+          "QFL_EPS_GR_5Y",
+          "QFL_OCF_GR_5Y",
+          "QFL_SALES_GR_5Y",
+          "QFL_DPS_GR_5Y",
+          "QFL_EPS_GR_1Y",
+          "QFL_OCF_GR_1Y",
+          "QFL_SALES_GR_1Y",
+          "QFL_LT_DEBT_EQUITY",
+          "QFL_DEBT_ASSETS",
+          "QFL_EBITDAEV",
+          "QFL_REVEV",
+          "QFL_ROIC",
+          "QFL_CFROIC"
+        ],
+        "type": "string"
       },
       "BenchmarkPath": {
-        "type": "string",
         "description": "The path of the benchmark you want to retrieve the data for.",
-        "example": "BENCH:SP50"
+        "type": "string"
+      },
+      "BuyContextModelAnalytics": {
+        "properties": {
+          "affect": {
+            "type": "number"
+          },
+          "context": {
+            "properties": {
+              "attribute": {
+                "description": "Context analysis graphically depicts a manager’s actual decisions both to describe how decisions are made and how they ultimately impact results. This model enables a manager to explore the consistency of his/her buy process in addition to the effectiveness of new buys with regard to fundamental attributes (e.g., EPS, ROI, debt to asset, etc.) as well as client provided proprietary attributes.",
+                "properties": {
+                  "values": {
+                    "$ref": "#/components/schemas/BuyContextModelAnalyticsItem"
+                  }
+                },
+                "type": "object"
+              },
+              "count": {
+                "type": "number"
+              },
+              "sectors": {
+                "items": {
+                  "$ref": "#/components/schemas/BuyContextModelAnalyticsItem"
+                },
+                "type": "array"
+              }
+            },
+            "type": "object"
+          },
+          "range": {
+            "description": "The relevance of an attribute with regard to the manager’s buy process is quantified and listed from largest to smallest. A large range indicates that the attribute is not pertinent, or targeted, in the manager’s buy process. A small range indicates that a particular level of the attribute (high, lower average) is targeted in the manager’s buy process.",
+            "type": "number"
+          }
+        },
+        "type": "object"
+      },
+      "BuyContextModelAnalyticsItem": {
+        "properties": {
+          "medianLoser": {
+            "description": "Median Loser",
+            "type": "number"
+          },
+          "medianWinner": {
+            "description": "Median Winner",
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "range": {
+            "properties": {
+              "from": {
+                "type": "number"
+              },
+              "to": {
+                "type": "number"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "BuyContextResponseOptions": {
+        "properties": {
+          "buyContextValues": {
+            "$ref": "#/components/schemas/BuyContextModelAnalytics"
+          }
+        },
+        "type": "object"
+      },
+      "BuyContextResponseRoot": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/BuyContextResponseOptions"
+          }
+        },
+        "type": "object"
+      },
+      "BuyTimingModelAnalytics": {
+        "properties": {
+          "time": {
+            "type": "string"
+          },
+          "value": {
+            "type": "number"
+          }
+        },
+        "type": "object"
+      },
+      "BuyTimingResponseOptions": {
+        "properties": {
+          "attribute": {
+            "nullable": true,
+            "type": "string"
+          },
+          "buyTimingValues": {
+            "items": {
+              "$ref": "#/components/schemas/BuyTimingModelAnalytics"
+            },
+            "type": "array"
+          },
+          "highBuyTimingValues": {
+            "items": {
+              "$ref": "#/components/schemas/BuyTimingModelAnalytics"
+            },
+            "type": "array"
+          },
+          "lowBuyTimingValues": {
+            "items": {
+              "$ref": "#/components/schemas/BuyTimingModelAnalytics"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "BuyTimingResponseRoot": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/BuyTimingResponseOptions"
+          }
+        },
+        "type": "object"
+      },
+      "ClientErrorResponse": {
+        "properties": {
+          "errors": {
+            "items": {
+              "$ref": "#/components/schemas/Error"
+            },
+            "nullable": true,
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "ConstructionModelAnalytics": {
+        "properties": {
+          "activeShare": {
+            "description": "Active Share is a measure of the percentage of stock holdings in a portfolio that differs from the benchmark index. At the extremes, a portfolio with no holdings in common with the benchmark would have 100% active share, while a portfolio that is identical to the benchmark would have 0% active share.",
+            "type": "number"
+          },
+          "activeWeights": {
+            "description": "This quantity expresses the difference between the portfolio weight and benchmark weight. Maximum overweight/underweight is calculated for the selected time period with positions further classified into large, medium and small sizes.",
+            "properties": {
+              "maxOver": {
+                "description": "The greatest observed difference between the portfolio weight and benchmark weight.",
+                "properties": {
+                  "large": {
+                    "type": "number"
+                  },
+                  "medium": {
+                    "type": "number"
+                  },
+                  "small": {
+                    "type": "number"
+                  }
+                },
+                "type": "object"
+              },
+              "maxUnder": {
+                "description": "The lowest observed difference between the portfolio weight and benchmark weight.",
+                "type": "number"
+              }
+            },
+            "type": "object"
+          },
+          "positionCount": {
+            "description": "The total number of positions over the selected period.",
+            "properties": {
+              "active": {
+                "type": "number"
+              },
+              "total": {
+                "type": "number"
+              }
+            },
+            "type": "object"
+          },
+          "turnover": {
+            "description": "This is a measure of the degree to which the bets in the portfolio change over time. It is computed by summing the weight of all sells over the analysis timeframe and dividing this quantity by the same timeframe to produce an annualized value.",
+            "type": "number"
+          }
+        },
+        "type": "object"
+      },
+      "ConstructionResponseOptions": {
+        "properties": {
+          "constructionValues": {
+            "$ref": "#/components/schemas/ConstructionModelAnalytics"
+          }
+        },
+        "type": "object"
+      },
+      "ConstructionResponseRoot": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ConstructionResponseOptions"
+          }
+        },
+        "type": "object"
+      },
+      "Error": {
+        "properties": {
+          "code": {
+            "nullable": true,
+            "type": "string"
+          },
+          "detail": {
+            "nullable": true,
+            "type": "string"
+          },
+          "id": {
+            "nullable": true,
+            "type": "string"
+          },
+          "source": {
+            "$ref": "#/components/schemas/ErrorSource"
+          },
+          "title": {
+            "nullable": true,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "ErrorSource": {
+        "properties": {
+          "parameter": {
+            "nullable": true,
+            "type": "string"
+          },
+          "pointer": {
+            "nullable": true,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "HitRateModelAnalytics": {
+        "properties": {
+          "count": {
+            "description": "The total number of positions used in the denominator of the hit rate calculation.",
+            "type": "number"
+          },
+          "losers": {
+            "description": "Losers are Positions that detracted from portfolio results",
+            "properties": {
+              "benefit": {
+                "type": "number"
+              },
+              "percent": {
+                "type": "number"
+              }
+            },
+            "type": "object"
+          },
+          "winLossRatio": {
+            "description": "The win/loss ratio computes the relative benefit of winners versus losers. A win/loss ratio of greater than 100% indicates that the average winner generated greater benefit (i.e., positive contribution) then was lost by the average loser (i.e., negative contribution), and vice versa. This ratio may be examined at the portfolio level, or by classification.",
+            "type": "number"
+          },
+          "winners": {
+            "description": "Winner are Positions that detracted from portfolio results.",
+            "properties": {
+              "benefit": {
+                "type": "number"
+              },
+              "percent": {
+                "type": "number"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "HitRateResponseOptions": {
+        "properties": {
+          "hitRateValues": {
+            "$ref": "#/components/schemas/HitRateModelAnalytics"
+          }
+        },
+        "type": "object"
+      },
+      "HitRateResponseRoot": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/HitRateResponseOptions"
+          }
+        },
+        "type": "object"
       },
       "Period": {
-        "type": "string",
-        "description": "For which period you want to retrieve the data."
+        "description": "For which period you want to retrieve the data.",
+        "type": "string"
+      },
+      "RampDownModelAnalytics": {
+        "properties": {
+          "time": {
+            "type": "string"
+          },
+          "value": {
+            "type": "number"
+          }
+        },
+        "type": "object"
+      },
+      "RampDownResponseOptions": {
+        "properties": {
+          "attribute": {
+            "nullable": true,
+            "type": "string"
+          },
+          "highRampDownValues": {
+            "items": {
+              "$ref": "#/components/schemas/RampDownModelAnalytics"
+            },
+            "type": "array"
+          },
+          "lowRampDownValues": {
+            "items": {
+              "$ref": "#/components/schemas/RampDownModelAnalytics"
+            },
+            "type": "array"
+          },
+          "rampDownValues": {
+            "items": {
+              "$ref": "#/components/schemas/RampDownModelAnalytics"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "RampDownResponseRoot": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/RampDownResponseOptions"
+          }
+        },
+        "type": "object"
+      },
+      "RampUpModelAnalytics": {
+        "properties": {
+          "time": {
+            "type": "string"
+          },
+          "value": {
+            "type": "number"
+          }
+        },
+        "type": "object"
+      },
+      "RampUpResponseOptions": {
+        "properties": {
+          "attribute": {
+            "nullable": true,
+            "type": "string"
+          },
+          "highRampUpValues": {
+            "items": {
+              "$ref": "#/components/schemas/RampUpModelAnalytics"
+            },
+            "type": "array"
+          },
+          "lowRampUpValues": {
+            "items": {
+              "$ref": "#/components/schemas/RampUpModelAnalytics"
+            },
+            "type": "array"
+          },
+          "rampUpValues": {
+            "items": {
+              "$ref": "#/components/schemas/RampUpModelAnalytics"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "RampUpResponseRoot": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/RampUpResponseOptions"
+          }
+        },
+        "type": "object"
       },
       "Regions": {
-        "type": "string",
         "description": "All currently available regions.",
         "enum": [
           "africa",
@@ -952,10 +3748,116 @@
           "pacificRim",
           "southAmerica",
           "westernEurope"
-        ]
+        ],
+        "type": "string"
+      },
+      "ResultsModelAnalytics": {
+        "properties": {
+          "captures": {
+            "properties": {
+              "downside": {
+                "description": "Downside capture is typically viewed as a defensive characteristic or an intuitive measure of risk management. Values of less than 100% indicate that the portfolio returns generally go down less than does the market.",
+                "type": "number"
+              },
+              "upside": {
+                "description": "Upside capture quantifies how well the portfolio returns rise in comparison to a market up tick. A value greater than 100% indicates the portfolio captures gains at a rate disproportional to the market.",
+                "type": "number"
+              }
+            },
+            "type": "object"
+          },
+          "ratios": {
+            "properties": {
+              "informationRatio": {
+                "description": "This ratio expresses the level of active return (i.e., portfolio return in excess of the benchmark) per unit of risk within the active return (i.e., standard deviation of the active returns: see tracking error). The information ratio is a common proxy for inferring manager skill in that it provides insight into the consistency of active return.",
+                "type": "number"
+              },
+              "sharpeRatio": {
+                "description": "The Sharpe ratio is a measure of excess return, per unit of total risk. It provides insight into the price being paid (portfolio return in excess of the risk free rate) per unit of risk being taken (standard deviation of portfolio returns).",
+                "type": "number"
+              },
+              "treynorRatio": {
+                "description": "This metric measures excess return per unit of systematic risk. It provides insight into the price being paid (portfolio return in excess of the risk free rate) per unit of systematic risk being taken (portfolio beta).",
+                "type": "number"
+              }
+            },
+            "type": "object"
+          },
+          "returns": {
+            "properties": {
+              "portfolio": {
+                "description": "Portfolio Return.",
+                "type": "number"
+              },
+              "reference": {
+                "description": "Benchmark Return.",
+                "type": "number"
+              },
+              "relative": {
+                "description": "Describes portfolio returns in comparison to its benchmark. A positive value indicates excess returns while a negative value indicates underperformance.",
+                "type": "number"
+              }
+            },
+            "type": "object"
+          },
+          "risk": {
+            "properties": {
+              "alpha": {
+                "description": "Alpha describes portfolio results adjusted for style and market factors. It provides insight into portfolio management independent from whether its style was in favor or out of favor (i.e., benefiting from a tailwind or fighting a headwind).",
+                "type": "number"
+              },
+              "beta": {
+                "description": "Beta is also referred to as systematic risk, in that it expresses portfolio volatility in relationship to market or benchmark volatility. A beta of greater than 1.0 indicates that the portfolio is being managed in such a way that it exhibits more systemic risk than its benchmark and vice versa.",
+                "type": "number"
+              },
+              "rSquared": {
+                "description": "In investing, R squared is generally interpreted as the percentage of a portfolio's movements that can be explained by movements in the benchmark. An R squared of 1.0 implies that the portfolio's return is completely explained by movements in the benchmark.",
+                "type": "number"
+              }
+            },
+            "type": "object"
+          },
+          "statistics": {
+            "properties": {
+              "drawdown": {
+                "description": "Drawdown quantifies the portfolio’s maximum peak to trough decline experienced over the time period under consideration. It is expressed as the total percent drop between the peak portfolio value and the subsequent deepest trough.",
+                "type": "number"
+              },
+              "modiglianiReturn": {
+                "description": "Also known as M2, this is a measure of the risk adjusted returns of an investment portfolio. It measures the returns of the portfolio, adjusted for the risk of the portfolio relative to that of some benchmark. Derived from the Sharpe ratio, Modigliani return has the advantage of being represented in units of percent return, making the measure more intuitive to interpret.",
+                "type": "number"
+              },
+              "standardDeviation": {
+                "description": "Standard deviation expresses the historical volatility of portfolio monthly returns, over the specified time period.",
+                "type": "number"
+              },
+              "trackingError": {
+                "description": "Also referred to as active risk, this value provides a measure of the deviation between portfolio returns and the returns of the benchmark resulting from portfolio systematic risk and active share. In general, the higher the active share the greater will be the tracking error. Tracking error is calculated as the standard deviation of the difference between the portfolio and benchmark returns and is displayed as a percentage.",
+                "type": "number"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "ResultsResponseOptions": {
+        "properties": {
+          "resultValues": {
+            "$ref": "#/components/schemas/ResultsModelAnalytics"
+          }
+        },
+        "type": "object"
+      },
+      "ResultsResponseRoot": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ResultsResponseOptions"
+          }
+        },
+        "type": "object"
       },
       "Sectors": {
-        "type": "string",
         "description": "All currently available sectors.",
         "enum": [
           "energy",
@@ -983,94 +3885,178 @@
           "equityDataCenters",
           "mortageHomeFinancing",
           "mortageCommercialFinancing"
-        ]
+        ],
+        "type": "string"
       },
-      "Attributes": {
-        "type": "string",
-        "example": "QFL_EY",
-        "description": "All currently available attributes.<br/><br/>QFL_EY : EPS for the most recent 12-month period/Share price<br/>QFL_PEG : Price to Earnings/Growth rate<br/>QFL_OCFY : Operating cash flow (FF_OPER_CF)/Market value<br/>QFL_BP : Price/book value per share ratio<br/>QFL_SP : Sales to Price (SP) Net sales/Market value<br/>QFL_OCF_EARNINGS_VAR : Differences of earnings per share in both positive and negative directions<br/>QFL_DY : Indicated annual dividend/Latest close price<br/>QFL_NET_MGN : Net profit/Net sales * 100<br/>QFL_OPER_MGN : Operating Income/Net Sales * 100<br/>QFL_ROE : Net income/Total shareholders' equity<br/>QFL_CFROE : Net cash provided by/used in operating activities /Total shareholders' equity<br/>QFL_EPS_GR_5Y : Compounded annual growth rate (CAGR) of EPS over the previous 5 financial years<br/>QFL_OCF_GR_5Y : Compounded annual growth rate (CAGR) of CFO over the previous 5 financial years<br/>QFL_SALES_GR_5Y : Compounded annual growth rate (CAGR) of Revenue over the previous 5 financial years<br/>QFL_DPS_GR_5Y : Compounded annual growth rate (CAGR) of Dividend over the previous 5 financial years<br/>QFL_EPS_GR_1Y : 1Y EPS Growth,Growth rate of EPS over the previous financial years<br/>QFL_OCF_GR_1Y : Growth rate of CFO over the previous financial years<br/>QFL_SALES_GR_1Y : Growth rate of Revenue over the previous financial years<br/>QFL_LT_DEBT_EQUITY : Long-term debt/Shareholders' Equity<br/>QFL_DEBT_ASSETS : Long-term debt/total assets<br/>QFL_EBITDAEV : Represents unreported fiscal year (F1) Enterprise Value to EBITDA<br/>QFL_REVEV : Represents Enterprise Value to Revenue<br/>QFL_ROIC : Net Income/Two fiscal period average of Total Invested Capital * 100<br/>QFL_CFROIC : Net cash provided by/used in operating activities divided by the sum of the company's total shareholders' equity and its long-term liabilities<br/>",
-        "enum": [
-          "QFL_EY",
-          "QFL_PEG",
-          "QFL_OCFY",
-          "QFL_BP",
-          "QFL_SP",
-          "QFL_OCF_EARNINGS_VAR",
-          "QFL_DY",
-          "QFL_NET_MGN",
-          "QFL_OPER_MGN",
-          "QFL_ROE",
-          "QFL_CFROE",
-          "QFL_EPS_GR_5Y",
-          "QFL_OCF_GR_5Y",
-          "QFL_SALES_GR_5Y",
-          "QFL_DPS_GR_5Y",
-          "QFL_EPS_GR_1Y",
-          "QFL_OCF_GR_1Y",
-          "QFL_SALES_GR_1Y",
-          "QFL_LT_DEBT_EQUITY",
-          "QFL_DEBT_ASSETS",
-          "QFL_EBITDAEV",
-          "QFL_REVEV",
-          "QFL_ROIC",
-          "QFL_CFROIC"
-        ]
-      },
-      "ErrorSource": {
-        "type": "object",
+      "SellTimingModelAnalytics": {
         "properties": {
-          "pointer": {
-            "type": "string",
-            "nullable": true
+          "olderLoser": {
+            "description": "Benefit of harvesting older, losing positions.",
+            "type": "number"
           },
-          "parameter": {
-            "type": "string",
-            "nullable": true
+          "olderWinner": {
+            "description": "Benefit of harvesting older, winning positions",
+            "type": "number"
+          },
+          "youngerLoser": {
+            "description": "Benefit of harvesting younger, losing positions.",
+            "type": "number"
+          },
+          "youngerWinner": {
+            "description": "Benefit of harvesting younger, winning positions.",
+            "type": "number"
           }
-        }
+        },
+        "type": "object"
       },
-      "Error": {
-        "type": "object",
+      "SellTimingResponseOptions": {
         "properties": {
-          "id": {
-            "type": "string",
-            "nullable": true
+          "attribute": {
+            "nullable": true,
+            "type": "string"
           },
-          "code": {
-            "type": "string",
-            "nullable": true
+          "highSellTimingValues": {
+            "$ref": "#/components/schemas/SellTimingModelAnalytics"
           },
-          "title": {
-            "type": "string",
-            "nullable": true
+          "lowSellTimingValues": {
+            "$ref": "#/components/schemas/SellTimingModelAnalytics"
           },
-          "detail": {
-            "type": "string",
-            "nullable": true
-          },
-          "source": {
-            "$ref": "#/components/schemas/ErrorSource"
+          "sellTimingValues": {
+            "$ref": "#/components/schemas/SellTimingModelAnalytics"
           }
-        }
+        },
+        "type": "object"
       },
-      "ClientErrorResponse": {
-        "type": "object",
+      "SellTimingResponseRoot": {
         "properties": {
-          "errors": {
-            "type": "array",
+          "data": {
+            "$ref": "#/components/schemas/SellTimingResponseOptions"
+          }
+        },
+        "type": "object"
+      },
+      "SkillsModelAnalytics": {
+        "properties": {
+          "buySkill": {
+            "description": "This measures effectiveness in name selection.",
+            "type": "number"
+          },
+          "sellSkill": {
+            "description": "This quantifies the effectiveness of the sell discipline (final sells). It considers the impact from selling younger positions (i.e., too quickly, too slowly, done well) and from selling older positions (i.e., too quickly, too slowly, done well).",
+            "type": "number"
+          },
+          "sizingSkill": {
+            "description": "This quantifies the benefit of active sizing decisions including initial position build up and subsequent trims and adds.",
+            "type": "number"
+          }
+        },
+        "type": "object"
+      },
+      "SkillsResponseOptions": {
+        "properties": {
+          "attribute": {
+            "nullable": true,
+            "type": "string"
+          },
+          "highSkillValues": {
+            "$ref": "#/components/schemas/SkillsModelAnalytics"
+          },
+          "lowSkillValues": {
+            "$ref": "#/components/schemas/SkillsModelAnalytics"
+          },
+          "skillValues": {
+            "$ref": "#/components/schemas/SkillsModelAnalytics"
+          }
+        },
+        "type": "object"
+      },
+      "SkillsResponseRoot": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/SkillsResponseOptions"
+          }
+        },
+        "type": "object"
+      },
+      "StopLossModelAnalytics": {
+        "properties": {
+          "percent": {
+            "type": "number"
+          },
+          "value": {
+            "type": "number"
+          }
+        },
+        "type": "object"
+      },
+      "StopLossResponseOptions": {
+        "properties": {
+          "attribute": {
+            "nullable": true,
+            "type": "string"
+          },
+          "highStopLossValues": {
             "items": {
-              "$ref": "#/components/schemas/Error"
+              "$ref": "#/components/schemas/StopLossModelAnalytics"
             },
-            "nullable": true
+            "type": "array"
+          },
+          "lowStopLossValues": {
+            "items": {
+              "$ref": "#/components/schemas/StopLossModelAnalytics"
+            },
+            "type": "array"
+          },
+          "stopLossValues": {
+            "items": {
+              "$ref": "#/components/schemas/StopLossModelAnalytics"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "StopLossResponseRoot": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/StopLossResponseOptions"
+          }
+        },
+        "type": "object"
+      }
+    },
+    "securitySchemes": {
+      "FactSetOAuth2": {
+        "type": "oauth2",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://auth.factset.com/as/token.oauth2",
+            "scopes": {}
           }
         }
+      },
+      "FactSetApiKey": {
+        "type": "http",
+        "scheme": "basic"
       }
     }
   },
   "tags": [
     {
-      "name": "Cabot Models API",
-      "description": "to derive various portfolio analysis"
+      "name": "Overview Models",
+      "description": "Offers a comprehensive suite of analytics including performance metrics, skills evaluation, and portfolio construction details."
+    },
+    {
+      "name": "Sizing Models",
+      "description": "Focuses on the effectiveness of managing position sizes through Adds, Trims, Ramp Up, and Ramp Down strategies."
+    },
+    {
+      "name": "Buying Models",
+      "description": "Provides insights into new stock selection, Buy Context, Timing, and idea generation to optimize purchasing strategies."
+    },
+    {
+      "name": "Selling Models",
+      "description": "Evaluates the efficiency of selling decisions through Sell Skills, Timing, Stop Loss, and the impact of selling signals."
     }
   ]
 }

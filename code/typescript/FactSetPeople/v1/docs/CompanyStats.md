@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**fsymId** | **String** | FactSet Identifier for the company. | [optional] 
 **averageMgmtCompensation** | **Number** | Average compensation for the executives | [optional] 
 **averageTenure** | **Number** | Avergae tenure of the people | [optional] 
 **medianTenure** | **Number** | Median tenure | [optional] 

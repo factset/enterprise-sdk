@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.Cabot",
-  "packageVersion": "0.10.0",
+  "packageVersion": "0.11.0",
   "packageGuid": "{4133e7c6-4570-5e70-bd4e-e9febdfc0d64}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/Cabot/v0",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/Cabot/0.10.0",
+  "httpUserAgent": "fds-sdk/dotnet/Cabot/0.11.0",
   "files": {
     "LICENSE": {}
   },

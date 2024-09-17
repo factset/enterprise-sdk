@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class ErrorObjectSource {
     /**
      * Constructs a new <code>ErrorObjectSource</code>.
+     * An object containing references to the source of the error, optionally including additional members
      * @alias module:model/ErrorObjectSource
      */
     constructor() { 
@@ -57,6 +58,7 @@ class ErrorObjectSource {
 }
 
 /**
+ * A string indicating which path or URI query parameter caused the error
  * @member {String} parameter
  */
 ErrorObjectSource.prototype['parameter'] = undefined;

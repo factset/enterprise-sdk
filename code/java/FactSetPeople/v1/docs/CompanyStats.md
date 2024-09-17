@@ -8,6 +8,7 @@ List of the statistics such as the average age, tenure, compensation of leadersh
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**fsymId** | **String** | FactSet Identifier for the company. |  [optional]
 **averageMgmtCompensation** | **BigDecimal** | Average compensation for the executives |  [optional]
 **averageTenure** | **Double** | Avergae tenure of the people |  [optional]
 **medianTenure** | **Double** | Median tenure |  [optional]

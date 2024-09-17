@@ -61,7 +61,7 @@ namespace Example
 
             var apiInstance = new UniverseApi(config);
 
-            var name = "Cargill";  // string | Name of Entity to match.
+            var name = "FactSet";  // string | Name of Entity to match.
             var country = "US";  // string | ISO2 country code corresponding to the entity name that is used when evaluating candidates for a match. For a list of ISO2 Country codes, visit [OA 8754](https://my.apps.factset.com/oa/pages/8754). (optional) 
 
             try

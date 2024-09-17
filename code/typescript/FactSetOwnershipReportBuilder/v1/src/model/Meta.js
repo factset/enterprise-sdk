@@ -47,9 +47,6 @@ class Meta {
         if (data) {
             obj = obj || new Meta();
 
-            if (data.hasOwnProperty('requestId')) {
-                obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
-            }
             if (data.hasOwnProperty('currency')) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
@@ -59,18 +56,15 @@ class Meta {
             if (data.hasOwnProperty('noData')) {
                 obj['noData'] = ApiClient.convertToType(data['noData'], 'Boolean');
             }
+            if (data.hasOwnProperty('requestId')) {
+                obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
+            }
         }
         return obj;
     }
 
 
 }
-
-/**
- * The identifier which was requested by the client
- * @member {String} requestId
- */
-Meta.prototype['requestId'] = undefined;
 
 /**
  * The currency ISO of the data which was returned
@@ -89,6 +83,12 @@ Meta.prototype['fsymId'] = undefined;
  * @member {Boolean} noData
  */
 Meta.prototype['noData'] = undefined;
+
+/**
+ * The identifier which was requested by the client
+ * @member {String} requestId
+ */
+Meta.prototype['requestId'] = undefined;
 
 
 

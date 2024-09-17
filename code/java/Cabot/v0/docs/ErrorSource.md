@@ -7,8 +7,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pointer** | **String** |  |  [optional]
 **parameter** | **String** |  |  [optional]
+**pointer** | **String** |  |  [optional]
 
 
 ## Implemented Interfaces
