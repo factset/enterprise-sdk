@@ -64,7 +64,7 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     ids = [
-        "ids_example",
+        "SP50",
     ] # [str] | Benchmark Identifiers. Reference the helper endpoint **/id-list** to get a sample list of  valid identifiers. You must be authorized for the `ids` requested, otherwise you will receive an error. <p>***ids limit** =  1 per request*</p>
     date = "date_example" # str | Date of holding expressed in YYYY-MM-DD format. (optional)
     currency = "currency_example" # str | Currency for response. (optional)

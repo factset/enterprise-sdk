@@ -52,7 +52,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new BenchmarkConstituentsApi();
-const ids = ["null"]; // [String] | Benchmark Identifiers. Reference the helper endpoint **_/id-list** to get a sample list of  valid identifiers. You must be authorized for the `ids` requested, otherwise you will receive an error. <p>***ids limit** =  1 per request*</p>
+const ids = SP50; // [String] | Benchmark Identifiers. Reference the helper endpoint **_/id-list** to get a sample list of  valid identifiers. You must be authorized for the `ids` requested, otherwise you will receive an error. <p>***ids limit** =  1 per request*</p>
 const opts = {
   'date': "date_example", // String | Date of holding expressed in YYYY-MM-DD format.
   'currency': "currency_example", // String | Currency for response.

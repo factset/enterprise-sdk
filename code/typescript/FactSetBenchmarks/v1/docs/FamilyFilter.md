@@ -23,4 +23,6 @@
 
 * `TOPIX` (value: `"TOPIX"`)
 
+* `MORNINGSTAR` (value: `"MORNINGSTAR"`)
+
 

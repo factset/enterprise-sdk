@@ -89,6 +89,13 @@ export default class FamilyFilter {
         "TOPIX" = "TOPIX";
 
     
+        /**
+         * value: "MORNINGSTAR"
+         * @const
+         */
+        "MORNINGSTAR" = "MORNINGSTAR";
+
+    
 
     /**
     * Returns a <code>FamilyFilter</code> enum value from a Javascript object name.

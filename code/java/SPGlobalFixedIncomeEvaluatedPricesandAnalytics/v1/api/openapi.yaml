@@ -159,6 +159,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Prices for US45905URL07:
+                  $ref: '#/components/examples/pricesResponse'
               schema:
                 $ref: '#/components/schemas/bondPricesResponse'
           description: Bond Pricing items
@@ -241,6 +244,9 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              Request for Prices:
+                $ref: '#/components/examples/pricesRequest'
             schema:
               $ref: '#/components/schemas/bondPricesRequest'
         description: Request object for requesting pricing data
@@ -249,6 +255,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Prices for US45905URL07:
+                  $ref: '#/components/examples/pricesResponse'
               schema:
                 $ref: '#/components/schemas/bondPricesResponse'
           description: Bond Prices data items
@@ -461,6 +470,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Spread for US45905URL07:
+                  $ref: '#/components/examples/spreadResponse'
               schema:
                 $ref: '#/components/schemas/bondSpreadResponse'
           description: Bond Spread items
@@ -543,6 +555,9 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              Request for Spread:
+                $ref: '#/components/examples/spreadRequest'
             schema:
               $ref: '#/components/schemas/bondSpreadRequest'
         description: Request object for requesting pricing data
@@ -551,6 +566,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Spread for US45905URL07:
+                  $ref: '#/components/examples/spreadResponse'
               schema:
                 $ref: '#/components/schemas/bondSpreadResponse'
           description: Bond Prices data items
@@ -764,6 +782,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Yield for US45905URL07:
+                  $ref: '#/components/examples/yieldResponse'
               schema:
                 $ref: '#/components/schemas/bondYieldResponse'
           description: Bond Yield items
@@ -846,6 +867,9 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              Request for Yield:
+                $ref: '#/components/examples/yieldRequest'
             schema:
               $ref: '#/components/schemas/bondYieldRequest'
         description: Request object for requesting yield data
@@ -854,6 +878,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Yield for US45905URL07:
+                  $ref: '#/components/examples/yieldResponse'
               schema:
                 $ref: '#/components/schemas/bondYieldResponse'
           description: Bond Yield data items
@@ -1066,6 +1093,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Issuer Yield Curve for US45905URL07:
+                  $ref: '#/components/examples/issuerYieldCurveResponse'
               schema:
                 $ref: '#/components/schemas/bondIssuerYieldCurveResponse'
           description: Bond Issuer Yield Curve items
@@ -1148,6 +1178,9 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              Request for Issuer Yield Curve:
+                $ref: '#/components/examples/issuerYieldCurveRequest'
             schema:
               $ref: '#/components/schemas/bondIssuerYieldCurveRequest'
         description: Request object for requesting issuer yield curve data.
@@ -1156,6 +1189,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Issuer Yield Curve for US45905URL07:
+                  $ref: '#/components/examples/issuerYieldCurveResponse'
               schema:
                 $ref: '#/components/schemas/bondIssuerYieldCurveResponse'
           description: Bond Issuer Yield Curve data items
@@ -1368,6 +1404,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Sensitivity for US45905URL07:
+                  $ref: '#/components/examples/sensitivityResponse'
               schema:
                 $ref: '#/components/schemas/bondSensitivityResponse'
           description: Bond Sensitivity items
@@ -1450,6 +1489,9 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              Request for Sensitivity:
+                $ref: '#/components/examples/sensitivityRequest'
             schema:
               $ref: '#/components/schemas/bondSensitivityRequest'
         description: Request object for requesting sensitivity data
@@ -1458,6 +1500,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Sensitivity for US45905URL07:
+                  $ref: '#/components/examples/sensitivityResponse'
               schema:
                 $ref: '#/components/schemas/bondSensitivityResponse'
           description: Bond Prices data items
@@ -1670,6 +1715,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Meta for US45905URL07:
+                  $ref: '#/components/examples/metaResponse'
               schema:
                 $ref: '#/components/schemas/bondMetaResponse'
           description: Bond Meta items
@@ -1752,6 +1800,9 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              Request for Meta:
+                $ref: '#/components/examples/metaRequest'
             schema:
               $ref: '#/components/schemas/bondMetaRequest'
         description: Request object for requesting meta data
@@ -1760,6 +1811,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Meta for US45905URL07:
+                  $ref: '#/components/examples/metaResponse'
               schema:
                 $ref: '#/components/schemas/bondMetaResponse'
           description: Bond Meta data items
@@ -1972,6 +2026,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                ABS Details for US45905URL07:
+                  $ref: '#/components/examples/absDetailsResponse'
               schema:
                 $ref: '#/components/schemas/absDetailsResponse'
           description: Asset Bond Security Detail items
@@ -2054,6 +2111,9 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              Request for ABS Details:
+                $ref: '#/components/examples/absDetailsRequest'
             schema:
               $ref: '#/components/schemas/absDetailsRequest'
         description: Request object for requesting ABS details
@@ -2062,6 +2122,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                ABS Details for US45905URL07:
+                  $ref: '#/components/examples/absDetailsResponse'
               schema:
                 $ref: '#/components/schemas/absDetailsResponse'
           description: Asset Bond Security Detail items
@@ -2274,6 +2337,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Coupon for US45905URL07:
+                  $ref: '#/components/examples/couponResponse'
               schema:
                 $ref: '#/components/schemas/bondCouponResponse'
           description: Bond Coupon items
@@ -2356,6 +2422,9 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              Request for Coupon:
+                $ref: '#/components/examples/couponRequest'
             schema:
               $ref: '#/components/schemas/bondCouponRequest'
         description: Request object for requesting Coupon data
@@ -2364,6 +2433,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Coupon for US45905URL07:
+                  $ref: '#/components/examples/couponResponse'
               schema:
                 $ref: '#/components/schemas/bondCouponResponse'
           description: Bond Coupon data items
@@ -2442,6 +2514,296 @@ paths:
       x-accepts: application/json
 components:
   examples:
+    pricesResponse:
+      description: Prices for US45905URL07 with startDate and endDate as "2023-01-26"
+      summary: Prices for US45905URL07
+      value:
+        data:
+        - requestId: US45905URL07
+          fsymId: CJQZQ0-S
+          currency: USD
+          date: 2023-01-26
+          cleanBidPrice: 95.74477
+          cleanMidPrice: 95.77036
+          cleanAskPrice: 95.79596
+          dirtyBidPrice: 96.61248
+          dirtyMidPrice: 96.63807
+          dirtyAskPrice: 96.66367
+          pv: 1.96728
+          bidPriceDate: null
+          midPriceDate: null
+          askPriceDate: null
+          bidPriceType: null
+          midPriceType: null
+          askPriceType: null
+    pricesRequest:
+      description: Request of US45905URL07 for Prices
+      summary: Request for Prices
+      value:
+        ids:
+        - US45905URL07
+        startDate: 2021-01-01
+        endDate: 2021-12-31
+        frequency: D
+        calendar: FIVEDAY
+    spreadResponse:
+      description: Spread for US45905URL07 with startDate and endDate as "2023-01-26"
+      summary: Spread for US45905URL07
+      value:
+        data:
+        - requestId: US45905URL07
+          fsymId: CJQZQ0-S
+          date: 2023-01-26
+          actualCDSBondBasisMid: null
+          actualIMMCDSBondBasis: null
+          CDSBondBasisDate: null
+          bidDiscountMargin: null
+          midDiscountMargin: null
+          askDiscountMargin: null
+          bidOAS: null
+          midOAS: null
+          askOAS: null
+          bidAssetSwapSpread: -14.02804
+          midAssetSwapSpread: -15.30298
+          askAssetSwapSpread: -16.57834
+          bidZSpread: -14.33783
+          midZSpread: -15.63881
+          askZSpread: -16.93988
+          bidGSpread: 7.76769
+          midGSpread: 6.8439
+          askGSpread: 5.92011
+          bidYieldSpreadvBenchmark: 1.8
+          midYieldSpreadvBenchmark: 0.9
+          askYieldSpreadvBenchmark: 0
+          bidAskPriceSpread: 0.05119
+          bidAskYieldSpread: 2.65437
+          bidSTWSpread: null
+          midISpread: -15.93663
+          midWALTreasurySpread: null
+          midEDSFSpread: null
+          treasurySwapSpread: null
+          midSwapSpread: null
+    spreadRequest:
+      description: Request of US45905URL07 for Spread
+      summary: Request for Spread
+      value:
+        ids:
+        - US45905URL07
+        startDate: 2021-01-01
+        endDate: 2021-12-31
+        frequency: D
+        calendar: FIVEDAY
+    yieldResponse:
+      description: Yield for US45905URL07 with startDate and endDate as "2023-01-26"
+      summary: Yield for US45905URL07
+      value:
+        data:
+        - requestId: US45905URL07
+          fsymId: CJQZQ0-S
+          date: 2023-01-26
+          bidYieldToMaturity: 4.27241
+          midYieldToMaturity: 4.25914
+          askYieldToMaturity: 4.24587
+          bidYieldToWorst: null
+          midYieldToWorst: null
+          askYieldToWorst: null
+          benchmarkBidYieldToMaturity: 4.25441
+          benchmarkMidYieldToMaturity: 4.25014
+          benchmarkAskYieldToMaturity: 4.24587
+          bidYieldToCall: null
+          midYieldToCall: null
+          yieldTWDate: null
+    yieldRequest:
+      description: Request of US45905URL07 for Yield
+      summary: Request for Yield
+      value:
+        ids:
+        - US45905URL07
+        startDate: 2021-01-01
+        endDate: 2021-12-31
+        frequency: D
+        calendar: FIVEDAY
+    issuerYieldCurveResponse:
+      description: Issuer Yield Curve for US45905URL07 with startDate and endDate
+        as "2023-01-26"
+      summary: Issuer Yield Curve for US45905URL07
+      value:
+        data:
+        - requestId: US45905URL07
+          fsymId: CJQZQ0-S
+          date: 2023-01-26
+          yieldCurveDate3M: 2023-04-30
+          yieldCurveDate6M: 2023-07-31
+          yieldCurveDate1Y: 2024-01-31
+          yieldCurveDate2Y: 2025-01-31
+          yieldCurveDate3Y: 2026-01-31
+          yieldCurveDate4Y: 2027-01-31
+          yieldCurveDate5Y: 2028-01-31
+          yieldCurveDate6Y: 2029-01-31
+          yieldCurveDate7Y: 2030-01-31
+          yieldCurveDate8Y: 2031-01-31
+          yieldCurveDate9Y: 2032-01-31
+          yieldCurveDate10Y: 2033-01-31
+          yieldCurveDate15Y: 2038-01-31
+          yieldCurveDate20Y: 2043-01-31
+          yieldCurveDate25Y: 2048-01-31
+          yieldCurveDate30Y: 2053-01-31
+          yieldCurveDate40Y: 2063-01-31
+          ytmCurve3M: 4.71383
+          ytmCurve6M: 4.85789
+          ytmCurve1Y: 4.87322
+          ytmCurve2Y: 4.31165
+          ytmCurve3Y: 3.94318
+          ytmCurve4Y: 3.84834
+          ytmCurve5Y: 3.77094
+          ytmCurve6Y: 3.75772
+          ytmCurve7Y: 3.70533
+          ytmCurve8Y: 3.68161
+          ytmCurve9Y: 3.69604
+          ytmCurve10Y: 3.75209
+          ytmCurve15Y: 4.15736
+          ytmCurve20Y: 4.55024
+          ytmCurve25Y: 4.73328
+          ytmCurve30Y: 4.76396
+          ytmCurve40Y: 4.61172
+    issuerYieldCurveRequest:
+      description: Request of US45905URL07 for Issuer Yield Curve
+      summary: Request for Issuer Yield Curve
+      value:
+        ids:
+        - US45905URL07
+        startDate: 2021-01-01
+        endDate: 2021-12-31
+        frequency: D
+        calendar: FIVEDAY
+    sensitivityResponse:
+      description: Sensitivity for US45905URL07 with startDate and endDate as "2023-01-26"
+      summary: Sensitivity for US45905URL07
+      value:
+        data:
+        - requestId: US45905URL07
+          fsymId: CJQZQ0-S
+          date: 2023-01-26
+          bidConvexity: 5.83
+          midConvexity: 5.83
+          askConvexity: 5.83
+          bidEffectiveConvexity: 4.86286
+          midEffectiveConvexity: 4.86481
+          askEffectiveConvexity: 4.86676
+          bidEffectiveDuration: 1.9278
+          midEffectiveDuration: 1.92845
+          askEffectiveDuration: 1.9291
+          bidMacaulayDuration: 2.04
+          midMacaulayDuration: 2.04
+          askMacaulayDuration: 2.04
+          bidModifiedDuration: 2
+          midModifiedDuration: 2
+          askModifiedDuration: 2
+    sensitivityRequest:
+      description: Request of US45905URL07 for Sensitivity
+      summary: Request for Sensitivity
+      value:
+        ids:
+        - US45905URL07
+        startDate: 2021-01-01
+        endDate: 2021-12-31
+        frequency: D
+        calendar: FIVEDAY
+    metaResponse:
+      description: Meta for US45905URL07 with startDate and endDate as "2023-01-26"
+      summary: Meta for US45905URL07
+      value:
+        data:
+        - requestId: US45905URL07
+          fsymId: CJQZQ0-S
+          date: 2023-01-26
+          classification: GovernmentRelated
+          maturityDate: 2025-03-03
+          assumedMaturityDate: null
+          defaulted: "N"
+          isin: US45905URL07
+          cusip: 45905URL0
+          vendorId: US45905URL07
+          ticker: IBRD
+          setId: 684
+          benchmarkISIN: US91282CGD74
+          benchmarkCUSIP: 91282CGD7
+          name: Intl Bk for Recon & Dev 2.125 03-Mar-2025
+          issuerName: Intl Bk for Recon & Dev
+          benchmarkName: USGB 4.25 12/31/24
+          perpetual: "N"
+          region: Americas
+          tier: SNRFOR
+          issueName: null
+          bondTicker: null
+          indexTrancheName: null
+          redemption: null
+    metaRequest:
+      description: Request of US45905URL07 for Meta
+      summary: Request for Meta
+      value:
+        ids:
+        - US45905URL07
+        startDate: 2021-01-01
+        endDate: 2021-12-31
+        frequency: D
+        calendar: FIVEDAY
+    absDetailsResponse:
+      description: ABS Details for US45905URL07 with startDate and endDate as "2023-01-26"
+      summary: ABS Details for US45905URL07
+      value:
+        data:
+        - requestId: US05522RDC97
+          fsymId: V1D5YM-S
+          date: 2023-01-26
+          cdr: "0"
+          cpr: null
+          factor: 1
+          estimatedFactor: null
+          bidPricePreFactor: null
+          midPricePreFactor: null
+          askPricePreFactor: null
+          CPREstimatePreFactor: null
+          liquidity: 1
+          payUp: null
+          payUpDescription: null
+          prePayRate: 20
+          prePayType: SMM
+          severity: 0
+          wal: 0.886
+          WALPrincipal: 0.886
+    absDetailsRequest:
+      description: Request of US05522RDC97 for ABS Details
+      summary: Request for ABS Details
+      value:
+        ids:
+        - US05522RDC97
+        startDate: 2021-01-01
+        endDate: 2021-12-31
+        frequency: D
+        calendar: FIVEDAY
+    couponResponse:
+      description: Coupon for US45905URL07 with startDate and endDate as "2023-01-26"
+      summary: Coupon for US45905URL07
+      value:
+        data:
+        - requestId: US45905URL07
+          fsymId: CJQZQ0-S
+          date: 2023-01-26
+          accruedInterest: 0.86771
+          coupon: 2.125
+          couponType: Fixed
+          couponFrequency: 6M
+    couponRequest:
+      description: Request of US45905URL07 for Coupon
+      summary: Request for Coupon
+      value:
+        ids:
+        - US45905URL07
+        startDate: 2021-01-01
+        endDate: 2021-12-31
+        frequency: D
+        calendar: FIVEDAY
     badRequestDateFormat:
       description: This bad request occurs when a request doesn't use the YYYY-MM-DD
         in the date parameters. To resolve, convert your date to YYYY-MM-DD.

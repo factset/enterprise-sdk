@@ -25,6 +25,7 @@ paths:
           to get a sample list of  valid identifiers. You must be authorized for the
           `ids` requested, otherwise you will receive an error. <p>***ids limit**
           =  1 per request*</p>
+        example: SP50
         explode: false
         in: query
         name: ids
@@ -170,6 +171,9 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              Benchmark Constituent Request:
+                $ref: '#/components/examples/constituentRequest'
             schema:
               $ref: '#/components/schemas/benchmarkConstituentsRequest'
         description: Requests Benchmark Constituents for the given identifier and
@@ -302,6 +306,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Fixed Income Constituents Response:
+                  $ref: '#/components/examples/resultofFixedIncomeConstituents'
               schema:
                 $ref: '#/components/schemas/fixedIncomeBenchmarkConstituentsResponse'
           description: Fixed Income Constituent data items
@@ -387,6 +394,9 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              Fixed Income Constituents Request:
+                $ref: '#/components/examples/fixedIncomeConstituentsRequest'
             schema:
               $ref: '#/components/schemas/fixedIncomeBenchmarkConstituentsRequest'
         description: Requests Fixed Income Benchmark Constituents for the given identifier
@@ -396,6 +406,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Fixed Income Constituents Response:
+                  $ref: '#/components/examples/resultofFixedIncomeConstituents'
               schema:
                 $ref: '#/components/schemas/fixedIncomeBenchmarkConstituentsResponse'
           description: Fixed Income Constituent data items
@@ -488,6 +501,7 @@ paths:
           for thousands of ids, which may lead to exceeding this request line limit
           of 8KB, its advised for any requests with large request lines to be requested
           through the respective "POST" method.</p>*
+        example: SP50
         explode: false
         in: query
         name: ids
@@ -635,6 +649,9 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              Index Snapshot Request:
+                $ref: '#/components/examples/indexSnapshotRequestBody'
             schema:
               $ref: '#/components/schemas/indexSnapshotRequest'
         description: Requests the Index Level Snapshot for a requested list of identifiers
@@ -740,6 +757,7 @@ paths:
           for thousands of ids, which may lead to exceeding this request line limit
           of 8KB, its advised for any requests with large request lines to be requested
           through the respective "POST" method.</p>*
+        example: SP50
         explode: false
         in: query
         name: ids
@@ -975,6 +993,9 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              Index History Request:
+                $ref: '#/components/examples/indexHistoryRequestBody'
             schema:
               $ref: '#/components/schemas/indexHistoryRequest'
         description: Requests Index Level History Prices and Returns for a list of
@@ -1080,6 +1101,7 @@ paths:
           for thousands of ids, which may lead to exceeding this request line limit
           of 8KB, its advised for any requests with large request lines to be requested
           through the respective "POST" method.</p>*
+        example: SP50
         explode: false
         in: query
         name: ids
@@ -1466,15 +1488,16 @@ paths:
       - description: |
           Highest Level Filter to search by common Benchmark Families, such as S&P, MSCI, or Russell. This will retrieve all related benchmark ids. For further filtering, use the response items such as the categoryDescription field. Leave blank if you wish to see a full sample list of ids. requested-
           * **CHINA & HK INDICES** - Major Hong Kong and China Indices, such as Hang Seng Index (HSI-HKX)
-          * **DOW JONES** - Dow Jones Global, Regions, Countries, Titans.
+          * **DOW JONES** - Dow Jones Global, Regions, Countries, Titans
           * **FACTSET MARKET INDICES** - Regional and Country Indices defined by FactSet
           * **FTSE** - FTSE Global, UK, Global All Cap, World, Xinhua, European, GWA, JSE, Multinationals, and Style indices
-          * **GLOBAL INDICES** - A mix of major indices across the globe.
-          * **MSCI** - MSCI All Country, Asia Pacific, Thematic & Strategy, Emerging, Developed, US.
-          * **RUSSELL** - US, Global, and Nomura.
-          * **S&P** - US, ASX, Select Industry, BMI, Global, Thematic, Emerging, TSX.
+          * **GLOBAL INDICES** - A mix of major indices across the globe
+          * **MSCI** - MSCI All Country, Asia Pacific, Thematic & Strategy, Emerging, Developed, US
+          * **RUSSELL** - US, Global, and Nomura
+          * **S&P** - US, ASX, Select Industry, BMI, Global, Thematic, Emerging, TSX
           * **STOXX** - Total Market, Europe, and Nordic
           * **TOPIX** - Topix Indices, such as TOPIX 500 (182301)
+          * **MORNINGSTAR** - Global, Regional, Country, and Sector indicies
         explode: true
         in: query
         name: familyFilter
@@ -1491,6 +1514,7 @@ paths:
           - SP
           - STOXX
           - TOPIX
+          - MORNINGSTAR
           type: string
         style: form
       responses:
@@ -1591,6 +1615,9 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              Id List Request:
+                $ref: '#/components/examples/idListRequest'
             schema:
               $ref: '#/components/schemas/benchmarkIdListRequest'
         description: Requests a sample list of identifiers that can be used in other
@@ -1684,6 +1711,14 @@ paths:
       x-accepts: application/json
 components:
   examples:
+    constituentRequest:
+      description: Benchmark Constituent Request
+      value:
+        ids:
+        - SP50
+        date: 2020-08-06
+        currency: USD
+        calendar: FIVEDAY
     resultofBenchmarkIDSPY-US:
       description: |
         This is the list of all constituents that make up the SPDR S&P 500 ETF (SPY-US) as of 2020-07-01. The ETF is used as a proxy for S&P 500 Benchmark. To limit the response size of specification file, only first 10 items are shown.
@@ -1878,9 +1913,38 @@ components:
           familyName: TOPIX
           market: TOPIX Indices
           categoryDescription: TOPIX Indices
+    idListRequest:
+      description: Result of requesting a sample list of using familyFilter set to
+        TOPIX. Each fsymId represents a unique Benchmark Id that can be used in other
+        benchmark endpoints.
+      summary: Id List Request
+      value:
+        familyFilter: TOPIX
+    resultofFixedIncomeConstituents:
+      description: Fixed Income Constituents for 'SP50' as of 2020-08-06
+      summary: Fixed Income Constituents Response
+      value:
+        data:
+        - fsymId: SP50
+          date: 2020-08-06
+          fsymSecurityId: PJNLKG-S
+          weightClose: 0.0917345946283279
+          amountOutstanding: null
+          price: 35.41
+          adjMarketValue: 25407
+          requestId: SP50
+    fixedIncomeConstituentsRequest:
+      description: |
+        Fixed Income Constituents for 'SP50' as of 2020-08-06
+      summary: Fixed Income Constituents Request
+      value:
+        ids:
+        - SP50
+        date: 2021-04-12
+        currency: USD
     resultofIndexSnapshotMultiple:
       description: The Price and Returns of S&P 500 and Russell 3000 as of 2020-08-06
-      summary: Index Snapshot of Prices and Returns for Two Companies as of 2020-08-06
+      summary: Index Snapshot Response
       value:
         data:
         - constituentNumber: 505
@@ -1915,64 +1979,63 @@ components:
           totalReturnPercent1D: 0.513265793869122
           totalReturnPercentQTD: 8.35826463942657
           totalReturnPercentYTD: 4.59191053652597
+    indexSnapshotRequestBody:
+      description: Index Snapshot Request of SP50 as of 2020-08-06
+      summary: Index Snapshot Request
+      value:
+        ids:
+        - SP50
+        date: 2020-08-06
+        returnType: GROSS
+        currency: USD
+        calendar: FIVEDAY
     resultofIndexHistoryMultiple:
-      description: The Price and Returns history for the S&P 500 and Russell 3000
-        from 2020-08-05 to 2020-08-06
-      summary: Index History Prices and Returns for Two Companies over two days
+      description: Index History for the 'SP50' from 2018-12-31 to 2019-12-31
+      summary: Index History Response
       value:
         data:
-        - currency: LOCAL
-          date: 2020-08-05
-          fsymId: SP50
-          marketValue: 2.75193132948137E7
+        - fsymId: SP50
+          date: 2018-12-31
           name: S&P 500
-          price: 3327.77107160334
-          priceReturnPercent: 0.643080929116979
-          requestId: SP50
+          constituentNumber: 505
+          currency: USD
+          marketValue: 2.10269016340513E7
+          price: 2506.84718262722
+          priceReturnPercent: -6.23738345882681
+          totalReturnLevel: 4984.21723228551
+          totalReturnPercent: -4.38434932977296
           returnType: GROSS
           hedgeType: UNHEDGED
-          totalReturnLevel: 6826.22108948631
-          totalReturnPercent: 0.643080929117001
-          observationDate: 2020-08-05
-        - currency: LOCAL
-          date: 2020-08-06
-          fsymId: SP50
-          marketValue: 2.7696158012077E7
+          requestId: SP50
+          observationDate: 2018-12-31
+        - fsymId: SP50
+          date: 2019-12-31
           name: S&P 500
-          price: 3349.15600690205
-          priceReturnPercent: 0.642620385795123
+          constituentNumber: 505
+          currency: USD
+          marketValue: 2.67596867868843E7
+          price: 3230.78195009043
+          priceReturnPercent: 28.878296709914
+          totalReturnLevel: 6553.56881355636
+          totalReturnPercent: 31.4864201966418
+          returnType: GROSS
+          hedgeType: UNHEDGED
           requestId: SP50
-          returnType: GROSS
-          hedgeType: UNHEDGED
-          totalReturnLevel: 6870.86168040129
-          totalReturnPercent: 0.653957589855003
-          observationDate: 2020-08-06
-        - currency: LOCAL
-          date: 2020-08-05
-          fsymId: R.3000
-          marketValue: 3.27887607030179E7
-          name: Russell 3000
-          price: 3579.008715
-          priceReturnPercent: 0.751585489130235
-          requestId: R.3000
-          returnType: GROSS
-          hedgeType: UNHEDGED
-          totalReturnLevel: 10542.973182
-          totalReturnPercent: 0.751900743100942
-          observationDate: 2020-08-05
-        - currency: LOCAL
-          date: 2020-08-06
-          fsymId: R.3000
-          marketValue: 3.29544097735481E7
-          name: Russell 3000
-          price: 3596.989378
-          priceReturnPercent: 0.502392266457519
-          requestId: R.3000
-          returnType: GROSS
-          hedgeType: UNHEDGED
-          totalReturnLevel: 10597.086657
-          totalReturnPercent: 0.513265793869122
-          observationDate: 2020-08-06
+          observationDate: 2019-12-31
+    indexHistoryRequestBody:
+      description: Index History Request for the 'SP50' from 2018-12-31 to 2019-12-31
+      summary: Index History Request
+      value:
+        ids:
+        - SP50
+        startDate: 2018-12-31
+        endDate: 2019-12-31
+        frequency: CY
+        returnType: GROSS
+        hedgeType: UNHEDGED
+        currency: USD
+        calendar: FIVEDAY
+        impliedDate: "N"
     allRatiosRequest:
       description: |
         Requesting all available index level ratios for S&P 500 on LTM basis as of latest calendar year end
@@ -2469,6 +2532,7 @@ components:
         to get a sample list of  valid identifiers. You must be authorized for the
         `ids` requested, otherwise you will receive an error. <p>***ids limit** =  1
         per request*</p>
+      example: SP50
       explode: false
       in: query
       name: ids
@@ -2504,6 +2568,7 @@ components:
         which may lead to exceeding this request line limit of 8KB, its advised for
         any requests with large request lines to be requested through the respective
         "POST" method.</p>*
+      example: SP50
       explode: false
       in: query
       name: ids
@@ -2798,15 +2863,16 @@ components:
       description: |
         Highest Level Filter to search by common Benchmark Families, such as S&P, MSCI, or Russell. This will retrieve all related benchmark ids. For further filtering, use the response items such as the categoryDescription field. Leave blank if you wish to see a full sample list of ids. requested-
         * **CHINA & HK INDICES** - Major Hong Kong and China Indices, such as Hang Seng Index (HSI-HKX)
-        * **DOW JONES** - Dow Jones Global, Regions, Countries, Titans.
+        * **DOW JONES** - Dow Jones Global, Regions, Countries, Titans
         * **FACTSET MARKET INDICES** - Regional and Country Indices defined by FactSet
         * **FTSE** - FTSE Global, UK, Global All Cap, World, Xinhua, European, GWA, JSE, Multinationals, and Style indices
-        * **GLOBAL INDICES** - A mix of major indices across the globe.
-        * **MSCI** - MSCI All Country, Asia Pacific, Thematic & Strategy, Emerging, Developed, US.
-        * **RUSSELL** - US, Global, and Nomura.
-        * **S&P** - US, ASX, Select Industry, BMI, Global, Thematic, Emerging, TSX.
+        * **GLOBAL INDICES** - A mix of major indices across the globe
+        * **MSCI** - MSCI All Country, Asia Pacific, Thematic & Strategy, Emerging, Developed, US
+        * **RUSSELL** - US, Global, and Nomura
+        * **S&P** - US, ASX, Select Industry, BMI, Global, Thematic, Emerging, TSX
         * **STOXX** - Total Market, Europe, and Nordic
         * **TOPIX** - Topix Indices, such as TOPIX 500 (182301)
+        * **MORNINGSTAR** - Global, Regional, Country, and Sector indicies
       explode: true
       in: query
       name: familyFilter
@@ -2823,6 +2889,7 @@ components:
         - SP
         - STOXX
         - TOPIX
+        - MORNINGSTAR
         type: string
       style: form
   responses:
@@ -3972,15 +4039,16 @@ components:
       description: |
         Highest Level Filter to search by common Benchmark Families, such as S&P, MSCI, or Russell. This will retrieve all related benchmark ids. For further filtering, use the response items such as the categoryDescription field. Leave blank if you wish to see a full sample list of ids. requested-
         * **CHINA & HK INDICES** - Major Hong Kong and China Indices, such as Hang Seng Index (HSI-HKX)
-        * **DOW JONES** - Dow Jones Global, Regions, Countries, Titans.
+        * **DOW JONES** - Dow Jones Global, Regions, Countries, Titans
         * **FACTSET MARKET INDICES** - Regional and Country Indices defined by FactSet
         * **FTSE** - FTSE Global, UK, Global All Cap, World, Xinhua, European, GWA, JSE, Multinationals, and Style indices
-        * **GLOBAL INDICES** - A mix of major indices across the globe.
-        * **MSCI** - MSCI All Country, Asia Pacific, Thematic & Strategy, Emerging, Developed, US.
-        * **RUSSELL** - US, Global, and Nomura.
-        * **S&P** - US, ASX, Select Industry, BMI, Global, Thematic, Emerging, TSX.
+        * **GLOBAL INDICES** - A mix of major indices across the globe
+        * **MSCI** - MSCI All Country, Asia Pacific, Thematic & Strategy, Emerging, Developed, US
+        * **RUSSELL** - US, Global, and Nomura
+        * **S&P** - US, ASX, Select Industry, BMI, Global, Thematic, Emerging, TSX
         * **STOXX** - Total Market, Europe, and Nordic
         * **TOPIX** - Topix Indices, such as TOPIX 500 (182301)
+        * **MORNINGSTAR** - Global, Regional, Country, and Sector indicies
       enum:
       - CHINA_HK_INDICES
       - DOW_JONES
@@ -3992,6 +4060,7 @@ components:
       - SP
       - STOXX
       - TOPIX
+      - MORNINGSTAR
       example: MSCI
       title: Family Filter
       type: string

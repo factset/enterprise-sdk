@@ -71,6 +71,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/benchmarkConstituentsRequest'
+            examples:
+              Benchmark Constituent Request:
+                $ref: '#/components/examples/constituentRequest'
       responses:
         '200':
           description: Benchmark data items
@@ -114,6 +117,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/fixedIncomeBenchmarkConstituentsResponse'
+              examples:
+                Fixed Income Constituents Response:
+                  $ref: '#/components/examples/resultofFixedIncomeConstituents'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -144,6 +150,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/fixedIncomeBenchmarkConstituentsRequest'
+            examples:
+              Fixed Income Constituents Request:
+                $ref: '#/components/examples/fixedIncomeConstituentsRequest'
       responses:
         '200':
           description: Fixed Income Constituent data items
@@ -151,6 +160,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/fixedIncomeBenchmarkConstituentsResponse'
+              examples:
+                Fixed Income Constituents Response:
+                  $ref: '#/components/examples/resultofFixedIncomeConstituents'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -223,6 +235,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/indexSnapshotRequest'
+            examples:
+              Index Snapshot Request:
+                $ref: '#/components/examples/indexSnapshotRequestBody'
       responses:
         '200':
           description: >-
@@ -311,6 +326,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/indexHistoryRequest'
+            examples:
+              Index History Request:
+                $ref: '#/components/examples/indexHistoryRequestBody'
       responses:
         '200':
           description: >-
@@ -490,6 +508,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/benchmarkIdListRequest'
+            examples:
+              Id List Request:
+                $ref: '#/components/examples/idListRequest'
       responses:
         '200':
           description: List of sample Benchmark Ids
@@ -533,6 +554,7 @@ components:
           type: string
         minItems: 1
         maxItems: 1
+      example: SP50
       description: >-
         Benchmark Identifiers. Reference the helper endpoint **/id-list** to get
         a sample list of  valid identifiers. You must be authorized for the
@@ -565,6 +587,7 @@ components:
           type: string
         minItems: 1
         maxItems: 500
+      example: SP50
       description: >-
         Benchmark Identifiers. Reference the helper endpoint **/id-list** to get
         a sample list of  valid identifiers. <p>***ids limit** =  500 per
@@ -919,7 +942,7 @@ components:
         * **CHINA & HK INDICES** - Major Hong Kong and China Indices, such as
         Hang Seng Index (HSI-HKX)
 
-        * **DOW JONES** - Dow Jones Global, Regions, Countries, Titans.
+        * **DOW JONES** - Dow Jones Global, Regions, Countries, Titans
 
         * **FACTSET MARKET INDICES** - Regional and Country Indices defined by
         FactSet
@@ -927,19 +950,21 @@ components:
         * **FTSE** - FTSE Global, UK, Global All Cap, World, Xinhua, European,
         GWA, JSE, Multinationals, and Style indices
 
-        * **GLOBAL INDICES** - A mix of major indices across the globe.
+        * **GLOBAL INDICES** - A mix of major indices across the globe
 
         * **MSCI** - MSCI All Country, Asia Pacific, Thematic & Strategy,
-        Emerging, Developed, US.
+        Emerging, Developed, US
 
-        * **RUSSELL** - US, Global, and Nomura.
+        * **RUSSELL** - US, Global, and Nomura
 
         * **S&P** - US, ASX, Select Industry, BMI, Global, Thematic, Emerging,
-        TSX.
+        TSX
 
         * **STOXX** - Total Market, Europe, and Nordic
 
         * **TOPIX** - Topix Indices, such as TOPIX 500 (182301)
+
+        * **MORNINGSTAR** - Global, Regional, Country, and Sector indicies
       schema:
         type: string
         enum:
@@ -953,6 +978,7 @@ components:
           - SP
           - STOXX
           - TOPIX
+          - MORNINGSTAR
   schemas:
     benchmarkConstituentsRequest:
       type: object
@@ -1785,7 +1811,7 @@ components:
         * **CHINA & HK INDICES** - Major Hong Kong and China Indices, such as
         Hang Seng Index (HSI-HKX)
 
-        * **DOW JONES** - Dow Jones Global, Regions, Countries, Titans.
+        * **DOW JONES** - Dow Jones Global, Regions, Countries, Titans
 
         * **FACTSET MARKET INDICES** - Regional and Country Indices defined by
         FactSet
@@ -1793,19 +1819,21 @@ components:
         * **FTSE** - FTSE Global, UK, Global All Cap, World, Xinhua, European,
         GWA, JSE, Multinationals, and Style indices
 
-        * **GLOBAL INDICES** - A mix of major indices across the globe.
+        * **GLOBAL INDICES** - A mix of major indices across the globe
 
         * **MSCI** - MSCI All Country, Asia Pacific, Thematic & Strategy,
-        Emerging, Developed, US.
+        Emerging, Developed, US
 
-        * **RUSSELL** - US, Global, and Nomura.
+        * **RUSSELL** - US, Global, and Nomura
 
         * **S&P** - US, ASX, Select Industry, BMI, Global, Thematic, Emerging,
-        TSX.
+        TSX
 
         * **STOXX** - Total Market, Europe, and Nordic
 
         * **TOPIX** - Topix Indices, such as TOPIX 500 (182301)
+
+        * **MORNINGSTAR** - Global, Regional, Country, and Sector indicies
       type: string
       enum:
         - CHINA_HK_INDICES
@@ -1818,6 +1846,7 @@ components:
         - SP
         - STOXX
         - TOPIX
+        - MORNINGSTAR
       example: MSCI
     errorResponse:
       type: object
@@ -1934,6 +1963,14 @@ components:
             Internal Server Error - General Exception:
               $ref: '#/components/examples/generalException'
   examples:
+    constituentRequest:
+      description: Benchmark Constituent Request
+      value:
+        ids:
+          - SP50
+        date: '2020-08-06'
+        currency: USD
+        calendar: FIVEDAY
     resultofBenchmarkIDSPY-US:
       summary: >-
         Result of Benchmark Constituent Id SPY-US (only first 10 records for
@@ -2133,8 +2170,38 @@ components:
             familyName: TOPIX
             market: TOPIX Indices
             categoryDescription: TOPIX Indices
+    idListRequest:
+      summary: Id List Request
+      description: >-
+        Result of requesting a sample list of using familyFilter set to TOPIX.
+        Each fsymId represents a unique Benchmark Id that can be used in other
+        benchmark endpoints.
+      value:
+        familyFilter: TOPIX
+    resultofFixedIncomeConstituents:
+      summary: Fixed Income Constituents Response
+      description: Fixed Income Constituents for 'SP50' as of 2020-08-06
+      value:
+        data:
+          - fsymId: SP50
+            date: '2020-08-06'
+            fsymSecurityId: PJNLKG-S
+            weightClose: 0.0917345946283279
+            amountOutstanding: null
+            price: 35.41
+            adjMarketValue: 25407
+            requestId: SP50
+    fixedIncomeConstituentsRequest:
+      summary: Fixed Income Constituents Request
+      description: |
+        Fixed Income Constituents for 'SP50' as of 2020-08-06
+      value:
+        ids:
+          - SP50
+        date: '2021-04-12'
+        currency: USD
     resultofIndexSnapshotMultiple:
-      summary: Index Snapshot of Prices and Returns for Two Companies as of 2020-08-06
+      summary: Index Snapshot Response
       description: The Price and Returns of S&P 500 and Russell 3000 as of 2020-08-06
       value:
         data:
@@ -2170,65 +2237,63 @@ components:
             totalReturnPercent1D: 0.513265793869122
             totalReturnPercentQTD: 8.35826463942657
             totalReturnPercentYTD: 4.59191053652597
+    indexSnapshotRequestBody:
+      summary: Index Snapshot Request
+      description: Index Snapshot Request of SP50 as of 2020-08-06
+      value:
+        ids:
+          - SP50
+        date: '2020-08-06'
+        returnType: GROSS
+        currency: USD
+        calendar: FIVEDAY
     resultofIndexHistoryMultiple:
-      summary: Index History Prices and Returns for Two Companies over two days
-      description: >-
-        The Price and Returns history for the S&P 500 and Russell 3000 from
-        2020-08-05 to 2020-08-06
+      summary: Index History Response
+      description: Index History for the 'SP50' from 2018-12-31 to 2019-12-31
       value:
         data:
-          - currency: LOCAL
-            date: '2020-08-05'
-            fsymId: SP50
-            marketValue: 27519313.2948137
+          - fsymId: SP50
+            date: '2018-12-31'
             name: S&P 500
-            price: 3327.77107160334
-            priceReturnPercent: 0.643080929116979
-            requestId: SP50
+            constituentNumber: 505
+            currency: USD
+            marketValue: 21026901.6340513
+            price: 2506.84718262722
+            priceReturnPercent: -6.23738345882681
+            totalReturnLevel: 4984.21723228551
+            totalReturnPercent: -4.38434932977296
             returnType: GROSS
             hedgeType: UNHEDGED
-            totalReturnLevel: 6826.22108948631
-            totalReturnPercent: 0.643080929117001
-            observationDate: '2020-08-05'
-          - currency: LOCAL
-            date: '2020-08-06'
-            fsymId: SP50
-            marketValue: 27696158.012077
+            requestId: SP50
+            observationDate: '2018-12-31'
+          - fsymId: SP50
+            date: '2019-12-31'
             name: S&P 500
-            price: 3349.15600690205
-            priceReturnPercent: 0.642620385795123
+            constituentNumber: 505
+            currency: USD
+            marketValue: 26759686.7868843
+            price: 3230.78195009043
+            priceReturnPercent: 28.878296709914
+            totalReturnLevel: 6553.56881355636
+            totalReturnPercent: 31.4864201966418
+            returnType: GROSS
+            hedgeType: UNHEDGED
             requestId: SP50
-            returnType: GROSS
-            hedgeType: UNHEDGED
-            totalReturnLevel: 6870.86168040129
-            totalReturnPercent: 0.653957589855003
-            observationDate: '2020-08-06'
-          - currency: LOCAL
-            date: '2020-08-05'
-            fsymId: R.3000
-            marketValue: 32788760.7030179
-            name: Russell 3000
-            price: 3579.008715
-            priceReturnPercent: 0.751585489130235
-            requestId: R.3000
-            returnType: GROSS
-            hedgeType: UNHEDGED
-            totalReturnLevel: 10542.973182
-            totalReturnPercent: 0.751900743100942
-            observationDate: '2020-08-05'
-          - currency: LOCAL
-            date: '2020-08-06'
-            fsymId: R.3000
-            marketValue: 32954409.7735481
-            name: Russell 3000
-            price: 3596.989378
-            priceReturnPercent: 0.502392266457519
-            requestId: R.3000
-            returnType: GROSS
-            hedgeType: UNHEDGED
-            totalReturnLevel: 10597.086657
-            totalReturnPercent: 0.513265793869122
-            observationDate: '2020-08-06'
+            observationDate: '2019-12-31'
+    indexHistoryRequestBody:
+      summary: Index History Request
+      description: Index History Request for the 'SP50' from 2018-12-31 to 2019-12-31
+      value:
+        ids:
+          - SP50
+        startDate: '2018-12-31'
+        endDate: '2019-12-31'
+        frequency: CY
+        returnType: GROSS
+        hedgeType: UNHEDGED
+        currency: USD
+        calendar: FIVEDAY
+        impliedDate: 'N'
     allRatiosRequest:
       summary: >-
         Requesting all available index level ratios for S&P 500 on LTM basis as
