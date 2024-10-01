@@ -23,6 +23,7 @@ tags:
 - name: Entity
 - name: Report
 - name: Report instance
+- name: Workflow
 - name: SCIM
 - name: Version
 paths:
@@ -1619,6 +1620,874 @@ paths:
       tags:
       - Report instance
       x-accepts: application/json
+  /v1/{tenant}/schedule-definitions:
+    get:
+      description: Retrieves all schedule definitions the user has permissions for.
+        User has sort and filter parameters available to use.
+      operationId: getScheduleDefinitions
+      parameters:
+      - description: The code of the tenancy
+        example: TENANT
+        explode: false
+        in: path
+        name: tenant
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Acts as a filter for the retrieval process. Filters the schedule
+          definitions that match the given schedule type. Accepts multiple values
+          separated by a comma, e.g. ?scheduleType=REPEATING,TEMPLATE
+        example: MANUAL
+        explode: true
+        in: query
+        name: scheduleType
+        required: false
+        schema:
+          enum:
+          - MANUAL
+          - REPEATING
+          - TEMPLATE
+          - ADHOC
+          type: string
+        style: form
+      - description: Acts as a filter for the retrieval process. Filters the schedule
+          definitions that match the given schedule report date.  Accepts multiple
+          values separated by a comma, e.g. ?reportDate=LAST_DAY_OF_PREV_MONTH,CREATION_DATE
+        example: LAST_BUSINESS_DAY_OF_PREV_MONTH
+        explode: true
+        in: query
+        name: reportDate
+        required: false
+        schema:
+          enum:
+          - LAST_DAY_OF_PREV_MONTH
+          - LAST_BUSINESS_DAY_OF_PREV_MONTH
+          - CREATION_DATE
+          - DAY_BEFORE_CREATION_DATE
+          - BUSINESS_DAY_BEFORE_CREATION_DATE
+          - LAST_DAY_OF_MONTH_SCHEDULE_CREATED
+          - LAST_BUSINESS_DAY_OF_MONTH_SCHEDULE_CREATED
+          - LAST_BUSINESS_DAY_OF_PREVIOUS_WEEK_SCHEDULE_CREATED
+          - LAST_BUSINESS_DAY_OF_WEEK_SCHEDULE_CREATED
+          - TWO_BUSINESS_DAYS_BEFORE_SCHEDULE_CREATED
+          type: string
+        style: form
+      - description: Acts as a filter for the retrieval process. Filters the schedule
+          definitions where the provided parameter value matches or is a substring
+          of the last updated by value of the schedule definitions
+        example: John
+        explode: true
+        in: query
+        name: lastUpdatedBy
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Acts as a filter for the retrieval process. Filters the schedule
+          definitions based on their last updated date, the input date must be of
+          the date format (d MMMMM yyyy 00:00:00).
+        example: 25 March 2024 00:00:00
+        explode: true
+        in: query
+        name: startDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Acts as a filter for the retrieval process. Filters the schedule
+          definitions based on their last updated date, the input date must be of
+          the date format (d MMMMM yyyy 00:00:00).
+        example: 25 March 2024 00:00:00
+        explode: true
+        in: query
+        name: endDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: The column to sort on. Can add '-' to the start of the parameter
+          value to sort in descending order.
+        examples:
+          name:
+            description: The name of the schedule definition
+            value:
+            - name
+          scheduleGroup:
+            description: The schedule group of the schedule definition
+            value:
+            - scheduleGroup
+          scheduleType:
+            description: The schedule type
+            value:
+            - scheduleType
+          owner:
+            description: The owner role name of the schedule definition
+            value:
+            - owner
+          code:
+            description: The code of the schedule definition
+            value:
+            - code
+          businessCalendar:
+            description: The country of the business calender the schedule definition
+              follows
+            value:
+            - businessCalendar
+          reportDate:
+            description: The reporting date of the schedule
+            value:
+            - reportDate
+          lastUpdated:
+            description: The last updated date of the schedule definition
+            value:
+            - lastUpdated
+        explode: false
+        in: query
+        name: _sort
+        required: false
+        schema:
+          items:
+            type: string
+          maxItems: 1
+          type: array
+        style: form
+      - description: Non-negative maximum number of entries to return
+        example: 10
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          default: 25
+          type: integer
+        style: form
+      - description: Non-negative number of entries to skip
+        example: 0
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          default: 0
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                meta:
+                  pagination:
+                    total: 10
+                    isEstimatedTotal: false
+                  sort:
+                  - name
+                data:
+                - scheduleDefinitionId: 42
+                  lastUpdatedBy: John
+                  notes: ""
+                  name: Flash Report to Portal
+                  code: FLASH_REPORT
+                  scheduleGroup: Flash Report
+                  businessCalendar: United States
+                  deleteScheduleAfterDays: 3
+                  scheduleType: MANUAL
+                  reportDate: TWO_BUSINESS_DAYS_BEFORE_SCHEDULE_CREATED
+                  numberOfObligations: 1
+                  ownerRole:
+                    code: ADMIN
+                    name: Admin
+                    roleId: 21
+                  entities:
+                  - entityId: 97
+                    name: Date
+                    code: SYSTEM_DATE
+                  numberOfPackages: 0
+                  lastUpdated: "1713435311043"
+              schema:
+                $ref: '#/components/schemas/ScheduleDefinitionsList'
+          description: Successful operation
+        "400":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: parameterError
+                  title: The tenancy provided is invalid or not active
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: Bad Request. Required values not provided in request parameter
+            or invalid values given (e.g. tenant, scheduleType)
+        "401":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: notAuthenticated
+                  title: User is not authenticated
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: Unauthorised
+        "403":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: notAuthorized
+                  title: No permissions to view this item
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: Forbidden. No permissions to view schedule definitions in VRS
+        "406":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: notAcceptable
+                  title: |-
+                    Unsupported Accept header. Header needs to be set to
+                        application/json
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: Unsupported Accept header. Header needs to be set to application/json.
+      summary: Retrieves a list of all schedule definitions
+      tags:
+      - Workflow
+      x-accepts: application/json
+  /v1/{tenant}/schedules:
+    get:
+      description: Retrieves all schedules the user has permissions for. User has
+        sort and filter parameters available to use.
+      operationId: getSchedules
+      parameters:
+      - description: The code of the tenancy
+        example: TENANT
+        explode: false
+        in: path
+        name: tenant
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Acts as a filter for the retrieval process. Filters the schedules
+          that match the given status. Accepts multiple values separated by a comma,
+          e.g. ?status=INITIALISED,RUNNING
+        example: RUNNING
+        explode: true
+        in: query
+        name: status
+        required: false
+        schema:
+          enum:
+          - INITIALISED
+          - RUNNING
+          - CANCELLED
+          - SUSPENDED
+          - FINISHED
+          - CLOSED
+          - GENERATING_TASKS
+          type: string
+        style: form
+      - description: Acts as a filter for the retrieval process. Filters the schedules
+          based on their last updated date, the input date must be of the date format
+          (d MMMMM yyyy 00:00:00).
+        example: 14 June 2024 00:00:00
+        explode: true
+        in: query
+        name: startDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Acts as a filter for the retrieval process. Filters the schedules
+          based on their last updated date, the input date must be of the date format
+          (d MMMMM yyyy 00:00:00).
+        example: 14 June 2024 00:00:00
+        explode: true
+        in: query
+        name: endDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: The column to sort on. Can add '-' to the start of the parameter
+          value to sort in descending order.
+        examples:
+          scheduleId:
+            description: The id of the schedule
+            value:
+            - scheduleId
+          name:
+            description: The name of the schedule
+            value:
+            - name
+          scheduleGroup:
+            description: The schedule group of the schedule
+            value:
+            - scheduleGroup
+          status:
+            description: The status of the schedule
+            value:
+            - status
+          lastUpdated:
+            description: The last updated date/time of the schedule
+            value:
+            - lastUpdated
+          owner:
+            description: The owner of the schedule
+            value:
+            - owner
+          noOfTasks:
+            description: The no of tasks in the schedule
+            value:
+            - noOfTasks
+          businessCalendar:
+            description: The business calendar of the schedule
+            value:
+            - businessCalendar
+        explode: false
+        in: query
+        name: _sort
+        required: false
+        schema:
+          items:
+            type: string
+          maxItems: 1
+          type: array
+        style: form
+      - description: Non-negative maximum number of entries to return
+        example: 10
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          default: 25
+          type: integer
+        style: form
+      - description: Non-negative number of entries to skip
+        example: 0
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          default: 0
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                meta:
+                  pagination:
+                    total: 10
+                    isEstimatedTotal: false
+                  sort:
+                  - name
+                data:
+                - scheduleId: 16304
+                  lastUpdatedBy: test_user
+                  notes: Automatically created at 2017-05-31 10:17:05 Europe/London
+                  name: Test schddefn _1234 (2017.05.31 10:17)
+                  definitionName: Test schddefn _1234
+                  startDate: "1586870729577"
+                  finishDate: "1694588295897"
+                  group: test_group
+                  businessCalendar: United Kingdom
+                  reportDate: "1586802600577"
+                  lastUpdated: "1694608095920"
+                  noOfTasks: 12
+                  owner: Admin
+                  status: RUNNING
+              schema:
+                $ref: '#/components/schemas/SchedulesList'
+          description: Successful operation
+        "400":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: parameterError
+                  title: The tenancy provided is invalid or not active
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: Bad Request. Required values not provided in request parameter
+            or invalid values given (e.g. tenant, status)
+        "401":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: notAuthenticated
+                  title: User is not authenticated
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: Unauthorised
+        "403":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: notAuthorized
+                  title: No permissions to view this item
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: Forbidden. No permissions to view schedule definitions in VRS
+        "406":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: notAcceptable
+                  title: |-
+                    Unsupported Accept header. Header needs to be set to
+                        application/json
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: Unsupported Accept header. Header needs to be set to application/json.
+      summary: Retrieves a list of all schedules
+      tags:
+      - Workflow
+      x-accepts: application/json
+  /v1/{tenant}/schedules/{scheduleDefinitionCode}:
+    post:
+      description: Creates schedule for the specified Schedule Definition code and
+        sets to running based on the param in the JSON in the request body
+      operationId: generateSchedule
+      parameters:
+      - description: The code of the tenancy
+        example: TENANT
+        explode: false
+        in: path
+        name: tenant
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The schedule definition code for which to generate the schedule
+        example: TEST_SCHEDULE_DEF
+        explode: false
+        in: path
+        name: scheduleDefinitionCode
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: This parameter is used to set the generated schedule's status
+          to Running.If parameter is set to true, the generated schedule will be set
+          to Running. If no value is provided, the schedule will remain in Initialised
+          status.
+        example: true
+        explode: true
+        in: query
+        name: setToRunning
+        required: false
+        schema:
+          type: boolean
+        style: form
+      responses:
+        "202":
+          content:
+            application/json:
+              example:
+                data:
+                  scheduleInstanceId: 16304
+                  status: RUNNING
+              schema:
+                $ref: '#/components/schemas/GenerateScheduleResponse'
+          description: Schedule generation request succeeded and tasks have been generated
+        "400":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: parameterError
+                  title: The schedule definition code passed was invalid
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: The supplied schedule definition code missing or invalid
+        "401":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: notAuthenticated
+                  title: User is not authenticated
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: Unauthorised
+        "403":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: notAuthorized
+                  title: No permissions to view this item
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: No permissions to create schedule in VRS
+        "404":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: notFound
+                  title: The schedule definition code passed was not found
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: The schedule definition code could not be found
+        "406":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: notAcceptable
+                  title: Unsupported Accept header. Header needs to be set to application/json
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: Unsupported Accept header. Header needs to be set to application/json.
+      summary: Creates schedule for the specified schedule definition
+      tags:
+      - Workflow
+      x-accepts: application/json
+  /v1/{tenant}/schedules/{scheduleId}/{status}:
+    patch:
+      description: Updated the schedule status for the specified schedule id based
+        on the given status
+      operationId: updateScheduleStatus
+      parameters:
+      - description: The code of the tenancy
+        example: TENANT
+        explode: false
+        in: path
+        name: tenant
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The schedule id for which to update the status
+        example: "123456"
+        explode: false
+        in: path
+        name: scheduleId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The schedule status that needs to be updated only if the transition
+          is valid
+        example: RUNNING
+        explode: false
+        in: path
+        name: status
+        required: true
+        schema:
+          enum:
+          - INITIALISED
+          - RUNNING
+          - CANCELLED
+          - SUSPENDED
+          - FINISHED
+          - CLOSED
+          - GENERATING_TASKS
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                data:
+                  scheduleId: 16304
+                  lastUpdatedBy: test_user
+                  notes: Automatically created at 2017-05-31 10:17:05 Europe/London
+                  name: Test schddefn _1234 (2017.05.31 10:17)
+                  definitionName: Test schddefn _1234
+                  startDate: "1586870729577"
+                  finishDate: "1694588295897"
+                  group: test_group
+                  businessCalendar: United Kingdom
+                  reportDate: "1586802600577"
+                  lastUpdated: "1694608095920"
+                  noOfTasks: 12
+                  owner: Admin
+                  status: RUNNING
+              schema:
+                $ref: '#/components/schemas/ScheduleStatusUpdateResponse'
+          description: Update schedule request succeeded and status has been changed
+        "400":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: parameterError
+                  title: Schedule status is missing or invalid
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: Schedule status in the request is missing or invalid
+        "401":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: notAuthenticated
+                  title: User is not authenticated
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: Unauthorised
+        "403":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: notAuthorized
+                  title: No permissions to update this item
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: No permissions to update schedule in VRS
+        "404":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: notFound
+                  title: 'JPQL query: No records returned'
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: The schedule id could not be found
+        "406":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: notAcceptable
+                  title: Unsupported Accept header. Header needs to be set to application/json
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: Unsupported Accept header. Header needs to be set to application/json.
+      summary: Update schedule status for specified schedule
+      tags:
+      - Workflow
+      x-accepts: application/json
+  /v1/{tenant}/schedules/{scheduleId}/logs:
+    get:
+      description: Gets the generation logs for a specific schedule based on the Schedule
+        ID. Allows the user to sort and filter logs.
+      operationId: getScheduleGenerationLogs
+      parameters:
+      - description: The code of the tenancy
+        example: TENANT
+        explode: false
+        in: path
+        name: tenant
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The scheduleId for which the logs are requested
+        example: "123456"
+        explode: false
+        in: path
+        name: scheduleId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Acts as a filter for the retrieval process. Filters the log instances
+          that match the input type
+        example: INFO
+        explode: true
+        in: query
+        name: type
+        required: false
+        schema:
+          enum:
+          - INFO
+          - WARN
+          - SUCCESS
+          - ERROR
+          - DEBUG
+          - FINISHED
+          type: string
+        style: form
+      - description: Acts as a filter for the retrieval process. Filters the log instances
+          that match the input message
+        example: package definition
+        explode: true
+        in: query
+        name: message
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Acts as a filter for the retrieval process. Filters the log instances
+          that match the input logset
+        example: "1"
+        explode: true
+        in: query
+        name: logSet
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Acts as a filter for the retrieval process. Filters the log instances
+          based on their last updated date, the input date must be of the date format
+          (d MMMMM yyyy 00:00:00).
+        example: 25 March 2024 00:00:00
+        explode: true
+        in: query
+        name: startDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Acts as a filter for the retrieval process. Filters the log instances
+          based on their last updated date, the input date must be of the date format
+          (d MMMMM yyyy 00:00:00).
+        example: 25 March 2024 00:00:00
+        explode: true
+        in: query
+        name: endDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: The column to sort on. Can add - to sort
+        examples:
+          sequenceNumber:
+            description: The sequence number of the log entry
+            value:
+            - sequenceNumber
+          type:
+            description: The type of the log to sort
+            value:
+            - type
+          lastUpdated:
+            description: The date of the log to sort
+            value:
+            - lastUpdated
+        explode: false
+        in: query
+        name: _sort
+        required: false
+        schema:
+          items:
+            type: string
+          maxItems: 1
+          type: array
+        style: form
+      - description: Non-negative maximum number of entries to return
+        example: 10
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          default: 25
+          type: integer
+        style: form
+      - description: Non-negative number of entries to skip
+        example: 0
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          default: 0
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                meta:
+                  pagination:
+                    total: 10
+                    isEstimatedTotal: false
+                  sort:
+                  - name
+                data:
+                - sequenceNumber: 10
+                  message: Creating tasks
+                  type: INFO
+                  lastUpdated: "1709176498527"
+                  logSet: 1
+              schema:
+                $ref: '#/components/schemas/ScheduleGenerationLogList'
+          description: Successful operation
+        "400":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: parameterError
+                  title: The tenancy provided is invalid or not active
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: Bad Request. Required values not provided in request parameter
+            or invalid values given (e.g. tenant, type)
+        "401":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: notAuthenticated
+                  title: User is not authenticated
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: Unauthorised
+        "403":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: notAuthorized
+                  title: No permissions to view this item
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: No permissions to view schedule logs in VRS
+        "406":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: notAcceptable
+                  title: |-
+                    Unsupported Accept header. Header needs to be set to
+                        application/json
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: Unsupported Accept header. Header needs to be set to application/json.
+      summary: Gets the generation logs for a specific schedule
+      tags:
+      - Workflow
+      x-accepts: application/json
   /scim/v2/Users:
     get:
       description: Retrieves a list of VRS users
@@ -2238,9 +3107,9 @@ paths:
             example:
               displayName: vrstestgroup
               members:
-              - value: "218"
+              - value: scimuser1
                 type: user
-                $ref: VRSAPI/scim/v2/Users/218
+                $ref: VRSAPI/scim/v2/Users/1
               tenant: XXXXXXXXXX
               domainCode: XXXXXXXXXX
             schema:
@@ -2491,9 +3360,9 @@ paths:
             example:
               displayName: vrstestgroup
               members:
-              - value: "45678"
+              - value: scimuser1
                 type: user
-                $ref: VRSAPI/scim/v2/Users/45678
+                $ref: VRSAPI/scim/v2/Users/1
               tenant: XXXXXXXXXX
               domainCode: XXXXXXXXXX
             schema:
@@ -3337,6 +4206,359 @@ components:
     ReportDataResponse:
       format: binary
       type: string
+    ScheduleDefinitionsList:
+      example:
+        data:
+        - lastUpdatedBy: lastUpdatedBy
+          code: code
+          notes: notes
+          scheduleDefinitionId: 0
+          ownerRole:
+            code: code
+            roleId: 5
+            name: name
+          scheduleGroup: scheduleGroup
+          numberOfObligations: 6
+          numberOfPackages: 5
+          lastUpdated: lastUpdated
+          scheduleType: MANUAL
+          reportDate: LAST_DAY_OF_PREV_MONTH
+          deleteScheduleAfterDays: 1
+          entities:
+          - code: code
+            name: name
+            entityId: 1
+          - code: code
+            name: name
+            entityId: 1
+          name: name
+          businessCalendar: businessCalendar
+        - lastUpdatedBy: lastUpdatedBy
+          code: code
+          notes: notes
+          scheduleDefinitionId: 0
+          ownerRole:
+            code: code
+            roleId: 5
+            name: name
+          scheduleGroup: scheduleGroup
+          numberOfObligations: 6
+          numberOfPackages: 5
+          lastUpdated: lastUpdated
+          scheduleType: MANUAL
+          reportDate: LAST_DAY_OF_PREV_MONTH
+          deleteScheduleAfterDays: 1
+          entities:
+          - code: code
+            name: name
+            entityId: 1
+          - code: code
+            name: name
+            entityId: 1
+          name: name
+          businessCalendar: businessCalendar
+        meta:
+          pagination:
+            total: 0
+            isEstimatedTotal: true
+          sort:
+          - sort
+          - sort
+      properties:
+        meta:
+          $ref: '#/components/schemas/DataSourceList_meta'
+        data:
+          items:
+            $ref: '#/components/schemas/ScheduleDefinition'
+          type: array
+      type: object
+    ScheduleDefinition:
+      example:
+        lastUpdatedBy: lastUpdatedBy
+        code: code
+        notes: notes
+        scheduleDefinitionId: 0
+        ownerRole:
+          code: code
+          roleId: 5
+          name: name
+        scheduleGroup: scheduleGroup
+        numberOfObligations: 6
+        numberOfPackages: 5
+        lastUpdated: lastUpdated
+        scheduleType: MANUAL
+        reportDate: LAST_DAY_OF_PREV_MONTH
+        deleteScheduleAfterDays: 1
+        entities:
+        - code: code
+          name: name
+          entityId: 1
+        - code: code
+          name: name
+          entityId: 1
+        name: name
+        businessCalendar: businessCalendar
+      properties:
+        scheduleDefinitionId:
+          format: int32
+          type: integer
+        name:
+          type: string
+        code:
+          type: string
+        scheduleType:
+          enum:
+          - MANUAL
+          - REPEATING
+          - TEMPLATE
+          - ADHOC
+          type: string
+        scheduleGroup:
+          type: string
+        reportDate:
+          enum:
+          - LAST_DAY_OF_PREV_MONTH
+          - LAST_BUSINESS_DAY_OF_PREV_MONTH
+          - CREATION_DATE
+          - DAY_BEFORE_CREATION_DATE
+          - BUSINESS_DAY_BEFORE_CREATION_DATE
+          - LAST_DAY_OF_MONTH_SCHEDULE_CREATED
+          - LAST_BUSINESS_DAY_OF_MONTH_SCHEDULE_CREATED
+          - LAST_BUSINESS_DAY_OF_PREVIOUS_WEEK_SCHEDULE_CREATED
+          - LAST_BUSINESS_DAY_OF_WEEK_SCHEDULE_CREATED
+          - TWO_BUSINESS_DAYS_BEFORE_SCHEDULE_CREATED
+          type: string
+        numberOfObligations:
+          format: int32
+          type: integer
+        businessCalendar:
+          type: string
+        deleteScheduleAfterDays:
+          format: int32
+          type: integer
+        numberOfPackages:
+          format: int32
+          type: integer
+        entities:
+          items:
+            $ref: '#/components/schemas/EntityDTO'
+          type: array
+        ownerRole:
+          $ref: '#/components/schemas/ScheduleDefinition_ownerRole'
+        notes:
+          type: string
+        lastUpdatedBy:
+          type: string
+        lastUpdated:
+          type: string
+      type: object
+    SchedulesList:
+      example:
+        data:
+        - owner: owner
+          lastUpdatedBy: lastUpdatedBy
+          definitionName: definitionName
+          notes: notes
+          noOfTasks: 6
+          lastUpdated: lastUpdated
+          reportDate: reportDate
+          name: name
+          finishDate: finishDate
+          businessCalendar: businessCalendar
+          scheduleId: 0
+          startDate: startDate
+          status: INITIALISED
+          group: group
+        - owner: owner
+          lastUpdatedBy: lastUpdatedBy
+          definitionName: definitionName
+          notes: notes
+          noOfTasks: 6
+          lastUpdated: lastUpdated
+          reportDate: reportDate
+          name: name
+          finishDate: finishDate
+          businessCalendar: businessCalendar
+          scheduleId: 0
+          startDate: startDate
+          status: INITIALISED
+          group: group
+        meta:
+          pagination:
+            total: 0
+            isEstimatedTotal: true
+          sort:
+          - sort
+          - sort
+      properties:
+        meta:
+          $ref: '#/components/schemas/DataSourceList_meta'
+        data:
+          items:
+            $ref: '#/components/schemas/ScheduleData'
+          type: array
+      type: object
+    ScheduleStatusUpdateResponse:
+      example:
+        data:
+          owner: owner
+          lastUpdatedBy: lastUpdatedBy
+          definitionName: definitionName
+          notes: notes
+          noOfTasks: 6
+          lastUpdated: lastUpdated
+          reportDate: reportDate
+          name: name
+          finishDate: finishDate
+          businessCalendar: businessCalendar
+          scheduleId: 0
+          startDate: startDate
+          status: INITIALISED
+          group: group
+      properties:
+        data:
+          $ref: '#/components/schemas/ScheduleData'
+      type: object
+    ScheduleData:
+      example:
+        owner: owner
+        lastUpdatedBy: lastUpdatedBy
+        definitionName: definitionName
+        notes: notes
+        noOfTasks: 6
+        lastUpdated: lastUpdated
+        reportDate: reportDate
+        name: name
+        finishDate: finishDate
+        businessCalendar: businessCalendar
+        scheduleId: 0
+        startDate: startDate
+        status: INITIALISED
+        group: group
+      properties:
+        scheduleId:
+          format: int32
+          type: integer
+        name:
+          type: string
+        definitionName:
+          type: string
+        status:
+          enum:
+          - INITIALISED
+          - RUNNING
+          - CANCELLED
+          - SUSPENDED
+          - FINISHED
+          - CLOSED
+          - GENERATING_TASKS
+          type: string
+        group:
+          type: string
+        reportDate:
+          type: string
+        noOfTasks:
+          format: int32
+          type: integer
+        businessCalendar:
+          type: string
+        owner:
+          type: string
+        notes:
+          type: string
+        finishDate:
+          type: string
+        startDate:
+          type: string
+        lastUpdatedBy:
+          type: string
+        lastUpdated:
+          type: string
+      type: object
+    GenerateScheduleResponse:
+      example:
+        data:
+          scheduleInstanceId: 0
+          status: INITIALISED
+      properties:
+        data:
+          $ref: '#/components/schemas/ScheduleInstanceData'
+      type: object
+    ScheduleInstanceData:
+      example:
+        scheduleInstanceId: 0
+        status: INITIALISED
+      properties:
+        scheduleInstanceId:
+          format: int32
+          type: integer
+        status:
+          enum:
+          - INITIALISED
+          - RUNNING
+          - CANCELLED
+          - SUSPENDED
+          - FINISHED
+          - CLOSED
+          - GENERATING_TASKS
+          type: string
+      type: object
+    ScheduleGenerationLogList:
+      example:
+        data:
+        - sequenceNumber: 0
+          lastUpdated: lastUpdated
+          logSet: 6
+          message: message
+          type: INFO
+        - sequenceNumber: 0
+          lastUpdated: lastUpdated
+          logSet: 6
+          message: message
+          type: INFO
+        meta:
+          pagination:
+            total: 0
+            isEstimatedTotal: true
+          sort:
+          - sort
+          - sort
+      properties:
+        meta:
+          $ref: '#/components/schemas/DataSourceList_meta'
+        data:
+          items:
+            $ref: '#/components/schemas/ScheduleGenerationLog'
+          type: array
+      type: object
+    ScheduleGenerationLog:
+      example:
+        sequenceNumber: 0
+        lastUpdated: lastUpdated
+        logSet: 6
+        message: message
+        type: INFO
+      properties:
+        sequenceNumber:
+          format: int32
+          type: integer
+        message:
+          type: string
+        type:
+          enum:
+          - INFO
+          - WARN
+          - SUCCESS
+          - ERROR
+          - DEBUG
+          - FINISHED
+          type: string
+        logSet:
+          format: int32
+          type: integer
+        lastUpdated:
+          type: string
+      type: object
     ScimUser:
       properties:
         schemas:
@@ -3691,6 +4913,20 @@ components:
       properties:
         pagination:
           $ref: '#/components/schemas/DataSourceList_meta_pagination'
+      type: object
+    ScheduleDefinition_ownerRole:
+      example:
+        code: code
+        roleId: 5
+        name: name
+      properties:
+        roleId:
+          format: int32
+          type: integer
+        name:
+          type: string
+        code:
+          type: string
       type: object
     ScimUser_name:
       properties:

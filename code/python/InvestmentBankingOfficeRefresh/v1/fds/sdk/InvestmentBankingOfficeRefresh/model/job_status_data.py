@@ -155,7 +155,7 @@ class JobStatusData(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): Unique identifier for the job (resource ID returned from FactSet).. [optional]  # noqa: E501
-            status (str): the status of the job. [optional]  # noqa: E501
+            status (str): The status of the job. [optional]  # noqa: E501
             error (Error): [optional]  # noqa: E501
         """
 
@@ -239,7 +239,7 @@ class JobStatusData(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): Unique identifier for the job (resource ID returned from FactSet).. [optional]  # noqa: E501
-            status (str): the status of the job. [optional]  # noqa: E501
+            status (str): The status of the job. [optional]  # noqa: E501
             error (Error): [optional]  # noqa: E501
         """
 

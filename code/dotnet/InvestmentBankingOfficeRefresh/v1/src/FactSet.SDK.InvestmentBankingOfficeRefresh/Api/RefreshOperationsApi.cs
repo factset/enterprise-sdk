@@ -36,8 +36,9 @@ namespace FactSet.SDK.InvestmentBankingOfficeRefresh.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.InvestmentBankingOfficeRefresh.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for the job (resource ID returned from FactSet).</param>
+        /// <param name="deleteFile">Delete the file from FactSet servers after completing the request. (optional, default to true)</param>
         /// <returns>RefreshOperationsApi.GetFileByIdResponseWrapper</returns>
-        RefreshOperationsApi.GetFileByIdResponseWrapper GetFileById(Guid id);
+        RefreshOperationsApi.GetFileByIdResponseWrapper GetFileById(Guid id, bool? deleteFile = default(bool?));
 
         /// <summary>
         /// Retrieve a calculated file by resource ID.
@@ -47,8 +48,9 @@ namespace FactSet.SDK.InvestmentBankingOfficeRefresh.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.InvestmentBankingOfficeRefresh.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for the job (resource ID returned from FactSet).</param>
+        /// <param name="deleteFile">Delete the file from FactSet servers after completing the request. (optional, default to true)</param>
         /// <returns>ApiResponse of RefreshOperationsApi.GetFileByIdResponseWrapper</returns>
-        ApiResponse<RefreshOperationsApi.GetFileByIdResponseWrapper> GetFileByIdWithHttpInfo(Guid id);
+        ApiResponse<RefreshOperationsApi.GetFileByIdResponseWrapper> GetFileByIdWithHttpInfo(Guid id, bool? deleteFile = default(bool?));
         /// <summary>
         /// Get the status of the refresh job with the given resource ID
         /// </summary>
@@ -71,29 +73,29 @@ namespace FactSet.SDK.InvestmentBankingOfficeRefresh.Api
         /// <returns>ApiResponse of JobStatus</returns>
         ApiResponse<JobStatus> GetStatusByIdWithHttpInfo(Guid id);
         /// <summary>
-        /// Upload a spreadsheet file
+        /// Refresh a spreadsheet file
         /// </summary>
         /// <remarks>
-        /// Upload a spreadsheet file (in the Open Office XML format) for FactSet to refresh.
+        /// Start refreshing a spreadsheet file (in the Open Office XML format).
         /// </remarks>
         /// <exception cref="FactSet.SDK.InvestmentBankingOfficeRefresh.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <param name="nowHandlingEnabled">Return \\#VALUE for &#x3D;FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118. (optional)</param>
-        /// <param name="refreshAutoFilters">Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is false.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)</param>
+        /// <param name="refreshAutoFilters">Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)</param>
         /// <param name="resizeArrays">Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)</param>
         /// <returns>JobStatus</returns>
         JobStatus PostWorkbook(System.IO.Stream body, bool? nowHandlingEnabled = default(bool?), bool? refreshAutoFilters = default(bool?), bool? resizeArrays = default(bool?));
 
         /// <summary>
-        /// Upload a spreadsheet file
+        /// Refresh a spreadsheet file
         /// </summary>
         /// <remarks>
-        /// Upload a spreadsheet file (in the Open Office XML format) for FactSet to refresh.
+        /// Start refreshing a spreadsheet file (in the Open Office XML format).
         /// </remarks>
         /// <exception cref="FactSet.SDK.InvestmentBankingOfficeRefresh.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <param name="nowHandlingEnabled">Return \\#VALUE for &#x3D;FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118. (optional)</param>
-        /// <param name="refreshAutoFilters">Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is false.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)</param>
+        /// <param name="refreshAutoFilters">Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)</param>
         /// <param name="resizeArrays">Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)</param>
         /// <returns>ApiResponse of JobStatus</returns>
         ApiResponse<JobStatus> PostWorkbookWithHttpInfo(System.IO.Stream body, bool? nowHandlingEnabled = default(bool?), bool? refreshAutoFilters = default(bool?), bool? resizeArrays = default(bool?));
@@ -114,9 +116,10 @@ namespace FactSet.SDK.InvestmentBankingOfficeRefresh.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.InvestmentBankingOfficeRefresh.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for the job (resource ID returned from FactSet).</param>
+        /// <param name="deleteFile">Delete the file from FactSet servers after completing the request. (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        System.Threading.Tasks.Task<RefreshOperationsApi.GetFileByIdResponseWrapper> GetFileByIdAsync(Guid id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<RefreshOperationsApi.GetFileByIdResponseWrapper> GetFileByIdAsync(Guid id, bool? deleteFile = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Retrieve a calculated file by resource ID.
@@ -126,9 +129,10 @@ namespace FactSet.SDK.InvestmentBankingOfficeRefresh.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.InvestmentBankingOfficeRefresh.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for the job (resource ID returned from FactSet).</param>
+        /// <param name="deleteFile">Delete the file from FactSet servers after completing the request. (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (RefreshOperationsApi.GetFileByIdResponseWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<RefreshOperationsApi.GetFileByIdResponseWrapper>> GetFileByIdWithHttpInfoAsync(Guid id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<RefreshOperationsApi.GetFileByIdResponseWrapper>> GetFileByIdWithHttpInfoAsync(Guid id, bool? deleteFile = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get the status of the refresh job with the given resource ID
         /// </summary>
@@ -153,30 +157,30 @@ namespace FactSet.SDK.InvestmentBankingOfficeRefresh.Api
         /// <returns>Task of ApiResponse (JobStatus)</returns>
         System.Threading.Tasks.Task<ApiResponse<JobStatus>> GetStatusByIdWithHttpInfoAsync(Guid id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Upload a spreadsheet file
+        /// Refresh a spreadsheet file
         /// </summary>
         /// <remarks>
-        /// Upload a spreadsheet file (in the Open Office XML format) for FactSet to refresh.
+        /// Start refreshing a spreadsheet file (in the Open Office XML format).
         /// </remarks>
         /// <exception cref="FactSet.SDK.InvestmentBankingOfficeRefresh.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <param name="nowHandlingEnabled">Return \\#VALUE for &#x3D;FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118. (optional)</param>
-        /// <param name="refreshAutoFilters">Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is false.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)</param>
+        /// <param name="refreshAutoFilters">Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)</param>
         /// <param name="resizeArrays">Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of JobStatus</returns>
         System.Threading.Tasks.Task<JobStatus> PostWorkbookAsync(System.IO.Stream body, bool? nowHandlingEnabled = default(bool?), bool? refreshAutoFilters = default(bool?), bool? resizeArrays = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Upload a spreadsheet file
+        /// Refresh a spreadsheet file
         /// </summary>
         /// <remarks>
-        /// Upload a spreadsheet file (in the Open Office XML format) for FactSet to refresh.
+        /// Start refreshing a spreadsheet file (in the Open Office XML format).
         /// </remarks>
         /// <exception cref="FactSet.SDK.InvestmentBankingOfficeRefresh.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <param name="nowHandlingEnabled">Return \\#VALUE for &#x3D;FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118. (optional)</param>
-        /// <param name="refreshAutoFilters">Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is false.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)</param>
+        /// <param name="refreshAutoFilters">Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)</param>
         /// <param name="resizeArrays">Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (JobStatus)</returns>
@@ -436,10 +440,11 @@ namespace FactSet.SDK.InvestmentBankingOfficeRefresh.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.InvestmentBankingOfficeRefresh.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for the job (resource ID returned from FactSet).</param>
+        /// <param name="deleteFile">Delete the file from FactSet servers after completing the request. (optional, default to true)</param>
         /// <returns>RefreshOperationsApi.GetFileByIdResponseWrapper</returns>
-        public RefreshOperationsApi.GetFileByIdResponseWrapper GetFileById(Guid id)
+        public RefreshOperationsApi.GetFileByIdResponseWrapper GetFileById(Guid id, bool? deleteFile = default(bool?))
         {
-            var localVarResponse = GetFileByIdWithHttpInfo(id);
+            var localVarResponse = GetFileByIdWithHttpInfo(id, deleteFile);
             return localVarResponse.Data;
         }
 
@@ -448,8 +453,9 @@ namespace FactSet.SDK.InvestmentBankingOfficeRefresh.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.InvestmentBankingOfficeRefresh.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for the job (resource ID returned from FactSet).</param>
+        /// <param name="deleteFile">Delete the file from FactSet servers after completing the request. (optional, default to true)</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        public ApiResponse<RefreshOperationsApi.GetFileByIdResponseWrapper> GetFileByIdWithHttpInfo(Guid id)
+        public ApiResponse<RefreshOperationsApi.GetFileByIdResponseWrapper> GetFileByIdWithHttpInfo(Guid id, bool? deleteFile = default(bool?))
         {
             FactSet.SDK.InvestmentBankingOfficeRefresh.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.InvestmentBankingOfficeRefresh.Client.RequestOptions();
 
@@ -475,6 +481,10 @@ namespace FactSet.SDK.InvestmentBankingOfficeRefresh.Api
             }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.InvestmentBankingOfficeRefresh.Client.ClientUtils.ParameterToString(id)); // path parameter
+            if (deleteFile != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.InvestmentBankingOfficeRefresh.Client.ClientUtils.ParameterToMultiMap("", "deleteFile", deleteFile));
+            }
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -518,11 +528,12 @@ namespace FactSet.SDK.InvestmentBankingOfficeRefresh.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.InvestmentBankingOfficeRefresh.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for the job (resource ID returned from FactSet).</param>
+        /// <param name="deleteFile">Delete the file from FactSet servers after completing the request. (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        public async System.Threading.Tasks.Task<RefreshOperationsApi.GetFileByIdResponseWrapper>GetFileByIdAsync(Guid id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<RefreshOperationsApi.GetFileByIdResponseWrapper>GetFileByIdAsync(Guid id, bool? deleteFile = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await GetFileByIdWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFileByIdWithHttpInfoAsync(id, deleteFile, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -531,10 +542,11 @@ namespace FactSet.SDK.InvestmentBankingOfficeRefresh.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.InvestmentBankingOfficeRefresh.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for the job (resource ID returned from FactSet).</param>
+        /// <param name="deleteFile">Delete the file from FactSet servers after completing the request. (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<RefreshOperationsApi.GetFileByIdResponseWrapper>> GetFileByIdWithHttpInfoAsync(Guid id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<RefreshOperationsApi.GetFileByIdResponseWrapper>> GetFileByIdWithHttpInfoAsync(Guid id, bool? deleteFile = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.InvestmentBankingOfficeRefresh.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.InvestmentBankingOfficeRefresh.Client.RequestOptions();
@@ -561,6 +573,10 @@ namespace FactSet.SDK.InvestmentBankingOfficeRefresh.Api
             }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.InvestmentBankingOfficeRefresh.Client.ClientUtils.ParameterToString(id)); // path parameter
+            if (deleteFile != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.InvestmentBankingOfficeRefresh.Client.ClientUtils.ParameterToMultiMap("", "deleteFile", deleteFile));
+            }
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -766,12 +782,12 @@ namespace FactSet.SDK.InvestmentBankingOfficeRefresh.Api
         }
 
         /// <summary>
-        /// Upload a spreadsheet file Upload a spreadsheet file (in the Open Office XML format) for FactSet to refresh.
+        /// Refresh a spreadsheet file Start refreshing a spreadsheet file (in the Open Office XML format).
         /// </summary>
         /// <exception cref="FactSet.SDK.InvestmentBankingOfficeRefresh.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <param name="nowHandlingEnabled">Return \\#VALUE for &#x3D;FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118. (optional)</param>
-        /// <param name="refreshAutoFilters">Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is false.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)</param>
+        /// <param name="refreshAutoFilters">Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)</param>
         /// <param name="resizeArrays">Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)</param>
         /// <returns>JobStatus</returns>
         public JobStatus PostWorkbook(System.IO.Stream body, bool? nowHandlingEnabled = default(bool?), bool? refreshAutoFilters = default(bool?), bool? resizeArrays = default(bool?))
@@ -781,12 +797,12 @@ namespace FactSet.SDK.InvestmentBankingOfficeRefresh.Api
         }
 
         /// <summary>
-        /// Upload a spreadsheet file Upload a spreadsheet file (in the Open Office XML format) for FactSet to refresh.
+        /// Refresh a spreadsheet file Start refreshing a spreadsheet file (in the Open Office XML format).
         /// </summary>
         /// <exception cref="FactSet.SDK.InvestmentBankingOfficeRefresh.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <param name="nowHandlingEnabled">Return \\#VALUE for &#x3D;FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118. (optional)</param>
-        /// <param name="refreshAutoFilters">Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is false.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)</param>
+        /// <param name="refreshAutoFilters">Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)</param>
         /// <param name="resizeArrays">Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)</param>
         /// <returns>ApiResponse of JobStatus</returns>
         public ApiResponse<JobStatus> PostWorkbookWithHttpInfo(System.IO.Stream body, bool? nowHandlingEnabled = default(bool?), bool? refreshAutoFilters = default(bool?), bool? resizeArrays = default(bool?))
@@ -871,12 +887,12 @@ namespace FactSet.SDK.InvestmentBankingOfficeRefresh.Api
         }
 
         /// <summary>
-        /// Upload a spreadsheet file Upload a spreadsheet file (in the Open Office XML format) for FactSet to refresh.
+        /// Refresh a spreadsheet file Start refreshing a spreadsheet file (in the Open Office XML format).
         /// </summary>
         /// <exception cref="FactSet.SDK.InvestmentBankingOfficeRefresh.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <param name="nowHandlingEnabled">Return \\#VALUE for &#x3D;FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118. (optional)</param>
-        /// <param name="refreshAutoFilters">Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is false.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)</param>
+        /// <param name="refreshAutoFilters">Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)</param>
         /// <param name="resizeArrays">Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of JobStatus</returns>
@@ -887,12 +903,12 @@ namespace FactSet.SDK.InvestmentBankingOfficeRefresh.Api
         }
 
         /// <summary>
-        /// Upload a spreadsheet file Upload a spreadsheet file (in the Open Office XML format) for FactSet to refresh.
+        /// Refresh a spreadsheet file Start refreshing a spreadsheet file (in the Open Office XML format).
         /// </summary>
         /// <exception cref="FactSet.SDK.InvestmentBankingOfficeRefresh.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <param name="nowHandlingEnabled">Return \\#VALUE for &#x3D;FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118. (optional)</param>
-        /// <param name="refreshAutoFilters">Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is false.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)</param>
+        /// <param name="refreshAutoFilters">Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)</param>
         /// <param name="resizeArrays">Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (JobStatus)</returns>

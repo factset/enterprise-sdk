@@ -55,6 +55,7 @@ docs/LinkedPATemplateSummaryRoot.md
 docs/LinkedPATemplateUpdateParameters.md
 docs/LinkedPATemplateUpdateParametersRoot.md
 docs/LinkedPATemplatesApi.md
+docs/Metadata.md
 docs/ObjectRoot.md
 docs/PACalculationColumn.md
 docs/PACalculationDataSources.md
@@ -63,6 +64,13 @@ docs/PACalculationParameters.md
 docs/PACalculationParametersRoot.md
 docs/PACalculationPricingSource.md
 docs/PACalculationsApi.md
+docs/PACommentary.md
+docs/PACommentaryDate.md
+docs/PACommentaryGetStatus.md
+docs/PACommentaryGetStatusRoot.md
+docs/PACommentaryRoot.md
+docs/PACommentaryStatus.md
+docs/PACommentaryStatusRoot.md
 docs/PAComponent.md
 docs/PAComponentData.md
 docs/PAComponentRoot.md
@@ -73,6 +81,7 @@ docs/PAPricingSourceRoot.md
 docs/PaginationInfo.md
 docs/PaginationMeta.md
 docs/PricingSourcesApi.md
+docs/Section.md
 docs/TemplateContentTypes.md
 docs/TemplatedPAComponent.md
 docs/TemplatedPAComponentParameters.md
@@ -162,6 +171,7 @@ src/model/LinkedPATemplateSummary.js
 src/model/LinkedPATemplateSummaryRoot.js
 src/model/LinkedPATemplateUpdateParameters.js
 src/model/LinkedPATemplateUpdateParametersRoot.js
+src/model/Metadata.js
 src/model/ObjectRoot.js
 src/model/PACalculationColumn.js
 src/model/PACalculationDataSources.js
@@ -169,6 +179,13 @@ src/model/PACalculationGroup.js
 src/model/PACalculationParameters.js
 src/model/PACalculationParametersRoot.js
 src/model/PACalculationPricingSource.js
+src/model/PACommentary.js
+src/model/PACommentaryDate.js
+src/model/PACommentaryGetStatus.js
+src/model/PACommentaryGetStatusRoot.js
+src/model/PACommentaryRoot.js
+src/model/PACommentaryStatus.js
+src/model/PACommentaryStatusRoot.js
 src/model/PAComponent.js
 src/model/PAComponentData.js
 src/model/PAComponentRoot.js
@@ -178,6 +195,7 @@ src/model/PAPricingSource.js
 src/model/PAPricingSourceRoot.js
 src/model/PaginationInfo.js
 src/model/PaginationMeta.js
+src/model/Section.js
 src/model/TemplateContentTypes.js
 src/model/TemplatedPAComponent.js
 src/model/TemplatedPAComponentParameters.js

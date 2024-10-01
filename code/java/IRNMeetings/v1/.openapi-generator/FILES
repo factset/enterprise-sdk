@@ -34,6 +34,7 @@ docs/RelatedRecordsDto.md
 docs/SubcommentSummaryDto.md
 docs/UpdateMeetingDto.md
 docs/UserSerialDto.md
+docs/UserTeamLookupDto.md
 git_push.sh
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
@@ -90,3 +91,4 @@ src/main/java/com/factset/sdk/IRNMeetings/models/RelatedRecordsDto.java
 src/main/java/com/factset/sdk/IRNMeetings/models/SubcommentSummaryDto.java
 src/main/java/com/factset/sdk/IRNMeetings/models/UpdateMeetingDto.java
 src/main/java/com/factset/sdk/IRNMeetings/models/UserSerialDto.java
+src/main/java/com/factset/sdk/IRNMeetings/models/UserTeamLookupDto.java

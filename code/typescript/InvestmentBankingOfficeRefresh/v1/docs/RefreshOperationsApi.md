@@ -6,13 +6,13 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getFileById**](RefreshOperationsApi.md#getFileById) | **GET** /refresh/{id} | Retrieve a calculated file by resource ID.
 [**getStatusById**](RefreshOperationsApi.md#getStatusById) | **GET** /refresh/{id}/status | Get the status of the refresh job with the given resource ID
-[**postWorkbook**](RefreshOperationsApi.md#postWorkbook) | **POST** /refresh/calculate | Upload a spreadsheet file
+[**postWorkbook**](RefreshOperationsApi.md#postWorkbook) | **POST** /refresh/calculate | Refresh a spreadsheet file
 
 
 
 ## getFileById
 
-> File getFileById(id)
+> File getFileById(id, opts)
 
 Retrieve a calculated file by resource ID.
 
@@ -52,9 +52,12 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new RefreshOperationsApi();
 const id = "id_example"; // String | Unique identifier for the job (resource ID returned from FactSet).
+const opts = {
+  'deleteFile': true // Boolean | Delete the file from FactSet servers after completing the request.
+};
 
 // Call api endpoint
-apiInstance.getFileById(id).then(
+apiInstance.getFileById(id, opts).then(
   data => {
 
       // data is a responsewrapper: GetFileByIdResponseWrapper
@@ -87,6 +90,7 @@ apiInstance.getFileById(id).then(
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| Unique identifier for the job (resource ID returned from FactSet). | 
+ **deleteFile** | **Boolean**| Delete the file from FactSet servers after completing the request. | [optional] [default to true]
 
 ### Return type
 
@@ -185,9 +189,9 @@ Name | Type | Description  | Notes
 
 > JobStatus postWorkbook(body, opts)
 
-Upload a spreadsheet file
+Refresh a spreadsheet file
 
-Upload a spreadsheet file (in the Open Office XML format) for FactSet to refresh.
+Start refreshing a spreadsheet file (in the Open Office XML format).
 
 ### Example
 
@@ -225,7 +229,7 @@ const apiInstance = new RefreshOperationsApi();
 const body = "/path/to/file"; // File | 
 const opts = {
   'nowHandlingEnabled': true, // Boolean | Return \\#VALUE for =FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118.
-  'refreshAutoFilters': true, // Boolean | Option to refresh =FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is false.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds
+  'refreshAutoFilters': true, // Boolean | Option to refresh =FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds
   'resizeArrays': true // Boolean | Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds
 };
 
@@ -251,7 +255,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | **File**|  | 
  **nowHandlingEnabled** | **Boolean**| Return \\#VALUE for &#x3D;FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118. | [optional] 
- **refreshAutoFilters** | **Boolean**| Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is false.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds | [optional] 
+ **refreshAutoFilters** | **Boolean**| Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds | [optional] 
  **resizeArrays** | **Boolean**| Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds | [optional] 
 
 ### Return type

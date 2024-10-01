@@ -164,6 +164,7 @@ public class RefreshOperationsApi {
    * Retrieve a calculated file by resource ID.
    * If the requested job is complete, the calculated file will be returned.
    * @param id Unique identifier for the job (resource ID returned from FactSet). (required)
+   * @param deleteFile Delete the file from FactSet servers after completing the request. (optional, default to true)
    * @return GetFileByIdResponseWrapper
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -177,14 +178,15 @@ public class RefreshOperationsApi {
        <tr><td> 500 </td><td> Server Error </td><td>  -  </td></tr>
      </table>
    */
-  public GetFileByIdResponseWrapper getFileById(java.util.UUID id) throws ApiException {
-    return getFileByIdWithHttpInfo(id).getData();
+  public GetFileByIdResponseWrapper getFileById(java.util.UUID id, Boolean deleteFile) throws ApiException {
+    return getFileByIdWithHttpInfo(id, deleteFile).getData();
   }
 
   /**
    * Retrieve a calculated file by resource ID.
    * If the requested job is complete, the calculated file will be returned.
    * @param id Unique identifier for the job (resource ID returned from FactSet). (required)
+   * @param deleteFile Delete the file from FactSet servers after completing the request. (optional, default to true)
    * @return ApiResponse&lt;GetFileByIdResponseWrapper&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -198,7 +200,7 @@ public class RefreshOperationsApi {
        <tr><td> 500 </td><td> Server Error </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<GetFileByIdResponseWrapper> getFileByIdWithHttpInfo(java.util.UUID id) throws ApiException {
+  public ApiResponse<GetFileByIdResponseWrapper> getFileByIdWithHttpInfo(java.util.UUID id, Boolean deleteFile) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -216,6 +218,7 @@ public class RefreshOperationsApi {
     java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "deleteFile", deleteFile));
 
     
     
@@ -336,18 +339,18 @@ public class RefreshOperationsApi {
 
   }
   /**
-   * Upload a spreadsheet file
-   * Upload a spreadsheet file (in the Open Office XML format) for FactSet to refresh.
+   * Refresh a spreadsheet file
+   * Start refreshing a spreadsheet file (in the Open Office XML format).
    * @param body  (required)
    * @param nowHandlingEnabled Return \\#VALUE for &#x3D;FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118. (optional)
-   * @param refreshAutoFilters Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is false.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)
+   * @param refreshAutoFilters Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)
    * @param resizeArrays Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)
    * @return JobStatus
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 202 </td><td> Accepted </td><td>  * Location - Relative URL to check status of the request. <br>  </td></tr>
+       <tr><td> 202 </td><td> Accepted </td><td>  * Location - Relative URL to check status of the request. <br>  * X-Concurrent-Limit -  <br>  * X-Concurrent-Limit-Remaining -  <br>  * X-Weekly-Limit -  <br>  * X-Weekly-Limit-Remaining -  <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden. The user&#39;s subscription is missing required CACCESS. </td><td>  -  </td></tr>
        <tr><td> 413 </td><td> File Too Large.  Currently only accepting files up to 50MB. </td><td>  -  </td></tr>
@@ -360,18 +363,18 @@ public class RefreshOperationsApi {
   }
 
   /**
-   * Upload a spreadsheet file
-   * Upload a spreadsheet file (in the Open Office XML format) for FactSet to refresh.
+   * Refresh a spreadsheet file
+   * Start refreshing a spreadsheet file (in the Open Office XML format).
    * @param body  (required)
    * @param nowHandlingEnabled Return \\#VALUE for &#x3D;FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118. (optional)
-   * @param refreshAutoFilters Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is false.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)
+   * @param refreshAutoFilters Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)
    * @param resizeArrays Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)
    * @return ApiResponse&lt;JobStatus&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 202 </td><td> Accepted </td><td>  * Location - Relative URL to check status of the request. <br>  </td></tr>
+       <tr><td> 202 </td><td> Accepted </td><td>  * Location - Relative URL to check status of the request. <br>  * X-Concurrent-Limit -  <br>  * X-Concurrent-Limit-Remaining -  <br>  * X-Weekly-Limit -  <br>  * X-Weekly-Limit-Remaining -  <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden. The user&#39;s subscription is missing required CACCESS. </td><td>  -  </td></tr>
        <tr><td> 413 </td><td> File Too Large.  Currently only accepting files up to 50MB. </td><td>  -  </td></tr>

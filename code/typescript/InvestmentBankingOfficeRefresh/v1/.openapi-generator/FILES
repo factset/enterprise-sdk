@@ -4,9 +4,12 @@
 .travis.yml
 LICENSE
 README.md
+docs/ActiveJobStatus.md
+docs/ActiveJobStatusList.md
 docs/Error.md
 docs/ErrorCode.md
 docs/Errors.md
+docs/JobManagementApi.md
 docs/JobStatus.md
 docs/JobStatusData.md
 docs/RefreshOperationsApi.md
@@ -14,8 +17,11 @@ git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js
+src/api/JobManagementApi.js
 src/api/RefreshOperationsApi.js
 src/index.js
+src/model/ActiveJobStatus.js
+src/model/ActiveJobStatusList.js
 src/model/Error.js
 src/model/ErrorCode.js
 src/model/Errors.js

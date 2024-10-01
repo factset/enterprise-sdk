@@ -8,5 +8,6 @@ Name | Type | Description | Notes
 **value** | **String** |  | [optional] 
 **options** | **[String]** |  | [optional] 
 **contactValues** | **[String]** |  | [optional] 
+**userTeamValues** | [**UserTeamLookupDto**](UserTeamLookupDto.md) |  | [optional] 
 
 

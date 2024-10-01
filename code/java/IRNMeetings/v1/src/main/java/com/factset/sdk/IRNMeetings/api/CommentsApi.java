@@ -52,6 +52,12 @@ public class CommentsApi {
   private static final Map<Integer, GenericType> deleteCommentResponseTypeMap = new HashMap<Integer, GenericType>();
 
   private static final Map<Integer, GenericType> downloadCommentAttachmentForCommentResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    downloadCommentAttachmentForCommentResponseTypeMap.put(200, new GenericType<File>(){});
+    downloadCommentAttachmentForCommentResponseTypeMap.put(400, new GenericType<ProblemDetails>(){});
+    downloadCommentAttachmentForCommentResponseTypeMap.put(403, new GenericType<ProblemDetails>(){});
+    downloadCommentAttachmentForCommentResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
+  }
 
   private static final Map<Integer, GenericType> getCommentResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
@@ -102,9 +108,9 @@ public class CommentsApi {
 
   /**
    * Create a comment to a Meeting
-   * 
-   * @param meetingId  (required)
-   * @param createCommentDto  (optional)
+   * Create a comment to a Meeting by providing the meeting id and comment details.
+   * @param meetingId The meeting Id to which the comment will be added (required)
+   * @param createCommentDto The details of the comment to be created (optional)
    * @return NewItemDto
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -123,9 +129,9 @@ public class CommentsApi {
 
   /**
    * Create a comment to a Meeting
-   * 
-   * @param meetingId  (required)
-   * @param createCommentDto  (optional)
+   * Create a comment to a Meeting by providing the meeting id and comment details.
+   * @param meetingId The meeting Id to which the comment will be added (required)
+   * @param createCommentDto The details of the comment to be created (optional)
    * @return ApiResponse&lt;NewItemDto&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -147,7 +153,7 @@ public class CommentsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/meetings/{meetingId}/comments"
+    String localVarPath = "/meetings/{meetingId}/comments"
       .replaceAll("\\{" + "meetingId" + "\\}", apiClient.escapeString(meetingId.toString()));
 
     // query params
@@ -186,9 +192,9 @@ public class CommentsApi {
   }
   /**
    * Create a comment attachment to a Meeting
-   * 
-   * @param meetingId  (required)
-   * @param commentId  (required)
+   * Create a attachment on a comment of a Meeting by providing the meeting id and comment id and attachment details.
+   * @param meetingId Meeting Id (required)
+   * @param commentId Comment Id (required)
    * @param _file  (required)
    * @return NewItemDto
    * @throws ApiException if fails to make API call
@@ -208,9 +214,9 @@ public class CommentsApi {
 
   /**
    * Create a comment attachment to a Meeting
-   * 
-   * @param meetingId  (required)
-   * @param commentId  (required)
+   * Create a attachment on a comment of a Meeting by providing the meeting id and comment id and attachment details.
+   * @param meetingId Meeting Id (required)
+   * @param commentId Comment Id (required)
    * @param _file  (required)
    * @return ApiResponse&lt;NewItemDto&gt;
    * @throws ApiException if fails to make API call
@@ -243,7 +249,7 @@ public class CommentsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/meetings/{meetingId}/comments/{commentId}/attachments"
+    String localVarPath = "/meetings/{meetingId}/comments/{commentId}/attachments"
       .replaceAll("\\{" + "meetingId" + "\\}", apiClient.escapeString(meetingId.toString()))
       .replaceAll("\\{" + "commentId" + "\\}", apiClient.escapeString(commentId.toString()));
 
@@ -285,9 +291,9 @@ public class CommentsApi {
   }
   /**
    * Delete a Comment from a Meeting
-   * 
-   * @param meetingId  (required)
-   * @param commentId  (required)
+   * Delete a Comment from a Meeting by providing the meeting id and comment id.
+   * @param meetingId Meeting Id (required)
+   * @param commentId Comment Id (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -304,9 +310,9 @@ public class CommentsApi {
 
   /**
    * Delete a Comment from a Meeting
-   * 
-   * @param meetingId  (required)
-   * @param commentId  (required)
+   * Delete a Comment from a Meeting by providing the meeting id and comment id.
+   * @param meetingId Meeting Id (required)
+   * @param commentId Comment Id (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -332,7 +338,7 @@ public class CommentsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/meetings/{meetingId}/comments/{commentId}"
+    String localVarPath = "/meetings/{meetingId}/comments/{commentId}"
       .replaceAll("\\{" + "meetingId" + "\\}", apiClient.escapeString(meetingId.toString()))
       .replaceAll("\\{" + "commentId" + "\\}", apiClient.escapeString(commentId.toString()));
 
@@ -370,10 +376,11 @@ public class CommentsApi {
   }
   /**
    * Download single attachment detail of a comment belonging to a meeting
-   * 
-   * @param meetingId  (required)
-   * @param commentId  (required)
-   * @param attachmentId  (required)
+   * Download single attachment detail of a comment belonging to a meeting by providing the meeting id, comment id and attachment id.
+   * @param meetingId Meeting Id (required)
+   * @param commentId Comment Id (required)
+   * @param attachmentId Attachment Id (required)
+   * @return File
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -384,17 +391,17 @@ public class CommentsApi {
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
    */
-  public void downloadCommentAttachmentForComment(java.util.UUID meetingId, java.util.UUID commentId, java.util.UUID attachmentId) throws ApiException {
-    downloadCommentAttachmentForCommentWithHttpInfo(meetingId, commentId, attachmentId);
+  public File downloadCommentAttachmentForComment(java.util.UUID meetingId, java.util.UUID commentId, java.util.UUID attachmentId) throws ApiException {
+    return downloadCommentAttachmentForCommentWithHttpInfo(meetingId, commentId, attachmentId).getData();
   }
 
   /**
    * Download single attachment detail of a comment belonging to a meeting
-   * 
-   * @param meetingId  (required)
-   * @param commentId  (required)
-   * @param attachmentId  (required)
-   * @return ApiResponse&lt;Void&gt;
+   * Download single attachment detail of a comment belonging to a meeting by providing the meeting id, comment id and attachment id.
+   * @param meetingId Meeting Id (required)
+   * @param commentId Comment Id (required)
+   * @param attachmentId Attachment Id (required)
+   * @return ApiResponse&lt;File&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -405,7 +412,7 @@ public class CommentsApi {
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> downloadCommentAttachmentForCommentWithHttpInfo(java.util.UUID meetingId, java.util.UUID commentId, java.util.UUID attachmentId) throws ApiException {
+  public ApiResponse<File> downloadCommentAttachmentForCommentWithHttpInfo(java.util.UUID meetingId, java.util.UUID commentId, java.util.UUID attachmentId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'meetingId' is set
@@ -424,7 +431,7 @@ public class CommentsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/meetings/{meetingId}/comments/{commentId}/attachments/{attachmentId}/download"
+    String localVarPath = "/meetings/{meetingId}/comments/{commentId}/attachments/{attachmentId}/download"
       .replaceAll("\\{" + "meetingId" + "\\}", apiClient.escapeString(meetingId.toString()))
       .replaceAll("\\{" + "commentId" + "\\}", apiClient.escapeString(commentId.toString()))
       .replaceAll("\\{" + "attachmentId" + "\\}", apiClient.escapeString(attachmentId.toString()));
@@ -440,7 +447,7 @@ public class CommentsApi {
     
     
     final String[] localVarAccepts = {
-      "application/json"
+      "application/octet-stream", "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -453,7 +460,9 @@ public class CommentsApi {
 
 
     ApiResponse<
-      Void
+        
+        File
+      
     > apiResponse = apiClient.invokeAPI("CommentsApi.downloadCommentAttachmentForComment", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, downloadCommentAttachmentForCommentResponseTypeMap, false);
@@ -463,9 +472,9 @@ public class CommentsApi {
   }
   /**
    * Get details of a comment belonging to a meeting
-   * 
-   * @param meetingId  (required)
-   * @param commentId  (required)
+   * Get details of a comment belonging to a meeting by providing the meeting id and comment id.
+   * @param meetingId Meeting Id (required)
+   * @param commentId Comment Id (required)
    * @return CommentDto
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -483,9 +492,9 @@ public class CommentsApi {
 
   /**
    * Get details of a comment belonging to a meeting
-   * 
-   * @param meetingId  (required)
-   * @param commentId  (required)
+   * Get details of a comment belonging to a meeting by providing the meeting id and comment id.
+   * @param meetingId Meeting Id (required)
+   * @param commentId Comment Id (required)
    * @return ApiResponse&lt;CommentDto&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -511,7 +520,7 @@ public class CommentsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/meetings/{meetingId}/comments/{commentId}"
+    String localVarPath = "/meetings/{meetingId}/comments/{commentId}"
       .replaceAll("\\{" + "meetingId" + "\\}", apiClient.escapeString(meetingId.toString()))
       .replaceAll("\\{" + "commentId" + "\\}", apiClient.escapeString(commentId.toString()));
 
@@ -551,9 +560,9 @@ public class CommentsApi {
   }
   /**
    * Get attachments summary of a comment belonging to a meeting
-   * 
-   * @param meetingId  (required)
-   * @param commentId  (required)
+   * Get attachments summary of a comment belonging to a meeting by providing the meeting id and comment id.
+   * @param meetingId Meeting Id (required)
+   * @param commentId Comment Id (required)
    * @return java.util.List<AttachmentSummaryDto>
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -571,9 +580,9 @@ public class CommentsApi {
 
   /**
    * Get attachments summary of a comment belonging to a meeting
-   * 
-   * @param meetingId  (required)
-   * @param commentId  (required)
+   * Get attachments summary of a comment belonging to a meeting by providing the meeting id and comment id.
+   * @param meetingId Meeting Id (required)
+   * @param commentId Comment Id (required)
    * @return ApiResponse&lt;java.util.List<AttachmentSummaryDto>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -599,7 +608,7 @@ public class CommentsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/meetings/{meetingId}/comments/{commentId}/attachments"
+    String localVarPath = "/meetings/{meetingId}/comments/{commentId}/attachments"
       .replaceAll("\\{" + "meetingId" + "\\}", apiClient.escapeString(meetingId.toString()))
       .replaceAll("\\{" + "commentId" + "\\}", apiClient.escapeString(commentId.toString()));
 
@@ -639,8 +648,8 @@ public class CommentsApi {
   }
   /**
    * Get all comments for a meeting
-   * 
-   * @param meetingId  (required)
+   * Get all comments for a meeting by providing the meeting id.
+   * @param meetingId Meeting Id (required)
    * @return java.util.List<CommentSummaryDto>
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -658,8 +667,8 @@ public class CommentsApi {
 
   /**
    * Get all comments for a meeting
-   * 
-   * @param meetingId  (required)
+   * Get all comments for a meeting by providing the meeting id.
+   * @param meetingId Meeting Id (required)
    * @return ApiResponse&lt;java.util.List<CommentSummaryDto>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -680,7 +689,7 @@ public class CommentsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/meetings/{meetingId}/comments"
+    String localVarPath = "/meetings/{meetingId}/comments"
       .replaceAll("\\{" + "meetingId" + "\\}", apiClient.escapeString(meetingId.toString()));
 
     // query params
@@ -719,10 +728,10 @@ public class CommentsApi {
   }
   /**
    * Edit a comment for a meeting
-   * 
-   * @param meetingId  (required)
-   * @param commentId  (required)
-   * @param operation  (optional)
+   * Edit a comment for a meeting by providing the meeting id and comment id.
+   * @param meetingId Meeting Id (required)
+   * @param commentId Comment Id (required)
+   * @param operation The JSON patch document with updates for the comment (optional)
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -739,10 +748,10 @@ public class CommentsApi {
 
   /**
    * Edit a comment for a meeting
-   * 
-   * @param meetingId  (required)
-   * @param commentId  (required)
-   * @param operation  (optional)
+   * Edit a comment for a meeting by providing the meeting id and comment id.
+   * @param meetingId Meeting Id (required)
+   * @param commentId Comment Id (required)
+   * @param operation The JSON patch document with updates for the comment (optional)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -768,7 +777,7 @@ public class CommentsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/meetings/{meetingId}/comments/{commentId}"
+    String localVarPath = "/meetings/{meetingId}/comments/{commentId}"
       .replaceAll("\\{" + "meetingId" + "\\}", apiClient.escapeString(meetingId.toString()))
       .replaceAll("\\{" + "commentId" + "\\}", apiClient.escapeString(commentId.toString()));
 

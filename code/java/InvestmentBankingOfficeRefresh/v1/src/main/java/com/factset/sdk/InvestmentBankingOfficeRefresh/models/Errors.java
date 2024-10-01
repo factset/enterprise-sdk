@@ -31,8 +31,9 @@ import com.factset.sdk.InvestmentBankingOfficeRefresh.JSON;
 
 
 /**
- * Errors
+ * A list of errors
  */
+@ApiModel(description = "A list of errors")
 @JsonPropertyOrder({
   Errors.JSON_PROPERTY_ERRORS
 })

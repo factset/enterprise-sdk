@@ -2,6 +2,7 @@
 
 # JobStatus
 
+Status information about a job
 
 ## Properties
 

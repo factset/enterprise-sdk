@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **contactLookupValues** | **java.util.List&lt;java.util.UUID&gt;** |  |  [optional]
 **optionValue** | **String** |  |  [optional]
 **optionValues** | **java.util.List&lt;String&gt;** |  |  [optional]
+**userTeamLookupValues** | [**UserTeamLookupDto**](UserTeamLookupDto.md) |  |  [optional]
 
 
 ## Implemented Interfaces

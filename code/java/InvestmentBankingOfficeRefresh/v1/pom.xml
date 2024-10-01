@@ -5,7 +5,7 @@
     <artifactId>investmentbankingofficerefresh</artifactId>
     <packaging>jar</packaging>
     <name>investmentbankingofficerefresh</name>
-    <version>2.0.0</version>
+    <version>2.1.0</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>Investment Banking Office Refresh client library for Java</description>
     <scm>

@@ -78,7 +78,7 @@ public class MeetingsApi {
 
   /**
    * Create a meeting
-   * 
+   * Create a meeting with the given details like date, time, location, attendees, etc.
    * @param createMeetingDto Note: The organizer property is deprecated in favor of organizerId (optional)
    * @return NewItemDto
    * @throws ApiException if fails to make API call
@@ -96,7 +96,7 @@ public class MeetingsApi {
 
   /**
    * Create a meeting
-   * 
+   * Create a meeting with the given details like date, time, location, attendees, etc.
    * @param createMeetingDto Note: The organizer property is deprecated in favor of organizerId (optional)
    * @return ApiResponse&lt;NewItemDto&gt;
    * @throws ApiException if fails to make API call
@@ -112,7 +112,7 @@ public class MeetingsApi {
     Object localVarPostBody = createMeetingDto;
     
     // create path and map variables
-    String localVarPath = "/v1/meetings";
+    String localVarPath = "/meetings";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -150,8 +150,8 @@ public class MeetingsApi {
   }
   /**
    * Delete a Meeting
-   * 
-   * @param meetingId  (required)
+   * Delete a meeting by providing the meeting id.
+   * @param meetingId Meeting Id (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -168,8 +168,8 @@ public class MeetingsApi {
 
   /**
    * Delete a Meeting
-   * 
-   * @param meetingId  (required)
+   * Delete a meeting by providing the meeting id.
+   * @param meetingId Meeting Id (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -190,7 +190,7 @@ public class MeetingsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/meetings/{meetingId}"
+    String localVarPath = "/meetings/{meetingId}"
       .replaceAll("\\{" + "meetingId" + "\\}", apiClient.escapeString(meetingId.toString()));
 
     // query params
@@ -227,7 +227,7 @@ public class MeetingsApi {
   }
   /**
    * Get details of a meeting
-   * 
+   * Get details of a meeting by providing the meeting id.
    * @param meetingId Meeting Id (required)
    * @return MeetingDto
    * @throws ApiException if fails to make API call
@@ -245,7 +245,7 @@ public class MeetingsApi {
 
   /**
    * Get details of a meeting
-   * 
+   * Get details of a meeting by providing the meeting id.
    * @param meetingId Meeting Id (required)
    * @return ApiResponse&lt;MeetingDto&gt;
    * @throws ApiException if fails to make API call
@@ -266,7 +266,7 @@ public class MeetingsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/meetings/{meetingId}"
+    String localVarPath = "/meetings/{meetingId}"
       .replaceAll("\\{" + "meetingId" + "\\}", apiClient.escapeString(meetingId.toString()));
 
     // query params
@@ -305,7 +305,7 @@ public class MeetingsApi {
   }
   /**
    * Get all the meetings in the specified date range filtered on the given identifiers
-   * 
+   * Get all the meetings in the specified date range filtered on the given identifiers.
    * @param start StartDate (optional)
    * @param end EndDate (optional)
    * @param identifiers Set of identifiers to filter on (optional)
@@ -328,7 +328,7 @@ public class MeetingsApi {
 
   /**
    * Get all the meetings in the specified date range filtered on the given identifiers
-   * 
+   * Get all the meetings in the specified date range filtered on the given identifiers.
    * @param start StartDate (optional)
    * @param end EndDate (optional)
    * @param identifiers Set of identifiers to filter on (optional)
@@ -349,7 +349,7 @@ public class MeetingsApi {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/v1/meetings";
+    String localVarPath = "/meetings";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -395,7 +395,7 @@ public class MeetingsApi {
   }
   /**
    * Update meeting
-   * 
+   * Update the details of a meeting by providing the meeting id based on the given details.
    * @param meetingId Meeting Id (required)
    * @param updateMeetingDto Meeting details to update. Note: The organizer property is deprecated in favor of organizerId (optional)
    * @throws ApiException if fails to make API call
@@ -414,7 +414,7 @@ public class MeetingsApi {
 
   /**
    * Update meeting
-   * 
+   * Update the details of a meeting by providing the meeting id based on the given details.
    * @param meetingId Meeting Id (required)
    * @param updateMeetingDto Meeting details to update. Note: The organizer property is deprecated in favor of organizerId (optional)
    * @return ApiResponse&lt;Void&gt;
@@ -437,7 +437,7 @@ public class MeetingsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/meetings/{meetingId}"
+    String localVarPath = "/meetings/{meetingId}"
       .replaceAll("\\{" + "meetingId" + "\\}", apiClient.escapeString(meetingId.toString()));
 
     // query params

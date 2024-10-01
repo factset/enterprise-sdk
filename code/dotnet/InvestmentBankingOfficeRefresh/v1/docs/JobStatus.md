@@ -1,4 +1,5 @@
 # FactSet.SDK.InvestmentBankingOfficeRefresh.Model.JobStatus
+Status information about a job
 
 ## Properties
 

@@ -1,14 +1,14 @@
 # FactSet.SDK.IRNMeetings.Api.MeetingsApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateMeeting**](MeetingsApi.md#createmeeting) | **POST** /v1/meetings | Create a meeting
-[**DeleteMeeting**](MeetingsApi.md#deletemeeting) | **DELETE** /v1/meetings/{meetingId} | Delete a Meeting
-[**GetMeeting**](MeetingsApi.md#getmeeting) | **GET** /v1/meetings/{meetingId} | Get details of a meeting
-[**GetMeetings**](MeetingsApi.md#getmeetings) | **GET** /v1/meetings | Get all the meetings in the specified date range filtered on the given identifiers
-[**UpdateMeeting**](MeetingsApi.md#updatemeeting) | **PUT** /v1/meetings/{meetingId} | Update meeting
+[**CreateMeeting**](MeetingsApi.md#createmeeting) | **POST** /meetings | Create a meeting
+[**DeleteMeeting**](MeetingsApi.md#deletemeeting) | **DELETE** /meetings/{meetingId} | Delete a Meeting
+[**GetMeeting**](MeetingsApi.md#getmeeting) | **GET** /meetings/{meetingId} | Get details of a meeting
+[**GetMeetings**](MeetingsApi.md#getmeetings) | **GET** /meetings | Get all the meetings in the specified date range filtered on the given identifiers
+[**UpdateMeeting**](MeetingsApi.md#updatemeeting) | **PUT** /meetings/{meetingId} | Update meeting
 
 
 
@@ -17,6 +17,8 @@ Method | HTTP request | Description
 > NewItemDto CreateMeeting (CreateMeetingDto createMeetingDto = null)
 
 Create a meeting
+
+Create a meeting with the given details like date, time, location, attendees, etc.
 
 ### Example
 
@@ -116,6 +118,8 @@ Name | Type | Description  | Notes
 
 Delete a Meeting
 
+Delete a meeting by providing the meeting id.
+
 ### Example
 
 > [!IMPORTANT]
@@ -160,7 +164,7 @@ namespace Example
 
             var apiInstance = new MeetingsApi(config);
 
-            var meetingId = "meetingId_example";  // Guid | 
+            var meetingId = "meetingId_example";  // Guid | Meeting Id
 
             try
             {
@@ -182,7 +186,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **meetingId** | **Guid**|  | 
+ **meetingId** | **Guid**| Meeting Id | 
 
 ### Return type
 void (empty response body)
@@ -213,6 +217,8 @@ void (empty response body)
 > MeetingDto GetMeeting (Guid meetingId)
 
 Get details of a meeting
+
+Get details of a meeting by providing the meeting id.
 
 ### Example
 
@@ -311,6 +317,8 @@ Name | Type | Description  | Notes
 > List&lt;MeetingSummaryDto&gt; GetMeetings (string start = null, string end = null, List<string> identifiers = null, int? limit = null, string modifiedSince = null, bool? includeRelatedEntities = null, bool? xIRNIncludeDeleted = null)
 
 Get all the meetings in the specified date range filtered on the given identifiers
+
+Get all the meetings in the specified date range filtered on the given identifiers.
 
 ### Example
 
@@ -420,6 +428,8 @@ Name | Type | Description  | Notes
 > void UpdateMeeting (Guid meetingId, UpdateMeetingDto updateMeetingDto = null)
 
 Update meeting
+
+Update the details of a meeting by providing the meeting id based on the given details.
 
 ### Example
 

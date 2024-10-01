@@ -1,14 +1,14 @@
 # fds.sdk.IRNMeetings.MeetingsApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_meeting**](MeetingsApi.md#create_meeting) | **POST** /v1/meetings | Create a meeting
-[**delete_meeting**](MeetingsApi.md#delete_meeting) | **DELETE** /v1/meetings/{meetingId} | Delete a Meeting
-[**get_meeting**](MeetingsApi.md#get_meeting) | **GET** /v1/meetings/{meetingId} | Get details of a meeting
-[**get_meetings**](MeetingsApi.md#get_meetings) | **GET** /v1/meetings | Get all the meetings in the specified date range filtered on the given identifiers
-[**update_meeting**](MeetingsApi.md#update_meeting) | **PUT** /v1/meetings/{meetingId} | Update meeting
+[**create_meeting**](MeetingsApi.md#create_meeting) | **POST** /meetings | Create a meeting
+[**delete_meeting**](MeetingsApi.md#delete_meeting) | **DELETE** /meetings/{meetingId} | Delete a Meeting
+[**get_meeting**](MeetingsApi.md#get_meeting) | **GET** /meetings/{meetingId} | Get details of a meeting
+[**get_meetings**](MeetingsApi.md#get_meetings) | **GET** /meetings | Get all the meetings in the specified date range filtered on the given identifiers
+[**update_meeting**](MeetingsApi.md#update_meeting) | **PUT** /meetings/{meetingId} | Update meeting
 
 
 
@@ -16,6 +16,8 @@ Method | HTTP request | Description
 > NewItemDto create_meeting()
 
 Create a meeting
+
+Create a meeting with the given details like date, time, location, attendees, etc.
 
 ### Example
 
@@ -116,6 +118,14 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
                 option_values=[
                     "option_values_example",
                 ],
+                user_team_lookup_values=UserTeamLookupDto(
+                    user_ids=[
+                        "user_ids_example",
+                    ],
+                    team_ids=[
+                        "team_ids_example",
+                    ],
+                ),
             ),
         ],
     ) # CreateMeetingDto | Note: The organizer property is deprecated in favor of organizerId (optional)
@@ -168,6 +178,8 @@ Name | Type | Description  | Notes
 
 Delete a Meeting
 
+Delete a meeting by providing the meeting id.
+
 ### Example
 
 > [!IMPORTANT]
@@ -213,7 +225,7 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
     api_instance = meetings_api.MeetingsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    meeting_id = "meetingId_example" # str | 
+    meeting_id = "meetingId_example" # str | Meeting Id
 
     try:
         # Delete a Meeting
@@ -230,7 +242,7 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **meeting_id** | **str**|  |
+ **meeting_id** | **str**| Meeting Id |
 
 ### Return type
 
@@ -261,6 +273,8 @@ void (empty response body)
 > MeetingDto get_meeting(meeting_id)
 
 Get details of a meeting
+
+Get details of a meeting by providing the meeting id.
 
 ### Example
 
@@ -355,6 +369,8 @@ Name | Type | Description  | Notes
 > [MeetingSummaryDto] get_meetings()
 
 Get all the meetings in the specified date range filtered on the given identifiers
+
+Get all the meetings in the specified date range filtered on the given identifiers.
 
 ### Example
 
@@ -464,6 +480,8 @@ Name | Type | Description  | Notes
 
 Update meeting
 
+Update the details of a meeting by providing the meeting id based on the given details.
+
 ### Example
 
 > [!IMPORTANT]
@@ -560,6 +578,14 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
                 option_values=[
                     "option_values_example",
                 ],
+                user_team_lookup_values=UserTeamLookupDto(
+                    user_ids=[
+                        "user_ids_example",
+                    ],
+                    team_ids=[
+                        "team_ids_example",
+                    ],
+                ),
             ),
         ],
     ) # UpdateMeetingDto | Meeting details to update. Note: The organizer property is deprecated in favor of organizerId (optional)

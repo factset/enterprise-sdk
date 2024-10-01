@@ -1,4 +1,5 @@
 # FactSet.SDK.InvestmentBankingOfficeRefresh.Model.Errors
+A list of errors
 
 ## Properties
 

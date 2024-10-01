@@ -32,6 +32,7 @@ docs/RelatedRecordsDto.md
 docs/SubcommentSummaryDto.md
 docs/UpdateMeetingDto.md
 docs/UserSerialDto.md
+docs/UserTeamLookupDto.md
 git_push.sh
 src/FactSet.SDK.IRNMeetings/Api/AttachmentsApi.cs
 src/FactSet.SDK.IRNMeetings/Api/CommentsApi.cs
@@ -79,3 +80,4 @@ src/FactSet.SDK.IRNMeetings/Model/RelatedRecordsDto.cs
 src/FactSet.SDK.IRNMeetings/Model/SubcommentSummaryDto.cs
 src/FactSet.SDK.IRNMeetings/Model/UpdateMeetingDto.cs
 src/FactSet.SDK.IRNMeetings/Model/UserSerialDto.cs
+src/FactSet.SDK.IRNMeetings/Model/UserTeamLookupDto.cs

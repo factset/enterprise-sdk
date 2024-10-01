@@ -47,7 +47,7 @@ public class JobStatusData implements Serializable {
   private String id;
 
   /**
-   * the status of the job
+   * The status of the job
    */
   public enum StatusEnum {
     QUEUED("queued"),
@@ -128,11 +128,11 @@ public class JobStatusData implements Serializable {
   }
 
    /**
-   * the status of the job
+   * The status of the job
    * @return status
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "the status of the job")
+  @ApiModelProperty(value = "The status of the job")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

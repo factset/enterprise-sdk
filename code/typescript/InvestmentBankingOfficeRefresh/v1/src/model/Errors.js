@@ -21,6 +21,7 @@ import Error from './Error';
 class Errors {
     /**
      * Constructs a new <code>Errors</code>.
+     * A list of errors
      * @alias module:model/Errors
      */
     constructor() { 

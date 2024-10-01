@@ -39,9 +39,12 @@ export default class RefreshOperationsApi {
      * Retrieve a calculated file by resource ID.
      * If the requested job is complete, the calculated file will be returned.
      * @param {String} id Unique identifier for the job (resource ID returned from FactSet).
+     * @param {Object} opts Optional parameters
+     * @param {Boolean} opts.deleteFile Delete the file from FactSet servers after completing the request. (default to true)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link File} and HTTP response
      */
-    getFileByIdWithHttpInfo(id) {
+    getFileByIdWithHttpInfo(id, opts) {
+      opts = opts || {};
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -52,6 +55,7 @@ export default class RefreshOperationsApi {
         'id': id
       };
       let queryParams = {
+        'deleteFile': opts['deleteFile']
       };
       let headerParams = {
       };
@@ -75,10 +79,12 @@ export default class RefreshOperationsApi {
      * Retrieve a calculated file by resource ID.
      * If the requested job is complete, the calculated file will be returned.
      * @param {String} id Unique identifier for the job (resource ID returned from FactSet).
+     * @param {Object} opts Optional parameters
+     * @param {Boolean} opts.deleteFile Delete the file from FactSet servers after completing the request. (default to true)
      * @return { Promise.< GetFileByIdResponseWrapper > } a Promise, with data of type {@link GetFileByIdResponseWrapper }
      */
-    getFileById(id) {
-      return this.getFileByIdWithHttpInfo(id)
+    getFileById(id, opts) {
+      return this.getFileByIdWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -137,12 +143,12 @@ export default class RefreshOperationsApi {
 
 
     /**
-     * Upload a spreadsheet file
-     * Upload a spreadsheet file (in the Open Office XML format) for FactSet to refresh.
+     * Refresh a spreadsheet file
+     * Start refreshing a spreadsheet file (in the Open Office XML format).
      * @param {File} body 
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.nowHandlingEnabled Return \\#VALUE for =FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118.
-     * @param {Boolean} opts.refreshAutoFilters Option to refresh =FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is false.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds
+     * @param {Boolean} opts.refreshAutoFilters Option to refresh =FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds
      * @param {Boolean} opts.resizeArrays Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/JobStatus} and HTTP response
      */
@@ -181,12 +187,12 @@ export default class RefreshOperationsApi {
     }
 
     /**
-     * Upload a spreadsheet file
-     * Upload a spreadsheet file (in the Open Office XML format) for FactSet to refresh.
+     * Refresh a spreadsheet file
+     * Start refreshing a spreadsheet file (in the Open Office XML format).
      * @param {File} body 
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.nowHandlingEnabled Return \\#VALUE for =FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118.
-     * @param {Boolean} opts.refreshAutoFilters Option to refresh =FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is false.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds
+     * @param {Boolean} opts.refreshAutoFilters Option to refresh =FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds
      * @param {Boolean} opts.resizeArrays Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds
      * @return { Promise.< module:model/JobStatus > } a Promise, with data of type {@link module:model/JobStatus }
      */

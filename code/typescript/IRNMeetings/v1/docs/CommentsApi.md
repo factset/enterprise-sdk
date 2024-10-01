@@ -1,17 +1,17 @@
 # irnmeetings.CommentsApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createComment**](CommentsApi.md#createComment) | **POST** /v1/meetings/{meetingId}/comments | Create a comment to a Meeting
-[**createCommentAttachment**](CommentsApi.md#createCommentAttachment) | **POST** /v1/meetings/{meetingId}/comments/{commentId}/attachments | Create a comment attachment to a Meeting
-[**deleteComment**](CommentsApi.md#deleteComment) | **DELETE** /v1/meetings/{meetingId}/comments/{commentId} | Delete a Comment from a Meeting
-[**downloadCommentAttachmentForComment**](CommentsApi.md#downloadCommentAttachmentForComment) | **GET** /v1/meetings/{meetingId}/comments/{commentId}/attachments/{attachmentId}/download | Download single attachment detail of a comment belonging to a meeting
-[**getComment**](CommentsApi.md#getComment) | **GET** /v1/meetings/{meetingId}/comments/{commentId} | Get details of a comment belonging to a meeting
-[**getCommentAttachments**](CommentsApi.md#getCommentAttachments) | **GET** /v1/meetings/{meetingId}/comments/{commentId}/attachments | Get attachments summary of a comment belonging to a meeting
-[**getComments**](CommentsApi.md#getComments) | **GET** /v1/meetings/{meetingId}/comments | Get all comments for a meeting
-[**patchComment**](CommentsApi.md#patchComment) | **PATCH** /v1/meetings/{meetingId}/comments/{commentId} | Edit a comment for a meeting
+[**createComment**](CommentsApi.md#createComment) | **POST** /meetings/{meetingId}/comments | Create a comment to a Meeting
+[**createCommentAttachment**](CommentsApi.md#createCommentAttachment) | **POST** /meetings/{meetingId}/comments/{commentId}/attachments | Create a comment attachment to a Meeting
+[**deleteComment**](CommentsApi.md#deleteComment) | **DELETE** /meetings/{meetingId}/comments/{commentId} | Delete a Comment from a Meeting
+[**downloadCommentAttachmentForComment**](CommentsApi.md#downloadCommentAttachmentForComment) | **GET** /meetings/{meetingId}/comments/{commentId}/attachments/{attachmentId}/download | Download single attachment detail of a comment belonging to a meeting
+[**getComment**](CommentsApi.md#getComment) | **GET** /meetings/{meetingId}/comments/{commentId} | Get details of a comment belonging to a meeting
+[**getCommentAttachments**](CommentsApi.md#getCommentAttachments) | **GET** /meetings/{meetingId}/comments/{commentId}/attachments | Get attachments summary of a comment belonging to a meeting
+[**getComments**](CommentsApi.md#getComments) | **GET** /meetings/{meetingId}/comments | Get all comments for a meeting
+[**patchComment**](CommentsApi.md#patchComment) | **PATCH** /meetings/{meetingId}/comments/{commentId} | Edit a comment for a meeting
 
 
 
@@ -20,6 +20,8 @@ Method | HTTP request | Description
 > NewItemDto createComment(meetingId, opts)
 
 Create a comment to a Meeting
+
+Create a comment to a Meeting by providing the meeting id and comment details.
 
 ### Example
 
@@ -54,9 +56,9 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new CommentsApi();
-const meetingId = "meetingId_example"; // String | 
+const meetingId = "meetingId_example"; // String | The meeting Id to which the comment will be added
 const opts = {
-  'createCommentDto': new irnmeetings.CreateCommentDto() // CreateCommentDto | 
+  'createCommentDto': new irnmeetings.CreateCommentDto() // CreateCommentDto | The details of the comment to be created
 };
 
 // Call api endpoint
@@ -79,8 +81,8 @@ apiInstance.createComment(meetingId, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **meetingId** | **String**|  | 
- **createCommentDto** | [**CreateCommentDto**](CreateCommentDto.md)|  | [optional] 
+ **meetingId** | **String**| The meeting Id to which the comment will be added | 
+ **createCommentDto** | [**CreateCommentDto**](CreateCommentDto.md)| The details of the comment to be created | [optional] 
 
 ### Return type
 
@@ -101,6 +103,8 @@ Name | Type | Description  | Notes
 > NewItemDto createCommentAttachment(meetingId, commentId, file)
 
 Create a comment attachment to a Meeting
+
+Create a attachment on a comment of a Meeting by providing the meeting id and comment id and attachment details.
 
 ### Example
 
@@ -135,8 +139,8 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new CommentsApi();
-const meetingId = "meetingId_example"; // String | 
-const commentId = "commentId_example"; // String | 
+const meetingId = "meetingId_example"; // String | Meeting Id
+const commentId = "commentId_example"; // String | Comment Id
 const file = "/path/to/file"; // File | 
 
 // Call api endpoint
@@ -159,8 +163,8 @@ apiInstance.createCommentAttachment(meetingId, commentId, file).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **meetingId** | **String**|  | 
- **commentId** | **String**|  | 
+ **meetingId** | **String**| Meeting Id | 
+ **commentId** | **String**| Comment Id | 
  **file** | **File**|  | 
 
 ### Return type
@@ -183,6 +187,8 @@ Name | Type | Description  | Notes
 
 Delete a Comment from a Meeting
 
+Delete a Comment from a Meeting by providing the meeting id and comment id.
+
 ### Example
 
 > [!IMPORTANT]
@@ -216,8 +222,8 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new CommentsApi();
-const meetingId = "meetingId_example"; // String | 
-const commentId = "commentId_example"; // String | 
+const meetingId = "meetingId_example"; // String | Meeting Id
+const commentId = "commentId_example"; // String | Comment Id
 
 // Call api endpoint
 apiInstance.deleteComment(meetingId, commentId).then(
@@ -237,8 +243,8 @@ apiInstance.deleteComment(meetingId, commentId).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **meetingId** | **String**|  | 
- **commentId** | **String**|  | 
+ **meetingId** | **String**| Meeting Id | 
+ **commentId** | **String**| Comment Id | 
 
 ### Return type
 
@@ -256,9 +262,11 @@ null (empty response body)
 
 ## downloadCommentAttachmentForComment
 
-> downloadCommentAttachmentForComment(meetingId, commentId, attachmentId)
+> File downloadCommentAttachmentForComment(meetingId, commentId, attachmentId)
 
 Download single attachment detail of a comment belonging to a meeting
+
+Download single attachment detail of a comment belonging to a meeting by providing the meeting id, comment id and attachment id.
 
 ### Example
 
@@ -293,14 +301,16 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new CommentsApi();
-const meetingId = "meetingId_example"; // String | 
-const commentId = "commentId_example"; // String | 
-const attachmentId = "attachmentId_example"; // String | 
+const meetingId = "meetingId_example"; // String | Meeting Id
+const commentId = "commentId_example"; // String | Comment Id
+const attachmentId = "attachmentId_example"; // String | Attachment Id
 
 // Call api endpoint
 apiInstance.downloadCommentAttachmentForComment(meetingId, commentId, attachmentId).then(
-  () => {
-    console.log('API called successfully.');
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
   },
   error => {
     console.error(error);
@@ -315,13 +325,13 @@ apiInstance.downloadCommentAttachmentForComment(meetingId, commentId, attachment
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **meetingId** | **String**|  | 
- **commentId** | **String**|  | 
- **attachmentId** | **String**|  | 
+ **meetingId** | **String**| Meeting Id | 
+ **commentId** | **String**| Comment Id | 
+ **attachmentId** | **String**| Attachment Id | 
 
 ### Return type
 
-null (empty response body)
+**File**
 
 ### Authorization
 
@@ -330,7 +340,7 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: application/octet-stream, application/json
 
 
 ## getComment
@@ -338,6 +348,8 @@ null (empty response body)
 > CommentDto getComment(meetingId, commentId)
 
 Get details of a comment belonging to a meeting
+
+Get details of a comment belonging to a meeting by providing the meeting id and comment id.
 
 ### Example
 
@@ -372,8 +384,8 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new CommentsApi();
-const meetingId = "meetingId_example"; // String | 
-const commentId = "commentId_example"; // String | 
+const meetingId = "meetingId_example"; // String | Meeting Id
+const commentId = "commentId_example"; // String | Comment Id
 
 // Call api endpoint
 apiInstance.getComment(meetingId, commentId).then(
@@ -395,8 +407,8 @@ apiInstance.getComment(meetingId, commentId).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **meetingId** | **String**|  | 
- **commentId** | **String**|  | 
+ **meetingId** | **String**| Meeting Id | 
+ **commentId** | **String**| Comment Id | 
 
 ### Return type
 
@@ -418,6 +430,8 @@ Name | Type | Description  | Notes
 
 Get attachments summary of a comment belonging to a meeting
 
+Get attachments summary of a comment belonging to a meeting by providing the meeting id and comment id.
+
 ### Example
 
 > [!IMPORTANT]
@@ -451,8 +465,8 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new CommentsApi();
-const meetingId = "meetingId_example"; // String | 
-const commentId = "commentId_example"; // String | 
+const meetingId = "meetingId_example"; // String | Meeting Id
+const commentId = "commentId_example"; // String | Comment Id
 
 // Call api endpoint
 apiInstance.getCommentAttachments(meetingId, commentId).then(
@@ -474,8 +488,8 @@ apiInstance.getCommentAttachments(meetingId, commentId).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **meetingId** | **String**|  | 
- **commentId** | **String**|  | 
+ **meetingId** | **String**| Meeting Id | 
+ **commentId** | **String**| Comment Id | 
 
 ### Return type
 
@@ -497,6 +511,8 @@ Name | Type | Description  | Notes
 
 Get all comments for a meeting
 
+Get all comments for a meeting by providing the meeting id.
+
 ### Example
 
 > [!IMPORTANT]
@@ -530,7 +546,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new CommentsApi();
-const meetingId = "meetingId_example"; // String | 
+const meetingId = "meetingId_example"; // String | Meeting Id
 
 // Call api endpoint
 apiInstance.getComments(meetingId).then(
@@ -552,7 +568,7 @@ apiInstance.getComments(meetingId).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **meetingId** | **String**|  | 
+ **meetingId** | **String**| Meeting Id | 
 
 ### Return type
 
@@ -573,6 +589,8 @@ Name | Type | Description  | Notes
 > patchComment(meetingId, commentId, opts)
 
 Edit a comment for a meeting
+
+Edit a comment for a meeting by providing the meeting id and comment id.
 
 ### Example
 
@@ -607,10 +625,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new CommentsApi();
-const meetingId = "meetingId_example"; // String | 
-const commentId = "commentId_example"; // String | 
+const meetingId = "meetingId_example"; // String | Meeting Id
+const commentId = "commentId_example"; // String | Comment Id
 const opts = {
-  'operation': [new irnmeetings.Operation()] // [Operation] | 
+  'operation': [new irnmeetings.Operation()] // [Operation] | The JSON patch document with updates for the comment
 };
 
 // Call api endpoint
@@ -631,9 +649,9 @@ apiInstance.patchComment(meetingId, commentId, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **meetingId** | **String**|  | 
- **commentId** | **String**|  | 
- **operation** | [**[Operation]**](Operation.md)|  | [optional] 
+ **meetingId** | **String**| Meeting Id | 
+ **commentId** | **String**| Comment Id | 
+ **operation** | [**[Operation]**](Operation.md)| The JSON patch document with updates for the comment | [optional] 
 
 ### Return type
 

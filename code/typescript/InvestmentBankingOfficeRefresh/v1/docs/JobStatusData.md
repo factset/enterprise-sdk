@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | Unique identifier for the job (resource ID returned from FactSet). | [optional] 
-**status** | **String** | the status of the job | [optional] 
+**status** | **String** | The status of the job | [optional] 
 **error** | [**Error**](Error.md) |  | [optional] 
 
 

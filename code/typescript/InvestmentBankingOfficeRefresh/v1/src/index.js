@@ -12,12 +12,15 @@
  */
 
 import ApiClient from './ApiClient';
+import ActiveJobStatus from './model/ActiveJobStatus';
+import ActiveJobStatusList from './model/ActiveJobStatusList';
 import Error from './model/Error';
 import ErrorCode from './model/ErrorCode';
 import Errors from './model/Errors';
 import JobStatus from './model/JobStatus';
 import JobStatusData from './model/JobStatusData';
 
+import JobManagementApi from './api/JobManagementApi';
 import RefreshOperationsApi from './api/RefreshOperationsApi';
 import GetFileByIdResponseWrapper from './api/RefreshOperationsApi';
 
@@ -60,6 +63,18 @@ export {
     ApiClient,
 
     /**
+     * The ActiveJobStatus model constructor.
+     * @property {module:model/ActiveJobStatus}
+     */
+    ActiveJobStatus,
+
+    /**
+     * The ActiveJobStatusList model constructor.
+     * @property {module:model/ActiveJobStatusList}
+     */
+    ActiveJobStatusList,
+
+    /**
      * The Error model constructor.
      * @property {module:model/Error}
      */
@@ -88,6 +103,12 @@ export {
      * @property {module:model/JobStatusData}
      */
     JobStatusData,
+
+    /**
+    * The JobManagementApi service constructor.
+    * @property {module:api/JobManagementApi}
+    */
+    JobManagementApi,
 
     /**
     * The RefreshOperationsApi service constructor.

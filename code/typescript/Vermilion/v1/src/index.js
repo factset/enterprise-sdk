@@ -29,6 +29,7 @@ import EntityFieldValueDTO from './model/EntityFieldValueDTO';
 import EntitySelection from './model/EntitySelection';
 import Error from './model/Error';
 import ErrorList from './model/ErrorList';
+import GenerateScheduleResponse from './model/GenerateScheduleResponse';
 import RecordSetFieldValues from './model/RecordSetFieldValues';
 import RecordSetFields from './model/RecordSetFields';
 import ReportDefinitionDTO from './model/ReportDefinitionDTO';
@@ -45,6 +46,15 @@ import ReportInstanceListMeta from './model/ReportInstanceListMeta';
 import ReportInstanceLogDTO from './model/ReportInstanceLogDTO';
 import ReportInstanceLogList from './model/ReportInstanceLogList';
 import ReportRevisionDTO from './model/ReportRevisionDTO';
+import ScheduleData from './model/ScheduleData';
+import ScheduleDefinition from './model/ScheduleDefinition';
+import ScheduleDefinitionOwnerRole from './model/ScheduleDefinitionOwnerRole';
+import ScheduleDefinitionsList from './model/ScheduleDefinitionsList';
+import ScheduleGenerationLog from './model/ScheduleGenerationLog';
+import ScheduleGenerationLogList from './model/ScheduleGenerationLogList';
+import ScheduleInstanceData from './model/ScheduleInstanceData';
+import ScheduleStatusUpdateResponse from './model/ScheduleStatusUpdateResponse';
+import SchedulesList from './model/SchedulesList';
 import ScimEmail from './model/ScimEmail';
 import ScimError from './model/ScimError';
 import ScimGroup from './model/ScimGroup';
@@ -72,6 +82,7 @@ import ReportApi from './api/ReportApi';
 import ReportInstanceApi from './api/ReportInstanceApi';
 import SCIMApi from './api/SCIMApi';
 import VersionApi from './api/VersionApi';
+import WorkflowApi from './api/WorkflowApi';
 
 
 /**
@@ -214,6 +225,12 @@ export {
     ErrorList,
 
     /**
+     * The GenerateScheduleResponse model constructor.
+     * @property {module:model/GenerateScheduleResponse}
+     */
+    GenerateScheduleResponse,
+
+    /**
      * The RecordSetFieldValues model constructor.
      * @property {module:model/RecordSetFieldValues}
      */
@@ -308,6 +325,60 @@ export {
      * @property {module:model/ReportRevisionDTO}
      */
     ReportRevisionDTO,
+
+    /**
+     * The ScheduleData model constructor.
+     * @property {module:model/ScheduleData}
+     */
+    ScheduleData,
+
+    /**
+     * The ScheduleDefinition model constructor.
+     * @property {module:model/ScheduleDefinition}
+     */
+    ScheduleDefinition,
+
+    /**
+     * The ScheduleDefinitionOwnerRole model constructor.
+     * @property {module:model/ScheduleDefinitionOwnerRole}
+     */
+    ScheduleDefinitionOwnerRole,
+
+    /**
+     * The ScheduleDefinitionsList model constructor.
+     * @property {module:model/ScheduleDefinitionsList}
+     */
+    ScheduleDefinitionsList,
+
+    /**
+     * The ScheduleGenerationLog model constructor.
+     * @property {module:model/ScheduleGenerationLog}
+     */
+    ScheduleGenerationLog,
+
+    /**
+     * The ScheduleGenerationLogList model constructor.
+     * @property {module:model/ScheduleGenerationLogList}
+     */
+    ScheduleGenerationLogList,
+
+    /**
+     * The ScheduleInstanceData model constructor.
+     * @property {module:model/ScheduleInstanceData}
+     */
+    ScheduleInstanceData,
+
+    /**
+     * The ScheduleStatusUpdateResponse model constructor.
+     * @property {module:model/ScheduleStatusUpdateResponse}
+     */
+    ScheduleStatusUpdateResponse,
+
+    /**
+     * The SchedulesList model constructor.
+     * @property {module:model/SchedulesList}
+     */
+    SchedulesList,
 
     /**
      * The ScimEmail model constructor.
@@ -464,5 +535,11 @@ export {
     * @property {module:api/VersionApi}
     */
     VersionApi,
+
+    /**
+    * The WorkflowApi service constructor.
+    * @property {module:api/WorkflowApi}
+    */
+    WorkflowApi,
 
 };

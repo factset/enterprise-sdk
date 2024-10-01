@@ -20,12 +20,14 @@ security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
 tags:
-- name: Refresh Operations
+- description: Endpoints that have to do with refreshing a recieving a file
+  name: Refresh Operations
+- description: Endpoints that deal with viewing and cancelling active jobs
+  name: Job Management
 paths:
   /refresh/calculate:
     post:
-      description: Upload a spreadsheet file (in the Open Office XML format) for FactSet
-        to refresh.
+      description: Start refreshing a spreadsheet file (in the Open Office XML format).
       operationId: postWorkbook
       parameters:
       - description: Return \#VALUE for =FDS codes dependent on NOW(). Default is
@@ -40,7 +42,7 @@ paths:
         style: form
       - description: Option to refresh =FDS codes within autofilters.  Codes that
           are filtered out will not be refreshed, unless this option is set to true.  Default
-          is false.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds
+          is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds
         explode: true
         in: query
         name: refreshAutoFilters
@@ -78,6 +80,14 @@ paths:
               schema:
                 type: string
               style: simple
+            X-Concurrent-Limit:
+              $ref: '#/components/headers/X-Concurrent-Limit'
+            X-Concurrent-Limit-Remaining:
+              $ref: '#/components/headers/X-Concurrent-Limit-Remaining'
+            X-Weekly-Limit:
+              $ref: '#/components/headers/X-Weekly-Limit'
+            X-Weekly-Limit-Remaining:
+              $ref: '#/components/headers/X-Weekly-Limit-Remaining'
         "400":
           content:
             application/json:
@@ -123,7 +133,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Errors'
           description: Server Error
-      summary: Upload a spreadsheet file
+      summary: Refresh a spreadsheet file
       tags:
       - Refresh Operations
       x-contentType: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
@@ -211,6 +221,15 @@ paths:
           format: uuid
           type: string
         style: simple
+      - description: Delete the file from FactSet servers after completing the request.
+        explode: true
+        in: query
+        name: deleteFile
+        required: false
+        schema:
+          default: true
+          type: boolean
+        style: form
       responses:
         "200":
           content:
@@ -281,7 +300,123 @@ paths:
       - Refresh Operations
       x-factset-different-success-responses: true
       x-accepts: application/json
+  /jobs:
+    delete:
+      description: Cancel all active (on_hold, queued, executing) jobs
+      operationId: cancelAllActiveJobs
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Bad Request
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Server Error
+      summary: Cancel all active jobs
+      tags:
+      - Job Management
+      x-accepts: application/json
+    get:
+      description: Get the ids and status of all active jobs
+      operationId: getJobs
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActiveJobStatusList'
+          description: Success
+          headers:
+            X-Concurrent-Limit:
+              $ref: '#/components/headers/X-Concurrent-Limit'
+            X-Concurrent-Limit-Remaining:
+              $ref: '#/components/headers/X-Concurrent-Limit-Remaining'
+            X-Weekly-Limit:
+              $ref: '#/components/headers/X-Weekly-Limit'
+            X-Weekly-Limit-Remaining:
+              $ref: '#/components/headers/X-Weekly-Limit-Remaining'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Bad Request
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Server Error
+      summary: Get information on all active jobs
+      tags:
+      - Job Management
+      x-accepts: application/json
+  /jobs/{id}:
+    delete:
+      description: Cancel a specific job by the resource ID
+      operationId: cancelActiveJob
+      parameters:
+      - description: Unique identifier for the job (resource ID returned from FactSet).
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Bad Request
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Server Error
+      summary: Cancel a job with the given resource ID
+      tags:
+      - Job Management
+      x-accepts: application/json
 components:
+  headers:
+    X-Concurrent-Limit:
+      description: Number of concurrent jobs running
+      explode: false
+      schema:
+        type: string
+      style: simple
+    X-Concurrent-Limit-Remaining:
+      description: Number of concurrent jobs remaining
+      explode: false
+      schema:
+        type: string
+      style: simple
+    X-Weekly-Limit:
+      description: Number of jobs run this week
+      explode: false
+      schema:
+        type: string
+      style: simple
+    X-Weekly-Limit-Remaining:
+      description: Number of jobs remaining this week
+      explode: false
+      schema:
+        type: string
+      style: simple
   parameters:
     ResourceId:
       description: Unique identifier for the job (resource ID returned from FactSet).
@@ -349,6 +484,7 @@ components:
           type: string
       type: object
     Errors:
+      description: A list of errors
       properties:
         errors:
           items:
@@ -356,6 +492,7 @@ components:
           type: array
       type: object
     JobStatus:
+      description: Status information about a job
       example:
         data:
           id: id
@@ -366,6 +503,47 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/JobStatus_data'
+      type: object
+    ActiveJobStatus:
+      description: Status information about an active job
+      example:
+        id: id
+        error:
+          id: id
+          title: title
+        status: queued
+      properties:
+        id:
+          description: Unique identifier for the job (resource ID returned from FactSet).
+          type: string
+        status:
+          description: The status of the job
+          enum:
+          - queued
+          - executing
+          type: string
+        error:
+          $ref: '#/components/schemas/Error'
+      type: object
+    ActiveJobStatusList:
+      description: List of active job status information
+      example:
+        data:
+        - id: id
+          error:
+            id: id
+            title: title
+          status: queued
+        - id: id
+          error:
+            id: id
+            title: title
+          status: queued
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/ActiveJobStatus'
+          type: array
       type: object
     JobStatus_data:
       example:
@@ -379,7 +557,7 @@ components:
           description: Unique identifier for the job (resource ID returned from FactSet).
           type: string
         status:
-          description: the status of the job
+          description: The status of the job
           enum:
           - queued
           - executing

@@ -33,9 +33,9 @@ namespace FactSet.SDK.InvestmentBankingOfficeRefresh.Model
     public partial class JobStatusData : IEquatable<JobStatusData>, IValidatableObject
     {
         /// <summary>
-        /// the status of the job
+        /// The status of the job
         /// </summary>
-        /// <value>the status of the job</value>
+        /// <value>The status of the job</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StatusEnum
         {
@@ -73,16 +73,16 @@ namespace FactSet.SDK.InvestmentBankingOfficeRefresh.Model
 
 
         /// <summary>
-        /// the status of the job
+        /// The status of the job
         /// </summary>
-        /// <value>the status of the job</value>
+        /// <value>The status of the job</value>
         [DataMember(Name = "status", EmitDefaultValue = false)]
         public StatusEnum? Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="JobStatusData" /> class.
         /// </summary>
         /// <param name="id">Unique identifier for the job (resource ID returned from FactSet)..</param>
-        /// <param name="status">the status of the job.</param>
+        /// <param name="status">The status of the job.</param>
         /// <param name="error">error.</param>
         public JobStatusData(string id = default(string), StatusEnum? status = default(StatusEnum?), Error error = default(Error))
         {

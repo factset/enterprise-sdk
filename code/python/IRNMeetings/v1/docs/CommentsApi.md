@@ -1,17 +1,17 @@
 # fds.sdk.IRNMeetings.CommentsApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_comment**](CommentsApi.md#create_comment) | **POST** /v1/meetings/{meetingId}/comments | Create a comment to a Meeting
-[**create_comment_attachment**](CommentsApi.md#create_comment_attachment) | **POST** /v1/meetings/{meetingId}/comments/{commentId}/attachments | Create a comment attachment to a Meeting
-[**delete_comment**](CommentsApi.md#delete_comment) | **DELETE** /v1/meetings/{meetingId}/comments/{commentId} | Delete a Comment from a Meeting
-[**download_comment_attachment_for_comment**](CommentsApi.md#download_comment_attachment_for_comment) | **GET** /v1/meetings/{meetingId}/comments/{commentId}/attachments/{attachmentId}/download | Download single attachment detail of a comment belonging to a meeting
-[**get_comment**](CommentsApi.md#get_comment) | **GET** /v1/meetings/{meetingId}/comments/{commentId} | Get details of a comment belonging to a meeting
-[**get_comment_attachments**](CommentsApi.md#get_comment_attachments) | **GET** /v1/meetings/{meetingId}/comments/{commentId}/attachments | Get attachments summary of a comment belonging to a meeting
-[**get_comments**](CommentsApi.md#get_comments) | **GET** /v1/meetings/{meetingId}/comments | Get all comments for a meeting
-[**patch_comment**](CommentsApi.md#patch_comment) | **PATCH** /v1/meetings/{meetingId}/comments/{commentId} | Edit a comment for a meeting
+[**create_comment**](CommentsApi.md#create_comment) | **POST** /meetings/{meetingId}/comments | Create a comment to a Meeting
+[**create_comment_attachment**](CommentsApi.md#create_comment_attachment) | **POST** /meetings/{meetingId}/comments/{commentId}/attachments | Create a comment attachment to a Meeting
+[**delete_comment**](CommentsApi.md#delete_comment) | **DELETE** /meetings/{meetingId}/comments/{commentId} | Delete a Comment from a Meeting
+[**download_comment_attachment_for_comment**](CommentsApi.md#download_comment_attachment_for_comment) | **GET** /meetings/{meetingId}/comments/{commentId}/attachments/{attachmentId}/download | Download single attachment detail of a comment belonging to a meeting
+[**get_comment**](CommentsApi.md#get_comment) | **GET** /meetings/{meetingId}/comments/{commentId} | Get details of a comment belonging to a meeting
+[**get_comment_attachments**](CommentsApi.md#get_comment_attachments) | **GET** /meetings/{meetingId}/comments/{commentId}/attachments | Get attachments summary of a comment belonging to a meeting
+[**get_comments**](CommentsApi.md#get_comments) | **GET** /meetings/{meetingId}/comments | Get all comments for a meeting
+[**patch_comment**](CommentsApi.md#patch_comment) | **PATCH** /meetings/{meetingId}/comments/{commentId} | Edit a comment for a meeting
 
 
 
@@ -19,6 +19,8 @@ Method | HTTP request | Description
 > NewItemDto create_comment(meeting_id)
 
 Create a comment to a Meeting
+
+Create a comment to a Meeting by providing the meeting id and comment details.
 
 ### Example
 
@@ -65,12 +67,13 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
     api_instance = comments_api.CommentsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    meeting_id = "meetingId_example" # str | 
+    meeting_id = "meetingId_example" # str | The meeting Id to which the comment will be added
     create_comment_dto = CreateCommentDto(
         author_id="author_id_example",
         parent_comment_id="parent_comment_id_example",
         body="body_example",
-    ) # CreateCommentDto |  (optional)
+        attachments_count=1,
+    ) # CreateCommentDto | The details of the comment to be created (optional)
 
     try:
         # Create a comment to a Meeting
@@ -89,8 +92,8 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **meeting_id** | **str**|  |
- **create_comment_dto** | [**CreateCommentDto**](CreateCommentDto.md)|  | [optional]
+ **meeting_id** | **str**| The meeting Id to which the comment will be added |
+ **create_comment_dto** | [**CreateCommentDto**](CreateCommentDto.md)| The details of the comment to be created | [optional]
 
 ### Return type
 
@@ -123,6 +126,8 @@ Name | Type | Description  | Notes
 
 Create a comment attachment to a Meeting
 
+Create a attachment on a comment of a Meeting by providing the meeting id and comment id and attachment details.
+
 ### Example
 
 > [!IMPORTANT]
@@ -168,8 +173,8 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
     api_instance = comments_api.CommentsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    meeting_id = "meetingId_example" # str | 
-    comment_id = "commentId_example" # str | 
+    meeting_id = "meetingId_example" # str | Meeting Id
+    comment_id = "commentId_example" # str | Comment Id
     file = open('/path/to/file', 'rb') # file_type | 
 
     try:
@@ -188,8 +193,8 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **meeting_id** | **str**|  |
- **comment_id** | **str**|  |
+ **meeting_id** | **str**| Meeting Id |
+ **comment_id** | **str**| Comment Id |
  **file** | **file_type**|  |
 
 ### Return type
@@ -223,6 +228,8 @@ Name | Type | Description  | Notes
 
 Delete a Comment from a Meeting
 
+Delete a Comment from a Meeting by providing the meeting id and comment id.
+
 ### Example
 
 > [!IMPORTANT]
@@ -268,8 +275,8 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
     api_instance = comments_api.CommentsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    meeting_id = "meetingId_example" # str | 
-    comment_id = "commentId_example" # str | 
+    meeting_id = "meetingId_example" # str | Meeting Id
+    comment_id = "commentId_example" # str | Comment Id
 
     try:
         # Delete a Comment from a Meeting
@@ -286,8 +293,8 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **meeting_id** | **str**|  |
- **comment_id** | **str**|  |
+ **meeting_id** | **str**| Meeting Id |
+ **comment_id** | **str**| Comment Id |
 
 ### Return type
 
@@ -315,9 +322,11 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **download_comment_attachment_for_comment**
-> download_comment_attachment_for_comment(meeting_id, comment_id, attachment_id)
+> file_type download_comment_attachment_for_comment(meeting_id, comment_id, attachment_id)
 
 Download single attachment detail of a comment belonging to a meeting
+
+Download single attachment detail of a comment belonging to a meeting by providing the meeting id, comment id and attachment id.
 
 ### Example
 
@@ -364,15 +373,16 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
     api_instance = comments_api.CommentsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    meeting_id = "meetingId_example" # str | 
-    comment_id = "commentId_example" # str | 
-    attachment_id = "attachmentId_example" # str | 
+    meeting_id = "meetingId_example" # str | Meeting Id
+    comment_id = "commentId_example" # str | Comment Id
+    attachment_id = "attachmentId_example" # str | Attachment Id
 
     try:
         # Download single attachment detail of a comment belonging to a meeting
         # example passing only required values which don't have defaults set
-        api_instance.download_comment_attachment_for_comment(meeting_id, comment_id, attachment_id)
+        api_response = api_instance.download_comment_attachment_for_comment(meeting_id, comment_id, attachment_id)
 
+        pprint(api_response)
 
     except fds.sdk.IRNMeetings.ApiException as e:
         print("Exception when calling CommentsApi->download_comment_attachment_for_comment: %s\n" % e)
@@ -383,13 +393,13 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **meeting_id** | **str**|  |
- **comment_id** | **str**|  |
- **attachment_id** | **str**|  |
+ **meeting_id** | **str**| Meeting Id |
+ **comment_id** | **str**| Comment Id |
+ **attachment_id** | **str**| Attachment Id |
 
 ### Return type
 
-void (empty response body)
+**file_type**
 
 ### Authorization
 
@@ -398,7 +408,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/octet-stream, application/json
 
 
 ### HTTP response details
@@ -417,6 +427,8 @@ void (empty response body)
 
 Get details of a comment belonging to a meeting
 
+Get details of a comment belonging to a meeting by providing the meeting id and comment id.
+
 ### Example
 
 > [!IMPORTANT]
@@ -462,8 +474,8 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
     api_instance = comments_api.CommentsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    meeting_id = "meetingId_example" # str | 
-    comment_id = "commentId_example" # str | 
+    meeting_id = "meetingId_example" # str | Meeting Id
+    comment_id = "commentId_example" # str | Comment Id
 
     try:
         # Get details of a comment belonging to a meeting
@@ -481,8 +493,8 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **meeting_id** | **str**|  |
- **comment_id** | **str**|  |
+ **meeting_id** | **str**| Meeting Id |
+ **comment_id** | **str**| Comment Id |
 
 ### Return type
 
@@ -514,6 +526,8 @@ Name | Type | Description  | Notes
 
 Get attachments summary of a comment belonging to a meeting
 
+Get attachments summary of a comment belonging to a meeting by providing the meeting id and comment id.
+
 ### Example
 
 > [!IMPORTANT]
@@ -559,8 +573,8 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
     api_instance = comments_api.CommentsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    meeting_id = "meetingId_example" # str | 
-    comment_id = "commentId_example" # str | 
+    meeting_id = "meetingId_example" # str | Meeting Id
+    comment_id = "commentId_example" # str | Comment Id
 
     try:
         # Get attachments summary of a comment belonging to a meeting
@@ -578,8 +592,8 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **meeting_id** | **str**|  |
- **comment_id** | **str**|  |
+ **meeting_id** | **str**| Meeting Id |
+ **comment_id** | **str**| Comment Id |
 
 ### Return type
 
@@ -611,6 +625,8 @@ Name | Type | Description  | Notes
 
 Get all comments for a meeting
 
+Get all comments for a meeting by providing the meeting id.
+
 ### Example
 
 > [!IMPORTANT]
@@ -656,7 +672,7 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
     api_instance = comments_api.CommentsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    meeting_id = "meetingId_example" # str | 
+    meeting_id = "meetingId_example" # str | Meeting Id
 
     try:
         # Get all comments for a meeting
@@ -674,7 +690,7 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **meeting_id** | **str**|  |
+ **meeting_id** | **str**| Meeting Id |
 
 ### Return type
 
@@ -706,6 +722,8 @@ Name | Type | Description  | Notes
 
 Edit a comment for a meeting
 
+Edit a comment for a meeting by providing the meeting id and comment id.
+
 ### Example
 
 > [!IMPORTANT]
@@ -751,8 +769,8 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
     api_instance = comments_api.CommentsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    meeting_id = "meetingId_example" # str | 
-    comment_id = "commentId_example" # str | 
+    meeting_id = "meetingId_example" # str | Meeting Id
+    comment_id = "commentId_example" # str | Comment Id
     operation = [
         Operation(
             operation_type=OperationType(0),
@@ -761,7 +779,7 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
             _from="_from_example",
             value=None,
         ),
-    ] # [Operation] |  (optional)
+    ] # [Operation] | The JSON patch document with updates for the comment (optional)
 
     try:
         # Edit a comment for a meeting
@@ -779,9 +797,9 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **meeting_id** | **str**|  |
- **comment_id** | **str**|  |
- **operation** | [**[Operation]**](Operation.md)|  | [optional]
+ **meeting_id** | **str**| Meeting Id |
+ **comment_id** | **str**| Comment Id |
+ **operation** | [**[Operation]**](Operation.md)| The JSON patch document with updates for the comment | [optional]
 
 ### Return type
 

@@ -57,6 +57,7 @@ docs/LinkedPATemplateSummaryRoot.md
 docs/LinkedPATemplateUpdateParameters.md
 docs/LinkedPATemplateUpdateParametersRoot.md
 docs/LinkedPaTemplatesApi.md
+docs/Metadata.md
 docs/ObjectRoot.md
 docs/PACalculationColumn.md
 docs/PACalculationDataSources.md
@@ -64,6 +65,13 @@ docs/PACalculationGroup.md
 docs/PACalculationParameters.md
 docs/PACalculationParametersRoot.md
 docs/PACalculationPricingSource.md
+docs/PACommentary.md
+docs/PACommentaryDate.md
+docs/PACommentaryGetStatus.md
+docs/PACommentaryGetStatusRoot.md
+docs/PACommentaryRoot.md
+docs/PACommentaryStatus.md
+docs/PACommentaryStatusRoot.md
 docs/PAComponent.md
 docs/PAComponentData.md
 docs/PAComponentRoot.md
@@ -75,6 +83,7 @@ docs/PaCalculationsApi.md
 docs/PaginationInfo.md
 docs/PaginationMeta.md
 docs/PricingSourcesApi.md
+docs/Section.md
 docs/TemplateContentTypes.md
 docs/TemplatedPAComponent.md
 docs/TemplatedPAComponentParameters.md
@@ -187,6 +196,7 @@ src/main/java/com/factset/sdk/PAEngine/models/LinkedPATemplateSummary.java
 src/main/java/com/factset/sdk/PAEngine/models/LinkedPATemplateSummaryRoot.java
 src/main/java/com/factset/sdk/PAEngine/models/LinkedPATemplateUpdateParameters.java
 src/main/java/com/factset/sdk/PAEngine/models/LinkedPATemplateUpdateParametersRoot.java
+src/main/java/com/factset/sdk/PAEngine/models/Metadata.java
 src/main/java/com/factset/sdk/PAEngine/models/ObjectRoot.java
 src/main/java/com/factset/sdk/PAEngine/models/PACalculationColumn.java
 src/main/java/com/factset/sdk/PAEngine/models/PACalculationDataSources.java
@@ -194,6 +204,13 @@ src/main/java/com/factset/sdk/PAEngine/models/PACalculationGroup.java
 src/main/java/com/factset/sdk/PAEngine/models/PACalculationParameters.java
 src/main/java/com/factset/sdk/PAEngine/models/PACalculationParametersRoot.java
 src/main/java/com/factset/sdk/PAEngine/models/PACalculationPricingSource.java
+src/main/java/com/factset/sdk/PAEngine/models/PACommentary.java
+src/main/java/com/factset/sdk/PAEngine/models/PACommentaryDate.java
+src/main/java/com/factset/sdk/PAEngine/models/PACommentaryGetStatus.java
+src/main/java/com/factset/sdk/PAEngine/models/PACommentaryGetStatusRoot.java
+src/main/java/com/factset/sdk/PAEngine/models/PACommentaryRoot.java
+src/main/java/com/factset/sdk/PAEngine/models/PACommentaryStatus.java
+src/main/java/com/factset/sdk/PAEngine/models/PACommentaryStatusRoot.java
 src/main/java/com/factset/sdk/PAEngine/models/PAComponent.java
 src/main/java/com/factset/sdk/PAEngine/models/PAComponentData.java
 src/main/java/com/factset/sdk/PAEngine/models/PAComponentRoot.java
@@ -203,6 +220,7 @@ src/main/java/com/factset/sdk/PAEngine/models/PAPricingSource.java
 src/main/java/com/factset/sdk/PAEngine/models/PAPricingSourceRoot.java
 src/main/java/com/factset/sdk/PAEngine/models/PaginationInfo.java
 src/main/java/com/factset/sdk/PAEngine/models/PaginationMeta.java
+src/main/java/com/factset/sdk/PAEngine/models/Section.java
 src/main/java/com/factset/sdk/PAEngine/models/TemplateContentTypes.java
 src/main/java/com/factset/sdk/PAEngine/models/TemplatedPAComponent.java
 src/main/java/com/factset/sdk/PAEngine/models/TemplatedPAComponentParameters.java

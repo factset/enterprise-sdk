@@ -1,17 +1,17 @@
 # FactSet.SDK.IRNMeetings.Api.CommentsApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateComment**](CommentsApi.md#createcomment) | **POST** /v1/meetings/{meetingId}/comments | Create a comment to a Meeting
-[**CreateCommentAttachment**](CommentsApi.md#createcommentattachment) | **POST** /v1/meetings/{meetingId}/comments/{commentId}/attachments | Create a comment attachment to a Meeting
-[**DeleteComment**](CommentsApi.md#deletecomment) | **DELETE** /v1/meetings/{meetingId}/comments/{commentId} | Delete a Comment from a Meeting
-[**DownloadCommentAttachmentForComment**](CommentsApi.md#downloadcommentattachmentforcomment) | **GET** /v1/meetings/{meetingId}/comments/{commentId}/attachments/{attachmentId}/download | Download single attachment detail of a comment belonging to a meeting
-[**GetComment**](CommentsApi.md#getcomment) | **GET** /v1/meetings/{meetingId}/comments/{commentId} | Get details of a comment belonging to a meeting
-[**GetCommentAttachments**](CommentsApi.md#getcommentattachments) | **GET** /v1/meetings/{meetingId}/comments/{commentId}/attachments | Get attachments summary of a comment belonging to a meeting
-[**GetComments**](CommentsApi.md#getcomments) | **GET** /v1/meetings/{meetingId}/comments | Get all comments for a meeting
-[**PatchComment**](CommentsApi.md#patchcomment) | **PATCH** /v1/meetings/{meetingId}/comments/{commentId} | Edit a comment for a meeting
+[**CreateComment**](CommentsApi.md#createcomment) | **POST** /meetings/{meetingId}/comments | Create a comment to a Meeting
+[**CreateCommentAttachment**](CommentsApi.md#createcommentattachment) | **POST** /meetings/{meetingId}/comments/{commentId}/attachments | Create a comment attachment to a Meeting
+[**DeleteComment**](CommentsApi.md#deletecomment) | **DELETE** /meetings/{meetingId}/comments/{commentId} | Delete a Comment from a Meeting
+[**DownloadCommentAttachmentForComment**](CommentsApi.md#downloadcommentattachmentforcomment) | **GET** /meetings/{meetingId}/comments/{commentId}/attachments/{attachmentId}/download | Download single attachment detail of a comment belonging to a meeting
+[**GetComment**](CommentsApi.md#getcomment) | **GET** /meetings/{meetingId}/comments/{commentId} | Get details of a comment belonging to a meeting
+[**GetCommentAttachments**](CommentsApi.md#getcommentattachments) | **GET** /meetings/{meetingId}/comments/{commentId}/attachments | Get attachments summary of a comment belonging to a meeting
+[**GetComments**](CommentsApi.md#getcomments) | **GET** /meetings/{meetingId}/comments | Get all comments for a meeting
+[**PatchComment**](CommentsApi.md#patchcomment) | **PATCH** /meetings/{meetingId}/comments/{commentId} | Edit a comment for a meeting
 
 
 
@@ -20,6 +20,8 @@ Method | HTTP request | Description
 > NewItemDto CreateComment (Guid meetingId, CreateCommentDto createCommentDto = null)
 
 Create a comment to a Meeting
+
+Create a comment to a Meeting by providing the meeting id and comment details.
 
 ### Example
 
@@ -65,8 +67,8 @@ namespace Example
 
             var apiInstance = new CommentsApi(config);
 
-            var meetingId = "meetingId_example";  // Guid | 
-            var createCommentDto = new CreateCommentDto(); // CreateCommentDto |  (optional) 
+            var meetingId = "meetingId_example";  // Guid | The meeting Id to which the comment will be added
+            var createCommentDto = new CreateCommentDto(); // CreateCommentDto | The details of the comment to be created (optional) 
 
             try
             {
@@ -89,8 +91,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **meetingId** | **Guid**|  | 
- **createCommentDto** | [**CreateCommentDto**](CreateCommentDto.md)|  | [optional] 
+ **meetingId** | **Guid**| The meeting Id to which the comment will be added | 
+ **createCommentDto** | [**CreateCommentDto**](CreateCommentDto.md)| The details of the comment to be created | [optional] 
 
 ### Return type
 [**NewItemDto**](NewItemDto.md)
@@ -122,6 +124,8 @@ Name | Type | Description  | Notes
 > NewItemDto CreateCommentAttachment (Guid meetingId, Guid commentId, System.IO.Stream file)
 
 Create a comment attachment to a Meeting
+
+Create a attachment on a comment of a Meeting by providing the meeting id and comment id and attachment details.
 
 ### Example
 
@@ -167,8 +171,8 @@ namespace Example
 
             var apiInstance = new CommentsApi(config);
 
-            var meetingId = "meetingId_example";  // Guid | 
-            var commentId = "commentId_example";  // Guid | 
+            var meetingId = "meetingId_example";  // Guid | Meeting Id
+            var commentId = "commentId_example";  // Guid | Comment Id
             var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | 
 
             try
@@ -192,8 +196,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **meetingId** | **Guid**|  | 
- **commentId** | **Guid**|  | 
+ **meetingId** | **Guid**| Meeting Id | 
+ **commentId** | **Guid**| Comment Id | 
  **file** | **System.IO.Stream****System.IO.Stream**|  | 
 
 ### Return type
@@ -226,6 +230,8 @@ Name | Type | Description  | Notes
 > void DeleteComment (Guid meetingId, Guid commentId)
 
 Delete a Comment from a Meeting
+
+Delete a Comment from a Meeting by providing the meeting id and comment id.
 
 ### Example
 
@@ -271,8 +277,8 @@ namespace Example
 
             var apiInstance = new CommentsApi(config);
 
-            var meetingId = "meetingId_example";  // Guid | 
-            var commentId = "commentId_example";  // Guid | 
+            var meetingId = "meetingId_example";  // Guid | Meeting Id
+            var commentId = "commentId_example";  // Guid | Comment Id
 
             try
             {
@@ -294,8 +300,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **meetingId** | **Guid**|  | 
- **commentId** | **Guid**|  | 
+ **meetingId** | **Guid**| Meeting Id | 
+ **commentId** | **Guid**| Comment Id | 
 
 ### Return type
 void (empty response body)
@@ -323,9 +329,11 @@ void (empty response body)
 
 <a name="downloadcommentattachmentforcomment"></a>
 # **DownloadCommentAttachmentForComment**
-> void DownloadCommentAttachmentForComment (Guid meetingId, Guid commentId, Guid attachmentId)
+> System.IO.Stream DownloadCommentAttachmentForComment (Guid meetingId, Guid commentId, Guid attachmentId)
 
 Download single attachment detail of a comment belonging to a meeting
+
+Download single attachment detail of a comment belonging to a meeting by providing the meeting id, comment id and attachment id.
 
 ### Example
 
@@ -371,14 +379,15 @@ namespace Example
 
             var apiInstance = new CommentsApi(config);
 
-            var meetingId = "meetingId_example";  // Guid | 
-            var commentId = "commentId_example";  // Guid | 
-            var attachmentId = "attachmentId_example";  // Guid | 
+            var meetingId = "meetingId_example";  // Guid | Meeting Id
+            var commentId = "commentId_example";  // Guid | Comment Id
+            var attachmentId = "attachmentId_example";  // Guid | Attachment Id
 
             try
             {
                 // Download single attachment detail of a comment belonging to a meeting
-                apiInstance.DownloadCommentAttachmentForComment(meetingId, commentId, attachmentId);
+                System.IO.Stream result = apiInstance.DownloadCommentAttachmentForComment(meetingId, commentId, attachmentId);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
@@ -395,12 +404,12 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **meetingId** | **Guid**|  | 
- **commentId** | **Guid**|  | 
- **attachmentId** | **Guid**|  | 
+ **meetingId** | **Guid**| Meeting Id | 
+ **commentId** | **Guid**| Comment Id | 
+ **attachmentId** | **Guid**| Attachment Id | 
 
 ### Return type
-void (empty response body)
+**System.IO.Stream**
 
 ### Authorization
 
@@ -409,7 +418,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/octet-stream, application/json
 
 
 ### HTTP response details
@@ -428,6 +437,8 @@ void (empty response body)
 > CommentDto GetComment (Guid meetingId, Guid commentId)
 
 Get details of a comment belonging to a meeting
+
+Get details of a comment belonging to a meeting by providing the meeting id and comment id.
 
 ### Example
 
@@ -473,8 +484,8 @@ namespace Example
 
             var apiInstance = new CommentsApi(config);
 
-            var meetingId = "meetingId_example";  // Guid | 
-            var commentId = "commentId_example";  // Guid | 
+            var meetingId = "meetingId_example";  // Guid | Meeting Id
+            var commentId = "commentId_example";  // Guid | Comment Id
 
             try
             {
@@ -497,8 +508,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **meetingId** | **Guid**|  | 
- **commentId** | **Guid**|  | 
+ **meetingId** | **Guid**| Meeting Id | 
+ **commentId** | **Guid**| Comment Id | 
 
 ### Return type
 [**CommentDto**](CommentDto.md)
@@ -529,6 +540,8 @@ Name | Type | Description  | Notes
 > List&lt;AttachmentSummaryDto&gt; GetCommentAttachments (Guid meetingId, Guid commentId)
 
 Get attachments summary of a comment belonging to a meeting
+
+Get attachments summary of a comment belonging to a meeting by providing the meeting id and comment id.
 
 ### Example
 
@@ -574,8 +587,8 @@ namespace Example
 
             var apiInstance = new CommentsApi(config);
 
-            var meetingId = "meetingId_example";  // Guid | 
-            var commentId = "commentId_example";  // Guid | 
+            var meetingId = "meetingId_example";  // Guid | Meeting Id
+            var commentId = "commentId_example";  // Guid | Comment Id
 
             try
             {
@@ -598,8 +611,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **meetingId** | **Guid**|  | 
- **commentId** | **Guid**|  | 
+ **meetingId** | **Guid**| Meeting Id | 
+ **commentId** | **Guid**| Comment Id | 
 
 ### Return type
 [**List&lt;AttachmentSummaryDto&gt;**](AttachmentSummaryDto.md)
@@ -630,6 +643,8 @@ Name | Type | Description  | Notes
 > List&lt;CommentSummaryDto&gt; GetComments (Guid meetingId)
 
 Get all comments for a meeting
+
+Get all comments for a meeting by providing the meeting id.
 
 ### Example
 
@@ -675,7 +690,7 @@ namespace Example
 
             var apiInstance = new CommentsApi(config);
 
-            var meetingId = "meetingId_example";  // Guid | 
+            var meetingId = "meetingId_example";  // Guid | Meeting Id
 
             try
             {
@@ -698,7 +713,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **meetingId** | **Guid**|  | 
+ **meetingId** | **Guid**| Meeting Id | 
 
 ### Return type
 [**List&lt;CommentSummaryDto&gt;**](CommentSummaryDto.md)
@@ -729,6 +744,8 @@ Name | Type | Description  | Notes
 > void PatchComment (Guid meetingId, Guid commentId, List<Operation> operation = null)
 
 Edit a comment for a meeting
+
+Edit a comment for a meeting by providing the meeting id and comment id.
 
 ### Example
 
@@ -774,9 +791,9 @@ namespace Example
 
             var apiInstance = new CommentsApi(config);
 
-            var meetingId = "meetingId_example";  // Guid | 
-            var commentId = "commentId_example";  // Guid | 
-            var operation = new List<Operation>(); // List<Operation> |  (optional) 
+            var meetingId = "meetingId_example";  // Guid | Meeting Id
+            var commentId = "commentId_example";  // Guid | Comment Id
+            var operation = new List<Operation>(); // List<Operation> | The JSON patch document with updates for the comment (optional) 
 
             try
             {
@@ -798,9 +815,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **meetingId** | **Guid**|  | 
- **commentId** | **Guid**|  | 
- **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] 
+ **meetingId** | **Guid**| Meeting Id | 
+ **commentId** | **Guid**| Comment Id | 
+ **operation** | [**List&lt;Operation&gt;**](Operation.md)| The JSON patch document with updates for the comment | [optional] 
 
 ### Return type
 void (empty response body)

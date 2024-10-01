@@ -32,6 +32,7 @@ docs/RelatedRecordsDto.md
 docs/SubcommentSummaryDto.md
 docs/UpdateMeetingDto.md
 docs/UserSerialDto.md
+docs/UserTeamLookupDto.md
 git_push.sh
 mocha.opts
 package.json
@@ -65,3 +66,4 @@ src/model/RelatedRecordsDto.js
 src/model/SubcommentSummaryDto.js
 src/model/UpdateMeetingDto.js
 src/model/UserSerialDto.js
+src/model/UserTeamLookupDto.js

@@ -1,5 +1,6 @@
 # JobStatus
 
+Status information about a job
 
 ## Properties
 Name | Type | Description | Notes

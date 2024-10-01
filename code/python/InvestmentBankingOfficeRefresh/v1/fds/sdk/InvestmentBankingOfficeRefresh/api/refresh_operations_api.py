@@ -115,6 +115,7 @@ class RefreshOperationsApi(object):
             params_map={
                 'all': [
                     'id',
+                    'delete_file',
                 ],
                 'required': [
                     'id',
@@ -134,12 +135,16 @@ class RefreshOperationsApi(object):
                 'openapi_types': {
                     'id':
                         (str,),
+                    'delete_file':
+                        (bool,),
                 },
                 'attribute_map': {
                     'id': 'id',
+                    'delete_file': 'deleteFile',
                 },
                 'location_map': {
                     'id': 'path',
+                    'delete_file': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -310,6 +315,7 @@ class RefreshOperationsApi(object):
             id (str): Unique identifier for the job (resource ID returned from FactSet).
 
         Keyword Args:
+            delete_file (bool): Delete the file from FactSet servers after completing the request.. [optional] if omitted the server will use the default value of True
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -357,6 +363,7 @@ class RefreshOperationsApi(object):
             id (str): Unique identifier for the job (resource ID returned from FactSet).
 
         Keyword Args:
+            delete_file (bool): Delete the file from FactSet servers after completing the request.. [optional] if omitted the server will use the default value of True
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -408,6 +415,7 @@ class RefreshOperationsApi(object):
             id (str): Unique identifier for the job (resource ID returned from FactSet).
 
         Keyword Args:
+            delete_file (bool): Delete the file from FactSet servers after completing the request.. [optional] if omitted the server will use the default value of True
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -454,6 +462,7 @@ class RefreshOperationsApi(object):
             id (str): Unique identifier for the job (resource ID returned from FactSet).
 
         Keyword Args:
+            delete_file (bool): Delete the file from FactSet servers after completing the request.. [optional] if omitted the server will use the default value of True
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -683,9 +692,9 @@ class RefreshOperationsApi(object):
         body,
         **kwargs
     ) -> JobStatus:
-        """Upload a spreadsheet file  # noqa: E501
+        """Refresh a spreadsheet file  # noqa: E501
 
-        Upload a spreadsheet file (in the Open Office XML format) for FactSet to refresh.  # noqa: E501
+        Start refreshing a spreadsheet file (in the Open Office XML format).  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
@@ -693,7 +702,7 @@ class RefreshOperationsApi(object):
 
         Keyword Args:
             now_handling_enabled (bool): Return \\#VALUE for =FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118.. [optional]
-            refresh_auto_filters (bool): Option to refresh =FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is false.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds. [optional]
+            refresh_auto_filters (bool): Option to refresh =FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds. [optional]
             resize_arrays (bool): Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
@@ -733,9 +742,9 @@ class RefreshOperationsApi(object):
         body,
         **kwargs
     ) -> typing.Tuple[JobStatus, int, typing.MutableMapping]:
-        """Upload a spreadsheet file  # noqa: E501
+        """Refresh a spreadsheet file  # noqa: E501
 
-        Upload a spreadsheet file (in the Open Office XML format) for FactSet to refresh.  # noqa: E501
+        Start refreshing a spreadsheet file (in the Open Office XML format).  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
@@ -743,7 +752,7 @@ class RefreshOperationsApi(object):
 
         Keyword Args:
             now_handling_enabled (bool): Return \\#VALUE for =FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118.. [optional]
-            refresh_auto_filters (bool): Option to refresh =FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is false.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds. [optional]
+            refresh_auto_filters (bool): Option to refresh =FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds. [optional]
             resize_arrays (bool): Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
@@ -787,9 +796,9 @@ class RefreshOperationsApi(object):
         body,
         **kwargs
     ) -> "ApplyResult[JobStatus]":
-        """Upload a spreadsheet file  # noqa: E501
+        """Refresh a spreadsheet file  # noqa: E501
 
-        Upload a spreadsheet file (in the Open Office XML format) for FactSet to refresh.  # noqa: E501
+        Start refreshing a spreadsheet file (in the Open Office XML format).  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
@@ -797,7 +806,7 @@ class RefreshOperationsApi(object):
 
         Keyword Args:
             now_handling_enabled (bool): Return \\#VALUE for =FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118.. [optional]
-            refresh_auto_filters (bool): Option to refresh =FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is false.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds. [optional]
+            refresh_auto_filters (bool): Option to refresh =FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds. [optional]
             resize_arrays (bool): Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
@@ -836,9 +845,9 @@ class RefreshOperationsApi(object):
         body,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[JobStatus, int, typing.MutableMapping]]":
-        """Upload a spreadsheet file  # noqa: E501
+        """Refresh a spreadsheet file  # noqa: E501
 
-        Upload a spreadsheet file (in the Open Office XML format) for FactSet to refresh.  # noqa: E501
+        Start refreshing a spreadsheet file (in the Open Office XML format).  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
@@ -846,7 +855,7 @@ class RefreshOperationsApi(object):
 
         Keyword Args:
             now_handling_enabled (bool): Return \\#VALUE for =FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118.. [optional]
-            refresh_auto_filters (bool): Option to refresh =FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is false.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds. [optional]
+            refresh_auto_filters (bool): Option to refresh =FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds. [optional]
             resize_arrays (bool): Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.

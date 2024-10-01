@@ -31,8 +31,9 @@ import com.factset.sdk.InvestmentBankingOfficeRefresh.JSON;
 
 
 /**
- * JobStatus
+ * Status information about a job
  */
+@ApiModel(description = "Status information about a job")
 @JsonPropertyOrder({
   JobStatus.JSON_PROPERTY_DATA
 })

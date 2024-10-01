@@ -50,6 +50,7 @@ from fds.sdk.PAEngine.model.linked_pa_template_summary import LinkedPATemplateSu
 from fds.sdk.PAEngine.model.linked_pa_template_summary_root import LinkedPATemplateSummaryRoot
 from fds.sdk.PAEngine.model.linked_pa_template_update_parameters import LinkedPATemplateUpdateParameters
 from fds.sdk.PAEngine.model.linked_pa_template_update_parameters_root import LinkedPATemplateUpdateParametersRoot
+from fds.sdk.PAEngine.model.metadata import Metadata
 from fds.sdk.PAEngine.model.object_root import ObjectRoot
 from fds.sdk.PAEngine.model.pa_calculation_column import PACalculationColumn
 from fds.sdk.PAEngine.model.pa_calculation_data_sources import PACalculationDataSources
@@ -57,6 +58,13 @@ from fds.sdk.PAEngine.model.pa_calculation_group import PACalculationGroup
 from fds.sdk.PAEngine.model.pa_calculation_parameters import PACalculationParameters
 from fds.sdk.PAEngine.model.pa_calculation_parameters_root import PACalculationParametersRoot
 from fds.sdk.PAEngine.model.pa_calculation_pricing_source import PACalculationPricingSource
+from fds.sdk.PAEngine.model.pa_commentary import PACommentary
+from fds.sdk.PAEngine.model.pa_commentary_date import PACommentaryDate
+from fds.sdk.PAEngine.model.pa_commentary_get_status import PACommentaryGetStatus
+from fds.sdk.PAEngine.model.pa_commentary_get_status_root import PACommentaryGetStatusRoot
+from fds.sdk.PAEngine.model.pa_commentary_root import PACommentaryRoot
+from fds.sdk.PAEngine.model.pa_commentary_status import PACommentaryStatus
+from fds.sdk.PAEngine.model.pa_commentary_status_root import PACommentaryStatusRoot
 from fds.sdk.PAEngine.model.pa_component import PAComponent
 from fds.sdk.PAEngine.model.pa_component_data import PAComponentData
 from fds.sdk.PAEngine.model.pa_component_root import PAComponentRoot
@@ -66,6 +74,7 @@ from fds.sdk.PAEngine.model.pa_pricing_source import PAPricingSource
 from fds.sdk.PAEngine.model.pa_pricing_source_root import PAPricingSourceRoot
 from fds.sdk.PAEngine.model.pagination_info import PaginationInfo
 from fds.sdk.PAEngine.model.pagination_meta import PaginationMeta
+from fds.sdk.PAEngine.model.section import Section
 from fds.sdk.PAEngine.model.template_content_types import TemplateContentTypes
 from fds.sdk.PAEngine.model.templated_pa_component import TemplatedPAComponent
 from fds.sdk.PAEngine.model.templated_pa_component_parameters import TemplatedPAComponentParameters

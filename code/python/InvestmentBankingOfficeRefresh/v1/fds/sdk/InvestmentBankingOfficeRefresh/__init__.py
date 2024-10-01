@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "1.0.4"
+__version__ = "1.1.0"
 
 # import ApiClient
 from fds.sdk.InvestmentBankingOfficeRefresh.api_client import ApiClient

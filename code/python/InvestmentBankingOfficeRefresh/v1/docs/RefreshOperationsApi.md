@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_file_by_id**](RefreshOperationsApi.md#get_file_by_id) | **GET** /refresh/{id} | Retrieve a calculated file by resource ID.
 [**get_status_by_id**](RefreshOperationsApi.md#get_status_by_id) | **GET** /refresh/{id}/status | Get the status of the refresh job with the given resource ID
-[**post_workbook**](RefreshOperationsApi.md#post_workbook) | **POST** /refresh/calculate | Upload a spreadsheet file
+[**post_workbook**](RefreshOperationsApi.md#post_workbook) | **POST** /refresh/calculate | Refresh a spreadsheet file
 
 
 
@@ -63,11 +63,13 @@ with fds.sdk.InvestmentBankingOfficeRefresh.ApiClient(configuration) as api_clie
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | Unique identifier for the job (resource ID returned from FactSet).
+    delete_file = True # bool | Delete the file from FactSet servers after completing the request. (optional) if omitted the server will use the default value of True
 
     try:
         # Retrieve a calculated file by resource ID.
         # example passing only required values which don't have defaults set
-        api_response_wrapper = api_instance.get_file_by_id(id)
+        # and optional values
+        api_response_wrapper = api_instance.get_file_by_id(id, delete_file=delete_file)
 
         # This endpoint returns a response wrapper that contains different types of responses depending on the query.
         # To access the correct response type, you need to perform one additional step, as shown below.
@@ -88,6 +90,7 @@ with fds.sdk.InvestmentBankingOfficeRefresh.ApiClient(configuration) as api_clie
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Unique identifier for the job (resource ID returned from FactSet). |
+ **delete_file** | **bool**| Delete the file from FactSet servers after completing the request. | [optional] if omitted the server will use the default value of True
 
 ### Return type
 
@@ -221,9 +224,9 @@ Name | Type | Description  | Notes
 # **post_workbook**
 > JobStatus post_workbook(body)
 
-Upload a spreadsheet file
+Refresh a spreadsheet file
 
-Upload a spreadsheet file (in the Open Office XML format) for FactSet to refresh.
+Start refreshing a spreadsheet file (in the Open Office XML format).
 
 ### Example
 
@@ -272,11 +275,11 @@ with fds.sdk.InvestmentBankingOfficeRefresh.ApiClient(configuration) as api_clie
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     body = open('/path/to/file', 'rb') # file_type | 
     now_handling_enabled = True # bool | Return \\#VALUE for =FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118. (optional)
-    refresh_auto_filters = True # bool | Option to refresh =FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is false.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)
+    refresh_auto_filters = True # bool | Option to refresh =FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)
     resize_arrays = True # bool | Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)
 
     try:
-        # Upload a spreadsheet file
+        # Refresh a spreadsheet file
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.post_workbook(body, now_handling_enabled=now_handling_enabled, refresh_auto_filters=refresh_auto_filters, resize_arrays=resize_arrays)
@@ -294,7 +297,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | **file_type**|  |
  **now_handling_enabled** | **bool**| Return \\#VALUE for &#x3D;FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118. | [optional]
- **refresh_auto_filters** | **bool**| Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is false.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds | [optional]
+ **refresh_auto_filters** | **bool**| Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds | [optional]
  **resize_arrays** | **bool**| Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds | [optional]
 
 ### Return type
@@ -315,7 +318,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**202** | Accepted |  * Location - Relative URL to check status of the request. <br>  |
+**202** | Accepted |  * Location - Relative URL to check status of the request. <br>  * X-Concurrent-Limit -  <br>  * X-Concurrent-Limit-Remaining -  <br>  * X-Weekly-Limit -  <br>  * X-Weekly-Limit-Remaining -  <br>  |
 **400** | Bad Request |  -  |
 **403** | Forbidden. The user&#39;s subscription is missing required CACCESS. |  -  |
 **413** | File Too Large.  Currently only accepting files up to 50MB. |  -  |

@@ -4,13 +4,17 @@ FactSet.SDK.InvestmentBankingOfficeRefresh.sln
 LICENSE
 README.md
 appveyor.yml
+docs/ActiveJobStatus.md
+docs/ActiveJobStatusList.md
 docs/Error.md
 docs/ErrorCode.md
 docs/Errors.md
+docs/JobManagementApi.md
 docs/JobStatus.md
 docs/JobStatusData.md
 docs/RefreshOperationsApi.md
 git_push.sh
+src/FactSet.SDK.InvestmentBankingOfficeRefresh/Api/JobManagementApi.cs
 src/FactSet.SDK.InvestmentBankingOfficeRefresh/Api/RefreshOperationsApi.cs
 src/FactSet.SDK.InvestmentBankingOfficeRefresh/Client/ApiClient.cs
 src/FactSet.SDK.InvestmentBankingOfficeRefresh/Client/ApiException.cs
@@ -30,6 +34,8 @@ src/FactSet.SDK.InvestmentBankingOfficeRefresh/Client/RequestOptions.cs
 src/FactSet.SDK.InvestmentBankingOfficeRefresh/Client/RetryConfiguration.cs
 src/FactSet.SDK.InvestmentBankingOfficeRefresh/FactSet.SDK.InvestmentBankingOfficeRefresh.csproj
 src/FactSet.SDK.InvestmentBankingOfficeRefresh/Model/AbstractOpenAPISchema.cs
+src/FactSet.SDK.InvestmentBankingOfficeRefresh/Model/ActiveJobStatus.cs
+src/FactSet.SDK.InvestmentBankingOfficeRefresh/Model/ActiveJobStatusList.cs
 src/FactSet.SDK.InvestmentBankingOfficeRefresh/Model/Error.cs
 src/FactSet.SDK.InvestmentBankingOfficeRefresh/Model/ErrorCode.cs
 src/FactSet.SDK.InvestmentBankingOfficeRefresh/Model/Errors.cs

@@ -3,25 +3,35 @@
   "info": {
     "title": "IRN API v1",
     "description": "Allows users to extract, create, update and configure IRN data.",
-    "version": "1"
+    "contact": {
+      "name": "FactSet Research Systems",
+      "url": "https://developer.factset.com/contact",
+      "email": "api@factset.com"
+    },
+    "license": {
+      "name": "Apache License, Version 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
+    },
+    "version": "1.4.0"
   },
   "servers": [
     {
-      "url": "https://api.factset.com/research/irn",
+      "url": "https://api.factset.com/research/irn/v1",
       "description": "Production Server"
     },
     {
-      "url": "https://api-sandbox.factset.com/research/irn",
-      "description": "Sandbox"
+      "url": "https://api-sandbox.factset.com/research/irn/v1",
+      "description": "Sandbox Server"
     }
   ],
   "paths": {
-    "/v1/meetings": {
+    "/meetings": {
       "get": {
         "tags": [
           "Meetings"
         ],
         "summary": "Get all the meetings in the specified date range filtered on the given identifiers",
+        "description": "Get all the meetings in the specified date range filtered on the given identifiers.",
         "operationId": "GetMeetings",
         "parameters": [
           {
@@ -118,6 +128,7 @@
           "Meetings"
         ],
         "summary": "Create a meeting",
+        "description": "Create a meeting with the given details like date, time, location, attendees, etc.",
         "operationId": "CreateMeeting",
         "requestBody": {
           "description": "Note: The organizer property is deprecated in favor of organizerId",
@@ -178,12 +189,13 @@
         }
       }
     },
-    "/v1/meetings/{meetingId}": {
+    "/meetings/{meetingId}": {
       "get": {
         "tags": [
           "Meetings"
         ],
         "summary": "Get details of a meeting",
+        "description": "Get details of a meeting by providing the meeting id.",
         "operationId": "GetMeeting",
         "parameters": [
           {
@@ -235,6 +247,7 @@
           "Meetings"
         ],
         "summary": "Update meeting",
+        "description": "Update the details of a meeting by providing the meeting id based on the given details.",
         "operationId": "UpdateMeeting",
         "parameters": [
           {
@@ -314,11 +327,13 @@
           "Meetings"
         ],
         "summary": "Delete a Meeting",
+        "description": "Delete a meeting by providing the meeting id.",
         "operationId": "DeleteMeeting",
         "parameters": [
           {
             "name": "meetingId",
             "in": "path",
+            "description": "Meeting Id",
             "required": true,
             "schema": {
               "type": "string",
@@ -363,12 +378,13 @@
         }
       }
     },
-    "/v1/meetings/{meetingId}/attachments": {
+    "/meetings/{meetingId}/attachments": {
       "get": {
         "tags": [
           "Attachments"
         ],
         "summary": "Get all the attachments belonging to a meeting",
+        "description": "Get all the attachments belonging to a meeting by providing the meeting id.",
         "operationId": "GetAttachments",
         "parameters": [
           {
@@ -423,6 +439,7 @@
           "Attachments"
         ],
         "summary": "Create an attachment for a existing meeting",
+        "description": "Create an attachment for a existing meeting by providing the meeting id and atatchment details.",
         "operationId": "CreateAttachment",
         "parameters": [
           {
@@ -488,17 +505,19 @@
         }
       }
     },
-    "/v1/meetings/{meetingId}/attachments/{attachmentId}/download": {
+    "/meetings/{meetingId}/attachments/{attachmentId}/download": {
       "get": {
         "tags": [
           "Attachments"
         ],
         "summary": "Download an attachment from a Meeting",
+        "description": "Download an attachment from a Meeting by providing the meeting id and attachment id.",
         "operationId": "DownloadAttachment",
         "parameters": [
           {
             "name": "meetingId",
             "in": "path",
+            "description": "Meeting Id",
             "required": true,
             "schema": {
               "type": "string",
@@ -508,6 +527,7 @@
           {
             "name": "attachmentId",
             "in": "path",
+            "description": "Attachment Id",
             "required": true,
             "schema": {
               "type": "string",
@@ -517,7 +537,15 @@
         ],
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Success",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
           },
           "400": {
             "description": "Bad Request",
@@ -552,17 +580,19 @@
         }
       }
     },
-    "/v1/meetings/{meetingId}/comments": {
+    "/meetings/{meetingId}/comments": {
       "get": {
         "tags": [
           "Comments"
         ],
         "summary": "Get all comments for a meeting",
+        "description": "Get all comments for a meeting by providing the meeting id.",
         "operationId": "GetComments",
         "parameters": [
           {
             "name": "meetingId",
             "in": "path",
+            "description": "Meeting Id",
             "required": true,
             "schema": {
               "type": "string",
@@ -621,11 +651,13 @@
           "Comments"
         ],
         "summary": "Create a comment to a Meeting",
+        "description": "Create a comment to a Meeting by providing the meeting id and comment details.",
         "operationId": "CreateComment",
         "parameters": [
           {
             "name": "meetingId",
             "in": "path",
+            "description": "The meeting Id to which the comment will be added",
             "required": true,
             "schema": {
               "type": "string",
@@ -634,6 +666,7 @@
           }
         ],
         "requestBody": {
+          "description": "The details of the comment to be created",
           "content": {
             "application/json-patch+json": {
               "schema": {
@@ -704,17 +737,19 @@
         }
       }
     },
-    "/v1/meetings/{meetingId}/comments/{commentId}": {
+    "/meetings/{meetingId}/comments/{commentId}": {
       "get": {
         "tags": [
           "Comments"
         ],
         "summary": "Get details of a comment belonging to a meeting",
+        "description": "Get details of a comment belonging to a meeting by providing the meeting id and comment id.",
         "operationId": "GetComment",
         "parameters": [
           {
             "name": "meetingId",
             "in": "path",
+            "description": "Meeting Id",
             "required": true,
             "schema": {
               "type": "string",
@@ -724,6 +759,7 @@
           {
             "name": "commentId",
             "in": "path",
+            "description": "Comment Id",
             "required": true,
             "schema": {
               "type": "string",
@@ -779,11 +815,13 @@
           "Comments"
         ],
         "summary": "Edit a comment for a meeting",
+        "description": "Edit a comment for a meeting by providing the meeting id and comment id.",
         "operationId": "PatchComment",
         "parameters": [
           {
             "name": "meetingId",
             "in": "path",
+            "description": "Meeting Id",
             "required": true,
             "schema": {
               "type": "string",
@@ -793,6 +831,7 @@
           {
             "name": "commentId",
             "in": "path",
+            "description": "Comment Id",
             "required": true,
             "schema": {
               "type": "string",
@@ -801,6 +840,7 @@
           }
         ],
         "requestBody": {
+          "description": "The JSON patch document with updates for the comment",
           "content": {
             "application/json-patch+json": {
               "schema": {
@@ -877,11 +917,13 @@
           "Comments"
         ],
         "summary": "Delete a Comment from a Meeting",
+        "description": "Delete a Comment from a Meeting by providing the meeting id and comment id.",
         "operationId": "DeleteComment",
         "parameters": [
           {
             "name": "meetingId",
             "in": "path",
+            "description": "Meeting Id",
             "required": true,
             "schema": {
               "type": "string",
@@ -891,6 +933,7 @@
           {
             "name": "commentId",
             "in": "path",
+            "description": "Comment Id",
             "required": true,
             "schema": {
               "type": "string",
@@ -928,17 +971,19 @@
         }
       }
     },
-    "/v1/meetings/{meetingId}/comments/{commentId}/attachments": {
+    "/meetings/{meetingId}/comments/{commentId}/attachments": {
       "get": {
         "tags": [
           "Comments"
         ],
         "summary": "Get attachments summary of a comment belonging to a meeting",
+        "description": "Get attachments summary of a comment belonging to a meeting by providing the meeting id and comment id.",
         "operationId": "GetCommentAttachments",
         "parameters": [
           {
             "name": "meetingId",
             "in": "path",
+            "description": "Meeting Id",
             "required": true,
             "schema": {
               "type": "string",
@@ -948,6 +993,7 @@
           {
             "name": "commentId",
             "in": "path",
+            "description": "Comment Id",
             "required": true,
             "schema": {
               "type": "string",
@@ -1006,11 +1052,13 @@
           "Comments"
         ],
         "summary": "Create a comment attachment to a Meeting",
+        "description": "Create a attachment on a comment of a Meeting by providing the meeting id and comment id and attachment details.",
         "operationId": "CreateCommentAttachment",
         "parameters": [
           {
             "name": "meetingId",
             "in": "path",
+            "description": "Meeting Id",
             "required": true,
             "schema": {
               "type": "string",
@@ -1020,6 +1068,7 @@
           {
             "name": "commentId",
             "in": "path",
+            "description": "Comment Id",
             "required": true,
             "schema": {
               "type": "string",
@@ -1092,17 +1141,19 @@
         }
       }
     },
-    "/v1/meetings/{meetingId}/comments/{commentId}/attachments/{attachmentId}/download": {
+    "/meetings/{meetingId}/comments/{commentId}/attachments/{attachmentId}/download": {
       "get": {
         "tags": [
           "Comments"
         ],
         "summary": "Download single attachment detail of a comment belonging to a meeting",
+        "description": "Download single attachment detail of a comment belonging to a meeting by providing the meeting id, comment id and attachment id.",
         "operationId": "DownloadCommentAttachmentForComment",
         "parameters": [
           {
             "name": "meetingId",
             "in": "path",
+            "description": "Meeting Id",
             "required": true,
             "schema": {
               "type": "string",
@@ -1112,6 +1163,7 @@
           {
             "name": "commentId",
             "in": "path",
+            "description": "Comment Id",
             "required": true,
             "schema": {
               "type": "string",
@@ -1121,6 +1173,7 @@
           {
             "name": "attachmentId",
             "in": "path",
+            "description": "Attachment Id",
             "required": true,
             "schema": {
               "type": "string",
@@ -1130,7 +1183,15 @@
         ],
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Success",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
           },
           "400": {
             "description": "Bad Request",
@@ -1165,12 +1226,13 @@
         }
       }
     },
-    "/v1/meetings/{meetingId}/events": {
+    "/meetings/{meetingId}/events": {
       "get": {
         "tags": [
           "Events"
         ],
         "summary": "Get all the record events that belong to a meeting",
+        "description": "Get all the record events that belong to a meeting by providing the meeting id.",
         "operationId": "GetEvents",
         "parameters": [
           {
@@ -1221,12 +1283,13 @@
         }
       }
     },
-    "/v1/meetings/{meetingId}/events/{recordEventId}": {
+    "/meetings/{meetingId}/events/{recordEventId}": {
       "get": {
         "tags": [
           "Events"
         ],
         "summary": "Get details of a record event of a meeting",
+        "description": "Get details of record event of meeting by providing recordeventid and meetingid",
         "operationId": "GetRecordEvent",
         "parameters": [
           {
@@ -1284,12 +1347,13 @@
         }
       }
     },
-    "/v1/meetings/{meetingId}/attachments/{attachmentId}": {
+    "/meetings/{meetingId}/attachments/{attachmentId}": {
       "delete": {
         "tags": [
           "Attachments"
         ],
         "summary": "Delete attachment from meeting",
+        "description": "Delete a attachment from a meeting by providing the meeting id and attachment id.",
         "operationId": "SoftDeleteMeetingAttachment",
         "parameters": [
           {
@@ -1374,7 +1438,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "AttendeeDto": {
         "type": "object",
@@ -1392,7 +1456,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "CommentDto": {
         "type": "object",
@@ -1433,7 +1497,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "CommentSummaryDto": {
         "type": "object",
@@ -1458,7 +1522,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "CreateBodyDto": {
         "type": "object",
@@ -1468,7 +1532,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "CreateCommentDto": {
         "type": "object",
@@ -1485,9 +1549,12 @@
           "body": {
             "type": "string",
             "nullable": true
+          },
+          "attachmentsCount": {
+            "type": "integer",
+            "format": "int32"
           }
-        },
-        "additionalProperties": false
+        }
       },
       "CreateCustomFieldValueDto": {
         "required": [
@@ -1496,6 +1563,7 @@
         "type": "object",
         "properties": {
           "code": {
+            "minLength": 1,
             "type": "string"
           },
           "integerValue": {
@@ -1542,10 +1610,13 @@
               "type": "string"
             },
             "nullable": true
+          },
+          "userTeamLookupValues": {
+            "$ref": "#/components/schemas/UserTeamLookupDto"
           }
         },
-        "additionalProperties": false,
-        "description": "Set a value or values for a custom field identified by the field 'Code'. Only one of the fields (IntegerValue / TextValue / FilePathValue etc) will be used,\r\ndepending on the data type of the custom field corresponding to the 'Code' provided"
+        "description": "Set a value or values for a custom field identified by the field 'Code'. Only one of the fields (IntegerValue / TextValue / FilePathValue etc) will be used,\r\ndepending on the data type of the custom field corresponding to the 'Code' provided",
+        "nullable": true
       },
       "CreateMeetingDto": {
         "required": [
@@ -1569,9 +1640,11 @@
             "nullable": true
           },
           "start": {
+            "minLength": 1,
             "type": "string"
           },
           "end": {
+            "minLength": 1,
             "type": "string"
           },
           "locations": {
@@ -1636,8 +1709,7 @@
             },
             "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "CustomFieldValueDto": {
         "type": "object",
@@ -1664,9 +1736,12 @@
               "format": "uuid"
             },
             "nullable": true
+          },
+          "userTeamValues": {
+            "$ref": "#/components/schemas/UserTeamLookupDto"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "LocationDto": {
         "type": "object",
@@ -1680,7 +1755,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "MeetingDto": {
         "type": "object",
@@ -1777,7 +1852,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "MeetingEventDto": {
         "type": "object",
@@ -1802,7 +1877,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "MeetingSummaryDto": {
         "type": "object",
@@ -1881,7 +1956,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "NewItemDto": {
         "type": "object",
@@ -1891,7 +1966,7 @@
             "format": "uuid"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "Operation": {
         "type": "object",
@@ -1915,7 +1990,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "OperationType": {
         "enum": [
@@ -1928,7 +2003,8 @@
           6
         ],
         "type": "integer",
-        "format": "int32"
+        "format": "int32",
+        "description": "Type can be one of 0-Add, 1-Remove, 2-Replace, 3-Move, 4-Copy, 5-Test, 6-Get"
       },
       "ProblemDetails": {
         "type": "object",
@@ -1955,7 +2031,8 @@
             "nullable": true
           }
         },
-        "additionalProperties": {}
+        "additionalProperties": {},
+        "nullable": true
       },
       "RecordChangeDto": {
         "type": "object",
@@ -1991,7 +2068,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "RecordEventSummaryDto": {
         "type": "object",
@@ -2009,7 +2086,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "ReferenceAttendeeDto": {
         "type": "object",
@@ -2019,7 +2096,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "RelatedRecordsDto": {
         "type": "object",
@@ -2041,7 +2118,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "SubcommentSummaryDto": {
         "type": "object",
@@ -2059,7 +2136,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "UpdateMeetingDto": {
         "required": [
@@ -2076,12 +2153,15 @@
             "type": "string"
           },
           "identifier": {
+            "minLength": 1,
             "type": "string"
           },
           "start": {
+            "minLength": 1,
             "type": "string"
           },
           "end": {
+            "minLength": 1,
             "type": "string"
           },
           "locations": {
@@ -2146,8 +2226,7 @@
             },
             "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "UserSerialDto": {
         "required": [
@@ -2167,7 +2246,29 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "nullable": true
+      },
+      "UserTeamLookupDto": {
+        "type": "object",
+        "properties": {
+          "userIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "nullable": true
+          },
+          "teamIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "nullable": true
+          }
+        },
+        "nullable": true
       }
     },
     "securitySchemes": {
@@ -2196,16 +2297,24 @@
   ],
   "tags": [
     {
-      "name": "Attachments"
+      "name": "Attachments",
+      "description": "Attachments related operations"
     },
     {
-      "name": "Comments"
+      "name": "Comments",
+      "description": "Comments related operations"
     },
     {
-      "name": "Events"
+      "name": "Events",
+      "description": "Events related operations"
     },
     {
-      "name": "Meetings"
+      "name": "Meetings",
+      "description": "Meetings related operations"
     }
-  ]
+  ],
+  "externalDocs": {
+    "description": "API Documentation",
+    "url": "https://developer.factset.com/api-catalog/irn-meetings-api#apiDocumentation"
+  }
 }

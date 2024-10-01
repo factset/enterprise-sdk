@@ -23,6 +23,7 @@ docs/EntityFieldValueDTO.md
 docs/EntitySelection.md
 docs/Error.md
 docs/ErrorList.md
+docs/GenerateScheduleResponse.md
 docs/RecordSetFieldValues.md
 docs/RecordSetFields.md
 docs/ReportApi.md
@@ -42,6 +43,15 @@ docs/ReportInstanceLogDTO.md
 docs/ReportInstanceLogList.md
 docs/ReportRevisionDTO.md
 docs/SCIMApi.md
+docs/ScheduleData.md
+docs/ScheduleDefinition.md
+docs/ScheduleDefinitionOwnerRole.md
+docs/ScheduleDefinitionsList.md
+docs/ScheduleGenerationLog.md
+docs/ScheduleGenerationLogList.md
+docs/ScheduleInstanceData.md
+docs/ScheduleStatusUpdateResponse.md
+docs/SchedulesList.md
 docs/ScimEmail.md
 docs/ScimError.md
 docs/ScimGroup.md
@@ -63,6 +73,7 @@ docs/Tenancy.md
 docs/VersionApi.md
 docs/VersionResponseBody.md
 docs/VersionResponseBodyData.md
+docs/WorkflowApi.md
 git_push.sh
 mocha.opts
 package.json
@@ -73,6 +84,7 @@ src/api/ReportApi.js
 src/api/ReportInstanceApi.js
 src/api/SCIMApi.js
 src/api/VersionApi.js
+src/api/WorkflowApi.js
 src/index.js
 src/model/CreateScimUserJSONRequest.js
 src/model/CreatedScimUserJSONResponse.js
@@ -91,6 +103,7 @@ src/model/EntityFieldValueDTO.js
 src/model/EntitySelection.js
 src/model/Error.js
 src/model/ErrorList.js
+src/model/GenerateScheduleResponse.js
 src/model/RecordSetFieldValues.js
 src/model/RecordSetFields.js
 src/model/ReportDefinitionDTO.js
@@ -107,6 +120,15 @@ src/model/ReportInstanceListMeta.js
 src/model/ReportInstanceLogDTO.js
 src/model/ReportInstanceLogList.js
 src/model/ReportRevisionDTO.js
+src/model/ScheduleData.js
+src/model/ScheduleDefinition.js
+src/model/ScheduleDefinitionOwnerRole.js
+src/model/ScheduleDefinitionsList.js
+src/model/ScheduleGenerationLog.js
+src/model/ScheduleGenerationLogList.js
+src/model/ScheduleInstanceData.js
+src/model/ScheduleStatusUpdateResponse.js
+src/model/SchedulesList.js
 src/model/ScimEmail.js
 src/model/ScimError.js
 src/model/ScimGroup.js

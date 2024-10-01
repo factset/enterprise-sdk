@@ -9,6 +9,8 @@
 # import sys
 # sys.setrecursionlimit(n)
 
+from fds.sdk.InvestmentBankingOfficeRefresh.model.active_job_status import ActiveJobStatus
+from fds.sdk.InvestmentBankingOfficeRefresh.model.active_job_status_list import ActiveJobStatusList
 from fds.sdk.InvestmentBankingOfficeRefresh.model.error import Error
 from fds.sdk.InvestmentBankingOfficeRefresh.model.error_code import ErrorCode
 from fds.sdk.InvestmentBankingOfficeRefresh.model.errors import Errors

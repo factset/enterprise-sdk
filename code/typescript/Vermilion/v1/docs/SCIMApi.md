@@ -60,7 +60,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new SCIMApi();
-const scimGroup = {"displayName":"vrstestgroup","members":[{"value":"218","type":"user","$ref":"VRSAPI/scim/v2/Users/218"}],"tenant":"XXXXXXXXXX","domainCode":"XXXXXXXXXX"}; // ScimGroup | 
+const scimGroup = {"displayName":"vrstestgroup","members":[{"value":"scimuser1","type":"user","$ref":"VRSAPI/scim/v2/Users/1"}],"tenant":"XXXXXXXXXX","domainCode":"XXXXXXXXXX"}; // ScimGroup | 
 
 // Call api endpoint
 apiInstance.createGroup(scimGroup).then(
@@ -859,7 +859,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new SCIMApi();
 const groupId = 123456; // String | The ID of the group
-const scimGroup = {"displayName":"vrstestgroup","members":[{"value":"45678","type":"user","$ref":"VRSAPI/scim/v2/Users/45678"}],"tenant":"XXXXXXXXXX","domainCode":"XXXXXXXXXX"}; // ScimGroup | 
+const scimGroup = {"displayName":"vrstestgroup","members":[{"value":"scimuser1","type":"user","$ref":"VRSAPI/scim/v2/Users/1"}],"tenant":"XXXXXXXXXX","domainCode":"XXXXXXXXXX"}; // ScimGroup | 
 
 // Call api endpoint
 apiInstance.updateGroupById(groupId, scimGroup).then(

@@ -37,6 +37,12 @@ public class AttachmentsApi {
   }
 
   private static final Map<Integer, GenericType> downloadAttachmentResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    downloadAttachmentResponseTypeMap.put(200, new GenericType<File>(){});
+    downloadAttachmentResponseTypeMap.put(400, new GenericType<ProblemDetails>(){});
+    downloadAttachmentResponseTypeMap.put(403, new GenericType<ProblemDetails>(){});
+    downloadAttachmentResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
+  }
 
   private static final Map<Integer, GenericType> getAttachmentsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
@@ -70,7 +76,7 @@ public class AttachmentsApi {
 
   /**
    * Create an attachment for a existing meeting
-   * 
+   * Create an attachment for a existing meeting by providing the meeting id and atatchment details.
    * @param meetingId Meeting Id (required)
    * @param _file  (required)
    * @return NewItemDto
@@ -89,7 +95,7 @@ public class AttachmentsApi {
 
   /**
    * Create an attachment for a existing meeting
-   * 
+   * Create an attachment for a existing meeting by providing the meeting id and atatchment details.
    * @param meetingId Meeting Id (required)
    * @param _file  (required)
    * @return ApiResponse&lt;NewItemDto&gt;
@@ -116,7 +122,7 @@ public class AttachmentsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/meetings/{meetingId}/attachments"
+    String localVarPath = "/meetings/{meetingId}/attachments"
       .replaceAll("\\{" + "meetingId" + "\\}", apiClient.escapeString(meetingId.toString()));
 
     // query params
@@ -157,9 +163,10 @@ public class AttachmentsApi {
   }
   /**
    * Download an attachment from a Meeting
-   * 
-   * @param meetingId  (required)
-   * @param attachmentId  (required)
+   * Download an attachment from a Meeting by providing the meeting id and attachment id.
+   * @param meetingId Meeting Id (required)
+   * @param attachmentId Attachment Id (required)
+   * @return File
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -170,16 +177,16 @@ public class AttachmentsApi {
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
    */
-  public void downloadAttachment(java.util.UUID meetingId, java.util.UUID attachmentId) throws ApiException {
-    downloadAttachmentWithHttpInfo(meetingId, attachmentId);
+  public File downloadAttachment(java.util.UUID meetingId, java.util.UUID attachmentId) throws ApiException {
+    return downloadAttachmentWithHttpInfo(meetingId, attachmentId).getData();
   }
 
   /**
    * Download an attachment from a Meeting
-   * 
-   * @param meetingId  (required)
-   * @param attachmentId  (required)
-   * @return ApiResponse&lt;Void&gt;
+   * Download an attachment from a Meeting by providing the meeting id and attachment id.
+   * @param meetingId Meeting Id (required)
+   * @param attachmentId Attachment Id (required)
+   * @return ApiResponse&lt;File&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -190,7 +197,7 @@ public class AttachmentsApi {
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> downloadAttachmentWithHttpInfo(java.util.UUID meetingId, java.util.UUID attachmentId) throws ApiException {
+  public ApiResponse<File> downloadAttachmentWithHttpInfo(java.util.UUID meetingId, java.util.UUID attachmentId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'meetingId' is set
@@ -204,7 +211,7 @@ public class AttachmentsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/meetings/{meetingId}/attachments/{attachmentId}/download"
+    String localVarPath = "/meetings/{meetingId}/attachments/{attachmentId}/download"
       .replaceAll("\\{" + "meetingId" + "\\}", apiClient.escapeString(meetingId.toString()))
       .replaceAll("\\{" + "attachmentId" + "\\}", apiClient.escapeString(attachmentId.toString()));
 
@@ -219,7 +226,7 @@ public class AttachmentsApi {
     
     
     final String[] localVarAccepts = {
-      "application/json"
+      "application/octet-stream", "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -232,7 +239,9 @@ public class AttachmentsApi {
 
 
     ApiResponse<
-      Void
+        
+        File
+      
     > apiResponse = apiClient.invokeAPI("AttachmentsApi.downloadAttachment", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, downloadAttachmentResponseTypeMap, false);
@@ -242,7 +251,7 @@ public class AttachmentsApi {
   }
   /**
    * Get all the attachments belonging to a meeting
-   * 
+   * Get all the attachments belonging to a meeting by providing the meeting id.
    * @param meetingId Meeting Id (required)
    * @return java.util.List<AttachmentSummaryDto>
    * @throws ApiException if fails to make API call
@@ -260,7 +269,7 @@ public class AttachmentsApi {
 
   /**
    * Get all the attachments belonging to a meeting
-   * 
+   * Get all the attachments belonging to a meeting by providing the meeting id.
    * @param meetingId Meeting Id (required)
    * @return ApiResponse&lt;java.util.List<AttachmentSummaryDto>&gt;
    * @throws ApiException if fails to make API call
@@ -281,7 +290,7 @@ public class AttachmentsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/meetings/{meetingId}/attachments"
+    String localVarPath = "/meetings/{meetingId}/attachments"
       .replaceAll("\\{" + "meetingId" + "\\}", apiClient.escapeString(meetingId.toString()));
 
     // query params
@@ -320,7 +329,7 @@ public class AttachmentsApi {
   }
   /**
    * Delete attachment from meeting
-   * 
+   * Delete a attachment from a meeting by providing the meeting id and attachment id.
    * @param meetingId Meeting Id (required)
    * @param attachmentId Attachment Id (required)
    * @throws ApiException if fails to make API call
@@ -339,7 +348,7 @@ public class AttachmentsApi {
 
   /**
    * Delete attachment from meeting
-   * 
+   * Delete a attachment from a meeting by providing the meeting id and attachment id.
    * @param meetingId Meeting Id (required)
    * @param attachmentId Attachment Id (required)
    * @return ApiResponse&lt;Void&gt;
@@ -367,7 +376,7 @@ public class AttachmentsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/meetings/{meetingId}/attachments/{attachmentId}"
+    String localVarPath = "/meetings/{meetingId}/attachments/{attachmentId}"
       .replaceAll("\\{" + "meetingId" + "\\}", apiClient.escapeString(meetingId.toString()))
       .replaceAll("\\{" + "attachmentId" + "\\}", apiClient.escapeString(attachmentId.toString()));
 

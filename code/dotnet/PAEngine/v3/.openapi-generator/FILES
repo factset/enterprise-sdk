@@ -55,6 +55,7 @@ docs/LinkedPATemplateSummaryRoot.md
 docs/LinkedPATemplateUpdateParameters.md
 docs/LinkedPATemplateUpdateParametersRoot.md
 docs/LinkedPATemplatesApi.md
+docs/Metadata.md
 docs/ObjectRoot.md
 docs/PACalculationColumn.md
 docs/PACalculationDataSources.md
@@ -63,6 +64,13 @@ docs/PACalculationParameters.md
 docs/PACalculationParametersRoot.md
 docs/PACalculationPricingSource.md
 docs/PACalculationsApi.md
+docs/PACommentary.md
+docs/PACommentaryDate.md
+docs/PACommentaryGetStatus.md
+docs/PACommentaryGetStatusRoot.md
+docs/PACommentaryRoot.md
+docs/PACommentaryStatus.md
+docs/PACommentaryStatusRoot.md
 docs/PAComponent.md
 docs/PAComponentData.md
 docs/PAComponentRoot.md
@@ -73,6 +81,7 @@ docs/PAPricingSourceRoot.md
 docs/PaginationInfo.md
 docs/PaginationMeta.md
 docs/PricingSourcesApi.md
+docs/Section.md
 docs/TemplateContentTypes.md
 docs/TemplatedPAComponent.md
 docs/TemplatedPAComponentParameters.md
@@ -176,6 +185,7 @@ src/FactSet.SDK.PAEngine/Model/LinkedPATemplateSummary.cs
 src/FactSet.SDK.PAEngine/Model/LinkedPATemplateSummaryRoot.cs
 src/FactSet.SDK.PAEngine/Model/LinkedPATemplateUpdateParameters.cs
 src/FactSet.SDK.PAEngine/Model/LinkedPATemplateUpdateParametersRoot.cs
+src/FactSet.SDK.PAEngine/Model/Metadata.cs
 src/FactSet.SDK.PAEngine/Model/ObjectRoot.cs
 src/FactSet.SDK.PAEngine/Model/PACalculationColumn.cs
 src/FactSet.SDK.PAEngine/Model/PACalculationDataSources.cs
@@ -183,6 +193,13 @@ src/FactSet.SDK.PAEngine/Model/PACalculationGroup.cs
 src/FactSet.SDK.PAEngine/Model/PACalculationParameters.cs
 src/FactSet.SDK.PAEngine/Model/PACalculationParametersRoot.cs
 src/FactSet.SDK.PAEngine/Model/PACalculationPricingSource.cs
+src/FactSet.SDK.PAEngine/Model/PACommentary.cs
+src/FactSet.SDK.PAEngine/Model/PACommentaryDate.cs
+src/FactSet.SDK.PAEngine/Model/PACommentaryGetStatus.cs
+src/FactSet.SDK.PAEngine/Model/PACommentaryGetStatusRoot.cs
+src/FactSet.SDK.PAEngine/Model/PACommentaryRoot.cs
+src/FactSet.SDK.PAEngine/Model/PACommentaryStatus.cs
+src/FactSet.SDK.PAEngine/Model/PACommentaryStatusRoot.cs
 src/FactSet.SDK.PAEngine/Model/PAComponent.cs
 src/FactSet.SDK.PAEngine/Model/PAComponentData.cs
 src/FactSet.SDK.PAEngine/Model/PAComponentRoot.cs
@@ -192,6 +209,7 @@ src/FactSet.SDK.PAEngine/Model/PAPricingSource.cs
 src/FactSet.SDK.PAEngine/Model/PAPricingSourceRoot.cs
 src/FactSet.SDK.PAEngine/Model/PaginationInfo.cs
 src/FactSet.SDK.PAEngine/Model/PaginationMeta.cs
+src/FactSet.SDK.PAEngine/Model/Section.cs
 src/FactSet.SDK.PAEngine/Model/TemplateContentTypes.cs
 src/FactSet.SDK.PAEngine/Model/TemplatedPAComponent.cs
 src/FactSet.SDK.PAEngine/Model/TemplatedPAComponentParameters.cs

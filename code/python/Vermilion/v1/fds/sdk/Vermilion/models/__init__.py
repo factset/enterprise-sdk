@@ -26,6 +26,7 @@ from fds.sdk.Vermilion.model.entity_field_value_dto import EntityFieldValueDTO
 from fds.sdk.Vermilion.model.entity_selection import EntitySelection
 from fds.sdk.Vermilion.model.error import Error
 from fds.sdk.Vermilion.model.error_list import ErrorList
+from fds.sdk.Vermilion.model.generate_schedule_response import GenerateScheduleResponse
 from fds.sdk.Vermilion.model.record_set_field_values import RecordSetFieldValues
 from fds.sdk.Vermilion.model.record_set_fields import RecordSetFields
 from fds.sdk.Vermilion.model.report_definition_dto import ReportDefinitionDTO
@@ -42,6 +43,15 @@ from fds.sdk.Vermilion.model.report_instance_list_meta import ReportInstanceList
 from fds.sdk.Vermilion.model.report_instance_log_dto import ReportInstanceLogDTO
 from fds.sdk.Vermilion.model.report_instance_log_list import ReportInstanceLogList
 from fds.sdk.Vermilion.model.report_revision_dto import ReportRevisionDTO
+from fds.sdk.Vermilion.model.schedule_data import ScheduleData
+from fds.sdk.Vermilion.model.schedule_definition import ScheduleDefinition
+from fds.sdk.Vermilion.model.schedule_definition_owner_role import ScheduleDefinitionOwnerRole
+from fds.sdk.Vermilion.model.schedule_definitions_list import ScheduleDefinitionsList
+from fds.sdk.Vermilion.model.schedule_generation_log import ScheduleGenerationLog
+from fds.sdk.Vermilion.model.schedule_generation_log_list import ScheduleGenerationLogList
+from fds.sdk.Vermilion.model.schedule_instance_data import ScheduleInstanceData
+from fds.sdk.Vermilion.model.schedule_status_update_response import ScheduleStatusUpdateResponse
+from fds.sdk.Vermilion.model.schedules_list import SchedulesList
 from fds.sdk.Vermilion.model.scim_email import ScimEmail
 from fds.sdk.Vermilion.model.scim_error import ScimError
 from fds.sdk.Vermilion.model.scim_group import ScimGroup

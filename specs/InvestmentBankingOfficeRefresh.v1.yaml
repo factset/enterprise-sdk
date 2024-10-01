@@ -20,10 +20,8 @@ servers:
 paths:
   /refresh/calculate:
     post:
-      summary: Upload a spreadsheet file
-      description: >-
-        Upload a spreadsheet file (in the Open Office XML format) for FactSet to
-        refresh.
+      summary: Refresh a spreadsheet file
+      description: Start refreshing a spreadsheet file (in the Open Office XML format).
       tags:
         - Refresh Operations
       operationId: postWorkbook
@@ -40,7 +38,7 @@ paths:
           description: >-
             Option to refresh =FDS codes within autofilters.  Codes that are
             filtered out will not be refreshed, unless this option is set to
-            true.  Default is false.  For more information, see Online Assistant
+            true.  Default is true.  For more information, see Online Assistant
             https://my.apps.factset.com/oa/pages/21084#fds
           in: query
           schema:
@@ -72,6 +70,14 @@ paths:
               description: Relative URL to check status of the request.
               schema:
                 type: string
+            X-Concurrent-Limit:
+              $ref: '#/components/headers/X-Concurrent-Limit'
+            X-Concurrent-Limit-Remaining:
+              $ref: '#/components/headers/X-Concurrent-Limit-Remaining'
+            X-Weekly-Limit:
+              $ref: '#/components/headers/X-Weekly-Limit'
+            X-Weekly-Limit-Remaining:
+              $ref: '#/components/headers/X-Weekly-Limit-Remaining'
         '400':
           description: Bad Request
           content:
@@ -163,6 +169,12 @@ paths:
       operationId: getFileById
       parameters:
         - $ref: '#/components/parameters/ResourceId'
+        - name: deleteFile
+          description: Delete the file from FactSet servers after completing the request.
+          in: query
+          schema:
+            type: boolean
+            default: true
       responses:
         '200':
           description: Expected response; body will contain calculated file
@@ -223,6 +235,86 @@ paths:
               schema:
                 $ref: '#/components/schemas/Errors'
       x-factset-different-success-responses: true
+  /jobs:
+    get:
+      summary: Get information on all active jobs
+      description: Get the ids and status of all active jobs
+      tags:
+        - Job Management
+      operationId: getJobs
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActiveJobStatusList'
+          headers:
+            X-Concurrent-Limit:
+              $ref: '#/components/headers/X-Concurrent-Limit'
+            X-Concurrent-Limit-Remaining:
+              $ref: '#/components/headers/X-Concurrent-Limit-Remaining'
+            X-Weekly-Limit:
+              $ref: '#/components/headers/X-Weekly-Limit'
+            X-Weekly-Limit-Remaining:
+              $ref: '#/components/headers/X-Weekly-Limit-Remaining'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+    delete:
+      summary: Cancel all active jobs
+      description: Cancel all active (on_hold, queued, executing) jobs
+      tags:
+        - Job Management
+      operationId: cancelAllActiveJobs
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+  /jobs/{id}:
+    delete:
+      summary: Cancel a job with the given resource ID
+      description: Cancel a specific job by the resource ID
+      tags:
+        - Job Management
+      operationId: cancelActiveJob
+      parameters:
+        - $ref: '#/components/parameters/ResourceId'
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
 components:
   parameters:
     ResourceId:
@@ -266,6 +358,7 @@ components:
           type: string
     Errors:
       type: object
+      description: A list of errors
       properties:
         errors:
           type: array
@@ -273,6 +366,7 @@ components:
             $ref: '#/components/schemas/Error'
     JobStatus:
       type: object
+      description: Status information about a job
       properties:
         data:
           type: object
@@ -284,7 +378,7 @@ components:
                 FactSet).
             status:
               type: string
-              description: the status of the job
+              description: The status of the job
               enum:
                 - queued
                 - executing
@@ -293,6 +387,29 @@ components:
                 - cancelled
             error:
               $ref: '#/components/schemas/Error'
+    ActiveJobStatus:
+      type: object
+      description: Status information about an active job
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the job (resource ID returned from FactSet).
+        status:
+          type: string
+          description: The status of the job
+          enum:
+            - queued
+            - executing
+        error:
+          $ref: '#/components/schemas/Error'
+    ActiveJobStatusList:
+      type: object
+      description: List of active job status information
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ActiveJobStatus'
   responses:
     '429':
       description: Limit Exceeded
@@ -309,6 +426,23 @@ components:
           description: Number of seconds remaining till rate limit resets.
           schema:
             type: string
+  headers:
+    X-Concurrent-Limit:
+      description: Number of concurrent jobs running
+      schema:
+        type: string
+    X-Concurrent-Limit-Remaining:
+      description: Number of concurrent jobs remaining
+      schema:
+        type: string
+    X-Weekly-Limit:
+      description: Number of jobs run this week
+      schema:
+        type: string
+    X-Weekly-Limit-Remaining:
+      description: Number of jobs remaining this week
+      schema:
+        type: string
   securitySchemes:
     FactSetOAuth2:
       type: oauth2
@@ -324,3 +458,6 @@ security:
   - FactSetOAuth2: []
 tags:
   - name: Refresh Operations
+    description: Endpoints that have to do with refreshing a recieving a file
+  - name: Job Management
+    description: Endpoints that deal with viewing and cancelling active jobs

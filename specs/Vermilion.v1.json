@@ -40,6 +40,9 @@
       "name": "Report instance"
     },
     {
+      "name": "Workflow"
+    },
+    {
       "name": "SCIM"
     },
     {
@@ -2284,6 +2287,1142 @@
         }
       }
     },
+    "/v1/{tenant}/schedule-definitions": {
+      "get": {
+        "operationId": "getScheduleDefinitions",
+        "tags": [
+          "Workflow"
+        ],
+        "summary": "Retrieves a list of all schedule definitions",
+        "description": "Retrieves all schedule definitions the user has permissions for. User has sort and filter parameters available to use.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "tenant",
+            "description": "The code of the tenancy",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "example": "TENANT"
+          },
+          {
+            "in": "query",
+            "name": "scheduleType",
+            "description": "Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule type. Accepts multiple values separated by a comma, e.g. ?scheduleType=REPEATING,TEMPLATE",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "MANUAL",
+                "REPEATING",
+                "TEMPLATE",
+                "ADHOC"
+              ]
+            },
+            "example": "MANUAL"
+          },
+          {
+            "in": "query",
+            "name": "reportDate",
+            "description": "Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule report date.  Accepts multiple values separated by a comma, e.g. ?reportDate=LAST_DAY_OF_PREV_MONTH,CREATION_DATE",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "LAST_DAY_OF_PREV_MONTH",
+                "LAST_BUSINESS_DAY_OF_PREV_MONTH",
+                "CREATION_DATE",
+                "DAY_BEFORE_CREATION_DATE",
+                "BUSINESS_DAY_BEFORE_CREATION_DATE",
+                "LAST_DAY_OF_MONTH_SCHEDULE_CREATED",
+                "LAST_BUSINESS_DAY_OF_MONTH_SCHEDULE_CREATED",
+                "LAST_BUSINESS_DAY_OF_PREVIOUS_WEEK_SCHEDULE_CREATED",
+                "LAST_BUSINESS_DAY_OF_WEEK_SCHEDULE_CREATED",
+                "TWO_BUSINESS_DAYS_BEFORE_SCHEDULE_CREATED"
+              ]
+            },
+            "example": "LAST_BUSINESS_DAY_OF_PREV_MONTH"
+          },
+          {
+            "in": "query",
+            "name": "lastUpdatedBy",
+            "description": "Acts as a filter for the retrieval process. Filters the schedule definitions where the provided parameter value matches or is a substring of the last updated by value of the schedule definitions",
+            "schema": {
+              "type": "string"
+            },
+            "example": "John"
+          },
+          {
+            "in": "query",
+            "name": "startDate",
+            "description": "Acts as a filter for the retrieval process. Filters the schedule definitions based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00).",
+            "schema": {
+              "type": "string"
+            },
+            "example": "25 March 2024 00:00:00"
+          },
+          {
+            "in": "query",
+            "name": "endDate",
+            "description": "Acts as a filter for the retrieval process. Filters the schedule definitions based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00).",
+            "schema": {
+              "type": "string"
+            },
+            "example": "25 March 2024 00:00:00"
+          },
+          {
+            "in": "query",
+            "name": "_sort",
+            "description": "The column to sort on. Can add '-' to the start of the parameter value to sort in descending order.",
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "maxItems": 1,
+              "items": {
+                "type": "string"
+              }
+            },
+            "examples": {
+              "name": {
+                "value": [
+                  "name"
+                ],
+                "description": "The name of the schedule definition"
+              },
+              "scheduleGroup": {
+                "value": [
+                  "scheduleGroup"
+                ],
+                "description": "The schedule group of the schedule definition"
+              },
+              "scheduleType": {
+                "value": [
+                  "scheduleType"
+                ],
+                "description": "The schedule type"
+              },
+              "owner": {
+                "value": [
+                  "owner"
+                ],
+                "description": "The owner role name of the schedule definition"
+              },
+              "code": {
+                "value": [
+                  "code"
+                ],
+                "description": "The code of the schedule definition"
+              },
+              "businessCalendar": {
+                "value": [
+                  "businessCalendar"
+                ],
+                "description": "The country of the business calender the schedule definition follows"
+              },
+              "reportDate": {
+                "value": [
+                  "reportDate"
+                ],
+                "description": "The reporting date of the schedule"
+              },
+              "lastUpdated": {
+                "value": [
+                  "lastUpdated"
+                ],
+                "description": "The last updated date of the schedule definition"
+              }
+            }
+          },
+          {
+            "in": "query",
+            "name": "_paginationLimit",
+            "description": "Non-negative maximum number of entries to return",
+            "schema": {
+              "type": "integer",
+              "default": 25
+            },
+            "example": 10
+          },
+          {
+            "in": "query",
+            "name": "_paginationOffset",
+            "description": "Non-negative number of entries to skip",
+            "schema": {
+              "type": "integer",
+              "default": 0
+            },
+            "example": 0
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduleDefinitionsList"
+                },
+                "example": {
+                  "meta": {
+                    "pagination": {
+                      "total": 10,
+                      "isEstimatedTotal": false
+                    },
+                    "sort": [
+                      "name"
+                    ]
+                  },
+                  "data": [
+                    {
+                      "scheduleDefinitionId": 42,
+                      "lastUpdatedBy": "John",
+                      "notes": "",
+                      "name": "Flash Report to Portal",
+                      "code": "FLASH_REPORT",
+                      "scheduleGroup": "Flash Report",
+                      "businessCalendar": "United States",
+                      "deleteScheduleAfterDays": 3,
+                      "scheduleType": "MANUAL",
+                      "reportDate": "TWO_BUSINESS_DAYS_BEFORE_SCHEDULE_CREATED",
+                      "numberOfObligations": 1,
+                      "ownerRole": {
+                        "code": "ADMIN",
+                        "name": "Admin",
+                        "roleId": 21
+                      },
+                      "entities": [
+                        {
+                          "entityId": 97,
+                          "name": "Date",
+                          "code": "SYSTEM_DATE"
+                        }
+                      ],
+                      "numberOfPackages": 0,
+                      "lastUpdated": "1713435311043"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request. Required values not provided in request parameter or invalid values given (e.g. tenant, scheduleType)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "parameterError",
+                      "title": "The tenancy provided is invalid or not active"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorised",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAuthenticated",
+                      "title": "User is not authenticated"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden. No permissions to view schedule definitions in VRS",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAuthorized",
+                      "title": "No permissions to view this item"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Unsupported Accept header. Header needs to be set to application/json.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAcceptable",
+                      "title": "Unsupported Accept header. Header needs to be set to\n    application/json"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/{tenant}/schedules": {
+      "get": {
+        "operationId": "getSchedules",
+        "tags": [
+          "Workflow"
+        ],
+        "summary": "Retrieves a list of all schedules",
+        "description": "Retrieves all schedules the user has permissions for. User has sort and filter parameters available to use.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "tenant",
+            "description": "The code of the tenancy",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "example": "TENANT"
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "description": "Acts as a filter for the retrieval process. Filters the schedules that match the given status. Accepts multiple values separated by a comma, e.g. ?status=INITIALISED,RUNNING",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "INITIALISED",
+                "RUNNING",
+                "CANCELLED",
+                "SUSPENDED",
+                "FINISHED",
+                "CLOSED",
+                "GENERATING_TASKS"
+              ]
+            },
+            "example": "RUNNING"
+          },
+          {
+            "in": "query",
+            "name": "startDate",
+            "description": "Acts as a filter for the retrieval process. Filters the schedules based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00).",
+            "schema": {
+              "type": "string"
+            },
+            "example": "14 June 2024 00:00:00"
+          },
+          {
+            "in": "query",
+            "name": "endDate",
+            "description": "Acts as a filter for the retrieval process. Filters the schedules based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00).",
+            "schema": {
+              "type": "string"
+            },
+            "example": "14 June 2024 00:00:00"
+          },
+          {
+            "in": "query",
+            "name": "_sort",
+            "description": "The column to sort on. Can add '-' to the start of the parameter value to sort in descending order.",
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "maxItems": 1,
+              "items": {
+                "type": "string"
+              }
+            },
+            "examples": {
+              "scheduleId": {
+                "value": [
+                  "scheduleId"
+                ],
+                "description": "The id of the schedule"
+              },
+              "name": {
+                "value": [
+                  "name"
+                ],
+                "description": "The name of the schedule"
+              },
+              "scheduleGroup": {
+                "value": [
+                  "scheduleGroup"
+                ],
+                "description": "The schedule group of the schedule"
+              },
+              "status": {
+                "value": [
+                  "status"
+                ],
+                "description": "The status of the schedule"
+              },
+              "lastUpdated": {
+                "value": [
+                  "lastUpdated"
+                ],
+                "description": "The last updated date/time of the schedule"
+              },
+              "owner": {
+                "value": [
+                  "owner"
+                ],
+                "description": "The owner of the schedule"
+              },
+              "noOfTasks": {
+                "value": [
+                  "noOfTasks"
+                ],
+                "description": "The no of tasks in the schedule"
+              },
+              "businessCalendar": {
+                "value": [
+                  "businessCalendar"
+                ],
+                "description": "The business calendar of the schedule"
+              }
+            }
+          },
+          {
+            "in": "query",
+            "name": "_paginationLimit",
+            "description": "Non-negative maximum number of entries to return",
+            "schema": {
+              "type": "integer",
+              "default": 25
+            },
+            "example": 10
+          },
+          {
+            "in": "query",
+            "name": "_paginationOffset",
+            "description": "Non-negative number of entries to skip",
+            "schema": {
+              "type": "integer",
+              "default": 0
+            },
+            "example": 0
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SchedulesList"
+                },
+                "example": {
+                  "meta": {
+                    "pagination": {
+                      "total": 10,
+                      "isEstimatedTotal": false
+                    },
+                    "sort": [
+                      "name"
+                    ]
+                  },
+                  "data": [
+                    {
+                      "scheduleId": 16304,
+                      "lastUpdatedBy": "test_user",
+                      "notes": "Automatically created at 2017-05-31 10:17:05 Europe/London",
+                      "name": "Test schddefn _1234 (2017.05.31 10:17)",
+                      "definitionName": "Test schddefn _1234",
+                      "startDate": "1586870729577",
+                      "finishDate": "1694588295897",
+                      "group": "test_group",
+                      "businessCalendar": "United Kingdom",
+                      "reportDate": "1586802600577",
+                      "lastUpdated": "1694608095920",
+                      "noOfTasks": 12,
+                      "owner": "Admin",
+                      "status": "RUNNING"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request. Required values not provided in request parameter or invalid values given (e.g. tenant, status)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "parameterError",
+                      "title": "The tenancy provided is invalid or not active"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorised",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAuthenticated",
+                      "title": "User is not authenticated"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden. No permissions to view schedule definitions in VRS",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAuthorized",
+                      "title": "No permissions to view this item"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Unsupported Accept header. Header needs to be set to application/json.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAcceptable",
+                      "title": "Unsupported Accept header. Header needs to be set to\n    application/json"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/{tenant}/schedules/{scheduleDefinitionCode}": {
+      "post": {
+        "operationId": "generateSchedule",
+        "tags": [
+          "Workflow"
+        ],
+        "summary": "Creates schedule for the specified schedule definition",
+        "description": "Creates schedule for the specified Schedule Definition code and sets to running based on the param in the JSON in the request body",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "tenant",
+            "description": "The code of the tenancy",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "example": "TENANT"
+          },
+          {
+            "in": "path",
+            "name": "scheduleDefinitionCode",
+            "description": "The schedule definition code for which to generate the schedule",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "example": "TEST_SCHEDULE_DEF"
+          },
+          {
+            "in": "query",
+            "name": "setToRunning",
+            "description": "This parameter is used to set the generated schedule's status to Running.If parameter is set to true, the generated schedule will be set to Running. If no value is provided, the schedule will remain in Initialised status.",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": true
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Schedule generation request succeeded and tasks have been generated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenerateScheduleResponse"
+                },
+                "example": {
+                  "data": {
+                    "scheduleInstanceId": 16304,
+                    "status": "RUNNING"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The supplied schedule definition code missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "parameterError",
+                      "title": "The schedule definition code passed was invalid"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorised",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAuthenticated",
+                      "title": "User is not authenticated"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "No permissions to create schedule in VRS",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAuthorized",
+                      "title": "No permissions to view this item"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The schedule definition code could not be found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notFound",
+                      "title": "The schedule definition code passed was not found"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Unsupported Accept header. Header needs to be set to application/json.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAcceptable",
+                      "title": "Unsupported Accept header. Header needs to be set to application/json"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/{tenant}/schedules/{scheduleId}/{status}": {
+      "patch": {
+        "operationId": "updateScheduleStatus",
+        "tags": [
+          "Workflow"
+        ],
+        "summary": "Update schedule status for specified schedule",
+        "description": "Updated the schedule status for the specified schedule id based on the given status",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "tenant",
+            "description": "The code of the tenancy",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "example": "TENANT"
+          },
+          {
+            "in": "path",
+            "name": "scheduleId",
+            "description": "The schedule id for which to update the status",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "example": "123456"
+          },
+          {
+            "in": "path",
+            "name": "status",
+            "description": "The schedule status that needs to be updated only if the transition is valid",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "INITIALISED",
+                "RUNNING",
+                "CANCELLED",
+                "SUSPENDED",
+                "FINISHED",
+                "CLOSED",
+                "GENERATING_TASKS"
+              ]
+            },
+            "required": true,
+            "example": "RUNNING"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update schedule request succeeded and status has been changed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduleStatusUpdateResponse"
+                },
+                "example": {
+                  "data": {
+                    "scheduleId": 16304,
+                    "lastUpdatedBy": "test_user",
+                    "notes": "Automatically created at 2017-05-31 10:17:05 Europe/London",
+                    "name": "Test schddefn _1234 (2017.05.31 10:17)",
+                    "definitionName": "Test schddefn _1234",
+                    "startDate": "1586870729577",
+                    "finishDate": "1694588295897",
+                    "group": "test_group",
+                    "businessCalendar": "United Kingdom",
+                    "reportDate": "1586802600577",
+                    "lastUpdated": "1694608095920",
+                    "noOfTasks": 12,
+                    "owner": "Admin",
+                    "status": "RUNNING"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Schedule status in the request is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "parameterError",
+                      "title": "Schedule status is missing or invalid"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorised",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAuthenticated",
+                      "title": "User is not authenticated"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "No permissions to update schedule in VRS",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAuthorized",
+                      "title": "No permissions to update this item"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The schedule id could not be found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notFound",
+                      "title": "JPQL query: No records returned"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Unsupported Accept header. Header needs to be set to application/json.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAcceptable",
+                      "title": "Unsupported Accept header. Header needs to be set to application/json"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/{tenant}/schedules/{scheduleId}/logs": {
+      "get": {
+        "operationId": "getScheduleGenerationLogs",
+        "tags": [
+          "Workflow"
+        ],
+        "summary": "Gets the generation logs for a specific schedule",
+        "description": "Gets the generation logs for a specific schedule based on the Schedule ID. Allows the user to sort and filter logs.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "tenant",
+            "description": "The code of the tenancy",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "example": "TENANT"
+          },
+          {
+            "in": "path",
+            "name": "scheduleId",
+            "description": "The scheduleId for which the logs are requested",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "example": "123456"
+          },
+          {
+            "in": "query",
+            "name": "type",
+            "description": "Acts as a filter for the retrieval process. Filters the log instances that match the input type",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "INFO",
+                "WARN",
+                "SUCCESS",
+                "ERROR",
+                "DEBUG",
+                "FINISHED"
+              ]
+            },
+            "example": "INFO"
+          },
+          {
+            "in": "query",
+            "name": "message",
+            "description": "Acts as a filter for the retrieval process. Filters the log instances that match the input message",
+            "schema": {
+              "type": "string"
+            },
+            "example": "package definition"
+          },
+          {
+            "in": "query",
+            "name": "logSet",
+            "description": "Acts as a filter for the retrieval process. Filters the log instances that match the input logset",
+            "schema": {
+              "type": "string"
+            },
+            "example": "1"
+          },
+          {
+            "in": "query",
+            "name": "startDate",
+            "description": "Acts as a filter for the retrieval process. Filters the log instances based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00).",
+            "schema": {
+              "type": "string"
+            },
+            "example": "25 March 2024 00:00:00"
+          },
+          {
+            "in": "query",
+            "name": "endDate",
+            "description": "Acts as a filter for the retrieval process. Filters the log instances based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00).",
+            "schema": {
+              "type": "string"
+            },
+            "example": "25 March 2024 00:00:00"
+          },
+          {
+            "in": "query",
+            "name": "_sort",
+            "description": "The column to sort on. Can add - to sort",
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "maxItems": 1,
+              "items": {
+                "type": "string"
+              }
+            },
+            "examples": {
+              "sequenceNumber": {
+                "value": [
+                  "sequenceNumber"
+                ],
+                "description": "The sequence number of the log entry"
+              },
+              "type": {
+                "value": [
+                  "type"
+                ],
+                "description": "The type of the log to sort"
+              },
+              "lastUpdated": {
+                "value": [
+                  "lastUpdated"
+                ],
+                "description": "The date of the log to sort"
+              }
+            }
+          },
+          {
+            "in": "query",
+            "name": "_paginationLimit",
+            "description": "Non-negative maximum number of entries to return",
+            "schema": {
+              "type": "integer",
+              "default": 25
+            },
+            "example": 10
+          },
+          {
+            "in": "query",
+            "name": "_paginationOffset",
+            "description": "Non-negative number of entries to skip",
+            "schema": {
+              "type": "integer",
+              "default": 0
+            },
+            "example": 0
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduleGenerationLogList"
+                },
+                "example": {
+                  "meta": {
+                    "pagination": {
+                      "total": 10,
+                      "isEstimatedTotal": false
+                    },
+                    "sort": [
+                      "name"
+                    ]
+                  },
+                  "data": [
+                    {
+                      "sequenceNumber": 10,
+                      "message": "Creating tasks",
+                      "type": "INFO",
+                      "lastUpdated": "1709176498527",
+                      "logSet": 1
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request. Required values not provided in request parameter or invalid values given (e.g. tenant, type)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "parameterError",
+                      "title": "The tenancy provided is invalid or not active"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorised",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAuthenticated",
+                      "title": "User is not authenticated"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "No permissions to view schedule logs in VRS",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAuthorized",
+                      "title": "No permissions to view this item"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Unsupported Accept header. Header needs to be set to application/json.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAcceptable",
+                      "title": "Unsupported Accept header. Header needs to be set to\n    application/json"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/scim/v2/Users": {
       "get": {
         "operationId": "getAllUsers",
@@ -3176,9 +4315,9 @@
                 "displayName": "vrstestgroup",
                 "members": [
                   {
-                    "value": "218",
+                    "value": "scimuser1",
                     "type": "user",
-                    "$ref": "VRSAPI/scim/v2/Users/218"
+                    "$ref": "VRSAPI/scim/v2/Users/1"
                   }
                 ],
                 "tenant": "XXXXXXXXXX",
@@ -3531,9 +4670,9 @@
                 "displayName": "vrstestgroup",
                 "members": [
                   {
-                    "value": "45678",
+                    "value": "scimuser1",
                     "type": "user",
-                    "$ref": "VRSAPI/scim/v2/Users/45678"
+                    "$ref": "VRSAPI/scim/v2/Users/1"
                   }
                 ],
                 "tenant": "XXXXXXXXXX",
@@ -4262,6 +5401,317 @@
       "ReportDataResponse": {
         "type": "string",
         "format": "binary"
+      },
+      "ScheduleDefinitionsList": {
+        "type": "object",
+        "properties": {
+          "meta": {
+            "type": "object",
+            "properties": {
+              "pagination": {
+                "type": "object",
+                "properties": {
+                  "total": {
+                    "type": "integer"
+                  },
+                  "isEstimatedTotal": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              "sort": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ScheduleDefinition"
+            }
+          }
+        }
+      },
+      "ScheduleDefinition": {
+        "type": "object",
+        "properties": {
+          "scheduleDefinitionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "scheduleType": {
+            "type": "string",
+            "enum": [
+              "MANUAL",
+              "REPEATING",
+              "TEMPLATE",
+              "ADHOC"
+            ]
+          },
+          "scheduleGroup": {
+            "type": "string"
+          },
+          "reportDate": {
+            "type": "string",
+            "enum": [
+              "LAST_DAY_OF_PREV_MONTH",
+              "LAST_BUSINESS_DAY_OF_PREV_MONTH",
+              "CREATION_DATE",
+              "DAY_BEFORE_CREATION_DATE",
+              "BUSINESS_DAY_BEFORE_CREATION_DATE",
+              "LAST_DAY_OF_MONTH_SCHEDULE_CREATED",
+              "LAST_BUSINESS_DAY_OF_MONTH_SCHEDULE_CREATED",
+              "LAST_BUSINESS_DAY_OF_PREVIOUS_WEEK_SCHEDULE_CREATED",
+              "LAST_BUSINESS_DAY_OF_WEEK_SCHEDULE_CREATED",
+              "TWO_BUSINESS_DAYS_BEFORE_SCHEDULE_CREATED"
+            ]
+          },
+          "numberOfObligations": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "businessCalendar": {
+            "type": "string"
+          },
+          "deleteScheduleAfterDays": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "numberOfPackages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "entities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EntityDTO"
+            }
+          },
+          "ownerRole": {
+            "type": "object",
+            "properties": {
+              "roleId": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "name": {
+                "type": "string"
+              },
+              "code": {
+                "type": "string"
+              }
+            }
+          },
+          "notes": {
+            "type": "string"
+          },
+          "lastUpdatedBy": {
+            "type": "string"
+          },
+          "lastUpdated": {
+            "type": "string"
+          }
+        }
+      },
+      "SchedulesList": {
+        "type": "object",
+        "properties": {
+          "meta": {
+            "type": "object",
+            "properties": {
+              "pagination": {
+                "type": "object",
+                "properties": {
+                  "total": {
+                    "type": "integer"
+                  },
+                  "isEstimatedTotal": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              "sort": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ScheduleData"
+            }
+          }
+        }
+      },
+      "ScheduleStatusUpdateResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ScheduleData"
+          }
+        }
+      },
+      "ScheduleData": {
+        "type": "object",
+        "properties": {
+          "scheduleId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          },
+          "definitionName": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "INITIALISED",
+              "RUNNING",
+              "CANCELLED",
+              "SUSPENDED",
+              "FINISHED",
+              "CLOSED",
+              "GENERATING_TASKS"
+            ]
+          },
+          "group": {
+            "type": "string"
+          },
+          "reportDate": {
+            "type": "string"
+          },
+          "noOfTasks": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "businessCalendar": {
+            "type": "string"
+          },
+          "owner": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "finishDate": {
+            "type": "string"
+          },
+          "startDate": {
+            "type": "string"
+          },
+          "lastUpdatedBy": {
+            "type": "string"
+          },
+          "lastUpdated": {
+            "type": "string"
+          }
+        }
+      },
+      "GenerateScheduleResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ScheduleInstanceData"
+          }
+        }
+      },
+      "ScheduleInstanceData": {
+        "type": "object",
+        "properties": {
+          "scheduleInstanceId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "INITIALISED",
+              "RUNNING",
+              "CANCELLED",
+              "SUSPENDED",
+              "FINISHED",
+              "CLOSED",
+              "GENERATING_TASKS"
+            ]
+          }
+        }
+      },
+      "ScheduleGenerationLogList": {
+        "type": "object",
+        "properties": {
+          "meta": {
+            "type": "object",
+            "properties": {
+              "pagination": {
+                "type": "object",
+                "properties": {
+                  "total": {
+                    "type": "integer"
+                  },
+                  "isEstimatedTotal": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              "sort": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ScheduleGenerationLog"
+            }
+          }
+        }
+      },
+      "ScheduleGenerationLog": {
+        "type": "object",
+        "properties": {
+          "sequenceNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "INFO",
+              "WARN",
+              "SUCCESS",
+              "ERROR",
+              "DEBUG",
+              "FINISHED"
+            ]
+          },
+          "logSet": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "lastUpdated": {
+            "type": "string"
+          }
+        }
       },
       "ScimUser": {
         "type": "object",

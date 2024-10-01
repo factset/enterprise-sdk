@@ -1,14 +1,14 @@
 # irnmeetings.MeetingsApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createMeeting**](MeetingsApi.md#createMeeting) | **POST** /v1/meetings | Create a meeting
-[**deleteMeeting**](MeetingsApi.md#deleteMeeting) | **DELETE** /v1/meetings/{meetingId} | Delete a Meeting
-[**getMeeting**](MeetingsApi.md#getMeeting) | **GET** /v1/meetings/{meetingId} | Get details of a meeting
-[**getMeetings**](MeetingsApi.md#getMeetings) | **GET** /v1/meetings | Get all the meetings in the specified date range filtered on the given identifiers
-[**updateMeeting**](MeetingsApi.md#updateMeeting) | **PUT** /v1/meetings/{meetingId} | Update meeting
+[**createMeeting**](MeetingsApi.md#createMeeting) | **POST** /meetings | Create a meeting
+[**deleteMeeting**](MeetingsApi.md#deleteMeeting) | **DELETE** /meetings/{meetingId} | Delete a Meeting
+[**getMeeting**](MeetingsApi.md#getMeeting) | **GET** /meetings/{meetingId} | Get details of a meeting
+[**getMeetings**](MeetingsApi.md#getMeetings) | **GET** /meetings | Get all the meetings in the specified date range filtered on the given identifiers
+[**updateMeeting**](MeetingsApi.md#updateMeeting) | **PUT** /meetings/{meetingId} | Update meeting
 
 
 
@@ -17,6 +17,8 @@ Method | HTTP request | Description
 > NewItemDto createMeeting(opts)
 
 Create a meeting
+
+Create a meeting with the given details like date, time, location, attendees, etc.
 
 ### Example
 
@@ -97,6 +99,8 @@ Name | Type | Description  | Notes
 
 Delete a Meeting
 
+Delete a meeting by providing the meeting id.
+
 ### Example
 
 > [!IMPORTANT]
@@ -130,7 +134,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new MeetingsApi();
-const meetingId = "meetingId_example"; // String | 
+const meetingId = "meetingId_example"; // String | Meeting Id
 
 // Call api endpoint
 apiInstance.deleteMeeting(meetingId).then(
@@ -150,7 +154,7 @@ apiInstance.deleteMeeting(meetingId).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **meetingId** | **String**|  | 
+ **meetingId** | **String**| Meeting Id | 
 
 ### Return type
 
@@ -171,6 +175,8 @@ null (empty response body)
 > MeetingDto getMeeting(meetingId)
 
 Get details of a meeting
+
+Get details of a meeting by providing the meeting id.
 
 ### Example
 
@@ -248,6 +254,8 @@ Name | Type | Description  | Notes
 > [MeetingSummaryDto] getMeetings(opts)
 
 Get all the meetings in the specified date range filtered on the given identifiers
+
+Get all the meetings in the specified date range filtered on the given identifiers.
 
 ### Example
 
@@ -339,6 +347,8 @@ Name | Type | Description  | Notes
 > updateMeeting(meetingId, opts)
 
 Update meeting
+
+Update the details of a meeting by providing the meeting id based on the given details.
 
 ### Example
 

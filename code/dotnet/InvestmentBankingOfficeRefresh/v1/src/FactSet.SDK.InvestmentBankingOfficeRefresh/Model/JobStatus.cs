@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.InvestmentBankingOfficeRefresh.Client.O
 namespace FactSet.SDK.InvestmentBankingOfficeRefresh.Model
 {
     /// <summary>
-    /// JobStatus
+    /// Status information about a job
     /// </summary>
     [DataContract(Name = "JobStatus")]
     public partial class JobStatus : IEquatable<JobStatus>, IValidatableObject

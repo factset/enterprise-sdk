@@ -1,11 +1,11 @@
 # fds.sdk.IRNMeetings.EventsApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_events**](EventsApi.md#get_events) | **GET** /v1/meetings/{meetingId}/events | Get all the record events that belong to a meeting
-[**get_record_event**](EventsApi.md#get_record_event) | **GET** /v1/meetings/{meetingId}/events/{recordEventId} | Get details of a record event of a meeting
+[**get_events**](EventsApi.md#get_events) | **GET** /meetings/{meetingId}/events | Get all the record events that belong to a meeting
+[**get_record_event**](EventsApi.md#get_record_event) | **GET** /meetings/{meetingId}/events/{recordEventId} | Get details of a record event of a meeting
 
 
 
@@ -13,6 +13,8 @@ Method | HTTP request | Description
 > [RecordEventSummaryDto] get_events(meeting_id)
 
 Get all the record events that belong to a meeting
+
+Get all the record events that belong to a meeting by providing the meeting id.
 
 ### Example
 
@@ -107,6 +109,8 @@ Name | Type | Description  | Notes
 > MeetingEventDto get_record_event(meeting_id, record_event_id)
 
 Get details of a record event of a meeting
+
+Get details of record event of meeting by providing recordeventid and meetingid
 
 ### Example
 

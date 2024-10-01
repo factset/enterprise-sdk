@@ -25,6 +25,7 @@ docs/EntityFieldValueDTO.md
 docs/EntitySelection.md
 docs/Error.md
 docs/ErrorList.md
+docs/GenerateScheduleResponse.md
 docs/RecordSetFieldValues.md
 docs/RecordSetFields.md
 docs/ReportApi.md
@@ -43,6 +44,15 @@ docs/ReportInstanceListMeta.md
 docs/ReportInstanceLogDTO.md
 docs/ReportInstanceLogList.md
 docs/ReportRevisionDTO.md
+docs/ScheduleData.md
+docs/ScheduleDefinition.md
+docs/ScheduleDefinitionOwnerRole.md
+docs/ScheduleDefinitionsList.md
+docs/ScheduleGenerationLog.md
+docs/ScheduleGenerationLogList.md
+docs/ScheduleInstanceData.md
+docs/ScheduleStatusUpdateResponse.md
+docs/SchedulesList.md
 docs/ScimApi.md
 docs/ScimEmail.md
 docs/ScimError.md
@@ -65,6 +75,7 @@ docs/Tenancy.md
 docs/VersionApi.md
 docs/VersionResponseBody.md
 docs/VersionResponseBodyData.md
+docs/WorkflowApi.md
 git_push.sh
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
@@ -91,6 +102,7 @@ src/main/java/com/factset/sdk/Vermilion/api/ReportApi.java
 src/main/java/com/factset/sdk/Vermilion/api/ReportInstanceApi.java
 src/main/java/com/factset/sdk/Vermilion/api/ScimApi.java
 src/main/java/com/factset/sdk/Vermilion/api/VersionApi.java
+src/main/java/com/factset/sdk/Vermilion/api/WorkflowApi.java
 src/main/java/com/factset/sdk/Vermilion/auth/ApiKeyAuth.java
 src/main/java/com/factset/sdk/Vermilion/auth/Authentication.java
 src/main/java/com/factset/sdk/Vermilion/auth/FactSetOAuth2ClientAuth.java
@@ -116,6 +128,7 @@ src/main/java/com/factset/sdk/Vermilion/models/EntityFieldValueDTO.java
 src/main/java/com/factset/sdk/Vermilion/models/EntitySelection.java
 src/main/java/com/factset/sdk/Vermilion/models/Error.java
 src/main/java/com/factset/sdk/Vermilion/models/ErrorList.java
+src/main/java/com/factset/sdk/Vermilion/models/GenerateScheduleResponse.java
 src/main/java/com/factset/sdk/Vermilion/models/RecordSetFieldValues.java
 src/main/java/com/factset/sdk/Vermilion/models/RecordSetFields.java
 src/main/java/com/factset/sdk/Vermilion/models/ReportDefinitionDTO.java
@@ -132,6 +145,15 @@ src/main/java/com/factset/sdk/Vermilion/models/ReportInstanceListMeta.java
 src/main/java/com/factset/sdk/Vermilion/models/ReportInstanceLogDTO.java
 src/main/java/com/factset/sdk/Vermilion/models/ReportInstanceLogList.java
 src/main/java/com/factset/sdk/Vermilion/models/ReportRevisionDTO.java
+src/main/java/com/factset/sdk/Vermilion/models/ScheduleData.java
+src/main/java/com/factset/sdk/Vermilion/models/ScheduleDefinition.java
+src/main/java/com/factset/sdk/Vermilion/models/ScheduleDefinitionOwnerRole.java
+src/main/java/com/factset/sdk/Vermilion/models/ScheduleDefinitionsList.java
+src/main/java/com/factset/sdk/Vermilion/models/ScheduleGenerationLog.java
+src/main/java/com/factset/sdk/Vermilion/models/ScheduleGenerationLogList.java
+src/main/java/com/factset/sdk/Vermilion/models/ScheduleInstanceData.java
+src/main/java/com/factset/sdk/Vermilion/models/ScheduleStatusUpdateResponse.java
+src/main/java/com/factset/sdk/Vermilion/models/SchedulesList.java
 src/main/java/com/factset/sdk/Vermilion/models/ScimEmail.java
 src/main/java/com/factset/sdk/Vermilion/models/ScimError.java
 src/main/java/com/factset/sdk/Vermilion/models/ScimGroup.java

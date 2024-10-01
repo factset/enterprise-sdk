@@ -320,6 +320,8 @@ paths:
                       description: Hanoi Stock Exchange - HNX News
                     - source: SDR
                       description: SEDAR
+                    - source: SDRP
+                      description: SEDAR PLUS
                     - source: SENS
                       description: Stock Exchange News Service
                     - source: TDT

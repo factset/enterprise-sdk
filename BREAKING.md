@@ -1,6 +1,10 @@
 # Breaking Changes
 
-## 2024-10-01 Formula: Deserialization of BatchData
+## 2024-09-01 IRN Meetings API SDK: Attachments-related functions
+
+Endpoints that return attachments now correctly return a file or stream object (depending on the programming language) instead of an empty response or generic object.
+
+## 2024-10-01 Formula API SDK: Deserialization of BatchData
 
 When a long-running `BatchRequest` is made to the `/time-series` endpoint, the `/batch-result` response containing `BatchData` may be incorrectly deserialized as `CrossSectionalResponseObjectItems` instead of `TimeSeriesResponseObjectItems`.
 

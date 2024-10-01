@@ -1,13 +1,13 @@
 # FactSet.SDK.IRNMeetings.Api.AttachmentsApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateAttachment**](AttachmentsApi.md#createattachment) | **POST** /v1/meetings/{meetingId}/attachments | Create an attachment for a existing meeting
-[**DownloadAttachment**](AttachmentsApi.md#downloadattachment) | **GET** /v1/meetings/{meetingId}/attachments/{attachmentId}/download | Download an attachment from a Meeting
-[**GetAttachments**](AttachmentsApi.md#getattachments) | **GET** /v1/meetings/{meetingId}/attachments | Get all the attachments belonging to a meeting
-[**SoftDeleteMeetingAttachment**](AttachmentsApi.md#softdeletemeetingattachment) | **DELETE** /v1/meetings/{meetingId}/attachments/{attachmentId} | Delete attachment from meeting
+[**CreateAttachment**](AttachmentsApi.md#createattachment) | **POST** /meetings/{meetingId}/attachments | Create an attachment for a existing meeting
+[**DownloadAttachment**](AttachmentsApi.md#downloadattachment) | **GET** /meetings/{meetingId}/attachments/{attachmentId}/download | Download an attachment from a Meeting
+[**GetAttachments**](AttachmentsApi.md#getattachments) | **GET** /meetings/{meetingId}/attachments | Get all the attachments belonging to a meeting
+[**SoftDeleteMeetingAttachment**](AttachmentsApi.md#softdeletemeetingattachment) | **DELETE** /meetings/{meetingId}/attachments/{attachmentId} | Delete attachment from meeting
 
 
 
@@ -16,6 +16,8 @@ Method | HTTP request | Description
 > NewItemDto CreateAttachment (Guid meetingId, System.IO.Stream file)
 
 Create an attachment for a existing meeting
+
+Create an attachment for a existing meeting by providing the meeting id and atatchment details.
 
 ### Example
 
@@ -113,9 +115,11 @@ Name | Type | Description  | Notes
 
 <a name="downloadattachment"></a>
 # **DownloadAttachment**
-> void DownloadAttachment (Guid meetingId, Guid attachmentId)
+> System.IO.Stream DownloadAttachment (Guid meetingId, Guid attachmentId)
 
 Download an attachment from a Meeting
+
+Download an attachment from a Meeting by providing the meeting id and attachment id.
 
 ### Example
 
@@ -161,13 +165,14 @@ namespace Example
 
             var apiInstance = new AttachmentsApi(config);
 
-            var meetingId = "meetingId_example";  // Guid | 
-            var attachmentId = "attachmentId_example";  // Guid | 
+            var meetingId = "meetingId_example";  // Guid | Meeting Id
+            var attachmentId = "attachmentId_example";  // Guid | Attachment Id
 
             try
             {
                 // Download an attachment from a Meeting
-                apiInstance.DownloadAttachment(meetingId, attachmentId);
+                System.IO.Stream result = apiInstance.DownloadAttachment(meetingId, attachmentId);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
@@ -184,11 +189,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **meetingId** | **Guid**|  | 
- **attachmentId** | **Guid**|  | 
+ **meetingId** | **Guid**| Meeting Id | 
+ **attachmentId** | **Guid**| Attachment Id | 
 
 ### Return type
-void (empty response body)
+**System.IO.Stream**
 
 ### Authorization
 
@@ -197,7 +202,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/octet-stream, application/json
 
 
 ### HTTP response details
@@ -216,6 +221,8 @@ void (empty response body)
 > List&lt;AttachmentSummaryDto&gt; GetAttachments (Guid meetingId)
 
 Get all the attachments belonging to a meeting
+
+Get all the attachments belonging to a meeting by providing the meeting id.
 
 ### Example
 
@@ -314,6 +321,8 @@ Name | Type | Description  | Notes
 > void SoftDeleteMeetingAttachment (Guid meetingId, Guid attachmentId)
 
 Delete attachment from meeting
+
+Delete a attachment from a meeting by providing the meeting id and attachment id.
 
 ### Example
 

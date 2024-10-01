@@ -6,13 +6,13 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetFileById**](RefreshOperationsApi.md#getfilebyid) | **GET** /refresh/{id} | Retrieve a calculated file by resource ID.
 [**GetStatusById**](RefreshOperationsApi.md#getstatusbyid) | **GET** /refresh/{id}/status | Get the status of the refresh job with the given resource ID
-[**PostWorkbook**](RefreshOperationsApi.md#postworkbook) | **POST** /refresh/calculate | Upload a spreadsheet file
+[**PostWorkbook**](RefreshOperationsApi.md#postworkbook) | **POST** /refresh/calculate | Refresh a spreadsheet file
 
 
 
 <a name="getfilebyid"></a>
 # **GetFileById**
-> System.IO.Stream GetFileById (Guid id)
+> System.IO.Stream GetFileById (Guid id, bool? deleteFile = null)
 
 Retrieve a calculated file by resource ID.
 
@@ -64,11 +64,12 @@ namespace Example
             var apiInstance = new RefreshOperationsApi(config);
 
             var id = "id_example";  // Guid | Unique identifier for the job (resource ID returned from FactSet).
+            var deleteFile = true;  // bool? | Delete the file from FactSet servers after completing the request. (optional)  (default to true)
 
             try
             {
                 // Retrieve a calculated file by resource ID.
-                RefreshOperationsApi.GetFileByIdResponseWrapper result = apiInstance.GetFileById(id);
+                RefreshOperationsApi.GetFileByIdResponseWrapper result = apiInstance.GetFileById(id, deleteFile);
 
                 switch (result.StatusCode)
                 {
@@ -99,6 +100,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Guid**| Unique identifier for the job (resource ID returned from FactSet). | 
+ **deleteFile** | **bool?**| Delete the file from FactSet servers after completing the request. | [optional] [default to true]
 
 ### Return type
 **System.IO.Stream**
@@ -233,9 +235,9 @@ Name | Type | Description  | Notes
 # **PostWorkbook**
 > JobStatus PostWorkbook (System.IO.Stream body, bool? nowHandlingEnabled = null, bool? refreshAutoFilters = null, bool? resizeArrays = null)
 
-Upload a spreadsheet file
+Refresh a spreadsheet file
 
-Upload a spreadsheet file (in the Open Office XML format) for FactSet to refresh.
+Start refreshing a spreadsheet file (in the Open Office XML format).
 
 ### Example
 
@@ -283,12 +285,12 @@ namespace Example
 
             var body = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | 
             var nowHandlingEnabled = true;  // bool? | Return \\#VALUE for =FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118. (optional) 
-            var refreshAutoFilters = true;  // bool? | Option to refresh =FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is false.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional) 
+            var refreshAutoFilters = true;  // bool? | Option to refresh =FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional) 
             var resizeArrays = true;  // bool? | Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional) 
 
             try
             {
-                // Upload a spreadsheet file
+                // Refresh a spreadsheet file
                 JobStatus result = apiInstance.PostWorkbook(body, nowHandlingEnabled, refreshAutoFilters, resizeArrays);
                 Console.WriteLine(result.ToJson());
             }
@@ -309,7 +311,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | **System.IO.Stream****System.IO.Stream**|  | 
  **nowHandlingEnabled** | **bool?**| Return \\#VALUE for &#x3D;FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118. | [optional] 
- **refreshAutoFilters** | **bool?**| Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is false.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds | [optional] 
+ **refreshAutoFilters** | **bool?**| Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds | [optional] 
  **resizeArrays** | **bool?**| Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds | [optional] 
 
 ### Return type
@@ -328,7 +330,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **202** | Accepted |  * Location - Relative URL to check status of the request. <br>  |
+| **202** | Accepted |  * Location - Relative URL to check status of the request. <br>  * X-Concurrent-Limit -  <br>  * X-Concurrent-Limit-Remaining -  <br>  * X-Weekly-Limit -  <br>  * X-Weekly-Limit-Remaining -  <br>  |
 | **400** | Bad Request |  -  |
 | **403** | Forbidden. The user&#39;s subscription is missing required CACCESS. |  -  |
 | **413** | File Too Large.  Currently only accepting files up to 50MB. |  -  |

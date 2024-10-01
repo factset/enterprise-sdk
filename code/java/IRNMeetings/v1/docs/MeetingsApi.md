@@ -1,14 +1,14 @@
 # MeetingsApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createMeeting**](MeetingsApi.md#createMeeting) | **POST** /v1/meetings | Create a meeting
-[**deleteMeeting**](MeetingsApi.md#deleteMeeting) | **DELETE** /v1/meetings/{meetingId} | Delete a Meeting
-[**getMeeting**](MeetingsApi.md#getMeeting) | **GET** /v1/meetings/{meetingId} | Get details of a meeting
-[**getMeetings**](MeetingsApi.md#getMeetings) | **GET** /v1/meetings | Get all the meetings in the specified date range filtered on the given identifiers
-[**updateMeeting**](MeetingsApi.md#updateMeeting) | **PUT** /v1/meetings/{meetingId} | Update meeting
+[**createMeeting**](MeetingsApi.md#createMeeting) | **POST** /meetings | Create a meeting
+[**deleteMeeting**](MeetingsApi.md#deleteMeeting) | **DELETE** /meetings/{meetingId} | Delete a Meeting
+[**getMeeting**](MeetingsApi.md#getMeeting) | **GET** /meetings/{meetingId} | Get details of a meeting
+[**getMeetings**](MeetingsApi.md#getMeetings) | **GET** /meetings | Get all the meetings in the specified date range filtered on the given identifiers
+[**updateMeeting**](MeetingsApi.md#updateMeeting) | **PUT** /meetings/{meetingId} | Update meeting
 
 
 
@@ -17,6 +17,8 @@ Method | HTTP request | Description
 > NewItemDto createMeeting(createMeetingDto)
 
 Create a meeting
+
+Create a meeting with the given details like date, time, location, attendees, etc.
 
 ### Example
 
@@ -109,6 +111,8 @@ Name | Type | Description  | Notes
 
 Delete a Meeting
 
+Delete a meeting by providing the meeting id.
+
 ### Example
 
 > [!IMPORTANT]
@@ -150,7 +154,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         MeetingsApi apiInstance = new MeetingsApi(defaultClient);
-        java.util.UUID meetingId = new java.util.UUID(); // java.util.UUID | 
+        java.util.UUID meetingId = new java.util.UUID(); // java.util.UUID | Meeting Id
         try {
             apiInstance.deleteMeeting(meetingId);
 
@@ -170,7 +174,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **meetingId** | **java.util.UUID**|  |
+ **meetingId** | **java.util.UUID**| Meeting Id |
 
 ### Return type
 
@@ -199,6 +203,8 @@ null (empty response body)
 > MeetingDto getMeeting(meetingId)
 
 Get details of a meeting
+
+Get details of a meeting by providing the meeting id.
 
 ### Example
 
@@ -290,6 +296,8 @@ Name | Type | Description  | Notes
 > java.util.List<MeetingSummaryDto> getMeetings(start, end, identifiers, limit, modifiedSince, includeRelatedEntities, xIRNIncludeDeleted)
 
 Get all the meetings in the specified date range filtered on the given identifiers
+
+Get all the meetings in the specified date range filtered on the given identifiers.
 
 ### Example
 
@@ -392,6 +400,8 @@ Name | Type | Description  | Notes
 > updateMeeting(meetingId, updateMeetingDto)
 
 Update meeting
+
+Update the details of a meeting by providing the meeting id based on the given details.
 
 ### Example
 

@@ -1,24 +1,40 @@
 openapi: 3.0.1
 info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
   description: Allows users to extract, create, update and configure IRN data.
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
   title: IRN API v1
-  version: "1"
+  version: 1.4.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/irn-meetings-api#apiDocumentation
 servers:
 - description: Production Server
-  url: https://api.factset.com/research/irn
-- description: Sandbox
-  url: https://api-sandbox.factset.com/research/irn
+  url: https://api.factset.com/research/irn/v1
+- description: Sandbox Server
+  url: https://api-sandbox.factset.com/research/irn/v1
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
 tags:
-- name: Attachments
-- name: Comments
-- name: Events
-- name: Meetings
+- description: Attachments related operations
+  name: Attachments
+- description: Comments related operations
+  name: Comments
+- description: Events related operations
+  name: Events
+- description: Meetings related operations
+  name: Meetings
 paths:
-  /v1/meetings:
+  /meetings:
     get:
+      description: Get all the meetings in the specified date range filtered on the
+        given identifiers.
       operationId: GetMeetings
       parameters:
       - description: StartDate
@@ -105,6 +121,8 @@ paths:
       - Meetings
       x-accepts: application/json
     post:
+      description: Create a meeting with the given details like date, time, location,
+        attendees, etc.
       operationId: CreateMeeting
       requestBody:
         content:
@@ -145,11 +163,13 @@ paths:
       - Meetings
       x-contentType: application/json-patch+json
       x-accepts: application/json
-  /v1/meetings/{meetingId}:
+  /meetings/{meetingId}:
     delete:
+      description: Delete a meeting by providing the meeting id.
       operationId: DeleteMeeting
       parameters:
-      - explode: false
+      - description: Meeting Id
+        explode: false
         in: path
         name: meetingId
         required: true
@@ -183,6 +203,7 @@ paths:
       - Meetings
       x-accepts: application/json
     get:
+      description: Get details of a meeting by providing the meeting id.
       operationId: GetMeeting
       parameters:
       - description: Meeting Id
@@ -218,6 +239,8 @@ paths:
       - Meetings
       x-accepts: application/json
     put:
+      description: Update the details of a meeting by providing the meeting id based
+        on the given details.
       operationId: UpdateMeeting
       parameters:
       - description: Meeting Id
@@ -271,8 +294,10 @@ paths:
       - Meetings
       x-contentType: application/json-patch+json
       x-accepts: application/json
-  /v1/meetings/{meetingId}/attachments:
+  /meetings/{meetingId}/attachments:
     get:
+      description: Get all the attachments belonging to a meeting by providing the
+        meeting id.
       operationId: GetAttachments
       parameters:
       - description: Meeting Id
@@ -310,6 +335,8 @@ paths:
       - Attachments
       x-accepts: application/json
     post:
+      description: Create an attachment for a existing meeting by providing the meeting
+        id and atatchment details.
       operationId: CreateAttachment
       parameters:
       - description: Meeting Id
@@ -357,11 +384,14 @@ paths:
       - Attachments
       x-contentType: multipart/form-data
       x-accepts: application/json
-  /v1/meetings/{meetingId}/attachments/{attachmentId}/download:
+  /meetings/{meetingId}/attachments/{attachmentId}/download:
     get:
+      description: Download an attachment from a Meeting by providing the meeting
+        id and attachment id.
       operationId: DownloadAttachment
       parameters:
-      - explode: false
+      - description: Meeting Id
+        explode: false
         in: path
         name: meetingId
         required: true
@@ -369,7 +399,8 @@ paths:
           format: uuid
           type: string
         style: simple
-      - explode: false
+      - description: Attachment Id
+        explode: false
         in: path
         name: attachmentId
         required: true
@@ -379,6 +410,11 @@ paths:
         style: simple
       responses:
         "200":
+          content:
+            application/octet-stream:
+              schema:
+                format: binary
+                type: string
           description: Success
         "400":
           content:
@@ -402,11 +438,13 @@ paths:
       tags:
       - Attachments
       x-accepts: application/json
-  /v1/meetings/{meetingId}/comments:
+  /meetings/{meetingId}/comments:
     get:
+      description: Get all comments for a meeting by providing the meeting id.
       operationId: GetComments
       parameters:
-      - explode: false
+      - description: Meeting Id
+        explode: false
         in: path
         name: meetingId
         required: true
@@ -446,9 +484,12 @@ paths:
       - Comments
       x-accepts: application/json
     post:
+      description: Create a comment to a Meeting by providing the meeting id and comment
+        details.
       operationId: CreateComment
       parameters:
-      - explode: false
+      - description: The meeting Id to which the comment will be added
+        explode: false
         in: path
         name: meetingId
         required: true
@@ -470,6 +511,7 @@ paths:
           application/*+json:
             schema:
               $ref: '#/components/schemas/CreateCommentDto'
+        description: The details of the comment to be created
       responses:
         "201":
           content:
@@ -502,11 +544,14 @@ paths:
       - Comments
       x-contentType: application/json-patch+json
       x-accepts: application/json
-  /v1/meetings/{meetingId}/comments/{commentId}:
+  /meetings/{meetingId}/comments/{commentId}:
     delete:
+      description: Delete a Comment from a Meeting by providing the meeting id and
+        comment id.
       operationId: DeleteComment
       parameters:
-      - explode: false
+      - description: Meeting Id
+        explode: false
         in: path
         name: meetingId
         required: true
@@ -514,7 +559,8 @@ paths:
           format: uuid
           type: string
         style: simple
-      - explode: false
+      - description: Comment Id
+        explode: false
         in: path
         name: commentId
         required: true
@@ -544,9 +590,12 @@ paths:
       - Comments
       x-accepts: application/json
     get:
+      description: Get details of a comment belonging to a meeting by providing the
+        meeting id and comment id.
       operationId: GetComment
       parameters:
-      - explode: false
+      - description: Meeting Id
+        explode: false
         in: path
         name: meetingId
         required: true
@@ -554,7 +603,8 @@ paths:
           format: uuid
           type: string
         style: simple
-      - explode: false
+      - description: Comment Id
+        explode: false
         in: path
         name: commentId
         required: true
@@ -592,9 +642,12 @@ paths:
       - Comments
       x-accepts: application/json
     patch:
+      description: Edit a comment for a meeting by providing the meeting id and comment
+        id.
       operationId: PatchComment
       parameters:
-      - explode: false
+      - description: Meeting Id
+        explode: false
         in: path
         name: meetingId
         required: true
@@ -602,7 +655,8 @@ paths:
           format: uuid
           type: string
         style: simple
-      - explode: false
+      - description: Comment Id
+        explode: false
         in: path
         name: commentId
         required: true
@@ -632,6 +686,7 @@ paths:
               items:
                 $ref: '#/components/schemas/Operation'
               type: array
+        description: The JSON patch document with updates for the comment
       responses:
         "200":
           description: Success
@@ -658,11 +713,14 @@ paths:
       - Comments
       x-contentType: application/json-patch+json
       x-accepts: application/json
-  /v1/meetings/{meetingId}/comments/{commentId}/attachments:
+  /meetings/{meetingId}/comments/{commentId}/attachments:
     get:
+      description: Get attachments summary of a comment belonging to a meeting by
+        providing the meeting id and comment id.
       operationId: GetCommentAttachments
       parameters:
-      - explode: false
+      - description: Meeting Id
+        explode: false
         in: path
         name: meetingId
         required: true
@@ -670,7 +728,8 @@ paths:
           format: uuid
           type: string
         style: simple
-      - explode: false
+      - description: Comment Id
+        explode: false
         in: path
         name: commentId
         required: true
@@ -710,9 +769,12 @@ paths:
       - Comments
       x-accepts: application/json
     post:
+      description: Create a attachment on a comment of a Meeting by providing the
+        meeting id and comment id and attachment details.
       operationId: CreateCommentAttachment
       parameters:
-      - explode: false
+      - description: Meeting Id
+        explode: false
         in: path
         name: meetingId
         required: true
@@ -720,7 +782,8 @@ paths:
           format: uuid
           type: string
         style: simple
-      - explode: false
+      - description: Comment Id
+        explode: false
         in: path
         name: commentId
         required: true
@@ -772,11 +835,14 @@ paths:
       - Comments
       x-contentType: multipart/form-data
       x-accepts: application/json
-  /v1/meetings/{meetingId}/comments/{commentId}/attachments/{attachmentId}/download:
+  /meetings/{meetingId}/comments/{commentId}/attachments/{attachmentId}/download:
     get:
+      description: Download single attachment detail of a comment belonging to a meeting
+        by providing the meeting id, comment id and attachment id.
       operationId: DownloadCommentAttachmentForComment
       parameters:
-      - explode: false
+      - description: Meeting Id
+        explode: false
         in: path
         name: meetingId
         required: true
@@ -784,7 +850,8 @@ paths:
           format: uuid
           type: string
         style: simple
-      - explode: false
+      - description: Comment Id
+        explode: false
         in: path
         name: commentId
         required: true
@@ -792,7 +859,8 @@ paths:
           format: uuid
           type: string
         style: simple
-      - explode: false
+      - description: Attachment Id
+        explode: false
         in: path
         name: attachmentId
         required: true
@@ -802,6 +870,11 @@ paths:
         style: simple
       responses:
         "200":
+          content:
+            application/octet-stream:
+              schema:
+                format: binary
+                type: string
           description: Success
         "400":
           content:
@@ -825,8 +898,10 @@ paths:
       tags:
       - Comments
       x-accepts: application/json
-  /v1/meetings/{meetingId}/events:
+  /meetings/{meetingId}/events:
     get:
+      description: Get all the record events that belong to a meeting by providing
+        the meeting id.
       operationId: GetEvents
       parameters:
       - description: Meeting ID
@@ -863,8 +938,10 @@ paths:
       tags:
       - Events
       x-accepts: application/json
-  /v1/meetings/{meetingId}/events/{recordEventId}:
+  /meetings/{meetingId}/events/{recordEventId}:
     get:
+      description: Get details of record event of meeting by providing recordeventid
+        and meetingid
       operationId: GetRecordEvent
       parameters:
       - description: Meeting Id
@@ -908,8 +985,10 @@ paths:
       tags:
       - Events
       x-accepts: application/json
-  /v1/meetings/{meetingId}/attachments/{attachmentId}:
+  /meetings/{meetingId}/attachments/{attachmentId}:
     delete:
+      description: Delete a attachment from a meeting by providing the meeting id
+        and attachment id.
       operationId: SoftDeleteMeetingAttachment
       parameters:
       - description: Meeting Id
@@ -969,12 +1048,12 @@ components:
             $ref: '#/components/schemas/inline_object'
   schemas:
     AttachmentSummaryDto:
-      additionalProperties: false
       example:
         fileName: fileName
         size: 0
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         mimeType: mimeType
+      nullable: true
       properties:
         id:
           format: uuid
@@ -991,11 +1070,11 @@ components:
           type: integer
       type: object
     AttendeeDto:
-      additionalProperties: false
       example:
         emailAddress: emailAddress
         fullName: fullName
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
@@ -1008,7 +1087,6 @@ components:
           type: string
       type: object
     CommentDto:
-      additionalProperties: false
       example:
         createdAt: createdAt
         attachments:
@@ -1031,6 +1109,7 @@ components:
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         authorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         body: body
+      nullable: true
       properties:
         id:
           format: uuid
@@ -1060,7 +1139,6 @@ components:
           type: array
       type: object
     CommentSummaryDto:
-      additionalProperties: false
       example:
         createdAt: createdAt
         subcomments:
@@ -1072,6 +1150,7 @@ components:
           userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
@@ -1089,17 +1168,17 @@ components:
           type: array
       type: object
     CreateBodyDto:
-      additionalProperties: false
       example:
         content: content
+      nullable: true
       properties:
         content:
           nullable: true
           type: string
       type: object
     CreateCommentDto:
-      additionalProperties: false
       example:
+        attachmentsCount: 0
         parentCommentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         authorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         body: body
@@ -1114,9 +1193,11 @@ components:
         body:
           nullable: true
           type: string
+        attachmentsCount:
+          format: int32
+          type: integer
       type: object
     CreateCustomFieldValueDto:
-      additionalProperties: false
       description: "Set a value or values for a custom field identified by the field\
         \ 'Code'. Only one of the fields (IntegerValue / TextValue / FilePathValue\
         \ etc) will be used,\r\ndepending on the data type of the custom field corresponding\
@@ -1136,8 +1217,17 @@ components:
         optionValues:
         - optionValues
         - optionValues
+        userTeamLookupValues:
+          userIds:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          teamIds:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         code:
+          minLength: 1
           type: string
         integerValue:
           format: int32
@@ -1173,11 +1263,12 @@ components:
             type: string
           nullable: true
           type: array
+        userTeamLookupValues:
+          $ref: '#/components/schemas/UserTeamLookupDto'
       required:
       - code
       type: object
     CreateMeetingDto:
-      additionalProperties: false
       example:
         identifier: identifier
         author:
@@ -1217,6 +1308,13 @@ components:
           optionValues:
           - optionValues
           - optionValues
+          userTeamLookupValues:
+            userIds:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            teamIds:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - dateValue: dateValue
           code: code
           textValue: textValue
@@ -1231,6 +1329,13 @@ components:
           optionValues:
           - optionValues
           - optionValues
+          userTeamLookupValues:
+            userIds:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            teamIds:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         organizer: organizer
         end: end
         locations:
@@ -1255,8 +1360,10 @@ components:
           nullable: true
           type: string
         start:
+          minLength: 1
           type: string
         end:
+          minLength: 1
           type: string
         locations:
           items:
@@ -1310,16 +1417,23 @@ components:
       - start
       type: object
     CustomFieldValueDto:
-      additionalProperties: false
       example:
         code: code
         options:
         - options
         - options
+        userTeamValues:
+          userIds:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          teamIds:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         contactValues:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         value: value
+      nullable: true
       properties:
         code:
           nullable: true
@@ -1338,12 +1452,14 @@ components:
             type: string
           nullable: true
           type: array
+        userTeamValues:
+          $ref: '#/components/schemas/UserTeamLookupDto'
       type: object
     LocationDto:
-      additionalProperties: false
       example:
         locationName: locationName
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
@@ -1353,7 +1469,6 @@ components:
           type: string
       type: object
     MeetingDto:
-      additionalProperties: false
       example:
         identifier: identifier
         attendees:
@@ -1368,6 +1483,13 @@ components:
           options:
           - options
           - options
+          userTeamValues:
+            userIds:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            teamIds:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           contactValues:
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -1376,6 +1498,13 @@ components:
           options:
           - options
           - options
+          userTeamValues:
+            userIds:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            teamIds:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           contactValues:
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -1410,6 +1539,7 @@ components:
           noteIds:
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
@@ -1480,7 +1610,6 @@ components:
           type: array
       type: object
     MeetingEventDto:
-      additionalProperties: false
       example:
         createdAt: createdAt
         changeList:
@@ -1506,6 +1635,7 @@ components:
           operation: operation
         type: type
         user: user
+      nullable: true
       properties:
         createdAt:
           nullable: true
@@ -1523,7 +1653,6 @@ components:
           type: array
       type: object
     MeetingSummaryDto:
-      additionalProperties: false
       example:
         identifier: identifier
         attendees:
@@ -1546,6 +1675,13 @@ components:
           options:
           - options
           - options
+          userTeamValues:
+            userIds:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            teamIds:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           contactValues:
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -1554,6 +1690,13 @@ components:
           options:
           - options
           - options
+          userTeamValues:
+            userIds:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            teamIds:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           contactValues:
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -1569,6 +1712,7 @@ components:
         - locationName: locationName
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
@@ -1626,21 +1770,21 @@ components:
           type: array
       type: object
     NewItemDto:
-      additionalProperties: false
       example:
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
           type: string
       type: object
     Operation:
-      additionalProperties: false
       example:
         path: path
         op: op
         from: from
         value: ""
+      nullable: true
       properties:
         operationType:
           $ref: '#/components/schemas/OperationType'
@@ -1657,6 +1801,8 @@ components:
           nullable: true
       type: object
     OperationType:
+      description: Type can be one of 0-Add, 1-Remove, 2-Replace, 3-Move, 4-Copy,
+        5-Test, 6-Get
       enum:
       - 0
       - 1
@@ -1669,6 +1815,7 @@ components:
       type: integer
     ProblemDetails:
       additionalProperties: {}
+      nullable: true
       properties:
         type:
           nullable: true
@@ -1688,7 +1835,6 @@ components:
           type: string
       type: object
     RecordChangeDto:
-      additionalProperties: false
       example:
         newValue: newValue
         oldList:
@@ -1700,6 +1846,7 @@ components:
         - newList
         oldValue: oldValue
         operation: operation
+      nullable: true
       properties:
         field:
           nullable: true
@@ -1725,11 +1872,11 @@ components:
           type: array
       type: object
     RecordEventSummaryDto:
-      additionalProperties: false
       example:
         createdAt: createdAt
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         type: type
+      nullable: true
       properties:
         id:
           format: uuid
@@ -1742,16 +1889,15 @@ components:
           type: string
       type: object
     ReferenceAttendeeDto:
-      additionalProperties: false
       example:
         emailAddress: emailAddress
+      nullable: true
       properties:
         emailAddress:
           nullable: true
           type: string
       type: object
     RelatedRecordsDto:
-      additionalProperties: false
       example:
         meetingIds:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -1759,6 +1905,7 @@ components:
         noteIds:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         noteIds:
           items:
@@ -1774,11 +1921,11 @@ components:
           type: array
       type: object
     SubcommentSummaryDto:
-      additionalProperties: false
       example:
         createdAt: createdAt
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
@@ -1791,7 +1938,6 @@ components:
           type: string
       type: object
     UpdateMeetingDto:
-      additionalProperties: false
       example:
         identifier: identifier
         attendees:
@@ -1828,6 +1974,13 @@ components:
           optionValues:
           - optionValues
           - optionValues
+          userTeamLookupValues:
+            userIds:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            teamIds:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - dateValue: dateValue
           code: code
           textValue: textValue
@@ -1842,6 +1995,13 @@ components:
           optionValues:
           - optionValues
           - optionValues
+          userTeamLookupValues:
+            userIds:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            teamIds:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         organizer: organizer
         end: end
         locations:
@@ -1860,10 +2020,13 @@ components:
           minLength: 0
           type: string
         identifier:
+          minLength: 1
           type: string
         start:
+          minLength: 1
           type: string
         end:
+          minLength: 1
           type: string
         locations:
           items:
@@ -1918,10 +2081,10 @@ components:
       - title
       type: object
     UserSerialDto:
-      additionalProperties: false
       example:
         serialNumber: serialNumber
         username: username
+      nullable: true
       properties:
         username:
           maxLength: 30
@@ -1934,6 +2097,29 @@ components:
       required:
       - serialNumber
       - username
+      type: object
+    UserTeamLookupDto:
+      example:
+        userIds:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        teamIds:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
+      properties:
+        userIds:
+          items:
+            format: uuid
+            type: string
+          nullable: true
+          type: array
+        teamIds:
+          items:
+            format: uuid
+            type: string
+          nullable: true
+          type: array
       type: object
     inline_object:
       properties:

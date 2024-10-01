@@ -20,3 +20,4 @@ from fds.sdk.Vermilion.api.report_api import ReportApi
 from fds.sdk.Vermilion.api.report_instance_api import ReportInstanceApi
 from fds.sdk.Vermilion.api.scim_api import SCIMApi
 from fds.sdk.Vermilion.api.version_api import VersionApi
+from fds.sdk.Vermilion.api.workflow_api import WorkflowApi

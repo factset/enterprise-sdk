@@ -65,7 +65,7 @@ public class EventsApi {
 
   /**
    * Get all the record events that belong to a meeting
-   * 
+   * Get all the record events that belong to a meeting by providing the meeting id.
    * @param meetingId Meeting ID (required)
    * @return java.util.List<RecordEventSummaryDto>
    * @throws ApiException if fails to make API call
@@ -83,7 +83,7 @@ public class EventsApi {
 
   /**
    * Get all the record events that belong to a meeting
-   * 
+   * Get all the record events that belong to a meeting by providing the meeting id.
    * @param meetingId Meeting ID (required)
    * @return ApiResponse&lt;java.util.List<RecordEventSummaryDto>&gt;
    * @throws ApiException if fails to make API call
@@ -104,7 +104,7 @@ public class EventsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/meetings/{meetingId}/events"
+    String localVarPath = "/meetings/{meetingId}/events"
       .replaceAll("\\{" + "meetingId" + "\\}", apiClient.escapeString(meetingId.toString()));
 
     // query params
@@ -143,7 +143,7 @@ public class EventsApi {
   }
   /**
    * Get details of a record event of a meeting
-   * 
+   * Get details of record event of meeting by providing recordeventid and meetingid
    * @param meetingId Meeting Id (required)
    * @param recordEventId Record Event Id (required)
    * @return MeetingEventDto
@@ -162,7 +162,7 @@ public class EventsApi {
 
   /**
    * Get details of a record event of a meeting
-   * 
+   * Get details of record event of meeting by providing recordeventid and meetingid
    * @param meetingId Meeting Id (required)
    * @param recordEventId Record Event Id (required)
    * @return ApiResponse&lt;MeetingEventDto&gt;
@@ -189,7 +189,7 @@ public class EventsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/meetings/{meetingId}/events/{recordEventId}"
+    String localVarPath = "/meetings/{meetingId}/events/{recordEventId}"
       .replaceAll("\\{" + "meetingId" + "\\}", apiClient.escapeString(meetingId.toString()))
       .replaceAll("\\{" + "recordEventId" + "\\}", apiClient.escapeString(recordEventId.toString()));
 

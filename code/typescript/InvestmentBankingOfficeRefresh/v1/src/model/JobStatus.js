@@ -21,6 +21,7 @@ import JobStatusData from './JobStatusData';
 class JobStatus {
     /**
      * Constructs a new <code>JobStatus</code>.
+     * Status information about a job
      * @alias module:model/JobStatus
      */
     constructor() { 

@@ -70,7 +70,7 @@ class JobStatusData {
 JobStatusData.prototype['id'] = undefined;
 
 /**
- * the status of the job
+ * The status of the job
  * @member {module:model/JobStatusData.StatusEnum} status
  */
 JobStatusData.prototype['status'] = undefined;

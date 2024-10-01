@@ -33,3 +33,4 @@ from fds.sdk.IRNMeetings.model.related_records_dto import RelatedRecordsDto
 from fds.sdk.IRNMeetings.model.subcomment_summary_dto import SubcommentSummaryDto
 from fds.sdk.IRNMeetings.model.update_meeting_dto import UpdateMeetingDto
 from fds.sdk.IRNMeetings.model.user_serial_dto import UserSerialDto
+from fds.sdk.IRNMeetings.model.user_team_lookup_dto import UserTeamLookupDto

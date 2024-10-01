@@ -55,6 +55,7 @@ docs/LinkedPATemplateSummaryRoot.md
 docs/LinkedPATemplateUpdateParameters.md
 docs/LinkedPATemplateUpdateParametersRoot.md
 docs/LinkedPATemplatesApi.md
+docs/Metadata.md
 docs/ObjectRoot.md
 docs/PACalculationColumn.md
 docs/PACalculationDataSources.md
@@ -63,6 +64,13 @@ docs/PACalculationParameters.md
 docs/PACalculationParametersRoot.md
 docs/PACalculationPricingSource.md
 docs/PACalculationsApi.md
+docs/PACommentary.md
+docs/PACommentaryDate.md
+docs/PACommentaryGetStatus.md
+docs/PACommentaryGetStatusRoot.md
+docs/PACommentaryRoot.md
+docs/PACommentaryStatus.md
+docs/PACommentaryStatusRoot.md
 docs/PAComponent.md
 docs/PAComponentData.md
 docs/PAComponentRoot.md
@@ -73,6 +81,7 @@ docs/PAPricingSourceRoot.md
 docs/PaginationInfo.md
 docs/PaginationMeta.md
 docs/PricingSourcesApi.md
+docs/Section.md
 docs/TemplateContentTypes.md
 docs/TemplatedPAComponent.md
 docs/TemplatedPAComponentParameters.md
@@ -165,6 +174,7 @@ fds/sdk/PAEngine/model/linked_pa_template_summary.py
 fds/sdk/PAEngine/model/linked_pa_template_summary_root.py
 fds/sdk/PAEngine/model/linked_pa_template_update_parameters.py
 fds/sdk/PAEngine/model/linked_pa_template_update_parameters_root.py
+fds/sdk/PAEngine/model/metadata.py
 fds/sdk/PAEngine/model/object_root.py
 fds/sdk/PAEngine/model/pa_calculation_column.py
 fds/sdk/PAEngine/model/pa_calculation_data_sources.py
@@ -172,6 +182,13 @@ fds/sdk/PAEngine/model/pa_calculation_group.py
 fds/sdk/PAEngine/model/pa_calculation_parameters.py
 fds/sdk/PAEngine/model/pa_calculation_parameters_root.py
 fds/sdk/PAEngine/model/pa_calculation_pricing_source.py
+fds/sdk/PAEngine/model/pa_commentary.py
+fds/sdk/PAEngine/model/pa_commentary_date.py
+fds/sdk/PAEngine/model/pa_commentary_get_status.py
+fds/sdk/PAEngine/model/pa_commentary_get_status_root.py
+fds/sdk/PAEngine/model/pa_commentary_root.py
+fds/sdk/PAEngine/model/pa_commentary_status.py
+fds/sdk/PAEngine/model/pa_commentary_status_root.py
 fds/sdk/PAEngine/model/pa_component.py
 fds/sdk/PAEngine/model/pa_component_data.py
 fds/sdk/PAEngine/model/pa_component_root.py
@@ -181,6 +198,7 @@ fds/sdk/PAEngine/model/pa_pricing_source.py
 fds/sdk/PAEngine/model/pa_pricing_source_root.py
 fds/sdk/PAEngine/model/pagination_info.py
 fds/sdk/PAEngine/model/pagination_meta.py
+fds/sdk/PAEngine/model/section.py
 fds/sdk/PAEngine/model/template_content_types.py
 fds/sdk/PAEngine/model/templated_pa_component.py
 fds/sdk/PAEngine/model/templated_pa_component_parameters.py

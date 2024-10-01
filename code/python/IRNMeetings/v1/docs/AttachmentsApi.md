@@ -1,13 +1,13 @@
 # fds.sdk.IRNMeetings.AttachmentsApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_attachment**](AttachmentsApi.md#create_attachment) | **POST** /v1/meetings/{meetingId}/attachments | Create an attachment for a existing meeting
-[**download_attachment**](AttachmentsApi.md#download_attachment) | **GET** /v1/meetings/{meetingId}/attachments/{attachmentId}/download | Download an attachment from a Meeting
-[**get_attachments**](AttachmentsApi.md#get_attachments) | **GET** /v1/meetings/{meetingId}/attachments | Get all the attachments belonging to a meeting
-[**soft_delete_meeting_attachment**](AttachmentsApi.md#soft_delete_meeting_attachment) | **DELETE** /v1/meetings/{meetingId}/attachments/{attachmentId} | Delete attachment from meeting
+[**create_attachment**](AttachmentsApi.md#create_attachment) | **POST** /meetings/{meetingId}/attachments | Create an attachment for a existing meeting
+[**download_attachment**](AttachmentsApi.md#download_attachment) | **GET** /meetings/{meetingId}/attachments/{attachmentId}/download | Download an attachment from a Meeting
+[**get_attachments**](AttachmentsApi.md#get_attachments) | **GET** /meetings/{meetingId}/attachments | Get all the attachments belonging to a meeting
+[**soft_delete_meeting_attachment**](AttachmentsApi.md#soft_delete_meeting_attachment) | **DELETE** /meetings/{meetingId}/attachments/{attachmentId} | Delete attachment from meeting
 
 
 
@@ -15,6 +15,8 @@ Method | HTTP request | Description
 > NewItemDto create_attachment(meeting_id, file)
 
 Create an attachment for a existing meeting
+
+Create an attachment for a existing meeting by providing the meeting id and atatchment details.
 
 ### Example
 
@@ -108,9 +110,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **download_attachment**
-> download_attachment(meeting_id, attachment_id)
+> file_type download_attachment(meeting_id, attachment_id)
 
 Download an attachment from a Meeting
+
+Download an attachment from a Meeting by providing the meeting id and attachment id.
 
 ### Example
 
@@ -157,14 +161,15 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
     api_instance = attachments_api.AttachmentsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    meeting_id = "meetingId_example" # str | 
-    attachment_id = "attachmentId_example" # str | 
+    meeting_id = "meetingId_example" # str | Meeting Id
+    attachment_id = "attachmentId_example" # str | Attachment Id
 
     try:
         # Download an attachment from a Meeting
         # example passing only required values which don't have defaults set
-        api_instance.download_attachment(meeting_id, attachment_id)
+        api_response = api_instance.download_attachment(meeting_id, attachment_id)
 
+        pprint(api_response)
 
     except fds.sdk.IRNMeetings.ApiException as e:
         print("Exception when calling AttachmentsApi->download_attachment: %s\n" % e)
@@ -175,12 +180,12 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **meeting_id** | **str**|  |
- **attachment_id** | **str**|  |
+ **meeting_id** | **str**| Meeting Id |
+ **attachment_id** | **str**| Attachment Id |
 
 ### Return type
 
-void (empty response body)
+**file_type**
 
 ### Authorization
 
@@ -189,7 +194,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/octet-stream, application/json
 
 
 ### HTTP response details
@@ -207,6 +212,8 @@ void (empty response body)
 > [AttachmentSummaryDto] get_attachments(meeting_id)
 
 Get all the attachments belonging to a meeting
+
+Get all the attachments belonging to a meeting by providing the meeting id.
 
 ### Example
 
@@ -301,6 +308,8 @@ Name | Type | Description  | Notes
 > soft_delete_meeting_attachment(meeting_id, attachment_id)
 
 Delete attachment from meeting
+
+Delete a attachment from a meeting by providing the meeting id and attachment id.
 
 ### Example
 

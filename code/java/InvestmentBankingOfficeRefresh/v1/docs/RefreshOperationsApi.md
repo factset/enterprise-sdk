@@ -6,13 +6,13 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getFileById**](RefreshOperationsApi.md#getFileById) | **GET** /refresh/{id} | Retrieve a calculated file by resource ID.
 [**getStatusById**](RefreshOperationsApi.md#getStatusById) | **GET** /refresh/{id}/status | Get the status of the refresh job with the given resource ID
-[**postWorkbook**](RefreshOperationsApi.md#postWorkbook) | **POST** /refresh/calculate | Upload a spreadsheet file
+[**postWorkbook**](RefreshOperationsApi.md#postWorkbook) | **POST** /refresh/calculate | Refresh a spreadsheet file
 
 
 
 ## getFileById
 
-> GetFileByIdResponseWrapper getFileById(id)
+> GetFileByIdResponseWrapper getFileById(id, deleteFile)
 
 Retrieve a calculated file by resource ID.
 
@@ -61,8 +61,9 @@ public class Example {
 
         RefreshOperationsApi apiInstance = new RefreshOperationsApi(defaultClient);
         java.util.UUID id = new java.util.UUID(); // java.util.UUID | Unique identifier for the job (resource ID returned from FactSet).
+        Boolean deleteFile = true; // Boolean | Delete the file from FactSet servers after completing the request.
         try {
-            GetFileByIdResponseWrapper result = apiInstance.getFileById(id);
+            GetFileByIdResponseWrapper result = apiInstance.getFileById(id, deleteFile);
             switch(result.getStatusCode()) {
             
                 case 200:
@@ -90,6 +91,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **java.util.UUID**| Unique identifier for the job (resource ID returned from FactSet). |
+ **deleteFile** | **Boolean**| Delete the file from FactSet servers after completing the request. | [optional] [default to true]
 
 ### Return type
 
@@ -215,9 +217,9 @@ Name | Type | Description  | Notes
 
 > JobStatus postWorkbook(body, nowHandlingEnabled, refreshAutoFilters, resizeArrays)
 
-Upload a spreadsheet file
+Refresh a spreadsheet file
 
-Upload a spreadsheet file (in the Open Office XML format) for FactSet to refresh.
+Start refreshing a spreadsheet file (in the Open Office XML format).
 
 ### Example
 
@@ -263,7 +265,7 @@ public class Example {
         RefreshOperationsApi apiInstance = new RefreshOperationsApi(defaultClient);
         File body = new File("/path/to/file"); // File | 
         Boolean nowHandlingEnabled = true; // Boolean | Return \\#VALUE for =FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118.
-        Boolean refreshAutoFilters = true; // Boolean | Option to refresh =FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is false.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds
+        Boolean refreshAutoFilters = true; // Boolean | Option to refresh =FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds
         Boolean resizeArrays = true; // Boolean | Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds
         try {
             JobStatus result = apiInstance.postWorkbook(body, nowHandlingEnabled, refreshAutoFilters, resizeArrays);
@@ -287,7 +289,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | **File**|  |
  **nowHandlingEnabled** | **Boolean**| Return \\#VALUE for &#x3D;FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118. | [optional]
- **refreshAutoFilters** | **Boolean**| Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is false.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds | [optional]
+ **refreshAutoFilters** | **Boolean**| Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds | [optional]
  **resizeArrays** | **Boolean**| Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds | [optional]
 
 ### Return type
@@ -306,7 +308,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **202** | Accepted |  * Location - Relative URL to check status of the request. <br>  |
+| **202** | Accepted |  * Location - Relative URL to check status of the request. <br>  * X-Concurrent-Limit -  <br>  * X-Concurrent-Limit-Remaining -  <br>  * X-Weekly-Limit -  <br>  * X-Weekly-Limit-Remaining -  <br>  |
 | **400** | Bad Request |  -  |
 | **403** | Forbidden. The user&#39;s subscription is missing required CACCESS. |  -  |
 | **413** | File Too Large.  Currently only accepting files up to 50MB. |  -  |

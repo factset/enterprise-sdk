@@ -6,9 +6,12 @@ README.md
 api/openapi.yaml
 build.gradle
 build.sbt
+docs/ActiveJobStatus.md
+docs/ActiveJobStatusList.md
 docs/Error.md
 docs/ErrorCode.md
 docs/Errors.md
+docs/JobManagementApi.md
 docs/JobStatus.md
 docs/JobStatusData.md
 docs/RefreshOperationsApi.md
@@ -32,6 +35,7 @@ src/main/java/com/factset/sdk/InvestmentBankingOfficeRefresh/RFC3339DateFormat.j
 src/main/java/com/factset/sdk/InvestmentBankingOfficeRefresh/ServerConfiguration.java
 src/main/java/com/factset/sdk/InvestmentBankingOfficeRefresh/ServerVariable.java
 src/main/java/com/factset/sdk/InvestmentBankingOfficeRefresh/StringUtil.java
+src/main/java/com/factset/sdk/InvestmentBankingOfficeRefresh/api/JobManagementApi.java
 src/main/java/com/factset/sdk/InvestmentBankingOfficeRefresh/api/RefreshOperationsApi.java
 src/main/java/com/factset/sdk/InvestmentBankingOfficeRefresh/auth/ApiKeyAuth.java
 src/main/java/com/factset/sdk/InvestmentBankingOfficeRefresh/auth/Authentication.java
@@ -41,6 +45,8 @@ src/main/java/com/factset/sdk/InvestmentBankingOfficeRefresh/auth/HttpBearerAuth
 src/main/java/com/factset/sdk/InvestmentBankingOfficeRefresh/auth/OAuth.java
 src/main/java/com/factset/sdk/InvestmentBankingOfficeRefresh/auth/OAuthFlow.java
 src/main/java/com/factset/sdk/InvestmentBankingOfficeRefresh/models/AbstractOpenApiSchema.java
+src/main/java/com/factset/sdk/InvestmentBankingOfficeRefresh/models/ActiveJobStatus.java
+src/main/java/com/factset/sdk/InvestmentBankingOfficeRefresh/models/ActiveJobStatusList.java
 src/main/java/com/factset/sdk/InvestmentBankingOfficeRefresh/models/Error.java
 src/main/java/com/factset/sdk/InvestmentBankingOfficeRefresh/models/ErrorCode.java
 src/main/java/com/factset/sdk/InvestmentBankingOfficeRefresh/models/Errors.java
