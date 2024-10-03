@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**tdentifier** | **String** |  | [optional] 
+**identifier** | **String** |  | [optional] 
 **name** | **String** |  | [optional] 
 **type** | [**SymbolType**](SymbolType.md) |  | [optional] 
 

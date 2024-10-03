@@ -1,13 +1,23 @@
 openapi: 3.0.1
 info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
   description: Allows users to extract, create, update and configure IRN data.
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
   title: IRN API v1
   version: "1"
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/irn-contacts-api#apiDocumentation
 servers:
 - description: Production Server
-  url: https://api.factset.com/research/irn
-- description: Sandbox
-  url: https://api-sandbox.factset.com/research/irn
+  url: https://api.factset.com/research/irn/v1
+- description: Sandbox Server
+  url: https://api-sandbox.factset.com/research/irn/v1
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
@@ -15,7 +25,7 @@ tags:
 - name: Contacts
 - name: Contacts - Relationships
 paths:
-  /v1/contact-relationships:
+  /contact-relationships:
     get:
       operationId: GetAllRelationshipsTaggingAContact
       parameters:
@@ -103,7 +113,7 @@ paths:
       - Contacts - Relationships
       x-contentType: application/json-patch+json
       x-accepts: application/json
-  /v1/contact-relationships/{contactRelationshipId}:
+  /contact-relationships/{contactRelationshipId}:
     delete:
       operationId: DeleteContactRelationship
       parameters:
@@ -237,7 +247,7 @@ paths:
       - Contacts - Relationships
       x-contentType: application/json-patch+json
       x-accepts: application/json
-  /v1/contacts:
+  /contacts:
     get:
       operationId: GetContacts
       parameters:
@@ -373,7 +383,7 @@ paths:
       - Contacts
       x-contentType: application/json-patch+json
       x-accepts: application/json
-  /v1/contacts/{contactId}:
+  /contacts/{contactId}:
     delete:
       operationId: DeleteContact
       parameters:
@@ -507,7 +517,7 @@ paths:
       - Contacts
       x-contentType: application/json-patch+json
       x-accepts: application/json
-  /v1/contacts/{contactId}/about:
+  /contacts/{contactId}/about:
     get:
       operationId: GetContactNotes
       parameters:
@@ -543,7 +553,7 @@ paths:
       tags:
       - Contacts
       x-accepts: application/json
-  /v1/contacts/{contactId}/events:
+  /contacts/{contactId}/events:
     get:
       operationId: GetContactEvents
       parameters:
@@ -581,7 +591,7 @@ paths:
       tags:
       - Contacts
       x-accepts: application/json
-  /v1/contacts/{contactId}/records:
+  /contacts/{contactId}/records:
     get:
       operationId: GetContactRecords
       parameters:
@@ -619,7 +629,7 @@ paths:
       tags:
       - Contacts
       x-accepts: application/json
-  /v1/contacts/{contactId}/relationships:
+  /contacts/{contactId}/relationships:
     get:
       operationId: GetContactRelationships
       parameters:
@@ -660,10 +670,10 @@ paths:
 components:
   schemas:
     AlternativeEmailAddressDto:
-      additionalProperties: false
       example:
         emailAddress: emailAddress
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
@@ -673,7 +683,6 @@ components:
           type: string
       type: object
     ContactAddressDto:
-      additionalProperties: false
       example:
         country: country
         formattedAddress: formattedAddress
@@ -681,6 +690,7 @@ components:
         postalCode: postalCode
         stateProvince: stateProvince
         googleMapsPlaceId: googleMapsPlaceId
+      nullable: true
       properties:
         googleMapsPlaceId:
           maxLength: 255
@@ -714,10 +724,10 @@ components:
           type: string
       type: object
     ContactCustomFieldOptionValueDto:
-      additionalProperties: false
       example:
         optionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         optionName: optionName
+      nullable: true
       properties:
         optionId:
           format: uuid
@@ -727,7 +737,6 @@ components:
           type: string
       type: object
     ContactCustomFieldValueDto:
-      additionalProperties: false
       example:
         fieldCode: fieldCode
         value: value
@@ -736,6 +745,7 @@ components:
           optionName: optionName
         - optionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           optionName: optionName
+      nullable: true
       properties:
         fieldCode:
           nullable: true
@@ -750,7 +760,6 @@ components:
           type: array
       type: object
     ContactCustomFieldValueSaveDto:
-      additionalProperties: false
       example:
         evaluateFormula: false
         code: code
@@ -758,8 +767,10 @@ components:
         optionValues:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         code:
+          minLength: 1
           type: string
         value:
           nullable: true
@@ -777,7 +788,6 @@ components:
       - code
       type: object
     ContactDto:
-      additionalProperties: false
       example:
         identifier: identifier
         address:
@@ -837,6 +847,7 @@ components:
           name: name
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
@@ -880,7 +891,6 @@ components:
           type: array
       type: object
     ContactEventDto:
-      additionalProperties: false
       example:
         date: 2000-01-23T04:56:07.000+00:00
         fullName: fullName
@@ -892,6 +902,7 @@ components:
           fieldName: fieldName
           oldValue: oldValue
         eventType: eventType
+      nullable: true
       properties:
         eventType:
           nullable: true
@@ -909,11 +920,11 @@ components:
           type: array
       type: object
     ContactEventUpdateDto:
-      additionalProperties: false
       example:
         newValue: newValue
         fieldName: fieldName
         oldValue: oldValue
+      nullable: true
       properties:
         fieldName:
           nullable: true
@@ -926,10 +937,10 @@ components:
           type: string
       type: object
     ContactIdNameDto:
-      additionalProperties: false
       example:
         name: name
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
@@ -940,7 +951,6 @@ components:
           type: string
       type: object
     ContactPhoneDto:
-      additionalProperties: false
       example:
         number: number
         isPrimary: true
@@ -949,6 +959,7 @@ components:
           isStandard: true
           name: name
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
@@ -964,12 +975,12 @@ components:
           type: boolean
       type: object
     ContactPhoneSaveDto:
-      additionalProperties: false
       example:
         number: number
         isPrimary: true
         typeId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
@@ -986,11 +997,10 @@ components:
           type: boolean
       type: object
     ContactRelationshipDto:
-      additionalProperties: false
       example:
         symbol:
+          identifier: identifier
           name: name
-          tdentifier: tdentifier
         isCurrent: true
         relationshipCategory:
           name: name
@@ -1006,6 +1016,7 @@ components:
           name: name
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
+      nullable: true
       properties:
         id:
           format: uuid
@@ -1036,7 +1047,6 @@ components:
           type: string
       type: object
     ContactRelationshipSaveDto:
-      additionalProperties: false
       example:
         symbol: symbol
         isCurrent: true
@@ -1046,6 +1056,7 @@ components:
         comment: comment
         relationshipId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
+      nullable: true
       properties:
         relationshipId:
           format: uuid
@@ -1075,11 +1086,10 @@ components:
           type: string
       type: object
     ContactRelationshipTwoSidedDto:
-      additionalProperties: false
       example:
         symbol:
+          identifier: identifier
           name: name
-          tdentifier: tdentifier
         isCurrent: true
         relationshipCategory:
           name: name
@@ -1098,6 +1108,7 @@ components:
         rightContact:
           name: name
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
@@ -1130,7 +1141,6 @@ components:
           type: string
       type: object
     ContactRelationshipTwoSidedSaveDto:
-      additionalProperties: false
       example:
         leftContactId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         symbolId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -1142,6 +1152,7 @@ components:
         comment: comment
         relationshipId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
+      nullable: true
       properties:
         relationshipId:
           format: uuid
@@ -1178,10 +1189,10 @@ components:
           type: string
       type: object
     ContactRoleDto:
-      additionalProperties: false
       example:
         name: name
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
@@ -1195,7 +1206,6 @@ components:
       - name
       type: object
     ContactSaveDto:
-      additionalProperties: false
       example:
         rightRelationships:
         - symbol: symbol
@@ -1272,6 +1282,7 @@ components:
           comment: comment
           relationshipId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           title: title
+      nullable: true
       properties:
         primaryEmailAddress:
           maxLength: 255
@@ -1332,7 +1343,6 @@ components:
           type: array
       type: object
     ContactSummaryDto:
-      additionalProperties: false
       example:
         employerIdentifier: employerIdentifier
         identifier: identifier
@@ -1371,10 +1381,18 @@ components:
             optionName: optionName
           - optionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             optionName: optionName
+        irnPersonId: irnPersonId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
+          description: A guid that identifies the contact for further interactions
           format: uuid
+          type: string
+        irnPersonId:
+          description: A Unique ticker with suffix -x that identifies the contact,
+            which can be used in identifier lookup to tag the contact
+          nullable: true
           type: string
         primaryEmailAddress:
           nullable: true
@@ -1424,10 +1442,10 @@ components:
           type: array
       type: object
     ContactTypeDto:
-      additionalProperties: false
       example:
         name: name
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
@@ -1441,11 +1459,11 @@ components:
       - name
       type: object
     EmployerDto:
-      additionalProperties: false
       example:
         factsetIdentifier: factsetIdentifier
         name: name
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
@@ -1464,21 +1482,21 @@ components:
       - id
       type: object
     NewItemDto:
-      additionalProperties: false
       example:
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
           type: string
       type: object
     Operation:
-      additionalProperties: false
       example:
         path: path
         op: op
         from: from
         value: ""
+      nullable: true
       properties:
         operationType:
           $ref: '#/components/schemas/OperationType'
@@ -1506,11 +1524,11 @@ components:
       format: int32
       type: integer
     PhoneNumberTypeDto:
-      additionalProperties: false
       example:
         isStandard: true
         name: name
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
@@ -1525,6 +1543,7 @@ components:
       type: object
     ProblemDetails:
       additionalProperties: {}
+      nullable: true
       properties:
         type:
           nullable: true
@@ -1544,12 +1563,13 @@ components:
           type: string
       type: object
     RecordPreviewDto:
-      additionalProperties: false
       example:
         date: 2000-01-23T04:56:07.000+00:00
         noteGuid: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         meetingGuid: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
+        subjectName: subjectName
+      nullable: true
       properties:
         noteGuid:
           format: uuid
@@ -1565,12 +1585,15 @@ components:
         date:
           format: date-time
           type: string
+        subjectName:
+          nullable: true
+          type: string
       type: object
     RelationshipCategoryIdNameDto:
-      additionalProperties: false
       example:
         name: name
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
@@ -1580,10 +1603,10 @@ components:
           type: string
       type: object
     RelationshipIdNameDto:
-      additionalProperties: false
       example:
         name: name
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
@@ -1593,12 +1616,12 @@ components:
           type: string
       type: object
     RelationshipSymbolSummaryDto:
-      additionalProperties: false
       example:
+        identifier: identifier
         name: name
-        tdentifier: tdentifier
+      nullable: true
       properties:
-        tdentifier:
+        identifier:
           nullable: true
           type: string
         name:

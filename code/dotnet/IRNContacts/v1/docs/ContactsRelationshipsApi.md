@@ -1,14 +1,14 @@
 # FactSet.SDK.IRNContacts.Api.ContactsRelationshipsApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateContactRelationship**](ContactsRelationshipsApi.md#createcontactrelationship) | **POST** /v1/contact-relationships | Create a contact relationship
-[**DeleteContactRelationship**](ContactsRelationshipsApi.md#deletecontactrelationship) | **DELETE** /v1/contact-relationships/{contactRelationshipId} | Delete a contact relationship
-[**GetAllRelationshipsTaggingAContact**](ContactsRelationshipsApi.md#getallrelationshipstaggingacontact) | **GET** /v1/contact-relationships | Get all the relationships where the given symbol or contact identifier has been tagged in a relationship
-[**GetContactRelationship**](ContactsRelationshipsApi.md#getcontactrelationship) | **GET** /v1/contact-relationships/{contactRelationshipId} | Get details on a specific contact relationship
-[**PatchContactRelationship**](ContactsRelationshipsApi.md#patchcontactrelationship) | **PATCH** /v1/contact-relationships/{contactRelationshipId} | Update a contact relationship
+[**CreateContactRelationship**](ContactsRelationshipsApi.md#createcontactrelationship) | **POST** /contact-relationships | Create a contact relationship
+[**DeleteContactRelationship**](ContactsRelationshipsApi.md#deletecontactrelationship) | **DELETE** /contact-relationships/{contactRelationshipId} | Delete a contact relationship
+[**GetAllRelationshipsTaggingAContact**](ContactsRelationshipsApi.md#getallrelationshipstaggingacontact) | **GET** /contact-relationships | Get all the relationships where the given symbol or contact identifier has been tagged in a relationship
+[**GetContactRelationship**](ContactsRelationshipsApi.md#getcontactrelationship) | **GET** /contact-relationships/{contactRelationshipId} | Get details on a specific contact relationship
+[**PatchContactRelationship**](ContactsRelationshipsApi.md#patchcontactrelationship) | **PATCH** /contact-relationships/{contactRelationshipId} | Update a contact relationship
 
 
 

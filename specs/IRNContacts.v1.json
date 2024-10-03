@@ -3,20 +3,29 @@
   "info": {
     "title": "IRN API v1",
     "description": "Allows users to extract, create, update and configure IRN data.",
+    "contact": {
+      "name": "FactSet Research Systems",
+      "url": "https://developer.factset.com/contact",
+      "email": "api@factset.com"
+    },
+    "license": {
+      "name": "Apache License, Version 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
+    },
     "version": "1"
   },
   "servers": [
     {
-      "url": "https://api.factset.com/research/irn",
+      "url": "https://api.factset.com/research/irn/v1",
       "description": "Production Server"
     },
     {
-      "url": "https://api-sandbox.factset.com/research/irn",
-      "description": "Sandbox"
+      "url": "https://api-sandbox.factset.com/research/irn/v1",
+      "description": "Sandbox Server"
     }
   ],
   "paths": {
-    "/v1/contact-relationships": {
+    "/contact-relationships": {
       "get": {
         "tags": [
           "Contacts - Relationships"
@@ -139,7 +148,7 @@
         }
       }
     },
-    "/v1/contact-relationships/{contactRelationshipId}": {
+    "/contact-relationships/{contactRelationshipId}": {
       "get": {
         "tags": [
           "Contacts - Relationships"
@@ -337,7 +346,7 @@
         }
       }
     },
-    "/v1/contacts": {
+    "/contacts": {
       "get": {
         "tags": [
           "Contacts"
@@ -502,7 +511,7 @@
         }
       }
     },
-    "/v1/contacts/{contactId}": {
+    "/contacts/{contactId}": {
       "get": {
         "tags": [
           "Contacts"
@@ -700,7 +709,7 @@
         }
       }
     },
-    "/v1/contacts/{contactId}/about": {
+    "/contacts/{contactId}/about": {
       "get": {
         "tags": [
           "Contacts"
@@ -753,7 +762,7 @@
         }
       }
     },
-    "/v1/contacts/{contactId}/events": {
+    "/contacts/{contactId}/events": {
       "get": {
         "tags": [
           "Contacts"
@@ -809,7 +818,7 @@
         }
       }
     },
-    "/v1/contacts/{contactId}/records": {
+    "/contacts/{contactId}/records": {
       "get": {
         "tags": [
           "Contacts"
@@ -865,7 +874,7 @@
         }
       }
     },
-    "/v1/contacts/{contactId}/relationships": {
+    "/contacts/{contactId}/relationships": {
       "get": {
         "tags": [
           "Contacts"
@@ -936,7 +945,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "ContactAddressDto": {
         "type": "object",
@@ -978,7 +987,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "ContactCustomFieldOptionValueDto": {
         "type": "object",
@@ -992,7 +1001,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "ContactCustomFieldValueDto": {
         "type": "object",
@@ -1013,7 +1022,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "ContactCustomFieldValueSaveDto": {
         "required": [
@@ -1022,6 +1031,7 @@
         "type": "object",
         "properties": {
           "code": {
+            "minLength": 1,
             "type": "string"
           },
           "value": {
@@ -1041,7 +1051,7 @@
             "default": false
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "ContactDto": {
         "type": "object",
@@ -1103,7 +1113,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "ContactEventDto": {
         "type": "object",
@@ -1128,7 +1138,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "ContactEventUpdateDto": {
         "type": "object",
@@ -1146,7 +1156,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "ContactIdNameDto": {
         "type": "object",
@@ -1161,7 +1171,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "ContactPhoneDto": {
         "type": "object",
@@ -1183,7 +1193,7 @@
             "type": "boolean"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "ContactPhoneSaveDto": {
         "type": "object",
@@ -1206,7 +1216,7 @@
             "type": "boolean"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "ContactRelationshipDto": {
         "type": "object",
@@ -1249,7 +1259,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "ContactRelationshipSaveDto": {
         "type": "object",
@@ -1289,7 +1299,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "ContactRelationshipTwoSidedDto": {
         "type": "object",
@@ -1335,7 +1345,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "ContactRelationshipTwoSidedSaveDto": {
         "type": "object",
@@ -1384,7 +1394,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "ContactRoleDto": {
         "required": [
@@ -1403,7 +1413,7 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "ContactSaveDto": {
         "type": "object",
@@ -1484,14 +1494,20 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "ContactSummaryDto": {
         "type": "object",
         "properties": {
           "id": {
             "type": "string",
-            "format": "uuid"
+            "format": "uuid",
+            "description": "A guid that identifies the contact for further interactions"
+          },
+          "irnPersonId": {
+            "type": "string",
+            "nullable": true,
+            "description": "A Unique ticker with suffix -x that identifies the contact, which can be used in identifier lookup to tag the contact"
           },
           "primaryEmailAddress": {
             "type": "string",
@@ -1557,7 +1573,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "ContactTypeDto": {
         "required": [
@@ -1576,7 +1592,7 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "EmployerDto": {
         "required": [
@@ -1601,7 +1617,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "NewItemDto": {
         "type": "object",
@@ -1611,7 +1627,7 @@
             "format": "uuid"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "Operation": {
         "type": "object",
@@ -1635,7 +1651,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "OperationType": {
         "enum": [
@@ -1667,7 +1683,7 @@
             "type": "boolean"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "ProblemDetails": {
         "type": "object",
@@ -1694,7 +1710,8 @@
             "nullable": true
           }
         },
-        "additionalProperties": {}
+        "additionalProperties": {},
+        "nullable": true
       },
       "RecordPreviewDto": {
         "type": "object",
@@ -1716,9 +1733,13 @@
           "date": {
             "type": "string",
             "format": "date-time"
+          },
+          "subjectName": {
+            "type": "string",
+            "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "RelationshipCategoryIdNameDto": {
         "type": "object",
@@ -1732,7 +1753,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "RelationshipIdNameDto": {
         "type": "object",
@@ -1746,12 +1767,12 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "RelationshipSymbolSummaryDto": {
         "type": "object",
         "properties": {
-          "tdentifier": {
+          "identifier": {
             "type": "string",
             "nullable": true
           },
@@ -1763,7 +1784,7 @@
             "$ref": "#/components/schemas/SymbolType"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "SymbolType": {
         "enum": [
@@ -1810,5 +1831,9 @@
     {
       "name": "Contacts - Relationships"
     }
-  ]
+  ],
+  "externalDocs": {
+    "description": "API Documentation",
+    "url": "https://developer.factset.com/api-catalog/irn-contacts-api#apiDocumentation"
+  }
 }

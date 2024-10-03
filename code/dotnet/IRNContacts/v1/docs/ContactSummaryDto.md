@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **Guid** |  | [optional] 
+**Id** | **Guid** | A guid that identifies the contact for further interactions | [optional] 
+**IrnPersonId** | **string** | A Unique ticker with suffix -x that identifies the contact, which can be used in identifier lookup to tag the contact | [optional] 
 **PrimaryEmailAddress** | **string** |  | [optional] 
 **Identifier** | **string** |  | [optional] 
 **FullName** | **string** |  | [optional] 

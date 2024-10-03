@@ -1,14 +1,14 @@
 # fds.sdk.IRNContacts.ContactsRelationshipsApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_contact_relationship**](ContactsRelationshipsApi.md#create_contact_relationship) | **POST** /v1/contact-relationships | Create a contact relationship
-[**delete_contact_relationship**](ContactsRelationshipsApi.md#delete_contact_relationship) | **DELETE** /v1/contact-relationships/{contactRelationshipId} | Delete a contact relationship
-[**get_all_relationships_tagging_a_contact**](ContactsRelationshipsApi.md#get_all_relationships_tagging_a_contact) | **GET** /v1/contact-relationships | Get all the relationships where the given symbol or contact identifier has been tagged in a relationship
-[**get_contact_relationship**](ContactsRelationshipsApi.md#get_contact_relationship) | **GET** /v1/contact-relationships/{contactRelationshipId} | Get details on a specific contact relationship
-[**patch_contact_relationship**](ContactsRelationshipsApi.md#patch_contact_relationship) | **PATCH** /v1/contact-relationships/{contactRelationshipId} | Update a contact relationship
+[**create_contact_relationship**](ContactsRelationshipsApi.md#create_contact_relationship) | **POST** /contact-relationships | Create a contact relationship
+[**delete_contact_relationship**](ContactsRelationshipsApi.md#delete_contact_relationship) | **DELETE** /contact-relationships/{contactRelationshipId} | Delete a contact relationship
+[**get_all_relationships_tagging_a_contact**](ContactsRelationshipsApi.md#get_all_relationships_tagging_a_contact) | **GET** /contact-relationships | Get all the relationships where the given symbol or contact identifier has been tagged in a relationship
+[**get_contact_relationship**](ContactsRelationshipsApi.md#get_contact_relationship) | **GET** /contact-relationships/{contactRelationshipId} | Get details on a specific contact relationship
+[**patch_contact_relationship**](ContactsRelationshipsApi.md#patch_contact_relationship) | **PATCH** /contact-relationships/{contactRelationshipId} | Update a contact relationship
 
 
 

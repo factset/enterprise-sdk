@@ -1,0 +1,48 @@
+# flake8: noqa
+
+# import all models into this package
+# if you have many models here with many references from one model to another this may
+# raise a RecursionError
+# to avoid this, import only the models that you directly need like:
+# from from fds.sdk.ConversationalAPIPoweredbyFactSetMercury.model.pet import Pet
+# or import this package, but before doing it, use:
+# import sys
+# sys.setrecursionlimit(n)
+
+from fds.sdk.ConversationalAPIPoweredbyFactSetMercury.model.adaptive_card import AdaptiveCard
+from fds.sdk.ConversationalAPIPoweredbyFactSetMercury.model.adaptive_card_body_element import AdaptiveCardBodyElement
+from fds.sdk.ConversationalAPIPoweredbyFactSetMercury.model.adaptive_card_body_elements import AdaptiveCardBodyElements
+from fds.sdk.ConversationalAPIPoweredbyFactSetMercury.model.adaptive_card_data import AdaptiveCardData
+from fds.sdk.ConversationalAPIPoweredbyFactSetMercury.model.chat_polling_request import ChatPollingRequest
+from fds.sdk.ConversationalAPIPoweredbyFactSetMercury.model.chat_polling_request_data import ChatPollingRequestData
+from fds.sdk.ConversationalAPIPoweredbyFactSetMercury.model.citations import Citations
+from fds.sdk.ConversationalAPIPoweredbyFactSetMercury.model.download import Download
+from fds.sdk.ConversationalAPIPoweredbyFactSetMercury.model.error import Error
+from fds.sdk.ConversationalAPIPoweredbyFactSetMercury.model.error_object import ErrorObject
+from fds.sdk.ConversationalAPIPoweredbyFactSetMercury.model.federation_data import FederationData
+from fds.sdk.ConversationalAPIPoweredbyFactSetMercury.model.feedback_request import FeedbackRequest
+from fds.sdk.ConversationalAPIPoweredbyFactSetMercury.model.feedback_request_data import FeedbackRequestData
+from fds.sdk.ConversationalAPIPoweredbyFactSetMercury.model.file_download_request import FileDownloadRequest
+from fds.sdk.ConversationalAPIPoweredbyFactSetMercury.model.file_download_request_data import FileDownloadRequestData
+from fds.sdk.ConversationalAPIPoweredbyFactSetMercury.model.next_step import NextStep
+from fds.sdk.ConversationalAPIPoweredbyFactSetMercury.model.next_step_item import NextStepItem
+from fds.sdk.ConversationalAPIPoweredbyFactSetMercury.model.open_url import OpenUrl
+from fds.sdk.ConversationalAPIPoweredbyFactSetMercury.model.open_url_url import OpenUrlUrl
+from fds.sdk.ConversationalAPIPoweredbyFactSetMercury.model.phrase import Phrase
+from fds.sdk.ConversationalAPIPoweredbyFactSetMercury.model.prompt_item import PromptItem
+from fds.sdk.ConversationalAPIPoweredbyFactSetMercury.model.prompt_parameter import PromptParameter
+from fds.sdk.ConversationalAPIPoweredbyFactSetMercury.model.prompt_parameters import PromptParameters
+from fds.sdk.ConversationalAPIPoweredbyFactSetMercury.model.query_chat_request import QueryChatRequest
+from fds.sdk.ConversationalAPIPoweredbyFactSetMercury.model.query_chat_request_data import QueryChatRequestData
+from fds.sdk.ConversationalAPIPoweredbyFactSetMercury.model.query_chat_response import QueryChatResponse
+from fds.sdk.ConversationalAPIPoweredbyFactSetMercury.model.query_chat_response_data import QueryChatResponseData
+from fds.sdk.ConversationalAPIPoweredbyFactSetMercury.model.query_response import QueryResponse
+from fds.sdk.ConversationalAPIPoweredbyFactSetMercury.model.query_response_data import QueryResponseData
+from fds.sdk.ConversationalAPIPoweredbyFactSetMercury.model.rate_limit_exceeded_error import RateLimitExceededError
+from fds.sdk.ConversationalAPIPoweredbyFactSetMercury.model.response_string import ResponseString
+from fds.sdk.ConversationalAPIPoweredbyFactSetMercury.model.speaker_info import SpeakerInfo
+from fds.sdk.ConversationalAPIPoweredbyFactSetMercury.model.status_poll_response import StatusPollResponse
+from fds.sdk.ConversationalAPIPoweredbyFactSetMercury.model.status_poll_response_data import StatusPollResponseData
+from fds.sdk.ConversationalAPIPoweredbyFactSetMercury.model.suggested_prompts import SuggestedPrompts
+from fds.sdk.ConversationalAPIPoweredbyFactSetMercury.model.table import Table
+from fds.sdk.ConversationalAPIPoweredbyFactSetMercury.model.table_data import TableData

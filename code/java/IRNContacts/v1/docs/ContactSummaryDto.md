@@ -7,7 +7,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **java.util.UUID** |  |  [optional]
+**id** | **java.util.UUID** | A guid that identifies the contact for further interactions |  [optional]
+**irnPersonId** | **String** | A Unique ticker with suffix -x that identifies the contact, which can be used in identifier lookup to tag the contact |  [optional]
 **primaryEmailAddress** | **String** |  |  [optional]
 **identifier** | **String** |  |  [optional]
 **fullName** | **String** |  |  [optional]

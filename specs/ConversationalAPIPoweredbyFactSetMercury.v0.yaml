@@ -1,0 +1,2535 @@
+openapi: 3.0.3
+info:
+  title: Conversational API Powered by FactSet Mercury
+  description: >
+    ### OVERVIEW
+
+
+    The FactSet Conversational API allows clients to white-label core FactSet
+    Mercury capabilities in a client’s chatbot experience.
+
+
+    Request data from FactSet using natural language queries. Start the response
+    generation using the `/query` endpoint, poll the status using `/status`.
+    Once the result is ready, retrieve it using `/result`.
+
+
+    If your response contains a file ID, such as for an Excel chart or a FactSet
+    ActiveGraph, retrieve it using the file ID at the `/download/file` endpoint.
+
+
+    We also encourage you to provide feedback on your responses using the
+    `/feedback` endpoint!
+
+
+    **Please note:** "Natural language" in this documentation refers to modern
+    conversational English. Support for other languages is currently
+    unavailable.
+
+
+    **Try the Conversational API and view Available Content**
+
+
+    In the [Using the Conversational API Online
+    Assistant](https://my.apps.factset.com/oa/pages/23209) you can find
+    instructions on how to start using the Conversational API, and the full list
+    of content available.
+
+
+    Some of the prompts supported are:
+
+
+    - What is Tesla's enterprise value?
+
+    - Create a chart showing CME price relative to the S&P 500
+
+    - What were the highlights from Palantir's recent earnings call?
+
+
+    **Adaptive Card Format**
+
+
+    The Conversational API uses the Microsoft Adaptive Card format for response
+    data surfaced from FactSet content sets. `Value` property of parent
+    FederationData contains a JSON serialized presentation of a Microsoft
+    Adaptive Card. See [Microsoft
+    docs](https://learn.microsoft.com/en-us/adaptive-cards/) for Adaptive Card
+    documentation, and the [Adaptive Card schema
+    explorer](https://adaptivecards.io/explorer/) for schema details. **Please
+    note**: "The adaptive card may contain actions, which represent
+    functionality within the card itself. In order to execute these actions, a
+    handler must be implemented in your Adaptive Card rendering process. See
+    [handling
+    actions](https://learn.microsoft.com/en-us/adaptive-cards/sdk/rendering-cards/javascript/actions)
+    for an example implementation.
+
+
+    **STACH Format**
+
+
+    The Conversational API may use Factset's STACH V3 format to represent
+    tabular data in JSON. Please refer to the [STACH V3
+    documentation](https://factset.github.io/stachschema/#/v3/README) on column
+    organized data for more information on how to process STACH-organized data.
+
+    <details>
+      <summary><u>**STACH Example**</u></summary>
+      ```json
+      {
+        "version": "3.1",
+        "table": {
+          "primaryKeys": [
+            "Insider Holders",
+            "MV (M,$)",
+            "% O/S"
+          ],
+          "totalNumRows": 5
+        },
+        "views": [
+          {
+            "name": "view",
+            "displayName": "who are the suppliers of nike",
+            "table": {
+              "columns": [
+                "Insider Holders",
+                "MV (M,$)",
+                "% O/S"
+              ],
+              "headers": {
+                "Insider Holders": "Insider Holders",
+                "MV (M,$)": "MV (M,$)",
+                "% O/S": "% O/S"
+              }
+            }
+          }
+        ],
+        "columns": [
+          {
+            "name": "Insider Holders",
+            "contextualType": "string",
+            "customMetadata": {
+              "relevancy": {
+                "contextualType": "int32",
+                "value": 100
+              }
+            }
+          },
+          {
+            "name": "MV (M,$)",
+            "contextualType": "real",
+            "customMetadata": {
+              "relevancy": {
+                "contextualType": "int32",
+                "value": 67
+              }
+            }
+          },
+          {
+            "name": "% O/S",
+            "contextualType": "real",
+            "customMetadata": {
+              "relevancy": {
+                "contextualType": "int32",
+                "value": 34
+              }
+            }
+          }
+        ],
+        "rows": [
+          {
+            "Insider Holders": "Knight Philip Hampson",
+            "MV (M,$)": 3156.8,
+            "% O/S": 1.531
+          },
+          {
+            "Insider Holders": "Knight Travis A",
+            "MV (M,$)": 601.6,
+            "% O/S": 0.496
+          },
+          {
+            "Insider Holders": "Wellcome Trust Ltd. (Direct Investments)",
+            "MV (M,$)": 225.5,
+            "% O/S": 0.105
+          },
+          {
+            "Insider Holders": "Parker Mark G",
+            "MV (M,$)": 100.1,
+            "% O/S": 0.056
+          },
+          {
+            "Insider Holders": "Donahoe John J Ii",
+            "MV (M,$)": 19.8,
+            "% O/S": 0.018
+          }
+        ]
+      }
+      ```
+    </details>
+
+
+    **Citations**
+
+
+    Responses from the Conversational API may contain `citations` which provide
+    references to the source of the data directly within the textual response.
+    Phrases within the response text are mapped to a data item in the
+    `citations` object via a bracketed ID (e.g. `[1]`). Citations may be used to
+    provide additional context or to verify the source of the data; in some
+    cases, a single phrase within the response may be supported by multiple data
+    sources.
+
+    **Please note**: Links to the source data are provided as links to FactSet's
+    Document Viewer (see [Document Viewer OA
+    page](https://my.apps.factset.com/oa/pages/17390)). The link will direct you
+    to the entire document; you may need to search for the specific phrase
+    within the document. We are currently working on providing direct links to
+    the specific section or excerpt of the document.
+
+    <details>
+      <summary><u>**Citation Example**</u></summary>
+      ```json
+      {
+        "type": "string",
+        "value": "FactSet has expressed optimism about the potential of generative AI (GenAI) to enhance their product offerings and drive efficiency[1]."
+        "citations": {
+          "[1]": [
+            "phraseId": "aba1d533-08b3-4d3e-8961-5d37bb2caff6",
+            "content": "At the same time, expectations are high around the effect generative AI will have on our industry.",
+            "speakerInfo": {
+              "companyId": "0016YD-E",
+              "companyName": "FactSet Research Systems, Inc.",
+              "speakerId": "0DPHLH-E",
+              "speakerName": "Philip Snow",
+              "speakerTitle": "Chief Executive Officer & Director"
+            },
+            "sourceURL": "https://my.apps.factset.com/viewer-fusion/?_doc_id=2948302-t&_doc_date=20231219&_doc_product=FCST&_doc_docfn=/home/docs/fcst/8/302/2948302-t.pdf&e=false"
+          ]
+        }
+      }
+      ```
+    </details>
+  version: 0.6.0
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  contact:
+    name: FactSet Research Systems
+    email: api@factset.com
+    url: https://developer.factset.com/contact
+servers:
+  - url: https://api.factset.com/conversational/v0
+paths:
+  /query:
+    post:
+      operationId: queryChat
+      summary: Create a query request for a given natural language query.
+      description: >
+        Returns a job ID for polling the response to a natural language query
+        for financial data as well as a chat ID to continue asking questions in
+        the same conversational context.
+
+        This endpoint is an interface for initiating responses from FactSet
+        Mercury, our large language model for surfacing FactSet datasets through
+        conversational natural language queries. Use the `/query` endpoint to
+        generate responses for questions in or out of a conversational message
+        chain context. Responses contain a job ID, used to request the status
+        and result of the current question, and a chat ID, used to ask further
+        questions in the same conversation message chain. Requests to `/query`
+        without a chat ID will initialize a conversation, while requests with a
+        chat ID will continue the conversation in the context of all previous
+        sent and received messages in that conversation.
+      tags:
+        - Multiple Question Chat
+      requestBody:
+        description: Natural language query for FactSet data
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryChatRequest'
+            examples:
+              Start New Conversation:
+                $ref: '#/components/examples/QueryChatRequestNewConversationExample'
+              Continue Conversation:
+                $ref: >-
+                  #/components/examples/QueryChatRequestContinueConversationExample
+      responses:
+        '202':
+          description: Accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryChatResponse'
+              examples:
+                Example question:
+                  $ref: '#/components/examples/QueryChatResponseExample'
+          headers:
+            Location:
+              description: Relative URL to check the status of the request.
+              schema:
+                type: string
+                enum:
+                  - /status
+            Api-Supported-Versions:
+              description: Comma-separated list of supported major versions.
+              schema:
+                type: string
+              example: '0'
+            Api-Version:
+              description: Full semantic version of the API.
+              schema:
+                type: string
+              example: 0.3.0
+            RateLimit-Limit:
+              description: Request limit per minute.
+              schema:
+                type: integer
+              example: 50
+            RateLimit-Remaining:
+              description: Number of available requests in the minute.
+              schema:
+                type: integer
+              example: 49
+            RateLimit-Reset:
+              description: Time remaining (in seconds) until request limit is reset.
+              schema:
+                type: integer
+              example: 24
+            X-DataDirect-Request-Key:
+              description: FactSet request ID.
+              schema:
+                type: string
+              example: 65C6BC290A11FB4F
+            X-RateLimit-Limit-Hour:
+              description: Request limit per hour.
+              schema:
+                type: integer
+              example: 1000
+            X-RateLimit-Remaining-Hour:
+              description: Number of available requests in the hour.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: >-
+            Unauthorized - You are not properly authenticated for use of this
+            API. Please make sure you are logged in to the developer portal or
+            using a valid API key (managed [via this developer portal
+            page](https://developer.factset.com/manage-api-keys)) for access. If
+            you believe you are seeing this message in error, please reach out
+            to your FactSet Support Team representative.
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedError'
+              examples:
+                Example error:
+                  $ref: '#/components/examples/UnauthorizedErrorExample'
+        '403':
+          description: >-
+            Forbidden - You do not have the entitlements enabled for this
+            service. Please reach out to your FactSet Support Team
+            representative to receive the proper entitlements.
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ForbiddenError'
+              examples:
+                Example error:
+                  $ref: '#/components/examples/ForbiddenErrorExample'
+        '405':
+          description: >-
+            Method Not Allowed - The requested endpoint does not support the
+            used HTTP method.
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/MethodNotAllowedError'
+              examples:
+                Example error:
+                  $ref: '#/components/examples/MethodNotAllowedErrorExample'
+        '429':
+          description: >-
+            Too Many Requests - The /query endpoint is currently rate-limited to
+            50 requests per minute and 1000 requests per hour for an individual
+            organization. If you are receiving an unexpected amount of these
+            errors, please contact the API team at
+            [genai.offplatform@factset.com](genai.offplatform@factset.com).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimitExceededError'
+              examples:
+                Example error:
+                  $ref: '#/components/examples/RateLimitExceededErrorExample'
+          headers:
+            RateLimit-Limit:
+              description: Request limit per minute.
+              schema:
+                type: integer
+              example: 50
+            RateLimit-Remaining:
+              description: Number of available requests.
+              schema:
+                type: integer
+              example: 49
+            RateLimit-Reset:
+              description: Time remaining (in seconds) until request limit is reset.
+              schema:
+                type: integer
+              example: 24
+            Retry-After:
+              description: >-
+                How long (in seconds) to wait before attempting to send a new
+                request.
+              schema:
+                type: integer
+              example: 24
+            X-DataDirect-Request-Key:
+              description: FactSet request ID.
+              schema:
+                type: string
+              example: 65C6BC290A11FB4F
+            X-RateLimit-Limit-Hour:
+              description: Request limit per hour.
+              schema:
+                type: integer
+              example: 1000
+            X-RateLimit-Remaining-Hour:
+              description: Number of available requests in the hour.
+              schema:
+                type: integer
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /status:
+    post:
+      operationId: getChatStatus
+      summary: Retrieve the status of a chat response process.
+      description: >
+        Returns the status of a chat response for a given chat job ID (recevied
+        from the `/query` endpoint). Poll the `/status` endpoint with your job
+        ID to confirm when your data is ready.
+
+        Answers may take minutes to generate, depending on the complexity of the
+        query.
+      tags:
+        - Multiple Question Chat
+      requestBody:
+        description: ID representing the chat process for your query
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatPollingRequest'
+            examples:
+              Example request:
+                $ref: '#/components/examples/ChatPollingRequestExample'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusPollResponse'
+              examples:
+                Example question:
+                  $ref: '#/components/examples/StatusPollResponseCreatedExample'
+          headers:
+            Location:
+              description: Relative URL to the query response.
+              schema:
+                type: string
+                enum:
+                  - /result
+            Api-Supported-Versions:
+              description: Comma-separated list of supported major versions.
+              schema:
+                type: string
+              example: '0'
+            Api-Version:
+              description: Full semantic version of the API.
+              schema:
+                type: string
+              example: 0.1.0
+            RateLimit-Limit:
+              description: Request limit per second.
+              schema:
+                type: integer
+              example: 10
+            RateLimit-Remaining:
+              description: Number of available requests.
+              schema:
+                type: integer
+              example: 9
+            RateLimit-Reset:
+              description: Time remaining (in seconds) until request limit is reset.
+              schema:
+                type: integer
+              example: 1
+            X-RateLimit-Limit-minute:
+              description: Request limit per minute.
+              schema:
+                type: integer
+              example: 300
+            X-RateLimit-Remaining-minute:
+              description: Number of available requests in the current minute.
+              schema:
+                type: integer
+              example: 290
+            X-DataDirect-Request-Key:
+              description: FactSet request ID.
+              schema:
+                type: string
+              example: 65C6BC290A11FB4F
+        '202':
+          description: Accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusPollResponse'
+              examples:
+                Example question:
+                  $ref: '#/components/examples/StatusPollResponseAcceptedExample'
+          headers:
+            Location:
+              description: Relative URL to check the status of the request.
+              schema:
+                type: string
+                enum:
+                  - /status
+            Api-Supported-Versions:
+              description: Comma-separated list of supported major versions.
+              schema:
+                type: string
+              example: '0'
+            Api-Version:
+              description: Full semantic version of the API.
+              schema:
+                type: string
+              example: 0.1.0
+            RateLimit-Limit:
+              description: Request limit per second.
+              schema:
+                type: integer
+              example: 10
+            RateLimit-Remaining:
+              description: Number of available requests.
+              schema:
+                type: integer
+              example: 9
+            RateLimit-Reset:
+              description: Time remaining (in seconds) until request limit is reset.
+              schema:
+                type: integer
+              example: 1
+            X-RateLimit-Limit-minute:
+              description: Request limit per minute.
+              schema:
+                type: integer
+              example: 300
+            X-RateLimit-Remaining-minute:
+              description: Number of available requests in the current minute.
+              schema:
+                type: integer
+              example: 290
+            X-DataDirect-Request-Key:
+              description: FactSet request ID.
+              schema:
+                type: string
+              example: 65C6BC290A11FB4F
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: >-
+            Unauthorized - You are not properly authenticated for use of this
+            API. Please make sure you are logged in to the developer portal or
+            using a valid API key (managed [via this
+            dev](https://developer.factset.com/manage-api-keys)) for access. If
+            you believe you are seeing this message in error, please reach out
+            to your FactSet Support Team representative.
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedError'
+              examples:
+                Example error:
+                  $ref: '#/components/examples/UnauthorizedErrorExample'
+        '403':
+          description: >-
+            Forbidden - You do not have the entitlements enabled for this
+            service. Please reach out to your FactSet Support Team
+            representative to receive the proper entitlements.
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ForbiddenError'
+              examples:
+                Example error:
+                  $ref: '#/components/examples/ForbiddenErrorExample'
+        '405':
+          description: >-
+            Method Not Allowed - The requested endpoint does not support the
+            used HTTP method.
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/MethodNotAllowedError'
+              examples:
+                Example error:
+                  $ref: '#/components/examples/MethodNotAllowedErrorExample'
+        '429':
+          description: >-
+            Too Many Requests - The /status endpoint is currently rate-limited
+            to 10 requests per second for an individual organization. If you are
+            receiving an unexpected amount of these errors, please contact the
+            API team at
+            [genai.offplatform@factset.com](genai.offplatform@factset.com).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimitExceededError'
+              examples:
+                Example error:
+                  $ref: '#/components/examples/RateLimitExceededErrorExample'
+          headers:
+            RateLimit-Limit:
+              description: Request limit per second.
+              schema:
+                type: integer
+              example: 10
+            RateLimit-Remaining:
+              description: Number of available requests.
+              schema:
+                type: integer
+              example: 9
+            RateLimit-Reset:
+              description: Time remaining (in seconds) until request limit is reset.
+              schema:
+                type: integer
+              example: 1
+            Retry-After:
+              description: >-
+                How long (in seconds) to wait before attempting to send a new
+                request.
+              schema:
+                type: integer
+              example: 1
+            X-RateLimit-Limit-minute:
+              description: Request limit per minute.
+              schema:
+                type: integer
+              example: 300
+            X-RateLimit-Remaining-minute:
+              description: Number of available requests in the current minute.
+              schema:
+                type: integer
+              example: 290
+            X-DataDirect-Request-Key:
+              description: FactSet request ID.
+              schema:
+                type: string
+              example: 65C6BC290A11FB4F
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /result:
+    post:
+      operationId: getChatResult
+      summary: Retrieve the completed response for your query.
+      description: >
+        Returns FactSet content and data in response to the query provided to
+        the `/query` endpoint. This endpoint is the final step in the query
+        request process. Responses contain a combination of Microsoft Adaptive
+        Cards for data/tables and markdown for text.
+      tags:
+        - Multiple Question Chat
+      requestBody:
+        description: ID representing the chat process for your query
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatPollingRequest'
+            examples:
+              Example request:
+                $ref: '#/components/examples/ChatPollingRequestExample'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResponse'
+              examples:
+                Adaptive Card:
+                  $ref: '#/components/examples/AdaptiveCardResponseExample'
+                STACH Table:
+                  $ref: '#/components/examples/TableResponseExample'
+                Response with Citations:
+                  $ref: '#/components/examples/ResponseWithCitationsExample'
+          headers:
+            Api-Supported-Versions:
+              description: Comma-separated list of supported major versions.
+              schema:
+                type: string
+              example: '0'
+            Api-Version:
+              description: Full semantic version of the API.
+              schema:
+                type: string
+              example: 0.1.0
+            RateLimit-Limit:
+              description: Request limit per second.
+              schema:
+                type: integer
+              example: 10
+            RateLimit-Remaining:
+              description: Number of available requests.
+              schema:
+                type: integer
+              example: 9
+            RateLimit-Reset:
+              description: Time remaining (in seconds) until request limit is reset.
+              schema:
+                type: integer
+              example: 1
+            X-RateLimit-Limit-minute:
+              description: Request limit per minute.
+              schema:
+                type: integer
+              example: 300
+            X-RateLimit-Remaining-minute:
+              description: Number of available requests in the current minute.
+              schema:
+                type: integer
+              example: 290
+            X-DataDirect-Request-Key:
+              description: FactSet request ID.
+              schema:
+                type: string
+              example: 65C6BC290A11FB4F
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: >-
+            Unauthorized - You are not properly authenticated for use of this
+            API. Please make sure you are logged in to the developer portal or
+            using a valid API key (managed [via this developer portal
+            page](https://developer.factset.com/manage-api-keys)) for access. If
+            you believe you are seeing this message in error, please reach out
+            to your FactSet Support Team representative.
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedError'
+              examples:
+                Example error:
+                  $ref: '#/components/examples/UnauthorizedErrorExample'
+        '403':
+          description: >-
+            Forbidden - You do not have the entitlements enabled for this
+            service. Please reach out to your FactSet Support Team
+            representative to receive the proper entitlements.
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ForbiddenError'
+              examples:
+                Example error:
+                  $ref: '#/components/examples/ForbiddenErrorExample'
+        '405':
+          description: >-
+            Method Not Allowed - The requested endpoint does not support the
+            used HTTP method.
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/MethodNotAllowedError'
+              examples:
+                Example error:
+                  $ref: '#/components/examples/MethodNotAllowedErrorExample'
+        '429':
+          description: >-
+            Too Many Requests - The /result endpoint is currently rate-limited
+            to 10 requests per second for an individual organization. If you are
+            receiving an unexpected amount of these errors, please contact the
+            API team at
+            [genai.offplatform@factset.com](genai.offplatform@factset.com).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimitExceededError'
+              examples:
+                Example error:
+                  $ref: '#/components/examples/RateLimitExceededErrorExample'
+          headers:
+            RateLimit-Limit:
+              description: Request limit per second.
+              schema:
+                type: integer
+              example: 10
+            RateLimit-Remaining:
+              description: Number of available requests.
+              schema:
+                type: integer
+              example: 9
+            RateLimit-Reset:
+              description: Time remaining (in seconds) until request limit is reset.
+              schema:
+                type: integer
+              example: 1
+            Retry-After:
+              description: >-
+                How long (in seconds) to wait before attempting to send a new
+                request.
+              schema:
+                type: integer
+              example: 1
+            X-RateLimit-Limit-minute:
+              description: Request limit per minute.
+              schema:
+                type: integer
+              example: 300
+            X-RateLimit-Remaining-minute:
+              description: Number of available requests in the current minute.
+              schema:
+                type: integer
+              example: 290
+            X-DataDirect-Request-Key:
+              description: FactSet request ID.
+              schema:
+                type: string
+              example: 65C6BC290A11FB4F
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /feedback:
+    post:
+      operationId: sendFeedback
+      summary: Send feedback on the response to a query.
+      description: >
+        Use this endpoint to provide feedback to FactSet regarding the response
+        to a query.
+
+        Feedback is used to help us identify areas for improvement in our
+        responses.
+      tags:
+        - Feedback
+      requestBody:
+        description: >
+          ID represents the response ID received from the `/result` endpoint.
+          Send this along with a boolean representing whether the response was
+          helpful or not. 
+
+          If you would like to provide additional natural language feedback, you
+          can also include a string with your comments.
+
+          Feedback will be accepted for 24 hours after the initial response.
+
+
+          **Note:** Feedback is optional, but we appreciate any input you can
+          provide.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FeedbackRequest'
+            examples:
+              Example request:
+                $ref: '#/components/examples/FeedbackRequestExample'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Api-Supported-Versions:
+              description: Comma-separated list of supported major versions.
+              schema:
+                type: string
+              example: '0'
+            Api-Version:
+              description: Full semantic version of the API.
+              schema:
+                type: string
+              example: 0.1.0
+            RateLimit-Limit:
+              description: Request limit per second.
+              schema:
+                type: integer
+              example: 10
+            RateLimit-Remaining:
+              description: Number of available requests.
+              schema:
+                type: integer
+              example: 9
+            RateLimit-Reset:
+              description: Time remaining (in seconds) until request limit is reset.
+              schema:
+                type: integer
+              example: 1
+            X-RateLimit-Limit-minute:
+              description: Request limit per minute.
+              schema:
+                type: integer
+              example: 300
+            X-RateLimit-Remaining-minute:
+              description: Number of available requests in the current minute.
+              schema:
+                type: integer
+              example: 290
+            X-DataDirect-Request-Key:
+              description: FactSet request ID.
+              schema:
+                type: string
+              example: 65C6BC290A11FB4F
+        '400':
+          description: >
+            Bad Request - This may be due to an invalid request body or response
+            ID. A response ID is invalid if it does not exist, is expired, or
+            feedback has already been provided for this response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: >-
+            Unauthorized - You are not properly authenticated for use of this
+            API. Please make sure you are logged in to the developer portal or
+            using a valid API key (managed [via this developer portal
+            page](https://developer.factset.com/manage-api-keys)) for access. If
+            you believe you are seeing this message in error, please reach out
+            to your FactSet Support Team representative.
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedError'
+              examples:
+                Example error:
+                  $ref: '#/components/examples/UnauthorizedErrorExample'
+        '403':
+          description: >-
+            Forbidden - You do not have the entitlements enabled for this
+            service. Please reach out to your FactSet Support Team
+            representative to receive the proper entitlements.
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ForbiddenError'
+              examples:
+                Example error:
+                  $ref: '#/components/examples/ForbiddenErrorExample'
+        '405':
+          description: >-
+            Method Not Allowed - The requested endpoint does not support the
+            used HTTP method.
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/MethodNotAllowedError'
+              examples:
+                Example error:
+                  $ref: '#/components/examples/MethodNotAllowedErrorExample'
+        '429':
+          description: >-
+            Too Many Requests - The `/feedback` endpoint is currently
+            rate-limited to 10 requests per second for an individual
+            organization. If you are receiving an unexpected amount of these
+            errors, please contact the API team at
+            [genai.offplatform@factset.com](genai.offplatform@factset.com).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimitExceededError'
+              examples:
+                Example error:
+                  $ref: '#/components/examples/RateLimitExceededErrorExample'
+          headers:
+            RateLimit-Limit:
+              description: Request limit per second.
+              schema:
+                type: integer
+              example: 10
+            RateLimit-Remaining:
+              description: Number of available requests.
+              schema:
+                type: integer
+              example: 9
+            RateLimit-Reset:
+              description: Time remaining (in seconds) until request limit is reset.
+              schema:
+                type: integer
+              example: 1
+            Retry-After:
+              description: >-
+                How long (in seconds) to wait before attempting to send a new
+                request.
+              schema:
+                type: integer
+              example: 1
+            X-RateLimit-Limit-minute:
+              description: Request limit per minute.
+              schema:
+                type: integer
+              example: 300
+            X-RateLimit-Remaining-minute:
+              description: Number of available requests in the current minute.
+              schema:
+                type: integer
+              example: 290
+            X-DataDirect-Request-Key:
+              description: FactSet request ID.
+              schema:
+                type: string
+              example: 65C6BC290A11FB4F
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /download/file:
+    post:
+      operationId: downloadFile
+      summary: Retrieve data file based on file ID.
+      description: >
+        Returns downloadable .xlsx file based on the NextStep action(s) returned
+        from `/result` endpoint.
+
+        Use the file ID returned from the `/result` endpoint to retrieve your
+        file.
+
+        Files are available for download for 24 hours after the initial request.
+
+
+        Current list of supported download types:
+
+        * ActiveGraph
+
+        * ExcelChart
+
+        * STACH Table (as Excel)
+      tags:
+        - Download
+      requestBody:
+        description: >-
+          ID refers to the file ID in the NextStep action returned from the
+          `/result` endpoint
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FileDownloadRequest'
+            examples:
+              Example request:
+                $ref: '#/components/examples/FileDownloadRequestExample'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                $ref: '#/components/schemas/SpreadsheetFile'
+          headers:
+            Content-Disposition:
+              description: Content is expected to be an attachment
+              schema:
+                type: string
+              example: attachment; filename=active_graph.xlsx
+            Api-Supported-Versions:
+              description: Comma-separated list of supported major versions.
+              schema:
+                type: string
+              example: '0'
+            Api-Version:
+              description: Full semantic version of the API.
+              schema:
+                type: string
+              example: 0.1.0
+            RateLimit-Limit:
+              description: Request limit per second.
+              schema:
+                type: integer
+              example: 10
+            RateLimit-Remaining:
+              description: Number of available requests.
+              schema:
+                type: integer
+              example: 9
+            RateLimit-Reset:
+              description: Time remaining (in seconds) until request limit is reset.
+              schema:
+                type: integer
+              example: 1
+            X-RateLimit-Limit-minute:
+              description: Request limit per minute.
+              schema:
+                type: integer
+              example: 300
+            X-RateLimit-Remaining-minute:
+              description: Number of available requests in the current minute.
+              schema:
+                type: integer
+              example: 290
+            X-DataDirect-Request-Key:
+              description: FactSet request ID.
+              schema:
+                type: string
+              example: 65C6BC290A11FB4F
+        '400':
+          description: Bad Request - This may be due to an invalid ID or an expired file.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: >-
+            Unauthorized - You are not properly authenticated for use of this
+            API. Please make sure you are logged in to the developer portal or
+            using a valid API key (managed [via this developer portal
+            page](https://developer.factset.com/manage-api-keys)) for access. If
+            you believe you are seeing this message in error, please reach out
+            to your FactSet Support Team representative.
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedError'
+              examples:
+                Example error:
+                  $ref: '#/components/examples/UnauthorizedErrorExample'
+        '403':
+          description: >-
+            Forbidden - You do not have the entitlements enabled for this
+            service. Please reach out to your FactSet Support Team
+            representative to receive the proper entitlements.
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ForbiddenError'
+              examples:
+                Example error:
+                  $ref: '#/components/examples/ForbiddenErrorExample'
+        '405':
+          description: >-
+            Method Not Allowed - The requested endpoint does not support the
+            used HTTP method.
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/MethodNotAllowedError'
+              examples:
+                Example error:
+                  $ref: '#/components/examples/MethodNotAllowedErrorExample'
+        '429':
+          description: >-
+            Too Many Requests - The `/download/file` endpoint is currently
+            rate-limited to 10 requests per second for an individual
+            organization. If you are receiving an unexpected amount of these
+            errors, please contact the API team at
+            [genai.offplatform@factset.com](genai.offplatform@factset.com).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimitExceededError'
+              examples:
+                Example error:
+                  $ref: '#/components/examples/RateLimitExceededErrorExample'
+          headers:
+            RateLimit-Limit:
+              description: Request limit per second.
+              schema:
+                type: integer
+              example: 10
+            RateLimit-Remaining:
+              description: Number of available requests.
+              schema:
+                type: integer
+              example: 9
+            RateLimit-Reset:
+              description: Time remaining (in seconds) until request limit is reset.
+              schema:
+                type: integer
+              example: 1
+            Retry-After:
+              description: >-
+                How long (in seconds) to wait before attempting to send a new
+                request.
+              schema:
+                type: integer
+              example: 1
+            X-RateLimit-Limit-minute:
+              description: Request limit per minute.
+              schema:
+                type: integer
+              example: 300
+            X-RateLimit-Remaining-minute:
+              description: Number of available requests in the current minute.
+              schema:
+                type: integer
+              example: 290
+            X-DataDirect-Request-Key:
+              description: FactSet request ID.
+              schema:
+                type: string
+              example: 65C6BC290A11FB4F
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  securitySchemes:
+    FactSetOAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+          scopes: {}
+    FactSetApiKey:
+      type: http
+      scheme: basic
+  schemas:
+    QueryChatRequest:
+      description: Request body containing the query to be sent to the LLM
+      properties:
+        data:
+          description: Data object
+          type: object
+          required:
+            - query
+          properties:
+            query:
+              description: Natural language query for FactSet data
+              type: string
+              title: Query
+            chatId:
+              description: optional ID for the current ongoing conversation
+              type: string
+              title: ChatID
+              nullable: true
+      required:
+        - data
+      type: object
+    QueryChatResponse:
+      description: >-
+        Response from `/query` containing the chat ID, job ID, and executing
+        status
+      type: object
+      properties:
+        data:
+          description: Data object
+          type: object
+          properties:
+            chatId:
+              description: Id of current conversation
+              type: string
+              format: uuid
+            jobId:
+              description: Id of current query
+              type: string
+              format: uuid
+            status:
+              description: status of current query
+              type: string
+              enum:
+                - executing
+    ChatPollingRequest:
+      description: Request body containing the chat job ID
+      type: object
+      properties:
+        data:
+          description: Data object
+          type: object
+          properties:
+            jobId:
+              description: Id of current query
+              type: string
+              format: uuid
+    StatusPollResponse:
+      description: >-
+        Response from `/status` containing the job ID and status of chat
+        processing
+      type: object
+      properties:
+        data:
+          description: Data object
+          type: object
+          properties:
+            jobId:
+              description: Id of current query
+              type: string
+              format: uuid
+            status:
+              description: Status of current query
+              type: string
+              enum:
+                - executing
+                - created
+    QueryResponse:
+      description: >-
+        Query response body containing data from FactSet's Mercury LLM and
+        metadata describing the model interaction
+      type: object
+      properties:
+        data:
+          description: Data object
+          type: object
+          properties:
+            id:
+              description: Id of query response
+              type: string
+              format: uuid
+            data:
+              description: Data array
+              type: array
+              items:
+                $ref: '#/components/schemas/FederationData'
+      required:
+        - data
+    FileDownloadRequest:
+      description: Request body containing the file ID for download
+      type: object
+      properties:
+        data:
+          description: Data object
+          type: object
+          properties:
+            fileId:
+              description: Id of downloadable file
+              type: string
+              format: uuid
+          required:
+            - fileId
+      required:
+        - data
+    SpreadsheetFile:
+      description: An Open Office XML spreadsheet file.
+      type: string
+      format: binary
+    Error:
+      description: Wrapper containing metadata and appropriate errors as thrown by the API
+      type: object
+      properties:
+        errors:
+          description: Array of ErrorObject
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorObject'
+    RateLimitExceededError:
+      description: Error response when rate limit has been exceeded.
+      type: object
+      properties:
+        message:
+          description: Message of error response
+          type: string
+          enum:
+            - API rate limit exceeded
+        errors:
+          description: Array of ErrorObject
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/ErrorObject'
+    ErrorObject:
+      description: Represents a single error, with error name and identifiers
+      type: object
+      properties:
+        id:
+          description: Id of error
+          type: string
+        title:
+          description: Title of error
+          type: string
+        code:
+          description: Code of error
+          type: string
+        detail:
+          description: Details of error
+          type: string
+    UnauthorizedError:
+      description: Error response for a user without authentication to use the API.
+      type: string
+    ForbiddenError:
+      description: Error response for a user without entitlements to the API.
+      type: string
+    MethodNotAllowedError:
+      description: Error response for a user attempting to use an unsupported HTTP method.
+      type: string
+    FederationData:
+      description: >-
+        Data surfaced by processing the query through FactSet Mercury. Contains
+        financial data, if accessible and available, as well as natural language
+        answer to the query
+      type: object
+      oneOf:
+        - $ref: '#/components/schemas/ResponseString'
+        - $ref: '#/components/schemas/AdaptiveCard'
+        - $ref: '#/components/schemas/Table'
+        - $ref: '#/components/schemas/NextStep'
+        - $ref: '#/components/schemas/SuggestedPrompts'
+      discriminator:
+        propertyName: type
+        mapping:
+          string: '#/components/schemas/ResponseString'
+          AdaptiveCard: '#/components/schemas/AdaptiveCard'
+          Table: '#/components/schemas/Table'
+          NextStep: '#/components/schemas/NextStep'
+          SuggestedPrompts: '#/components/schemas/SuggestedPrompts'
+    ResponseString:
+      description: >
+        Chat response to the query. Provides an answer to the question or
+        references further attached data. `Value` property of parent
+        FederationData contains a string with natural language. If the response
+        text contains data citations for individual phrases, they will be
+        included at the end of the phrase as `[ID]` where ID is an integer. The
+        citation data will be mapped in the `citations` object, keyed by the
+        citation ID. See the example `ResponseWithCitations` data for an example
+        of how citations are referenced in the response.
+      type: object
+      required:
+        - type
+        - value
+      properties:
+        type:
+          description: Datatype contained in this data object
+          type: string
+          enum:
+            - string
+        value:
+          description: String containing chat response to the query
+          type: string
+        citations:
+          $ref: '#/components/schemas/Citations'
+    Citations:
+      description: >-
+        A map of citations, where the keys are the citation IDs and the values
+        are the citation schema objects.
+      type: object
+      additionalProperties:
+        type: array
+        items:
+          $ref: '#/components/schemas/Phrase'
+    Phrase:
+      description: >-
+        A single source for the current data item. Contains data excerpt and
+        Document Viewer URL.
+      type: object
+      required:
+        - phraseId
+        - content
+        - sourceURL
+      properties:
+        phraseId:
+          description: >-
+            The unique identifier for the citation phrase in the source
+            document.
+          type: string
+          format: uuid
+        content:
+          description: >-
+            Highlighted content of the citation source from which the response
+            was generated. Commonly a document excerpt identified as the source
+            of the data
+          type: string
+        sourceURL:
+          description: >-
+            The URL of the source document in FactSet's Document Viewer (see
+            [Document Viewer OA
+            page](https://my.apps.factset.com/oa/pages/17390)). Please note that
+            this URL is for the entire document; you will need to search for the
+            specific phrase within the document. Future release plans include
+            linking directly to the highlighted excerpt within the document.
+          type: string
+          format: url
+        speakerInfo:
+          $ref: '#/components/schemas/SpeakerInfo'
+    SpeakerInfo:
+      description: >-
+        If the source is a transcript, this field contains the phrase's speaker
+        information.
+      type: object
+      nullable: true
+      properties:
+        speakerName:
+          description: The name of the speaker.
+          type: string
+        speakerTitle:
+          description: The title of the speaker.
+          type: string
+        speakerId:
+          description: The FactSet entity ID for the speaker.
+          type: string
+        companyName:
+          description: The name of the company the speaker is associated with.
+          type: string
+        companyId:
+          description: >-
+            The FactSet entity ID for the company the speaker is associated
+            with.
+          type: string
+    AdaptiveCard:
+      description: >
+        Microsoft Adaptive Card containing response data surfaced from FactSet
+        content sets. `Value` contains a JSON serialized presentation of a
+        Microsoft Adaptive Card. See [Microsoft
+        docs](https://learn.microsoft.com/en-us/adaptive-cards/) for Adaptive
+        Card documentation, and the [Adaptive Card schema
+        explorer](https://adaptivecards.io/explorer/) for schema details.
+      type: object
+      properties:
+        type:
+          description: Datatype contained in this data object
+          type: string
+          enum:
+            - AdaptiveCard
+        value:
+          $ref: '#/components/schemas/AdaptiveCardData'
+    AdaptiveCardData:
+      type: object
+      description: Data value for an Adaptive Card
+      properties:
+        type:
+          description: Type of card
+          type: string
+        version:
+          description: Version of card
+          type: string
+        body:
+          $ref: '#/components/schemas/AdaptiveCardBodyElements'
+      required:
+        - type
+        - version
+      additionalProperties: true
+    AdaptiveCardBodyElements:
+      description: Array of Adaptive Card body elements
+      type: array
+      items:
+        $ref: '#/components/schemas/AdaptiveCardBodyElement'
+    AdaptiveCardBodyElement:
+      type: object
+      description: Individual Adaptive Card body element
+      properties:
+        type:
+          description: Type of element
+          type: string
+      required:
+        - type
+      additionalProperties: true
+    Table:
+      description: >
+        FactSet Table data surfaced from FactSet content sets. `Value` property
+        of parent FederationData contains a JSON formatted [FactSet STACH V3
+        table](https://factset.github.io/stachschema/#/v3/README). Beta feature:
+        Data represented as a STACH table will also be available for download as
+        an Excel file; the `fileId` will be located in the `NextStep` array, as
+        an `Download` action with the name `InteractiveTable`.
+      type: object
+      properties:
+        type:
+          description: Datatype contained in this data object
+          type: string
+          enum:
+            - Table
+        value:
+          $ref: '#/components/schemas/TableData'
+    TableData:
+      description: Data value for a STACH Table
+      type: object
+      properties:
+        version:
+          description: Version of table
+          type: string
+      additionalProperties: true
+    NextStep:
+      description: >
+        A serialized list of `action` items, which are directives to a front-end
+        application to perform a certain task i.e. open a FactSet application or
+        component, download an Excel file.
+      type: object
+      properties:
+        type:
+          description: Datatype contained in this data object
+          type: string
+          enum:
+            - NextStep
+        value:
+          description: List of NextStep items
+          type: array
+          items:
+            $ref: '#/components/schemas/NextStepItem'
+    SuggestedPrompts:
+      description: A list of suggested prompt data object based on the current prompt.
+      type: object
+      properties:
+        type:
+          description: Datatype contained in this data object
+          type: string
+          enum:
+            - SuggestedPrompts
+        value:
+          description: List of suggested prompts
+          type: array
+          items:
+            $ref: '#/components/schemas/PromptItem'
+    NextStepItem:
+      description: >
+        Directives to a front-end application to perform a certain task i.e.
+        open a FactSet application or component, download an Excel file.
+      anyOf:
+        - $ref: '#/components/schemas/OpenUrl'
+        - $ref: '#/components/schemas/Download'
+      discriminator:
+        propertyName: action
+        mapping:
+          OpenUrl: '#/components/schemas/OpenUrl'
+          Download: '#/components/schemas/Download'
+    OpenUrl:
+      description: |
+        Directive to open a FactSet Url.
+      type: object
+      properties:
+        action:
+          description: Type of action
+          type: string
+          enum:
+            - OpenUrl
+        name:
+          description: Name of associated url
+          type: string
+          nullable: true
+        label:
+          description: Label of associated url
+          type: string
+        category:
+          description: Category of associated url
+          type: string
+        url:
+          description: Available url links
+          type: object
+          properties:
+            fdsup:
+              description: Fdsup link
+              type: string
+            http:
+              description: Http link
+              type: string
+    Download:
+      description: >
+        Directive to download a file. The `error` field specifies if there was
+        an error generating the specific downloadable file; if an error
+        occurred, the `errorMessage` field will detail the error.
+      type: object
+      required:
+        - error
+      properties:
+        action:
+          description: Type of action
+          type: string
+          enum:
+            - Download
+        name:
+          description: Name of the download type
+          type: string
+          nullable: true
+        label:
+          description: Label associated with the download
+          type: string
+        category:
+          description: Category of associated file
+          type: string
+          nullable: true
+        location:
+          description: Endpoint where file can be found
+          type: string
+          enum:
+            - /download/file
+        fileId:
+          description: Id of associated file
+          type: string
+          format: uuid
+        contentType:
+          description: ContentType of associated file
+          type: string
+        fileName:
+          description: Name of associated file
+          type: string
+        error:
+          description: >-
+            Boolean representing if there was an error generating the
+            downloadable file
+          type: boolean
+        errorMessage:
+          description: >-
+            Error message detailing the error in generating the downloadable
+            file
+          type: string
+    FeedbackRequest:
+      description: |
+        Request body containing feedback for the received response
+      type: object
+      properties:
+        data:
+          description: Data object
+          type: object
+          properties:
+            responseId:
+              description: >-
+                Response ID received from the `/result` endpoint, representing
+                the response for which you are providing feedback.
+              type: string
+              format: uuid
+            helpful:
+              description: >-
+                Boolean representing whether the response was helpful (true) or
+                not helpful (false). If the response left out any requested
+                information, please mark as not helpful.
+              type: boolean
+            comment:
+              description: >
+                Optional field for additional feedback. If you would like to
+                provide natural language feedback, include comments here.
+                Comments are limited to 4000 characters; if you need to provide
+                more feedback, please reach out to your FactSet Support Team
+                representative.
+              type: string
+              minLength: 1
+              maxLength: 4000
+              nullable: true
+          required:
+            - responseId
+            - helpful
+    PromptItem:
+      description: suggested prompt data object
+      type: object
+      properties:
+        prompt:
+          description: >-
+            Prompt to the Conversational API consumer containing a suggested
+            further action
+          type: string
+        promptParameters:
+          $ref: '#/components/schemas/PromptParameters'
+      required:
+        - prompt
+    PromptParameters:
+      description: Object containing prompt parameters
+      type: object
+      properties:
+        template:
+          description: >-
+            Prompt template used to build a follow up prompt to send to FactSet
+            Mercury
+          type: string
+        params:
+          description: List of prompt parameters
+          type: array
+          items:
+            $ref: '#/components/schemas/PromptParameter'
+    PromptParameter:
+      description: prompt parameter object
+      type: object
+      properties:
+        selectionType:
+          description: Selection type, currently only support single selection
+          type: string
+          enum:
+            - single
+        placeHolder:
+          description: PlaceHolder value used in the prompt template
+          type: string
+        value:
+          description: >-
+            Selection option values can be used to replace the placeHolder in
+            the prompt template
+          type: array
+          items:
+            type: string
+  examples:
+    QueryChatRequestContinueConversationExample:
+      value:
+        data:
+          query: What is Tesla's enterprise value?
+          chatId: 9c1031c2-5463-47ae-81b3-126a68f0c2a6
+    QueryChatRequestNewConversationExample:
+      value:
+        data:
+          query: What is Tesla's enterprise value?
+    QueryChatResponseExample:
+      value:
+        data:
+          chatId: 9c1031c2-5463-47ae-81b3-126a68f0c2a6
+          jobId: 9c1031c2-5463-47ae-81b3-126a68f0c2a6
+          status: executing
+    ChatPollingRequestExample:
+      value:
+        data:
+          jobId: 9c1031c2-5463-47ae-81b3-126a68f0c2a6
+    FileDownloadRequestExample:
+      value:
+        data:
+          fileId: 9c1031c2-5463-47ae-81b3-126a68f0c2a6
+    StatusPollResponseAcceptedExample:
+      value:
+        data:
+          jobId: 9c1031c2-5463-47ae-81b3-126a68f0c2a6
+          status: executing
+    StatusPollResponseCreatedExample:
+      value:
+        data:
+          jobId: 9c1031c2-5463-47ae-81b3-126a68f0c2a6
+          status: created
+    AdaptiveCardResponseExample:
+      value:
+        data:
+          id: 9c1031c2-5463-47ae-81b3-126a68f0c2a6
+          data:
+            - type: string
+              value: >-
+                These banks are ranked to compare the percentage of commercial
+                real estate (CRE) loans to their total loan portfolios to show
+                which have the least exposure to the downturn in commercial
+                occupancy rates.
+            - type: AdaptiveCard
+              value:
+                type: AdaptiveCard
+                version: '1.3'
+                body:
+                  - type: TextBlock
+                    size: large
+                    weight: lighter
+                    text: Tesla, Inc. (TSLA-US)
+                  - type: ColumnSet
+                    columns:
+                      - type: Column
+                        width: auto
+                        items:
+                          - type: TextBlock
+                            size: extraLarge
+                            text: $619.4 B
+                        verticalContentAlignment: bottom
+                        spacing: extraLarge
+                      - type: Column
+                        width: auto
+                        items:
+                          - type: TextBlock
+                            size: medium
+                            color: light
+                            text: Enterprise Value
+                        verticalContentAlignment: bottom
+                        spacing: extraLarge
+                  - type: Image
+                    url: >-
+                      data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMTgwIiB2aWV3Qm94PSIwIDAgNDAwIDE4MCI+PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDQwMCAxODAiIHN0eWxlPSJwb3NpdGlvbjogYWJzb2x1dGU7IHBvaW50ZXItZXZlbnRzOiBub25lOyBsZWZ0OiAwcHg7IHRvcDogMHB4OyI+PGRlZnM+PGNsaXBQYXRoIGlkPSJDTElQMCI+PHBhdGggZD0iTSA1IDExIEwgMzUyIDExIEwgMzUyIDE1MiBMIDUgMTUyIFoiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iQ0xJUDEiPjxwYXRoIGQ9Ik0gNSAxMSBMIDM1MiAxMSBMIDM1MiAxNTIgTCA1IDE1MiBaIi8+PC9jbGlwUGF0aD48L2RlZnM+PGcgbGluZS1taXRlcj0iNCIgc3R5bGU9InRyYW5zZm9ybTogc2NhbGUoMSwgMSk7Ij48ZyBvcGFjaXR5PSIwLjIiPjxwYXRoIGQ9Ik0gNS41IDE1MiBMIDUuNSAxMSBNIDg3LjUgMTUyIEwgODcuNSAxMSBNIDE2OS41IDE1MiBMIDE2OS41IDExIE0gMjUwLjUgMTUyIEwgMjUwLjUgMTEgTSAzMzIuNSAxNTIgTCAzMzIuNSAxMSBNIDUgMTUyLjUgTCAzNTIgMTUyLjUgTSA1IDEzMi41IEwgMzUyIDEzMi41IE0gNSAxMTIuNSBMIDM1MiAxMTIuNSBNIDUgOTIuNSBMIDM1MiA5Mi41IE0gNSA3MS41IEwgMzUyIDcxLjUgTSA1IDUxLjUgTCAzNTIgNTEuNSBNIDUgMzEuNSBMIDM1MiAzMS41IE0gNSAxMS41IEwgMzUyIDExLjUiIGZpbGw9Im5vbmUiIHNoYXBlLXJlbmRlcmluZz0iY3Jpc3BFZGdlcyIgc3Ryb2tlPSJyZ2IoMTA5LDExNywxMzYpIiBzdHJva2Utd2lkdGg9IjEiLz48cGF0aCBkPSJNIDUgMTUyLjUgTCAzNTIgMTUyLjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiKDUxLDYzLDc2KSIgc3Ryb2tlLXdpZHRoPSIxIi8+PHBhdGggZD0iTSA1LjUgMTYxIEwgNS41IDE1MiBNIDg3LjUgMTYxIEwgODcuNSAxNTIgTSAxNjkuNSAxNjEgTCAxNjkuNSAxNTIgTSAyNTAuNSAxNjEgTCAyNTAuNSAxNTIgTSAzMzIuNSAxNjEgTCAzMzIuNSAxNTIgTSA1LjUgMTU3IEwgNS41IDE1MiBNIDI1LjUgMTU3IEwgMjUuNSAxNTIgTSA0Ni41IDE1NyBMIDQ2LjUgMTUyIE0gNjYuNSAxNTcgTCA2Ni41IDE1MiBNIDg3LjUgMTU3IEwgODcuNSAxNTIgTSAxMDcuNSAxNTcgTCAxMDcuNSAxNTIgTSAxMjcuNSAxNTcgTCAxMjcuNSAxNTIgTSAxNDguNSAxNTcgTCAxNDguNSAxNTIgTSAxNjkuNSAxNTcgTCAxNjkuNSAxNTIgTSAxODkuNSAxNTcgTCAxODkuNSAxNTIgTSAyMDkuNSAxNTcgTCAyMDkuNSAxNTIgTSAyMzAuNSAxNTcgTCAyMzAuNSAxNTIgTSAyNTAuNSAxNTcgTCAyNTAuNSAxNTIgTSAyNzEuNSAxNTcgTCAyNzEuNSAxNTIgTSAyOTEuNSAxNTcgTCAyOTEuNSAxNTIgTSAzMTEuNSAxNTcgTCAzMTEuNSAxNTIgTSAzMzIuNSAxNTcgTCAzMzIuNSAxNTIgTSAzNTIuNSAxNTcgTCAzNTIuNSAxNTIiIGZpbGw9Im5vbmUiIHNoYXBlLXJlbmRlcmluZz0iY3Jpc3BFZGdlcyIgc3Ryb2tlPSJyZ2IoMTA5LDExNywxMzYpIiBzdHJva2Utd2lkdGg9IjEiLz48cGF0aCBkPSJNIDM1Mi41IDE1MiBMIDM1Mi41IDExIiBmaWxsPSJub25lIiBzdHJva2U9InJnYig1MSw2Myw3NikiIHN0cm9rZS13aWR0aD0iMSIvPjxwYXRoIGQ9Ik0gMzUyIDE1Mi41IEwgMzYxIDE1Mi41IE0gMzUyIDEzMi41IEwgMzYxIDEzMi41IE0gMzUyIDExMi41IEwgMzYxIDExMi41IE0gMzUyIDkyLjUgTCAzNjEgOTIuNSBNIDM1MiA3MS41IEwgMzYxIDcxLjUgTSAzNTIgNTEuNSBMIDM2MSA1MS41IE0gMzUyIDMxLjUgTCAzNjEgMzEuNSBNIDM1MiAxMS41IEwgMzYxIDExLjUiIGZpbGw9Im5vbmUiIHNoYXBlLXJlbmRlcmluZz0iY3Jpc3BFZGdlcyIgc3Ryb2tlPSJyZ2IoMTA5LDExNywxMzYpIiBzdHJva2Utd2lkdGg9IjEiLz48L2c+PHRleHQgeD0iMzkiIHk9IjE3My41IiBmaWxsPSJyZ2IoOTYsMTEyLDEyMykiIGZvbnQtZmFtaWx5PSImcXVvdDtXb3JrIFNhbnMmcXVvdDssIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTAiPicyMDwvdGV4dD48dGV4dCB4PSIxMjIiIHk9IjE3My41IiBmaWxsPSJyZ2IoOTYsMTEyLDEyMykiIGZvbnQtZmFtaWx5PSImcXVvdDtXb3JrIFNhbnMmcXVvdDssIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTAiPicyMTwvdGV4dD48dGV4dCB4PSIyMDIuNSIgeT0iMTczLjUiIGZpbGw9InJnYig5NiwxMTIsMTIzKSIgZm9udC1mYW1pbHk9IiZxdW90O1dvcmsgU2FucyZxdW90Oywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMCI+JzIyPC90ZXh0Pjx0ZXh0IHg9IjI4My41IiB5PSIxNzMuNSIgZmlsbD0icmdiKDk2LDExMiwxMjMpIiBmb250LWZhbWlseT0iJnF1b3Q7V29yayBTYW5zJnF1b3Q7LCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEwIj4nMjM8L3RleHQ+PHRleHQgeD0iMzgzLjUiIHk9IjE1NS41IiBmaWxsPSJyZ2IoOTYsMTEyLDEyMykiIGZvbnQtZmFtaWx5PSImcXVvdDtXb3JrIFNhbnMmcXVvdDssIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTAiPjA8L3RleHQ+PHRleHQgeD0iMzcxLjUiIHk9IjEzNC41IiBmaWxsPSJyZ2IoOTYsMTEyLDEyMykiIGZvbnQtZmFtaWx5PSImcXVvdDtXb3JrIFNhbnMmcXVvdDssIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTAiPjIwMDwvdGV4dD48dGV4dCB4PSIzNzEuNSIgeT0iMTE0LjUiIGZpbGw9InJnYig5NiwxMTIsMTIzKSIgZm9udC1mYW1pbHk9IiZxdW90O1dvcmsgU2FucyZxdW90Oywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMCI+NDAwPC90ZXh0Pjx0ZXh0IHg9IjM3MS41IiB5PSI5NC41IiBmaWxsPSJyZ2IoOTYsMTEyLDEyMykiIGZvbnQtZmFtaWx5PSImcXVvdDtXb3JrIFNhbnMmcXVvdDssIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTAiPjYwMDwvdGV4dD48dGV4dCB4PSIzNzEuNSIgeT0iNzQuNSIgZmlsbD0icmdiKDk2LDExMiwxMjMpIiBmb250LWZhbWlseT0iJnF1b3Q7V29yayBTYW5zJnF1b3Q7LCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEwIj44MDA8L3RleHQ+PHRleHQgeD0iMzY1LjUiIHk9IjU0LjUiIGZpbGw9InJnYig5NiwxMTIsMTIzKSIgZm9udC1mYW1pbHk9IiZxdW90O1dvcmsgU2FucyZxdW90Oywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMCI+MSwwMDA8L3RleHQ+PHRleHQgeD0iMzY1LjUiIHk9IjM0LjUiIGZpbGw9InJnYig5NiwxMTIsMTIzKSIgZm9udC1mYW1pbHk9IiZxdW90O1dvcmsgU2FucyZxdW90Oywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMCI+MSwyMDA8L3RleHQ+PHRleHQgeD0iMzY0LjUiIHk9IjE0LjUiIGZpbGw9InJnYig5NiwxMTIsMTIzKSIgZm9udC1mYW1pbHk9IiZxdW90O1dvcmsgU2FucyZxdW90Oywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMCI+MSw0MDA8L3RleHQ+PGcgY2xpcC1wYXRoPSJ1cmwoI0NMSVAxKSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNSwgMTEpIj48cGF0aCBkPSJNIDEwIDEyOCBMIDMwIDExNSBMIDUxIDg5IEwgNzEgNTYgTCA5MiA2MiBMIDExMiA2MCBMIDEzMiA0OSBMIDE1MyAxNCBMIDE3MyAxMiBMIDE5NCA2MSBMIDIxNCA0MSBMIDIzNSA5OSBMIDI1NSA2OCBMIDI3NSA0OCBMIDI5NiA1MiBMIDMxNiA1MyBMIDMzNiA3OCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2IoMzMsMTQ4LDI1NSkiIHN0cm9rZS13aWR0aD0iMiIvPjwvZz48L2c+PC9nPjwvc3ZnPjxzdmcgd2lkdGg9IjQwMCIgaGVpZ2h0PSIxODAiIHZpZXdCb3g9IjAgMCA0MDAgMTgwIiBzdHlsZT0icG9zaXRpb246IGFic29sdXRlOyBwb2ludGVyLWV2ZW50czogbm9uZTsgbGVmdDogMHB4OyB0b3A6IDBweDsiLz48c3ZnIHdpZHRoPSI0MDAiIGhlaWdodD0iMTgwIiB2aWV3Qm94PSIwIDAgNDAwIDE4MCIgc3R5bGU9InBvc2l0aW9uOiBhYnNvbHV0ZTsgcG9pbnRlci1ldmVudHM6IG5vbmU7IGxlZnQ6IDBweDsgdG9wOiAwcHg7Ii8+PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDQwMCAxODAiIHN0eWxlPSJwb3NpdGlvbjogYWJzb2x1dGU7IHBvaW50ZXItZXZlbnRzOiBub25lOyBsZWZ0OiAwcHg7IHRvcDogMHB4OyIvPjwvc3ZnPg==
+                  - type: TextBlock
+                    size: small
+                    color: light
+                    isSubtle: true
+                    text: As of 06 Feb 2024
+            - type: NextStep
+              value:
+                - action: Download
+                  name: null
+                  label: Download as Active Graph
+                  category: null
+                  location: /download/file
+                  fileId: 9c1031c2-5463-47ae-81b3-126a68f0c2a6
+                  fileName: chart.xlsx
+                  contentType: >-
+                    application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+                  error: false
+                - action: Download
+                  name: null
+                  label: Download as Excel Chart
+                  category: null
+                  location: /download/file
+                  fileId: 9c1031c2-5463-47ae-81b3-126a68f0c2a6
+                  fileName: chart.xlsx
+                  contentType: >-
+                    application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+                  error: false
+                - action: OpenUrl
+                  label: Screen for Similar Companies
+                  category: Screening
+                  url:
+                    fdsup: fdsup://...
+                    http: http://...
+            - type: SuggestedPrompts
+              value:
+                - prompt: Apply this search to another sector
+                  promptParameters:
+                    template: Show me the market synopsis for $sector.
+                    params:
+                      - selectionType: single
+                        placeHolder: $sector
+                        value:
+                          - Banking
+                          - Consumer
+                          - Energy
+                          - ESG
+                          - Industrials
+                          - Insurance
+                          - Media & Telecom
+                          - Metals & Mining
+                          - Power & Utilities
+                          - Real Estate REIT
+                          - Technology
+                - prompt: What is their net debt?
+                - prompt: What is their market capitalization?
+    TableResponseExample:
+      value:
+        data:
+          id: 9c1031c2-5463-47ae-81b3-126a68f0c2a6
+          data:
+            - type: string
+              value: got it
+            - type: Table
+              value:
+                version: '3.1'
+                table:
+                  primaryKeys:
+                    - Insider Holders
+                    - MV (M,$)
+                    - '% O/S'
+                  totalNumRows: 5
+                views:
+                  - name: view
+                    displayName: who are the suppliers of nike
+                    table:
+                      columns:
+                        - Insider Holders
+                        - MV (M,$)
+                        - '% O/S'
+                      headers:
+                        Insider Holders: Insider Holders
+                        MV (M,$): MV (M,$)
+                        '% O/S': '% O/S'
+                columns:
+                  - name: Insider Holders
+                    contextualType: string
+                    customMetadata:
+                      relevancy:
+                        contextualType: int32
+                        value: 100
+                  - name: MV (M,$)
+                    contextualType: real
+                    customMetadata:
+                      relevancy:
+                        contextualType: int32
+                        value: 67
+                  - name: '% O/S'
+                    contextualType: real
+                    customMetadata:
+                      relevancy:
+                        contextualType: int32
+                        value: 34
+                rows:
+                  - Insider Holders: Knight Philip Hampson
+                    MV (M,$): 3156.8
+                    '% O/S': 1.531
+                  - Insider Holders: Knight Travis A
+                    MV (M,$): 601.6
+                    '% O/S': 0.496
+                  - Insider Holders: Wellcome Trust Ltd. (Direct Investments)
+                    MV (M,$): 225.5
+                    '% O/S': 0.105
+                  - Insider Holders: Parker Mark G
+                    MV (M,$): 100.1
+                    '% O/S': 0.056
+                  - Insider Holders: Donahoe John J Ii
+                    MV (M,$): 19.8
+                    '% O/S': 0.018
+            - type: NextStep
+              value:
+                - action: Download
+                  name: InteractiveTable
+                  label: View interactive, downloadable table (5 rows)
+                  category: null
+                  parameters: null
+                  report: null
+                  location: /download/file
+                  fileId: 9c1031c2-5463-47ae-81b3-126a68f0c2a6
+                  fileName: table.xlsx
+                  contentType: >-
+                    application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+                  error: false
+                - action: Download
+                  name: null
+                  label: Download as Active Graph
+                  category: null
+                  location: /download/file
+                  fileId: 9c1031c2-5463-47ae-81b3-126a68f0c2a6
+                  fileName: chart.xlsx
+                  contentType: >-
+                    application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+                  error: false
+                - action: Download
+                  name: null
+                  label: Download as Excel Chart
+                  error: true
+                  errorMessage: >-
+                    Service error - could not generate Excel Chart. Please try
+                    again or contact support if the problem persists.
+                - action: OpenUrl
+                  name: null
+                  label: Similar supplier
+                  category: Screening
+                  url:
+                    fdsup: fdsup://...
+                    http: http://...
+            - type: SuggestedPrompts
+              value:
+                - prompt: Apply this search to another sector
+                  promptParameters:
+                    template: Show me the market synopsis for $sector.
+                    params:
+                      - selectionType: single
+                        placeHolder: $sector
+                        value:
+                          - Banking
+                          - Consumer
+                          - Energy
+                          - ESG
+                          - Industrials
+                          - Insurance
+                          - Media & Telecom
+                          - Metals & Mining
+                          - Power & Utilities
+                          - Real Estate REIT
+                          - Technology
+                - prompt: What is their net debt?
+                - prompt: What is their market capitalization?
+    ResponseWithCitationsExample:
+      value:
+        data:
+          id: fe35f0c4-302c-4705-b353-7a8bd96e0f3e
+          data:
+            - type: string
+              value: >-
+                I searched for FactSet Research Systems Inc. (FDS-US) in
+                Earnings Call Transcripts, Filings (10-K & 10-Q) and
+                StreetAccount News for following periods: Q3 2024, Q2 2024, Q1
+                2024, and Q4 2023 and here's what I found: 
+
+                 FactSet has expressed optimism about the potential of generative AI to drive cost savings and improve efficiency for their clients[1].
+
+                 They have been actively investing in generative AI, with initiatives such as FactSet Mercury, a conversational AI interface designed to enhance user experience by unlocking discoverability of content and functionalities[2].
+
+                 FactSet has also piloted GitHub Copilot to improve engineering efficiency and has seen positive results[3].
+
+                 Additionally, they have released AI-enhanced transcript highlights and summaries, which have received positive feedback from users[4].
+
+                 FactSet is also working on various AI-powered tools for different sectors, including private credit risk assessments and portfolio monitoring[5].
+
+                 They believe that generative AI will play a significant role in their long-term growth and competitive positioning[6].
+
+                We also found additional relevant excerpts, please see
+                Additional Mentions [7].
+              citations:
+                '[1]':
+                  - phraseId: f88ca6ce-5f4a-4b01-b7c0-4c655e520cf9
+                    content: >-
+                      And FactSet Mercury, which we talked about in the press
+                      release, it's our conversational AI interface and it's
+                      designed to unlock discoverability of all of the content
+                      and functionalities that FactSet has to offer for our
+                      users.
+                    speakerInfo: null
+                    sourceURL: >-
+                      https://my.apps.factset.com/viewer-fusion/?_doc_id=2987349-t&_doc_date=20240321&_doc_product=FCST&_doc_docfn=/home/docs/fcst/7/349/2987349-t.pdf&e=false
+                '[2]':
+                  - phraseId: 4667c8fe-ddf7-4477-854d-b93aa038ee07
+                    content: >-
+                      And FactSet Mercury, which we talked about in the press
+                      release, it's our conversational AI interface and it's
+                      designed to unlock discoverability of all of the content
+                      and functionalities that FactSet has to offer for our
+                      users.
+                    speakerInfo:
+                      companyId: 0016YD-E
+                      companyName: FactSet Research Systems, Inc.
+                      speakerId: 0K0Y69-E
+                      speakerName: Kristina W. Karnovsky
+                      speakerTitle: Chief Product Officer & Executive Vice President
+                    sourceURL: >-
+                      https://my.apps.factset.com/viewer-fusion/?_doc_id=2948302-t&_doc_date=20231219&_doc_product=FCST&_doc_docfn=/home/docs/fcst/8/302/2948302-t.pdf&e=false
+                '[3]':
+                  - phraseId: 4af68c79-d11b-433a-8e3d-cadad10fbc8b
+                    content: >-
+                      One is engineering. So, we have a lot of engineers at
+                      FactSet, and we've successfully piloted GitHub Copilot
+                      with a number of groups.
+                    speakerInfo:
+                      companyId: 0016YD-E
+                      companyName: FactSet Research Systems, Inc.
+                      speakerId: 0DPHLH-E
+                      speakerName: Philip Snow
+                      speakerTitle: Chief Executive Officer & Director
+                    sourceURL: >-
+                      https://my.apps.factset.com/viewer-fusion/?_doc_id=2948302-t&_doc_date=20231219&_doc_product=FCST&_doc_docfn=/home/docs/fcst/8/302/2948302-t.pdf&e=false
+                '[4]':
+                  - phraseId: 6b70c916-c845-423c-ad89-38b7965b50ad
+                    content: >-
+                      Also, last quarter, we released AI-enhanced transcript
+                      highlights and new summaries, which received positive
+                      reviews from our users.
+                    speakerInfo:
+                      companyId: 0016YD-E
+                      companyName: FactSet Research Systems, Inc.
+                      speakerId: 0DPHLH-E
+                      speakerName: Philip Snow
+                      speakerTitle: Chief Executive Officer & Director
+                    sourceURL: >-
+                      https://my.apps.factset.com/viewer-fusion/?_doc_id=2948302-t&_doc_date=20231219&_doc_product=FCST&_doc_docfn=/home/docs/fcst/8/302/2948302-t.pdf&e=false
+                '[5]':
+                  - phraseId: 087725c3-8db2-4291-b4c1-e39396684df2
+                    content: >-
+                      And along with these AI initiatives, work continues on
+                      Deep Sector and Real Time, the Wealth workstation and the
+                      portfolio lifecycle.
+                    speakerInfo:
+                      companyId: 0016YD-E
+                      companyName: FactSet Research Systems, Inc.
+                      speakerId: 0DPHLH-E
+                      speakerName: Philip Snow
+                      speakerTitle: Chief Executive Officer & Director
+                    sourceURL: >-
+                      https://my.apps.factset.com/viewer-fusion/?_doc_id=2948302-t&_doc_date=20231219&_doc_product=FCST&_doc_docfn=/home/docs/fcst/8/302/2948302-t.pdf&e=false
+                '[6]':
+                  - phraseId: 10cf9db4-5761-400a-a7a2-38f81c7b7f0d
+                    content: >-
+                      At the same time, expectations are high around the effect
+                      generative AI will have on our industry.
+                    speakerInfo: null
+                    sourceURL: >-
+                      https://my.apps.factset.com/viewer-fusion/?_doc_id=2987349-t&_doc_date=20240321&_doc_product=FCST&_doc_docfn=/home/docs/fcst/7/349/2987349-t.pdf&e=false
+                '[7]':
+                  - phraseId: 444ec04b-1aec-4ba7-805c-f5ba6a93ba05
+                    content: >-
+                      FactSet announced the release of Transcript Assistant, a
+                      GenAI-powered, conversational chatbot that accelerates
+                      in-depth research and analysis of earnings call
+                      transcripts. Transcript Assistant leverages generative AI
+                      (GenAI) to help users search, analyze, and extract
+                      valuable, actionable insights from all transcripts in
+                      FactSet, ultimately enhancing the investment research
+                      process within the FactSet Workstation. The interactive
+                      tool allows users to submit custom queries regarding the
+                      transcript in a two-way interface that goes beyond
+                      earnings summarizations, such as, 'How is the company
+                      discussing the impact of a U.S. recession?'. From there,
+                      the large language models identify, synthesize, and
+                      surface relevant transcript information to help users
+                      maximize efficiency and unlock insights that inform
+                      critical business decisions. Key features include:
+                      Interactive Chat Assistant: Digest earnings calls quickly
+                      with bespoke questions and pre-populated prompts that
+                      provide summaries for specific sections and/or speakers,
+                      hone in on key data points, and explore trending themes.
+                      Robust Search Capabilities: Users can easily search for
+                      specific keywords, phrases, or topics within the
+                      transcripts, enabling them to find relevant information
+                      more efficiently. View Intelligent Summaries: Transcript
+                      Assistant provides high-level summaries, high/low
+                      takeaways, updated management guidance, and key themes
+                      shortly after the call ends that can be accessed anywhere
+                      in FactSet's applications where transcripts are available.
+                    speakerInfo: null
+                    sourceURL: >-
+                      https://my.apps.factset.com/viewer-fusion/?_doc_id=sa_story_3815948&_doc_date=20240312&_doc_product=SA&_doc_docfn=/home/docs/news_sa/2024/20240312/sa_story_3815948.fdsxml&e=false
+                  - phraseId: a476bec2-b163-40d6-a4a0-ce28844f29f7
+                    content: >-
+                      Q&A Summary (Call Time: 21-Sep-23 11:00 ET): Management is
+                      bullish on the wealth space, seeing opportunities in
+                      adjacent workflows and expecting growth despite pressure
+                      across most firm types. Guidance for 2024 anticipates
+                      similar growth on the buy side, slower growth in banking,
+                      acceleration in wealth, and a more constructive
+                      environment in the partners business. Price realization
+                      improved across workstation packages in 2023, contributing
+                      to the 2024 outlook. However, impact from price increases
+                      is expected to be less than in 2023. Adjusted operating
+                      margin guidance for 2024 is ahead of 2025 expectations,
+                      with potential margin expansion driven by workforce, real
+                      estate, and third-party data growth control. GenAI is
+                      expected to improve client experience and drive new
+                      desktops, with potential for new products and off-platform
+                      opportunities. Some GenAI products are expected to come to
+                      market in 2024. Employee count growth is expected to
+                      continue at about 5% in 2024, with the majority of hires
+                      in centers of excellence. Expense growth in 2024 is
+                      expected to be heavier towards the back half of the year,
+                      particularly in Q4. This summary was generated using LLM
+                      technology optimized by StreetAccount. Editor's note
+                      (entered 2-Nov 10:47 ET): the last bullet was subsequently
+                      edited to finish the thought.
+                    speakerInfo: null
+                    sourceURL: >-
+                      https://my.apps.factset.com/viewer-fusion/?_doc_id=sa_story_3675547&_doc_date=20230921&_doc_product=SA&_doc_docfn=/home/docs/news_sa/2023/20230921/sa_story_3675547.fdsxml&e=false
+                  - phraseId: cf670c79-eb9f-4b54-8d4a-a8635dc6a888
+                    content: >-
+                      And then with our continued investment in content around
+                      deep sector, private markets and the technology investment
+                      we're making now around generative AI, I think there's a
+                      massive opportunity for us not just across banking, but
+                      across some of the smaller firm types that we deal with
+                      like private equity, corporates and even hedge funds where
+                      we may not have played as much in the past. So I think
+                      we're set up very nicely here. And I think when the market
+                      turns, I think we'll really be able to capitalize on this.
+                    speakerInfo:
+                      companyId: ''
+                      companyName: ''
+                      speakerId: ''
+                      speakerName: ''
+                      speakerTitle: ''
+                    sourceURL: >-
+                      https://my.apps.factset.com/viewer-fusion/?_doc_id=2987349-t&_doc_date=20240321&_doc_product=FCST&_doc_docfn=/home/docs/fcst/7/349/2987349-t.pdf&e=false
+                  - phraseId: 66adde0c-0d35-4119-b575-5594f189bc7f
+                    content: >-
+                      Hi, Ashish. It's Helen. Thank you for that question. I
+                      think from our perspective, I don't want to say we've hit
+                      a bottom. That's too strong of a word. But when I think
+                      about this year and last year, I would expect that two
+                      things to happen. One is that the erosion reduction will
+                      actually be more leveled off, and I think that's an
+                      important thing to sort of keep in mind. Banking isn't –
+                      is key, but we actually grew the number of seats in
+                      banking overall. Please keep in mind that part of that
+                      isn't just around the clients that we have, but the new
+                      clients that we win, and we have a couple of very good
+                      opportunities. So we look at that as part of our – when we
+                      talk to firm type. The second is pricing, which in the
+                      past, I think we've talked about a third, a third, a
+                      third. I think from a pricing perspective, it actually
+                      added more this year from a percent basis than in the
+                      past. We see it continuing to add in 2024 although closer
+                      back down to maybe 1/4 or less than 1/3. And I think
+                      that's probably more of the – a bit of a headwind that I
+                      would look to than necessarily just thinking about seats.
+                      So, that's how I would take a look at some of the – what's
+                      built into our guidance.
+                    speakerInfo:
+                      companyId: 0016YD-E
+                      companyName: FactSet Research Systems, Inc.
+                      speakerId: 0701R0-E
+                      speakerName: Helen L. Shan
+                      speakerTitle: Executive Vice President & Chief Revenue Officer
+                    sourceURL: >-
+                      https://my.apps.factset.com/viewer-fusion/?_doc_id=2897924-t&_doc_date=20230921&_doc_product=FCST&_doc_docfn=/home/docs/fcst/7/924/2897924-t.pdf&e=false
+                  - phraseId: f89e5318-a0d4-4547-886a-163365743004
+                    content: >-
+                      FactSet has been a member of the S&P 500 since December
+                      2021.
+
+                      Business Strategy
+
+                      Our strategy is to build the leading open content and
+                      analytics platform and powerful enterprise solutions that
+                      deliver a differentiated advantage for our clients’
+                      success. By offering personalized digital products, we
+                      strive to be a trusted partner and service provider,
+                      delivering relevant insights and research ideas tailored
+                      to our clients' specific business models.
+
+                      To execute our strategy, we have outlined the following
+                      key initiatives:
+
+                      • Expanding our Digital Platform: We are scaling up our
+                      content refinery to provide a comprehensive inventory of
+                      industry, proprietary and third-party data. This includes
+                      granular data for key industry verticals, real-time data,
+                      fund data and sustainable finance. Through an open
+                      ecosystem of cloud-based data and analytics, we aim to
+                      offer flexible solutions and content accessible through
+                      various delivery methods. In addition, we are working to
+                      expand our use of artificial intelligence to drive
+                      efficiencies for our clients, with anticipated initiatives
+                      including automation of tasks and integration of natural
+                      language queries. We believe that our breadth of
+                      high-quality, connected content will be a critical raw
+                      material for large language models.
+
+                      • Ensuring Execution Excellence: Innovation and
+                      collaboration are at the core of our approach. We employ
+                      technology to accelerate content collection, data
+                      connectivity and the development of summaries and themes.
+                      Our sales force is committed to enhancing price
+                      realization, productivity, efficiency and improved client
+                      outcomes. We are also optimizing operations and managing
+                      expenses to improve returns on our investments.
+
+                      • Fostering a Growth Mindset: We prioritize recruiting,
+                      training and empowering a diverse and efficient workforce.
+                      We are driving sustainable growth by investing in talent
+                      that can create leading technological solutions and
+                      efficiently execute our strategy. Additionally, strategic
+                      partnerships and acquisitions help to accelerate our
+                      expansion in key areas.
+
+                      We are focused on growing our global business through
+                      three strategically aligned geographic segments: the
+                      Americas, EMEA and Asia Pacific. This approach allows us
+                      to better manage resources, target solutions and interact
+                      with clients effectively. We executed on our growth
+                      strategy during fiscal 2023 by offering data, products and
+                      analytical applications for three workflow solutions:
+                      Research & Advisory; Analytics & Trading; and CTS.
+
+                      Research & Advisory Research & Advisory delivers essential
+                      content and workflow solutions in one flexible platform
+                      for investment bankers, wealth advisors, buy and sell-side
+                      analysts, corporate users, portfolio managers and
+                      investment relationship professionals. Our workstation,
+                      advisor dashboard, research management solutions ("RMS"),
+                      and FactSet for client relationship management ("CRM")
+                      enable our clients to personalize and automate their
+                      workflows. These tools provide insight and efficiency for
+                      idea generation, company and market analysis, fundamental
+                      research, presentation building and distribution, and
+                      research management.
+                    speakerInfo: null
+                    sourceURL: >-
+                      https://my.apps.factset.com/viewer-fusion/?_doc_id=0001013237-23-000128-1&_doc_date=20231027&_doc_product=EDGAR&_doc_docfn=/home/docs/edgar/2023/20231027/0001013237-23-000128-1.html&e=false
+                  - phraseId: 390b8c55-bdf5-4ef0-a4ea-ab967a91ee0a
+                    content: >-
+                      Seamless Integration: Transcripts and extracted data can
+                      be seamlessly exported to other FactSet applications or
+                      external tools to facilitate further analysis or
+                      integration with existing workflows. FactSet integrates
+                      the expertise of its StreetAccount news and insight
+                      business to create strict quality and accuracy controls
+                      for Transcript Assistant. By drawing on the extensive
+                      financial experience of this team of human experts,
+                      Transcript Assistant is optimized to efficiently extract
+                      relevant insights, backed by enhanced reliability and
+                      integrity. FactSet is committed to data privacy and
+                      security across all solutions. With Transcript Assistant,
+                      users can prompt confidently knowing that FactSet does not
+                      use queries for automated model training or fine-tuning.
+                      FactSet owns StreetAccount, the publisher of this content.
+                      Editor's Note: This comment was revised to include the
+                      last bullet. (12-Mar-2024, 07:09 ET)
+                    speakerInfo: null
+                    sourceURL: >-
+                      https://my.apps.factset.com/viewer-fusion/?_doc_id=sa_story_3815948&_doc_date=20240312&_doc_product=SA&_doc_docfn=/home/docs/news_sa/2024/20240312/sa_story_3815948.fdsxml&e=false
+                  - phraseId: e74b4ba8-9cc7-4783-a382-6e31168f60fc
+                    content: >-
+                      Hey, Alex, it's Helen. Yeah, I'm happy to try to answer
+                      that question, so thank you. You're right, we're early in
+                      the year but we have greater visibility, of course, in our
+                      first half, so I'll talk to that specifically. We are
+                      expecting current market conditions in the first half –
+                      I'm going to go by firm type here – so when you talk about
+                      buy-side, we actually finished the year quite strong with
+                      both asset owners and hedge funds. So, the three things
+                      that we see right now in the pipeline is, one, we're
+                      continuing to gain traction in the middle office, so
+                      building off of some of the great wins we had in the asset
+                      servicing space, we would expect that to continue. Second,
+                      we're seeing strong demand in the data feeds business, so,
+                      both for company data as well as our data management
+                      solutions, where we're really leveraging the strength of
+                      our concordance for content for clients. We had two
+                      significant wins, one in real-time, one in  tech data
+                      (00:34:57), both displacing competitors. And a result,
+                      we're getting inbound discussions around that. So, that's
+                      also filling up our pipeline. And then third, as Phil
+                      mentioned earlier, the strength in offerings we have in
+                      the front office are also gaining traction, part of our
+                      GenAI enhancements. We'll be supporting that.
+                    speakerInfo:
+                      companyId: 0016YD-E
+                      companyName: FactSet Research Systems, Inc.
+                      speakerId: 0701R0-E
+                      speakerName: Helen L. Shan
+                      speakerTitle: Executive Vice President & Chief Revenue Officer
+                    sourceURL: >-
+                      https://my.apps.factset.com/viewer-fusion/?_doc_id=2897924-t&_doc_date=20230921&_doc_product=FCST&_doc_docfn=/home/docs/fcst/7/924/2897924-t.pdf&e=false
+                  - phraseId: b9085660-2ada-4b54-813e-60d4aef82e75
+                    content: >-
+                      Yeah. We feel good about the 6% to 8%, Manav. That's why
+                      we put it out there. I think if we break it down by firm
+                      type, we anticipate doing about the same level of growth
+                      on the buy-side as we did this year. And as you know,
+                      we've been evolving into more of a solutions provider for
+                      our clients. So, despite head count pressure, which we
+                      certainly did see on the buy-side, we still think there's
+                      a great opportunity to take market share. We are
+                      anticipating slower growth within banking. There are some
+                      things in the pipeline that I think Helen might be able to
+                      speak to, but we're not anticipating a blockbuster hiring
+                      year in banking as part of our algorithm. We just spoke
+                      about Wealth, so we're definitely anticipating some
+                      acceleration on the Wealth side. And then in the Partners
+                      part of our business, which we're now separating out a
+                      bit, we're expecting a more constructive environment
+                      there. We actually had – it wasn't a great year for us in
+                      that part of the business. I'm not talking about CGS,
+                      CUSIP. I'm talking about the rest of the Partners
+                      business. So, Helen, do you want give some more commentary
+                      on the pipeline?
+                    speakerInfo:
+                      companyId: 0016YD-E
+                      companyName: FactSet Research Systems, Inc.
+                      speakerId: 0DPHLH-E
+                      speakerName: Philip Snow
+                      speakerTitle: Chief Executive Officer & Director
+                    sourceURL: >-
+                      https://my.apps.factset.com/viewer-fusion/?_doc_id=2897924-t&_doc_date=20230921&_doc_product=FCST&_doc_docfn=/home/docs/fcst/7/924/2897924-t.pdf&e=false
+                  - phraseId: 7b8c92fb-e187-4c8e-9210-149c6e3c1c60
+                    content: >-
+                      Our use of artificial intelligence technologies may not be
+                      successful and may present business, compliance, and
+                      reputational risks
+
+                      We use, and will expand our use of, machine learning and
+                      artificial intelligence ("AI") technologies in some of our
+                      products and processes. If we fail to keep pace with
+                      rapidly evolving AI technological developments, our
+                      competitive position and business results may be
+                      negatively impacted. Our use of AI technologies will
+                      require resources to develop, test and maintain such
+                      products, which could be costly. Third parties may be able
+                      to use AI to create technology that could reduce demand
+                      for our products. In addition, the introduction of AI
+                      technologies, particularly generative AI, into new or
+                      existing offerings may result in new or expanded risks and
+                      liabilities, due to enhanced governmental or regulatory
+                      scrutiny, litigation, compliance issues, ethical concerns,
+                      confidentiality, data privacy or security risks, as well
+                      as other factors that could adversely affect our business,
+                      reputation, and financial results. For example, use of AI
+                      technologies could lead to unintended consequences, such
+                      as accuracy issues, cybersecurity risks, unintended
+                      biases, and discriminatory outputs, could impact our
+                      ability to protect our data, intellectual property, and
+                      client information, or could expose us to intellectual
+                      property claims by third parties.
+
+                      Strategy & Market Demand Risks
+
+                      Competition in our industry may cause price reductions or
+                      loss of market share
+
+                      We continue to experience intense competition across all
+                      markets for our products, with competitors ranging in size
+                      from smaller, highly specialized, single-product
+                      businesses to multi-billion-dollar companies. While we
+                      believe the breadth and depth of our suite of products and
+                      applications offer benefits to our clients that are a
+                      competitive advantage, our competitors may offer price
+                      incentives to attract new business. Future competitive
+                      pricing pressures may result in decreased sales volumes
+                      and price reductions, resulting in lower revenues and ASV.
+                      Weak economic conditions may also result in clients
+                      seeking to utilize lower-cost information that is
+                      available from alternative sources. The impact of
+                      cost-cutting pressures across the industries we serve
+                      could lower demand for our products. Clients within the
+                      financial services industry that strive to reduce their
+                      operating costs may seek to reduce their spending on
+                      financial market data and related services, such as ours.
+                      If our clients consolidate their spending with fewer
+                      suppliers, by selecting suppliers with lower-cost
+                      offerings or by self-sourcing their needs for financial
+                      market data, our business could be negatively affected.
+
+                      The continued shift from active to passive investing could
+                      negatively impact user count growth and revenues
+
+                      The predominant investment strategy today is still active
+                      investing, which attempts to outperform the market. The
+                      main advantage of active management is the expectation
+                      that the investment managers will be able to outperform
+                      market indices.
+                    speakerInfo: null
+                    sourceURL: >-
+                      https://my.apps.factset.com/viewer-fusion/?_doc_id=0001013237-23-000128-1&_doc_date=20231027&_doc_product=EDGAR&_doc_docfn=/home/docs/edgar/2023/20231027/0001013237-23-000128-1.html&e=false
+                  - phraseId: 4b3e6f86-e057-4b6a-8e86-f8f11713c77d
+                    content: >-
+                      Q&A Summary (Call Time: 21-Mar-24 11:00 ET): Client
+                      activity is picking up, with increased pressure on
+                      headcount and strength in enterprise solutions and
+                      platform solutions. Expect a healthier pipeline in H2
+                      versus H1, with higher deal volume. The pipeline is
+                      stronger than last year, with half coming from the buy
+                      side. Managed services represent a smaller part of the
+                      business but offer good opportunities for clients to
+                      outsource solutions to FactSet. Growth in price increase
+                      was $25M this quarter, in line with FY 2022, although
+                      lower than FY 2023. Total new business ASV has increased
+                      due to higher new logos. Expenses are expected to ramp up
+                      through the calendar year, leading to lower margins in Q3
+                      and Q4 compared to Q1 and Q2. A large number of
+                      seven-figure deals are present in the pipeline. Despite
+                      pressure on headcount, there's an opportunity for growth
+                      by tying front office to middle office operations. The
+                      company anticipates lower organic ASV growth and GAAP
+                      revenue at the lower end of guidance due to factors like
+                      CS-UBS merger impact and a large Wealth cancelation event.
+                      This summary was generated using LLM technology optimized
+                      by StreetAccount. FactSet owns StreetAccount, the
+                      publisher of this content.
+                    speakerInfo: null
+                    sourceURL: >-
+                      https://my.apps.factset.com/viewer-fusion/?_doc_id=sa_story_3824699&_doc_date=20240321&_doc_product=SA&_doc_docfn=/home/docs/news_sa/2024/20240321/sa_story_3824699.fdsxml&e=false
+            - type: SuggestedPrompts
+              value:
+                - prompt: >-
+                    Can you provide more information about FactSet's use of
+                    GitHub Copilot and its impact on engineering efficiency?
+    RateLimitExceededErrorExample:
+      value:
+        message: API rate limit exceeded
+    UnauthorizedErrorExample:
+      value: Authentication Failed
+    ForbiddenErrorExample:
+      value: >-
+        Client does not have the required CACCESS: {00QAI}, Request key:
+        65CA96B3129489A6
+    MethodNotAllowedErrorExample:
+      value: Method Not Allowed
+    FeedbackRequestExample:
+      value:
+        data:
+          responseId: 9c1031c2-5463-47ae-81b3-126a68f0c2a6
+          helpful: false
+          comment: The response did not contain all the information I was looking for.
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
+tags:
+  - name: Multiple Question Chat
+    description: Ask follow up questions that build upon previous conversation context.
+  - name: Download
+    description: Download resources provided along with query responses.
+  - name: Feedback
+    description: >-
+      Provide feedback so we can continue to improve and expand upon the
+      conversational experience.
+externalDocs:
+  description: API Documentation
+  url: >-
+    https://developer.factset.com/api-catalog/conversational-api-powered-factset-mercury

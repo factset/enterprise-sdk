@@ -1,18 +1,18 @@
 # irncontacts.ContactsApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createContact**](ContactsApi.md#createContact) | **POST** /v1/contacts | Create a contact
-[**deleteContact**](ContactsApi.md#deleteContact) | **DELETE** /v1/contacts/{contactId} | Delete a contact
-[**getContact**](ContactsApi.md#getContact) | **GET** /v1/contacts/{contactId} | Get all custom field and standard field details on a specific contact
-[**getContactEvents**](ContactsApi.md#getContactEvents) | **GET** /v1/contacts/{contactId}/events | Get a contact’s audit history
-[**getContactNotes**](ContactsApi.md#getContactNotes) | **GET** /v1/contacts/{contactId}/about | Get the About field content for a specific contact
-[**getContactRecords**](ContactsApi.md#getContactRecords) | **GET** /v1/contacts/{contactId}/records | Get all notes and meetings where a specific contact was tagged
-[**getContactRelationships**](ContactsApi.md#getContactRelationships) | **GET** /v1/contacts/{contactId}/relationships | Returns a list of a contact’s relationships
-[**getContacts**](ContactsApi.md#getContacts) | **GET** /v1/contacts | Get list of all contacts in your group along with some of their standard field data
-[**patchContact**](ContactsApi.md#patchContact) | **PATCH** /v1/contacts/{contactId} | Edit a contact’s standard field and custom field data
+[**createContact**](ContactsApi.md#createContact) | **POST** /contacts | Create a contact
+[**deleteContact**](ContactsApi.md#deleteContact) | **DELETE** /contacts/{contactId} | Delete a contact
+[**getContact**](ContactsApi.md#getContact) | **GET** /contacts/{contactId} | Get all custom field and standard field details on a specific contact
+[**getContactEvents**](ContactsApi.md#getContactEvents) | **GET** /contacts/{contactId}/events | Get a contact’s audit history
+[**getContactNotes**](ContactsApi.md#getContactNotes) | **GET** /contacts/{contactId}/about | Get the About field content for a specific contact
+[**getContactRecords**](ContactsApi.md#getContactRecords) | **GET** /contacts/{contactId}/records | Get all notes and meetings where a specific contact was tagged
+[**getContactRelationships**](ContactsApi.md#getContactRelationships) | **GET** /contacts/{contactId}/relationships | Returns a list of a contact’s relationships
+[**getContacts**](ContactsApi.md#getContacts) | **GET** /contacts | Get list of all contacts in your group along with some of their standard field data
+[**patchContact**](ContactsApi.md#patchContact) | **PATCH** /contacts/{contactId} | Edit a contact’s standard field and custom field data
 
 
 
