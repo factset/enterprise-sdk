@@ -23,6 +23,5 @@ from fds.sdk.GlobalFilings.model.response_formtype import ResponseFormtype
 from fds.sdk.GlobalFilings.model.response_formtype_object import ResponseFormtypeObject
 from fds.sdk.GlobalFilings.model.response_sources import ResponseSources
 from fds.sdk.GlobalFilings.model.response_sources_object import ResponseSourcesObject
-from fds.sdk.GlobalFilings.model.response_sources_object_sources_object import ResponseSourcesObjectSourcesObject
 from fds.sdk.GlobalFilings.model.response_time import ResponseTime
 from fds.sdk.GlobalFilings.model.response_time_object import ResponseTimeObject

@@ -35,17 +35,40 @@ namespace FactSet.SDK.GlobalFilings.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ResponseSourcesObject" /> class.
         /// </summary>
-        /// <param name="sourcesObject">sourcesObject.</param>
-        public ResponseSourcesObject(ResponseSourcesObjectSourcesObject sourcesObject = default(ResponseSourcesObjectSourcesObject))
+        [JsonConstructorAttribute]
+        protected ResponseSourcesObject() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ResponseSourcesObject" /> class.
+        /// </summary>
+        /// <param name="source">source value (required).</param>
+        /// <param name="description">source description (required).</param>
+        public ResponseSourcesObject(string source, string description)
         {
-            this.SourcesObject = sourcesObject;
+            // to ensure "source" is required (not null)
+            if (source == null) {
+                throw new ArgumentNullException("source is a required property for ResponseSourcesObject and cannot be null");
+            }
+            this.Source = source;
+            // to ensure "description" is required (not null)
+            if (description == null) {
+                throw new ArgumentNullException("description is a required property for ResponseSourcesObject and cannot be null");
+            }
+            this.Description = description;
         }
 
         /// <summary>
-        /// Gets or Sets SourcesObject
+        /// source value
         /// </summary>
-        [DataMember(Name = "sourcesObject", EmitDefaultValue = false)]
-        public ResponseSourcesObjectSourcesObject SourcesObject { get; set; }
+        /// <value>source value</value>
+        [DataMember(Name = "source", IsRequired = true, EmitDefaultValue = false)]
+        public string Source { get; set; }
+
+        /// <summary>
+        /// source description
+        /// </summary>
+        /// <value>source description</value>
+        [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = false)]
+        public string Description { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -55,7 +78,8 @@ namespace FactSet.SDK.GlobalFilings.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class ResponseSourcesObject {\n");
-            sb.Append("  SourcesObject: ").Append(SourcesObject).Append("\n");
+            sb.Append("  Source: ").Append(Source).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -92,9 +116,14 @@ namespace FactSet.SDK.GlobalFilings.Model
             }
             return 
                 (
-                    this.SourcesObject == input.SourcesObject ||
-                    (this.SourcesObject != null &&
-                    this.SourcesObject.Equals(input.SourcesObject))
+                    this.Source == input.Source ||
+                    (this.Source != null &&
+                    this.Source.Equals(input.Source))
+                ) && 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
                 );
         }
 
@@ -107,9 +136,13 @@ namespace FactSet.SDK.GlobalFilings.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.SourcesObject != null)
+                if (this.Source != null)
                 {
-                    hashCode = (hashCode * 59) + this.SourcesObject.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Source.GetHashCode();
+                }
+                if (this.Description != null)
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
                 }
                 return hashCode;
             }

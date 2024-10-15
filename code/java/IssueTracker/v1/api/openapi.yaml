@@ -9,7 +9,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Issue Tracker API
-  version: 1.1.0
+  version: 1.2.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/issue-tracker-api
@@ -130,7 +130,9 @@ paths:
       - Issue
       x-accepts: application/json
     patch:
-      description: Update subject and severity of issue
+      description: "User can update either `isCritical` with `subject` or `productId`\
+        \ with `categoryId`.\r\n\r\n**Note:** Users are not allowed to update `isCritical`\
+        \ with `productId` or `subject` with `productId`"
       operationId: patchIssue
       parameters:
       - description: ID of Issue Tracker issue
@@ -145,11 +147,28 @@ paths:
         content:
           application/json:
             examples:
-              Example:
+              Sample request to replace title along with severity:
                 value:
                   data:
-                    subject: replace subject of ticket
+                    subject: replace Title of ticket
                     isCritical: false
+              Sample request  to replace ProductId with CategoryId:
+                value:
+                  data:
+                    productId: "41681"
+                    categoryId: "20586"
+              Sample request to replace Title alone:
+                value:
+                  data:
+                    subject: replace Title of ticket
+              Sample request to replace Severity alone:
+                value:
+                  data:
+                    isCritical: true
+              Sample request to replace ProductId alone:
+                value:
+                  data:
+                    productId: "41681"
             schema:
               $ref: '#/components/schemas/updateIssueRequest'
       responses:
@@ -163,7 +182,8 @@ paths:
           description: Forbidden
         "500":
           description: Internal Server Error
-      summary: Update severity and subject of existing issue
+      summary: Update severity and subject of issue or productId and categoryId of
+        issue
       tags:
       - Issue
       x-contentType: application/json
@@ -336,8 +356,6 @@ components:
           type: boolean
         internalId:
           type: integer
-          x-stoplight:
-            id: q9u31yahmb6ww
       type: object
     issueRequest_data:
       properties:
@@ -378,6 +396,12 @@ components:
         isCritical:
           description: severity of issue
           type: boolean
+        productId:
+          description: ProductId that needs to be replaced
+          type: string
+        categoryId:
+          description: Category that needs to be replaced
+          type: string
       type: object
   securitySchemes:
     FactSetOAuth2:

@@ -19,7 +19,6 @@ docs/ResponseFormtype.md
 docs/ResponseFormtypeObject.md
 docs/ResponseSources.md
 docs/ResponseSourcesObject.md
-docs/ResponseSourcesObjectSourcesObject.md
 docs/ResponseTime.md
 docs/ResponseTimeObject.md
 git_push.sh
@@ -42,6 +41,5 @@ src/model/ResponseFormtype.js
 src/model/ResponseFormtypeObject.js
 src/model/ResponseSources.js
 src/model/ResponseSourcesObject.js
-src/model/ResponseSourcesObjectSourcesObject.js
 src/model/ResponseTime.js
 src/model/ResponseTimeObject.js

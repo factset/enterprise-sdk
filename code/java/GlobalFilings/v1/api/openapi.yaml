@@ -1129,12 +1129,10 @@ components:
       description: Filings Response Object
       example:
         data:
-        - sourcesObject:
-            description: EDGAR
-            source: EDG
-        - sourcesObject:
-            description: EDGAR
-            source: EDG
+        - description: EDGAR
+          source: EDG
+        - description: EDGAR
+          source: EDG
       properties:
         data:
           description: Data Array Object
@@ -1144,12 +1142,20 @@ components:
       type: object
     responseSourcesObject:
       example:
-        sourcesObject:
-          description: EDGAR
-          source: EDG
+        description: EDGAR
+        source: EDG
       properties:
-        sourcesObject:
-          $ref: '#/components/schemas/responseSourcesObject_sourcesObject'
+        source:
+          description: source value
+          example: EDG
+          type: string
+        description:
+          description: source description
+          example: EDGAR
+          type: string
+      required:
+      - description
+      - source
       type: object
     responseFormtype:
       description: Filings Response Object
@@ -1305,20 +1311,6 @@ components:
       properties:
         pagination:
           $ref: '#/components/schemas/InvestmentResearch_meta_pagination'
-      type: object
-    responseSourcesObject_sourcesObject:
-      example:
-        description: EDGAR
-        source: EDG
-      properties:
-        source:
-          description: source value
-          example: EDG
-          type: string
-        description:
-          description: source description
-          example: EDGAR
-          type: string
       type: object
   securitySchemes:
     FactSetOAuth2:

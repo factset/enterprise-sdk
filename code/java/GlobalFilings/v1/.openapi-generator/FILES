@@ -21,7 +21,6 @@ docs/ResponseFormtype.md
 docs/ResponseFormtypeObject.md
 docs/ResponseSources.md
 docs/ResponseSourcesObject.md
-docs/ResponseSourcesObjectSourcesObject.md
 docs/ResponseTime.md
 docs/ResponseTimeObject.md
 git_push.sh
@@ -67,6 +66,5 @@ src/main/java/com/factset/sdk/GlobalFilings/models/ResponseFormtype.java
 src/main/java/com/factset/sdk/GlobalFilings/models/ResponseFormtypeObject.java
 src/main/java/com/factset/sdk/GlobalFilings/models/ResponseSources.java
 src/main/java/com/factset/sdk/GlobalFilings/models/ResponseSourcesObject.java
-src/main/java/com/factset/sdk/GlobalFilings/models/ResponseSourcesObjectSourcesObject.java
 src/main/java/com/factset/sdk/GlobalFilings/models/ResponseTime.java
 src/main/java/com/factset/sdk/GlobalFilings/models/ResponseTimeObject.java

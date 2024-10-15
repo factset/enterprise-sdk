@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 3.3.0
+  version: 3.4.0
   title: FactSet Symbology API
   contact:
     name: FactSet Research Systems
@@ -11,7 +11,8 @@ info:
     as, FactSet Permanent Identifiers, CUSIP, ISIN, SEDOL, Tickers, and LEIs.
     <p>Factset's Symbology API sits at the center of its hub-and-spoke data
     model, enabling you to quickly harmonize the expanding catalog of Content
-    APIs.</p>
+    APIs.</p><p>This API is rate-limited to 10 requests per second and 10
+    concurrent requests per user.</p>
 servers:
   - url: https://api.factset.com/content
     description: Production
@@ -40,9 +41,6 @@ paths:
         * **CIK** - Edgar Central Index Keys (e.g. 0000100331)
 
         * **CRD** - Central Registration Depository (e.g. 149722)
-
-        * **DUNS** - Dun & Bradstreet Data Universal Numbering System (e.g.
-        687741991) (Input only)
 
         * **EIN** - Employer Identification Number (e.g. 953540776)
 
@@ -177,9 +175,6 @@ paths:
         * **CIK** - Edgar Central Index Keys (e.g. 0000100331)
 
         * **CRD** - Central Registration Depository (e.g. 149722)
-
-        * **DUNS** - Dun & Bradstreet Data Universal Numbering System (e.g.
-        687741991) (Input only)
 
         * **EIN** - Employer Identification Number (e.g. 953540776)
 
@@ -328,9 +323,6 @@ paths:
 
         * **CRD** - Central Registration Depository (e.g. 149722) (Input only)
 
-        * **DUNS** - Dun & Bradstreet Data Universal Numbering System (e.g.
-        687741991) (Input only)
-
         * **EIN** - Employer Identification Number (e.g. 953540776) (Input only)
 
         * **FITCH*** - Fitch Ratings Identifier (e.g. 47504) (Input only)
@@ -471,9 +463,6 @@ paths:
         * **CIK** - Edgar Central Index Keys (e.g. 0000100331) (Input only)
 
         * **CRD** - Central Registration Depository (e.g. 149722) (Input only)
-
-        * **DUNS** - Dun & Bradstreet Data Universal Numbering System (e.g.
-        687741991) (Input only)
 
         * **EIN** - Employer Identification Number (e.g. 953540776) (Input only)
 
@@ -657,7 +646,6 @@ components:
           - BIC
           - CIK
           - CRD
-          - DUNS
           - EIN
           - FITCH
           - LEI
@@ -697,7 +685,6 @@ components:
           - BIC
           - CIK
           - CRD
-          - DUNS
           - EIN
           - FITCH
           - LEI
@@ -1058,7 +1045,6 @@ components:
         - BIC
         - CIK
         - CRD
-        - DUNS
         - EIN
         - FITCH
         - LEI
@@ -1095,7 +1081,6 @@ components:
         - BIC
         - CIK
         - CRD
-        - DUNS
         - EIN
         - FITCH
         - LEI

@@ -158,8 +158,8 @@ public class IssueApi {
 
   }
   /**
-   * Update severity and subject of existing issue
-   * Update subject and severity of issue
+   * Update severity and subject of issue or productId and categoryId of issue
+   * User can update either &#x60;isCritical&#x60; with &#x60;subject&#x60; or &#x60;productId&#x60; with &#x60;categoryId&#x60;.    **Note:** Users are not allowed to update &#x60;isCritical&#x60; with &#x60;productId&#x60; or &#x60;subject&#x60; with &#x60;productId&#x60;
    * @param id ID of Issue Tracker issue (required)
    * @param updateIssueRequest  (optional)
    * @throws ApiException if fails to make API call
@@ -178,8 +178,8 @@ public class IssueApi {
   }
 
   /**
-   * Update severity and subject of existing issue
-   * Update subject and severity of issue
+   * Update severity and subject of issue or productId and categoryId of issue
+   * User can update either &#x60;isCritical&#x60; with &#x60;subject&#x60; or &#x60;productId&#x60; with &#x60;categoryId&#x60;.    **Note:** Users are not allowed to update &#x60;isCritical&#x60; with &#x60;productId&#x60; or &#x60;subject&#x60; with &#x60;productId&#x60;
    * @param id ID of Issue Tracker issue (required)
    * @param updateIssueRequest  (optional)
    * @return ApiResponse&lt;Void&gt;

@@ -19,7 +19,6 @@ The Identifier Resolution endpoint provides flexibility for requesting and recei
 * **BIC*** - Bank Identification Code (e.g. ABXXHKH1)
 * **CIK** - Edgar Central Index Keys (e.g. 0000100331)
 * **CRD** - Central Registration Depository (e.g. 149722)
-* **DUNS** - Dun & Bradstreet Data Universal Numbering System (e.g. 687741991) (Input only)
 * **EIN** - Employer Identification Number (e.g. 953540776)
 * **FITCH*** - Fitch Ratings Identifier (e.g. 47504)
 * **LEI** - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33)
@@ -147,7 +146,6 @@ The Identifier Resolution endpoint provides flexibility for requesting and recei
 * **BIC*** - Bank Identification Code (e.g. ABXXHKH1)
 * **CIK** - Edgar Central Index Keys (e.g. 0000100331)
 * **CRD** - Central Registration Depository (e.g. 149722)
-* **DUNS** - Dun & Bradstreet Data Universal Numbering System (e.g. 687741991) (Input only)
 * **EIN** - Employer Identification Number (e.g. 953540776)
 * **FITCH*** - Fitch Ratings Identifier (e.g. 47504)
 * **LEI** - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33)
@@ -242,7 +240,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ids** | **List&lt;String&gt;**| Requested security or entity identifiers. All requested identifiers must be of the same type. This request value is sent back in the response as, &#x60;requestId&#39;. &lt;p&gt;***ids limit** &#x3D;  100 per request*&lt;/p&gt;   *&lt;p&gt;NOTE:  GET Method URL request lines are also limited to a total   length of 8192 bytes (8KB). In cases where the service allows for thousands   of ids, which may lead to exceeding this request line limit of 8KB, its   advised for any requests with large request lines to be requested through   the respective \&quot;POST\&quot; method.&lt;/p&gt;*  |
- **inputSymbolType** | **String**| The type of symbol being inputted. Only one type of symbol is accepted with each request.  | [default to tickerRegion] [enum: BIC, CIK, CRD, DUNS, EIN, FITCH, LEI, MD, SPR, VALOREN, WKN, UKCH, RSSD, SEDOL, CUSIP, fsymEntityId, fsymSecurityId, fsymRegionalId, fsymListingId, ISIN, tickerExchange, tickerRegion, bloombergFigi, bloombergTicker, GVKEY, GVKEY & IID, JCN, LoanX, MarkitRed]
+ **inputSymbolType** | **String**| The type of symbol being inputted. Only one type of symbol is accepted with each request.  | [default to tickerRegion] [enum: BIC, CIK, CRD, EIN, FITCH, LEI, MD, SPR, VALOREN, WKN, UKCH, RSSD, SEDOL, CUSIP, fsymEntityId, fsymSecurityId, fsymRegionalId, fsymListingId, ISIN, tickerExchange, tickerRegion, bloombergFigi, bloombergTicker, GVKEY, GVKEY & IID, JCN, LoanX, MarkitRed]
  **outputSymbolTypes** | **List&lt;String&gt;**| The type of symbols being outputted. Multiple types of symbols can be outputted with each request. The user must be authorized for the requested identifier type. | [enum: BIC, CIK, CRD, EIN, FITCH, LEI, MD, SPR, WKN, UKCH, RSSD, SEDOL, CUSIP, fsymEntityId, fsymSecurityId, fsymRegionalId, fsymListingId, ISIN, tickerExchange, tickerRegion, JCN, bloombergListingTicker, bloombergRegionalTicker, bloombergFigiListing, bloombergFigiRegional, bloombergFigiSecurity]
 
 ### Return type

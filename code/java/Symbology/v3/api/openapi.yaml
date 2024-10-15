@@ -4,9 +4,9 @@ info:
     email: api@factset.com
     name: FactSet Research Systems
   description: |
-    The FactSet Symbology API provides symbol resolution services, allowing clients to translate market identifiers into various symbology types such as, FactSet Permanent Identifiers, CUSIP, ISIN, SEDOL, Tickers, and LEIs. <p>Factset's Symbology API sits at the center of its hub-and-spoke data model, enabling you to quickly harmonize the expanding catalog of Content APIs.</p>
+    The FactSet Symbology API provides symbol resolution services, allowing clients to translate market identifiers into various symbology types such as, FactSet Permanent Identifiers, CUSIP, ISIN, SEDOL, Tickers, and LEIs. <p>Factset's Symbology API sits at the center of its hub-and-spoke data model, enabling you to quickly harmonize the expanding catalog of Content APIs.</p><p>This API is rate-limited to 10 requests per second and 10 concurrent requests per user.</p>
   title: FactSet Symbology API
-  version: 3.3.0
+  version: 3.4.0
 servers:
 - description: Production
   url: https://api.factset.com/content
@@ -23,12 +23,11 @@ paths:
         \ the ability to resolve one input symbol to many different output symbols\
         \ in one request. \n* **BIC*** - Bank Identification Code (e.g. ABXXHKH1)\n\
         * **CIK** - Edgar Central Index Keys (e.g. 0000100331)\n* **CRD** - Central\
-        \ Registration Depository (e.g. 149722)\n* **DUNS** - Dun & Bradstreet Data\
-        \ Universal Numbering System (e.g. 687741991) (Input only)\n* **EIN** - Employer\
-        \ Identification Number (e.g. 953540776)\n* **FITCH*** - Fitch Ratings Identifier\
-        \ (e.g. 47504)\n* **LEI** - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33)\n\
-        * **MD*** - Moody's Ratings Identifier (e.g. 0823736553)\n* **SPR*** - S&P\
-        \ Ratings Identifier (e.g. 301939)\n* **VALOREN** - Valoren (\"Valor\") Identification\
+        \ Registration Depository (e.g. 149722)\n* **EIN** - Employer Identification\
+        \ Number (e.g. 953540776)\n* **FITCH*** - Fitch Ratings Identifier (e.g. 47504)\n\
+        * **LEI** - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33)\n* **MD***\
+        \ - Moody's Ratings Identifier (e.g. 0823736553)\n* **SPR*** - S&P Ratings\
+        \ Identifier (e.g. 301939)\n* **VALOREN** - Valoren (\"Valor\") Identification\
         \ (e.g. 685558) (Input only)\n* **WKN*** - German Securities Identification\
         \ (\"Wertpapierkennnummer\") (e.g. A0MU9T)\n* **UKCH** - UK Company House\
         \ Identifier (e.g.CE012494)\n* **RSSD** - Federal Reserve RSSD Identifier\
@@ -95,7 +94,6 @@ paths:
           - BIC
           - CIK
           - CRD
-          - DUNS
           - EIN
           - FITCH
           - LEI
@@ -251,12 +249,11 @@ paths:
         \ the ability to resolve one input symbol to many different output symbols\
         \ in one request. \n* **BIC*** - Bank Identification Code (e.g. ABXXHKH1)\n\
         * **CIK** - Edgar Central Index Keys (e.g. 0000100331)\n* **CRD** - Central\
-        \ Registration Depository (e.g. 149722)\n* **DUNS** - Dun & Bradstreet Data\
-        \ Universal Numbering System (e.g. 687741991) (Input only)\n* **EIN** - Employer\
-        \ Identification Number (e.g. 953540776)\n* **FITCH*** - Fitch Ratings Identifier\
-        \ (e.g. 47504)\n* **LEI** - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33)\n\
-        * **MD*** - Moody's Ratings Identifier (e.g. 0823736553)\n* **SPR*** - S&P\
-        \ Ratings Identifier (e.g. 301939)\n* **VALOREN** - Valoren (\"Valor\") Identification\
+        \ Registration Depository (e.g. 149722)\n* **EIN** - Employer Identification\
+        \ Number (e.g. 953540776)\n* **FITCH*** - Fitch Ratings Identifier (e.g. 47504)\n\
+        * **LEI** - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33)\n* **MD***\
+        \ - Moody's Ratings Identifier (e.g. 0823736553)\n* **SPR*** - S&P Ratings\
+        \ Identifier (e.g. 301939)\n* **VALOREN** - Valoren (\"Valor\") Identification\
         \ (e.g. 685558) (Input only)\n* **WKN*** - German Securities Identification\
         \ (\"Wertpapierkennnummer\") (e.g. A0MU9T)\n* **UKCH** - UK Company House\
         \ Identifier (e.g.CE012494)\n* **RSSD** - Federal Reserve RSSD Identifier\
@@ -382,10 +379,9 @@ paths:
         \ specific identifiers as of the requested date. \n* **BIC*** - Bank Identification\
         \ Code (e.g. ABXXHKH1) (Input only)\n* **CIK** - Edgar Central Index Keys\
         \ (e.g. 0000100331) (Input only)\n* **CRD** - Central Registration Depository\
-        \ (e.g. 149722) (Input only)\n* **DUNS** - Dun & Bradstreet Data Universal\
-        \ Numbering System (e.g. 687741991) (Input only)\n* **EIN** - Employer Identification\
-        \ Number (e.g. 953540776) (Input only)\n* **FITCH*** - Fitch Ratings Identifier\
-        \ (e.g. 47504) (Input only)\n* **LEI** - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33)\
+        \ (e.g. 149722) (Input only)\n* **EIN** - Employer Identification Number (e.g.\
+        \ 953540776) (Input only)\n* **FITCH*** - Fitch Ratings Identifier (e.g. 47504)\
+        \ (Input only)\n* **LEI** - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33)\
         \ (Input only)\n* **MD*** - Moody's Ratings Identifier (e.g. 0823736553) (Input\
         \ only)\n* **SPR*** - S&P Ratings Identifier (e.g. 301939) (Input only)\n\
         * **VALOREN** - Valoren (\"Valor\") Identification (e.g. 685558) (Input only)\n\
@@ -456,7 +452,6 @@ paths:
           - BIC
           - CIK
           - CRD
-          - DUNS
           - EIN
           - FITCH
           - LEI
@@ -604,10 +599,9 @@ paths:
         \ specific identifiers as of the requested date. \n* **BIC*** - Bank Identification\
         \ Code (e.g. ABXXHKH1) (Input only)\n* **CIK** - Edgar Central Index Keys\
         \ (e.g. 0000100331) (Input only)\n* **CRD** - Central Registration Depository\
-        \ (e.g. 149722) (Input only)\n* **DUNS** - Dun & Bradstreet Data Universal\
-        \ Numbering System (e.g. 687741991) (Input only)\n* **EIN** - Employer Identification\
-        \ Number (e.g. 953540776) (Input only)\n* **FITCH*** - Fitch Ratings Identifier\
-        \ (e.g. 47504) (Input only)\n* **LEI** - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33)\
+        \ (e.g. 149722) (Input only)\n* **EIN** - Employer Identification Number (e.g.\
+        \ 953540776) (Input only)\n* **FITCH*** - Fitch Ratings Identifier (e.g. 47504)\
+        \ (Input only)\n* **LEI** - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33)\
         \ (Input only)\n* **MD*** - Moody's Ratings Identifier (e.g. 0823736553) (Input\
         \ only)\n* **SPR*** - S&P Ratings Identifier (e.g. 301939) (Input only)\n\
         * **VALOREN** - Valoren (\"Valor\") Identification (e.g. 685558) (Input only)\n\
@@ -1224,7 +1218,6 @@ components:
         - BIC
         - CIK
         - CRD
-        - DUNS
         - EIN
         - FITCH
         - LEI
@@ -1265,7 +1258,6 @@ components:
         - BIC
         - CIK
         - CRD
-        - DUNS
         - EIN
         - FITCH
         - LEI
@@ -1855,7 +1847,6 @@ components:
       - BIC
       - CIK
       - CRD
-      - DUNS
       - EIN
       - FITCH
       - LEI
@@ -1890,7 +1881,6 @@ components:
       - BIC
       - CIK
       - CRD
-      - DUNS
       - EIN
       - FITCH
       - LEI

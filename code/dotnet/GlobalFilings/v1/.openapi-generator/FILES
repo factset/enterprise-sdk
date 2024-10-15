@@ -19,7 +19,6 @@ docs/ResponseFormtype.md
 docs/ResponseFormtypeObject.md
 docs/ResponseSources.md
 docs/ResponseSourcesObject.md
-docs/ResponseSourcesObjectSourcesObject.md
 docs/ResponseTime.md
 docs/ResponseTimeObject.md
 git_push.sh
@@ -56,6 +55,5 @@ src/FactSet.SDK.GlobalFilings/Model/ResponseFormtype.cs
 src/FactSet.SDK.GlobalFilings/Model/ResponseFormtypeObject.cs
 src/FactSet.SDK.GlobalFilings/Model/ResponseSources.cs
 src/FactSet.SDK.GlobalFilings/Model/ResponseSourcesObject.cs
-src/FactSet.SDK.GlobalFilings/Model/ResponseSourcesObjectSourcesObject.cs
 src/FactSet.SDK.GlobalFilings/Model/ResponseTime.cs
 src/FactSet.SDK.GlobalFilings/Model/ResponseTimeObject.cs

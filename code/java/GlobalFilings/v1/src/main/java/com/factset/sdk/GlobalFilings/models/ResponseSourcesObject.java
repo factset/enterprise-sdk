@@ -17,7 +17,6 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.GlobalFilings.models.ResponseSourcesObjectSourcesObject;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -34,42 +33,82 @@ import com.factset.sdk.GlobalFilings.JSON;
  * ResponseSourcesObject
  */
 @JsonPropertyOrder({
-  ResponseSourcesObject.JSON_PROPERTY_SOURCES_OBJECT
+  ResponseSourcesObject.JSON_PROPERTY_SOURCE,
+  ResponseSourcesObject.JSON_PROPERTY_DESCRIPTION
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class ResponseSourcesObject implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_SOURCES_OBJECT = "sourcesObject";
-  private ResponseSourcesObjectSourcesObject sourcesObject;
+  public static final String JSON_PROPERTY_SOURCE = "source";
+  private String source;
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
 
   public ResponseSourcesObject() { 
   }
 
-  public ResponseSourcesObject sourcesObject(ResponseSourcesObjectSourcesObject sourcesObject) {
-    this.sourcesObject = sourcesObject;
+  @JsonCreator
+  public ResponseSourcesObject(
+    @JsonProperty(value=JSON_PROPERTY_SOURCE, required=true) String source, 
+    @JsonProperty(value=JSON_PROPERTY_DESCRIPTION, required=true) String description
+  ) {
+    this();
+    this.source = source;
+    this.description = description;
+  }
+
+  public ResponseSourcesObject source(String source) {
+    this.source = source;
     return this;
   }
 
    /**
-   * Get sourcesObject
-   * @return sourcesObject
+   * source value
+   * @return source
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_SOURCES_OBJECT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @jakarta.annotation.Nonnull
+  @ApiModelProperty(example = "EDG", required = true, value = "source value")
+  @JsonProperty(JSON_PROPERTY_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public ResponseSourcesObjectSourcesObject getSourcesObject() {
-    return sourcesObject;
+  public String getSource() {
+    return source;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SOURCES_OBJECT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSourcesObject(ResponseSourcesObjectSourcesObject sourcesObject) {
-    this.sourcesObject = sourcesObject;
+  @JsonProperty(JSON_PROPERTY_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setSource(String source) {
+    this.source = source;
+  }
+
+
+  public ResponseSourcesObject description(String description) {
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * source description
+   * @return description
+  **/
+  @jakarta.annotation.Nonnull
+  @ApiModelProperty(example = "EDGAR", required = true, value = "source description")
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -85,19 +124,21 @@ public class ResponseSourcesObject implements Serializable {
       return false;
     }
     ResponseSourcesObject responseSourcesObject = (ResponseSourcesObject) o;
-    return Objects.equals(this.sourcesObject, responseSourcesObject.sourcesObject);
+    return Objects.equals(this.source, responseSourcesObject.source) &&
+        Objects.equals(this.description, responseSourcesObject.description);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sourcesObject);
+    return Objects.hash(source, description);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ResponseSourcesObject {\n");
-    sb.append("    sourcesObject: ").append(toIndentedString(sourcesObject)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("}");
     return sb.toString();
   }

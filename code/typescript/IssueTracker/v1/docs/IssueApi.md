@@ -5,7 +5,7 @@ All URIs are relative to *https://api.factset.com/issue-tracker/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getIssue**](IssueApi.md#getIssue) | **GET** /issues/{id} | Get the matched issue details
-[**patchIssue**](IssueApi.md#patchIssue) | **PATCH** /issues/{id} | Update severity and subject of existing issue
+[**patchIssue**](IssueApi.md#patchIssue) | **PATCH** /issues/{id} | Update severity and subject of issue or productId and categoryId of issue
 [**postIssue**](IssueApi.md#postIssue) | **POST** /issues | Creates a Issue Tracker issue
 [**postReply**](IssueApi.md#postReply) | **POST** /issues/{id}/comments | post comment to Issue Tracker issue
 
@@ -94,9 +94,9 @@ Name | Type | Description  | Notes
 
 > patchIssue(id, opts)
 
-Update severity and subject of existing issue
+Update severity and subject of issue or productId and categoryId of issue
 
-Update subject and severity of issue
+User can update either &#x60;isCritical&#x60; with &#x60;subject&#x60; or &#x60;productId&#x60; with &#x60;categoryId&#x60;.    **Note:** Users are not allowed to update &#x60;isCritical&#x60; with &#x60;productId&#x60; or &#x60;subject&#x60; with &#x60;productId&#x60;
 
 ### Example
 
@@ -133,7 +133,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 const apiInstance = new IssueApi();
 const id = "id_example"; // String | ID of Issue Tracker issue
 const opts = {
-  'updateIssueRequest': {"data":{"subject":"replace subject of ticket","isCritical":false}} // UpdateIssueRequest | 
+  'updateIssueRequest': {"data":{"subject":"replace Title of ticket","isCritical":false}} // UpdateIssueRequest | 
 };
 
 // Call api endpoint

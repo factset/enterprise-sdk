@@ -5,7 +5,7 @@ All URIs are relative to *https://api.factset.com/issue-tracker/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getIssue**](IssueApi.md#getIssue) | **GET** /issues/{id} | Get the matched issue details
-[**patchIssue**](IssueApi.md#patchIssue) | **PATCH** /issues/{id} | Update severity and subject of existing issue
+[**patchIssue**](IssueApi.md#patchIssue) | **PATCH** /issues/{id} | Update severity and subject of issue or productId and categoryId of issue
 [**postIssue**](IssueApi.md#postIssue) | **POST** /issues | Creates a Issue Tracker issue
 [**postReply**](IssueApi.md#postReply) | **POST** /issues/{id}/comments | post comment to Issue Tracker issue
 
@@ -110,9 +110,11 @@ Name | Type | Description  | Notes
 
 > patchIssue(id, updateIssueRequest)
 
-Update severity and subject of existing issue
+Update severity and subject of issue or productId and categoryId of issue
 
-Update subject and severity of issue
+User can update either `isCritical` with `subject` or `productId` with `categoryId`.
+
+**Note:** Users are not allowed to update `isCritical` with `productId` or `subject` with `productId`
 
 ### Example
 

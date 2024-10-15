@@ -1,0 +1,816 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
+  description: "The FactSet Debt Capital Structure API offers insights into public\
+    \ and private company debt financing for 69,000+ entities globally. Analyze at\
+    \ the individual-instrument level through summary and detailed information of\
+    \ the debt structure with history available back through 2006. Instrument types\
+    \ covered include Revolving Credit, Term Loans, Notes, and Bonds. \n\n**How to\
+    \ Programmatically Download API Specification file:**\n\nPlease use the below\
+    \ link to download the FactSet Debt Capital Structure API Specification file in\
+    \ .yaml. You must be authorized for this API to extract. This specification can\
+    \ then be used for Codegen to create your own SDKs. You can also access by selecting\
+    \ the \"Download Spec\" button to the right of the version below.\n\n[https://api.factset.com/content/factset-dcs/v1/spec/swagger.yaml](https://api.factset.com/content/factset-dcs/v1/spec/swagger.yaml)\n\
+    \nThis API is rate-limited to 10 requests per second and 10 concurrent requests\
+    \ per user.\n"
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  title: FactSet Debt Capital Structure API
+  version: 1.0.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/factset-dcs-api
+servers:
+- description: Production
+  url: https://api.factset.com/content/factset-dcs/v1
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- name: Reference
+paths:
+  /details:
+    post:
+      description: |
+        Gets instruments of varying types such as Revolving Credit, Term Loans, ST Debt Total, Notes/Bonds, and Other.
+      operationId: getDetailsList
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Request for All Details in Date Range:
+                $ref: '#/components/examples/detailsRequestAll'
+            schema:
+              $ref: '#/components/schemas/DetailsRequest'
+        description: Request object for `Details`.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Result of Details in Date Range:
+                  $ref: '#/components/examples/detailsResponseAll'
+              schema:
+                $ref: '#/components/schemas/DetailsResponse'
+          description: Array of details
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Not Found:
+                  $ref: '#/components/examples/badRequestNotFound'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "404":
+          content:
+            application/json:
+              examples:
+                Bad Request - Endpoint Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested endpoint could not be found.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Returns debt instruments for a list of companies.
+      tags:
+      - Reference
+      x-contentType: application/json
+      x-accepts: application/json
+  /details-interim:
+    post:
+      description: |
+        Gets instruments of varying types such as Revolving Credit, Term Loans, ST Debt Total, Notes/Bonds, and Other. The data returned by this endpoint is for the interim period and only returns the most recently available value.
+      operationId: getInterimDetailsList
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Request for All Details in Date Range:
+                $ref: '#/components/examples/interimDetailsRequestAll'
+            schema:
+              $ref: '#/components/schemas/InterimDetailsRequest'
+        description: Request object for `Details`.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Result of Details in Date Range:
+                  $ref: '#/components/examples/detailsResponseAll'
+              schema:
+                $ref: '#/components/schemas/DetailsResponse'
+          description: Array of interim details
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Not Found:
+                  $ref: '#/components/examples/badRequestNotFound'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "404":
+          content:
+            application/json:
+              examples:
+                Bad Request - Endpoint Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested endpoint could not be found.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Returns most recently available debt instrument data for a list of
+        companies.
+      tags:
+      - Reference
+      x-contentType: application/json
+      x-accepts: application/json
+components:
+  examples:
+    detailsRequestAll:
+      summary: Detail request for company id.
+      value:
+        data:
+          ids:
+          - IBM-US
+          periodicity: ANN
+          AsOfDate: 2023-12-31
+    interimDetailsRequestAll:
+      summary: Detail request for company id.
+      value:
+        data:
+          ids:
+          - IBM-US
+    detailsResponseAll:
+      summary: Details response for company id.
+      value:
+        data:
+        - instrumentId: FDS1R56X6
+          instrumentType: Revolving Credit
+          description: Unsec. Rev. Facility
+          seniority: Senior Secured
+          amountOutstanding: 250
+          currency: USD
+          couponRate: 2.9
+          couponType: Variable
+          yieldToWorst: 3.77
+          issueDate: 2020-11-19
+          reportDate: 2020-11-19
+          maturityDate: 2020-11-19
+          requestId: IBM-USA
+    badRequestDateFormat:
+      description: This bad request occurs when a request doesn't use the YYYY-MM-DD
+        in the date parameters. To resolve, convert your date to YYYY-MM-DD.
+      summary: Bad Request - Date Format
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6
+          code: Bad Request
+          title: 'The date parameter must be in the following date format: YYYY-MM-DD'
+          detail: 'The date parameter must be in the following date format: YYYY-MM-DD'
+    badRequestNotFound:
+      description: This bad request occurs when a request doesn't have data for requested
+        identifier. To resolve, give valid parameters.
+      summary: Bad Request - Data Not Found
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6
+          code: Bad Request
+          title: The requested data could not be found
+          detail: No data exists for the provided criteria or identifier.
+    badRequestRequiredParameter:
+      description: This error message occurs when the request does not include the
+        required parameters. Required parameters are indicated with a red asterisks
+        symbol in the specification file.
+      summary: Bad Request - Required Parameter Missing
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6
+          code: Bad Request
+          title: Missing/Invalid Parameters.
+          detail: The parameter 'ids' is required and may not be empty.
+    badRequestFutureDate:
+      description: This error message occurs when a future date is requested in the
+        startDate and endDate parameters. Please revise your request to include dates
+        as of today's current date or any prior historical date.
+      summary: Bad Request - Future Date
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6
+          code: Bad Request
+          title: Missing/Invalid Parameters
+          detail: The use of future dates is not applicable in this endpoint. Please
+            revise your request to include dates up to today's current date.
+    badRequestInvalidParameters:
+      description: This error message occurs when a request parameter is used in which
+        is not recognized by the service. Please revise your request to include only
+        the parameters listed in the specification. Typical causes are spelling mistakes
+        and use of improper casing.
+      summary: Bad Request - Invalid Parameters
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6
+          code: Bad Request
+          title: Missing/Invalid Parameters
+          detail: 'Invalid Parameter (s): fakeParameterName1 fakeParameterName2. Please
+            modify your request to use parameters outlined in the specification for
+            this endpoint.'
+    badRequestMalformedJSON:
+      description: This error may be returned when the request body is specified as
+        JSON, but is not in proper JSON format.
+      summary: Bad Request - Malformed JSON Request
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6
+          code: Bad Request
+          title: Malformed JSON Request
+          detail: The request body is malformed. Please review the request body and
+            try again.
+    badRequestReadTimeout:
+      description: This error may be returned if it takes more than 29 seconds to
+        hear back from the fql service.
+      summary: Bad Request - Read Timeout
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6
+          code: Bad Request
+          title: Read Timeout
+          detail: The request took too long. Try again with a smaller request.
+    unauthenticated:
+      description: This occurs when a user is not properly authenticated or recognized
+        by the service. Please double check the USERNAME-SERIAL and API-Key used to
+        request and ensure you are within the IP range specified for the Key. Report
+        Issue under 401 error for help with troubleshooting.
+      summary: User Authentication Failed
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6
+          code: Unauthorized
+          title: User Authentication Failed.
+          detail: User Authentication Failed.
+    forbidden:
+      description: The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing to
+        respond. Please reach out to FactSet Account Team for assistance with authorization.
+      summary: Forbidden
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6
+          code: Forbidden
+          title: User Authorization Failed.
+          detail: User is not authorized for the id requested, please reach out to
+            FactSet for support
+    notFound:
+      description: The requested endpoint could not be found.
+      summary: Not Found
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6
+          code: Not Found
+          title: No data found
+          detail: The requested endpoint could not be found.
+    unsupportedMediaType:
+      description: This bad request occurs when the media type passed in the request
+        is not supported. Currently the APIs only support 'application/json'.
+      summary: Unsupported Media Type
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6
+          code: Unsupported Media Type
+          title: Unsupported Media Type
+          detail: text/html media type is not supported. Supported media types are
+            application/json.
+    notWritable:
+      description: This error may be returned when the server encounters an error
+        writing the JSON response.
+      summary: Internal Server Error - Not Writable
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6
+          code: Internal Server Error
+          title: Error writing JSON output
+          detail: The server encountered an error writing the JSON response. Please
+            `Report Issue` to FactSet.
+    generalException:
+      description: This is the most general error that can be returned to by the service.
+        Please `Report Issue` to FactSet.
+      summary: Internal Server Error - General Exception
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6
+          code: Internal Server Error
+          title: Unexpected error
+          detail: An unexpected error occurred. Please `Report Issue` to FactSet.
+  responses:
+    "400":
+      content:
+        application/json:
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/badRequestDateFormat'
+            Bad Request - Not Found:
+              $ref: '#/components/examples/badRequestNotFound'
+            Bad Request - Missing Required Parameter:
+              $ref: '#/components/examples/badRequestRequiredParameter'
+            Bad Request - Future Date:
+              $ref: '#/components/examples/badRequestFutureDate'
+            Bad Request - Invalid Parameter:
+              $ref: '#/components/examples/badRequestInvalidParameters'
+            Bad Request - Malformed JSON:
+              $ref: '#/components/examples/badRequestMalformedJSON'
+            Bad Request - Read Timeout:
+              $ref: '#/components/examples/badRequestReadTimeout'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Bad Request. This can occur for several reasons. Please review
+        the "message" for more details.
+    "401":
+      content:
+        application/json:
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unauthenticated'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+        successfully generated an API KEY for the IP range you are connecting from.
+        For more help, select the **Report Issue** in the top right corner of this
+        Developer Portal specification card and choose Connectivity 401 or 403 Responses.
+    "403":
+      content:
+        application/json:
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/forbidden'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing to
+        respond. Please reach out to FactSet Account Team for assistance with authorization.
+    "404":
+      content:
+        application/json:
+          examples:
+            Bad Request - Endpoint Not Found:
+              $ref: '#/components/examples/notFound'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: The requested endpoint could not be found.
+    "415":
+      content:
+        application/json:
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unsupportedMediaType'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Unsupported Media Type. This error may be returned when the caller
+        sends a resource in a format that is not accepted by the server. This can
+        be fixed by ensuring that Content-Type header is set to the correct value.
+        In this instance, "application/json" would be the appropriate value.
+    "500":
+      content:
+        application/json:
+          examples:
+            Internal Server Error - Not Writable:
+              $ref: '#/components/examples/notWritable'
+            Internal Server Error - General Exception:
+              $ref: '#/components/examples/generalException'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Internal Server Error.
+  schemas:
+    DetailsRequest:
+      description: Details Request
+      example:
+        data:
+          date: 2017-12-01T00:00:00.000+0000
+          periodicity: QTR
+          ids:
+          - FDS-US
+      properties:
+        data:
+          $ref: '#/components/schemas/DetailsRequestBody'
+      required:
+      - data
+      title: Details Request
+      type: object
+    DetailsRequestBody:
+      description: Details Request Body
+      example:
+        date: 2017-12-01T00:00:00.000+0000
+        periodicity: QTR
+        ids:
+        - FDS-US
+      properties:
+        ids:
+          description: |
+            The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. Maximum of 25 IDs are supported.
+          example:
+          - FDS-US
+          items:
+            type: string
+          type: array
+        periodicity:
+          $ref: '#/components/schemas/Periodicity'
+        date:
+          description: |
+            The date of the period requested in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.
+          example: 2017-12-01
+          format: date
+          title: AsOfDate
+          type: string
+      required:
+      - ids
+      title: Details Request Body
+      type: object
+    InterimDetailsRequest:
+      description: Interim Details Request
+      example:
+        data:
+          ids:
+          - FDS-US
+      properties:
+        data:
+          $ref: '#/components/schemas/InterimDetailsRequestBody'
+      required:
+      - data
+      title: Interim Details Request
+      type: object
+    InterimDetailsRequestBody:
+      description: Interim Details Request Body
+      example:
+        ids:
+        - FDS-US
+      properties:
+        ids:
+          description: |
+            The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. Maximum of 25 IDs are supported.
+          example:
+          - FDS-US
+          items:
+            type: string
+          type: array
+      required:
+      - ids
+      title: Interim Details Request Body
+      type: object
+    DetailsResponse:
+      example:
+        data:
+        - instrumentType: Revolving Credit
+          amountOutstanding: 250
+          instrumentId: FDS1R56X6
+          description: Unsec. Rev. Facility
+          couponRate: 2.9
+          reportDate: 2020-11-19T00:00:00.000+0000
+          yieldToWorst: 2.9
+          couponType: Variable
+          maturityDate: 2020-11-19T00:00:00.000+0000
+          requestId: IBM-USA
+          currency: USD
+          issueDate: 2020-11-19T00:00:00.000+0000
+          seniority: Senior Secured
+        - instrumentType: Revolving Credit
+          amountOutstanding: 250
+          instrumentId: FDS1R56X6
+          description: Unsec. Rev. Facility
+          couponRate: 2.9
+          reportDate: 2020-11-19T00:00:00.000+0000
+          yieldToWorst: 2.9
+          couponType: Variable
+          maturityDate: 2020-11-19T00:00:00.000+0000
+          requestId: IBM-USA
+          currency: USD
+          issueDate: 2020-11-19T00:00:00.000+0000
+          seniority: Senior Secured
+      properties:
+        data:
+          description: Array of Details Objects
+          items:
+            $ref: '#/components/schemas/Detail'
+          type: array
+      title: Details Response
+      type: object
+    Detail:
+      example:
+        instrumentType: Revolving Credit
+        amountOutstanding: 250
+        instrumentId: FDS1R56X6
+        description: Unsec. Rev. Facility
+        couponRate: 2.9
+        reportDate: 2020-11-19T00:00:00.000+0000
+        yieldToWorst: 2.9
+        couponType: Variable
+        maturityDate: 2020-11-19T00:00:00.000+0000
+        requestId: IBM-USA
+        currency: USD
+        issueDate: 2020-11-19T00:00:00.000+0000
+        seniority: Senior Secured
+      properties:
+        instrumentId:
+          description: Identifier for the debt instrument.
+          example: FDS1R56X6
+          nullable: true
+          type: string
+        instrumentType:
+          description: Type of debt instrument.
+          enum:
+          - Revolving Credit
+          - Term Loans
+          - ST Debt Total
+          - Notes/Bonds
+          - Other
+          example: Revolving Credit
+          nullable: true
+          type: string
+        description:
+          description: Desription of the debt instrument.
+          example: Unsec. Rev. Facility
+          nullable: true
+          type: string
+        seniority:
+          description: |
+            Textual description of the instrument seniority type:
+            * **Senior Unsecured**
+            * **Senior Secured**
+            * **Senior Subordinated**
+            * **Collateralized**
+            * **Subordinated**
+            * **Junior**
+            * **Junior Subordinated**
+            * **Senior Conv.** = Senior Convertible
+            * **Senior Sub. Conv.** = Senior Subordinated Convertible
+            * **Sub. Conv.** = Subordinated Convertible
+            * **Junior Conv.** = Junior Convertible
+            * **Junior Sub. Conv.** = Junior Subordinated Convertible
+            * **Preferred**
+            * **Other**
+          enum:
+          - Senior Unsecured
+          - Senior Secured
+          - Senior Subordinated
+          - Collateralized
+          - Subordinated
+          - Junior
+          - Junion Subordinated
+          - Senior Conv.
+          - Senior Sub. Conv.
+          - Sub. Conv.
+          - Junior Conv.
+          - Junion Sub. Conv.
+          - Preferred
+          - Other
+          example: Senior Secured
+          nullable: true
+          type: string
+        amountOutstanding:
+          description: Balance sheet amount outstanding.
+          example: 250
+          nullable: true
+          type: number
+        currency:
+          description: 'Currency code for the data. For a list of currency ISO codes,
+            visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
+          example: USD
+          nullable: true
+          type: string
+        couponRate:
+          description: Coupon rate for the debt instrument.
+          example: 2.9
+          nullable: true
+          type: number
+        couponType:
+          description: Type of debt instrument.
+          enum:
+          - Variable
+          - Fixed
+          - Cond
+          - Zero
+          example: Variable
+          nullable: true
+          type: string
+        yieldToWorst:
+          description: Most recent annual yield to worst value for the debt instrument.
+          example: 2.9
+          nullable: true
+          type: number
+        issueDate:
+          description: Issue date for the debt instrument.
+          example: 2020-11-19
+          format: date
+          nullable: true
+          type: string
+        reportDate:
+          description: Reporting date for the debt instrument.
+          example: 2020-11-19
+          format: date
+          nullable: true
+          type: string
+        maturityDate:
+          description: Maturity date for the debt instrument.
+          example: 2020-11-19
+          format: date
+          nullable: true
+          type: string
+        requestId:
+          description: Identifier that was used for the request.
+          example: IBM-USA
+          type: string
+      title: Detail Object
+      type: object
+    Ids:
+      description: |
+        The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. Maximum of 25 IDs are supported.
+      example:
+      - FDS-US
+      items:
+        type: string
+      type: array
+    Periodicity:
+      default: ANN
+      description: |
+        Periodicity of the fiscal periods, where
+          * **ANN** = Annual Original,
+          * **QTR** = Quarterly
+      enum:
+      - ANN
+      - QTR
+      example: QTR
+      title: Periodicity
+      type: string
+    AsOfDate:
+      description: |
+        The date of the period requested in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.
+      example: 2017-12-01
+      format: date
+      title: AsOfDate
+      type: string
+    ErrorResponse:
+      description: Error Default Response
+      properties:
+        errors:
+          description: An array containing errors
+          items:
+            $ref: '#/components/schemas/ErrorObject'
+          type: array
+      title: Error Response
+      type: object
+    ErrorObject:
+      properties:
+        id:
+          description: A UUID for this particular occurrence of the problem.
+          example: adb01824-252f-4420-b0c6-35a1e3507ef5
+          type: string
+        code:
+          description: status
+          example: Bad Request
+          type: string
+        title:
+          description: The plain text error message
+          example: Validation Error
+          type: string
+        detail:
+          description: The detailed error message
+          example: The request body is malformed. Please review the request body and
+            try again.
+          type: string
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

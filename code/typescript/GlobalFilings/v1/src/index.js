@@ -26,7 +26,6 @@ import ResponseFormtype from './model/ResponseFormtype';
 import ResponseFormtypeObject from './model/ResponseFormtypeObject';
 import ResponseSources from './model/ResponseSources';
 import ResponseSourcesObject from './model/ResponseSourcesObject';
-import ResponseSourcesObjectSourcesObject from './model/ResponseSourcesObjectSourcesObject';
 import ResponseTime from './model/ResponseTime';
 import ResponseTimeObject from './model/ResponseTimeObject';
 
@@ -153,12 +152,6 @@ export {
      * @property {module:model/ResponseSourcesObject}
      */
     ResponseSourcesObject,
-
-    /**
-     * The ResponseSourcesObjectSourcesObject model constructor.
-     * @property {module:model/ResponseSourcesObjectSourcesObject}
-     */
-    ResponseSourcesObjectSourcesObject,
 
     /**
      * The ResponseTime model constructor.

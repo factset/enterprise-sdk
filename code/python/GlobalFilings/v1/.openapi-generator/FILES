@@ -19,7 +19,6 @@ docs/ResponseFormtype.md
 docs/ResponseFormtypeObject.md
 docs/ResponseSources.md
 docs/ResponseSourcesObject.md
-docs/ResponseSourcesObjectSourcesObject.md
 docs/ResponseTime.md
 docs/ResponseTimeObject.md
 fds/__init__.py
@@ -45,7 +44,6 @@ fds/sdk/GlobalFilings/model/response_formtype.py
 fds/sdk/GlobalFilings/model/response_formtype_object.py
 fds/sdk/GlobalFilings/model/response_sources.py
 fds/sdk/GlobalFilings/model/response_sources_object.py
-fds/sdk/GlobalFilings/model/response_sources_object_sources_object.py
 fds/sdk/GlobalFilings/model/response_time.py
 fds/sdk/GlobalFilings/model/response_time_object.py
 fds/sdk/GlobalFilings/model_utils.py

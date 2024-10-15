@@ -5,7 +5,7 @@ All URIs are relative to *https://api.factset.com/issue-tracker/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetIssue**](IssueApi.md#getissue) | **GET** /issues/{id} | Get the matched issue details
-[**PatchIssue**](IssueApi.md#patchissue) | **PATCH** /issues/{id} | Update severity and subject of existing issue
+[**PatchIssue**](IssueApi.md#patchissue) | **PATCH** /issues/{id} | Update severity and subject of issue or productId and categoryId of issue
 [**PostIssue**](IssueApi.md#postissue) | **POST** /issues | Creates a Issue Tracker issue
 [**PostReply**](IssueApi.md#postreply) | **POST** /issues/{id}/comments | post comment to Issue Tracker issue
 
@@ -117,9 +117,9 @@ Name | Type | Description  | Notes
 # **PatchIssue**
 > void PatchIssue (string id, UpdateIssueRequest updateIssueRequest = null)
 
-Update severity and subject of existing issue
+Update severity and subject of issue or productId and categoryId of issue
 
-Update subject and severity of issue
+User can update either `isCritical` with `subject` or `productId` with `categoryId`.    **Note:** Users are not allowed to update `isCritical` with `productId` or `subject` with `productId`
 
 ### Example
 
@@ -170,7 +170,7 @@ namespace Example
 
             try
             {
-                // Update severity and subject of existing issue
+                // Update severity and subject of issue or productId and categoryId of issue
                 apiInstance.PatchIssue(id, updateIssueRequest);
             }
             catch (ApiException  e)

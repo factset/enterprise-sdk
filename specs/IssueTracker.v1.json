@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Issue Tracker API",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "This API is used to file issues",
     "contact": {
       "name": "FactSet Research Systems",
@@ -184,7 +184,7 @@
         }
       ],
       "patch": {
-        "summary": "Update severity and subject of existing issue",
+        "summary": "Update severity and subject of issue or productId and categoryId of issue",
         "tags": [
           "Issue"
         ],
@@ -214,11 +214,40 @@
                 "$ref": "#/components/schemas/updateIssueRequest"
               },
               "examples": {
-                "Example": {
+                "Sample request to replace title along with severity": {
                   "value": {
                     "data": {
-                      "subject": "replace subject of ticket",
+                      "subject": "replace Title of ticket",
                       "isCritical": false
+                    }
+                  }
+                },
+                "Sample request  to replace ProductId with CategoryId": {
+                  "value": {
+                    "data": {
+                      "productId": "41681",
+                      "categoryId": "20586"
+                    }
+                  }
+                },
+                "Sample request to replace Title alone": {
+                  "value": {
+                    "data": {
+                      "subject": "replace Title of ticket"
+                    }
+                  }
+                },
+                "Sample request to replace Severity alone": {
+                  "value": {
+                    "data": {
+                      "isCritical": true
+                    }
+                  }
+                },
+                "Sample request to replace ProductId alone": {
+                  "value": {
+                    "data": {
+                      "productId": "41681"
                     }
                   }
                 }
@@ -226,7 +255,7 @@
             }
           }
         },
-        "description": "Update subject and severity of issue"
+        "description": "User can update either `isCritical` with `subject` or `productId` with `categoryId`.\r\n\r\n**Note:** Users are not allowed to update `isCritical` with `productId` or `subject` with `productId`"
       }
     },
     "/issues/{id}/comments": {
@@ -378,10 +407,7 @@
                 "type": "boolean"
               },
               "internalId": {
-                "type": "integer",
-                "x-stoplight": {
-                  "id": "q9u31yahmb6ww"
-                }
+                "type": "integer"
               }
             }
           }
@@ -507,6 +533,7 @@
             "isCritical": false
           }
         },
+        "description": "Request object for update severity or subject of Issue",
         "properties": {
           "data": {
             "type": "object",
@@ -518,11 +545,18 @@
               "isCritical": {
                 "type": "boolean",
                 "description": "severity of issue"
+              },
+              "productId": {
+                "type": "string",
+                "description": "ProductId that needs to be replaced"
+              },
+              "categoryId": {
+                "type": "string",
+                "description": "Category that needs to be replaced"
               }
             }
           }
-        },
-        "description": "Request object for update severity or subject of Issue"
+        }
       }
     },
     "securitySchemes": {

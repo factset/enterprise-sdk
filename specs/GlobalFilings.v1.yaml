@@ -625,18 +625,18 @@ components:
             $ref: '#/components/schemas/responseSourcesObject'
     responseSourcesObject:
       type: object
+      required:
+        - source
+        - description
       properties:
-        sourcesObject:
-          type: object
-          properties:
-            source:
-              type: string
-              description: source value
-              example: EDG
-            description:
-              type: string
-              description: source description
-              example: EDGAR
+        source:
+          type: string
+          description: source value
+          example: EDG
+        description:
+          type: string
+          description: source description
+          example: EDGAR
     responseFormtype:
       description: Filings Response Object
       type: object

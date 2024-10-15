@@ -12,7 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import ResponseSourcesObjectSourcesObject from './ResponseSourcesObjectSourcesObject';
 
 /**
  * The ResponseSourcesObject model module.
@@ -22,10 +21,12 @@ class ResponseSourcesObject {
     /**
      * Constructs a new <code>ResponseSourcesObject</code>.
      * @alias module:model/ResponseSourcesObject
+     * @param source {String} source value
+     * @param description {String} source description
      */
-    constructor() { 
+    constructor(source, description) { 
         
-        ResponseSourcesObject.initialize(this);
+        ResponseSourcesObject.initialize(this, source, description);
     }
 
     /**
@@ -33,7 +34,9 @@ class ResponseSourcesObject {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, source, description) { 
+        obj['source'] = source;
+        obj['description'] = description;
     }
 
     /**
@@ -47,8 +50,11 @@ class ResponseSourcesObject {
         if (data) {
             obj = obj || new ResponseSourcesObject();
 
-            if (data.hasOwnProperty('sourcesObject')) {
-                obj['sourcesObject'] = ResponseSourcesObjectSourcesObject.constructFromObject(data['sourcesObject']);
+            if (data.hasOwnProperty('source')) {
+                obj['source'] = ApiClient.convertToType(data['source'], 'String');
+            }
+            if (data.hasOwnProperty('description')) {
+                obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
         }
         return obj;
@@ -58,9 +64,16 @@ class ResponseSourcesObject {
 }
 
 /**
- * @member {module:model/ResponseSourcesObjectSourcesObject} sourcesObject
+ * source value
+ * @member {String} source
  */
-ResponseSourcesObject.prototype['sourcesObject'] = undefined;
+ResponseSourcesObject.prototype['source'] = undefined;
+
+/**
+ * source description
+ * @member {String} description
+ */
+ResponseSourcesObject.prototype['description'] = undefined;
 
 
 
