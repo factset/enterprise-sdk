@@ -116,7 +116,7 @@ public class AdditionalField implements Serializable {
    * @return name
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Name of the ofdb field")
+  @ApiModelProperty(example = "description", required = true, value = "Name of the ofdb field")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -142,7 +142,7 @@ public class AdditionalField implements Serializable {
    * @return type
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Data type of the ofdb field")
+  @ApiModelProperty(example = "string", required = true, value = "Data type of the ofdb field")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -168,7 +168,7 @@ public class AdditionalField implements Serializable {
    * @return value
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Value of the ofdb field")
+  @ApiModelProperty(example = "Transaction Data For FDS-USA", value = "Value of the ofdb field")
   @JsonIgnore
 
   public String getValue() {

@@ -17,6 +17,8 @@ from fds.sdk.EventsContribution.model.error_object import ErrorObject
 from fds.sdk.EventsContribution.model.error_response import ErrorResponse
 from fds.sdk.EventsContribution.model.event_data import EventData
 from fds.sdk.EventsContribution.model.event_update_data import EventUpdateData
+from fds.sdk.EventsContribution.model.get_response import GetResponse
+from fds.sdk.EventsContribution.model.get_response_data import GetResponseData
 from fds.sdk.EventsContribution.model.insert_request import InsertRequest
 from fds.sdk.EventsContribution.model.insert_request_data import InsertRequestData
 from fds.sdk.EventsContribution.model.insert_response import InsertResponse

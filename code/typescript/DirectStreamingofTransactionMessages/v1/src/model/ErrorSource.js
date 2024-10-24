@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class ErrorSource {
     /**
      * Constructs a new <code>ErrorSource</code>.
+     * Error Source
      * @alias module:model/ErrorSource
      */
     constructor() { 
@@ -60,11 +61,13 @@ class ErrorSource {
 }
 
 /**
+ * Pointer
  * @member {String} pointer
  */
 ErrorSource.prototype['pointer'] = undefined;
 
 /**
+ * parameter
  * @member {String} parameter
  */
 ErrorSource.prototype['parameter'] = undefined;

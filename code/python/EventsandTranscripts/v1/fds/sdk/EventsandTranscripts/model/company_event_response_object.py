@@ -1,7 +1,7 @@
 """
     EVENTS AND TRANSCRIPTS API
 
-    <p>The Calendar Events API provides access to FactSet’s Event Calendar data alongside business logic that allows users to replicate views and functionality consistent with the experience provided by the Workstation. This API provides the ability to pull Event Calendar data based on specific filters.</p> <p>Events Audio API provides access to historical as well as the latest audio recordings of various company events covered by FactSet. The events include, but are not limited to: earnings calls, conferences, and investor days. This API also provides relevant metadata such as timestamps and identifiers around each audio file.</p> <p>The  Near Real-time Transcripts API enables access to Near Real-time Transcripts provided by CallStreet to time-sensitive clients. This API also provides the relevant speaker metadata along with their confidence scores. This data caters to quant clients interested in building machine learning models. Clients can leverage this API to perform sentiment analysis through natural language processing or machine learning. It can also be used to complement analysis using FactSet's transcripts service.</p> <p>Transcripts API provides conference call transcripts for companies' publicly held conference calls and a wealth of information regarding upcoming corporate events, such as conference call date and time, phone number and password, type of conference call, and important company investor relations contact information.</p>    # noqa: E501
+    <p>The Calendar Events API provides access to FactSetâ€™s Event Calendar data alongside business logic that allows users to replicate views and functionality consistent with the experience provided by the Workstation. This API provides the ability to pull Event Calendar data based on specific filters.</p> <p>Events Audio API provides access to historical as well as the latest audio recordings of various company events covered by FactSet. The events include, but are not limited to: earnings calls, conferences, and investor days. This API also provides relevant metadata such as timestamps and identifiers around each audio file.</p> <p>The  Near Real-time Transcripts API enables access to Near Real-time Transcripts provided by CallStreet to time-sensitive clients. This API also provides the relevant speaker metadata along with their confidence scores. This data caters to quant clients interested in building machine learning models. Clients can leverage this API to perform sentiment analysis through natural language processing or machine learning. It can also be used to complement analysis using FactSet's transcripts service.</p> <p>Transcripts API provides conference call transcripts for companies' publicly held conference calls and a wealth of information regarding upcoming corporate events, such as conference call date and time, phone number and password, type of conference call, and important company investor relations contact information.</p>    # noqa: E501
 
     The version of the OpenAPI document: 1.1.0
     Contact: api@factset.com
@@ -112,6 +112,8 @@ class CompanyEventResponseObject(ModelNormal):
             'contact_email': (str,),  # noqa: E501
             'contact_phone': (str,),  # noqa: E501
             'contact_name': (str,),  # noqa: E501
+            'report_id': (str,),  # noqa: E501
+            'last_modified_date': (datetime,),  # noqa: E501
         }
 
     @cached_property
@@ -134,6 +136,8 @@ class CompanyEventResponseObject(ModelNormal):
         'contact_email': 'contactEmail',  # noqa: E501
         'contact_phone': 'contactPhone',  # noqa: E501
         'contact_name': 'contactName',  # noqa: E501
+        'report_id': 'reportId',  # noqa: E501
+        'last_modified_date': 'lastModifiedDate',  # noqa: E501
     }
 
     read_only_vars = {
@@ -191,6 +195,8 @@ class CompanyEventResponseObject(ModelNormal):
             contact_email (str): Contact email for inquiries related to the event.. [optional]  # noqa: E501
             contact_phone (str): Contact phone number for inquiries related to the event.. [optional]  # noqa: E501
             contact_name (str): Name of the contact person for queries related to the event.. [optional]  # noqa: E501
+            report_id (str): Unique identifier for the report.    **Note:** We do not have a reportId for split and dividend event types. . [optional]  # noqa: E501
+            last_modified_date (datetime): The date and time when the event was last modified.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -286,6 +292,8 @@ class CompanyEventResponseObject(ModelNormal):
             contact_email (str): Contact email for inquiries related to the event.. [optional]  # noqa: E501
             contact_phone (str): Contact phone number for inquiries related to the event.. [optional]  # noqa: E501
             contact_name (str): Name of the contact person for queries related to the event.. [optional]  # noqa: E501
+            report_id (str): Unique identifier for the report.    **Note:** We do not have a reportId for split and dividend event types. . [optional]  # noqa: E501
+            last_modified_date (datetime): The date and time when the event was last modified.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

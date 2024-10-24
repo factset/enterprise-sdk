@@ -2,6 +2,7 @@
 
 # DeleteResponse
 
+Delete Event Response
 
 ## Properties
 

@@ -1,7 +1,7 @@
 /*
  * EVENTS AND TRANSCRIPTS API
  *
- * <p>The Calendar Events API provides access to FactSet’s Event Calendar data alongside business logic that allows users to replicate views and functionality consistent with the experience provided by the Workstation. This API provides the ability to pull Event Calendar data based on specific filters.</p> <p>Events Audio API provides access to historical as well as the latest audio recordings of various company events covered by FactSet. The events include, but are not limited to: earnings calls, conferences, and investor days. This API also provides relevant metadata such as timestamps and identifiers around each audio file.</p> <p>The  Near Real-time Transcripts API enables access to Near Real-time Transcripts provided by CallStreet to time-sensitive clients. This API also provides the relevant speaker metadata along with their confidence scores. This data caters to quant clients interested in building machine learning models. Clients can leverage this API to perform sentiment analysis through natural language processing or machine learning. It can also be used to complement analysis using FactSet's transcripts service.</p> <p>Transcripts API provides conference call transcripts for companies' publicly held conference calls and a wealth of information regarding upcoming corporate events, such as conference call date and time, phone number and password, type of conference call, and important company investor relations contact information.</p>  
+ * <p>The Calendar Events API provides access to FactSetâ€™s Event Calendar data alongside business logic that allows users to replicate views and functionality consistent with the experience provided by the Workstation. This API provides the ability to pull Event Calendar data based on specific filters.</p> <p>Events Audio API provides access to historical as well as the latest audio recordings of various company events covered by FactSet. The events include, but are not limited to: earnings calls, conferences, and investor days. This API also provides relevant metadata such as timestamps and identifiers around each audio file.</p> <p>The  Near Real-time Transcripts API enables access to Near Real-time Transcripts provided by CallStreet to time-sensitive clients. This API also provides the relevant speaker metadata along with their confidence scores. This data caters to quant clients interested in building machine learning models. Clients can leverage this API to perform sentiment analysis through natural language processing or machine learning. It can also be used to complement analysis using FactSet's transcripts service.</p> <p>Transcripts API provides conference call transcripts for companies' publicly held conference calls and a wealth of information regarding upcoming corporate events, such as conference call date and time, phone number and password, type of conference call, and important company investor relations contact information.</p>  
  *
  * The version of the OpenAPI document: 1.1.0
  * Contact: api@factset.com
@@ -137,7 +137,9 @@ namespace FactSet.SDK.EventsandTranscripts.Model
         /// <param name="contactEmail">Contact email for inquiries related to the event..</param>
         /// <param name="contactPhone">Contact phone number for inquiries related to the event..</param>
         /// <param name="contactName">Name of the contact person for queries related to the event..</param>
-        public CompanyEventResponseObject(string ticker = default(string), string companyName = default(string), string description = default(string), DateTime eventDateTime = default(DateTime), string marketTimeCode = default(string), EventTypeEnum? eventType = default(EventTypeEnum?), string eventId = default(string), string webcastLink = default(string), string irLink = default(string), string fiscalYear = default(string), string fiscalPeriod = default(string), string contactEmail = default(string), string contactPhone = default(string), string contactName = default(string))
+        /// <param name="reportId">Unique identifier for the report.    **Note:** We do not have a reportId for split and dividend event types. .</param>
+        /// <param name="lastModifiedDate">The date and time when the event was last modified..</param>
+        public CompanyEventResponseObject(string ticker = default(string), string companyName = default(string), string description = default(string), DateTime eventDateTime = default(DateTime), string marketTimeCode = default(string), EventTypeEnum? eventType = default(EventTypeEnum?), string eventId = default(string), string webcastLink = default(string), string irLink = default(string), string fiscalYear = default(string), string fiscalPeriod = default(string), string contactEmail = default(string), string contactPhone = default(string), string contactName = default(string), string reportId = default(string), DateTime lastModifiedDate = default(DateTime))
         {
             this.Ticker = ticker;
             this.CompanyName = companyName;
@@ -153,6 +155,8 @@ namespace FactSet.SDK.EventsandTranscripts.Model
             this.ContactEmail = contactEmail;
             this.ContactPhone = contactPhone;
             this.ContactName = contactName;
+            this.ReportId = reportId;
+            this.LastModifiedDate = lastModifiedDate;
         }
 
         /// <summary>
@@ -247,6 +251,20 @@ namespace FactSet.SDK.EventsandTranscripts.Model
         public string ContactName { get; set; }
 
         /// <summary>
+        /// Unique identifier for the report.    **Note:** We do not have a reportId for split and dividend event types. 
+        /// </summary>
+        /// <value>Unique identifier for the report.    **Note:** We do not have a reportId for split and dividend event types. </value>
+        [DataMember(Name = "reportId", EmitDefaultValue = false)]
+        public string ReportId { get; set; }
+
+        /// <summary>
+        /// The date and time when the event was last modified.
+        /// </summary>
+        /// <value>The date and time when the event was last modified.</value>
+        [DataMember(Name = "lastModifiedDate", EmitDefaultValue = false)]
+        public DateTime LastModifiedDate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -268,6 +286,8 @@ namespace FactSet.SDK.EventsandTranscripts.Model
             sb.Append("  ContactEmail: ").Append(ContactEmail).Append("\n");
             sb.Append("  ContactPhone: ").Append(ContactPhone).Append("\n");
             sb.Append("  ContactName: ").Append(ContactName).Append("\n");
+            sb.Append("  ReportId: ").Append(ReportId).Append("\n");
+            sb.Append("  LastModifiedDate: ").Append(LastModifiedDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -371,6 +391,16 @@ namespace FactSet.SDK.EventsandTranscripts.Model
                     this.ContactName == input.ContactName ||
                     (this.ContactName != null &&
                     this.ContactName.Equals(input.ContactName))
+                ) && 
+                (
+                    this.ReportId == input.ReportId ||
+                    (this.ReportId != null &&
+                    this.ReportId.Equals(input.ReportId))
+                ) && 
+                (
+                    this.LastModifiedDate == input.LastModifiedDate ||
+                    (this.LastModifiedDate != null &&
+                    this.LastModifiedDate.Equals(input.LastModifiedDate))
                 );
         }
 
@@ -435,6 +465,14 @@ namespace FactSet.SDK.EventsandTranscripts.Model
                 if (this.ContactName != null)
                 {
                     hashCode = (hashCode * 59) + this.ContactName.GetHashCode();
+                }
+                if (this.ReportId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ReportId.GetHashCode();
+                }
+                if (this.LastModifiedDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.LastModifiedDate.GetHashCode();
                 }
                 return hashCode;
             }

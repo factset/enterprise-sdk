@@ -141,7 +141,7 @@ class ClientErrorResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            errors ([Error], none_type): [optional]  # noqa: E501
+            errors ([Error], none_type): `type` of the error. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,7 +223,7 @@ class ClientErrorResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            errors ([Error], none_type): [optional]  # noqa: E501
+            errors ([Error], none_type): `type` of the error. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

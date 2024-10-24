@@ -133,7 +133,7 @@ const apiInstance = new TranscriptsApi();
 const opts = {
   'searchText': Updates, // String | Restricts the search to include only document stories which include the text searched.
   'sort': ["null"], // [String] | Enables sorting data in ascending or descending chronological order based on eventDate. 
-  'paginationLimit': 20, // Number | Number of results to return per page.
+  'paginationLimit': 20, // Number | Number of results to return per page. Maximum value: 1000. 
   'paginationOffset': 0 // Number | Page number of the results to return.
 };
 
@@ -159,7 +159,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **searchText** | **String**| Restricts the search to include only document stories which include the text searched. | [optional] 
  **sort** | [**[String]**](String.md)| Enables sorting data in ascending or descending chronological order based on eventDate.  | [optional] 
- **paginationLimit** | **Number**| Number of results to return per page. | [optional] [default to 25]
+ **paginationLimit** | **Number**| Number of results to return per page. Maximum value: 1000.  | [optional] [default to 25]
  **paginationOffset** | **Number**| Page number of the results to return. | [optional] [default to 0]
 
 ### Return type
@@ -224,7 +224,7 @@ const opts = {
   'endDateRelative': 56, // Number | The latest date of the feed file the API should fetch for based on the file timestamp.  - Format: Specify the date using a relative term as an integer: '0' for today, '-1' for yesterday, '-2' for two days ago, and so forth. Negative values are used to represent past dates.   - *Either `endDate` or `endDateRelative` should be used, but not both.* - *If both `endDate` and `endDateRelative` are provided in the same request, the API will return an error.* - *If users provide future dates in requests for `endDate` or `endDateRelative`, the API will not return any data.* 
   'timeZone': America/New_York, // String | timeZone to return story dates and times.Time zones, represented in POSIX format, are automatically adjusted for daylight savings. timeZone names are sourced from the IANA timezone registry. The time fields in the response will adhere to this specified timezone.
   'sort': ["null"], // [String] | Enables sorting data in ascending or descending chronological order based on eventDate. 
-  'paginationLimit': 20, // Number | Number of results to return per page.
+  'paginationLimit': 20, // Number | Number of results to return per page. Maximum value: 1000. 
   'paginationOffset': 0 // Number | Page number of the results to return.
 };
 
@@ -254,7 +254,7 @@ Name | Type | Description  | Notes
  **endDateRelative** | **Number**| The latest date of the feed file the API should fetch for based on the file timestamp.  - Format: Specify the date using a relative term as an integer: &#39;0&#39; for today, &#39;-1&#39; for yesterday, &#39;-2&#39; for two days ago, and so forth. Negative values are used to represent past dates.   - *Either &#x60;endDate&#x60; or &#x60;endDateRelative&#x60; should be used, but not both.* - *If both &#x60;endDate&#x60; and &#x60;endDateRelative&#x60; are provided in the same request, the API will return an error.* - *If users provide future dates in requests for &#x60;endDate&#x60; or &#x60;endDateRelative&#x60;, the API will not return any data.*  | [optional] 
  **timeZone** | **String**| timeZone to return story dates and times.Time zones, represented in POSIX format, are automatically adjusted for daylight savings. timeZone names are sourced from the IANA timezone registry. The time fields in the response will adhere to this specified timezone. | [optional] [default to &#39;America/New_York&#39;]
  **sort** | [**[String]**](String.md)| Enables sorting data in ascending or descending chronological order based on eventDate.  | [optional] 
- **paginationLimit** | **Number**| Number of results to return per page. | [optional] [default to 25]
+ **paginationLimit** | **Number**| Number of results to return per page. Maximum value: 1000.  | [optional] [default to 25]
  **paginationOffset** | **Number**| Page number of the results to return. | [optional] [default to 0]
 
 ### Return type
@@ -316,7 +316,7 @@ const opts = {
   'eventIds': ["1202993804"], // [String] | Requests Event IDs. This is a comma-separated list with a maximum limit of 1000.
   'eventType': Earnings, // String | Specifies the type of event you want to retrieve.   Earnings - Denotes an Earnings event.   Guidance - Denotes a Guidance event.   AnalystsShareholdersMeeting - Denotes an Analysts and Shareholders Meeting event.   ConferencePresentation - Denotes a Conference Presentation event.   SalesRevenue - Denotes a Sales/Revenue event.   SpecialSituation - Denotes a Special Situation event (i.e. Merger/Acquisition).
   'sort': ["null"], // [String] | Enables sorting data in ascending or descending chronological order based on eventDate. 
-  'paginationLimit': 20, // Number | Number of results to return per page.
+  'paginationLimit': 20, // Number | Number of results to return per page. Maximum value: 1000. 
   'paginationOffset': 0 // Number | Page number of the results to return.
 };
 
@@ -343,7 +343,7 @@ Name | Type | Description  | Notes
  **eventIds** | [**[String]**](String.md)| Requests Event IDs. This is a comma-separated list with a maximum limit of 1000. | [optional] 
  **eventType** | **String**| Specifies the type of event you want to retrieve.   Earnings - Denotes an Earnings event.   Guidance - Denotes a Guidance event.   AnalystsShareholdersMeeting - Denotes an Analysts and Shareholders Meeting event.   ConferencePresentation - Denotes a Conference Presentation event.   SalesRevenue - Denotes a Sales/Revenue event.   SpecialSituation - Denotes a Special Situation event (i.e. Merger/Acquisition). | [optional] 
  **sort** | [**[String]**](String.md)| Enables sorting data in ascending or descending chronological order based on eventDate.  | [optional] 
- **paginationLimit** | **Number**| Number of results to return per page. | [optional] [default to 25]
+ **paginationLimit** | **Number**| Number of results to return per page. Maximum value: 1000.  | [optional] [default to 25]
  **paginationOffset** | **Number**| Page number of the results to return. | [optional] [default to 0]
 
 ### Return type
@@ -405,9 +405,9 @@ const opts = {
   'primaryId': false, // Boolean | Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier.
   'ids': ["RTO-GB"], // [String] | Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL.
   'reportIds': ["3022837"], // [String] | Requests Report IDs. This is a comma-separated list with a maximum limit of 1000
-  'categories': ["CN:GB"], // [String] | Code for categories to include. This is a comma-separated list.which represent country, industry, and subject codes. Use the ```/reference/categories``` endpoint to get the list of available categories.  Default = All categories.
+  'categories': ["CN:GB"], // [String] | Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the ```/reference/categories``` endpoint to get the list of available categories.  Default = All categories.
   'sort': ["null"], // [String] | Enables sorting data in ascending or descending chronological order based on eventDate. 
-  'paginationLimit': 20, // Number | Number of results to return per page.
+  'paginationLimit': 20, // Number | Number of results to return per page. Maximum value: 1000. 
   'paginationOffset': 0 // Number | Page number of the results to return.
 };
 
@@ -434,9 +434,9 @@ Name | Type | Description  | Notes
  **primaryId** | **Boolean**| Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. | [optional] [default to false]
  **ids** | [**[String]**](String.md)| Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. | [optional] 
  **reportIds** | [**[String]**](String.md)| Requests Report IDs. This is a comma-separated list with a maximum limit of 1000 | [optional] 
- **categories** | [**[String]**](String.md)| Code for categories to include. This is a comma-separated list.which represent country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/reference/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. | [optional] 
+ **categories** | [**[String]**](String.md)| Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/reference/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. | [optional] 
  **sort** | [**[String]**](String.md)| Enables sorting data in ascending or descending chronological order based on eventDate.  | [optional] 
- **paginationLimit** | **Number**| Number of results to return per page. | [optional] [default to 25]
+ **paginationLimit** | **Number**| Number of results to return per page. Maximum value: 1000.  | [optional] [default to 25]
  **paginationOffset** | **Number**| Page number of the results to return. | [optional] [default to 0]
 
 ### Return type
@@ -498,7 +498,7 @@ const opts = {
   'startDateTime': 2020-10-01T00:00:00Z, // Date |  **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.**   
   'endDateTime': 2020-10-26T10:00:00Z, // Date | The date to which data is required
   'sort': ["null"], // [String] | Enables sorting data in ascending or descending chronological order based on eventDate. 
-  'paginationLimit': 20, // Number | Number of results to return per page.
+  'paginationLimit': 20, // Number | Number of results to return per page. Maximum value: 1000. 
   'paginationOffset': 0 // Number | Page number of the results to return.
 };
 
@@ -525,7 +525,7 @@ Name | Type | Description  | Notes
  **startDateTime** | **Date**|  **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.**    | [optional] 
  **endDateTime** | **Date**| The date to which data is required | [optional] 
  **sort** | [**[String]**](String.md)| Enables sorting data in ascending or descending chronological order based on eventDate.  | [optional] 
- **paginationLimit** | **Number**| Number of results to return per page. | [optional] [default to 25]
+ **paginationLimit** | **Number**| Number of results to return per page. Maximum value: 1000.  | [optional] [default to 25]
  **paginationOffset** | **Number**| Page number of the results to return. | [optional] [default to 0]
 
 ### Return type

@@ -13,6 +13,8 @@ docs/ErrorResponse.md
 docs/EventData.md
 docs/EventUpdateData.md
 docs/EventsContributionApi.md
+docs/GetResponse.md
+docs/GetResponseData.md
 docs/InsertRequest.md
 docs/InsertRequestData.md
 docs/InsertResponse.md
@@ -57,6 +59,8 @@ src/FactSet.SDK.EventsContribution/Model/ErrorObject.cs
 src/FactSet.SDK.EventsContribution/Model/ErrorResponse.cs
 src/FactSet.SDK.EventsContribution/Model/EventData.cs
 src/FactSet.SDK.EventsContribution/Model/EventUpdateData.cs
+src/FactSet.SDK.EventsContribution/Model/GetResponse.cs
+src/FactSet.SDK.EventsContribution/Model/GetResponseData.cs
 src/FactSet.SDK.EventsContribution/Model/InsertRequest.cs
 src/FactSet.SDK.EventsContribution/Model/InsertRequestData.cs
 src/FactSet.SDK.EventsContribution/Model/InsertResponse.cs

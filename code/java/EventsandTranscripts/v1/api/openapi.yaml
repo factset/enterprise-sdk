@@ -4,7 +4,7 @@ info:
     email: api@factset.com
     name: FactSet Research Systems
     url: https://developer.factset.com/contact
-  description: "<p>The Calendar Events API provides access to FactSet’s Event Calendar\
+  description: "<p>The Calendar Events API provides access to FactSetâ€™s Event Calendar\
     \ data alongside business logic that allows users to replicate views and functionality\
     \ consistent with the experience provided by the Workstation. This API provides\
     \ the ability to pull Event Calendar data based on specific filters.</p>\n<p>Events\
@@ -80,6 +80,8 @@ paths:
                       contactEmail: jdoe@apple.com
                       contactPhone: 1(888)227.0303
                       contactName: John Doe
+                      reportId: "2750388"
+                      lastModifiedDate: 2023-01-01T12:00:00Z
               schema:
                 $ref: '#/components/schemas/CompanyEventResponse'
           description: The company events based on provided filters from the request.
@@ -235,7 +237,7 @@ paths:
       parameters:
       - description: "The earliest date of the audio file the API should fetch for.\
           \ \n- Format: Should be absolute (YYYY-MM-DD).\n"
-        example: 2020-10-01T00:00:00.000Z
+        example: 2020-10-01
         explode: true
         in: query
         name: startDate
@@ -247,7 +249,7 @@ paths:
       - description: |
           The latest date of the audio file the API should fetch for.
           - Format: Should be absolute (YYYY-MM-DD).
-        example: 2020-12-26T00:00:00.000Z
+        example: 2020-12-26
         explode: true
         in: query
         name: endDate
@@ -938,7 +940,8 @@ paths:
           maxItems: 2
           type: array
         style: form
-      - description: Number of results to return per page.
+      - description: |
+          Number of results to return per page. Maximum value: 1000.
         example: 20
         explode: true
         in: query
@@ -1073,7 +1076,8 @@ paths:
           maxItems: 2
           type: array
         style: form
-      - description: Number of results to return per page.
+      - description: |
+          Number of results to return per page. Maximum value: 1000.
         example: 20
         explode: true
         in: query
@@ -1198,7 +1202,8 @@ paths:
           maxItems: 2
           type: array
         style: form
-      - description: Number of results to return per page.
+      - description: |
+          Number of results to return per page. Maximum value: 1000.
         example: 20
         explode: true
         in: query
@@ -2045,7 +2050,8 @@ paths:
           maxItems: 2
           type: array
         style: form
-      - description: Number of results to return per page.
+      - description: |
+          Number of results to return per page. Maximum value: 1000.
         example: 20
         explode: true
         in: query
@@ -2194,7 +2200,8 @@ paths:
           maxItems: 4
           type: array
         style: form
-      - description: Number of results to return per page.
+      - description: |
+          Number of results to return per page. Maximum value: 1000.
         example: 20
         explode: true
         in: query
@@ -2330,7 +2337,8 @@ paths:
           maxItems: 2
           type: array
         style: form
-      - description: Number of results to return per page.
+      - description: |
+          Number of results to return per page. Maximum value: 1000.
         example: 20
         explode: true
         in: query
@@ -2496,7 +2504,7 @@ paths:
           type: array
         style: form
       - description: |-
-          Code for categories to include. This is a comma-separated list.which represent country, industry, and subject codes. Use the ```/reference/categories``` endpoint to get the list of available categories.
+          Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the ```/reference/categories``` endpoint to get the list of available categories.
 
           Default = All categories.
         example:
@@ -2527,7 +2535,8 @@ paths:
           maxItems: 2
           type: array
         style: form
-      - description: Number of results to return per page.
+      - description: |
+          Number of results to return per page. Maximum value: 1000.
         example: 20
         explode: true
         in: query
@@ -2573,8 +2582,7 @@ paths:
                       storyDateTime: 2023-03-07T19:40:26Z
                       uploadDateTime: 2024-01-08T04:19:24Z
                       eventType: ConferencePresentation
-                      categories:
-                      - CN:US,DT:CONF,DT:EVTS,DT:EV_ME,DT:FILNS_TS_TR,IN:OIL,LN:EN,RN:AM,RN:NA,SB:EVTS,SB:EV_ME
+                      categories: CN:US,DT:CONF,DT:EVTS,DT:EV_ME,DT:FILNS_TS_TR,IN:OIL,LN:EN,RN:AM,RN:NA,SB:EVTS,SB:EV_ME
                       transcriptsLink: https://api.factset.com/v1/transcripts?report=story&key=U2FsdGVkX18b15tR%2bV9L1xvjo6Vnz7C7PhIbUvoMrgF%2f43aEWomYlhVruC6G6874fEX
                     meta:
                       pagination:
@@ -2695,7 +2703,8 @@ paths:
           maxItems: 2
           type: array
         style: form
-      - description: Number of results to return per page.
+      - description: |
+          Number of results to return per page. Maximum value: 1000.
         example: 20
         explode: true
         in: query
@@ -2934,10 +2943,11 @@ components:
             end: 2022-12-31T22:59:02Z
           universe:
             symbols:
-            - FDS-US
+            - AAPL-US
             type: Tickers
           eventTypes:
           - Earnings
+          lastModifiedWithin: Today
     postMultipleSymbols:
       description: Post body request example to fetch details of the AAPL-US, MSFT-US
         and FDS-US
@@ -2955,6 +2965,7 @@ components:
             type: Tickers
           eventTypes:
           - Earnings
+          lastModifiedWithin: Today
     "400Example":
       summary: Sample error Response
       value:
@@ -3152,7 +3163,8 @@ components:
         type: boolean
       style: form
     paginationLimit:
-      description: Number of results to return per page.
+      description: |
+        Number of results to return per page. Maximum value: 1000.
       example: 20
       explode: true
       in: query
@@ -3229,7 +3241,7 @@ components:
       style: form
     categories:
       description: |-
-        Code for categories to include. This is a comma-separated list.which represent country, industry, and subject codes. Use the ```/reference/categories``` endpoint to get the list of available categories.
+        Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the ```/reference/categories``` endpoint to get the list of available categories.
 
         Default = All categories.
       example:
@@ -3982,7 +3994,7 @@ components:
 
             A score >= 0.49 while a speaker is speaking can be considered as a high confidence in the predicted speaker.
 
-            Only the speakerIDs with confidenceScore >= 0.49 are rendered in the result set.
+            Only the SpeakerIDs with the highest cosineScore are rendered in the result set.
           nullable: true
           type: number
         affiliationId:
@@ -4805,6 +4817,7 @@ components:
             - AAPL-US
             - MSFT-US
             - FDS-US
+          lastModifiedWithin: Today
           eventTypes:
           - Earnings
           - Earnings
@@ -4818,7 +4831,9 @@ components:
         - eventDateTime: 2023-01-01T00:00:00Z
           eventId: "1200867930"
           ticker: AAPL-US
+          reportId: "2750388"
           contactEmail: jdoe@apple.com
+          lastModifiedDate: 2023-01-01T12:00:00Z
           contactName: John Doe
           companyName: Apple, Inc.
           description: Q2 2023 Earnings Release (Projected)
@@ -4832,7 +4847,9 @@ components:
         - eventDateTime: 2023-01-01T00:00:00Z
           eventId: "1200867930"
           ticker: AAPL-US
+          reportId: "2750388"
           contactEmail: jdoe@apple.com
+          lastModifiedDate: 2023-01-01T12:00:00Z
           contactName: John Doe
           companyName: Apple, Inc.
           description: Q2 2023 Earnings Release (Projected)
@@ -4854,7 +4871,9 @@ components:
         eventDateTime: 2023-01-01T00:00:00Z
         eventId: "1200867930"
         ticker: AAPL-US
+        reportId: "2750388"
         contactEmail: jdoe@apple.com
+        lastModifiedDate: 2023-01-01T12:00:00Z
         contactName: John Doe
         companyName: Apple, Inc.
         description: Q2 2023 Earnings Release (Projected)
@@ -4935,6 +4954,16 @@ components:
         contactName:
           description: Name of the contact person for queries related to the event.
           example: John Doe
+          type: string
+        reportId:
+          description: "Unique identifier for the report. \n\n\n**Note:** We do not\
+            \ have a reportId for split and dividend event types.\n"
+          example: "2750388"
+          type: string
+        lastModifiedDate:
+          description: The date and time when the event was last modified.
+          example: 2023-01-01T12:00:00Z
+          format: date-time
           type: string
       type: object
     Transcripts_meta_pagination:
@@ -5060,7 +5089,7 @@ components:
     CompanyEventRequest_data_dateTime:
       description: |
         - Data is available from 2002.
-        - If users provide future dates in requests, the API will not return any data.
+        - If users provide future dates in requests, the API will return data within a 90-day limit.
       example:
         start: 2022-12-01T00:00:00Z
         end: 2022-12-31T22:59:02Z
@@ -5125,6 +5154,7 @@ components:
           - AAPL-US
           - MSFT-US
           - FDS-US
+        lastModifiedWithin: Today
         eventTypes:
         - Earnings
         - Earnings
@@ -5152,9 +5182,22 @@ components:
             example: Earnings
             type: string
           type: array
-      required:
-      - dateTime
-      - universe
+        lastModifiedWithin:
+          description: |
+            The duration within which the events were last modified.
+
+            **Note 1:** When using `lastModifiedWithin` without providing `startDate` or `endDate`, the default period will be the previous and upcoming 45 days from the current date.
+
+            **Note 2:** If both `dateTime` and `lastModifiedWithin` are provided in the same request, the API will return an error.
+          enum:
+          - SixHours
+          - TwelveHours
+          - Today
+          - TwoDays
+          - OneWeek
+          - OneMonth
+          example: Today
+          type: string
       type: object
   securitySchemes:
     FactSetOAuth2:

@@ -217,7 +217,8 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "Name of the ofdb field"
+            "description": "Name of the ofdb field",
+            "example": "description"
           },
           "type": {
             "enum": [
@@ -226,12 +227,14 @@
               "int"
             ],
             "type": "string",
-            "description": "Data type of the ofdb field"
+            "description": "Data type of the ofdb field",
+            "example": "string"
           },
           "value": {
             "type": "string",
             "description": "Value of the ofdb field",
-            "nullable": true
+            "nullable": true,
+            "example": "Transaction Data For FDS-USA"
           }
         },
         "description": "Defines an ofdb field and value to be persisted"
@@ -285,7 +288,8 @@
               "booked"
             ],
             "type": "string",
-            "description": "Status of the Order"
+            "description": "Status of the Order",
+            "example": "pendingApproval"
           },
           "orderType": {
             "enum": [
@@ -295,17 +299,20 @@
               "stop"
             ],
             "type": "string",
-            "description": "Order type indicating the price type of the Order"
+            "description": "Order type indicating the price type of the Order",
+            "example": "market"
           },
           "limitPrice": {
             "type": "number",
             "description": "Price related to limit and stopLimit order types",
-            "format": "double"
+            "format": "double",
+            "example": 420.25
           },
           "stopPrice": {
             "type": "number",
             "description": "Price related to stop and stopLimit order types",
-            "format": "double"
+            "format": "double",
+            "example": 421.25
           },
           "tif": {
             "enum": [
@@ -315,7 +322,8 @@
               "week"
             ],
             "type": "string",
-            "description": "Time In Force of the Order"
+            "description": "Time In Force of the Order",
+            "example": "goodTilCancel"
           },
           "tifDate": {
             "type": "string",
@@ -337,7 +345,8 @@
               "tPlus5"
             ],
             "type": "string",
-            "description": "Indicates order settlement period"
+            "description": "Indicates order settlement period",
+            "example": "regular"
           },
           "settlementDate": {
             "type": "string",
@@ -396,7 +405,8 @@
               "sellShort"
             ],
             "type": "string",
-            "description": "Side of the order"
+            "description": "Side of the order",
+            "example": "buy"
           },
           "unitType": {
             "enum": [
@@ -404,29 +414,34 @@
               "value"
             ],
             "type": "string",
-            "description": "Unit type of the order. Indicates if the trade is driven by quantity or value"
+            "description": "Unit type of the order. Indicates if the trade is driven by quantity or value",
+            "example": "quantity"
           },
           "transactionLeaves": {
             "type": "number",
             "description": "Shares that have been ordered and not executed",
             "format": "double",
-            "nullable": true
+            "nullable": true,
+            "example": 0.01
           },
           "quantity": {
             "type": "number",
             "description": "Quantity of the instrument traded",
-            "format": "double"
+            "format": "double",
+            "example": 1000.01
           },
           "gross": {
             "type": "number",
             "description": "Cash value of the transaction",
-            "format": "double"
+            "format": "double",
+            "example": 0.01
           },
           "price": {
             "type": "number",
             "description": "The transaction price",
             "format": "double",
-            "nullable": true
+            "nullable": true,
+            "example": 420.25
           },
           "currency": {
             "maxLength": 3,
@@ -442,7 +457,8 @@
               "fail"
             ],
             "type": "string",
-            "description": "Compliance check status"
+            "description": "Compliance check status",
+            "example": "unchecked"
           },
           "addedDateTime": {
             "type": "string",
@@ -521,7 +537,8 @@
               "rejected"
             ],
             "type": "string",
-            "description": "Status of the Placement"
+            "description": "Status of the Placement",
+            "example": "placed"
           },
           "orderType": {
             "enum": [
@@ -531,17 +548,20 @@
               "stop"
             ],
             "type": "string",
-            "description": "Order type indicating the price type of the Placement"
+            "description": "Order type indicating the price type of the Placement",
+            "example": "market"
           },
           "limitPrice": {
             "type": "number",
             "description": "Price related to limit and stopLimit order types",
-            "format": "double"
+            "format": "double",
+            "example": 420.25
           },
           "stopPrice": {
             "type": "number",
             "description": "Price related to stop and stopLimit order types",
-            "format": "double"
+            "format": "double",
+            "example": 421.25
           },
           "tif": {
             "enum": [
@@ -551,7 +571,8 @@
               "week"
             ],
             "type": "string",
-            "description": "Time In Force of the Placement"
+            "description": "Time In Force of the Placement",
+            "example": "goodTilCancel"
           },
           "tifDate": {
             "type": "string",
@@ -573,7 +594,8 @@
               "tPlus5"
             ],
             "type": "string",
-            "description": "Indicates placement settlement period"
+            "description": "Indicates placement settlement period",
+            "example": "regular"
           },
           "settlementDate": {
             "type": "string",
@@ -608,7 +630,8 @@
               "sellShort"
             ],
             "type": "string",
-            "description": "Side of the order"
+            "description": "Side of the order",
+            "example": "buy"
           },
           "unitType": {
             "enum": [
@@ -616,29 +639,34 @@
               "value"
             ],
             "type": "string",
-            "description": "Unit type of the order. Indicates if the trade is driven by quantity or value"
+            "description": "Unit type of the order. Indicates if the trade is driven by quantity or value",
+            "example": "quantity"
           },
           "transactionLeaves": {
             "type": "number",
             "description": "Shares that have been ordered and not executed",
             "format": "double",
-            "nullable": true
+            "nullable": true,
+            "example": 0.01
           },
           "quantity": {
             "type": "number",
             "description": "Quantity of the instrument traded",
-            "format": "double"
+            "format": "double",
+            "example": 1000.01
           },
           "gross": {
             "type": "number",
             "description": "Cash value of the transaction",
-            "format": "double"
+            "format": "double",
+            "example": 0.01
           },
           "price": {
             "type": "number",
             "description": "The transaction price",
             "format": "double",
-            "nullable": true
+            "nullable": true,
+            "example": 420.25
           },
           "currency": {
             "maxLength": 3,
@@ -654,7 +682,8 @@
               "fail"
             ],
             "type": "string",
-            "description": "Compliance check status"
+            "description": "Compliance check status",
+            "example": "unchecked"
           },
           "addedDateTime": {
             "type": "string",
@@ -734,12 +763,14 @@
               "cancelled"
             ],
             "type": "string",
-            "description": "Status of the Execution"
+            "description": "Status of the Execution",
+            "example": "executed"
           },
           "net": {
             "type": "number",
             "description": "Cash value of the transaction, net of brokerage costs",
-            "format": "double"
+            "format": "double",
+            "example": 0.01
           },
           "settlementDate": {
             "type": "string",
@@ -756,75 +787,87 @@
           "settlementValue": {
             "type": "number",
             "description": "Cash value of the transaction in settlement currency",
-            "format": "double"
+            "format": "double",
+            "example": 0.01
           },
           "foreignExchangeRate": {
             "type": "number",
             "description": "FX rate to convert the net, gross fields to reporting currency",
             "format": "float",
-            "nullable": true
+            "nullable": true,
+            "example": 1
           },
           "broker": {
             "maxLength": 32,
             "minLength": 0,
             "type": "string",
             "description": "Execution broker id",
-            "nullable": true
+            "nullable": true,
+            "example": "B1"
           },
           "custodian": {
             "maxLength": 32,
             "minLength": 0,
             "type": "string",
             "description": "Execution custodian Id",
-            "nullable": true
+            "nullable": true,
+            "example": "C1"
           },
           "accruedInterest": {
             "type": "number",
             "description": "Execution accrued interest",
             "format": "double",
-            "nullable": true
+            "nullable": true,
+            "example": 0.01
           },
           "commission": {
             "type": "number",
             "description": "Execution commission value",
             "format": "double",
-            "nullable": true
+            "nullable": true,
+            "example": 0.01
           },
           "clearingCommission": {
             "type": "number",
             "description": "Execution clearing commission value",
             "format": "double",
-            "nullable": true
+            "nullable": true,
+            "example": 0.01
           },
           "localTax": {
             "type": "number",
             "description": "Execution local tax value",
             "format": "double",
-            "nullable": true
+            "nullable": true,
+            "example": 0.01
           },
           "localFee": {
             "type": "number",
             "description": "Execution local fee value",
             "format": "double",
-            "nullable": true
+            "nullable": true,
+            "example": 0.01
           },
           "brokerFee": {
             "type": "number",
             "description": "Execution broker fee value",
             "format": "double",
-            "nullable": true
+            "nullable": true,
+            "example": 0.01
           },
           "exchangeFee": {
             "type": "number",
             "description": "Execution exchange fee value",
             "format": "double",
-            "nullable": true
+            "nullable": true,
+            "example": 0.01
           },
           "miscellaneousFee": {
             "type": "number",
             "description": "Execution miscellaneous fee value",
             "format": "double",
-            "nullable": true
+            "nullable": true,
+            "example": 0.01
           },
           "account": {
             "type": "string",
@@ -853,7 +896,8 @@
               "sellShort"
             ],
             "type": "string",
-            "description": "Side of the order"
+            "description": "Side of the order",
+            "example": "buy"
           },
           "unitType": {
             "enum": [
@@ -861,29 +905,34 @@
               "value"
             ],
             "type": "string",
-            "description": "Unit type of the order. Indicates if the trade is driven by quantity or value"
+            "description": "Unit type of the order. Indicates if the trade is driven by quantity or value",
+            "example": "quantity"
           },
           "transactionLeaves": {
             "type": "number",
             "description": "Shares that have been ordered and not executed",
             "format": "double",
-            "nullable": true
+            "nullable": true,
+            "example": 0.01
           },
           "quantity": {
             "type": "number",
             "description": "Quantity of the instrument traded",
-            "format": "double"
+            "format": "double",
+            "example": 1000.01
           },
           "gross": {
             "type": "number",
             "description": "Cash value of the transaction",
-            "format": "double"
+            "format": "double",
+            "example": 0.01
           },
           "price": {
             "type": "number",
             "description": "The transaction price",
             "format": "double",
-            "nullable": true
+            "nullable": true,
+            "example": 420.25
           },
           "currency": {
             "maxLength": 3,
@@ -899,7 +948,8 @@
               "fail"
             ],
             "type": "string",
-            "description": "Compliance check status"
+            "description": "Compliance check status",
+            "example": "unchecked"
           },
           "addedDateTime": {
             "type": "string",
@@ -968,34 +1018,42 @@
       },
       "ErrorSource": {
         "type": "object",
+        "description": "Error Source",
         "properties": {
           "pointer": {
             "type": "string",
-            "nullable": true
+            "nullable": true,
+            "description": "Pointer"
           },
           "parameter": {
             "type": "string",
-            "nullable": true
+            "nullable": true,
+            "description": "parameter"
           }
         }
       },
       "Error": {
         "type": "object",
+        "description": "Error",
         "properties": {
           "id": {
             "type": "string",
+            "description": "`id` of the error.",
             "nullable": true
           },
           "code": {
             "type": "string",
+            "description": "`code` of the error.",
             "nullable": true
           },
           "title": {
             "type": "string",
+            "description": "`title` of the error.",
             "nullable": true
           },
           "detail": {
             "type": "string",
+            "description": "Error detail.",
             "nullable": true
           },
           "source": {
@@ -1005,9 +1063,11 @@
       },
       "ClientErrorResponse": {
         "type": "object",
+        "description": "Client Error Response",
         "properties": {
           "errors": {
             "type": "array",
+            "description": "`type` of the error",
             "items": {
               "$ref": "#/components/schemas/Error"
             },

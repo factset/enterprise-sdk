@@ -2,6 +2,7 @@
 
 # ErrorObject
 
+Object representing an error.
 
 ## Properties
 

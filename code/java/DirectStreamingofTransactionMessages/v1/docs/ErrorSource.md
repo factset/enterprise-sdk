@@ -2,13 +2,14 @@
 
 # ErrorSource
 
+Error Source
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pointer** | **String** |  |  [optional]
-**parameter** | **String** |  |  [optional]
+**pointer** | **String** | Pointer |  [optional]
+**parameter** | **String** | parameter |  [optional]
 
 
 ## Implemented Interfaces

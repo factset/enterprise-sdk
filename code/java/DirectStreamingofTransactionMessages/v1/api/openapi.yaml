@@ -205,12 +205,13 @@ components:
     AdditionalField:
       description: Defines an ofdb field and value to be persisted
       example:
-        name: name
+        name: description
         type: string
-        value: value
+        value: Transaction Data For FDS-USA
       properties:
         name:
           description: Name of the ofdb field
+          example: description
           type: string
         type:
           description: Data type of the ofdb field
@@ -218,9 +219,11 @@ components:
           - string
           - double
           - int
+          example: string
           type: string
         value:
           description: Value of the ofdb field
+          example: Transaction Data For FDS-USA
           nullable: true
           type: string
       required:
@@ -233,26 +236,26 @@ components:
         orderType: market
         symbol: FDS-USA
         additionalFields:
-        - name: name
+        - name: description
           type: string
-          value: value
-        - name: name
+          value: Transaction Data For FDS-USA
+        - name: description
           type: string
-          value: value
+          value: Transaction Data For FDS-USA
         orderId: O123
         complianceStatus: unchecked
-        transactionLeaves: 1.4658129805029452
+        transactionLeaves: 0.01
         fundTeam: T1
         tif: goodTilCancel
         unitType: quantity
-        price: 2.3021358869347655
+        price: 420.25
         currency: USD
         settlementType: regular
         tifDate: 2024-02-21
         side: buy
-        quantity: 5.962133916683182
-        limitPrice: 0.8008281904610115
-        gross: 5.637376656633329
+        quantity: 1000.01
+        limitPrice: 420.25
+        gross: 0.01
         transactionStatus: pendingApproval
         trader: msmith
         settlementDate: 2024-03-11
@@ -260,7 +263,7 @@ components:
         updatedDateTime: 2024-01-25T09:30:23.235
         tradingTeam: T2
         addedDateTime: 2024-01-25T09:30:23.235
-        stopPrice: 6.027456183070403
+        stopPrice: 421.25
         instrumentName: FactSet Research Systems
         orderDate: 2024-01-25
         account: Client:/folder1/testing.acct
@@ -295,6 +298,7 @@ components:
           - cancelled
           - rejected
           - booked
+          example: pendingApproval
           type: string
         orderType:
           description: Order type indicating the price type of the Order
@@ -303,13 +307,16 @@ components:
           - limit
           - stopLimit
           - stop
+          example: market
           type: string
         limitPrice:
           description: Price related to limit and stopLimit order types
+          example: 420.25
           format: double
           type: number
         stopPrice:
           description: Price related to stop and stopLimit order types
+          example: 421.25
           format: double
           type: number
         tif:
@@ -319,6 +326,7 @@ components:
           - goodTilDate
           - day
           - week
+          example: goodTilCancel
           type: string
         tifDate:
           description: Time In Force date for goodTilDate orders in YYYY-MM-DD format
@@ -338,6 +346,7 @@ components:
           - whenIssued
           - sellersOption
           - tPlus5
+          example: regular
           type: string
         settlementDate:
           description: Settlement date in YYYY-MM-DD format
@@ -388,6 +397,7 @@ components:
           - buyCover
           - sell
           - sellShort
+          example: buy
           type: string
         unitType:
           description: Unit type of the order. Indicates if the trade is driven by
@@ -395,22 +405,27 @@ components:
           enum:
           - quantity
           - value
+          example: quantity
           type: string
         transactionLeaves:
           description: Shares that have been ordered and not executed
+          example: 0.01
           format: double
           nullable: true
           type: number
         quantity:
           description: Quantity of the instrument traded
+          example: 1000.01
           format: double
           type: number
         gross:
           description: Cash value of the transaction
+          example: 0.01
           format: double
           type: number
         price:
           description: The transaction price
+          example: 420.25
           format: double
           nullable: true
           type: number
@@ -427,6 +442,7 @@ components:
           - unchecked
           - pass
           - fail
+          example: unchecked
           type: string
         addedDateTime:
           description: Date and time expressed in UTC when the transaction was first
@@ -466,32 +482,32 @@ components:
         orderType: market
         symbol: FDS-USA
         additionalFields:
-        - name: name
+        - name: description
           type: string
-          value: value
-        - name: name
+          value: Transaction Data For FDS-USA
+        - name: description
           type: string
-          value: value
+          value: Transaction Data For FDS-USA
         orderId: O123
         complianceStatus: unchecked
-        transactionLeaves: 3.616076749251911
+        transactionLeaves: 0.01
         tif: goodTilCancel
         unitType: quantity
-        price: 7.386281948385884
+        price: 420.25
         currency: USD
         settlementType: regular
         tifDate: 2024-02-21
         side: buy
-        quantity: 2.027123023002322
-        limitPrice: 7.061401241503109
-        gross: 4.145608029883936
+        quantity: 1000.01
+        limitPrice: 420.25
+        gross: 0.01
         transactionStatus: placed
         settlementDate: 2024-03-11
         transactionId: P123
         parentId: O_FDS_012424_113
         updatedDateTime: 2024-01-25T09:30:23.235
         addedDateTime: 2024-01-25T09:30:23.235
-        stopPrice: 9.301444243932576
+        stopPrice: 421.25
         instrumentName: FactSet Research Systems
         placementDate: 2024-01-25
         account: Client:/folder1/testing.acct
@@ -529,6 +545,7 @@ components:
           - expired
           - cancelled
           - rejected
+          example: placed
           type: string
         orderType:
           description: Order type indicating the price type of the Placement
@@ -537,13 +554,16 @@ components:
           - limit
           - stopLimit
           - stop
+          example: market
           type: string
         limitPrice:
           description: Price related to limit and stopLimit order types
+          example: 420.25
           format: double
           type: number
         stopPrice:
           description: Price related to stop and stopLimit order types
+          example: 421.25
           format: double
           type: number
         tif:
@@ -553,6 +573,7 @@ components:
           - goodTilDate
           - day
           - week
+          example: goodTilCancel
           type: string
         tifDate:
           description: Time In Force date for goodTilDate placements in YYYY-MM-DD
@@ -573,6 +594,7 @@ components:
           - whenIssued
           - sellersOption
           - tPlus5
+          example: regular
           type: string
         settlementDate:
           description: Settlement date in YYYY-MM-DD format
@@ -602,6 +624,7 @@ components:
           - buyCover
           - sell
           - sellShort
+          example: buy
           type: string
         unitType:
           description: Unit type of the order. Indicates if the trade is driven by
@@ -609,22 +632,27 @@ components:
           enum:
           - quantity
           - value
+          example: quantity
           type: string
         transactionLeaves:
           description: Shares that have been ordered and not executed
+          example: 0.01
           format: double
           nullable: true
           type: number
         quantity:
           description: Quantity of the instrument traded
+          example: 1000.01
           format: double
           type: number
         gross:
           description: Cash value of the transaction
+          example: 0.01
           format: double
           type: number
         price:
           description: The transaction price
+          example: 420.25
           format: double
           nullable: true
           type: number
@@ -641,6 +669,7 @@ components:
           - unchecked
           - pass
           - fail
+          example: unchecked
           type: string
         addedDateTime:
           description: Date and time expressed in UTC when the transaction was first
@@ -679,40 +708,40 @@ components:
       example:
         symbol: FDS-USA
         additionalFields:
-        - name: name
+        - name: description
           type: string
-          value: value
-        - name: name
+          value: Transaction Data For FDS-USA
+        - name: description
           type: string
-          value: value
+          value: Transaction Data For FDS-USA
         orderId: O123
-        exchangeFee: 9.369310271410669
-        foreignExchangeRate: 1.4894159
+        exchangeFee: 0.01
+        foreignExchangeRate: 1
         complianceStatus: unchecked
-        transactionLeaves: 8.762042012749001
-        localTax: 4.965218492984954
-        brokerFee: 9.965781217890562
-        localFee: 5.025004791520295
+        transactionLeaves: 0.01
+        localTax: 0.01
+        brokerFee: 0.01
+        localFee: 0.01
         unitType: quantity
-        price: 3.5571952270680973
-        commission: 7.457744773683766
+        price: 420.25
+        commission: 0.01
         currency: USD
-        net: 1.2315135367772556
-        clearingCommission: 1.1730742509559433
+        net: 0.01
+        clearingCommission: 0.01
         side: buy
-        quantity: 9.018348186070783
-        custodian: custodian
-        gross: 6.438423552598547
+        quantity: 1000.01
+        custodian: C1
+        gross: 0.01
         transactionStatus: executed
-        accruedInterest: 6.84685269835264
+        accruedInterest: 0.01
         tradeDate: 2024-01-25
         settlementDate: 2024-03-11
-        broker: broker
+        broker: B1
         transactionId: E456
         parentId: P123
-        settlementValue: 1.0246457001441578
+        settlementValue: 0.01
         updatedDateTime: 2024-01-25T09:30:23.235
-        miscellaneousFee: 6.683562403749608
+        miscellaneousFee: 0.01
         addedDateTime: 2024-01-25T09:30:23.235
         instrumentName: FactSet Research Systems
         settlementCurrency: EUR
@@ -748,9 +777,11 @@ components:
           - executed
           - booked
           - cancelled
+          example: executed
           type: string
         net:
           description: Cash value of the transaction, net of brokerage costs
+          example: 0.01
           format: double
           type: number
         settlementDate:
@@ -765,62 +796,74 @@ components:
           type: string
         settlementValue:
           description: Cash value of the transaction in settlement currency
+          example: 0.01
           format: double
           type: number
         foreignExchangeRate:
           description: FX rate to convert the net, gross fields to reporting currency
+          example: 1
           format: float
           nullable: true
           type: number
         broker:
           description: Execution broker id
+          example: B1
           maxLength: 32
           minLength: 0
           nullable: true
           type: string
         custodian:
           description: Execution custodian Id
+          example: C1
           maxLength: 32
           minLength: 0
           nullable: true
           type: string
         accruedInterest:
           description: Execution accrued interest
+          example: 0.01
           format: double
           nullable: true
           type: number
         commission:
           description: Execution commission value
+          example: 0.01
           format: double
           nullable: true
           type: number
         clearingCommission:
           description: Execution clearing commission value
+          example: 0.01
           format: double
           nullable: true
           type: number
         localTax:
           description: Execution local tax value
+          example: 0.01
           format: double
           nullable: true
           type: number
         localFee:
           description: Execution local fee value
+          example: 0.01
           format: double
           nullable: true
           type: number
         brokerFee:
           description: Execution broker fee value
+          example: 0.01
           format: double
           nullable: true
           type: number
         exchangeFee:
           description: Execution exchange fee value
+          example: 0.01
           format: double
           nullable: true
           type: number
         miscellaneousFee:
           description: Execution miscellaneous fee value
+          example: 0.01
           format: double
           nullable: true
           type: number
@@ -847,6 +890,7 @@ components:
           - buyCover
           - sell
           - sellShort
+          example: buy
           type: string
         unitType:
           description: Unit type of the order. Indicates if the trade is driven by
@@ -854,22 +898,27 @@ components:
           enum:
           - quantity
           - value
+          example: quantity
           type: string
         transactionLeaves:
           description: Shares that have been ordered and not executed
+          example: 0.01
           format: double
           nullable: true
           type: number
         quantity:
           description: Quantity of the instrument traded
+          example: 1000.01
           format: double
           type: number
         gross:
           description: Cash value of the transaction
+          example: 0.01
           format: double
           type: number
         price:
           description: The transaction price
+          example: 420.25
           format: double
           nullable: true
           type: number
@@ -886,6 +935,7 @@ components:
           - unchecked
           - pass
           - fail
+          example: unchecked
           type: string
         addedDateTime:
           description: Date and time expressed in UTC when the transaction was first
@@ -929,80 +979,80 @@ components:
         executions:
         - symbol: FDS-USA
           additionalFields:
-          - name: name
+          - name: description
             type: string
-            value: value
-          - name: name
+            value: Transaction Data For FDS-USA
+          - name: description
             type: string
-            value: value
+            value: Transaction Data For FDS-USA
           orderId: O123
-          exchangeFee: 9.369310271410669
-          foreignExchangeRate: 1.4894159
+          exchangeFee: 0.01
+          foreignExchangeRate: 1
           complianceStatus: unchecked
-          transactionLeaves: 8.762042012749001
-          localTax: 4.965218492984954
-          brokerFee: 9.965781217890562
-          localFee: 5.025004791520295
+          transactionLeaves: 0.01
+          localTax: 0.01
+          brokerFee: 0.01
+          localFee: 0.01
           unitType: quantity
-          price: 3.5571952270680973
-          commission: 7.457744773683766
+          price: 420.25
+          commission: 0.01
           currency: USD
-          net: 1.2315135367772556
-          clearingCommission: 1.1730742509559433
+          net: 0.01
+          clearingCommission: 0.01
           side: buy
-          quantity: 9.018348186070783
-          custodian: custodian
-          gross: 6.438423552598547
+          quantity: 1000.01
+          custodian: C1
+          gross: 0.01
           transactionStatus: executed
-          accruedInterest: 6.84685269835264
+          accruedInterest: 0.01
           tradeDate: 2024-01-25
           settlementDate: 2024-03-11
-          broker: broker
+          broker: B1
           transactionId: E456
           parentId: P123
-          settlementValue: 1.0246457001441578
+          settlementValue: 0.01
           updatedDateTime: 2024-01-25T09:30:23.235
-          miscellaneousFee: 6.683562403749608
+          miscellaneousFee: 0.01
           addedDateTime: 2024-01-25T09:30:23.235
           instrumentName: FactSet Research Systems
           settlementCurrency: EUR
           account: Client:/folder1/testing.acct
         - symbol: FDS-USA
           additionalFields:
-          - name: name
+          - name: description
             type: string
-            value: value
-          - name: name
+            value: Transaction Data For FDS-USA
+          - name: description
             type: string
-            value: value
+            value: Transaction Data For FDS-USA
           orderId: O123
-          exchangeFee: 9.369310271410669
-          foreignExchangeRate: 1.4894159
+          exchangeFee: 0.01
+          foreignExchangeRate: 1
           complianceStatus: unchecked
-          transactionLeaves: 8.762042012749001
-          localTax: 4.965218492984954
-          brokerFee: 9.965781217890562
-          localFee: 5.025004791520295
+          transactionLeaves: 0.01
+          localTax: 0.01
+          brokerFee: 0.01
+          localFee: 0.01
           unitType: quantity
-          price: 3.5571952270680973
-          commission: 7.457744773683766
+          price: 420.25
+          commission: 0.01
           currency: USD
-          net: 1.2315135367772556
-          clearingCommission: 1.1730742509559433
+          net: 0.01
+          clearingCommission: 0.01
           side: buy
-          quantity: 9.018348186070783
-          custodian: custodian
-          gross: 6.438423552598547
+          quantity: 1000.01
+          custodian: C1
+          gross: 0.01
           transactionStatus: executed
-          accruedInterest: 6.84685269835264
+          accruedInterest: 0.01
           tradeDate: 2024-01-25
           settlementDate: 2024-03-11
-          broker: broker
+          broker: B1
           transactionId: E456
           parentId: P123
-          settlementValue: 1.0246457001441578
+          settlementValue: 0.01
           updatedDateTime: 2024-01-25T09:30:23.235
-          miscellaneousFee: 6.683562403749608
+          miscellaneousFee: 0.01
           addedDateTime: 2024-01-25T09:30:23.235
           instrumentName: FactSet Research Systems
           settlementCurrency: EUR
@@ -1011,26 +1061,26 @@ components:
         - orderType: market
           symbol: FDS-USA
           additionalFields:
-          - name: name
+          - name: description
             type: string
-            value: value
-          - name: name
+            value: Transaction Data For FDS-USA
+          - name: description
             type: string
-            value: value
+            value: Transaction Data For FDS-USA
           orderId: O123
           complianceStatus: unchecked
-          transactionLeaves: 1.4658129805029452
+          transactionLeaves: 0.01
           fundTeam: T1
           tif: goodTilCancel
           unitType: quantity
-          price: 2.3021358869347655
+          price: 420.25
           currency: USD
           settlementType: regular
           tifDate: 2024-02-21
           side: buy
-          quantity: 5.962133916683182
-          limitPrice: 0.8008281904610115
-          gross: 5.637376656633329
+          quantity: 1000.01
+          limitPrice: 420.25
+          gross: 0.01
           transactionStatus: pendingApproval
           trader: msmith
           settlementDate: 2024-03-11
@@ -1038,33 +1088,33 @@ components:
           updatedDateTime: 2024-01-25T09:30:23.235
           tradingTeam: T2
           addedDateTime: 2024-01-25T09:30:23.235
-          stopPrice: 6.027456183070403
+          stopPrice: 421.25
           instrumentName: FactSet Research Systems
           orderDate: 2024-01-25
           account: Client:/folder1/testing.acct
         - orderType: market
           symbol: FDS-USA
           additionalFields:
-          - name: name
+          - name: description
             type: string
-            value: value
-          - name: name
+            value: Transaction Data For FDS-USA
+          - name: description
             type: string
-            value: value
+            value: Transaction Data For FDS-USA
           orderId: O123
           complianceStatus: unchecked
-          transactionLeaves: 1.4658129805029452
+          transactionLeaves: 0.01
           fundTeam: T1
           tif: goodTilCancel
           unitType: quantity
-          price: 2.3021358869347655
+          price: 420.25
           currency: USD
           settlementType: regular
           tifDate: 2024-02-21
           side: buy
-          quantity: 5.962133916683182
-          limitPrice: 0.8008281904610115
-          gross: 5.637376656633329
+          quantity: 1000.01
+          limitPrice: 420.25
+          gross: 0.01
           transactionStatus: pendingApproval
           trader: msmith
           settlementDate: 2024-03-11
@@ -1072,7 +1122,7 @@ components:
           updatedDateTime: 2024-01-25T09:30:23.235
           tradingTeam: T2
           addedDateTime: 2024-01-25T09:30:23.235
-          stopPrice: 6.027456183070403
+          stopPrice: 421.25
           instrumentName: FactSet Research Systems
           orderDate: 2024-01-25
           account: Client:/folder1/testing.acct
@@ -1080,64 +1130,64 @@ components:
         - orderType: market
           symbol: FDS-USA
           additionalFields:
-          - name: name
+          - name: description
             type: string
-            value: value
-          - name: name
+            value: Transaction Data For FDS-USA
+          - name: description
             type: string
-            value: value
+            value: Transaction Data For FDS-USA
           orderId: O123
           complianceStatus: unchecked
-          transactionLeaves: 3.616076749251911
+          transactionLeaves: 0.01
           tif: goodTilCancel
           unitType: quantity
-          price: 7.386281948385884
+          price: 420.25
           currency: USD
           settlementType: regular
           tifDate: 2024-02-21
           side: buy
-          quantity: 2.027123023002322
-          limitPrice: 7.061401241503109
-          gross: 4.145608029883936
+          quantity: 1000.01
+          limitPrice: 420.25
+          gross: 0.01
           transactionStatus: placed
           settlementDate: 2024-03-11
           transactionId: P123
           parentId: O_FDS_012424_113
           updatedDateTime: 2024-01-25T09:30:23.235
           addedDateTime: 2024-01-25T09:30:23.235
-          stopPrice: 9.301444243932576
+          stopPrice: 421.25
           instrumentName: FactSet Research Systems
           placementDate: 2024-01-25
           account: Client:/folder1/testing.acct
         - orderType: market
           symbol: FDS-USA
           additionalFields:
-          - name: name
+          - name: description
             type: string
-            value: value
-          - name: name
+            value: Transaction Data For FDS-USA
+          - name: description
             type: string
-            value: value
+            value: Transaction Data For FDS-USA
           orderId: O123
           complianceStatus: unchecked
-          transactionLeaves: 3.616076749251911
+          transactionLeaves: 0.01
           tif: goodTilCancel
           unitType: quantity
-          price: 7.386281948385884
+          price: 420.25
           currency: USD
           settlementType: regular
           tifDate: 2024-02-21
           side: buy
-          quantity: 2.027123023002322
-          limitPrice: 7.061401241503109
-          gross: 4.145608029883936
+          quantity: 1000.01
+          limitPrice: 420.25
+          gross: 0.01
           transactionStatus: placed
           settlementDate: 2024-03-11
           transactionId: P123
           parentId: O_FDS_012424_113
           updatedDateTime: 2024-01-25T09:30:23.235
           addedDateTime: 2024-01-25T09:30:23.235
-          stopPrice: 9.301444243932576
+          stopPrice: 421.25
           instrumentName: FactSet Research Systems
           placementDate: 2024-01-25
           account: Client:/folder1/testing.acct
@@ -1168,80 +1218,80 @@ components:
           executions:
           - symbol: FDS-USA
             additionalFields:
-            - name: name
+            - name: description
               type: string
-              value: value
-            - name: name
+              value: Transaction Data For FDS-USA
+            - name: description
               type: string
-              value: value
+              value: Transaction Data For FDS-USA
             orderId: O123
-            exchangeFee: 9.369310271410669
-            foreignExchangeRate: 1.4894159
+            exchangeFee: 0.01
+            foreignExchangeRate: 1
             complianceStatus: unchecked
-            transactionLeaves: 8.762042012749001
-            localTax: 4.965218492984954
-            brokerFee: 9.965781217890562
-            localFee: 5.025004791520295
+            transactionLeaves: 0.01
+            localTax: 0.01
+            brokerFee: 0.01
+            localFee: 0.01
             unitType: quantity
-            price: 3.5571952270680973
-            commission: 7.457744773683766
+            price: 420.25
+            commission: 0.01
             currency: USD
-            net: 1.2315135367772556
-            clearingCommission: 1.1730742509559433
+            net: 0.01
+            clearingCommission: 0.01
             side: buy
-            quantity: 9.018348186070783
-            custodian: custodian
-            gross: 6.438423552598547
+            quantity: 1000.01
+            custodian: C1
+            gross: 0.01
             transactionStatus: executed
-            accruedInterest: 6.84685269835264
+            accruedInterest: 0.01
             tradeDate: 2024-01-25
             settlementDate: 2024-03-11
-            broker: broker
+            broker: B1
             transactionId: E456
             parentId: P123
-            settlementValue: 1.0246457001441578
+            settlementValue: 0.01
             updatedDateTime: 2024-01-25T09:30:23.235
-            miscellaneousFee: 6.683562403749608
+            miscellaneousFee: 0.01
             addedDateTime: 2024-01-25T09:30:23.235
             instrumentName: FactSet Research Systems
             settlementCurrency: EUR
             account: Client:/folder1/testing.acct
           - symbol: FDS-USA
             additionalFields:
-            - name: name
+            - name: description
               type: string
-              value: value
-            - name: name
+              value: Transaction Data For FDS-USA
+            - name: description
               type: string
-              value: value
+              value: Transaction Data For FDS-USA
             orderId: O123
-            exchangeFee: 9.369310271410669
-            foreignExchangeRate: 1.4894159
+            exchangeFee: 0.01
+            foreignExchangeRate: 1
             complianceStatus: unchecked
-            transactionLeaves: 8.762042012749001
-            localTax: 4.965218492984954
-            brokerFee: 9.965781217890562
-            localFee: 5.025004791520295
+            transactionLeaves: 0.01
+            localTax: 0.01
+            brokerFee: 0.01
+            localFee: 0.01
             unitType: quantity
-            price: 3.5571952270680973
-            commission: 7.457744773683766
+            price: 420.25
+            commission: 0.01
             currency: USD
-            net: 1.2315135367772556
-            clearingCommission: 1.1730742509559433
+            net: 0.01
+            clearingCommission: 0.01
             side: buy
-            quantity: 9.018348186070783
-            custodian: custodian
-            gross: 6.438423552598547
+            quantity: 1000.01
+            custodian: C1
+            gross: 0.01
             transactionStatus: executed
-            accruedInterest: 6.84685269835264
+            accruedInterest: 0.01
             tradeDate: 2024-01-25
             settlementDate: 2024-03-11
-            broker: broker
+            broker: B1
             transactionId: E456
             parentId: P123
-            settlementValue: 1.0246457001441578
+            settlementValue: 0.01
             updatedDateTime: 2024-01-25T09:30:23.235
-            miscellaneousFee: 6.683562403749608
+            miscellaneousFee: 0.01
             addedDateTime: 2024-01-25T09:30:23.235
             instrumentName: FactSet Research Systems
             settlementCurrency: EUR
@@ -1250,26 +1300,26 @@ components:
           - orderType: market
             symbol: FDS-USA
             additionalFields:
-            - name: name
+            - name: description
               type: string
-              value: value
-            - name: name
+              value: Transaction Data For FDS-USA
+            - name: description
               type: string
-              value: value
+              value: Transaction Data For FDS-USA
             orderId: O123
             complianceStatus: unchecked
-            transactionLeaves: 1.4658129805029452
+            transactionLeaves: 0.01
             fundTeam: T1
             tif: goodTilCancel
             unitType: quantity
-            price: 2.3021358869347655
+            price: 420.25
             currency: USD
             settlementType: regular
             tifDate: 2024-02-21
             side: buy
-            quantity: 5.962133916683182
-            limitPrice: 0.8008281904610115
-            gross: 5.637376656633329
+            quantity: 1000.01
+            limitPrice: 420.25
+            gross: 0.01
             transactionStatus: pendingApproval
             trader: msmith
             settlementDate: 2024-03-11
@@ -1277,33 +1327,33 @@ components:
             updatedDateTime: 2024-01-25T09:30:23.235
             tradingTeam: T2
             addedDateTime: 2024-01-25T09:30:23.235
-            stopPrice: 6.027456183070403
+            stopPrice: 421.25
             instrumentName: FactSet Research Systems
             orderDate: 2024-01-25
             account: Client:/folder1/testing.acct
           - orderType: market
             symbol: FDS-USA
             additionalFields:
-            - name: name
+            - name: description
               type: string
-              value: value
-            - name: name
+              value: Transaction Data For FDS-USA
+            - name: description
               type: string
-              value: value
+              value: Transaction Data For FDS-USA
             orderId: O123
             complianceStatus: unchecked
-            transactionLeaves: 1.4658129805029452
+            transactionLeaves: 0.01
             fundTeam: T1
             tif: goodTilCancel
             unitType: quantity
-            price: 2.3021358869347655
+            price: 420.25
             currency: USD
             settlementType: regular
             tifDate: 2024-02-21
             side: buy
-            quantity: 5.962133916683182
-            limitPrice: 0.8008281904610115
-            gross: 5.637376656633329
+            quantity: 1000.01
+            limitPrice: 420.25
+            gross: 0.01
             transactionStatus: pendingApproval
             trader: msmith
             settlementDate: 2024-03-11
@@ -1311,7 +1361,7 @@ components:
             updatedDateTime: 2024-01-25T09:30:23.235
             tradingTeam: T2
             addedDateTime: 2024-01-25T09:30:23.235
-            stopPrice: 6.027456183070403
+            stopPrice: 421.25
             instrumentName: FactSet Research Systems
             orderDate: 2024-01-25
             account: Client:/folder1/testing.acct
@@ -1319,64 +1369,64 @@ components:
           - orderType: market
             symbol: FDS-USA
             additionalFields:
-            - name: name
+            - name: description
               type: string
-              value: value
-            - name: name
+              value: Transaction Data For FDS-USA
+            - name: description
               type: string
-              value: value
+              value: Transaction Data For FDS-USA
             orderId: O123
             complianceStatus: unchecked
-            transactionLeaves: 3.616076749251911
+            transactionLeaves: 0.01
             tif: goodTilCancel
             unitType: quantity
-            price: 7.386281948385884
+            price: 420.25
             currency: USD
             settlementType: regular
             tifDate: 2024-02-21
             side: buy
-            quantity: 2.027123023002322
-            limitPrice: 7.061401241503109
-            gross: 4.145608029883936
+            quantity: 1000.01
+            limitPrice: 420.25
+            gross: 0.01
             transactionStatus: placed
             settlementDate: 2024-03-11
             transactionId: P123
             parentId: O_FDS_012424_113
             updatedDateTime: 2024-01-25T09:30:23.235
             addedDateTime: 2024-01-25T09:30:23.235
-            stopPrice: 9.301444243932576
+            stopPrice: 421.25
             instrumentName: FactSet Research Systems
             placementDate: 2024-01-25
             account: Client:/folder1/testing.acct
           - orderType: market
             symbol: FDS-USA
             additionalFields:
-            - name: name
+            - name: description
               type: string
-              value: value
-            - name: name
+              value: Transaction Data For FDS-USA
+            - name: description
               type: string
-              value: value
+              value: Transaction Data For FDS-USA
             orderId: O123
             complianceStatus: unchecked
-            transactionLeaves: 3.616076749251911
+            transactionLeaves: 0.01
             tif: goodTilCancel
             unitType: quantity
-            price: 7.386281948385884
+            price: 420.25
             currency: USD
             settlementType: regular
             tifDate: 2024-02-21
             side: buy
-            quantity: 2.027123023002322
-            limitPrice: 7.061401241503109
-            gross: 4.145608029883936
+            quantity: 1000.01
+            limitPrice: 420.25
+            gross: 0.01
             transactionStatus: placed
             settlementDate: 2024-03-11
             transactionId: P123
             parentId: O_FDS_012424_113
             updatedDateTime: 2024-01-25T09:30:23.235
             addedDateTime: 2024-01-25T09:30:23.235
-            stopPrice: 9.301444243932576
+            stopPrice: 421.25
             instrumentName: FactSet Research Systems
             placementDate: 2024-01-25
             account: Client:/folder1/testing.acct
@@ -1387,34 +1437,44 @@ components:
       - data
       type: object
     ErrorSource:
+      description: Error Source
       properties:
         pointer:
+          description: Pointer
           nullable: true
           type: string
         parameter:
+          description: parameter
           nullable: true
           type: string
       type: object
     Error:
+      description: Error
       properties:
         id:
+          description: '`id` of the error.'
           nullable: true
           type: string
         code:
+          description: '`code` of the error.'
           nullable: true
           type: string
         title:
+          description: '`title` of the error.'
           nullable: true
           type: string
         detail:
+          description: Error detail.
           nullable: true
           type: string
         source:
           $ref: '#/components/schemas/ErrorSource'
       type: object
     ClientErrorResponse:
+      description: Client Error Response
       properties:
         errors:
+          description: '`type` of the error'
           items:
             $ref: '#/components/schemas/Error'
           nullable: true

@@ -498,7 +498,7 @@ public class Execution implements Serializable {
    * @return transactionStatus
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Status of the Execution")
+  @ApiModelProperty(example = "executed", required = true, value = "Status of the Execution")
   @JsonProperty(JSON_PROPERTY_TRANSACTION_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -524,7 +524,7 @@ public class Execution implements Serializable {
    * @return net
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Cash value of the transaction, net of brokerage costs")
+  @ApiModelProperty(example = "0.01", required = true, value = "Cash value of the transaction, net of brokerage costs")
   @JsonProperty(JSON_PROPERTY_NET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -602,7 +602,7 @@ public class Execution implements Serializable {
    * @return settlementValue
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Cash value of the transaction in settlement currency")
+  @ApiModelProperty(example = "0.01", required = true, value = "Cash value of the transaction in settlement currency")
   @JsonProperty(JSON_PROPERTY_SETTLEMENT_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -628,7 +628,7 @@ public class Execution implements Serializable {
    * @return foreignExchangeRate
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "FX rate to convert the net, gross fields to reporting currency")
+  @ApiModelProperty(example = "1", value = "FX rate to convert the net, gross fields to reporting currency")
   @JsonIgnore
 
   public Float getForeignExchangeRate() {
@@ -662,7 +662,7 @@ public class Execution implements Serializable {
    * @return broker
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Execution broker id")
+  @ApiModelProperty(example = "B1", value = "Execution broker id")
   @JsonIgnore
 
   public String getBroker() {
@@ -696,7 +696,7 @@ public class Execution implements Serializable {
    * @return custodian
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Execution custodian Id")
+  @ApiModelProperty(example = "C1", value = "Execution custodian Id")
   @JsonIgnore
 
   public String getCustodian() {
@@ -730,7 +730,7 @@ public class Execution implements Serializable {
    * @return accruedInterest
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Execution accrued interest")
+  @ApiModelProperty(example = "0.01", value = "Execution accrued interest")
   @JsonIgnore
 
   public Double getAccruedInterest() {
@@ -764,7 +764,7 @@ public class Execution implements Serializable {
    * @return commission
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Execution commission value")
+  @ApiModelProperty(example = "0.01", value = "Execution commission value")
   @JsonIgnore
 
   public Double getCommission() {
@@ -798,7 +798,7 @@ public class Execution implements Serializable {
    * @return clearingCommission
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Execution clearing commission value")
+  @ApiModelProperty(example = "0.01", value = "Execution clearing commission value")
   @JsonIgnore
 
   public Double getClearingCommission() {
@@ -832,7 +832,7 @@ public class Execution implements Serializable {
    * @return localTax
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Execution local tax value")
+  @ApiModelProperty(example = "0.01", value = "Execution local tax value")
   @JsonIgnore
 
   public Double getLocalTax() {
@@ -866,7 +866,7 @@ public class Execution implements Serializable {
    * @return localFee
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Execution local fee value")
+  @ApiModelProperty(example = "0.01", value = "Execution local fee value")
   @JsonIgnore
 
   public Double getLocalFee() {
@@ -900,7 +900,7 @@ public class Execution implements Serializable {
    * @return brokerFee
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Execution broker fee value")
+  @ApiModelProperty(example = "0.01", value = "Execution broker fee value")
   @JsonIgnore
 
   public Double getBrokerFee() {
@@ -934,7 +934,7 @@ public class Execution implements Serializable {
    * @return exchangeFee
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Execution exchange fee value")
+  @ApiModelProperty(example = "0.01", value = "Execution exchange fee value")
   @JsonIgnore
 
   public Double getExchangeFee() {
@@ -968,7 +968,7 @@ public class Execution implements Serializable {
    * @return miscellaneousFee
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Execution miscellaneous fee value")
+  @ApiModelProperty(example = "0.01", value = "Execution miscellaneous fee value")
   @JsonIgnore
 
   public Double getMiscellaneousFee() {
@@ -1080,7 +1080,7 @@ public class Execution implements Serializable {
    * @return side
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Side of the order")
+  @ApiModelProperty(example = "buy", required = true, value = "Side of the order")
   @JsonProperty(JSON_PROPERTY_SIDE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -1106,7 +1106,7 @@ public class Execution implements Serializable {
    * @return unitType
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Unit type of the order. Indicates if the trade is driven by quantity or value")
+  @ApiModelProperty(example = "quantity", required = true, value = "Unit type of the order. Indicates if the trade is driven by quantity or value")
   @JsonProperty(JSON_PROPERTY_UNIT_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -1132,7 +1132,7 @@ public class Execution implements Serializable {
    * @return transactionLeaves
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Shares that have been ordered and not executed")
+  @ApiModelProperty(example = "0.01", value = "Shares that have been ordered and not executed")
   @JsonIgnore
 
   public Double getTransactionLeaves() {
@@ -1166,7 +1166,7 @@ public class Execution implements Serializable {
    * @return quantity
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Quantity of the instrument traded")
+  @ApiModelProperty(example = "1000.01", required = true, value = "Quantity of the instrument traded")
   @JsonProperty(JSON_PROPERTY_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -1192,7 +1192,7 @@ public class Execution implements Serializable {
    * @return gross
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Cash value of the transaction")
+  @ApiModelProperty(example = "0.01", required = true, value = "Cash value of the transaction")
   @JsonProperty(JSON_PROPERTY_GROSS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -1218,7 +1218,7 @@ public class Execution implements Serializable {
    * @return price
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The transaction price")
+  @ApiModelProperty(example = "420.25", value = "The transaction price")
   @JsonIgnore
 
   public Double getPrice() {
@@ -1278,7 +1278,7 @@ public class Execution implements Serializable {
    * @return complianceStatus
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Compliance check status")
+  @ApiModelProperty(example = "unchecked", value = "Compliance check status")
   @JsonProperty(JSON_PROPERTY_COMPLIANCE_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

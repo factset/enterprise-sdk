@@ -15,6 +15,8 @@ docs/ErrorResponse.md
 docs/EventData.md
 docs/EventUpdateData.md
 docs/EventsContributionApi.md
+docs/GetResponse.md
+docs/GetResponseData.md
 docs/InsertRequest.md
 docs/InsertRequestData.md
 docs/InsertResponse.md
@@ -68,6 +70,8 @@ src/main/java/com/factset/sdk/EventsContribution/models/ErrorObject.java
 src/main/java/com/factset/sdk/EventsContribution/models/ErrorResponse.java
 src/main/java/com/factset/sdk/EventsContribution/models/EventData.java
 src/main/java/com/factset/sdk/EventsContribution/models/EventUpdateData.java
+src/main/java/com/factset/sdk/EventsContribution/models/GetResponse.java
+src/main/java/com/factset/sdk/EventsContribution/models/GetResponseData.java
 src/main/java/com/factset/sdk/EventsContribution/models/InsertRequest.java
 src/main/java/com/factset/sdk/EventsContribution/models/InsertRequestData.java
 src/main/java/com/factset/sdk/EventsContribution/models/InsertResponse.java

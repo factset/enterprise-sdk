@@ -1,5 +1,6 @@
 # ErrorObject
 
+Object representing an error.
 
 ## Properties
 Name | Type | Description | Notes

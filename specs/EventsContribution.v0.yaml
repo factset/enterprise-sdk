@@ -6,7 +6,7 @@ info:
     corporate events to FactSet’s own events calendar, for display within
     FactSet’s applications, as well as for off-platform re-distribution via
     FactSet’s Events Calendar API.
-  version: 0.1.0
+  version: 0.2.0
   contact:
     name: FactSet Research Systems
     email: api@factset.com
@@ -37,14 +37,14 @@ paths:
         - Events Contribution
       operationId: insertEvent
       requestBody:
-        $ref: '#/components/requestBodies/insertRequestBody'
+        $ref: '#/components/requestBodies/InsertRequestBody'
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/insertResponse'
+                $ref: '#/components/schemas/InsertResponse'
         '400':
           content:
             application/json:
@@ -52,17 +52,22 @@ paths:
                 Bad Request - Invalid Parameter:
                   $ref: '#/components/examples/invalidParameter'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Bad Request
         '401':
           content:
             application/json:
               examples:
-                Bad Request - Not Authenticated:
+                Not Authenticated:
                   $ref: '#/components/examples/notAuthenticated'
               schema:
-                $ref: '#/components/schemas/errorResponse'
-          description: Unauthorized
+                $ref: '#/components/schemas/ErrorResponse'
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
         '403':
           content:
             application/json:
@@ -70,7 +75,7 @@ paths:
                 Bad Request - Forbidden:
                   $ref: '#/components/examples/forbidden'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Forbidden
         '500':
           content:
@@ -79,9 +84,81 @@ paths:
                 Bad Request - Internal Server Error:
                   $ref: '#/components/examples/internalServerError'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Internal Server Error
   /events/{eventId}:
+    get:
+      summary: Get Event Data
+      description: This endpoint retrieves previously submitted events by event ID.
+      tags:
+        - Events Contribution
+      operationId: getEvent
+      parameters:
+        - name: eventId
+          in: path
+          description: >-
+            ID for event retrieval. This ID is vendor generated and should be
+            unique in each vendor's content set.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetResponse'
+        '400':
+          description: Bad Request. Invalid Parameter.
+          content:
+            application/json:
+              examples:
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/invalidParameter'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          content:
+            application/json:
+              examples:
+                Not Authenticated:
+                  $ref: '#/components/examples/notAuthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              examples:
+                Bad Request - Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              examples:
+                Bad Request - Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              examples:
+                Bad Request - Internal Server Error:
+                  $ref: '#/components/examples/internalServerError'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
     put:
       summary: Update Event data
       description: >-
@@ -96,17 +173,19 @@ paths:
           schema:
             type: string
             example: '1234'
-          description: Id of event to be updated
+          description: >-
+            ID of event to be updated. This ID is vendor generated and should be
+            unique in each vendor's content set.
           required: true
       requestBody:
-        $ref: '#/components/requestBodies/updateRequestBody'
+        $ref: '#/components/requestBodies/UpdateRequestBody'
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/updateResponse'
+                $ref: '#/components/schemas/UpdateResponse'
         '400':
           content:
             application/json:
@@ -114,17 +193,22 @@ paths:
                 Bad Request - Invalid Parameter:
                   $ref: '#/components/examples/invalidParameter'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Bad Request
         '401':
           content:
             application/json:
               examples:
-                Bad Request - Not Authenticated:
+                Not Authenticated:
                   $ref: '#/components/examples/notAuthenticated'
               schema:
-                $ref: '#/components/schemas/errorResponse'
-          description: Unauthorized
+                $ref: '#/components/schemas/ErrorResponse'
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
         '403':
           content:
             application/json:
@@ -132,7 +216,7 @@ paths:
                 Bad Request - Forbidden:
                   $ref: '#/components/examples/forbidden'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Forbidden
         '500':
           content:
@@ -141,7 +225,7 @@ paths:
                 Bad Request - Internal Server Error:
                   $ref: '#/components/examples/internalServerError'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Internal Server Error
     delete:
       summary: Delete Event data
@@ -157,7 +241,9 @@ paths:
           schema:
             type: string
             example: '1234'
-          description: Id of event to be deleted
+          description: >-
+            ID of event to be deleted. This ID is vendor generated and should be
+            unique in each vendor's content set.
           required: true
       responses:
         '200':
@@ -165,7 +251,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/deleteResponse'
+                $ref: '#/components/schemas/DeleteResponse'
         '204':
           description: No Content
         '400':
@@ -175,17 +261,22 @@ paths:
                 Bad Request - Invalid Parameter:
                   $ref: '#/components/examples/invalidParameter'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Bad Request
         '401':
           content:
             application/json:
               examples:
-                Bad Request - Not Authenticated:
+                Not Authenticated:
                   $ref: '#/components/examples/notAuthenticated'
               schema:
-                $ref: '#/components/schemas/errorResponse'
-          description: Unauthorized
+                $ref: '#/components/schemas/ErrorResponse'
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
         '403':
           content:
             application/json:
@@ -193,7 +284,7 @@ paths:
                 Bad Request - Forbidden:
                   $ref: '#/components/examples/forbidden'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Forbidden
         '500':
           content:
@@ -202,7 +293,7 @@ paths:
                 Bad Request - Internal Server Error:
                   $ref: '#/components/examples/internalServerError'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Internal Server Error
 components:
   securitySchemes:
@@ -216,22 +307,22 @@ components:
       type: http
       scheme: basic
   requestBodies:
-    insertRequestBody:
+    InsertRequestBody:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/insertRequest'
+            $ref: '#/components/schemas/InsertRequest'
       description: INSERT request body which needs to be sent with request
       required: true
-    updateRequestBody:
+    UpdateRequestBody:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/updateRequest'
+            $ref: '#/components/schemas/UpdateRequest'
       description: UPDATE request body which needs to be sent with request
       required: true
   schemas:
-    insertRequest:
+    InsertRequest:
       description: Request body containing event data which needs to be sent with request
       type: object
       properties:
@@ -239,10 +330,10 @@ components:
           type: object
           properties:
             eventData:
-              $ref: '#/components/schemas/eventData'
+              $ref: '#/components/schemas/EventData'
           required:
             - eventData
-    updateRequest:
+    UpdateRequest:
       description: Request body containing event data which needs to be sent with request
       type: object
       properties:
@@ -250,16 +341,19 @@ components:
           type: object
           properties:
             eventData:
-              $ref: '#/components/schemas/eventUpdateData'
+              $ref: '#/components/schemas/EventUpdateData'
           required:
             - eventData
-    eventData:
+    EventData:
       type: object
+      description: Event Data
       properties:
         eventId:
           type: string
           example: '1234'
-          description: Id that corresponds to the event
+          description: >-
+            ID that corresponds to the event. This ID is vendor generated and
+            should be unique in each vendor's content set.
         title:
           type: string
           maxLength: 500
@@ -277,22 +371,23 @@ components:
         participants:
           type: array
           items:
-            $ref: '#/components/schemas/participantsData'
+            $ref: '#/components/schemas/ParticipantsData'
         location:
-          $ref: '#/components/schemas/locationData'
+          $ref: '#/components/schemas/LocationData'
         symbols:
           type: array
           items:
-            $ref: '#/components/schemas/symbolData'
+            $ref: '#/components/schemas/SymbolData'
         registrationInfo:
-          $ref: '#/components/schemas/registrationInfoData'
+          $ref: '#/components/schemas/RegistrationInfoData'
       required:
         - eventId
         - title
         - startDatetime
         - symbols
-    eventUpdateData:
+    EventUpdateData:
       type: object
+      description: Event Data Update
       properties:
         title:
           type: string
@@ -311,20 +406,22 @@ components:
         participants:
           type: array
           items:
-            $ref: '#/components/schemas/participantsData'
+            $ref: '#/components/schemas/ParticipantsData'
+          description: Participants of the event.
         location:
-          $ref: '#/components/schemas/locationData'
+          $ref: '#/components/schemas/LocationData'
         symbols:
           type: array
           items:
-            $ref: '#/components/schemas/symbolData'
+            $ref: '#/components/schemas/SymbolData'
+          description: Symbol associated with the event
         registrationInfo:
-          $ref: '#/components/schemas/registrationInfoData'
+          $ref: '#/components/schemas/RegistrationInfoData'
       required:
         - title
         - startDatetime
         - symbols
-    participantsData:
+    ParticipantsData:
       description: Participants of the event
       type: object
       required:
@@ -343,7 +440,7 @@ components:
           type: string
           example: CEO
           description: The title of the participant
-    locationData:
+    LocationData:
       description: Location of the event
       type: object
       properties:
@@ -358,10 +455,12 @@ components:
         state:
           type: string
           example: New York
+          description: State/province of the city where the event is taking place.
         city:
           type: string
           example: New York
-    symbolData:
+          description: City where the event is taking place.
+    SymbolData:
       description: An identifier indicating which company the event belongs to
       type: object
       required:
@@ -385,7 +484,7 @@ components:
           type: string
           example: FactSet System Research Inc.
           description: Name of symbol
-    registrationInfoData:
+    RegistrationInfoData:
       description: Information regarding event registrant
       type: object
       properties:
@@ -407,73 +506,147 @@ components:
           example: >-
             this field can be used to display extra information regarding
             registration
-    insertResponse:
+    GetResponse:
       type: object
+      description: Get Event Response
+      properties:
+        data:
+          type: object
+          properties:
+            id:
+              type: string
+              description: ID of event
+              example: 48392328ur39
+            date:
+              type: string
+              pattern: >-
+                ^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) [01][0-9]
+                \d{4}$
+              example: Jul 18 2024
+              description: Date of event
+            description:
+              type: string
+              example: Test Event
+              description: Description of event
+            contactName:
+              type: string
+              example: Jane Doe
+              description: Contact for event
+            contactEmail:
+              type: string
+              format: email
+              example: test@example.com
+              description: Contact's email for event
+            agendaUrl:
+              type: string
+              example: test.com/investors
+              description: URL for event
+            additionalInfo:
+              type: string
+              example: Test Notes
+              description: Additional info for the event
+            city:
+              type: string
+              example: Toronto
+              description: City of the event
+            state:
+              type: string
+              example: AB
+              description: State of the event
+            isoCountry:
+              type: string
+              example: CA
+              description: Country of the event
+    InsertResponse:
+      type: object
+      description: Insert Event Response
       properties:
         data:
           type: object
           properties:
             eventData:
               type: object
+              description: Event Data
               properties:
                 eventId:
                   type: string
                   example: '1234'
-                  description: Id of the event that was successfully inserted
+                  description: >-
+                    Id of the event that was successfully inserted. This ID is
+                    vendor generated and should be unique in each vendor's
+                    content set.
             message:
               type: object
+              description: Message of insert operation
               properties:
                 event:
                   type: string
+                  description: Event status
                   example: Event inserted successfully
-    updateResponse:
+    UpdateResponse:
       type: object
+      description: Update Event Response
       properties:
         data:
           type: object
           properties:
             eventData:
               type: object
+              description: Event Data
               properties:
                 eventId:
                   type: string
                   example: '1234'
-                  description: Id of the event that was successfully updated
+                  description: >-
+                    ID of the event that was successfully updated. This ID is
+                    vendor generated and should be unique in each vendor's
+                    content set.
             message:
               type: object
+              description: Message of update operation
               properties:
                 event:
                   type: string
+                  description: Event status
                   example: Event updated successfully
-    deleteResponse:
+    DeleteResponse:
       type: object
+      description: Delete Event Response
       properties:
         data:
           type: object
           properties:
             eventData:
               type: object
+              description: Event Data
               properties:
                 eventId:
                   type: string
                   example: '1234'
-                  description: Id of the event that was successfully deleted
+                  description: >-
+                    ID of the event that was successfully deleted. This ID is
+                    vendor generated and should be unique in each vendor's
+                    content set.
             message:
               type: object
+              description: Message of delete operation
               properties:
                 event:
                   type: string
+                  description: Event status
                   example: Event deleted successfully
-    errorResponse:
+    ErrorResponse:
       type: object
+      description: Object representing an error response.
       properties:
         errors:
           type: array
-          description: An array containing errors
+          description: An array of error objects.
           items:
-            $ref: '#/components/schemas/errorObject'
-    errorObject:
+            $ref: '#/components/schemas/ErrorObject'
+    ErrorObject:
       type: object
+      description: Object representing an error.
       properties:
         id:
           description: A UUID for this particular occurrence of the error.
@@ -491,14 +664,18 @@ components:
           - id: 7af3d86ca5954503b9244f2620fcf5eb
             code: parameterError
             title: Invalid parameter(s)
+    notFound:
+      value:
+        errors:
+          - id: 7af3d86ca5954503b9244f2620fcf5eb
+            code: notFound
+            title: event not found
     notAuthenticated:
       value:
         errors:
           - id: 7af3d86ca5954503b9244f2620fcf5eb
-            code: notAuthenticated
-            title: >-
-              There were either no, invalid, or expired credentials present in
-              the request.
+            code: Not Authenticated
+            title: Unauthenticated USERNAME-SERIAL.
     forbidden:
       value:
         errors:

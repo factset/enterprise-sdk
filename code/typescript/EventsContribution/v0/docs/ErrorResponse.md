@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**errors** | [**[ErrorObject]**](ErrorObject.md) | An array containing errors | [optional] 
+**errors** | [**[ErrorObject]**](ErrorObject.md) | An array of error objects. | [optional] 
 
 

@@ -1,4 +1,5 @@
 # FactSet.SDK.EventsContribution.Model.DeleteResponse
+Delete Event Response
 
 ## Properties
 

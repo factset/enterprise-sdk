@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**eventId** | **String** | Id of the event that was successfully deleted | [optional] 
+**eventId** | **String** | ID of the event that was successfully deleted. This ID is vendor generated and should be unique in each vendor&#39;s content set. | [optional] 
 
 

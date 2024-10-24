@@ -67,7 +67,7 @@ namespace Example
             var entityId = "000CGP-E";  // string | Factset entity level identifier for the company hosting the event. (optional) 
             var callStatus = "InProgress";  // string | Status of the call, i.e., Ended, InProgress, EndedWithoutNotification, or IssueAtSource. (optional) 
             var sort = new List<string>(); // List<string> | Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc.  (optional) 
-            var paginationLimit = 25;  // int? | Number of results to return per page. (optional)  (default to 25)
+            var paginationLimit = 25;  // int? | Number of results to return per page. Maximum value: 1000.  (optional)  (default to 25)
             var paginationOffset = 0;  // int? | Page number of the results to return. (optional)  (default to 0)
 
             try
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
  **entityId** | **string**| Factset entity level identifier for the company hosting the event. | [optional] 
  **callStatus** | **string**| Status of the call, i.e., Ended, InProgress, EndedWithoutNotification, or IssueAtSource. | [optional] 
  **sort** | [**List&lt;string&gt;**](string.md)| Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc.  | [optional] 
- **paginationLimit** | **int?**| Number of results to return per page. | [optional] [default to 25]
+ **paginationLimit** | **int?**| Number of results to return per page. Maximum value: 1000.  | [optional] [default to 25]
  **paginationOffset** | **int?**| Page number of the results to return. | [optional] [default to 0]
 
 ### Return type
@@ -178,7 +178,7 @@ namespace Example
             var audioSourceId = 471849;  // int? | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs. (optional) 
             var reportId = 2683372;  // int? | Unique identifier for an event. (optional) 
             var sort = new List<string>(); // List<string> | Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc.  (optional) 
-            var paginationLimit = 25;  // int? | Number of results to return per page. (optional)  (default to 25)
+            var paginationLimit = 25;  // int? | Number of results to return per page. Maximum value: 1000.  (optional)  (default to 25)
             var paginationOffset = 0;  // int? | Page number of the results to return. (optional)  (default to 0)
 
             try
@@ -205,7 +205,7 @@ Name | Type | Description  | Notes
  **audioSourceId** | **int?**| Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs. | [optional] 
  **reportId** | **int?**| Unique identifier for an event. | [optional] 
  **sort** | [**List&lt;string&gt;**](string.md)| Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc.  | [optional] 
- **paginationLimit** | **int?**| Number of results to return per page. | [optional] [default to 25]
+ **paginationLimit** | **int?**| Number of results to return per page. Maximum value: 1000.  | [optional] [default to 25]
  **paginationOffset** | **int?**| Page number of the results to return. | [optional] [default to 0]
 
 ### Return type
@@ -393,7 +393,7 @@ namespace Example
 
             var audioSourceId = 471849;  // int | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs.
             var sort = new List<string>(); // List<string> | Enables sorting data in ascending or descending chronological order based on the start offset of the speaker.  (optional) 
-            var paginationLimit = 25;  // int? | Number of results to return per page. (optional)  (default to 25)
+            var paginationLimit = 25;  // int? | Number of results to return per page. Maximum value: 1000.  (optional)  (default to 25)
             var paginationOffset = 0;  // int? | Page number of the results to return. (optional)  (default to 0)
 
             try
@@ -419,7 +419,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **audioSourceId** | **int**| Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs. | 
  **sort** | [**List&lt;string&gt;**](string.md)| Enables sorting data in ascending or descending chronological order based on the start offset of the speaker.  | [optional] 
- **paginationLimit** | **int?**| Number of results to return per page. | [optional] [default to 25]
+ **paginationLimit** | **int?**| Number of results to return per page. Maximum value: 1000.  | [optional] [default to 25]
  **paginationOffset** | **int?**| Page number of the results to return. | [optional] [default to 0]
 
 ### Return type

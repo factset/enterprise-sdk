@@ -35,8 +35,9 @@ import com.factset.sdk.DirectStreamingofTransactionMessages.JSON;
 
 
 /**
- * ClientErrorResponse
+ * Client Error Response
  */
+@ApiModel(description = "Client Error Response")
 @JsonPropertyOrder({
   ClientErrorResponse.JSON_PROPERTY_ERRORS
 })
@@ -69,11 +70,11 @@ public class ClientErrorResponse implements Serializable {
   }
 
    /**
-   * Get errors
+   * &#x60;type&#x60; of the error
    * @return errors
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "`type` of the error")
   @JsonIgnore
 
   public java.util.List<Error> getErrors() {

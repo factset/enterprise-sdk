@@ -21,6 +21,7 @@ import Error from './Error';
 class ClientErrorResponse {
     /**
      * Constructs a new <code>ClientErrorResponse</code>.
+     * Client Error Response
      * @alias module:model/ClientErrorResponse
      */
     constructor() { 
@@ -58,6 +59,7 @@ class ClientErrorResponse {
 }
 
 /**
+ * `type` of the error
  * @member {Array.<module:model/Error>} errors
  */
 ClientErrorResponse.prototype['errors'] = undefined;

@@ -137,8 +137,8 @@ class ErrorSource(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            pointer (str, none_type): [optional]  # noqa: E501
-            parameter (str, none_type): [optional]  # noqa: E501
+            pointer (str, none_type): Pointer. [optional]  # noqa: E501
+            parameter (str, none_type): parameter. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -220,8 +220,8 @@ class ErrorSource(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            pointer (str, none_type): [optional]  # noqa: E501
-            parameter (str, none_type): [optional]  # noqa: E501
+            pointer (str, none_type): Pointer. [optional]  # noqa: E501
+            parameter (str, none_type): parameter. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

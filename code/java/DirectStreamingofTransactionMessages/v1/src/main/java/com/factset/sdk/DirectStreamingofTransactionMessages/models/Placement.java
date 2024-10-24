@@ -593,7 +593,7 @@ public class Placement implements Serializable {
    * @return transactionStatus
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Status of the Placement")
+  @ApiModelProperty(example = "placed", required = true, value = "Status of the Placement")
   @JsonProperty(JSON_PROPERTY_TRANSACTION_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -619,7 +619,7 @@ public class Placement implements Serializable {
    * @return orderType
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Order type indicating the price type of the Placement")
+  @ApiModelProperty(example = "market", value = "Order type indicating the price type of the Placement")
   @JsonProperty(JSON_PROPERTY_ORDER_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -645,7 +645,7 @@ public class Placement implements Serializable {
    * @return limitPrice
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Price related to limit and stopLimit order types")
+  @ApiModelProperty(example = "420.25", value = "Price related to limit and stopLimit order types")
   @JsonProperty(JSON_PROPERTY_LIMIT_PRICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -671,7 +671,7 @@ public class Placement implements Serializable {
    * @return stopPrice
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Price related to stop and stopLimit order types")
+  @ApiModelProperty(example = "421.25", value = "Price related to stop and stopLimit order types")
   @JsonProperty(JSON_PROPERTY_STOP_PRICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -697,7 +697,7 @@ public class Placement implements Serializable {
    * @return tif
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Time In Force of the Placement")
+  @ApiModelProperty(example = "goodTilCancel", value = "Time In Force of the Placement")
   @JsonProperty(JSON_PROPERTY_TIF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -757,7 +757,7 @@ public class Placement implements Serializable {
    * @return settlementType
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Indicates placement settlement period")
+  @ApiModelProperty(example = "regular", value = "Indicates placement settlement period")
   @JsonProperty(JSON_PROPERTY_SETTLEMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -895,7 +895,7 @@ public class Placement implements Serializable {
    * @return side
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Side of the order")
+  @ApiModelProperty(example = "buy", required = true, value = "Side of the order")
   @JsonProperty(JSON_PROPERTY_SIDE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -921,7 +921,7 @@ public class Placement implements Serializable {
    * @return unitType
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Unit type of the order. Indicates if the trade is driven by quantity or value")
+  @ApiModelProperty(example = "quantity", required = true, value = "Unit type of the order. Indicates if the trade is driven by quantity or value")
   @JsonProperty(JSON_PROPERTY_UNIT_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -947,7 +947,7 @@ public class Placement implements Serializable {
    * @return transactionLeaves
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Shares that have been ordered and not executed")
+  @ApiModelProperty(example = "0.01", value = "Shares that have been ordered and not executed")
   @JsonIgnore
 
   public Double getTransactionLeaves() {
@@ -981,7 +981,7 @@ public class Placement implements Serializable {
    * @return quantity
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Quantity of the instrument traded")
+  @ApiModelProperty(example = "1000.01", required = true, value = "Quantity of the instrument traded")
   @JsonProperty(JSON_PROPERTY_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -1007,7 +1007,7 @@ public class Placement implements Serializable {
    * @return gross
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Cash value of the transaction")
+  @ApiModelProperty(example = "0.01", required = true, value = "Cash value of the transaction")
   @JsonProperty(JSON_PROPERTY_GROSS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -1033,7 +1033,7 @@ public class Placement implements Serializable {
    * @return price
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The transaction price")
+  @ApiModelProperty(example = "420.25", value = "The transaction price")
   @JsonIgnore
 
   public Double getPrice() {
@@ -1093,7 +1093,7 @@ public class Placement implements Serializable {
    * @return complianceStatus
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Compliance check status")
+  @ApiModelProperty(example = "unchecked", value = "Compliance check status")
   @JsonProperty(JSON_PROPERTY_COMPLIANCE_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

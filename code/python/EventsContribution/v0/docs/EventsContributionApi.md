@@ -5,6 +5,7 @@ All URIs are relative to *https://api.factset.com/events-contribution/v0*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**delete_event**](EventsContributionApi.md#delete_event) | **DELETE** /events/{eventId} | Delete Event data
+[**get_event**](EventsContributionApi.md#get_event) | **GET** /events/{eventId} | Get Event Data
 [**insert_event**](EventsContributionApi.md#insert_event) | **POST** /events | Insert Event data
 [**update_event**](EventsContributionApi.md#update_event) | **PUT** /events/{eventId} | Update Event data
 
@@ -62,7 +63,7 @@ with fds.sdk.EventsContribution.ApiClient(configuration) as api_client:
     api_instance = events_contribution_api.EventsContributionApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    event_id = "1234" # str | Id of event to be deleted
+    event_id = "1234" # str | ID of event to be deleted. This ID is vendor generated and should be unique in each vendor's content set.
 
     try:
         # Delete Event data
@@ -80,7 +81,7 @@ with fds.sdk.EventsContribution.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **event_id** | **str**| Id of event to be deleted |
+ **event_id** | **str**| ID of event to be deleted. This ID is vendor generated and should be unique in each vendor&#39;s content set. |
 
 ### Return type
 
@@ -103,8 +104,107 @@ Name | Type | Description  | Notes
 **200** | OK |  -  |
 **204** | No Content |  -  |
 **400** | Bad Request |  -  |
-**401** | Unauthorized |  -  |
+**401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 **403** | Forbidden |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_event**
+> GetResponse get_event(event_id)
+
+Get Event Data
+
+This endpoint retrieves previously submitted events by event ID.
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```python
+from fds.sdk.utils.authentication import ConfidentialClient
+import fds.sdk.EventsContribution
+from fds.sdk.EventsContribution.api import events_contribution_api
+from fds.sdk.EventsContribution.models import *
+from dateutil.parser import parse as dateutil_parser
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
+
+# (Preferred) OAuth 2.0: FactSetOAuth2
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+#
+# The confidential client instance should be reused in production environments.
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
+configuration = fds.sdk.EventsContribution.Configuration(
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
+)
+
+# Basic authentication: FactSetApiKey
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
+# configuration = fds.sdk.EventsContribution.Configuration(
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
+# )
+
+# Enter a context with an instance of the API client
+with fds.sdk.EventsContribution.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = events_contribution_api.EventsContributionApi(api_client)
+
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
+    event_id = "eventId_example" # str | ID for event retrieval. This ID is vendor generated and should be unique in each vendor's content set.
+
+    try:
+        # Get Event Data
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.get_event(event_id)
+
+        pprint(api_response)
+
+    except fds.sdk.EventsContribution.ApiException as e:
+        print("Exception when calling EventsContributionApi->get_event: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **event_id** | **str**| ID for event retrieval. This ID is vendor generated and should be unique in each vendor&#39;s content set. |
+
+### Return type
+
+[**GetResponse**](GetResponse.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request. Invalid Parameter. |  -  |
+**401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
 **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -234,7 +334,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | OK |  -  |
 **400** | Bad Request |  -  |
-**401** | Unauthorized |  -  |
+**401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 **403** | Forbidden |  -  |
 **500** | Internal Server Error |  -  |
 
@@ -292,7 +392,7 @@ with fds.sdk.EventsContribution.ApiClient(configuration) as api_client:
     api_instance = events_contribution_api.EventsContributionApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    event_id = "1234" # str | Id of event to be updated
+    event_id = "1234" # str | ID of event to be updated. This ID is vendor generated and should be unique in each vendor's content set.
     update_request = UpdateRequest(
         data=UpdateRequestData(
             event_data=EventUpdateData(
@@ -343,7 +443,7 @@ with fds.sdk.EventsContribution.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **event_id** | **str**| Id of event to be updated |
+ **event_id** | **str**| ID of event to be updated. This ID is vendor generated and should be unique in each vendor&#39;s content set. |
  **update_request** | [**UpdateRequest**](UpdateRequest.md)| UPDATE request body which needs to be sent with request |
 
 ### Return type
@@ -366,7 +466,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | OK |  -  |
 **400** | Bad Request |  -  |
-**401** | Unauthorized |  -  |
+**401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 **403** | Forbidden |  -  |
 **500** | Internal Server Error |  -  |
 

@@ -13,6 +13,8 @@ docs/ErrorResponse.md
 docs/EventData.md
 docs/EventUpdateData.md
 docs/EventsContributionApi.md
+docs/GetResponse.md
+docs/GetResponseData.md
 docs/InsertRequest.md
 docs/InsertRequestData.md
 docs/InsertResponse.md
@@ -43,6 +45,8 @@ src/model/ErrorObject.js
 src/model/ErrorResponse.js
 src/model/EventData.js
 src/model/EventUpdateData.js
+src/model/GetResponse.js
+src/model/GetResponseData.js
 src/model/InsertRequest.js
 src/model/InsertRequestData.js
 src/model/InsertResponse.js

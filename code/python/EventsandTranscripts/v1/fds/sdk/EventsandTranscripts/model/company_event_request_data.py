@@ -1,7 +1,7 @@
 """
     EVENTS AND TRANSCRIPTS API
 
-    <p>The Calendar Events API provides access to FactSet’s Event Calendar data alongside business logic that allows users to replicate views and functionality consistent with the experience provided by the Workstation. This API provides the ability to pull Event Calendar data based on specific filters.</p> <p>Events Audio API provides access to historical as well as the latest audio recordings of various company events covered by FactSet. The events include, but are not limited to: earnings calls, conferences, and investor days. This API also provides relevant metadata such as timestamps and identifiers around each audio file.</p> <p>The  Near Real-time Transcripts API enables access to Near Real-time Transcripts provided by CallStreet to time-sensitive clients. This API also provides the relevant speaker metadata along with their confidence scores. This data caters to quant clients interested in building machine learning models. Clients can leverage this API to perform sentiment analysis through natural language processing or machine learning. It can also be used to complement analysis using FactSet's transcripts service.</p> <p>Transcripts API provides conference call transcripts for companies' publicly held conference calls and a wealth of information regarding upcoming corporate events, such as conference call date and time, phone number and password, type of conference call, and important company investor relations contact information.</p>    # noqa: E501
+    <p>The Calendar Events API provides access to FactSetâ€™s Event Calendar data alongside business logic that allows users to replicate views and functionality consistent with the experience provided by the Workstation. This API provides the ability to pull Event Calendar data based on specific filters.</p> <p>Events Audio API provides access to historical as well as the latest audio recordings of various company events covered by FactSet. The events include, but are not limited to: earnings calls, conferences, and investor days. This API also provides relevant metadata such as timestamps and identifiers around each audio file.</p> <p>The  Near Real-time Transcripts API enables access to Near Real-time Transcripts provided by CallStreet to time-sensitive clients. This API also provides the relevant speaker metadata along with their confidence scores. This data caters to quant clients interested in building machine learning models. Clients can leverage this API to perform sentiment analysis through natural language processing or machine learning. It can also be used to complement analysis using FactSet's transcripts service.</p> <p>Transcripts API provides conference call transcripts for companies' publicly held conference calls and a wealth of information regarding upcoming corporate events, such as conference call date and time, phone number and password, type of conference call, and important company investor relations contact information.</p>    # noqa: E501
 
     The version of the OpenAPI document: 1.1.0
     Contact: api@factset.com
@@ -78,6 +78,16 @@ class CompanyEventRequestData(ModelNormal):
 
 
         },
+        ('last_modified_within',): {
+            'SIXHOURS': "SixHours",
+            'TWELVEHOURS': "TwelveHours",
+            'TODAY': "Today",
+            'TWODAYS': "TwoDays",
+            'ONEWEEK': "OneWeek",
+            'ONEMONTH': "OneMonth",
+
+
+        },
     }
 
     validations = {
@@ -109,6 +119,7 @@ class CompanyEventRequestData(ModelNormal):
             'date_time': (CompanyEventRequestDataDateTime,),  # noqa: E501
             'universe': (CompanyEventRequestDataUniverse,),  # noqa: E501
             'event_types': ([str],),  # noqa: E501
+            'last_modified_within': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -120,6 +131,7 @@ class CompanyEventRequestData(ModelNormal):
         'date_time': 'dateTime',  # noqa: E501
         'universe': 'universe',  # noqa: E501
         'event_types': 'eventTypes',  # noqa: E501
+        'last_modified_within': 'lastModifiedWithin',  # noqa: E501
     }
 
     read_only_vars = {
@@ -129,12 +141,8 @@ class CompanyEventRequestData(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, date_time, universe, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
         """CompanyEventRequestData - a model defined in OpenAPI
-
-        Args:
-            date_time (CompanyEventRequestDataDateTime):
-            universe (CompanyEventRequestDataUniverse):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -167,7 +175,10 @@ class CompanyEventRequestData(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            date_time (CompanyEventRequestDataDateTime): [optional]  # noqa: E501
+            universe (CompanyEventRequestDataUniverse): [optional]  # noqa: E501
             event_types ([str]): The type of events returned in the response. [optional]  # noqa: E501
+            last_modified_within (str): The duration within which the events were last modified.  **Note 1:** When using `lastModifiedWithin` without providing `startDate` or `endDate`, the default period will be the previous and upcoming 45 days from the current date.  **Note 2:** If both `dateTime` and `lastModifiedWithin` are provided in the same request, the API will return an error. . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -195,8 +206,6 @@ class CompanyEventRequestData(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.date_time = date_time
-        self.universe = universe
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -217,12 +226,8 @@ class CompanyEventRequestData(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, date_time, universe, *args, **kwargs):  # noqa: E501
+    def __init__(self, *args, **kwargs):  # noqa: E501
         """CompanyEventRequestData - a model defined in OpenAPI
-
-        Args:
-            date_time (CompanyEventRequestDataDateTime):
-            universe (CompanyEventRequestDataUniverse):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -255,7 +260,10 @@ class CompanyEventRequestData(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            date_time (CompanyEventRequestDataDateTime): [optional]  # noqa: E501
+            universe (CompanyEventRequestDataUniverse): [optional]  # noqa: E501
             event_types ([str]): The type of events returned in the response. [optional]  # noqa: E501
+            last_modified_within (str): The duration within which the events were last modified.  **Note 1:** When using `lastModifiedWithin` without providing `startDate` or `endDate`, the default period will be the previous and upcoming 45 days from the current date.  **Note 2:** If both `dateTime` and `lastModifiedWithin` are provided in the same request, the API will return an error. . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -281,8 +289,6 @@ class CompanyEventRequestData(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.date_time = date_time
-        self.universe = universe
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

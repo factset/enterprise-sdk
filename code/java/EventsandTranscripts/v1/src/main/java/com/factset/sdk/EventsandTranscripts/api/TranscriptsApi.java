@@ -196,7 +196,7 @@ public class TranscriptsApi {
    * Returns the transcripts documents within FactSet coverage along with other response fields.   All transcripts originate from Factset Callstreet Transcripts. 
    * @param searchText Restricts the search to include only document stories which include the text searched. (optional)
    * @param sort Enables sorting data in ascending or descending chronological order based on eventDate.  (optional, default to [\&quot;-storyDateTime\&quot;])
-   * @param paginationLimit Number of results to return per page. (optional, default to 25)
+   * @param paginationLimit Number of results to return per page. Maximum value: 1000.  (optional, default to 25)
    * @param paginationOffset Page number of the results to return. (optional, default to 0)
    * @return Transcripts
    * @throws ApiException if fails to make API call
@@ -219,7 +219,7 @@ public class TranscriptsApi {
    * Returns the transcripts documents within FactSet coverage along with other response fields.   All transcripts originate from Factset Callstreet Transcripts. 
    * @param searchText Restricts the search to include only document stories which include the text searched. (optional)
    * @param sort Enables sorting data in ascending or descending chronological order based on eventDate.  (optional, default to [\&quot;-storyDateTime\&quot;])
-   * @param paginationLimit Number of results to return per page. (optional, default to 25)
+   * @param paginationLimit Number of results to return per page. Maximum value: 1000.  (optional, default to 25)
    * @param paginationOffset Page number of the results to return. (optional, default to 0)
    * @return ApiResponse&lt;Transcripts&gt;
    * @throws ApiException if fails to make API call
@@ -286,7 +286,7 @@ public class TranscriptsApi {
    * @param endDateRelative The latest date of the feed file the API should fetch for based on the file timestamp.  - Format: Specify the date using a relative term as an integer: &#39;0&#39; for today, &#39;-1&#39; for yesterday, &#39;-2&#39; for two days ago, and so forth. Negative values are used to represent past dates.   - *Either &#x60;endDate&#x60; or &#x60;endDateRelative&#x60; should be used, but not both.* - *If both &#x60;endDate&#x60; and &#x60;endDateRelative&#x60; are provided in the same request, the API will return an error.* - *If users provide future dates in requests for &#x60;endDate&#x60; or &#x60;endDateRelative&#x60;, the API will not return any data.*  (optional)
    * @param timeZone timeZone to return story dates and times.Time zones, represented in POSIX format, are automatically adjusted for daylight savings. timeZone names are sourced from the IANA timezone registry. The time fields in the response will adhere to this specified timezone. (optional, default to America/New_York)
    * @param sort Enables sorting data in ascending or descending chronological order based on eventDate.  (optional, default to [\&quot;-storyDateTime\&quot;])
-   * @param paginationLimit Number of results to return per page. (optional, default to 25)
+   * @param paginationLimit Number of results to return per page. Maximum value: 1000.  (optional, default to 25)
    * @param paginationOffset Page number of the results to return. (optional, default to 0)
    * @return Transcripts
    * @throws ApiException if fails to make API call
@@ -313,7 +313,7 @@ public class TranscriptsApi {
    * @param endDateRelative The latest date of the feed file the API should fetch for based on the file timestamp.  - Format: Specify the date using a relative term as an integer: &#39;0&#39; for today, &#39;-1&#39; for yesterday, &#39;-2&#39; for two days ago, and so forth. Negative values are used to represent past dates.   - *Either &#x60;endDate&#x60; or &#x60;endDateRelative&#x60; should be used, but not both.* - *If both &#x60;endDate&#x60; and &#x60;endDateRelative&#x60; are provided in the same request, the API will return an error.* - *If users provide future dates in requests for &#x60;endDate&#x60; or &#x60;endDateRelative&#x60;, the API will not return any data.*  (optional)
    * @param timeZone timeZone to return story dates and times.Time zones, represented in POSIX format, are automatically adjusted for daylight savings. timeZone names are sourced from the IANA timezone registry. The time fields in the response will adhere to this specified timezone. (optional, default to America/New_York)
    * @param sort Enables sorting data in ascending or descending chronological order based on eventDate.  (optional, default to [\&quot;-storyDateTime\&quot;])
-   * @param paginationLimit Number of results to return per page. (optional, default to 25)
+   * @param paginationLimit Number of results to return per page. Maximum value: 1000.  (optional, default to 25)
    * @param paginationOffset Page number of the results to return. (optional, default to 0)
    * @return ApiResponse&lt;Transcripts&gt;
    * @throws ApiException if fails to make API call
@@ -381,7 +381,7 @@ public class TranscriptsApi {
    * @param eventIds Requests Event IDs. This is a comma-separated list with a maximum limit of 1000. (optional)
    * @param eventType Specifies the type of event you want to retrieve.   Earnings - Denotes an Earnings event.   Guidance - Denotes a Guidance event.   AnalystsShareholdersMeeting - Denotes an Analysts and Shareholders Meeting event.   ConferencePresentation - Denotes a Conference Presentation event.   SalesRevenue - Denotes a Sales/Revenue event.   SpecialSituation - Denotes a Special Situation event (i.e. Merger/Acquisition). (optional)
    * @param sort Enables sorting data in ascending or descending chronological order based on eventDate.  (optional, default to [\&quot;-storyDateTime\&quot;])
-   * @param paginationLimit Number of results to return per page. (optional, default to 25)
+   * @param paginationLimit Number of results to return per page. Maximum value: 1000.  (optional, default to 25)
    * @param paginationOffset Page number of the results to return. (optional, default to 0)
    * @return Transcripts
    * @throws ApiException if fails to make API call
@@ -405,7 +405,7 @@ public class TranscriptsApi {
    * @param eventIds Requests Event IDs. This is a comma-separated list with a maximum limit of 1000. (optional)
    * @param eventType Specifies the type of event you want to retrieve.   Earnings - Denotes an Earnings event.   Guidance - Denotes a Guidance event.   AnalystsShareholdersMeeting - Denotes an Analysts and Shareholders Meeting event.   ConferencePresentation - Denotes a Conference Presentation event.   SalesRevenue - Denotes a Sales/Revenue event.   SpecialSituation - Denotes a Special Situation event (i.e. Merger/Acquisition). (optional)
    * @param sort Enables sorting data in ascending or descending chronological order based on eventDate.  (optional, default to [\&quot;-storyDateTime\&quot;])
-   * @param paginationLimit Number of results to return per page. (optional, default to 25)
+   * @param paginationLimit Number of results to return per page. Maximum value: 1000.  (optional, default to 25)
    * @param paginationOffset Page number of the results to return. (optional, default to 0)
    * @return ApiResponse&lt;Transcripts&gt;
    * @throws ApiException if fails to make API call
@@ -470,9 +470,9 @@ public class TranscriptsApi {
    * @param primaryId Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. (optional, default to false)
    * @param ids Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. (optional)
    * @param reportIds Requests Report IDs. This is a comma-separated list with a maximum limit of 1000 (optional)
-   * @param categories Code for categories to include. This is a comma-separated list.which represent country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/reference/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. (optional)
+   * @param categories Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/reference/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. (optional)
    * @param sort Enables sorting data in ascending or descending chronological order based on eventDate.  (optional, default to [\&quot;-storyDateTime\&quot;])
-   * @param paginationLimit Number of results to return per page. (optional, default to 25)
+   * @param paginationLimit Number of results to return per page. Maximum value: 1000.  (optional, default to 25)
    * @param paginationOffset Page number of the results to return. (optional, default to 0)
    * @return TranscriptsOne
    * @throws ApiException if fails to make API call
@@ -496,9 +496,9 @@ public class TranscriptsApi {
    * @param primaryId Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. (optional, default to false)
    * @param ids Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. (optional)
    * @param reportIds Requests Report IDs. This is a comma-separated list with a maximum limit of 1000 (optional)
-   * @param categories Code for categories to include. This is a comma-separated list.which represent country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/reference/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. (optional)
+   * @param categories Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/reference/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. (optional)
    * @param sort Enables sorting data in ascending or descending chronological order based on eventDate.  (optional, default to [\&quot;-storyDateTime\&quot;])
-   * @param paginationLimit Number of results to return per page. (optional, default to 25)
+   * @param paginationLimit Number of results to return per page. Maximum value: 1000.  (optional, default to 25)
    * @param paginationOffset Page number of the results to return. (optional, default to 0)
    * @return ApiResponse&lt;TranscriptsOne&gt;
    * @throws ApiException if fails to make API call
@@ -565,7 +565,7 @@ public class TranscriptsApi {
    * @param startDateTime  **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.**    (optional)
    * @param endDateTime The date to which data is required (optional)
    * @param sort Enables sorting data in ascending or descending chronological order based on eventDate.  (optional, default to [\&quot;-storyDateTime\&quot;])
-   * @param paginationLimit Number of results to return per page. (optional, default to 25)
+   * @param paginationLimit Number of results to return per page. Maximum value: 1000.  (optional, default to 25)
    * @param paginationOffset Page number of the results to return. (optional, default to 0)
    * @return TranscriptsTimes
    * @throws ApiException if fails to make API call
@@ -589,7 +589,7 @@ public class TranscriptsApi {
    * @param startDateTime  **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.**    (optional)
    * @param endDateTime The date to which data is required (optional)
    * @param sort Enables sorting data in ascending or descending chronological order based on eventDate.  (optional, default to [\&quot;-storyDateTime\&quot;])
-   * @param paginationLimit Number of results to return per page. (optional, default to 25)
+   * @param paginationLimit Number of results to return per page. Maximum value: 1000.  (optional, default to 25)
    * @param paginationOffset Page number of the results to return. (optional, default to 0)
    * @return ApiResponse&lt;TranscriptsTimes&gt;
    * @throws ApiException if fails to make API call

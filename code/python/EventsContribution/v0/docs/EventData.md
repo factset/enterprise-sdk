@@ -1,10 +1,11 @@
 # EventData
 
+Event Data
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**event_id** | **str** | Id that corresponds to the event | 
+**event_id** | **str** | ID that corresponds to the event. This ID is vendor generated and should be unique in each vendor&#39;s content set. | 
 **title** | **str** | Title of the event to be displayed | 
 **start_datetime** | **datetime** | Start date and time of the event | 
 **symbols** | [**[SymbolData]**](SymbolData.md) |  | 

@@ -93,7 +93,7 @@ public class NearRealTimeTranscriptsApi {
    * @param entityId Factset entity level identifier for the company hosting the event. (optional)
    * @param callStatus Status of the call, i.e., Ended, InProgress, EndedWithoutNotification, or IssueAtSource. (optional)
    * @param sort Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc.  (optional, default to [\&quot;-eventDatetimeUtc\&quot;])
-   * @param paginationLimit Number of results to return per page. (optional, default to 25)
+   * @param paginationLimit Number of results to return per page. Maximum value: 1000.  (optional, default to 25)
    * @param paginationOffset Page number of the results to return. (optional, default to 0)
    * @return NrtCalls
    * @throws ApiException if fails to make API call
@@ -118,7 +118,7 @@ public class NearRealTimeTranscriptsApi {
    * @param entityId Factset entity level identifier for the company hosting the event. (optional)
    * @param callStatus Status of the call, i.e., Ended, InProgress, EndedWithoutNotification, or IssueAtSource. (optional)
    * @param sort Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc.  (optional, default to [\&quot;-eventDatetimeUtc\&quot;])
-   * @param paginationLimit Number of results to return per page. (optional, default to 25)
+   * @param paginationLimit Number of results to return per page. Maximum value: 1000.  (optional, default to 25)
    * @param paginationOffset Page number of the results to return. (optional, default to 0)
    * @return ApiResponse&lt;NrtCalls&gt;
    * @throws ApiException if fails to make API call
@@ -184,7 +184,7 @@ public class NearRealTimeTranscriptsApi {
    * @param audioSourceId Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs. (optional)
    * @param reportId Unique identifier for an event. (optional)
    * @param sort Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc.  (optional, default to [\&quot;-eventDatetimeUtc\&quot;])
-   * @param paginationLimit Number of results to return per page. (optional, default to 25)
+   * @param paginationLimit Number of results to return per page. Maximum value: 1000.  (optional, default to 25)
    * @param paginationOffset Page number of the results to return. (optional, default to 0)
    * @return NrtCalls
    * @throws ApiException if fails to make API call
@@ -208,7 +208,7 @@ public class NearRealTimeTranscriptsApi {
    * @param audioSourceId Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs. (optional)
    * @param reportId Unique identifier for an event. (optional)
    * @param sort Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc.  (optional, default to [\&quot;-eventDatetimeUtc\&quot;])
-   * @param paginationLimit Number of results to return per page. (optional, default to 25)
+   * @param paginationLimit Number of results to return per page. Maximum value: 1000.  (optional, default to 25)
    * @param paginationOffset Page number of the results to return. (optional, default to 0)
    * @return ApiResponse&lt;NrtCalls&gt;
    * @throws ApiException if fails to make API call
@@ -360,7 +360,7 @@ public class NearRealTimeTranscriptsApi {
    * Returns the latest speakerIds with the confidence scores generated for an active call.
    * @param audioSourceId Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs. (required)
    * @param sort Enables sorting data in ascending or descending chronological order based on the start offset of the speaker.  (optional, default to [\&quot;-speakerStartOffset\&quot;])
-   * @param paginationLimit Number of results to return per page. (optional, default to 25)
+   * @param paginationLimit Number of results to return per page. Maximum value: 1000.  (optional, default to 25)
    * @param paginationOffset Page number of the results to return. (optional, default to 0)
    * @return NrtSpeakerIds
    * @throws ApiException if fails to make API call
@@ -383,7 +383,7 @@ public class NearRealTimeTranscriptsApi {
    * Returns the latest speakerIds with the confidence scores generated for an active call.
    * @param audioSourceId Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs. (required)
    * @param sort Enables sorting data in ascending or descending chronological order based on the start offset of the speaker.  (optional, default to [\&quot;-speakerStartOffset\&quot;])
-   * @param paginationLimit Number of results to return per page. (optional, default to 25)
+   * @param paginationLimit Number of results to return per page. Maximum value: 1000.  (optional, default to 25)
    * @param paginationOffset Page number of the results to return. (optional, default to 0)
    * @return ApiResponse&lt;NrtSpeakerIds&gt;
    * @throws ApiException if fails to make API call

@@ -2,6 +2,7 @@
 
 # UpdateResponse
 
+Update Event Response
 
 ## Properties
 

@@ -73,6 +73,7 @@ with fds.sdk.EventsandTranscripts.ApiClient(configuration) as api_client:
             event_types=[
                 "Earnings",
             ],
+            last_modified_within="Today",
         ),
     ) # CompanyEventRequest | Company Event request body
 

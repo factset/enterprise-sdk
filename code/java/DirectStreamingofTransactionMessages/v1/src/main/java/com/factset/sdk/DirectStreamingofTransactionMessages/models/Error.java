@@ -37,6 +37,7 @@ import com.factset.sdk.DirectStreamingofTransactionMessages.JSON;
 /**
  * Error
  */
+@ApiModel(description = "Error")
 @JsonPropertyOrder({
   Error.JSON_PROPERTY_ID,
   Error.JSON_PROPERTY_CODE,
@@ -73,11 +74,11 @@ public class Error implements Serializable {
   }
 
    /**
-   * Get id
+   * &#x60;id&#x60; of the error.
    * @return id
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "`id` of the error.")
   @JsonIgnore
 
   public String getId() {
@@ -107,11 +108,11 @@ public class Error implements Serializable {
   }
 
    /**
-   * Get code
+   * &#x60;code&#x60; of the error.
    * @return code
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "`code` of the error.")
   @JsonIgnore
 
   public String getCode() {
@@ -141,11 +142,11 @@ public class Error implements Serializable {
   }
 
    /**
-   * Get title
+   * &#x60;title&#x60; of the error.
    * @return title
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "`title` of the error.")
   @JsonIgnore
 
   public String getTitle() {
@@ -175,11 +176,11 @@ public class Error implements Serializable {
   }
 
    /**
-   * Get detail
+   * Error detail.
    * @return detail
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Error detail.")
   @JsonIgnore
 
   public String getDetail() {

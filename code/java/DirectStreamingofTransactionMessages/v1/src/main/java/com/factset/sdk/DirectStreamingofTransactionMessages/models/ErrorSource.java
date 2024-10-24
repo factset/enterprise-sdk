@@ -34,8 +34,9 @@ import com.factset.sdk.DirectStreamingofTransactionMessages.JSON;
 
 
 /**
- * ErrorSource
+ * Error Source
  */
+@ApiModel(description = "Error Source")
 @JsonPropertyOrder({
   ErrorSource.JSON_PROPERTY_POINTER,
   ErrorSource.JSON_PROPERTY_PARAMETER
@@ -60,11 +61,11 @@ public class ErrorSource implements Serializable {
   }
 
    /**
-   * Get pointer
+   * Pointer
    * @return pointer
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Pointer")
   @JsonIgnore
 
   public String getPointer() {
@@ -94,11 +95,11 @@ public class ErrorSource implements Serializable {
   }
 
    /**
-   * Get parameter
+   * parameter
    * @return parameter
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "parameter")
   @JsonIgnore
 
   public String getParameter() {

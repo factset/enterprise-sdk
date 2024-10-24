@@ -1,5 +1,5 @@
 # FactSet.SDK.EventsandTranscripts.Model.CompanyEventRequestDataDateTime
-- Data is available from 2002. - If users provide future dates in requests, the API will not return any data. 
+- Data is available from 2002. - If users provide future dates in requests, the API will return data within a 90-day limit. 
 
 ## Properties
 

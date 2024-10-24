@@ -160,7 +160,7 @@ public class Example {
         TranscriptsApi apiInstance = new TranscriptsApi(defaultClient);
         String searchText = "Updates"; // String | Restricts the search to include only document stories which include the text searched.
         java.util.List<String> sort = Arrays.asList(); // java.util.List<String> | Enables sorting data in ascending or descending chronological order based on eventDate. 
-        Integer paginationLimit = 25; // Integer | Number of results to return per page.
+        Integer paginationLimit = 25; // Integer | Number of results to return per page. Maximum value: 1000. 
         Integer paginationOffset = 0; // Integer | Page number of the results to return.
         try {
             Transcripts result = apiInstance.getTranscripts(searchText, sort, paginationLimit, paginationOffset);
@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **searchText** | **String**| Restricts the search to include only document stories which include the text searched. | [optional]
  **sort** | **List&lt;String&gt;**| Enables sorting data in ascending or descending chronological order based on eventDate.  | [optional] [enum: storyDateTime, -storyDateTime]
- **paginationLimit** | **Integer**| Number of results to return per page. | [optional] [default to 25]
+ **paginationLimit** | **Integer**| Number of results to return per page. Maximum value: 1000.  | [optional] [default to 25]
  **paginationOffset** | **Integer**| Page number of the results to return. | [optional] [default to 0]
 
 ### Return type
@@ -270,7 +270,7 @@ public class Example {
         Integer endDateRelative = 56; // Integer | The latest date of the feed file the API should fetch for based on the file timestamp.  - Format: Specify the date using a relative term as an integer: '0' for today, '-1' for yesterday, '-2' for two days ago, and so forth. Negative values are used to represent past dates.   - *Either `endDate` or `endDateRelative` should be used, but not both.* - *If both `endDate` and `endDateRelative` are provided in the same request, the API will return an error.* - *If users provide future dates in requests for `endDate` or `endDateRelative`, the API will not return any data.* 
         String timeZone = "America/New_York"; // String | timeZone to return story dates and times.Time zones, represented in POSIX format, are automatically adjusted for daylight savings. timeZone names are sourced from the IANA timezone registry. The time fields in the response will adhere to this specified timezone.
         java.util.List<String> sort = Arrays.asList(); // java.util.List<String> | Enables sorting data in ascending or descending chronological order based on eventDate. 
-        Integer paginationLimit = 25; // Integer | Number of results to return per page.
+        Integer paginationLimit = 25; // Integer | Number of results to return per page. Maximum value: 1000. 
         Integer paginationOffset = 0; // Integer | Page number of the results to return.
         try {
             Transcripts result = apiInstance.getTranscriptsDates(startDate, endDate, startDateRelative, endDateRelative, timeZone, sort, paginationLimit, paginationOffset);
@@ -298,7 +298,7 @@ Name | Type | Description  | Notes
  **endDateRelative** | **Integer**| The latest date of the feed file the API should fetch for based on the file timestamp.  - Format: Specify the date using a relative term as an integer: &#39;0&#39; for today, &#39;-1&#39; for yesterday, &#39;-2&#39; for two days ago, and so forth. Negative values are used to represent past dates.   - *Either &#x60;endDate&#x60; or &#x60;endDateRelative&#x60; should be used, but not both.* - *If both &#x60;endDate&#x60; and &#x60;endDateRelative&#x60; are provided in the same request, the API will return an error.* - *If users provide future dates in requests for &#x60;endDate&#x60; or &#x60;endDateRelative&#x60;, the API will not return any data.*  | [optional]
  **timeZone** | **String**| timeZone to return story dates and times.Time zones, represented in POSIX format, are automatically adjusted for daylight savings. timeZone names are sourced from the IANA timezone registry. The time fields in the response will adhere to this specified timezone. | [optional] [default to America/New_York]
  **sort** | **List&lt;String&gt;**| Enables sorting data in ascending or descending chronological order based on eventDate.  | [optional] [enum: storyDateTime, -storyDateTime]
- **paginationLimit** | **Integer**| Number of results to return per page. | [optional] [default to 25]
+ **paginationLimit** | **Integer**| Number of results to return per page. Maximum value: 1000.  | [optional] [default to 25]
  **paginationOffset** | **Integer**| Page number of the results to return. | [optional] [default to 0]
 
 ### Return type
@@ -380,7 +380,7 @@ public class Example {
         java.util.List<String> eventIds = Arrays.asList(); // java.util.List<String> | Requests Event IDs. This is a comma-separated list with a maximum limit of 1000.
         String eventType = "Earnings"; // String | Specifies the type of event you want to retrieve.   Earnings - Denotes an Earnings event.   Guidance - Denotes a Guidance event.   AnalystsShareholdersMeeting - Denotes an Analysts and Shareholders Meeting event.   ConferencePresentation - Denotes a Conference Presentation event.   SalesRevenue - Denotes a Sales/Revenue event.   SpecialSituation - Denotes a Special Situation event (i.e. Merger/Acquisition).
         java.util.List<String> sort = Arrays.asList(); // java.util.List<String> | Enables sorting data in ascending or descending chronological order based on eventDate. 
-        Integer paginationLimit = 25; // Integer | Number of results to return per page.
+        Integer paginationLimit = 25; // Integer | Number of results to return per page. Maximum value: 1000. 
         Integer paginationOffset = 0; // Integer | Page number of the results to return.
         try {
             Transcripts result = apiInstance.getTranscriptsEvents(eventIds, eventType, sort, paginationLimit, paginationOffset);
@@ -405,7 +405,7 @@ Name | Type | Description  | Notes
  **eventIds** | **List&lt;String&gt;**| Requests Event IDs. This is a comma-separated list with a maximum limit of 1000. | [optional]
  **eventType** | **String**| Specifies the type of event you want to retrieve.   Earnings - Denotes an Earnings event.   Guidance - Denotes a Guidance event.   AnalystsShareholdersMeeting - Denotes an Analysts and Shareholders Meeting event.   ConferencePresentation - Denotes a Conference Presentation event.   SalesRevenue - Denotes a Sales/Revenue event.   SpecialSituation - Denotes a Special Situation event (i.e. Merger/Acquisition). | [optional] [enum: Earnings, Guidance, AnalystsShareholdersMeeting, ConferencePresentation, SalesRevenue, SpecialSituation]
  **sort** | **List&lt;String&gt;**| Enables sorting data in ascending or descending chronological order based on eventDate.  | [optional] [enum: storyDateTime, -storyDateTime]
- **paginationLimit** | **Integer**| Number of results to return per page. | [optional] [default to 25]
+ **paginationLimit** | **Integer**| Number of results to return per page. Maximum value: 1000.  | [optional] [default to 25]
  **paginationOffset** | **Integer**| Page number of the results to return. | [optional] [default to 0]
 
 ### Return type
@@ -487,9 +487,9 @@ public class Example {
         Boolean primaryId = true; // Boolean | Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier.
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL.
         java.util.List<String> reportIds = Arrays.asList(); // java.util.List<String> | Requests Report IDs. This is a comma-separated list with a maximum limit of 1000
-        java.util.List<String> categories = Arrays.asList(); // java.util.List<String> | Code for categories to include. This is a comma-separated list.which represent country, industry, and subject codes. Use the ```/reference/categories``` endpoint to get the list of available categories.  Default = All categories.
+        java.util.List<String> categories = Arrays.asList(); // java.util.List<String> | Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the ```/reference/categories``` endpoint to get the list of available categories.  Default = All categories.
         java.util.List<String> sort = Arrays.asList(); // java.util.List<String> | Enables sorting data in ascending or descending chronological order based on eventDate. 
-        Integer paginationLimit = 25; // Integer | Number of results to return per page.
+        Integer paginationLimit = 25; // Integer | Number of results to return per page. Maximum value: 1000. 
         Integer paginationOffset = 0; // Integer | Page number of the results to return.
         try {
             TranscriptsOne result = apiInstance.getTranscriptsIds(primaryId, ids, reportIds, categories, sort, paginationLimit, paginationOffset);
@@ -514,9 +514,9 @@ Name | Type | Description  | Notes
  **primaryId** | **Boolean**| Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. | [optional] [default to false] [enum: true, false]
  **ids** | **List&lt;String&gt;**| Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. | [optional]
  **reportIds** | **List&lt;String&gt;**| Requests Report IDs. This is a comma-separated list with a maximum limit of 1000 | [optional]
- **categories** | **List&lt;String&gt;**| Code for categories to include. This is a comma-separated list.which represent country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/reference/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. | [optional]
+ **categories** | **List&lt;String&gt;**| Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/reference/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. | [optional]
  **sort** | **List&lt;String&gt;**| Enables sorting data in ascending or descending chronological order based on eventDate.  | [optional] [enum: storyDateTime, -storyDateTime]
- **paginationLimit** | **Integer**| Number of results to return per page. | [optional] [default to 25]
+ **paginationLimit** | **Integer**| Number of results to return per page. Maximum value: 1000.  | [optional] [default to 25]
  **paginationOffset** | **Integer**| Page number of the results to return. | [optional] [default to 0]
 
 ### Return type
@@ -599,7 +599,7 @@ public class Example {
         OffsetDateTime startDateTime = OffsetDateTime.parse("2020-10-01T00:00:00Z"); // OffsetDateTime |  **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.**   
         OffsetDateTime endDateTime = OffsetDateTime.parse("2020-10-26T10:00:00Z"); // OffsetDateTime | The date to which data is required
         java.util.List<String> sort = Arrays.asList(); // java.util.List<String> | Enables sorting data in ascending or descending chronological order based on eventDate. 
-        Integer paginationLimit = 25; // Integer | Number of results to return per page.
+        Integer paginationLimit = 25; // Integer | Number of results to return per page. Maximum value: 1000. 
         Integer paginationOffset = 0; // Integer | Page number of the results to return.
         try {
             TranscriptsTimes result = apiInstance.getTranscriptsTime(startDateTime, endDateTime, sort, paginationLimit, paginationOffset);
@@ -624,7 +624,7 @@ Name | Type | Description  | Notes
  **startDateTime** | **OffsetDateTime**|  **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.**    | [optional]
  **endDateTime** | **OffsetDateTime**| The date to which data is required | [optional]
  **sort** | **List&lt;String&gt;**| Enables sorting data in ascending or descending chronological order based on eventDate.  | [optional] [enum: storyDateTime, -storyDateTime, uploadDateTime, -uploadDateTime]
- **paginationLimit** | **Integer**| Number of results to return per page. | [optional] [default to 25]
+ **paginationLimit** | **Integer**| Number of results to return per page. Maximum value: 1000.  | [optional] [default to 25]
  **paginationOffset** | **Integer**| Page number of the results to return. | [optional] [default to 0]
 
 ### Return type

@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.DirectStreamingofTransactionMessages.Cl
 namespace FactSet.SDK.DirectStreamingofTransactionMessages.Model
 {
     /// <summary>
-    /// ErrorSource
+    /// Error Source
     /// </summary>
     [DataContract(Name = "ErrorSource")]
     public partial class ErrorSource : IEquatable<ErrorSource>, IValidatableObject
@@ -35,8 +35,8 @@ namespace FactSet.SDK.DirectStreamingofTransactionMessages.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ErrorSource" /> class.
         /// </summary>
-        /// <param name="pointer">pointer.</param>
-        /// <param name="_parameter">_parameter.</param>
+        /// <param name="pointer">Pointer.</param>
+        /// <param name="_parameter">parameter.</param>
         public ErrorSource(string pointer = default(string), string _parameter = default(string))
         {
             this.Pointer = pointer;
@@ -44,14 +44,16 @@ namespace FactSet.SDK.DirectStreamingofTransactionMessages.Model
         }
 
         /// <summary>
-        /// Gets or Sets Pointer
+        /// Pointer
         /// </summary>
+        /// <value>Pointer</value>
         [DataMember(Name = "pointer", EmitDefaultValue = true)]
         public string Pointer { get; set; }
 
         /// <summary>
-        /// Gets or Sets Parameter
+        /// parameter
         /// </summary>
+        /// <value>parameter</value>
         [DataMember(Name = "parameter", EmitDefaultValue = true)]
         public string Parameter { get; set; }
 

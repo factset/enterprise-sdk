@@ -1,4 +1,5 @@
 # FactSet.SDK.EventsContribution.Model.UpdateResponse
+Update Event Response
 
 ## Properties
 

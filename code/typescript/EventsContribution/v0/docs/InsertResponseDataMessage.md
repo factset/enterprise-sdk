@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**event** | **String** |  | [optional] 
+**event** | **String** | Event status | [optional] 
 
 

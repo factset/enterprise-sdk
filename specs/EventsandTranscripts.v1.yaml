@@ -10,8 +10,8 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   description: >
-    <p>The Calendar Events API provides access to FactSet’s Event Calendar data
-    alongside business logic that allows users to replicate views and
+    <p>The Calendar Events API provides access to FactSetâ€™s Event Calendar
+    data alongside business logic that allows users to replicate views and
     functionality consistent with the experience provided by the Workstation.
     This API provides the ability to pull Event Calendar data based on specific
     filters.</p>
@@ -79,6 +79,8 @@ paths:
                         contactEmail: jdoe@apple.com
                         contactPhone: 1(888)227.0303
                         contactName: John Doe
+                        reportId: '2750388'
+                        lastModifiedDate: '2023-01-01T12:00:00Z'
         '400':
           description: Bad Request
           content:
@@ -306,7 +308,7 @@ paths:
             type: string
             format: date
           in: query
-          example: 2020-10-01T00:00:00.000Z
+          example: '2020-10-01'
           name: startDate
           description: |
             The earliest date of the audio file the API should fetch for. 
@@ -316,7 +318,7 @@ paths:
             format: date
           in: query
           name: endDate
-          example: 2020-12-26T00:00:00.000Z
+          example: '2020-12-26'
           description: |
             The latest date of the audio file the API should fetch for.
             - Format: Should be absolute (YYYY-MM-DD).
@@ -2135,9 +2137,8 @@ paths:
                         storyDateTime: '2023-03-07T19:40:26Z'
                         uploadDateTime: '2024-01-08T04:19:24Z'
                         eventType: ConferencePresentation
-                        categories:
-                          - >-
-                            CN:US,DT:CONF,DT:EVTS,DT:EV_ME,DT:FILNS_TS_TR,IN:OIL,LN:EN,RN:AM,RN:NA,SB:EVTS,SB:EV_ME
+                        categories: >-
+                          CN:US,DT:CONF,DT:EVTS,DT:EV_ME,DT:FILNS_TS_TR,IN:OIL,LN:EN,RN:AM,RN:NA,SB:EVTS,SB:EV_ME
                         transcriptsLink: >-
                           https://api.factset.com/v1/transcripts?report=story&key=U2FsdGVkX18b15tR%2bV9L1xvjo6Vnz7C7PhIbUvoMrgF%2f43aEWomYlhVruC6G6874fEX
                     meta:
@@ -2473,10 +2474,11 @@ components:
             end: '2022-12-31T22:59:02Z'
           universe:
             symbols:
-              - FDS-US
+              - AAPL-US
             type: Tickers
           eventTypes:
             - Earnings
+          lastModifiedWithin: Today
     postMultipleSymbols:
       summary: Multiple symbols for the given period
       description: >-
@@ -2495,6 +2497,7 @@ components:
             type: Tickers
           eventTypes:
             - Earnings
+          lastModifiedWithin: Today
     400Example:
       summary: Sample error Response
       value:
@@ -2962,7 +2965,7 @@ components:
             high confidence in the predicted speaker.
 
 
-            Only the speakerIDs with confidenceScore >= 0.49 are rendered in the
+            Only the SpeakerIDs with the highest cosineScore are rendered in the
             result set.
         affiliationId:
           type: string
@@ -3653,8 +3656,8 @@ components:
               description: >
                 - Data is available from 2002.
 
-                - If users provide future dates in requests, the API will not
-                return any data.
+                - If users provide future dates in requests, the API will return
+                data within a 90-day limit.
               properties:
                 start:
                   description: >-
@@ -3718,9 +3721,27 @@ components:
                   - Split
                   - Dividend
                 example: Earnings
-          required:
-            - dateTime
-            - universe
+            lastModifiedWithin:
+              type: string
+              enum:
+                - SixHours
+                - TwelveHours
+                - Today
+                - TwoDays
+                - OneWeek
+                - OneMonth
+              description: >
+                The duration within which the events were last modified.
+
+
+                **Note 1:** When using `lastModifiedWithin` without providing
+                `startDate` or `endDate`, the default period will be the
+                previous and upcoming 45 days from the current date.
+
+
+                **Note 2:** If both `dateTime` and `lastModifiedWithin` are
+                provided in the same request, the API will return an error.
+              example: Today
     CompanyEventResponse:
       type: object
       properties:
@@ -3801,6 +3822,21 @@ components:
           type: string
           example: John Doe
           description: Name of the contact person for queries related to the event.
+        reportId:
+          type: string
+          example: '2750388'
+          description: >
+            Unique identifier for the report. 
+
+
+
+            **Note:** We do not have a reportId for split and dividend event
+            types.
+        lastModifiedDate:
+          type: string
+          format: date-time
+          example: '2023-01-01T12:00:00Z'
+          description: The date and time when the event was last modified.
   parameters:
     ids:
       schema:
@@ -3964,7 +4000,8 @@ components:
       in: query
       name: _paginationLimit
       example: 20
-      description: Number of results to return per page.
+      description: |
+        Number of results to return per page. Maximum value: 1000.
     paginationOffset:
       schema:
         type: integer
@@ -4037,7 +4074,7 @@ components:
         - CN:GB
       description: >-
         Code for categories to include. This is a comma-separated list.which
-        represent country, industry, and subject codes. Use the
+        represents country, industry, and subject codes. Use the
         ```/reference/categories``` endpoint to get the list of available
         categories.
 

@@ -1,6 +1,6 @@
 /**
  * EVENTS AND TRANSCRIPTS API
- * <p>The Calendar Events API provides access to FactSet’s Event Calendar data alongside business logic that allows users to replicate views and functionality consistent with the experience provided by the Workstation. This API provides the ability to pull Event Calendar data based on specific filters.</p> <p>Events Audio API provides access to historical as well as the latest audio recordings of various company events covered by FactSet. The events include, but are not limited to: earnings calls, conferences, and investor days. This API also provides relevant metadata such as timestamps and identifiers around each audio file.</p> <p>The  Near Real-time Transcripts API enables access to Near Real-time Transcripts provided by CallStreet to time-sensitive clients. This API also provides the relevant speaker metadata along with their confidence scores. This data caters to quant clients interested in building machine learning models. Clients can leverage this API to perform sentiment analysis through natural language processing or machine learning. It can also be used to complement analysis using FactSet's transcripts service.</p> <p>Transcripts API provides conference call transcripts for companies' publicly held conference calls and a wealth of information regarding upcoming corporate events, such as conference call date and time, phone number and password, type of conference call, and important company investor relations contact information.</p>  
+ * <p>The Calendar Events API provides access to FactSetâ€™s Event Calendar data alongside business logic that allows users to replicate views and functionality consistent with the experience provided by the Workstation. This API provides the ability to pull Event Calendar data based on specific filters.</p> <p>Events Audio API provides access to historical as well as the latest audio recordings of various company events covered by FactSet. The events include, but are not limited to: earnings calls, conferences, and investor days. This API also provides relevant metadata such as timestamps and identifiers around each audio file.</p> <p>The  Near Real-time Transcripts API enables access to Near Real-time Transcripts provided by CallStreet to time-sensitive clients. This API also provides the relevant speaker metadata along with their confidence scores. This data caters to quant clients interested in building machine learning models. Clients can leverage this API to perform sentiment analysis through natural language processing or machine learning. It can also be used to complement analysis using FactSet's transcripts service.</p> <p>Transcripts API provides conference call transcripts for companies' publicly held conference calls and a wealth of information regarding upcoming corporate events, such as conference call date and time, phone number and password, type of conference call, and important company investor relations contact information.</p>  
  *
  * The version of the OpenAPI document: 1.1.0
  * Contact: api@factset.com
@@ -89,7 +89,7 @@ export default class TranscriptsApi {
      * @param {Object} opts Optional parameters
      * @param {String} opts.searchText Restricts the search to include only document stories which include the text searched.
      * @param {Array.<module:model/String>} opts.sort Enables sorting data in ascending or descending chronological order based on eventDate. 
-     * @param {Number} opts.paginationLimit Number of results to return per page. (default to 25)
+     * @param {Number} opts.paginationLimit Number of results to return per page. Maximum value: 1000.  (default to 25)
      * @param {Number} opts.paginationOffset Page number of the results to return. (default to 0)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Transcripts} and HTTP response
      */
@@ -130,7 +130,7 @@ export default class TranscriptsApi {
      * @param {Object} opts Optional parameters
      * @param {String} opts.searchText Restricts the search to include only document stories which include the text searched.
      * @param {Array.<module:model/String>} opts.sort Enables sorting data in ascending or descending chronological order based on eventDate. 
-     * @param {Number} opts.paginationLimit Number of results to return per page. (default to 25)
+     * @param {Number} opts.paginationLimit Number of results to return per page. Maximum value: 1000.  (default to 25)
      * @param {Number} opts.paginationOffset Page number of the results to return. (default to 0)
      * @return { Promise.< module:model/Transcripts > } a Promise, with data of type {@link module:model/Transcripts }
      */
@@ -152,7 +152,7 @@ export default class TranscriptsApi {
      * @param {Number} opts.endDateRelative The latest date of the feed file the API should fetch for based on the file timestamp.  - Format: Specify the date using a relative term as an integer: '0' for today, '-1' for yesterday, '-2' for two days ago, and so forth. Negative values are used to represent past dates.   - *Either `endDate` or `endDateRelative` should be used, but not both.* - *If both `endDate` and `endDateRelative` are provided in the same request, the API will return an error.* - *If users provide future dates in requests for `endDate` or `endDateRelative`, the API will not return any data.* 
      * @param {String} opts.timeZone timeZone to return story dates and times.Time zones, represented in POSIX format, are automatically adjusted for daylight savings. timeZone names are sourced from the IANA timezone registry. The time fields in the response will adhere to this specified timezone. (default to 'America/New_York')
      * @param {Array.<module:model/String>} opts.sort Enables sorting data in ascending or descending chronological order based on eventDate. 
-     * @param {Number} opts.paginationLimit Number of results to return per page. (default to 25)
+     * @param {Number} opts.paginationLimit Number of results to return per page. Maximum value: 1000.  (default to 25)
      * @param {Number} opts.paginationOffset Page number of the results to return. (default to 0)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Transcripts} and HTTP response
      */
@@ -201,7 +201,7 @@ export default class TranscriptsApi {
      * @param {Number} opts.endDateRelative The latest date of the feed file the API should fetch for based on the file timestamp.  - Format: Specify the date using a relative term as an integer: '0' for today, '-1' for yesterday, '-2' for two days ago, and so forth. Negative values are used to represent past dates.   - *Either `endDate` or `endDateRelative` should be used, but not both.* - *If both `endDate` and `endDateRelative` are provided in the same request, the API will return an error.* - *If users provide future dates in requests for `endDate` or `endDateRelative`, the API will not return any data.* 
      * @param {String} opts.timeZone timeZone to return story dates and times.Time zones, represented in POSIX format, are automatically adjusted for daylight savings. timeZone names are sourced from the IANA timezone registry. The time fields in the response will adhere to this specified timezone. (default to 'America/New_York')
      * @param {Array.<module:model/String>} opts.sort Enables sorting data in ascending or descending chronological order based on eventDate. 
-     * @param {Number} opts.paginationLimit Number of results to return per page. (default to 25)
+     * @param {Number} opts.paginationLimit Number of results to return per page. Maximum value: 1000.  (default to 25)
      * @param {Number} opts.paginationOffset Page number of the results to return. (default to 0)
      * @return { Promise.< module:model/Transcripts > } a Promise, with data of type {@link module:model/Transcripts }
      */
@@ -220,7 +220,7 @@ export default class TranscriptsApi {
      * @param {Array.<String>} opts.eventIds Requests Event IDs. This is a comma-separated list with a maximum limit of 1000.
      * @param {module:model/String} opts.eventType Specifies the type of event you want to retrieve.   Earnings - Denotes an Earnings event.   Guidance - Denotes a Guidance event.   AnalystsShareholdersMeeting - Denotes an Analysts and Shareholders Meeting event.   ConferencePresentation - Denotes a Conference Presentation event.   SalesRevenue - Denotes a Sales/Revenue event.   SpecialSituation - Denotes a Special Situation event (i.e. Merger/Acquisition).
      * @param {Array.<module:model/String>} opts.sort Enables sorting data in ascending or descending chronological order based on eventDate. 
-     * @param {Number} opts.paginationLimit Number of results to return per page. (default to 25)
+     * @param {Number} opts.paginationLimit Number of results to return per page. Maximum value: 1000.  (default to 25)
      * @param {Number} opts.paginationOffset Page number of the results to return. (default to 0)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Transcripts} and HTTP response
      */
@@ -263,7 +263,7 @@ export default class TranscriptsApi {
      * @param {Array.<String>} opts.eventIds Requests Event IDs. This is a comma-separated list with a maximum limit of 1000.
      * @param {module:model/String} opts.eventType Specifies the type of event you want to retrieve.   Earnings - Denotes an Earnings event.   Guidance - Denotes a Guidance event.   AnalystsShareholdersMeeting - Denotes an Analysts and Shareholders Meeting event.   ConferencePresentation - Denotes a Conference Presentation event.   SalesRevenue - Denotes a Sales/Revenue event.   SpecialSituation - Denotes a Special Situation event (i.e. Merger/Acquisition).
      * @param {Array.<module:model/String>} opts.sort Enables sorting data in ascending or descending chronological order based on eventDate. 
-     * @param {Number} opts.paginationLimit Number of results to return per page. (default to 25)
+     * @param {Number} opts.paginationLimit Number of results to return per page. Maximum value: 1000.  (default to 25)
      * @param {Number} opts.paginationOffset Page number of the results to return. (default to 0)
      * @return { Promise.< module:model/Transcripts > } a Promise, with data of type {@link module:model/Transcripts }
      */
@@ -282,9 +282,9 @@ export default class TranscriptsApi {
      * @param {module:model/Boolean} opts.primaryId Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. (default to false)
      * @param {Array.<String>} opts.ids Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL.
      * @param {Array.<String>} opts.reportIds Requests Report IDs. This is a comma-separated list with a maximum limit of 1000
-     * @param {Array.<String>} opts.categories Code for categories to include. This is a comma-separated list.which represent country, industry, and subject codes. Use the ```/reference/categories``` endpoint to get the list of available categories.  Default = All categories.
+     * @param {Array.<String>} opts.categories Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the ```/reference/categories``` endpoint to get the list of available categories.  Default = All categories.
      * @param {Array.<module:model/String>} opts.sort Enables sorting data in ascending or descending chronological order based on eventDate. 
-     * @param {Number} opts.paginationLimit Number of results to return per page. (default to 25)
+     * @param {Number} opts.paginationLimit Number of results to return per page. Maximum value: 1000.  (default to 25)
      * @param {Number} opts.paginationOffset Page number of the results to return. (default to 0)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/TranscriptsOne} and HTTP response
      */
@@ -329,9 +329,9 @@ export default class TranscriptsApi {
      * @param {module:model/Boolean} opts.primaryId Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. (default to false)
      * @param {Array.<String>} opts.ids Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL.
      * @param {Array.<String>} opts.reportIds Requests Report IDs. This is a comma-separated list with a maximum limit of 1000
-     * @param {Array.<String>} opts.categories Code for categories to include. This is a comma-separated list.which represent country, industry, and subject codes. Use the ```/reference/categories``` endpoint to get the list of available categories.  Default = All categories.
+     * @param {Array.<String>} opts.categories Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the ```/reference/categories``` endpoint to get the list of available categories.  Default = All categories.
      * @param {Array.<module:model/String>} opts.sort Enables sorting data in ascending or descending chronological order based on eventDate. 
-     * @param {Number} opts.paginationLimit Number of results to return per page. (default to 25)
+     * @param {Number} opts.paginationLimit Number of results to return per page. Maximum value: 1000.  (default to 25)
      * @param {Number} opts.paginationOffset Page number of the results to return. (default to 0)
      * @return { Promise.< module:model/TranscriptsOne > } a Promise, with data of type {@link module:model/TranscriptsOne }
      */
@@ -350,7 +350,7 @@ export default class TranscriptsApi {
      * @param {Date} opts.startDateTime  **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.**   
      * @param {Date} opts.endDateTime The date to which data is required
      * @param {Array.<module:model/String>} opts.sort Enables sorting data in ascending or descending chronological order based on eventDate. 
-     * @param {Number} opts.paginationLimit Number of results to return per page. (default to 25)
+     * @param {Number} opts.paginationLimit Number of results to return per page. Maximum value: 1000.  (default to 25)
      * @param {Number} opts.paginationOffset Page number of the results to return. (default to 0)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/TranscriptsTimes} and HTTP response
      */
@@ -393,7 +393,7 @@ export default class TranscriptsApi {
      * @param {Date} opts.startDateTime  **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.**   
      * @param {Date} opts.endDateTime The date to which data is required
      * @param {Array.<module:model/String>} opts.sort Enables sorting data in ascending or descending chronological order based on eventDate. 
-     * @param {Number} opts.paginationLimit Number of results to return per page. (default to 25)
+     * @param {Number} opts.paginationLimit Number of results to return per page. Maximum value: 1000.  (default to 25)
      * @param {Number} opts.paginationOffset Page number of the results to return. (default to 0)
      * @return { Promise.< module:model/TranscriptsTimes > } a Promise, with data of type {@link module:model/TranscriptsTimes }
      */

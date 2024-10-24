@@ -57,7 +57,7 @@ const opts = {
   'entityId': 000CGP-E, // String | Factset entity level identifier for the company hosting the event.
   'callStatus': Ended, // String | Status of the call, i.e., Ended, InProgress, EndedWithoutNotification, or IssueAtSource.
   'sort': ["null"], // [String] | Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc. 
-  'paginationLimit': 20, // Number | Number of results to return per page.
+  'paginationLimit': 20, // Number | Number of results to return per page. Maximum value: 1000. 
   'paginationOffset': 0 // Number | Page number of the results to return.
 };
 
@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
  **entityId** | **String**| Factset entity level identifier for the company hosting the event. | [optional] 
  **callStatus** | **String**| Status of the call, i.e., Ended, InProgress, EndedWithoutNotification, or IssueAtSource. | [optional] 
  **sort** | [**[String]**](String.md)| Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc.  | [optional] 
- **paginationLimit** | **Number**| Number of results to return per page. | [optional] [default to 25]
+ **paginationLimit** | **Number**| Number of results to return per page. Maximum value: 1000.  | [optional] [default to 25]
  **paginationOffset** | **Number**| Page number of the results to return. | [optional] [default to 0]
 
 ### Return type
@@ -147,7 +147,7 @@ const opts = {
   'audioSourceId': 471849, // Number | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs.
   'reportId': 2683372, // Number | Unique identifier for an event.
   'sort': ["null"], // [String] | Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc. 
-  'paginationLimit': 20, // Number | Number of results to return per page.
+  'paginationLimit': 20, // Number | Number of results to return per page. Maximum value: 1000. 
   'paginationOffset': 0 // Number | Page number of the results to return.
 };
 
@@ -174,7 +174,7 @@ Name | Type | Description  | Notes
  **audioSourceId** | **Number**| Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs. | [optional] 
  **reportId** | **Number**| Unique identifier for an event. | [optional] 
  **sort** | [**[String]**](String.md)| Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc.  | [optional] 
- **paginationLimit** | **Number**| Number of results to return per page. | [optional] [default to 25]
+ **paginationLimit** | **Number**| Number of results to return per page. Maximum value: 1000.  | [optional] [default to 25]
  **paginationOffset** | **Number**| Page number of the results to return. | [optional] [default to 0]
 
 ### Return type
@@ -320,7 +320,7 @@ const apiInstance = new NearRealTimeTranscriptsApi();
 const audioSourceId = 471849; // Number | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs.
 const opts = {
   'sort': ["null"], // [String] | Enables sorting data in ascending or descending chronological order based on the start offset of the speaker. 
-  'paginationLimit': 20, // Number | Number of results to return per page.
+  'paginationLimit': 20, // Number | Number of results to return per page. Maximum value: 1000. 
   'paginationOffset': 0 // Number | Page number of the results to return.
 };
 
@@ -346,7 +346,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **audioSourceId** | **Number**| Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs. | 
  **sort** | [**[String]**](String.md)| Enables sorting data in ascending or descending chronological order based on the start offset of the speaker.  | [optional] 
- **paginationLimit** | **Number**| Number of results to return per page. | [optional] [default to 25]
+ **paginationLimit** | **Number**| Number of results to return per page. Maximum value: 1000.  | [optional] [default to 25]
  **paginationOffset** | **Number**| Page number of the results to return. | [optional] [default to 0]
 
 ### Return type

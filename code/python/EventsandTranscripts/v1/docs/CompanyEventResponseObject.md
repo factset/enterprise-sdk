@@ -18,6 +18,8 @@ Name | Type | Description | Notes
 **contact_email** | **str** | Contact email for inquiries related to the event. | [optional] 
 **contact_phone** | **str** | Contact phone number for inquiries related to the event. | [optional] 
 **contact_name** | **str** | Name of the contact person for queries related to the event. | [optional] 
+**report_id** | **str** | Unique identifier for the report.    **Note:** We do not have a reportId for split and dividend event types.  | [optional] 
+**last_modified_date** | **datetime** | The date and time when the event was last modified. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

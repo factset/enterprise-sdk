@@ -162,7 +162,7 @@ with fds.sdk.EventsandTranscripts.ApiClient(configuration) as api_client:
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     search_text = "Updates" # str | Restricts the search to include only document stories which include the text searched. (optional)
     sort = ["-storyDateTime"] # [str] | Enables sorting data in ascending or descending chronological order based on eventDate.  (optional) if omitted the server will use the default value of ["-storyDateTime"]
-    pagination_limit = 20 # int | Number of results to return per page. (optional) if omitted the server will use the default value of 25
+    pagination_limit = 20 # int | Number of results to return per page. Maximum value: 1000.  (optional) if omitted the server will use the default value of 25
     pagination_offset = 0 # int | Page number of the results to return. (optional) if omitted the server will use the default value of 0
 
     try:
@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **search_text** | **str**| Restricts the search to include only document stories which include the text searched. | [optional]
  **sort** | **[str]**| Enables sorting data in ascending or descending chronological order based on eventDate.  | [optional] if omitted the server will use the default value of ["-storyDateTime"]
- **pagination_limit** | **int**| Number of results to return per page. | [optional] if omitted the server will use the default value of 25
+ **pagination_limit** | **int**| Number of results to return per page. Maximum value: 1000.  | [optional] if omitted the server will use the default value of 25
  **pagination_offset** | **int**| Page number of the results to return. | [optional] if omitted the server will use the default value of 0
 
 ### Return type
@@ -271,7 +271,7 @@ with fds.sdk.EventsandTranscripts.ApiClient(configuration) as api_client:
     end_date_relative = 1 # int | The latest date of the feed file the API should fetch for based on the file timestamp.  - Format: Specify the date using a relative term as an integer: '0' for today, '-1' for yesterday, '-2' for two days ago, and so forth. Negative values are used to represent past dates.   - *Either `endDate` or `endDateRelative` should be used, but not both.* - *If both `endDate` and `endDateRelative` are provided in the same request, the API will return an error.* - *If users provide future dates in requests for `endDate` or `endDateRelative`, the API will not return any data.*  (optional)
     time_zone = "America/New_York" # str | timeZone to return story dates and times.Time zones, represented in POSIX format, are automatically adjusted for daylight savings. timeZone names are sourced from the IANA timezone registry. The time fields in the response will adhere to this specified timezone. (optional) if omitted the server will use the default value of "America/New_York"
     sort = ["-storyDateTime"] # [str] | Enables sorting data in ascending or descending chronological order based on eventDate.  (optional) if omitted the server will use the default value of ["-storyDateTime"]
-    pagination_limit = 20 # int | Number of results to return per page. (optional) if omitted the server will use the default value of 25
+    pagination_limit = 20 # int | Number of results to return per page. Maximum value: 1000.  (optional) if omitted the server will use the default value of 25
     pagination_offset = 0 # int | Page number of the results to return. (optional) if omitted the server will use the default value of 0
 
     try:
@@ -297,7 +297,7 @@ Name | Type | Description  | Notes
  **end_date_relative** | **int**| The latest date of the feed file the API should fetch for based on the file timestamp.  - Format: Specify the date using a relative term as an integer: &#39;0&#39; for today, &#39;-1&#39; for yesterday, &#39;-2&#39; for two days ago, and so forth. Negative values are used to represent past dates.   - *Either &#x60;endDate&#x60; or &#x60;endDateRelative&#x60; should be used, but not both.* - *If both &#x60;endDate&#x60; and &#x60;endDateRelative&#x60; are provided in the same request, the API will return an error.* - *If users provide future dates in requests for &#x60;endDate&#x60; or &#x60;endDateRelative&#x60;, the API will not return any data.*  | [optional]
  **time_zone** | **str**| timeZone to return story dates and times.Time zones, represented in POSIX format, are automatically adjusted for daylight savings. timeZone names are sourced from the IANA timezone registry. The time fields in the response will adhere to this specified timezone. | [optional] if omitted the server will use the default value of "America/New_York"
  **sort** | **[str]**| Enables sorting data in ascending or descending chronological order based on eventDate.  | [optional] if omitted the server will use the default value of ["-storyDateTime"]
- **pagination_limit** | **int**| Number of results to return per page. | [optional] if omitted the server will use the default value of 25
+ **pagination_limit** | **int**| Number of results to return per page. Maximum value: 1000.  | [optional] if omitted the server will use the default value of 25
  **pagination_offset** | **int**| Page number of the results to return. | [optional] if omitted the server will use the default value of 0
 
 ### Return type
@@ -381,7 +381,7 @@ with fds.sdk.EventsandTranscripts.ApiClient(configuration) as api_client:
     event_ids = ["1202993804"] # [str] | Requests Event IDs. This is a comma-separated list with a maximum limit of 1000. (optional)
     event_type = "Earnings" # str | Specifies the type of event you want to retrieve.   Earnings - Denotes an Earnings event.   Guidance - Denotes a Guidance event.   AnalystsShareholdersMeeting - Denotes an Analysts and Shareholders Meeting event.   ConferencePresentation - Denotes a Conference Presentation event.   SalesRevenue - Denotes a Sales/Revenue event.   SpecialSituation - Denotes a Special Situation event (i.e. Merger/Acquisition). (optional)
     sort = ["-storyDateTime"] # [str] | Enables sorting data in ascending or descending chronological order based on eventDate.  (optional) if omitted the server will use the default value of ["-storyDateTime"]
-    pagination_limit = 20 # int | Number of results to return per page. (optional) if omitted the server will use the default value of 25
+    pagination_limit = 20 # int | Number of results to return per page. Maximum value: 1000.  (optional) if omitted the server will use the default value of 25
     pagination_offset = 0 # int | Page number of the results to return. (optional) if omitted the server will use the default value of 0
 
     try:
@@ -404,7 +404,7 @@ Name | Type | Description  | Notes
  **event_ids** | **[str]**| Requests Event IDs. This is a comma-separated list with a maximum limit of 1000. | [optional]
  **event_type** | **str**| Specifies the type of event you want to retrieve.   Earnings - Denotes an Earnings event.   Guidance - Denotes a Guidance event.   AnalystsShareholdersMeeting - Denotes an Analysts and Shareholders Meeting event.   ConferencePresentation - Denotes a Conference Presentation event.   SalesRevenue - Denotes a Sales/Revenue event.   SpecialSituation - Denotes a Special Situation event (i.e. Merger/Acquisition). | [optional]
  **sort** | **[str]**| Enables sorting data in ascending or descending chronological order based on eventDate.  | [optional] if omitted the server will use the default value of ["-storyDateTime"]
- **pagination_limit** | **int**| Number of results to return per page. | [optional] if omitted the server will use the default value of 25
+ **pagination_limit** | **int**| Number of results to return per page. Maximum value: 1000.  | [optional] if omitted the server will use the default value of 25
  **pagination_offset** | **int**| Page number of the results to return. | [optional] if omitted the server will use the default value of 0
 
 ### Return type
@@ -488,9 +488,9 @@ with fds.sdk.EventsandTranscripts.ApiClient(configuration) as api_client:
     primary_id = False # bool | Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. (optional) if omitted the server will use the default value of False
     ids = ["RTO-GB"] # [str] | Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. (optional)
     report_ids = ["3022837"] # [str] | Requests Report IDs. This is a comma-separated list with a maximum limit of 1000 (optional)
-    categories = ["CN:GB"] # [str] | Code for categories to include. This is a comma-separated list.which represent country, industry, and subject codes. Use the ```/reference/categories``` endpoint to get the list of available categories.  Default = All categories. (optional)
+    categories = ["CN:GB"] # [str] | Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the ```/reference/categories``` endpoint to get the list of available categories.  Default = All categories. (optional)
     sort = ["-storyDateTime"] # [str] | Enables sorting data in ascending or descending chronological order based on eventDate.  (optional) if omitted the server will use the default value of ["-storyDateTime"]
-    pagination_limit = 20 # int | Number of results to return per page. (optional) if omitted the server will use the default value of 25
+    pagination_limit = 20 # int | Number of results to return per page. Maximum value: 1000.  (optional) if omitted the server will use the default value of 25
     pagination_offset = 0 # int | Page number of the results to return. (optional) if omitted the server will use the default value of 0
 
     try:
@@ -513,9 +513,9 @@ Name | Type | Description  | Notes
  **primary_id** | **bool**| Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. | [optional] if omitted the server will use the default value of False
  **ids** | **[str]**| Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. | [optional]
  **report_ids** | **[str]**| Requests Report IDs. This is a comma-separated list with a maximum limit of 1000 | [optional]
- **categories** | **[str]**| Code for categories to include. This is a comma-separated list.which represent country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/reference/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. | [optional]
+ **categories** | **[str]**| Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/reference/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. | [optional]
  **sort** | **[str]**| Enables sorting data in ascending or descending chronological order based on eventDate.  | [optional] if omitted the server will use the default value of ["-storyDateTime"]
- **pagination_limit** | **int**| Number of results to return per page. | [optional] if omitted the server will use the default value of 25
+ **pagination_limit** | **int**| Number of results to return per page. Maximum value: 1000.  | [optional] if omitted the server will use the default value of 25
  **pagination_offset** | **int**| Page number of the results to return. | [optional] if omitted the server will use the default value of 0
 
 ### Return type
@@ -599,7 +599,7 @@ with fds.sdk.EventsandTranscripts.ApiClient(configuration) as api_client:
     start_date_time = dateutil_parser('2020-10-01T00:00:00Z') # datetime |  **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.**    (optional)
     end_date_time = dateutil_parser('2020-10-26T10:00:00Z') # datetime | The date to which data is required (optional)
     sort = ["-storyDateTime"] # [str] | Enables sorting data in ascending or descending chronological order based on eventDate.  (optional) if omitted the server will use the default value of ["-storyDateTime"]
-    pagination_limit = 20 # int | Number of results to return per page. (optional) if omitted the server will use the default value of 25
+    pagination_limit = 20 # int | Number of results to return per page. Maximum value: 1000.  (optional) if omitted the server will use the default value of 25
     pagination_offset = 0 # int | Page number of the results to return. (optional) if omitted the server will use the default value of 0
 
     try:
@@ -622,7 +622,7 @@ Name | Type | Description  | Notes
  **start_date_time** | **datetime**|  **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.**    | [optional]
  **end_date_time** | **datetime**| The date to which data is required | [optional]
  **sort** | **[str]**| Enables sorting data in ascending or descending chronological order based on eventDate.  | [optional] if omitted the server will use the default value of ["-storyDateTime"]
- **pagination_limit** | **int**| Number of results to return per page. | [optional] if omitted the server will use the default value of 25
+ **pagination_limit** | **int**| Number of results to return per page. Maximum value: 1000.  | [optional] if omitted the server will use the default value of 25
  **pagination_offset** | **int**| Page number of the results to return. | [optional] if omitted the server will use the default value of 0
 
 ### Return type

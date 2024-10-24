@@ -1,7 +1,7 @@
 /*
  * EVENTS AND TRANSCRIPTS API
  *
- * <p>The Calendar Events API provides access to FactSet’s Event Calendar data alongside business logic that allows users to replicate views and functionality consistent with the experience provided by the Workstation. This API provides the ability to pull Event Calendar data based on specific filters.</p> <p>Events Audio API provides access to historical as well as the latest audio recordings of various company events covered by FactSet. The events include, but are not limited to: earnings calls, conferences, and investor days. This API also provides relevant metadata such as timestamps and identifiers around each audio file.</p> <p>The  Near Real-time Transcripts API enables access to Near Real-time Transcripts provided by CallStreet to time-sensitive clients. This API also provides the relevant speaker metadata along with their confidence scores. This data caters to quant clients interested in building machine learning models. Clients can leverage this API to perform sentiment analysis through natural language processing or machine learning. It can also be used to complement analysis using FactSet's transcripts service.</p> <p>Transcripts API provides conference call transcripts for companies' publicly held conference calls and a wealth of information regarding upcoming corporate events, such as conference call date and time, phone number and password, type of conference call, and important company investor relations contact information.</p>  
+ * <p>The Calendar Events API provides access to FactSetâ€™s Event Calendar data alongside business logic that allows users to replicate views and functionality consistent with the experience provided by the Workstation. This API provides the ability to pull Event Calendar data based on specific filters.</p> <p>Events Audio API provides access to historical as well as the latest audio recordings of various company events covered by FactSet. The events include, but are not limited to: earnings calls, conferences, and investor days. This API also provides relevant metadata such as timestamps and identifiers around each audio file.</p> <p>The  Near Real-time Transcripts API enables access to Near Real-time Transcripts provided by CallStreet to time-sensitive clients. This API also provides the relevant speaker metadata along with their confidence scores. This data caters to quant clients interested in building machine learning models. Clients can leverage this API to perform sentiment analysis through natural language processing or machine learning. It can also be used to complement analysis using FactSet's transcripts service.</p> <p>Transcripts API provides conference call transcripts for companies' publicly held conference calls and a wealth of information regarding upcoming corporate events, such as conference call date and time, phone number and password, type of conference call, and important company investor relations contact information.</p>  
  *
  * The version of the OpenAPI document: 1.1.0
  * Contact: api@factset.com
@@ -121,41 +121,82 @@ namespace FactSet.SDK.EventsandTranscripts.Model
         [DataMember(Name = "eventTypes", EmitDefaultValue = false)]
         public List<EventTypesEnum> EventTypes { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="CompanyEventRequestData" /> class.
+        /// The duration within which the events were last modified.  **Note 1:** When using &#x60;lastModifiedWithin&#x60; without providing &#x60;startDate&#x60; or &#x60;endDate&#x60;, the default period will be the previous and upcoming 45 days from the current date.  **Note 2:** If both &#x60;dateTime&#x60; and &#x60;lastModifiedWithin&#x60; are provided in the same request, the API will return an error. 
         /// </summary>
-        [JsonConstructorAttribute]
-        protected CompanyEventRequestData() { }
+        /// <value>The duration within which the events were last modified.  **Note 1:** When using &#x60;lastModifiedWithin&#x60; without providing &#x60;startDate&#x60; or &#x60;endDate&#x60;, the default period will be the previous and upcoming 45 days from the current date.  **Note 2:** If both &#x60;dateTime&#x60; and &#x60;lastModifiedWithin&#x60; are provided in the same request, the API will return an error. </value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum LastModifiedWithinEnum
+        {
+            /// <summary>
+            /// Enum SixHours for value: SixHours
+            /// </summary>
+            [EnumMember(Value = "SixHours")]
+            SixHours = 1,
+
+            /// <summary>
+            /// Enum TwelveHours for value: TwelveHours
+            /// </summary>
+            [EnumMember(Value = "TwelveHours")]
+            TwelveHours = 2,
+
+            /// <summary>
+            /// Enum Today for value: Today
+            /// </summary>
+            [EnumMember(Value = "Today")]
+            Today = 3,
+
+            /// <summary>
+            /// Enum TwoDays for value: TwoDays
+            /// </summary>
+            [EnumMember(Value = "TwoDays")]
+            TwoDays = 4,
+
+            /// <summary>
+            /// Enum OneWeek for value: OneWeek
+            /// </summary>
+            [EnumMember(Value = "OneWeek")]
+            OneWeek = 5,
+
+            /// <summary>
+            /// Enum OneMonth for value: OneMonth
+            /// </summary>
+            [EnumMember(Value = "OneMonth")]
+            OneMonth = 6
+
+        }
+
+
+        /// <summary>
+        /// The duration within which the events were last modified.  **Note 1:** When using &#x60;lastModifiedWithin&#x60; without providing &#x60;startDate&#x60; or &#x60;endDate&#x60;, the default period will be the previous and upcoming 45 days from the current date.  **Note 2:** If both &#x60;dateTime&#x60; and &#x60;lastModifiedWithin&#x60; are provided in the same request, the API will return an error. 
+        /// </summary>
+        /// <value>The duration within which the events were last modified.  **Note 1:** When using &#x60;lastModifiedWithin&#x60; without providing &#x60;startDate&#x60; or &#x60;endDate&#x60;, the default period will be the previous and upcoming 45 days from the current date.  **Note 2:** If both &#x60;dateTime&#x60; and &#x60;lastModifiedWithin&#x60; are provided in the same request, the API will return an error. </value>
+        [DataMember(Name = "lastModifiedWithin", EmitDefaultValue = false)]
+        public LastModifiedWithinEnum? LastModifiedWithin { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CompanyEventRequestData" /> class.
         /// </summary>
-        /// <param name="dateTime">dateTime (required).</param>
-        /// <param name="universe">universe (required).</param>
+        /// <param name="dateTime">dateTime.</param>
+        /// <param name="universe">universe.</param>
         /// <param name="eventTypes">The type of events returned in the response.</param>
-        public CompanyEventRequestData(CompanyEventRequestDataDateTime dateTime, CompanyEventRequestDataUniverse universe,List<EventTypesEnum> eventTypes = default(List<EventTypesEnum>))
+        /// <param name="lastModifiedWithin">The duration within which the events were last modified.  **Note 1:** When using &#x60;lastModifiedWithin&#x60; without providing &#x60;startDate&#x60; or &#x60;endDate&#x60;, the default period will be the previous and upcoming 45 days from the current date.  **Note 2:** If both &#x60;dateTime&#x60; and &#x60;lastModifiedWithin&#x60; are provided in the same request, the API will return an error. .</param>
+        public CompanyEventRequestData(CompanyEventRequestDataDateTime dateTime = default(CompanyEventRequestDataDateTime), CompanyEventRequestDataUniverse universe = default(CompanyEventRequestDataUniverse), List<EventTypesEnum> eventTypes = default(List<EventTypesEnum>), LastModifiedWithinEnum? lastModifiedWithin = default(LastModifiedWithinEnum?))
         {
-            // to ensure "dateTime" is required (not null)
-            if (dateTime == null) {
-                throw new ArgumentNullException("dateTime is a required property for CompanyEventRequestData and cannot be null");
-            }
             this.DateTime = dateTime;
-            // to ensure "universe" is required (not null)
-            if (universe == null) {
-                throw new ArgumentNullException("universe is a required property for CompanyEventRequestData and cannot be null");
-            }
             this.Universe = universe;
             this.EventTypes = eventTypes;
+            this.LastModifiedWithin = lastModifiedWithin;
         }
 
         /// <summary>
         /// Gets or Sets DateTime
         /// </summary>
-        [DataMember(Name = "dateTime", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "dateTime", EmitDefaultValue = false)]
         public CompanyEventRequestDataDateTime DateTime { get; set; }
 
         /// <summary>
         /// Gets or Sets Universe
         /// </summary>
-        [DataMember(Name = "universe", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "universe", EmitDefaultValue = false)]
         public CompanyEventRequestDataUniverse Universe { get; set; }
 
         /// <summary>
@@ -169,6 +210,7 @@ namespace FactSet.SDK.EventsandTranscripts.Model
             sb.Append("  DateTime: ").Append(DateTime).Append("\n");
             sb.Append("  Universe: ").Append(Universe).Append("\n");
             sb.Append("  EventTypes: ").Append(EventTypes).Append("\n");
+            sb.Append("  LastModifiedWithin: ").Append(LastModifiedWithin).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -217,6 +259,10 @@ namespace FactSet.SDK.EventsandTranscripts.Model
                 (
                     this.EventTypes == input.EventTypes ||
                     this.EventTypes.SequenceEqual(input.EventTypes)
+                ) && 
+                (
+                    this.LastModifiedWithin == input.LastModifiedWithin ||
+                    this.LastModifiedWithin.Equals(input.LastModifiedWithin)
                 );
         }
 
@@ -238,6 +284,7 @@ namespace FactSet.SDK.EventsandTranscripts.Model
                     hashCode = (hashCode * 59) + this.Universe.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.EventTypes.GetHashCode();
+                hashCode = (hashCode * 59) + this.LastModifiedWithin.GetHashCode();
                 return hashCode;
             }
         }

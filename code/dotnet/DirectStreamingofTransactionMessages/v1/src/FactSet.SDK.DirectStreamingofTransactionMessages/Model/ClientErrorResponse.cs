@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.DirectStreamingofTransactionMessages.Cl
 namespace FactSet.SDK.DirectStreamingofTransactionMessages.Model
 {
     /// <summary>
-    /// ClientErrorResponse
+    /// Client Error Response
     /// </summary>
     [DataContract(Name = "ClientErrorResponse")]
     public partial class ClientErrorResponse : IEquatable<ClientErrorResponse>, IValidatableObject
@@ -35,15 +35,16 @@ namespace FactSet.SDK.DirectStreamingofTransactionMessages.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ClientErrorResponse" /> class.
         /// </summary>
-        /// <param name="errors">errors.</param>
+        /// <param name="errors">&#x60;type&#x60; of the error.</param>
         public ClientErrorResponse(List<Error> errors = default(List<Error>))
         {
             this.Errors = errors;
         }
 
         /// <summary>
-        /// Gets or Sets Errors
+        /// &#x60;type&#x60; of the error
         /// </summary>
+        /// <value>&#x60;type&#x60; of the error</value>
         [DataMember(Name = "errors", EmitDefaultValue = true)]
         public List<Error> Errors { get; set; }
 

@@ -1,6 +1,6 @@
 /**
  * EVENTS AND TRANSCRIPTS API
- * <p>The Calendar Events API provides access to FactSet’s Event Calendar data alongside business logic that allows users to replicate views and functionality consistent with the experience provided by the Workstation. This API provides the ability to pull Event Calendar data based on specific filters.</p> <p>Events Audio API provides access to historical as well as the latest audio recordings of various company events covered by FactSet. The events include, but are not limited to: earnings calls, conferences, and investor days. This API also provides relevant metadata such as timestamps and identifiers around each audio file.</p> <p>The  Near Real-time Transcripts API enables access to Near Real-time Transcripts provided by CallStreet to time-sensitive clients. This API also provides the relevant speaker metadata along with their confidence scores. This data caters to quant clients interested in building machine learning models. Clients can leverage this API to perform sentiment analysis through natural language processing or machine learning. It can also be used to complement analysis using FactSet's transcripts service.</p> <p>Transcripts API provides conference call transcripts for companies' publicly held conference calls and a wealth of information regarding upcoming corporate events, such as conference call date and time, phone number and password, type of conference call, and important company investor relations contact information.</p>  
+ * <p>The Calendar Events API provides access to FactSetâ€™s Event Calendar data alongside business logic that allows users to replicate views and functionality consistent with the experience provided by the Workstation. This API provides the ability to pull Event Calendar data based on specific filters.</p> <p>Events Audio API provides access to historical as well as the latest audio recordings of various company events covered by FactSet. The events include, but are not limited to: earnings calls, conferences, and investor days. This API also provides relevant metadata such as timestamps and identifiers around each audio file.</p> <p>The  Near Real-time Transcripts API enables access to Near Real-time Transcripts provided by CallStreet to time-sensitive clients. This API also provides the relevant speaker metadata along with their confidence scores. This data caters to quant clients interested in building machine learning models. Clients can leverage this API to perform sentiment analysis through natural language processing or machine learning. It can also be used to complement analysis using FactSet's transcripts service.</p> <p>Transcripts API provides conference call transcripts for companies' publicly held conference calls and a wealth of information regarding upcoming corporate events, such as conference call date and time, phone number and password, type of conference call, and important company investor relations contact information.</p>  
  *
  * The version of the OpenAPI document: 1.1.0
  * Contact: api@factset.com
@@ -23,12 +23,10 @@ class CompanyEventRequestData {
     /**
      * Constructs a new <code>CompanyEventRequestData</code>.
      * @alias module:model/CompanyEventRequestData
-     * @param dateTime {module:model/CompanyEventRequestDataDateTime} 
-     * @param universe {module:model/CompanyEventRequestDataUniverse} 
      */
-    constructor(dateTime, universe) { 
+    constructor() { 
         
-        CompanyEventRequestData.initialize(this, dateTime, universe);
+        CompanyEventRequestData.initialize(this);
     }
 
     /**
@@ -36,9 +34,7 @@ class CompanyEventRequestData {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, dateTime, universe) { 
-        obj['dateTime'] = dateTime;
-        obj['universe'] = universe;
+    static initialize(obj) { 
     }
 
     /**
@@ -60,6 +56,9 @@ class CompanyEventRequestData {
             }
             if (data.hasOwnProperty('eventTypes')) {
                 obj['eventTypes'] = ApiClient.convertToType(data['eventTypes'], ['String']);
+            }
+            if (data.hasOwnProperty('lastModifiedWithin')) {
+                obj['lastModifiedWithin'] = ApiClient.convertToType(data['lastModifiedWithin'], 'String');
             }
         }
         return obj;
@@ -83,6 +82,12 @@ CompanyEventRequestData.prototype['universe'] = undefined;
  * @member {Array.<module:model/CompanyEventRequestData.EventTypesEnum>} eventTypes
  */
 CompanyEventRequestData.prototype['eventTypes'] = undefined;
+
+/**
+ * The duration within which the events were last modified.  **Note 1:** When using `lastModifiedWithin` without providing `startDate` or `endDate`, the default period will be the previous and upcoming 45 days from the current date.  **Note 2:** If both `dateTime` and `lastModifiedWithin` are provided in the same request, the API will return an error. 
+ * @member {module:model/CompanyEventRequestData.LastModifiedWithinEnum} lastModifiedWithin
+ */
+CompanyEventRequestData.prototype['lastModifiedWithin'] = undefined;
 
 
 
@@ -166,6 +171,51 @@ CompanyEventRequestData['EventTypesEnum'] = {
      * @const
      */
     "Dividend": "Dividend"
+};
+
+
+/**
+ * Allowed values for the <code>lastModifiedWithin</code> property.
+ * @enum {String}
+ * @readonly
+ */
+CompanyEventRequestData['LastModifiedWithinEnum'] = {
+
+    /**
+     * value: "SixHours"
+     * @const
+     */
+    "SixHours": "SixHours",
+
+    /**
+     * value: "TwelveHours"
+     * @const
+     */
+    "TwelveHours": "TwelveHours",
+
+    /**
+     * value: "Today"
+     * @const
+     */
+    "Today": "Today",
+
+    /**
+     * value: "TwoDays"
+     * @const
+     */
+    "TwoDays": "TwoDays",
+
+    /**
+     * value: "OneWeek"
+     * @const
+     */
+    "OneWeek": "OneWeek",
+
+    /**
+     * value: "OneMonth"
+     * @const
+     */
+    "OneMonth": "OneMonth"
 };
 
 

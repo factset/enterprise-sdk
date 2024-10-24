@@ -35,10 +35,10 @@ namespace FactSet.SDK.DirectStreamingofTransactionMessages.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Error" /> class.
         /// </summary>
-        /// <param name="id">id.</param>
-        /// <param name="code">code.</param>
-        /// <param name="title">title.</param>
-        /// <param name="detail">detail.</param>
+        /// <param name="id">&#x60;id&#x60; of the error..</param>
+        /// <param name="code">&#x60;code&#x60; of the error..</param>
+        /// <param name="title">&#x60;title&#x60; of the error..</param>
+        /// <param name="detail">Error detail..</param>
         /// <param name="source">source.</param>
         public Error(string id = default(string), string code = default(string), string title = default(string), string detail = default(string), ErrorSource source = default(ErrorSource))
         {
@@ -50,26 +50,30 @@ namespace FactSet.SDK.DirectStreamingofTransactionMessages.Model
         }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// &#x60;id&#x60; of the error.
         /// </summary>
+        /// <value>&#x60;id&#x60; of the error.</value>
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Code
+        /// &#x60;code&#x60; of the error.
         /// </summary>
+        /// <value>&#x60;code&#x60; of the error.</value>
         [DataMember(Name = "code", EmitDefaultValue = true)]
         public string Code { get; set; }
 
         /// <summary>
-        /// Gets or Sets Title
+        /// &#x60;title&#x60; of the error.
         /// </summary>
+        /// <value>&#x60;title&#x60; of the error.</value>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
-        /// Gets or Sets Detail
+        /// Error detail.
         /// </summary>
+        /// <value>Error detail.</value>
         [DataMember(Name = "detail", EmitDefaultValue = true)]
         public string Detail { get; set; }
 

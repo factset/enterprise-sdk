@@ -149,10 +149,10 @@ class Error(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str, none_type): [optional]  # noqa: E501
-            code (str, none_type): [optional]  # noqa: E501
-            title (str, none_type): [optional]  # noqa: E501
-            detail (str, none_type): [optional]  # noqa: E501
+            id (str, none_type): `id` of the error.. [optional]  # noqa: E501
+            code (str, none_type): `code` of the error.. [optional]  # noqa: E501
+            title (str, none_type): `title` of the error.. [optional]  # noqa: E501
+            detail (str, none_type): Error detail.. [optional]  # noqa: E501
             source (ErrorSource): [optional]  # noqa: E501
         """
 
@@ -235,10 +235,10 @@ class Error(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str, none_type): [optional]  # noqa: E501
-            code (str, none_type): [optional]  # noqa: E501
-            title (str, none_type): [optional]  # noqa: E501
-            detail (str, none_type): [optional]  # noqa: E501
+            id (str, none_type): `id` of the error.. [optional]  # noqa: E501
+            code (str, none_type): `code` of the error.. [optional]  # noqa: E501
+            title (str, none_type): `title` of the error.. [optional]  # noqa: E501
+            detail (str, none_type): Error detail.. [optional]  # noqa: E501
             source (ErrorSource): [optional]  # noqa: E501
         """
 

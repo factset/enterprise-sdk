@@ -1,10 +1,11 @@
 # FactSet.SDK.EventsContribution.Model.EventData
+Event Data
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EventId** | **string** | Id that corresponds to the event | 
+**EventId** | **string** | ID that corresponds to the event. This ID is vendor generated and should be unique in each vendor&#39;s content set. | 
 **Title** | **string** | Title of the event to be displayed | 
 **StartDatetime** | **DateTime** | Start date and time of the event | 
 **AgendaUrl** | **string** | The meeting agenda which can be a document file or a webpage. | [optional] 

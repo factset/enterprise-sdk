@@ -1,4 +1,5 @@
 # FactSet.SDK.EventsContribution.Model.ErrorObject
+Object representing an error.
 
 ## Properties
 

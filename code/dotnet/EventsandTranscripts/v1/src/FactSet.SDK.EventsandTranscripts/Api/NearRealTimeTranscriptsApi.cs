@@ -1,7 +1,7 @@
 /*
  * EVENTS AND TRANSCRIPTS API
  *
- * <p>The Calendar Events API provides access to FactSet’s Event Calendar data alongside business logic that allows users to replicate views and functionality consistent with the experience provided by the Workstation. This API provides the ability to pull Event Calendar data based on specific filters.</p> <p>Events Audio API provides access to historical as well as the latest audio recordings of various company events covered by FactSet. The events include, but are not limited to: earnings calls, conferences, and investor days. This API also provides relevant metadata such as timestamps and identifiers around each audio file.</p> <p>The  Near Real-time Transcripts API enables access to Near Real-time Transcripts provided by CallStreet to time-sensitive clients. This API also provides the relevant speaker metadata along with their confidence scores. This data caters to quant clients interested in building machine learning models. Clients can leverage this API to perform sentiment analysis through natural language processing or machine learning. It can also be used to complement analysis using FactSet's transcripts service.</p> <p>Transcripts API provides conference call transcripts for companies' publicly held conference calls and a wealth of information regarding upcoming corporate events, such as conference call date and time, phone number and password, type of conference call, and important company investor relations contact information.</p>  
+ * <p>The Calendar Events API provides access to FactSetâ€™s Event Calendar data alongside business logic that allows users to replicate views and functionality consistent with the experience provided by the Workstation. This API provides the ability to pull Event Calendar data based on specific filters.</p> <p>Events Audio API provides access to historical as well as the latest audio recordings of various company events covered by FactSet. The events include, but are not limited to: earnings calls, conferences, and investor days. This API also provides relevant metadata such as timestamps and identifiers around each audio file.</p> <p>The  Near Real-time Transcripts API enables access to Near Real-time Transcripts provided by CallStreet to time-sensitive clients. This API also provides the relevant speaker metadata along with their confidence scores. This data caters to quant clients interested in building machine learning models. Clients can leverage this API to perform sentiment analysis through natural language processing or machine learning. It can also be used to complement analysis using FactSet's transcripts service.</p> <p>Transcripts API provides conference call transcripts for companies' publicly held conference calls and a wealth of information regarding upcoming corporate events, such as conference call date and time, phone number and password, type of conference call, and important company investor relations contact information.</p>  
  *
  * The version of the OpenAPI document: 1.1.0
  * Contact: api@factset.com
@@ -39,7 +39,7 @@ namespace FactSet.SDK.EventsandTranscripts.Api
         /// <param name="entityId">Factset entity level identifier for the company hosting the event. (optional)</param>
         /// <param name="callStatus">Status of the call, i.e., Ended, InProgress, EndedWithoutNotification, or IssueAtSource. (optional)</param>
         /// <param name="sort">Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc.  (optional)</param>
-        /// <param name="paginationLimit">Number of results to return per page. (optional, default to 25)</param>
+        /// <param name="paginationLimit">Number of results to return per page. Maximum value: 1000.  (optional, default to 25)</param>
         /// <param name="paginationOffset">Page number of the results to return. (optional, default to 0)</param>
         /// <returns>NrtCalls</returns>
         NrtCalls GetBulkDocumentsNrtV1Calls(string ticker = default(string), string entityId = default(string), string callStatus = default(string), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?));
@@ -55,7 +55,7 @@ namespace FactSet.SDK.EventsandTranscripts.Api
         /// <param name="entityId">Factset entity level identifier for the company hosting the event. (optional)</param>
         /// <param name="callStatus">Status of the call, i.e., Ended, InProgress, EndedWithoutNotification, or IssueAtSource. (optional)</param>
         /// <param name="sort">Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc.  (optional)</param>
-        /// <param name="paginationLimit">Number of results to return per page. (optional, default to 25)</param>
+        /// <param name="paginationLimit">Number of results to return per page. Maximum value: 1000.  (optional, default to 25)</param>
         /// <param name="paginationOffset">Page number of the results to return. (optional, default to 0)</param>
         /// <returns>ApiResponse of NrtCalls</returns>
         ApiResponse<NrtCalls> GetBulkDocumentsNrtV1CallsWithHttpInfo(string ticker = default(string), string entityId = default(string), string callStatus = default(string), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?));
@@ -69,7 +69,7 @@ namespace FactSet.SDK.EventsandTranscripts.Api
         /// <param name="audioSourceId">Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs. (optional)</param>
         /// <param name="reportId">Unique identifier for an event. (optional)</param>
         /// <param name="sort">Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc.  (optional)</param>
-        /// <param name="paginationLimit">Number of results to return per page. (optional, default to 25)</param>
+        /// <param name="paginationLimit">Number of results to return per page. Maximum value: 1000.  (optional, default to 25)</param>
         /// <param name="paginationOffset">Page number of the results to return. (optional, default to 0)</param>
         /// <returns>NrtCalls</returns>
         NrtCalls GetBulkDocumentsNrtV1CallsByAudioSourceId(int? audioSourceId = default(int?), int? reportId = default(int?), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?));
@@ -84,7 +84,7 @@ namespace FactSet.SDK.EventsandTranscripts.Api
         /// <param name="audioSourceId">Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs. (optional)</param>
         /// <param name="reportId">Unique identifier for an event. (optional)</param>
         /// <param name="sort">Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc.  (optional)</param>
-        /// <param name="paginationLimit">Number of results to return per page. (optional, default to 25)</param>
+        /// <param name="paginationLimit">Number of results to return per page. Maximum value: 1000.  (optional, default to 25)</param>
         /// <param name="paginationOffset">Page number of the results to return. (optional, default to 0)</param>
         /// <returns>ApiResponse of NrtCalls</returns>
         ApiResponse<NrtCalls> GetBulkDocumentsNrtV1CallsByAudioSourceIdWithHttpInfo(int? audioSourceId = default(int?), int? reportId = default(int?), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?));
@@ -122,7 +122,7 @@ namespace FactSet.SDK.EventsandTranscripts.Api
         /// <exception cref="FactSet.SDK.EventsandTranscripts.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="audioSourceId">Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs.</param>
         /// <param name="sort">Enables sorting data in ascending or descending chronological order based on the start offset of the speaker.  (optional)</param>
-        /// <param name="paginationLimit">Number of results to return per page. (optional, default to 25)</param>
+        /// <param name="paginationLimit">Number of results to return per page. Maximum value: 1000.  (optional, default to 25)</param>
         /// <param name="paginationOffset">Page number of the results to return. (optional, default to 0)</param>
         /// <returns>NrtSpeakerIds</returns>
         NrtSpeakerIds GetBulkDocumentsNrtV1SpeakerIds(int audioSourceId, List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?));
@@ -136,7 +136,7 @@ namespace FactSet.SDK.EventsandTranscripts.Api
         /// <exception cref="FactSet.SDK.EventsandTranscripts.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="audioSourceId">Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs.</param>
         /// <param name="sort">Enables sorting data in ascending or descending chronological order based on the start offset of the speaker.  (optional)</param>
-        /// <param name="paginationLimit">Number of results to return per page. (optional, default to 25)</param>
+        /// <param name="paginationLimit">Number of results to return per page. Maximum value: 1000.  (optional, default to 25)</param>
         /// <param name="paginationOffset">Page number of the results to return. (optional, default to 0)</param>
         /// <returns>ApiResponse of NrtSpeakerIds</returns>
         ApiResponse<NrtSpeakerIds> GetBulkDocumentsNrtV1SpeakerIdsWithHttpInfo(int audioSourceId, List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?));
@@ -160,7 +160,7 @@ namespace FactSet.SDK.EventsandTranscripts.Api
         /// <param name="entityId">Factset entity level identifier for the company hosting the event. (optional)</param>
         /// <param name="callStatus">Status of the call, i.e., Ended, InProgress, EndedWithoutNotification, or IssueAtSource. (optional)</param>
         /// <param name="sort">Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc.  (optional)</param>
-        /// <param name="paginationLimit">Number of results to return per page. (optional, default to 25)</param>
+        /// <param name="paginationLimit">Number of results to return per page. Maximum value: 1000.  (optional, default to 25)</param>
         /// <param name="paginationOffset">Page number of the results to return. (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NrtCalls</returns>
@@ -177,7 +177,7 @@ namespace FactSet.SDK.EventsandTranscripts.Api
         /// <param name="entityId">Factset entity level identifier for the company hosting the event. (optional)</param>
         /// <param name="callStatus">Status of the call, i.e., Ended, InProgress, EndedWithoutNotification, or IssueAtSource. (optional)</param>
         /// <param name="sort">Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc.  (optional)</param>
-        /// <param name="paginationLimit">Number of results to return per page. (optional, default to 25)</param>
+        /// <param name="paginationLimit">Number of results to return per page. Maximum value: 1000.  (optional, default to 25)</param>
         /// <param name="paginationOffset">Page number of the results to return. (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (NrtCalls)</returns>
@@ -192,7 +192,7 @@ namespace FactSet.SDK.EventsandTranscripts.Api
         /// <param name="audioSourceId">Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs. (optional)</param>
         /// <param name="reportId">Unique identifier for an event. (optional)</param>
         /// <param name="sort">Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc.  (optional)</param>
-        /// <param name="paginationLimit">Number of results to return per page. (optional, default to 25)</param>
+        /// <param name="paginationLimit">Number of results to return per page. Maximum value: 1000.  (optional, default to 25)</param>
         /// <param name="paginationOffset">Page number of the results to return. (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NrtCalls</returns>
@@ -208,7 +208,7 @@ namespace FactSet.SDK.EventsandTranscripts.Api
         /// <param name="audioSourceId">Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs. (optional)</param>
         /// <param name="reportId">Unique identifier for an event. (optional)</param>
         /// <param name="sort">Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc.  (optional)</param>
-        /// <param name="paginationLimit">Number of results to return per page. (optional, default to 25)</param>
+        /// <param name="paginationLimit">Number of results to return per page. Maximum value: 1000.  (optional, default to 25)</param>
         /// <param name="paginationOffset">Page number of the results to return. (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (NrtCalls)</returns>
@@ -249,7 +249,7 @@ namespace FactSet.SDK.EventsandTranscripts.Api
         /// <exception cref="FactSet.SDK.EventsandTranscripts.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="audioSourceId">Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs.</param>
         /// <param name="sort">Enables sorting data in ascending or descending chronological order based on the start offset of the speaker.  (optional)</param>
-        /// <param name="paginationLimit">Number of results to return per page. (optional, default to 25)</param>
+        /// <param name="paginationLimit">Number of results to return per page. Maximum value: 1000.  (optional, default to 25)</param>
         /// <param name="paginationOffset">Page number of the results to return. (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NrtSpeakerIds</returns>
@@ -264,7 +264,7 @@ namespace FactSet.SDK.EventsandTranscripts.Api
         /// <exception cref="FactSet.SDK.EventsandTranscripts.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="audioSourceId">Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs.</param>
         /// <param name="sort">Enables sorting data in ascending or descending chronological order based on the start offset of the speaker.  (optional)</param>
-        /// <param name="paginationLimit">Number of results to return per page. (optional, default to 25)</param>
+        /// <param name="paginationLimit">Number of results to return per page. Maximum value: 1000.  (optional, default to 25)</param>
         /// <param name="paginationOffset">Page number of the results to return. (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (NrtSpeakerIds)</returns>
@@ -442,7 +442,7 @@ namespace FactSet.SDK.EventsandTranscripts.Api
         /// <param name="entityId">Factset entity level identifier for the company hosting the event. (optional)</param>
         /// <param name="callStatus">Status of the call, i.e., Ended, InProgress, EndedWithoutNotification, or IssueAtSource. (optional)</param>
         /// <param name="sort">Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc.  (optional)</param>
-        /// <param name="paginationLimit">Number of results to return per page. (optional, default to 25)</param>
+        /// <param name="paginationLimit">Number of results to return per page. Maximum value: 1000.  (optional, default to 25)</param>
         /// <param name="paginationOffset">Page number of the results to return. (optional, default to 0)</param>
         /// <returns>NrtCalls</returns>
         public NrtCalls GetBulkDocumentsNrtV1Calls(string ticker = default(string), string entityId = default(string), string callStatus = default(string), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?))
@@ -459,7 +459,7 @@ namespace FactSet.SDK.EventsandTranscripts.Api
         /// <param name="entityId">Factset entity level identifier for the company hosting the event. (optional)</param>
         /// <param name="callStatus">Status of the call, i.e., Ended, InProgress, EndedWithoutNotification, or IssueAtSource. (optional)</param>
         /// <param name="sort">Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc.  (optional)</param>
-        /// <param name="paginationLimit">Number of results to return per page. (optional, default to 25)</param>
+        /// <param name="paginationLimit">Number of results to return per page. Maximum value: 1000.  (optional, default to 25)</param>
         /// <param name="paginationOffset">Page number of the results to return. (optional, default to 0)</param>
         /// <returns>ApiResponse of NrtCalls</returns>
         public ApiResponse<NrtCalls> GetBulkDocumentsNrtV1CallsWithHttpInfo(string ticker = default(string), string entityId = default(string), string callStatus = default(string), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?))
@@ -555,7 +555,7 @@ namespace FactSet.SDK.EventsandTranscripts.Api
         /// <param name="entityId">Factset entity level identifier for the company hosting the event. (optional)</param>
         /// <param name="callStatus">Status of the call, i.e., Ended, InProgress, EndedWithoutNotification, or IssueAtSource. (optional)</param>
         /// <param name="sort">Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc.  (optional)</param>
-        /// <param name="paginationLimit">Number of results to return per page. (optional, default to 25)</param>
+        /// <param name="paginationLimit">Number of results to return per page. Maximum value: 1000.  (optional, default to 25)</param>
         /// <param name="paginationOffset">Page number of the results to return. (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NrtCalls</returns>
@@ -573,7 +573,7 @@ namespace FactSet.SDK.EventsandTranscripts.Api
         /// <param name="entityId">Factset entity level identifier for the company hosting the event. (optional)</param>
         /// <param name="callStatus">Status of the call, i.e., Ended, InProgress, EndedWithoutNotification, or IssueAtSource. (optional)</param>
         /// <param name="sort">Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc.  (optional)</param>
-        /// <param name="paginationLimit">Number of results to return per page. (optional, default to 25)</param>
+        /// <param name="paginationLimit">Number of results to return per page. Maximum value: 1000.  (optional, default to 25)</param>
         /// <param name="paginationOffset">Page number of the results to return. (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (NrtCalls)</returns>
@@ -672,7 +672,7 @@ namespace FactSet.SDK.EventsandTranscripts.Api
         /// <param name="audioSourceId">Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs. (optional)</param>
         /// <param name="reportId">Unique identifier for an event. (optional)</param>
         /// <param name="sort">Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc.  (optional)</param>
-        /// <param name="paginationLimit">Number of results to return per page. (optional, default to 25)</param>
+        /// <param name="paginationLimit">Number of results to return per page. Maximum value: 1000.  (optional, default to 25)</param>
         /// <param name="paginationOffset">Page number of the results to return. (optional, default to 0)</param>
         /// <returns>NrtCalls</returns>
         public NrtCalls GetBulkDocumentsNrtV1CallsByAudioSourceId(int? audioSourceId = default(int?), int? reportId = default(int?), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?))
@@ -688,7 +688,7 @@ namespace FactSet.SDK.EventsandTranscripts.Api
         /// <param name="audioSourceId">Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs. (optional)</param>
         /// <param name="reportId">Unique identifier for an event. (optional)</param>
         /// <param name="sort">Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc.  (optional)</param>
-        /// <param name="paginationLimit">Number of results to return per page. (optional, default to 25)</param>
+        /// <param name="paginationLimit">Number of results to return per page. Maximum value: 1000.  (optional, default to 25)</param>
         /// <param name="paginationOffset">Page number of the results to return. (optional, default to 0)</param>
         /// <returns>ApiResponse of NrtCalls</returns>
         public ApiResponse<NrtCalls> GetBulkDocumentsNrtV1CallsByAudioSourceIdWithHttpInfo(int? audioSourceId = default(int?), int? reportId = default(int?), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?))
@@ -779,7 +779,7 @@ namespace FactSet.SDK.EventsandTranscripts.Api
         /// <param name="audioSourceId">Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs. (optional)</param>
         /// <param name="reportId">Unique identifier for an event. (optional)</param>
         /// <param name="sort">Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc.  (optional)</param>
-        /// <param name="paginationLimit">Number of results to return per page. (optional, default to 25)</param>
+        /// <param name="paginationLimit">Number of results to return per page. Maximum value: 1000.  (optional, default to 25)</param>
         /// <param name="paginationOffset">Page number of the results to return. (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NrtCalls</returns>
@@ -796,7 +796,7 @@ namespace FactSet.SDK.EventsandTranscripts.Api
         /// <param name="audioSourceId">Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs. (optional)</param>
         /// <param name="reportId">Unique identifier for an event. (optional)</param>
         /// <param name="sort">Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc.  (optional)</param>
-        /// <param name="paginationLimit">Number of results to return per page. (optional, default to 25)</param>
+        /// <param name="paginationLimit">Number of results to return per page. Maximum value: 1000.  (optional, default to 25)</param>
         /// <param name="paginationOffset">Page number of the results to return. (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (NrtCalls)</returns>
@@ -1079,7 +1079,7 @@ namespace FactSet.SDK.EventsandTranscripts.Api
         /// <exception cref="FactSet.SDK.EventsandTranscripts.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="audioSourceId">Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs.</param>
         /// <param name="sort">Enables sorting data in ascending or descending chronological order based on the start offset of the speaker.  (optional)</param>
-        /// <param name="paginationLimit">Number of results to return per page. (optional, default to 25)</param>
+        /// <param name="paginationLimit">Number of results to return per page. Maximum value: 1000.  (optional, default to 25)</param>
         /// <param name="paginationOffset">Page number of the results to return. (optional, default to 0)</param>
         /// <returns>NrtSpeakerIds</returns>
         public NrtSpeakerIds GetBulkDocumentsNrtV1SpeakerIds(int audioSourceId, List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?))
@@ -1094,7 +1094,7 @@ namespace FactSet.SDK.EventsandTranscripts.Api
         /// <exception cref="FactSet.SDK.EventsandTranscripts.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="audioSourceId">Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs.</param>
         /// <param name="sort">Enables sorting data in ascending or descending chronological order based on the start offset of the speaker.  (optional)</param>
-        /// <param name="paginationLimit">Number of results to return per page. (optional, default to 25)</param>
+        /// <param name="paginationLimit">Number of results to return per page. Maximum value: 1000.  (optional, default to 25)</param>
         /// <param name="paginationOffset">Page number of the results to return. (optional, default to 0)</param>
         /// <returns>ApiResponse of NrtSpeakerIds</returns>
         public ApiResponse<NrtSpeakerIds> GetBulkDocumentsNrtV1SpeakerIdsWithHttpInfo(int audioSourceId, List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?))
@@ -1177,7 +1177,7 @@ namespace FactSet.SDK.EventsandTranscripts.Api
         /// <exception cref="FactSet.SDK.EventsandTranscripts.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="audioSourceId">Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs.</param>
         /// <param name="sort">Enables sorting data in ascending or descending chronological order based on the start offset of the speaker.  (optional)</param>
-        /// <param name="paginationLimit">Number of results to return per page. (optional, default to 25)</param>
+        /// <param name="paginationLimit">Number of results to return per page. Maximum value: 1000.  (optional, default to 25)</param>
         /// <param name="paginationOffset">Page number of the results to return. (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NrtSpeakerIds</returns>
@@ -1193,7 +1193,7 @@ namespace FactSet.SDK.EventsandTranscripts.Api
         /// <exception cref="FactSet.SDK.EventsandTranscripts.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="audioSourceId">Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs.</param>
         /// <param name="sort">Enables sorting data in ascending or descending chronological order based on the start offset of the speaker.  (optional)</param>
-        /// <param name="paginationLimit">Number of results to return per page. (optional, default to 25)</param>
+        /// <param name="paginationLimit">Number of results to return per page. Maximum value: 1000.  (optional, default to 25)</param>
         /// <param name="paginationOffset">Page number of the results to return. (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (NrtSpeakerIds)</returns>

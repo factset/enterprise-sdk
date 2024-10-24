@@ -1,6 +1,6 @@
 /*
  * EVENTS AND TRANSCRIPTS API
- * <p>The Calendar Events API provides access to FactSet’s Event Calendar data alongside business logic that allows users to replicate views and functionality consistent with the experience provided by the Workstation. This API provides the ability to pull Event Calendar data based on specific filters.</p> <p>Events Audio API provides access to historical as well as the latest audio recordings of various company events covered by FactSet. The events include, but are not limited to: earnings calls, conferences, and investor days. This API also provides relevant metadata such as timestamps and identifiers around each audio file.</p> <p>The  Near Real-time Transcripts API enables access to Near Real-time Transcripts provided by CallStreet to time-sensitive clients. This API also provides the relevant speaker metadata along with their confidence scores. This data caters to quant clients interested in building machine learning models. Clients can leverage this API to perform sentiment analysis through natural language processing or machine learning. It can also be used to complement analysis using FactSet's transcripts service.</p> <p>Transcripts API provides conference call transcripts for companies' publicly held conference calls and a wealth of information regarding upcoming corporate events, such as conference call date and time, phone number and password, type of conference call, and important company investor relations contact information.</p>  
+ * <p>The Calendar Events API provides access to FactSetâ€™s Event Calendar data alongside business logic that allows users to replicate views and functionality consistent with the experience provided by the Workstation. This API provides the ability to pull Event Calendar data based on specific filters.</p> <p>Events Audio API provides access to historical as well as the latest audio recordings of various company events covered by FactSet. The events include, but are not limited to: earnings calls, conferences, and investor days. This API also provides relevant metadata such as timestamps and identifiers around each audio file.</p> <p>The  Near Real-time Transcripts API enables access to Near Real-time Transcripts provided by CallStreet to time-sensitive clients. This API also provides the relevant speaker metadata along with their confidence scores. This data caters to quant clients interested in building machine learning models. Clients can leverage this API to perform sentiment analysis through natural language processing or machine learning. It can also be used to complement analysis using FactSet's transcripts service.</p> <p>Transcripts API provides conference call transcripts for companies' publicly held conference calls and a wealth of information regarding upcoming corporate events, such as conference call date and time, phone number and password, type of conference call, and important company investor relations contact information.</p>  
  *
  * The version of the OpenAPI document: 1.1.0
  * Contact: api@factset.com
@@ -37,7 +37,8 @@ import com.factset.sdk.EventsandTranscripts.JSON;
 @JsonPropertyOrder({
   CompanyEventRequestData.JSON_PROPERTY_DATE_TIME,
   CompanyEventRequestData.JSON_PROPERTY_UNIVERSE,
-  CompanyEventRequestData.JSON_PROPERTY_EVENT_TYPES
+  CompanyEventRequestData.JSON_PROPERTY_EVENT_TYPES,
+  CompanyEventRequestData.JSON_PROPERTY_LAST_MODIFIED_WITHIN
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -108,17 +109,53 @@ public class CompanyEventRequestData implements Serializable {
   public static final String JSON_PROPERTY_EVENT_TYPES = "eventTypes";
   private java.util.List<EventTypesEnum> eventTypes = null;
 
-  public CompanyEventRequestData() { 
+  /**
+   * The duration within which the events were last modified.  **Note 1:** When using &#x60;lastModifiedWithin&#x60; without providing &#x60;startDate&#x60; or &#x60;endDate&#x60;, the default period will be the previous and upcoming 45 days from the current date.  **Note 2:** If both &#x60;dateTime&#x60; and &#x60;lastModifiedWithin&#x60; are provided in the same request, the API will return an error. 
+   */
+  public enum LastModifiedWithinEnum {
+    SIXHOURS("SixHours"),
+    
+    TWELVEHOURS("TwelveHours"),
+    
+    TODAY("Today"),
+    
+    TWODAYS("TwoDays"),
+    
+    ONEWEEK("OneWeek"),
+    
+    ONEMONTH("OneMonth");
+
+    private String value;
+
+    LastModifiedWithinEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static LastModifiedWithinEnum fromValue(String value) {
+      for (LastModifiedWithinEnum b : LastModifiedWithinEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
   }
 
-  @JsonCreator
-  public CompanyEventRequestData(
-    @JsonProperty(value=JSON_PROPERTY_DATE_TIME, required=true) CompanyEventRequestDataDateTime dateTime, 
-    @JsonProperty(value=JSON_PROPERTY_UNIVERSE, required=true) CompanyEventRequestDataUniverse universe
-  ) {
-    this();
-    this.dateTime = dateTime;
-    this.universe = universe;
+  public static final String JSON_PROPERTY_LAST_MODIFIED_WITHIN = "lastModifiedWithin";
+  private LastModifiedWithinEnum lastModifiedWithin;
+
+  public CompanyEventRequestData() { 
   }
 
   public CompanyEventRequestData dateTime(CompanyEventRequestDataDateTime dateTime) {
@@ -130,10 +167,10 @@ public class CompanyEventRequestData implements Serializable {
    * Get dateTime
    * @return dateTime
   **/
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATE_TIME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public CompanyEventRequestDataDateTime getDateTime() {
     return dateTime;
@@ -141,7 +178,7 @@ public class CompanyEventRequestData implements Serializable {
 
 
   @JsonProperty(JSON_PROPERTY_DATE_TIME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateTime(CompanyEventRequestDataDateTime dateTime) {
     this.dateTime = dateTime;
   }
@@ -156,10 +193,10 @@ public class CompanyEventRequestData implements Serializable {
    * Get universe
    * @return universe
   **/
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_UNIVERSE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public CompanyEventRequestDataUniverse getUniverse() {
     return universe;
@@ -167,7 +204,7 @@ public class CompanyEventRequestData implements Serializable {
 
 
   @JsonProperty(JSON_PROPERTY_UNIVERSE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUniverse(CompanyEventRequestDataUniverse universe) {
     this.universe = universe;
   }
@@ -207,6 +244,32 @@ public class CompanyEventRequestData implements Serializable {
   }
 
 
+  public CompanyEventRequestData lastModifiedWithin(LastModifiedWithinEnum lastModifiedWithin) {
+    this.lastModifiedWithin = lastModifiedWithin;
+    return this;
+  }
+
+   /**
+   * The duration within which the events were last modified.  **Note 1:** When using &#x60;lastModifiedWithin&#x60; without providing &#x60;startDate&#x60; or &#x60;endDate&#x60;, the default period will be the previous and upcoming 45 days from the current date.  **Note 2:** If both &#x60;dateTime&#x60; and &#x60;lastModifiedWithin&#x60; are provided in the same request, the API will return an error. 
+   * @return lastModifiedWithin
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "Today", value = "The duration within which the events were last modified.  **Note 1:** When using `lastModifiedWithin` without providing `startDate` or `endDate`, the default period will be the previous and upcoming 45 days from the current date.  **Note 2:** If both `dateTime` and `lastModifiedWithin` are provided in the same request, the API will return an error. ")
+  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED_WITHIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public LastModifiedWithinEnum getLastModifiedWithin() {
+    return lastModifiedWithin;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED_WITHIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLastModifiedWithin(LastModifiedWithinEnum lastModifiedWithin) {
+    this.lastModifiedWithin = lastModifiedWithin;
+  }
+
+
   /**
    * Return true if this CompanyEventRequest_data object is equal to o.
    */
@@ -221,12 +284,13 @@ public class CompanyEventRequestData implements Serializable {
     CompanyEventRequestData companyEventRequestData = (CompanyEventRequestData) o;
     return Objects.equals(this.dateTime, companyEventRequestData.dateTime) &&
         Objects.equals(this.universe, companyEventRequestData.universe) &&
-        Objects.equals(this.eventTypes, companyEventRequestData.eventTypes);
+        Objects.equals(this.eventTypes, companyEventRequestData.eventTypes) &&
+        Objects.equals(this.lastModifiedWithin, companyEventRequestData.lastModifiedWithin);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dateTime, universe, eventTypes);
+    return Objects.hash(dateTime, universe, eventTypes, lastModifiedWithin);
   }
 
   @Override
@@ -236,6 +300,7 @@ public class CompanyEventRequestData implements Serializable {
     sb.append("    dateTime: ").append(toIndentedString(dateTime)).append("\n");
     sb.append("    universe: ").append(toIndentedString(universe)).append("\n");
     sb.append("    eventTypes: ").append(toIndentedString(eventTypes)).append("\n");
+    sb.append("    lastModifiedWithin: ").append(toIndentedString(lastModifiedWithin)).append("\n");
     sb.append("}");
     return sb.toString();
   }

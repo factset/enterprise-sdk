@@ -1,6 +1,6 @@
 /*
  * EVENTS AND TRANSCRIPTS API
- * <p>The Calendar Events API provides access to FactSet’s Event Calendar data alongside business logic that allows users to replicate views and functionality consistent with the experience provided by the Workstation. This API provides the ability to pull Event Calendar data based on specific filters.</p> <p>Events Audio API provides access to historical as well as the latest audio recordings of various company events covered by FactSet. The events include, but are not limited to: earnings calls, conferences, and investor days. This API also provides relevant metadata such as timestamps and identifiers around each audio file.</p> <p>The  Near Real-time Transcripts API enables access to Near Real-time Transcripts provided by CallStreet to time-sensitive clients. This API also provides the relevant speaker metadata along with their confidence scores. This data caters to quant clients interested in building machine learning models. Clients can leverage this API to perform sentiment analysis through natural language processing or machine learning. It can also be used to complement analysis using FactSet's transcripts service.</p> <p>Transcripts API provides conference call transcripts for companies' publicly held conference calls and a wealth of information regarding upcoming corporate events, such as conference call date and time, phone number and password, type of conference call, and important company investor relations contact information.</p>  
+ * <p>The Calendar Events API provides access to FactSetâ€™s Event Calendar data alongside business logic that allows users to replicate views and functionality consistent with the experience provided by the Workstation. This API provides the ability to pull Event Calendar data based on specific filters.</p> <p>Events Audio API provides access to historical as well as the latest audio recordings of various company events covered by FactSet. The events include, but are not limited to: earnings calls, conferences, and investor days. This API also provides relevant metadata such as timestamps and identifiers around each audio file.</p> <p>The  Near Real-time Transcripts API enables access to Near Real-time Transcripts provided by CallStreet to time-sensitive clients. This API also provides the relevant speaker metadata along with their confidence scores. This data caters to quant clients interested in building machine learning models. Clients can leverage this API to perform sentiment analysis through natural language processing or machine learning. It can also be used to complement analysis using FactSet's transcripts service.</p> <p>Transcripts API provides conference call transcripts for companies' publicly held conference calls and a wealth of information regarding upcoming corporate events, such as conference call date and time, phone number and password, type of conference call, and important company investor relations contact information.</p>  
  *
  * The version of the OpenAPI document: 1.1.0
  * Contact: api@factset.com
@@ -47,7 +47,9 @@ import com.factset.sdk.EventsandTranscripts.JSON;
   CompanyEventResponseObject.JSON_PROPERTY_FISCAL_PERIOD,
   CompanyEventResponseObject.JSON_PROPERTY_CONTACT_EMAIL,
   CompanyEventResponseObject.JSON_PROPERTY_CONTACT_PHONE,
-  CompanyEventResponseObject.JSON_PROPERTY_CONTACT_NAME
+  CompanyEventResponseObject.JSON_PROPERTY_CONTACT_NAME,
+  CompanyEventResponseObject.JSON_PROPERTY_REPORT_ID,
+  CompanyEventResponseObject.JSON_PROPERTY_LAST_MODIFIED_DATE
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -150,6 +152,12 @@ public class CompanyEventResponseObject implements Serializable {
 
   public static final String JSON_PROPERTY_CONTACT_NAME = "contactName";
   private String contactName;
+
+  public static final String JSON_PROPERTY_REPORT_ID = "reportId";
+  private String reportId;
+
+  public static final String JSON_PROPERTY_LAST_MODIFIED_DATE = "lastModifiedDate";
+  private OffsetDateTime lastModifiedDate;
 
   public CompanyEventResponseObject() { 
   }
@@ -518,6 +526,58 @@ public class CompanyEventResponseObject implements Serializable {
   }
 
 
+  public CompanyEventResponseObject reportId(String reportId) {
+    this.reportId = reportId;
+    return this;
+  }
+
+   /**
+   * Unique identifier for the report.    **Note:** We do not have a reportId for split and dividend event types. 
+   * @return reportId
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "2750388", value = "Unique identifier for the report.    **Note:** We do not have a reportId for split and dividend event types. ")
+  @JsonProperty(JSON_PROPERTY_REPORT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getReportId() {
+    return reportId;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_REPORT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setReportId(String reportId) {
+    this.reportId = reportId;
+  }
+
+
+  public CompanyEventResponseObject lastModifiedDate(OffsetDateTime lastModifiedDate) {
+    this.lastModifiedDate = lastModifiedDate;
+    return this;
+  }
+
+   /**
+   * The date and time when the event was last modified.
+   * @return lastModifiedDate
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "2023-01-01T12:00Z", value = "The date and time when the event was last modified.")
+  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public OffsetDateTime getLastModifiedDate() {
+    return lastModifiedDate;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLastModifiedDate(OffsetDateTime lastModifiedDate) {
+    this.lastModifiedDate = lastModifiedDate;
+  }
+
+
   /**
    * Return true if this CompanyEventResponseObject object is equal to o.
    */
@@ -543,12 +603,14 @@ public class CompanyEventResponseObject implements Serializable {
         Objects.equals(this.fiscalPeriod, companyEventResponseObject.fiscalPeriod) &&
         Objects.equals(this.contactEmail, companyEventResponseObject.contactEmail) &&
         Objects.equals(this.contactPhone, companyEventResponseObject.contactPhone) &&
-        Objects.equals(this.contactName, companyEventResponseObject.contactName);
+        Objects.equals(this.contactName, companyEventResponseObject.contactName) &&
+        Objects.equals(this.reportId, companyEventResponseObject.reportId) &&
+        Objects.equals(this.lastModifiedDate, companyEventResponseObject.lastModifiedDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ticker, companyName, description, eventDateTime, marketTimeCode, eventType, eventId, webcastLink, irLink, fiscalYear, fiscalPeriod, contactEmail, contactPhone, contactName);
+    return Objects.hash(ticker, companyName, description, eventDateTime, marketTimeCode, eventType, eventId, webcastLink, irLink, fiscalYear, fiscalPeriod, contactEmail, contactPhone, contactName, reportId, lastModifiedDate);
   }
 
   @Override
@@ -569,6 +631,8 @@ public class CompanyEventResponseObject implements Serializable {
     sb.append("    contactEmail: ").append(toIndentedString(contactEmail)).append("\n");
     sb.append("    contactPhone: ").append(toIndentedString(contactPhone)).append("\n");
     sb.append("    contactName: ").append(toIndentedString(contactName)).append("\n");
+    sb.append("    reportId: ").append(toIndentedString(reportId)).append("\n");
+    sb.append("    lastModifiedDate: ").append(toIndentedString(lastModifiedDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

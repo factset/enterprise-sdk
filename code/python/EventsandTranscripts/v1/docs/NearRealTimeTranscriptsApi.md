@@ -67,7 +67,7 @@ with fds.sdk.EventsandTranscripts.ApiClient(configuration) as api_client:
     entity_id = "000CGP-E" # str | Factset entity level identifier for the company hosting the event. (optional)
     call_status = "Ended" # str | Status of the call, i.e., Ended, InProgress, EndedWithoutNotification, or IssueAtSource. (optional)
     sort = ["-eventDatetimeUtc"] # [str] | Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc.  (optional) if omitted the server will use the default value of ["-eventDatetimeUtc"]
-    pagination_limit = 20 # int | Number of results to return per page. (optional) if omitted the server will use the default value of 25
+    pagination_limit = 20 # int | Number of results to return per page. Maximum value: 1000.  (optional) if omitted the server will use the default value of 25
     pagination_offset = 0 # int | Page number of the results to return. (optional) if omitted the server will use the default value of 0
 
     try:
@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
  **entity_id** | **str**| Factset entity level identifier for the company hosting the event. | [optional]
  **call_status** | **str**| Status of the call, i.e., Ended, InProgress, EndedWithoutNotification, or IssueAtSource. | [optional]
  **sort** | **[str]**| Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc.  | [optional] if omitted the server will use the default value of ["-eventDatetimeUtc"]
- **pagination_limit** | **int**| Number of results to return per page. | [optional] if omitted the server will use the default value of 25
+ **pagination_limit** | **int**| Number of results to return per page. Maximum value: 1000.  | [optional] if omitted the server will use the default value of 25
  **pagination_offset** | **int**| Page number of the results to return. | [optional] if omitted the server will use the default value of 0
 
 ### Return type
@@ -175,7 +175,7 @@ with fds.sdk.EventsandTranscripts.ApiClient(configuration) as api_client:
     audio_source_id = 471849 # int | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs. (optional)
     report_id = 2683372 # int | Unique identifier for an event. (optional)
     sort = ["-eventDatetimeUtc"] # [str] | Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc.  (optional) if omitted the server will use the default value of ["-eventDatetimeUtc"]
-    pagination_limit = 20 # int | Number of results to return per page. (optional) if omitted the server will use the default value of 25
+    pagination_limit = 20 # int | Number of results to return per page. Maximum value: 1000.  (optional) if omitted the server will use the default value of 25
     pagination_offset = 0 # int | Page number of the results to return. (optional) if omitted the server will use the default value of 0
 
     try:
@@ -198,7 +198,7 @@ Name | Type | Description  | Notes
  **audio_source_id** | **int**| Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs. | [optional]
  **report_id** | **int**| Unique identifier for an event. | [optional]
  **sort** | **[str]**| Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc.  | [optional] if omitted the server will use the default value of ["-eventDatetimeUtc"]
- **pagination_limit** | **int**| Number of results to return per page. | [optional] if omitted the server will use the default value of 25
+ **pagination_limit** | **int**| Number of results to return per page. Maximum value: 1000.  | [optional] if omitted the server will use the default value of 25
  **pagination_offset** | **int**| Page number of the results to return. | [optional] if omitted the server will use the default value of 0
 
 ### Return type
@@ -384,7 +384,7 @@ with fds.sdk.EventsandTranscripts.ApiClient(configuration) as api_client:
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     audio_source_id = 471849 # int | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs.
     sort = ["-speakerStartOffset"] # [str] | Enables sorting data in ascending or descending chronological order based on the start offset of the speaker.  (optional) if omitted the server will use the default value of ["-speakerStartOffset"]
-    pagination_limit = 20 # int | Number of results to return per page. (optional) if omitted the server will use the default value of 25
+    pagination_limit = 20 # int | Number of results to return per page. Maximum value: 1000.  (optional) if omitted the server will use the default value of 25
     pagination_offset = 0 # int | Page number of the results to return. (optional) if omitted the server will use the default value of 0
 
     try:
@@ -406,7 +406,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **audio_source_id** | **int**| Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs. |
  **sort** | **[str]**| Enables sorting data in ascending or descending chronological order based on the start offset of the speaker.  | [optional] if omitted the server will use the default value of ["-speakerStartOffset"]
- **pagination_limit** | **int**| Number of results to return per page. | [optional] if omitted the server will use the default value of 25
+ **pagination_limit** | **int**| Number of results to return per page. Maximum value: 1000.  | [optional] if omitted the server will use the default value of 25
  **pagination_offset** | **int**| Page number of the results to return. | [optional] if omitted the server will use the default value of 0
 
 ### Return type

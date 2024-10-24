@@ -1,7 +1,7 @@
 """
     EVENTS AND TRANSCRIPTS API
 
-    <p>The Calendar Events API provides access to FactSet’s Event Calendar data alongside business logic that allows users to replicate views and functionality consistent with the experience provided by the Workstation. This API provides the ability to pull Event Calendar data based on specific filters.</p> <p>Events Audio API provides access to historical as well as the latest audio recordings of various company events covered by FactSet. The events include, but are not limited to: earnings calls, conferences, and investor days. This API also provides relevant metadata such as timestamps and identifiers around each audio file.</p> <p>The  Near Real-time Transcripts API enables access to Near Real-time Transcripts provided by CallStreet to time-sensitive clients. This API also provides the relevant speaker metadata along with their confidence scores. This data caters to quant clients interested in building machine learning models. Clients can leverage this API to perform sentiment analysis through natural language processing or machine learning. It can also be used to complement analysis using FactSet's transcripts service.</p> <p>Transcripts API provides conference call transcripts for companies' publicly held conference calls and a wealth of information regarding upcoming corporate events, such as conference call date and time, phone number and password, type of conference call, and important company investor relations contact information.</p>    # noqa: E501
+    <p>The Calendar Events API provides access to FactSetâ€™s Event Calendar data alongside business logic that allows users to replicate views and functionality consistent with the experience provided by the Workstation. This API provides the ability to pull Event Calendar data based on specific filters.</p> <p>Events Audio API provides access to historical as well as the latest audio recordings of various company events covered by FactSet. The events include, but are not limited to: earnings calls, conferences, and investor days. This API also provides relevant metadata such as timestamps and identifiers around each audio file.</p> <p>The  Near Real-time Transcripts API enables access to Near Real-time Transcripts provided by CallStreet to time-sensitive clients. This API also provides the relevant speaker metadata along with their confidence scores. This data caters to quant clients interested in building machine learning models. Clients can leverage this API to perform sentiment analysis through natural language processing or machine learning. It can also be used to complement analysis using FactSet's transcripts service.</p> <p>Transcripts API provides conference call transcripts for companies' publicly held conference calls and a wealth of information regarding upcoming corporate events, such as conference call date and time, phone number and password, type of conference call, and important company investor relations contact information.</p>    # noqa: E501
 
     The version of the OpenAPI document: 1.1.0
     Contact: api@factset.com
@@ -415,7 +415,7 @@ class NearRealTimeTranscriptsApi(object):
             entity_id (str): Factset entity level identifier for the company hosting the event.. [optional]
             call_status (str): Status of the call, i.e., Ended, InProgress, EndedWithoutNotification, or IssueAtSource.. [optional]
             sort ([str]): Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc. . [optional] if omitted the server will use the default value of ["-eventDatetimeUtc"]
-            pagination_limit (int): Number of results to return per page.. [optional] if omitted the server will use the default value of 25
+            pagination_limit (int): Number of results to return per page. Maximum value: 1000. . [optional] if omitted the server will use the default value of 25
             pagination_offset (int): Page number of the results to return.. [optional] if omitted the server will use the default value of 0
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
@@ -463,7 +463,7 @@ class NearRealTimeTranscriptsApi(object):
             entity_id (str): Factset entity level identifier for the company hosting the event.. [optional]
             call_status (str): Status of the call, i.e., Ended, InProgress, EndedWithoutNotification, or IssueAtSource.. [optional]
             sort ([str]): Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc. . [optional] if omitted the server will use the default value of ["-eventDatetimeUtc"]
-            pagination_limit (int): Number of results to return per page.. [optional] if omitted the server will use the default value of 25
+            pagination_limit (int): Number of results to return per page. Maximum value: 1000. . [optional] if omitted the server will use the default value of 25
             pagination_offset (int): Page number of the results to return.. [optional] if omitted the server will use the default value of 0
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
@@ -515,7 +515,7 @@ class NearRealTimeTranscriptsApi(object):
             entity_id (str): Factset entity level identifier for the company hosting the event.. [optional]
             call_status (str): Status of the call, i.e., Ended, InProgress, EndedWithoutNotification, or IssueAtSource.. [optional]
             sort ([str]): Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc. . [optional] if omitted the server will use the default value of ["-eventDatetimeUtc"]
-            pagination_limit (int): Number of results to return per page.. [optional] if omitted the server will use the default value of 25
+            pagination_limit (int): Number of results to return per page. Maximum value: 1000. . [optional] if omitted the server will use the default value of 25
             pagination_offset (int): Page number of the results to return.. [optional] if omitted the server will use the default value of 0
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
@@ -562,7 +562,7 @@ class NearRealTimeTranscriptsApi(object):
             entity_id (str): Factset entity level identifier for the company hosting the event.. [optional]
             call_status (str): Status of the call, i.e., Ended, InProgress, EndedWithoutNotification, or IssueAtSource.. [optional]
             sort ([str]): Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc. . [optional] if omitted the server will use the default value of ["-eventDatetimeUtc"]
-            pagination_limit (int): Number of results to return per page.. [optional] if omitted the server will use the default value of 25
+            pagination_limit (int): Number of results to return per page. Maximum value: 1000. . [optional] if omitted the server will use the default value of 25
             pagination_offset (int): Page number of the results to return.. [optional] if omitted the server will use the default value of 0
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
@@ -609,7 +609,7 @@ class NearRealTimeTranscriptsApi(object):
             audio_source_id (int): Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs.. [optional]
             report_id (int): Unique identifier for an event.. [optional]
             sort ([str]): Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc. . [optional] if omitted the server will use the default value of ["-eventDatetimeUtc"]
-            pagination_limit (int): Number of results to return per page.. [optional] if omitted the server will use the default value of 25
+            pagination_limit (int): Number of results to return per page. Maximum value: 1000. . [optional] if omitted the server will use the default value of 25
             pagination_offset (int): Page number of the results to return.. [optional] if omitted the server will use the default value of 0
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
@@ -656,7 +656,7 @@ class NearRealTimeTranscriptsApi(object):
             audio_source_id (int): Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs.. [optional]
             report_id (int): Unique identifier for an event.. [optional]
             sort ([str]): Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc. . [optional] if omitted the server will use the default value of ["-eventDatetimeUtc"]
-            pagination_limit (int): Number of results to return per page.. [optional] if omitted the server will use the default value of 25
+            pagination_limit (int): Number of results to return per page. Maximum value: 1000. . [optional] if omitted the server will use the default value of 25
             pagination_offset (int): Page number of the results to return.. [optional] if omitted the server will use the default value of 0
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
@@ -707,7 +707,7 @@ class NearRealTimeTranscriptsApi(object):
             audio_source_id (int): Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs.. [optional]
             report_id (int): Unique identifier for an event.. [optional]
             sort ([str]): Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc. . [optional] if omitted the server will use the default value of ["-eventDatetimeUtc"]
-            pagination_limit (int): Number of results to return per page.. [optional] if omitted the server will use the default value of 25
+            pagination_limit (int): Number of results to return per page. Maximum value: 1000. . [optional] if omitted the server will use the default value of 25
             pagination_offset (int): Page number of the results to return.. [optional] if omitted the server will use the default value of 0
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
@@ -753,7 +753,7 @@ class NearRealTimeTranscriptsApi(object):
             audio_source_id (int): Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs.. [optional]
             report_id (int): Unique identifier for an event.. [optional]
             sort ([str]): Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc. . [optional] if omitted the server will use the default value of ["-eventDatetimeUtc"]
-            pagination_limit (int): Number of results to return per page.. [optional] if omitted the server will use the default value of 25
+            pagination_limit (int): Number of results to return per page. Maximum value: 1000. . [optional] if omitted the server will use the default value of 25
             pagination_offset (int): Page number of the results to return.. [optional] if omitted the server will use the default value of 0
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
@@ -1000,7 +1000,7 @@ class NearRealTimeTranscriptsApi(object):
 
         Keyword Args:
             sort ([str]): Enables sorting data in ascending or descending chronological order based on the start offset of the speaker. . [optional] if omitted the server will use the default value of ["-speakerStartOffset"]
-            pagination_limit (int): Number of results to return per page.. [optional] if omitted the server will use the default value of 25
+            pagination_limit (int): Number of results to return per page. Maximum value: 1000. . [optional] if omitted the server will use the default value of 25
             pagination_offset (int): Page number of the results to return.. [optional] if omitted the server will use the default value of 0
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
@@ -1050,7 +1050,7 @@ class NearRealTimeTranscriptsApi(object):
 
         Keyword Args:
             sort ([str]): Enables sorting data in ascending or descending chronological order based on the start offset of the speaker. . [optional] if omitted the server will use the default value of ["-speakerStartOffset"]
-            pagination_limit (int): Number of results to return per page.. [optional] if omitted the server will use the default value of 25
+            pagination_limit (int): Number of results to return per page. Maximum value: 1000. . [optional] if omitted the server will use the default value of 25
             pagination_offset (int): Page number of the results to return.. [optional] if omitted the server will use the default value of 0
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
@@ -1104,7 +1104,7 @@ class NearRealTimeTranscriptsApi(object):
 
         Keyword Args:
             sort ([str]): Enables sorting data in ascending or descending chronological order based on the start offset of the speaker. . [optional] if omitted the server will use the default value of ["-speakerStartOffset"]
-            pagination_limit (int): Number of results to return per page.. [optional] if omitted the server will use the default value of 25
+            pagination_limit (int): Number of results to return per page. Maximum value: 1000. . [optional] if omitted the server will use the default value of 25
             pagination_offset (int): Page number of the results to return.. [optional] if omitted the server will use the default value of 0
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
@@ -1153,7 +1153,7 @@ class NearRealTimeTranscriptsApi(object):
 
         Keyword Args:
             sort ([str]): Enables sorting data in ascending or descending chronological order based on the start offset of the speaker. . [optional] if omitted the server will use the default value of ["-speakerStartOffset"]
-            pagination_limit (int): Number of results to return per page.. [optional] if omitted the server will use the default value of 25
+            pagination_limit (int): Number of results to return per page. Maximum value: 1000. . [optional] if omitted the server will use the default value of 25
             pagination_offset (int): Page number of the results to return.. [optional] if omitted the server will use the default value of 0
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.

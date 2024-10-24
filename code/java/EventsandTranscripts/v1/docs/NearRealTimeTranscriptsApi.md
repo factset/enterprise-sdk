@@ -64,7 +64,7 @@ public class Example {
         String entityId = "000CGP-E"; // String | Factset entity level identifier for the company hosting the event.
         String callStatus = "InProgress"; // String | Status of the call, i.e., Ended, InProgress, EndedWithoutNotification, or IssueAtSource.
         java.util.List<String> sort = Arrays.asList(); // java.util.List<String> | Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc. 
-        Integer paginationLimit = 25; // Integer | Number of results to return per page.
+        Integer paginationLimit = 25; // Integer | Number of results to return per page. Maximum value: 1000. 
         Integer paginationOffset = 0; // Integer | Page number of the results to return.
         try {
             NrtCalls result = apiInstance.getBulkDocumentsNrtV1Calls(ticker, entityId, callStatus, sort, paginationLimit, paginationOffset);
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
  **entityId** | **String**| Factset entity level identifier for the company hosting the event. | [optional]
  **callStatus** | **String**| Status of the call, i.e., Ended, InProgress, EndedWithoutNotification, or IssueAtSource. | [optional] [enum: InProgress, Ended, EWN, IssueAtSource]
  **sort** | **List&lt;String&gt;**| Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc.  | [optional] [enum: eventDatetimeUtc, -eventDatetimeUtc]
- **paginationLimit** | **Integer**| Number of results to return per page. | [optional] [default to 25]
+ **paginationLimit** | **Integer**| Number of results to return per page. Maximum value: 1000.  | [optional] [default to 25]
  **paginationOffset** | **Integer**| Page number of the results to return. | [optional] [default to 0]
 
 ### Return type
@@ -168,7 +168,7 @@ public class Example {
         Integer audioSourceId = 471849; // Integer | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs.
         Integer reportId = 2683372; // Integer | Unique identifier for an event.
         java.util.List<String> sort = Arrays.asList(); // java.util.List<String> | Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc. 
-        Integer paginationLimit = 25; // Integer | Number of results to return per page.
+        Integer paginationLimit = 25; // Integer | Number of results to return per page. Maximum value: 1000. 
         Integer paginationOffset = 0; // Integer | Page number of the results to return.
         try {
             NrtCalls result = apiInstance.getBulkDocumentsNrtV1CallsByAudioSourceId(audioSourceId, reportId, sort, paginationLimit, paginationOffset);
@@ -193,7 +193,7 @@ Name | Type | Description  | Notes
  **audioSourceId** | **Integer**| Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs. | [optional]
  **reportId** | **Integer**| Unique identifier for an event. | [optional]
  **sort** | **List&lt;String&gt;**| Enables sorting data in ascending or descending chronological order based on eventDatetimeUtc.  | [optional] [enum: eventDatetimeUtc, -eventDatetimeUtc]
- **paginationLimit** | **Integer**| Number of results to return per page. | [optional] [default to 25]
+ **paginationLimit** | **Integer**| Number of results to return per page. Maximum value: 1000.  | [optional] [default to 25]
  **paginationOffset** | **Integer**| Page number of the results to return. | [optional] [default to 0]
 
 ### Return type
@@ -369,7 +369,7 @@ public class Example {
         NearRealTimeTranscriptsApi apiInstance = new NearRealTimeTranscriptsApi(defaultClient);
         Integer audioSourceId = 471849; // Integer | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs.
         java.util.List<String> sort = Arrays.asList(); // java.util.List<String> | Enables sorting data in ascending or descending chronological order based on the start offset of the speaker. 
-        Integer paginationLimit = 25; // Integer | Number of results to return per page.
+        Integer paginationLimit = 25; // Integer | Number of results to return per page. Maximum value: 1000. 
         Integer paginationOffset = 0; // Integer | Page number of the results to return.
         try {
             NrtSpeakerIds result = apiInstance.getBulkDocumentsNrtV1SpeakerIds(audioSourceId, sort, paginationLimit, paginationOffset);
@@ -393,7 +393,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **audioSourceId** | **Integer**| Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs. |
  **sort** | **List&lt;String&gt;**| Enables sorting data in ascending or descending chronological order based on the start offset of the speaker.  | [optional] [enum: speakerStartOffset, -speakerStartOffset]
- **paginationLimit** | **Integer**| Number of results to return per page. | [optional] [default to 25]
+ **paginationLimit** | **Integer**| Number of results to return per page. Maximum value: 1000.  | [optional] [default to 25]
  **paginationOffset** | **Integer**| Page number of the results to return. | [optional] [default to 0]
 
 ### Return type

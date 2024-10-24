@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.DirectStreamingofTransactionMessages",
-  "packageVersion": "0.24.1",
+  "packageVersion": "0.24.2",
   "packageGuid": "{567a8c99-84b9-5617-a1e6-fc0a122040a8}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/DirectStreamingofTransactionMessages/v1",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/DirectStreamingofTransactionMessages/0.24.1",
+  "httpUserAgent": "fds-sdk/dotnet/DirectStreamingofTransactionMessages/0.24.2",
   "files": {
     "LICENSE": {}
   },

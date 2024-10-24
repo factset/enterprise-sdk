@@ -13,6 +13,8 @@ docs/ErrorResponse.md
 docs/EventData.md
 docs/EventUpdateData.md
 docs/EventsContributionApi.md
+docs/GetResponse.md
+docs/GetResponseData.md
 docs/InsertRequest.md
 docs/InsertRequestData.md
 docs/InsertResponse.md
@@ -46,6 +48,8 @@ fds/sdk/EventsContribution/model/error_object.py
 fds/sdk/EventsContribution/model/error_response.py
 fds/sdk/EventsContribution/model/event_data.py
 fds/sdk/EventsContribution/model/event_update_data.py
+fds/sdk/EventsContribution/model/get_response.py
+fds/sdk/EventsContribution/model/get_response_data.py
 fds/sdk/EventsContribution/model/insert_request.py
 fds/sdk/EventsContribution/model/insert_request_data.py
 fds/sdk/EventsContribution/model/insert_response.py
