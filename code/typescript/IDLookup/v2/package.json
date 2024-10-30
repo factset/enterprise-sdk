@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-idlookup",
-  "version": "0.10.1",
+  "version": "1.0.0",
   "description": "ID Lookup client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",
