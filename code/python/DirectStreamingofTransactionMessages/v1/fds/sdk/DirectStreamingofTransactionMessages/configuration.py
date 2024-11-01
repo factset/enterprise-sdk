@@ -430,7 +430,7 @@ conf = fds.sdk.DirectStreamingofTransactionMessages.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 1.6.0\n"\
-               "SDK Package Version: 0.24.2".\
+               "SDK Package Version: 0.24.3".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):

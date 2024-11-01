@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "1.1.0"
+__version__ = "1.1.1"
 
 # import ApiClient
 from fds.sdk.IRNContacts.api_client import ApiClient

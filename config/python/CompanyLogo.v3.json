@@ -1,14 +1,14 @@
 {
   "packageName": "fds.sdk.CompanyLogo",
   "projectName": "fds.sdk.CompanyLogo",
-  "packageVersion": "0.11.2",
+  "packageVersion": "0.11.3",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache License, Version 2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "packageDescription": "Company Logo client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/CompanyLogo/v3",
-  "httpUserAgent": "fds-sdk/python/CompanyLogo/0.11.2",
+  "httpUserAgent": "fds-sdk/python/CompanyLogo/0.11.3",
   "files": {
     "LICENSE": {}
   }

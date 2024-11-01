@@ -10,6 +10,7 @@
 
 
 import json
+import platform
 import atexit
 import mimetypes
 from multiprocessing.pool import ThreadPool
@@ -115,7 +116,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'fds-sdk/python/FactSetIntradayTickHistory/0.21.12'
+        self.user_agent = f'fds-sdk/python/FactSetIntradayTickHistory/0.21.13 ({platform.system()}, Python {platform.python_version()})'
 
     def __enter__(self):
         return self

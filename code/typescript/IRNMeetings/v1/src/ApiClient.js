@@ -14,6 +14,9 @@
 
 import superagent from "superagent";
 import querystring from "querystring";
+import superagentProxy from 'superagent-proxy';
+
+superagentProxy(superagent);
 
 /**
 * @module ApiClient
@@ -62,7 +65,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'fds-sdk/javascript/IRNMeetings/3.0.0'
+            'User-Agent': `fds-sdk/javascript/IRNMeetings/4.0.0 (${process.platform}; node ${process.version})`
         };
 
         /**
@@ -105,6 +108,18 @@ class ApiClient {
          */
         this.plugins = null;
 
+        /*
+        * Allow user to set proxy URL
+        */
+        this.proxyUrl = null;
+    }
+
+    /**
+    * Sets the proxy URL
+    * @param proxyUrl {String} The proxy URL
+    */
+    setProxyUrl(proxyUrl) {
+      this.proxyUrl = proxyUrl;
     }
 
     /**
@@ -412,6 +427,10 @@ class ApiClient {
 
         var url = this.buildUrl(path, pathParams, apiBasePath);
         var request = superagent(httpMethod, url);
+
+        if (this.proxyUrl) {
+          request.proxy(this.proxyUrl);
+        }
 
         if (this.plugins !== null) {
             for (var index in this.plugins) {

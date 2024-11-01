@@ -5,7 +5,7 @@
     <artifactId>symbology</artifactId>
     <packaging>jar</packaging>
     <name>symbology</name>
-    <version>4.1.0</version>
+    <version>4.1.1</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>Symbology client library for Java</description>
     <scm>

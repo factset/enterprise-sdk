@@ -5,7 +5,7 @@
     <artifactId>conversationalapipoweredbyfactsetmercury</artifactId>
     <packaging>jar</packaging>
     <name>conversationalapipoweredbyfactsetmercury</name>
-    <version>0.1.0</version>
+    <version>0.1.1</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>Conversational API Powered by FactSet Mercury client library for Java</description>
     <scm>

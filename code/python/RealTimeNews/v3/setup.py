@@ -16,7 +16,7 @@ def read(filename):
   return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 NAME = "fds.sdk.RealTimeNews"
-VERSION = "0.11.5"
+VERSION = "0.11.6"
 # To install the library, run the following
 #
 # python setup.py install

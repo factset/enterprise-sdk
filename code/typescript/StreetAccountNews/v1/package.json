@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-streetaccountnews",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "StreetAccount News client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",
@@ -18,11 +18,12 @@
     "directory": "code/typescript/StreetAccountNews/v1"
   },
   "engines": {
-    "node": ">=14"
+    "node": ">=18"
   },
   "dependencies": {
-    "@factset/sdk-utils": "^1.0.0",
-    "superagent": "^7.1.1"
+    "@factset/sdk-utils": "^2.0.0",
+    "superagent": "^9.0.0",
+    "superagent-proxy": "^3.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
@@ -30,7 +31,8 @@
     "@babel/preset-env": "^7.0.0",
     "expect.js": "^0.3.1",
     "mocha": "^8.0.1",
-    "sinon": "^7.2.0"
+    "sinon": "^7.2.0",
+    "@types/superagent-proxy": "^3.0.0"
   },
   "files": [
     "dist"

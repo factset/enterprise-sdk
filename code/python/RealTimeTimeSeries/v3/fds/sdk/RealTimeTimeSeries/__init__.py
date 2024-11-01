@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "0.11.5"
+__version__ = "0.11.6"
 
 # import ApiClient
 from fds.sdk.RealTimeTimeSeries.api_client import ApiClient

@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "0.21.18"
+__version__ = "0.21.19"
 
 # import ApiClient
 from fds.sdk.DocumentsDistributorCallStreetEvents.api_client import ApiClient

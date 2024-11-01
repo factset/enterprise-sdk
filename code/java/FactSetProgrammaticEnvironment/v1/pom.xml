@@ -5,7 +5,7 @@
     <artifactId>factsetprogrammaticenvironment</artifactId>
     <packaging>jar</packaging>
     <name>factsetprogrammaticenvironment</name>
-    <version>0.22.0</version>
+    <version>0.22.1</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>FactSet Programmatic Environment client library for Java</description>
     <scm>

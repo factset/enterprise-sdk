@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "1.1.12"
+__version__ = "1.1.13"
 
 # import ApiClient
 from fds.sdk.FactSetPrices.api_client import ApiClient

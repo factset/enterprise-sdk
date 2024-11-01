@@ -5,7 +5,7 @@
     <artifactId>exchangedatafeeddatamodel</artifactId>
     <packaging>jar</packaging>
     <name>exchangedatafeeddatamodel</name>
-    <version>0.21.0</version>
+    <version>0.21.1</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>Exchange DataFeed Data Model client library for Java</description>
     <scm>

@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "0.3.3"
+__version__ = "0.3.4"
 
 # import ApiClient
 from fds.sdk.IssueTracker.api_client import ApiClient

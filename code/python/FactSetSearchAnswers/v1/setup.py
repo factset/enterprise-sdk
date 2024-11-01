@@ -16,7 +16,7 @@ def read(filename):
   return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 NAME = "fds.sdk.FactSetSearchAnswers"
-VERSION = "1.1.4"
+VERSION = "1.1.5"
 # To install the library, run the following
 #
 # python setup.py install

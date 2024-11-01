@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "0.21.12"
+__version__ = "0.21.13"
 
 # import ApiClient
 from fds.sdk.BarraPortfolioOptimizer.api_client import ApiClient

@@ -1,14 +1,14 @@
 {
   "packageName": "fds.sdk.IRNConfiguration",
   "projectName": "fds.sdk.IRNConfiguration",
-  "packageVersion": "1.1.0",
+  "packageVersion": "1.1.1",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache License, Version 2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "packageDescription": "IRN Configuration client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/IRNConfiguration/v1",
-  "httpUserAgent": "fds-sdk/python/IRNConfiguration/1.1.0",
+  "httpUserAgent": "fds-sdk/python/IRNConfiguration/1.1.1",
   "files": {
     "LICENSE": {}
   }

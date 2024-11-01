@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "4.0.0"
+__version__ = "4.0.1"
 
 # import ApiClient
 from fds.sdk.IRNNotes.api_client import ApiClient
